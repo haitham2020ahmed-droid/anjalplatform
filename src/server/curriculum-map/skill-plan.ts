@@ -32,10 +32,12 @@ const s = (v: unknown) => (v === null || v === undefined ? "" : String(v));
 /** "Reread / Diagrams and Headings \ Compare and Contrast" → ["Reread", "Diagrams and Headings", "Compare and Contrast"] */
 const splitSkillNames = (text: string | null | undefined): string[] => s(text).split(/\s*[\\/]\s*/).map((x) => x.trim()).filter(Boolean);
 
+interface DeclaredLesson { names: string[]; vocabPlace?: { code: string; ready: boolean } }
+
 /** Skill names the Curriculum Map itself names (Concept Vocabulary + Analyze Craft and Structure only — see the
  * header note on Respond to Reading), keyed `${unitNumber}|${selectionNumber}`. Empty when this grade has no map. */
-async function declaredSkillsByLesson(repo: Repo, actor: Actor, grade: number): Promise<Map<string, string[]>> {
-  const out = new Map<string, string[]>();
+async function declaredSkillsByLesson(repo: Repo, actor: Actor, grade: number): Promise<Map<string, DeclaredLesson>> {
+  const out = new Map<string, DeclaredLesson>();
   const v = await curriculumMapView(repo, actor, grade);
   if (v.level !== grade || !v.book) return out; // not this grade's own map (e.g. the actor has no map for it at all)
   for (const u of v.book.children) {
@@ -47,9 +49,15 @@ async function declaredSkillsByLesson(repo: Repo, actor: Actor, grade: number): 
       const tm = /^G\d+\.U\d+\.(?:TS|SEL)(\d+)$/.exec(ts.code);
       if (!tm) continue;
       const names: string[] = [];
+      let vocabPlace: DeclaredLesson["vocabPlace"];
       for (const cat of ts.children) {
         if (cat.categoryType === "RESPOND_TO_READING") continue;
         for (const n of splitSkillNames(cat.skills)) if (!names.includes(n)) names.push(n);
+        // 🧭 owner ("دول حطهم في concept vocabulary... زرار نجمة زيهم"): this selection's OWN Concept Vocabulary
+        // place on the map already has real questions once someone has added them — the exact same place the
+        // Lessons tab's ⭐ Assign button already uses (src/components/curriculum-map/lesson-card.tsx). Remember its
+        // code + readiness so Skill plan can offer that very button, not just list the bare words below.
+        if (cat.categoryType === "CONCEPT_VOCABULARY") vocabPlace = { code: cat.code, ready: cat.questions > 0 };
       }
       // r## fix (owner: "the Lessons tab shows skill names here, Skill plan says 'not linked yet'"): the Lessons
       // tab's vocabulary and reading-skill names can come from the school's own curated lesson-details.json
@@ -59,7 +67,7 @@ async function declaredSkillsByLesson(repo: Repo, actor: Actor, grade: number): 
       // even though Lessons named it plainly. Merge the same curated names in, same lookup unitCards uses.
       const d = lessonDetail(grade, ts.sharedRead) ?? lessonDetail(grade, ts.title);
       for (const n of [...(d?.vocabulary ?? []), ...(d?.readingSkills ?? [])]) if (!names.includes(n)) names.push(n);
-      if (names.length) out.set(`${um[1]}|${tm[1]}`, names);
+      if (names.length || vocabPlace) out.set(`${um[1]}|${tm[1]}`, { names, vocabPlace });
     }
   }
   return out;
@@ -71,7 +79,7 @@ export async function skillPlanData(repo: Repo, actor: Actor, grade: number): Pr
   if (!actor.schoolId) return null;
   const [base, declared] = await Promise.all([
     curriculumMapPdfData(repo, actor.schoolId, grade),
-    declaredSkillsByLesson(repo, actor, grade).catch(() => new Map<string, string[]>()),
+    declaredSkillsByLesson(repo, actor, grade).catch(() => new Map<string, DeclaredLesson>()),
   ]);
   if (!base) return null;
   if (!declared.size) return base;
@@ -80,11 +88,15 @@ export async function skillPlanData(repo: Repo, actor: Actor, grade: number): Pr
     units: base.units.map((u) => ({
       ...u,
       sections: u.sections.map((sec) => {
-        const names = declared.get(`${u.number}|${sec.number}`);
-        if (!names) return sec;
+        const d = declared.get(`${u.number}|${sec.number}`);
+        if (!d) return sec;
         const linked = new Set(sec.skills.map((k) => k.name.trim().toLowerCase()));
-        const pending = names.filter((n) => !linked.has(n.toLowerCase()));
-        return pending.length ? { ...sec, pending } : sec;
+        const pending = d.names.filter((n) => !linked.has(n.toLowerCase()));
+        // a platform Skill already covers this selection's vocabulary (Grade 4/5, mostly) → the ⭐ Assign button
+        // below would just duplicate it, so it's only offered where the words have no Skill of their own yet
+        const hasVocabSkill = sec.skills.some((k) => k.group === "vocabulary");
+        const vocabPlace = d.vocabPlace && !hasVocabSkill ? d.vocabPlace : undefined;
+        return pending.length || vocabPlace ? { ...sec, ...(pending.length ? { pending } : {}), ...(vocabPlace ? { vocabPlace } : {}) } : sec;
       }),
     })),
   };

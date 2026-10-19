@@ -445,6 +445,7 @@ export const ar: Record<UiString, string> = {
   "Chapter Test": "اختبار الوحدة",
   "Other": "أخرى",
   "Vocabulary": "المفردات",
+  "Concept Vocabulary": "المفردات",
 
   // empty states
   "No work right now — great job!": "لا توجد واجبات الآن — أحسنت!",

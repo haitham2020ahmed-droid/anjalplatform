@@ -5,7 +5,7 @@ import { useEffect, useLayoutEffect, useMemo, useRef, useState, type RefObject }
 import { useT } from "@/i18n/client";
 import type { TFn } from "@/i18n";
 import type { QuickAssignSkillInput } from "@/app/admin/curriculum-map/actions";
-import type { RosterClass } from "./assign-button";
+import { MapAssignButton, type RosterClass } from "./assign-button";
 import type { MapPdfSection, MapPdfSkill, MapPdfUnit } from "@/server/curriculum-map/map-pdf";
 import { SourceSelect } from "@/components/assign/source-select";
 import type { AssignSource } from "@/lib/assign-source";
@@ -23,7 +23,7 @@ import { ExcludeMasteredPrompt } from "@/components/assign/exclude-mastered";
  * starred students — src/app/admin/curriculum-map/actions.ts#quickAssignSkillAction). A teacher who wants levels,
  * dates or a chosen question set still has each skill's "More options" into the full /teacher/skill-assign page.
  */
-const CATEGORY_LABEL: Record<string, string> = { vocabulary: "Vocabulary", comprehension: "Comprehension", "word-study": "Spelling and word study", writing: "Writing", grammar: "Grammar and punctuation" };
+const CATEGORY_LABEL: Record<string, string> = { vocabulary: "Concept Vocabulary", comprehension: "Comprehension", "word-study": "Spelling and word study", writing: "Writing", grammar: "Grammar and punctuation" };
 const CATEGORY_ORDER = ["vocabulary", "comprehension", "word-study", "writing", "grammar"];
 
 export interface SkillPlanProps {
@@ -119,7 +119,7 @@ function UnitSection({ sec, canAssign, roster, quickAssign, assigned, priorAssig
   const t = useT();
   // a selection with no platform skills linked yet (no "No platform skills linked yet." placeholder row any more —
   // owner: "شيل ده خالص" / "حذف اي شي زي كده" — it just doesn't appear in the Skill plan at all)
-  if (sec.skills.length === 0) return null;
+  if (sec.skills.length === 0 && !sec.pending?.length && !sec.vocabPlace) return null;
   return (
     <div className="px-5 py-4">
       <p className="font-semibold text-slate-900" dir="ltr">
@@ -127,7 +127,7 @@ function UnitSection({ sec, canAssign, roster, quickAssign, assigned, priorAssig
         {sec.essentialQuestion ? `: ${sec.essentialQuestion}` : sec.title ? `: ${sec.title}` : ""}
       </p>
       {sec.essentialQuestion && sec.title && <p className="text-sm text-slate-500" dir="ltr">{sec.title}</p>}
-      <SkillGroups skills={sec.skills} canAssign={canAssign} roster={roster} quickAssign={quickAssign} assigned={assigned} priorAssignment={priorAssignment} masteredCount={masteredCount} cancelAssignment={cancelAssignment} />
+      <SkillGroups skills={sec.skills} pending={sec.pending} vocabPlace={sec.vocabPlace} canAssign={canAssign} roster={roster} quickAssign={quickAssign} assigned={assigned} priorAssignment={priorAssignment} masteredCount={masteredCount} cancelAssignment={cancelAssignment} />
     </div>
   );
 }
@@ -139,21 +139,32 @@ function weeksLabel(sec: Pick<MapPdfSection, "weeks" | "number">, t: TFn): strin
   return t("Selection {n}", { n: sec.number });
 }
 
-function SkillGroups({ skills, canAssign, roster, quickAssign, assigned, priorAssignment, masteredCount, cancelAssignment }: { skills: MapPdfSkill[]; canAssign: boolean; roster: RosterClass[]; quickAssign: SkillPlanProps["quickAssign"]; assigned?: ReadonlySet<string>; priorAssignment?: SkillPlanProps["priorAssignment"]; masteredCount?: SkillPlanProps["masteredCount"]; cancelAssignment?: SkillPlanProps["cancelAssignment"] }) {
+function SkillGroups({ skills, pending, vocabPlace, canAssign, roster, quickAssign, assigned, priorAssignment, masteredCount, cancelAssignment }: { skills: MapPdfSkill[]; pending?: string[]; vocabPlace?: { code: string; ready: boolean }; canAssign: boolean; roster: RosterClass[]; quickAssign: SkillPlanProps["quickAssign"]; assigned?: ReadonlySet<string>; priorAssignment?: SkillPlanProps["priorAssignment"]; masteredCount?: SkillPlanProps["masteredCount"]; cancelAssignment?: SkillPlanProps["cancelAssignment"] }) {
   const t = useT();
-  if (!skills.length) return null; // the caller (UnitSection) decides what to show instead: pending names or "No platform skills linked yet."
+  if (!skills.length && !pending?.length && !vocabPlace) return null; // the caller (UnitSection) decides what to show instead: pending names or "No platform skills linked yet."
   let n = 0;
   return (
     <div className="mt-2 space-y-3">
       {CATEGORY_ORDER.map((key) => {
         const ks = skills.filter((k) => k.group === key);
-        if (!ks.length) return null;
+        // 🧭 owner ("فين concept vocabulary مش موجوده في skill plan" → "دول حطهم في concept vocabulary... خليها
+        // نجمه زي الباقي"): this grade's Concept Vocabulary for this selection is bare words, not a platform Skill
+        // (Grade 6, mostly) — still shown under the same heading, with the same ⭐ Assign the Lessons tab already
+        // uses for these words (src/components/curriculum-map/assign-button.tsx), once real questions exist for it.
+        const vocabExtra = key === "vocabulary" && (pending?.length || vocabPlace);
+        if (!ks.length && !vocabExtra) return null;
         return (
           <div key={key}>
             <p className="text-sm font-bold text-brand-purple">{t(CATEGORY_LABEL[key])}</p>
             <ol className="mt-1 space-y-1">
               {ks.map((k) => <SkillRow key={k.id} n={++n} skill={k} canAssign={canAssign} roster={roster} quickAssign={quickAssign} initDone={assigned?.has(k.id) ?? false} priorAssignment={priorAssignment} masteredCount={masteredCount} cancelAssignment={cancelAssignment} />)}
             </ol>
+            {vocabExtra && (
+              <p className="mt-1 flex flex-wrap items-center gap-1.5 text-sm text-slate-600">
+                {canAssign && roster.length > 0 && vocabPlace?.ready && <MapAssignButton code={vocabPlace.code} label={t("Assign")} levels />}
+                {pending?.length ? <bdi dir="ltr">{pending.join(", ")}</bdi> : null}
+              </p>
+            )}
           </div>
         );
       })}
@@ -236,6 +247,12 @@ function SuggestPanel({ skill, roster, quickAssign, priorAssignment, masteredCou
       const el = anchorRef.current;
       if (!el) return;
       const r = el.getBoundingClientRect();
+      // 🧭 owner: "خليها تظهر فوق skill نفسها مش في الوسط" — once the star that opened this panel scrolls off
+      // screen (above OR below the viewport), `bottom` used to clamp to the nearest edge, which left the panel
+      // floating in a spot that no longer lined up with any skill. Close it instead: a panel with nothing to point
+      // at is more confusing than no panel, and re-opening it (the ⭐ is still right there once scrolled back) is
+      // one click away.
+      if (r.bottom < 0 || r.top > window.innerHeight) { onClose(); return; }
       const width = Math.min(320, window.innerWidth - 16);
       const left = Math.min(Math.max(8, r.left), window.innerWidth - width - 8);
       const bottom = Math.max(8, window.innerHeight - r.top + 8); // 8px gap above the star
@@ -250,7 +267,7 @@ function SuggestPanel({ skill, roster, quickAssign, priorAssignment, masteredCou
       window.removeEventListener("scroll", reposition, { capture: true });
       window.removeEventListener("resize", reposition);
     };
-  }, [anchorRef]);
+  }, [anchorRef, onClose]);
   useEffect(() => {
     const down = (e: MouseEvent) => { if (boxRef.current && !boxRef.current.contains(e.target as Node)) onClose(); };
     document.addEventListener("mousedown", down);

@@ -64,6 +64,11 @@ export interface MapPdfSection {
    * Structure) that have no platform Skill linked yet — filled in by skill-plan.ts for the LIVE page only (never
    * by this file / the printed PDF, which only ever lists skills a teacher can actually click into and assign). */
   pending?: string[];
+  /** r## (owner: "حطهم في concept vocabulary... خليها نجمه زي الباقي"): when this selection's Concept Vocabulary
+   * place on the Curriculum Map already has real questions behind it (the same ones the Lessons tab assigns from),
+   * its code + readiness — lets Skill plan offer that exact ⭐ Assign button for the vocabulary words above, since
+   * they have no platform Skill of their own to star instead. */
+  vocabPlace?: { code: string; ready: boolean };
 }
 export interface MapPdfUnit { number: number; title: string; sections: MapPdfSection[]; /** the unit's writing skills (Wonders: one writing project per unit, not tied to one week) */ writing: MapPdfSkill[] }
 export interface MapPdfData { grade: number; book: string; units: MapPdfUnit[] }
