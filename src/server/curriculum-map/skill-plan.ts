@@ -7,97 +7,37 @@
  * and the printed one never drift apart. This file only re-exports that data under the "skill plan" name used by the
  * new UI, with the grade read-permission check the live page needs (the PDF route checks this itself separately).
  *
- * 🔗 r85 (owner: "the Lessons tab shows every selection and skill the school's own Curriculum Map names — even
- * before it has questions on the platform — so Skill plan should show exactly the same set, not a shorter one"):
- * the Lessons tab reads straight from CurriculumMapNode (the school's map, as written — curriculumMapView), while
- * Skill plan used to read ONLY the platform's own Skill/LessonSkill rows, so a selection the school added to the
- * map before anyone built its questions showed "No platform skills linked yet." even though the Lessons tab named
- * its skills plainly. Fixed by reading BOTH and merging: every skill name the map names for a selection's Concept
- * Vocabulary / Analyze Craft and Structure categories that has no matching platform Skill yet is still shown, as
- * plain text under "In the lesson plan, not yet on the platform" (MapPdfSection.pending) — same name the Lessons
- * tab uses, just not clickable or ⭐-assignable until a teacher/admin actually links or writes it.
- * (Respond to Reading / Unit writing is left out of `pending`: its platform skill is shared across a whole unit,
- * not one selection, so "declared here vs. linked here" is not a meaningful comparison per selection.)
+ * 🔗 r86 (owner: "فين concept vocabulary مش موجوده في skill plan... حولها زي الـ Lessons تاب بالظبط، بنفس ربط
+ * الأسئلة، مع الإبقاء على دروس الجرامر"): Concept Vocabulary and Analyze Craft and Structure used to come ONLY from
+ * the platform's own Skill/LessonSkill rows — real for Grades 4–5 (built from named skills), but Grade 6's Concept
+ * Vocabulary has no such Skill at all (its booklets give raw words, not a named skill), so that category simply
+ * never showed up there. The Lessons tab never had this gap: it reads straight from CurriculumMapNode (the school's
+ * map, as written) and assigns a selection's Concept Vocabulary / Analyze Craft and Structure / Review from THAT —
+ * the exact same place a teacher already uses from Lessons, already linked to real questions. `lessonSectionsByLesson`
+ * / `withLessonSections` (both now in map-pdf.ts, shared with this file's own PDF export) read the SAME data
+ * `curriculumLessons` (Lessons tab) is built from, so Skill plan can show those three categories exactly as Lessons
+ * does — same titles, same Ready/Not ready, same ⭐ Assign. Grammar and punctuation (and Writing, Spelling & word
+ * study) are NOT covered by the Curriculum Map's categories at all, so they keep coming from the platform's own
+ * Skill rows, unchanged (see MAP_CATEGORY_GROUPS / groupOfCategory in map-pdf.ts).
+ * (Respond to Reading is left out here too: it has its own separate Below/On/Above assign flow, not this one.)
  */
 import type { Repo } from "../seeding/repo";
 import { assertCan, type Actor } from "../auth/rbac";
-import { curriculumMapPdfData, type MapPdfData } from "./map-pdf";
-import { curriculumMapView } from "./view";
-import { lessonDetail } from "./lesson-details";
+import { curriculumMapPdfData, lessonSectionsByLesson, withLessonSections, type MapPdfData, type MapPdfLessonSection } from "./map-pdf";
 
-export type { MapPdfData, MapPdfUnit, MapPdfSection, MapPdfSkill } from "./map-pdf";
+export type { MapPdfData, MapPdfUnit, MapPdfSection, MapPdfSkill, MapPdfLessonSection } from "./map-pdf";
 export { MAP_CATEGORY_GROUPS, sectionLabel } from "./map-pdf";
 
-const s = (v: unknown) => (v === null || v === undefined ? "" : String(v));
-/** "Reread / Diagrams and Headings \ Compare and Contrast" → ["Reread", "Diagrams and Headings", "Compare and Contrast"] */
-const splitSkillNames = (text: string | null | undefined): string[] => s(text).split(/\s*[\\/]\s*/).map((x) => x.trim()).filter(Boolean);
-
-interface DeclaredLesson { names: string[]; vocabPlace?: { code: string; ready: boolean } }
-
-/** Skill names the Curriculum Map itself names (Concept Vocabulary + Analyze Craft and Structure only — see the
- * header note on Respond to Reading), keyed `${unitNumber}|${selectionNumber}`. Empty when this grade has no map. */
-async function declaredSkillsByLesson(repo: Repo, actor: Actor, grade: number): Promise<Map<string, DeclaredLesson>> {
-  const out = new Map<string, DeclaredLesson>();
-  const v = await curriculumMapView(repo, actor, grade);
-  if (v.level !== grade || !v.book) return out; // not this grade's own map (e.g. the actor has no map for it at all)
-  for (const u of v.book.children) {
-    const um = /^G\d+\.U(\d+)$/.exec(u.code);
-    if (!um) continue;
-    for (const ts of u.children) {
-      // Text Set (Grades 4–5: "TS{n}") or Selection (Grade 6 / StudySync: "SEL{n}") — both are numbered the same
-      // way as the matching Lesson.number, just named differently per book (see seed.ts expectedNodes)
-      const tm = /^G\d+\.U\d+\.(?:TS|SEL)(\d+)$/.exec(ts.code);
-      if (!tm) continue;
-      const names: string[] = [];
-      let vocabPlace: DeclaredLesson["vocabPlace"];
-      for (const cat of ts.children) {
-        if (cat.categoryType === "RESPOND_TO_READING") continue;
-        for (const n of splitSkillNames(cat.skills)) if (!names.includes(n)) names.push(n);
-        // 🧭 owner ("دول حطهم في concept vocabulary... زرار نجمة زيهم"): this selection's OWN Concept Vocabulary
-        // place on the map already has real questions once someone has added them — the exact same place the
-        // Lessons tab's ⭐ Assign button already uses (src/components/curriculum-map/lesson-card.tsx). Remember its
-        // code + readiness so Skill plan can offer that very button, not just list the bare words below.
-        if (cat.categoryType === "CONCEPT_VOCABULARY") vocabPlace = { code: cat.code, ready: cat.questions > 0 };
-      }
-      // r## fix (owner: "the Lessons tab shows skill names here, Skill plan says 'not linked yet'"): the Lessons
-      // tab's vocabulary and reading-skill names can come from the school's own curated lesson-details.json
-      // (unitCards/LessonCard, lesson-details.ts) — vocabulary has NO other source at all, and reading skills
-      // fall back to it whenever the map node's own `skills` text is empty. declaredSkillsByLesson only read the
-      // map node directly, so a selection with curated names but an empty map node showed as "not linked" here
-      // even though Lessons named it plainly. Merge the same curated names in, same lookup unitCards uses.
-      const d = lessonDetail(grade, ts.sharedRead) ?? lessonDetail(grade, ts.title);
-      for (const n of [...(d?.vocabulary ?? []), ...(d?.readingSkills ?? [])]) if (!names.includes(n)) names.push(n);
-      if (names.length || vocabPlace) out.set(`${um[1]}|${tm[1]}`, { names, vocabPlace });
-    }
-  }
-  return out;
-}
-
-/** The grade's Curriculum Map, grouped and ordered exactly as the printable map, with `pending` filled in — for the live skill-plan page. */
+/** The grade's Curriculum Map, grouped and ordered exactly as the printable map, with `lessonSections` (Concept
+ * Vocabulary / Analyze Craft and Structure / Review, read from the Lessons tab's own data) filled in — for the
+ * live skill-plan page. */
 export async function skillPlanData(repo: Repo, actor: Actor, grade: number): Promise<MapPdfData | null> {
   assertCan(actor, "curriculum:read");
   if (!actor.schoolId) return null;
-  const [base, declared] = await Promise.all([
+  const [base, lessonSections] = await Promise.all([
     curriculumMapPdfData(repo, actor.schoolId, grade),
-    declaredSkillsByLesson(repo, actor, grade).catch(() => new Map<string, DeclaredLesson>()),
+    lessonSectionsByLesson(repo, actor, grade).catch(() => new Map<string, MapPdfLessonSection[]>()),
   ]);
   if (!base) return null;
-  if (!declared.size) return base;
-  return {
-    ...base,
-    units: base.units.map((u) => ({
-      ...u,
-      sections: u.sections.map((sec) => {
-        const d = declared.get(`${u.number}|${sec.number}`);
-        if (!d) return sec;
-        const linked = new Set(sec.skills.map((k) => k.name.trim().toLowerCase()));
-        const pending = d.names.filter((n) => !linked.has(n.toLowerCase()));
-        // a platform Skill already covers this selection's vocabulary (Grade 4/5, mostly) → the ⭐ Assign button
-        // below would just duplicate it, so it's only offered where the words have no Skill of their own yet
-        const hasVocabSkill = sec.skills.some((k) => k.group === "vocabulary");
-        const vocabPlace = d.vocabPlace && !hasVocabSkill ? d.vocabPlace : undefined;
-        return pending.length || vocabPlace ? { ...sec, ...(pending.length ? { pending } : {}), ...(vocabPlace ? { vocabPlace } : {}) } : sec;
-      }),
-    })),
-  };
+  return withLessonSections(base, lessonSections);
 }

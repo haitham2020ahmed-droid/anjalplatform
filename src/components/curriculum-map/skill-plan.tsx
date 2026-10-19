@@ -6,7 +6,7 @@ import { useT } from "@/i18n/client";
 import type { TFn } from "@/i18n";
 import type { QuickAssignSkillInput } from "@/app/admin/curriculum-map/actions";
 import { MapAssignButton, type RosterClass } from "./assign-button";
-import type { MapPdfSection, MapPdfSkill, MapPdfUnit } from "@/server/curriculum-map/map-pdf";
+import type { MapPdfLessonSection, MapPdfSection, MapPdfSkill, MapPdfUnit } from "@/server/curriculum-map/map-pdf";
 import { SourceSelect } from "@/components/assign/source-select";
 import type { AssignSource } from "@/lib/assign-source";
 import { PriorAssignedPrompt } from "@/components/assign/prior-assigned";
@@ -22,9 +22,18 @@ import { ExcludeMasteredPrompt } from "@/components/assign/exclude-mastered";
  * Read-only for admins (no stars); teachers get the ⭐ quick-assign (one named skill, adaptive, a class or a few
  * starred students — src/app/admin/curriculum-map/actions.ts#quickAssignSkillAction). A teacher who wants levels,
  * dates or a chosen question set still has each skill's "More options" into the full /teacher/skill-assign page.
+ *
+ * 🔗 r86 (owner: "حول Concept Vocabulary / Analyze Craft and Structure زي Lessons بالظبط، بنفس ربط الأسئلة، مع
+ * الإبقاء على الجرامر"): Concept Vocabulary and Analyze Craft and Structure are no longer the numbered, ⭐-starred
+ * platform Skill rows below — those two categories are dropped from CATEGORY_ORDER entirely and shown instead, per
+ * selection, as `sec.lessonSections` (LessonSectionRows): the exact same Concept Vocabulary / Analyze Craft and
+ * Structure / Review rows the Lessons tab lists, with the same Ready/Not ready, 👁 Review and ⭐ Assign (a
+ * CurriculumMapNode place, already linked to real questions — src/components/curriculum-map/lesson-card.tsx's
+ * CompactLesson, which these rows deliberately mirror). Grammar and punctuation (and Writing, Spelling & word
+ * study) are untouched: the Curriculum Map has no such categories at all, so they stay the platform's own Skills.
  */
-const CATEGORY_LABEL: Record<string, string> = { vocabulary: "Concept Vocabulary", comprehension: "Comprehension", "word-study": "Spelling and word study", writing: "Writing", grammar: "Grammar and punctuation" };
-const CATEGORY_ORDER = ["vocabulary", "comprehension", "word-study", "writing", "grammar"];
+const CATEGORY_LABEL: Record<string, string> = { "word-study": "Spelling and word study", writing: "Writing", grammar: "Grammar and punctuation" };
+const CATEGORY_ORDER = ["word-study", "writing", "grammar"];
 
 export interface SkillPlanProps {
   basePath: string; // e.g. "/admin/curriculum-map"
@@ -119,7 +128,7 @@ function UnitSection({ sec, canAssign, roster, quickAssign, assigned, priorAssig
   const t = useT();
   // a selection with no platform skills linked yet (no "No platform skills linked yet." placeholder row any more —
   // owner: "شيل ده خالص" / "حذف اي شي زي كده" — it just doesn't appear in the Skill plan at all)
-  if (sec.skills.length === 0 && !sec.pending?.length && !sec.vocabPlace) return null;
+  if (sec.skills.length === 0 && !sec.lessonSections?.length) return null;
   return (
     <div className="px-5 py-4">
       <p className="font-semibold text-slate-900" dir="ltr">
@@ -127,7 +136,8 @@ function UnitSection({ sec, canAssign, roster, quickAssign, assigned, priorAssig
         {sec.essentialQuestion ? `: ${sec.essentialQuestion}` : sec.title ? `: ${sec.title}` : ""}
       </p>
       {sec.essentialQuestion && sec.title && <p className="text-sm text-slate-500" dir="ltr">{sec.title}</p>}
-      <SkillGroups skills={sec.skills} pending={sec.pending} vocabPlace={sec.vocabPlace} canAssign={canAssign} roster={roster} quickAssign={quickAssign} assigned={assigned} priorAssignment={priorAssignment} masteredCount={masteredCount} cancelAssignment={cancelAssignment} />
+      {sec.lessonSections?.length ? <LessonSectionRows sections={sec.lessonSections} canAssign={canAssign} roster={roster} /> : null}
+      <SkillGroups skills={sec.skills} canAssign={canAssign} roster={roster} quickAssign={quickAssign} assigned={assigned} priorAssignment={priorAssignment} masteredCount={masteredCount} cancelAssignment={cancelAssignment} />
     </div>
   );
 }
@@ -139,32 +149,47 @@ function weeksLabel(sec: Pick<MapPdfSection, "weeks" | "number">, t: TFn): strin
   return t("Selection {n}", { n: sec.number });
 }
 
-function SkillGroups({ skills, pending, vocabPlace, canAssign, roster, quickAssign, assigned, priorAssignment, masteredCount, cancelAssignment }: { skills: MapPdfSkill[]; pending?: string[]; vocabPlace?: { code: string; ready: boolean }; canAssign: boolean; roster: RosterClass[]; quickAssign: SkillPlanProps["quickAssign"]; assigned?: ReadonlySet<string>; priorAssignment?: SkillPlanProps["priorAssignment"]; masteredCount?: SkillPlanProps["masteredCount"]; cancelAssignment?: SkillPlanProps["cancelAssignment"] }) {
+/**
+ * 🔗 r86: Concept Vocabulary / Analyze Craft and Structure / Review, exactly as the Lessons tab lists and assigns
+ * them — same titles, same Ready/Not ready, same 👁 Review / ✏️ My Review / ⭐ Assign. Deliberately mirrors
+ * CompactLesson's row markup (src/components/curriculum-map/lesson-card.tsx) so it reads as the SAME feature, not a
+ * lookalike: these rows assign the CurriculumMapNode place itself (code), not a platform Skill.
+ */
+function LessonSectionRows({ sections, canAssign, roster }: { sections: MapPdfLessonSection[]; canAssign: boolean; roster: RosterClass[] }) {
   const t = useT();
-  if (!skills.length && !pending?.length && !vocabPlace) return null; // the caller (UnitSection) decides what to show instead: pending names or "No platform skills linked yet."
+  const pill = "inline-flex min-h-8 items-center rounded-full px-2.5 text-xs font-bold ring-1";
+  return (
+    <ul className="mt-2 divide-y divide-slate-100">
+      {sections.map((s) => (
+        <li key={s.code} className="flex flex-wrap items-center justify-between gap-2 py-1.5">
+          <span className="text-sm font-medium text-slate-800" dir="ltr">{s.title}</span>
+          <span className="flex flex-wrap items-center gap-1">
+            {!s.ready && <span className={`${pill} bg-slate-100 text-slate-500 ring-slate-200`}>{t("Not ready")}</span>}
+            {s.ready && <Link href={`/teacher/preview?code=${encodeURIComponent(s.code)}`} prefetch={false} className={`${pill} bg-white text-brand-navy ring-slate-300 hover:bg-slate-50`}>👁 {t("Review")}</Link>}
+            {canAssign && s.kind === "REVIEW" && <Link href={`/teacher/curriculum-review?code=${encodeURIComponent(s.code)}`} prefetch={false} className={`${pill} bg-violet-50 text-violet-900 ring-violet-200 hover:bg-violet-100`}>✏️ {t("My Review")}</Link>}
+            {canAssign && s.ready && roster.length > 0 && <MapAssignButton code={s.code} label={t("Assign")} levels />}
+          </span>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+function SkillGroups({ skills, canAssign, roster, quickAssign, assigned, priorAssignment, masteredCount, cancelAssignment }: { skills: MapPdfSkill[]; canAssign: boolean; roster: RosterClass[]; quickAssign: SkillPlanProps["quickAssign"]; assigned?: ReadonlySet<string>; priorAssignment?: SkillPlanProps["priorAssignment"]; masteredCount?: SkillPlanProps["masteredCount"]; cancelAssignment?: SkillPlanProps["cancelAssignment"] }) {
+  const t = useT();
+  if (!skills.length) return null; // the caller (UnitSection) decides what to show instead: lessonSections or nothing at all
   let n = 0;
   return (
     <div className="mt-2 space-y-3">
       {CATEGORY_ORDER.map((key) => {
         const ks = skills.filter((k) => k.group === key);
-        // 🧭 owner ("فين concept vocabulary مش موجوده في skill plan" → "دول حطهم في concept vocabulary... خليها
-        // نجمه زي الباقي"): this grade's Concept Vocabulary for this selection is bare words, not a platform Skill
-        // (Grade 6, mostly) — still shown under the same heading, with the same ⭐ Assign the Lessons tab already
-        // uses for these words (src/components/curriculum-map/assign-button.tsx), once real questions exist for it.
-        const vocabExtra = key === "vocabulary" && (pending?.length || vocabPlace);
-        if (!ks.length && !vocabExtra) return null;
+        if (!ks.length) return null;
         return (
           <div key={key}>
             <p className="text-sm font-bold text-brand-purple">{t(CATEGORY_LABEL[key])}</p>
             <ol className="mt-1 space-y-1">
               {ks.map((k) => <SkillRow key={k.id} n={++n} skill={k} canAssign={canAssign} roster={roster} quickAssign={quickAssign} initDone={assigned?.has(k.id) ?? false} priorAssignment={priorAssignment} masteredCount={masteredCount} cancelAssignment={cancelAssignment} />)}
             </ol>
-            {vocabExtra && (
-              <p className="mt-1 flex flex-wrap items-center gap-1.5 text-sm text-slate-600">
-                {canAssign && roster.length > 0 && vocabPlace?.ready && <MapAssignButton code={vocabPlace.code} label={t("Assign")} levels />}
-                {pending?.length ? <bdi dir="ltr">{pending.join(", ")}</bdi> : null}
-              </p>
-            )}
           </div>
         );
       })}

@@ -37,6 +37,7 @@ import type { Branding, ReportDoc } from "../../reports/model";
 import { BRAND, PLATFORM, SOURCE_COLORS } from "../../components/print/tokens";
 import { appOrigin, isPlanHref, planHref, planQrSvg, PLAN_LINKS_NOTE, type PlanAudience } from "../../lib/plan-links";
 import { RateLimitedError, REPORT_RATE, loadBranding, type ReportDeps } from "../reports/service";
+import { curriculumLessons, studentCurriculumLessons, type CurriculumUnit } from "./lesson-details";
 import eqData from "../../../data/curriculum-map/essential-questions.json";
 
 const s = (v: unknown) => (v === null || v === undefined ? "" : String(v));
@@ -58,17 +59,17 @@ export const MAP_CATEGORY_GROUPS: { key: string; en: string; ar: string; categor
 const groupOfCategory = (c: string) => MAP_CATEGORY_GROUPS.find((g) => g.categories.includes(c)) ?? MAP_CATEGORY_GROUPS[1];
 
 export interface MapPdfSkill { id: string; name: string; code: string; group: string }
+/** r86: one of a selection's Concept Vocabulary / Analyze Craft and Structure / Review sections, exactly as the
+ * Lessons tab lists and assigns it (src/server/curriculum-map/lesson-details.ts#LessonSection) — a CurriculumMapNode
+ * "place", not a platform Skill: `code` is the place's own code (what ⭐ Assign sends), not a skillId. */
+export interface MapPdfLessonSection { code: string; title: string; kind: string | null; ready: boolean }
 export interface MapPdfSection {
   number: number; weeks: number[]; essentialQuestion: string | null; title: string; genre: string | null; selections: { label: string; name: string }[]; skills: MapPdfSkill[];
-  /** r85: skill names the Curriculum Map itself names for this selection (Concept Vocabulary / Analyze Craft and
-   * Structure) that have no platform Skill linked yet — filled in by skill-plan.ts for the LIVE page only (never
-   * by this file / the printed PDF, which only ever lists skills a teacher can actually click into and assign). */
-  pending?: string[];
-  /** r## (owner: "حطهم في concept vocabulary... خليها نجمه زي الباقي"): when this selection's Concept Vocabulary
-   * place on the Curriculum Map already has real questions behind it (the same ones the Lessons tab assigns from),
-   * its code + readiness — lets Skill plan offer that exact ⭐ Assign button for the vocabulary words above, since
-   * they have no platform Skill of their own to star instead. */
-  vocabPlace?: { code: string; ready: boolean };
+  /** r86 (owner: "حول Concept Vocabulary / Analyze Craft and Structure لنفس اللي في Lessons بالظبط، بنفس ربط
+   * الأسئلة، مع الإبقاء على الجرامر"): filled in by skill-plan.ts for the LIVE page only (never by this file / the
+   * printed PDF) — Grammar and punctuation (and Writing, Spelling & word study) still come from `skills` above,
+   * unchanged; Concept Vocabulary and Analyze Craft and Structure no longer do. */
+  lessonSections?: MapPdfLessonSection[];
 }
 export interface MapPdfUnit { number: number; title: string; sections: MapPdfSection[]; /** the unit's writing skills (Wonders: one writing project per unit, not tied to one week) */ writing: MapPdfSkill[] }
 export interface MapPdfData { grade: number; book: string; units: MapPdfUnit[] }
@@ -130,6 +131,56 @@ export async function curriculumMapPdfData(repo: Repo, schoolId: string, grade: 
   };
 }
 
+/** Pure: Concept Vocabulary / Analyze Craft and Structure / Review out of an already-fetched Lessons-tab unit list
+ * (either `curriculumLessons`'s, for staff, or `studentCurriculumLessons`'s, for students — both lesson-details.ts),
+ * keyed `${unitNumber}|${selectionNumber}`. */
+function lessonSectionsFromUnits(units: CurriculumUnit[]): Map<string, MapPdfLessonSection[]> {
+  const out = new Map<string, MapPdfLessonSection[]>();
+  for (const u of units) {
+    const um = /^G\d+\.U(\d+)$/.exec(u.code);
+    if (!um) continue;
+    for (const l of u.lessons) {
+      // Text Set (Grades 4–5: "TS{n}") or Selection (Grade 6 / StudySync: "SEL{n}") — both are numbered the same
+      // way as the matching Lesson.number, just named differently per book (see seed.ts expectedNodes)
+      const tm = /^G\d+\.U\d+\.(?:TS|SEL)(\d+)$/.exec(l.code);
+      if (!tm) continue;
+      const secs = l.sections.filter((x) => x.kind === "CONCEPT_VOCABULARY" || x.kind === "ANALYZE_CRAFT_AND_STRUCTURE" || x.kind === "REVIEW")
+        .map((x) => ({ code: x.code, title: x.title, kind: x.kind, ready: x.ready }));
+      if (secs.length) out.set(`${um[1]}|${tm[1]}`, secs);
+    }
+  }
+  return out;
+}
+
+/**
+ * r86: Concept Vocabulary / Analyze Craft and Structure / Review for every selection — the exact sections (code,
+ * title, ready) the Lessons tab itself lists and assigns (src/components/curriculum-map/lesson-card.tsx) — keyed
+ * `${unitNumber}|${selectionNumber}`. Shared by the live Skill plan page (skill-plan.ts) and this file's own PDF
+ * export below, so both read the Curriculum Map's own categories the same way. Staff only (curriculumLessons
+ * forbids STUDENT/PARENT) — the PDF export below uses `studentCurriculumLessons` instead for a student's own copy.
+ * Empty when this grade has no map.
+ */
+export async function lessonSectionsByLesson(repo: Repo, actor: Actor, grade: number): Promise<Map<string, MapPdfLessonSection[]>> {
+  const { units, grade: level } = await curriculumLessons(repo, actor, grade);
+  return level === grade ? lessonSectionsFromUnits(units) : new Map(); // not this grade's own map (e.g. the actor has no map for it at all)
+}
+
+/** Merges `lessonSectionsByLesson`'s output into a MapPdfData's sections (the one place both skill-plan.ts and
+ * this file's own PDF export apply it, so the merge itself never drifts between the two). */
+export function withLessonSections(d: MapPdfData, lessonSections: Map<string, MapPdfLessonSection[]>): MapPdfData {
+  if (!lessonSections.size) return d;
+  return {
+    ...d,
+    units: d.units.map((u) => ({
+      ...u,
+      sections: u.sections.map((sec) => {
+        const ls = lessonSections.get(`${u.number}|${sec.number}`);
+        return ls?.length ? { ...sec, lessonSections: ls } : sec;
+      }),
+    })),
+  };
+}
+
 // ------------------------------------------------------------------ HTML
 
 const WORDS = {
@@ -164,7 +215,7 @@ export function curriculumMapHtml(d: MapPdfData, o: MapHtmlOptions): string {
   const school = L === "ar" && b.nameAr ? b.nameAr : b.name;
   const how = (o.copy === "staff" ? w.howStaff : w.howStudent).map((x) => `<li>${esc(x)}</li>`).join("");
   const title = mapTitle(d, L);
-  const totalSkills = d.units.reduce((n, u) => n + u.sections.reduce((m, sec) => m + sec.skills.length, 0) + u.writing.length, 0);
+  const totalSkills = d.units.reduce((n, u) => n + u.sections.reduce((m, sec) => m + sec.skills.length + (sec.lessonSections?.length ?? 0), 0) + u.writing.length, 0);
   const stats = `<div class="stats"><div class="stat"><b>${d.units.length}</b><span>${esc(L === "ar" ? "وحدات" : "Units")}</span></div><div class="stat"><b>${totalSkills}</b><span>${esc(L === "ar" ? "مهارة" : "Skills")}</span></div></div>`;
   const toc = `<div class="toc">${d.units.map((u) => `<div class="toc-i"><span class="toc-n">${u.number}</span><span class="toc-t" dir="ltr">${esc(u.title)}</span></div>`).join("")}</div>`;
   const cover = `<section class="cover">
@@ -178,14 +229,23 @@ export function curriculumMapHtml(d: MapPdfData, o: MapHtmlOptions): string {
     const name = `<bdi dir="ltr">${esc(k.name)}</bdi>`;
     return `<li><span class="n">${n}.</span> ${href && isPlanHref(href, origin) ? `<a class="plink" href="${esc(href)}">${name}</a>` : name} <span class="code" dir="ltr">${esc(k.code)}</span></li>`;
   };
+  // r86: Concept Vocabulary / Analyze Craft and Structure / Review print from the Curriculum Map's own categories
+  // now (sec.lessonSections, the same ones the Lessons tab lists — see withLessonSections above), not the
+  // platform's own Skill rows — there is no per-student "click to practise" page for these (they're place-based,
+  // handed out only once a teacher ⭐ Assigns them), so each prints its title and Ready/Not ready only, no link.
+  // Grammar and punctuation (and Writing, Spelling & word study) are untouched: they keep printing from `sec.skills`.
+  const readyWord = L === "ar" ? { yes: "جاهز", no: "غير جاهز" } : { yes: "Ready", no: "Not ready" };
+  const SKILL_GROUPS = MAP_CATEGORY_GROUPS.filter((g) => g.key !== "vocabulary" && g.key !== "comprehension");
   const right = (sec: MapPdfSection) => {
-    if (!sec.skills.length) return `<p class="muted">${esc(w.none)}</p>`;
+    if (!sec.skills.length && !sec.lessonSections?.length) return `<p class="muted">${esc(w.none)}</p>`;
     let n = 0;
-    return MAP_CATEGORY_GROUPS.map((g) => {
+    const lessonGroups = (sec.lessonSections ?? []).map((x) => `<div class="grp" data-cat="vocabulary"><h4>${esc(x.title)}</h4><ol><li><span class="n">${++n}.</span> <span class="code" dir="ltr">${esc(x.ready ? readyWord.yes : readyWord.no)}</span></li></ol></div>`).join("");
+    const skillGroups = SKILL_GROUPS.map((g) => {
       const ks = sec.skills.filter((k) => k.group === g.key);
       if (!ks.length) return "";
       return `<div class="grp" data-cat="${g.key}"><h4>${esc(L === "ar" ? g.ar : g.en)}</h4><ol>${ks.map((k) => skillLi(k, ++n)).join("")}</ol></div>`;
     }).join("");
+    return lessonGroups + skillGroups;
   };
   const left = (sec: MapPdfSection) => {
     // Grade 6 (StudySync): the selection IS the lesson — its name once, not twice
@@ -334,8 +394,16 @@ export async function exportCurriculumMapPdf(deps: ReportDeps, actor: Actor, gra
   return oneAtATime(async () => {
     const again = kept.get(key); // a teacher who asked at the same moment waits for the first one and gets its file
     if (again && Date.now() - again.at < KEEP_MS) return { bytes: again.bytes, contentType: "application/pdf", filename: again.filename, cached: true };
-    const d = await curriculumMapPdfData(deps.repo, schoolId, grade);
-    if (!d || !d.units.length) throw new ValidationError("This grade has no curriculum yet.");
+    const d0 = await curriculumMapPdfData(deps.repo, schoolId, grade);
+    if (!d0 || !d0.units.length) throw new ValidationError("This grade has no curriculum yet.");
+    // r86: Concept Vocabulary / Analyze Craft and Structure / Review print from the Curriculum Map's own categories
+    // too now, same as the live Skill plan page (skillPlanData) — a student's own copy reads them through
+    // studentCurriculumLessons (curriculumLessons/curriculumMapView forbid the STUDENT role outright).
+    const lessonSections = await (actor.role === "STUDENT"
+      ? studentCurriculumLessons(deps.repo, actor).then((r) => (r.grade === grade ? lessonSectionsFromUnits(r.units) : new Map<string, MapPdfLessonSection[]>()))
+      : lessonSectionsByLesson(deps.repo, actor, grade)
+    ).catch(() => new Map<string, MapPdfLessonSection[]>());
+    const d = withLessonSections(d0, lessonSections);
     const { warning: _w, ...branding } = await loadBranding(deps.repo, schoolId, deps.brandingDir);
     const fonts = loadFonts(deps.fontDir);
     const html = curriculumMapHtml(d, { copy, locale, branding, fontCss: fonts.css, fontStack: fonts.stack, generatedAt: now });
