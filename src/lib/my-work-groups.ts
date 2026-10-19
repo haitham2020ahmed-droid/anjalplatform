@@ -16,7 +16,13 @@ export const TYPE_LABEL: Record<WorkType, { label: string; icon: string }> = {
 export type TimeGroup = "WEEK" | "LATER" | "DONE";
 export const TIME_LABEL: Record<TimeGroup, string> = { WEEK: "Due this week", LATER: "Later", DONE: "Done" };
 
-export interface WorkRowLike { assignmentId: string; status: "Not started" | "In progress" | "Done"; overdue: boolean; dueAt: string | null; sourceKey: string; kind?: WorkKind | null }
+export interface WorkRowLike {
+  assignmentId: string; status: "Not started" | "In progress" | "Done"; overdue: boolean; dueAt: string | null; sourceKey: string; kind?: WorkKind | null;
+  /** the title shown on the card — used only by searchWork, optional so other callers of the time/type helpers need not supply it */
+  skill?: string;
+  /** the skill star, when the row is a skill already being learned — used only by byPriority */
+  star?: { status?: string; score?: number | null } | null;
+}
 
 /** The type of a row: its kind (tests, reading, Learn …), else its program (a MAP / NAFS skill set), else Skills. */
 export function typeOf(r: WorkRowLike): WorkType {
@@ -51,6 +57,28 @@ export function timeOf(r: WorkRowLike, now: Date): TimeGroup {
 
 export interface TypeGroup<T> { type: WorkType; label: string; icon: string; rows: T[]; first: T[]; more: T[] }
 export interface WorkGroups<T> { time: TimeGroup; label: string; total: number; types: TypeGroup<T>[] }
+
+/**
+ * 🔎 Needier rows first within a group: overdue-and-not-done, then an in-progress skill whose mastery score is
+ * still low (it needs more review); everything else keeps its own My Work order (a stable sort — ties never
+ * reshuffle, so a school with only a few items in each group sees no change at all).
+ */
+const NEEDS_REVIEW_BELOW = 60;
+export function byPriority<T extends WorkRowLike>(rows: readonly T[]): T[] {
+  const rank = (r: T): number => {
+    if (r.overdue && r.status !== "Done") return 0;
+    const score = r.star && typeof r.star.score === "number" ? r.star.score : null;
+    if (score !== null && r.star?.status === "IN_PROGRESS" && score < NEEDS_REVIEW_BELOW) return 1;
+    return 2;
+  };
+  return rows.map((r, i) => ({ r, i })).sort((a, b) => rank(a.r) - rank(b.r) || a.i - b.i).map((x) => x.r);
+}
+
+/** Rows whose title matches the search text (case-insensitive substring); every row when the query is blank. */
+export function searchWork<T extends WorkRowLike>(rows: readonly T[], query: string): T[] {
+  const q = query.trim().toLowerCase();
+  return q ? rows.filter((r) => String(r.skill ?? "").toLowerCase().includes(q)) : (rows as T[]);
+}
 
 /** Due this week · Later · Done, each split by type (the rows keep their My Work order inside a group). */
 export function groupMyWork<T extends WorkRowLike>(rows: readonly T[], now = new Date(), cap = SHOW_FIRST): WorkGroups<T>[] {

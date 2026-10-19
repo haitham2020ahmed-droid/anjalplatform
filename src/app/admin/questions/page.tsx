@@ -19,7 +19,7 @@ import { FixStuck } from "./fix-stuck";
 export const metadata = { title: "Questions" };
 
 /** Every filter the list understands. The last five only come from links on other pages (shown as chips). */
-type SP = { q?: string; family?: string; type?: string; status?: string; level?: string; sort?: string; page?: string; skill?: string; map?: string; ai?: string; area?: string; grade?: string; deleted?: string; source?: string };
+type SP = { q?: string; family?: string; type?: string; status?: string; level?: string; sort?: string; page?: string; skill?: string; map?: string; ai?: string; area?: string; grade?: string; deleted?: string; source?: string; offtopic?: string };
 
 const TYPES: [string, string][] = [["MULTIPLE_CHOICE", "Multiple choice"], ["MULTI_SELECT", "Multi select"], ["TRUE_FALSE", "True/false"], ["DROPDOWN", "Dropdown"], ["FILL_BLANK", "Fill in the blank"], ["SHORT_ANSWER", "Short answer"], ["MATCHING", "Matching"], ["SENTENCE_ORDER", "Sentence order"], ["WORD_ORDER", "Word order"], ["ERROR_CORRECTION", "Error correction"], ["TWO_PART", "Two-part (A/B)"], ["GRID", "Table match (grid)"], ["HOT_TEXT", "Hot text"], ["DICTATION", "Dictation"], ["SENTENCE_COMBINE", "Sentence combining"]];
 const STATUS_LABEL: Record<QuestionStatus | "ALL", string> = { ALL: "All", PUBLISHED: "Published", DRAFT: "Drafts", UNDER_REVIEW: "Waiting for review", ARCHIVED: "Archived" };
@@ -45,17 +45,23 @@ export default async function QuestionsPage({ searchParams }: { searchParams: Pr
     mapArea: ["LIT", "INFO", "VOCAB", "GRAMMAR", "MECH", "WRITING", "NONE"].includes(sp.area ?? "") ? sp.area : undefined, grade: Number(sp.grade) || undefined,
     // 🏦 the bank (skill + level, no grade) or the Curriculum Map's own questions (grade → unit → lesson)
     source: sp.source === "map" ? "MAP" : sp.source === "all" ? "ALL" : sp.source === "copies" ? "COPIES" : undefined,
+    // ⚠️ only questions under a skill with a scope rule whose own text doesn't look like it belongs there
+    scopeFlag: sp.offtopic === "1" || undefined,
   };
-  const [list, counts, banners, families, matches, targets, deletions, roster, lastFix] = await Promise.all([
+  const [list, counts, banners, families, matches, targets, deletions, roster, lastFix, gradeRows] = await Promise.all([
     listBankPage(repo, actor, filter), bankStatusCounts(repo, actor, filter), bankBanners(repo, actor), familyOptions(repo, actor),
     filter.q && !filter.family ? familiesMatching(repo, actor, filter.q) : Promise.resolve([]),
     can(actor, "questions:publish") ? moveTargets(repo, actor) : Promise.resolve([]), countDeletionRequests(repo, actor),
     actor.role === "TEACHER" ? teacherRoster(repo, actor) : Promise.resolve(undefined),
     isAdmin && actor.schoolId && can(actor, "questions:publish") ? lastFixReport(repo, actor.schoolId) : Promise.resolve(null),
+    actor.schoolId ? repo.findMany("Grade", { schoolId: actor.schoolId }, { select: ["level"] }) : Promise.resolve([]),
   ]);
+  // 🔎 every grade the school has (not just grades with questions already in them) — so picking Grade 6 here, even
+  // with nothing imported yet, correctly shows "0 questions" rather than Grade 6 being impossible to even select
+  const grades = [...new Set(gradeRows.map((g) => Number(g.level)))].sort((a, b) => a - b);
   const qs = (over: Record<string, string | number | undefined>) => {
     const p = new URLSearchParams();
-    for (const [k, v] of Object.entries({ q: sp.q, family: sp.family, type: sp.type, status: sp.status, level: sp.level, sort: sp.sort, skill: sp.skill, map: sp.map, ai: sp.ai, area: sp.area, grade: sp.grade, source: sp.source, ...over })) if (v !== undefined && v !== "") p.set(k, String(v));
+    for (const [k, v] of Object.entries({ q: sp.q, family: sp.family, type: sp.type, status: sp.status, level: sp.level, sort: sp.sort, skill: sp.skill, map: sp.map, ai: sp.ai, area: sp.area, grade: sp.grade, source: sp.source, offtopic: sp.offtopic, ...over })) if (v !== undefined && v !== "") p.set(k, String(v));
     const s = p.toString();
     return `/admin/questions${s ? `?${s}` : ""}`;
   };
@@ -65,6 +71,7 @@ export default async function QuestionsPage({ searchParams }: { searchParams: Pr
     ...(filter.ai ? [{ label: t("AI-drafted"), clear: { ai: undefined } }] : []),
     ...(filter.mapArea ? [{ label: `MAP · ${filter.mapArea === "NONE" ? t("not classified yet") : filter.mapArea}`, clear: { area: undefined } }] : []),
     ...(filter.grade ? [{ label: `${t("Grade")} ${filter.grade}`, clear: { grade: undefined } }] : []),
+    ...(filter.scopeFlag ? [{ label: `⚠️ ${t("off-topic?")}`, clear: { offtopic: undefined } }] : []),
   ];
   const sel = "min-h-11 rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm";
   return (
@@ -73,6 +80,13 @@ export default async function QuestionsPage({ searchParams }: { searchParams: Pr
         subtitle={t("Search, preview and edit every question. Open a row to see its choices and answer.")}>
         <Link href="/admin/questions/new" className="rounded-xl bg-brand-navy px-5 py-2.5 font-semibold text-white hover:bg-brand-purple">{t("New question")}</Link>
         {actor.role === "SCHOOL_ADMIN" && <Link href="/admin/questions/load" prefetch={false} className="inline-flex items-center gap-2 rounded-xl bg-white px-4 py-2.5 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal"><LineIcon name="download" className="h-5 w-5" />{t("Load new questions")}</Link>}
+        {isAdmin && (
+          <Link href={qs({ offtopic: filter.scopeFlag ? undefined : "1", page: undefined })} prefetch={false} aria-current={filter.scopeFlag ? "page" : undefined}
+            title={t("Questions under a skill with a scope rule whose own text doesn't look like it belongs there")}
+            className={`inline-flex items-center gap-2 rounded-xl px-4 py-2.5 font-semibold ring-1 ${filter.scopeFlag ? "bg-red-600 text-white ring-red-600" : "bg-white text-red-700 ring-slate-300 hover:ring-red-400"}`}>
+            ⚠️ {t("off-topic?")}
+          </Link>
+        )}
       </PageHeader>
       {isAdmin && <BankTabs />}
       <div className="space-y-2">
@@ -93,9 +107,10 @@ export default async function QuestionsPage({ searchParams }: { searchParams: Pr
         {sp.deleted === "1" && <p role="status" className="rounded-2xl bg-teal-50 px-4 py-3 text-teal-900 ring-1 ring-teal-200">{t("The question was deleted.")}</p>}
       </div>
 
-      <form method="get" className="mt-4 grid gap-2 rounded-2xl bg-white p-3 ring-1 ring-slate-200 sm:grid-cols-2 lg:grid-cols-[minmax(0,2fr)_repeat(5,minmax(0,1fr))_auto]" aria-label={t("Filter questions")}>
+      <form method="get" className="mt-4 grid gap-2 rounded-2xl bg-white p-3 ring-1 ring-slate-200 sm:grid-cols-2 lg:grid-cols-[minmax(0,2fr)_repeat(6,minmax(0,1fr))_auto]" aria-label={t("Filter questions")}>
         <input name="q" defaultValue={sp.q ?? ""} placeholder={t("Search the question text")} aria-label={t("Search")} className={sel} />
         <Combo name="family" label={t("Skill")} defaultValue={filter.family ?? ""} options={[{ value: "", label: t("All skills") }, ...families.map((f) => ({ value: f.key, label: f.name }))]} className="min-w-56" dir="ltr" />
+        {grades.length > 0 && <select name="grade" defaultValue={sp.grade ?? ""} aria-label={t("Grade")} className={sel}><option value="">{t("All grades")}</option>{grades.map((g) => <option key={g} value={g}>{t("Grade {n}", { n: g })}</option>)}</select>}
         <select name="type" defaultValue={filter.type ?? ""} aria-label={t("Question type")} className={sel}><option value="">{t("All types")}</option>{TYPES.map(([v, l]) => <option key={v} value={v}>{l}</option>)}</select>
         <select name="status" defaultValue={status} aria-label={t("Status")} className={sel}>{(["ALL", ...STATUSES] as const).map((st) => <option key={st} value={st}>{t(STATUS_LABEL[st])}</option>)}</select>
         <select name="level" defaultValue={sp.level ?? ""} aria-label={t("Level")} className={sel}><option value="">{t("All levels")}</option>{Object.entries(LEVEL_LABELS).map(([n, l]) => <option key={n} value={n}>{n} · {l}</option>)}</select>
@@ -104,7 +119,7 @@ export default async function QuestionsPage({ searchParams }: { searchParams: Pr
         {sp.map && <input type="hidden" name="map" value={sp.map} />}
         {sp.ai && <input type="hidden" name="ai" value={sp.ai} />}
         {sp.area && <input type="hidden" name="area" value={sp.area} />}
-        {sp.grade && <input type="hidden" name="grade" value={sp.grade} />}
+        {!grades.length && sp.grade && <input type="hidden" name="grade" value={sp.grade} />}
         {sp.source && <input type="hidden" name="source" value={sp.source} />}
         <div className="flex items-center gap-2">
           <button className="min-h-11 rounded-xl bg-brand-navy px-4 py-2 font-semibold text-white">{t("Filter")}</button>

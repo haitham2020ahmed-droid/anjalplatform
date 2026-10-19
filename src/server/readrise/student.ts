@@ -20,7 +20,7 @@
 import { feedReadRise, safeFeed } from "../practice/skill-evidence";
 import { runAfterResponse } from "../lib/after-response";
 import { onSkillAnswer } from "../skills/status";
-import { alertMapGap, rapidAnswers } from "./accuracy";
+import { alertMapGap, alertStuckUnreliable, rapidAnswers } from "./accuracy";
 import { loadReadRiseWindows, placementChecks, type RRPeriod } from "./windows";
 import type { Repo, Row } from "../seeding/repo";
 import { ForbiddenError, type Actor } from "../auth/rbac";
@@ -461,6 +461,8 @@ export async function submitActivity(repo: Repo, actor: Actor, runId: string, ra
   }));
   // ⚖️ the level moved: ReadRise vs MAP far apart → one alert for the teacher
   if (moved) runAfterResponse("readrise.map_gap", () => alertMapGap(repo, studentId, now).catch(() => false), { key: `readrise.map_gap|${studentId}` });
+  // 🚩 whether or not the level moved this time: a streak of runs that never counted → one alert for the teacher
+  runAfterResponse("readrise.stuck", () => alertStuckUnreliable(repo, studentId, now).catch(() => false), { key: `readrise.stuck|${studentId}` });
   return runView(repo, actor, runId, now);
 }
 

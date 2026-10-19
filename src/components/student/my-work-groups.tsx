@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { StudentHome } from "@/server/student/student-home";
 import { EmptyState, StatusPill } from "@/components/ui-kit";
 import type { TFn } from "@/i18n";
-import { groupMyWork, type TypeGroup, type WorkGroups } from "@/lib/my-work-groups";
+import { groupMyWork, SHOW_FIRST, type TypeGroup, type WorkGroups } from "@/lib/my-work-groups";
 import { SkillStar } from "@/components/skills/skill-star";
 import { MasteryMeter } from "@/components/skills/mastery-meter";
 import type { StarInfo } from "@/lib/skill-stars";
@@ -79,11 +79,16 @@ function TimeBlock({ g, t }: { g: WorkGroups<Row>; t: TFn }) {
 
 /**
  * 📋 My Work, organised: Due this week · Later · Done (folded), each split by type with small headers; compact
- * cards; at most 6 per type group, the rest under "Show all". Calm and mobile-first; students never see level words.
+ * cards; at most 6 per type group, the rest under "Show all". Calm and mobile-first; students never see level
+ * words. ⭐ Rows needing attention (overdue, or a skill in progress with low mastery) surface first inside their
+ * group (src/lib/my-work-groups.ts byPriority — applied by the page before this component ever sees the rows).
+ * A plain "search my work" box (a GET form, same pattern as the rest of the admin lists — no client JS) appears
+ * once there is enough work to be worth searching; the page re-renders filtered by ?q=.
  */
-export function MyWorkGroups({ rows, t, now = new Date() }: { rows: readonly Row[]; t: TFn; now?: Date }) {
+export function MyWorkGroups({ rows, t, now = new Date(), query = "", totalAll }: { rows: readonly Row[]; t: TFn; now?: Date; query?: string; totalAll?: number }) {
   const [week, later, done] = groupMyWork(rows, now);
-  if (!week.total && !later.total) {
+  const showSearch = (totalAll ?? rows.length) > SHOW_FIRST;
+  if (!week.total && !later.total && !query) {
     return (
       <>
         <EmptyState compact icon={done.total ? "🎉" : "🌈"} title={done.total ? "No work right now — great job!" : "Nothing here yet"} text="Your teacher will add work here soon. Pick something to read!" />
@@ -93,9 +98,21 @@ export function MyWorkGroups({ rows, t, now = new Date() }: { rows: readonly Row
   }
   return (
     <div className="space-y-6">
-      {week.total > 0 && <TimeBlock g={week} t={t} />}
-      {later.total > 0 && <TimeBlock g={later} t={t} />}
-      {done.total > 0 && <DoneBlock g={done} t={t} />}
+      {showSearch && (
+        <form method="get" className="flex flex-wrap items-center gap-2" aria-label={t("Search my work")}>
+          <input type="search" name="q" defaultValue={query} placeholder={t("Search my work")} aria-label={t("Search my work")} data-testid="my-work-search"
+            className="min-h-11 flex-1 rounded-xl border border-slate-300 px-3 py-2 text-sm text-brand-navy placeholder:text-slate-400 focus:border-brand-teal focus:outline-none" />
+          <button type="submit" className="min-h-11 rounded-xl bg-brand-navy px-4 py-2 text-sm font-semibold text-white">{t("Search")}</button>
+          {query && <Link href="/student/work" className="text-sm font-semibold text-brand-teal hover:underline">{t("Clear")}</Link>}
+        </form>
+      )}
+      {query && !week.total && !later.total && !done.total
+        ? <EmptyState compact icon="🔍" title="No matches" text="Try a different word, or clear the search." />
+        : <>
+            {week.total > 0 && <TimeBlock g={week} t={t} />}
+            {later.total > 0 && <TimeBlock g={later} t={t} />}
+            {done.total > 0 && <DoneBlock g={done} t={t} />}
+          </>}
     </div>
   );
 }

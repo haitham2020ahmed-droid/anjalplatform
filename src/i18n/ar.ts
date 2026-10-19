@@ -1612,6 +1612,9 @@ export const ar: Record<UiString, string> = {
   "My focus skill": "المهارة التي أركّز عليها",
   "My skills this week": "مهاراتي هذا الأسبوع",
   "Show all ({n})": "اعرض الكل ({n})",
+  "Search my work": "بحث في أعمالي",
+  "No matches": "لا توجد نتائج",
+  "Try a different word, or clear the search.": "جرّب كلمة أخرى، أو احذف البحث.",
 
   // ---- motivation (part 3)
   "Avatar Shop": "متجر الشخصيات",
@@ -2384,6 +2387,7 @@ export const ar: Record<UiString, string> = {
   "Search the question text": "ابحث في نص السؤال",
   "All types": "كل الأنواع",
   "All levels": "كل المستويات",
+  "All grades": "كل الصفوف",
   "Sort": "الترتيب",
   "Remove filter": "إزالة عامل التصفية",
   "Skills named like your search:": "مهارات بأسماء تشبه بحثك:",
@@ -2486,6 +2490,8 @@ export const ar: Record<UiString, string> = {
   "{n} of {m} improved": "تم تحسين {n} من {m}",
   "Accept all confident guesses": "قبول كل التخمينات الواثقة",
   "Links every question whose best guess is at least 80% sure. Past answers move with the question.": "يربط كل سؤال تخمينه الأفضل مؤكد بنسبة 80% على الأقل. تنتقل الإجابات السابقة مع السؤال.",
+  "Accept every guess": "قبول كل التخمينات",
+  "Links every open question to its best guess, whatever its confidence — not just the sure (80%+) ones. Faster, but some guesses may be wrong: worth a spot check after.": "يربط كل سؤال مفتوح بأفضل تخمين له، مهما كانت نسبة الثقة — مش بس اللي واثقة بنسبة 80% فأكتر. أسرع، لكن بعض التخمينات ممكن تكون غلط: يُفضّل تفحص عينة بعدها.",
   "{n} questions will be linked": "سيتم ربط {n} سؤالًا",
   "{n} question(s) linked to their skill.": "تم ربط {n} سؤالًا بمهاراتها.",
   "{n} could not be linked and stay in the list.": "تعذّر ربط {n} وتبقى في القائمة.",

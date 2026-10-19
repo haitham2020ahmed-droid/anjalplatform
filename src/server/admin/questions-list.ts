@@ -17,7 +17,7 @@ import type { Repo, Row } from "../seeding/repo";
 import { modelVersion } from "../cache/bank-version";
 import { remember } from "../cache/lru";
 import { normalizeSkillName, schoolSkillIndex } from "../questions/skill-questions";
-import { isScopeFlagged } from "./scope-check";
+import { isScopeFlagged, scopeRuleFor } from "./scope-check";
 import { STATUSES, type QuestionStatus } from "./questions";
 import { schoolOf } from "./users";
 import { sweptWeakMap } from "../cache/idle";
@@ -56,6 +56,8 @@ export interface BankListFilter {
    * teacher's own copies for a teacher. They are in no other list.
    */
   source?: "BANK" | "MAP" | "ALL" | "COPIES";
+  /** ⚠️ only questions under a skill with a scope rule (src/server/admin/scope-check.ts) whose own text looks off-topic */
+  scopeFlag?: boolean;
 }
 
 export interface BankListRow {
@@ -86,6 +88,9 @@ async function whereOf(repo: Repo, actor: Actor, f: BankListFilter, withStatus =
   if (f.family) skills = idx.members.get(f.family) ?? [];
   if (f.skillId) skills = skills.filter((k) => k === f.skillId);
   if (f.grade) skills = skills.filter((k) => idx.gradeOf.get(k) === f.grade);
+  // ⚠️ off-topic view: only a skill with a scope rule can ever be flagged (today just "Active and Passive Voice"),
+  // so narrow the skill set before anything scans the bank — nothing else here needs to look at question text.
+  if (f.scopeFlag) skills = skills.filter((k) => scopeRuleFor(idx.skillOf.get(k)?.name ?? "") !== null);
   if (!skills.length) return null;
   const w: Record<string, unknown> = { skillId: { in: skills }, deletedAt: null };
   if (withStatus && f.status && f.status !== "ALL") w.status = f.status;
@@ -146,22 +151,20 @@ const ORDER: Record<SortKey, { field: string; dir: "asc" | "desc" }[]> = {
 };
 const COLUMNS = ["id", "stem", "skillId", "typeId", "difficultyLevel", "status", "origin", "updatedAt", "passageId", "imageId", "createdById"] as const;
 
-/** One page of the list (50 rows) and the number of matching questions. */
+/**
+ * One page of the list (50 rows) and the number of matching questions. ⚠️ Off-topic view (f.scopeFlag): the flag
+ * is computed from the question's own text, not a database column, so this reads the (already narrowed — see
+ * whereOf — to skills with a scope rule, src/server/admin/scope-check.ts) bounded set once, filters, and pages
+ * in memory, instead of the usual DB-level skip/take.
+ */
 export async function listBankPage(repo: Repo, actor: Actor, f: BankListFilter): Promise<{ rows: BankListRow[]; total: number; page: number; pages: number; per: number }> {
   assertCan(actor, "questions:read");
   const per = Math.min(100, Math.max(10, Math.floor(f.per ?? PER_PAGE)));
   const where = await whereOf(repo, actor, f);
   if (!where) return { rows: [], total: 0, page: 1, pages: 1, per };
-  const total = await repo.count("Question", where);
-  const pages = Math.max(1, Math.ceil(total / per));
-  const page = Math.min(pages, Math.max(1, Math.floor(f.page ?? 1)));
-  const found = total ? await repo.findMany("Question", where, { select: COLUMNS, orderBy: ORDER[f.sort ?? "new"] ?? ORDER.new, take: per, skip: (page - 1) * per }) : [];
-  const [idx, types, onMap, flagRows] = await Promise.all([schoolSkillIndex(repo, schoolOf(actor)), typeMap(repo), mapLinkedQuestionIds(repo),
-    found.length ? repo.findMany("QuestionFlag", { questionId: { in: found.map((q) => s(q.id)) }, status: "OPEN" }, { select: ["questionId"] }) : Promise.resolve([] as Row[])]);
-  const flagsOf = new Map<string, number>();
-  for (const f of flagRows) flagsOf.set(s(f.questionId), (flagsOf.get(s(f.questionId)) ?? 0) + 1);
+  const idxTypesOnMap = Promise.all([schoolSkillIndex(repo, schoolOf(actor)), typeMap(repo), mapLinkedQuestionIds(repo)]);
   const iso = (v: unknown) => (v instanceof Date ? v : new Date(s(v))).toISOString();
-  const rows = found.map((q): BankListRow => {
+  const toRow = (q: Row, idx: Awaited<ReturnType<typeof schoolSkillIndex>>, types: Map<string, string>, onMap: Set<string>, flagsOf: Map<string, number>): BankListRow => {
     const sk = idx.skillOf.get(s(q.skillId));
     const level = Number(q.difficultyLevel ?? 0);
     const stem = s(q.stem).replace(/\s+/g, " ").slice(0, 200);
@@ -172,7 +175,28 @@ export async function listBankPage(repo: Repo, actor: Actor, f: BankListFilter):
       onMap: onMap.has(s(q.id)), ritBand: ritBand(ritOf(level || 4, sk?.grade ?? 0)), flags: flagsOf.get(s(q.id)) ?? 0,
       scopeFlag: sk?.name ? isScopeFlagged(sk.name, stem) || undefined : undefined,
     };
-  });
+  };
+  if (f.scopeFlag) {
+    const [found, [idx, types, onMap]] = await Promise.all([
+      repo.findMany("Question", where, { select: COLUMNS, orderBy: ORDER[f.sort ?? "new"] ?? ORDER.new, take: MATCH_MAX }),
+      idxTypesOnMap,
+    ]);
+    const flagRows = found.length ? await repo.findMany("QuestionFlag", { questionId: { in: found.map((q) => s(q.id)) }, status: "OPEN" }, { select: ["questionId"] }) : [];
+    const flagsOf = new Map<string, number>();
+    for (const fl of flagRows) flagsOf.set(s(fl.questionId), (flagsOf.get(s(fl.questionId)) ?? 0) + 1);
+    const all = found.map((q) => toRow(q, idx, types, onMap, flagsOf)).filter((r) => r.scopeFlag);
+    const total = all.length, pages = Math.max(1, Math.ceil(total / per)), page = Math.min(pages, Math.max(1, Math.floor(f.page ?? 1)));
+    return { rows: all.slice((page - 1) * per, page * per), total, page, pages, per };
+  }
+  const total = await repo.count("Question", where);
+  const pages = Math.max(1, Math.ceil(total / per));
+  const page = Math.min(pages, Math.max(1, Math.floor(f.page ?? 1)));
+  const found = total ? await repo.findMany("Question", where, { select: COLUMNS, orderBy: ORDER[f.sort ?? "new"] ?? ORDER.new, take: per, skip: (page - 1) * per }) : [];
+  const [[idx, types, onMap], flagRows] = await Promise.all([idxTypesOnMap,
+    found.length ? repo.findMany("QuestionFlag", { questionId: { in: found.map((q) => s(q.id)) }, status: "OPEN" }, { select: ["questionId"] }) : Promise.resolve([] as Row[])]);
+  const flagsOf = new Map<string, number>();
+  for (const fl of flagRows) flagsOf.set(s(fl.questionId), (flagsOf.get(s(fl.questionId)) ?? 0) + 1);
+  const rows = found.map((q) => toRow(q, idx, types, onMap, flagsOf));
   return { rows, total, page, pages, per };
 }
 
@@ -189,10 +213,20 @@ function cached(repo: Repo, key: string, fn: () => Promise<Record<string, number
 /** How many questions of each status match the other filters (for the status tabs). */
 export async function bankStatusCounts(repo: Repo, actor: Actor, f: BankListFilter): Promise<Record<QuestionStatus | "ALL", number>> {
   assertCan(actor, "questions:read");
-  const key = JSON.stringify([schoolOf(actor), f.q ?? "", f.family ?? "", f.skillId ?? "", f.type ?? "", f.level ?? 0, f.mapCode ?? "", f.ai ?? false, f.mapArea ?? "", f.grade ?? 0, f.source ?? ""]);
+  const key = JSON.stringify([schoolOf(actor), f.q ?? "", f.family ?? "", f.skillId ?? "", f.type ?? "", f.level ?? 0, f.mapCode ?? "", f.ai ?? false, f.mapArea ?? "", f.grade ?? 0, f.source ?? "", f.scopeFlag ?? false]);
   return cached(repo, `status:${key}`, async () => {
     const where = await whereOf(repo, actor, f, false);
-    const n = where ? await Promise.all(STATUSES.map((st) => repo.count("Question", { ...where, status: st }))) : STATUSES.map(() => 0);
+    if (!where) return { ...Object.fromEntries(STATUSES.map((st) => [st, 0])), ALL: 0 } as Record<QuestionStatus | "ALL", number>;
+    if (f.scopeFlag) {
+      // the flag is computed from text, not a database column: read the (already narrowed) bounded set once and
+      // count the truly off-topic ones per status, instead of a plain DB count.
+      const idx = await schoolSkillIndex(repo, schoolOf(actor));
+      const found = await repo.findMany("Question", where, { select: ["stem", "skillId", "status"], take: MATCH_MAX });
+      const flagged = found.filter((q) => { const sk = idx.skillOf.get(s(q.skillId)); return sk?.name ? isScopeFlagged(sk.name, s(q.stem)) : false; });
+      const n = STATUSES.map((st) => flagged.filter((q) => s(q.status) === st).length);
+      return { ...Object.fromEntries(STATUSES.map((st, i) => [st, n[i]])), ALL: n.reduce((a, b) => a + b, 0) };
+    }
+    const n = await Promise.all(STATUSES.map((st) => repo.count("Question", { ...where, status: st })));
     return { ...Object.fromEntries(STATUSES.map((st, i) => [st, n[i]])), ALL: n.reduce((a, b) => a + b, 0) };
   }) as Promise<Record<QuestionStatus | "ALL", number>>;
 }
@@ -263,15 +297,24 @@ export async function matchingIds(repo: Repo, actor: Actor, f: BankListFilter, o
     if (!want.length) return { ids: [], capped: false };
     where.status = { in: want };
   }
+  // ⚠️ off-topic: `where` is already narrowed to skills with a scope rule, but which rows are actually off-topic
+  // depends on their own text — read the stem too and keep only the ones the rule flags.
+  const idx = f.scopeFlag ? await schoolSkillIndex(repo, schoolOf(actor)) : null;
+  const cols = f.scopeFlag ? (["id", "stem", "skillId"] as const) : (["id"] as const);
+  const keep = (r: Row): boolean => {
+    if (!f.scopeFlag) return true;
+    const sk = idx!.skillOf.get(s(r.skillId));
+    return sk ? isScopeFlagged(sk.name, s(r.stem)) : false;
+  };
   const ids: string[] = [];
   if (where.id) {
     // already limited to a list of ids (one map place, or one question)
-    for (const r of await repo.findMany("Question", where, { select: ["id"], orderBy: [{ field: "id", dir: "asc" }], take: max + 1 })) ids.push(s(r.id));
+    for (const r of await repo.findMany("Question", where, { select: [...cols], orderBy: [{ field: "id", dir: "asc" }], take: max + 1 })) if (keep(r)) ids.push(s(r.id));
   } else {
     let after = "";
     while (ids.length <= max) {
-      const page = await repo.findMany("Question", after ? { ...where, id: { gt: after } } : where, { select: ["id"], orderBy: [{ field: "id", dir: "asc" }], take: 500 });
-      for (const r of page) ids.push(s(r.id));
+      const page = await repo.findMany("Question", after ? { ...where, id: { gt: after } } : where, { select: [...cols], orderBy: [{ field: "id", dir: "asc" }], take: 500 });
+      for (const r of page) if (keep(r)) ids.push(s(r.id));
       if (page.length < 500) break;
       after = s(page[page.length - 1].id);
     }
