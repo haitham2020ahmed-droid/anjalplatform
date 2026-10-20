@@ -1,12 +1,17 @@
 "use client";
-import { useState, useTransition } from "react";
+import { useState, useTransition, type FormEvent } from "react";
 import { useT } from "@/i18n/client";
 import type { CustomReviewView, ReviewSetUnit, ReviewSkillUnit, WrittenQuestion } from "@/server/curriculum-map/review-control";
 import type { MapSourceQuestion } from "@/server/tests/map-source";
+import type { SkillFamily } from "@/server/teacher/home";
 import {
   customBankAction, customDetailAction, customDraftAction, customEditAction, customReviewAssignAction, customReviewChangeAction,
   customSetChoicesAction, customSkillChoicesAction, customWriteAction, setPreviewAction, skillPreviewAction,
 } from "@/app/teacher/review-builder/actions";
+// 🔎 the SAME cross-grade "Find a skill and assign it" search the teacher already knows from the Teacher Home page
+// (findSkillFamilies in src/server/teacher/home.ts) — reused here as-is, not rebuilt, per the audit's "doesn't have
+// access to all the skills on the platform" finding: "Or browse by skill" below only lists THIS grade's plan.
+import { findSkillsAction } from "@/app/teacher/home-actions";
 import { RichInline } from "@/components/rich-inline";
 import { SourceSelect } from "@/components/assign/source-select";
 import type { AssignSource } from "@/lib/assign-source";
@@ -58,6 +63,11 @@ export function ReviewBuilder({ grade, initial, sets, skillUnits, roster }: {
   const [skillQs, setSkillQs] = useState<{ id: string; list: PickerQuestion[] | null }>({ id: "", list: null });
   const [skillLv, setSkillLv] = useState<PickerLevelFilter>("ALL");
   const [skillSearch, setSkillSearch] = useState("");
+  // 🔎 fix (audit finding, Oct 2026): "Find any skill (all grades)" — same cross-grade search as Teacher Home,
+  // feeding the SAME open/expand panel as "Or browse by skill" below (openSkill/skillQs/skillLv/skillSearch).
+  const [bankSkillQ, setBankSkillQ] = useState("");
+  const [foundSkills, setFoundSkills] = useState<SkillFamily[] | null>(null);
+  const runSkillSearch = (e?: FormEvent) => { e?.preventDefault(); go(async () => { setFoundSkills(await findSkillsAction(bankSkillQ, grade)); }); };
   // ➕ r91 "Or browse by skill": the small "add N questions of this skill at once" dialog
   const [bulkDialog, setBulkDialog] = useState<{ id: string; name: string } | null>(null);
   const [bulkCount, setBulkCount] = useState("5");
@@ -98,6 +108,60 @@ export function ReviewBuilder({ grade, initial, sets, skillUnits, roster }: {
     setSetPicks((s) => { const n = { ...s }; const cur = new Set(n[key] ?? []); if (cur.has(cat)) cur.delete(cat); else cur.add(cat); if (cur.size) n[key] = cur; else delete n[key]; return n; });
   };
   const setPicksCount = Object.values(setPicks).reduce((n, s) => n + s.size, 0);
+
+  // 🔎 one expandable skill row (level filter + search + question list + inline Add), shared by "Or browse by
+  // skill" (this grade's plan) and "Find any skill" (every grade) below, so both feed the same openSkill/skillQs
+  // state and open/expand panel — one implementation, not two.
+  const skillRow = (k: { id: string; name: string }, hint?: string) => {
+    const open = openSkill === k.id;
+    const list = skillQs.id === k.id ? skillQs.list : null;
+    const shown = list ? filterQuestions(list, skillLv, skillSearch) : [];
+    return (
+      <div key={k.id} className="rounded-xl ring-1 ring-slate-200">
+        <div className="flex items-center gap-1 ps-1">
+          <button type="button" onClick={() => { const next = open ? "" : k.id; setOpenSkill(next); setSkillLv("ALL"); setSkillSearch(""); if (next && skillQs.id !== k.id) { setSkillQs({ id: k.id, list: null }); loadSkillQuestions(k.id).then((l) => setSkillQs((p) => (p.id === k.id ? { id: k.id, list: l } : p))); } }}
+            aria-expanded={open} className="flex min-h-11 flex-1 items-center justify-between gap-2 rounded-xl px-2 text-start font-semibold text-brand-navy hover:bg-slate-50">
+            <span dir="ltr" data-content>{k.name}{hint && <span className="ms-2 text-xs font-normal text-slate-500">{hint}</span>}</span>
+            <span aria-hidden="true" className="text-slate-500">{open ? "▲" : "▼"}</span>
+          </button>
+          <button type="button" className="shrink-0 rounded-full px-2 py-1 text-xs font-semibold text-brand-navy ring-1 ring-slate-300 hover:bg-slate-50" disabled={busy}
+            onClick={() => { setBulkDialog({ id: k.id, name: k.name }); setBulkCount("5"); setBulkLv("ALL"); }}>
+            ➕ {t("Add a skill")}
+          </button>
+        </div>
+        {open && (
+          <div className="space-y-2 border-t border-slate-100 p-2">
+            <div className="flex flex-wrap items-center gap-2">
+              <div role="group" aria-label={t("Level")} className="flex flex-wrap gap-1.5">
+                {LEVEL_FILTERS.map((lv) => <button key={lv} type="button" aria-pressed={skillLv === lv} onClick={() => setSkillLv(lv)} className={`min-h-9 rounded-full px-3 text-xs font-semibold ring-1 ${skillLv === lv ? "bg-brand-navy text-white ring-brand-navy" : "bg-white text-brand-navy ring-slate-300"}`}>{t(PICKER_LV[lv])}</button>)}
+              </div>
+              <input type="search" value={skillSearch} onChange={(e) => setSkillSearch(e.target.value)} placeholder={t("Search the questions…")} className="min-h-9 min-w-0 flex-1 rounded-lg border border-slate-300 px-2 text-xs" />
+            </div>
+            {!list ? <p className="px-1 py-2 text-sm text-slate-500" aria-busy="true">{t("Loading questions…")}</p>
+              : !list.length ? <p className="rounded-xl bg-slate-50 px-3 py-3 text-center text-sm text-slate-600">{t("This skill has no questions yet.")}</p>
+              : !shown.length ? <p className="rounded-xl bg-slate-50 px-3 py-3 text-center text-sm text-slate-600">{t("No question matches.")}</p>
+              : (
+                <ul className="max-h-80 space-y-2 overflow-y-auto">
+                  {shown.map((qq) => (
+                    <li key={qq.id} className="rounded-xl bg-slate-50 p-2.5 ring-1 ring-slate-200">
+                      <div className="flex items-start justify-between gap-2">
+                        <span className="min-w-0 flex-1 text-sm text-slate-900" dir="ltr" data-content><RichInline text={qq.stem} /></span>
+                        <button type="button" className={`${btn} shrink-0`} disabled={busy || ids.includes(qq.id)} onClick={() => go(async () => { apply(await customReviewChangeAction(grade, { op: "addBank", questionId: qq.id }), t("Added ✓")); })}>{ids.includes(qq.id) ? "✓" : t("Add")}</button>
+                      </div>
+                      {qq.choices?.length ? (
+                        <ol className="mt-1 grid gap-0.5 text-xs" dir="ltr">
+                          {qq.choices.map((c, i) => { const right = isCorrectChoice(c, qq.answer); return <li key={i} className={right ? "font-semibold text-emerald-800" : "text-slate-600"}>{String.fromCharCode(65 + i)}. {c}{right && <span className="ms-1" aria-label={t("Correct answer")}>✓</span>}</li>; })}
+                        </ol>
+                      ) : qq.answer ? <p className="mt-1 text-xs text-emerald-800"><span className="font-semibold">{t("Answer")}:</span> <span dir="ltr">{qq.answer}</span></p> : null}
+                    </li>
+                  ))}
+                </ul>
+              )}
+          </div>
+        )}
+      </div>
+    );
+  };
 
   return (
     <div className="space-y-4">
@@ -328,6 +392,21 @@ export function ReviewBuilder({ grade, initial, sets, skillUnits, roster }: {
               </>
             ) : <p className="text-sm text-slate-600">{t("No question matches.")}</p>)}
 
+            {/* 🔎 fix (audit finding, Oct 2026): "Find any skill" searches EVERY grade's skills on the platform —
+                not just this Review's own grade — the same search as "Find a skill and assign it" on Teacher Home. */}
+            <div className="mt-4 border-t border-slate-200 pt-3">
+              <p className="text-sm font-semibold text-slate-700">{t("Find any skill (all grades)")}</p>
+              <form className="mt-2 flex gap-2" onSubmit={runSkillSearch}>
+                <input type="search" value={bankSkillQ} onChange={(e) => setBankSkillQ(e.target.value)} dir="ltr" placeholder={t("Type a skill, e.g. main idea")} className={`${field} mt-0`} />
+                <button className={btn} disabled={busy}>{t("Search")}</button>
+              </form>
+              {foundSkills && (foundSkills.length ? (
+                <div className="mt-2 max-h-[32rem] space-y-1 overflow-y-auto rounded-xl p-1">
+                  {foundSkills.map((f) => skillRow({ id: f.pick.id, name: f.name }, t("Grades {g}", { g: f.grades.join(", ") })))}
+                </div>
+              ) : <p className="mt-2 text-sm text-slate-600">{t("Nothing matches your search")}</p>)}
+            </div>
+
             {/* 🔎 r91 ("زي اللي موجودة عند واجهة المعلم"): browse by skill — the same level filter + search + full
                 question display the teacher already knows from assigning a skill, one skill open at a time. */}
             <div className="mt-4 border-t border-slate-200 pt-3">
@@ -336,56 +415,7 @@ export function ReviewBuilder({ grade, initial, sets, skillUnits, roster }: {
                 <button type="button" className={`${btn} mt-2`} disabled={busy} onClick={() => go(async () => { const r = await customSkillChoicesAction(grade); if (r.ok) setBankSkillsData(r.value); else setMsg({ ok: false, text: r.message }); })}>{t("Load the skills")}</button>
               ) : (
                 <div className="mt-2 max-h-[32rem] space-y-1 overflow-y-auto rounded-xl p-1">
-                  {[...bankSkillsData.flatMap((u) => u.skills)].sort((a, b) => a.name.localeCompare(b.name)).map((k) => {
-                    const open = openSkill === k.id;
-                    const list = skillQs.id === k.id ? skillQs.list : null;
-                    const shown = list ? filterQuestions(list, skillLv, skillSearch) : [];
-                    return (
-                      <div key={k.id} className="rounded-xl ring-1 ring-slate-200">
-                        <div className="flex items-center gap-1 ps-1">
-                          <button type="button" onClick={() => { const next = open ? "" : k.id; setOpenSkill(next); setSkillLv("ALL"); setSkillSearch(""); if (next && skillQs.id !== k.id) { setSkillQs({ id: k.id, list: null }); loadSkillQuestions(k.id).then((l) => setSkillQs((p) => (p.id === k.id ? { id: k.id, list: l } : p))); } }}
-                            aria-expanded={open} className="flex min-h-11 flex-1 items-center justify-between gap-2 rounded-xl px-2 text-start font-semibold text-brand-navy hover:bg-slate-50">
-                            <span dir="ltr" data-content>{k.name}</span>
-                            <span aria-hidden="true" className="text-slate-500">{open ? "▲" : "▼"}</span>
-                          </button>
-                          <button type="button" className="shrink-0 rounded-full px-2 py-1 text-xs font-semibold text-brand-navy ring-1 ring-slate-300 hover:bg-slate-50" disabled={busy}
-                            onClick={() => { setBulkDialog({ id: k.id, name: k.name }); setBulkCount("5"); setBulkLv("ALL"); }}>
-                            ➕ {t("Add a skill")}
-                          </button>
-                        </div>
-                        {open && (
-                          <div className="space-y-2 border-t border-slate-100 p-2">
-                            <div className="flex flex-wrap items-center gap-2">
-                              <div role="group" aria-label={t("Level")} className="flex flex-wrap gap-1.5">
-                                {LEVEL_FILTERS.map((lv) => <button key={lv} type="button" aria-pressed={skillLv === lv} onClick={() => setSkillLv(lv)} className={`min-h-9 rounded-full px-3 text-xs font-semibold ring-1 ${skillLv === lv ? "bg-brand-navy text-white ring-brand-navy" : "bg-white text-brand-navy ring-slate-300"}`}>{t(PICKER_LV[lv])}</button>)}
-                              </div>
-                              <input type="search" value={skillSearch} onChange={(e) => setSkillSearch(e.target.value)} placeholder={t("Search the questions…")} className="min-h-9 min-w-0 flex-1 rounded-lg border border-slate-300 px-2 text-xs" />
-                            </div>
-                            {!list ? <p className="px-1 py-2 text-sm text-slate-500" aria-busy="true">{t("Loading questions…")}</p>
-                              : !list.length ? <p className="rounded-xl bg-slate-50 px-3 py-3 text-center text-sm text-slate-600">{t("This skill has no questions yet.")}</p>
-                              : !shown.length ? <p className="rounded-xl bg-slate-50 px-3 py-3 text-center text-sm text-slate-600">{t("No question matches.")}</p>
-                              : (
-                                <ul className="max-h-80 space-y-2 overflow-y-auto">
-                                  {shown.map((qq) => (
-                                    <li key={qq.id} className="rounded-xl bg-slate-50 p-2.5 ring-1 ring-slate-200">
-                                      <div className="flex items-start justify-between gap-2">
-                                        <span className="min-w-0 flex-1 text-sm text-slate-900" dir="ltr" data-content><RichInline text={qq.stem} /></span>
-                                        <button type="button" className={`${btn} shrink-0`} disabled={busy || ids.includes(qq.id)} onClick={() => go(async () => { apply(await customReviewChangeAction(grade, { op: "addBank", questionId: qq.id }), t("Added ✓")); })}>{ids.includes(qq.id) ? "✓" : t("Add")}</button>
-                                      </div>
-                                      {qq.choices?.length ? (
-                                        <ol className="mt-1 grid gap-0.5 text-xs" dir="ltr">
-                                          {qq.choices.map((c, i) => { const right = isCorrectChoice(c, qq.answer); return <li key={i} className={right ? "font-semibold text-emerald-800" : "text-slate-600"}>{String.fromCharCode(65 + i)}. {c}{right && <span className="ms-1" aria-label={t("Correct answer")}>✓</span>}</li>; })}
-                                        </ol>
-                                      ) : qq.answer ? <p className="mt-1 text-xs text-emerald-800"><span className="font-semibold">{t("Answer")}:</span> <span dir="ltr">{qq.answer}</span></p> : null}
-                                    </li>
-                                  ))}
-                                </ul>
-                              )}
-                          </div>
-                        )}
-                      </div>
-                    );
-                  })}
+                  {[...bankSkillsData.flatMap((u) => u.skills)].sort((a, b) => a.name.localeCompare(b.name)).map((k) => skillRow(k))}
                 </div>
               )}
             </div>
