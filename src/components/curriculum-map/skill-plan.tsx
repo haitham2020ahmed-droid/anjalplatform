@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import { createPortal } from "react-dom";
 import { useRouter } from "next/navigation";
 import { useEffect, useLayoutEffect, useMemo, useRef, useState, type RefObject } from "react";
 import { useT } from "@/i18n/client";
@@ -338,11 +339,15 @@ function SuggestPanel({ skill, roster, quickAssign, priorAssignment, masteredCou
     if (r.ok) { onRemoved(); setPriorAssigned(false); setConfirmed(false); setJustAssigned(false); setRemoveStep("idle"); setRemoveMsg(t("Removed ✓")); router.refresh(); }
     else { setRemoveStep("idle"); setRemoveMsg(r.message); }
   };
-  return (
-    // 🎯 owner r87 round 5 ("يظهر قريب من النجمه"): same card look as always (white, rounded, ring, shadow) — the
-    // JS above decides WHERE on screen it lands (top/left, in px, computed once above). Until that first
-    // measurement lands (one render), the card is kept invisible in its default spot so nothing flashes in the
-    // wrong place for a frame.
+  return createPortal(
+    // 🎯 owner r87 round 6 ("لسه نفس المشكلة" after round 5's fix was confirmed deployed): `position: fixed`
+    // only ever measures correctly against the actual browser viewport when NOTHING between this element and
+    // <body> sets a CSS transform / filter / backdrop-filter / perspective / will-change / contain — any one of
+    // those on an ancestor silently turns it into the fixed element's new reference point instead of the
+    // viewport, and the element then lands near THAT ancestor's own top-left, which is exactly the "stuck near
+    // the top of the page" symptom this kept reproducing even after the position math itself was already right.
+    // Rendering through a portal straight onto <body> (React: `createPortal`) sidesteps the question entirely —
+    // there is no ancestor left to get this wrong, on this page or any other that reuses SuggestPanel.
     <div ref={boxRef} role="dialog" aria-modal="true" aria-label={t("Suggest this skill to:")}
       style={pos ? { top: pos.top, left: pos.left, visibility: "visible" } : { top: 0, left: 0, visibility: "hidden" }}
       className="fixed z-50 max-h-[70vh] w-[calc(100%-2rem)] max-w-sm overflow-y-auto rounded-2xl bg-white p-4 text-start text-sm normal-case shadow-xl ring-1 ring-slate-200">
@@ -405,6 +410,7 @@ function SuggestPanel({ skill, roster, quickAssign, priorAssignment, masteredCou
         </>
       )}
       {msg && <p role="status" className="mt-2 text-xs font-medium text-emerald-700">{msg}</p>}
-    </div>
+    </div>,
+    document.body,
   );
 }
