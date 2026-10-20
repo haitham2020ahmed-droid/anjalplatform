@@ -19,7 +19,7 @@ import { ValidationError } from "../curriculum-admin";
 import { readableClasses } from "../teacher/coordinators";
 import { classMembers, studentNames } from "../insights/student-data";
 import { bandOf, seasonOf, type Season } from "./rit";
-import { normFor } from "./norm-tables";
+import { normFor, pctOfZ, type NormPoint } from "./norm-tables";
 import { reportStudent, type ReportStudent } from "./map-reports";
 import type { Subject } from "./map-plan";
 import { mapCache, MAP_KEEP_MS } from "./map-cache";
@@ -153,13 +153,50 @@ export async function studentProfile(repo: Repo, actor: Actor, studentId: string
 
 // ------------------------------------------------------------------ 👥 Class Profile
 
-export interface ClassStudent { id: string; name: string; test: TestResult; areas: Record<string, { rit: number; descriptor: string | null }>; projected: string | null; quadrant: "HIGH_ACH_HIGH_GROWTH" | "HIGH_ACH_LOW_GROWTH" | "LOW_ACH_HIGH_GROWTH" | "LOW_ACH_LOW_GROWTH" | null }
+export interface ClassStudent { id: string; name: string; test: TestResult; areas: Record<string, { rit: number; descriptor: string | null; estimated: boolean }>; projected: string | null; quadrant: "HIGH_ACH_HIGH_GROWTH" | "HIGH_ACH_LOW_GROWTH" | "LOW_ACH_HIGH_GROWTH" | "LOW_ACH_LOW_GROWTH" | null }
+/** One instructional (goal) area's name and how many students fall in each of NWEA's five national-percentile
+ *  bands (Low · LoAvg · Avg · HiAvg · High, same order as `QUINTILES`) — the "Instructional Area Achievement
+ *  Percentiles" chart's one row, for a whole class (`ClassProfile.areas`) or one student (`studentAreaQuintiles`,
+ *  a single 1 in the one band that student's own descriptor falls in). `estimated`: true when at least one of
+ *  these counts is not NWEA's own band but one guessed from the area's RIT against the grade/season national
+ *  norm (same ≈ estimate the rest of the platform uses when NWEA's own percentile wasn't imported) — this is
+ *  what lets a plain RIT-per-area file (no comprehensive data file, no typed band word) still populate this
+ *  chart, just marked as an estimate rather than NWEA's own band. */
+export interface AreaQuintileRow { name: string; quintiles: number[]; estimated: boolean }
 export interface ClassProfile {
   classId: string; className: string; grade: number; subject: Subject; term: string; terms: string[];
   n: number; notTested: { id: string; name: string }[]; meanRit: number | null; medianRit: number | null; medianPct: number | null; national: number | null; nationalExact: boolean;
-  quintiles: number[]; areaNames: string[]; areas: { name: string; mean: number | null; quintiles: number[] }[]; students: ClassStudent[];
+  quintiles: number[]; areaNames: string[]; areas: (AreaQuintileRow & { mean: number | null })[]; students: ClassStudent[];
   growth: { n: number; meanObserved: number | null; meanProjected: number | null; pctMet: number | null; medianCgp: number | null; enough: boolean };
   proficiency: { level: string; count: number }[]; flagged: number;
+}
+
+const DESCRIPTORS = ["Low", "LoAvg", "Avg", "HiAvg", "High"];
+
+/** The true ordinal median band index (0–4) from a set of counts — never an invented exact percentile, since the
+ *  comprehensive MAP file only gives each area a band (descriptor), not a raw number. `null` with no students banded. */
+export function medianQuintile(counts: number[]): number | null {
+  const total = counts.reduce((a, b) => a + b, 0);
+  if (!total) return null;
+  const mid = (total - 1) / 2;
+  let cum = 0;
+  for (let i = 0; i < counts.length; i++) { cum += counts[i]; if (cum > mid) return i; }
+  return counts.length - 1;
+}
+
+/** `ClassProfile.areas`, for one student only — every area the class tracks, one-hot in the band that student's own
+ *  descriptor falls in (nothing set for an area this student has no descriptor for yet). Same source, same instructional
+ *  areas as the whole-class chart, so the student and class views of "Instructional Area Achievement Percentiles" always
+ *  list the same rows. */
+export function studentAreaQuintiles(d: ClassProfile, studentId: string): AreaQuintileRow[] {
+  const st = d.students.find((x) => x.id === studentId);
+  return d.areaNames.map((name) => {
+    const quintiles = [0, 0, 0, 0, 0];
+    const a = st?.areas[name];
+    const i = DESCRIPTORS.indexOf(s(a?.descriptor ?? ""));
+    if (i >= 0) quintiles[i] = 1;
+    return { name, quintiles, estimated: i >= 0 && Boolean(a?.estimated) };
+  });
 }
 
 async function termsOf(repo: Repo, ids: string[], subject: Subject, overallOnly = false): Promise<{ terms: string[]; rows: Row[] }> {
@@ -170,7 +207,15 @@ async function termsOf(repo: Repo, ids: string[], subject: Subject, overallOnly 
   return { terms: [...latestByTerm].sort((a, b) => b[1] - a[1]).map(([t]) => t), rows };
 }
 
-function profileOf(rows: Row[], ids: string[], names: Map<string, { name: string }>, term: string, cut: number | null): Omit<ClassProfile, "classId" | "className" | "grade" | "subject" | "terms" | "national" | "nationalExact"> {
+/** A goal-area RIT with no NWEA descriptor: the same ≈-estimate the rest of the platform already uses for an
+ *  overall RIT with no imported percentile — the area RIT against the *subject's* grade/season national norm
+ *  (NWEA doesn't publish one per area), bucketed into the same five bands. `null` with no norm to estimate from. */
+function estimatedBand(rit: number, norm: NormPoint | null): (typeof DESCRIPTORS)[number] | null {
+  if (!norm || norm.sd <= 0) return null;
+  return DESCRIPTORS[quintileOf(pctOfZ((rit - norm.mean) / norm.sd))];
+}
+
+function profileOf(rows: Row[], ids: string[], names: Map<string, { name: string }>, term: string, cut: number | null, norm: NormPoint | null): Omit<ClassProfile, "classId" | "className" | "grade" | "subject" | "terms" | "national" | "nationalExact"> {
   const students: ClassStudent[] = [];
   const notTested: { id: string; name: string }[] = [];
   const areaSet = new Set<string>();
@@ -183,7 +228,14 @@ function profileOf(rows: Row[], ids: string[], names: Map<string, { name: string
     if (!o) { notTested.push({ id, name: names.get(id)?.name ?? "Student" }); continue; }
     const test = testOf(o);
     const areas: ClassStudent["areas"] = {};
-    for (const g of mine.filter((r) => r.goalName)) { const k = areaName(s(g.goalName)); if (!areas[k]) { areas[k] = { rit: Number(g.rit), descriptor: g.descriptor ? s(g.descriptor) : null }; areaSet.add(k); } }
+    for (const g of mine.filter((r) => r.goalName)) {
+      const k = areaName(s(g.goalName));
+      if (!areas[k]) {
+        const rit = Number(g.rit), real = g.descriptor ? s(g.descriptor) : null;
+        areas[k] = real ? { rit, descriptor: real, estimated: false } : { rit, descriptor: estimatedBand(rit, norm), estimated: true };
+        areaSet.add(k);
+      }
+    }
     const q = test.percentile !== null && test.cgp !== null ? `${test.percentile >= 50 ? "HIGH" : "LOW"}_ACH_${test.cgp >= 50 ? "HIGH" : "LOW"}_GROWTH` as ClassStudent["quadrant"] : null;
     students.push({ id, name: names.get(id)?.name ?? "Student", test, areas, projected: projectedLevel(test, cut), quadrant: q });
   }
@@ -194,8 +246,9 @@ function profileOf(rows: Row[], ids: string[], names: Map<string, { name: string
   const areas = areaNames.map((name) => {
     const v = students.map((x) => x.areas[name]).filter(Boolean);
     const q = [0, 0, 0, 0, 0];
-    for (const a of v) { const i = ["Low", "LoAvg", "Avg", "HiAvg", "High"].indexOf(s(a.descriptor)); if (i >= 0) q[i]++; }
-    return { name, mean: mean(v.map((a) => a.rit)), quintiles: q };
+    let estimated = false;
+    for (const a of v) { const i = DESCRIPTORS.indexOf(s(a.descriptor)); if (i >= 0) { q[i]++; if (a.estimated) estimated = true; } }
+    return { name, mean: mean(v.map((a) => a.rit)), quintiles: q, estimated };
   });
   const grown = students.filter((x) => x.test.growth !== null);
   const metKnown = students.filter((x) => x.test.met !== null);
@@ -218,9 +271,9 @@ export async function classProfile(repo: Repo, actor: Actor, classId: string, su
   const ids = await classMembers(repo, classId);
   const [names, { terms, rows }, cuts] = await Promise.all([studentNames(repo, ids), termsOf(repo, ids, subject), cutScores(repo, s(actor.schoolId))]);
   const t = term && terms.includes(term) ? term : terms[0] ?? "";
-  const p = profileOf(rows, ids, names, t, cuts[subject][grade] ?? null);
   const season = seasonOf(t, null);
   const nm = t ? await normFor(repo, subject, grade, season) : null;
+  const p = profileOf(rows, ids, names, t, cuts[subject][grade] ?? null, nm);
   return { classId, className: s(klass.name), grade, subject, terms, national: nm ? Math.round(nm.mean * 10) / 10 : null, nationalExact: Boolean(nm?.exact), ...p };
 }
 
@@ -251,7 +304,7 @@ async function schoolOverviewNow(repo: Repo, actor: Actor, subject: Subject, ter
   const t = term && terms.includes(term) ? term : terms[0] ?? "";
   const season = seasonOf(t, null);
   const rowOf = async (grade: number, classId: string | null, className: string, members: string[]): Promise<OverviewRow> => {
-    const p = profileOf(rows, members, names, t, cuts[subject][grade] ?? null);
+    const p = profileOf(rows, members, names, t, cuts[subject][grade] ?? null, null); // overall-only rows here: no goal areas to estimate a band for
     const nm = await normFor(repo, subject, grade, season);
     return { grade, classId, className, n: p.n, meanRit: p.meanRit, national: nm ? Math.round(nm.mean * 10) / 10 : null, medianPct: p.medianPct, quintiles: p.quintiles, meanGrowth: p.growth.meanObserved, pctMet: p.growth.pctMet, flagged: p.flagged };
   };

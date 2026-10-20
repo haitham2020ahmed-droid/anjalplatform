@@ -311,12 +311,22 @@ export function partsWithQuestions(repo: Repo, schoolId: string, grade: number):
 }
 const partsCache = sweptWeakMap<{ v: string; at: number; p: Promise<Set<string>> }>("curriculum-map.plans.partsCache", 2 * 60_000);
 
+// 🐛 r91 fix: must match levels.ts#usable()'s MANUAL_TYPES exclusion — otherwise a place whose only published
+// question is Short Answer (which the platform can't auto-mark) shows "ready"/clickable here, then fails with
+// "no published questions" the moment the student actually opens it via assignFromMap.
+const MANUAL_TYPES = new Set(["SHORT_ANSWER"]);
+
 async function partsWithQuestionsNow(repo: Repo, schoolId: string, grade: number): Promise<Set<string>> {
   const nodes = (await attachmentNodes(repo, schoolId)).filter((n) => n.grade === grade);
   const links = nodes.length ? await repo.findMany("QuestionMapLink", { nodeId: { in: nodes.map((n) => n.id) } }, { select: ["questionId", "nodeId"] }) : [];
   const qids = [...new Set(links.map((l) => s(l.questionId)))];
   const pub = new Set<string>();
-  for (let i = 0; i < qids.length; i += 1000) for (const q of await repo.findMany("Question", { id: { in: qids.slice(i, i + 1000) }, status: "PUBLISHED", deletedAt: null }, { select: ["id"] })) pub.add(s(q.id));
+  for (let i = 0; i < qids.length; i += 1000) {
+    const qs = await repo.findMany("Question", { id: { in: qids.slice(i, i + 1000) }, status: "PUBLISHED", deletedAt: null }, { select: ["id", "typeId"] });
+    const types = qs.length ? await repo.findMany("QuestionType", { id: { in: [...new Set(qs.map((q) => q.typeId))] } }, { select: ["id", "code"] }) : [];
+    const code = new Map(types.map((t) => [s(t.id), s(t.code)]));
+    for (const q of qs) if (!MANUAL_TYPES.has(code.get(s(q.typeId)) ?? "")) pub.add(s(q.id));
+  }
   const nodeOf = new Map(nodes.map((n) => [n.id, n]));
   const out = new Set<string>();
   for (const l of links) {

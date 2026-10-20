@@ -162,3 +162,27 @@ export function computeMastery(
 function round3(x: number): number {
   return Math.round(x * 1000) / 1000;
 }
+
+/**
+ * Fairness rule, shared by every place that can raise a MasteryResult-shaped score: a wrong answer, or a fresh
+ * batch of evidence with no credit in it at all, must never raise what the student last saw — only a correct (or
+ * partly correct) answer can move the number up. `floor` is the mastery the student already saw (the engine's own
+ * "before" state in adaptive practice, or the stored StudentSkillMastery row for writing/ReadRise/vocab evidence);
+ * `allowRaise` is false for a wrong answer or a no-credit batch, true otherwise (a true `allowRaise` changes
+ * nothing — the rule only ever holds a score back, never pushes it down below what it would otherwise be).
+ *
+ * This is the one piece extracted from four places that used to each write their own copy of the same guard
+ * (src/adaptive/engine.ts, src/server/practice/session.ts ×2, src/server/lessons/run.ts,
+ * src/server/practice/skill-evidence.ts) — everything else about how each of those computes mastery (the formula
+ * above, each system's own evidence weighting, ReadRise's separate reading-level window, writing's trait mapping)
+ * stays exactly as it was; only this one rule is now defined once.
+ */
+export function withholdRaise(
+  candidate: MasteryResult,
+  floor: { score: number; band: MasteryBandName; isMastered: boolean },
+  allowRaise: boolean,
+  cappedBy: string,
+): MasteryResult {
+  if (allowRaise || candidate.score <= floor.score) return candidate;
+  return { ...candidate, score: floor.score, band: floor.band, isMastered: floor.isMastered, components: { ...candidate.components, cappedBy } };
+}

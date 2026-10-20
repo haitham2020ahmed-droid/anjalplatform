@@ -19,6 +19,7 @@ import { isRecentRepeat, markRepeats } from "../../adaptive/evidence";
 import { resolveEngineConfig, type AdaptiveConfig, type MasteryThresholds } from "../../config/engine";
 import { scoreResponse } from "../../imports/questions/validate";
 import { nextReview } from "../../mastery/review";
+import { withholdRaise } from "../../mastery/mastery";
 import { bandOfTheta, creditAfterHints, tutorFeedback, type HintStep } from "../../tutor/tutor";
 import type { MasteryResult, ResponseEvidence } from "../../types/domain";
 import { ForbiddenError, type Actor } from "../auth/rbac";
@@ -265,8 +266,8 @@ async function prepareAttempt(repo: Repo, a: Omit<AttemptInput, "sessionId">, se
     previousTargetB: null, candidates: [...byId.values()].map((i) => toCandidate(i, skillId)), prerequisites: [], sessionCorrect,
   }, evidence, cfg, now);
   const seenBefore = prevMastery ? Number(prevMastery.score) : step.log.masteryBefore;
-  let mst: MasteryResult = step.mastery;
-  if (!correct && mst.score > seenBefore) mst = { ...mst, score: seenBefore, band: (prevMastery?.band as MasteryResult["band"]) ?? mst.band, isMastered: Boolean(prevMastery?.isMastered) };
+  // fairness rule (shared — mastery/mastery.ts#withholdRaise): a wrong answer never raises what the student last saw
+  const mst: MasteryResult = withholdRaise(step.mastery, { score: seenBefore, band: (prevMastery?.band as MasteryResult["band"]) ?? step.mastery.band, isMastered: Boolean(prevMastery?.isMastered) }, correct, "a wrong answer cannot raise mastery");
   return { a, correct, step, histLength: hist.length, prevMastery, seenBefore, mst };
 }
 

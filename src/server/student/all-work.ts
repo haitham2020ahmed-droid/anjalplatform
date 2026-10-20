@@ -52,12 +52,13 @@ type Tasks = Awaited<ReturnType<typeof myTasks>>;
 /** Reads the home page already does (passed in so they are not read twice). */
 export interface Prefetched { map?: Promise<MapTests>; respond?: Promise<StudentRespondTask[]>; writing?: Promise<Tasks>; /** the cancelled keys (a plan's cancelled place leaves its count) */ hidden?: Promise<Set<string>> }
 
-function row(kind: WorkKind, key: string, title: string, status: WorkStatus, href: string, opts: { source?: SourceKey; dueAt?: string | null; overdue?: boolean; doneHref?: string } = {}): MyWorkItem {
+function row(kind: WorkKind, key: string, title: string, status: WorkStatus, href: string, opts: { source?: SourceKey; dueAt?: string | null; overdue?: boolean; doneHref?: string; awaitingReview?: boolean } = {}): MyWorkItem {
   const source = opts.source ?? "CURRICULUM";
   return {
     assignmentId: `${kind.toLowerCase()}:${key}`, skillId: null, skill: title, source: SOURCE_LABEL[source], sourceKey: source, status,
     overdue: Boolean(opts.overdue && status !== "Done"), dueAt: opts.dueAt ?? null, href: status === "Done" ? opts.doneHref ?? href : href,
     action: status === "Done" ? "Review" : status === "Not started" ? "Start" : "Continue", note: null, kind,
+    awaitingReview: opts.awaitingReview,
   };
 }
 const late = (due: string | null, now: Date) => Boolean(due && Date.parse(due) < now.getTime());
@@ -132,7 +133,9 @@ async function nafsPracticeRows(repo: Repo, sid: string, classIds: string[], now
 function writingRows(list: Tasks, now: Date): MyWorkItem[] {
   return list.map((x) => {
     const status: WorkStatus = x.status === "SUBMITTED" || x.status === "SCORED" ? "Done" : x.status === "DRAFT" ? "In progress" : "Not started";
-    return row(x.kind === "READ_ALOUD" ? "READ_ALOUD" : "WRITING", x.id, hideLevels(x.title), status, `/student/writing/${x.id}`, { dueAt: x.dueAt, overdue: late(x.dueAt, now) });
+    // 🐛 r91 fix: SUBMITTED (handed in, not yet graded) was indistinguishable from SCORED here — flag it so the
+    // card can say "waiting for the score," matching the Writing page's own wording for the same state.
+    return row(x.kind === "READ_ALOUD" ? "READ_ALOUD" : "WRITING", x.id, hideLevels(x.title), status, `/student/writing/${x.id}`, { dueAt: x.dueAt, overdue: late(x.dueAt, now), awaitingReview: x.status === "SUBMITTED" });
   });
 }
 
@@ -199,27 +202,6 @@ async function lessonRows(repo: Repo, sid: string): Promise<MyWorkItem[]> {
   return runs.map((r) => row("LESSON", s(r.id), `Lesson — ${s(skills.find((k) => k.id === r.skillId)?.name) || "Skill"}`, r.finishedAt ? "Done" : Number(r.attempts ?? 0) > 0 || s(r.phase) !== "MODEL" ? "In progress" : "Not started", `/student/lesson?skillId=${encodeURIComponent(s(r.skillId))}`));
 }
 
-/**
- * Learn lessons and curriculum words the teacher assigned me (LearnAssignee: ONE read, title / due date kept on the
- * row). The same lesson or selection given twice is one row (the latest due date).
- */
-async function learnRows(repo: Repo, sid: string, now: Date): Promise<MyWorkItem[]> {
-  // r68: a lesson / words assigned for later (start date) wait until that day
-  const rows = (await repo.findMany("LearnAssignee", { studentId: sid }, { select: ["kind", "ref", "title", "dueAt", "startAt", "status", "createdAt"], orderBy: [{ field: "createdAt", dir: "desc" }], take: 100 })).filter((r) => startedBy(r.startAt, now));
-  const seen = new Set<string>();
-  const out: MyWorkItem[] = [];
-  for (const r of rows) {
-    const k = `${s(r.kind)}:${s(r.ref)}`;
-    if (seen.has(k)) continue;
-    seen.add(k);
-    const due = iso(r.dueAt);
-    const words = s(r.kind) === "WORDS";
-    const href = words ? `/student/words?sel=${encodeURIComponent(s(r.ref))}` : `/student/learn/${encodeURIComponent(s(r.ref))}`;
-    out.push(row("LEARN", k, `${words ? "Words" : "Learn"} — ${hideLevels(s(r.title))}`, statusOf(s(r.status) === "DONE" ? "COMPLETED" : r.status), href, { dueAt: due, overdue: late(due, now) }));
-  }
-  return out;
-}
-
 /** The Reading Strategy Survey, when the teacher opened it for my class this term (Done once I took it). */
 async function surveyRows(repo: Repo, actor: Actor, classIds: string[], now: Date): Promise<MyWorkItem[]> {
   const set = (await repo.findMany("SchoolSetting", { schoolId: actor.schoolId, key: OPEN_KEY }, { select: ["value"], take: 1 }))[0];
@@ -253,7 +235,9 @@ export async function extraWorkItems(repo: Repo, actor: Actor, now = new Date(),
     safeIfBehind("work.lessons", () => lessonRows(repo, sid), none),
     safeIfBehind("work.plans", async () => planRows(repo, classIds, mine, await (pre.hidden ?? Promise.resolve(new Set<string>()))), none),
     safeIfBehind("work.survey", () => surveyRows(repo, actor, classIds, now), none),
-    safeIfBehind("work.learn", () => learnRows(repo, sid, now), none),
+    // 🚫 owner (haitham, Oct 2026): "Learn" lessons / curriculum words (LEARN / WORDS rows, formerly learnRows
+    // above) never show in My Work any more, for any student. They still exist and can still be assigned — a
+    // teacher's own Assigned page (src/server/teacher/assigned.ts) reads LearnAssignee directly, unaffected.
   ]);
   return lists.flat();
 }

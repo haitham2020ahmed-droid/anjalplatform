@@ -22,7 +22,7 @@ import { resolveEngineConfig, ENGINE_VERSION, type AdaptiveConfig, type MasteryT
 import { processAnswer } from "../../adaptive/engine";
 import { isRecentRepeat, markRepeats } from "../../adaptive/evidence";
 import { nextReview } from "../../mastery/review";
-import { bandFor } from "../../mastery/mastery";
+import { bandFor, withholdRaise } from "../../mastery/mastery";
 import { bandOfTheta, tutorFeedback, type TutorMessage } from "../../tutor/tutor";
 import { selectNextItem, type PrerequisiteStatus } from "../../adaptive/selector";
 import { isClassicErrorItem, scoreResponse } from "../../imports/questions/validate";
@@ -43,7 +43,7 @@ import { assertDiagnosticAccess } from "../diagnostic/window";
 import { finishWeeklyCheck, WEEKLY_CHECK_MARK } from "../student/weekly-check";
 import { withLock } from "../lib/key-lock";
 import { afterResponseSettled, runAfterResponse } from "../lib/after-response";
-import { onSkillAnswer } from "../skills/status";
+import { onSkillAnswer, displayScore, STAR_MIN_ANSWERS } from "../skills/status";
 import { cachedContentKeys, dedupeIds } from "../questions/fresh";
 import { choiceSeed, finishTimedOut, isTestAssignment, shuffleChoices, testEndsAt, testOrder, timeIsUp, unshuffleResponse } from "../tests/runtime";
 
@@ -69,6 +69,11 @@ export interface PracticeView {
   question: ClientQuestion | null;
   answered: number;
   correct: number;
+  /** r## (owner: "53 answered and it never stopped — explain the number"): rapid guesses (guessing.ts) inside
+   *  `answered` above — counted for nothing (not the 30/50 rule, not accuracy, not mastery). Lets the practice
+   *  screen explain the gap between "answered" and what actually moved the student toward Done, instead of the
+   *  number just looking stuck. */
+  guessCount: number;
   mastery: number;
   band: string;
   ended: boolean;
@@ -307,13 +312,22 @@ async function finishSkill(repo: Repo, actor: Actor, studentId: string, skillId:
 
 async function startPracticeUnlocked(repo: Repo, actor: Actor, skillId: string, now = new Date(), random?: () => number, opts: StartOpts = {}): Promise<PracticeView> {
   const student = await ownStudent(repo, actor);
-  const skill = await assertSkillInCurriculum(repo, student, skillId, actor);
   const studentId = String(student.id);
   const [openRows, work] = await Promise.all([
     repo.findMany("PracticeSession", { studentId: student.id, skillId, endedAt: null }),
     // practice on an assigned skill counts toward it (also an older skillIds row or another grade's copy of the skill)
     openWorkFor(repo, studentId, skillId, now),
   ]);
+  // 🐛 L9 fix: assertSkillInCurriculum re-checks the student's curriculum access EVERY time this runs, against their
+  // CURRENT grade — so a student moved to a different grade/class mid-way through practising a skill (not formally
+  // "assigned", not a plan skill) would get "This skill is not part of your curriculum" just trying to continue work
+  // they legitimately started before the change. A recently-started, still-open session on this exact skill (the
+  // same resumability window used below) is accepted as already-granted access; only a genuinely NEW start is gated.
+  const resumable = openRows.some((r) => now.getTime() - d(r.startedAt).getTime() < SESSION_RESUME_MINUTES * 60_000 && r.currentQuestionId);
+  if (!resumable) {
+    const skill = await assertSkillInCurriculum(repo, student, skillId, actor);
+    void skill;
+  }
   // continuing a Curriculum Map lesson (its questions answered): the practice is part of that same assignment
   const lesson = opts.work ? await lessonWorkOf(repo, studentId, opts.work) : null;
   // no open work: practising again after the work was Done stays inside the teacher's picks (if there were any)
@@ -372,7 +386,6 @@ async function startPracticeUnlocked(repo: Repo, actor: Actor, skillId: string, 
     nextQuestionId: firstId, nextTargetB: first.targetB, reason: first.itemId || first.reasonCode === "NO_ITEM_IN_RANGE" ? first.reason : "No repeats: the unanswered question closest to the level.",
     reasonCode: first.itemId || first.reasonCode === "NO_ITEM_IN_RANGE" ? first.reasonCode : "POOL_EXHAUSTED", engineVersion: ENGINE_VERSION, createdAt: now,
   }));
-  void skill;
   return currentQuestion(repo, actor, String(session.id), now, { session, mastery });
 }
 
@@ -394,7 +407,7 @@ export async function currentQuestion(repo: Repo, actor: Actor, sessionId: strin
   }
   return {
     sessionId: String(s.id), skillId: String(s.skillId), skillName: String(skill.name), question,
-    answered: Number(s.questionCount), correct: Number(s.correctCount),
+    answered: Number(s.questionCount), correct: Number(s.correctCount), guessCount: Number(s.guessCount ?? 0),
     mastery: Math.round(Number(m?.score ?? 0)), band: String(m?.band ?? "BEGINNING"),
     ended: Boolean(s.endedAt), endReason: s.endReason ? String(s.endReason) : null,
     ...(work ? { work } : {}),
@@ -621,8 +634,8 @@ async function submitAnswerUnlocked(
   // The student's last SEEN score is the stored one; continue from it so numbers never jump between screens,
   // and apply the fairness rule against it: a wrong answer never raises mastery.
   const seenScore = prevMastery ? Number(prevMastery.score) : step.log.masteryBefore;
-  let mst: MasteryResult = step.mastery;
-  if (!correct && mst.score > seenScore) mst = { ...mst, score: seenScore, band: (prevMastery?.band as MasteryResult["band"]) ?? mst.band, isMastered: Boolean(prevMastery?.isMastered) };
+  // fairness rule (shared — mastery/mastery.ts#withholdRaise): a wrong answer never raises mastery
+  let mst: MasteryResult = withholdRaise(step.mastery, { score: seenScore, band: (prevMastery?.band as MasteryResult["band"]) ?? step.mastery.band, isMastered: Boolean(prevMastery?.isMastered) }, correct, "a wrong answer cannot raise mastery");
   // a rapid guess changes nothing: the mastery the student last saw stays
   if (rapid && prevMastery) mst = { ...mst, score: Number(prevMastery.score), band: prevMastery.band as MasteryResult["band"], isMastered: Boolean(prevMastery.isMastered), components: { ...mst.components, cappedBy: "a rapid guess counts for nothing" } };
   else if (rapid) mst = { ...mst, score: seenScore, isMastered: false };
@@ -640,6 +653,12 @@ async function submitAnswerUnlocked(
     ...nextReview(prevMastery, mst.isMastered, correct, now),
   };
   const xp = rapid ? 0 : step.xp;
+  // 🏅 M7 fix: the practice-feedback card must not show "Mastered"/a 100% score before the dashboards would (My
+  // Skills/My Work/teacher views all gate the ⭐ MASTERED status on STAR_MIN_ANSWERS answered — status.ts#decideStatus).
+  // This caps only what's SHOWN to the student here; mst/masteryData (XP, celebration, the stored row) are untouched.
+  const displayAttempts = masteryData ? masteryData.attempts : Number(prevMastery?.attempts ?? 0);
+  const displayBand = displayAttempts < STAR_MIN_ANSWERS && mst.band === "MASTERED" ? "PROFICIENT" : mst.band;
+  const displayMasteryAfter = displayScore(Math.round(mst.score), displayAttempts);
   // 🎯 the 30–50 rule (completion.ts): this answer is the work's next core answer while the work is open (a rapid guess
   // is not counted); the teacher's own count replaces the rule (exactly that many)
   const workOpen = Boolean(workBefore && !workFrozen && !workRow?.completedAt);
@@ -652,7 +671,11 @@ async function submitAnswerUnlocked(
   // same 30–50 rule counted in this session — mastered at 30+ ends it with the celebration; at 50 the student chooses
   const sessionRule = !workOpen;
   const sessionMastered = sessionRule && !rapid && counted >= ASSIGNMENT_MIN_QUESTIONS && mst.isMastered;
-  const sessionMax = sessionRule && !rapid && !sessionMastered && counted === ASSIGNMENT_MAX_QUESTIONS;
+  // r## hardening (owner: "a student answered 53 and it never stopped"): this used to fire only when `counted`
+  // landed on EXACTLY 50 (every other "done" check in this file — maxDone above, workGoalOf — uses >=). `counted`
+  // only ever rises by one at a time today, so this was never actually missed, but >= is the same safe invariant
+  // the rest of the file already uses, not a behavior change for the normal case.
+  const sessionMax = sessionRule && !rapid && !sessionMastered && counted >= ASSIGNMENT_MAX_QUESTIONS;
   if ((masteredDone || sessionMastered) && (!endReason || endReason === "COMPLETED")) { nextId = null; endReason = "WORK_MASTERED"; }
   // the teacher's count reached: exactly that many — the work is Done and this practice ends
   if (workOpen && count && maxDone && !endReason) { nextId = null; endReason = "COMPLETED"; }
@@ -718,7 +741,7 @@ async function submitAnswerUnlocked(
     whyYoursIsWrong: correct ? null : whyChosenWrong(item, response),
     tip: item.explanation.tip,
     rapidGuess: rapid,
-    masteryBefore: Math.round(seenScore), masteryAfter: Math.round(mst.score), band: mst.band, xp,
+    masteryBefore: Math.round(seenScore), masteryAfter: displayMasteryAfter, band: displayBand, xp,
     next: { hasQuestion: Boolean(nextId), endReason, routeToSkillId: null, routeToSkillName: null },
     tutor: correct ? null : tutorFrom(item, response, abilityNow.theta, misconception, repeatedBefore + (misconception ? 1 : 0)),
     ...(workNow ? { work: workNow } : {}),
@@ -1004,8 +1027,8 @@ async function submitQuizAnswerUnlocked(repo: Repo, actor: Actor, input: { assig
     previousTargetB: null, candidates: [...byId.values()].map((i) => toCandidate(i, skillId)), prerequisites, sessionCorrect,
   }, evidence, cfg, now);
   const seenBefore = prevMastery ? Number(prevMastery.score) : step.log.masteryBefore;
-  let mst: MasteryResult = step.mastery;
-  if (!correct && mst.score > seenBefore) mst = { ...mst, score: seenBefore, band: (prevMastery?.band as MasteryResult["band"]) ?? mst.band, isMastered: Boolean(prevMastery?.isMastered) };
+  // fairness rule (shared — mastery/mastery.ts#withholdRaise): a wrong answer never raises mastery
+  let mst: MasteryResult = withholdRaise(step.mastery, { score: seenBefore, band: (prevMastery?.band as MasteryResult["band"]) ?? step.mastery.band, isMastered: Boolean(prevMastery?.isMastered) }, correct, "a wrong answer cannot raise mastery");
   // a rapid guess changes nothing: the mastery the student last saw stays
   if (rapid) mst = { ...mst, score: seenBefore, band: (prevMastery?.band as MasteryResult["band"]) ?? "BEGINNING", isMastered: Boolean(prevMastery?.isMastered) };
   const masteryData = rapid ? null : {
@@ -1014,6 +1037,11 @@ async function submitQuizAnswerUnlocked(repo: Repo, actor: Actor, input: { assig
     ...nextReview(prevMastery, mst.isMastered, correct, now),
   };
   const answered = sessionRows.length + 1;
+  // 🏅 M7 fix (same as the adaptive-practice path above): don't show "Mastered"/100% in this quiz's feedback before
+  // the dashboards would (STAR_MIN_ANSWERS answered) — display only; mst/masteryData stay the real, uncapped values.
+  const displayAttemptsSet = masteryData ? masteryData.attempts : Number(prevMastery?.attempts ?? 0);
+  const displayBandSet = displayAttemptsSet < STAR_MIN_ANSWERS && mst.band === "MASTERED" ? "PROFICIENT" : mst.band;
+  const displayMasteryAfterSet = displayScore(Math.round(mst.score), displayAttemptsSet);
   // the graduated response to guessing (since the last pause); a test is never paused (its clock runs), only slowed
   const testing = String(set?.type ?? "") === "DIAGNOSTIC" || isTestAssignment(a);
   const qOrder = parseOrder(s.currentOrder);
@@ -1082,7 +1110,7 @@ async function submitQuizAnswerUnlocked(repo: Repo, actor: Actor, input: { assig
   const feedback: Feedback = {
     correct, credit, yourAnswer: studentAnswerText(item, response), correctAnswer: correctAnswerText(item), whyCorrect: item.explanation.whyCorrect,
     whyYoursIsWrong: correct ? null : whyChosenWrong(item, response), tip: item.explanation.tip, rapidGuess: rapid,
-    masteryBefore: Math.round(seenBefore), masteryAfter: Math.round(mst.score), band: mst.band, xp: 0,
+    masteryBefore: Math.round(seenBefore), masteryAfter: displayMasteryAfterSet, band: displayBandSet, xp: 0,
     next: { hasQuestion: !patch.done, endReason: patch.goalNow ? "GOAL" : patch.done ? "COMPLETED" : null, routeToSkillId: null, routeToSkillName: null },
     tutor: correct ? null : tutorFrom(item, response, step.ability.theta, misconception, repeatedBefore + (misconception ? 1 : 0)),
     ...(patch.pausedNow || guessAction === "SLOW_DOWN" || (guessAction === "PAUSE" && testing) ? { guess: { action: patch.pausedNow ? "PAUSE" as const : "SLOW_DOWN" as const, waitMs: SLOW_DOWN_MS } } : {}),

@@ -2,7 +2,7 @@ import { NameList } from "@/components/name-list";
 import Link from "next/link";
 import type { ClassDiagnosticReport } from "@/server/diagnostic/report";
 import { STRAND_LABEL } from "@/server/diagnostic/standards";
-import { shareDiagnosticAction } from "@/app/diagnostic/actions";
+import { shareDiagnosticAction, resetDiagnosticAttemptAction } from "@/app/diagnostic/actions";
 import { gradeLabel } from "@/server/diagnostic/adaptive";
 import { RichInline } from "@/components/rich-inline";
 import { stripMarks } from "@/lib/inline-marks";
@@ -115,7 +115,17 @@ export function ClassDiagnosticView({ r, canShare, back }: { r: ClassDiagnosticR
                   {r.adaptive && <td className="border-b border-slate-100 px-1.5 text-center tabular-nums">{st.ritEstimate ?? "—"}</td>}
                   <td className="border-b border-slate-100 px-1.5 text-center tabular-nums">{st.rit ?? "—"}</td>
                   <td className={`border-b border-slate-100 px-1.5 text-center tabular-nums ${st.wcpm !== null && r.fluency.below.some((b) => b.id === st.id) ? "font-bold text-rose-700" : ""}`}>{st.wcpm ?? "—"}</td>
-                  <td className="border-b border-slate-100 px-1.5 text-end print:hidden"><Link href={`/diagnostic/${r.testId}/student/${st.id}`} className="whitespace-nowrap rounded-lg px-2 py-1 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">Report{st.shared ? " ✓" : ""}</Link></td>
+                  <td className="border-b border-slate-100 px-1.5 text-end print:hidden">
+                    <div className="flex items-center justify-end gap-1.5">
+                      <Link href={`/diagnostic/${r.testId}/student/${st.id}`} className="whitespace-nowrap rounded-lg px-2 py-1 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">Report{st.shared ? " ✓" : ""}</Link>
+                      {canShare && st.total > 0 && (
+                        <form action={resetDiagnosticAttemptAction}>
+                          <input type="hidden" name="id" value={r.testId} /><input type="hidden" name="studentId" value={st.id} /><input type="hidden" name="back" value={back} />
+                          <button title="Clear this attempt so the student can retake the Diagnostic" className="whitespace-nowrap rounded-lg px-2 py-1 font-semibold text-amber-800 ring-1 ring-amber-300 hover:bg-amber-50">↻ Retake</button>
+                        </form>
+                      )}
+                    </div>
+                  </td>
                 </tr>
               ))}
             </tbody>

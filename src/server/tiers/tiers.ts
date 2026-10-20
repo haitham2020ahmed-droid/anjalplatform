@@ -20,6 +20,7 @@ import { log } from "../monitoring/log";
 import { mapSummaries } from "../insights/student-data";
 import { fluencySeason, wcpmPercentile } from "../fluency/norms";
 import { progressCheckPoints } from "../progress-checks/score";
+import { PASS_PCT } from "../progress-checks/select";
 import { decideTier, nextCheckAt, MONITOR_EVERY_DAYS, TIER_RULES, type CheckPoint, type Tier, type TierEvidenceInput } from "./rules";
 import { fluencySummary, isInvalidResult, pooledTheta } from "../curriculum-map/level-evidence";
 import { scoringParams } from "../practice/scoring-params";
@@ -99,7 +100,9 @@ async function evaluateRechecks(repo: Repo, ids: string[], now: Date): Promise<{
     if (done && x && Number(x.questionCount) > 0) {
       const pctv = Math.round((100 * Number(x.correctCount)) / Number(x.questionCount));
       const at = d(l?.completedAt) ?? d(x.endedAt) ?? now;
-      outcome = { pct: pctv, correct: Number(x.correctCount), total: Number(x.questionCount), at: at.toISOString(), passed: pctv >= 80, evaluatedAt: now.toISOString() };
+      // 🐛 L7 fix: this 80% pass mark was hardcoded here, duplicating (and at risk of drifting from) the shared
+      // PASS_PCT constant in progress-checks/select.ts — now pulled from the single source of truth.
+      outcome = { pct: pctv, correct: Number(x.correctCount), total: Number(x.questionCount), at: at.toISOString(), passed: pctv >= PASS_PCT, evaluatedAt: now.toISOString() };
       const list = points.get(s(p.row.studentId)) ?? []; list.push({ at, pct: pctv, kind: "RECHECK", assignmentId: p.aid }); points.set(s(p.row.studentId), list);
     } else if (!l || (due && due.getTime() < now.getTime())) outcome = { missed: true, evaluatedAt: now.toISOString() };
     if (outcome) { await repo.updateMany("TierChange", { id: p.row.id }, { evidence: { ...p.ev, outcome } }); evaluated++; }

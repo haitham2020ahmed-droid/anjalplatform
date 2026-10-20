@@ -323,7 +323,11 @@ export function correctAnswerText(i: PracticeItem): string {
   switch (i.type) {
     case "MULTIPLE_CHOICE":
     case "DROPDOWN":
-      return i.options!.filter((o) => o.correct).map((o) => `${o.label}. ${o.text}`).join("");
+      // 🐛 fix: a MULTIPLE_CHOICE question is meant to have exactly one correct option, but if the bank data ever
+      // has two (a content mistake), this used to glue their texts together with no space between them at all
+      // ("B. Paris" + "D. London" → "B. ParisD. London") — unreadable, and confusing on top of the data mistake
+      // itself. "; " matches MULTI_SELECT just below.
+      return i.options!.filter((o) => o.correct).map((o) => `${o.label}. ${o.text}`).join("; ");
     case "MULTI_SELECT":
       return i.options!.filter((o) => o.correct).map((o) => `${o.label}. ${o.text}`).join("; ");
     case "TRUE_FALSE":

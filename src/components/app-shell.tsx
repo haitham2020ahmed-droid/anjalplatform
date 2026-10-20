@@ -5,6 +5,7 @@ import { NotificationBell } from "./notification-bell";
 import { PrintBox } from "./print/print-box";
 import { SubmitFeedback } from "./ui/submit-feedback";
 import { ComfortToggle } from "./ui/comfort-toggle";
+import { DyslexicFontToggle } from "./ui/dyslexic-font-toggle";
 import { NavProgress } from "./ui/nav-progress";
 import { MenuButton, SideNav } from "./ui/side-nav";
 import { JumpTo } from "./ui/jump-to";
@@ -138,6 +139,7 @@ async function ShellFrame({ name, section = false, children }: { name: string; s
     <div className="flex flex-wrap items-center gap-2">
       {bell(null)}
       {role === "STUDENT" && <ComfortToggle />}
+      {role === "STUDENT" && <DyslexicFontToggle />}
       {me && <FeedbackButton />}
       <LogoutButton label={t("Sign out")} />
     </div>
@@ -148,6 +150,7 @@ async function ShellFrame({ name, section = false, children }: { name: string; s
       {bell(<span className="inline-block h-8 w-8" aria-hidden="true" />)}
       {staff && <PrintBox />}
       {role === "STUDENT" && <ComfortToggle />}
+      {role === "STUDENT" && <DyslexicFontToggle />}
       {me && <FeedbackButton />}
     </div>
   );

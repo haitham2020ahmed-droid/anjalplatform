@@ -13,12 +13,24 @@ import { countGroups } from "../db/group-count";
 const s = (v: unknown) => String(v ?? "");
 export type RosterScope = { kind: "SCHOOL" } | { kind: "GRADE"; grade: number } | { kind: "CLASS"; classId: string } | { kind: "STUDENTS"; ids: string[] };
 
-/** Every table that holds a student's data (deleted before the student). */
+/**
+ * 🐛 r91 fix: every table that holds a student's data (deleted before the student). This list used to cover only
+ * ~18 of the ~73 Prisma models with a `studentId` column — the other ~55 (NAFS, dictation, games, coins/rewards,
+ * ReadRise, skill evidence, tiers, etc.) have no real DB foreign key to Student, so nothing enforced or caught the
+ * gap: a roster backup silently omitted all of it (unrecoverable once a student was then deleted), and a permanent
+ * delete left those rows behind as silently orphaned forever. Rebuilt from `prisma/schema.prisma` by grep'ing every
+ * model with a `studentId` field, so this now matches the schema exactly (minus the one deliberate exclusion below).
+ */
 const STUDENT_TABLES = ["AdaptiveDecisionLog", "QuestionAttempt", "PracticeSession", "StudentAbility", "AbilitySnapshot", "StudentSkillMastery", "StudentReadingRange",
   "AssignmentStudent", "ExternalAssessmentResult", "MapResult", "Recommendation", "InterventionAlert", "StudentBadge", "XpEvent", "StudentDailyActivity", "DiagnosticResult",
   "DiagnosticScore", "FluencyCheck", "FluencyPractice", "WeeklyCheck",
   "StudentLevel", "StudentReadingLexile", "ReadMasterAttempt", "StudentCategoryLevel", "RespondAssignmentStudent", "MapPlan", "StudentAlert", "StudentWord",
-  "WorkComment", "ExitTicketAnswer", "MapSimSession", "TeacherNote", "WritingIntegrityEvent", "WritingSubmission", "FamilyReport", "ParentStudent", "ClassMembership"] as const;
+  "WorkComment", "ExitTicketAnswer", "MapSimSession", "TeacherNote", "WritingIntegrityEvent", "WritingSubmission", "FamilyReport", "ParentStudent", "ClassMembership",
+  // 🐛 r91 fix — added (previously missing from this list):
+  "ClassSignInUse", "ClassPrintSignIn", "LiveGamePlayer", "GamePlay", "GameRating", "DictationStudent", "DictationAttempt", "StudentProfile", "RiskSnapshot",
+  "StudentTier", "TierChange", "DecodingScreen", "StrategySurvey", "LessonRun", "RRStudent", "RRLevelChange", "RRRun", "RRPlacement", "SkillEvidence",
+  "StudentLevelState", "StudentReward", "CoinLedger", "QotdAnswer", "Certificate", "SecondChanceAnswer", "NafsResult", "NafsPracticeRun", "NafsPracticeAnswer",
+  "LearnAssignee", "LearnProgress", "LearnAuto", "FamilyWeekNote", "AssignmentCancel", "SkillStatus", "SkillReviewCheck"] as const;
 // QuestionFlag is kept: it is about the question (the bank's quality), not the student
 
 /** Rows the platform rebuilds from the answers: not in the roster backup (they made it 15 MB per class). */

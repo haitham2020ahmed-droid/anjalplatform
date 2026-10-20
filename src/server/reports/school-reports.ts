@@ -11,6 +11,7 @@ import { studentAnalytics } from "../analytics/reports";
 import { latestDiagnostic } from "../assessment/diagnostic";
 import { assertCan, canAccessStudent, ForbiddenError, type Actor } from "../auth/rbac";
 import { bandOf, personalPlan, type Band, type PersonalPlan } from "../map/personal-plan";
+import { classProfile, studentAreaQuintiles, type AreaQuintileRow } from "../map/nwea-reports";
 import { bySourceReport, type BySourceReport } from "../skills/skills-by-source";
 import { accessibleClasses } from "../teacher/assign";
 import { assertClassAccess } from "../teacher/assignments";
@@ -50,6 +51,12 @@ export interface StudentPersonalizedPlan {
   band: Band | null; ritRange: string | null; rit: number | null; projection: number | null; percentile: number | null;
   goals: PersonalPlan["bands"][number]["goals"]; strengths: PersonalPlan["bands"][number]["strengths"];
   resources: string[]; monitoring: string[];
+  /** Every instructional area's own RIT for this one student (not just their 3 weakest goals), weakest first. */
+  areaBreakdown: PersonalPlan["areaBreakdown"];
+  /** "Instructional Area Achievement Percentiles" for this one student: which NWEA national-percentile band
+   *  (Low/LoAvg/Avg/HiAvg/High) each area's own descriptor falls in. Needs the comprehensive MAP data file; empty
+   *  (never thrown) when only a basic RIT-only import exists, or the class profile can't be read. */
+  areaPercentiles: AreaQuintileRow[];
 }
 
 /** The class's Personalized Plan, scoped to one student: their own RIT/percentile, and their band's goals/strengths/resources. */
@@ -63,11 +70,14 @@ export async function personalizedPlanForStudent(repo: Repo, actor: Actor, stude
   const p = await personalPlan(repo, actor, s(member.classId), subject);
   const row = p.bands.flatMap((b) => b.students.map((x) => ({ ...x, band: b.band }))).find((x) => x.studentId === studentId);
   const band = row ? p.bands.find((b) => b.band === row.band) ?? null : null;
+  const profile = await classProfile(repo, actor, s(member.classId), subject).catch(() => null);
   return {
     studentId, name: s(user?.displayName), studentNumber: s(st.studentNumber), className: p.className, grade, teacher: p.teacher, subject, term: p.term,
     band: band?.band ?? (row ? bandOf(row.percentile, null) : null), ritRange: band?.ritRange ?? null,
     rit: row?.rit ?? null, projection: row?.projection ?? null, percentile: row?.percentile ?? null,
     goals: band?.goals ?? [], strengths: band?.strengths ?? [], resources: band?.resources ?? [], monitoring: band?.monitoring ?? [],
+    areaBreakdown: p.studentAreaBreakdown[studentId] ?? [],
+    areaPercentiles: profile ? studentAreaQuintiles(profile, studentId) : [],
   };
 }
 
@@ -89,6 +99,10 @@ export const TIER_STRATEGY: Record<DiagnosticTier, string> = {
 const TIER_OF: Record<string, DiagnosticTier> = {
   "Above grade level": "ADVANCED", "At grade level": "PROFICIENT", "Approaching grade level": "APPROACHING", "Below grade level": "INTENSIVE",
 };
+// 🐛 r91 fix: the modern Diagnostic Test (DiagnosticScore/summarizeScore) reports its overall level as
+// ABOVE/ON/BELOW (3 bands), not the legacy 4-band proficiency text above. Map it to the same tiers so the
+// Tier/Strategy box no longer disappears for any student who took the current test.
+const TIER_OF_SCORE: Record<"ABOVE" | "ON" | "BELOW", DiagnosticTier> = { ABOVE: "ADVANCED", ON: "PROFICIENT", BELOW: "APPROACHING" };
 const PRESCRIPTION: Record<string, string> = {
   READING: "Practise identifying main idea, theme, and text structure across literary and informational passages.",
   VOCABULARY: "Context-clue and morphology (root/prefix/suffix) practice; build an academic word wall.",
@@ -96,6 +110,14 @@ const PRESCRIPTION: Record<string, string> = {
   LANGUAGE: "Punctuation and capitalization practice embedded in short daily writing.",
   WORD_STUDY: "Spelling-pattern and high-frequency-word review in short daily sets.",
   WRITING: "Guided writing with a graphic organizer; focus on organization and evidence.",
+  // 🐛 r91 fix: the modern Diagnostic Test tags domains with its own strand codes (LIT/INFO/VOCAB/LANG/WRITE/FOUND),
+  // not the legacy domain codes above — without these, every modern-test domain fell through to the generic default.
+  LIT: "Practise identifying main idea, theme, and text structure in literary passages.",
+  INFO: "Practise identifying main idea, text structure, and author's purpose in informational passages.",
+  VOCAB: "Context-clue and morphology (root/prefix/suffix) practice; build an academic word wall.",
+  LANG: "Punctuation and capitalization practice embedded in short daily writing.",
+  WRITE: "Guided writing with a graphic organizer; focus on organization and evidence.",
+  FOUND: "Review foundational decoding, phonics, and word-recognition skills in short daily sets.",
 };
 
 export interface DiagnosticAnalysis {
@@ -120,11 +142,16 @@ export async function diagnosticAnalysisForStudent(repo: Repo, actor: Actor, stu
     latestDiagnostic(repo, studentId),
   ]);
   const klass = member ? await repo.findUnique("Class", { id: s(member.classId) }) : null;
+  // 🐛 r91 fix: the modern Diagnostic Test (d.source === "SCORE") has its own overall level (ABOVE/ON/BELOW) and
+  // real per-domain percent — using the legacy proficiency-text lookup / theta-based percentLike() for it silently
+  // dropped the Tier box and showed a flat 50% for every domain. Read the right fields for whichever placement this is.
+  const tier = d ? (d.source === "SCORE" ? (d.overallLevel ? TIER_OF_SCORE[d.overallLevel] : null) : TIER_OF[d.proficiency] ?? null) : null;
   return {
     studentId, name: s(user?.displayName), studentNumber: s(st.studentNumber), grade: num(grade?.level), className: klass ? s(klass.name) : null,
-    takenAt: d?.takenAt ?? null, questions: d?.questions ?? 0, proficiency: d?.proficiency ?? null, tier: d ? TIER_OF[d.proficiency] ?? null : null,
+    takenAt: d?.takenAt ?? null, questions: d?.questions ?? 0, proficiency: d?.proficiency ?? null, tier,
     domains: (d?.domains ?? []).map((x) => ({
-      domain: x.domain, label: x.label, level: x.level, theta: Math.round(x.theta * 100) / 100, percentLike: percentLike(x.theta), items: x.items,
+      domain: x.domain, label: x.label, level: x.level, theta: Math.round(x.theta * 100) / 100,
+      percentLike: x.pct !== undefined ? x.pct : percentLike(x.theta), items: x.items,
       prescription: PRESCRIPTION[x.domain] ?? "Review the domain's recent answers with the student.",
     })),
     strengths: d?.strong ?? [], growthAreas: d?.growth ?? [], notMeasured: d?.notMeasured ?? [],
@@ -146,9 +173,13 @@ export interface DiagnosticClassReport {
   classId: string; className: string; grade: number;
   /** every domain label seen in the class, in the order each first appeared (for the master table's columns) */
   domains: string[];
-  tiers: { tier: DiagnosticTier; label: string; students: { studentId: string; name: string; proficiency: string | null; domains: Record<string, string> }[] }[];
-  notTaken: { studentId: string; name: string }[];
+  tiers: { tier: DiagnosticTier; label: string; students: { studentId: string; name: string; proficiency: string | null; domains: Record<string, string>; domainScores: Record<string, number> }[] }[];
+  /** owner's two reference reports (Grade 4 tracking sheet, Grade 11 assessment report) both flag who has not completed the check, with a required action — merged into this one report. */
+  notTaken: { studentId: string; name: string; action: string }[];
 }
+
+/** A missing result's suggested next step: no placement data at all yet (never attempted) vs an old one gone stale. */
+const NOT_TAKEN_ACTION = "No placement/diagnostic result yet: assign the Diagnostic check, or confirm the student has completed enough practice for one to be calculated.";
 
 /**
  * The whole class's Diagnostic Analysis, grouped by tier (the school's own master-table format): every student
@@ -167,9 +198,10 @@ export async function diagnosticAnalysisForClass(repo: Repo, actor: Actor, class
     students: rows.filter((r) => r.tier === tier).map((r) => ({
       studentId: r.studentId, name: r.name, proficiency: r.proficiency,
       domains: Object.fromEntries(r.domains.map((x) => [x.label, x.level])),
+      domainScores: Object.fromEntries(r.domains.map((x) => [x.label, x.percentLike])),
     })),
   }));
-  return { classId, className: s(klass.name), grade, domains, tiers, notTaken: rows.filter((r) => r.tier === null).map((r) => ({ studentId: r.studentId, name: r.name })) };
+  return { classId, className: s(klass.name), grade, domains, tiers, notTaken: rows.filter((r) => r.tier === null).map((r) => ({ studentId: r.studentId, name: r.name, action: NOT_TAKEN_ACTION })) };
 }
 
 // -------------------------------------------------------------- 3. Final Report (per student)
@@ -184,7 +216,7 @@ export interface FinalReport {
   domains: { label: string; level: string }[];
   map: { date: string; subject: string; goal: string | null; rit: number; percentile: number | null }[];
   diagnostic: DiagnosticAnalysis | null;
-  plans: { subject: "READING" | "LANGUAGE"; band: Band | null; goals: string[]; strengths: string[] }[];
+  plans: { subject: "READING" | "LANGUAGE"; band: Band | null; goals: string[]; strengths: string[]; areaPercentiles: AreaQuintileRow[] }[];
   alerts: { message: string; nextAction: string }[];
   /** more skills declining than improving over the period (a regression / stability signal). */
   regressionSignal: boolean;
@@ -209,7 +241,7 @@ export async function finalReportForStudent(repo: Repo, actor: Actor, studentId:
   for (const subject of ["READING", "LANGUAGE"] as const) {
     try {
       const pp = await personalizedPlanForStudent(repo, actor, studentId, subject);
-      plans.push({ subject, band: pp.band, goals: pp.goals.map((g) => g.area), strengths: pp.strengths.map((g) => g.area) });
+      plans.push({ subject, band: pp.band, goals: pp.goals.map((g) => g.area), strengths: pp.strengths.map((g) => g.area), areaPercentiles: pp.areaPercentiles });
     } catch {
       // not enrolled in a class, or no MAP data for this subject yet: this subject's plan is skipped
     }

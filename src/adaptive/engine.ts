@@ -15,7 +15,7 @@
  */
 import { ENGINE_VERSION, type AdaptiveConfig, type MasteryThresholds } from "../config/engine";
 import type { AbilityEstimate, CandidateItem, MasteryResult, NextItemDecision, ResponseEvidence } from "../types/domain";
-import { bandFor, computeMastery } from "../mastery/mastery";
+import { computeMastery, withholdRaise } from "../mastery/mastery";
 import { isRapidGuess, toWeighted } from "./evidence";
 import { estimateAbilityEAP, limitStep } from "./irt";
 import { selectNextItem, type PrerequisiteStatus } from "./selector";
@@ -92,13 +92,10 @@ export function processAnswer(
   const theta = limitStep(state.ability.theta, est.theta, adaptive.maxThetaStep);
   const ability: AbilityEstimate = { theta, se: est.se };
 
-  let after = computeMastery(history, theta, cfg.mastery, adaptive, now, est.se);
-  // Fairness rule: a wrong (or partly wrong) answer never RAISES mastery. Extra evidence alone
-  // can lift the score mathematically, but students must never see their score go up after a mistake.
-  if (!response.correct && after.score > before.score) {
-    after = { ...after, score: before.score, band: bandFor(before.score, cfg.mastery), isMastered: before.isMastered,
-      components: { ...after.components, cappedBy: "a wrong answer cannot raise mastery" } };
-  }
+  // Fairness rule (shared — mastery/mastery.ts#withholdRaise): a wrong (or partly wrong) answer never RAISES
+  // mastery. Extra evidence alone can lift the score mathematically, but students must never see their score go
+  // up after a mistake.
+  const after = withholdRaise(computeMastery(history, theta, cfg.mastery, adaptive, now, est.se), before, response.correct, "a wrong answer cannot raise mastery");
   const rapid = isRapidGuess(response, adaptive);
 
   const next = selectNextItem({

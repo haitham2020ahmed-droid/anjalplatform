@@ -7,6 +7,7 @@
  */
 import type { Repo, Row } from "../seeding/repo";
 import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
+import { audit } from "../audit";
 import { ValidationError } from "../curriculum-admin";
 import { attachmentNodes } from "../curriculum-map/questions";
 import { notifyTeachers, recordLevel } from "../curriculum-map/student-level";
@@ -629,6 +630,22 @@ export async function myDiagnostic(repo: Repo, actor: Actor, now = new Date()): 
 }
 
 /**
+ * 🐛 r91 fix ("double-submit ممكن يطلع error بدل ما يتجاهله بهدوء"): the check-then-create in recordDiagnosticResult/
+ * recordAdaptiveResult below is not inside one transaction, so a duplicate final-answer request (a double click, a
+ * retried network call) can pass the `done` check twice; the schema's unique (diagnosticId, studentId) then rejects
+ * the SECOND create. Caught here instead of surfacing as an unhandled exception — the second request just gets back
+ * the row the first one already wrote, exactly as the `done` early-return above was always meant to behave.
+ */
+async function createScoreOrExisting(repo: Repo, diagnosticId: string, studentId: string, data: Row): Promise<Row> {
+  try { return await repo.create("DiagnosticScore", data); }
+  catch (e) {
+    const row = (await repo.findMany("DiagnosticScore", { diagnosticId, studentId }))[0];
+    if (row) return row;
+    throw e;
+  }
+}
+
+/**
  * Called when a student answers the last question of a Diagnostic: scores it by standard and strand, writes the
  * result, sets the student's level (source PLACEMENT) and tells the teacher. Safe to call twice.
  */
@@ -657,7 +674,7 @@ export async function recordDiagnosticResult(repo: Repo, assessmentId: string, a
   const times = attempts.map((a) => d(a.createdAt)!.getTime());
   const minutes = Math.round(attempts.reduce((m, a) => m + Math.min(Number(a.responseMs ?? 0), 300_000), 0) / 60_000) || Math.round((Math.max(...times) - Math.min(...times)) / 60_000);
   const rapid = attempts.filter((a) => a.rapidGuess).length;
-  const row = await repo.create("DiagnosticScore", {
+  const row = await createScoreOrExisting(repo, s(t.id), studentId, {
     diagnosticId: t.id, studentId, assignmentId, correct, total: order.length, pct, level,
     byStandard: [...stdMap.values()].sort((a, b) => a.code.localeCompare(b.code)), byStrand: [...strandMap].map(([strand, v]) => ({ strand, ...v })),
     rapid, minutes, completedAt: now, sharedAt: null, teacherNote: null,
@@ -763,7 +780,7 @@ async function recordAdaptiveResult(repo: Repo, t: Row, assignmentId: string, st
   const correct = rows.filter((r) => r.correct).length;
   const minutes = Math.round(answers.reduce((m, a) => m + Math.min(a.ms, 300_000), 0) / 60_000) || Math.round((Math.max(...answers.map((a) => a.at)) - Math.min(...answers.map((a) => a.at))) / 60_000);
   const rapid = answers.filter((a) => a.rapid).length;
-  const row = await repo.create("DiagnosticScore", {
+  const row = await createScoreOrExisting(repo, s(t.id), studentId, {
     diagnosticId: t.id, studentId, assignmentId, correct, total: rows.length, pct, level, byStandard, byStrand, rapid, minutes,
     theta: overall.theta, thetaSE: overall.se, ritEstimate: rit, byArea, completedAt: now, sharedAt: null, teacherNote: null,
   });
@@ -777,4 +794,29 @@ async function recordAdaptiveResult(repo: Repo, t: Row, assignmentId: string, st
   const name = s((await repo.findUnique("User", { id: (await repo.findUnique("Student", { id: studentId }))?.userId }))?.displayName) || "A student";
   await notifyTeachers(repo, studentId, invalid ? `⚡ ${name}'s Diagnostic is invalid — re-test` : `📝 ${name} finished the Diagnostic`, invalid ? `${rapid} of ${rows.length} answers were rapid guesses (too fast to read). The result (score ${pct}) is not used for the level or the support tier. Talk with the student and re-test.` : `Reading at ${gradeLabel(overall.theta)} · score ${pct} · ${level.charAt(0)}${level.slice(1).toLowerCase()} Level${rit ? ` · about RIT ${rit}` : ""}.${rapid >= rows.length * 0.2 ? ` ⚡ ${rapid} answers were too fast — the result may be lower than their real level.` : ""}`, now);
   return row;
+}
+
+/**
+ * 🐛 r91 fix ("لو النتيجة Invalid مفيش طريقة يعيد الطالب الاختبار"): recordDiagnosticResult/recordAdaptiveResult
+ * above return the EXISTING DiagnosticScore as soon as one exists (even an invalid, rapid-guessed one), so a
+ * student who retakes properly never got a new result recorded. This clears one student's attempt at one
+ * Diagnostic — their DiagnosticScore, and the quiz session + answers behind it — so their NEXT attempt starts
+ * clean and is recorded for real. (An INVALID result never set the student's level or practice priors in the
+ * first place — see the `if (!invalid)` guards above — so there is nothing to undo there; a VALID result's level
+ * stays as recorded unless the retake finishes and overwrites it, exactly like a fresh placement always would.)
+ */
+export async function resetDiagnosticAttempt(repo: Repo, actor: Actor, diagnosticId: string, studentId: string, now = new Date()): Promise<void> {
+  assertCan(actor, "assignments:create");
+  const t = await repo.findUnique("DiagnosticTest", { id: diagnosticId });
+  if (!t) throw new ValidationError("That Diagnostic was not found.");
+  const score = (await repo.findMany("DiagnosticScore", { diagnosticId, studentId }))[0];
+  const assignments = t.assessmentId ? await repo.findMany("Assignment", { assessmentId: t.assessmentId, deletedAt: null }) : [];
+  const sessions = assignments.length ? await repo.findMany("PracticeSession", { studentId, assignmentId: { in: assignments.map((a) => s(a.id)) }, mode: "TEACHER_QUIZ" }) : [];
+  if (!score && !sessions.length) throw new ValidationError("This student has no Diagnostic attempt to reset.");
+  if (sessions.length) {
+    await repo.deleteMany("QuestionAttempt", { sessionId: { in: sessions.map((x) => s(x.id)) } });
+    await repo.deleteMany("PracticeSession", { id: { in: sessions.map((x) => s(x.id)) } });
+  }
+  if (score) await repo.deleteMany("DiagnosticScore", { id: s(score.id) });
+  await audit(repo, { actorId: actor.userId, action: "diagnostic.reset_attempt", entityType: "DiagnosticTest", entityId: s(diagnosticId), after: { studentId, hadScore: Boolean(score) }, at: now });
 }

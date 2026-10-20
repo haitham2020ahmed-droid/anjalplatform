@@ -279,8 +279,15 @@ export async function saveSummary(repo: Repo, room: Room): Promise<void> {
   if (answers.length) await repo.createMany("LiveGameAnswer", answers);
   // ⭐ every question a student missed waits in their Second Chance: the version THEY saw (their level in a
   // "each student's level" game). Never an attempt, level or mastery change.
+  // 🐛 L1 fix: a question that timed out (never answered — no entry at all in p.answers) still counted against the
+  // student's score, but was silently skipped here because the old filter only looked at answered-but-wrong
+  // entries. Treat every slot index with no recorded answer the same as a wrong one.
   for (const p of room.players.values()) {
-    const missed = [...p.answers].filter(([, a]) => !a.correct).map(([ix]) => { const sl = room.slots[ix]; return sl ? (sl.byLevel[room.levelMode === "LEVEL" ? p.level : "ON"] ?? sl.byLevel.ON).item.questionId : ""; }).filter(Boolean);
+    const wrongIxs = [...p.answers].filter(([, a]) => !a.correct).map(([ix]) => ix);
+    const timedOutIxs = room.slots.map((_, ix) => ix).filter((ix) => !p.answers.has(ix));
+    const missed = [...new Set([...wrongIxs, ...timedOutIxs])]
+      .map((ix) => { const sl = room.slots[ix]; return sl ? (sl.byLevel[room.levelMode === "LEVEL" ? p.level : "ON"] ?? sl.byLevel.ON).item.questionId : ""; })
+      .filter(Boolean);
     if (missed.length) await recordGameMisses(repo, p.studentId, missed, finished).catch(() => 0);
   }
   room.savedId = room.id;
@@ -296,7 +303,9 @@ export async function rewardChallenge(repo: Repo, room: Room, now = new Date()):
   const team = winningTeam(room);
   const winners = new Set<string>();
   if (room.features.teams) { if (team !== null) for (const p of list) if (p.team === team && p.points > 0) winners.add(p.studentId); }
-  else if (list[0] && list[0].points > 0) winners.add(list[0].studentId);
+  // 🐛 L2 fix: a tie for 1st place used to award only the one player `.rank`/sort happened to put first (join
+  // order/name). Everyone sharing the top score wins.
+  else if (list[0] && list[0].points > 0) { const top = list[0].points; for (const p of list) if (p.points === top) winners.add(p.studentId); }
   for (const p of list) {
     let coins = 0;
     try { coins += (await recordLiveChallengePlayed(repo, p.studentId, room.id, now)).coins; } catch (e) { console.error("[live] coins", e); }

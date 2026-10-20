@@ -24,7 +24,7 @@ import { assertClassAccess } from "../teacher/assignments";
 import { studentNames } from "../insights/student-data";
 import { loadQuestionItems } from "../practice/items";
 import { GROUPS, groupOf, mapProfiles, type Descriptor, type GroupKey, type PoolQ, type Subject } from "./map-plan";
-import { bandOf, ensureNationalNorms, nationalNorm, type Season } from "./rit";
+import { bandOf, ensureNationalNorms, nationalNorm, percentileFromNorm, type Season } from "./rit";
 import { accuracy, blueprint, expectedNow, idList, jsonOf, manualItems, simPool, windowView, type Accuracy, type ManualItem, type TestKind, type WindowView } from "./sim";
 import type { Column, ReportDoc, TableRow } from "../../reports/model";
 import { loadFonts } from "../../reports/fonts";
@@ -505,8 +505,9 @@ export async function testReport(repo: Repo, actor: Actor, id: string, subjectAr
   ]);
   const answers = sessions.length ? await repo.findMany("MapSimAnswer", { sessionId: { in: sessions.map((x) => s(x.id)) } }, { select: ["sessionId", "n", "questionId", "area", "itemRit", "isCorrect", "rapid", "response"], take: 60_000 }) : [];
   await ensureNationalNorms(repo);
-  const norm = await nationalNorm(repo, grade || 5, (s(w.season) as Season) || "WINTER");
-  const pctOf = (rit: number) => (norm ? Math.max(1, Math.min(99, Math.round(100 / (1 + Math.exp(-1.702 * ((rit - norm.mean) / norm.sd)))))) : null);
+  // 🐛 r91 fix: pass `subject` (this report's own READING/LANGUAGE) and use the one shared percentile formula.
+  const norm = await nationalNorm(repo, grade || 5, (s(w.season) as Season) || "WINTER", subject);
+  const pctOf = (rit: number) => percentileFromNorm(rit, norm);
   const gs = groupsOf(subject);
   const students: StudentResult[] = ids.map((sid) => {
     const x = sessions.find((y) => s(y.studentId) === sid);

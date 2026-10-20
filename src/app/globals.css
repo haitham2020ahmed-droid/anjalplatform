@@ -90,6 +90,12 @@ h1:not(.font-sans), h2:not([class*="text-xs"]):not([class*="text-sm"]):not([clas
 [lang="ar"] :is(h1, h2), [lang="ar"] .font-display { font-weight: 600; }
 .font-display { font-weight: 400; }
 
+/* 🗺️ Curriculum Map: a friendlier, rounder font (Nunito) instead of the serif/grotesk interface pair everywhere
+   else — matches the reference skill-plan layout the owner asked us to follow. Falls back to the normal Arabic/
+   Latin interface font for any glyph Nunito doesn't cover, so Arabic text in this page is unaffected. */
+.curriculum-map-ui, .curriculum-map-ui :is(input, select, textarea, button) { font-family: var(--font-nunito), var(--font-sans); }
+.curriculum-map-ui :is(h1, h2, h3) { font-family: var(--font-nunito), var(--font-sans); font-weight: 800; letter-spacing: 0; }
+
 /* 🎨 student theme: calm and elegant for every grade (2–12) — no cartoons, no bouncing (staff pages keep theme-playful) */
 .theme-calm .playful { display: none !important; }
 .theme-calm [class*="animate-float"], .theme-calm [class*="animate-pop"], .theme-calm [class*="animate-shake"] { animation: none !important; }
@@ -218,6 +224,16 @@ button:not(:disabled):active, a.lift:active { transform: scale(.98); }
 html[data-comfort="1"] main { font-size: 1.12rem; line-height: 1.8; }
 html[data-comfort="1"] main p, html[data-comfort="1"] main li { letter-spacing: .01em; }
 html[data-comfort="1"]:not([data-theme="night"]) body { background: #fbf7ee; }
+/* dyslexia-friendly font (students can switch it on): wider letter shapes (Lexend) plus the spacing research backs —
+   extra letter/word spacing and a looser line height. Re-declaring --font-sans on main (not html) sidesteps any
+   specificity fight with [lang="ar"] / [lang="en"] (both set it on <html>): main's own value simply wins for
+   everything inside it, in English or Arabic alike, the same way Comfortable reading above already scopes its
+   font-size/line-height to main only — the surrounding menus and top bar keep their usual font. Combines fine with
+   Comfortable reading (different selectors, both can be on at once). */
+/* Lexend covers Latin only: Plex Arabic stays right after it in the stack so Arabic glyphs still render (a browser
+   font stack falls through per character, not all-or-nothing) — this rule applies the same in English or Arabic. */
+html[data-dyslexic-font="1"] main { --font-sans: var(--font-lexend), var(--font-plex-arabic), "Lexend", "Segoe UI", system-ui, sans-serif; letter-spacing: .02em; word-spacing: .12em; }
+html[data-dyslexic-font="1"] main :is(p, li, dd, dt) { line-height: 1.9; }
 /* printed reports keep their colours (headers, bars, charts) and use the whole page */
 .report-doc, .report-doc * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 @media print { @page { size: A4; margin: 12mm; } .report-doc { background: #fff; } }

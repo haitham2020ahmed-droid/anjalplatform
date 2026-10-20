@@ -33,9 +33,19 @@ export default async function ParentHome() {
             {shared.get(c.studentId) && <Link href={`/parent/report/${c.studentId}`} className="lift mt-3 flex items-center justify-between rounded-2xl bg-emerald-50 px-5 py-4 font-bold text-emerald-900 ring-1 ring-emerald-300"><span>📄 Report from the teacher</span><span>Open ▶</span></Link>}
             {shared.get(c.studentId) && <div className="mt-2 flex flex-wrap gap-2"><Link href={`/map-report/family/${c.studentId}`} className="rounded-xl bg-white px-4 py-2 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">📈 MAP Family Report</Link><Link href={`/map-report/study-plan/${c.studentId}`} className="rounded-xl bg-white px-4 py-2 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">🧭 Study Plan</Link></div>}
             <Link href={`/parent/family/${c.studentId}`} className="lift mt-3 flex items-center justify-between rounded-2xl bg-brand-navy px-5 py-4 font-bold text-white"><span>👪 Family Report — everything in one place</span><span>Open ▶</span></Link>
-            {(() => { const f = coach.get(c.studentId)!; return f.latest || f.readings14 ? <p className="mt-3 rounded-2xl bg-teal-50 px-5 py-3 text-sm text-teal-950 ring-1 ring-teal-200">🎙 <b>Reading fluency:</b> {f.latest ? `${f.latest.wcpm} words correct per minute (${f.latest.date}) · ${fluencyGoalWords(f.latest.level)}` : "practising"}{f.plan ? ` · this week's goal ${f.plan.goal} · next check ${f.plan.nextCheck}` : ""}{f.plan?.words.length ? ` · words to practise at home: ${f.plan.words.slice(0, 6).join(", ")}` : ""}</p> : null; })()}
+            {/* 🐛 L12 fix: a non-null assertion here would crash this whole page if `coach` ever missed an entry
+                (e.g. a future change to how `children`/`coach` are built); a plain optional lookup degrades to
+                "no fluency card for this child" instead. */}
+            {(() => { const f = coach.get(c.studentId); return f && (f.latest || f.readings14) ? <p className="mt-3 rounded-2xl bg-teal-50 px-5 py-3 text-sm text-teal-950 ring-1 ring-teal-200">🎙 <b>Reading fluency:</b> {f.latest ? `${f.latest.wcpm} words correct per minute (${f.latest.date}) · ${fluencyGoalWords(f.latest.level)}` : "practising"}{f.plan ? ` · this week's goal ${f.plan.goal} · next check ${f.plan.nextCheck}` : ""}{f.plan?.words.length ? ` · words to practise at home: ${f.plan.words.slice(0, 6).join(", ")}` : ""}</p> : null; })()}
             <ParentWeek w={weeks.get(c.studentId)!} />
             <ParentMonthly s={summaries.get(c.studentId)!} />
+            {/* 🐛 L11 fix: the weekly family summary PDF now recognizes a linked parent (family-week.ts); this is
+                the first entry point that lets a parent reach it, same per-student link the teacher's own page uses. */}
+            <div className="mt-3 flex flex-wrap items-center gap-2 rounded-2xl bg-white p-4 ring-1 ring-slate-200">
+              <span className="text-sm font-semibold text-brand-navy">📋 This week's family summary</span>
+              <a href={`/api/family-week?studentId=${encodeURIComponent(c.studentId)}&lang=en&print=1`} target="_blank" rel="noopener" className="rounded-lg px-3 py-1.5 text-sm font-semibold text-brand-navy ring-1 ring-slate-200 hover:ring-brand-teal">English</a>
+              <a href={`/api/family-week?studentId=${encodeURIComponent(c.studentId)}&lang=ar&print=1`} target="_blank" rel="noopener" className="rounded-lg px-3 py-1.5 text-sm font-semibold text-brand-navy ring-1 ring-slate-200 hover:ring-brand-teal">عربي</a>
+            </div>
             <ReportDownloads title="Progress report (this term)" report={{ kind: "student", studentId: c.studentId, period: "TERM" }} formats={["pdf"]} />
           </div>
         ))

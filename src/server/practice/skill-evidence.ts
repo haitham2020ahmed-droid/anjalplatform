@@ -27,7 +27,7 @@ import type { Repo, Row } from "../seeding/repo";
 import type { ResponseEvidence } from "../../types/domain";
 import { markRepeats, toWeighted } from "../../adaptive/evidence";
 import { estimateAbilityEAP } from "../../adaptive/irt";
-import { computeMastery } from "../../mastery/mastery";
+import { computeMastery, withholdRaise } from "../../mastery/mastery";
 import { resolveEngineConfig, type AdaptiveConfig, type MasteryThresholds } from "../../config/engine";
 import type { PracticeItem } from "./items";
 import { log } from "../monitoring/log";
@@ -80,13 +80,17 @@ export const firstFamily = (fam: Map<string, string>, list: string[] | undefined
 export async function skillHistoryWithEvidence(repo: Repo, studentId: string, skillId: string, items: Map<string, PracticeItem>, window = 60): Promise<ResponseEvidence[]> {
   const [rows, ext] = await Promise.all([
     repo.findMany("QuestionAttempt", { studentId, skillId }, {
-      select: ["questionId", "isCorrect", "partialCredit", "difficultyB", "responseMs", "usedHint", "createdAt", "source", "rapidGuess"],
+      select: ["questionId", "isCorrect", "partialCredit", "difficultyB", "responseMs", "usedHint", "createdAt", "source", "rapidGuess", "unreliable"],
       orderBy: [{ field: "createdAt", dir: "desc" }, { field: "id", dir: "desc" }], take: window,
     }),
     repo.findMany("SkillEvidence", { studentId, skillId }, { select: ["source", "refId", "credit", "difficultyB", "guessC", "weight", "createdAt"], orderBy: [{ field: "createdAt", dir: "desc" }], take: window }),
   ]);
-  // r67: a rapid guess counts for nothing — not ability, not mastery, not accuracy: left out of the history
-  const bank = markRepeats(rows.reverse().filter((r) => !r.rapidGuess).map((r) => {
+  // r67: a rapid guess counts for nothing — not ability, not mastery, not accuracy: left out of the history.
+  // r85 audit: `unreliable` (a whole session flagged >20% guesses — session.ts) MUST be excluded here too, the same
+  // way status.ts/level-evidence.ts/tiers.ts/growth-report.ts already do — without it, an answer from an Unreliable
+  // session that wasn't itself a rapid guess still fed theta/mastery/item-selection in full, even though the
+  // star/⭐ system for the exact same skill already refuses to count any answer from that session.
+  const bank = markRepeats(rows.reverse().filter((r) => !r.rapidGuess && !r.unreliable).map((r) => {
     const it = items.get(s(r.questionId));
     const w = ATTEMPT_SOURCE_WEIGHT[s(r.source)];
     return {
@@ -149,9 +153,10 @@ export async function recordSkillEvidence(repo: Repo, studentId: string, items: 
     const est = estimateAbilityEAP(history.map((r) => toWeighted(r, cfg.adaptive)), { priorMean: prior.mean, priorSD: prior.sd, thetaMin: cfg.adaptive.thetaMin, thetaMax: cfg.adaptive.thetaMax, model: cfg.adaptive.model });
     let mst = computeMastery(history, est.theta, cfg.mastery, cfg.adaptive, now, est.se);
     const prev = await repo.findUnique("StudentSkillMastery", { studentId, skillId });
-    // fairness: evidence with no correct answer never raises a score the student sees
+    // fairness rule (shared — mastery/mastery.ts#withholdRaise): evidence with no correct answer never raises a
+    // score the student sees
     const anyRight = fresh.some((i) => i.skillId === skillId && i.credit > 0);
-    if (prev && !anyRight && mst.score > Number(prev.score)) mst = { ...mst, score: Number(prev.score), band: s(prev.band) as typeof mst.band, isMastered: Boolean(prev.isMastered) };
+    if (prev) mst = withholdRaise(mst, { score: Number(prev.score), band: s(prev.band) as typeof mst.band, isMastered: Boolean(prev.isMastered) }, anyRight, "no correct answer in this evidence");
     const responses = history.length;
     await repo.upsert("StudentAbility", { studentId, scope: `SKILL:${skillId}` }, { skillId, theta: est.theta, thetaSE: est.se, responses }, { theta: est.theta, thetaSE: est.se, responses });
     const data = { score: mst.score, band: mst.band, maxLevelCorrect: mst.components.maxLevelCorrect, isMastered: mst.isMastered, masteredAt: mst.isMastered ? (prev?.masteredAt ?? now) : null, lastPracticedAt: now, components: { ...mst.components, external: true } };

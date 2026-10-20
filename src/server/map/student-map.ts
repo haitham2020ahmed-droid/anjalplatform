@@ -15,7 +15,7 @@ import { accessibleClasses } from "../teacher/assign";
 import { assertClassAccess } from "../teacher/assignments";
 import { createUser } from "../admin/users";
 import { draftPlansFor, type AutoPlans } from "./map-auto";
-import { bandOf, ensureNationalNorms, nationalNorm, seasonOf } from "./rit";
+import { bandOf, ensureNationalNorms, nationalNorm, percentileFromNorm, seasonOf } from "./rit";
 
 const s = (v: unknown) => String(v ?? "");
 // “Fall Percentile (optional)” → “fallpercentile”: the template's own headers must always be recognised
@@ -254,8 +254,12 @@ export async function importMapScores(repo: Repo, actor: Actor, table: string[][
   const classes = await accessibleClasses(repo, actor);
   const members = classes.length ? await repo.findMany("ClassMembership", { classId: { in: classes.map((k) => k.id) }, leftAt: null }, { select: ["studentId"] }) : [];
   const allowed = new Set(members.map((m) => s(m.studentId)));
-  const students = allowed.size ? await repo.findMany("Student", { id: { in: [...allowed] } }, { select: ["id", "userId", "studentNumber"] }) : [];
+  const students = allowed.size ? await repo.findMany("Student", { id: { in: [...allowed] } }, { select: ["id", "userId", "studentNumber", "gradeId"] }) : [];
   const users = students.length ? await repo.findMany("User", { id: { in: students.map((x) => x.userId) } }, { select: ["id", "username", "displayName"] }) : [];
+  // 🐛 r91 fix ("درجات قديمة بتتحسب بصف الطالب الحالي"): each student's CURRENT grade, stamped onto the rows this
+  // import creates (their grade at test time, best available) — a file's own "Grade" column wins when given (rowGrade below).
+  const gradeRows = students.length ? await repo.findMany("Grade", { id: { in: [...new Set(students.map((x) => s(x.gradeId)))] } }, { select: ["id", "level"] }) : [];
+  const currentGradeOf = new Map(students.map((st) => [s(st.id), Number(gradeRows.find((g) => g.id === st.gradeId)?.level ?? 0) || null]));
   const byKey = new Map<string, string>();
   // names, as a fallback when the file's number is not the platform's (e.g. NWEA IDs): “AALBAQSHI, AHMED” = “Ahmed Aalbaqshi”
   const nameKey = (n: string) => n.toLowerCase().replace(/[^a-z0-9\u0600-\u06ff ]+/g, " ").split(/\s+/).filter(Boolean).sort().join(" ");
@@ -332,8 +336,9 @@ export async function importMapScores(repo: Repo, actor: Actor, table: string[][
         // the comprehensive data file's extras (error, growth, descriptors …)
         const ex = cdf?.extras.get(`${key.toLowerCase()}|${subject}`);
         const more = ex ? { ritSE: ex.ritSE, growthPercentile: ex.growthPercentile, observedGrowth: ex.observedGrowth, conditionalGrowthIndex: ex.conditionalGrowthIndex, metProjectedGrowth: ex.metProjectedGrowth, testMinutes: ex.testMinutes, lexileLow: subject === "READING" ? ex.lexileLow : null, lexileHigh: subject === "READING" ? ex.lexileHigh : null, typicalGrowth: ex.typicalGrowth, proficiency: ex.proficiency } : {};
-        if (rit !== null) await repo.create("MapResult", { studentId: sid, testDate, subject: name, goalName: null, rit, achievementPercentile: keep(pct, "achievementPercentile"), projectedGrowth: keep(growth, "projectedGrowth"), lexile: subject === "READING" ? keep(lexile, "lexile") : null, rapidGuessPct: keep(rapid, "rapidGuessPct"), termName: term, importedAt: now, ...more });
-        for (const x of subjGoals) { const gx = ex?.goals[GOAL_GROUP[x.g.code]]; await repo.create("MapResult", { studentId: sid, testDate, subject: name, goalName: s(x.g.area!.name), goalAreaId: s(x.g.area!.id), rit: x.rit, termName: term, importedAt: now, ...(gx ? { descriptor: gx.descriptor, ritSE: gx.se } : {}) }); }
+        const gradeAtTest = rowGrade || currentGradeOf.get(sid) || null; // 🐛 r91 fix: file's own Grade column wins, else the student's current grade
+        if (rit !== null) await repo.create("MapResult", { studentId: sid, testDate, subject: name, goalName: null, rit, grade: gradeAtTest, achievementPercentile: keep(pct, "achievementPercentile"), projectedGrowth: keep(growth, "projectedGrowth"), lexile: subject === "READING" ? keep(lexile, "lexile") : null, rapidGuessPct: keep(rapid, "rapidGuessPct"), termName: term, importedAt: now, ...more });
+        for (const x of subjGoals) { const gx = ex?.goals[GOAL_GROUP[x.g.code]]; await repo.create("MapResult", { studentId: sid, testDate, subject: name, goalName: s(x.g.area!.name), goalAreaId: s(x.g.area!.id), rit: x.rit, grade: gradeAtTest, termName: term, importedAt: now, ...(gx ? { descriptor: gx.descriptor, ritSE: gx.se } : {}) }); }
       }
       imported++; touched.add(sid);
     } catch (e) {
@@ -440,11 +445,12 @@ export async function studentMap(repo: Repo, actor: Actor): Promise<StudentMap> 
   let rit: StudentMap["rit"] = null;
   if (latest && g) {
     const season = seasonOf(latest.termName, latest.testDate);
-    const n = await nationalNorm(repo, g.grade, season);
+    const n = await nationalNorm(repo, Number(latest.grade) || g.grade, season); // 🐛 r91 fix: this test's own grade, not the student's current one
     if (n) {
+      // 🐛 r91 fix: was its own tanh approximation (disagreed with rit.ts's erf-based one near band edges) — now
+      // the one shared formula, so a student's own "My MAP" page shows the same band as the teacher's RIT report.
       const imported = latest.achievementPercentile !== null && latest.achievementPercentile !== undefined;
-      const z = (Number(latest.rit) - n.mean) / n.sd;
-      const pct = imported ? Number(latest.achievementPercentile) : Math.max(1, Math.min(99, Math.round(100 * (0.5 * (1 + Math.tanh(0.7978845608 * (z + 0.044715 * z ** 3)))))));
+      const pct = imported ? Number(latest.achievementPercentile) : (percentileFromNorm(Number(latest.rit), n) ?? 50);
       rit = { value: Number(latest.rit), term: s(latest.termName) || season, percentile: pct, estimated: !imported, band: bandOf(pct), nationalMean: n.mean, diff: Number(latest.rit) - n.mean };
     }
   }

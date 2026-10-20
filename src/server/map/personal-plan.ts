@@ -5,7 +5,7 @@
  * class grade's skills and CCSS standards; Areas of Strength = its 2 strongest areas; resources and progress
  * monitoring use the platform's adaptive tools.
  */
-import type { Repo } from "../seeding/repo";
+import type { Repo, Row } from "../seeding/repo";
 import { assertCan, type Actor } from "../auth/rbac";
 import { assertClassAccess } from "../teacher/assignments";
 import { ritView } from "./rit";
@@ -89,7 +89,38 @@ export interface PlanBand {
   students: { studentId: string; name: string; rit: number; projection: number | null; percentile: number | null; rapidGuess: number | null }[];
   goals: PlanGoal[]; strengths: PlanGoal[]; resources: string[]; monitoring: string[];
 }
-export interface PersonalPlan { classId: string; className: string; grade: number; teacher: string; subject: "READING" | "LANGUAGE"; term: string | null; bands: PlanBand[]; notTested: string[]; classAverageRit: number | null }
+/** One MAP instructional (goal) area's class-wide average, across every student with a score — not limited to a band's 3 weakest. */
+export interface AreaBreakdownRow { area: string; meanRit: number | null; students: number }
+/** NWEA's own five national-percentile bands (not the school's 3 BELOW/ON/ABOVE bands), for the whole-class chart. */
+export type PercentileRange = ">80" | "61-80" | "41-60" | "21-40" | "<21";
+export interface PercentileRangeRow { range: PercentileRange; count: number }
+export interface PersonalPlan {
+  classId: string; className: string; grade: number; teacher: string; subject: "READING" | "LANGUAGE"; term: string | null; bands: PlanBand[]; notTested: string[];
+  classAverageRit: number | null;
+  /** NWEA's published national average RIT for this grade, season and subject (same source as each student's own national comparison) — one overall number; NWEA does not publish a national average per instructional area, so this isn't repeated per area. */
+  nationalAverageRit: number | null;
+  /** Every instructional area (not just the 3 weakest per band) with the whole class's average RIT, weakest first. */
+  areaBreakdown: AreaBreakdownRow[];
+  /** The same, per individual student (studentId → every instructional area's own RIT for that one student), for
+   *  the one-student Personalized Plan view. Only students with at least one MAP score for this subject/term. */
+  studentAreaBreakdown: Record<string, AreaBreakdownRow[]>;
+  /** How many of this class's scored students fall in each NWEA national-percentile range (>80 / 61–80 / 41–60 /
+   *  21–40 / <21), fixed order, for the whole-class "percentile distribution" chart. Recomputed from the live
+   *  roster and latest MAP scores every time this plan is generated, so it tracks students/data as they change.
+   *  Students with no national percentile (no national norm for this grade/term) aren't counted in any range. */
+  percentileDistribution: PercentileRangeRow[];
+}
+
+const PERCENTILE_RANGES: PercentileRange[] = [">80", "61-80", "41-60", "21-40", "<21"];
+function percentileRangeOf(p: number): PercentileRange {
+  return p > 80 ? ">80" : p >= 61 ? "61-80" : p >= 41 ? "41-60" : p >= 21 ? "21-40" : "<21";
+}
+/** Buckets a set of national percentiles into NWEA's five standard ranges, in fixed display order. */
+function percentileDistributionOf(percentiles: number[]): PercentileRangeRow[] {
+  const counts = new Map<PercentileRange, number>(PERCENTILE_RANGES.map((r) => [r, 0]));
+  for (const p of percentiles) counts.set(percentileRangeOf(p), (counts.get(percentileRangeOf(p)) ?? 0) + 1);
+  return PERCENTILE_RANGES.map((range) => ({ range, count: counts.get(range) ?? 0 }));
+}
 
 const RESOURCES: Record<Band, string[]> = {
   BELOW: ["🔁 Adaptive practice starting at Approaching, with the 🛟 support path (same skill, grade below)", "⭐ ReadMaster Approaching versions at the student's Lexile, with 🔊 Listen", "Small-group re-teaching of the goal skills; personalized worksheets"],
@@ -182,5 +213,36 @@ export async function personalPlan(repo: Repo, actor: Actor, classId: string, su
   const mstudents = members.length ? await repo.findMany("Student", { id: { in: members } }, { select: ["id", "userId"] }) : [];
   const musers = mstudents.length ? await repo.findMany("User", { id: { in: mstudents.map((x) => x.userId) } }, { select: ["displayName"] }) : [];
   const classAverageRit = v.rows.length ? Math.round(v.rows.reduce((n, r) => n + r.rit, 0) / v.rows.length) : null;
-  return { classId, className: s(klass.name), grade, teacher: s(tu?.displayName ?? ""), subject, term: v.term, bands, notTested: musers.map((u) => s(u.displayName)).sort(), classAverageRit };
+  const nationalAverageRit = v.norm ? Math.round(v.norm.mean) : null;
+  // every instructional area (not just each band's 3 weakest) for a set of students — same family-merge the per-band
+  // goals use, so NWEA's one combined "Literary Text" / "Informational Text" / "Writing" score isn't shown twice
+  // under two platform sub-areas. `members: null` = every student with a score (the whole-class breakdown).
+  const areaBreakdown = areaBreakdownOf(areas, goalRows, null);
+  // the SAME breakdown, per individual student (owner: "Instructional Areas" in the one-student Personalized Plan
+  // too, not just the whole-class view) — every goal area's own RIT for that one student, "students" always 0 or 1.
+  const studentAreaBreakdown: Record<string, AreaBreakdownRow[]> = {};
+  for (const id of ids) studentAreaBreakdown[id] = areaBreakdownOf(areas, goalRows, new Set([id]));
+  const percentileDistribution = percentileDistributionOf(v.rows.map((r) => r.national?.percentile ?? null).filter((x): x is number => x !== null));
+  return { classId, className: s(klass.name), grade, teacher: s(tu?.displayName ?? ""), subject, term: v.term, bands, notTested: musers.map((u) => s(u.displayName)).sort(), classAverageRit, nationalAverageRit, areaBreakdown, studentAreaBreakdown, percentileDistribution };
+}
+
+/** The whole-class (members: null) or one student's/group's (members: a set of studentIds) RIT per instructional
+ *  (goal) area, weakest first — areas NWEA reports as one combined score across the platform's finer sub-areas are
+ *  merged back into one row (same signature: same students, same RIT). */
+function areaBreakdownOf(areas: Row[], goalRows: Row[], members: Set<string> | null): AreaBreakdownRow[] {
+  const inScope = (g: Row) => !members || members.has(s(g.studentId));
+  const sigOf = (areaId: string) => goalRows.filter((g) => inScope(g) && s(g.goalAreaId) === areaId).map((g) => `${s(g.studentId)}:${g.rit}`).sort().join("|");
+  const raw = areas.map((a) => {
+    const vals = goalRows.filter((g) => inScope(g) && s(g.goalAreaId) === s(a.id)).map((g) => Number(g.rit));
+    return { area: s(a.name), areaId: s(a.id), meanRit: vals.length ? Math.round(vals.reduce((x, y) => x + y, 0) / vals.length) : null, students: vals.length };
+  });
+  const out: AreaBreakdownRow[] = [];
+  for (const x of raw) {
+    const fam = x.area.split(":")[0];
+    const twin = out.find((m) => m.area.split(":")[0] === fam && m.meanRit === x.meanRit && x.meanRit !== null && sigOf(raw.find((r) => r.area === m.area)!.areaId) === sigOf(x.areaId));
+    if (twin) twin.area = `${fam}: ${twin.area.slice(fam.length + 2)} · ${x.area.slice(fam.length + 2)}`;
+    else out.push({ area: x.area, meanRit: x.meanRit, students: x.students });
+  }
+  out.sort((a, b) => (a.meanRit ?? Infinity) - (b.meanRit ?? Infinity) || a.area.localeCompare(b.area));
+  return out;
 }

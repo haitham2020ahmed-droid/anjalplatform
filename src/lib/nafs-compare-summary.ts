@@ -86,6 +86,20 @@ const classOfMost = (list: readonly { classId: string }[], fallback: string | nu
 };
 const inClass = <T extends { classId: string }>(list: readonly T[], classId: string | null) => (classId ? list.filter((x) => x.classId === classId) : [...list]);
 
+/**
+ * 🐛 r91 fix: `onlyOne` can hold a mix of students who took only A and students who took only B. The old code
+ * built one make-up action for the whole group, picking a single test by majority — so the minority (who took
+ * the *other* one) got sent to retake a test they'd already completed, while their real gap (the one they're
+ * actually missing) never got an action at all. Split into one action per missing test instead.
+ */
+function makeupActions(onlyOne: readonly { id: string; took: "A" | "B" }[], a: { id: string } | null, b: { id: string } | null): PlanAction[] {
+  const tookA = onlyOne.filter((x) => x.took === "A").length, tookB = onlyOne.filter((x) => x.took === "B").length;
+  const out: PlanAction[] = [];
+  if (tookA && b) out.push(act("open", CA.makeup, compareHrefs.makeup(b.id), { n: tookA }));
+  if (tookB && a) out.push(act("open", CA.makeup, compareHrefs.makeup(a.id), { n: tookB }));
+  return out;
+}
+
 /** "In one line": more up than down, or the other way (tests and practice). */
 export function oneLineUpDown(r: { improved: number; dropped: number; rows: readonly unknown[] }): Line {
   if (!r.rows.length) return line(C.oneNone, "info");
@@ -100,8 +114,7 @@ export function compareTestsSummary(r: TestsCompare, o: Ctx): Summary {
   if (!r.rows.length) {
     const lines: Line[] = [line(C.none, "info")];
     if (r.onlyOne.length) lines.push(line(C.only, "help", { names: nameList(r.onlyOne) }));
-    const missing = r.onlyOne.find((x) => x.took === "A") ? r.b : r.a;
-    if (r.onlyOne.length && missing) actions.push(act("open", CA.makeup, compareHrefs.makeup(missing.id), { n: r.onlyOne.length }));
+    actions.push(...makeupActions(r.onlyOne, r.a, r.b));
     lines.push(line(r.onlyOne.length ? C.nextOnly : C.nextNone, "next", { n: r.onlyOne.length }));
     return { lines, actions };
   }
@@ -127,10 +140,7 @@ export function compareTestsSummary(r: TestsCompare, o: Ctx): Summary {
     const mine = inClass(up, cid);
     if (cid) actions.push(act("practice", CA.challenge, compareHrefs.practice(cid, r.shared, mine.map((x) => x.id)), { n: mine.length }));
   }
-  if (r.onlyOne.length) {
-    const missing = r.onlyOne.filter((x) => x.took === "A").length >= r.onlyOne.filter((x) => x.took === "B").length ? r.b : r.a;
-    if (missing) actions.push(act("open", CA.makeup, compareHrefs.makeup(missing.id), { n: r.onlyOne.length }));
-  }
+  actions.push(...makeupActions(r.onlyOne, r.a, r.b));
   if (o.admin) actions.push(act("followup", CA.followup, hrefs.followup()));
   const next = down.length ? line(C.nextDown, "next", { n: down.length })
     : r.mostDropped ? line(C.nextStd, "next", { std: r.mostDropped.short })
@@ -206,7 +216,7 @@ export function compareAllSummary(r: AllCompare, o: Ctx): Summary {
   if (notUsed.length) { const cid = classOfMost(notUsed, o.classId); if (cid) actions.push(act("practice", CA.practise, compareHrefs.test(cid, r.tests.shared), { n: inClass(notUsed, cid).length })); }
   if (less.length) { const cid = classOfMost(less, o.classId); if (cid) actions.push(act("practice", CA.encourage, compareHrefs.practice(cid, [], inClass(less, cid).map((x) => x.id)), { n: inClass(less, cid).length })); }
   if (ex.length) { const cid = classOfMost(ex, o.classId); if (cid) actions.push(act("practice", CA.challenge, compareHrefs.practice(cid, r.tests.shared, inClass(ex, cid).map((x) => x.id)), { n: inClass(ex, cid).length })); }
-  if (r.tests.onlyOne.length) { const missing = r.tests.onlyOne.filter((x) => x.took === "A").length >= r.tests.onlyOne.filter((x) => x.took === "B").length ? r.tests.b : r.tests.a; if (missing) actions.push(act("open", CA.makeup, compareHrefs.makeup(missing.id), { n: r.tests.onlyOne.length })); }
+  actions.push(...makeupActions(r.tests.onlyOne, r.tests.a, r.tests.b));
   if (o.admin) actions.push(act("followup", CA.followup, hrefs.followup()));
   const next = sup.length ? line(C.nextAllSupport, "next", { names: nameList(sup) })
     : notUsed.length ? line(C.nextAllNotUsed, "next", { names: nameList(notUsed) })

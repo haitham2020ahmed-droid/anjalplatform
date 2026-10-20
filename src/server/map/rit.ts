@@ -13,13 +13,16 @@ import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
 import { accessibleClasses } from "../teacher/assign";
 import { assertClassAccess } from "../teacher/assignments";
-import { NATIONAL_NORMS_SOURCE, NATIONAL_READING_NORMS } from "./national-norms";
+import { NATIONAL_NORMS_SOURCE, NATIONAL_LANGUAGE_NORMS, NATIONAL_READING_NORMS } from "./national-norms";
 
 const s = (v: unknown) => String(v ?? "");
 export type Season = "FALL" | "WINTER" | "SPRING";
 export const SEASONS: Season[] = ["FALL", "WINTER", "SPRING"];
 export const CLASS_BAND_RIT = 3;
 const MEAN = "MAP_READING_RIT_MEAN", SD = "MAP_READING_RIT_SD";
+// 🐛 r91 fix: Language Usage's own metric keys, stored and read separately from Reading's.
+const LANG_MEAN = "MAP_LANGUAGE_RIT_MEAN", LANG_SD = "MAP_LANGUAGE_RIT_SD";
+export type NormSubject = "READING" | "LANGUAGE";
 const iso = (v: unknown) => (v instanceof Date ? v.toISOString() : s(v));
 
 /** “Fall 2026” → FALL; otherwise from the test month (Aug–Nov fall, Dec–Feb winter, Mar–Jul spring). */
@@ -54,12 +57,20 @@ async function insertNorms(repo: Repo): Promise<void> {
     rows.push({ scope: "NATIONAL", metric: MEAN, gradeLevel: Number(g), season, value: bySeason[season].mean, source: NATIONAL_NORMS_SOURCE, importedAt: new Date() });
     rows.push({ scope: "NATIONAL", metric: SD, gradeLevel: Number(g), season, value: bySeason[season].sd, source: NATIONAL_NORMS_SOURCE, importedAt: new Date() });
   }
+  // 🐛 r91 fix: seed Language Usage's own norms too (previously only Reading was ever stored).
+  for (const [g, bySeason] of Object.entries(NATIONAL_LANGUAGE_NORMS)) for (const season of SEASONS) {
+    rows.push({ scope: "NATIONAL", metric: LANG_MEAN, gradeLevel: Number(g), season, value: bySeason[season].mean, source: NATIONAL_NORMS_SOURCE, importedAt: new Date() });
+    rows.push({ scope: "NATIONAL", metric: LANG_SD, gradeLevel: Number(g), season, value: bySeason[season].sd, source: NATIONAL_NORMS_SOURCE, importedAt: new Date() });
+  }
   await repo.createMany("BenchmarkReference", rows);
 }
 
-export async function nationalNorm(repo: Repo, grade: number, season: Season): Promise<{ mean: number; sd: number; source: string } | null> {
-  const rows = await repo.findMany("BenchmarkReference", { scope: "NATIONAL", gradeLevel: grade, season, metric: { in: [MEAN, SD] } });
-  const mean = rows.find((r) => r.metric === MEAN), sd = rows.find((r) => r.metric === SD);
+/** 🐛 r91 fix: `subject` picks Reading's or Language Usage's own norms (defaults to Reading — every pre-existing
+ * caller that never cared about the distinction keeps behaving exactly as before). */
+export async function nationalNorm(repo: Repo, grade: number, season: Season, subject: NormSubject = "READING"): Promise<{ mean: number; sd: number; source: string } | null> {
+  const [m, sdKey] = subject === "LANGUAGE" ? [LANG_MEAN, LANG_SD] : [MEAN, SD];
+  const rows = await repo.findMany("BenchmarkReference", { scope: "NATIONAL", gradeLevel: grade, season, metric: { in: [m, sdKey] } });
+  const mean = rows.find((r) => r.metric === m), sd = rows.find((r) => r.metric === sdKey);
   return mean && sd ? { mean: Number(mean.value), sd: Number(sd.value), source: s(mean.source) } : null;
 }
 
@@ -69,6 +80,11 @@ function phi(z: number): number {
   const erf = 1 - (((((1.061405429 * t - 1.453152027) * t) + 1.421413741) * t - 0.284496736) * t + 0.254829592) * t * Math.exp(-x * x);
   return z >= 0 ? (1 + erf) / 2 : (1 - erf) / 2;
 }
+/** 🐛 r91 fix ("3 معادلات نسبة مئوية مختلفة بتدي نتيجة مختلفة"): THE one shared estimated-percentile formula — was
+ * duplicated three more times (two different approximations) across map-plan.ts/map-test.ts/sim.ts/student-map.ts,
+ * so the same RIT could show a different band on different pages. Every one of those now calls this instead. */
+export const percentileFromNorm = (rit: number, n: { mean: number; sd: number } | null): number | null =>
+  n && n.sd > 0 ? Math.max(1, Math.min(99, Math.round(100 * phi((rit - n.mean) / n.sd)))) : null;
 export const bandOf = (pct: number) => (pct < 21 ? "Low" : pct <= 40 ? "LoAvg" : pct <= 60 ? "Avg" : pct <= 80 ? "HiAvg" : "High");
 
 export interface RitRow {
@@ -117,15 +133,19 @@ export async function ritView(repo: Repo, actor: Actor, opts: { grade?: number; 
   const term = opts.term && terms.includes(opts.term) ? opts.term : terms[0] ?? null;
   if (!term) return { ...empty, terms };
   const season = seasonOf(term);
-  // Reading: mean + SD (2025 norms). Language Usage: the grade-level mean from NWEA's Grade Report (Fall);
-  // its SD is not known here, so its percentile is NWEA's own from the file (never estimated)
-  const LANGUAGE_FALL_MEAN: Record<number, number> = { 4: 194.7, 5: 201.9, 6: 206.5 };
-  const norm = wantLanguage
-    ? (season === "FALL" && LANGUAGE_FALL_MEAN[grade] ? { mean: LANGUAGE_FALL_MEAN[grade], sd: 0, source: "NWEA 2025 norms · Language Usage grade-level mean (Grade Report, Fall)" } : null)
-    : await nationalNorm(repo, grade, season);
+  // 🐛 r91 fix: Reading and Language Usage now each read their own mean + SD (2025 norms), every season — the old
+  // ad-hoc "Language only has a Fall mean, no SD" substitution is gone now that both are properly stored.
+  const subj: NormSubject = wantLanguage ? "LANGUAGE" : "READING";
+  const norm = await nationalNorm(repo, grade, season, subj);
   // one result per student for the term (their most recent test in it)
   const best = new Map<string, Row>();
   for (const r of results.filter((x) => termOf(x) === term)) { const cur = best.get(s(r.studentId)); if (!cur || time(r) > time(cur)) best.set(s(r.studentId), r); }
+  // 🐛 r91 fix ("درجات قديمة بتتحسب بصف الطالب الحالي مش صفه وقت الاختبار"): each row's OWN stamped test-time grade
+  // (a promoted/retained student may differ from the grade this report is currently showing) gets its own norm —
+  // pre-fetched once per distinct grade needed, since `norm` above stays the page's selected grade for the summary.
+  const neededGrades = [...new Set([...best.values()].map((r) => Number(r.grade) || grade))];
+  const normByGrade = new Map<number, { mean: number; sd: number; source: string } | null>(neededGrades.includes(grade) ? [[grade, norm]] : []);
+  for (const g of neededGrades) if (!normByGrade.has(g)) normByGrade.set(g, await nationalNorm(repo, g, season, subj));
   const students = best.size ? await repo.findMany("Student", { id: { in: [...best.keys()] } }, { select: ["id", "userId"] }) : [];
   const users = students.length ? await repo.findMany("User", { id: { in: students.map((x) => x.userId) } }, { select: ["id", "displayName"] }) : [];
   const nameOf = new Map(students.map((x) => [s(x.id), s(users.find((u) => u.id === x.userId)?.displayName ?? "Student")]));
@@ -135,11 +155,12 @@ export async function ritView(repo: Repo, actor: Actor, opts: { grade?: number; 
   const avg = (xs: number[]) => Math.round((10 * xs.reduce((a, b) => a + b, 0)) / xs.length) / 10;
   const rows: RitRow[] = [...best.entries()].map(([sid, r]): RitRow => {
     const rit = Number(r.rit), cid = classOf.get(sid)!, classAvg = avg(byClass.get(cid)!);
+    const rowNorm = normByGrade.get(Number(r.grade) || grade) ?? null;
     let national: RitRow["national"] = null;
-    if (norm) {
+    if (rowNorm) {
       const imported = r.achievementPercentile !== null && r.achievementPercentile !== undefined;
-      const pct = imported ? Number(r.achievementPercentile) : norm.sd > 0 ? Math.max(1, Math.min(99, Math.round(100 * phi((rit - norm.mean) / norm.sd)))) : null;
-      national = { mean: norm.mean, diff: Math.round((rit - norm.mean) * 10) / 10, percentile: pct, estimated: !imported && pct !== null, band: pct === null ? null : bandOf(pct) };
+      const pct = imported ? Number(r.achievementPercentile) : percentileFromNorm(rit, rowNorm);
+      national = { mean: rowNorm.mean, diff: Math.round((rit - rowNorm.mean) * 10) / 10, percentile: pct, estimated: !imported && pct !== null, band: pct === null ? null : bandOf(pct) };
     }
     const diffClass = Math.round((rit - classAvg) * 10) / 10;
     const fall = results.filter((x) => s(x.studentId) === sid && seasonOf(x.termName, x.testDate) === "FALL" && x.projectedGrowth !== null && x.projectedGrowth !== undefined && time(x) <= time(r)).sort((a, b) => time(b) - time(a))[0];

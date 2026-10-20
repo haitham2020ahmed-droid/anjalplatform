@@ -12,6 +12,7 @@ export const BANK_TABS: readonly { href: string; label: string; icon: LineIconNa
   { href: "/admin/item-quality", label: "Quality", icon: "search" },
   { href: "/admin/bank-gaps", label: "Gaps", icon: "grid" },
   { href: "/admin/questions/duplicates", label: "Duplicates", icon: "layers" },
+  { href: "/admin/questions/option-duplicates", label: "Duplicate Answers", icon: "alert" },
   { href: "/admin/questions/import", label: "Import", icon: "inbox" },
   { href: "/admin/questions/load", label: "Load new questions", icon: "download" },
 ];

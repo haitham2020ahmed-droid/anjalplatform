@@ -514,6 +514,13 @@ export interface MyWorkItem {
   /** the teacher's note (e.g. "Reteach: Weekly Quiz – Week 6") */
   note?: string | null;
   /**
+   * 🐛 r91 fix: true for a row shown "Done" (so it still counts toward progress/is folded away like the rest of
+   * Done) that is actually SUBMITTED-but-not-yet-graded (writing/read-aloud) — "Done" on its own disagreed with
+   * the Writing page's own "sent · waiting for the score" wording for the identical state, and lost the
+   * "overdue" signal for a submission that was in fact late.
+   */
+  awaitingReview?: boolean;
+  /**
    * r74: every source the work was assigned from (badges) — the same skill assigned from two sources is ONE item
    * with both sources; its dates: the earliest start and the latest due date of those assignments
    */

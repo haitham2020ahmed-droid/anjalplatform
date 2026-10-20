@@ -65,6 +65,11 @@ export const PASSAGE_MAX_SECONDS = 240;
 export const MAX_AUDIO_BYTES = 12 * 1024 * 1024;
 export const COACH_PER_DAY = 12;
 const MINUTE_WORDS = 260, PASSAGE_WORDS = 400;
+// 🐛 r91 fix ("قارئ سريع بيخلّص النص بدري فيقعد صامت لحد ما الدقيقة تخلص فتطلع سرعته أقل مما هي فعلاً"): the MINUTE
+// check always records the full 60 seconds (coach-reader.tsx auto-stops at :60, no early-stop), so a passage
+// shorter than the fastest realistic reader's 1-minute output understates their WCPM. 225 ≈ the highest published
+// Hasbrouck & Tindal 90th-percentile rate (Grade 6, spring: 204 WCPM) plus a safety margin.
+const MINUTE_MIN_WORDS = 225;
 const KEY = "fluency.coach";
 
 // ------------------------------------------------------------------ settings (the admin's switch)
@@ -584,6 +589,10 @@ export function makePlan(input: { level: Level; wcpm: number; expression: number
 
 const clampKind = (k: unknown, mode: CoachMode): PracticeKind => (PRACTICE_KINDS.includes(k as PracticeKind) ? (k as PracticeKind) : mode);
 const day = (x: unknown) => (d(x) ?? new Date(0)).toISOString().slice(0, 10);
+// r85 audit: for deciding whether "two 1-minute cold reads on the same day" should be averaged (riyadhDay below),
+// the school day must be Riyadh-local (UTC+3), the convention used elsewhere in this codebase for day boundaries
+// — `day()` above stays raw UTC since it is only used for display dates, where this doesn't matter.
+const riyadhDay = (x: unknown) => new Date((d(x) ?? new Date(0)).getTime() + 3 * 3_600_000).toISOString().slice(0, 10);
 
 /** One prosody number (NAEP 1–4) for a reading: the mean of the four traits, else the overall expression score. */
 export function prosodyMean(traits: Record<string, unknown> | null | undefined, expression: unknown = null): number | null {
@@ -761,6 +770,7 @@ export async function scoreReading(repo: Repo, actor: Actor, input: ScoreInput, 
   } else {
     p = all.find((x) => x.key === key) ?? null;
     if (!p) throw new ForbiddenError("Passage not found.");
+    if (mode === "MINUTE" && p.words < MINUTE_MIN_WORDS) throw new ValidationError("This passage is too short for a full 1-minute check — it could run out before the minute is up. Choose a longer passage.");
     words = passageWords(p.body, mode);
     if (kind === "ECHO") {
       const ss = sentences(words), k = Number(input.sentence);
@@ -884,8 +894,8 @@ export async function scoreReading(repo: Repo, actor: Actor, input: ScoreInput, 
   // the official 1-minute check joins Reading Fluency (and from there every report); two the same day → the average
   let average: CoachResult["average"] = null;
   if (official) {
-    const today = now.toISOString().slice(0, 10);
-    const todays = (await repo.findMany("FluencyCheck", { studentId: actor.studentId, source: "COACH" })).filter((c) => day(c.checkedAt) === today);
+    const today = riyadhDay(now);
+    const todays = (await repo.findMany("FluencyCheck", { studentId: actor.studentId, source: "COACH" })).filter((c) => riyadhDay(c.checkedAt) === today);
     const first = todays.find((c) => !/average of 2/i.test(s(c.note)));
     if (first && todays.length === 1) {
       const reads = [Number(first.wcpm), n.wcpm];

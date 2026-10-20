@@ -10,9 +10,10 @@
  * plain-language topics (src/server/reports/family-week-words.ts), not skill codes. Everything shown is an interface
  * string (translated by t()) or the student's own data, so the page and the PDF read the same in both languages.
  *
- * Who: the student (their own week, /student/reports?view=family), the class's teacher and the school admin
+ * Who: the student (their own week, /student/reports?view=family), their linked parent (their own child only,
+ * the per-student PDF at /api/family-week?studentId=…), and the class's teacher and the school admin
  * (assertClassAccess) — the teacher previews each student in the student's format and downloads one PDF or a
- * class PDF (a page per student) to send by WhatsApp. No new role: parents get the page from the student or as a PDF.
+ * class PDF (a page per student) to send by WhatsApp.
  * Bounded: one class (≤ 60 students) per call, this week's rows only, batched `in` reads.
  */
 import type { Repo, Row } from "../seeding/repo";
@@ -46,13 +47,19 @@ export interface FamilyWeekBatch { classId: string; className: string; grade: nu
 const isAdmin = (a: Actor) => a.role === "SCHOOL_ADMIN" || a.role === "SUPER_ADMIN";
 const iso = (d: Date) => d.toISOString().slice(0, 10);
 
-/** The current class of a student that this person may open (the student: their own). */
+/** The current class of a student that this person may open (the student: their own; a parent: their own child). */
 async function classOfStudent(repo: Repo, actor: Actor, studentId: string): Promise<Row> {
   const st = await repo.findUnique("Student", { id: studentId });
   if (!st || s(st.schoolId) !== s(actor.schoolId)) throw new ForbiddenError("Student not found.");
   const ms = await repo.findMany("ClassMembership", { studentId, leftAt: null }, { select: ["classId"] });
-  if (actor.role === "STUDENT") {
-    if (actor.studentId !== studentId) throw new ForbiddenError("Student not found.");
+  // 🐛 L11 fix: a PARENT calling familyWeek() for their own child always fell through to "Student not found" below —
+  // this branch only recognized STUDENT (self); the other branch (assertClassAccess) only ever allows staff
+  // (SUPER_ADMIN/SCHOOL_ADMIN/TEACHER) and explicitly rejects PARENT. The route (/api/family-week) and PDF export
+  // already anticipated a parent caller (see family-week-pdf.ts's `actor.role !== "PARENT"` check) — only this
+  // authorization check was missing.
+  if (actor.role === "STUDENT" || actor.role === "PARENT") {
+    const allowed = actor.role === "STUDENT" ? actor.studentId === studentId : (actor.parentChildIds?.has(studentId) ?? false);
+    if (!allowed) throw new ForbiddenError("Student not found.");
     const k = ms.length ? await repo.findUnique("Class", { id: ms[0].classId }) : null;
     return k ?? { id: "", name: "", gradeId: st.gradeId, schoolId: st.schoolId };
   }
@@ -98,7 +105,11 @@ async function buildWeeks(repo: Repo, ids: string[], klass: { className: string;
     repo.findMany("PracticeSession", { studentId: { in: ids }, startedAt: { gte: since } }, { select: ["studentId", "activeMs", "startedAt", "assignmentId", "mode", "correctCount"] }),
     repo.findMany("RRRun", { studentId: { in: ids }, completedAt: { gte: since } }, { select: ["studentId", "articleId", "readSeconds", "completedAt"] }),
     repo.findMany("LessonRun", { studentId: { in: ids }, finishedAt: { gte: since } }, { select: ["studentId", "skillId", "finishedAt"] }),
-    repo.findMany("QuestionAttempt", { studentId: { in: ids }, createdAt: { gte: since } }, { select: ["studentId", "skillId", "isCorrect", "rapidGuess", "createdAt"] }),
+    // "unreliable" (r85 audit) is selected and filtered below for the same reason every other reader of
+    // QuestionAttempt excludes it: a session with too many guesses backfills unreliable:true onto its rows even
+    // when one particular answer wasn't itself flagged rapidGuess — without it, that noise could pick the wrong
+    // "practise at home" topic for the family.
+    repo.findMany("QuestionAttempt", { studentId: { in: ids }, createdAt: { gte: since } }, { select: ["studentId", "skillId", "isCorrect", "rapidGuess", "unreliable", "createdAt"] }),
     repo.findMany("StudentSkillMastery", { studentId: { in: ids }, isMastered: false }, { select: ["studentId", "skillId", "score"], orderBy: [{ field: "score", dir: "asc" }], take: ids.length * 8 }),
     repo.findMany("NafsResult", { studentId: { in: ids }, submittedAt: { gte: since } }, { select: ["studentId", "testId", "classId", "points", "maxPoints", "submittedAt"] }).catch(() => [] as Row[]),
     repo.findMany("FamilyWeekNote", { studentId: { in: ids }, week: iso(since) }, { select: ["studentId", "note"] }).catch(() => [] as Row[]), // a database without the table yet: no notes
@@ -158,7 +169,7 @@ async function buildWeeks(repo: Repo, ids: string[], klass: { className: string;
     const days = new Set([...mineSessions.filter((x) => Number(x.activeMs) > 0).map((x) => iso(new Date(time(x.startedAt)))), ...mineAttempts.map((a) => iso(new Date(time(a.createdAt)))), ...mineRuns.map((r) => iso(new Date(time(r.completedAt))))]).size;
     // things to practise: this week's hardest skills (3+ careful answers, under 70 %), then the skills not mastered yet
     const per = new Map<string, { n: number; ok: number }>();
-    for (const a of mineAttempts) { if (a.rapidGuess || !skillName.has(s(a.skillId))) continue; const o = per.get(s(a.skillId)) ?? { n: 0, ok: 0 }; o.n++; if (a.isCorrect) o.ok++; per.set(s(a.skillId), o); }
+    for (const a of mineAttempts) { if (a.rapidGuess || a.unreliable || !skillName.has(s(a.skillId))) continue; const o = per.get(s(a.skillId)) ?? { n: 0, ok: 0 }; o.n++; if (a.isCorrect) o.ok++; per.set(s(a.skillId), o); }
     const hard = [...per].filter(([, o]) => o.n >= 3 && o.ok / o.n < 0.7).sort((a, b) => a[1].ok / a[1].n - b[1].ok / b[1].n).map(([k]) => k);
     const open = mastery.filter((m) => s(m.studentId) === id && skillName.has(s(m.skillId))).map((m) => s(m.skillId));
     const practise: HomeTopic[] = [];

@@ -37,6 +37,7 @@ import type { Branding, ReportDoc } from "../../reports/model";
 import { BRAND, PLATFORM, SOURCE_COLORS } from "../../components/print/tokens";
 import { appOrigin, isPlanHref, planHref, planQrSvg, PLAN_LINKS_NOTE, type PlanAudience } from "../../lib/plan-links";
 import { RateLimitedError, REPORT_RATE, loadBranding, type ReportDeps } from "../reports/service";
+import { curriculumLessons, studentCurriculumLessons, type CurriculumUnit } from "./lesson-details";
 import eqData from "../../../data/curriculum-map/essential-questions.json";
 
 const s = (v: unknown) => (v === null || v === undefined ? "" : String(v));
@@ -58,7 +59,18 @@ export const MAP_CATEGORY_GROUPS: { key: string; en: string; ar: string; categor
 const groupOfCategory = (c: string) => MAP_CATEGORY_GROUPS.find((g) => g.categories.includes(c)) ?? MAP_CATEGORY_GROUPS[1];
 
 export interface MapPdfSkill { id: string; name: string; code: string; group: string }
-export interface MapPdfSection { number: number; weeks: number[]; essentialQuestion: string | null; title: string; genre: string | null; selections: { label: string; name: string }[]; skills: MapPdfSkill[] }
+/** r86: one of a selection's Concept Vocabulary / Analyze Craft and Structure / Review sections, exactly as the
+ * Lessons tab lists and assigns it (src/server/curriculum-map/lesson-details.ts#LessonSection) — a CurriculumMapNode
+ * "place", not a platform Skill: `code` is the place's own code (what ⭐ Assign sends), not a skillId. */
+export interface MapPdfLessonSection { code: string; title: string; kind: string | null; ready: boolean }
+export interface MapPdfSection {
+  number: number; weeks: number[]; essentialQuestion: string | null; title: string; genre: string | null; selections: { label: string; name: string }[]; skills: MapPdfSkill[];
+  /** r86 (owner: "حول Concept Vocabulary / Analyze Craft and Structure لنفس اللي في Lessons بالظبط، بنفس ربط
+   * الأسئلة، مع الإبقاء على الجرامر"): filled in by skill-plan.ts for the LIVE page only (never by this file / the
+   * printed PDF) — Grammar and punctuation (and Writing, Spelling & word study) still come from `skills` above,
+   * unchanged; Concept Vocabulary and Analyze Craft and Structure no longer do. */
+  lessonSections?: MapPdfLessonSection[];
+}
 export interface MapPdfUnit { number: number; title: string; sections: MapPdfSection[]; /** the unit's writing skills (Wonders: one writing project per unit, not tied to one week) */ writing: MapPdfSkill[] }
 export interface MapPdfData { grade: number; book: string; units: MapPdfUnit[] }
 
@@ -119,6 +131,56 @@ export async function curriculumMapPdfData(repo: Repo, schoolId: string, grade: 
   };
 }
 
+/** Pure: Concept Vocabulary / Analyze Craft and Structure / Review out of an already-fetched Lessons-tab unit list
+ * (either `curriculumLessons`'s, for staff, or `studentCurriculumLessons`'s, for students — both lesson-details.ts),
+ * keyed `${unitNumber}|${selectionNumber}`. */
+function lessonSectionsFromUnits(units: CurriculumUnit[]): Map<string, MapPdfLessonSection[]> {
+  const out = new Map<string, MapPdfLessonSection[]>();
+  for (const u of units) {
+    const um = /^G\d+\.U(\d+)$/.exec(u.code);
+    if (!um) continue;
+    for (const l of u.lessons) {
+      // Text Set (Grades 4–5: "TS{n}") or Selection (Grade 6 / StudySync: "SEL{n}") — both are numbered the same
+      // way as the matching Lesson.number, just named differently per book (see seed.ts expectedNodes)
+      const tm = /^G\d+\.U\d+\.(?:TS|SEL)(\d+)$/.exec(l.code);
+      if (!tm) continue;
+      const secs = l.sections.filter((x) => x.kind === "CONCEPT_VOCABULARY" || x.kind === "ANALYZE_CRAFT_AND_STRUCTURE" || x.kind === "REVIEW")
+        .map((x) => ({ code: x.code, title: x.title, kind: x.kind, ready: x.ready }));
+      if (secs.length) out.set(`${um[1]}|${tm[1]}`, secs);
+    }
+  }
+  return out;
+}
+
+/**
+ * r86: Concept Vocabulary / Analyze Craft and Structure / Review for every selection — the exact sections (code,
+ * title, ready) the Lessons tab itself lists and assigns (src/components/curriculum-map/lesson-card.tsx) — keyed
+ * `${unitNumber}|${selectionNumber}`. Shared by the live Skill plan page (skill-plan.ts) and this file's own PDF
+ * export below, so both read the Curriculum Map's own categories the same way. Staff only (curriculumLessons
+ * forbids STUDENT/PARENT) — the PDF export below uses `studentCurriculumLessons` instead for a student's own copy.
+ * Empty when this grade has no map.
+ */
+export async function lessonSectionsByLesson(repo: Repo, actor: Actor, grade: number): Promise<Map<string, MapPdfLessonSection[]>> {
+  const { units, grade: level } = await curriculumLessons(repo, actor, grade);
+  return level === grade ? lessonSectionsFromUnits(units) : new Map(); // not this grade's own map (e.g. the actor has no map for it at all)
+}
+
+/** Merges `lessonSectionsByLesson`'s output into a MapPdfData's sections (the one place both skill-plan.ts and
+ * this file's own PDF export apply it, so the merge itself never drifts between the two). */
+export function withLessonSections(d: MapPdfData, lessonSections: Map<string, MapPdfLessonSection[]>): MapPdfData {
+  if (!lessonSections.size) return d;
+  return {
+    ...d,
+    units: d.units.map((u) => ({
+      ...u,
+      sections: u.sections.map((sec) => {
+        const ls = lessonSections.get(`${u.number}|${sec.number}`);
+        return ls?.length ? { ...sec, lessonSections: ls } : sec;
+      }),
+    })),
+  };
+}
+
 // ------------------------------------------------------------------ HTML
 
 const WORDS = {
@@ -153,7 +215,7 @@ export function curriculumMapHtml(d: MapPdfData, o: MapHtmlOptions): string {
   const school = L === "ar" && b.nameAr ? b.nameAr : b.name;
   const how = (o.copy === "staff" ? w.howStaff : w.howStudent).map((x) => `<li>${esc(x)}</li>`).join("");
   const title = mapTitle(d, L);
-  const totalSkills = d.units.reduce((n, u) => n + u.sections.reduce((m, sec) => m + sec.skills.length, 0) + u.writing.length, 0);
+  const totalSkills = d.units.reduce((n, u) => n + u.sections.reduce((m, sec) => m + sec.skills.length + (sec.lessonSections ?? []).filter((x) => aud !== "student" || x.ready).length, 0) + u.writing.length, 0);
   const stats = `<div class="stats"><div class="stat"><b>${d.units.length}</b><span>${esc(L === "ar" ? "وحدات" : "Units")}</span></div><div class="stat"><b>${totalSkills}</b><span>${esc(L === "ar" ? "مهارة" : "Skills")}</span></div></div>`;
   const toc = `<div class="toc">${d.units.map((u) => `<div class="toc-i"><span class="toc-n">${u.number}</span><span class="toc-t" dir="ltr">${esc(u.title)}</span></div>`).join("")}</div>`;
   const cover = `<section class="cover">
@@ -167,25 +229,69 @@ export function curriculumMapHtml(d: MapPdfData, o: MapHtmlOptions): string {
     const name = `<bdi dir="ltr">${esc(k.name)}</bdi>`;
     return `<li><span class="n">${n}.</span> ${href && isPlanHref(href, origin) ? `<a class="plink" href="${esc(href)}">${name}</a>` : name} <span class="code" dir="ltr">${esc(k.code)}</span></li>`;
   };
+  // r86 (owner: "عدل نسخه pdf... بالظبط زي اللي موجود، منظمة وشكلها أنيق عشان هتروح لأولياء الأمور والطلاب"):
+  // Concept Vocabulary / Analyze Craft and Structure / Review print from the Curriculum Map's own categories now
+  // (sec.lessonSections, the same ones the Lessons tab lists — see withLessonSections above), not the platform's
+  // own Skill rows — each in its own named group, same icon/colour family as the matching live category
+  // (Vocabulary=🔤 purple, "craft and structure" reads as Comprehension=📖 blue, Review gets its own 🔁 sky icon).
+  // There is no per-student "click to practise" page for these (they're place-based, handed out only once a
+  // teacher ⭐ Assigns them), so each prints its title only, no link. A STAFF copy also shows a small Ready / Not
+  // ready pill (useful when planning what still needs questions); the STUDENT/family copy skips anything not ready
+  // yet outright — a parent has no use for "Not ready", and a document with it looks unfinished.
+  // Grammar and punctuation (and Writing, Spelling & word study) are untouched: they keep printing from `sec.skills`.
+  const readyWord = L === "ar" ? "جاهز" : "Ready";
+  const notReadyWord = L === "ar" ? "غير جاهز" : "Not ready";
+  const CAT_OF: Record<string, string> = { CONCEPT_VOCABULARY: "vocabulary", ANALYZE_CRAFT_AND_STRUCTURE: "comprehension", REVIEW: "review" };
+  // r87 (owner: "عايز لما اضغط علي concept vocabulary في الـ PDF يوديني عليها"): these three (Concept Vocabulary /
+  // Analyze Craft and Structure / Review) used to print title-only — no per-student practice page existed for a
+  // "place" rather than a platform Skill. Now one does (/skill?code=…, role-agnostic: staff → the staff preview with
+  // the answer key, student/parent → the read-only family preview, signed out → /login first) — so the title links
+  // too, exactly like every platform skill already does in this PDF.
+  const lessonHref = (code: string) => `${origin}/skill?code=${encodeURIComponent(code)}`;
   const right = (sec: MapPdfSection) => {
-    if (!sec.skills.length) return `<p class="muted">${esc(w.none)}</p>`;
+    const lessonSections = (sec.lessonSections ?? []).filter((x) => aud !== "student" || x.ready);
+    if (!sec.skills.length && !lessonSections.length) return `<p class="muted">${esc(w.none)}</p>`;
     let n = 0;
-    return MAP_CATEGORY_GROUPS.map((g) => {
+    const lessonGroups = lessonSections.map((x) => {
+      const href = lessonHref(x.code);
+      const titleHtml = isPlanHref(href, origin) ? `<a class="plink" href="${esc(href)}">${esc(x.title)}</a>` : esc(x.title);
+      return `<div class="grp" data-cat="${CAT_OF[x.kind ?? ""] ?? "vocabulary"}"><h4>${titleHtml}</h4><ol><li><span class="n">${++n}.</span> ${aud !== "student" ? `<span class="status ${x.ready ? "ok" : "wait"}">${esc(x.ready ? readyWord : notReadyWord)}</span>` : ""}</li></ol></div>`;
+    }).join("");
+    // 🐛 r91 fix: used to unconditionally drop "vocabulary"/"comprehension" from sec.skills, assuming
+    // lessonSections always supplies them. If the unit/lesson numbering used to key lessonSectionsByLesson
+    // doesn't line up with this section's actual data (e.g. after editing units/lessons), lessonSections comes
+    // back without that category and those skills vanished from the PDF/live page with no "none" message —
+    // silent content loss. Only skip a category here when lessonSections actually covered it; otherwise fall
+    // back to printing it from sec.skills like every other category already does.
+    const coveredCats = new Set(lessonSections.map((x) => CAT_OF[x.kind ?? ""] ?? "vocabulary"));
+    const skillGroups = MAP_CATEGORY_GROUPS.filter((g) => !coveredCats.has(g.key)).map((g) => {
       const ks = sec.skills.filter((k) => k.group === g.key);
       if (!ks.length) return "";
       return `<div class="grp" data-cat="${g.key}"><h4>${esc(L === "ar" ? g.ar : g.en)}</h4><ol>${ks.map((k) => skillLi(k, ++n)).join("")}</ol></div>`;
     }).join("");
+    return lessonGroups + skillGroups;
   };
   const left = (sec: MapPdfSection) => {
     // Grade 6 (StudySync): the selection IS the lesson — its name once, not twice
     const sels = sec.essentialQuestion ? sec.selections : sec.selections.filter((x) => x.name !== sec.title);
-    return `<p class="wk"><b>${esc(sectionLabel(sec, L))}:</b> <bdi dir="ltr">${esc(sec.essentialQuestion ?? sec.title)}</bdi></p>${sec.essentialQuestion ? `<p class="ts" dir="ltr">${esc(sec.title)}</p>` : sec.genre && !sec.title.includes(sec.genre) ? `<p class="ts" dir="ltr">${esc(sec.genre)}</p>` : ""}${sels.length ? `<ul class="sel" dir="ltr">${sels.map((x) => `<li><span class="sl">${esc(x.label)}:</span> <i>${esc(x.name)}</i></li>`).join("")}</ul>` : ""}`;
+    return `<span class="wk-pill">${esc(sectionLabel(sec, L))}</span><p class="wk-q"><bdi dir="ltr">${esc(sec.essentialQuestion ?? sec.title)}</bdi></p>${sec.essentialQuestion ? `<p class="ts" dir="ltr">${esc(sec.title)}</p>` : sec.genre && !sec.title.includes(sec.genre) ? `<p class="ts" dir="ltr">${esc(sec.genre)}</p>` : ""}${sels.length ? `<ul class="sel" dir="ltr">${sels.map((x) => `<li><span class="sl">${esc(x.label)}:</span> <i>${esc(x.name)}</i></li>`).join("")}</ul>` : ""}`;
   };
+  // r87 (owner: "عدل شكلهم... زي ما اتفقنا قبل"): the Curriculum Map and the Skill Plan print the SAME PDF (this
+  // file) — a plain bordered <table> of weeks vs. skills — so one visual pass covers both. Each Text Set is now its
+  // own rounded, shadowed card (header pill for "Week(s) N", two soft panels side by side) instead of a table row,
+  // which is what kept causing the overlap the teacher saw: a table row's two <td>s force everything in the taller
+  // one to the same fixed height band as the other, so a long skill list (right) pushed its own text up against a
+  // short textbook blurb (left) with no breathing room. Cards size to their own content instead.
+  const sectionCard = (sec: MapPdfSection, extra = "") => `<div class="sec-card${extra}"><div class="sec-l">${left(sec)}</div><div class="sec-r">${right(sec)}</div></div>`;
   const units = d.units.map((u) => {
     const uhref = planHref({ kind: "curriculum-unit", grade: d.grade, unit: u.number }, aud, origin);
     const qr = uhref ? planQrSvg(uhref, 50, origin) : "";
+    const writingCard = u.writing.length
+      ? `<div class="sec-card uw"><div class="sec-l"><span class="wk-pill uw-pill">${esc(w.unitWriting)}</span><p class="wk-q">${esc(w.unitWritingNote)}</p></div><div class="sec-r">${right({ skills: u.writing } as MapPdfSection)}</div></div>`
+      : "";
     return `<section class="unit"><div class="unit-h"><span class="unit-badge">${u.number}</span><h2>${esc(fill(w.unit, { n: u.number }))}</h2><span class="unit-title" dir="ltr">${esc(u.title)}</span>${qr && uhref ? `<a class="qr" href="${esc(uhref)}">${qr}</a>` : ""}</div>
-<div class="map-card"><table><colgroup><col style="width:44%"><col style="width:56%"></colgroup><thead><tr><th scope="col">${esc(w.textbook)}</th><th scope="col">${esc(w.skills)}</th></tr></thead><tbody>${u.sections.map((sec) => `<tr><td class="l">${left(sec)}</td><td class="r">${right(sec)}</td></tr>`).join("")}${u.writing.length ? `<tr class="uw"><td class="l"><p class="wk"><b>${esc(w.unitWriting)}:</b> ${esc(w.unitWritingNote)}</p></td><td class="r">${right({ skills: u.writing } as MapPdfSection)}</td></tr>` : ""}</tbody></table></div></section>`;
+<div class="col-heads"><span>${esc(w.textbook)}</span><span>${esc(w.skills)}</span></div>
+<div class="sections">${u.sections.map((sec) => sectionCard(sec)).join("")}${writingCard}</div></section>`;
   }).join("");
   const css = `
 @page { size: A4; margin: 12mm 12mm 16mm 12mm; }
@@ -234,38 +340,47 @@ bdi { unicode-bidi: isolate; }
 .unit-h h2 { margin: 0; font-size: 20pt; color: ${navy}; }
 .unit-title { color: #64748b; font-size: 9.5pt; font-style: italic; }
 .qr { display: block; line-height: 0; margin-inline-start: auto; }
-.map-card { border-radius: 12px; overflow: hidden; box-shadow: 0 2px 10px rgba(15,23,42,.08); border: 1px solid #e2e8f0; }
-table { width: 100%; border-collapse: collapse; table-layout: fixed; }
-thead { display: table-header-group; }
-th { background: linear-gradient(135deg, ${navy}, ${blue}); color: #fff; text-align: start; padding: 7px 11px; font-size: 10pt; letter-spacing: .01em; }
-td { vertical-align: top; padding: 9px 11px; border-bottom: 1px solid #eef3f6; }
-tbody tr:nth-of-type(even) { background: #f8fafc; }
-tr.uw { background: #fdf6e8 !important; }
-tr { break-inside: auto; }
-.wk { margin: 0 0 4px; }
-.wk b { color: ${navy}; }
+
+/* ---------- column headings + Text Set cards (one per week / selection) ---------- */
+.col-heads { display: grid; grid-template-columns: 38% 62%; gap: 10px; margin-bottom: 6px; break-after: avoid; }
+.col-heads span { background: linear-gradient(135deg, ${navy}, ${blue}); color: #fff; border-radius: 9px; padding: 5px 12px; font-size: 8.4pt; font-weight: 700; letter-spacing: .03em; text-transform: uppercase; }
+.sections { display: flex; flex-direction: column; gap: 8px; }
+.sec-card { display: grid; grid-template-columns: 38% 62%; gap: 0; border-radius: 14px; overflow: hidden; box-shadow: 0 2px 9px rgba(15,23,42,.07); border: 1px solid #e7ecf1; background: #fff; break-inside: avoid; }
+.sec-card.uw { background: #fdf8ec; border-color: #f3e4bd; }
+.sec-l { padding: 10px 13px; background: #f8fafc; border-inline-end: 1px solid #eef2f6; }
+.sec-card.uw .sec-l { background: #fbf1da; border-inline-end-color: #f3e4bd; }
+.sec-r { padding: 10px 13px; }
+.wk-pill { display: inline-block; background: ${blue}; color: #fff; border-radius: 999px; padding: 2px 11px; font-size: 7.6pt; font-weight: 800; letter-spacing: .02em; }
+.uw-pill { background: #d97706; }
+.wk-q { margin: 6px 0 3px; font-weight: 600; color: #1e293b; }
 .ts { margin: 0 0 4px; color: #475569; font-size: 8.8pt; }
 ul.sel { margin: 4px 0 0; padding: 0; list-style: none; font-size: 8.8pt; text-align: left; }
 ul.sel li { margin: 1px 0; }
 .sl { color: #64748b; }
-.grp { break-inside: avoid; margin-bottom: 8px; padding-inline-start: 9px; border-inline-start: 3px solid #e2e8f0; }
-.grp[data-cat="vocabulary"] { border-inline-start-color: #8b5cf6; }
-.grp[data-cat="comprehension"] { border-inline-start-color: ${blue}; }
-.grp[data-cat="word-study"] { border-inline-start-color: #f59e0b; }
-.grp[data-cat="writing"] { border-inline-start-color: #ec4899; }
-.grp[data-cat="grammar"] { border-inline-start-color: #10b981; }
-.grp h4 { margin: 0 0 3px; font-size: 9.8pt; color: ${navy}; }
+.grp { break-inside: avoid; margin-bottom: 7px; padding: 5px 9px; border-radius: 9px; border-inline-start: 3px solid #e2e8f0; }
+.grp[data-cat="vocabulary"] { border-inline-start-color: #8b5cf6; background: rgba(139,92,246,.06); }
+.grp[data-cat="comprehension"] { border-inline-start-color: ${blue}; background: rgba(37,99,235,.05); }
+.grp[data-cat="word-study"] { border-inline-start-color: #f59e0b; background: rgba(245,158,11,.06); }
+.grp[data-cat="writing"] { border-inline-start-color: #ec4899; background: rgba(236,72,153,.05); }
+.grp[data-cat="grammar"] { border-inline-start-color: #10b981; background: rgba(16,185,129,.06); }
+.grp[data-cat="review"] { border-inline-start-color: #0ea5e9; background: rgba(14,165,233,.06); }
+.grp h4 { margin: 0 0 3px; font-size: 9.6pt; color: ${navy}; }
+.grp h4 a.plink { color: ${navy}; border-bottom-color: rgba(30,58,95,.35); }
 .grp[data-cat="vocabulary"] h4::before { content: "🔤  "; }
 .grp[data-cat="comprehension"] h4::before { content: "📖  "; }
 .grp[data-cat="word-study"] h4::before { content: "🔎  "; }
 .grp[data-cat="writing"] h4::before { content: "✏️  "; }
 .grp[data-cat="grammar"] h4::before { content: "🧩  "; }
+.grp[data-cat="review"] h4::before { content: "🔁  "; }
 .grp ol { margin: 0; padding: 0; list-style: none; }
-.grp li { margin: 2px 0; padding-inline-start: 18px; text-indent: -18px; }
-.n { display: inline-block; min-width: 16px; color: #94a3b8; font-weight: 700; }
+.grp li { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px; margin: 2px 0; }
+.status { display: inline-block; border-radius: 6px; padding: 1px 7px; font-size: 7pt; font-weight: 700; letter-spacing: .02em; }
+.status.ok { background: #d1fae5; color: #065f46; }
+.status.wait { background: #f1f5f9; color: #64748b; }
+.n { display: inline-block; min-width: 14px; color: #94a3b8; font-weight: 700; flex: none; }
 a.plink { color: #1d4ed8; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(29,78,216,.35); }
-.code { display: inline-block; color: #fff; background: #94a3b8; font-size: 7pt; font-weight: 700; letter-spacing: .02em; border-radius: 6px; padding: 1px 6px; margin-inline-start: 4px; }
-.muted { color: #94a3b8; }
+.code { display: inline-block; color: #fff; background: #94a3b8; font-size: 7pt; font-weight: 700; letter-spacing: .02em; border-radius: 6px; padding: 1px 6px; }
+.muted { color: #94a3b8; margin: 0; }
 `;
   return `<!doctype html><html lang="${L}" dir="${dir}"><head><meta charset="utf-8"><title>${esc(title)}</title><style>${o.fontCss ?? ""}\n${css}</style></head><body>${cover}${units}</body></html>`;
 }
@@ -323,8 +438,16 @@ export async function exportCurriculumMapPdf(deps: ReportDeps, actor: Actor, gra
   return oneAtATime(async () => {
     const again = kept.get(key); // a teacher who asked at the same moment waits for the first one and gets its file
     if (again && Date.now() - again.at < KEEP_MS) return { bytes: again.bytes, contentType: "application/pdf", filename: again.filename, cached: true };
-    const d = await curriculumMapPdfData(deps.repo, schoolId, grade);
-    if (!d || !d.units.length) throw new ValidationError("This grade has no curriculum yet.");
+    const d0 = await curriculumMapPdfData(deps.repo, schoolId, grade);
+    if (!d0 || !d0.units.length) throw new ValidationError("This grade has no curriculum yet.");
+    // r86: Concept Vocabulary / Analyze Craft and Structure / Review print from the Curriculum Map's own categories
+    // too now, same as the live Skill plan page (skillPlanData) — a student's own copy reads them through
+    // studentCurriculumLessons (curriculumLessons/curriculumMapView forbid the STUDENT role outright).
+    const lessonSections = await (actor.role === "STUDENT"
+      ? studentCurriculumLessons(deps.repo, actor).then((r) => (r.grade === grade ? lessonSectionsFromUnits(r.units) : new Map<string, MapPdfLessonSection[]>()))
+      : lessonSectionsByLesson(deps.repo, actor, grade)
+    ).catch(() => new Map<string, MapPdfLessonSection[]>());
+    const d = withLessonSections(d0, lessonSections);
     const { warning: _w, ...branding } = await loadBranding(deps.repo, schoolId, deps.brandingDir);
     const fonts = loadFonts(deps.fontDir);
     const html = curriculumMapHtml(d, { copy, locale, branding, fontCss: fonts.css, fontStack: fonts.stack, generatedAt: now });

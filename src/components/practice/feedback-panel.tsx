@@ -6,6 +6,7 @@ import type { Feedback } from "../../server/practice/session";
 import { ExplainButton } from "./explain-button";
 import { AnswerFx } from "../feedback-fx/answer-fx";
 import { RichInline } from "../rich-inline";
+import { ListenButton } from "../listen-button";
 
 /**
  * Immediate feedback after every answer: reinforcement when right. When wrong, the 🧑‍🏫 tutor speaks first: it names
@@ -21,9 +22,21 @@ export function FeedbackPanel({ fb, questionId, fxKey }: { fb: Feedback; questio
     <AnswerFx correct={ok} answerKey={fxKey ?? `${questionId ?? ""}|${fb.masteryBefore}|${fb.masteryAfter}|${fb.xp}`} className="mb-3" />
     <section role="status" aria-live="polite"
       className={["rounded-2xl border-2 p-5 shadow-sm", ok ? "animate-pop border-teal-300 bg-gradient-to-br bg-linear-to-br from-teal-50 to-white" : "animate-shake border-amber-300 bg-gradient-to-br bg-linear-to-br from-amber-50 to-white"].join(" ")}>
-      <h2 className={["flex items-center gap-2 text-2xl font-bold", ok ? "text-teal-800" : "text-amber-900"].join(" ")}>
-        <span aria-hidden="true">{ok ? "✓" : fb.credit > 0 ? "◐" : "✗"}</span>{ok ? "Correct!" : fb.credit > 0 ? "Partly right." : "Not quite."}
-      </h2>
+      <div className="flex flex-wrap items-center justify-between gap-2">
+        <h2 className={["flex items-center gap-2 text-2xl font-bold", ok ? "text-teal-800" : "text-amber-900"].join(" ")}>
+          <span aria-hidden="true">{ok ? "✓" : fb.credit > 0 ? "◐" : "✗"}</span>{ok ? "Correct!" : fb.credit > 0 ? "Partly right." : "Not quite."}
+        </h2>
+        {/* 🔊 the feedback (why it's right/wrong, the tutor, the answers once revealed) read aloud in the same
+            natural voice as the question — not just the heading */}
+        <ListenButton
+          text={[
+            ok ? fb.whyCorrect : fb.tutor ? `${fb.tutor.message} ${fb.tutor.guidingQuestion}` : "",
+            !ok && reveal ? `Your answer: ${fb.yourAnswer}. Correct answer: ${fb.correctAnswer}. ${fb.whyCorrect}` : "",
+          ].filter(Boolean).join(". ")}
+          label="Listen to this"
+          compact
+        />
+      </div>
       {ok ? (
         <p className="mt-2 text-lg text-slate-800"><RichInline text={fb.whyCorrect} /></p>
       ) : (

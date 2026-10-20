@@ -40,12 +40,17 @@ export interface DiagnosticSummary {
   takenAt: string;
   questions: number;
   proficiency: string;
-  domains: { domain: string; label: string; level: string; theta: number; se: number; items: number }[];
+  domains: { domain: string; label: string; level: string; theta: number; se: number; items: number; pct?: number }[];
   strong: string[];
   growth: string[];
   startWith: { skillId: string; name: string }[];
   support: { skillId: string; name: string }[];
   notMeasured: string[];
+  /** 🐛 r91 fix: which placement produced this summary, and (for SCORE) the real overall percent/level, so
+   *  downstream reports (school-reports.ts) can read the right fields instead of assuming the legacy theta shape. */
+  source?: "LEGACY" | "SCORE";
+  overallPct?: number;
+  overallLevel?: "ABOVE" | "ON" | "BELOW";
 }
 
 const d = (v: unknown) => (v instanceof Date ? v : new Date(String(v)));
@@ -225,6 +230,7 @@ async function summarize(repo: Repo, r: Row): Promise<DiagnosticSummary> {
     startWith: (r.recommendedSkillIds as string[]).map((id) => ({ skillId: id, name: names.get(id) ?? "" })),
     support: (r.interventionSkillIds as string[]).map((id) => ({ skillId: id, name: names.get(id) ?? "" })),
     notMeasured: domains.filter((x) => x.notMeasured).map((x) => DOMAIN_LABEL[x.domain] ?? x.domain),
+    source: "LEGACY",
   };
 }
 
@@ -257,9 +263,12 @@ function summarizeScore(r: Row): DiagnosticSummary {
     takenAt: d(r.completedAt).toISOString(),
     questions: Number(r.total ?? 0),
     proficiency: `${LEVEL_TEXT[String(r.level)] ?? "Level not set"} · ${Math.round(Number(r.pct ?? 0))}% on the Diagnostic Test`,
-    domains: measured.map((x) => ({ domain: x.strand, label: label(x), level: `${lvl(pctOf(x))} (${pctOf(x)}%)`, theta: 0, se: 0, items: Number(x.total) })),
+    domains: measured.map((x) => ({ domain: x.strand, label: label(x), level: `${lvl(pctOf(x))} (${pctOf(x)}%)`, theta: 0, se: 0, items: Number(x.total), pct: pctOf(x) })),
     strong: measured.filter((x) => pctOf(x) >= 75).map(label),
     growth: measured.filter((x) => pctOf(x) < 60).map(label),
     startWith: [], support: [], notMeasured: [],
+    source: "SCORE",
+    overallPct: Math.round(Number(r.pct ?? 0)),
+    overallLevel: (r.level as "ABOVE" | "ON" | "BELOW" | undefined) ?? undefined,
   };
 }

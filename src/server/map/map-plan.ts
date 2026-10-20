@@ -19,7 +19,7 @@ import { assertClassAccess } from "../teacher/assignments";
 import { assertClassRead } from "../teacher/coordinators";
 import { assignQuestions } from "../teacher/assign";
 import { audit } from "../audit";
-import { bandOf as descriptorOf, ensureNationalNorms, nationalNorm, seasonOf, type Season } from "./rit";
+import { bandOf as descriptorOf, ensureNationalNorms, nationalNorm, percentileFromNorm, seasonOf, type Season } from "./rit";
 import { ritFromDifficulty } from "../questions/tag-review";
 import { classMembers, studentNames } from "../insights/student-data";
 import { masterSkills } from "../skills/master";
@@ -83,11 +83,9 @@ export interface MapProfile {
   areas: AreaProfile[]; hasGoals: boolean;
 }
 
-const pctFromNorm = (rit: number, n: { mean: number; sd: number } | null) => {
-  if (!n) return null;
-  const z = (rit - n.mean) / n.sd;
-  return Math.max(1, Math.min(99, Math.round(100 / (1 + Math.exp(-1.702 * z)))));
-};
+// 🐛 r91 fix: was its own logistic approximation (disagreed with rit.ts's erf-based one near band edges) —
+// now the one shared formula, so the same RIT gets the same percentile/band on every MAP page.
+const pctFromNorm = percentileFromNorm;
 
 /**
  * MAP profile of these students for one subject (latest term with scores; goal areas grouped as in NWEA reports).
@@ -117,7 +115,8 @@ async function mapProfilesNow(repo: Repo, schoolId: string, studentIds: string[]
   const grades = await repo.findMany("Grade", { id: { in: [...new Set(students.map((x) => s(x.gradeId)))] } }, { select: ["id", "level"] });
   const codeOf = new Map(areas.map((a) => [s(a.id), s(a.code)]));
   const normCache = new Map<string, { mean: number; sd: number } | null>();
-  const norm = async (g: number, se: Season) => { const k = `${g}${se}`; if (!normCache.has(k)) normCache.set(k, await nationalNorm(repo, g, se)); return normCache.get(k)!; };
+  // 🐛 r91 fix: this profile's own `subject` (READING or LANGUAGE) now picks the matching norm table.
+  const norm = async (g: number, se: Season) => { const k = `${g}${se}`; if (!normCache.has(k)) normCache.set(k, await nationalNorm(repo, g, se, subject)); return normCache.get(k)!; };
   const isSubj = (v: unknown) => (subject === "READING" ? /read/i : /language/i).test(s(v));
   for (const id of studentIds) {
     const st = students.find((x) => x.id === id);
@@ -138,7 +137,11 @@ async function mapProfilesNow(repo: Repo, schoolId: string, studentIds: string[]
     const term = latest ? s(latest.termName) || null : null;
     const season = latest ? seasonOf(latest.termName, latest.testDate) : null;
     const goalRows = mine.filter((r) => r.goalName && s(r.termName) === s(term));
-    const n = season ? await norm(grade, season) : null;
+    // 🐛 r91 fix ("درجات قديمة بتتحسب بصف الطالب الحالي مش صفه وقت الاختبار"): the grade stamped on this row at
+    // import time (its actual test-time grade) wins; only legacy rows imported before that column existed fall
+    // back to the student's current grade, same as before.
+    const gradeAtTest = (latest && Number(latest.grade)) || grade;
+    const n = season ? await norm(gradeAtTest, season) : null;
     const overallPct = latest ? (latest.achievementPercentile !== null && latest.achievementPercentile !== undefined ? Number(latest.achievementPercentile) : pctFromNorm(Number(latest.rit), n)) : null;
     const fallRow = [...overallRows].reverse().find((r) => seasonOf(r.termName, r.testDate) === "FALL");
     const myGroups = GROUPS.filter((g) => g.subject === subject);
@@ -590,7 +593,8 @@ export async function estimateRits(repo: Repo, pk: Pools, studentIds: string[], 
     const b = attempts.map((a) => ritOf.get(s(a.questionId))!), x = attempts.map((a) => (a.isCorrect ? 1 : 0)), c = attempts.map((a) => guess.get(s(a.questionId))?.c ?? 0);
     let prior = latestMap.get(id)?.rit ?? null;
     if (prior === null && opts.grade) {
-      if (gradeNorm === undefined) { await ensureNationalNorms(repo).catch(() => null); gradeNorm = (await nationalNorm(repo, opts.grade, seasonOf(null, now)))?.mean ?? null; }
+      // 🐛 r91 fix: this prior is per-`subject` (READING or LANGUAGE) — it was always reading Reading's mean.
+      if (gradeNorm === undefined) { await ensureNationalNorms(repo).catch(() => null); gradeNorm = (await nationalNorm(repo, opts.grade, seasonOf(null, now), subject))?.mean ?? null; }
       prior = gradeNorm;
     }
     if (prior === null) prior = b.reduce((t, v) => t + v, 0) / b.length;

@@ -65,11 +65,16 @@ export function needsFluencyWork(grade: number, wcpm: number, season: Season = f
 /** Weekly growth to reach the next season's 50th percentile from now (for goals). */
 export function weeklyGrowthTarget(grade: number, wcpm: number, now: Date = new Date()): { target: number; weeks: number; perWeek: number } | null {
   const s = fluencySeason(now);
-  const next: Season = s === "FALL" ? "WINTER" : "SPRING";
+  // 🐛 r91 fix ("هدف الأسبوع غلط من أبريل لحد يوليو"): was `s === "FALL" ? "WINTER" : "SPRING"`, so a SPRING score
+  // computed its target against SPRING's own 50th percentile again instead of the NEXT school year's FALL — use the
+  // single shared nextSeason() helper (already correct and already used by remedial.ts) instead of a second copy.
+  const next: Season = nextSeason(s);
   const target = norm50(grade, next);
   if (target === null) return null;
   const y = now.getUTCFullYear(), m = now.getUTCMonth() + 1;
-  const end = next === "WINTER" ? new Date(Date.UTC(m >= 8 ? y + 1 : y, 0, 15)) : new Date(Date.UTC(m >= 8 ? y + 1 : y, 4, 15));
+  const end = next === "WINTER" ? new Date(Date.UTC(m >= 8 ? y + 1 : y, 0, 15))
+    : next === "SPRING" ? new Date(Date.UTC(m >= 8 ? y + 1 : y, 4, 15))
+    : new Date(Date.UTC(y, 10, 15)); // next === "FALL": only reached from a SPRING score (Mar–Jul) → this same school year's fall, mid-November
   const weeks = Math.max(2, Math.round((end.getTime() - now.getTime()) / (7 * 86_400_000)));
   return { target, weeks, perWeek: Math.max(0.5, Math.round(((target - wcpm) / weeks) * 10) / 10) };
 }
@@ -105,7 +110,7 @@ export const nextSeason = (s: Season): Season => (s === "FALL" ? "WINTER" : s ==
 export function weeklyGoal(grade: number, wcpm: number, now: Date = new Date()): { nextGoal: number; perWeek: number; target: number; weeks: number; season: Season; reached: boolean } | null {
   const g = weeklyGrowthTarget(grade, wcpm, now);
   if (!g) return null;
-  const season: Season = fluencySeason(now) === "FALL" ? "WINTER" : "SPRING";
+  const season: Season = nextSeason(fluencySeason(now)); // 🐛 r91 fix: same duplicated-logic bug as weeklyGrowthTarget above
   const reached = wcpm >= g.target;
   return { nextGoal: reached ? wcpm + 2 : Math.min(g.target, wcpm + Math.max(1, Math.ceil(g.perWeek))), perWeek: reached ? 0 : g.perWeek, target: g.target, weeks: g.weeks, season, reached };
 }

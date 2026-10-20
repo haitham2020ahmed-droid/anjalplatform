@@ -16,6 +16,7 @@ import { loadNafsQuestions, nafsIndex, type NafsKind } from "./bank";
 import { assignedTo, cleanAnswers, cleanScores, cleanTexts, gradeAnswers, json, markOf, type Answer } from "./tests";
 import { effectiveEnd, liveKey, liveStamp, studentExtra } from "../timing/live-time";
 import { hiddenWorkKeys } from "../student/cancelled-work";
+import { MIN_ANSWERS } from "./strengths";
 
 const s = (v: unknown) => String(v ?? "");
 const d = (v: unknown): Date | null => (v === null || v === undefined || v === "" ? null : v instanceof Date ? v : new Date(String(v)));
@@ -105,7 +106,10 @@ async function skillsToPractise(repo: Repo, schoolId: string, ids: string[], cre
     b.n++; b.right += credit[i]!;
     per.set(code, b);
   });
-  return [...per].filter(([, b]) => (100 * b.right) / b.n < PRACTISE_BELOW).map(([c]) => SKILL_BY_CODE.get(c)?.name ?? "").filter(Boolean);
+  // 🐛 r91 fix: require the same minimum answer count as the teacher-facing strengths/weaknesses view
+  // (strengths.ts#MIN_ANSWERS) — without it, one missed question on a skill told the student to "practise"
+  // it while the teacher's own dashboard for the identical data said "not enough answers to judge."
+  return [...per].filter(([, b]) => b.n >= MIN_ANSWERS && (100 * b.right) / b.n < PRACTISE_BELOW).map(([c]) => SKILL_BY_CODE.get(c)?.name ?? "").filter(Boolean);
 }
 
 async function myGiven(repo: Repo, actor: Actor, id: string): Promise<{ g: Row; t: Row; studentId: string }> {

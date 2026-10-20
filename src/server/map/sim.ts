@@ -32,7 +32,7 @@ import { classMembers, studentNames } from "../insights/student-data";
 import { assertClassRead, readableClasses } from "../teacher/coordinators";
 import { assertClassAccess } from "../teacher/assignments";
 import { bandSettings, groupOf, groupPools, GROUPS, mapProfiles, ritBand, autoItems, type GroupKey, type MapProfile, type PoolQ, type Subject, type AreaStatus, type Descriptor } from "./map-plan";
-import { bandOf, ensureNationalNorms, nationalNorm, type Season } from "./rit";
+import { bandOf, ensureNationalNorms, nationalNorm, percentileFromNorm, type Season } from "./rit";
 import { effectiveEnd, liveKey, liveStamp, studentExtra } from "../timing/live-time";
 
 const s = (v: unknown) => String(v ?? "");
@@ -203,10 +203,11 @@ export interface Readiness { grade: number; subject: Subject; groups: { key: Gro
 export async function readiness(repo: Repo, actor: Actor, grade: number, items = SIM_ITEMS): Promise<Readiness[]> {
   if (!isStaff(actor)) throw new ForbiddenError();
   await ensureNationalNorms(repo);
-  const norm = await nationalNorm(repo, grade, "WINTER");
-  const mean = norm?.mean ?? 200, sd = norm?.sd ?? 17;
   const out: Readiness[] = [];
   for (const subject of ["READING", "LANGUAGE"] as const) {
+    // 🐛 r91 fix: each subject's own norm, not Reading's for both.
+    const norm = await nationalNorm(repo, grade, "WINTER", subject);
+    const mean = norm?.mean ?? 200, sd = norm?.sd ?? 17;
     const pool = await simPool(repo, actor.schoolId!, grade, subject);
     const plan = blueprint(subject, items);
     const groups = [...pool.byGroup].map(([k, list]) => {
@@ -295,7 +296,7 @@ export async function startTest(repo: Repo, actor: Actor, input: { windowId?: st
   // start: the student's latest MAP RIT for the subject, else the grade's national mean
   const p = (await mapProfiles(repo, actor.schoolId!, [sid], input.subject)).get(sid);
   await ensureNationalNorms(repo);
-  const start = p?.overall?.rit ?? (await nationalNorm(repo, grade, "WINTER"))?.mean ?? 200;
+  const start = p?.overall?.rit ?? (await nationalNorm(repo, grade, "WINTER", input.subject))?.mean ?? 200; // 🐛 r91 fix: subject-specific prior
   const row = await repo.create("MapSimSession", { windowId, schoolId: actor.schoolId!, studentId: sid, subject: input.subject, kind, status: "IN_PROGRESS", total, startRit: start, rit: start, se: PRIOR_SD, answered: 0, correct: 0, rapid: 0, startedAt: now });
   return withTime(await serveNext(repo, row, grade, now, null), win, row);
 }
@@ -471,8 +472,9 @@ export async function classResults(repo: Repo, actor: Actor, windowId: string, c
   const ids = await classMembers(repo, classId);
   const [names, profiles, sessions] = await Promise.all([studentNames(repo, ids), mapProfiles(repo, actor.schoolId!, ids, subject), ids.length ? repo.findMany("MapSimSession", { windowId, studentId: { in: ids }, subject, kind: "SIM" }) : Promise.resolve([] as Row[])]);
   await ensureNationalNorms(repo);
-  const norm = await nationalNorm(repo, grade, (s(w.season) as Season) || "WINTER");
-  const pctOf = (rit: number) => (norm ? Math.max(1, Math.min(99, Math.round(100 / (1 + Math.exp(-1.702 * ((rit - norm.mean) / norm.sd)))))) : null);
+  // 🐛 r91 fix: this class's own `subject`, and the one shared percentile formula (was a third, different approximation).
+  const norm = await nationalNorm(repo, grade, (s(w.season) as Season) || "WINTER", subject);
+  const pctOf = (rit: number) => percentileFromNorm(rit, norm);
   const rows: SimRow[] = ids.map((id) => {
     const x = sessions.find((y) => y.studentId === id), p = profiles.get(id) as MapProfile | undefined;
     const done = x?.status === "DONE";
