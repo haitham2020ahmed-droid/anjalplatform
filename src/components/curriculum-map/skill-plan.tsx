@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useEffect, useLayoutEffect, useMemo, useRef, useState, type RefObject } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useT } from "@/i18n/client";
 import type { TFn } from "@/i18n";
 import type { QuickAssignSkillInput } from "@/app/admin/curriculum-map/actions";
@@ -222,12 +222,12 @@ function SkillRow({ n, skill, canAssign, roster, quickAssign, initDone, priorAss
         <Link href={`/teacher/skill-assign?skillId=${encodeURIComponent(skill.id)}${roster[0] ? `&classId=${encodeURIComponent(roster[0].id)}` : ""}`} prefetch={false}
           className="text-sm font-medium text-blue-800 hover:underline" dir="ltr">{skill.name}</Link>
       </div>
-      {open && canAssign && <SuggestPanel skill={skill} roster={roster} quickAssign={quickAssign} priorAssignment={priorAssignment} masteredCount={masteredCount} cancelAssignment={cancelAssignment} anchorRef={starRef} onDone={() => setDone(true)} onRemoved={() => setDone(false)} onClose={() => setOpen(false)} />}
+      {open && canAssign && <SuggestPanel skill={skill} roster={roster} quickAssign={quickAssign} priorAssignment={priorAssignment} masteredCount={masteredCount} cancelAssignment={cancelAssignment} onDone={() => setDone(true)} onRemoved={() => setDone(false)} onClose={() => setOpen(false)} />}
     </li>
   );
 }
 
-function SuggestPanel({ skill, roster, quickAssign, priorAssignment, masteredCount, cancelAssignment, anchorRef, onDone, onRemoved, onClose }: { skill: MapPdfSkill; roster: RosterClass[]; quickAssign: SkillPlanProps["quickAssign"]; priorAssignment?: SkillPlanProps["priorAssignment"]; masteredCount?: SkillPlanProps["masteredCount"]; cancelAssignment?: SkillPlanProps["cancelAssignment"]; anchorRef: RefObject<HTMLButtonElement | null>; onDone: () => void; onRemoved: () => void; onClose: () => void }) {
+function SuggestPanel({ skill, roster, quickAssign, priorAssignment, masteredCount, cancelAssignment, onDone, onRemoved, onClose }: { skill: MapPdfSkill; roster: RosterClass[]; quickAssign: SkillPlanProps["quickAssign"]; priorAssignment?: SkillPlanProps["priorAssignment"]; masteredCount?: SkillPlanProps["masteredCount"]; cancelAssignment?: SkillPlanProps["cancelAssignment"]; onDone: () => void; onRemoved: () => void; onClose: () => void }) {
   const t = useT();
   const router = useRouter();
   const [classId, setClassId] = useState(roster[0]?.id ?? "");
@@ -261,50 +261,15 @@ function SuggestPanel({ skill, roster, quickAssign, priorAssignment, masteredCou
   const [removeMsg, setRemoveMsg] = useState<string | null>(null);
   const klass = roster.find((c) => c.id === classId) ?? roster[0];
   const students = useMemo(() => (klass?.students ?? []).filter((s) => s.name.toLowerCase().includes(q.trim().toLowerCase())), [klass, q]);
-  // 📍 anchored right above the ⭐ that opened this panel (not a page-centered modal). Computed in JS from the
-  // star's actual on-screen position (position: fixed) rather than CSS `absolute`, because the card around the
-  // skill list clips overflow for its rounded corners — an `absolute` popover would get silently cut off for rows
-  // near the top of that card. boxRef lets an outside click close it, since there is no full-screen backdrop any more.
+  // 🎯 owner r87 ("باظت... خليها ثابته"): three rounds of "anchor the panel to the ⭐ that opened it" (clamp to
+  // the edge → hide while scrolled off-screen → flip above/below by the panel's real height) each fixed one case
+  // and broke another, because the star keeps moving under a `position: fixed` panel computed from a snapshot of
+  // its coordinates — any scroll, or the page's own layout shifting as other sections load, makes that snapshot
+  // stale. A FIXED spot removes the whole class of bug at the root: the panel always opens in the same safe,
+  // centered place on screen, never computed from the star's position, never needs to re-track scroll. A dimmed
+  // backdrop (click it, or Escape, to close) makes it obvious which skill it belongs to even without an arrow
+  // pointing at a star — the skill's own name is right there in the panel's header.
   const boxRef = useRef<HTMLDivElement>(null);
-  const [pos, setPos] = useState<{ left: number; top?: number; bottom?: number; width: number } | null>(null);
-  useLayoutEffect(() => {
-    const reposition = () => {
-      const el = anchorRef.current;
-      if (!el) return;
-      const r = el.getBoundingClientRect();
-      // 🧭 owner: "يظهر فوق النجمة اللي دوست عليها دايمًا، من غير ما يختفي خالص وانا بعمل scroll" — once the star
-      // that opened this panel scrolls fully off screen (above OR below the viewport), `bottom` used to clamp to
-      // the nearest edge, which left the panel floating in a spot that no longer lined up with any skill (the first
-      // fix for that just closed the panel outright — but that made it vanish mid-scroll, needing another click to
-      // reopen). Hide it instead (pos → null, same "invisible but still open" state the JSX already renders) and
-      // keep recomputing on every scroll: the instant the star is back in view, it reappears right above it again,
-      // with no re-click needed.
-      if (r.bottom < 0 || r.top > window.innerHeight) { setPos(null); return; }
-      const width = Math.min(320, window.innerWidth - 16);
-      const left = Math.min(Math.max(8, r.left), window.innerWidth - width - 8);
-      // 🧭 owner ("كل المهارات الا اعلي صفحه... مستطيل assign لا يظهر اصلا"): opening ABOVE the star only works
-      // when there's enough room above it. A star near the TOP of the page left most of the panel's own height
-      // pushed up past the top of the viewport — invisible and unreachable, even though a sliver of it still showed
-      // lower down. 300px is a rough floor for the panel's own shortest useful height (title, source picker, "All
-      // students"); below that, open BELOW the star instead, same as any ordinary popover flipping to fit.
-      if (r.top >= 300) {
-        const bottom = Math.max(8, window.innerHeight - r.top + 8); // 8px gap above the star
-        setPos({ left, bottom, width });
-      } else {
-        const top = Math.min(r.bottom + 8, window.innerHeight - 8); // 8px gap below the star
-        setPos({ left, top, width });
-      }
-    };
-    reposition();
-    // keeps the panel glued to the star while the page (or a scrollable list inside it) moves — capture:true also
-    // catches scroll events from a nested scrollable container, which don't bubble up to window on their own
-    window.addEventListener("scroll", reposition, { passive: true, capture: true });
-    window.addEventListener("resize", reposition);
-    return () => {
-      window.removeEventListener("scroll", reposition, { capture: true });
-      window.removeEventListener("resize", reposition);
-    };
-  }, [anchorRef]);
   useEffect(() => {
     const down = (e: MouseEvent) => { if (boxRef.current && !boxRef.current.contains(e.target as Node)) onClose(); };
     document.addEventListener("mousedown", down);
@@ -358,9 +323,11 @@ function SuggestPanel({ skill, roster, quickAssign, priorAssignment, masteredCou
     else { setRemoveStep("idle"); setRemoveMsg(r.message); }
   };
   return (
+    // 🎯 owner r87 ("خليها بنفس شكل المنصه... فقط المكان"): same card look as before (white, rounded, ring, shadow)
+    // — only the POSITION changed, to a fixed spot near the top of the screen that never depends on the ⭐'s own
+    // coordinates, so it can't drift off after a scroll or a layout shift the way the anchored version did.
     <div ref={boxRef} role="dialog" aria-modal="true" aria-label={t("Suggest this skill to:")}
-      style={pos ? { position: "fixed", left: pos.left, ...(pos.bottom !== undefined ? { bottom: pos.bottom } : { top: pos.top }), width: pos.width, visibility: "visible" } : { position: "fixed", visibility: "hidden" }}
-      className="z-50 max-h-[70vh] overflow-y-auto rounded-2xl bg-white p-4 text-start text-sm normal-case shadow-xl ring-1 ring-slate-200">
+      className="fixed inset-x-0 top-20 z-50 mx-auto max-h-[70vh] w-[calc(100%-2rem)] max-w-sm overflow-y-auto rounded-2xl bg-white p-4 text-start text-sm normal-case shadow-xl ring-1 ring-slate-200">
       <div className="flex items-start justify-between gap-2">
         <div>
           <p className="font-bold text-brand-navy">{t("Suggest this skill to:")}</p>

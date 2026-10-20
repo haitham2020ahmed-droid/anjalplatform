@@ -799,6 +799,26 @@ export const UI_STRINGS = [
   "For how the database itself is backed up and restored, see docs/BACKUP-AND-RESTORE.md in the project.",
   "This week, your class", "This week, the school",
   "This class already has this skill assigned — assign it again?", "Assign again",
+  // 🗑 r87: delete tools on Plans, Assessments and Writing — "stays saved" (soft, undoable from Assigned) vs "delete permanently" (gone for good, answers never touched)
+  "Stopped: the work left the students' lists. Answers already given are kept.",
+  "Deleted for good. This cannot be undone.",
+  "Stop (keep saved)", "Delete permanently", "Yes, delete permanently", "Yes, stop this plan", "Yes, stop this test",
+  "Cancel this plan", "Cancel this test",
+  "Stop sending to students. Answers already given are kept, and the plan stays in your Finished list.",
+  "Stop sending to students. Answers already given are kept, and you can undo this from Assigned.",
+  "Gone from here for good; no Undo. Answers already given are not deleted.",
+  "Gone from here for good; no Undo. Work already submitted or scored stays in the history.",
+  "Stop sending to students. Work already given is kept, and you can undo this from Assigned.",
+  // 👀 r87: the family (student/parent) read-only skill preview opened from the Curriculum Map PDF's links
+  "A look at this skill — the questions, not the answers. Your teacher assigns it from here when it's time to practise.",
+  "Showing the first {n} of {total}.",
+  "Skill preview",
+  "No grade found for this account.",
+  "This preview is for students and parents.",
+  "Choose a skill to preview.",
+  "That skill is not on the Curriculum Map.",
+  "This skill is not in your grade.",
+  "No school.",
 ] as const;
 
 export type UiString = (typeof UI_STRINGS)[number];

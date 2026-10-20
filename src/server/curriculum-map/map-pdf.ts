@@ -215,7 +215,7 @@ export function curriculumMapHtml(d: MapPdfData, o: MapHtmlOptions): string {
   const school = L === "ar" && b.nameAr ? b.nameAr : b.name;
   const how = (o.copy === "staff" ? w.howStaff : w.howStudent).map((x) => `<li>${esc(x)}</li>`).join("");
   const title = mapTitle(d, L);
-  const totalSkills = d.units.reduce((n, u) => n + u.sections.reduce((m, sec) => m + sec.skills.length + (sec.lessonSections?.length ?? 0), 0) + u.writing.length, 0);
+  const totalSkills = d.units.reduce((n, u) => n + u.sections.reduce((m, sec) => m + sec.skills.length + (sec.lessonSections ?? []).filter((x) => aud !== "student" || x.ready).length, 0) + u.writing.length, 0);
   const stats = `<div class="stats"><div class="stat"><b>${d.units.length}</b><span>${esc(L === "ar" ? "وحدات" : "Units")}</span></div><div class="stat"><b>${totalSkills}</b><span>${esc(L === "ar" ? "مهارة" : "Skills")}</span></div></div>`;
   const toc = `<div class="toc">${d.units.map((u) => `<div class="toc-i"><span class="toc-n">${u.number}</span><span class="toc-t" dir="ltr">${esc(u.title)}</span></div>`).join("")}</div>`;
   const cover = `<section class="cover">
@@ -229,17 +229,35 @@ export function curriculumMapHtml(d: MapPdfData, o: MapHtmlOptions): string {
     const name = `<bdi dir="ltr">${esc(k.name)}</bdi>`;
     return `<li><span class="n">${n}.</span> ${href && isPlanHref(href, origin) ? `<a class="plink" href="${esc(href)}">${name}</a>` : name} <span class="code" dir="ltr">${esc(k.code)}</span></li>`;
   };
-  // r86: Concept Vocabulary / Analyze Craft and Structure / Review print from the Curriculum Map's own categories
-  // now (sec.lessonSections, the same ones the Lessons tab lists — see withLessonSections above), not the
-  // platform's own Skill rows — there is no per-student "click to practise" page for these (they're place-based,
-  // handed out only once a teacher ⭐ Assigns them), so each prints its title and Ready/Not ready only, no link.
+  // r86 (owner: "عدل نسخه pdf... بالظبط زي اللي موجود، منظمة وشكلها أنيق عشان هتروح لأولياء الأمور والطلاب"):
+  // Concept Vocabulary / Analyze Craft and Structure / Review print from the Curriculum Map's own categories now
+  // (sec.lessonSections, the same ones the Lessons tab lists — see withLessonSections above), not the platform's
+  // own Skill rows — each in its own named group, same icon/colour family as the matching live category
+  // (Vocabulary=🔤 purple, "craft and structure" reads as Comprehension=📖 blue, Review gets its own 🔁 sky icon).
+  // There is no per-student "click to practise" page for these (they're place-based, handed out only once a
+  // teacher ⭐ Assigns them), so each prints its title only, no link. A STAFF copy also shows a small Ready / Not
+  // ready pill (useful when planning what still needs questions); the STUDENT/family copy skips anything not ready
+  // yet outright — a parent has no use for "Not ready", and a document with it looks unfinished.
   // Grammar and punctuation (and Writing, Spelling & word study) are untouched: they keep printing from `sec.skills`.
-  const readyWord = L === "ar" ? { yes: "جاهز", no: "غير جاهز" } : { yes: "Ready", no: "Not ready" };
+  const readyWord = L === "ar" ? "جاهز" : "Ready";
+  const notReadyWord = L === "ar" ? "غير جاهز" : "Not ready";
+  const CAT_OF: Record<string, string> = { CONCEPT_VOCABULARY: "vocabulary", ANALYZE_CRAFT_AND_STRUCTURE: "comprehension", REVIEW: "review" };
   const SKILL_GROUPS = MAP_CATEGORY_GROUPS.filter((g) => g.key !== "vocabulary" && g.key !== "comprehension");
+  // r87 (owner: "عايز لما اضغط علي concept vocabulary في الـ PDF يوديني عليها"): these three (Concept Vocabulary /
+  // Analyze Craft and Structure / Review) used to print title-only — no per-student practice page existed for a
+  // "place" rather than a platform Skill. Now one does (/skill?code=…, role-agnostic: staff → the staff preview with
+  // the answer key, student/parent → the read-only family preview, signed out → /login first) — so the title links
+  // too, exactly like every platform skill already does in this PDF.
+  const lessonHref = (code: string) => `${origin}/skill?code=${encodeURIComponent(code)}`;
   const right = (sec: MapPdfSection) => {
-    if (!sec.skills.length && !sec.lessonSections?.length) return `<p class="muted">${esc(w.none)}</p>`;
+    const lessonSections = (sec.lessonSections ?? []).filter((x) => aud !== "student" || x.ready);
+    if (!sec.skills.length && !lessonSections.length) return `<p class="muted">${esc(w.none)}</p>`;
     let n = 0;
-    const lessonGroups = (sec.lessonSections ?? []).map((x) => `<div class="grp" data-cat="vocabulary"><h4>${esc(x.title)}</h4><ol><li><span class="n">${++n}.</span> <span class="code" dir="ltr">${esc(x.ready ? readyWord.yes : readyWord.no)}</span></li></ol></div>`).join("");
+    const lessonGroups = lessonSections.map((x) => {
+      const href = lessonHref(x.code);
+      const titleHtml = isPlanHref(href, origin) ? `<a class="plink" href="${esc(href)}">${esc(x.title)}</a>` : esc(x.title);
+      return `<div class="grp" data-cat="${CAT_OF[x.kind ?? ""] ?? "vocabulary"}"><h4>${titleHtml}</h4><ol><li><span class="n">${++n}.</span> ${aud !== "student" ? `<span class="status ${x.ready ? "ok" : "wait"}">${esc(x.ready ? readyWord : notReadyWord)}</span>` : ""}</li></ol></div>`;
+    }).join("");
     const skillGroups = SKILL_GROUPS.map((g) => {
       const ks = sec.skills.filter((k) => k.group === g.key);
       if (!ks.length) return "";
@@ -325,14 +343,20 @@ ul.sel li { margin: 1px 0; }
 .grp[data-cat="word-study"] { border-inline-start-color: #f59e0b; }
 .grp[data-cat="writing"] { border-inline-start-color: #ec4899; }
 .grp[data-cat="grammar"] { border-inline-start-color: #10b981; }
+.grp[data-cat="review"] { border-inline-start-color: #0ea5e9; }
 .grp h4 { margin: 0 0 3px; font-size: 9.8pt; color: ${navy}; }
+.grp h4 a.plink { color: ${navy}; border-bottom-color: rgba(30,58,95,.35); }
 .grp[data-cat="vocabulary"] h4::before { content: "🔤  "; }
 .grp[data-cat="comprehension"] h4::before { content: "📖  "; }
 .grp[data-cat="word-study"] h4::before { content: "🔎  "; }
 .grp[data-cat="writing"] h4::before { content: "✏️  "; }
 .grp[data-cat="grammar"] h4::before { content: "🧩  "; }
+.grp[data-cat="review"] h4::before { content: "🔁  "; }
 .grp ol { margin: 0; padding: 0; list-style: none; }
 .grp li { margin: 2px 0; padding-inline-start: 18px; text-indent: -18px; }
+.status { display: inline-block; border-radius: 6px; padding: 1px 7px; font-size: 7pt; font-weight: 700; letter-spacing: .02em; margin-inline-start: 4px; }
+.status.ok { background: #d1fae5; color: #065f46; }
+.status.wait { background: #f1f5f9; color: #64748b; }
 .n { display: inline-block; min-width: 16px; color: #94a3b8; font-weight: 700; }
 a.plink { color: #1d4ed8; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(29,78,216,.35); }
 .code { display: inline-block; color: #fff; background: #94a3b8; font-size: 7pt; font-weight: 700; letter-spacing: .02em; border-radius: 6px; padding: 1px 6px; margin-inline-start: 4px; }
