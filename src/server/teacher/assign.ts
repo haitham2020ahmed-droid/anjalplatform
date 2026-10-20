@@ -512,6 +512,31 @@ export async function cancelSkillAssignmentsForClass(repo: Repo, actor: Actor, c
   return { cancelled };
 }
 
+/**
+ * ⭐ Skill plan's per-student un-star ("يشيل طالب واحد بس"): remove ONLY the named students from this skill's open
+ * assignment(s) in a class, leaving everyone else assigned. Answers already given are kept, same guarantee as the
+ * whole-class cancel above. If removing them empties an assignment (no students left on it), that assignment is
+ * cancelled too — so the Assignment row never sits around with zero students on it.
+ */
+export async function cancelSkillAssignmentsForStudents(repo: Repo, actor: Actor, classId: string, skillId: string, studentIds: string[], now = new Date()): Promise<{ removed: number }> {
+  assertCan(actor, "assignments:create");
+  await assertClassAccess(repo, actor, classId);
+  if (!studentIds.length) return { removed: 0 };
+  const assignments = await repo.findMany("Assignment", { classId, skillId, deletedAt: null }, { select: ["id", "title"] });
+  let removed = 0;
+  for (const a of assignments) {
+    const assignmentId = s(a.id);
+    const hit = await repo.findMany("AssignmentStudent", { assignmentId, studentId: { in: studentIds } }, { select: ["studentId"] });
+    if (!hit.length) continue;
+    await repo.deleteMany("AssignmentStudent", { assignmentId, studentId: { in: studentIds } });
+    removed += hit.length;
+    await audit(repo, { actorId: actor.userId, action: "assignment.removeStudents", entityType: "Assignment", entityId: assignmentId, before: { title: s(a.title), studentIds: hit.map((r) => s(r.studentId)) }, after: { removed: hit.length }, at: now });
+    const left = await repo.count("AssignmentStudent", { assignmentId });
+    if (!left) await repo.updateMany("Assignment", { id: assignmentId, deletedAt: null }, { deletedAt: now });
+  }
+  return { removed };
+}
+
 export async function assignmentDetail(repo: Repo, actor: Actor, assignmentId: string, now = new Date()): Promise<AssignmentDetail> {
   assertCan(actor, "assignments:read");
   if (actor.role !== "TEACHER" && actor.role !== "SCHOOL_ADMIN" && actor.role !== "SUPER_ADMIN") throw new ForbiddenError("Only teachers and admins can see assignment results.");

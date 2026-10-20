@@ -3,7 +3,7 @@ import { repo, requireActor } from "@/server/auth/next";
 import { ForbiddenError } from "@/server/auth/rbac";
 import { ValidationError } from "@/server/curriculum-admin";
 import { assignFromMap, setStudentLevels } from "@/server/curriculum-map/levels";
-import { assignSkill, cancelSkillAssignmentsForClass, DEFAULT_TARGET_CORRECT, hasPriorSkillAssignment } from "@/server/teacher/assign";
+import { assignSkill, cancelSkillAssignmentsForClass, cancelSkillAssignmentsForStudents, DEFAULT_TARGET_CORRECT, hasPriorSkillAssignment } from "@/server/teacher/assign";
 import { assertClassAccess } from "@/server/teacher/assignments";
 import { masteredInClasses } from "@/server/skills/status-extras";
 import { DATE_ORDER_ERROR, startOfDay } from "@/lib/assign-dates";
@@ -94,6 +94,23 @@ export async function cancelSkillAssignmentAction(input: { classId: string; skil
     await assertClassAccess(repo, actor, input.classId);
     const r = await cancelSkillAssignmentsForClass(repo, actor, input.classId, input.skillId);
     if (!r.cancelled) return { ok: false, message: "Nothing to remove — this class has no open assignment of this skill." };
+    return { ok: true, message: "Removed ✓ Students no longer see it; their answers are kept." };
+  } catch (e) {
+    if (e instanceof ValidationError || e instanceof ForbiddenError) return { ok: false, message: e.message };
+    throw e;
+  }
+}
+
+/** ⭐ Skill plan's per-student un-star: remove only the named students from this skill, in this class — everyone
+ * else stays assigned. Students stop seeing it; answers already given are kept. The class's teacher (or a school
+ * admin) only. */
+export async function cancelSkillAssignmentForStudentsAction(input: { classId: string; skillId: string; studentIds: string[] }): Promise<{ ok: boolean; message: string }> {
+  const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"], permission: "assignments:create" });
+  try {
+    if (!input.classId || !input.skillId || !input.studentIds?.length) return { ok: false, message: "Choose a class." };
+    await assertClassAccess(repo, actor, input.classId);
+    const r = await cancelSkillAssignmentsForStudents(repo, actor, input.classId, input.skillId, input.studentIds);
+    if (!r.removed) return { ok: false, message: "Nothing to remove — this student has no open assignment of this skill." };
     return { ok: true, message: "Removed ✓ Students no longer see it; their answers are kept." };
   } catch (e) {
     if (e instanceof ValidationError || e instanceof ForbiddenError) return { ok: false, message: e.message };
