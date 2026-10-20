@@ -58,6 +58,10 @@ export function ReviewBuilder({ grade, initial, sets, skillUnits, roster }: {
   const [skillQs, setSkillQs] = useState<{ id: string; list: PickerQuestion[] | null }>({ id: "", list: null });
   const [skillLv, setSkillLv] = useState<PickerLevelFilter>("ALL");
   const [skillSearch, setSkillSearch] = useState("");
+  // ➕ r91 "Or browse by skill": the small "add N questions of this skill at once" dialog
+  const [bulkDialog, setBulkDialog] = useState<{ id: string; name: string } | null>(null);
+  const [bulkCount, setBulkCount] = useState("5");
+  const [bulkLv, setBulkLv] = useState<PickerLevelFilter>("ALL");
   // ✏️ r91 Edit a question (my private copy) · ➕ Write · 🔎 bank search
   const [edit, setEdit] = useState<Edit | null>(null);
   const [w, setW] = useState<WrittenQuestion>(blank());
@@ -200,8 +204,8 @@ export function ReviewBuilder({ grade, initial, sets, skillUnits, roster }: {
                                       {t(CAT_LABEL[cat])}
                                     </label>
                                     <button type="button" className="rounded-full px-1 text-xs text-slate-500 hover:bg-slate-100" disabled={busy}
-                                      onClick={() => go(async () => { setTsPreview({ key: pKey, stems: [] }); const r = await setPreviewAction(grade, set.unit, set.setNumber, cat, level); setTsPreview({ key: pKey, stems: r.ok ? r.value : [] }); })}
-                                      aria-label={t("Preview")}>👁</button>
+                                      onClick={() => go(async () => { if (tsPreview?.key === pKey) { setTsPreview(null); return; } setTsPreview({ key: pKey, stems: [] }); const r = await setPreviewAction(grade, set.unit, set.setNumber, cat, level); setTsPreview({ key: pKey, stems: r.ok ? r.value : [] }); })}
+                                      aria-pressed={tsPreview?.key === pKey} aria-label={t("Preview")}>👁</button>
                                   </span>
                                 );
                               })}
@@ -251,8 +255,8 @@ export function ReviewBuilder({ grade, initial, sets, skillUnits, roster }: {
                                 <span dir="ltr" className="truncate">{k.name}</span>
                               </label>
                               <button type="button" className="shrink-0 rounded-full px-1.5 text-xs text-slate-500 hover:bg-slate-100" disabled={busy}
-                                onClick={() => go(async () => { setPreview({ id: k.id, stems: [] }); const r = await skillPreviewAction(k.id, level); setPreview({ id: k.id, stems: r.ok ? r.value : [] }); })}
-                                aria-label={t("Preview")}>👁</button>
+                                onClick={() => go(async () => { if (preview?.id === k.id) { setPreview(null); return; } setPreview({ id: k.id, stems: [] }); const r = await skillPreviewAction(k.id, level); setPreview({ id: k.id, stems: r.ok ? r.value : [] }); })}
+                                aria-pressed={preview?.id === k.id} aria-label={t("Preview")}>👁</button>
                             </div>
                             {preview?.id === k.id && (
                               <div className="ms-6 mt-1 rounded-lg bg-slate-50 p-2 text-xs text-slate-700">
@@ -318,11 +322,17 @@ export function ReviewBuilder({ grade, initial, sets, skillUnits, roster }: {
                     const shown = list ? filterQuestions(list, skillLv, skillSearch) : [];
                     return (
                       <div key={k.id} className="rounded-xl ring-1 ring-slate-200">
-                        <button type="button" onClick={() => { const next = open ? "" : k.id; setOpenSkill(next); setSkillLv("ALL"); setSkillSearch(""); if (next && skillQs.id !== k.id) { setSkillQs({ id: k.id, list: null }); loadSkillQuestions(k.id).then((l) => setSkillQs((p) => (p.id === k.id ? { id: k.id, list: l } : p))); } }}
-                          aria-expanded={open} className="flex min-h-11 w-full items-center justify-between gap-2 rounded-xl px-3 text-start font-semibold text-brand-navy hover:bg-slate-50">
-                          <span dir="ltr" data-content>{k.name}</span>
-                          <span aria-hidden="true" className="text-slate-500">{open ? "▲" : "▼"}</span>
-                        </button>
+                        <div className="flex items-center gap-1 ps-1">
+                          <button type="button" onClick={() => { const next = open ? "" : k.id; setOpenSkill(next); setSkillLv("ALL"); setSkillSearch(""); if (next && skillQs.id !== k.id) { setSkillQs({ id: k.id, list: null }); loadSkillQuestions(k.id).then((l) => setSkillQs((p) => (p.id === k.id ? { id: k.id, list: l } : p))); } }}
+                            aria-expanded={open} className="flex min-h-11 flex-1 items-center justify-between gap-2 rounded-xl px-2 text-start font-semibold text-brand-navy hover:bg-slate-50">
+                            <span dir="ltr" data-content>{k.name}</span>
+                            <span aria-hidden="true" className="text-slate-500">{open ? "▲" : "▼"}</span>
+                          </button>
+                          <button type="button" className="shrink-0 rounded-full px-2 py-1 text-xs font-semibold text-brand-navy ring-1 ring-slate-300 hover:bg-slate-50" disabled={busy}
+                            onClick={() => { setBulkDialog({ id: k.id, name: k.name }); setBulkCount("5"); setBulkLv("ALL"); }}>
+                            ➕ {t("Add a skill")}
+                          </button>
+                        </div>
                         {open && (
                           <div className="space-y-2 border-t border-slate-100 p-2">
                             <div className="flex flex-wrap items-center gap-2">
@@ -362,6 +372,35 @@ export function ReviewBuilder({ grade, initial, sets, skillUnits, roster }: {
           </div>
         )}
       </section>
+
+      {bulkDialog && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4" role="dialog" aria-modal="true" aria-label={t("Add a whole skill")}
+          onClick={(e) => { if (e.target === e.currentTarget) setBulkDialog(null); }}>
+          <form className="w-full max-w-sm space-y-3 rounded-2xl bg-white p-4 shadow-xl"
+            onSubmit={(e) => {
+              e.preventDefault();
+              go(async () => {
+                const n = Math.max(1, Math.round(Number(bulkCount)) || 0);
+                if (apply(await customReviewChangeAction(grade, { op: "addSkillCount", skillId: bulkDialog.id, count: n, level: bulkLv === "ALL" ? "ANY" : bulkLv }), t("Added ✓"))) setBulkDialog(null);
+              });
+            }}>
+            <h3 className="font-semibold text-slate-900">{t("Add a whole skill")}</h3>
+            <p className="text-sm text-slate-700" dir="ltr">{bulkDialog.name}</p>
+            <label className="block text-sm font-semibold text-slate-700">{t("How many questions?")}
+              <input type="number" min={1} max={200} value={bulkCount} onChange={(e) => setBulkCount(e.target.value)} className={`${field} w-24`} autoFocus />
+            </label>
+            <label className="block text-sm font-semibold text-slate-700">{t("Level")}
+              <select value={bulkLv} onChange={(e) => setBulkLv(e.target.value as PickerLevelFilter)} className={field}>
+                {LEVEL_FILTERS.map((lv) => <option key={lv} value={lv}>{t(PICKER_LV[lv])}</option>)}
+              </select>
+            </label>
+            <div className="flex justify-end gap-2 pt-1">
+              <button type="button" className={btn} disabled={busy} onClick={() => setBulkDialog(null)}>{t("Cancel")}</button>
+              <button className={main} disabled={busy}>{t("Add")}</button>
+            </div>
+          </form>
+        </div>
+      )}
 
       {v.chosen > 0 && roster.length > 0 && (
         <section className="rounded-2xl bg-white p-4 ring-1 ring-slate-200" aria-label={t("Assign")}>

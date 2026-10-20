@@ -500,6 +500,9 @@ export type CustomReviewChange =
   | { op: "addSets"; picks: { unit: number; setNumber: number; categories: ("CONCEPT_VOCABULARY" | "ANALYZE_CRAFT_AND_STRUCTURE" | "REVIEW")[] }[]; level?: LevelFilter }
   /** 🤖 "Language" tab: pull in one or more platform Skills' own questions, any unit of the grade's plan */
   | { op: "addSkills"; skillIds: string[]; level?: LevelFilter }
+  /** 🔎 r91 "From the bank" → "Or browse by skill": pull in up to `count` of ONE skill's own questions at once
+   * (the teacher's chosen amount, e.g. the small "Add a skill" dialog), instead of adding each question by hand. */
+  | { op: "addSkillCount"; skillId: string; count: number; level?: LevelFilter }
   | { op: "reset" };
 
 /** One change to the teacher's whole-grade Review Builder (see the header above). */
@@ -567,6 +570,21 @@ export async function changeCustomReview(repo: Repo, actor: Actor, grade: number
       }
     }
     if (!added) throw new ValidationError("Nothing new to add from those skills.");
+    st.count = Math.min(st.count + added, st.questionIds.length);
+  } else if (c.op === "addSkillCount") {
+    const skillId = s(c.skillId);
+    if (!skillId) throw new ValidationError("Choose a skill.");
+    const n = Math.round(Number(c.count));
+    if (!(n >= 1)) throw new ValidationError("Choose how many questions to add.");
+    const level: LevelFilter = c.level && c.level !== "ANY" ? c.level : "ANY";
+    const avail = await skillAddableIds(repo, actor, skillId, level);
+    let added = 0;
+    for (const qid of avail) {
+      if (added >= n) break;
+      if (st.questionIds.includes(qid) || st.questionIds.length >= MAX_REVIEW) continue;
+      st.questionIds.push(qid); added++;
+    }
+    if (!added) throw new ValidationError("Nothing new to add from that skill.");
     st.count = Math.min(st.count + added, st.questionIds.length);
   }
   if (!st.questionIds.length) throw new ValidationError("Add at least one question (or press Reset).");

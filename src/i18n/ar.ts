@@ -6308,4 +6308,6 @@ export const ar: Record<UiString, string> = {
   "No questions to show.": "لا توجد أسئلة لعرضها.",
   "Or browse by skill": "أو تصفّح حسب المهارة",
   "Load the skills": "تحميل المهارات",
+  "Add a whole skill": "إضافة مهارة كاملة",
+  "How many questions?": "كام سؤال؟",
 };

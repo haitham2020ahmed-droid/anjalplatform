@@ -828,7 +828,7 @@ export const UI_STRINGS = [
   "Target correct answers", "A Fixed assignment sends the first 60 questions only. Choose Adaptive to use all {n}.",
   "Assigned ✓ ({n} students)", "Choose a grade first", "Open the Skill plan tab for a grade, then press 🔁 Review there.",
   "Build a Review from any Text Sets or Skills of this grade's whole plan, then assign it.", "No questions to show.",
-  "Or browse by skill", "Load the skills",
+  "Or browse by skill", "Load the skills", "Add a whole skill", "How many questions?",
 ] as const;
 
 export type UiString = (typeof UI_STRINGS)[number];
