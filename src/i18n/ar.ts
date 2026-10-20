@@ -6321,4 +6321,6 @@ export const ar: Record<UiString, string> = {
   "Page {page} of {pages} ({total} questions)": "صفحة {page} من {pages} ({total} سؤال)",
   "◀ Previous": "◀ السابق",
   "Next ▶": "التالي ▶",
+  "Find any skill (all grades)": "ابحث عن أي مهارة (كل الصفوف)",
+  "Grades {g}": "الصفوف {g}",
 };

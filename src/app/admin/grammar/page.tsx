@@ -43,7 +43,7 @@ export default async function GrammarPage({ searchParams }: { searchParams: Prom
 
       {!v.lessons.length
         ? <p className="rounded-2xl bg-white p-6 text-slate-600 ring-1 ring-slate-200">{canImport ? "No grammar lessons yet. Load the Grammar bank above." : "No grammar lessons yet. Ask the admin to load the Grammar bank."}</p>
-        : <GrammarTabs lessons={v.lessons} isTeacher={isTeacher} grades={v.grades} />}
+        : <GrammarTabs lessons={v.lessons} isTeacher={isTeacher} />}
     </AppShell>
   );
 }

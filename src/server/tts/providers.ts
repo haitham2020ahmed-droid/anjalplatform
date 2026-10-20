@@ -138,7 +138,14 @@ export function geminiProvider(env: TtsEnv, o: ProviderOpts = {}): TtsProvider {
   const f = o.fetchImpl ?? (fetch as unknown as FetchLike);
   return {
     id: "gemini",
-    voice: `${model}:${voiceName}`,
+    // 🐛 fix (audit finding, Oct 2026): the ":t3" tag (word-timing schema 3 — see the 150-char chunking above; was
+    // ":t2" at 300 chars) makes this look like a different voice from any audio already cached under an older,
+    // larger-chunk timing schema, so `scripts/tts/pregenerate.ts --replace-voice --apply` (see its header) finds
+    // and regenerates every passage and question that was already played before this fix, picking up the
+    // tighter-synced timings. Cached audio is looked up by voice+text (store.ts), so without this tag
+    // already-generated audio would keep its old, more drifted timings forever — this fix would only ever apply to
+    // text nobody had listened to yet. Bump the "t" number again if the chunking or estimate formula changes again.
+    voice: `${model}:${voiceName}:t3`,
     async synthesize(text, so) {
       const style = geminiStyle(env, so?.speed ?? "normal");
       const words = speechWords(text);
@@ -151,12 +158,18 @@ export function geminiProvider(env: TtsEnv, o: ProviderOpts = {}): TtsProvider {
       // from the real audio the longer a single chunk runs uninterrupted, so the highlight visibly falls behind the
       // voice on a long passage. Each chunk boundary re-anchors the estimate to where the audio for that chunk
       // actually started, so a SMALLER chunk resets the drift more often and keeps it from accumulating across a
-      // whole passage. 300 matches the same budget already used for Google's own non-exact-timing voices (see
-      // googleProvider above, "about one sentence per request, so the estimated word timings restart at every
-      // sentence and never drift far") — a real fix would need Gemini to return real per-word timestamps, which it
-      // doesn't offer today; this bounds the symptom instead. Audio is cached per text+voice+speed, so the extra
-      // Gemini requests this costs happen once per passage/question, not once per student play.
-      for (const [a, b] of chunkWords(words, 300)) {
+      // whole passage. A real fix would need Gemini to return real per-word timestamps, which it doesn't offer
+      // today (only Google Cloud TTS's Neural2/WaveNet/Studio voices do, via SSML <mark>s — see googleProvider
+      // above); this bounds the symptom as far as it can go while staying on Gemini's own voice.
+      // 150 (pushed down from an initial, more conservative 300 — ~one elementary sentence at a time for this
+      // platform's grade 4-6 passages, per chunkWords' own "a sentence longer than this is split between words"
+      // rule: most of these sentences stay under 150 chars, so a chunk still ends on a real sentence break instead
+      // of a mid-sentence word boundary, which would otherwise sound like an audible stumble where Gemini's two
+      // halves of one sentence get stitched together) is about as tight as this estimate-only approach can go
+      // without risking that. Audio is cached per text+voice+speed, so the extra Gemini requests this costs happen
+      // once per passage/question (more chunks per passage = more requests, but only the first time it's heard),
+      // not once per student play.
+      for (const [a, b] of chunkWords(words, 150)) {
         const plain = words.slice(a, b).map((w) => w.text).join(" ");
         billed += plain.length;
         const r = await post(f, `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model)}:generateContent`, { "x-goog-api-key": key }, geminiTtsBody(plain, voiceName, style), o.timeoutMs ?? 120_000, "Gemini speech");

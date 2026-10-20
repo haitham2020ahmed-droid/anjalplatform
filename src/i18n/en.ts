@@ -831,6 +831,8 @@ export const UI_STRINGS = [
   "Or browse by skill", "Load the skills", "Add a whole skill", "How many questions?",
   // 🐛 fix (audit finding, Oct 2026): pagination for "From the bank" (it used to show only the first 20 matches)
   "Page {page} of {pages} ({total} questions)", "◀ Previous", "Next ▶",
+  // 🔎 fix (audit finding, Oct 2026): cross-grade skill search inside Build a Review
+  "Find any skill (all grades)", "Grades {g}",
 ] as const;
 
 export type UiString = (typeof UI_STRINGS)[number];

@@ -160,9 +160,14 @@ export interface BankFilter { skillId?: string | null; type?: string | null; lev
 export interface BankResults { rows: MapSourceQuestion[]; total: number; page: number; pages: number }
 
 /**
- * One page (20) of the school's published questions matching the filters (every question type, unless `f.type`
- * narrows it). A skill or 3+ letters is needed (the shared bank); with `mine`, the teacher's own private edited
- * copies (no skill or words needed).
+ * One page (20) of the school's published, auto-marked questions matching the filters. A skill or 3+ letters is needed
+ * (the shared bank); with `mine`, the teacher's own private edited copies (no skill or words needed).
+ * 📝 auto-marked only is intentional, not a gap: a Review is scored automatically, and `assertAddable` in
+ * review-control.ts refuses a SHORT_ANSWER / manually-marked question for exactly that reason ("Short answers need
+ * a teacher to mark them"). An earlier version of this fix removed the type filter here so those questions would
+ * show up in search — that only made it worse: the question would show, then fail with that error the moment the
+ * teacher pressed Add. Keeping it filtered here (same as it always was) is the correct, consistent behaviour; the
+ * real gap this audit found and fixed is the silent 20-result page cap below (see BANK_PAGE / `pages`).
  */
 export async function bankSearch(repo: Repo, actor: Actor, f: BankFilter = {}): Promise<BankResults> {
   staff(actor);
@@ -176,12 +181,9 @@ export async function bankSearch(repo: Repo, actor: Actor, f: BankFilter = {}): 
     if (!idx.ids.has(skillId)) throw new ForbiddenError("Skill not found.");
     skillIds = idx.members.get(idx.keyOf.get(skillId)!) ?? [skillId];
   } else skillIds = [...idx.ids];
-  // 🐛 fix (audit finding, Oct 2026): this used to default to auto-scored types only (silently dropping, e.g.,
-  // SHORT_ANSWER questions from every search that didn't ask for a type by name) — "From the bank" must show every
-  // published question a skill actually has, same as the skill picker/"browse by skill" panel below does, which
-  // reads with no type filter at all. An explicit `f.type` still narrows to just that one type.
   const types = await repo.findMany("QuestionType", {}, { select: ["id", "code", "isAutoScored"] });
-  const typeIds = (f.type ? types.filter((t) => s(t.code) === s(f.type).toUpperCase()) : types).map((t) => s(t.id));
+  const auto = types.filter((t) => t.code !== "SHORT_ANSWER" && t.isAutoScored !== false && t.isAutoScored !== 0);
+  const typeIds = (f.type ? auto.filter((t) => s(t.code) === s(f.type).toUpperCase()) : auto).map((t) => s(t.id));
   if (!typeIds.length) return { rows: [], total: 0, page: 1, pages: 1 };
   const lv = s(f.level).toUpperCase() as QLevel;
   const where: Record<string, unknown> = {
