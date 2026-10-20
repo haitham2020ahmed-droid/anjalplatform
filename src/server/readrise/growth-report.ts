@@ -32,7 +32,11 @@ const iso = (t: number) => new Date(t).toISOString();
 const isFirst = (r: Row) => r.firstTry === true || r.firstTry === 1;
 const isStretch = (r: Row) => r.stretch === true || r.stretch === 1;
 const scored = (r: Row) => !!r.completedAt && r.score !== null && r.score !== undefined;
-const RUN_COLS = ["id", "studentId", "articleId", "band", "versionLevel", "answers", "score", "firstTry", "stretch", "levelBefore", "startedAt", "completedAt"];
+// ⚠️ r85 audit: "unreliable" MUST stay in this list — countsForLevel() (engine.ts) reads r.unreliable to exclude
+// rapid-guessed runs from growth evidence; without it selected, every run below looked reliable (unreliable was
+// always undefined), so a lucky rapid-guess could inflate "Level confirmed by N readings," stretch success and
+// weekly-goal counts shown to teachers/admins. (studentReadRiseSummary in engine.ts already selected it correctly.)
+const RUN_COLS = ["id", "studentId", "articleId", "band", "versionLevel", "answers", "score", "firstTry", "stretch", "levelBefore", "startedAt", "completedAt", "unreliable"];
 
 /** Start of the current term (else the school year, else 120 days ago). */
 export async function termStartOf(repo: Repo, schoolId: string, now: Date): Promise<Date> {

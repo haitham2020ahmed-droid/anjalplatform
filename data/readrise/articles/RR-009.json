@@ -243,7 +243,8 @@
         "I told what he learned about light.",
         "I used at least two facts from the article.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "Ibn al-Haytham was a scholar who learned important facts about light. He learned that light travels in a straight line instead of bending on its own. He also used an experiment with a dark room to observe an upside-down image on the wall. These facts show that he really understood how light works."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I described at least one of his experiments.",
         "I explained what the experiment showed, using details from the article.",
         "I used words like first, then, and because to connect my ideas."
-      ]
+      ],
+      "modelAnswer": "The dark-room experiments helped Ibn al-Haytham learn about light by giving him real evidence instead of just an old theory. First, he let light pass through a tiny hole into a darkened room, and he observed that it formed an upside-down image of the scene outside on the opposite wall. Then, he placed several lamps outside the hole, and when he covered one lamp, only its matching spot of light disappeared inside the room. Because of this careful method, he reached the conclusion that light travels in straight lines, and his results were later translated into Latin for scholars in Europe to study."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I stated a clear position.",
         "I supported it with at least two pieces of evidence from the article.",
         "I explained how my evidence supports my position."
-      ]
+      ],
+      "modelAnswer": "I agree that Ibn al-Haytham deserves to be called one of the first experimental scientists, because he refused to accept the authority of earlier Greek theories on faith and instead tested his own hypothesis through careful experimentation. Rather than assuming that the eye simply sent out rays, he built a darkened room and systematically observed that light entering through a hole formed an upside-down image, which supported his idea that light travels from a source in straight lines. He strengthened this evidence by arranging multiple lamps outside the hole and showing that covering one lamp removed only its matching spot of light inside. Because he recorded his systematic methods and conclusions in the Book of Optics, a work that shaped the study of optics for centuries, I think the title of experimental scientist truly fits him."
     }
   }
 }

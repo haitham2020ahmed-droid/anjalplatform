@@ -141,6 +141,12 @@ function DoneCard({ view, busy, onStretch, onReread, headRef }: { view: RunView;
       <p className="mt-2 text-sm text-slate-600">
         Thought question: {view.writingScore === null ? "waiting for your teacher's score." : `your teacher gave ${view.writingScore}/4.`}{view.writingComment ? ` “${view.writingComment}”` : ""}
       </p>
+      {view.modelAnswer && (
+        <details className="mt-3 rounded-xl bg-indigo-50 p-4 ring-1 ring-indigo-200">
+          <summary className="cursor-pointer font-semibold text-indigo-900">💡 See a strong answer to compare with yours</summary>
+          <p className="mt-2 whitespace-pre-line text-slate-800"><RichInline text={view.modelAnswer} /></p>
+        </details>
+      )}
       <div className="mt-5 flex flex-wrap gap-2">
         {d.canStretch && (
           <button type="button" disabled={busy} onClick={onStretch} className="rounded-xl bg-brand-purple px-4 py-2 font-semibold text-white hover:bg-brand-navy disabled:opacity-60" aria-describedby="stretch-help">⬆ Stretch it</button>

@@ -243,7 +243,8 @@
         "I clearly answered the question.",
         "I gave at least two reasons from the article.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "Mangrove trees are important because their tangled roots give shelter to young fish, crabs, and shrimp until they grow big enough to live in the open sea. Their roots also hold mud in place along the coast, which stops the land from washing away. Without mangroves, many sea animals would lose their safe home."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained at least two ways mangroves survive.",
         "I used details from the article.",
         "I organized my ideas in a clear order."
-      ]
+      ],
+      "modelAnswer": "Mangroves survive in salty water because the grey mangrove pushes extra salt out through tiny openings in its leaves, leaving small white salt crystals on the surface. They also survive the lack of oxygen in the mud by growing roots that poke up above it like rows of pencils, so they can take in oxygen whenever the tide goes down. These two adaptations let mangroves live in a place where most other trees would quickly die."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I stated a clear position on the poll statement.",
         "I used at least three pieces of evidence from the article.",
         "I explained how each piece of evidence supports my position."
-      ]
+      ],
+      "modelAnswer": "I agree that planting mangroves is one of the best ways to protect our coasts, because the article gives strong evidence for how valuable this ecosystem truly is. First, mangrove roots hold sediment and mud in place, which prevents erosion and keeps the coastline from washing away. Second, mangroves reduce the force of strong waves during storms, directly protecting coastal communities from damage. Third, mangroves function as a nursery for sea life, sheltering young fish, crabs, and shrimp among their roots until the animals are ready for the open sea, which keeps the wider ecosystem healthy. Because mangroves protect the coast physically while also supporting the animals that depend on it, planting more of them is clearly one of the smartest ways to protect our coasts."
     }
   }
 }

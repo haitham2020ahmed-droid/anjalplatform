@@ -243,7 +243,8 @@
         "I clearly said what I think.",
         "I used at least two facts from the article.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "I would like my family to have an electric car. It does not need fuel because it stores electricity in a battery that powers a motor to turn the wheels. We could just plug it in at home to charge it overnight instead of stopping for gas."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained two benefits and one challenge.",
         "I used details from the article for each point.",
         "I organized my ideas in a clear order."
-      ]
+      ],
+      "modelAnswer": "One benefit of electric cars is that they have no exhaust pipe, so they do not release smoke that causes pollution in the city. Another benefit is that many electric cars now have a range of 300 to 500 kilometers, so drivers can travel a long way before stopping at a charging station. However, one challenge is that the batteries are expensive and need metals that must be mined from the ground, unlike a car with a regular engine."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I explained what would need to happen to reach the goal.",
         "I evaluated the benefits and challenges with evidence from the article.",
         "I wrote a clear conclusion that answers the question."
-      ]
+      ],
+      "modelAnswer": "To reach the goal of 30 percent electric vehicles in Riyadh by 2030, the city would need far more charging infrastructure, since fast chargers can fill most of a battery in about thirty minutes but drivers need enough stations to rely on them instead of a car with a combustion engine. This shift would be good for the city because electric cars release no emissions from an exhaust pipe, which would reduce air pollution, and their regenerative braking recovers some energy to improve efficiency. However, it would also be a challenge because batteries need mined metals like lithium and remain expensive to produce. Overall, with enough investment in charging infrastructure, this goal would likely improve Riyadh's air quality even though it demands a costly transition."
     }
   }
 }

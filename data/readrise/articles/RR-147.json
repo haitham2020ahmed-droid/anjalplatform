@@ -243,7 +243,8 @@
         "I named one thing I can do.",
         "I used a fact from the article to explain why it helps.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "One thing I can do to help animals in danger is use less plastic. The article explains that a sea turtle may swallow a plastic bag because it looks like a jellyfish, so using less plastic can protect endangered animals like sea turtles from pollution."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained how people cause harm and how they help.",
         "I used at least two details from the article.",
         "I wrote in complete sentences and checked my spelling."
-      ]
+      ],
+      "modelAnswer": "People can be both a cause of the problem and part of the solution for endangered animals. For example, when people cut down forests or build cities, they destroy the habitat that animals need for food, water, and shelter, which pushes species toward extinction. On the other hand, people also protect animals by creating reserves, like the ones used to save the Arabian oryx after it disappeared from the wild. These examples show that human choices decide whether a species survives or becomes extinct."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I made a clear claim about one threat.",
         "I supported my claim with at least two pieces of evidence from the article.",
         "I explained my reasoning and used correct grammar and punctuation."
-      ]
+      ],
+      "modelAnswer": "I think habitat loss is the hardest threat to solve for endangered animals. The article explains that when people cut down forests, drain wetlands, or build cities on wild land, many species lose the home they need for food, water, and shelter, which pushes them closer to extinction. Unlike hunting, which can be stopped by laws, lost habitat is very difficult to bring back once cities and farms have replaced it. Even successful efforts to reintroduce a species, like returning the Arabian oryx to reserves, cannot work unless enough wild habitat is left for them to live in."
     }
   }
 }

@@ -243,7 +243,8 @@
         "I told one way they are the same.",
         "I told one way they are different.",
         "I used words from the article, like frozen or continent."
-      ]
+      ],
+      "modelAnswer": "The Arctic and the Antarctic are the same because they are both frozen, very cold polar regions near the North and South Poles. They are different because the Arctic is mostly a frozen ocean, while the Antarctic is a continent, a huge area of land covered in ice. Also, polar bears live in the Arctic and penguins live in the Antarctic, so they never meet."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained what makes a place a desert.",
         "I used facts about the Antarctic from the article.",
         "I compared it to a hot desert."
-      ]
+      ],
+      "modelAnswer": "The Antarctic is called a desert because a desert is defined by how little rain or snow falls there, not by temperature, and the Antarctic gets very little precipitation even though it is covered by a thick ice sheet. This is similar to a hot desert like the ones in Saudi Arabia, where very little rain falls, except the Antarctic is a frozen polar desert instead of a hot one. Today scientists who visit research stations there are watching the ice sheet carefully because it is shrinking as Earth grows warmer."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I explained one similarity and at least one difference.",
         "I used hemisphere and precipitation correctly.",
         "I supported each point with evidence from the article."
-      ]
+      ],
+      "modelAnswer": "The Arctic, in the Northern Hemisphere, and the Antarctic, in the Southern Hemisphere, are alike in that both regions are extremely cold because sunlight hits them at a low angle all year. However, they differ greatly in structure and in who lives there: the Arctic is mostly a frozen ocean surrounded by land where people have lived for thousands of years, while the Antarctic is a dry continent with almost no precipitation and no permanent human population, visited only by scientists at research stations. This difference is part of why international agreements like a treaty govern how the Antarctic can be used, since no single nation lives there permanently."
     }
   }
 }

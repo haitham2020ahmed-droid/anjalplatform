@@ -133,26 +133,48 @@ export const countsForLevel = (r: Row) => r.firstTry === true && r.score !== nul
  * Runs after a first-try activity was scored (the run row already has its score and completedAt).
  * Applies the rule; returns the level before/after. Writes RRStudent (+ RRLevelChange when it moves).
  */
+// r85 audit (#3): applyFirstTryScore reads RRStudent.level/articlesDone, decides a new level from them, and used
+// to write RRStudent back unconditionally — two runs for the same student finishing within the same moment (e.g. a
+// stretch run and its base run, or a client retry) could both read the same stale row and the later write would
+// silently clobber the earlier one (a lost articlesDone increment, or a level move undone), while the level-change
+// audit row from the clobbered write stayed behind regardless. A few retries with the write conditioned on the
+// exact row we read (optimistic concurrency) makes a lost update detectable instead of silent: on a stale write we
+// just recompute from a fresh read, which is always safe here (studentId+level/articlesDone is the whole input).
+const CONCURRENT_RETRIES = 3;
 export async function applyFirstTryScore(repo: Repo, run: Row, now: Date): Promise<{ levelBefore: number; levelAfter: number; reason: string | null }> {
   const studentId = s(run.studentId);
-  const rr = await ensureRRStudent(repo, studentId, now);
-  const before = Number(rr.level);
-  const changes = await levelChanges(repo, studentId);
-  const since = changes.length ? toDate(changes[changes.length - 1].createdAt).getTime() : -Infinity;
-  const runs = (await repo.findMany("RRRun", { studentId, firstTry: true, score: { not: null } }))
-    .filter((r) => r.completedAt && toDate(r.completedAt).getTime() > since && countsForLevel(r))
-    .sort((a, b) => toDate(a.completedAt).getTime() - toDate(b.completedAt).getTime());
-  const dec = levelDecision(runs.map((r) => Number(r.score)));
-  // a stretch can only move the level up
-  const delta = run.stretch === true && dec.delta < 0 ? 0 : dec.delta;
-  const after = delta ? clampEngine(before + delta) : before;
-  const patch: Row = run.stretch === true ? {} : { articlesDone: Number(rr.articlesDone ?? 0) + 1 };
-  if (after !== before) {
-    patch.level = after;
-    await recordLevelChange(repo, { studentId, schoolId: s(rr.schoolId), from: before, to: after, reason: `${after > before ? "Up" : "Down"} ${Math.abs(after - before)}: ${dec.reason}`, now });
+  for (let attempt = 0; ; attempt++) {
+    const rr = await ensureRRStudent(repo, studentId, now);
+    const before = Number(rr.level);
+    const articlesDoneBefore = Number(rr.articlesDone ?? 0);
+    const changes = await levelChanges(repo, studentId);
+    const since = changes.length ? toDate(changes[changes.length - 1].createdAt).getTime() : -Infinity;
+    const runs = (await repo.findMany("RRRun", { studentId, firstTry: true, score: { not: null } }))
+      .filter((r) => r.completedAt && toDate(r.completedAt).getTime() > since && countsForLevel(r))
+      .sort((a, b) => toDate(a.completedAt).getTime() - toDate(b.completedAt).getTime());
+    const dec = levelDecision(runs.map((r) => Number(r.score)));
+    // a stretch can only move the level up. r85 audit (#4 — checked, not a bug): this guard looks like it could
+    // mask a legitimate down-adjustment, but `countsForLevel` above only lets a stretch run into `runs` when its
+    // OWN score is ≥ ENGINE.up (75), and this function is only ever called for a stretch run when its score is
+    // already ≥ 75 (student.ts) — so whenever `run.stretch === true` reaches this line, `dec.delta` can never be
+    // negative in practice; the `< 0` branch is unreachable. Left in place as a documented safety net, not removed.
+    const delta = run.stretch === true && dec.delta < 0 ? 0 : dec.delta;
+    const after = delta ? clampEngine(before + delta) : before;
+    const patch: Row = run.stretch === true ? {} : { articlesDone: articlesDoneBefore + 1 };
+    if (after !== before) patch.level = after;
+    if (!Object.keys(patch).length) return { levelBefore: before, levelAfter: after, reason: null };
+    // optimistic lock: only write if RRStudent still has the exact values we just read and decided from
+    const where: Row = { studentId };
+    if ("level" in patch) where.level = before;
+    if ("articlesDone" in patch) where.articlesDone = articlesDoneBefore;
+    const changed = await repo.updateMany("RRStudent", where, patch);
+    if (!changed) {
+      if (attempt >= CONCURRENT_RETRIES) throw new ValidationError("Could not save the reading result — please try again.");
+      continue; // another run for this student committed in between; re-read and recompute from the fresh row
+    }
+    if (after !== before) await recordLevelChange(repo, { studentId, schoolId: s(rr.schoolId), from: before, to: after, reason: `${after > before ? "Up" : "Down"} ${Math.abs(after - before)}: ${dec.reason}`, now });
+    return { levelBefore: before, levelAfter: after, reason: after !== before ? dec.reason : null };
   }
-  if (Object.keys(patch).length) await repo.updateMany("RRStudent", { studentId }, patch);
-  return { levelBefore: before, levelAfter: after, reason: after !== before ? dec.reason : null };
 }
 
 /** 👩‍🏫 A teacher (or school admin) sets a student's ReadRise Level (for the teacher pages). */

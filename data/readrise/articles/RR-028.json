@@ -243,7 +243,8 @@
         "I told the steps in the right order.",
         "I used at least three key words.",
         "I wrote in full sentences."
-      ]
+      ],
+      "modelAnswer": "First, a baker mixes flour with water to make dough. Next, the baker needs to knead the dough so it gets stretchy. Then the yeast makes gas bubbles so the dough rises and gets bigger. Last, the dough goes into a hot oven, where it turns into a loaf of bread with a golden crust."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained what yeast and gluten each do.",
         "I used at least two details from the article.",
         "I used key words correctly."
-      ]
+      ],
+      "modelAnswer": "Bread is soft and full of holes because of yeast and gluten working together. When a baker mixes flour and water, the proteins link together to form gluten, a stretchy network that becomes elastic as the dough is kneaded. The yeast then begins to ferment, releasing carbon dioxide gas that forms thousands of tiny bubbles, and the stretchy gluten traps those bubbles like small balloons so the dough rises and stays soft and holey inside."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I stated a clear position.",
         "I supported it with at least two pieces of evidence from the article.",
         "I explained how my evidence supports my position."
-      ]
+      ],
+      "modelAnswer": "I agree that yeast is the most important ingredient in bread. The article explains that this tiny microorganism drives fermentation, feeding on sugars and releasing carbon dioxide that creates the bubbles trapped inside the gluten network, which is exactly what makes the loaf rise. As further evidence, the article notes that breads made with very little yeast, or none at all, stay thin flatbreads, which shows that without yeast's fermentation a loaf simply cannot grow into a tall, soft loaf of bread."
     }
   }
 }

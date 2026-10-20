@@ -243,7 +243,8 @@
         "I clearly said what I think.",
         "I used at least two facts from the article.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "I think fair play is the most important part of the Olympic Games. Athletes train for years so they can compete at their best. The Games are also a symbol of friendship, because the five rings represent continents joining together. Even in the ancient Games, people respected the honor of winning fairly, and I think that is still the best part today."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I gave at least one similarity and one difference.",
         "I supported my answer with at least two details from the article.",
         "I used linking words such as both, but, and however."
-      ]
+      ],
+      "modelAnswer": "The modern Olympic Games are both similar to and different from the ancient Games. Both events bring athletes together to compete and honor the idea of fair play, treating every opponent with respect. However, the ancient Games only allowed men to compete and gave winners a wreath of olive leaves, while the modern Games, which Pierre de Coubertin helped revive in 1896, now represent more than 200 nations, including both men and women. Another difference is that today the Paralympic Games represent athletes with a disability, something the ancient Games never had."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I stated a clear position.",
         "I supported it with at least two pieces of evidence from the article.",
         "I explained how my evidence supports my position."
-      ]
+      ],
+      "modelAnswer": "I agree with Pierre de Coubertin that sport can encourage peace between nations, because the modern Olympics were built on that very idea and the evidence supports it. The five interlocking rings symbolize continents joining together in friendship rather than conflict, and today athletes from more than two hundred countries compete side by side under shared rules of discipline and integrity. The Paralympic Games extend this spirit even further, since they celebrate rehabilitation and inclusion by giving athletes with disabilities the same stage as other competitors. Although the Olympics cannot end war on their own, much like the ancient Greek truce that paused conflict so athletes could travel safely to compete, the Games still demonstrate that nations can set aside rivalry for a shared celebration of fair competition."
     }
   }
 }

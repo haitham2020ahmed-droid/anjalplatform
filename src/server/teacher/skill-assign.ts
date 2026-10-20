@@ -61,7 +61,7 @@ export async function assignSkillByLevel(repo: Repo, actor: Actor, input: { clas
   const notes: string[] = [];
   const groups: { level: Level | null; students: number; questions: number }[] = [];
   if (input.mode === "AUTOMATIC") {
-    await assignQuestions(repo, actor, { classId: input.classId, studentIds: students, questionIds: all, title: `${skill.name} (adaptive: Approaching → Meeting → Exceeding)`, exactTitle: true, adaptive: { maxQuestions: Math.min(max, all.length) }, dueAt: input.dueAt ?? null, startAt: input.startAt ?? null, note: input.note ?? null, program: input.program ?? null, source }, now);
+    await assignQuestions(repo, actor, { classId: input.classId, studentIds: students, questionIds: all, title: `${skill.name} (adaptive: Approaching → Meeting → Exceeding)`, exactTitle: true, adaptive: { maxQuestions: Math.min(max, all.length) }, dueAt: input.dueAt ?? null, startAt: input.startAt ?? null, note: input.note ?? null, program: input.program ?? null, skillId: input.skillId, source }, now);
     groups.push({ level: null, students: students.length, questions: all.length });
     for (const l of ["BELOW", "ON", "ABOVE"] as Level[]) if (!byLevel[l].length) notes.push(`${NAME[l]} has no questions yet.`);
     return { groups, notes };
@@ -74,7 +74,7 @@ export async function assignSkillByLevel(repo: Repo, actor: Actor, input: { clas
     if (!ids.length) { used = "ON"; ids = byLevel.ON; }
     if (!ids.length) { used = (["ABOVE", "ON", "BELOW"] as Level[]).find((l) => byLevel[l].length)!; ids = byLevel[used]; }
     if (used !== level) notes.push(`${NAME[level]} has no questions yet: those ${who.length} student(s) got ${NAME[used]} questions.`);
-    await assignQuestions(repo, actor, { classId: input.classId, studentIds: who, questionIds: ids.slice(0, max), title: `${skill.name} (${NAME[used]})`, exactTitle: true, dueAt: input.dueAt ?? null, startAt: input.startAt ?? null, note: input.note ?? null, program: input.program ?? null, source }, now);
+    await assignQuestions(repo, actor, { classId: input.classId, studentIds: who, questionIds: ids.slice(0, max), title: `${skill.name} (${NAME[used]})`, exactTitle: true, dueAt: input.dueAt ?? null, startAt: input.startAt ?? null, note: input.note ?? null, program: input.program ?? null, skillId: input.skillId, source }, now);
     groups.push({ level, students: who.length, questions: Math.min(max, ids.length) });
   }
   return { groups, notes };

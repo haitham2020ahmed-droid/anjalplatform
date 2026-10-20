@@ -132,6 +132,7 @@ export function QuestionList({ rows, total, filter, canPublish, canDelete, targe
         <div className="mb-3 flex flex-wrap items-center gap-2 rounded-xl bg-slate-50 p-2 ring-1 ring-slate-200">
           <span className="text-sm font-semibold text-slate-700" aria-live="polite">{t("Selected: {n}", { n: ids.length.toLocaleString("en") })}</span>
           {total > rows.length && !allMatching && <button type="button" disabled={!!busy} onClick={() => void selectAllMatching()} className={`${btn} text-brand-teal underline`}>{t("Select all {n} matching", { n: total.toLocaleString("en") })}</button>}
+          {rows.some((r) => r.scopeFlag) && <button type="button" disabled={!!busy} onClick={() => { setAllMatching(null); setSelected(new Set(rows.filter((r) => r.scopeFlag).map((r) => r.id))); }} className={`${btn} text-red-700 underline`}>⚠️ {t("Select {n} off-topic on this page", { n: rows.filter((r) => r.scopeFlag).length })}</button>}
           {(ids.length > 0) && <button type="button" disabled={!!busy} onClick={() => { setSelected(new Set()); setAllMatching(null); }} className={`${btn} text-slate-600 underline`}>{t("Clear")}</button>}
           <span className="ms-auto flex flex-wrap items-center gap-2">
             {canPublish && <button type="button" disabled={!!busy || !ids.length} onClick={() => confirmRun("publish", ids)} className={`${btn} bg-brand-teal text-white`}>{t("Publish")}</button>}
@@ -189,6 +190,7 @@ export function QuestionList({ rows, total, filter, canPublish, canDelete, targe
                         {q.origin === "AI_GENERATED" && <span className="rounded bg-amber-50 px-1.5 text-amber-800">{t("AI-drafted")}</span>}
                         {q.mine && <span className="rounded bg-indigo-50 px-1.5 text-indigo-800">{t("mine")}</span>}
                         {(q.flags ?? 0) > 0 && <span className="inline-flex items-center gap-0.5 rounded bg-rose-50 px-1.5 text-rose-800"><LineIcon name="flag" className="h-3 w-3" />{t("Flagged")} · {q.flags}</span>}
+                        {q.scopeFlag && <span className="rounded bg-red-100 px-1.5 font-semibold text-red-800" title={t("This question's own text doesn't look related to its skill — check it")}>⚠️ {t("off-topic?")}</span>}
                       </span>
                     </td>
                     {/* bank questions: skill + level only (no grade); Curriculum Map questions keep their grade */}

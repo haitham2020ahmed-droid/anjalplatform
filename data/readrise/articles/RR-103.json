@@ -243,7 +243,8 @@
         "I named something I would look at and told why.",
         "I used at least two facts from the article.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "If I had a microscope, I would like to look at a drop of pond water because the article says it can hold thousands of tiny living things that are too small to see. I would use the lens to magnify the water so I could spot germs or other tiny creatures, just like Antonie van Leeuwenhoek did long ago. I think it would be amazing to see a hidden world that is usually invisible to our eyes."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained at least one way the microscope changed what people know.",
         "I used at least two facts from the article.",
         "I wrote in complete sentences and checked my spelling."
-      ]
+      ],
+      "modelAnswer": "Before microscopes, people had no idea that tiny living things existed in a single drop of water. When Robert Hooke placed a specimen of cork under a lens, he discovered rows of tiny boxes that he named cells, and we now know every organism is made of cells. Later, Antonie van Leeuwenhoek used his own homemade lenses to magnify pond water and became the first person to see bacteria swimming around. Because of these discoveries, scientists learned that living things are built from cells and that whole worlds of tiny organisms exist all around us."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I made a clear claim.",
         "I supported my claim with at least two pieces of evidence from the article.",
         "I explained my reasoning and used correct grammar and punctuation."
-      ]
+      ],
+      "modelAnswer": "I believe Hooke's discovery of cells was more important because it revealed the basic unit that makes up every living organism, a foundation that the rest of biology still rests on. Hooke was the first to examine a specimen of cork and notice the tiny compartments he named cells, and scientists later learned that even the bacteria Leeuwenhoek found are themselves made of a single cell. Leeuwenhoek's work was remarkable because it showed that living organisms too small to see could cause illness, but understanding what those organisms actually were still depended on Hooke's idea of the cell. For that reason, Hooke's breakthrough provided the broader concept on which later microscopic science, including today's compound and electron microscopes, was built."
     }
   }
 }

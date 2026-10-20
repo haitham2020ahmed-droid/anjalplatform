@@ -3,7 +3,7 @@ import { AppShell } from "@/components/app-shell";
 import { Meter, ReportHeader } from "@/components/report-kit";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { listTemplates, teacherTests, TEST_TYPE_NAME, TEST_TYPES } from "@/server/tests/assessments";
-import { deleteTemplateAction } from "./actions";
+import { deleteTemplateAction, deleteTestAction, withdrawTestAction } from "./actions";
 import { EmptyState, SourceTag, BTN_PRIMARY, BTN_SECONDARY } from "@/components/ui-kit";
 import { getT } from "@/i18n/server";
 
@@ -40,13 +40,33 @@ export default async function AssessmentsPage({ searchParams }: { searchParams: 
         {!tests.length ? <EmptyState compact icon="📝" title="No tests yet" text="Press “+ New test” to build your first one." className="mt-3" /> : (
           <ul className="mt-3 divide-y divide-slate-100">
             {tests.map((x) => (
-              <li key={x.id} className="flex flex-wrap items-center justify-between gap-3 py-3">
+              <li key={x.id} className="flex flex-wrap items-start justify-between gap-3 py-3">
                 <div className="min-w-0">
                   <p className="flex flex-wrap items-center gap-2 font-semibold text-brand-navy">{x.title} <SourceTag source={x.type === "CUSTOM" ? "OTHER" : x.type} /></p>
                   <p className="text-sm text-slate-600">{x.className} · {t("assigned {date}", { date: day(x.createdAt) })}{x.dueAt ? ` · ${t("Due {date}", { date: day(x.dueAt) })}` : ""} · {t("{done} of {total} finished", { done: x.completed, total: x.assigned })}</p>
                   <Meter value={x.completed} total={x.assigned} className="mt-1.5 max-w-xs" />
                 </div>
-                <Link href={`/teacher/assessments/${x.id}`} className={BTN_SECONDARY}>{t("Results")}</Link>
+                <div className="flex flex-col items-end gap-1.5">
+                  <Link href={`/teacher/assessments/${x.id}`} className={BTN_SECONDARY}>{t("Results")}</Link>
+                  {/* 🗑 r87: the teacher's own choice — stop it but keep the record, or delete it for good */}
+                  <details className="text-end">
+                    <summary className="cursor-pointer text-xs font-semibold text-rose-700">{t("Cancel this test")}</summary>
+                    <div className="mt-2 flex max-w-xs flex-col gap-2 rounded-xl bg-slate-50 p-3 text-start text-xs ring-1 ring-slate-200">
+                      <form action={withdrawTestAction} className="flex flex-col gap-1">
+                        <input type="hidden" name="testId" value={x.id} />
+                        <p className="text-slate-600">{t("Stop sending to students. Answers already given are kept, and you can undo this from Assigned.")}</p>
+                        <label className="flex items-center gap-1.5"><input type="checkbox" name="confirm" required className="h-4 w-4" />{t("Yes, stop this test")}</label>
+                        <button className="self-start rounded-lg bg-white px-3 py-1 font-semibold text-amber-800 ring-1 ring-amber-300 hover:bg-amber-50">{t("Stop (keep saved)")}</button>
+                      </form>
+                      <form action={deleteTestAction} className="flex flex-col gap-1 border-t border-slate-200 pt-2">
+                        <input type="hidden" name="testId" value={x.id} />
+                        <p className="text-slate-600">{t("Gone from here for good; no Undo. Answers already given are not deleted.")}</p>
+                        <label className="flex items-center gap-1.5"><input type="checkbox" name="confirm" required className="h-4 w-4" />{t("Yes, delete permanently")}</label>
+                        <button className="self-start rounded-lg bg-rose-700 px-3 py-1 font-semibold text-white hover:bg-rose-800">{t("Delete permanently")}</button>
+                      </form>
+                    </div>
+                  </details>
+                </div>
               </li>
             ))}
           </ul>

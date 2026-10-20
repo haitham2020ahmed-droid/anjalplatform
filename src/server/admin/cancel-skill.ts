@@ -10,7 +10,8 @@
 import type { Repo } from "../seeding/repo";
 import { ForbiddenError, canAccessStudent, assertCan, type Actor } from "../auth/rbac";
 import { searchStudents, type FoundStudent } from "../insights/student-file";
-import { assignedWorkOfClasses, type AssignedKind } from "../teacher/assigned";
+import { accessibleClasses } from "../teacher/assign";
+import { assignedWorkOfClasses, cancelAssignment, type AssignedKind } from "../teacher/assigned";
 
 const s = (v: unknown) => (v === null || v === undefined ? "" : String(v));
 const isAdmin = (a: Actor) => a.role === "SCHOOL_ADMIN" || a.role === "SUPER_ADMIN";
@@ -57,4 +58,98 @@ export async function adminStudentSkills(repo: Repo, actor: Actor, studentId: st
     student: { id, name: s(user?.displayName) || "Student", number: s(st.studentNumber), grade: Number(grade?.level ?? 0), className: classes.map((c) => s(c.name)).join(", ") },
     skills,
   };
+}
+
+/** Every live (not yet fully-cancelled) skill/progress-check item of the whole school, every grade and class. */
+async function allAssignedSkillItems(repo: Repo, actor: Actor) {
+  if (!isAdmin(actor)) throw new ForbiddenError("Admins only.");
+  if (!actor.schoolId) throw new ForbiddenError("No school.");
+  const classIds = (await accessibleClasses(repo, actor)).map((c) => s(c.id));
+  return classIds.length ? await assignedWorkOfClasses(repo, actor.schoolId, classIds, { kinds: SKILL_KINDS }) : [];
+}
+
+/** Every live skill/progress-check item of ONE class only (must be a class of this actor's school). */
+async function assignedSkillItemsOfClass(repo: Repo, actor: Actor, classId: string) {
+  if (!isAdmin(actor)) throw new ForbiddenError("Admins only.");
+  if (!actor.schoolId) throw new ForbiddenError("No school.");
+  const classes = await accessibleClasses(repo, actor);
+  if (!classes.some((c) => s(c.id) === classId)) throw new ForbiddenError("Not a class of this school.");
+  return assignedWorkOfClasses(repo, actor.schoolId, [classId], { kinds: SKILL_KINDS });
+}
+
+export interface AdminClass { id: string; name: string; grade: number }
+
+/** Every class of the school (for the "cancel in this class" picker), grade then name. */
+export async function adminClasses(repo: Repo, actor: Actor): Promise<AdminClass[]> {
+  if (!isAdmin(actor)) throw new ForbiddenError("Admins only.");
+  const classes = await accessibleClasses(repo, actor);
+  const gradeIds = [...new Set(classes.map((c) => s(c.gradeId)))];
+  const grades = gradeIds.length ? await repo.findMany("Grade", { id: { in: gradeIds } }, { select: ["id", "level"] }) : [];
+  const levelOf = new Map(grades.map((g) => [s(g.id), Number(g.level ?? 0)]));
+  return classes.map((c) => ({ id: s(c.id), name: s(c.name), grade: levelOf.get(s(c.gradeId)) ?? 0 })).sort((a, b) => a.grade - b.grade || a.name.localeCompare(b.name));
+}
+
+export interface AdminSkillGroup { kind: AssignedKind; title: string; itemIds: string[]; classNames: string[]; students: number }
+
+/** Groups items by kind+title (one row per skill name), with the class names and student count of each. */
+async function groupedByTitle(repo: Repo, actor: Actor, items: Awaited<ReturnType<typeof allAssignedSkillItems>>, needle: string): Promise<AdminSkillGroup[]> {
+  const classes = await accessibleClasses(repo, actor);
+  const classNameOf = new Map(classes.map((c) => [s(c.id), s(c.name)]));
+  const groups = new Map<string, AdminSkillGroup>();
+  for (const it of items) {
+    if (needle && !it.title.toLowerCase().includes(needle)) continue;
+    const key = `${it.kind}:${it.title}`;
+    const g = groups.get(key) ?? { kind: it.kind, title: it.title, itemIds: [], classNames: [], students: 0 };
+    g.itemIds.push(it.id);
+    for (const c of it.classIds) { const n = classNameOf.get(c); if (n && !g.classNames.includes(n)) g.classNames.push(n); }
+    g.students += it.students.size;
+    groups.set(key, g);
+  }
+  return [...groups.values()].sort((a, b) => a.title.localeCompare(b.title));
+}
+
+/** Every currently-assigned skill/progress-check whose title matches the search, grouped (one row per skill name) across the whole school. */
+export async function adminFindAssignedSkills(repo: Repo, actor: Actor, q: string): Promise<AdminSkillGroup[]> {
+  assertCan(actor, "assignments:read");
+  const needle = q.trim().toLowerCase();
+  if (!needle) return [];
+  return groupedByTitle(repo, actor, await allAssignedSkillItems(repo, actor), needle);
+}
+
+/** Every currently-assigned skill/progress-check of ONE class, optionally filtered by name (empty: every skill of that class). */
+export async function adminFindAssignedSkillsInClass(repo: Repo, actor: Actor, classId: string, q = ""): Promise<AdminSkillGroup[]> {
+  assertCan(actor, "assignments:read");
+  return groupedByTitle(repo, actor, await assignedSkillItemsOfClass(repo, actor, classId), q.trim().toLowerCase());
+}
+
+/** Cancel every live assignment of this exact skill title, for every student, in every class of the school. Returns how many items were cancelled. */
+export async function adminCancelSkillEverywhere(repo: Repo, actor: Actor, kind: AssignedKind, title: string): Promise<number> {
+  assertCan(actor, "assignments:create");
+  const items = (await allAssignedSkillItems(repo, actor)).filter((it) => it.kind === kind && it.title === title);
+  for (const it of items) await cancelAssignment(repo, actor, it.kind, it.id, null);
+  return items.length;
+}
+
+/** Cancel EVERY currently-assigned skill/progress-check, for every student, in every grade and class of the school. Returns how many items were cancelled. */
+export async function adminCancelAllAssignedSkills(repo: Repo, actor: Actor): Promise<number> {
+  assertCan(actor, "assignments:create");
+  const items = await allAssignedSkillItems(repo, actor);
+  for (const it of items) await cancelAssignment(repo, actor, it.kind, it.id, null);
+  return items.length;
+}
+
+/** Cancel every live assignment of this exact skill title, for every student, in ONE class only. Returns how many items were cancelled. */
+export async function adminCancelSkillInClass(repo: Repo, actor: Actor, kind: AssignedKind, title: string, classId: string): Promise<number> {
+  assertCan(actor, "assignments:create");
+  const items = (await assignedSkillItemsOfClass(repo, actor, classId)).filter((it) => it.kind === kind && it.title === title);
+  for (const it of items) await cancelAssignment(repo, actor, it.kind, it.id, null);
+  return items.length;
+}
+
+/** Cancel EVERY currently-assigned skill/progress-check of ONE class only (every student in it). Returns how many items were cancelled. */
+export async function adminCancelAllAssignedSkillsInClass(repo: Repo, actor: Actor, classId: string): Promise<number> {
+  assertCan(actor, "assignments:create");
+  const items = await assignedSkillItemsOfClass(repo, actor, classId);
+  for (const it of items) await cancelAssignment(repo, actor, it.kind, it.id, null);
+  return items.length;
 }

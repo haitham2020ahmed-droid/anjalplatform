@@ -243,7 +243,8 @@
         "I told the steps in the right order.",
         "I used at least two key words.",
         "I named one way people can help sea turtles."
-      ]
+      ],
+      "modelAnswer": "A sea turtle starts as an egg in a nest on the beach. After it hatches, the little hatchling crawls to the ocean and begins its long journey in the sea. Years later, this reptile swims all the way back home to lay eggs on the same beach. People can help sea turtles by keeping beaches dark and clean."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained two dangers with details from the article.",
         "I described one way people can help.",
         "I used at least two key words correctly."
-      ]
+      ],
+      "modelAnswer": "One danger hatchlings face is predators, since birds and crabs hunt them on the sand and fish wait for them in the shallow water, which is why only about one in a thousand survives. A second danger is plastic pollution, because a floating plastic bag looks like a jellyfish and a turtle that swallows one can become very sick. People can help reduce this second danger by keeping beaches clean so there is less trash for sea turtles to mistake for food."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I explained at least one remarkable ability and one danger.",
         "I supported my ideas with specific details from the article.",
         "I used at least three key words accurately."
-      ]
+      ],
+      "modelAnswer": "A sea turtle's life cycle is remarkable because of its instinct for navigation: scientists believe it can sense Earth's magnetic field like an invisible map, which lets a female migrate thousands of kilometers back to the very beach where she once hatched. The same life cycle also makes the species vulnerable, since the incubation of the eggs depends on sand temperature, which determines whether more males or females hatch, and the long dangerous journey from nest to sea leaves hatchlings easy prey for birds, crabs, and fish. Because threats such as plastic pollution and bright beachside lights add to these natural dangers, conservation efforts like keeping beaches dark and clean are essential to the turtles' survival."
     }
   }
 }

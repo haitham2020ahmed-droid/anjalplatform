@@ -243,7 +243,8 @@
         "I clearly answered the question.",
         "I used at least two facts from the article.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "The date palm is an important tree for many reasons. People use its long fronds to weave mats, baskets, and fans. Farmers also place pollen from male flowers onto female flowers so the tree can grow fruit. When the dates turn ripe, families gather them at harvest time and eat them for quick energy. This is why the date palm is so important."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained what farmers do and why.",
         "I used at least two details from the article.",
         "I put my ideas in a clear order."
-      ]
+      ],
+      "modelAnswer": "Farmers help date palms produce a good crop of dates in two important ways. First, because only female trees produce dates and the wind does not carry enough pollen on its own, farmers climb the tall trunks every spring and tie strands of male flowers among the female flowers by hand to complete pollination. Second, many farmers plant their palms in an oasis, a fertile spot in the desert where water reaches the surface, since the trees need steady moisture even though they can survive intense heat. With careful pollination and enough water, the palms can grow dates full of natural sugars and minerals like potassium."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I stated a clear position.",
         "I supported it with at least two pieces of evidence from the article.",
         "I explained how each piece of evidence connects to my position."
-      ]
+      ],
+      "modelAnswer": "I agree that the date palm deserves to be called a symbol of generosity and endurance, because the evidence in the article supports both qualities. For endurance, the tree is remarkably adapted to arid regions, surviving scorching summer temperatures as long as its deep roots can reach underground moisture, which shows how tough it is even in the harshest desert conditions. For generosity, people have learned to use nearly every part of the palm, from weaving its fronds into baskets to using its trunk as roof beams, and its dates provide abundant, nutritious energy that many families rely on, especially to break their fast during Ramadan. Because farmers have cultivated this tree for thousands of years and depend on its generosity to this day, I think the description fits perfectly."
     }
   }
 }

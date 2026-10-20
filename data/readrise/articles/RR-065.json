@@ -243,7 +243,8 @@
         "I wrote the steps in the right order.",
         "I said when to wash hands.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "First, wet your hands and add soap. Then scrub every part of your hands for twenty seconds to get rid of germs. Finally, rinse well and dry your hands with a clean towel. You should wash your hands before you eat and after you use the toilet, so germs cannot spread and make you sick."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained why handwashing matters using facts from the article.",
         "I included the important steps in the correct order.",
         "I used clear words that other students can follow."
-      ]
+      ],
+      "modelAnswer": "Wash your hands because germs like bacteria and viruses are too small to see without a microscope, but they stick to every surface you touch and can make you sick. To wash well, wet your hands, add soap, scrub every part for twenty seconds, then rinse and dry with a clean towel. Doing this before you eat and after using the toilet keeps you and your classmates healthy."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I stated a clear position about handwashing.",
         "I supported it with at least three pieces of scientific or historical evidence from the article.",
         "I addressed the students' concern and ended with a strong conclusion."
-      ]
+      ],
+      "modelAnswer": "Handwashing may feel like it takes too long, but the evidence proves it is one of the most powerful tools we have against illness. Soap grabs germs and dirt and loosens them from your skin, so the running water can rinse bacteria and viruses away before you accidentally spread them to your eyes, nose, or mouth. History backs this up too: about 175 years ago, a doctor named Ignaz Semmelweis noticed that far fewer patients became sick when doctors simply washed their hands, and today handwashing is still one of the most important habits in every hospital in the world. Twenty seconds, about as long as singing a short song twice, is a small price to pay to stop illness before it starts, so handwashing is absolutely worth the time."
     }
   }
 }

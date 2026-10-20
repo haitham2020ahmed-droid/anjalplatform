@@ -243,7 +243,8 @@
         "I named one kind of bridge.",
         "I explained how it holds up weight.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "I will explain the arch bridge. An arch bridge has a curved shape that pushes the weight outward and down into the ground at each end. This kind of bridge is a good choice because stone is very strong when it is squeezed, so some stone arch bridges have stood for two thousand years."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained both compression and tension.",
         "I used one type of bridge as an example.",
         "I used details from the article."
-      ]
+      ],
+      "modelAnswer": "Compression is a pushing force that squeezes a bridge's materials together, while tension is a pulling force that stretches them apart. In a beam bridge, when a load sits on it, compression squeezes the top of the beam while tension stretches the bottom. Engineers must design every bridge, including a beam bridge with a short span, to handle both of these forces safely."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I stated a clear opinion about the poll statement.",
         "I used evidence about at least one bridge shape and one material.",
         "I explained how my evidence supports my opinion."
-      ]
+      ],
+      "modelAnswer": "I agree that the shape of a bridge matters more than its material. A curved arch bridge can push its load outward and down into the ground at each end, which is why stone arch bridges built two thousand years ago are still standing even though stone is a fairly simple material. A suspension bridge's shape, with its road hanging from steel cables anchored deep in the ground, lets it span distances no beam bridge of any material could cross. Since the right shape lets engineers use even an older material like stone or steel safely for centuries, shape seems to matter more than which material is chosen."
     }
   }
 }

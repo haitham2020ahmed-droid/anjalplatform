@@ -243,7 +243,8 @@
         "I named two body parts or tricks from the article.",
         "I told how each one helps the badger.",
         "I wrote in full sentences."
-      ]
+      ],
+      "modelAnswer": "The honey badger has thick, loose skin that lets it twist around and bite back if a predator grabs it by the neck. It also has long, curved claws that can dig a burrow for shelter in just a few minutes. This brave little animal is even resistant to snake venom, so it can survive a bite that would hurt most other animals."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I clearly said whether I agree.",
         "I used two facts from the article.",
         "I explained how each fact supports my opinion."
-      ]
+      ],
+      "modelAnswer": "I agree that the honey badger is fearless. The article says it has been seen chasing young lions away from a meal and standing up to a whole pack of hyenas, which shows it does not back down from a dangerous predator. It is also partly resistant to snake venom, so it can hunt venomous snakes that most other animals would avoid entirely. Because this solitary hunter takes on such big risks for its food, including raiding beehives for larvae, I think fearless is exactly the right word for it."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I named one adaptation and explained why it matters most.",
         "I used specific evidence from the article.",
         "I compared it with a second adaptation."
-      ]
+      ],
+      "modelAnswer": "I think the honey badger's thick, loose skin is its most important adaptation, because it lets the animal twist inside its own hide and bite back even while a formidable predator like a leopard has it by the neck, turning a near-fatal attack into a chance to escape. This adaptation matters more than its partial resistance to snake venom, which only helps after a bite has already happened and can still leave the badger temporarily helpless for hours. The loose skin works proactively to prevent serious injury in the first place, which is especially valuable for such an opportunistic hunter that constantly tangles with dangerous prey and rivals. Its scent gland, which releases a powerful smell to deter enemies, is useful too, but it only scares attackers away rather than protecting the badger during an actual attack."
     }
   }
 }

@@ -243,7 +243,8 @@
         "I explained what a vaccine does.",
         "I used at least two facts from the article.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "A vaccine helps my body get ready to fight a germ before I even get sick. The vaccine teaches my immune system to recognize the germ and make antibodies that can destroy it. Because of this, if the real germ ever enters my body, it can fight back quickly. This is one important way a vaccine helps protect me."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained how vaccines protect one person.",
         "I explained how they protect the community, using details from the article.",
         "I connected my ideas with words like because and so."
-      ]
+      ],
+      "modelAnswer": "Vaccines protect one person because they contain a weakened or killed germ that cannot cause a full infection, but it still teaches the immune system to recognize that invader and make antibodies. Because of this, if the real germ enters the body later, the immune system stops it quickly before it can multiply and make the person sick. Vaccines also protect the whole community, because when most people are immune, a germ has a much harder time spreading from person to person. This helps protect newborn babies and people with illnesses who cannot get certain vaccines themselves."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I stated a clear position.",
         "I supported it with at least two pieces of evidence from the article.",
         "I explained how my evidence supports my position."
-      ]
+      ],
+      "modelAnswer": "I agree that getting a vaccine is a way of helping others, not only yourself, because immunity works on a community level, not just an individual one. Once a person receives a dose and develops immunity to a pathogen, that person is far less likely to catch and spread the infection to someone else. This matters most for vulnerable people, such as newborns or those with illnesses who cannot be vaccinated themselves, since they depend on the immunity of everyone around them for protection. History even shows that widespread vaccination can eventually help eradicate a disease entirely, which proves that one person's choice to get vaccinated can ripple out and protect an entire community."
     }
   }
 }

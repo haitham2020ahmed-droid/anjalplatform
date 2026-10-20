@@ -8,7 +8,7 @@ import { approveReviewAction, dismissReviewAction } from "./actions";
 import { EmptyState } from "@/components/ui-kit";
 import { getT } from "@/i18n/server";
 import { SortQuestions } from "./sort-questions";
-import { AcceptConfident, GroupView, ImproveWithAi } from "./bulk-review";
+import { AcceptAllGuesses, AcceptConfident, GroupView, ImproveWithAi } from "./bulk-review";
 import { reviewGroups } from "@/server/questions/link-review-bulk";
 import { Combo } from "@/components/ui/combo";
 
@@ -54,6 +54,7 @@ export default async function SkillLinksReviewPage({ searchParams }: { searchPar
         <section className="mb-4 grid gap-3 md:grid-cols-2">
           <ImproveWithAi />
           <AcceptConfident />
+          <AcceptAllGuesses />
         </section>
       )}
       {kind === "QUESTION" && (

@@ -243,7 +243,8 @@
         "I said yes or no.",
         "I gave two reasons from the article.",
         "I wrote full sentences."
-      ]
+      ],
+      "modelAnswer": "Yes, I think technology makes football better. Goal-line cameras can tell exactly when the whole ball crosses the line, so the referee's decision is fair. VAR also lets referees watch a replay before making a big decision, like a penalty."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I named one tool from the article.",
         "I explained how it works.",
         "I gave a reason it helps football."
-      ]
+      ],
+      "modelAnswer": "I think VAR helps football the most. VAR stands for Video Assistant Referee, and it is a team of referees who watch replays from many angles to check important decisions like goals and penalties. It helps football because it gives the main referee a chance to fix a clear mistake using technology, which makes the game's decisions more accurate."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I stated a clear opinion.",
         "I used at least two pieces of evidence from the article.",
         "I mentioned the other side of the argument."
-      ]
+      ],
+      "modelAnswer": "I agree that the benefits of football's new technology are worth the interruptions it sometimes causes, even though I understand the controversy some fans feel about reviews slowing the game down. Goal-line cameras transmit a signal to the referee's watch in about one second once the ball fully crosses the line, giving referees a level of precision no human eye could match on its own. VAR allows a team of officials to monitor replays from multiple angles and correct a clear mistake on penalties or red cards, decisions that can completely change the outcome of a match. While some supporters argue that these pauses interrupt the excitement of the game, I believe the extra minutes are a fair trade for decisions that are accurate and that treat every team equally."
     }
   }
 }

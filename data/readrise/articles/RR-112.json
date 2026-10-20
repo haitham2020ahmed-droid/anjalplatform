@@ -243,7 +243,8 @@
         "I told the steps in the right order.",
         "I used the words echo and insect.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "First, the bat is a mammal that flies out at night using its thin, skin-covered wings. As it flies, it makes a high sound that people cannot hear. When that sound hits an insect, it bounces back as an echo, and the bat listens to the echo to find out exactly where the insect is. Then the bat swoops in and catches the insect to eat."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I described at least one way they are alike.",
         "I described at least one way they are different.",
         "I used the words echolocation and sonar correctly."
-      ]
+      ],
+      "modelAnswer": "Echolocation and sonar are alike because both send out sound and then listen for an echo bouncing back off something, whether it is a flying insect that is prey for a bat or a school of fish under the water. They are different because a bat uses extremely high-pitched calls at a pitch human ears cannot even detect, while sonar on a ship sends sound through water instead of air to find the ocean floor or fish. People actually copied the bat's echolocation trick when they invented sonar, which shows how useful this hunting method is, even though some bats also pollinate flowers using their eyesight and sense of smell instead."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I stated a clear opinion in my first sentence.",
         "I supported it with at least three pieces of evidence from the article.",
         "I used precise words such as predator, species, or navigate."
-      ]
+      ],
+      "modelAnswer": "Bats deserve far more protection than people usually give them. First, many species of bats are incredibly helpful predators that eat hundreds of insects in a single night, including pests that would otherwise damage farmers' crops. Second, bats use ultrasonic sound at a frequency to navigate and hunt in complete darkness through echolocation, an ability so remarkable that humans copied it to invent sonar for finding objects underwater. Third, some bats pollinate flowers and scatter seeds that grow into new trees, which means they quietly help forests and farms regrow. Bats are not the frightening creatures of scary stories; they are intelligent, essential animals that deserve our protection, not our fear."
     }
   }
 }

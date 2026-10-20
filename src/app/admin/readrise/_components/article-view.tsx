@@ -118,6 +118,12 @@ export function ArticleView({ a, base }: { a: ArticleDetail; base: string }) {
                   <h3 className="mt-4 font-semibold text-slate-800">Written answer</h3>
                   <p className="mt-1 rounded-xl bg-amber-50 p-3 text-sm text-slate-800 ring-1 ring-amber-200">{d.prompt || "—"}</p>
                   {d.checklist.length > 0 && <ul className="mt-2 list-disc ps-5 text-xs text-slate-600">{d.checklist.map((c) => <li key={c}>{c}</li>)}</ul>}
+                  {d.modelAnswer ? (
+                    <><h3 className="mt-4 font-semibold text-slate-800">💡 Model answer (students see this after they submit theirs)</h3>
+                    <p className="mt-1 whitespace-pre-line rounded-xl bg-indigo-50 p-3 text-sm text-slate-800 ring-1 ring-indigo-200">{d.modelAnswer}</p></>
+                  ) : (
+                    <p className="mt-3 text-xs text-slate-400">No model answer yet.</p>
+                  )}
                 </div>
                 <div>
                   <h3 className="font-semibold text-slate-800">Questions</h3>

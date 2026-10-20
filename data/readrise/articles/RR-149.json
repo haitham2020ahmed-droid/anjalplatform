@@ -243,7 +243,8 @@
         "I explained one way science helps a swimmer.",
         "I used at least two details from the article.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "One way science helps a person swim is buoyancy, the upward push of water on your body. If you take a deep breath and hold it, the air in your lungs makes you float higher in the water. This science helps swimmers stay safe and move through the water more easily."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained how to float, using the article.",
         "I explained how to move faster, using the article.",
         "I used at least two key words correctly."
-      ]
+      ],
+      "modelAnswer": "To float well, take a deep breath and hold it, because the air in your lungs creates buoyancy, the upward push of the water that helps keep your body near the surface. To move faster, push the water backward with your hands and feet, and keep your body flat and long in a streamline position so there is less drag slowing you down."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I explained two scientific principles accurately.",
         "I showed how a swimmer could use each one, with evidence from the article.",
         "I used precise vocabulary, including at least two key words."
-      ]
+      ],
+      "modelAnswer": "Two scientific principles explained in the article are buoyancy and drag, often felt as resistance in the water. Buoyancy is the upward push of water on an object, so a swimmer who takes a deep breath fills their lungs with air and floats higher, which helps them stay safe and conserve energy. Drag, however, slows a swimmer down because water is much denser than air, so skilled swimmers keep their bodies flat and stretch into a streamlined position to propel themselves through the water more efficiently. Understanding both principles helps a swimmer move faster while staying safe in the pool."
     }
   }
 }

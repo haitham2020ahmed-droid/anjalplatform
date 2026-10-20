@@ -243,7 +243,8 @@
     "I explained why the sky is blue in my own words.",
     "I used at least two facts from the article.",
     "I wrote complete sentences with capital letters and periods."
-   ]
+   ],
+   "modelAnswer": "The sky looks blue because sunlight is really made of all the colors of the rainbow mixed together. Tiny bits of air scatter the blue light all around the sky, so blue reaches our eyes from every direction. At sunset the light has to travel through more air, so most of the blue gets scattered away and we see red and orange instead."
   },
   "MID": {
    "keyWords": [
@@ -421,7 +422,8 @@
     "I explained both the blue sky and the red sunset.",
     "I used at least two details from the article.",
     "I used science words such as wavelength, scatter, or atmosphere correctly."
-   ]
+   ],
+   "modelAnswer": "At noon, sunlight has a short path through the atmosphere, and the tiny gas molecules in the air scatter blue light, which has a short wavelength, far more than other colors, so the whole sky looks blue. At sunset the sun sits low on the horizon, so its light must travel through a much thicker layer of atmosphere before reaching us. Along that longer path, most of the blue light gets scattered away, leaving mainly red and orange light to color the sky."
   },
   "HIGH": {
    "keyWords": [
@@ -599,7 +601,8 @@
     "I clearly explained the link between particle size and sky color.",
     "I compared at least two examples from the article.",
     "I used precise words such as wavelength, scattering, and particle correctly."
-   ]
+   ],
+   "modelAnswer": "The size of the particles in the air determines which colors get scattered the most. On a clear day, tiny gas molecules are far smaller than the wavelength of light, so they favor scattering short blue wavelengths, which is why the sky looks blue. Clouds look completely different because their water droplets are much larger, so they scatter every distinct color of light about equally, producing a white color instead of blue. During a dust storm, the even larger dust particles also scatter all the colors evenly, which is why the sky turns a pale, brownish shade rather than its usual blue."
   }
  }
 }

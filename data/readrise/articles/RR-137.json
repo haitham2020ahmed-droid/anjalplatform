@@ -243,7 +243,8 @@
         "I clearly answered the question.",
         "I used at least two facts from the article.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "I chose the Babylonian sky-watchers. About 3,000 years ago, they pressed lists of stars into clay tablets. This was important because it was one of the earliest ways people recorded the stars and the constellations they saw, which helped later astronomers build even better star maps."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I clearly answered the question.",
         "I used at least two facts from the article.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "People mapped the stars in many times and places. About 3,000 years ago, Babylonian sky-watchers pressed lists of stars into clay tablets. Later, around 150 BCE, the Greek astronomer Hipparchus made a catalog of about 850 stars and sorted them by brightness. Around 700 CE, sky-watchers in China drew a paper star chart showing more than 1,300 stars, using their own method to record the same night sky."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I clearly answered the question.",
         "I used at least two facts from the article.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "Star mapping was work built up by many cultures over thousands of years. The Greek astronomer Hipparchus created an early catalog of about 850 stars around 150 BCE, sorting them by brightness, an idea scientists still use today. Centuries later, the Persian astronomer al-Sufi expanded on this tradition in his Book of Fixed Stars, drawing each constellation twice and describing the Andromeda Galaxy as a faint little cloud. Because of his work, many stars still carry Arabic names today, such as Aldebaran, Altair, and Rigel, showing how later astronomers carried this knowledge of navigation and the night sky even further, up to the modern Gaia space telescope."
     }
   }
 }

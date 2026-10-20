@@ -243,7 +243,8 @@
         "I told at least one way they are like camels.",
         "I told at least one way they are different from camels or from each other.",
         "I used facts from the article."
-      ]
+      ],
+      "modelAnswer": "Llamas and alpacas are cousins of the camel, and like camels, they live together in a herd and chew their food a second time after swallowing it. They are different from camels because they live high in the mountains instead of the desert, and they have no hump on their back. The llama can carry a heavy load on steep mountain paths, while the alpaca is raised mostly for its soft fleece."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained at least two ways they are suited to mountain life.",
         "I used details from the article.",
         "I wrote in complete sentences with a clear opening."
-      ]
+      ],
+      "modelAnswer": "Llamas and alpacas are well suited to life high in the Andes because their blood is especially good at collecting oxygen, which helps them survive where the altitude is so high that the air has less oxygen than usual. Their soft, padded feet also help, since the two-toed pads do not damage the steep mountain ground the way a hard hoof would. People domesticated these animals from wild ancestors thousands of years ago, and they still live together in a herd today, and the alpaca's soft fiber, or fleece, is especially prized by the people who raise it in those mountain herds."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I explained at least one similarity and one difference.",
         "I connected these to where the ancestors moved and how they adapted.",
         "I used specific evidence from the article."
-      ]
+      ],
+      "modelAnswer": "The history of the camelid family explains both the similarities and the differences between llamas and camels, because all of them descended from common ancestors that once lived in North America millions of years ago. Some of those ancestors crossed into Asia and became camels, while others moved south into the high-altitude Andes and became the wild guanaco and vicuña, which people later brought through domestication to create the llama and alpaca we know today. Because they share the same camelid ancestry, llamas and camels are alike in basic ways, such as chewing their food a second time and living in herds, but millions of years spent in very different environments gave them different features, like the camel's hump for desert travel. The 1998 hybrid named Rama, born from a camel and a guanaco, is further evidence of just how closely related these animals still are beneath their differences."
     }
   }
 }

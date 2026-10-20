@@ -243,7 +243,8 @@
         "I said why the House of Wisdom was important.",
         "I used two details from the article.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "The House of Wisdom was important because it was a great library where scholars collected books from Greece, Persia, and India. They would translate these books into Arabic, so people in Baghdad could read ideas from many different lands. This brought knowledge from around the world together in one place."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained how paper helped.",
         "I explained how translation helped.",
         "I used at least two key words such as manuscript, knowledge, or caliph."
-      ]
+      ],
+      "modelAnswer": "Paper helped because people in Baghdad learned to make it, and it was much cheaper than the animal skins used before, so books were easier to copy and share. Translation also helped because scholars took manuscripts from Greece, Persia, and India and turned them into Arabic, bringing knowledge from many cultures into one place. Together, cheap paper and careful translation let the caliph's scholars spread this knowledge to many more people than before."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I explained why working together led to discoveries.",
         "I used at least three pieces of evidence from the article.",
         "I used academic words such as preserve, legacy, or algorithm."
-      ]
+      ],
+      "modelAnswer": "The House of Wisdom brought scholars from many cultures together, which helped preserve old knowledge and also create new discoveries. First, scholars translated ancient manuscripts from Greece, Persia, and India into Arabic, which let ideas from different civilizations combine in one place. Second, al-Khwarizmi used this shared foundation of mathematics to write a book that gave us the word algebra, and his name is also the origin of the word algorithm. Third, other scholars studied astronomy and tried to measure the size of the Earth, building on knowledge gathered from many lands. Even though an invading army destroyed many books in 1258, the legacy of this collaboration survived and was later translated again in Europe."
     }
   }
 }

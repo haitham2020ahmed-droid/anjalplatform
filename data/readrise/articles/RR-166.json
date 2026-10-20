@@ -243,7 +243,8 @@
         "I said yes or no clearly.",
         "I gave two reasons from the article.",
         "I used at least one key word."
-      ]
+      ],
+      "modelAnswer": "I would like to live on a Moon base, because low gravity would let me jump about six times as high as I can on Earth. I also like that scientists have found ice in deep craters, which astronauts could melt for drinking water at the base. Living there would still mean wearing a spacesuit outside and dealing with sharp, clinging dust."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I named two dangers from the article.",
         "I explained a solution for each one.",
         "I used at least two key words correctly."
-      ]
+      ],
+      "modelAnswer": "One of the biggest dangers of living on the Moon is that there is no oxygen to breathe, so people would need to wear a spacesuit outside and keep their homes sealed tightly with air inside. Another danger is the wild swing in temperature, from scorching heat in sunlight to freezing cold at night, so a Moon base would need strong walls to handle both extremes. Settlers could also deal with harmful radiation by building near craters covered in thick layers of moon soil for protection."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I chose a location and explained why.",
         "I addressed at least two dangers with solutions from the article.",
         "I used key words such as regolith, radiation, or shield correctly."
-      ]
+      ],
+      "modelAnswer": "I would build my Moon base near the polar region, close to the deep, dark craters where scientists have discovered ice, since that ice could be melted into drinking water and split into oxygen for the settlers. To protect against the harmful radiation that streams unblocked across the airless Moon, I would cover the base with thick layers of regolith, the fine moon soil, to act as a natural shield. I would also seal the base tightly against the wild day-and-night temperature swings, using these local resources to keep the settlers safe without needing to bring everything from Earth."
     }
   }
 }

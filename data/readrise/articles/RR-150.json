@@ -243,7 +243,8 @@
         "I told what checkmate means.",
         "I explained why players need a plan.",
         "I used two key words."
-      ]
+      ],
+      "modelAnswer": "A player wins a game of chess by trapping the other player's king so it cannot escape, which is called checkmate. Players need a plan because every piece moves differently, so thinking ahead helps you protect your king while trying to checkmate your opponent's king."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I gave a clear opinion.",
         "I used two facts from the article.",
         "I used at least two key words."
-      ]
+      ],
+      "modelAnswer": "I agree that chess is a sport. The article explains that chess is played with clubs, coaches, and tournaments, just like other competitive sports, and players must think ahead with a clear strategy to beat their opponent. Players also use a special clock during tournaments, so they must think and capture pieces quickly under pressure, which makes chess just as competitive as physical sports."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I described how chess spread from India.",
         "I explained how chess is recognized as a sport today.",
         "I mentioned the 2017 championship in Riyadh."
-      ]
+      ],
+      "modelAnswer": "Chess changed from an ancient game into a modern sport over many centuries and places. It began in India about 1,500 years ago, then spread to Persia and across the Arab world, where players wrote books of challenging puzzles that required players to calculate and anticipate their opponent's moves. Later the game traveled to Europe and the rest of the world, and today chess is recognized as a sport with clubs, coaches, and competitive tournaments that test concentration under a ticking clock. In 2017, Riyadh hosted an international championship for the world's best fast players, showing how far chess had traveled from its ancient origins in India."
     }
   }
 }

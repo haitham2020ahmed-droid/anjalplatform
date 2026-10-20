@@ -35,7 +35,7 @@ export function RepeatedMistakes({ rows, canAssign }: { rows: HelpStudent[]; can
                   <span className="block text-sm text-slate-600">{k.count === 1 ? t("1 question wrong twice") : t("{n} questions wrong twice", { n: k.count })}</span>
                   {k.sample && <span data-content lang="en" className="mt-0.5 block truncate text-sm italic text-slate-500">“{k.sample}”</span>}
                 </span>
-                {canAssign && k.assignable && <span className="inline-flex min-h-11 items-center"><AssignDialog skill={{ id: k.skillId, name: k.name, standards: [] }} /></span>}
+                {canAssign && k.assignable && <span className="inline-flex min-h-11 items-center"><AssignDialog skill={{ id: k.skillId, name: k.name, standards: [] }} assigned={k.assigned} /></span>}
               </li>
             ))}
           </ul>

@@ -243,7 +243,8 @@
         "I told at least two ways birds find their way.",
         "I used facts from the article.",
         "I wrote in full sentences."
-      ]
+      ],
+      "modelAnswer": "Birds find their way on a long migration by using the sun and the stars in the sky. They can also sense Earth's magnetic pull, almost like a built-in compass. During the trip, they follow coastlines and mountains and stop at a wetland to rest."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I described how big birds travel.",
         "I described how small birds travel.",
         "I used at least two details from the article."
-      ]
+      ],
+      "modelAnswer": "Big soaring birds like storks and eagles rarely flap their wings; instead they ride thermals, columns of warm air rising from the hot ground, and they avoid long sea crossings because thermals do not form over water. Small birds such as swallows travel very differently, since they flap the whole way and many fly at night, eating so much beforehand that some become almost twice as heavy. Both kinds of birds are making the same overall journey across the flyway, but big birds save energy by soaring while small birds rely on constant flapping."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I explained two challenges birds face.",
         "I explained how birds overcome each challenge.",
         "I used precise evidence from the article."
-      ]
+      ],
+      "modelAnswer": "One challenge migrating birds face is crossing large bodies of water, since thermals do not form over the sea and large soaring birds depend on those rising columns of warm air to stay aloft; they overcome this by crossing at the narrow strait between Yemen and Africa instead of flying over open ocean. A second challenge is simply finding the way across such a vast, featureless route like the Arabian flyway; birds overcome this by combining several strategies, sensing Earth's magnetic field like a compass, following the sun and stars, and tracking coastlines and mountains below them. Along the way, they also rely on stopovers at wetlands and oases to rest and refuel before continuing their journey."
     }
   }
 }

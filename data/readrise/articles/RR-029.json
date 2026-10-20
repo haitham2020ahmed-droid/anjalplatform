@@ -243,7 +243,8 @@
         "I gave a clear answer.",
         "I used at least two facts from the article.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "A weather forecast is useful because it warns people before bad weather comes. The article says meteorologists use satellites and computers to predict the weather so families can stay safe. In Saudi Arabia, a sudden storm can flood a dry valley within minutes, so a forecast gives people time to get ready."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained the steps in the correct order.",
         "I used at least three details from the article.",
         "I used key words such as evaporate and condense correctly."
-      ]
+      ],
+      "modelAnswer": "Sunlight warms the ocean, and some of the water begins to evaporate into invisible water vapor. Because warm air is lighter than cold air, it rises and carries the vapor high into the sky, where the air cools and the vapor begins to condense back into liquid droplets around specks of dust or salt. Once billions of droplets gather into a cumulus or other cloud, they bump together and grow too heavy for the rising air to hold up, so they finally fall as rain."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I stated a clear position.",
         "I supported it with at least two pieces of evidence from the article.",
         "I explained how my evidence supports my position."
-      ]
+      ],
+      "modelAnswer": "I disagree that forecasts are not worth checking just because they are sometimes wrong. The article explains that meteorologists combine data from weather stations, balloons, satellites, and powerful computers, which is why forecasts for the next few days are usually accurate even though predictions weeks ahead are far less certain. This accuracy matters enormously in Saudi Arabia, where rain is uncommon but a sudden storm can flood a dry valley within minutes, so a forecast's warning can genuinely keep a family safe."
     }
   }
 }

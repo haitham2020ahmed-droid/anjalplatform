@@ -14,7 +14,7 @@ import { fromSearchParams } from "@/server/plans/plan-form";
 import { NAFS_GRADE, plansOverview, type PlanBucket, type PlanListRow } from "@/server/plans/editor";
 import { suggestPlans, type SuggestedPlan } from "@/server/plans/perf-suggest";
 import { isProgram } from "@/server/plans/program";
-import { startPlanAction, useSuggestionAction } from "./editor-actions";
+import { deletePlanAction, startPlanAction, useSuggestionAction, withdrawFromListAction } from "./editor-actions";
 
 export const metadata = { title: "Plans" };
 
@@ -113,7 +113,7 @@ async function PlanList({ t, actor, ctx, classId, bucket }: { t: T; actor: Actor
           <Section title={t(BUCKETS.find(([k]) => k === b)![1])} icon="📋" hint={t("Tick several plans to change them together (for example the individual plans of several students).")}>
             <ul className="divide-y divide-slate-100">
               {rows.map((p) => (
-                <li key={p.id} className="flex flex-wrap items-center gap-3 py-3">
+                <li key={p.id} className="flex flex-wrap items-start gap-3 py-3">
                   <label className="flex min-h-11 items-center px-1"><input type="checkbox" name="id" value={p.id} className="h-5 w-5" aria-label={p.title} /></label>
                   <div className="min-w-0 flex-1">
                     <p className="flex flex-wrap items-center gap-2 font-semibold text-brand-navy"><span className="break-words">{p.title}</span><ProgramChip program={p.program} /><StatusChip t={t} status={p.status} finished={p.finished} /></p>
@@ -125,7 +125,29 @@ async function PlanList({ t, actor, ctx, classId, bucket }: { t: T; actor: Actor
                       <span className="w-10 text-end text-sm tabular-nums text-slate-700">{p.progress}%</span>
                     </div>
                   )}
-                  <Link href={p.href} className="inline-flex min-h-11 items-center rounded-xl px-4 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">{t(p.status === "DRAFT" ? "Edit" : "Open")}</Link>
+                  <div className="flex flex-col items-end gap-1.5">
+                    <Link href={p.href} className="inline-flex min-h-11 items-center rounded-xl px-4 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">{t(p.status === "DRAFT" ? "Edit" : "Open")}</Link>
+                    {/* 🗑 r87: the teacher's own choice — stop it but keep the record, or delete it for good */}
+                    <details className="text-end">
+                      <summary className="cursor-pointer text-xs font-semibold text-rose-700">{t("Cancel this plan")}</summary>
+                      <div className="mt-2 flex max-w-xs flex-col gap-2 rounded-xl bg-slate-50 p-3 text-start text-xs ring-1 ring-slate-200">
+                        {(p.status === "SENT" || p.status === "PAUSED") && (
+                          <form action={withdrawFromListAction} className="flex flex-col gap-1">
+                            <input type="hidden" name="planId" value={p.id} /><input type="hidden" name="bucket" value={b} />
+                            <p className="text-slate-600">{t("Stop sending to students. Answers already given are kept, and the plan stays in your Finished list.")}</p>
+                            <label className="flex items-center gap-1.5"><input type="checkbox" name="confirm" required className="h-4 w-4" />{t("Yes, stop this plan")}</label>
+                            <button className="self-start rounded-lg bg-white px-3 py-1 font-semibold text-amber-800 ring-1 ring-amber-300 hover:bg-amber-50">{t("Stop (keep saved)")}</button>
+                          </form>
+                        )}
+                        <form action={deletePlanAction} className="flex flex-col gap-1 border-t border-slate-200 pt-2 first:border-t-0 first:pt-0">
+                          <input type="hidden" name="planId" value={p.id} /><input type="hidden" name="bucket" value={b} />
+                          <p className="text-slate-600">{t("Gone from here for good; no Undo. Answers already given are not deleted.")}</p>
+                          <label className="flex items-center gap-1.5"><input type="checkbox" name="confirm" required className="h-4 w-4" />{t("Yes, delete permanently")}</label>
+                          <button className="self-start rounded-lg bg-rose-700 px-3 py-1 font-semibold text-white hover:bg-rose-800">{t("Delete permanently")}</button>
+                        </form>
+                      </div>
+                    </details>
+                  </div>
                 </li>
               ))}
             </ul>

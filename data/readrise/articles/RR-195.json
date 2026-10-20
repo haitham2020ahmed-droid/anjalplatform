@@ -243,7 +243,8 @@
         "I told two ways a vet helps animals.",
         "I told one way I can help a pet.",
         "I used a word from the article, such as vet or patient."
-      ]
+      ],
+      "modelAnswer": "A vet gives animals vaccines to protect them from germs, and a vet can also perform surgery to fix a broken leg. I can help my pet by giving it healthy food, clean water, and taking it to the vet for regular checkups."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained why vets need clues.",
         "I described at least two tools or checks vets use.",
         "I used at least two key words correctly."
-      ]
+      ],
+      "modelAnswer": "A vet needs clues to diagnose a sick animal because the animal cannot tell the vet what hurts. The vet examines the eyes, ears, teeth, and belly and listens to the heart with a stethoscope, and if more information is needed, an X-ray can reveal broken bones while a blood test can uncover hidden problems. Only after gathering these clues can the vet figure out what is really wrong and decide on treatment, even surgery if it is needed."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I stated a clear position.",
         "I supported it with at least two pieces of evidence from the article.",
         "I explained how my evidence supports my position."
-      ]
+      ],
+      "modelAnswer": "I disagree that veterinarians only help animals. One piece of evidence is that vets give vaccines that protect animals from diseases, and the article notes that some of these diseases can spread from animals to people, so protecting animals also protects human health. Another piece of evidence is that vets diagnose problems using tools like stethoscopes, X-rays, and blood tests and even perform surgery, skills that keep farm animals like camels and sheep healthy, which matters to the many families and communities who depend on those animals. Because animal health and human health are so closely connected, veterinarians clearly help people as well as animals."
     }
   }
 }

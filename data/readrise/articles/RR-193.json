@@ -243,7 +243,8 @@
         "I gave two ideas.",
         "I used facts from the article to explain each idea.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "My family could turn off outside lights we do not need at night, since the article says unneeded lights waste energy and money while also adding to light pollution. We could also use shields on our lamps so the light points down instead of spreading up into the sky and hiding the stars."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained one problem and one solution.",
         "I used the words artificial and shield correctly.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "Dear city leaders, light pollution from too much artificial light at night can confuse baby sea turtles, which crawl toward the brightest light instead of the sea, and it can also confuse migrating birds that use the stars to find their way. One simple way to fix this is to shield our streetlamps so they shine down onto the road instead of spreading light up into the sky where it is wasted."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I clearly stated whether I agree or disagree.",
         "I used at least three details from the article.",
         "I organized my answer in clear, complete sentences."
-      ]
+      ],
+      "modelAnswer": "I disagree that light pollution is a small problem. First, the article explains that light pollution can harm baby sea turtles on Red Sea beaches, which crawl toward bright lights on land instead of the sea where they belong. Second, birds that migrate at night using the stars can become confused by bright lights and even crash into lit buildings, while insects circle lamps until they are too tired to fly. Third, too much light at night can make it harder for people to sleep well and wastes energy on lights left on for no reason, so light pollution clearly affects animals, people, and energy use all at once."
     }
   }
 }

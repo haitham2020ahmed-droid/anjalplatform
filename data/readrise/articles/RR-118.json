@@ -243,7 +243,8 @@
     "I explained that gas rushes out one way and pushes the rocket the other way.",
     "I used the words fuel and gas.",
     "I wrote my ideas in the right order."
-   ]
+   ],
+   "modelAnswer": "A rocket moves up the same way a balloon zooms around a room when you let the air out. Inside the rocket, fuel burns and makes hot gas that blasts out of the bottom. As the gas rushes down and out, it pushes the rocket up into the sky. Once the rocket uses up one stage of fuel, it drops away so the rocket can keep going, eventually carrying an astronaut into orbit."
   },
   "MID": {
    "keyWords": [
@@ -421,7 +422,8 @@
     "I named two problems, such as gravity or no air in space.",
     "I explained how the rocket solves each problem.",
     "I used at least two key words correctly."
-   ]
+   ],
+   "modelAnswer": "One problem a rocket must solve is gravity, the force pulling it back down to Earth, and it solves this by burning huge amounts of fuel to create enough thrust, which blasts hot gas out of the nozzle and pushes the rocket upward with more force than its own weight. A second problem is that there is no air to breathe once the rocket leaves the atmosphere, so it solves this by carrying its own supply of oxygen in a separate tank so the fuel can keep burning anyway. Some rockets even solve the problem of cost by using reusable boosters that fly back down and land upright so they can launch again."
   },
   "HIGH": {
    "keyWords": [
@@ -599,7 +601,8 @@
     "I explained Newton's third law using the rocket's exhaust gas.",
     "I explained why a rocket must carry its oxidizer.",
     "I used precise words such as propellant, thrust, and atmosphere."
-   ]
+   ],
+   "modelAnswer": "Newton's third law explains why a rocket can fly: when the engine burns propellant and blasts hot exhaust gas downward out of the nozzle, that action produces an equal and opposite reaction that pushes the rocket upward as thrust. This reaction only works if the fuel keeps burning, but because there is no oxygen in the thin upper atmosphere or in the vacuum of space, a rocket must carry its own oxidizer onboard so combustion can continue all the way to orbit. Together, Newton's third law and a built-in oxidizer let a rocket accelerate to the enormous velocity, nearly 28,000 kilometers per hour, that it needs to stay in orbit instead of falling back to Earth. Even a rocket launched near the equator, where Earth's own spin gives it an extra push, still depends on this same basic combination of propellant, oxidizer, and reaction force to reach space."
   }
  }
 }

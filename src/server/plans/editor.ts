@@ -661,6 +661,26 @@ export async function deleteDraft(repo: Repo, actor: Actor, planId: string, now 
 }
 
 /**
+ * 🗑 r87 (owner: "اداه حذف للمعلم لو عايز يلغيها... الغاء نهائى او تظل محفوظه حسب اختيار المعلم"): the teacher's
+ * other, PERMANENT choice next to "withdraw" (stays saved, reversible-by-support, kept in Finished). This one
+ * removes the SkillPlan row itself — gone from My Plans and Assigned for good, no Undo. It never touches a
+ * student's answers: a sent/paused plan is withdrawn first (the exact same `cancelAssignment` + `deletedAt`-style
+ * hide every other cancel in this codebase uses), which only hides the Assignment rows; their AssignmentStudent
+ * links and every answer the students already gave stay in the database untouched, just no longer reachable
+ * through this plan. A draft (nothing ever sent) goes through the existing `deleteDraft` path, which has nothing
+ * to withdraw.
+ */
+export async function deletePlanPermanently(repo: Repo, actor: Actor, planId: string, now = new Date()): Promise<void> {
+  assertCan(actor, "assignments:create");
+  const p = await loadPlan(repo, actor, planId);
+  if (p.status === "DRAFT") return deleteDraft(repo, actor, planId, now);
+  if (p.status === "SENT" || p.status === "PAUSED") await withdrawPlan(repo, actor, planId, now);
+  await repo.deleteMany("SkillPlanItem", { planId: p.row.id });
+  await repo.deleteMany("SkillPlan", { id: p.row.id });
+  await audit(repo, { actorId: actor.userId, action: "plan.delete_permanent", entityType: "SkillPlan", entityId: s(p.row.id), at: now });
+}
+
+/**
  * ⧉ Duplicate: a new DRAFT with the same parts and questions (and details), for the same class or another of the
  * teacher's classes and the chosen students. Nothing is sent.
  */

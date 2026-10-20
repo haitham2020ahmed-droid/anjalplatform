@@ -22,10 +22,10 @@
  *     MAP_GAP apart → ONE alert for the class's teachers per school year (StudentAlert RR_MAP_GAP + a notification).
  * Everything except alertMapGap is pure.
  */
-import type { Repo } from "../seeding/repo";
+import type { Repo, Row } from "../seeding/repo";
 import { PASSAGE_SHARE, RAPID_GUESS_MS, expectedReadingMs } from "../practice/guessing";
 import { schoolYearOf } from "../assessment-cycle/cycle";
-import { latestMapLexile, readRisePlaced, s } from "./engine";
+import { countsForLevel, latestMapLexile, readRisePlaced, s, toDate } from "./engine";
 
 /** this many rapid answers in one run make it Unreliable */
 export const RR_UNRELIABLE_RAPID = 2;
@@ -148,6 +148,58 @@ export async function alertMapGap(repo: Repo, studentId: string, now = new Date(
   await repo.createMany("Notification", [...new Set(users.map((u) => s(u.userId)))].map((userId) => ({
     userId, type: "INTERVENTION_ALERT", title: `⚖️ ${name}: ReadRise and MAP disagree`,
     body: `${name}'s ReadRise level (${level}) and MAP reading level (${map}) are ${Math.abs(gap)} points apart. Check the placement or the MAP result.`,
+    link: "/teacher/alerts", readAt: null, createdAt: now,
+  })));
+  return true;
+}
+
+// ------------------------------------------------------------------ stuck-on-unreliable check
+
+/** this many completed runs in a row, none of which counted toward the level, raise one alert */
+export const STUCK_RUNS = 3;
+export const STUCK_KIND = "RR_STUCK_UNRELIABLE";
+
+/**
+ * 🚩 One alert per student and school year when the student's last STUCK_RUNS completed ReadRise runs ALL failed
+ * to count toward the level (every one either Unreliable — too fast / guessed — or a Stretch read below the
+ * up-threshold). This is the case the level engine is silent about: the level is not moving not because the
+ * student is reading at the right level, but because nothing real has been measured yet. Runs after the response
+ * (never on the answer path), independently of whether the level actually moved this time. Returns true when an
+ * alert was raised now.
+ */
+export async function alertStuckUnreliable(repo: Repo, studentId: string, now = new Date()): Promise<boolean> {
+  const rr = await repo.findUnique("RRStudent", { studentId });
+  if (!rr) return false;
+  const runs = await repo.findMany(
+    "RRRun",
+    { studentId, completedAt: { not: null } },
+    { select: ["score", "firstTry", "stretch", "unreliable", "completedAt"], orderBy: [{ field: "completedAt", dir: "desc" }], take: STUCK_RUNS }
+  );
+  if (runs.length < STUCK_RUNS) return false;
+  if (runs.some((r) => countsForLevel(r as Row))) return false; // at least one real signal recently: not stuck
+  const key = `${STUCK_KIND}|${schoolYearOf(now)}`;
+  if ((await repo.findMany("StudentAlert", { studentId, key }, { select: ["id"], take: 1 })).length) return false;
+  const [student, member] = await Promise.all([
+    repo.findUnique("Student", { id: studentId }),
+    repo.findMany("ClassMembership", { studentId, leftAt: null }, { select: ["classId"] }),
+  ]);
+  if (!student) return false;
+  const rapidCount = runs.filter((r) => isUnreliableRun(r as Record<string, unknown>)).length;
+  const detail = `The last ${STUCK_RUNS} ReadRise runs did not count toward the level ` +
+    `(${rapidCount} answered too fast / guessed; the rest were a retake or a Stretch read scoring below the level-up bar). ` +
+    `The level has not had a real reading signal in a while — check in with the student, or watch the next attempt.`;
+  try {
+    await repo.create("StudentAlert", { schoolId: s(student.schoolId), classId: member.length ? s(member[0].classId) : null, studentId, kind: STUCK_KIND, key, detail: detail.slice(0, 500), status: "OPEN", createdAt: now });
+  } catch { return false; } // raised by another request at the same moment: one alert
+  if (!member.length) return true;
+  const teachers = await repo.findMany("ClassTeacher", { classId: { in: [...new Set(member.map((m) => s(m.classId)))] } }, { select: ["teacherId"] });
+  const users = teachers.length ? await repo.findMany("Teacher", { id: { in: [...new Set(teachers.map((t) => s(t.teacherId)))] } }, { select: ["userId"] }) : [];
+  if (!users.length) return true;
+  const me = await repo.findUnique("User", { id: student.userId });
+  const name = s(me?.displayName) || "A student";
+  await repo.createMany("Notification", [...new Set(users.map((u) => s(u.userId)))].map((userId) => ({
+    userId, type: "INTERVENTION_ALERT", title: `🚩 ${name}: ReadRise isn't getting a real reading`,
+    body: `${name}'s last ${STUCK_RUNS} ReadRise attempts didn't count toward their level — too fast / guessed, or a low Stretch score. Their level hasn't moved because nothing real has been measured. Worth checking in.`,
     link: "/teacher/alerts", readAt: null, createdAt: now,
   })));
   return true;

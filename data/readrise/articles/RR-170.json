@@ -243,7 +243,8 @@
         "I told the steps in order.",
         "I used first, then, and last.",
         "I used facts from the article."
-      ]
+      ],
+      "modelAnswer": "First, rainwater soaks into the ground and sinks down through soil and rock. Then, deep underground, hot rocks heat the water as it picks up minerals, and the hot water rises back up through cracks. Last, the hot water bubbles out at the surface as a hot spring, and sometimes it even shoots out of the ground as a geyser."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained the steps in the correct order.",
         "I described a danger or interesting feature.",
         "I used words like surface, pressure, or minerals."
-      ]
+      ],
+      "modelAnswer": "A hot spring forms when rainwater sinks underground and is heated by hot rocks deep below the surface, and because hot water is lighter than cold water, it rises back up through cracks in the rock. As it travels, the water dissolves minerals that can color the pool or make it smell like rotten eggs. One interesting feature is a geyser, where pressure builds up underground until hot water and steam suddenly blast high into the air."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I explained the process using cause and effect.",
         "I described a use or a safety rule.",
         "I used words such as geothermal, dense, or magma correctly."
-      ]
+      ],
+      "modelAnswer": "A hot spring forms through a geothermal process: rainwater sinks deep underground toward rock heated by magma, and because hot water is less dense than cold water, it rises back up through cracks until it reaches the surface, often carrying dissolved minerals along with it. In some places this rising water and steam builds up enough pressure to erupt as a geyser rather than flowing out gently. People can enjoy this geothermal heat safely by visiting natural hot springs, like those in the Jazan region of Saudi Arabia, as long as they stay on marked paths instead of touching the hottest water directly."
     }
   }
 }

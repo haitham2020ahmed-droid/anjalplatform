@@ -243,7 +243,8 @@
         "I told how the North Star helps me find north.",
         "I described the wood and string tool.",
         "I used at least two key words, like navigator or horizon."
-      ]
+      ],
+      "modelAnswer": "At night, I would look for the North Star, because unlike other stars it always stays in nearly the same spot and shows me which way is north. I would also use my kamal, a wooden board tied to a string, lining up the horizon with the North Star to check my direction."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained how the kamal lined up with the horizon and the North Star.",
         "I explained what latitude means.",
         "I described how the monsoon affected when ships sailed."
-      ]
+      ],
+      "modelAnswer": "To find a ship's latitude, a navigator held the kamal's string in his teeth and lined up the bottom of the wooden board with the horizon and the top with the North Star, and the knots on the string matched the latitude of different ports. Latitude means how far north a ship is from the equator, which the height of the North Star above the horizon reveals. The monsoon mattered because it is a wind that changes direction with the seasons, so sailors timed their voyages to sail out during one season and return during another."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I explained how the North Star's altitude shows latitude.",
         "I described how the kamal was used.",
         "I named a part of their legacy, such as Arabic star names or Ibn Majid's treatise."
-      ]
+      ],
+      "modelAnswer": "Arab navigators turned the night sky into a celestial map by using the North Star's altitude above the horizon to calculate their latitude, since that star barely moves while others cross the sky. They measured this altitude with the kamal, a simple wooden board on a knotted string, lining its bottom edge with the horizon and its top edge with the North Star to read off their position. Their legacy still lives on today, since many star names used around the world, such as Altair and Aldebaran, come from Arabic, and navigators like Ibn Majid left behind written treatises that taught sailors for generations how to find their way."
     }
   }
 }

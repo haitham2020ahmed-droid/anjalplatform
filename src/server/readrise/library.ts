@@ -126,7 +126,7 @@ export interface ArticleDetail {
   bands: Record<RRBand, {
     keyWords: { word: string; partOfSpeech?: string; definition: string; example: string }[];
     questions: { id: string; number: number; stem: string; options: string[]; answer: string; skill: string; rationale: Record<string, string> | null }[];
-    prompt: string; checklist: string[];
+    prompt: string; checklist: string[]; modelAnswer: string | null;
   }>;
 }
 
@@ -151,7 +151,7 @@ export async function articleDetail(repo: Repo, actor: Actor, id: string): Promi
       questions: questions.filter((q) => q.band === b).sort((x, y) => Number(x.number) - Number(y.number)).map((q) => ({
         id: s(q.id), number: Number(q.number), stem: s(q.stem), options: json(q.options, [] as string[]), answer: s(q.answer), skill: s(q.skill), rationale: json(q.rationale, null as Record<string, string> | null),
       })),
-      prompt: s(p?.prompt), checklist: json(p?.checklist, [] as string[]),
+      prompt: s(p?.prompt), checklist: json(p?.checklist, [] as string[]), modelAnswer: p?.modelAnswer ? s(p.modelAnswer) : null,
     }];
   })) as ArticleDetail["bands"];
   const manage = canManage(actor, a);
@@ -231,7 +231,7 @@ export function articleToJson(d: ArticleDetail): ArticleJson {
       const wrong = Object.fromEntries(Object.entries(r).filter(([L]) => L !== q.answer));
       return { stem: q.stem, options: q.options, answer: q.answer, skill: q.skill, ...(r[q.answer] ? { why: r[q.answer] } : {}), ...(Object.keys(wrong).length ? { wrong } : {}) };
     }),
-    prompt: d.bands[b].prompt, checklist: d.bands[b].checklist,
+    prompt: d.bands[b].prompt, checklist: d.bands[b].checklist, ...(d.bands[b].modelAnswer ? { modelAnswer: d.bands[b].modelAnswer } : {}),
   });
   return {
     code: d.code, title: d.title, topic: d.topic, summary: d.summary ?? "", poll: d.poll,

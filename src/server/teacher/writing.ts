@@ -22,6 +22,7 @@
 import { feedWriting, safeFeed } from "../practice/skill-evidence";
 import type { Repo, Row } from "../seeding/repo";
 import { safeIfBehind } from "../db/schema-errors";
+import { audit } from "../audit";
 import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
 import { assertClassAccess } from "./assignments";
@@ -40,7 +41,7 @@ import {
   citesSource, cleanResearch, cleanSources, researchTotal, scoreResearch, studentView, teacherScoreResearch,
   type ResearchAnswers, type ResearchQuestion, type ResearchQuestionView, type Source,
 } from "../writing/research";
-import { draftAiFeedback, readDraft, type AiDraft, type AiOutcome } from "../writing/ai-feedback";
+import { MAX_HIGHLIGHTS, draftAiFeedback, readDraft, type AiDraft, type AiHighlight, type AiOutcome } from "../writing/ai-feedback";
 import { CODE_FAMILIES, WRITING_ERROR_CODES, reteachFor, skillsForFamilies, type ReteachRow, type ReteachSkill } from "../writing/reteach";
 import { assignedIds, isAssignedTo, isLocked, lockedStatus, scoreMax, type LockedStatus } from "../writing/locked";
 import { startedBy } from "../../lib/assign-dates";
@@ -146,6 +147,21 @@ export async function classTasks(repo: Repo, actor: Actor, classId: string): Pro
     submitted: subs.filter((x) => x.taskId === t.id && x.status !== "DRAFT").length, scored: subs.filter((x) => x.taskId === t.id && x.status === "SCORED").length, members: assignedIds(t, memberIds).length,
     aiPending: subs.filter((x) => x.taskId === t.id && x.aiStatus === "PENDING").length,
   })).sort((a, b) => b.createdAt.localeCompare(a.createdAt));
+}
+
+/**
+ * ✖ Cancel a writing/reading-aloud task (a soft delete, like cancelAssignment): it disappears from the class's
+ * task list and every student's work list; work already submitted or scored stays in the history untouched. Only
+ * the class's teacher or a school admin; kept in the audit log.
+ */
+export async function cancelTask(repo: Repo, actor: Actor, taskId: string, now = new Date()): Promise<{ title: string }> {
+  assertCan(actor, "assignments:create");
+  const t = await repo.findUnique("WritingTask", { id: taskId });
+  if (!t || t.deletedAt) throw new ForbiddenError("Task not found.");
+  await assertClassAccess(repo, actor, s(t.classId));
+  await repo.updateMany("WritingTask", { id: taskId, deletedAt: null }, { deletedAt: now });
+  await audit(repo, { actorId: actor.userId, action: "writing.cancel_task", entityType: "WritingTask", entityId: taskId, before: { title: s(t.title), classId: s(t.classId) }, after: { deletedAt: now.toISOString() }, at: now });
+  return { title: s(t.title) };
 }
 
 export interface SubmissionView {
@@ -295,7 +311,22 @@ export async function scoreSubmission(
   return out;
 }
 
-export interface AiApproval { scores: Record<string, unknown>; strengths?: Record<string, string>; nextSteps?: Record<string, string>; codes?: string[]; summary?: string; comment?: string | null; moves?: string[] }
+export interface AiApproval {
+  scores: Record<string, unknown>; strengths?: Record<string, string>; nextSteps?: Record<string, string>; codes?: string[]; summary?: string; comment?: string | null; moves?: string[];
+  /** the inline essay highlights (quote + fix), teacher-edited: add, remove or change any before approving */
+  highlights?: { quote: unknown; fix: unknown }[];
+}
+/** Cleans the teacher's edited highlight list: trims, drops empty quotes, caps length and count. */
+function cleanHighlights(highlights: { quote: unknown; fix: unknown }[] | undefined): AiHighlight[] {
+  if (!highlights) return [];
+  const out: AiHighlight[] = [];
+  for (const h of highlights) {
+    const quote = s(h.quote).replace(/\s+/g, " ").trim().slice(0, 160);
+    const fix = s(h.fix).replace(/\s+/g, " ").trim().slice(0, 160);
+    if (quote && out.length < MAX_HIGHLIGHTS) out.push({ quote, fix });
+  }
+  return out;
+}
 /** The teacher approves the AI draft (with their edits): its scores and comment become the feedback the student sees. */
 export async function approveAiDraft(repo: Repo, actor: Actor, taskId: string, studentId: string, edit: AiApproval, now = new Date()): Promise<"REVISE" | "SCORED"> {
   const { t, sub } = await scorable(repo, actor, taskId, studentId);
@@ -307,8 +338,9 @@ export async function approveAiDraft(repo: Repo, actor: Actor, taskId: string, s
   const traits = Object.fromEntries(rubric.traits.map((tr) => [tr.key, { score: clean[tr.key], strength: txt(edit.strengths?.[tr.key], draft.traits[tr.key]?.strength ?? ""), nextStep: txt(edit.nextSteps?.[tr.key], draft.traits[tr.key]?.nextStep ?? "") }]));
   const keep = edit.codes ? cleanCodes(edit.codes) : draft.conventions.map((c) => c.code);
   const conventions = [...draft.conventions.filter((c) => keep.includes(c.code)), ...keep.filter((c) => !draft.conventions.some((x) => x.code === c)).map((code) => ({ code, example: "" }))];
+  const highlights = edit.highlights !== undefined ? cleanHighlights(edit.highlights) : (draft.highlights ?? []);
   const summary = txt(edit.summary, draft.summary).slice(0, 400);
-  const final: AiDraft = { traits, conventions, summary, at: now.toISOString(), by: "TEACHER" };
+  const final: AiDraft = { traits, conventions, highlights, summary, at: now.toISOString(), by: "TEACHER" };
   const comment = s(edit.comment).trim() || summary;
   return applyScore(repo, actor, t, sub, clean, comment, now, { aiDraft: final, aiStatus: "APPROVED" }, edit.moves);
 }
@@ -532,4 +564,4 @@ export async function recording(repo: Repo, actor: Actor, taskId: string, studen
   return { bytes: sub.audio as Uint8Array, type: s(sub.audioType) || "audio/webm" };
 }
 
-export type { Trait, Rubric, Genre, CheckItem, Organizer, Source, ResearchQuestion, ResearchQuestionView, ResearchAnswers, AiDraft, ReteachRow };
+export type { Trait, Rubric, Genre, CheckItem, Organizer, Source, ResearchQuestion, ResearchQuestionView, ResearchAnswers, AiDraft, AiHighlight, ReteachRow };

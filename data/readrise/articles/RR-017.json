@@ -243,7 +243,8 @@
         "I named one solid, one liquid, and one gas.",
         "I used facts from the article to explain each one.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "In my home, a metal spoon is a solid because it keeps its own shape no matter where I put it. A glass of juice is a liquid, because it flows and takes the shape of its cup, but the amount stays the same. The steam rising from a hot pot is a gas, because it spreads out and fills the air around it. All three are forms of matter, and if I heated the spoon enough, it would even melt into a liquid."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I described the particles in the solid, liquid, and gas.",
         "I used at least two details from the article.",
         "I put the changes in the correct order."
-      ]
+      ],
+      "modelAnswer": "As ice melts and then boils, the particles of water change a lot. In solid ice, the particles are packed close together and can only vibrate in place, which is why ice holds a solid shape. When the ice warms up and melts, the particles gain enough energy to slide past each other, and the water becomes a liquid that can evaporate slowly or take the shape of its container. If the liquid water is heated even more, it boils, and the particles spread far apart and move quickly as a gas called water vapor, while condensation happens later if that vapor cools back down."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I named both changes of state and put them in order.",
         "I supported my explanation with at least two pieces of evidence from the article.",
         "I explained why the salt is left behind."
-      ]
+      ],
+      "modelAnswer": "Desalination turns seawater into drinking water by using two changes of state in a careful order. First, large plants heat the salty seawater until its particles gain enough energy to expand apart and evaporate into water vapor, and because salt does not turn into a gas the way water does, the salt is left behind. Second, the rising vapor is then cooled until condensation occurs, changing the particles back into a liquid, but this time the liquid is pure, fresh water with none of the original salt's volume mixed in. By evaporating the water away from the salt and then condensing it separately, these plants along the coasts of Saudi Arabia can produce the fresh water that the region's climate alone cannot reliably provide."
     }
   }
 }

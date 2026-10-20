@@ -243,7 +243,8 @@
         "I named one fact about Saturn from the article.",
         "I explained why it surprised me.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "The fact that surprised me most is that Saturn could float in water. I never knew a planet could be light enough to float, since it does not even have a rocky surface like Earth. This made me realize that Saturn is mostly made of gas, which is why it is so surprisingly light for its huge size."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I included three facts from the article about Saturn.",
         "I explained each fact in my own words.",
         "I organized my report with an opening and a closing sentence."
-      ]
+      ],
+      "modelAnswer": "As a scientist on the Cassini mission, I would love to share what we learned while orbiting Saturn. First, Saturn is a gas giant with no rocky surface at all, so a spacecraft trying to land would just sink into thick clouds. Second, its famous rings are made of billions of pieces of ice and rock that range from tiny dust grains to chunks as big as a house. Third, Saturn has more moons than any other planet, and its largest moon, Titan, is even bigger than the planet Mercury. These discoveries from our spacecraft have taught us more about Saturn than anyone ever knew before."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I explained how at least two tools helped scientists learn about Saturn.",
         "I supported my explanation with specific evidence from the article.",
         "I organized my writing with a clear introduction, body, and conclusion."
-      ]
+      ],
+      "modelAnswer": "Over four hundred years, better and better tools have completely transformed our observation and understanding of Saturn. When Galileo first looked at Saturn through a simple telescope about four hundred years ago, he could only see that something odd was attached to its sides, and he mistakenly guessed the planet had two large ears. Centuries later, far more powerful telescopes let other scientists finally confirm that these were actually rings made of ice and rock. Then, from 2004 to 2017, the Cassini spacecraft flew directly to Saturn and sent back thousands of detailed pictures and measurements, revealing facts no telescope on Earth could ever have captured, such as the true size of its moon Titan. In conclusion, each new tool, from Galileo's telescope to the Cassini spacecraft, has let scientists see Saturn more clearly and accurately than the tool before it."
     }
   }
 }

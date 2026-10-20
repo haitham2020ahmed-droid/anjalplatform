@@ -243,7 +243,8 @@
         "I told why camels were important.",
         "I used two facts from the article.",
         "I wrote in complete sentences."
-      ]
+      ],
+      "modelAnswer": "Camels were important because they could carry heavy loads across the hot desert. They could also walk for many days without water. Merchants and their camels traveled together in a caravan, and that is how the resins made it all the way to faraway lands."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained how the towns made money from the road.",
         "I named at least one town and what it did.",
         "I used details from the article."
-      ]
+      ],
+      "modelAnswer": "The towns along the Incense Road grew rich because merchants had to pay a toll, a fee to pass through, every time a caravan stopped to rest. Najran and Dedan were two of these stopping places, where traders paid for water and a safe place to rest. The Nabataean people controlled the northern end of the route and used their wealth to build the city of Hegra, carving huge tombs into its rock. In this way, the fees from passing merchants turned ordinary desert stops into wealthy trading towns."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I stated a clear position.",
         "I supported it with at least two pieces of evidence from the article.",
         "I explained how my evidence supports my position."
-      ]
+      ],
+      "modelAnswer": "I agree that the Incense Road shaped the history of Arabia, because it built a lasting network of towns and cities across the region. Merchants carried aromatic resins like frankincense and myrrh along the route, and the tolls they paid let towns such as Najran, Dedan, and Hegra grow wealthy and powerful. The Nabataeans used that wealth to carve the extraordinary tombs of Hegra, a site now honored as a World Heritage location, which shows that the road's influence turned into a heritage still visible today. Even after the monsoon winds let sailors move goods by sea instead, the cities and monuments the road created prove how deeply it shaped Arabia's history."
     }
   }
 }

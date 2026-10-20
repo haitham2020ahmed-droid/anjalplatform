@@ -243,7 +243,8 @@
         "I said yes or no clearly.",
         "I used two facts from the article.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "Yes, I would like a wind farm near my town. Wind is a clean source of power because turbines do not burn fuel, so they do not create air pollution. The spinning blades also turn a generator that makes electricity people can use every day, which is a renewable source of energy that will never run out."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained at least two advantages.",
         "I explained one problem and how people deal with it.",
         "I used at least three key words such as renewable, generator, or grid."
-      ]
+      ],
+      "modelAnswer": "Wind power has several advantages. It is a renewable source of energy that will never run out, and the generator inside each turbine converts the spinning blades' motion directly into electricity sent through the power grid, without creating air pollution. However, wind power has one problem: the wind does not always blow, so the amount of electricity changes from hour to hour. Because of this, wind farms must work together with other power sources to keep electricity steady."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I made a clear recommendation.",
         "I supported it with at least three pieces of evidence, including a challenge.",
         "I used academic words such as intermittent, emissions, or sustainable."
-      ]
+      ],
+      "modelAnswer": "I recommend that the town council build the wind farm instead of a power plant that burns fuel. Wind turbines use kinetic energy from moving air to spin a generator, producing clean electricity without emissions or air pollution, unlike a fuel-burning plant. Wind is also a renewable, sustainable resource, since it will never run out, and some wind farms can even be built offshore where the wind blows steadily. The main challenge is that wind power is intermittent, because the wind does not always blow at the same strength, so the town would need another power source to use alongside it during calm periods. Even with this challenge, the environmental benefits make the wind farm the better long-term choice."
     }
   }
 }

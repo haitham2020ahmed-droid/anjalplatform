@@ -243,7 +243,8 @@
         "I told how the diver went down.",
         "I told what he did on the sea floor.",
         "I told how he came back up."
-      ]
+      ],
+      "modelAnswer": "First, the diver took one deep breath and put a clip on his nose. Then a heavy stone pulled him down fast to the sea floor, where he filled his basket with oysters. Finally, he tugged the rope, and a puller on the dhow hauled him back up to the boat."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained the effect of farmed pearls.",
         "I explained the effect of oil.",
         "I used at least two key words."
-      ]
+      ],
+      "modelAnswer": "Pearl diving declined for two main reasons. First, in Japan people learned to grow cultured pearls on farms, and these cheaper pearls flooded the markets, so natural pearls were worth much less. Second, oil was discovered in Saudi Arabia in 1938, so many men left the sea for jobs in the oil industry instead. This caused a big decline in income for the diving crews, and many families changed their whole way of life."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I explained cultured pearls and their effect on prices.",
         "I explained how oil offered new jobs.",
         "I explained how the heritage is remembered."
-      ]
+      ],
+      "modelAnswer": "Both a change in technology and a change in the economy ended the pearling era. In Japan, people discovered how to grow cultured pearls, and because the irritant that forms the pearl's layers of nacre could now be placed inside oysters on farms, these cheaper pearls flooded the market and lowered prices for natural pearls. At the same time, the economy changed when oil was discovered in Saudi Arabia in 1938, giving men a new livelihood in the oil industry instead of risking their lives diving. Even though the industry declined, people still value this heritage today because it represents the courage and skill of the divers who once depended on the sea."
     }
   }
 }

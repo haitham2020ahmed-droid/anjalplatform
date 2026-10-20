@@ -243,7 +243,8 @@
         "I explained what happens to sunlight inside a raindrop.",
         "I used at least two details from the article.",
         "I wrote in complete sentences."
-      ]
+      ],
+      "modelAnswer": "A rainbow forms when sunlight shines into tiny drops of rain in the sky. Each raindrop acts like a little prism, and it makes the sunlight bend as it goes in and comes back out. Because every color bends a little differently, the colors spread apart into a curved arc. That is how a bright rainbow appears after it rains."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I told where to stand and when to look.",
         "I explained why using facts about light and raindrops.",
         "I put my directions in a clear order."
-      ]
+      ],
+      "modelAnswer": "To see a rainbow, I would tell my friend to stand with the sun behind them and look toward the falling rain in front of them, because an observer must be positioned this way for the light to reach their eyes correctly. It is best to look in the morning or late afternoon, when the sun sits low in the sky, which gives the raindrops the right angle to work like a natural prism. Inside each drop, sunlight bends through refraction, reflects off the back of the drop, and bends again as it leaves, separating into the full spectrum of colors. Following these steps in order gives my friend the best chance to spot a colorful rainbow."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I explained the order of the colors with a clear claim.",
         "I used at least two pieces of scientific evidence from the article.",
         "I used the key words correctly."
-      ]
+      ],
+      "modelAnswer": "A rainbow's colors always appear in the same order because this beautiful phenomenon follows a precise, predictable physical rule rather than random chance. Sunlight is really a mixture of colors forming a full spectrum, and each color has a slightly different wavelength, which causes it to bend by a slightly different amount during refraction as it enters and exits a raindrop. This difference in bending causes dispersion, separating the colors so that red, which bends the least, always ends up on the outside of the arc, while violet, which bends the most, always ends up on the inside. Because every raindrop refracts light according to the very same physical laws, this consistent order of colors appears in rainbows everywhere, every time."
     }
   }
 }

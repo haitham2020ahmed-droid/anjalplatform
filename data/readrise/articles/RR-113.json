@@ -243,7 +243,8 @@
     "I told the steps in order.",
     "I used at least two facts from the article.",
     "I wrote complete sentences with capital letters and periods."
-   ]
+   ],
+   "modelAnswer": "A desert locust usually lives alone, but after heavy rain falls, many locusts hatch and crowd together on the few green plants that are left. When their legs keep bumping into each other, the locusts change color and start seeking out other locusts instead of avoiding them. A young locust called a hopper marches with the group and grows wings, and soon a huge swarm forms that can even destroy a farmer's crop."
   },
   "MID": {
    "keyWords": [
@@ -421,7 +422,8 @@
     "I explained the chain of events from rain to swarms.",
     "I used at least two details from the article.",
     "I used words such as solitary, molt, or harvest correctly."
-   ]
+   ],
+   "modelAnswer": "Heavy rain in the desert, sometimes brought by a cyclone, makes plants grow quickly and lets many locust eggs hatch at once. Each young locust, or hopper, molts five times as it grows, and because so many locusts are crowded together on the same shrinking patches of green plants, they stop being solitary and start forming massive bands. Once the locusts grow wings, the swarm can travel up to 150 kilometers in a single day, which means a problem that started in a remote desert can destroy another farmer's harvest far away before anyone even sprays a pesticide to stop it."
   },
   "HIGH": {
    "keyWords": [
@@ -599,7 +601,8 @@
     "I stated a clear position.",
     "I supported it with at least two pieces of evidence from the article.",
     "I explained how my evidence supports my position."
-   ]
+   ],
+   "modelAnswer": "I disagree that the best strategy is to wait and spray locust swarms once they reach farms, because by that point the damage is already nearly impossible to stop. The article explains that a single swarm can contain more than a billion insects, and because each locust can consume roughly its own weight in vegetation every day, a swarm can strip an entire field within hours of arriving. Once locusts turn gregarious and begin forming bands of hoppers, it is far more effective to monitor the desert for the earliest signs of an outbreak and spray the young hoppers before they even grow wings. The 2018 outbreak that began in Saudi Arabia's Empty Quarter shows exactly why early action matters, because the area was too remote to check, locusts bred undisturbed for months, and the swarms eventually spread across many countries."
   }
  }
 }

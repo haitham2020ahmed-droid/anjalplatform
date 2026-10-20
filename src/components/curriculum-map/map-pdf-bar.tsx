@@ -11,7 +11,7 @@ type ShareFn = (input: { grade: number; classIds: string[]; on: boolean }) => Pr
  * it is a link) and "Send to students": tick classes of that grade (the teacher's own) → they find it on their
  * Curriculum page. A document, not an assignment.
  */
-export function MapPdfBar({ grade, href, studentHref, classes, share }: { grade: number; href: string; studentHref: string; classes: MapPdfClass[]; share: ShareFn | null }) {
+export function MapPdfBar({ grade, href, studentHref, classes, share, showDownload = true }: { grade: number; href: string; studentHref: string; classes: MapPdfClass[]; share: ShareFn | null; /** the new skill-plan header already has its own "Print skill plan" button — false hides the duplicate download buttons here and keeps only "Send to students" */ showDownload?: boolean }) {
   const t = useT();
   const router = useRouter();
   const [open, setOpen] = useState(false);
@@ -32,10 +32,10 @@ export function MapPdfBar({ grade, href, studentHref, classes, share }: { grade:
   return (
     <div data-testid="map-pdf-bar" className="mb-4 rounded-2xl bg-white px-4 py-3 ring-1 ring-blue-100">
       <div className="flex flex-wrap items-center gap-2">
-        <a href={href} data-testid="map-pdf-download" className={`${btn} bg-blue-700 text-white hover:bg-blue-800`}>⬇ {t("Full curriculum map (PDF)")}</a>
-        <a href={studentHref} data-testid="map-pdf-student" className={`${btn} bg-white text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal`}>{t("Students' copy")}</a>
+        {showDownload && <a href={href} data-testid="map-pdf-download" className={`${btn} bg-blue-700 text-white hover:bg-blue-800`}>⬇ {t("Full curriculum map (PDF)")}</a>}
+        {showDownload && <a href={studentHref} data-testid="map-pdf-student" className={`${btn} bg-white text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal`}>{t("Students' copy")}</a>}
         {share && classes.length > 0 && <button type="button" data-testid="map-pdf-send" aria-expanded={open} onClick={() => setOpen((v) => !v)} className={`${btn} bg-white text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal`}>📨 {t("Send to students")}</button>}
-        <span className="text-xs text-slate-500">🔗 {t("Every skill in the map opens on the platform.")}</span>
+        {showDownload && <span className="text-xs text-slate-500">🔗 {t("Every skill in the map opens on the platform.")}</span>}
       </div>
       {open && share && (
         <fieldset className="mt-3 rounded-xl bg-slate-50 p-3 ring-1 ring-slate-200">

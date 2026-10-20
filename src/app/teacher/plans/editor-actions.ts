@@ -9,7 +9,7 @@ import { ForbiddenError, type Actor } from "@/server/auth/rbac";
 import { ValidationError } from "@/server/curriculum-admin";
 import { getT } from "@/i18n/server";
 import { isProgram, type Program } from "@/server/plans/program";
-import { bulkEdit, createDraft, deleteDraft, duplicatePlan, editPlan, pausePlan, sendPlan, withdrawPlan, type BulkOp, type PlanEdit, type SectionSpec } from "@/server/plans/editor";
+import { bulkEdit, createDraft, deleteDraft, deletePlanPermanently, duplicatePlan, editPlan, pausePlan, sendPlan, withdrawPlan, type BulkOp, type PlanEdit, type SectionSpec } from "@/server/plans/editor";
 import { isPlanLevel } from "@/server/plans/question-pick";
 import { draftFromSuggestion, startPlan } from "@/server/plans/start";
 import { failureMessage, isNextControl } from "@/server/lib/action-guard";
@@ -111,6 +111,34 @@ export async function deleteDraftAction(f: FormData) {
   try { await deleteDraft(repo, a, str(f, "planId")); } catch (e) { if (!ok(e)) throw e; target = `/teacher/plans/${encodeURIComponent(str(f, "planId"))}?msg=${encodeURIComponent(`⚠️ ${t((e as Error).message)}`)}`; }
   redirect(target);
 }
+/**
+ * 🗑 r87: the two choices directly from the Plans LIST (no need to open the plan first) — "stop but keep it saved"
+ * (withdraw, answers kept, the plan stays visible in Finished) or "delete permanently" (gone for good, answers
+ * untouched but the plan record itself disappears from every list, no Undo). Both stay on the Plans list after.
+ */
+export async function withdrawFromListAction(f: FormData) {
+  const a = await requireActor(ACCESS);
+  const { t } = await getT();
+  let msg: string;
+  try {
+    if (f.get("confirm") !== "on") throw new ValidationError("Tick the box to confirm.");
+    await withdrawPlan(repo, a, str(f, "planId"));
+    msg = t("Stopped: the work left the students' lists. Answers already given are kept.");
+  } catch (e) { if (!ok(e)) throw e; msg = `⚠️ ${t((e as Error).message)}`; }
+  redirect(`/teacher/plans?${new URLSearchParams([["tab", "plans"], ["bucket", str(f, "bucket")], ["msg", msg]])}`);
+}
+export async function deletePlanAction(f: FormData) {
+  const a = await requireActor(ACCESS);
+  const { t } = await getT();
+  let msg: string;
+  try {
+    if (f.get("confirm") !== "on") throw new ValidationError("Tick the box to confirm.");
+    await deletePlanPermanently(repo, a, str(f, "planId"));
+    msg = t("Deleted for good. This cannot be undone.");
+  } catch (e) { if (!ok(e)) throw e; msg = `⚠️ ${t((e as Error).message)}`; }
+  redirect(`/teacher/plans?${new URLSearchParams([["tab", "plans"], ["bucket", str(f, "bucket")], ["msg", msg]])}`);
+}
+
 export async function duplicatePlanAction(f: FormData) {
   const a = await requireActor(ACCESS);
   const { t } = await getT();

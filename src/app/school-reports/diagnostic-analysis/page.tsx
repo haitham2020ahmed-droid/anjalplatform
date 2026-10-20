@@ -64,11 +64,11 @@ export default async function DiagnosticAnalysisReportPage({ searchParams }: { s
                 <h2 className="text-xl font-extrabold text-brand-navy">🧭 {t(L, "diagnostic.domainBreakdown")}</h2>
                 <div className="mt-3 overflow-x-auto">
                   <table className="w-full text-left text-sm">
-                    <thead><tr className="border-b text-slate-500"><th className="py-1 pe-2">Domain</th><th className="pe-2">Level</th><th className="pe-2">θ</th><th className="pe-2">Items</th><th>Instructional prescription</th></tr></thead>
+                    <thead><tr className="border-b text-slate-500"><th className="py-1 pe-2">Domain</th><th className="pe-2">Level</th><th className="pe-2">{t(L, "diagnostic.score")}</th><th className="pe-2">θ</th><th className="pe-2">Items</th><th>Instructional prescription</th></tr></thead>
                     <tbody>
                       {d.domains.map((x) => (
                         <tr key={x.domain} className="border-b last:border-0">
-                          <td className="py-1 pe-2 font-semibold">{x.label}</td><td className="pe-2">{x.level}</td><td className="pe-2 tabular-nums">{x.theta}</td><td className="pe-2 tabular-nums">{x.items}</td><td className="text-slate-700">{x.prescription}</td>
+                          <td className="py-1 pe-2 font-semibold">{x.label}</td><td className="pe-2">{x.level}</td><td className="pe-2 tabular-nums">{x.percentLike}%</td><td className="pe-2 tabular-nums">{x.theta}</td><td className="pe-2 tabular-nums">{x.items}</td><td className="text-slate-700">{x.prescription}</td>
                         </tr>
                       ))}
                     </tbody>
@@ -116,7 +116,7 @@ export default async function DiagnosticAnalysisReportPage({ searchParams }: { s
                         {g.students.map((st) => (
                           <tr key={st.studentId} className="border-b last:border-0">
                             <td className="py-1 pe-2 font-semibold">{st.name}</td>
-                            {cls!.domains.map((dm) => <td key={dm} className="pe-2 text-slate-700">{st.domains[dm] ?? "—"}</td>)}
+                            {cls!.domains.map((dm) => <td key={dm} className="pe-2 text-slate-700">{st.domains[dm] ? `${st.domains[dm]} (${st.domainScores[dm]}%)` : "—"}</td>)}
                           </tr>
                         ))}
                       </tbody>
@@ -127,7 +127,12 @@ export default async function DiagnosticAnalysisReportPage({ searchParams }: { s
               {cls.notTaken.length > 0 && (
                 <section className="rounded-3xl bg-amber-50 p-6 ring-1 ring-amber-200 print:break-inside-avoid">
                   <h2 className="text-lg font-extrabold text-amber-900">⏳ {t(L, "diagnostic.notTakenGroup")} <span className="text-base font-normal">· {cls.notTaken.length}</span></h2>
-                  <ul className="mt-2 ms-4 list-disc text-sm text-amber-900">{cls.notTaken.map((x) => <li key={x.studentId}>{x.name}</li>)}</ul>
+                  <div className="mt-2 overflow-x-auto">
+                    <table className="w-full text-left text-sm text-amber-900">
+                      <thead><tr className="border-b border-amber-200"><th className="py-1 pe-2">{t(L, "diagnostic.names")}</th><th>{t(L, "diagnostic.notTaken.action")}</th></tr></thead>
+                      <tbody>{cls.notTaken.map((x) => (<tr key={x.studentId} className="border-b border-amber-100 last:border-0"><td className="py-1 pe-2 font-semibold">{x.name}</td><td>{x.action}</td></tr>))}</tbody>
+                    </table>
+                  </div>
                 </section>
               )}
             </article>

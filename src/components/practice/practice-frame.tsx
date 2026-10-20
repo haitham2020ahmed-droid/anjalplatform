@@ -73,6 +73,14 @@ export function PracticeFrame(props: {
             <span className="rounded-full bg-rose-100 px-2.5 py-0.5 font-semibold text-rose-900">✗ {Math.max(0, view.answered - view.correct)} wrong</span>
             <span className="text-slate-500">{view.answered} answered</span>
           </p>
+          {/* r## (owner: "53 answered and it never stopped"): answered fast ones count for nothing toward the 30/50
+              rule, accuracy or mastery — only explained here when it actually happens, so the number above never
+              looks stuck for no reason */}
+          {view.guessCount > 0 && (
+            <p data-testid="guess-note" className="mt-1 text-xs text-slate-400">
+              {view.guessCount === 1 ? "1 answer was too fast to count." : `${view.guessCount} answers were too fast to count.`}
+            </p>
+          )}
           {/* assigned work: Done once it is Done (r67, no pressure: no "question 23 of 50" — the bar beside shows how
               close the student is to mastery) */}
           {view.work?.completion === "DONE" && (
@@ -124,7 +132,10 @@ export function PracticeFrame(props: {
                 </button>
               )}
               {fb && fb.next.hasQuestion && paused && (
-                <a href={props.unitHref} data-testid="take-break" className="rounded-xl bg-brand-navy px-8 py-3 text-lg font-semibold text-white hover:bg-brand-purple">{props.unitHref === "/student" ? "Back to My Work" : "Back to my skills"}</a>
+                <>
+                  <a href={props.unitHref} data-testid="take-break" className="rounded-xl bg-brand-navy px-8 py-3 text-lg font-semibold text-white hover:bg-brand-purple">{props.unitHref === "/student" ? "Back to My Work" : "Back to my skills"}</a>
+                  <button type="button" data-testid="continue-practising-paused" onClick={props.onNext} className="rounded-xl border-2 border-slate-300 px-6 py-3 text-lg font-semibold text-brand-navy">Keep practising</button>
+                </>
               )}
               {fb && fb.next.hasQuestion && justDone && !paused && props.onFinish && (
                 <button type="button" data-testid="finish-work" onClick={props.onFinish} autoFocus className="rounded-xl bg-emerald-600 px-8 py-3 text-lg font-semibold text-white hover:bg-emerald-700">Stop for now</button>

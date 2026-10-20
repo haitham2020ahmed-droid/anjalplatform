@@ -243,7 +243,8 @@
         "I named one body part.",
         "I told how it helps the owl hunt.",
         "I used a fact from the article."
-      ]
+      ],
+      "modelAnswer": "I choose an owl's wing feathers, because their soft, fringed edges let the owl hunt silently through the night air. This means its prey, like a mouse, cannot hear the owl coming until it is too late. Afterward, the owl swallows its prey whole and later coughs up a pellet made of the bones and fur it could not digest."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I described two body features.",
         "I explained how they work together.",
         "I used details from the article."
-      ]
+      ],
+      "modelAnswer": "An owl's huge eyes gather plenty of light so this nocturnal hunter can see a mouse even in near darkness, and its sensitive, dish-shaped face collects sound so it can also listen for rodents hiding under snow or leaves. Once it has located its prey, its silent wings let it swoop down without being heard, and its sharp talons seize the mouse before it even knows the owl is there. Working together, these features let an owl catch its prey almost every time, even though it later cannot digest the bones and fur it swallows."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I chose one adaptation and stated my opinion.",
         "I explained how it works using the article.",
         "I compared it with at least one other adaptation."
-      ]
+      ],
+      "modelAnswer": "I think the owl's silent flight is its most important adaptation for hunting at night, because the soft, fringed edges of its feathers muffle the sound of rushing air, letting this stealthy predator approach its prey completely undetected. This matters even more than the owl's unusual neck, which contains twice as many vertebrae as a human's and lets the head rotate almost all the way around to make up for eyes that cannot move in their sockets. That flexible neck helps the owl locate prey by sight and sound, but silent flight is what actually decides whether the final strike succeeds, since even the sharpest hearing is wasted if the mouse hears the owl coming. Without that silent approach, the owl could never get close enough to later regurgitate a pellet of the bones and fur it cannot digest."
     }
   }
 }

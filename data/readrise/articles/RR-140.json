@@ -243,7 +243,8 @@
     "I told the path in the right order.",
     "I used the words heart, blood, and lungs.",
     "I said why the old idea about holes was wrong."
-   ]
+   ],
+   "modelAnswer": "Blood leaves the right side of the heart and travels to the lungs, where it mixes with air and picks up oxygen. Then it returns to the left side of the heart, which pumps it out to the rest of the body. The old idea about tiny holes in the wall was wrong because Ibn al-Nafis said the wall between the two sides of the heart is thick and has no holes at all."
   },
   "MID": {
    "keyWords": [
@@ -421,7 +422,8 @@
     "I explained Galen's theory.",
     "I explained the evidence Ibn al-Nafis used about the wall of the heart.",
     "I described the path through the lungs using the words chamber and oxygen."
-   ]
+   ],
+   "modelAnswer": "Ibn al-Nafis disagreed with Galen's theory that blood passed through tiny invisible holes between the two chambers of the heart. His evidence was that the wall between the chambers is actually thick and has no holes in it. Instead, he explained that blood leaves the right side of the heart and travels to the lungs, where it mixes with air and picks up oxygen, before returning to the left side of the heart to be pumped to the rest of the body."
   },
   "HIGH": {
    "keyWords": [
@@ -599,7 +601,8 @@
     "I explained Galen's theory and why Ibn al-Nafis rejected it.",
     "I described the pulmonary circulation using the words ventricle and septum.",
     "I explained why his work was forgotten and how it was rediscovered."
-   ]
+   ],
+   "modelAnswer": "Ibn al-Nafis used evidence about the septum, the thick wall of muscle between the heart's two sides, to challenge Galen's ancient theory that blood passed through invisible holes in that wall. He argued that because the septum has no such holes, blood must instead travel from the right ventricle to the lungs, where it absorbs oxygen, before returning to the left side of the heart in what we now call pulmonary circulation. Although his explanation was correct, it was not recognized for centuries because few people read his manuscript, and only in 1924 did an Egyptian doctor discover it in a library in Berlin, finally proving that Ibn al-Nafis had described this path long before European doctors did."
   }
  }
 }

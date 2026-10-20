@@ -243,7 +243,8 @@
         "I explained what a black hole is.",
         "I told one way scientists find a black hole, using a fact from the article.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "A black hole is a place in space where gravity is so strong that nothing can escape, not even light. Scientists can still find one even though it is invisible by watching stars that orbit around an area that looks empty. They also look for hot gas that swirls toward the black hole and glows brightly."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I put the steps of how a black hole forms in the right order.",
         "I explained why black holes must be found with clues, using details from the article.",
         "I used at least two key words from the lesson correctly."
-      ]
+      ],
+      "modelAnswer": "A massive star shines for millions of years, but when it finally runs out of fuel, it can no longer support its own weight and begins to collapse. As it collapses, its matter is crushed into a very small space, which makes its gravity extremely strong and forms a black hole with an event horizon that nothing can cross and return from. Scientists must use clues to find black holes because no light can ever escape them, so instead they watch stars orbiting an area that seems empty or observe gas glowing brightly as it swirls toward the galaxy's hidden center."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I explained at least two kinds of evidence astronomers use.",
         "I chose the most convincing evidence and gave a reason.",
         "I used precise vocabulary from the article and organized my answer in clear paragraphs."
-      ]
+      ],
+      "modelAnswer": "Astronomers rely on indirect evidence to confirm black holes exist, since a black hole itself emits no light at all. One kind of evidence is watching stars orbit around what otherwise looks like empty space, which suggests something supermassive and invisible is pulling on them with its gravity. Another kind is observing gas that becomes extremely dense and hot as it swirls toward a black hole, glowing brightly enough for telescopes to detect.\n\nI find the direct image produced in 2019, when scientists connected telescopes around the world to photograph the dark shadow of a black hole in a distant galaxy, the most convincing evidence of all. Unlike inferring a black hole's presence from the behavior of nearby stars or gas, this image let scientists actually detect the shadow where light disappears, which feels like the closest thing to truly seeing something that is, by definition, impossible to see directly."
     }
   }
 }

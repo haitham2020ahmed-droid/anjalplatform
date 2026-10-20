@@ -243,7 +243,8 @@
         "I answered the question clearly.",
         "I used at least two facts from the article.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "People call Jupiter a giant planet because it is so huge that more than one thousand Earths could fit inside it. It also has a giant storm called the Great Red Spot that is wider than our entire planet. Jupiter even has dozens of moons, and some of them were first seen through a telescope over four hundred years ago."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I described two features of Jupiter.",
         "I explained how each is different from Earth, using facts from the article.",
         "I used at least two key words correctly."
-      ]
+      ],
+      "modelAnswer": "One feature of Jupiter that is different from Earth is that it has no solid surface at all, since it is really a giant ball made mostly of gas with a thick, swirling atmosphere instead of ground to stand on. Another feature is how fast it spins, because Jupiter rotates once every ten hours, much faster than Earth's twenty-four-hour day, even though it still takes about twelve Earth years to travel once around the Sun. Scientists first studied Jupiter's four largest moons through a telescope centuries ago, and they now believe one of them, Europa, hides a salty ocean beneath its icy surface."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I stated a clear opinion about the name.",
         "I supported it with at least three facts from the article.",
         "I used precise vocabulary, including at least two key words."
-      ]
+      ],
+      "modelAnswer": "I agree that \"king of the planets\" fits Jupiter perfectly. Its sheer mass is greater than all the other planets in the solar system combined, and it is built almost entirely from hydrogen and helium gas rather than solid rock. Jupiter also commands a vast system of moons, including one with volcanic eruptions and a powerful magnetic field that shields the whole system around it. Robotic spacecraft still travel there today just to study this giant world and its many moons up close, which shows how much influence and mystery Jupiter still holds over our solar system."
     }
   }
 }

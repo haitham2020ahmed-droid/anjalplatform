@@ -18,6 +18,7 @@ import { ADMIN_TOOLS, ALL_TOOLS_HREF } from "@/components/admin-tools";
 import { adminMayUse } from "@/server/admin/tools";
 import { LineIcon, type LineIconName } from "@/components/ui/line-icon";
 import { urgentUnhandledCount } from "@/server/insights/early-warning";
+import { schoolWeekInReview } from "@/server/insights/week-in-review";
 
 export const metadata = { title: "Administration" };
 
@@ -75,6 +76,12 @@ export default async function AdminHome() {
         <Link prefetch={false} href={ALL_TOOLS_HREF} className={shortcut}>{ico("tools")}{t("All Admin Tools")}</Link>
       </section>
 
+      {/* Week in Review (new): 3 headline numbers for the whole school, this rolling week. One slim card, no
+         links, so it stays out of the way — a loader shaped the same so nothing jumps when it arrives. */}
+      <Suspense fallback={<WeekLoading label={t("Loading…")} />}>
+        <WeekInReviewCard actor={actor} now={now} t={t} />
+      </Suspense>
+
       <Suspense fallback={<BlockLoading label={t("Loading…")} title={t("Teacher follow-up")} />}>
         <FollowUp follow={follow} now={now} t={t} />
       </Suspense>
@@ -93,6 +100,15 @@ function GlanceLoading({ label }: { label: string }) {
       <div className="grid grid-cols-2 gap-3 lg:grid-cols-4" aria-hidden="true">
         {[0, 1, 2, 3].map((i) => <div key={i} className="h-[6.25rem] rounded-[1.25rem] bg-surface p-4 ring-1 ring-line"><div className="h-8 w-16 rounded bg-surface-2" /><div className="mt-4 h-3 w-24 rounded bg-surface-2" /></div>)}
       </div>
+    </div>
+  );
+}
+/** Loader shaped like the Week in Review card (one slim row, 3 numbers). */
+function WeekLoading({ label }: { label: string }) {
+  return (
+    <div role="status" aria-label={label} className="mt-5 animate-pulse rounded-xl bg-surface px-3 py-2 shadow-card ring-1 ring-line motion-reduce:animate-none" aria-hidden="true">
+      <div className="mb-2 h-3 w-32 rounded bg-surface-2" />
+      <div className="grid grid-cols-3 gap-2">{[0, 1, 2].map((i) => <div key={i} className="h-8 rounded bg-surface-2" />)}</div>
     </div>
   );
 }
@@ -149,6 +165,21 @@ async function Glance({ actor, now, follow, t }: { actor: Actor; now: Date; foll
         </section>
       )}
     </>
+  );
+}
+
+/** 3 headline numbers for the whole school, this rolling week (same window as "Activity this week" above). */
+async function WeekInReviewCard({ actor, now, t }: { actor: Actor; now: Date; t: TFn }) {
+  const wk = await schoolWeekInReview(repo, actor, now).catch(() => ({ questions: 0, minutes: 0, skills: 0 }));
+  return (
+    <section aria-label={t("This week, the school")} className="mt-5 rounded-xl bg-surface px-3 py-2 shadow-card ring-1 ring-line">
+      <h2 className="mb-1 flex items-center gap-2 text-sm font-semibold text-ink"><LineIcon name="growth" className="h-4 w-4 text-muted" />{t("This week, the school")}</h2>
+      <div className="grid grid-cols-3 gap-2 text-center" dir="ltr">
+        <div><span className="block font-display text-lg leading-none tabular-nums text-ink">{wk.questions}</span><span className="block text-xs text-ink-2">{t("Questions answered")}</span></div>
+        <div><span className="block font-display text-lg leading-none tabular-nums text-ink">{wk.minutes}</span><span className="block text-xs text-ink-2">{t("Minutes practised")}</span></div>
+        <div><span className="block font-display text-lg leading-none tabular-nums text-ink">{wk.skills}</span><span className="block text-xs text-ink-2">{t("Skills practised")}</span></div>
+      </div>
+    </section>
   );
 }
 

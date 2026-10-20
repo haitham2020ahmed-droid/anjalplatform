@@ -243,7 +243,8 @@
         "I named three jobs water does, using the article.",
         "I gave one clear way to drink more water.",
         "I used at least two key words, such as sweat or kidneys."
-      ]
+      ],
+      "modelAnswer": "Water in my blood carries nutrients and oxygen around my body. Water also becomes sweat that cools me down on a hot day, and it helps my kidneys clean waste out of my blood. To drink more water each day, I could keep a water bottle with me and take a sip every time I feel thirsty."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I gave at least two clear steps.",
         "I explained each step with a fact from the article.",
         "I used the words dehydrated and evaporate correctly."
-      ]
+      ],
+      "modelAnswer": "For a June sports day, I would tell everyone to drink water throughout the day, not just when they feel thirsty, because sweat evaporates off your skin to cool you down and that lost water needs to be replaced. I would also plan extra water breaks during hot games, since playing hard makes you lose even more water and can leave you dehydrated with a headache or a tired feeling. Bringing watermelon as a snack would help too, since foods with lots of water can also keep everyone from becoming dehydrated."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I clearly stated whether I agree or disagree.",
         "I supported my opinion with at least two accurate facts from the article.",
         "I used the words regulate and hydrated correctly."
-      ]
+      ],
+      "modelAnswer": "I disagree that you only need to drink water when you feel thirsty. Thirst is already a sign your body needs more water, so waiting for it means you may already be a little dehydrated and could develop a headache or feel tired. Water also helps your kidneys filter waste out of the blood that circulates through your body, and it helps regulate your temperature as sweat evaporates, so drinking steadily throughout the day, especially in Saudi Arabia's extreme summer heat, keeps you better hydrated than waiting until you are thirsty."
     }
   }
 }

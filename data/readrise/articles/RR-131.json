@@ -243,7 +243,8 @@
         "I told at least two ways satellites help.",
         "I used facts from the article.",
         "I wrote in complete sentences."
-      ]
+      ],
+      "modelAnswer": "Weather satellites help keep people safe in two ways. First, they orbit high above Earth and take pictures of clouds, so forecasters can see storms coming. Second, some satellites sense heat, which shows tall storm clouds even at night, so people can get a forecast and be warned in time."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I described both kinds of satellites.",
         "I explained one way each kind helps forecasters.",
         "I used details from the article."
-      ]
+      ],
+      "modelAnswer": "There are two main kinds of weather satellites. One kind orbits about 36,000 kilometers above the equator and moves at the same speed as Earth spins, so it stays over the same region and sends new pictures every few minutes. The other kind orbits much lower, about 800 kilometers up, and passes over the poles, scanning the whole planet one strip at a time as Earth turns beneath it. The first kind helps forecasters watch a storm develop quickly, while the second kind helps them see the entire globe using infrared sensors."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I explained how satellites help people prepare.",
         "I used at least two specific pieces of evidence.",
         "I organized my ideas clearly with an introduction and conclusion."
-      ]
+      ],
+      "modelAnswer": "Weather satellites have changed the way people prepare for dangerous weather by giving forecasters a constant view of the entire planet. For instance, geostationary satellites stay above the same region near the equator and send new pictures every few minutes, allowing forecasters to track a storm as it forms. In addition, infrared sensors can measure heat and detect tall storm clouds even at night, which older methods could not do. Because of this technology, computers can combine the data to create forecasts that warn people of cyclones and dust storms before they strike. In conclusion, satellites have given people far more warning time than ever before."
     }
   }
 }

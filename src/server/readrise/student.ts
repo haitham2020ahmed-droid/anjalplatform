@@ -19,8 +19,10 @@
  */
 import { feedReadRise, safeFeed } from "../practice/skill-evidence";
 import { runAfterResponse } from "../lib/after-response";
+import { aiEnv } from "../ai/env";
+import { draftReadRiseWritingScore } from "./writing-ai";
 import { onSkillAnswer } from "../skills/status";
-import { alertMapGap, rapidAnswers } from "./accuracy";
+import { alertMapGap, alertStuckUnreliable, rapidAnswers } from "./accuracy";
 import { loadReadRiseWindows, placementChecks, type RRPeriod } from "./windows";
 import type { Repo, Row } from "../seeding/repo";
 import { ForbiddenError, type Actor } from "../auth/rbac";
@@ -120,7 +122,7 @@ export async function studentLibrary(repo: Repo, actor: Actor, filter: { q?: str
   const [rr, { arts, versions }, runs, mems] = await Promise.all([
     ensureRRStudent(repo, studentId, now),
     visibleCatalog(repo, schoolId),
-    repo.findMany("RRRun", { studentId }, { select: ["articleId", "step", "score", "firstTry", "stretch", "completedAt", "startedAt"] }),
+    repo.findMany("RRRun", { studentId }, { select: ["articleId", "step", "score", "firstTry", "stretch", "completedAt", "startedAt", "unreliable"] }),
     repo.findMany("ClassMembership", { studentId, leftAt: null }, { select: ["classId"] }),
   ]);
   const level = Number(rr.level);
@@ -142,14 +144,20 @@ export async function studentLibrary(repo: Repo, actor: Actor, filter: { q?: str
     const v = vs.find((x) => Number(x.level) === vl)!;
     const mine = runsBy.get(s(a.id)) ?? [];
     const main = mine.filter((r) => r.stretch !== true);
-    const first = main.find((r) => r.firstTry === true && r.score !== null && r.score !== undefined);
+    // r85 audit: don't show a score from an Unreliable (2+ rapid-guess) run on the library tile — it's excluded
+    // from level/mastery/goal logic everywhere else (engine.ts's countsForLevel), so the tile shouldn't make it
+    // look like a normal, counted result either. The article is still shown as DONE (below) since it was scored.
+    const first = main.find((r) => r.firstTry === true && r.score !== null && r.score !== undefined && r.unreliable !== true);
     const open = mine.some((r) => r.step !== "DONE");
     const done = main.some((r) => r.step === "DONE");
     const stretchDone = mine.some((r) => r.stretch === true && r.step === "DONE");
     cards.push({
       id: s(a.id), title: s(v.title) || s(a.title), topic: s(a.topic), summary: s(a.summary), minutes: minutesFor(Number(v.wordCount) || 0), versionLevel: vl,
       status: open ? "IN_PROGRESS" : done ? "DONE" : "NEW", firstTryScore: first ? Number(first.score) : null,
-      canStretch: done && !stretchDone && !open && vs.some((x) => Number(x.level) > vl), stretchDone,
+      // ⬆ r## owner: Stretch only offered after a strong score (75%+, ENGINE.up) — matches the help text shown next
+      // to the button ("75%+ counts toward your goal and can help you move up"). Before this, Stretch showed for
+      // ANY completed reading regardless of score, including a reading that had JUST dropped the student's level.
+      canStretch: done && !stretchDone && !open && first !== undefined && Number(first.score) >= ENGINE.up && vs.some((x) => Number(x.level) > vl), stretchDone,
       assigned: due.has(s(a.id)), dueAt: due.get(s(a.id))?.toISOString() ?? null,
     });
   }
@@ -196,6 +204,10 @@ export interface RunView {
   body: string; keyWords: KeyWord[]; annotations: Annotation[]; readSeconds: number; listened: boolean;
   questions: QuestionView[]; score: number | null; answers: Record<string, string> | null; review: Review[] | null;
   prompt: string; checklist: string[]; writing: string; writingScore: number | null; writingComment: string | null;
+  /** ✍️ owner r##: a curated model (strong) answer to the writing prompt — only sent once the student has
+   * submitted their OWN writing (never before: showing it earlier would let a student just copy it instead of
+   * thinking). null when the article has none yet, or the student has not written their answer. */
+  modelAnswer: string | null;
   done: DoneView | null;
 }
 
@@ -299,7 +311,9 @@ export async function runView(repo: Repo, actor: Actor, runId: string, now = new
     done = {
       score: scored ? Number(run.score) : null, firstTry: run.firstTry === true, stretch: run.stretch === true,
       levelBefore: Number(run.levelBefore), levelAfter: Number(run.levelAfter ?? run.levelBefore), goal,
-      canStretch: run.stretch !== true && !others.length && stretchVersion(Number(rr.level), asMeasured(vers)) !== null,
+      // ⬆ r## owner: same 75%+ guard as studentLibrary's canStretch — a reading that just scored low (and may have
+      // just dropped the level) must not also offer a harder version right away.
+      canStretch: run.stretch !== true && !others.length && scored && Number(run.score) >= ENGINE.up && stretchVersion(Number(rr.level), asMeasured(vers)) !== null,
       prePoll: run.prePoll === null || run.prePoll === undefined ? null : Number(run.prePoll), postPoll: run.postPoll === null || run.postPoll === undefined ? null : Number(run.postPoll),
       tooFast: run.unreliable === true || run.unreliable === 1,
     };
@@ -314,6 +328,8 @@ export async function runView(repo: Repo, actor: Actor, runId: string, now = new
     score: scored ? Number(run.score) : null, answers, review: answers ? scoreAnswers(qs, answers).review : null,
     prompt: s(pr?.prompt), checklist: Array.isArray(pr?.checklist) ? (pr!.checklist as unknown[]).map(String) : [],
     writing: s(run.writing), writingScore: run.writingScore === null || run.writingScore === undefined ? null : Number(run.writingScore), writingComment: run.writingComment ? s(run.writingComment) : null,
+    // ✍️ only once the student submitted their OWN writing (run.writing is set) — never before, so it cannot be copied
+    modelAnswer: s(run.writing).trim() && pr?.modelAnswer ? s(pr.modelAnswer) : null,
     done,
   };
 }
@@ -340,7 +356,8 @@ export async function articlePage(repo: Repo, actor: Actor, articleId: string, n
   return {
     articleId, title: s(v.title) || s(art.title), topic: s(art.topic), summary: s(art.summary), minutes: minutesFor(Number(v.wordCount) || 0), versionLevel: vl, level: Number(rr.level),
     run: latest ? await runView(repo, actor, s(latest.id), now) : null,
-    canStretch: !open && !stretchUsed && runs.some((r) => r.stretch !== true && r.step === "DONE") && stretchVersion(Number(rr.level), asMeasured(vers)) !== null,
+    // ⬆ r## owner: same 75%+ guard — see studentLibrary's canStretch
+    canStretch: !open && !stretchUsed && runs.some((r) => r.stretch !== true && r.step === "DONE" && Number(r.score ?? 0) >= ENGINE.up) && stretchVersion(Number(rr.level), asMeasured(vers)) !== null,
     hasRead: runs.some((r) => r.step === "DONE"),
   };
 }
@@ -360,6 +377,9 @@ export async function startRun(repo: Repo, actor: Actor, articleId: string, opts
     let versionLevel: number;
     if (opts.stretch) {
       if (!runs.some((r) => r.stretch !== true && r.step === "DONE")) throw new ValidationError("Read the article first, then stretch it.");
+      // ⬆ r## owner: server-side copy of the 75%+ guard above (never trust the button being hidden client-side) —
+      // a low score must not unlock a harder version right after it.
+      if (!runs.some((r) => r.stretch !== true && r.step === "DONE" && Number(r.score ?? 0) >= ENGINE.up)) throw new ValidationError(`Score ${ENGINE.up}% or higher on this article first, then you can stretch it.`);
       if (runs.some((r) => r.stretch === true)) throw new ValidationError("You already stretched this article.");
       const up = stretchVersion(level, levels);
       if (up === null) throw new ValidationError("There is no higher version of this article.");
@@ -461,6 +481,8 @@ export async function submitActivity(repo: Repo, actor: Actor, runId: string, ra
   }));
   // ⚖️ the level moved: ReadRise vs MAP far apart → one alert for the teacher
   if (moved) runAfterResponse("readrise.map_gap", () => alertMapGap(repo, studentId, now).catch(() => false), { key: `readrise.map_gap|${studentId}` });
+  // 🚩 whether or not the level moved this time: a streak of runs that never counted → one alert for the teacher
+  runAfterResponse("readrise.stuck", () => alertStuckUnreliable(repo, studentId, now).catch(() => false), { key: `readrise.stuck|${studentId}` });
   return runView(repo, actor, runId, now);
 }
 
@@ -490,6 +512,14 @@ export async function submitWriting(repo: Repo, actor: Actor, runId: string, tex
   const t = cleanWriting(text).trim();
   if (words(t) < MIN_WRITING_WORDS) throw new ValidationError(`Write at least ${MIN_WRITING_WORDS} words (you have ${words(t)}).`);
   await repo.updateMany("RRRun", { id: runId, step: "WRITE" }, { writing: t, step: "POSTPOLL" });
+  // 🤖 draft an AI score + comment for the teacher's scoring screen (never shown to the student) — after the
+  // response, so the student is never kept waiting on an AI call; silently skipped if AI is off/limited/fails
+  runAfterResponse("readrise.writing_ai", async () => {
+    const pr = await repo.findUnique("RRPrompt", { articleId: s(run.articleId), band: s(run.band) });
+    await draftReadRiseWritingScore(
+      repo, { schoolId: s(run.schoolId), runId, prompt: s(pr?.prompt), checklist: (pr?.checklist ?? []) as string[], text: t }, aiEnv(),
+    ).catch(() => undefined);
+  }, { key: `readrise.writing_ai|${runId}` });
   return runView(repo, actor, runId, now);
 }
 

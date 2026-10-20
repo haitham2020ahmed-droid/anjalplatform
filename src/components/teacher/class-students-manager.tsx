@@ -1,5 +1,6 @@
 "use client";
 import { useState, useTransition } from "react";
+import { useRouter } from "next/navigation";
 import { addStudentsByNameAction, removeFromClassAction, renameClassStudentAction, type ClassStudentsState } from "@/app/teacher/class-students-actions";
 import { LoginCards } from "@/components/accounts/login-cards";
 import { BTN_PRIMARY, BTN_SECONDARY } from "@/components/ui-kit/tokens";
@@ -15,6 +16,7 @@ const MAX = 40;
  */
 export function ClassStudentsManager({ classId, className, schoolName, canAdd, students }: { classId: string; className: string; schoolName: string; canAdd: boolean; students: ManagedStudent[] }) {
   const t = useT();
+  const router = useRouter();
   const [text, setText] = useState("");
   const [state, setState] = useState<ClassStudentsState>({});
   const [editing, setEditing] = useState<string | null>(null);
@@ -24,11 +26,15 @@ export function ClassStudentsManager({ classId, className, schoolName, canAdd, s
   const count = text.split(/\r?\n/).filter((l) => l.trim()).length;
   const created = state.result?.created ?? [];
 
-  const add = () => start(async () => { const r = await addStudentsByNameAction(classId, text); setState(r); if (r.result) setText(""); });
-  const save = (studentId: string) => start(async () => { const r = await renameClassStudentAction(classId, studentId, draft); setNote(r); if (!r.error) setEditing(null); });
+  // 🔄 r85 audit: the `students` list below comes from the page's own server data (a prop), and these three actions
+  // only call revalidatePath() on the server — that marks the route's cache stale but does not re-render THIS
+  // already-mounted page, so a newly added/renamed/removed student used to keep showing the old list until the
+  // teacher reloaded the page by hand. router.refresh() re-fetches that server data in place.
+  const add = () => start(async () => { const r = await addStudentsByNameAction(classId, text); setState(r); if (r.result) { setText(""); router.refresh(); } });
+  const save = (studentId: string) => start(async () => { const r = await renameClassStudentAction(classId, studentId, draft); setNote(r); if (!r.error) { setEditing(null); router.refresh(); } });
   const remove = (s: ManagedStudent) => {
     if (!window.confirm(t("Take {name} out of this class? The account and their work stay; the admin can place them in another class.", { name: s.name }))) return;
-    start(async () => setNote(await removeFromClassAction(classId, s.studentId)));
+    start(async () => { const r = await removeFromClassAction(classId, s.studentId); setNote(r); if (!r.error) router.refresh(); });
   };
   const print = () => {
     document.body.classList.add("print-new-cards");

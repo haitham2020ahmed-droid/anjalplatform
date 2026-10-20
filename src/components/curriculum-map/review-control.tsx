@@ -1,32 +1,53 @@
 "use client";
 import { useState, useTransition } from "react";
 import { useT } from "@/i18n/client";
-import type { ReviewControlView, WrittenQuestion } from "@/server/curriculum-map/review-control";
+import type { ReviewControlView, ReviewSkillUnit, WrittenQuestion } from "@/server/curriculum-map/review-control";
 import type { MapSourceQuestion } from "@/server/tests/map-source";
-import { reviewBankAction, reviewChangeAction, reviewDetailAction, reviewDraftAction, reviewEditAction, reviewWriteAction } from "@/app/teacher/curriculum-review/actions";
+import { reviewAssignAction, reviewBankAction, reviewChangeAction, reviewDetailAction, reviewDraftAction, reviewEditAction, reviewSkillChoicesAction, reviewWriteAction } from "@/app/teacher/curriculum-review/actions";
 import { RichInline } from "@/components/rich-inline";
+import { SourceSelect } from "@/components/assign/source-select";
+import type { AssignSource } from "@/lib/assign-source";
+import type { RosterClass } from "./assign-button";
 
 const btn = "inline-flex min-h-9 items-center rounded-lg px-3 text-sm font-semibold ring-1 ring-slate-300 hover:ring-brand-teal disabled:opacity-50";
 const main = "inline-flex min-h-10 items-center rounded-xl bg-brand-navy px-4 text-sm font-semibold text-white disabled:opacity-50";
 const field = "mt-1 block w-full rounded-lg border border-slate-300 px-3 py-2 text-sm";
 type Edit = { id: string; type: string; stem: string; options: { label: string; text: string; correct: boolean }[]; answer: boolean | null; answers: string[] };
 const blank = (): WrittenQuestion => ({ stem: "", options: ["", "", "", ""], correct: 0 });
+type Level = "ABOVE" | "ON" | "BELOW";
+type LevelFilter = Level | "ANY";
+const LV: Record<Level, string> = { ABOVE: "Exceeding", ON: "Meeting", BELOW: "Approaching" };
 
 /**
  * 🔁 The teacher's Review of one text set: the questions in order (↑ ↓), ✏️ Edit (my private copy), ➖ Remove / put
- * back, the number of questions students answer, and ➕ Add (write · from the bank · ✨ AI draft to check first).
+ * back, the number of questions students answer, ➕ Add (write · from the bank · ✨ AI draft to check first), and
+ * ⭐ Assign it directly — Fixed (as always) or 🔓 r91 Adaptive (a target-correct goal, new).
  */
-export function ReviewControl({ initial }: { initial: ReviewControlView }) {
+export function ReviewControl({ initial, roster = [] }: { initial: ReviewControlView; roster?: RosterClass[] }) {
   const t = useT();
   const [v, setV] = useState(initial);
   const [msg, setMsg] = useState<{ ok: boolean; text: string } | null>(null);
   const [busy, start] = useTransition();
   const [edit, setEdit] = useState<Edit | null>(null);
-  const [adding, setAdding] = useState<"" | "write" | "bank">("");
+  const [adding, setAdding] = useState<"" | "write" | "bank" | "skills">("");
   const [w, setW] = useState<WrittenQuestion>(blank());
   const [q, setQ] = useState("");
   const [bank, setBank] = useState<MapSourceQuestion[] | null>(null);
+  // 🤖 r89 "Language" tab: every Skill of the grade's plan, grouped by unit — fetched once, the first time this
+  // tab opens; `picked` is the teacher's ticks, cleared after a successful "Add selected".
+  const [skillUnits, setSkillUnits] = useState<ReviewSkillUnit[] | null>(null);
+  const [skillQ, setSkillQ] = useState("");
+  const [picked, setPicked] = useState<Set<string>>(new Set());
   const [count, setCount] = useState(String(initial.count));
+  // 🔓 r91: the level to collect at ("Collect..." and "Language") — narrows Analyze Craft and Structure only
+  const [level, setLevel] = useState<LevelFilter>("ANY");
+  // ⭐ r91 Assign mini-form
+  const [classId, setClassId] = useState(roster[0]?.id ?? "");
+  const [assignMode, setAssignMode] = useState<"FIXED" | "ADAPTIVE">("FIXED");
+  const [target, setTarget] = useState("20");
+  const [source, setSource] = useState<AssignSource | "">("");
+  const [assignTitle, setAssignTitle] = useState("");
+  const [assignMsg, setAssignMsg] = useState<{ ok: boolean; text: string } | null>(null);
   const apply = (r: { ok: true; value: ReviewControlView } | { ok: false; message: string }, done?: string) => {
     if (r.ok) { setV(r.value); setCount(String(r.value.count)); if (done) setMsg({ ok: true, text: done }); } else setMsg({ ok: false, text: r.message });
     return r.ok;
@@ -110,6 +131,16 @@ export function ReviewControl({ initial }: { initial: ReviewControlView }) {
             <button type="button" className={btn} aria-pressed={adding === "write"} onClick={() => setAdding(adding === "write" ? "" : "write")}>➕ {t("Write a question")}</button>
             <button type="button" className={btn} aria-pressed={adding === "bank"} onClick={() => setAdding(adding === "bank" ? "" : "bank")}>🔎 {t("From the bank")}</button>
             <button type="button" className={btn} disabled={busy} onClick={() => go(async () => { const r = await reviewDraftAction(v.code); if (r.ok) { setW({ ...r.value, options: [...r.value.options] }); setAdding("write"); setMsg({ ok: true, text: t("AI draft ready: check and edit it, then add it.") }); } else setMsg({ ok: false, text: r.message }); })}>✨ {t("AI draft")}</button>
+            {/* 🤖 r89: one press pulls in every Vocabulary + Analyze Craft question of THIS Text Set (not a live link —
+                press again later to pick up anything added since). */}
+            <button type="button" className={btn} disabled={busy} onClick={() => go(async () => { apply(await reviewChangeAction(v.code, { op: "addSet", level }), t("Added ✓")); })}>🤖 {t("Collect this Text Set's Vocabulary + Analyze Craft")}</button>
+            <button type="button" className={btn} aria-pressed={adding === "skills"} onClick={() => { const next = adding === "skills" ? "" : "skills"; setAdding(next); if (next === "skills" && !skillUnits) go(async () => { const r = await reviewSkillChoicesAction(v.code); if (r.ok) setSkillUnits(r.value); else setMsg({ ok: false, text: r.message }); }); }}>🗣️ {t("Language")}</button>
+            <label className="ms-auto flex items-center gap-1.5 text-sm font-semibold text-slate-700">{t("Level")}
+              <select value={level} onChange={(e) => setLevel(e.target.value as LevelFilter)} className="rounded-lg border border-slate-300 px-2 py-1.5 text-sm font-normal">
+                <option value="ANY">{t("All levels")}</option>
+                {(Object.keys(LV) as Level[]).map((k) => <option key={k} value={k}>{t(LV[k])}</option>)}
+              </select>
+            </label>
           </div>
           {adding === "write" && (
             <form className="mt-3 space-y-2" onSubmit={(e) => { e.preventDefault(); go(async () => { if (apply(await reviewWriteAction(v.code, w), t("Added ✓"))) setW(blank()); }); }}>
@@ -142,6 +173,84 @@ export function ReviewControl({ initial }: { initial: ReviewControlView }) {
               ) : <p className="text-sm text-slate-600">{t("No question matches.")}</p>)}
             </div>
           )}
+          {/* 🤖 r89 "Language" tab ("كل مهارات المنهج مش بس بتاعة الدرس ده"): every Skill of the WHOLE grade plan,
+              grouped by unit — the teacher ticks any number of skills (any unit, not just this Text Set's own) and
+              "Add selected" pulls their published, auto-marked questions into this Review, once. */}
+          {adding === "skills" && (
+            <div className="mt-3 space-y-3">
+              <input type="search" value={skillQ} onChange={(e) => setSkillQ(e.target.value)} placeholder={t("Search skills")} className={field} />
+              {!skillUnits ? (
+                <p className="text-sm text-slate-500">{busy ? "…" : t("No skill matches.")}</p>
+              ) : (
+                <div className="max-h-80 space-y-3 overflow-y-auto rounded-xl p-1">
+                  {skillUnits.map((u) => {
+                    const matches = u.skills.filter((k) => k.name.toLowerCase().includes(skillQ.trim().toLowerCase()));
+                    if (!matches.length) return null;
+                    return (
+                      <div key={u.number}>
+                        <p className="text-xs font-bold uppercase tracking-wide text-slate-500">{t("Unit {n}", { n: u.number })}</p>
+                        <ul className="mt-1 space-y-0.5">
+                          {matches.map((k) => (
+                            <li key={k.id}>
+                              <label className="flex items-center gap-2 rounded-lg px-2 py-1 text-sm hover:bg-slate-50">
+                                <input type="checkbox" checked={picked.has(k.id)} onChange={() => setPicked((s) => { const n = new Set(s); if (n.has(k.id)) n.delete(k.id); else n.add(k.id); return n; })} />
+                                <span dir="ltr">{k.name}</span>
+                              </label>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    );
+                  })}
+                </div>
+              )}
+              <button type="button" className={main} disabled={busy || !picked.size}
+                onClick={() => go(async () => { if (apply(await reviewChangeAction(v.code, { op: "addSkills", skillIds: [...picked], level }), t("Added ✓"))) setPicked(new Set()); })}>
+                {t("Add selected ({n})", { n: picked.size })}
+              </button>
+            </div>
+          )}
+        </section>
+      )}
+
+      {v.canEdit && v.chosen > 0 && roster.length > 0 && (
+        <section className="rounded-2xl bg-white p-4 ring-1 ring-slate-200" aria-label={t("Assign")}>
+          <h2 className="font-semibold text-slate-900">⭐ {t("Assign")}</h2>
+          {assignMsg && <p role={assignMsg.ok ? "status" : "alert"} className={`mt-2 rounded-xl px-4 py-2 text-sm ${assignMsg.ok ? "bg-teal-50 text-teal-900" : "bg-red-50 text-red-800"}`}>{assignMsg.text}</p>}
+          <form className="mt-3 grid gap-3 sm:grid-cols-2" onSubmit={(e) => {
+            e.preventDefault();
+            go(async () => {
+              setAssignMsg(null);
+              const r = await reviewAssignAction(v.code, {
+                classId, source, title: assignTitle || v.title,
+                adaptive: assignMode === "ADAPTIVE" ? { maxQuestions: Math.max(v.count, 20), targetCorrect: Math.max(5, Math.min(50, Number(target) || 20)) } : null,
+              });
+              setAssignMsg(r.ok ? { ok: true, text: t("Assigned ✓ ({n} students)", { n: r.value.students }) } : { ok: false, text: r.message });
+            });
+          }}>
+            <label className="flex flex-col text-sm font-semibold text-slate-700">{t("Class")}
+              <select value={classId} onChange={(e) => setClassId(e.target.value)} className={field}>
+                {roster.map((c) => <option key={c.id} value={c.id}>{c.name}</option>)}
+              </select>
+            </label>
+            <label className="flex flex-col text-sm font-semibold text-slate-700">{t("Title")}
+              <input value={assignTitle} onChange={(e) => setAssignTitle(e.target.value)} placeholder={v.title} className={field} />
+            </label>
+            <fieldset className="flex flex-col text-sm font-semibold text-slate-700">
+              <span>{t("How")}</span>
+              <div className="mt-1 flex gap-4 font-normal">
+                <label className="flex items-center gap-1.5"><input type="radio" name="review-assign-mode" checked={assignMode === "FIXED"} onChange={() => setAssignMode("FIXED")} /> {t("Fixed")}</label>
+                <label className="flex items-center gap-1.5"><input type="radio" name="review-assign-mode" checked={assignMode === "ADAPTIVE"} onChange={() => setAssignMode("ADAPTIVE")} /> {t("Adaptive")}</label>
+              </div>
+            </fieldset>
+            {assignMode === "ADAPTIVE" && (
+              <label className="flex flex-col text-sm font-semibold text-slate-700">{t("Target correct answers")}
+                <input type="number" min={5} max={50} value={target} onChange={(e) => setTarget(e.target.value)} className={`${field} w-28`} />
+              </label>
+            )}
+            <SourceSelect t={t} value={source} onChange={setSource} />
+            <div className="sm:col-span-2"><button className={main} disabled={busy || !classId}>⭐ {t("Assign")}</button></div>
+          </form>
         </section>
       )}
     </div>

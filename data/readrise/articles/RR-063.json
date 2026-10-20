@@ -243,7 +243,8 @@
         "I named a way to exercise.",
         "I told what my heart does when I move.",
         "I used a word from the article, like pulse or muscle."
-      ]
+      ],
+      "modelAnswer": "My favorite way to exercise is playing football outside. When I run and play, my heart is a muscle that beats faster to pump more blood around my body. I can feel my pulse getting quicker when I press my fingers on my wrist after I exercise."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained why the heart beats faster.",
         "I used the words oxygen and pulse correctly.",
         "I included at least two details from the article."
-      ]
+      ],
+      "modelAnswer": "When I start running, my leg muscles suddenly need extra oxygen, so my heart beats faster to push more blood through my blood vessels and deliver that oxygen where it is needed. My pulse rises because of this faster beating, and I breathe harder at the same time because my body needs to pull in more air. This kind of aerobic exercise actually makes my heart stronger over time."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "My plan includes at least 60 minutes of activity a day.",
         "I explained how aerobic exercise affects the heart.",
         "I used at least two key words from the article correctly."
-      ]
+      ],
+      "modelAnswer": "For my sedentary friend, I would plan a week that gradually builds up to 60 minutes of activity a day, starting with a short morning walk and working toward more vigorous activities like swimming, cycling, or football by the end of the week. Each aerobic session strengthens the heart muscle so it can circulate more blood with every beat, which means the heart will not need to beat as often while resting. Over time, this routine builds real endurance and protects the whole cardiovascular system, which matters most for someone moving away from a sedentary lifestyle."
     }
   }
 }

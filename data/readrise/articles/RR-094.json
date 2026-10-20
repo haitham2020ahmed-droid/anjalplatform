@@ -243,7 +243,8 @@
         "I explained where the player kicks the ball.",
         "I explained how spin makes the ball bend.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "I kick the ball off-center, hitting it with the inside of my foot instead of the middle, which makes the ball spin. The spin drags the air around with it, and that curve sends the ball bending away from the wall and into the goal."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I used the words force and opposite correctly.",
         "I explained what the spinning ball does to the air.",
         "I used details from the article."
-      ]
+      ],
+      "modelAnswer": "When I kick the ball off-center, it spins rapidly through the air. On one side, the spin pushes against the passing air, and this deflects the air in that direction using a clever technique. The air then pushes back on the ball with an equal force in the opposite direction, which is exactly why the ball curves away."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I stated a clear opinion about the poll statement.",
         "I used evidence about the science of spin and about practice.",
         "I explained how my evidence supports my opinion."
-      ]
+      ],
+      "modelAnswer": "I agree that scoring a great free kick depends on both science and talent, though the article makes clear that the science explains why the phenomenon happens at all. The rotation a player gives the ball changes the air pressure around it, bending its trajectory in a predictable direction, a principle physicists can measure and explain precisely. However, understanding this science does not automatically make someone able to perform it; the article notes that kicks like this require many hours of practice, since striking the ball at exactly the right spot takes real skill. Without that practiced skill, a ball with very little spin instead becomes unpredictable and simply wobbles, so I believe both science and talent, sharpened through practice, are equally necessary for a truly great free kick."
     }
   }
 }

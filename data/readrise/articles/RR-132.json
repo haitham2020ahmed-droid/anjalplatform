@@ -243,7 +243,8 @@
         "I told what Bell said.",
         "I described how I felt, using details from the article.",
         "I used at least two key words, such as wire or sound."
-      ]
+      ],
+      "modelAnswer": "I am Mr. Watson, and I just heard Bell's voice come through the wire! He said, \"Mr. Watson, come here. I want to see you.\" I felt amazed, because the sound traveled as a signal along the wire, and it was the first time anyone had ever heard a real voice carried that way. It felt like we had just invented something that would change how people send a message forever."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained the steps in order.",
         "I used vibrate and receiver correctly.",
         "I used details from the article."
-      ]
+      ],
+      "modelAnswer": "When you speak into a telephone, your voice makes the air vibrate. The phone changes these vibrations into an electric signal that travels along a wire to your friend's phone. Then the receiver on the other end changes the signal back into sound, so your friend can hear your voice."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I chose one change and described it accurately.",
         "I explained its effect on communication.",
         "I used evidence and key words from the article."
-      ]
+      ],
+      "modelAnswer": "I chose the change from switchboard operators to automatic equipment. In early telephones, an operator had to connect every call by hand, which made communication slow and dependent on another person. Once automatic machines took over this job, calls could be transmitted directly between people without waiting for an operator, which made communication faster and more private. This change helped revolutionize how quickly people could reach one another, setting the stage for the instant electrical communication we rely on today."
     }
   }
 }

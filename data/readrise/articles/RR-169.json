@@ -243,7 +243,8 @@
         "I clearly said what I think.",
         "I used at least two facts from the article.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "I think people should be careful about how much water they use, because the article shows that a lake can shrink and disappear if too much water leaves it. Farmers who took water from the Aral Sea's rivers to grow crops caused the lake to dry up until only salt and dust were left behind. This shows that using water carelessly can hurt a whole lake."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained two different reasons.",
         "I supported each reason with a detail from the article.",
         "I used linking words such as because, also, and however."
-      ]
+      ],
+      "modelAnswer": "One reason a lake can disappear is natural evaporation, because when the sun heats a seasonal lake faster than rain can refill it, the water dries up and only a crust of salt is left behind. Another reason is people taking too much water, because farmers diverted water for irrigation away from the rivers feeding the Aral Sea, and the lake shrank until boats were left stranded on dry sand. However, the article shows a lake can recover, since building a dam helped the northern Aral Sea's water level rise again and fish return."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I stated a clear opinion.",
         "I supported it with at least two pieces of evidence from the article.",
         "I explained how my evidence supports my opinion."
-      ]
+      ],
+      "modelAnswer": "I believe a community should share its water sustainably, balancing farmers' need for irrigation with the lake's own need for water to survive. The Aral Sea shows the consequence of ignoring this balance: when farmers diverted its rivers for cotton irrigation in the 1960s, the lake shrank so much that fishing boats were stranded on dry sand and people got sick from salty dust blown off the dry lakebed. On the other hand, the article shows that building a dam in 2005 let water and fish return to part of the lake, proving that careful, planned water use can let both farms and lakes survive together."
     }
   }
 }

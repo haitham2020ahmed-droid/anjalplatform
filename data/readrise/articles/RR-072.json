@@ -243,7 +243,8 @@
         "I explained how the photo travels.",
         "I used at least two facts from the article.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "A photo I send travels through cables lying on the ocean floor. Inside each cable are thin strands of glass, and the photo moves through them as fast flashes of light. That is how my photo reaches my friend in another country in just a few seconds."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I described at least three parts of the journey.",
         "I used key words such as fiber, repeater, and armor.",
         "I put my ideas in a clear order."
-      ]
+      ],
+      "modelAnswer": "A message first travels as a flash of light through a thin glass fiber inside the cable, protected near the shore by steel armor that guards against ship anchors and fishing nets. As the light signal grows weaker over distance, a repeater every 50 to 100 kilometers makes it strong again. Finally, the message reaches the other continent, arriving at a Saudi coastal city like Jeddah in just seconds."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I explained why the cables are vulnerable.",
         "I described at least two ways people protect or repair them.",
         "I used evidence and key words from the article."
-      ]
+      ],
+      "modelAnswer": "Undersea cables are vulnerable because, even though they transmit optical signals as flashes of light, in deep water they are only as thick as a garden hose, and most damage comes from ship anchors and fishing nets catching on them. To protect the cables, engineers add steel armor near the shore where ships and fishing gear are more likely to snag them, and repeaters placed every 50 to 100 kilometers amplify the weakening light signal along the way. When a cable does break, a repair ship lifts the damaged section to the surface so workers can splice the fiber back together and restore the connection."
     }
   }
 }

@@ -243,7 +243,8 @@
         "I named at least two parts of a camel's body.",
         "I told how each part helps the camel in the desert.",
         "I wrote in complete sentences."
-      ]
+      ],
+      "modelAnswer": "A camel's body helps it live in the desert in a few ways. Its hump can store fat, and the camel's body turns this fat into energy when food is hard to find in the desert. A camel can also close its nostrils tightly to keep out blowing sand. Long ago, camels even carried goods for a caravan crossing the desert. These body parts help the camel survive."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained what the nickname means.",
         "I used one detail about the camel's body and one about its history.",
         "I explained how each detail supports the nickname."
-      ]
+      ],
+      "modelAnswer": "The nickname 'the ship of the desert' fits the camel well because it explains how the animal carries things across the sand the way a ship carries cargo across water. One detail about its body is that the camel's hump stores fat, which its body slowly turns into energy to help it survive when there is little food. One detail about its history is that camels were valuable partners who carried trade goods like spices, cloth, and incense in long caravans across the desert, linking distant towns. Because the camel's body let it survive long desert journeys, it became the perfect way to carry goods and people, which is why people called it a ship of the desert."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I explained two adaptations and the problem each one solves.",
         "I connected the adaptations to the camel's role in Arabian history.",
         "I used specific evidence from the article."
-      ]
+      ],
+      "modelAnswer": "Two adaptations that solve real problems of desert life are the camel's hump and its padded feet. The hump is an adaptation that stores fat instead of water, so the camel's body can conserve energy efficiently and slowly convert that fat into fuel when food becomes scarce during a long journey. Its broad, padded feet spread out with every step, solving the problem of sinking into loose sand by letting the camel walk efficiently across the surface instead. Because these adaptations let domesticated camels travel for days with little food or water, they became essential for carrying trade goods and pilgrims across Arabia, which is why the camel remains such an important part of the region's heritage today."
     }
   }
 }

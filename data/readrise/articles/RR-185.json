@@ -243,7 +243,8 @@
         "I told how the breeze comes in.",
         "I told how warm air rises and goes out.",
         "I used the words breeze and rise."
-      ]
+      ],
+      "modelAnswer": "A windcatcher catches a breeze at the top of its tall tower and sends it down into the rooms below to cool the house. At the same time, warm air inside the house will rise and escape through openings, so fresh, cool air keeps coming in."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained two cooling methods from the article.",
         "I used at least two key words correctly.",
         "I used details from the article to support my explanation."
-      ]
+      ],
+      "modelAnswer": "One way a windcatcher cools a house is by catching the breeze high above the roof, where the wind is stronger and carries less dust, and sending it down a hollow shaft into the rooms. Another way is by using the fact that hot air rises, so warm air inside the house floats up and escapes through openings on the far side of the tower while fresh air is pulled in to replace it. Some windcatchers add a third method, passing the air over pools or clay jars of water so evaporation carries away extra heat, all without using any electricity."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I stated a clear position.",
         "I supported it with at least two pieces of evidence from the article.",
         "I explained how my evidence supports my position."
-      ]
+      ],
+      "modelAnswer": "I disagree that old building ideas like windcatchers have no place in modern cities. First, the article explains that windcatchers need no fuel and no electricity, since they rely only on wind, rising hot air, and smart planning, which makes them a naturally sustainable way to cool a building. Second, the article notes that architects today are studying windcatchers closely so they can design new buildings that stay comfortable while using far less energy, showing that this ancient ventilation idea is still considered valuable rather than outdated. Because an idea that worked in ancient Egypt and still inspires architects today clearly has lasting value, I think windcatchers deserve a real place in modern, energy-conscious cities."
     }
   }
 }

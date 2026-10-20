@@ -243,7 +243,8 @@
         "I told where a cyclone begins.",
         "I told why it ends over land.",
         "I used at least two key words."
-      ]
+      ],
+      "modelAnswer": "A tropical cyclone begins over warm ocean water, where rising air starts to spin. At the center is a calm eye, with strong winds and heavy rain spinning around it that can cause a flood. When the cyclone moves over land, it loses its fuel and finally weakens."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained the steps in the right order.",
         "I used evaporate and condense correctly.",
         "I explained why warm water is needed."
-      ]
+      ],
+      "modelAnswer": "First, the sun heats warm ocean water until some of it evaporates into water vapor. Then, as the moist air rises and cools, the water vapor begins to condense into towering clouds, and this releases heat that makes the air rise even faster. Warm water is needed because it provides the energy, or fuel, that keeps this whole cycle going and builds up the storm's powerful winds."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I explained the self-reinforcing cycle over warm water.",
         "I explained why the storm weakens over land.",
         "I used precise vocabulary and evidence from the article."
-      ]
+      ],
+      "modelAnswer": "A tropical cyclone can keep growing over warm water because rising warm air releases heat as water vapor condenses, which lowers the pressure and makes the air rise even faster, pulling in more moist air to intensify the storm in a self-reinforcing cycle, while the rotation of the Earth makes the whole system spin. This cycle depends entirely on warm ocean water as fuel, so once the cyclone moves over land or cooler water, that fuel source disappears and the storm gradually weakens. Meteorologists track this pattern with satellites, and their forecasts give coastal communities time to evacuate before the storm's strongest winds and heaviest rain arrive."
     }
   }
 }

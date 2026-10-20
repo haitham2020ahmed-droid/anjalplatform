@@ -4,7 +4,7 @@ import { repo, requireActor } from "@/server/auth/next";
 import { ForbiddenError } from "@/server/auth/rbac";
 import { ValidationError } from "@/server/curriculum-admin";
 import { getT } from "@/i18n/server";
-import { assignTest, deleteTemplate, personalizeNafsFromTest, reteach, saveTemplate, type AssignTestInput, type LevelMode, type TemplateSpec, type TestPreview, type Versions } from "@/server/tests/assessments";
+import { assignTest, deleteTemplate, deleteTestPermanently, personalizeNafsFromTest, reteach, saveTemplate, withdrawTest, type AssignTestInput, type LevelMode, type TemplateSpec, type TestPreview, type Versions } from "@/server/tests/assessments";
 import { composeTest, type ComposeInput } from "@/server/tests/compose";
 import { assertNoDuplicateQuestions, mapSectionQuestions, mapSourceTree, type MapSectionPage, type MapSourceTree } from "@/server/tests/map-source";
 import { assertPreviewedAsStudent, saveStudentPreview } from "@/server/tests/student-preview";
@@ -134,6 +134,28 @@ export async function deleteTemplateAction(f: FormData): Promise<void> {
   const { t } = await getT();
   let msg = t("Template deleted.");
   try { await deleteTemplate(repo, actor, String(f.get("id") ?? "")); } catch (e) { if (known(e)) msg = t((e as Error).message); else throw e; }
+  redirect(`/teacher/assessments?msg=${encodeURIComponent(msg)}`);
+}
+
+/**
+ * 🚫 r87: the Assessments list's two choices for a sent test — "Stop (keep saved)" (withdrawTest: a soft cancel,
+ * undoable from the Assigned page, nothing deleted) or "Delete permanently" (deleteTestPermanently: gone from
+ * every list for good; students' already-given answers are never touched, only the test record disappears).
+ */
+export async function withdrawTestAction(f: FormData): Promise<void> {
+  const actor = await requireActor(STAFF);
+  const { t } = await getT();
+  if (f.get("confirm") !== "on") redirect(`/teacher/assessments?msg=${encodeURIComponent(`⚠️ ${t("Tick the box to confirm.")}`)}`);
+  let msg = t("Stopped: the work left the students' lists. Answers already given are kept.");
+  try { await withdrawTest(repo, actor, String(f.get("testId") ?? "")); } catch (e) { if (known(e)) msg = `⚠️ ${t((e as Error).message)}`; else throw e; }
+  redirect(`/teacher/assessments?msg=${encodeURIComponent(msg)}`);
+}
+export async function deleteTestAction(f: FormData): Promise<void> {
+  const actor = await requireActor(STAFF);
+  const { t } = await getT();
+  if (f.get("confirm") !== "on") redirect(`/teacher/assessments?msg=${encodeURIComponent(`⚠️ ${t("Tick the box to confirm.")}`)}`);
+  let msg = t("Deleted for good. This cannot be undone.");
+  try { await deleteTestPermanently(repo, actor, String(f.get("testId") ?? "")); } catch (e) { if (known(e)) msg = `⚠️ ${t((e as Error).message)}`; else throw e; }
   redirect(`/teacher/assessments?msg=${encodeURIComponent(msg)}`);
 }
 

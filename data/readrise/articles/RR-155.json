@@ -243,7 +243,8 @@
         "I explained that an object blocks light.",
         "I used at least two words from the article.",
         "I gave an example of a shadow I have seen."
-      ]
+      ],
+      "modelAnswer": "A shadow forms when an opaque object, like my body, blocks light from reaching the ground behind it. Since light cannot bend around the object, a dark shadow appears there. I have seen my own shadow get long on the sidewalk in the evening."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I described how the shadow changes from morning to noon to evening.",
         "I explained the cause using the position of the sun.",
         "I used at least two details from the article."
-      ]
+      ],
+      "modelAnswer": "My shadow changes because the sun, which is a light source, moves to a different position in the sky throughout the day. In the morning and evening the sun is low, so my shadow stretches out long, but at noon the sun is high overhead, so my shadow becomes short. This happens because my body is opaque and always blocks the light, but the angle of the light changes as the sun moves."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I stated a clear position.",
         "I supported it with at least two examples from the article.",
         "I explained how each example supports my position."
-      ]
+      ],
+      "modelAnswer": "I disagree that shadows are just darkness with no use, because the article gives two clear examples of how people use them. First, ancient people built sundials, which used the shadow of a stick at a certain angle to tell the time of day. Second, people in hot places like Saudi Arabia rest in the shade of palm trees, which is really just a large, cool shadow that blocks the opaque leaves' sunlight. Both examples show that shadows can be genuinely useful, not just dark empty space."
     }
   }
 }

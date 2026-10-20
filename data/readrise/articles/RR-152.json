@@ -243,7 +243,8 @@
         "I explained what makes water freeze and what makes ice melt.",
         "I used at least two facts from the article.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "Water turns into ice when it loses heat and freezes, and the ice turns back into water when it gains heat and melts. In a solid, like ice, the tiny particles are packed tightly and cannot move, but in a liquid, like water, the particles can slide past each other. This change is reversible, so water can freeze and melt again and again."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I described the particles in both freezing and melting.",
         "I explained why ice floats using facts from the article.",
         "I used linking words such as because, when, and so."
-      ]
+      ],
+      "modelAnswer": "When water freezes, its particles slow down and lock into a pattern with extra space between them, so the ice expands. When ice melts, the particles gain heat and speed up until they break free and can slide past each other again. Because the particles in ice take up more space, ice is lighter than the same amount of liquid water, so it can float on top of a lake."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I explained how and why ice expands and is less dense than water.",
         "I described at least one real-world effect, such as cracked bottles or fish under lake ice.",
         "I used precise science words such as molecule, crystal, and melting point."
-      ]
+      ],
+      "modelAnswer": "Most materials get denser and shrink when they freeze, but water does the opposite: its molecules lock into a crystal pattern with extra space between them, so ice actually expands and becomes less dense than liquid water. This unusual behavior matters in the real world because a full glass bottle of water can crack in the freezer, and because ice is less dense, it floats on top of lakes in winter and lets fish survive in the water underneath instead of freezing solid."
     }
   }
 }

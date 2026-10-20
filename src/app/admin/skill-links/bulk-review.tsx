@@ -4,7 +4,7 @@ import { useRef, useState } from "react";
 import { useT } from "@/i18n/client";
 import { BTN_PRIMARY, BTN_SECONDARY } from "@/components/ui-kit/tokens";
 import type { GroupPage, ReviewGroup } from "@/server/questions/link-review-bulk";
-import { acceptConfidentAction, acceptGroupAction, aiProgressAction, confidentCountAction, groupRowsAction, improveGuessesAction, leaveRowAction, moveRowAction } from "./actions";
+import { acceptAllGuessesAction, acceptConfidentAction, acceptGroupAction, aiProgressAction, confidentCountAction, groupRowsAction, guessedCountAction, improveGuessesAction, leaveRowAction, moveRowAction } from "./actions";
 import { Combo } from "@/components/ui/combo";
 
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
@@ -107,6 +107,66 @@ export function AcceptConfident() {
       <h3 className="font-semibold text-brand-navy">{t("Accept all confident guesses")}</h3>
       <p className="text-sm text-slate-600">{t("Links every question whose best guess is at least 80% sure. Past answers move with the question.")}</p>
       {phase === "idle" && <button type="button" onClick={preview} className={`${BTN_PRIMARY} mt-3`}>{t("Accept all confident guesses")}</button>}
+      {phase === "preview" && (
+        <div className="mt-3">
+          <p role="status" className="font-semibold text-slate-800">{t("{n} questions will be linked", { n: count })}</p>
+          <div className="mt-2 flex flex-wrap gap-2">
+            <button type="button" onClick={run} disabled={!count} className={`${BTN_PRIMARY} disabled:opacity-60`}>{t("Run")}</button>
+            <button type="button" onClick={() => setPhase("idle")} className={BTN_SECONDARY}>{t("Cancel")}</button>
+          </div>
+        </div>
+      )}
+      {phase === "running" && (
+        <div className="mt-3" role="status">
+          <p className="text-sm text-slate-700">{t("{n} of {m}", { n: done.linked + done.failed, m: count })}</p>
+          <Bar pct={count ? ((done.linked + done.failed) / count) * 100 : 0} />
+          <button type="button" onClick={() => { stop.current = true; }} className={`${BTN_SECONDARY} mt-2`}>{t("Stop")}</button>
+        </div>
+      )}
+      {phase === "done" && <p role="status" className={STATUS}>✓ {t("{n} question(s) linked to their skill.", { n: done.linked })}{done.failed ? ` ${t("{n} could not be linked and stay in the list.", { n: done.failed })}` : ""}</p>}
+      {error && <p role="alert" className={ALERT}>{t(error)}</p>}
+    </div>
+  );
+}
+
+/** ✓✓ “Accept all guesses” — the owner's one-click request: every open row's best guess, no 80% floor (so a
+ *  60%-sure row is included too, unlike AcceptConfident). Same accept path (approveReview), just no threshold —
+ *  asks to confirm first since lower-confidence guesses are more likely to need a real review. */
+export function AcceptAllGuesses() {
+  const t = useT();
+  const router = useRouter();
+  const [phase, setPhase] = useState<"idle" | "preview" | "running" | "done">("idle");
+  const [count, setCount] = useState(0);
+  const [done, setDone] = useState({ linked: 0, failed: 0 });
+  const [error, setError] = useState<string | null>(null);
+  const stop = useRef(false);
+
+  async function preview() {
+    setError(null);
+    const r = await guessedCountAction();
+    if (r.result === undefined) { setError(r.error ?? t("Something went wrong. Try again.")); return; }
+    setCount(r.result); setPhase("preview");
+  }
+  async function run() {
+    setError(null); stop.current = false; setPhase("running");
+    let after: string | null = null, sum = { linked: 0, failed: 0 };
+    setDone(sum);
+    for (let guard = 0; guard < 2000 && !stop.current; guard++) {
+      const r = await acceptAllGuessesAction(after);
+      if (!r.result) { setError(r.error ?? t("Something went wrong. Try again.")); break; }
+      sum = { linked: sum.linked + r.result.linked, failed: sum.failed + r.result.failed }; setDone(sum);
+      if (r.result.done || !r.result.next) break;
+      after = r.result.next;
+    }
+    setPhase("done");
+    router.refresh();
+  }
+
+  return (
+    <div className="rounded-xl bg-amber-50 p-4 ring-1 ring-amber-200">
+      <h3 className="font-semibold text-brand-navy">{t("Accept every guess")}</h3>
+      <p className="text-sm text-slate-600">{t("Links every open question to its best guess, whatever its confidence — not just the sure (80%+) ones. Faster, but some guesses may be wrong: worth a spot check after.")}</p>
+      {phase === "idle" && <button type="button" onClick={preview} className={`${BTN_PRIMARY} mt-3`}>{t("Accept every guess")}</button>}
       {phase === "preview" && (
         <div className="mt-3">
           <p role="status" className="font-semibold text-slate-800">{t("{n} questions will be linked", { n: count })}</p>

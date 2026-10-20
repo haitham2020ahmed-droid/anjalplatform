@@ -243,7 +243,8 @@
         "I told where a battery keeps its energy.",
         "I used at least two facts from the article.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "Inside a battery, energy is stored in chemicals that stay locked up until they are needed. When the battery is connected in a circuit, the chemicals react and push electrons through the wire, making a current that lights the lamp. Some batteries can recharge, so the chemicals can be used again and again."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I described the path from one terminal to the other in order.",
         "I explained why a battery goes dead.",
         "I used words from the article such as circuit, current, and reaction."
-      ]
+      ],
+      "modelAnswer": "When a battery powers a lamp, electrons flow out of the minus terminal, travel along the wire, pass through the lamp to make it glow, and then return to the plus terminal. Inside the battery, a chemical reaction keeps pushing more electrons out, with the electrolyte letting the reaction continue. A battery stops working, or goes dead, once all of its chemicals have been used up by the reaction, unless it is a rechargeable battery that can have its chemicals restored."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I explained what happens inside a battery as it powers a device.",
         "I explained what a charger does to the reaction.",
         "I used at least three key words correctly."
-      ]
+      ],
+      "modelAnswer": "A disposable battery and a rechargeable battery both work by letting a chemical reaction at the electrode push electrons out to power a device, but the two types differ in what happens once their chemicals are used up. In a disposable battery, the reaction cannot be undone, so once its chemicals convert completely, it is simply thrown away. A rechargeable battery, however, can have its reaction reversed: a charger pushes energy and ions back through the electrolyte, which restores the electrode's original chemicals so the battery can be used over and over again."
     }
   }
 }

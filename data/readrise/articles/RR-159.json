@@ -243,7 +243,8 @@
         "I clearly named the fact that surprised me.",
         "I used at least two facts from the article.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "The fact that surprised me most is that a sea star can push its stomach out of its own body to eat a clam right inside its shell. I also learned that if a sea star loses an arm, it can regrow a new one over many months. Sea stars rest in tide pools on the shore when the tide goes out."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I gave a clear answer to the question.",
         "I supported my answer with at least two details from the article.",
         "I explained how each body part helps the sea star survive."
-      ]
+      ],
+      "modelAnswer": "A sea star's tiny tube feet work like suction cups, which let it grip tightly onto wet, slippery rocks on a rocky shore even as waves crash around it. As a predator, it also has a special stomach that it can push out through its mouth to digest a clam right inside its own shell, which lets it eat prey that other animals cannot open. Being an echinoderm related to sea urchins, it has no backbone but still survives thanks to these unusual body parts."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I stated a clear position.",
         "I supported it with at least two pieces of evidence from the article.",
         "I explained how my evidence supports my position."
-      ]
+      ],
+      "modelAnswer": "I believe visitors should not be allowed to pick up sea stars in tide pools, because even gentle handling can stress these delicate invertebrates. The article explains that a sea star has no blood and pumps water through a system of tubes just to move its tube feet, so lifting it out of the water could damage this fragile system. It also notes that while a sea star can regenerate a lost arm, this process can take a year, showing that an injury from careless handling has a long-lasting cost to the animal and its role in the shore ecosystem."
     }
   }
 }

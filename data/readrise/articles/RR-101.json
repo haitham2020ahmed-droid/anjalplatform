@@ -243,7 +243,8 @@
         "I named one surprising fact.",
         "I used two details from the article.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "The fact that surprised me most is that hot springs called vents can shoot out water that looks like black smoke. Strange worms and crabs live near the vents, even though it is dark down there. I also learned that cold sea water cools lava into round lumps that look like pillows. These two details show that the deep sea hides some very strange and amazing things."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained the steps in order.",
         "I used at least three details from the article.",
         "I used key words such as seamount and eruption correctly."
-      ]
+      ],
+      "modelAnswer": "First, magma rises up through a crack in the seafloor, and each eruption adds another layer of hardened lava to the pile. Over thousands of years, those layers build up into a tall underwater mountain called a seamount. If the seamount keeps growing, it will finally get tall enough to break through the surface of the water. Once that happens, it becomes a brand-new island, which is exactly how the islands of Hawaii were formed."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I stated a clear claim about why this research matters.",
         "I supported it with at least three pieces of evidence from the article.",
         "I used precise vocabulary such as tectonic, hydrothermal, or submersible."
-      ]
+      ],
+      "modelAnswer": "I think studying underwater volcanoes matters because they constantly reshape the planet and can also threaten people who live far away. For instance, the article explains that magma rising between separating tectonic plates builds new seafloor along a ridge that circles the entire Earth, the same process that created the Hawaiian Islands and the island of Surtsey near Iceland. It also matters because a shallow eruption, like the 2022 Hunga Tonga explosion, can unleash a tsunami capable of crossing an entire ocean. Finally, scientists use a submersible to reach hydrothermal vents, where they have found tube worms and clams thriving in total darkness, a discovery that could change how we think about where life can survive."
     }
   }
 }

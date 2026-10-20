@@ -4,12 +4,93 @@ import { PageHeader } from "@/components/page-header";
 import { PrintButton } from "@/components/plans/print-button";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { ForbiddenError } from "@/server/auth/rbac";
-import { BAND_RULE, personalPlan, type PlanGoal } from "@/server/map/personal-plan";
+import { BAND_RULE, personalPlan, type PersonalPlan, type PlanGoal } from "@/server/map/personal-plan";
+import { classProfile } from "@/server/map/nwea-reports";
+import { InstructionalAreaPercentiles } from "@/components/map/instructional-area-percentiles";
 import { personalizedPlanForStudent } from "@/server/reports/school-reports";
 import { localeFrom, t } from "@/i18n/school-reports";
 
 export const metadata = { title: "Personalized Plan" };
 const TITLE = { BELOW: "🟠 Below level", ON: "🔵 On level", ABOVE: "🟢 Above level" } as const;
+
+/** "Instructional Areas": every goal area's own RIT (not just the top goals), weakest first — the whole class's
+ *  average, or (no `students` column) one student's own score. Shared by the student and class views. */
+function InstructionalAreas({ rows, L, classAverageRit, nationalAverageRit, scope }: { rows: PersonalPlan["areaBreakdown"]; L: "en" | "ar"; classAverageRit: number | null; nationalAverageRit: number | null; scope: "class" | "student" }) {
+  if (!rows.length) return null;
+  const max = Math.max(1, ...rows.map((x) => x.meanRit ?? 0), classAverageRit ?? 0);
+  return (
+    <section className="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-slate-200 print:break-inside-avoid">
+      <h2 className="text-lg font-extrabold text-brand-navy">📈 {t(L, "personalizedPlan.instructionalAreas")} <span className="text-base font-normal text-slate-500">— {t(L, scope === "class" ? "personalizedPlan.wholeClass" : "personalizedPlan.thisStudent")}</span></h2>
+      <div className="mt-3 overflow-x-auto">
+        <table className="w-full text-left text-sm">
+          <thead><tr className="border-b text-slate-500">
+            <th className="py-1 pe-2">{t(L, "personalizedPlan.instructionalAreas.area")}</th>
+            <th className="pe-2">{t(L, scope === "class" ? "personalizedPlan.classAverage" : "personalizedPlan.instructionalAreas.rit")}</th>
+            {scope === "class" && <th className="pe-2">{t(L, "personalizedPlan.instructionalAreas.students")}</th>}
+            <th>{t(L, "personalizedPlan.instructionalAreas.chart")}</th>
+          </tr></thead>
+          <tbody>
+            {rows.map((a) => {
+              const pct = a.meanRit !== null ? Math.min(100, Math.max(4, Math.round((100 * a.meanRit) / max))) : 0;
+              const weak = a.meanRit !== null && classAverageRit !== null && a.meanRit < classAverageRit;
+              return (
+                <tr key={a.area} className="border-b last:border-0">
+                  <td className="py-1.5 pe-2 font-semibold">{a.area}</td>
+                  <td className="pe-2 tabular-nums">{a.meanRit ?? "—"}</td>
+                  {scope === "class" && <td className="pe-2 tabular-nums text-slate-500">{a.students}</td>}
+                  <td className="w-1/3">
+                    {a.meanRit !== null && <div className="h-3 w-full overflow-hidden rounded-full bg-slate-100"><div className={`h-full ${weak ? "bg-amber-500" : "bg-emerald-500"}`} style={{ width: `${pct}%` }} /></div>}
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+      {nationalAverageRit !== null && <p className="mt-3 text-xs text-slate-500">{t(L, "personalizedPlan.instructionalAreas.nationalNote")} {nationalAverageRit}.</p>}
+    </section>
+  );
+}
+
+const PERCENTILE_COLOR: Record<PersonalPlan["percentileDistribution"][number]["range"], string> = {
+  ">80": "bg-blue-700", "61-80": "bg-emerald-500", "41-60": "bg-yellow-400", "21-40": "bg-orange-400", "<21": "bg-red-800",
+};
+const PERCENTILE_LABEL: Record<PersonalPlan["percentileDistribution"][number]["range"], string> = {
+  ">80": ">80%", "61-80": "61–80%", "41-60": "41–60%", "21-40": "21–40%", "<21": "<21%",
+};
+
+/** "Most students scored below/above the 50th percentile" bar chart (NWEA's own 5 national-percentile ranges) —
+ *  whole-class only (a single student has only one percentile, nothing to distribute). Recomputed live from
+ *  `cls.percentileDistribution`, so it tracks the current roster and latest MAP scores automatically. */
+function PercentileDistribution({ rows, L }: { rows: PersonalPlan["percentileDistribution"]; L: "en" | "ar" }) {
+  const total = rows.reduce((n, r) => n + r.count, 0);
+  if (!total) return null;
+  const below = (rows.find((r) => r.range === "<21")?.count ?? 0) + (rows.find((r) => r.range === "21-40")?.count ?? 0);
+  const above = (rows.find((r) => r.range === "61-80")?.count ?? 0) + (rows.find((r) => r.range === ">80")?.count ?? 0);
+  const titleKey = below > above ? "personalizedPlan.percentileDistribution.title.below" : above > below ? "personalizedPlan.percentileDistribution.title.above" : "personalizedPlan.percentileDistribution.title.mixed";
+  const max = Math.max(1, ...rows.map((r) => r.count));
+  return (
+    <section className="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-slate-200 print:break-inside-avoid">
+      <h2 className="text-lg font-extrabold text-brand-navy">📊 {t(L, titleKey)}</h2>
+      <p className="mt-1 text-sm text-slate-500">{t(L, "personalizedPlan.percentileDistribution.subtitle")}</p>
+      <div className="mt-4 space-y-2">
+        {rows.map((r) => {
+          const pct = Math.round((100 * r.count) / max);
+          return (
+            <div key={r.range} className="flex items-center gap-3 text-sm">
+              <span className="w-16 shrink-0 text-end font-semibold text-slate-700">{PERCENTILE_LABEL[r.range]}</span>
+              <span className={`h-4 w-4 shrink-0 rounded-sm ${PERCENTILE_COLOR[r.range]}`} />
+              <div className="h-7 flex-1 overflow-hidden rounded bg-slate-50 ring-1 ring-slate-200">
+                {r.count > 0 && <div className={`h-full ${PERCENTILE_COLOR[r.range]}`} style={{ width: `${Math.max(pct, 4)}%` }} />}
+              </div>
+              <span className="w-6 shrink-0 text-end font-bold tabular-nums text-slate-700">{r.count}</span>
+            </div>
+          );
+        })}
+      </div>
+    </section>
+  );
+}
 
 /** The Academic Goals / Areas of Strength list — shared by the one-student view and each band of the whole-class view. */
 function GoalList({ goals, L }: { goals: PlanGoal[]; L: "en" | "ar" }) {
@@ -53,6 +134,10 @@ export default async function PersonalizedPlanReportPage({ searchParams }: { sea
     if (view === "class") { if (classId) cls = await personalPlan(repo, actor, classId, subject); }
     else if (studentId) p = await personalizedPlanForStudent(repo, actor, studentId, subject);
   } catch (e) { if (e instanceof ForbiddenError) error = e.message; else throw e; }
+  // 📊 "Instructional Area Achievement Percentiles" for the whole-class view only (the student view already gets its
+  // own, from `p.areaPercentiles`) — needs the comprehensive MAP file (each area's own band), so this is best-effort:
+  // no comprehensive file imported, or no class access, just leaves the chart off, never the page.
+  const classPercentiles = view === "class" && classId ? await classProfile(repo, actor, classId, subject).catch(() => null) : null;
   const q = (extra: Record<string, string>) => `/school-reports/personalized-plan?${new URLSearchParams({ studentId, classId, subject: subject.toLowerCase(), view, lang: L, ...extra })}`;
   const pill = (on: boolean) => `rounded-full px-4 py-1.5 text-sm font-bold ${on ? "bg-brand-navy text-white" : "bg-white text-brand-navy ring-1 ring-slate-200"}`;
   return (
@@ -97,6 +182,8 @@ export default async function PersonalizedPlanReportPage({ searchParams }: { sea
                   </table>
                 )}
               </header>
+              <InstructionalAreas rows={p.areaBreakdown} L={L} classAverageRit={null} nationalAverageRit={null} scope="student" />
+              <InstructionalAreaPercentiles rows={p.areaPercentiles} L={L} />
               <section className="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-slate-200 print:break-inside-avoid">
                 <h2 className="text-xl font-extrabold text-brand-navy">🎯 {t(L, "personalizedPlan.goals")}</h2>
                 <GoalList goals={p.goals} L={L} />
@@ -132,6 +219,7 @@ export default async function PersonalizedPlanReportPage({ searchParams }: { sea
                 <p className="mt-1 text-slate-600">
                   {t(L, "common.grade")} {cls.grade} · {t(L, "common.teacher")} {cls.teacher || "—"} · MAP {cls.term ?? "—"}
                   {cls.classAverageRit !== null && <span> · {t(L, "personalizedPlan.classAverage")}: <b className="text-brand-navy">{cls.classAverageRit}</b></span>}
+                  {cls.nationalAverageRit !== null && <span> · {t(L, "personalizedPlan.nationalAverage")}: <b className="text-emerald-700">{cls.nationalAverageRit}</b></span>}
                   {cls.notTested.length > 0 && <span className="text-amber-700"> · {cls.notTested.length} {t(L, "personalizedPlan.notTested")}</span>}
                 </p>
               </header>
@@ -167,6 +255,9 @@ export default async function PersonalizedPlanReportPage({ searchParams }: { sea
                   </table>
                 </div>
               </section>
+              <PercentileDistribution rows={cls.percentileDistribution} L={L} />
+              {classPercentiles && <InstructionalAreaPercentiles rows={classPercentiles.areas} L={L} />}
+              <InstructionalAreas rows={cls.areaBreakdown} L={L} classAverageRit={cls.classAverageRit} nationalAverageRit={cls.nationalAverageRit} scope="class" />
               {cls.bands.map((b) => (
                 <section key={b.band} className="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-slate-200 print:break-inside-avoid">
                   <h2 className="text-xl font-extrabold text-brand-navy">{TITLE[b.band]} <span className="text-base font-normal text-slate-500">· {BAND_RULE[b.band]}{b.ritRange ? ` · RIT ${b.ritRange}` : ""} · {b.students.length} {t(L, "personalizedPlan.studentsInBand")}</span></h2>

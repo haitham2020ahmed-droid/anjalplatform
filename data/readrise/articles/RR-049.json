@@ -243,7 +243,8 @@
         "I named two ways the Sun helps us.",
         "I used facts from the article.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "The Sun helps life on Earth in two important ways. First, plants use sunlight to make the food they need to grow. Second, the Sun's heat keeps our planet warm enough for living things, like people and animals, to survive."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained what happens in the Sun's core.",
         "I used at least two details from the article.",
         "I told how the energy reaches or helps Earth."
-      ]
+      ],
+      "modelAnswer": "In the Sun's core, where the temperature reaches about 15 million degrees Celsius, tiny particles of hydrogen crash together so forcefully that they join and form helium through a process called fusion, which releases a tremendous amount of energy. That energy then gradually moves outward from the core until it finally escapes from the Sun as light and heat. After traveling about 150 million kilometers, this energy reaches Earth as sunlight and warmth, keeping our planet warm enough for living things."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I stated a clear position.",
         "I supported it with at least two pieces of evidence from the article.",
         "I explained how my evidence supports my position."
-      ]
+      ],
+      "modelAnswer": "I agree that the Sun is the most important object in our sky. The article explains that fusion in its core releases a tremendous amount of energy that eventually escapes as light and heat, and the Sun's warmth is what keeps our planet warm enough for living things to survive at all. Beyond providing warmth, the article also notes that plants use sunlight to make food, and Saudi Arabia now even converts sunlight into electricity through solar farms, which shows that practically every form of life and much of modern technology ultimately depends on the Sun's energy."
     }
   }
 }

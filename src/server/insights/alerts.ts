@@ -25,7 +25,7 @@ import { cancelIndex, liveAssignmentWhere } from "../student/cancelled-work";
 const s = (v: unknown) => String(v ?? "");
 const time = (v: unknown) => new Date(v instanceof Date ? v.toISOString() : s(v)).getTime();
 const DAY = 86_400_000;
-export type AlertKind = "NO_PRACTICE" | "WEAK_SKILL" | "DROPPED" | "LATE_WORK" | "MAP_RISK" | "RAPID_GUESS" | "LEVEL_CONFLICT" | "DECLINING" | "INVALID_TEST" | "EARLY_WARNING" | "RR_MAP_GAP";
+export type AlertKind = "NO_PRACTICE" | "WEAK_SKILL" | "DROPPED" | "LATE_WORK" | "MAP_RISK" | "RAPID_GUESS" | "LEVEL_CONFLICT" | "DECLINING" | "INVALID_TEST" | "EARLY_WARNING" | "RR_MAP_GAP" | "RR_STUCK_UNRELIABLE";
 export const ALERT_INFO: Record<AlertKind, { icon: string; title: string; tip: string }> = {
   MAP_RISK: { icon: "🗺️", title: "MAP: at risk", tip: "Check the MAP plan; a small group for the focus area helps." },
   RAPID_GUESS: { icon: "⚡", title: "Rapid guessing", tip: "Talk with the student; if it is the MAP test, ask about a retest." },
@@ -39,8 +39,10 @@ export const ALERT_INFO: Record<AlertKind, { icon: string; title: string; tip: s
   LEVEL_CONFLICT: { icon: "⚖️", title: "Data disagree", tip: "Open their Level Story: one source says Exceeding, another Approaching. Decide the level, or check for guessing." },
   // owner r69: raised once a school year by ReadRise itself (readrise/accuracy.ts alertMapGap), not by the scan
   RR_MAP_GAP: { icon: "🚀", title: "ReadRise and MAP disagree", tip: "The ReadRise level and the MAP reading level are far apart. Check the placement or the MAP result; set the ReadRise level by hand or allow a new placement." },
+  // owner r69: raised once a school year by ReadRise itself (readrise/accuracy.ts alertStuckUnreliable), not by the scan
+  RR_STUCK_UNRELIABLE: { icon: "🚩", title: "ReadRise isn't getting a real reading", tip: "The last few attempts were too fast / guessed, or a low Stretch score, so the level hasn't moved — nothing real has been measured. Check in with the student." },
 };
-const ORDER: AlertKind[] = ["EARLY_WARNING", "DECLINING", "INVALID_TEST", "MAP_RISK", "RAPID_GUESS", "LEVEL_CONFLICT", "RR_MAP_GAP", "DROPPED", "WEAK_SKILL", "LATE_WORK", "NO_PRACTICE"];
+const ORDER: AlertKind[] = ["EARLY_WARNING", "DECLINING", "INVALID_TEST", "MAP_RISK", "RAPID_GUESS", "LEVEL_CONFLICT", "RR_MAP_GAP", "RR_STUCK_UNRELIABLE", "DROPPED", "WEAK_SKILL", "LATE_WORK", "NO_PRACTICE"];
 
 /** ISO week label of a date, e.g. 2026-W41. */
 export function weekKey(d: Date): string {
@@ -181,7 +183,17 @@ export async function scanAlerts(repo: Repo, schoolId: string, now = new Date(),
   const row = (await repo.findMany("SchoolSetting", { schoolId, key: SCAN_KEY }))[0];
   let last = 0; if (row) { let v: unknown = row.value; if (typeof v === "string") { try { v = JSON.parse(v); } catch { v = null; } } last = Number((v as { at?: number } | null)?.at ?? 0); }
   if (!force && now.getTime() - last < 3 * 3600_000) return 0;
-  await repo.upsert("SchoolSetting", { schoolId, key: SCAN_KEY }, { value: { at: now.getTime() }, updatedAt: now }, { value: { at: now.getTime() }, updatedAt: now });
+  // r85 audit: claim the scan window with a compare-and-set instead of an unconditional upsert — two staff opening
+  // alert pages within the same second (more than 3h after the last scan) both used to pass the staleness check
+  // above and then both run the whole (expensive) findAlerts() + StudentAlert writes concurrently, which could
+  // throw on the StudentAlert unique(studentId,key) constraint or send duplicate "N new alerts" notifications.
+  // Whoever's write loses the race (the row changed since we read it, or didn't exist and lost the create) skips
+  // this scan entirely — the other caller's scan already covers the same window.
+  const { claimSetting } = await import("../jobs/runner");
+  const claimed = row
+    ? (await repo.updateMany("SchoolSetting", { schoolId, key: SCAN_KEY, updatedAt: row.updatedAt }, { value: { at: now.getTime() }, updatedAt: now })) > 0
+    : await claimSetting(repo, schoolId, SCAN_KEY, { at: now.getTime() });
+  if (!claimed) return 0;
   const found = await findAlerts(repo, schoolId, now);
   // 🔴 early warning (early-warning.ts): each Urgent student is ONE open alert, raised by this same scan
   const { urgentFindings, EW_KIND } = await import("./early-warning");

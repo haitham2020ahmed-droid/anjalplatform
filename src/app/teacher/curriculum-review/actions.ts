@@ -2,7 +2,7 @@
 import { repo, requireActor } from "@/server/auth/next";
 import { ForbiddenError } from "@/server/auth/rbac";
 import { ValidationError } from "@/server/curriculum-admin";
-import { changeReview, draftReviewQuestion, editReviewQuestion, reviewBankSearch, reviewQuestionDetail, writeReviewQuestion, type ReviewChange, type ReviewControlView, type WrittenQuestion } from "@/server/curriculum-map/review-control";
+import { changeReview, draftReviewQuestion, editReviewQuestion, reviewAssign, reviewBankSearch, reviewQuestionDetail, reviewSkillChoices, writeReviewQuestion, type ReviewChange, type ReviewControlView, type ReviewSkillUnit, type WrittenQuestion } from "@/server/curriculum-map/review-control";
 import type { BankFilter, BankResults, CopyEdit } from "@/server/tests/review";
 
 type Out<T> = { ok: true; value: T } | { ok: false; message: string };
@@ -41,4 +41,17 @@ export async function reviewBankAction(f: BankFilter): Promise<Out<BankResults>>
 export async function reviewDetailAction(code: string, questionId: string): Promise<Out<Awaited<ReturnType<typeof reviewQuestionDetail>>>> {
   const actor = await requireActor(TEACHER);
   return run(() => reviewQuestionDetail(repo, actor, String(code ?? ""), String(questionId ?? "")));
+}
+/** 🤖 "Language" tab: every Skill of the whole grade plan, grouped by unit, to tick and pull questions from. */
+export async function reviewSkillChoicesAction(code: string): Promise<Out<ReviewSkillUnit[]>> {
+  const actor = await requireActor(TEACHER);
+  return run(() => reviewSkillChoices(repo, actor, String(code ?? "")));
+}
+/** ⭐ r91 Assign this Review directly — Fixed (as always) or Adaptive (new: a target-correct goal). */
+export async function reviewAssignAction(code: string, input: {
+  classId: string; studentIds?: string[]; title?: string; source: string;
+  adaptive?: { maxQuestions: number; targetCorrect?: number | null } | null;
+}): Promise<Out<{ assignmentId: string; students: number; questions: number }>> {
+  const actor = await requireActor(TEACHER);
+  return run(() => reviewAssign(repo, actor, String(code ?? ""), input));
 }

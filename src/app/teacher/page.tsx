@@ -12,6 +12,7 @@ import { AddStudentButton, SkillFinder } from "@/components/teacher/home-widgets
 import { ShortcutRow } from "@/components/teacher/home-shortcuts";
 import { AssignHostAll } from "./assign-host-all";
 import { teacherHomeSummary, type TeacherHomeSummary } from "@/server/teacher/needs-attention";
+import { teacherWeekInReview } from "@/server/insights/week-in-review";
 import { canSeeNafsCached } from "@/server/teacher/nafs-access";
 import { writingToGrade } from "@/server/writing/locked";
 import { LineIcon, type LineIconName } from "@/components/ui/line-icon";
@@ -47,12 +48,13 @@ export default async function TeacherHome({ searchParams }: { searchParams?: Pro
   const me = (await getActor())!.user;
   // the NAFS shortcut: the same request-cached answer the menu uses (no extra read)
   const nafsP = canSeeNafsCached(repo, actor).catch(() => false);
-  const [{ t }, h, sum, toGrade, seen] = await Promise.all([
+  const [{ t }, h, sum, toGrade, seen, wk] = await Promise.all([
     getT(),
     teacherHomeData(repo, actor, sp.classId ?? null).catch(() => teacherHomeData(repo, actor, null)),
     teacherHomeSummary(repo, actor).catch(() => ({ students: 0, workThisWeek: 0, needsAttention: 0, list: [] as TeacherHomeSummary["list"] })),
     writingToGrade(repo, actor).catch(() => 0),
     noticeSeen(repo, actor.userId, STARS_NOTICE),
+    teacherWeekInReview(repo, actor).catch(() => ({ questions: 0, minutes: 0, skills: 0 })),
   ]);
   const nafs = await nafsP;
   const k = h.klass;
@@ -138,6 +140,17 @@ export default async function TeacherHome({ searchParams }: { searchParams?: Pro
           </div>
         )}
         {sum.list.length > FIRST_ROWS && <p className="border-t border-slate-100 px-3 py-1.5"><label className="inline-flex cursor-pointer items-center gap-1 text-xs font-semibold text-brand-teal has-[:focus-visible]:underline"><input type="checkbox" className="peer sr-only" data-na-toggle /> <span className="group-has-[:checked]/na:hidden">{t("Show all ({n})", { n: sum.list.length })}</span><span className="hidden group-has-[:checked]/na:inline">{t("Show fewer")}</span></label></p>}
+      </section>
+
+      {/* Week in Review (new): 3 headline numbers for the class, this rolling week — same window as the "Work sent
+         this week" tile below. One slim card, no links or buttons, so it stays out of the way. */}
+      <section aria-label={t("This week, your class")} className="mt-4 rounded-xl bg-surface px-3 py-2 shadow-card ring-1 ring-line">
+        <h2 className="mb-1 flex items-center gap-2 text-sm font-semibold text-ink"><LineIcon name="growth" className="h-4 w-4 text-muted" />{t("This week, your class")}</h2>
+        <div className="grid grid-cols-3 gap-2 text-center" dir="ltr">
+          <div><span className="block font-display text-lg leading-none tabular-nums text-ink">{wk.questions}</span><span className="block text-xs text-ink-2">{t("Questions answered")}</span></div>
+          <div><span className="block font-display text-lg leading-none tabular-nums text-ink">{wk.minutes}</span><span className="block text-xs text-ink-2">{t("Minutes practised")}</span></div>
+          <div><span className="block font-display text-lg leading-none tabular-nums text-ink">{wk.skills}</span><span className="block text-xs text-ink-2">{t("Skills practised")}</span></div>
+        </div>
       </section>
 
       {k && <div id="find-skill" className="mt-4 scroll-mt-20"><SkillFinder classGrade={k.grade} noCurriculum={h.noCurriculum ? h.noCurriculumMessage : null} canAssign={actor.role === "TEACHER"} /></div>}

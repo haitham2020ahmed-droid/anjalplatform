@@ -243,7 +243,8 @@
         "I said if I would like to visit and why.",
         "I used two facts from the article.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "Yes, I would like to visit Petra. I think it would be amazing to walk through the narrow canyon and see the Treasury suddenly appear, carved right into the cliff. I would also like to see the pink and orange sandstone, because the city is carved from rock instead of built from bricks."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained at least one problem and how it was solved.",
         "I used at least two details from the article.",
         "I wrote in complete sentences and checked my spelling."
-      ]
+      ],
+      "modelAnswer": "The Nabataeans solved the problem of living in a dry desert by building dams, clay pipes, and deep tanks to capture and store rainwater. They also solved the problem of needing shelter by carving their homes and tombs directly into the sandstone cliffs instead of building with bricks. These clever solutions let the Nabataeans live and trade successfully in a difficult desert environment."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I made a clear claim about one achievement.",
         "I supported my claim with at least two pieces of evidence from the article.",
         "I explained my reasoning and used correct grammar and punctuation."
-      ]
+      ],
+      "modelAnswer": "I believe the Nabataeans' water system was their most impressive achievement. Petra lies in a dry desert, yet the Nabataeans built dams, clay pipes, and deep cisterns to capture and store rainwater, allowing an entire city to thrive where water should have been scarce. This system also supported their trade, since camel caravans carrying spices and incense could stop in Petra to rest and collect water. Without solving the water problem first, the Nabataeans' famous carvings and caravan trade through the city would never have been possible."
     }
   }
 }

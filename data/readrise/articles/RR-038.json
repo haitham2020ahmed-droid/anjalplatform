@@ -243,7 +243,8 @@
         "I named two body parts of the fox.",
         "I told how each part helps the fox.",
         "I used a fact from the article."
-      ]
+      ],
+      "modelAnswer": "The fennec fox has huge ears that help it stay cool and hear prey like insects and mice moving under the sand. Its furry paws also help it live in the desert, because the fur on the bottom of its paws protects its feet from the hot sand when it walks over the dunes."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I named one adaptation and explained what it does.",
         "I gave at least two details from the article.",
         "I explained why it is important for life in the desert."
-      ]
+      ],
+      "modelAnswer": "I think the fennec fox's enormous ears are its most important adaptation. The article explains that heat from its blood escapes through the thin skin of its ears, which helps the fox stay cool, and the same ears also give it remarkable hearing so it can detect insects and mice moving beneath the sand. This adaptation matters so much for survival in the desert because the fox needs to both avoid overheating during scorching days and find enough food in a place where prey is hidden and hard to spot."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I explained how the fox handles heat and how it finds food.",
         "I used the pattern about animals in hot and cold climates.",
         "I supported my ideas with precise details from the article."
-      ]
+      ],
+      "modelAnswer": "The fennec fox's oversized ears solve the extreme heat problem by helping the fox dissipate warmth, since heat from its blood escapes easily through the thin skin covering such a large extremity. This fits a broader pattern biologists have noticed: animals in hot climates tend to have larger ears and limbs than relatives in cold regions, because more exposed surface releases heat more easily, which is the opposite of what cold-climate animals need to conserve warmth. The same large ears solve the fox's second problem, finding food, because their acute hearing lets it detect insects and rodents moving beneath the sand, so it can quickly dig out a meal it could never have spotted by sight alone in the dark desert night."
     }
   }
 }

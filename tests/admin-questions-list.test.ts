@@ -111,6 +111,16 @@ describe("📚 Questions list on a 14,000-question bank", () => {
     assert.ok(all.value.capped && all.mb < 60);
   });
 
+  test("filters: grade (data-only filter; a grade with zero questions correctly returns none)", async () => {
+    const idx = await schoolSkillIndex(repo, schoolId);
+    const anyGrade = [...new Set(idx.gradeOf.values())][0];
+    const r = await listBankPage(repo, admin, { grade: anyGrade, status: "ALL", per: 100 });
+    assert.ok(r.total > 0);
+    assert.ok(r.rows.every((x) => x.grade === anyGrade));
+    const empty = await listBankPage(repo, admin, { grade: 999, status: "ALL" });
+    assert.equal(empty.total, 0, "a grade with no questions shows zero, not an error");
+  });
+
   test("banners: questions not under a skill, and drafts", async () => {
     const hidden = await unclassifiedSkillId(repo, schoolId, 4);
     const ids = (await listBankPage(repo, admin, { status: "PUBLISHED" })).rows.slice(0, 3).map((r) => r.id);
@@ -157,5 +167,31 @@ describe("📚 Questions list on a 14,000-question bank", () => {
     for (const want of ["questions are not under a skill.", "Sort them", "/admin/questions/unclassified", "<FixStuck ", "listBankPage", "<BankTabs />"]) assert.ok(page.includes(want), want);
     for (const gone of ["MapPlacePicker", "editorOptions", "listQuestions(", "PrintToggle", "view=skills"]) assert.ok(!page.includes(gone), `removed: ${gone}`);
     for (const f of ["question-review", "question-flags", "item-quality", "bank-gaps", "questions/import", "questions/duplicates"]) assert.match(readFileSync(`src/app/admin/${f}/page.tsx`, "utf8"), /<BankTabs \/>/, f);
+  });
+
+  test("⚠️ scope check: a question's own text that doesn't look related to its skill is flagged on the list, a real one for that skill is not", async () => {
+    const base = (await repo.findMany("Skill", { deletedAt: null }, { take: 1 }))[0]!;
+    const { id: _drop, code: _c, name: _n, ...rest } = base;
+    void _drop; void _c; void _n;
+    const skillId = s((await repo.create("Skill", { ...rest, code: "SCOPE.ap", name: "Active and Passive Voice", isActive: true })).id);
+    let type = await repo.findUnique("QuestionType", { code: "MULTIPLE_CHOICE" });
+    if (!type) type = await repo.create("QuestionType", { code: "MULTIPLE_CHOICE", name: "multiple choice", isAutoScored: true });
+    const now = new Date();
+    const onTopic = s((await repo.create("Question", { skillId, typeId: type.id, stem: "The window was broken by Sam.", content: {}, difficultyLevel: 3, irtB: 0, status: "PUBLISHED", createdAt: now, updatedAt: now })).id);
+    const offTopic = s((await repo.create("Question", { skillId, typeId: type.id, stem: "Which word correctly completes the sentence? Marcus sat ___ his brother at the game.", content: {}, difficultyLevel: 3, irtB: 0, status: "PUBLISHED", createdAt: now, updatedAt: now })).id);
+    const { rows } = await listBankPage(repo, admin, { skillId, status: "PUBLISHED" });
+    assert.equal(rows.find((r) => r.id === onTopic)?.scopeFlag, undefined);
+    assert.equal(rows.find((r) => r.id === offTopic)?.scopeFlag, true);
+
+    // ⚠️ the admin "off-topic?" button (BankListFilter.scopeFlag): only the flagged question of THIS skill comes
+    // back, never the on-topic one, and the 14,000-question demo bank (no rule on any of its skills) contributes
+    // nothing — the view only ever scans skills with a configured rule.
+    const flagged = await listBankPage(repo, admin, { scopeFlag: true });
+    assert.deepEqual(flagged.rows.map((r) => r.id), [offTopic]);
+    assert.equal(flagged.total, 1);
+    const counts = await bankStatusCounts(repo, admin, { scopeFlag: true });
+    assert.equal(counts.PUBLISHED, 1); assert.equal(counts.ALL, 1);
+    const ids = await matchingIds(repo, admin, { scopeFlag: true });
+    assert.deepEqual(ids.ids, [offTopic]);
   });
 });

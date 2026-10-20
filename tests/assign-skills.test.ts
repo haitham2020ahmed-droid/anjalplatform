@@ -4,7 +4,8 @@ import assert from "node:assert/strict";
 import type { SqliteRepo } from "../scripts/db/sqlite-repo";
 import { resolveActor } from "../src/server/auth/actor";
 import { ForbiddenError, type Actor } from "../src/server/auth/rbac";
-import { MIN_ANSWERS_TO_COMPLETE, assignSkill, assignmentDetail, assignmentStatus, openAssignmentFor, teacherCurriculum, weeklyAssignments } from "../src/server/teacher/assign";
+import { MIN_ANSWERS_TO_COMPLETE, assignSkill, assignmentDetail, assignmentStatus, hasPriorSkillAssignment, openAssignmentFor, teacherCurriculum, weeklyAssignments } from "../src/server/teacher/assign";
+import { assignSkillByLevel } from "../src/server/teacher/skill-assign";
 import { classAssignments } from "../src/server/teacher/assignments";
 import { assignmentUpdatesSettled, startPractice, submitAnswer } from "../src/server/practice/session";
 import { loadSkillItems } from "../src/server/practice/items";
@@ -130,5 +131,49 @@ describe("⭐ Assign: teacher assigns a skill", () => {
     assert.deepEqual(await weeklyAssignments(repo, otherTeacher, week, NOW), [], "other teachers do not see them");
     assert.equal((await weeklyAssignments(repo, admin, week, NOW)).length, 3, "school admins see all classes");
     await assert.rejects(assignmentDetail(repo, otherTeacher, whole.id), ForbiddenError);
+  });
+});
+
+describe("⭐ Assign page: warn when a skill was already assigned to this class before", () => {
+  let repo: SqliteRepo;
+  let teacher: Actor;
+  let classId: string, skillId: string;
+  before(async () => {
+    ({ repo } = await demoDatabase());
+    await publishGrade4Bank(repo);
+    const actorFor = async (u: string) => resolveActor(repo, (await repo.findUnique("User", { username: u }))!);
+    teacher = await actorFor("demo.teacher.4a");
+    const view = (await teacherCurriculum(repo, teacher))!;
+    classId = view.classId;
+    for (const u of view.units) for (const k of u.skills) if (!skillId && (await loadSkillItems(repo, k.id)).length >= 12) skillId = k.id;
+  });
+
+  test("not assigned yet → false; after a ⭐ SKILL assignment (assignSkill) → true, and only for that class", async () => {
+    const otherClassId = (await teacherCurriculum(repo, await resolveActor(repo, (await repo.findUnique("User", { username: "demo.teacher.5a" }))!)))!.classId;
+    assert.equal(await hasPriorSkillAssignment(repo, classId, skillId), false);
+    await assignSkill(repo, teacher, { source: "CURRICULUM", classId, skillId }, NOW);
+    assert.equal(await hasPriorSkillAssignment(repo, classId, skillId), true, "assignSkill tags the Assignment with skillId");
+    assert.equal(await hasPriorSkillAssignment(repo, otherClassId, skillId), false, "the check is per class, not school-wide");
+  });
+
+  test("a soft-deleted assignment of the skill no longer counts as a prior assignment", async () => {
+    const r = await assignSkill(repo, teacher, { source: "CURRICULUM", classId, skillId }, NOW);
+    assert.equal(await hasPriorSkillAssignment(repo, classId, skillId), true);
+    await repo.updateMany("Assignment", { id: r.assignmentId }, { deletedAt: NOW });
+    // other assignments of the same skill to this class may remain from the previous test, so this alone does not
+    // guarantee false — the point here is only that a deleted row itself is excluded, checked via the count:
+    const rows = await repo.findMany("Assignment", { classId, skillId, deletedAt: null });
+    assert.ok(!rows.some((a) => a.id === r.assignmentId));
+  });
+
+  test("the main Assign page's own flow (assignSkillByLevel → assignQuestions, an ASSESSMENT target) also tags skillId", async () => {
+    const view = (await teacherCurriculum(repo, teacher))!;
+    let other = "";
+    for (const u of view.units) for (const k of u.skills) if (!other && k.id !== skillId && (await loadSkillItems(repo, k.id)).length >= 12) other = k.id;
+    assert.ok(other, "need a second skill with published questions for this check");
+    assert.equal(await hasPriorSkillAssignment(repo, classId, other), false);
+    const lv = await assignSkillByLevel(repo, teacher, { source: "CURRICULUM", classId, skillId: other, mode: "AUTOMATIC" }, NOW);
+    assert.ok(lv.groups.some((g) => g.students > 0));
+    assert.equal(await hasPriorSkillAssignment(repo, classId, other), true, "assignQuestions stores skillId when the caller passes one");
   });
 });

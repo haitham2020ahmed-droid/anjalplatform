@@ -243,7 +243,8 @@
         "I named two ways of writing.",
         "I told one way they are different.",
         "I used facts from the article."
-      ]
+      ],
+      "modelAnswer": "Cuneiform and the alphabet are two ways of writing from the article. Cuneiform used wedge-shaped marks pressed into a clay tablet, but the alphabet used letters that stand for sounds. The alphabet was easier to learn because it had only a small set of letters, not hundreds of symbols."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I chose one change and named it clearly.",
         "I gave at least two details from the article.",
         "I explained how it helped people."
-      ]
+      ],
+      "modelAnswer": "I think the alphabet helped people the most. The article says the Phoenicians used an alphabet with a small set of letters, which was much easier to learn than the hundreds of symbols a scribe had to study to read cuneiform. Because it was so much simpler, the alphabet spread quickly, and many later alphabets, such as Arabic and English, grew from it. This invention let far more people learn to read and record their own ideas instead of always needing a trained scribe."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I explained two turning points accurately.",
         "I described how each affected literacy.",
         "I supported my ideas with precise evidence."
-      ]
+      ],
+      "modelAnswer": "Two major turning points in the history of writing were the invention of the alphabet and Gutenberg's printing press. The alphabet, used by the Phoenicians about 3,000 years ago, replaced hundreds of complicated symbols with a small set of letters, so ordinary people no longer needed years of training as a scribe to become literate. Centuries later, Gutenberg's press used movable metal letters to print books quickly and cheaply, which let more families than ever own a manuscript of their own instead of relying on handwritten copies. Together, these two changes transformed literacy from a skill reserved for royalty and scribes into something available to many more people."
     }
   }
 }

@@ -243,7 +243,8 @@
         "I told what books were like before paper.",
         "I gave two ways paper changed things.",
         "I used a key word like library or scholar."
-      ]
+      ],
+      "modelAnswer": "Before paper, books in Baghdad were written on parchment made from animal skin, which cost so much that only a few people could own books. Paper changed that because it was cheaper, so copyists could make many more books, and a whole market of booksellers grew in the city."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I compared paper with parchment.",
         "I explained how more books helped scholars and readers.",
         "I used details from the article."
-      ]
+      ],
+      "modelAnswer": "Paper was much cheaper to make than parchment, which was made from animal skin and cost a great deal, so switching to paper let people produce far more books. Because paper lowered the cost of each manuscript, copyists could make many more copies for the book market, and scholars at the House of Wisdom had more books available to translate and study from Greek, Persian, and other languages. With cheaper materials, both the booksellers and the scholars in Baghdad benefited greatly."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I explained why paper made books easier to produce.",
         "I described at least two results, such as the book market or the House of Wisdom.",
         "I supported my answer with evidence from the article."
-      ]
+      ],
+      "modelAnswer": "Cheaper paper helped scholarship flourish in Abbasid Baghdad because, unlike costly parchment, it let copyists produce many more manuscripts at a lower price, filling the city's book market with works ordinary people could afford. This abundance of books supported the House of Wisdom, where scholars gathered to translate texts from Greek, Persian, and other languages into Arabic and to preserve and expand knowledge in mathematics, astronomy, and medicine. Without affordable paper, far fewer manuscripts could have been copied, and the great burst of learning that made Baghdad famous would have been much harder to sustain."
     }
   }
 }

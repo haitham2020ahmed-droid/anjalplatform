@@ -243,7 +243,8 @@
         "I named one robot from the article.",
         "I told what the robot does.",
         "I explained how it helps sick people."
-      ]
+      ],
+      "modelAnswer": "I chose the surgery robot. It has thin arms that hold tiny tools and a camera inside the body. The surgeon controls every move from a control station nearby. This robot helps sick people because the surgeon can make very small cuts, so patients feel less pain and get better faster."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I clearly said whether I agree.",
         "I used two details from the article.",
         "I explained how each detail supports my answer."
-      ]
+      ],
+      "modelAnswer": "I agree that robots cannot replace the people who work in hospitals. For example, the surgery robot never decides anything on its own; the surgeon controls every move, which shows that human judgment is still needed. Also, even though delivery robots can disinfect rooms and deliver medicine, they cannot comfort a patient the way a nurse or doctor can. These details show that robots are helpful, but people are still essential in a hospital."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I chose one robot and stated my choice clearly.",
         "I supported it with specific evidence from the article.",
         "I explained a limit that shows people are still needed."
-      ]
+      ],
+      "modelAnswer": "If my local hospital could buy only one kind of robot, I would choose the surgical robot. The evidence from the article shows that a team in Riyadh used this kind of robot to perform the first operation of its kind in the world, giving a teenage patient a new heart, and its tiny incisions help patients feel less pain and recover sooner. However, this robot still cannot do everything without people, because it is not autonomous: the surgeon sitting at the console must control every movement, since the robot never decides anything on its own."
     }
   }
 }

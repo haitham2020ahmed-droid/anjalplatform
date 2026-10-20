@@ -243,7 +243,8 @@
     "I told about the trip as a trader.",
     "I used at least two facts from the article.",
     "I wrote complete sentences with capital letters and periods."
-   ]
+   ],
+   "modelAnswer": "I am a trader on the Silk Road, traveling with my camel in a caravan across the desert. I am carrying silk, which people in faraway lands pay a high price for because China once kept the way of making it a secret. At night, our caravan rests at a roadside inn before continuing our long trade journey."
   },
   "MID": {
    "keyWords": [
@@ -421,7 +422,8 @@
     "I gave a clear answer to the question.",
     "I supported my answer with at least two details from the article.",
     "I used words such as merchant, route, or exchange correctly."
-   ]
+   ],
+   "modelAnswer": "I think ideas were more important than goods on the Silk Road. For example, papermaking spread west along the trade route from China and reached Baghdad by around the year 800, which helped people share and copy knowledge much more easily. Also, merchants traveling in a caravan exchanged more than silk and spices; they exchanged customs and information as they moved from one trader to the next. This network of exchange shaped history long after the goods themselves were used up."
   },
   "HIGH": {
    "keyWords": [
@@ -599,7 +601,8 @@
     "I stated a clear position.",
     "I supported it with at least two pieces of evidence from the article.",
     "I explained how my evidence supports my position."
-   ]
+   ],
+   "modelAnswer": "I agree that ideas were the most valuable thing carried on the Silk Road. One piece of evidence is that papermaking traveled along this network from China and reached Baghdad around the year 800, spreading a technology that changed how people recorded and shared commerce and knowledge across continents. Another piece of evidence is that Arab merchants carried goods across the Arabian Peninsula and onto maritime routes, connecting cultures over both land and sea for more than a thousand years. While silk was valuable in its own time, the spread of ideas through this network kept shaping the world long after the Silk Road's caravans stopped traveling."
   }
  }
 }

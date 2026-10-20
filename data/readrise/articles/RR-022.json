@@ -243,7 +243,8 @@
         "I told the steps in the right order.",
         "I used first, next, and last.",
         "I used at least two words from the article, such as buried or layer."
-      ]
+      ],
+      "modelAnswer": "First, an animal dies and gets buried under mud or sand. Next, the soft parts of its body rot away, but the hard parts like bones stay and get covered by more layers over time. Last, minerals slowly turn the buried bones into a hard fossil inside the rock. This is how scientists found fossil bones even in a dry desert like the Nafud."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained which layers are older and why.",
         "I used at least two details from the article.",
         "I used at least two key words correctly."
-      ]
+      ],
+      "modelAnswer": "Rock layers help a paleontologist tell the age of a fossil because of the order in which the layers of sediment formed. The deepest layers were buried first, so a fossil preserved deep underground is usually older than one found closer to the surface. Over time, minerals carried by water slowly replace parts of the buried bones, turning them to stone, which is one detail that shows how long the process can take. Many fossils even belong to animals that are now extinct, so studying which layer they came from helps scientists understand how long ago those creatures lived."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I stated a clear position.",
         "I supported it with at least two pieces of evidence from the article.",
         "I explained how my evidence supports my position."
-      ]
+      ],
+      "modelAnswer": "I agree that fossils are some of the best evidence we have about the distant past, because they reveal facts about ancient organisms that no other record can show. When paleontologists carefully excavate fossils that were long concealed underground, the layers of sediment that compress around them reveal roughly how old each fossil is, since deeper layers formed earlier than those nearer the surface. Even more strikingly, fossil bones of hippos and elephants found in the arid Nafud desert prove that this now-dry region was once green and filled with lakes and rivers, since hippos cannot survive without that kind of environment. Because fossils can reveal both the age of ancient life and the climate conditions those organisms needed to survive, I think they remain one of our most powerful windows into Earth's distant past."
     }
   }
 }

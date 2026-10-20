@@ -243,7 +243,8 @@
         "I gave two reasons.",
         "I used facts from the article.",
         "I wrote full sentences."
-      ]
+      ],
+      "modelAnswer": "Nikola Tesla is important because he invented alternating current, the kind of electricity that most homes still use today. He also built a motor that ran on this current and helped make it possible to send power over long distances, like from Niagara Falls to a faraway city."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I compared direct and alternating current.",
         "I used at least two details from the article.",
         "I used words like current, patent, or engineer."
-      ]
+      ],
+      "modelAnswer": "Edison's direct current could not travel far before it grew weak, but Tesla's alternating current changes direction many times each second and can travel a long way without losing its strength. Tesla, an engineer, received a patent for his inventions, and a businessman named George Westinghouse used that patent to help build a new power system. At Niagara Falls, workers built a power plant that used Tesla's alternating current to send electricity to a city far away, proving his system could work on a large scale."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I explained the problem and Tesla's solution.",
         "I evaluated his legacy with evidence.",
         "I used words like transmit, transformer, or alternating correctly."
-      ]
+      ],
+      "modelAnswer": "Tesla's alternating current solved the problem of sending electricity over long distances because, unlike Edison's direct current, it changes direction many times each second and can transmit power far without weakening along the way. He patented a motor that ran on this current, and businessman George Westinghouse used the patent to build the system, which proved itself at Niagara Falls, where a transformer-based power plant sent Tesla's current to a distant city. I think his legacy is so important because most homes in the world still rely on his kind of electricity today, even though he died in 1943 with very little money himself."
     }
   }
 }

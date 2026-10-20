@@ -159,6 +159,28 @@ export async function assignSkill(repo: Repo, actor: Actor, input: AssignSkillIn
 /** What the teacher reads when a skill cannot be assigned or planned yet. */
 export const NO_QUESTIONS_YET = "This skill has no questions yet.";
 
+/**
+ * Whether this class already has (any status, not deleted) a prior assignment of this skill — so the ⭐ Assign
+ * page can warn the teacher and let them choose to assign it again anyway or cancel, instead of silently
+ * duplicating the same work.
+ */
+export async function hasPriorSkillAssignment(repo: Repo, classId: string, skillId: string): Promise<boolean> {
+  const rows = await repo.findMany("Assignment", { classId, skillId, deletedAt: null }, { select: ["id"] });
+  return rows.length > 0;
+}
+
+/**
+ * Skill ids that already have an open (not deleted) Assignment in any of these classes — so the Curriculum Map's
+ * skill-plan ⭐ keeps showing "assigned" after a page refresh, instead of resetting to ☆ every time (it used to be
+ * client-only state that forgot itself the moment the page reloaded).
+ */
+export async function assignedSkillIds(repo: Repo, classIds: string[]): Promise<Set<string>> {
+  const ids = [...new Set(classIds.filter(Boolean))];
+  if (!ids.length) return new Set();
+  const rows = await repo.findMany("Assignment", { classId: { in: ids }, skillId: { not: null }, deletedAt: null }, { select: ["skillId"] });
+  return new Set(rows.map((r) => s(r.skillId)).filter(Boolean));
+}
+
 /** Published questions a practice of this skill can use (the skill and its other grades' copies: the shared count). */
 export async function skillQuestionCount(repo: Repo, schoolId: string, skillId: string): Promise<number> {
   const { countQuestionsOfSkills } = await import("../questions/skill-questions");
@@ -478,6 +500,43 @@ export async function cancelAssignment(repo: Repo, actor: Actor, assignmentId: s
   return { title: s(a.title), students: rows.length, completed };
 }
 
+/**
+ * ⭐ Skill plan's ⭐ un-star (owner: "لو شلت النجمه يتلغي"): cancel every open assignment of this skill for this
+ * class — usually one, cancelled all if more than one somehow exists. Each goes through cancelAssignment (same
+ * guarantee: students stop seeing it, answers already given are kept, the class's teacher or a school admin only).
+ */
+export async function cancelSkillAssignmentsForClass(repo: Repo, actor: Actor, classId: string, skillId: string, now = new Date()): Promise<{ cancelled: number }> {
+  const rows = await repo.findMany("Assignment", { classId, skillId, deletedAt: null }, { select: ["id"] });
+  let cancelled = 0;
+  for (const r of rows) { await cancelAssignment(repo, actor, s(r.id), now); cancelled++; }
+  return { cancelled };
+}
+
+/**
+ * ⭐ Skill plan's per-student un-star ("يشيل طالب واحد بس"): remove ONLY the named students from this skill's open
+ * assignment(s) in a class, leaving everyone else assigned. Answers already given are kept, same guarantee as the
+ * whole-class cancel above. If removing them empties an assignment (no students left on it), that assignment is
+ * cancelled too — so the Assignment row never sits around with zero students on it.
+ */
+export async function cancelSkillAssignmentsForStudents(repo: Repo, actor: Actor, classId: string, skillId: string, studentIds: string[], now = new Date()): Promise<{ removed: number }> {
+  assertCan(actor, "assignments:create");
+  await assertClassAccess(repo, actor, classId);
+  if (!studentIds.length) return { removed: 0 };
+  const assignments = await repo.findMany("Assignment", { classId, skillId, deletedAt: null }, { select: ["id", "title"] });
+  let removed = 0;
+  for (const a of assignments) {
+    const assignmentId = s(a.id);
+    const hit = await repo.findMany("AssignmentStudent", { assignmentId, studentId: { in: studentIds } }, { select: ["studentId"] });
+    if (!hit.length) continue;
+    await repo.deleteMany("AssignmentStudent", { assignmentId, studentId: { in: studentIds } });
+    removed += hit.length;
+    await audit(repo, { actorId: actor.userId, action: "assignment.removeStudents", entityType: "Assignment", entityId: assignmentId, before: { title: s(a.title), studentIds: hit.map((r) => s(r.studentId)) }, after: { removed: hit.length }, at: now });
+    const left = await repo.count("AssignmentStudent", { assignmentId });
+    if (!left) await repo.updateMany("Assignment", { id: assignmentId, deletedAt: null }, { deletedAt: now });
+  }
+  return { removed };
+}
+
 export async function assignmentDetail(repo: Repo, actor: Actor, assignmentId: string, now = new Date()): Promise<AssignmentDetail> {
   assertCan(actor, "assignments:read");
   if (actor.role !== "TEACHER" && actor.role !== "SCHOOL_ADMIN" && actor.role !== "SUPER_ADMIN") throw new ForbiddenError("Only teachers and admins can see assignment results.");
@@ -532,6 +591,9 @@ export interface AssignQuestionsInput {
   curriculumPlanId?: string | null;
   /** MAP | RTI | CURRICULUM | NAFS (the Program choice), stored as Assignment.program */
   program?: string | null;
+  /** the skill this question set was built from (⭐ Assign, Ready set): kept on the Assignment so a later Assign
+   * can warn "already assigned before" even though the work itself is an ASSESSMENT, not a SKILL assignment */
+  skillId?: string | null;
   track?: Track; classId: string; questionIds: string[]; studentIds?: string[]; title?: string; startAt?: Date | null; dueAt?: Date | null; note?: string | null;
   /** a teacher-built test: at most MAX_TEST_SET_QUESTIONS questions (instead of MAX_SET_QUESTIONS) */
   test?: boolean;
@@ -589,7 +651,7 @@ export async function assignQuestions(repo: Repo, actor: Actor, input: AssignQue
     const target = input.adaptive?.targetCorrect ? Math.max(5, Math.min(50, Math.round(input.adaptive.targetCorrect))) : null;
     const set = await tx.create("Assessment", { title: title.slice(0, 191), type: input.kind ?? "TEACHER_QUIZ", isAdaptive: Boolean(input.adaptive), maxQuestions: input.adaptive ? (target ? GOAL_SAFETY_CAP : Math.min(ids.length, input.adaptive.maxQuestions)) : ids.length, targetCorrect: target, status: "PUBLISHED", createdById: actor.userId, createdAt: now });
     await tx.createMany("AssessmentQuestion", ids.map((questionId, order) => ({ assessmentId: set.id, questionId, order, points: 1 })));
-    const a = await tx.create("Assignment", { track: trackOf(input.track), classId: klass.id, createdById: teacher.id, title: title.slice(0, 191), target: "ASSESSMENT", assessmentId: set.id, startAt, dueAt, note, curriculumPlanId: input.curriculumPlanId ?? null, createdAt: now, source, ...(programOrNull(input.program) ? { program: programOrNull(input.program) } : {}) });
+    const a = await tx.create("Assignment", { track: trackOf(input.track), classId: klass.id, createdById: teacher.id, title: title.slice(0, 191), target: "ASSESSMENT", assessmentId: set.id, startAt, dueAt, note, curriculumPlanId: input.curriculumPlanId ?? null, createdAt: now, source, ...(input.skillId ? { skillId: input.skillId } : {}), ...(programOrNull(input.program) ? { program: programOrNull(input.program) } : {}) });
     await tx.createMany("AssignmentStudent", recipients.map((studentId) => ({ assignmentId: a.id, studentId, status: "NOT_STARTED", progress: 0 })));
     const due = dueAt ? ` Due ${dueAt.toISOString().slice(0, 10)}.` : "";
     if (!input.silent) await tx.createMany("Notification", students.map((st) => ({

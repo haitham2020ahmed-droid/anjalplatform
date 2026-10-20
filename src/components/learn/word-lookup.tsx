@@ -85,8 +85,14 @@ export function WordLookup({ children, hint = true }: { children: React.ReactNod
     await show(text, sel.anchorNode, el, r);
   }
   function tap(e: React.MouseEvent) {
+    // 🐛 fix ("لما اضغط علي اي كلمه" / the on-screen hint already promises "Tap … any word"): a single tap only
+    // ever worked inside a reading passage (the one place that carried the data-wordtap marker) — on a question
+    // stem, an answer choice, a hint or any other text inside this wrapper, tapping silently did nothing, and
+    // double-click (or a mobile long-press selection, which usually opens the device's own copy/share menu
+    // instead) was the only way in. Dropping the data-wordtap requirement makes a tap work on any plain text in
+    // here, matching what the hint already says; SKIP still keeps it off buttons, links and form controls.
     const target = e.target as Element | null;
-    if (!target?.closest("[data-wordtap]") || target.closest(SKIP)) return;
+    if (!target || target.closest(SKIP)) return;
     const sel = window.getSelection();
     if (sel && !sel.isCollapsed) return;
     const hit = wordAtPoint(e.clientX, e.clientY);

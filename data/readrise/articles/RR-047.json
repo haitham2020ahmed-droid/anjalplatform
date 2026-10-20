@@ -243,7 +243,8 @@
         "I said that a telescope takes in lots of light.",
         "I used two facts from the article, like the lens, the mirror, or Galileo.",
         "I wrote in full sentences that start with a capital letter."
-      ]
+      ],
+      "modelAnswer": "A telescope can help us see far into space because it gathers much more light than our eyes can on their own. The article says some telescopes use a lens and others use a curved mirror to collect that light. Long ago, Galileo used a simple telescope and was able to discover moons circling the planet Jupiter."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained how the atmosphere affects what telescopes see.",
         "I gave a second reason, such as Webb's infrared light, with a detail from the article.",
         "I used linking words like because or so to connect my ideas."
-      ]
+      ],
+      "modelAnswer": "One reason telescopes are sent into space is that Earth's constantly moving atmosphere blurs the images that ground telescopes capture, so scientists place some telescopes above it, like the Hubble Space Telescope, launched in 1990. A second reason is that the James Webb Space Telescope detects infrared light, a kind of heat energy human eyes cannot see, and it needs to be in space because this faint infrared light would be lost or distorted if it had to pass through the atmosphere first."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I named one clear similarity, such as both working above the atmosphere.",
         "I explained two differences with specific evidence, such as mirror size, launch year, or infrared light.",
         "I organized my answer with comparison words such as both, whereas, and however."
-      ]
+      ],
+      "modelAnswer": "Both the Hubble Space Telescope and the James Webb Space Telescope are alike in that they orbit above Earth's atmosphere, which keeps the blurring and twinkling caused by moving air from ruining their images. However, they differ in two important ways: Hubble launched in 1990, whereas Webb did not launch until 2021, three decades later with far more advanced technology. They also differ in what they can detect, since Webb's mirror, made of 18 gold-coated segments arranged like a honeycomb, is built to capture infrared light, a kind of heat energy invisible to human eyes, which Hubble was never designed to observe in the same way."
     }
   }
 }

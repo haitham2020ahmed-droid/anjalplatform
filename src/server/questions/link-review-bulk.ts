@@ -159,6 +159,25 @@ export async function acceptConfidentBatch(repo: Repo, actor: Actor, after: stri
   return { ...r, next: s(rows[rows.length - 1].id), done: rows.length < ACCEPT_BATCH };
 }
 
+// ------------------------------------------------------------------ 2b. accept EVERY guess, any confidence
+// (the owner asked for a one-click "approve all" instead of Save/Leave on each row one by one — this is the same
+// accept path as acceptConfidentBatch, just without the ≥80% floor, so a row like "sure: 60%" is included too)
+
+/** How many open question rows have a best guess at all (any confidence, not just ≥ 0.8). */
+export async function guessedCount(repo: Repo, actor: Actor): Promise<number> {
+  assertAdmin(actor);
+  return repo.count("SkillLinkReview", { ...OPEN_Q(s(actor.schoolId)), guessId: { not: null } });
+}
+
+/** Approves the next ~25 rows with a best guess (after the cursor), whatever their confidence. A row that fails stays open. */
+export async function acceptAllGuessesBatch(repo: Repo, actor: Actor, after: string | null, now = new Date()): Promise<AcceptBatchResult> {
+  assertAdmin(actor);
+  const rows = await repo.findMany("SkillLinkReview", { ...OPEN_Q(s(actor.schoolId)), guessId: { not: null }, ...cursor(after) }, { select: ["id"], orderBy: [{ field: "id", dir: "asc" }], take: ACCEPT_BATCH });
+  if (!rows.length) return { linked: 0, failed: 0, next: null, done: true };
+  const r = await approveMany(repo, actor, rows.map((x) => s(x.id)), now);
+  return { ...r, next: s(rows[rows.length - 1].id), done: rows.length < ACCEPT_BATCH };
+}
+
 async function approveMany(repo: Repo, actor: Actor, ids: string[], now: Date): Promise<{ linked: number; failed: number }> {
   let linked = 0, failed = 0;
   for (const id of ids) {

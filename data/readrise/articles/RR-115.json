@@ -243,7 +243,8 @@
         "I clearly answered the question.",
         "I used at least two facts from the article.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "I would like to learn more about Uranus, because it is a strange ice giant planet that is tilted so far over that it actually spins on its side. I also think it is interesting that William Herschel first found Uranus with a telescope, and that it has rings and a moon too, just like Neptune does. I would love to learn why Uranus ended up tilted that way compared to other planets."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I clearly answered the question.",
         "I used at least two facts from the article.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "Uranus was discovered in 1781 when the astronomer William Herschel simply pointed his telescope at the sky and noticed it there. Neptune, however, was found in a very different way: astronomers noticed that something was pulling Uranus slightly off its expected orbit, so they used math to predict where an unseen planet must be, and in 1846 Neptune was found almost exactly in that spot. Uranus is also famously tilted on its side, and both ice giants are covered in clouds of methane gas, but scientists only got to see them up close when the Voyager 2 spacecraft flew past them in the 1980s."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I clearly answered the question.",
         "I used at least two facts from the article.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "Scientists discovered Neptune before anyone had actually seen it by noticing that Uranus was being pulled slightly away from its expected orbit, as if some unseen planet's gravity were tugging on it. Using mathematics, astronomers predicted almost exactly where this hidden planet should be, and in 1846 Neptune was found right in that location. This was an important achievement because it showed that the invisible atmosphere of a distant world, made largely of methane, could be detected purely through calculation rather than direct observation. It would take well over a century before the Voyager 2 spacecraft finally flew past Neptune in 1989 and confirmed up close what mathematics alone had already predicted."
     }
   }
 }

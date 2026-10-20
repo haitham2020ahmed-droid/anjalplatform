@@ -243,7 +243,8 @@
     "I named one job a drone does.",
     "I told how that job helps people.",
     "I used at least one key word, like camera or crop."
-   ]
+   ],
+   "modelAnswer": "Drones can fly over farms and use a camera to check on crops. This helps farmers spot plants that are thirsty or sick before it is too late. A drone can even spray the crops that need help."
   },
   "MID": {
    "keyWords": [
@@ -421,7 +422,8 @@
     "I explained what the propellers and battery do.",
     "I described two jobs that drones do.",
     "I used at least two key words, such as deliver or inspect."
-   ]
+   ],
+   "modelAnswer": "A drone flies because its propellers spin fast and push air downward, which lifts the drone up, while a battery powers the whole flight for less than an hour. Drones do many useful jobs: some deliver medicine to hospitals in faraway villages, and others inspect tall towers and long bridges so workers do not have to climb to dangerous heights."
   },
   "HIGH": {
    "keyWords": [
@@ -599,7 +601,8 @@
     "I stated a clear opinion.",
     "I used evidence about at least one benefit and one risk or limit.",
     "I used at least two key words, such as regulation or privacy."
-   ]
+   ],
+   "modelAnswer": "I believe the benefits of drones outweigh their risks. Drones that fly over farms can spot thirsty or diseased crops early, and others search for lost people or inspect dangerous structures, which clearly helps society in ways that save time and even lives. However, drones also create real risks, since a wayward drone near an airport could endanger an airplane, and cameras flying overhead raise questions about privacy. Because of risks like these, governments require regulation, such as registering every drone in Saudi Arabia, but with those rules in place the practical benefits are worth it."
   }
  }
 }

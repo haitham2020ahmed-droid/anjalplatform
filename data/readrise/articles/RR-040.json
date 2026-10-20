@@ -243,7 +243,8 @@
         "I clearly said yes or no.",
         "I used at least two facts from the article.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "Yes, I would like to live in a big family like an elephant herd. The article says every female in the herd helps raise each calf, so I would always have family nearby to care for me. I also like that the herd forms a circle to protect the young when lions come near."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained at least two ways the matriarch helps.",
         "I used details from the article.",
         "I organized my answer with a clear beginning and ending."
-      ]
+      ],
+      "modelAnswer": "The matriarch, the oldest female in the herd, helps her family survive in two important ways. First, over her long life she has learned where to find food and water, so during a drought she can lead the herd to places she remembers from years before. Second, her experience and leadership help organize the whole herd when danger appears, since the adult females rely on her knowledge to keep everyone, including the young calves, alive through hard times."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I stated a clear position.",
         "I supported it with at least two pieces of evidence from the article.",
         "I explained how each piece of evidence supports my position."
-      ]
+      ],
+      "modelAnswer": "I agree that the oldest member of a herd, the matriarch, is one of its most valuable members. The article explains that during a drought, when rivers and water holes dry up, she can lead her family to places she remembers from years before, which shows that her accumulated knowledge can literally keep the whole herd alive. Her value also comes through in how the herd cooperates under her leadership, since every female helps raise the calves and the adults form a protective circle around the young when danger like lions approaches, which demonstrates a level of coordination that depends on experienced leadership like hers."
     }
   }
 }

@@ -243,7 +243,8 @@
         "I explained what the satellites send.",
         "I used at least two facts from the article.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "Satellites in space send out a signal that gives their position and the exact time. My phone has a receiver that listens to these signals from at least four satellites. Then my phone uses the signals to figure out my location and puts a dot on the map."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I gave a clear answer to the question.",
         "I supported my answer with at least two details from the article.",
         "I explained how time is connected to distance."
-      ]
+      ],
+      "modelAnswer": "Exact time is important for GPS because each satellite's accurate clock tells the receiver exactly when a signal was sent. Since radio signals travel at the speed of light, the phone measures how long the signal took to arrive and uses that time to calculate the distance to the satellite. Without extremely accurate clocks, the receiver could not figure out the distance correctly, and the dot on the map would land in the wrong place."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I stated a clear position.",
         "I supported it with at least two pieces of evidence from the article.",
         "I explained how my evidence supports my position."
-      ]
+      ],
+      "modelAnswer": "I agree that GPS is one of the most important inventions of modern times. About thirty satellites carry extremely precise atomic clocks that let a receiver calculate its exact distance from each one, and by comparing signals from at least four satellites at once, a simple phone can pinpoint a location almost anywhere on Earth. This technology now guides cars, ships, and airplanes, and it is especially valuable in places like the desert, where dunes can look the same in every direction, which shows how deeply GPS has changed everyday navigation."
     }
   }
 }

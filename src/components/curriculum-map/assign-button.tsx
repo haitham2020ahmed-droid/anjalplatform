@@ -1,11 +1,16 @@
 "use client";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import type { PlaceAssignInput } from "@/app/admin/curriculum-map/actions";
+import { placeQuestionChoicesAction } from "@/app/admin/curriculum-map/actions";
+import type { PlaceQuestionChoice } from "@/server/curriculum-map/levels";
+import { RichInline } from "@/components/rich-inline";
 import { Combo } from "@/components/ui/combo";
 import { AssignDates } from "@/components/assign/assign-dates";
 import { SourceSelect } from "@/components/assign/source-select";
 import type { AssignSource } from "@/lib/assign-source";
 import { useT } from "@/i18n/client";
+import { PriorAssignedPrompt } from "@/components/assign/prior-assigned";
 
 type Lv = "ABOVE" | "ON" | "BELOW";
 interface RosterLevel { level: Lv; from: string; reason: string }
@@ -24,13 +29,15 @@ export function MapAssignButton({ code, label, levels }: { code: string; label: 
   );
 }
 
-/** The page's ONE assign window (the roster is sent once): whole class or starred students; adaptive or by level. */
-export function MapAssignHost({ classes, assign }: { classes: RosterClass[]; assign: (input: PlaceAssignInput) => Promise<{ ok: boolean; message: string }> }) {
+/** The page's ONE assign window (the roster is sent once): whole class or starred students; adaptive or by level.
+ * `alreadySent` (optional): whether the chosen class already has this place sent — asks "assign it again?" first,
+ * the same question Skill plan and the full Assign page already ask. */
+export function MapAssignHost({ classes, assign, alreadySent }: { classes: RosterClass[]; assign: (input: PlaceAssignInput) => Promise<{ ok: boolean; message: string }>; alreadySent?: (input: { classId: string; code: string }) => Promise<{ sent: boolean }> }) {
   const [open, setOpen] = useState(false);
   const [code, setCode] = useState("");
   const [levels, setLevels] = useState(false);
   useEffect(() => {
-    const on = (e: Event) => { const d = (e as CustomEvent<{ code: string; levels: boolean }>).detail; setCode(d.code); setLevels(d.levels); setResult(null); setSource(""); setOpen(true); };
+    const on = (e: Event) => { const d = (e as CustomEvent<{ code: string; levels: boolean }>).detail; setCode(d.code); setLevels(d.levels); setResult(null); setSource(""); setConfirmed(false); setJustAssigned(false); setMode("AUTO"); setBank(null); setBankQ(""); setBankLevel("ANY"); setPickedQ(new Set()); setOpen(true); };
     window.addEventListener(EVENT, on);
     return () => window.removeEventListener(EVENT, on);
   }, []);
@@ -45,7 +52,20 @@ export function MapAssignHost({ classes, assign }: { classes: RosterClass[]; ass
   /** more of the teacher's classes for the same place (🤖 Automatic, all students): one assignment per class */
   const [also, setAlso] = useState<Set<string>>(new Set());
   const [starred, setStarred] = useState<Set<string>>(new Set());
-  const [mode, setMode] = useState<"AUTO" | "MANUAL">("AUTO");
+  const [mode, setMode] = useState<"AUTO" | "MANUAL" | "PICK">("AUTO");
+  // 🔎 r91 "I'll pick the questions": this place's own questions, fetched once per open, filtered in the browser
+  const [bank, setBank] = useState<PlaceQuestionChoice[] | null>(null);
+  const [bankQ, setBankQ] = useState("");
+  const [bankLevel, setBankLevel] = useState<"ANY" | "ABOVE" | "ON" | "BELOW">("ANY");
+  const [pickedQ, setPickedQ] = useState<Set<string>>(new Set());
+  // 🔎 r91 "I'll pick the questions": fetched once per place, the first time that mode opens; search/level
+  // filtering happens in the browser (a place's own pool is lesson-sized, never huge)
+  useEffect(() => {
+    if (mode !== "PICK" || bank !== null || !code) return;
+    let live = true;
+    placeQuestionChoicesAction(code).then((r) => { if (live) setBank(r.ok ? r.value : []); }).catch(() => { if (live) setBank([]); });
+    return () => { live = false; };
+  }, [mode, bank, code]);
   /** ✋ the starting level the teacher picks for each student (prefilled with their current level, else On) */
   const [picked, setPicked] = useState<Record<string, "ABOVE" | "ON" | "BELOW">>({});
   const [max, setMax] = useState(20);
@@ -55,7 +75,25 @@ export function MapAssignHost({ classes, assign }: { classes: RosterClass[]; ass
   // r74: the required Source — always empty when the window opens (no default)
   const [source, setSource] = useState<AssignSource | "">("");
   const t = useT();
+  const router = useRouter();
   const [result, setResult] = useState<{ ok: boolean; message: string } | null>(null);
+  // ⭐ "already sent to this class — assign it again?" (the same question Skill plan and the full Assign page ask):
+  // re-checked whenever the chosen class or place changes, reset on every change so a confirm never carries over.
+  const [sent, setSent] = useState(false);
+  const [confirmed, setConfirmed] = useState(false);
+  // 🐛 same fix as Skill plan's suggest panel: `send()`'s success calls router.refresh(), which hands this effect a
+  // new `alreadySent` reference and reruns it — and since the place genuinely IS now sent, `sent` would flip true
+  // right away and replace the whole form with "assign it again?" the instant the send succeeds. justAssigned
+  // suppresses that for the rest of this window's life for the chosen class/place.
+  const [justAssigned, setJustAssigned] = useState(false);
+  useEffect(() => {
+    let live = true;
+    setConfirmed(false);
+    if (!alreadySent || !classId || !code) { setSent(false); return; }
+    alreadySent({ classId, code }).then((r) => { if (live) setSent(r.sent); }).catch(() => undefined);
+    return () => { live = false; };
+  }, [classId, code, alreadySent]);
+  const blocked = sent && !confirmed && !justAssigned;
   const klass = classes.find((c) => c.id === classId);
   const all = klass?.students ?? [];
   const cat = (code.match(/\.(CV|ACS|RTR)(\.|$)/)?.[1] ?? null) as "CV" | "ACS" | "RTR" | null;
@@ -73,10 +111,16 @@ export function MapAssignHost({ classes, assign }: { classes: RosterClass[]; ass
   const counts = { BELOW: 0, ON: 0, ABOVE: 0, NONE: 0 } as Record<"ABOVE" | "ON" | "BELOW" | "NONE", number>;
   for (const s of all) counts[levelOf(s.id) ?? "NONE"]++;
   const toggle = (id: string) => setStarred((s) => { const n = new Set(s); if (n.has(id)) n.delete(id); else n.add(id); return n; });
+  // 🔎 r91: this place's own questions, filtered in the browser by level and by the words typed
+  const bankShown = (bank ?? []).filter((x) => (bankLevel === "ANY" || x.level === bankLevel) && (!bankQ.trim() || x.stem.toLowerCase().includes(bankQ.trim().toLowerCase())));
+  const toggleQ = (id: string) => setPickedQ((s) => { const n = new Set(s); if (n.has(id)) n.delete(id); else n.add(id); return n; });
   const send = async () => {
     setBusy(true); setResult(null);
+    // 🔎 "I'll pick the questions": exact pick, same for every chosen student, whatever class(es);
     // ✋ Manual: exactly the students given a level here, each starting at it; 🤖 Automatic: the class or the starred
-    const r = mode === "MANUAL"
+    const r = mode === "PICK"
+      ? await assign({ source, classId, code, studentIds: who === "some" ? [...starred] : undefined, questionIds: [...pickedQ], dueAt: due || null, startAt: start || null })
+      : mode === "MANUAL"
       ? await assign({ source, classId, code, studentIds: manualIds, mode: "ADAPTIVE", startLevels: manualIds.map((id) => ({ studentId: id, level: picked[id]! })), max, dueAt: due || null, startAt: start || null })
       : who === "all" && also.size
         ? await (async () => {
@@ -89,6 +133,11 @@ export function MapAssignHost({ classes, assign }: { classes: RosterClass[]; ass
         })()
         : await assign({ source, classId, code, studentIds: who === "some" ? [...starred] : undefined, mode: "ADAPTIVE", max, dueAt: due || null, startAt: start || null });
     setBusy(false); setResult(r);
+    // 🔄 r85: "✓ Sent {date}" next to a section comes from the page's own server data (sentMapCodes), which this
+    // dialog never re-fetches on its own — without this, a section just assigned keeps showing its old ⭐ Assign
+    // button until the whole page is reloaded by hand. router.refresh() re-reads that data in the background
+    // (the dialog itself, still open on "Done", is untouched).
+    if (r.ok) { setJustAssigned(true); router.refresh(); }
   };
   if (!classes.length) return null;
   return (
@@ -102,17 +151,63 @@ export function MapAssignHost({ classes, assign }: { classes: RosterClass[]; ass
             </div>
             {classes.length > 1 && (
               <label className="mt-3 flex flex-col font-semibold text-slate-700">Class
-                <Combo label="Class" value={classId} onChange={(v) => { setClassId(v); setStarred(new Set()); setAlso(new Set()); }} options={classes.map((c) => ({ value: c.id, label: c.name, hint: `(${c.students.length})` }))} className="mt-1 font-normal" />
+                <Combo label="Class" value={classId} onChange={(v) => { setClassId(v); setStarred(new Set()); setAlso(new Set()); setJustAssigned(false); }} options={classes.map((c) => ({ value: c.id, label: c.name, hint: `(${c.students.length})` }))} className="mt-1 font-normal" />
               </label>
             )}
             <SourceSelect t={t} value={source} onChange={setSource} className="mt-3" field="mt-1 rounded-lg border border-slate-300 px-3 py-2 font-normal" />
+            {blocked ? <div className="mt-3"><PriorAssignedPrompt t={t} onYes={() => setConfirmed(true)} onNo={() => setOpen(false)} /></div> : (
+            <>
             <fieldset className="mt-3">
               <legend className="font-semibold text-slate-700">How</legend>
-              <div className="mt-1 grid gap-2 sm:grid-cols-2">
+              <div className="mt-1 grid gap-2 sm:grid-cols-3">
                 <button type="button" onClick={() => setMode("AUTO")} aria-pressed={mode === "AUTO"} className={`rounded-xl px-3 py-2 text-start font-semibold ${mode === "AUTO" ? "bg-emerald-600 text-white" : "ring-1 ring-slate-300 hover:bg-slate-50"}`}>🤖 Automatic<span className="block text-xs font-normal opacity-90">The platform puts each student at their level (Diagnostic, MAP, their results).</span></button>
                 <button type="button" onClick={() => setMode("MANUAL")} aria-pressed={mode === "MANUAL"} className={`rounded-xl px-3 py-2 text-start font-semibold ${mode === "MANUAL" ? "bg-sky-600 text-white" : "ring-1 ring-slate-300 hover:bg-slate-50"}`}>✋ Manual<span className="block text-xs font-normal opacity-90">I tick students and choose their level: Approaching, Meeting or Exceeding.</span></button>
+                {/* 🔎 r91 ("أنا هختار الأسئلة"): the same exact questions, Fixed, for every chosen student — no
+                    adaptive movement between levels. */}
+                <button type="button" onClick={() => setMode("PICK")} aria-pressed={mode === "PICK"} className={`rounded-xl px-3 py-2 text-start font-semibold ${mode === "PICK" ? "bg-amber-600 text-white" : "ring-1 ring-slate-300 hover:bg-slate-50"}`}>🔎 I&apos;ll pick the questions<span className="block text-xs font-normal opacity-90">Everyone gets the exact questions you tick.</span></button>
               </div>
             </fieldset>
+            {mode === "PICK" && (
+              <fieldset className="mt-3">
+                <legend className="font-semibold text-slate-700">Students</legend>
+                <div className="mt-1 flex gap-2">
+                  {(["all", "some"] as const).map((w) => <button key={w} type="button" onClick={() => setWho(w)} aria-pressed={who === w} className={`rounded-full px-4 py-1.5 font-semibold ${who === w ? "bg-brand-navy text-white" : "ring-1 ring-slate-300"}`}>{w === "all" ? `All students (${all.length})` : "Some students"}</button>)}
+                </div>
+                {who === "some" && (
+                  <ul className="mt-2 max-h-40 space-y-1 overflow-y-auto rounded-xl p-2 ring-1 ring-slate-200">
+                    {all.map((st) => (
+                      <li key={st.id}>
+                        <button type="button" onClick={() => toggle(st.id)} aria-pressed={starred.has(st.id)} className={`flex w-full items-center gap-2 rounded-lg px-2 py-1 text-start ${starred.has(st.id) ? "bg-amber-50" : "hover:bg-slate-50"}`}>
+                          <span aria-hidden="true" className="text-lg">{starred.has(st.id) ? "⭐" : "☆"}</span><span className="flex-1">{st.name}</span>
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+                <p className="mt-3 font-semibold text-slate-700">Questions</p>
+                <div className="mt-1 flex flex-wrap gap-1.5">
+                  {(["ANY", "BELOW", "ON", "ABOVE"] as const).map((lv) => (
+                    <button key={lv} type="button" onClick={() => setBankLevel(lv)} aria-pressed={bankLevel === lv} className={`rounded-full px-3 py-1 text-xs font-semibold ${bankLevel === lv ? "bg-brand-navy text-white" : "ring-1 ring-slate-300"}`}>{lv === "ANY" ? "All" : LV[lv]}</button>
+                  ))}
+                  <input type="search" value={bankQ} onChange={(e) => setBankQ(e.target.value)} placeholder="Search the questions…" className="min-h-9 min-w-0 flex-1 rounded-lg border border-slate-300 px-2 text-xs" />
+                </div>
+                <p className="mt-1 flex items-center gap-2 text-xs text-slate-500">{pickedQ.size} selected
+                  <button type="button" onClick={() => setPickedQ(new Set(bankShown.map((x) => x.id)))} className="font-semibold text-brand-navy hover:underline">Select all</button>
+                  <button type="button" onClick={() => setPickedQ(new Set())} className="font-semibold text-slate-600 hover:underline">Clear</button>
+                </p>
+                <ul className="mt-1 max-h-72 space-y-1 overflow-y-auto rounded-xl p-2 ring-1 ring-slate-200" aria-label="Questions">
+                  {bank === null ? <li className="p-2 text-xs text-slate-500">…</li> : bankShown.length ? bankShown.map((x) => (
+                    <li key={x.id}>
+                      <label className={`flex items-start gap-2 rounded-lg px-2 py-1.5 text-xs ${pickedQ.has(x.id) ? "bg-amber-50" : "hover:bg-slate-50"}`}>
+                        <input type="checkbox" checked={pickedQ.has(x.id)} onChange={() => toggleQ(x.id)} className="mt-0.5 h-4 w-4 accent-brand-navy" />
+                        <span className="min-w-0 flex-1" data-content lang="en"><RichInline text={x.stem} /></span>
+                        {x.level && <span className="shrink-0 rounded bg-slate-100 px-1.5 py-0.5 text-[10px] text-slate-600">{LV[x.level]}</span>}
+                      </label>
+                    </li>
+                  )) : <li className="p-2 text-xs text-slate-500">No question matches.</li>}
+                </ul>
+              </fieldset>
+            )}
             {mode === "AUTO" && (
               <fieldset className="mt-3">
                 <legend className="font-semibold text-slate-700">Students</legend>
@@ -192,14 +287,16 @@ export function MapAssignHost({ classes, assign }: { classes: RosterClass[]; ass
               </fieldset>
             )}
             <div className="mt-3 flex flex-wrap gap-3">
-              <label className="flex flex-col font-semibold text-slate-700">Correct answers to finish<input type="number" min={5} max={50} value={max} onChange={(e) => setMax(Number(e.target.value) || 20)} className="mt-1 w-28 rounded-lg border border-slate-300 px-3 py-2 font-normal" /></label>
+              {mode !== "PICK" && <label className="flex flex-col font-semibold text-slate-700">Correct answers to finish<input type="number" min={5} max={50} value={max} onChange={(e) => setMax(Number(e.target.value) || 20)} className="mt-1 w-28 rounded-lg border border-slate-300 px-3 py-2 font-normal" /></label>}
               <AssignDates start={start} onStart={setStart} due={due} onDue={setDue} field="mt-1 rounded-lg border border-slate-300 px-3 py-2 font-normal" />
             </div>
             {result && <p role="status" className={`mt-3 rounded-lg px-3 py-2 ${result.ok ? "bg-teal-50 text-teal-900" : "bg-red-50 text-red-800"}`}>{result.message}</p>}
             <div className="mt-4 flex justify-end gap-2">
               <button type="button" onClick={() => setOpen(false)} className="rounded-xl px-4 py-2 font-semibold ring-1 ring-slate-300">{result?.ok ? "Done" : "Cancel"}</button>
-              {!result?.ok && <button type="button" onClick={send} disabled={busy || !source || (mode === "MANUAL" ? !manualIds.length : who === "some" && !starred.size)} className="rounded-xl bg-brand-navy px-4 py-2 font-semibold text-white disabled:opacity-50">{busy ? "Assigning…" : !source ? t("Choose the source first.") : mode === "MANUAL" ? (manualIds.length ? `Assign to ${manualIds.length} student(s)` : "Choose a level first") : who === "some" ? `Assign to ${starred.size} student(s)` : "Assign to the class"}</button>}
+              {!result?.ok && <button type="button" onClick={send} disabled={busy || !source || (mode === "PICK" ? !pickedQ.size || (who === "some" && !starred.size) : mode === "MANUAL" ? !manualIds.length : who === "some" && !starred.size)} className="rounded-xl bg-brand-navy px-4 py-2 font-semibold text-white disabled:opacity-50">{busy ? "Assigning…" : !source ? t("Choose the source first.") : mode === "PICK" ? (pickedQ.size ? `Assign ${pickedQ.size} question(s)` : "Tick at least one question") : mode === "MANUAL" ? (manualIds.length ? `Assign to ${manualIds.length} student(s)` : "Choose a level first") : who === "some" ? `Assign to ${starred.size} student(s)` : "Assign to the class"}</button>}
             </div>
+            </>
+            )}
           </div>
         </div>
       )}

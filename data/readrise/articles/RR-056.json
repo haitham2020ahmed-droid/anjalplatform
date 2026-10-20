@@ -243,7 +243,8 @@
         "I told where the water comes from.",
         "I told how the stone is left behind.",
         "I used words like first, next, and then."
-      ]
+      ],
+      "modelAnswer": "First, water drips down through tiny cracks in the limestone ceiling of a cave. Next, each drop leaves behind a tiny ring of stone before it falls. Then, ring by ring, the stalactite slowly grows downward from the ceiling."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained how water makes the cave.",
         "I explained how water builds stalactites and stalagmites.",
         "I used at least two details from the article."
-      ]
+      ],
+      "modelAnswer": "Water destroys rock when rain mixes with gas in the air and slowly dissolves limestone, which widens cracks into tunnels and rooms over thousands of years. But water also builds new stone inside the cave: as drops seep through the ceiling, each one leaves behind a thin ring of mineral, so a stalactite slowly grows downward. Drops that fall to the floor leave mineral there too, so a stalagmite grows upward until the two sometimes join into a single column."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I explained how formations grow layer by layer.",
         "I explained what scientists learn from the layers.",
         "I used precise evidence from the article."
-      ]
+      ],
+      "modelAnswer": "Calling cave formations 'records written in stone' means that each ring of calcite left behind as water drips preserves a small piece of history, much like rings in a tree. Rainwater absorbs gas and becomes a weak acid that can dissolve limestone, and the dissolved calcite it carries is slowly deposited, layer by layer, to build stalactites and stalagmites. Because caves beneath Saudi Arabia's Summan Plateau contain formations that grew when the region's climate was much wetter, scientists can study these layers to learn exactly how rainfall has changed over time."
     }
   }
 }

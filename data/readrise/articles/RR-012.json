@@ -243,7 +243,8 @@
         "I named a habit I already have and one I will try.",
         "I used at least two facts from the article.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "I already have the habit of reading a book before bed as part of my routine. One thing I will try is turning off my screen an hour before bedtime. This should help me because sleep helps my brain organize my memory, and sleep also lets my body repair itself while I rest. I think trying this new habit will help me sleep better."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I gave a clear answer to the question.",
         "I supported my answer with at least two details from the article.",
         "I explained how each detail connects to learning at school."
-      ]
+      ],
+      "modelAnswer": "Sleep helps a student do well in school in a couple of important ways. First, during the night the brain goes through a sleep cycle that strengthens memory, replaying and organizing the information from the day so students remember what they learned. Second, in the evening the brain releases a hormone called melatonin that makes a person feel sleepy, and following a steady bedtime routine helps this process work well so the student gets enough rest. Without enough sleep, students often find it hard to concentrate, which makes it much harder to learn and pay attention in class."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I stated a clear position.",
         "I supported it with at least two pieces of evidence from the article.",
         "I explained how my evidence supports my position."
-      ]
+      ],
+      "modelAnswer": "I disagree that staying up late to study is better than sleeping, because the evidence shows sleep is when learning actually gets locked in. During sleep, the brain works to consolidate memory, replaying the day's information so it can be stored and recalled later, which means skipping sleep to cram may prevent new knowledge from truly sticking. Sleep deprivation also disrupts the body's circadian rhythm, since the hormone melatonin that should make a person feel sleepy in the evening gets delayed by late-night screens and activity, leaving a tired student less able to concentrate the next day. Because growth hormone and memory consolidation both depend on getting enough rest, I believe a good night's sleep helps a student learn far more effectively than extra hours of exhausted studying."
     }
   }
 }

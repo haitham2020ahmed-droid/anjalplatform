@@ -243,7 +243,8 @@
         "I clearly said what I think.",
         "I used at least two facts from the article.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "I think his flight was a success, even though it was not perfect. Abbas built wings with a wooden frame, silk, and feathers, and when he leaped, he was able to glide through the air instead of falling straight down. He hurt his back when he landed, but he still proved that his wings could carry a person."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I gave a clear answer to the question.",
         "I supported my answer with at least two details from the article.",
         "I explained how each detail shows why he is remembered."
-      ]
+      ],
+      "modelAnswer": "Abbas ibn Firnas is still remembered today because he was a brave inventor who tried something no one around him had ever attempted. He built a frame covered in silk and feathers so he could glide through the air, showing incredible courage even as an old man. He is remembered so well that a crater on the Moon and a bridge in Cordoba now carry his name, proving that people still honor his daring idea centuries later."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I stated a clear position.",
         "I supported it with at least two pieces of evidence from the article.",
         "I explained how my evidence supports my position."
-      ]
+      ],
+      "modelAnswer": "I agree that a failed experiment can be just as valuable as a successful one, and Abbas ibn Firnas proves this well. Even though his flight ended in an injury rather than a perfect landing, he still demonstrated that a person wearing carefully built wings could glide through the air for a real distance, a discovery future inventors could build upon. His own explanation of the failure, that he had forgotten to imitate the tail birds use to slow down, gave future experimenters a precise lesson about what still needed solving. Because his attempt revealed both what worked and exactly what did not, historians still consider his flight part of his lasting legacy, showing that even an imperfect experiment can move knowledge forward."
     }
   }
 }

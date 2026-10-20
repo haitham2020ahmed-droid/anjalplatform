@@ -243,7 +243,8 @@
         "I said what I would like to see.",
         "I used at least two facts from the article.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "I would like to visit Asir because I want to see the tall green mountains covered in juniper trees. I would also like to see the fog that wraps around the peaks like a soft blanket. I think it would be fun to walk on a stone terrace where farmers grow crops."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained the cause of Asir's rain.",
         "I used at least two details from the article.",
         "I used linking words such as because, when, or then."
-      ]
+      ],
+      "modelAnswer": "Asir is greener than most of Saudi Arabia because winds from the sea carry moisture toward the region. When this moist air is pushed up the mountain slopes, it cools, and then the water forms clouds, rain, and thick fog. All this extra moisture helps juniper trees and crops grow across the region."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I explained at least two effects of elevation.",
         "I used specific evidence from the article.",
         "I showed how the causes and effects are connected."
-      ]
+      ],
+      "modelAnswer": "Asir's high elevation affects nearly everything about the region. Because air cools as it rises, the elevation keeps summers mild even though much of Saudi Arabia is extremely hot, and it also forces moist sea winds to condense into rain and fog that feed a green juniper forest ecosystem on the slopes. People have adapted to that same elevation by carving stone terraces into the steep mountainsides to prevent erosion and farm crops like wheat and barley, and their heritage of painting homes with Al-Qatt Al-Asiri shows how deeply the mountain landscape has shaped local culture."
     }
   }
 }

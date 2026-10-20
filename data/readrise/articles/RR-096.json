@@ -243,7 +243,8 @@
         "I named two animals from the article.",
         "I told how each animal uses its light.",
         "I used details from the article."
-      ]
+      ],
+      "modelAnswer": "Fireflies use their glow as a signal to find other fireflies in the dark. The anglerfish uses its glowing light as a lure to attract small fish, and then those fish become its prey."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained what bioluminescence is.",
         "I gave at least two examples of animals from the article.",
         "I explained how the light helps each animal survive."
-      ]
+      ],
+      "modelAnswer": "Bioluminescence is light made by a living thing, and in the deep sea, animals use it in clever ways to survive. The anglerfish dangles a glowing lure that can attract small fish close enough to catch and eat, turning its own body into a trap for its prey. Other fish and squid use their glow as camouflage, letting their bellies match the faint light coming from above so a predator looking up from below cannot easily see them. In both cases, this living light gives deep-sea animals a real advantage in a place where sunlight never reaches."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I explained how light can help an animal be seen.",
         "I explained how light can help an animal stay hidden.",
         "I supported my explanation with at least two examples from the article."
-      ]
+      ],
+      "modelAnswer": "Bioluminescence can help an animal be seen when it needs to attract something, as when the anglerfish dangles a glowing lure that pulls curious prey within striking distance. Fireflies rely on the same visibility, flashing distinct patterns of light so other fireflies of the same kind can find them in the dark. At the same time, bioluminescence can help an animal disappear through counterillumination, where a fish or squid glows faintly on its belly to match the wavelength of dim light filtering down from the surface, so a predator looking upward sees no shadow at all. Because the same chemical glow can either call attention to an animal or erase its outline completely, bioluminescence proves to be a remarkably flexible survival tool in the deep sea."
     }
   }
 }

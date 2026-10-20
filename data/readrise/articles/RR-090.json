@@ -243,7 +243,8 @@
         "I clearly answered the question.",
         "I used at least two facts from the article.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "I would like to build a library for my town. My library would be like Fatima's gift because it would be a place where every student could come and learn for free. Fatima used her wealth to build a mosque that later became a university, and I want my library to help people the same way for a long time."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained the changes in time order.",
         "I used at least three details from the article.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "In 859, Fatima al-Fihri founded a mosque called al-Qarawiyyin in the city of Fez. At first, students sat in circles around a scholar who taught them the Quran, Arabic, and law. Over time, teachers added subjects like math and medicine, and a large library was built so people could gain more knowledge. Eventually, al-Qarawiyyin grew into a university, and it is still open today, more than a thousand years after Fatima founded it."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I clearly stated whether I agree.",
         "I used at least two pieces of evidence from the article.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "I agree that Fatima's legacy is remarkable, because she turned a personal inheritance into an institution that has lasted over a thousand years. Instead of keeping her father's wealth for herself, she made the generous choice to found al-Qarawiyyin, a place where students could study subjects ranging from law to the movement of the stars. That mosque eventually became a university that historians still call the oldest in the world to have never closed, which means her gift is still changing lives today. Few people's choices echo across so many centuries, which is exactly why her legacy deserves to be called remarkable."
     }
   }
 }

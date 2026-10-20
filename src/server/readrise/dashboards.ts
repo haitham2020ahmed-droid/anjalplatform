@@ -22,6 +22,9 @@ import { questionKeys } from "./question-key";
 const s = (v: unknown) => String(v ?? "");
 const DAY = 86_400_000;
 const time = (v: unknown) => (v === null || v === undefined ? null : new Date(v as string | Date).getTime());
+// ⚠️ r85 audit: same as engine.ts's unreliableRun() — a rapid-guessed run must not count as a "done" first try here
+// either, or lucky guesses inflate firstTryAvg, goal attainment % and per-skill accuracy shown on these dashboards.
+const unreliableRun = (r: Row) => r.unreliable === true || r.unreliable === 1;
 
 /** Expected ReadRise Level range by grade (guidance). */
 export const GRADE_BANDS: Record<number, { low: number; high: number }> = { 4: { low: 640, high: 940 }, 5: { low: 740, high: 1010 }, 6: { low: 830, high: 1070 } };
@@ -94,7 +97,7 @@ async function loadData(repo: Repo, ids: string[], opts: { map?: boolean; runCol
     many("Student", (p) => ({ id: { in: p } }), ["id", "userId"]),
     many("RRStudent", (p) => ({ studentId: { in: p } })),
     many("RRLevelChange", (p) => ({ studentId: { in: p } }), ["studentId", "toLevel", "createdAt"]),
-    many("RRRun", (p) => ({ studentId: { in: p } }), opts.runCols ?? ["id", "studentId", "articleId", "band", "versionLevel", "step", "prePoll", "postPoll", "answers", "score", "writing", "writingScore", "firstTry", "stretch", "levelBefore", "levelAfter", "startedAt", "completedAt"]),
+    many("RRRun", (p) => ({ studentId: { in: p } }), opts.runCols ?? ["id", "studentId", "articleId", "band", "versionLevel", "step", "prePoll", "postPoll", "answers", "score", "writing", "writingScore", "writingAiScore", "writingAiComment", "firstTry", "stretch", "levelBefore", "levelAfter", "startedAt", "completedAt", "unreliable"]),
     opts.map === false ? Promise.resolve([] as Row[]) : many("MapResult", (p) => ({ studentId: { in: p }, lexile: { not: null } }), ["studentId", "lexile", "testDate"]),
     many("RRPlacement", (p) => ({ studentId: { in: p } }), ["studentId", "completedAt"]),
   ]);
@@ -115,7 +118,7 @@ async function loadData(repo: Repo, ids: string[], opts: { map?: boolean; runCol
   return { names: new Map(students.map((x) => [s(x.id), uname.get(s(x.userId)) ?? "Student"])), rr: new Map(placedRR.map((r) => [s(r.studentId), r])), changes: ch, runs, map, placedTest, openTest };
 }
 
-const firstTryDone = (runs: Row[]) => runs.filter((r) => r.completedAt && (r.firstTry === true || r.firstTry === 1) && r.score !== null && r.score !== undefined);
+const firstTryDone = (runs: Row[]) => runs.filter((r) => r.completedAt && (r.firstTry === true || r.firstTry === 1) && r.score !== null && r.score !== undefined && !unreliableRun(r));
 
 async function classMembers(repo: Repo, classId: string): Promise<string[]> {
   return (await repo.findMany("ClassMembership", { classId, leftAt: null }, { select: ["studentId"] })).map((m) => s(m.studentId));
@@ -274,7 +277,7 @@ export async function pollReport(repo: Repo, actor: Actor, classId: string): Pro
 
 // ------------------------------------------------------------------ writing queue
 
-export interface WritingItem { runId: string; studentId: string; name: string; articleId: string; title: string; band: string; prompt: string; checklist: string[]; writing: string; completedAt: string | null; score: number | null }
+export interface WritingItem { runId: string; studentId: string; name: string; articleId: string; title: string; band: string; prompt: string; checklist: string[]; writing: string; completedAt: string | null; score: number | null; aiScore: number | null; aiComment: string | null }
 
 /** Written answers of a class waiting for a score (newest first); `scored` adds the 20 most recent scored ones. */
 export async function writingQueue(repo: Repo, actor: Actor, classId: string, opts: { scored?: boolean } = {}): Promise<{ pending: WritingItem[]; scored: WritingItem[] }> {
@@ -295,6 +298,8 @@ export async function writingQueue(repo: Repo, actor: Actor, classId: string, op
       runId: s(r.id), studentId: s(r.studentId), name: d.names.get(s(r.studentId)) ?? "Student", articleId: s(r.articleId), title: s(arts.find((a) => a.id === r.articleId)?.title) || "Article",
       band: s(r.band), prompt: s(p?.prompt), checklist: Array.isArray(checklist) ? checklist.map(String) : [], writing: s(r.writing),
       completedAt: r.completedAt ? new Date(r.completedAt as string).toISOString() : null, score: r.writingScore === null || r.writingScore === undefined ? null : Number(r.writingScore),
+      aiScore: r.writingAiScore === null || r.writingAiScore === undefined ? null : Number(r.writingAiScore),
+      aiComment: r.writingAiComment ? s(r.writingAiComment) : null,
     };
   };
   const by = (a: WritingItem, b: WritingItem) => s(b.completedAt).localeCompare(s(a.completedAt));
@@ -331,7 +336,7 @@ export async function schoolDashboard(repo: Repo, actor: Actor, now = new Date()
   const gradeOf = new Map(grades.map((g) => [s(g.id), Number(g.level)]));
   const members = classes.length ? await repo.findMany("ClassMembership", { classId: { in: classes.map((c) => c.id) }, leftAt: null }, { select: ["classId", "studentId"] }) : [];
   const ids = [...new Set(members.map((m) => s(m.studentId)))];
-  const d = await loadData(repo, ids, { map: false, runCols: ["studentId", "score", "firstTry", "completedAt"] });
+  const d = await loadData(repo, ids, { map: false, runCols: ["studentId", "score", "firstTry", "completedAt", "unreliable"] });
   const nowT = now.getTime(), thisWeek = weekStart(nowT);
   const starts = Array.from({ length: weeks }, (_, i) => thisWeek - (weeks - 1 - i) * 7 * DAY);
   const ftBy = new Map<string, { at: number; score: number }[]>();

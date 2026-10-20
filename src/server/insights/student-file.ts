@@ -9,6 +9,8 @@ import type { Repo, Row } from "../seeding/repo";
 import { safeIfBehind } from "../db/schema-errors";
 import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
 import { readableClasses } from "../teacher/coordinators";
+import { TtlCache } from "../lib/ttl-cache";
+import { modelVersion } from "../cache/bank-version";
 import { levelsOf, practiceStats, studentNames, workStats, type PracticeStats, type WorkStats } from "./student-data";
 import { mapProfiles, type MapProfile } from "../map/map-plan";
 import { sentPlans, type PlanDoc } from "../map/map-more";
@@ -35,8 +37,26 @@ async function allowedStudents(repo: Repo, actor: Actor): Promise<{ classIds: st
 
 export interface FoundStudent { id: string; name: string; number: string; username: string; grade: number; className: string }
 
+/**
+ * ⚡ "My Students" / the student search both call this on every keystroke; without a cache each call re-reads every
+ * Student, User, Class, Grade and ClassMembership row of the whole school (4–5 full-table round trips) just to
+ * filter it in JS a moment later. Read once per actor scope for a few seconds — any write to one of these models
+ * (an import, a roster change, a new sign-up) is seen at once by the next search (write counters, same pattern as
+ * accessibleClasses). Callers get copies, never the cached array itself.
+ */
+const SCOPE_CACHE_MS = 10_000;
+const scopeCache = new WeakMap<object, TtlCache<(FoundStudent & { classId: string })[]>>();
+
 /** Every student this person may open (teacher: own classes; admin: the school), with grade and class. */
 async function studentsInScope(repo: Repo, actor: Actor): Promise<(FoundStudent & { classId: string })[]> {
+  const key = `${actor.role}|${actor.schoolId}|${actor.userId}|${modelVersion("Student", "User", "Class", "Grade", "ClassMembership")}`;
+  let c = scopeCache.get(repo);
+  if (!c) scopeCache.set(repo, (c = new TtlCache(SCOPE_CACHE_MS, 200)));
+  const rows = await c.getOrLoad(key, () => readStudentsInScope(repo, actor));
+  return rows.map((r) => ({ ...r }));
+}
+
+async function readStudentsInScope(repo: Repo, actor: Actor): Promise<(FoundStudent & { classId: string })[]> {
   const scope = await allowedStudents(repo, actor);
   if (!scope.all && !scope.classIds.length) return [];
   const mem = await repo.findMany("ClassMembership", { leftAt: null, ...(scope.all ? {} : { classId: { in: scope.classIds } }) }, { select: ["studentId", "classId"] });

@@ -243,7 +243,8 @@
         "I named two warning signs from the article.",
         "I explained why each sign helps keep people safe.",
         "I wrote in complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "Scientists watch volcanoes for warning signs to warn people before it is too late. One sign is that the ground can shake with tiny earthquakes as magma moves underground, and this tells scientists an eruption might be coming. Another sign is that the ground can swell up as magma and lava collect below the surface. These signs matter because they help scientists warn people near the tectonic plate boundary in time to move to safety before a volcano can erupt."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I described both kinds of eruptions.",
         "I explained how the magma causes the difference.",
         "I used at least two details from the article."
-      ]
+      ],
+      "modelAnswer": "Explosive eruptions and calm eruptions look very different, and the molten rock inside each volcano explains why. Explosive eruptions happen when the magma is thick and sticky, so gas gets trapped inside until the built-up pressure bursts out, hurling ash and broken rock high into the sky. Calm eruptions happen when the magma is thin and runny, which lets gas escape easily so the lava just flows steadily downhill like a river. Most of these volcanoes form along a tectonic plate boundary, which is why scientists closely monitor the magma and gases at active volcanoes to predict what kind of eruption might happen next."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I stated a clear position in my first sentence.",
         "I supported it with at least two pieces of evidence from the article.",
         "I explained how each piece of evidence supports my position."
-      ]
+      ],
+      "modelAnswer": "I think towns should be built near the harrat of western Saudi Arabia only with great caution, because the region's history and ongoing monitoring show both risk and relative safety. In 1256, a volcano near Madinah produced viscous lava that flowed toward the city but fortunately stopped short of it, proving that these volcanoes in the Earth's crust are not entirely dormant and can still threaten nearby communities. However, geologists in the Kingdom now closely monitor the harrat using instruments that detect small earthquakes and swelling ground, so if warning signs appear, officials would have time to evacuate residents before real danger arrives. Because of this careful monitoring, I believe towns can exist near the harrat as long as safety plans and evacuation routes stay ready at all times."
     }
   }
 }

@@ -243,7 +243,8 @@
         "I told that the drum vibrates first.",
         "I told how the sound wave moves to my ear.",
         "I used at least three key words correctly."
-      ]
+      ],
+      "modelAnswer": "When I hit a drum, the drum skin starts to vibrate very fast. This vibration makes a sound wave that travels through the air. The wave reaches my ear and makes my eardrum shake too. Then my brain turns the vibration into the sound I hear, whether it has a high pitch or a low pitch, like an echo bouncing back."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I compared how fast light and sound travel.",
         "I explained that sound needs particles in a medium.",
         "I used the words medium and vacuum correctly."
-      ]
+      ],
+      "modelAnswer": "I see lightning before I hear thunder because light travels enormously faster than sound does, so the flash reaches my eyes long before the rumble reaches my ears. Sound needs a medium, like air, water, or metal, made of particles that can bump into each other and carry the sound wave along. Space, however, is nearly a vacuum with almost no particles at all, so there is nothing to pass the vibration from place to place, which is why space is completely silent. This is very different from animals like bats, which use echolocation and depend on a medium full of particles to send out sounds and listen for their echoes."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I explained that frequency changes pitch.",
         "I explained that amplitude changes loudness and is measured in decibels.",
         "I gave a clear example for each one."
-      ]
+      ],
+      "modelAnswer": "Frequency and amplitude are two different properties of a sound wave, and each one changes something different about what we hear. Frequency measures how many times the wave's compression repeats each second as it is transmitted through the air, and a higher frequency produces a higher pitch, like a bird's chirp, while a lower frequency produces a lower pitch, like a deep drum. Amplitude, on the other hand, describes how large the wave itself is, which determines loudness measured in decibels, so a gentle whisper has low amplitude while a shouting crowd has very high amplitude. Once these vibrations reach the cochlea inside the ear, the brain interprets frequency as pitch and amplitude as volume, allowing us to tell a quiet high note apart from a loud low one."
     }
   }
 }

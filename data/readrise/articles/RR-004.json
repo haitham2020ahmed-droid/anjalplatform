@@ -243,7 +243,8 @@
         "I explained why reefs are important.",
         "I gave one way to help protect reefs.",
         "I used at least one detail from the article."
-      ]
+      ],
+      "modelAnswer": "Coral reefs are important because about a quarter of all sea creatures live in them, like fish, crabs, and sea turtles. Reefs are in danger because when the sea gets too hot, coral can go through bleaching and turn white, and then it might die. One way I can help protect reefs is to keep trash out of the sea so pollution does not hurt the coral."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained what corals and algae give each other.",
         "I described what happens during bleaching.",
         "I used evidence from the article to support my answer."
-      ]
+      ],
+      "modelAnswer": "Corals and algae depend on each other in a close partnership. Each coral polyp builds a hard skeleton to protect its soft body, and tiny algae live inside the polyp, using sunlight to make food that they share with the coral. In return, the algae get a safe home and give the coral its bright colors. However, bleaching breaks this partnership when the water stays too hot for too long, because the stressed coral pushes out its algae and turns white. Without the algae's food, the coral can starve, and pollution can make this damage even worse."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I explained why heat-tolerant corals interest researchers.",
         "I connected the research to the threat of bleaching.",
         "I supported my ideas with evidence from the article."
-      ]
+      ],
+      "modelAnswer": "This research matters because Red Sea corals have shown a remarkable ability to tolerate heat that would destroy corals in most other oceans, which makes their symbiosis with algae especially resilient. Normally, when water temperatures rise too high, stressed corals expel their algae in a process called bleaching, and if the heat does not ease, the coral's limestone skeleton is left bare and the animal eventually starves. Because Red Sea corals seem better able to withstand this stress, scientists studying them may discover traits or conditions that could help conservation efforts protect vulnerable reefs elsewhere as ocean temperatures continue rising. In this way, one resilient reef could offer hope for reef ecosystems around the entire world."
     }
   }
 }

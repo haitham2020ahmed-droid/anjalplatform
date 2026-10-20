@@ -243,7 +243,8 @@
         "I clearly answered the question.",
         "I used at least two facts from the article.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "Yes, I would like to see a falcon up close. The article says a falcon can dive faster than a racing car when it hunts, which would be amazing to watch. I would also like to see its sharp talons and the small hood falconers use to keep it calm."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained why falconry matters to families.",
         "I used at least two details from the article.",
         "I organized my ideas in a clear order."
-      ]
+      ],
+      "modelAnswer": "Falconry is important to many families in Saudi Arabia because it is an ancient tradition passed down for many generations, so training a falcon connects people to their ancestors. A falconer cares for the bird closely, wearing a thick leather glove and using a small hood to keep it calm, which shows a deep bond between the falconer and the falcon. Every year, families also gather with falconers from many countries at a large festival, which keeps this shared tradition alive today."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I explained how the peregrine's story supports the idea.",
         "I used specific evidence from the article.",
         "I suggested one realistic way to protect birds today."
-      ]
+      ],
+      "modelAnswer": "The peregrine falcon's story shows that environmental protection can reverse serious damage, because the pesticide DDT once built up in their bodies and made their eggshells so thin that they cracked during incubation, causing populations to decline dramatically. After many countries banned DDT, the falcons gradually recovered, proving that a harmful human action can be undone once people change their behavior. To protect birds today, people could avoid using harmful chemical pesticides near natural habitats, since this same kind of pollution is what nearly destroyed the peregrine falcon in the past."
     }
   }
 }

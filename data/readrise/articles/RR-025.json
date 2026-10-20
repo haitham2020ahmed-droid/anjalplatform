@@ -243,7 +243,8 @@
         "I told my friend what to do in the storm.",
         "I used at least two facts from the article.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "If my friend is playing outside when a storm comes, I would tell them to go inside a shelter right away. Lightning is a giant spark of electricity, and it can be very dangerous if it strikes nearby. I would also tell my friend that thunder means lightning is close, so it is not safe to stay outside near tall trees or open fields. It is always safer to wait inside until the storm passes."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained how the cloud builds up a charge.",
         "I told the steps in the correct order, from charge to spark to thunder.",
         "I used signal words like first, next, and finally."
-      ]
+      ],
+      "modelAnswer": "A storm cloud makes lightning and thunder through a clear series of steps. First, powerful winds inside the cloud carry tiny ice particles and water drops up and down, and as they collide, they build up an electric charge, usually negative at the bottom of the cloud and positive at the top. Next, when the difference in charge becomes too great, a huge spark leaps through the air to balance it, and that spark is the lightning we see. Finally, the lightning heats the air so suddenly that it makes the air expand extremely fast, creating the powerful sound wave we hear as thunder a few seconds later. People can estimate how far away a storm is by counting the seconds between the flash and the boom."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I clearly explained why the classmate's idea is wrong.",
         "I used at least three scientific facts from the article, such as how distance is estimated or how lightning forms.",
         "I organized my response with a clear opening, supporting reasons, and a conclusion."
-      ]
+      ],
+      "modelAnswer": "My classmate's idea is dangerous, because thunder itself is harmless, but it is only a sound, and ignoring it means ignoring the lightning that makes it. The article explains that a lightning discharge heats the surrounding atmosphere to a temperature about five times hotter than the surface of the sun, which is more than enough to seriously injure or kill a person struck by it. Because light travels about a million times faster than sound, hearing thunder means the lightning that caused it has already happened nearby, not that it is still far away, so waiting until lightning looks directly overhead means waiting until it is already too late to find shelter safely. As a precaution, the article even recommends going inside immediately when thunder is heard and waiting thirty minutes after the last thunder before going back outside, since lightning can strike from clouds that look far away. For all these reasons, my classmate's plan to stay outside is extremely risky, and the safest choice is always to take shelter as soon as thunder is heard."
     }
   }
 }

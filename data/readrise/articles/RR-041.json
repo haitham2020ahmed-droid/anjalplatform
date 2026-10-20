@@ -243,7 +243,8 @@
         "I named all four stages in the right order.",
         "I wrote one true fact from the article for each stage.",
         "I used at least two key words, such as chrysalis or nectar."
-      ]
+      ],
+      "modelAnswer": "First is the egg, a tiny dot on a leaf. Next, a caterpillar hatches out and eats leaves to grow bigger. Then it forms a hard chrysalis and changes inside. Last, it becomes an adult butterfly that drinks nectar from flowers."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained that the old body breaks down and a new body forms.",
         "I gave a reason, using details from the article.",
         "I used the words pupa or emerge correctly."
-      ]
+      ],
+      "modelAnswer": "Inside the chrysalis, which is the pupa stage, most of the caterpillar's old body breaks down into a kind of soup, and then an entirely new body gradually develops from it. I think scientists find this stage so amazing because the article says this whole transformation takes about two weeks, and when the adult butterfly finally starts to emerge, it looks nothing like the caterpillar that went in. It is incredible that a creature can rebuild its entire body in such a short time."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I stated whether I agree and explained why.",
         "I used at least two accurate details from the article.",
         "I used the words metamorphosis and dissolve correctly."
-      ]
+      ],
+      "modelAnswer": "I agree that the change inside the chrysalis is an astonishing metamorphosis. According to the article, most of the caterpillar's old body actually seems to dissolve into a kind of soup before the parts of an entirely new body develop in its place, which is a far more dramatic change than simply growing bigger. It is also remarkable that this complete rebuilding happens in only about two weeks, turning a leaf-eating caterpillar into a winged adult that drinks nectar through a proboscis, a transformation almost nothing else in nature can match."
     }
   }
 }

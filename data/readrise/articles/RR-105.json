@@ -243,7 +243,8 @@
         "I named at least three parts of the ear.",
         "I put the parts in the right order.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "First, a sound makes the air vibrate, and those vibrations travel into my outer ear. Next, the vibrations hit my eardrum, which shakes, and three tiny bones pass the shake along into my cochlea. Inside the cochlea, the vibration turns into a signal that travels along a nerve all the way to my brain, so I can finally hear the sound."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I described at least three steps after the eardrum, in order.",
         "I gave one way to protect hearing and explained why it helps.",
         "I used at least two key words correctly."
-      ]
+      ],
+      "modelAnswer": "After a sound wave reaches the eardrum, it makes the eardrum vibrate, and three tiny bones pass that vibration along and make it even stronger. The vibration then travels into the cochlea, where tiny hair cells turn it into an electrical signal. That signal travels along a nerve to the brain, which finally recognizes the sound. One way to protect your ears is to keep headphones at a lower volume, because loud noise can damage the hair cells, and they never grow back."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I stated a clear rule and explained how it protects hearing.",
         "I used at least two facts from the article as evidence.",
         "I used precise vocabulary, including at least two key words."
-      ]
+      ],
+      "modelAnswer": "I think our school should set a rule limiting headphone volume during breaks, because the article explains that hair-cell damage from loud noise is permanent and the delicate cells never grow back once they are harmed. These hair cells line the fluid-filled cochlea and are essential to the auditory system, since they convert vibrations into the signals the brain uses to hear. Different hair cells respond to different frequencies, so losing them to loud noise could permanently weaken a student's ability to hear certain sounds for the rest of their life. A simple volume rule would protect this fragile, irreplaceable part of the ear before any damage can happen."
     }
   }
 }

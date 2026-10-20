@@ -243,7 +243,8 @@
         "I clearly answered the question.",
         "I used at least two facts from the article.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "One job of my skeleton is to protect my body, because my skull covers my brain like a hard case and my ribs curve around my heart and lungs. Another job is to help me move, because muscles pull on bones at a joint, like my knee or elbow, so I can bend and walk. My skeleton also needs calcium from foods like milk and cheese to stay strong."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I clearly answered the question.",
         "I used at least two facts from the article.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "Bones cannot move by themselves, so muscles do the actual work of moving the skeleton. When a muscle tightens, it pulls on a bone at a joint, such as the knee or elbow, and that pull makes the bone move. This happens with bones all over the body, including the femur, the longest and strongest bone, which muscles pull on every time I take a step. Even the small vertebrae in my spine can bend and twist because muscles pull on them one at a time."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I clearly answered the question.",
         "I used at least two facts from the article.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "Calling the skeleton a living framework means that it is not just a stiff structure like a building frame, but a framework made of tissue that is actually alive and always changing. For example, the article explains that bones contain marrow, which produces millions of new blood cells every single day, proving that bones are active rather than lifeless. The skeleton also keeps changing as a person grows, since nearly 300 small bones in a newborn gradually fuse together into the 206 sturdier bones of an adult. Because the bones are alive, they can even repair themselves after a break, which no simple framework of sticks could ever do."
     }
   }
 }

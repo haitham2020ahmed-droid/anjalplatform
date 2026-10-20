@@ -243,7 +243,8 @@
         "I gave at least two safety steps from the article.",
         "I explained why each step helps.",
         "I wrote in complete sentences."
-      ]
+      ],
+      "modelAnswer": "If a sandstorm from the desert is coming, my family should listen to the weather warning and go inside right away. We should close all the windows so the dust and sand grains cannot blow into the house. We should also cover our nose and mouth so it is easier to breathe, since all that dust in the air can make breathing hard."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained two effects on people.",
         "I explained one effect on nature.",
         "I used details from the article to support each point."
-      ]
+      ],
+      "modelAnswer": "Sandstorms affect people in two main ways: they reduce visibility so badly that drivers cannot see the road and flights get delayed, and they also make breathing difficult, especially for people with asthma, because of all the tiny dust particles floating in the air. Winds like the Shamal, or sudden storms called a haboob, can arrive quickly, which is why weather experts forecast these storms so families can prepare in advance. Sandstorms also affect nature, since the dust that settles into the sea actually delivers iron that helps tiny plankton grow."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I clearly stated whether I agree or disagree.",
         "I used at least two pieces of evidence from the article.",
         "I explained how my evidence supports my opinion."
-      ]
+      ],
+      "modelAnswer": "I disagree that sandstorms are only harmful, because the article shows they also bring real benefits even while causing serious problems. It is true that a sandstorm or haboob dramatically reduces visibility, delays flights, and makes breathing difficult for people with conditions like asthma, since dust particles fill the air. However, the same dust that falls into the sea delivers iron, an important nutrient that helps tiny plankton grow and supports the ocean food chain. Living things like camels also show a remarkable adaptation to these storms, since their long eyelashes and nostrils that can close let them survive conditions that would otherwise be dangerous, which suggests that the desert ecosystem has learned to live with, and even benefit from, the very storms that challenge it."
     }
   }
 }

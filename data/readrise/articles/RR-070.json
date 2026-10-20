@@ -243,7 +243,8 @@
         "I clearly answered the question.",
         "I used at least two facts from the article.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "If I had a 3D printer, I would make a toy for my little brother. The printer would start from a design on the computer and melt plastic to squeeze it out like toothpaste. Layer by layer, the plastic would build up until my toy was finished."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained the steps in the correct order.",
         "I used at least three details from the article.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "First, a design is made on a computer, and a program slices it into hundreds of thin layers. Then, the nozzle melts plastic material and squeezes it out to draw the first flat layer, which cools and hardens quickly. Finally, the printer adds layer after layer on top until the whole custom object is complete, using only the material it needs so little is wasted."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I explained one advantage and one limit of 3D printing.",
         "I used evidence from the article for each point.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "One advantage of 3D printing is that it wastes very little material, because this additive process only adds the plastic filament a design actually needs, unlike cutting a shape out of a big block where much of the material is thrown away. Doctors and dentists also use this precise process to manufacture custom prosthetic hands and teeth that fit one person perfectly. However, 3D printing is not always the best choice, since a small toy might take an hour to print while a large object can take a day or more, which makes it too slow for producing many identical copies quickly."
     }
   }
 }

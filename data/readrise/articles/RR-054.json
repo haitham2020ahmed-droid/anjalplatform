@@ -243,7 +243,8 @@
         "I explained how snow turns into a glacier.",
         "I told one way a glacier changes the land.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "A glacier forms when snow piles up year after year and its weight squeezes the layers into solid ice. Once the glacier is heavy enough, it slowly starts to melt and slide downhill. As it moves, it scrapes the ground and carves out a deep valley. When a glacier reaches the ocean, pieces break off and float away as an iceberg."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained at least one way glaciers help people.",
         "I explained at least one problem caused by melting glaciers.",
         "I used details from the article to support my ideas."
-      ]
+      ],
+      "modelAnswer": "Glaciers help people because they store fresh water, and melting ice in warm months feeds streams and rivers that give drinking water and irrigation to millions of people. But melting glaciers also cause a problem: when they shrink faster than new snow can replace them, the extra water drains into the sea and raises its level. Over thousands of years glaciers also carve valleys and carry debris downhill, showing how differently they change the land compared to how quickly they are melting today."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I stated a clear opinion about the poll statement.",
         "I supported it with at least two pieces of evidence from the article.",
         "I explained how each piece of evidence connects to my opinion."
-      ]
+      ],
+      "modelAnswer": "I agree that glaciers far from Saudi Arabia still matter to people here. Glaciers act like a giant reservoir, since centuries of snow accumulate and then melt into streams and rivers that millions of people depend on for drinking water and irrigation, even if they live nowhere near the ice. As these glaciers shrink faster than fresh snow can replace them, the extra meltwater raises sea levels everywhere, including coastlines close to the Kingdom. Even though no glacier exists here today, thick ice once covered land that is now part of Saudi Arabia, and the erosion scars it left in ancient rocks show that what happens to distant glaciers has always been connected to us."
     }
   }
 }

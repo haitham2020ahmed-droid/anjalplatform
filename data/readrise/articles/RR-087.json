@@ -243,7 +243,8 @@
         "I named one thing I admire about Marie Curie.",
         "I used two facts from the article to explain my choice.",
         "I wrote full sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "I admire that Marie Curie never gave up, even when things were hard. She worked as a teacher and saved money for years just so she could study at a university in Paris. She also discovered a new element called radium, which could glow in the dark, after years of hard work in a chilly lab."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I described two problems Marie faced, with details from the article.",
         "I explained what she did in response to each problem.",
         "I used linking words such as however, because, and as a result."
-      ]
+      ],
+      "modelAnswer": "One problem Marie Curie faced was that women in Poland were not allowed to study at a university. However, because she was so determined, she worked as a teacher and saved money for years until she could move to Paris and study physics there. Another problem was that Pierre, her husband and research partner, died in 1906. As a result, she kept working on her own and became the first woman to teach at her university, later winning a second Nobel Prize in chemistry."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I explained what makes Marie Curie a pioneer, with at least three pieces of evidence.",
         "I discussed both the benefits of her work and the hazard of radiation.",
         "I organized my answer in clear paragraphs with transitions such as furthermore and however."
-      ]
+      ],
+      "modelAnswer": "Marie Curie is rightly called a pioneer because she broke boundaries that had kept women out of science for generations. She studied at a university in Paris after years of saving money as a teacher, finished at the top of her class, and went on to discover two new elements, polonium and radium. In 1903 she became the first woman ever to win a Nobel Prize, and in 1911 she became the first person in history to win two, an achievement that brought her enormous recognition.\n\nFurthermore, her work on radiation produced real benefits for other people, since doctors used her X-ray trucks to find broken bones in wounded soldiers. However, her discoveries also carried a serious hazard, because the very rays she studied eventually made her sick and led to her death in 1934. Even with that danger, her scientific legacy still helps doctors and scientists around the world today, which is exactly why she remains a pioneer whose impact outlived her."
     }
   }
 }

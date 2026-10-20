@@ -243,7 +243,8 @@
         "I answered the question clearly.",
         "I gave two reasons from the article.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "Dugongs need people to protect them because they can get tangled in fishing nets or hit by speeding boats, which can hurt or kill this gentle mammal. They also need protection because people are destroying the seagrass meadows that dugongs depend on for food, and a mother dugong has only one calf at a time, so their numbers grow back very slowly."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained at least one reason dugongs are easy to harm.",
         "I used at least two details from the article.",
         "I wrote in complete sentences and checked my spelling."
-      ]
+      ],
+      "modelAnswer": "A dugong's way of life makes it easy to harm because, as a mammal, it must rise to the surface every few minutes to breathe, which puts it right in the path of speeding boats. It also grazes only on seagrass that grows close to shore, so any threat to that shallow coastal habitat, like pollution or construction, directly threatens the dugong's only food supply too. Because a mother dugong raises just one calf at a time and may wait years before having another, the population recovers extremely slowly whenever these threats take a toll."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I made a clear claim.",
         "I supported my claim with at least two pieces of evidence from the article.",
         "I explained my reasoning and used correct grammar and punctuation."
-      ]
+      ],
+      "modelAnswer": "I believe laws should protect seagrass meadows just as strongly as they protect the dugongs themselves, because this marine mammal is a herbivore that eats almost nothing else, so losing its food source would be just as deadly as losing the animal directly. The article explains that pollution and coastal construction are already destroying the seagrass meadows that dugongs depend on, which makes this gentle giant especially vulnerable even where hunting or boat strikes are controlled. Because dugongs reproduce so slowly, giving birth to only one calf every few years, a damaged seagrass meadow could take far longer to recover in dugong numbers than in plant growth alone. Protecting the coastal seagrass meadows is really protecting the dugong itself, since one cannot survive for long without the other."
     }
   }
 }

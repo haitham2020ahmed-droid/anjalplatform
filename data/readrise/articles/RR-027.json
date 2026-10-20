@@ -243,7 +243,8 @@
         "I told what would happen without gravity.",
         "I used at least two facts from the article.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "If there was no gravity for one day, people and things would float away instead of staying on the ground. The article says gravity is a pull that keeps us on Earth, so without that force nothing would have any weight. The Moon would also fly off in a straight line instead of staying in its orbit around Earth."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I explained what gravity does to the Moon.",
         "I explained what gravity does to the oceans.",
         "I used at least two details from the article."
-      ]
+      ],
+      "modelAnswer": "Gravity affects the Moon by keeping it in orbit around Earth, bending its fast path into a loop instead of letting it fly off in a straight line. Gravity also affects Earth's oceans because the Moon's pull tugs on the water, and this attraction helps cause the tides, the regular rise and fall of the sea. Both effects show that gravity acts on objects even across empty space."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I clearly explained how one force can do both jobs.",
         "I supported my explanation with at least two pieces of evidence from the article.",
         "I used key words such as mass, attraction, and orbit correctly."
-      ]
+      ],
+      "modelAnswer": "Newton realized that gravity is simply the attraction between any two objects that have mass, so the same force that pulls an apple to the ground also pulls on the Moon. The article explains that every object with mass attracts every other object, and Earth's enormous mass gives it a powerful pull that bends the Moon's path into an orbit instead of letting it fly off in a straight line. The apple falls a short distance because it is close to Earth, while the Moon keeps circling because it is far away and moving fast, but in both cases it is the exact same gravitational attraction at work."
     }
   }
 }

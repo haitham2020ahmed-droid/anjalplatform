@@ -243,7 +243,8 @@
         "I told the steps in the right order.",
         "I used at least three facts from the article.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "First, the roots in the soil absorb water through tiny root hairs. Then the water travels up through narrow tubes in the stem. Finally, the water reaches the leaves, where some of it escapes into the air. If a plant does not get enough water, it will wilt and its leaves will droop."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I described the trip in the correct order.",
         "I used the words xylem and evaporate correctly.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "I start in the soil, where a root hair helps absorb me into the plant. Next, I travel upward through the xylem, like a thin straw running from the roots to the leaves. Inside a leaf, I turn into vapor and evaporate out through a tiny hole, and as I escape, I also carry minerals up with me for the plant to use."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I explained both transpiration and cohesion.",
         "I used at least two details from the article.",
         "I organized my explanation in clear, complete sentences."
-      ]
+      ],
+      "modelAnswer": "Transpiration is the process in which water evaporates out through the stomata, the tiny holes in a leaf, and escaping this way pulls on the water molecules behind it. Because water molecules stick together through cohesion, that single tug is enough to drag an entire column of water up the xylem from the roots to the leaves. The article explains that once the water arrives, it supplies the plant with the moisture needed for photosynthesis, which shows how transpiration and cohesion work as one continuous pulling system."
     }
   }
 }

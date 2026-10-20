@@ -243,7 +243,8 @@
         "I told what a compass does.",
         "I used two facts from the article.",
         "I wrote in full sentences."
-      ]
+      ],
+      "modelAnswer": "A compass helps people find their way because it has a tiny magnet inside called a needle. This needle always points north because the whole Earth acts like a giant magnet. Two north poles will repel each other, but a north pole and a south pole attract, and this is how the needle knows which way to point. Sailors and desert travelers have used a compass for hundreds of years to find their way."
     },
     "MID": {
       "keyWords": [
@@ -421,7 +422,8 @@
         "I described both kinds of magnets.",
         "I explained what switching the power on and off does.",
         "I used at least two details from the article."
-      ]
+      ],
+      "modelAnswer": "An ordinary magnet and an electromagnet both create a magnetic field that can attract or repel certain metal objects, but they work in different ways. An ordinary magnet, like lodestone, always has this pulling force whether or not anyone is using it. An electromagnet, however, is made with electricity flowing through a coiled wire, so it only has a magnetic field while the power is switched on. Switching the power off lets go of whatever the electromagnet was holding, which is very useful, because powerful electromagnets can lift heavy objects like old cars and then release them exactly when needed."
     },
     "HIGH": {
       "keyWords": [
@@ -599,7 +601,8 @@
         "I described two uses of magnets from the article.",
         "I connected each use to a rule of magnetism (poles, fields, or current).",
         "I used precise evidence from the article."
-      ]
+      ],
+      "modelAnswer": "Magnetism is invisible, yet two very different uses described in the article both depend on its basic rules. The compass, which people have used for centuries to navigate deserts and seas, works because a tiny needle made from a magnetic material, much like the ancient lodestone, aligns itself with the planet's own magnetic field, always settling toward north. In contrast, an electromagnet depends on the rule that electric current flowing through a coiled wire creates a magnetic field of its own, meaning the pull exists only while the current flows and vanishes the instant the power is switched off. Although a compass relies on a field that is always present and an electromagnet relies on a field that can be turned on and off, both inventions prove how precisely people have learned to harness an invisible force they cannot even see."
     }
   }
 }

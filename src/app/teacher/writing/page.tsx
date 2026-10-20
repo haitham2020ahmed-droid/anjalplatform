@@ -14,8 +14,10 @@ import { MISCONCEPTION_BY_CODE } from "@/insights/misconceptions";
 import { SkillListPicker, type SkillListRow } from "@/components/skill-picker";
 import { LineIcon } from "@/components/ui/line-icon";
 import { ITEM_PREVIEW } from "@/server/student/preview-as";
-import { approveAiAction, createTaskAction, dismissAiAction, reteachAction, requestAiAction, researchScoreAction, scoreAction } from "./actions";
+import { approveAiAction, cancelTaskAction, createTaskAction, dismissAiAction, reteachAction, requestAiAction, researchScoreAction, scoreAction, withdrawTaskAction } from "./actions";
 import { SourceSelect } from "@/components/assign/source-select";
+import type { ReactNode } from "react";
+import type { AiHighlight } from "@/server/teacher/writing";
 
 export const metadata = { title: "Writing & reading aloud" };
 
@@ -40,6 +42,33 @@ function statusLabel(task: TaskView, x: Sub): string {
   if (x.status === "SCORED") return `✅ ${x.total}/${max}`;
   if (x.status === "SUBMITTED") return x.stage === "DRAFT" ? "⏳ draft to give feedback on" : x.stage === "FINAL" ? "⏳ final to score" : "⏳ to score";
   return x.stage ? STAGE_LABEL[x.stage] ?? "writing" : "writing (draft)";
+}
+
+/** The essay text with the AI's (or the teacher's edited) highlighted spots marked, each showing its fix on hover/tap. */
+function HighlightedText({ text, highlights }: { text: string; highlights?: AiHighlight[] }) {
+  if (!highlights?.length) return <>{text}</>;
+  const lower = text.toLowerCase();
+  const ranges: { start: number; end: number; fix: string }[] = [];
+  for (const h of highlights) {
+    const q = h.quote.toLowerCase().trim();
+    if (!q) continue;
+    const start = lower.indexOf(q);
+    if (start === -1) continue;
+    const end = start + q.length;
+    if (ranges.some((r) => start < r.end && end > r.start)) continue; // no overlapping highlights
+    ranges.push({ start, end, fix: h.fix });
+  }
+  if (!ranges.length) return <>{text}</>;
+  ranges.sort((a, b) => a.start - b.start);
+  const parts: ReactNode[] = [];
+  let cursor = 0;
+  ranges.forEach((r, i) => {
+    if (r.start > cursor) parts.push(text.slice(cursor, r.start));
+    parts.push(<mark key={i} className="cursor-help rounded bg-rose-200 px-0.5 text-rose-950 underline decoration-rose-500 decoration-wavy" title={r.fix ? `✓ ${r.fix}` : undefined}>{text.slice(r.start, r.end)}</mark>);
+    cursor = r.end;
+  });
+  if (cursor < text.length) parts.push(text.slice(cursor));
+  return <>{parts}</>;
 }
 
 /** One student's work: research answers, plan, drafts, the AI draft to approve, scoring and reteach. */
@@ -76,8 +105,8 @@ function SubmissionCard({ task, x }: { task: TaskView; x: Sub }) {
       {x.firstDraft && <details className="mt-2 rounded-xl bg-slate-50 p-3 text-sm"><summary className="cursor-pointer font-semibold">📝 First draft</summary><p className="mt-2 whitespace-pre-line">{x.firstDraft}</p></details>}
       {x.text && (x.status !== "DRAFT" || x.stage === "REVISE") && (
         <div className="mt-2 rounded-xl bg-slate-50 p-3 text-slate-900">
-          <p className="whitespace-pre-line">{x.text}</p>
-          <p className="mt-1 text-xs text-slate-500">{x.words} words{x.checklist ? ` · self-check ✓ (${Object.keys(x.checklist).length}/${task.checklist.length})` : ""}{x.citesSource === true ? " · 📚 names a source" : x.citesSource === false ? " · ⚠️ does not name a source" : ""}{x.status === "DRAFT" ? " · still revising" : ""}</p>
+          <p className="whitespace-pre-line text-base leading-relaxed"><HighlightedText text={x.text} highlights={x.ai?.highlights} /></p>
+          <p className="mt-1 text-xs text-slate-500">{x.words} words{x.checklist ? ` · self-check ✓ (${Object.keys(x.checklist).length}/${task.checklist.length})` : ""}{x.citesSource === true ? " · 📚 names a source" : x.citesSource === false ? " · ⚠️ does not name a source" : ""}{x.status === "DRAFT" ? " · still revising" : ""}{x.ai?.highlights?.length ? " · 🖍️ AI highlighted spots below (hover for the fix)" : ""}</p>
         </div>
       )}
       {x.moves.length > 0 && x.stage !== "FINAL" && <p className="mt-2 text-sm text-slate-700">🔧 Revision steps: {x.moves.map((m) => m.text).join(" · ")}</p>}
@@ -102,6 +131,14 @@ function SubmissionCard({ task, x }: { task: TaskView; x: Sub }) {
             <div className="flex flex-wrap gap-x-4 gap-y-1">{x.ai!.conventions.map((c, i) => <label key={`${c.code}-${i}`} className="flex items-center gap-1"><input type="checkbox" name="code" value={c.code} defaultChecked /> {CODE_LABEL(c.code)}{c.example ? <i className="text-slate-500"> “{c.example}”</i> : null}</label>)}</div>
             <label className="mt-1 block">Add an error<select name="code" defaultValue="" className={sel}><option value="">–</option>{WRITING_ERROR_CODES.map((c) => <option key={c} value={c}>{CODE_LABEL(c)}</option>)}</select></label>
           </fieldset>
+          <fieldset className="mt-2"><legend className="font-semibold">Highlighted spots in the essay (exact words → fix) — edit any, clear a row to remove it, or fill a blank row to add more</legend>
+            <div className="mt-1 space-y-1">{[...(x.ai!.highlights ?? []), { quote: "", fix: "" }, { quote: "", fix: "" }].map((h, i) => (
+              <div key={i} className="flex flex-wrap gap-1">
+                <input name="hQuote" defaultValue={h.quote} placeholder="exact words from the essay" maxLength={160} className={`${box} min-w-[12rem] flex-1`} />
+                <input name="hFix" defaultValue={h.fix} placeholder="corrected version" maxLength={160} className={`${box} min-w-[12rem] flex-1`} />
+              </div>
+            ))}</div>
+          </fieldset>
           <label className="mt-2 block font-semibold">Summary for the student<input name="summary" defaultValue={x.ai!.summary} maxLength={400} className={box} /></label>
           <label className="mt-1 block font-semibold">Your comment (optional, replaces the summary as the comment)<input name="comment" maxLength={2000} className={box} /></label>
           {toRevise && <MovePicker task={task} />}
@@ -124,7 +161,7 @@ function SubmissionCard({ task, x }: { task: TaskView; x: Sub }) {
               {task.rubric.traits.map((r) => <label key={r.key} className="font-semibold" title={r.what}>{r.name}<select name={`s.${r.key}`} defaultValue={x.scores?.[r.key] ?? ""} required className={sel}><option value="" disabled>–</option>{levels.map((n) => <option key={n} value={n} title={r.levels[n]}>{n}</option>)}</select></label>)}
               {task.kind === "READ_ALOUD" && <label className="font-semibold" title="Words read correctly in one minute">WCPM<input type="number" name="wcpm" min={0} max={400} placeholder="e.g. 95" className={`${sel} w-24 font-normal`} /></label>}
             </div>
-            <label className="block font-semibold">Comment<input name="comment" defaultValue={x.comment ?? ""} maxLength={2000} className={box} /></label>
+            <label className="block font-semibold">Comment<textarea name="comment" defaultValue={x.comment ?? ""} maxLength={2000} rows={4} className={`${box} resize-y`} /></label>
             {task.kind === "WRITE" && <label className="block font-semibold">Convention errors seen (optional; feeds the class summary)<select name="code" multiple size={4} className={`${box} text-xs`}>{WRITING_ERROR_CODES.map((c) => <option key={c} value={c}>{CODE_LABEL(c)}</option>)}</select></label>}
             {toRevise && <MovePicker task={task} />}
             <button className="rounded-xl bg-emerald-600 px-4 py-2 font-semibold text-white">{x.status === "SCORED" ? "Update" : toRevise ? "Send feedback for revision" : "Save score"}</button>
@@ -256,7 +293,27 @@ export default async function WritingPage({ searchParams }: { searchParams: Prom
         {task && (
           <section className="min-w-0">
               <div className="rounded-[1.25rem] bg-surface p-5 shadow-card ring-1 ring-line">
-                <h2 className="flex items-center gap-2 text-xl font-bold text-brand-navy"><LineIcon name={task.kind === "WRITE" ? "writing" : "mic"} className="h-5 w-5 shrink-0" />{task.title}</h2>
+                <div className="flex flex-wrap items-start justify-between gap-2">
+                  <h2 className="flex items-center gap-2 text-xl font-bold text-brand-navy"><LineIcon name={task.kind === "WRITE" ? "writing" : "mic"} className="h-5 w-5 shrink-0" />{task.title}</h2>
+                  {task.canScore && (
+                    <details className="print:hidden">
+                      <summary className="inline-flex min-h-10 cursor-pointer list-none items-center rounded-xl bg-white px-3 text-sm font-semibold text-rose-700 ring-1 ring-rose-200 hover:ring-rose-400">✖ {tr("Cancel task")}</summary>
+                      <div className="mt-2 flex max-w-sm flex-col gap-2 rounded-xl bg-rose-50 p-3 text-sm ring-1 ring-rose-200">
+                        {/* 🗑 r87: the teacher's own choice — stop it but keep the record, or delete it for good */}
+                        <form action={withdrawTaskAction} className="flex flex-col gap-1">
+                          <input type="hidden" name="taskId" value={task.id} /><input type="hidden" name="classId" value={task.classId} /><input type="hidden" name="kind" value={task.kind} />
+                          <p className="text-amber-900">{tr("Stop sending to students. Work already given is kept, and you can undo this from Assigned.")}</p>
+                          <button className="self-start rounded-lg bg-white px-3 py-1.5 font-semibold text-amber-800 ring-1 ring-amber-300 hover:bg-amber-50">{tr("Stop (keep saved)")}</button>
+                        </form>
+                        <form action={cancelTaskAction} className="flex flex-col gap-1 border-t border-rose-200 pt-2">
+                          <input type="hidden" name="taskId" value={task.id} /><input type="hidden" name="classId" value={task.classId} />
+                          <p className="text-rose-900">{tr("Gone from here for good; no Undo. Work already submitted or scored stays in the history.")}</p>
+                          <button className="self-start rounded-lg bg-rose-700 px-3 py-1.5 font-semibold text-white hover:bg-rose-800">{tr("Delete permanently")}</button>
+                        </form>
+                      </div>
+                    </details>
+                  )}
+                </div>
                 {task.subs[0] && <Link prefetch={false} href={ITEM_PREVIEW.writing(task.id, task.subs[0].studentId)} className="mt-2 inline-flex min-h-10 items-center rounded-xl bg-white px-3 text-sm font-semibold text-brand-navy ring-1 ring-slate-300 print:hidden">👀 {tr("Preview as student")}</Link>}
                 <p className="text-sm text-slate-500">{task.genreLabel}{task.staged ? " · staged (plan → draft → revise → final)" : ""}{task.aiFeedback ? " · 🤖 AI drafts" : ""}{task.skill ? ` · skill: ${task.skill.name}` : ""}</p>
                 <p className="mt-1 whitespace-pre-line text-slate-700">{task.prompt}</p>

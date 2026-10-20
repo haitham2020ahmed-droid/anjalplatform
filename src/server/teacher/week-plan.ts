@@ -4,6 +4,7 @@
  * 🔢 Also the numbers on the navigation icons (tasks to do, overdue in red).
  */
 import { TtlCache } from "../lib/ttl-cache";
+import { modelVersion } from "../cache/bank-version";
 import type { Repo, Row } from "../seeding/repo";
 import { assertCan, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
@@ -25,7 +26,19 @@ const DAY = 86_400_000;
 export interface Suggestion { kind: "RETEACH" | "MAP_PLANS" | "GROUPS" | "ALERTS" | "RHYTHM"; text: string; href: string | null }
 export interface ClassSuggestions { classId: string; className: string; weak: { skillId: string; name: string; accuracy: number }[]; drafts: number; groups: number; suggestions: Suggestion[] }
 
+/**
+ * ⚡ "My Week" asks for this on every page load; underneath, every class of the teacher's re-scans 30 days of
+ * QuestionAttempt for its weakest skills, plus MAP plans, small groups, rhythm and open alerts — all uncached. Cache
+ * the finished list for a few seconds per actor (same TtlCache/modelVersion pattern as navCountsCached below).
+ */
+const weekSuggestionsCache = new TtlCache<ClassSuggestions[]>(15_000, 2000);
+
 export async function weekSuggestions(repo: Repo, actor: Actor, now = new Date()): Promise<ClassSuggestions[]> {
+  const key = `${actor.role}|${actor.schoolId}|${actor.userId}|${modelVersion("QuestionAttempt", "Skill", "MapPlan", "MapResult", "SchoolSetting", "StudentAlert", "ClassMembership")}`;
+  return weekSuggestionsCache.getOrLoad(key, () => readWeekSuggestions(repo, actor, now));
+}
+
+async function readWeekSuggestions(repo: Repo, actor: Actor, now: Date): Promise<ClassSuggestions[]> {
   assertCan(actor, "assignments:create");
   const classes = (await readableClasses(repo, actor)).sort((a, b) => s(a.name).localeCompare(s(b.name)));
   const out: ClassSuggestions[] = [];
