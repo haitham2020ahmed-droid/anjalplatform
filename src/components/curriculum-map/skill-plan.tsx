@@ -81,6 +81,9 @@ export function SkillPlan({ basePath, grade, grades, unitIx, units, pdfHref, stu
           </label>
         ) : <span className="rounded-full bg-white px-4 py-2 font-bold text-brand-navy">{t("Grade {n}", { n: grade })}</span>}
         <div className="flex flex-wrap gap-2">
+          {/* 🔁 r90 ("عايز أضيف كمان كلمه review تكون موجوده اعلي الخطه"): not tied to one Text Set — pick any
+              Text Sets/Selections (any unit) or any Skills of this whole grade, then assign the result. */}
+          {canAssign && <Link href={`/teacher/review-builder?grade=${grade}`} prefetch={false} className="inline-flex min-h-10 items-center gap-1.5 rounded-xl bg-white/15 px-4 py-2 text-sm font-semibold ring-1 ring-white/40 hover:bg-white/25">🔁 {t("Review")}</Link>}
           {reportHref && <Link href={reportHref} prefetch={false} className="inline-flex min-h-10 items-center gap-1.5 rounded-xl bg-white/15 px-4 py-2 text-sm font-semibold ring-1 ring-white/40 hover:bg-white/25">📈 {t("View report")}</Link>}
           <a href={pdfHref} className="inline-flex min-h-10 items-center gap-1.5 rounded-xl bg-white px-4 py-2 text-sm font-semibold text-brand-navy shadow hover:bg-slate-50">🖨 {t("Print skill plan")}</a>
         </div>
