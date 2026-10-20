@@ -268,13 +268,24 @@ export function curriculumMapHtml(d: MapPdfData, o: MapHtmlOptions): string {
   const left = (sec: MapPdfSection) => {
     // Grade 6 (StudySync): the selection IS the lesson — its name once, not twice
     const sels = sec.essentialQuestion ? sec.selections : sec.selections.filter((x) => x.name !== sec.title);
-    return `<p class="wk"><b>${esc(sectionLabel(sec, L))}:</b> <bdi dir="ltr">${esc(sec.essentialQuestion ?? sec.title)}</bdi></p>${sec.essentialQuestion ? `<p class="ts" dir="ltr">${esc(sec.title)}</p>` : sec.genre && !sec.title.includes(sec.genre) ? `<p class="ts" dir="ltr">${esc(sec.genre)}</p>` : ""}${sels.length ? `<ul class="sel" dir="ltr">${sels.map((x) => `<li><span class="sl">${esc(x.label)}:</span> <i>${esc(x.name)}</i></li>`).join("")}</ul>` : ""}`;
+    return `<span class="wk-pill">${esc(sectionLabel(sec, L))}</span><p class="wk-q"><bdi dir="ltr">${esc(sec.essentialQuestion ?? sec.title)}</bdi></p>${sec.essentialQuestion ? `<p class="ts" dir="ltr">${esc(sec.title)}</p>` : sec.genre && !sec.title.includes(sec.genre) ? `<p class="ts" dir="ltr">${esc(sec.genre)}</p>` : ""}${sels.length ? `<ul class="sel" dir="ltr">${sels.map((x) => `<li><span class="sl">${esc(x.label)}:</span> <i>${esc(x.name)}</i></li>`).join("")}</ul>` : ""}`;
   };
+  // r87 (owner: "عدل شكلهم... زي ما اتفقنا قبل"): the Curriculum Map and the Skill Plan print the SAME PDF (this
+  // file) — a plain bordered <table> of weeks vs. skills — so one visual pass covers both. Each Text Set is now its
+  // own rounded, shadowed card (header pill for "Week(s) N", two soft panels side by side) instead of a table row,
+  // which is what kept causing the overlap the teacher saw: a table row's two <td>s force everything in the taller
+  // one to the same fixed height band as the other, so a long skill list (right) pushed its own text up against a
+  // short textbook blurb (left) with no breathing room. Cards size to their own content instead.
+  const sectionCard = (sec: MapPdfSection, extra = "") => `<div class="sec-card${extra}"><div class="sec-l">${left(sec)}</div><div class="sec-r">${right(sec)}</div></div>`;
   const units = d.units.map((u) => {
     const uhref = planHref({ kind: "curriculum-unit", grade: d.grade, unit: u.number }, aud, origin);
     const qr = uhref ? planQrSvg(uhref, 50, origin) : "";
+    const writingCard = u.writing.length
+      ? `<div class="sec-card uw"><div class="sec-l"><span class="wk-pill uw-pill">${esc(w.unitWriting)}</span><p class="wk-q">${esc(w.unitWritingNote)}</p></div><div class="sec-r">${right({ skills: u.writing } as MapPdfSection)}</div></div>`
+      : "";
     return `<section class="unit"><div class="unit-h"><span class="unit-badge">${u.number}</span><h2>${esc(fill(w.unit, { n: u.number }))}</h2><span class="unit-title" dir="ltr">${esc(u.title)}</span>${qr && uhref ? `<a class="qr" href="${esc(uhref)}">${qr}</a>` : ""}</div>
-<div class="map-card"><table><colgroup><col style="width:44%"><col style="width:56%"></colgroup><thead><tr><th scope="col">${esc(w.textbook)}</th><th scope="col">${esc(w.skills)}</th></tr></thead><tbody>${u.sections.map((sec) => `<tr><td class="l">${left(sec)}</td><td class="r">${right(sec)}</td></tr>`).join("")}${u.writing.length ? `<tr class="uw"><td class="l"><p class="wk"><b>${esc(w.unitWriting)}:</b> ${esc(w.unitWritingNote)}</p></td><td class="r">${right({ skills: u.writing } as MapPdfSection)}</td></tr>` : ""}</tbody></table></div></section>`;
+<div class="col-heads"><span>${esc(w.textbook)}</span><span>${esc(w.skills)}</span></div>
+<div class="sections">${u.sections.map((sec) => sectionCard(sec)).join("")}${writingCard}</div></section>`;
   }).join("");
   const css = `
 @page { size: A4; margin: 12mm 12mm 16mm 12mm; }
@@ -323,28 +334,31 @@ bdi { unicode-bidi: isolate; }
 .unit-h h2 { margin: 0; font-size: 20pt; color: ${navy}; }
 .unit-title { color: #64748b; font-size: 9.5pt; font-style: italic; }
 .qr { display: block; line-height: 0; margin-inline-start: auto; }
-.map-card { border-radius: 12px; overflow: hidden; box-shadow: 0 2px 10px rgba(15,23,42,.08); border: 1px solid #e2e8f0; }
-table { width: 100%; border-collapse: collapse; table-layout: fixed; }
-thead { display: table-header-group; }
-th { background: linear-gradient(135deg, ${navy}, ${blue}); color: #fff; text-align: start; padding: 7px 11px; font-size: 10pt; letter-spacing: .01em; }
-td { vertical-align: top; padding: 9px 11px; border-bottom: 1px solid #eef3f6; }
-tbody tr:nth-of-type(even) { background: #f8fafc; }
-tr.uw { background: #fdf6e8 !important; }
-tr { break-inside: auto; }
-.wk { margin: 0 0 4px; }
-.wk b { color: ${navy}; }
+
+/* ---------- column headings + Text Set cards (one per week / selection) ---------- */
+.col-heads { display: grid; grid-template-columns: 38% 62%; gap: 10px; margin-bottom: 6px; break-after: avoid; }
+.col-heads span { background: linear-gradient(135deg, ${navy}, ${blue}); color: #fff; border-radius: 9px; padding: 5px 12px; font-size: 8.4pt; font-weight: 700; letter-spacing: .03em; text-transform: uppercase; }
+.sections { display: flex; flex-direction: column; gap: 8px; }
+.sec-card { display: grid; grid-template-columns: 38% 62%; gap: 0; border-radius: 14px; overflow: hidden; box-shadow: 0 2px 9px rgba(15,23,42,.07); border: 1px solid #e7ecf1; background: #fff; break-inside: avoid; }
+.sec-card.uw { background: #fdf8ec; border-color: #f3e4bd; }
+.sec-l { padding: 10px 13px; background: #f8fafc; border-inline-end: 1px solid #eef2f6; }
+.sec-card.uw .sec-l { background: #fbf1da; border-inline-end-color: #f3e4bd; }
+.sec-r { padding: 10px 13px; }
+.wk-pill { display: inline-block; background: ${blue}; color: #fff; border-radius: 999px; padding: 2px 11px; font-size: 7.6pt; font-weight: 800; letter-spacing: .02em; }
+.uw-pill { background: #d97706; }
+.wk-q { margin: 6px 0 3px; font-weight: 600; color: #1e293b; }
 .ts { margin: 0 0 4px; color: #475569; font-size: 8.8pt; }
 ul.sel { margin: 4px 0 0; padding: 0; list-style: none; font-size: 8.8pt; text-align: left; }
 ul.sel li { margin: 1px 0; }
 .sl { color: #64748b; }
-.grp { break-inside: avoid; margin-bottom: 8px; padding-inline-start: 9px; border-inline-start: 3px solid #e2e8f0; }
-.grp[data-cat="vocabulary"] { border-inline-start-color: #8b5cf6; }
-.grp[data-cat="comprehension"] { border-inline-start-color: ${blue}; }
-.grp[data-cat="word-study"] { border-inline-start-color: #f59e0b; }
-.grp[data-cat="writing"] { border-inline-start-color: #ec4899; }
-.grp[data-cat="grammar"] { border-inline-start-color: #10b981; }
-.grp[data-cat="review"] { border-inline-start-color: #0ea5e9; }
-.grp h4 { margin: 0 0 3px; font-size: 9.8pt; color: ${navy}; }
+.grp { break-inside: avoid; margin-bottom: 7px; padding: 5px 9px; border-radius: 9px; border-inline-start: 3px solid #e2e8f0; }
+.grp[data-cat="vocabulary"] { border-inline-start-color: #8b5cf6; background: rgba(139,92,246,.06); }
+.grp[data-cat="comprehension"] { border-inline-start-color: ${blue}; background: rgba(37,99,235,.05); }
+.grp[data-cat="word-study"] { border-inline-start-color: #f59e0b; background: rgba(245,158,11,.06); }
+.grp[data-cat="writing"] { border-inline-start-color: #ec4899; background: rgba(236,72,153,.05); }
+.grp[data-cat="grammar"] { border-inline-start-color: #10b981; background: rgba(16,185,129,.06); }
+.grp[data-cat="review"] { border-inline-start-color: #0ea5e9; background: rgba(14,165,233,.06); }
+.grp h4 { margin: 0 0 3px; font-size: 9.6pt; color: ${navy}; }
 .grp h4 a.plink { color: ${navy}; border-bottom-color: rgba(30,58,95,.35); }
 .grp[data-cat="vocabulary"] h4::before { content: "🔤  "; }
 .grp[data-cat="comprehension"] h4::before { content: "📖  "; }
@@ -353,14 +367,14 @@ ul.sel li { margin: 1px 0; }
 .grp[data-cat="grammar"] h4::before { content: "🧩  "; }
 .grp[data-cat="review"] h4::before { content: "🔁  "; }
 .grp ol { margin: 0; padding: 0; list-style: none; }
-.grp li { margin: 2px 0; padding-inline-start: 18px; text-indent: -18px; }
-.status { display: inline-block; border-radius: 6px; padding: 1px 7px; font-size: 7pt; font-weight: 700; letter-spacing: .02em; margin-inline-start: 4px; }
+.grp li { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px; margin: 2px 0; }
+.status { display: inline-block; border-radius: 6px; padding: 1px 7px; font-size: 7pt; font-weight: 700; letter-spacing: .02em; }
 .status.ok { background: #d1fae5; color: #065f46; }
 .status.wait { background: #f1f5f9; color: #64748b; }
-.n { display: inline-block; min-width: 16px; color: #94a3b8; font-weight: 700; }
+.n { display: inline-block; min-width: 14px; color: #94a3b8; font-weight: 700; flex: none; }
 a.plink { color: #1d4ed8; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(29,78,216,.35); }
-.code { display: inline-block; color: #fff; background: #94a3b8; font-size: 7pt; font-weight: 700; letter-spacing: .02em; border-radius: 6px; padding: 1px 6px; margin-inline-start: 4px; }
-.muted { color: #94a3b8; }
+.code { display: inline-block; color: #fff; background: #94a3b8; font-size: 7pt; font-weight: 700; letter-spacing: .02em; border-radius: 6px; padding: 1px 6px; }
+.muted { color: #94a3b8; margin: 0; }
 `;
   return `<!doctype html><html lang="${L}" dir="${dir}"><head><meta charset="utf-8"><title>${esc(title)}</title><style>${o.fontCss ?? ""}\n${css}</style></head><body>${cover}${units}</body></html>`;
 }
