@@ -79,6 +79,14 @@ export default async function CurriculumMapPage({ searchParams }: { searchParams
             <Link href={viewLink("lessons")} prefetch={false} aria-current={view === "lessons" ? "page" : undefined} className={`${tab} ${view === "lessons" ? "bg-brand-purple text-white" : "bg-white text-brand-navy ring-1 ring-slate-200"}`}>{t("Lessons")}</Link>
           </nav>
 
+          {/* 🐛 fix ("لما بضغط علي كلمه assign هنا مش متفعله اصلا"): the Skill plan tab's Concept Vocabulary /
+              Analyze Craft and Structure / Review rows (LessonSectionRows, inside SkillPlan below) reuse the
+              Lessons tab's own "⭐ Assign" button, which only ever dispatches a "please open" event — the actual
+              assign window (MapAssignHost) used to be mounted ONLY inside the Lessons tab's own branch further
+              down, so on the Skill plan tab the click fired into the void: no window was listening, so nothing
+              visibly happened. Mounted here instead, above both tabs, it listens regardless of which tab is open. */}
+          {canAssign && roster.length > 0 && <MapAssignHost classes={roster} assign={assignPlaceAction} alreadySent={mapCodeSentAction} />}
+
           {view === "plan" && (plan ? (
             <div className="mt-3">
               <SkillPlan basePath="/admin/curriculum-map" grade={v.grade} grades={v.grades} unitIx={planUnitIx} units={plan.units}
@@ -123,7 +131,6 @@ export default async function CurriculumMapPage({ searchParams }: { searchParams
                   </div>
                 </section>
               )}
-              {canAssign && roster.length > 0 && <MapAssignHost classes={roster} assign={assignPlaceAction} alreadySent={mapCodeSentAction} />}
             </>
           )}
           {canSend && <SendPlanHost key={v.grade} grade={v.grade} send={sendScopeAction} preview={sendPreviewAction}
