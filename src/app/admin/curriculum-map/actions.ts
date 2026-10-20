@@ -2,7 +2,7 @@
 import { repo, requireActor } from "@/server/auth/next";
 import { ForbiddenError } from "@/server/auth/rbac";
 import { ValidationError } from "@/server/curriculum-admin";
-import { assignFromMap, setStudentLevels } from "@/server/curriculum-map/levels";
+import { assignFromMap, placeQuestionChoices, setStudentLevels, type PlaceQuestionChoice } from "@/server/curriculum-map/levels";
 import { assignSkill, cancelSkillAssignmentsForClass, cancelSkillAssignmentsForStudents, DEFAULT_TARGET_CORRECT, hasPriorSkillAssignment } from "@/server/teacher/assign";
 import { assertClassAccess } from "@/server/teacher/assignments";
 import { masteredInClasses } from "@/server/skills/status-extras";
@@ -11,7 +11,9 @@ import { getT } from "@/i18n/server";
 import { buildSendPreview, sendScope, type SendPreview, type SendScopeKind, type SendScopeResult } from "@/server/curriculum-map/send-scope";
 import { sentCodesByClass, sentOn } from "@/server/curriculum-map/sent";
 
-export interface PlaceAssignInput { /** r74: the required Source */ source?: string | null; classId: string; code: string; studentIds?: string[]; mode?: "ADAPTIVE" | "BY_LEVEL"; startLevels?: { studentId: string; level: "ABOVE" | "ON" | "BELOW" }[]; max?: number; dueAt?: string | null; /** r68: students see it from this day */ startAt?: string | null; note?: string | null }
+export interface PlaceAssignInput { /** r74: the required Source */ source?: string | null; classId: string; code: string; studentIds?: string[]; mode?: "ADAPTIVE" | "BY_LEVEL"; startLevels?: { studentId: string; level: "ABOVE" | "ON" | "BELOW" }[]; max?: number; dueAt?: string | null; /** r68: students see it from this day */ startAt?: string | null; note?: string | null;
+  /** 🔎 r91 "I'll pick the questions": the teacher's own exact pick — when given, overrides mode/max/startLevels entirely. */
+  questionIds?: string[] }
 
 /** ⭐ Assign from the Curriculum Map, without leaving the page. */
 export async function assignPlaceAction(input: PlaceAssignInput): Promise<{ ok: boolean; message: string }> {
@@ -22,10 +24,10 @@ export async function assignPlaceAction(input: PlaceAssignInput): Promise<{ ok: 
     // adaptive: the number is the goal of correct answers (the student may keep practising after it)
     const adaptive = (input.mode ?? "ADAPTIVE") === "ADAPTIVE";
     // ✋ the teacher chose each student's starting level: saved as their level (the set adapts from there)
-    if (input.startLevels?.length) await setStudentLevels(repo, actor, input.classId, input.startLevels.filter((x) => ["ABOVE", "ON", "BELOW"].includes(x.level)));
+    if (!input.questionIds?.length && input.startLevels?.length) await setStudentLevels(repo, actor, input.classId, input.startLevels.filter((x) => ["ABOVE", "ON", "BELOW"].includes(x.level)));
     const startAt = startOfDay(input.startAt);
     if (startAt && due && due.getTime() < startAt.getTime()) throw new ValidationError(DATE_ORDER_ERROR);
-    const r = await assignFromMap(repo, actor, { classId: input.classId, categoryCode: input.code, studentIds: input.studentIds, mode: input.mode, maxQuestions: input.max, targetCorrect: adaptive ? input.max ?? DEFAULT_TARGET_CORRECT : null, dueAt: due, startAt, note: input.note ?? null, source: input.source ?? null });
+    const r = await assignFromMap(repo, actor, { classId: input.classId, categoryCode: input.code, studentIds: input.studentIds, mode: input.mode, maxQuestions: input.max, targetCorrect: adaptive ? input.max ?? DEFAULT_TARGET_CORRECT : null, dueAt: due, startAt, note: input.note ?? null, source: input.source ?? null, questionIds: input.questionIds?.length ? input.questionIds : undefined });
     const LV = { ABOVE: "Exceeding", ON: "Meeting", BELOW: "Approaching" } as const;
     const parts = r.groups.map((g) => `${g.level ? LV[g.level] : "everyone"}: ${g.students} student(s)`);
     return { ok: true, message: `Assigned ✓ ${parts.join(" · ")}. Students were notified.${r.notes.length ? ` ${r.notes.join(" ")}` : ""}` };
@@ -173,4 +175,11 @@ export async function shareMapPdfAction(input: { grade: number; classIds: string
     if (e instanceof ValidationError || e instanceof ForbiddenError) return { ok: false, message: t(e.message) };
     throw e;
   }
+}
+
+/** 🔎 r91 "I'll pick the questions": this place's own questions, for the ⭐ Assign window's picker. */
+export async function placeQuestionChoicesAction(code: string, q?: string): Promise<{ ok: true; value: PlaceQuestionChoice[] } | { ok: false; message: string }> {
+  const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"], permission: "assignments:create" });
+  try { return { ok: true, value: await placeQuestionChoices(repo, actor, String(code ?? ""), q ?? "") }; }
+  catch (e) { if (e instanceof ValidationError || e instanceof ForbiddenError) return { ok: false, message: e.message }; throw e; }
 }
