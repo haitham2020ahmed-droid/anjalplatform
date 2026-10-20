@@ -82,7 +82,7 @@ export function processAnswer(
   const before = computeMastery(state.history, state.ability.theta, cfg.mastery, adaptive, now, state.ability.se);
   const history = [...state.history, response];
 
-  const est = estimateAbilityEAP(history.map((r) => toWeighted(r, adaptive)), {
+  const est = estimateAbilityEAP(history.map((r) => toWeighted(r, adaptive, now)), {
     priorMean: state.prior.mean,
     priorSD: state.prior.sd,
     thetaMin: adaptive.thetaMin,

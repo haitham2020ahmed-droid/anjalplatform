@@ -145,7 +145,18 @@ export function geminiProvider(env: TtsEnv, o: ProviderOpts = {}): TtsProvider {
       const pcm: Int16Array[] = [];
       const starts: number[] = [];
       let offset = 0, billed = 0, requests = 0;
-      for (const [a, b] of chunkWords(words, 1500)) {
+      // 🐛 fix (audit finding, Oct 2026): Gemini never returns real per-word timestamps, so the highlighted word is
+      // always a linear estimate (character count ÷ audio duration) — see estimateWordTimes above. Gemini's
+      // expressive, non-uniform pacing (pauses, emphasis, slow-reading style) makes that estimate drift further
+      // from the real audio the longer a single chunk runs uninterrupted, so the highlight visibly falls behind the
+      // voice on a long passage. Each chunk boundary re-anchors the estimate to where the audio for that chunk
+      // actually started, so a SMALLER chunk resets the drift more often and keeps it from accumulating across a
+      // whole passage. 300 matches the same budget already used for Google's own non-exact-timing voices (see
+      // googleProvider above, "about one sentence per request, so the estimated word timings restart at every
+      // sentence and never drift far") — a real fix would need Gemini to return real per-word timestamps, which it
+      // doesn't offer today; this bounds the symptom instead. Audio is cached per text+voice+speed, so the extra
+      // Gemini requests this costs happen once per passage/question, not once per student play.
+      for (const [a, b] of chunkWords(words, 300)) {
         const plain = words.slice(a, b).map((w) => w.text).join(" ");
         billed += plain.length;
         const r = await post(f, `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model)}:generateContent`, { "x-goog-api-key": key }, geminiTtsBody(plain, voiceName, style), o.timeoutMs ?? 120_000, "Gemini speech");

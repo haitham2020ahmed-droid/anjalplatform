@@ -150,7 +150,7 @@ export async function recordSkillEvidence(repo: Repo, studentId: string, items: 
     const history = await skillHistoryWithEvidence(repo, studentId, skillId, byId);
     const dom = await repo.findUnique("StudentAbility", { studentId, scope: `DOMAIN:${s(skill.domain)}` });
     const prior = { mean: dom ? Number(dom.theta) : cfg.adaptive.priorMean, sd: cfg.adaptive.priorSD };
-    const est = estimateAbilityEAP(history.map((r) => toWeighted(r, cfg.adaptive)), { priorMean: prior.mean, priorSD: prior.sd, thetaMin: cfg.adaptive.thetaMin, thetaMax: cfg.adaptive.thetaMax, model: cfg.adaptive.model });
+    const est = estimateAbilityEAP(history.map((r) => toWeighted(r, cfg.adaptive, now)), { priorMean: prior.mean, priorSD: prior.sd, thetaMin: cfg.adaptive.thetaMin, thetaMax: cfg.adaptive.thetaMax, model: cfg.adaptive.model });
     let mst = computeMastery(history, est.theta, cfg.mastery, cfg.adaptive, now, est.se);
     const prev = await repo.findUnique("StudentSkillMastery", { studentId, skillId });
     // fairness rule (shared — mastery/mastery.ts#withholdRaise): evidence with no correct answer never raises a

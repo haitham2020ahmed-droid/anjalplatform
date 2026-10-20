@@ -60,6 +60,17 @@ export interface AdaptiveConfig {
   noRepeatWindow: number;
   /** Randomise among the top-K candidate items (exposure control). */
   topK: number;
+  /**
+   * 🐛 fix (audit finding, Oct 2026): the ability estimate (θ) — which the mastery formula weights 0.8, by far
+   * its largest component — used to weigh every answer on a skill equally forever, so weeks- or months-old wrong
+   * answers held a genuinely-improved student's θ (and therefore their mastery stars/recommendations) down long
+   * after the student's own recent work showed real growth. `recentAccuracy` already decayed (RECENCY_HALF_LIFE,
+   * by answer position) and the platform's own "overall level" (level-evidence.ts) already decays by calendar days
+   * (14-day half-life) — this brings θ itself in line with that same proven approach.
+   * Half-life in days for each answer's weight in the θ estimate: weight *= 0.5^(ageDays / thetaHalfLifeDays).
+   * 0 (or unset) disables decay — every answer counts equally forever, the old behaviour.
+   */
+  thetaHalfLifeDays: number;
 }
 
 export interface MasteryThresholds {
@@ -103,6 +114,9 @@ export const DEFAULT_ADAPTIVE: AdaptiveConfig = {
   repeatWeight: 0.5,
   noRepeatWindow: 25,
   topK: 3,
+  // 21 days: a 2-month-old answer counts for ~14% of a fresh one, a 1-week-old answer still counts for ~79% — old
+  // evidence fades meaningfully without erasing a skill a student simply hasn't practised in the last few days.
+  thetaHalfLifeDays: 21,
 };
 
 export const DEFAULT_MASTERY: MasteryThresholds = {

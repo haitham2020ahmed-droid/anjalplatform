@@ -67,6 +67,15 @@ export function ReviewBuilder({ grade, initial, sets, skillUnits, roster }: {
   const [w, setW] = useState<WrittenQuestion>(blank());
   const [q, setQ] = useState("");
   const [bank, setBank] = useState<MapSourceQuestion[] | null>(null);
+  // 🐛 fix (audit finding, Oct 2026): the bank search used to cap at the first 20 results with no way to see the
+  // rest. This tracks the last search's paging so "next page"/"previous page" can re-run it with `page` set.
+  const [bankPage, setBankPage] = useState<{ mine: boolean; page: number; pages: number; total: number } | null>(null);
+  const runBankSearch = (opts: { mine?: boolean; page?: number } = {}) => go(async () => {
+    const mine = opts.mine ?? false;
+    const r = await customBankAction(mine ? { mine: true, page: opts.page } : { q, page: opts.page });
+    if (r.ok) { setBank(r.value.rows); setBankPage({ mine, page: r.value.page, pages: r.value.pages, total: r.value.total }); }
+    else setMsg({ ok: false, text: r.message });
+  });
   // ⭐ assign mini-form
   const [classId, setClassId] = useState(roster[0]?.id ?? "");
   const [mode, setMode] = useState<"FIXED" | "ADAPTIVE">("FIXED");
@@ -296,16 +305,27 @@ export function ReviewBuilder({ grade, initial, sets, skillUnits, roster }: {
         )}
         {tab === "bank" && (
           <div className="mt-3 space-y-2">
-            <form className="flex gap-2" onSubmit={(e) => { e.preventDefault(); go(async () => { const r = await customBankAction({ q }); if (r.ok) setBank(r.value.rows); else setMsg({ ok: false, text: r.message }); }); }}>
+            <form className="flex gap-2" onSubmit={(e) => { e.preventDefault(); runBankSearch({ mine: false, page: 1 }); }}>
               <input type="search" value={q} onChange={(e) => setQ(e.target.value)} placeholder={t("Words from the question (3 letters or more)")} className={`${field} mt-0`} />
               <button className={btn} disabled={busy}>{t("Search")}</button>
-              <button type="button" className={btn} disabled={busy} onClick={() => go(async () => { const r = await customBankAction({ mine: true }); if (r.ok) setBank(r.value.rows); else setMsg({ ok: false, text: r.message }); })}>{t("My edited copies")}</button>
+              <button type="button" className={btn} disabled={busy} onClick={() => runBankSearch({ mine: true, page: 1 })}>{t("My edited copies")}</button>
             </form>
             {bank && (bank.length ? (
-              <ul className="divide-y divide-slate-100">{bank.map((x) => (
-                <li key={x.id} className="flex flex-wrap items-center justify-between gap-2 py-2 text-sm"><span data-content lang="en" className="min-w-0 flex-1"><RichInline text={x.stem} /></span>
-                  <button type="button" className={btn} disabled={busy || ids.includes(x.id)} onClick={() => go(async () => { apply(await customReviewChangeAction(grade, { op: "addBank", questionId: x.id }), t("Added ✓")); })}>{ids.includes(x.id) ? "✓" : t("Add")}</button></li>
-              ))}</ul>
+              <>
+                <ul className="divide-y divide-slate-100">{bank.map((x) => (
+                  <li key={x.id} className="flex flex-wrap items-center justify-between gap-2 py-2 text-sm"><span data-content lang="en" className="min-w-0 flex-1"><RichInline text={x.stem} /></span>
+                    <button type="button" className={btn} disabled={busy || ids.includes(x.id)} onClick={() => go(async () => { apply(await customReviewChangeAction(grade, { op: "addBank", questionId: x.id }), t("Added ✓")); })}>{ids.includes(x.id) ? "✓" : t("Add")}</button></li>
+                ))}</ul>
+                {bankPage && bankPage.pages > 1 && (
+                  <div className="flex items-center justify-between gap-2 pt-2 text-sm text-slate-600">
+                    <span>{t("Page {page} of {pages} ({total} questions)", { page: bankPage.page, pages: bankPage.pages, total: bankPage.total })}</span>
+                    <div className="flex gap-2">
+                      <button type="button" className={btn} disabled={busy || bankPage.page <= 1} onClick={() => runBankSearch({ mine: bankPage.mine, page: bankPage.page - 1 })}>{t("◀ Previous")}</button>
+                      <button type="button" className={btn} disabled={busy || bankPage.page >= bankPage.pages} onClick={() => runBankSearch({ mine: bankPage.mine, page: bankPage.page + 1 })}>{t("Next ▶")}</button>
+                    </div>
+                  </div>
+                )}
+              </>
             ) : <p className="text-sm text-slate-600">{t("No question matches.")}</p>)}
 
             {/* 🔎 r91 ("زي اللي موجودة عند واجهة المعلم"): browse by skill — the same level filter + search + full

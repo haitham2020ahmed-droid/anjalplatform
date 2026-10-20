@@ -481,7 +481,7 @@ export async function recomputeSkill(repo: Repo, studentId: string, skillId: str
   }
   const dom = await repo.findUnique("StudentAbility", { studentId, scope: `DOMAIN:${s(skill.domain)}` });
   const prior = { mean: dom ? Number(dom.theta) : cfg.adaptive.priorMean, sd: cfg.adaptive.priorSD };
-  const est = estimateAbilityEAP(history.map((r) => toWeighted(r, cfg.adaptive)), { priorMean: prior.mean, priorSD: prior.sd, thetaMin: cfg.adaptive.thetaMin, thetaMax: cfg.adaptive.thetaMax, model: cfg.adaptive.model });
+  const est = estimateAbilityEAP(history.map((r) => toWeighted(r, cfg.adaptive, now)), { priorMean: prior.mean, priorSD: prior.sd, thetaMin: cfg.adaptive.thetaMin, thetaMax: cfg.adaptive.thetaMax, model: cfg.adaptive.model });
   const mst = computeMastery(history, est.theta, cfg.mastery, cfg.adaptive, now, est.se);
   const last = all.reduce((m, a) => Math.max(m, t(a.createdAt)), 0);
   const prev = await repo.findUnique("StudentSkillMastery", { studentId, skillId });

@@ -6318,4 +6318,7 @@ export const ar: Record<UiString, string> = {
   "Load the skills": "تحميل المهارات",
   "Add a whole skill": "إضافة مهارة كاملة",
   "How many questions?": "كام سؤال؟",
+  "Page {page} of {pages} ({total} questions)": "صفحة {page} من {pages} ({total} سؤال)",
+  "◀ Previous": "◀ السابق",
+  "Next ▶": "التالي ▶",
 };

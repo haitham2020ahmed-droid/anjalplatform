@@ -829,6 +829,8 @@ export const UI_STRINGS = [
   "Assigned ✓ ({n} students)", "Choose a grade first", "Open the Skill plan tab for a grade, then press 🔁 Review there.",
   "Build a Review from any Text Sets or Skills of this grade's whole plan, then assign it.", "No questions to show.",
   "Or browse by skill", "Load the skills", "Add a whole skill", "How many questions?",
+  // 🐛 fix (audit finding, Oct 2026): pagination for "From the bank" (it used to show only the first 20 matches)
+  "Page {page} of {pages} ({total} questions)", "◀ Previous", "Next ▶",
 ] as const;
 
 export type UiString = (typeof UI_STRINGS)[number];
