@@ -3,7 +3,7 @@ import { repo, requireActor } from "@/server/auth/next";
 import { ForbiddenError } from "@/server/auth/rbac";
 import { ValidationError } from "@/server/curriculum-admin";
 import {
-  changeCustomReview, customDraftQuestion, customEditQuestion, customQuestionDetail, customReviewView, customSetChoices, customSkillChoices, customWriteQuestion, reviewBankSearch, skillQuestionPreview,
+  changeCustomReview, customDraftQuestion, customEditQuestion, customQuestionDetail, customReviewView, customSetChoices, customSkillChoices, customWriteQuestion, reviewBankSearch, setQuestionPreview, skillQuestionPreview,
   type CustomReviewChange, type CustomReviewView, type ReviewSetUnit, type ReviewSkillUnit, type WrittenQuestion,
 } from "@/server/curriculum-map/review-control";
 import type { BankFilter, BankResults, CopyEdit } from "@/server/tests/review";
@@ -40,6 +40,11 @@ export async function customSkillChoicesAction(grade: number): Promise<Out<Revie
 export async function skillPreviewAction(skillId: string, level?: "ABOVE" | "ON" | "BELOW" | "ANY"): Promise<Out<string[]>> {
   const actor = await requireActor(TEACHER);
   return run(() => skillQuestionPreview(repo, actor, String(skillId ?? ""), level ?? "ANY"));
+}
+/** 👁 r91 "Text Sets" tab preview: the first few question stems of one Text Set's category, before ticking it. */
+export async function setPreviewAction(grade: number, unit: number, setNumber: number, category: "CONCEPT_VOCABULARY" | "ANALYZE_CRAFT_AND_STRUCTURE" | "REVIEW", level?: "ABOVE" | "ON" | "BELOW" | "ANY"): Promise<Out<string[]>> {
+  const actor = await requireActor(TEACHER);
+  return run(() => setQuestionPreview(repo, actor, Number(grade), Number(unit), Number(setNumber), category, level ?? "ANY"));
 }
 /** ✏️ Edit = my private copy. */
 export async function customEditAction(grade: number, edit: CopyEdit): Promise<Out<CustomReviewView>> {

@@ -5,12 +5,16 @@ import type { CustomReviewView, ReviewSetUnit, ReviewSkillUnit, WrittenQuestion 
 import type { MapSourceQuestion } from "@/server/tests/map-source";
 import {
   customBankAction, customDetailAction, customDraftAction, customEditAction, customReviewAssignAction, customReviewChangeAction,
-  customSetChoicesAction, customSkillChoicesAction, customWriteAction, skillPreviewAction,
+  customSetChoicesAction, customSkillChoicesAction, customWriteAction, setPreviewAction, skillPreviewAction,
 } from "@/app/teacher/review-builder/actions";
 import { RichInline } from "@/components/rich-inline";
 import { SourceSelect } from "@/components/assign/source-select";
 import type { AssignSource } from "@/lib/assign-source";
 import type { RosterClass } from "./assign-button";
+import { loadSkillQuestions } from "@/components/skill-picker/load";
+import { filterQuestions, isCorrectChoice, LEVEL_FILTERS, type LevelFilter as PickerLevelFilter, type PickerQuestion } from "@/components/skill-picker/helpers";
+
+const PICKER_LV: Record<PickerLevelFilter, string> = { ALL: "All levels", BELOW: "Approaching", ON: "Meeting", ABOVE: "Exceeding" };
 
 const btn = "inline-flex min-h-9 items-center rounded-lg px-3 text-sm font-semibold ring-1 ring-slate-300 hover:ring-brand-teal disabled:opacity-50";
 const main = "inline-flex min-h-10 items-center rounded-xl bg-brand-navy px-4 text-sm font-semibold text-white disabled:opacity-50";
@@ -46,6 +50,14 @@ export function ReviewBuilder({ grade, initial, sets, skillUnits, roster }: {
   const [setPicks, setSetPicks] = useState<Record<string, Set<Cat>>>({});
   const [skillPicks, setSkillPicks] = useState<Set<string>>(new Set());
   const [preview, setPreview] = useState<{ id: string; stems: string[] } | null>(null);
+  // 👁 r91 "Text Sets" tab preview, keyed by "{unit}.{setNumber}.{category}"
+  const [tsPreview, setTsPreview] = useState<{ key: string; stems: string[] } | null>(null);
+  // 🔎 r91 "From the bank" tab: browse one skill's own questions, like the teacher's other assign screens
+  const [bankSkillsData, setBankSkillsData] = useState<ReviewSkillUnit[] | null>(skillUnits.length ? skillUnits : null);
+  const [openSkill, setOpenSkill] = useState<string>("");
+  const [skillQs, setSkillQs] = useState<{ id: string; list: PickerQuestion[] | null }>({ id: "", list: null });
+  const [skillLv, setSkillLv] = useState<PickerLevelFilter>("ALL");
+  const [skillSearch, setSkillSearch] = useState("");
   // ✏️ r91 Edit a question (my private copy) · ➕ Write · 🔎 bank search
   const [edit, setEdit] = useState<Edit | null>(null);
   const [w, setW] = useState<WrittenQuestion>(blank());
@@ -179,13 +191,26 @@ export function ReviewBuilder({ grade, initial, sets, skillUnits, roster }: {
                           <li key={set.setNumber} className="rounded-lg px-2 py-1.5 hover:bg-slate-50">
                             <p className="text-sm font-semibold text-slate-800" dir="ltr">{set.title}</p>
                             <div className="mt-1 flex flex-wrap gap-3">
-                              {set.categories.map((cat) => (
-                                <label key={cat} className="flex items-center gap-1.5 text-xs text-slate-700">
-                                  <input type="checkbox" checked={checked.has(cat)} onChange={() => toggleSetCat(set.unit, set.setNumber, cat)} />
-                                  {t(CAT_LABEL[cat])}
-                                </label>
-                              ))}
+                              {set.categories.map((cat) => {
+                                const pKey = `${set.unit}.${set.setNumber}.${cat}`;
+                                return (
+                                  <span key={cat} className="flex items-center gap-1">
+                                    <label className="flex items-center gap-1.5 text-xs text-slate-700">
+                                      <input type="checkbox" checked={checked.has(cat)} onChange={() => toggleSetCat(set.unit, set.setNumber, cat)} />
+                                      {t(CAT_LABEL[cat])}
+                                    </label>
+                                    <button type="button" className="rounded-full px-1 text-xs text-slate-500 hover:bg-slate-100" disabled={busy}
+                                      onClick={() => go(async () => { setTsPreview({ key: pKey, stems: [] }); const r = await setPreviewAction(grade, set.unit, set.setNumber, cat, level); setTsPreview({ key: pKey, stems: r.ok ? r.value : [] }); })}
+                                      aria-label={t("Preview")}>👁</button>
+                                  </span>
+                                );
+                              })}
                             </div>
+                            {tsPreview && set.categories.some((cat) => `${set.unit}.${set.setNumber}.${cat}` === tsPreview.key) && (
+                              <div className="ms-1 mt-1 rounded-lg bg-slate-50 p-2 text-xs text-slate-700">
+                                {tsPreview.stems.length ? tsPreview.stems.map((st, i) => <p key={i} dir="ltr" className="truncate"><RichInline text={st} /></p>) : <p>{busy ? "…" : t("No questions to show.")}</p>}
+                              </div>
+                            )}
                           </li>
                         );
                       })}
@@ -278,6 +303,62 @@ export function ReviewBuilder({ grade, initial, sets, skillUnits, roster }: {
                   <button type="button" className={btn} disabled={busy || ids.includes(x.id)} onClick={() => go(async () => { apply(await customReviewChangeAction(grade, { op: "addBank", questionId: x.id }), t("Added ✓")); })}>{ids.includes(x.id) ? "✓" : t("Add")}</button></li>
               ))}</ul>
             ) : <p className="text-sm text-slate-600">{t("No question matches.")}</p>)}
+
+            {/* 🔎 r91 ("زي اللي موجودة عند واجهة المعلم"): browse by skill — the same level filter + search + full
+                question display the teacher already knows from assigning a skill, one skill open at a time. */}
+            <div className="mt-4 border-t border-slate-200 pt-3">
+              <p className="text-sm font-semibold text-slate-700">{t("Or browse by skill")}</p>
+              {!bankSkillsData ? (
+                <button type="button" className={`${btn} mt-2`} disabled={busy} onClick={() => go(async () => { const r = await customSkillChoicesAction(grade); if (r.ok) setBankSkillsData(r.value); else setMsg({ ok: false, text: r.message }); })}>{t("Load the skills")}</button>
+              ) : (
+                <div className="mt-2 max-h-[32rem] space-y-1 overflow-y-auto rounded-xl p-1">
+                  {[...bankSkillsData.flatMap((u) => u.skills)].sort((a, b) => a.name.localeCompare(b.name)).map((k) => {
+                    const open = openSkill === k.id;
+                    const list = skillQs.id === k.id ? skillQs.list : null;
+                    const shown = list ? filterQuestions(list, skillLv, skillSearch) : [];
+                    return (
+                      <div key={k.id} className="rounded-xl ring-1 ring-slate-200">
+                        <button type="button" onClick={() => { const next = open ? "" : k.id; setOpenSkill(next); setSkillLv("ALL"); setSkillSearch(""); if (next && skillQs.id !== k.id) { setSkillQs({ id: k.id, list: null }); loadSkillQuestions(k.id).then((l) => setSkillQs((p) => (p.id === k.id ? { id: k.id, list: l } : p))); } }}
+                          aria-expanded={open} className="flex min-h-11 w-full items-center justify-between gap-2 rounded-xl px-3 text-start font-semibold text-brand-navy hover:bg-slate-50">
+                          <span dir="ltr" data-content>{k.name}</span>
+                          <span aria-hidden="true" className="text-slate-500">{open ? "▲" : "▼"}</span>
+                        </button>
+                        {open && (
+                          <div className="space-y-2 border-t border-slate-100 p-2">
+                            <div className="flex flex-wrap items-center gap-2">
+                              <div role="group" aria-label={t("Level")} className="flex flex-wrap gap-1.5">
+                                {LEVEL_FILTERS.map((lv) => <button key={lv} type="button" aria-pressed={skillLv === lv} onClick={() => setSkillLv(lv)} className={`min-h-9 rounded-full px-3 text-xs font-semibold ring-1 ${skillLv === lv ? "bg-brand-navy text-white ring-brand-navy" : "bg-white text-brand-navy ring-slate-300"}`}>{t(PICKER_LV[lv])}</button>)}
+                              </div>
+                              <input type="search" value={skillSearch} onChange={(e) => setSkillSearch(e.target.value)} placeholder={t("Search the questions…")} className="min-h-9 min-w-0 flex-1 rounded-lg border border-slate-300 px-2 text-xs" />
+                            </div>
+                            {!list ? <p className="px-1 py-2 text-sm text-slate-500" aria-busy="true">{t("Loading questions…")}</p>
+                              : !list.length ? <p className="rounded-xl bg-slate-50 px-3 py-3 text-center text-sm text-slate-600">{t("This skill has no questions yet.")}</p>
+                              : !shown.length ? <p className="rounded-xl bg-slate-50 px-3 py-3 text-center text-sm text-slate-600">{t("No question matches.")}</p>
+                              : (
+                                <ul className="max-h-80 space-y-2 overflow-y-auto">
+                                  {shown.map((qq) => (
+                                    <li key={qq.id} className="rounded-xl bg-slate-50 p-2.5 ring-1 ring-slate-200">
+                                      <div className="flex items-start justify-between gap-2">
+                                        <span className="min-w-0 flex-1 text-sm text-slate-900" dir="ltr" data-content><RichInline text={qq.stem} /></span>
+                                        <button type="button" className={`${btn} shrink-0`} disabled={busy || ids.includes(qq.id)} onClick={() => go(async () => { apply(await customReviewChangeAction(grade, { op: "addBank", questionId: qq.id }), t("Added ✓")); })}>{ids.includes(qq.id) ? "✓" : t("Add")}</button>
+                                      </div>
+                                      {qq.choices?.length ? (
+                                        <ol className="mt-1 grid gap-0.5 text-xs" dir="ltr">
+                                          {qq.choices.map((c, i) => { const right = isCorrectChoice(c, qq.answer); return <li key={i} className={right ? "font-semibold text-emerald-800" : "text-slate-600"}>{String.fromCharCode(65 + i)}. {c}{right && <span className="ms-1" aria-label={t("Correct answer")}>✓</span>}</li>; })}
+                                        </ol>
+                                      ) : qq.answer ? <p className="mt-1 text-xs text-emerald-800"><span className="font-semibold">{t("Answer")}:</span> <span dir="ltr">{qq.answer}</span></p> : null}
+                                    </li>
+                                  ))}
+                                </ul>
+                              )}
+                          </div>
+                        )}
+                      </div>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
           </div>
         )}
       </section>

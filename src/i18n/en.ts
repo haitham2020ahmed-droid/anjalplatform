@@ -822,6 +822,13 @@ export const UI_STRINGS = [
   "That skill is not on the Curriculum Map.",
   "This skill is not in your grade.",
   "No school.",
+  // 🔁 r90 Review Builder: a Review not tied to one Text Set (components/curriculum-map/review-builder.tsx)
+  "Text Sets", "Analyze Craft", "Remove every question from this Review?",
+  "This Review has no questions yet. Collect some below.", "No Text Set matches.", "Fixed",
+  "Target correct answers", "A Fixed assignment sends the first 60 questions only. Choose Adaptive to use all {n}.",
+  "Assigned ✓ ({n} students)", "Choose a grade first", "Open the Skill plan tab for a grade, then press 🔁 Review there.",
+  "Build a Review from any Text Sets or Skills of this grade's whole plan, then assign it.", "No questions to show.",
+  "Or browse by skill", "Load the skills",
 ] as const;
 
 export type UiString = (typeof UI_STRINGS)[number];

@@ -124,6 +124,17 @@ export async function skillQuestionPreview(repo: Repo, actor: Actor, skillId: st
   return (await describePicks(repo, actor, ids)).map((r) => r.stem);
 }
 
+/** 🗂️ r91 Review Builder's 👁 preview for the "Text Sets" tab: the first few question stems of one Text Set's
+ * category (Vocabulary / Analyze Craft / that Set's own Review), so the teacher can judge it before ticking it. */
+export async function setQuestionPreview(repo: Repo, actor: Actor, grade: number, unit: number, setNumber: number,
+  category: "CONCEPT_VOCABULARY" | "ANALYZE_CRAFT_AND_STRUCTURE" | "REVIEW", level: LevelFilter = "ANY"): Promise<string[]> {
+  teacherOnly(actor);
+  const g = Math.trunc(Number(grade));
+  const ids = (await setsQuestionIds(repo, actor.schoolId!, g, [{ unit: Math.trunc(Number(unit)), setNumber: Math.trunc(Number(setNumber)), categories: [category] }], level)).slice(0, 5);
+  if (!ids.length) return [];
+  return (await describePicks(repo, actor, ids)).map((r) => r.stem);
+}
+
 interface SetState { questionIds: string[]; hiddenIds: string[]; count: number; custom: boolean }
 
 async function setRow(repo: Repo, userId: string, code: string): Promise<Row | null> {
