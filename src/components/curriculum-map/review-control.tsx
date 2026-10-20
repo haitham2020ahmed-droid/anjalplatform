@@ -1,9 +1,9 @@
 "use client";
 import { useState, useTransition } from "react";
 import { useT } from "@/i18n/client";
-import type { ReviewControlView, WrittenQuestion } from "@/server/curriculum-map/review-control";
+import type { ReviewControlView, ReviewSkillUnit, WrittenQuestion } from "@/server/curriculum-map/review-control";
 import type { MapSourceQuestion } from "@/server/tests/map-source";
-import { reviewBankAction, reviewChangeAction, reviewDetailAction, reviewDraftAction, reviewEditAction, reviewWriteAction } from "@/app/teacher/curriculum-review/actions";
+import { reviewBankAction, reviewChangeAction, reviewDetailAction, reviewDraftAction, reviewEditAction, reviewSkillChoicesAction, reviewWriteAction } from "@/app/teacher/curriculum-review/actions";
 import { RichInline } from "@/components/rich-inline";
 
 const btn = "inline-flex min-h-9 items-center rounded-lg px-3 text-sm font-semibold ring-1 ring-slate-300 hover:ring-brand-teal disabled:opacity-50";
@@ -22,10 +22,15 @@ export function ReviewControl({ initial }: { initial: ReviewControlView }) {
   const [msg, setMsg] = useState<{ ok: boolean; text: string } | null>(null);
   const [busy, start] = useTransition();
   const [edit, setEdit] = useState<Edit | null>(null);
-  const [adding, setAdding] = useState<"" | "write" | "bank">("");
+  const [adding, setAdding] = useState<"" | "write" | "bank" | "skills">("");
   const [w, setW] = useState<WrittenQuestion>(blank());
   const [q, setQ] = useState("");
   const [bank, setBank] = useState<MapSourceQuestion[] | null>(null);
+  // 🤖 r89 "Language" tab: every Skill of the grade's plan, grouped by unit — fetched once, the first time this
+  // tab opens; `picked` is the teacher's ticks, cleared after a successful "Add selected".
+  const [skillUnits, setSkillUnits] = useState<ReviewSkillUnit[] | null>(null);
+  const [skillQ, setSkillQ] = useState("");
+  const [picked, setPicked] = useState<Set<string>>(new Set());
   const [count, setCount] = useState(String(initial.count));
   const apply = (r: { ok: true; value: ReviewControlView } | { ok: false; message: string }, done?: string) => {
     if (r.ok) { setV(r.value); setCount(String(r.value.count)); if (done) setMsg({ ok: true, text: done }); } else setMsg({ ok: false, text: r.message });
@@ -110,6 +115,10 @@ export function ReviewControl({ initial }: { initial: ReviewControlView }) {
             <button type="button" className={btn} aria-pressed={adding === "write"} onClick={() => setAdding(adding === "write" ? "" : "write")}>➕ {t("Write a question")}</button>
             <button type="button" className={btn} aria-pressed={adding === "bank"} onClick={() => setAdding(adding === "bank" ? "" : "bank")}>🔎 {t("From the bank")}</button>
             <button type="button" className={btn} disabled={busy} onClick={() => go(async () => { const r = await reviewDraftAction(v.code); if (r.ok) { setW({ ...r.value, options: [...r.value.options] }); setAdding("write"); setMsg({ ok: true, text: t("AI draft ready: check and edit it, then add it.") }); } else setMsg({ ok: false, text: r.message }); })}>✨ {t("AI draft")}</button>
+            {/* 🤖 r89: one press pulls in every Vocabulary + Analyze Craft question of THIS Text Set (not a live link —
+                press again later to pick up anything added since). */}
+            <button type="button" className={btn} disabled={busy} onClick={() => go(async () => { apply(await reviewChangeAction(v.code, { op: "addSet" }), t("Added ✓")); })}>🤖 {t("Collect this Text Set's Vocabulary + Analyze Craft")}</button>
+            <button type="button" className={btn} aria-pressed={adding === "skills"} onClick={() => { const next = adding === "skills" ? "" : "skills"; setAdding(next); if (next === "skills" && !skillUnits) go(async () => { const r = await reviewSkillChoicesAction(v.code); if (r.ok) setSkillUnits(r.value); else setMsg({ ok: false, text: r.message }); }); }}>🗣️ {t("Language")}</button>
           </div>
           {adding === "write" && (
             <form className="mt-3 space-y-2" onSubmit={(e) => { e.preventDefault(); go(async () => { if (apply(await reviewWriteAction(v.code, w), t("Added ✓"))) setW(blank()); }); }}>
@@ -140,6 +149,43 @@ export function ReviewControl({ initial }: { initial: ReviewControlView }) {
                     <button type="button" className={btn} disabled={busy || ids.includes(x.id)} onClick={() => go(async () => { apply(await reviewChangeAction(v.code, { op: "addBank", questionId: x.id }), t("Added ✓")); })}>{ids.includes(x.id) ? "✓" : t("Add")}</button></li>
                 ))}</ul>
               ) : <p className="text-sm text-slate-600">{t("No question matches.")}</p>)}
+            </div>
+          )}
+          {/* 🤖 r89 "Language" tab ("كل مهارات المنهج مش بس بتاعة الدرس ده"): every Skill of the WHOLE grade plan,
+              grouped by unit — the teacher ticks any number of skills (any unit, not just this Text Set's own) and
+              "Add selected" pulls their published, auto-marked questions into this Review, once. */}
+          {adding === "skills" && (
+            <div className="mt-3 space-y-3">
+              <input type="search" value={skillQ} onChange={(e) => setSkillQ(e.target.value)} placeholder={t("Search skills")} className={field} />
+              {!skillUnits ? (
+                <p className="text-sm text-slate-500">{busy ? "…" : t("No skill matches.")}</p>
+              ) : (
+                <div className="max-h-80 space-y-3 overflow-y-auto rounded-xl p-1">
+                  {skillUnits.map((u) => {
+                    const matches = u.skills.filter((k) => k.name.toLowerCase().includes(skillQ.trim().toLowerCase()));
+                    if (!matches.length) return null;
+                    return (
+                      <div key={u.number}>
+                        <p className="text-xs font-bold uppercase tracking-wide text-slate-500">{t("Unit {n}", { n: u.number })}</p>
+                        <ul className="mt-1 space-y-0.5">
+                          {matches.map((k) => (
+                            <li key={k.id}>
+                              <label className="flex items-center gap-2 rounded-lg px-2 py-1 text-sm hover:bg-slate-50">
+                                <input type="checkbox" checked={picked.has(k.id)} onChange={() => setPicked((s) => { const n = new Set(s); if (n.has(k.id)) n.delete(k.id); else n.add(k.id); return n; })} />
+                                <span dir="ltr">{k.name}</span>
+                              </label>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    );
+                  })}
+                </div>
+              )}
+              <button type="button" className={main} disabled={busy || !picked.size}
+                onClick={() => go(async () => { if (apply(await reviewChangeAction(v.code, { op: "addSkills", skillIds: [...picked] }), t("Added ✓"))) setPicked(new Set()); })}>
+                {t("Add selected ({n})", { n: picked.size })}
+              </button>
             </div>
           )}
         </section>

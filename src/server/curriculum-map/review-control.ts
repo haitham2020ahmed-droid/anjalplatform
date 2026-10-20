@@ -19,10 +19,11 @@ import { audit } from "../audit";
 import { safeIfBehind } from "../db/schema-errors";
 import { attachmentNodes, unclassifiedSkillId, type AttachmentNode } from "./questions";
 import { lessonAt } from "./lesson-details";
+import { skillPlanData } from "./skill-plan";
 import { describePicks, type MapSourceQuestion } from "../tests/map-source";
 import { bankSearch, editQuestionCopy, type BankFilter, type BankResults, type CopyEdit } from "../tests/review";
 import { loadQuestionItems } from "../practice/items";
-import { schoolSkillIndex } from "../questions/skill-questions";
+import { questionsOfSkill, schoolSkillIndex } from "../questions/skill-questions";
 import { anthropicProvider, buildPrompt, chooseAiProvider, geminiProvider, parseGenerated, type AiProvider } from "../ai/question-generator";
 import { aiEnv } from "../ai/env";
 
@@ -56,6 +57,36 @@ async function sharedQuestions(repo: Repo, nodeId: string): Promise<string[]> {
   const manual = new Set(types.filter((t) => t.code === "SHORT_ANSWER" || t.isAutoScored === false || t.isAutoScored === 0).map((t) => s(t.id)));
   const ok = new Set(qs.filter((q) => !manual.has(s(q.typeId))).map((q) => s(q.id)));
   return ids.filter((id) => ok.has(id));
+}
+
+/**
+ * 🤖 r89 ("عايز Review يرتبط بكل أسئلة نفس الـ Text Set أوتوماتيك"): the published, auto-marked questions of this
+ * Review's own Concept Vocabulary and Analyze Craft and Structure (every level of it) — same grade, unit and Text
+ * Set/Selection number as the Review node itself. A one-time pull the teacher triggers (op "addSet"), not a live
+ * link: it does not notice a question added to Vocabulary/Analyze Craft later, the same way "pick from bank" or
+ * "write a question" do not either — pressing it again picks up anything new.
+ */
+async function sameSetSiblingIds(repo: Repo, schoolId: string, node: AttachmentNode): Promise<string[]> {
+  const nodes = await attachmentNodes(repo, schoolId);
+  const siblings = nodes.filter((n) => n.grade === node.grade && n.unit === node.unit && n.setNumber === node.setNumber
+    && (n.category === "CONCEPT_VOCABULARY" || n.category === "ANALYZE_CRAFT_AND_STRUCTURE"));
+  const seen = new Set<string>();
+  for (const n of siblings) for (const id of await sharedQuestions(repo, n.id)) seen.add(id);
+  return [...seen];
+}
+
+/** 🤖 r89 "Language" tab: a skill's own published, auto-marked questions, not already private to another teacher. */
+async function skillAddableIds(repo: Repo, actor: Actor, skillId: string): Promise<string[]> {
+  const qs = await questionsOfSkill(repo, actor.schoolId!, skillId, { status: "PUBLISHED" });
+  if (!qs.length) return [];
+  const typeIds = [...new Set(qs.map((q) => q.typeId))];
+  const types = await repo.findMany("QuestionType", { id: { in: typeIds } }, { select: ["id", "code", "isAutoScored"] });
+  const manual = new Set(types.filter((t) => t.code === "SHORT_ANSWER" || t.isAutoScored === false || t.isAutoScored === 0).map((t) => s(t.id)));
+  const ok = qs.filter((q) => !manual.has(s(q.typeId)));
+  if (!ok.length) return [];
+  const owners = await repo.findMany("Question", { id: { in: ok.map((q) => q.id) } }, { select: ["id", "privateToId"] });
+  const mine = new Set(owners.filter((q) => !q.privateToId || s(q.privateToId) === actor.userId).map((q) => s(q.id)));
+  return ok.filter((q) => mine.has(q.id)).map((q) => q.id);
 }
 
 interface SetState { questionIds: string[]; hiddenIds: string[]; count: number; custom: boolean }
@@ -118,6 +149,10 @@ export type ReviewChange =
   | { op: "order"; questionIds: string[] }
   | { op: "count"; count: number }
   | { op: "addBank"; questionId: string }
+  /** 🤖 r89: pull in this Text Set's Concept Vocabulary + Analyze Craft and Structure questions, once */
+  | { op: "addSet" }
+  /** 🤖 r89 "Language" tab: pull in one or more platform Skills' own questions (any unit of the plan), once */
+  | { op: "addSkills"; skillIds: string[] }
   | { op: "reset" };
 
 /** One change to the teacher's Review (see the header). */
@@ -153,6 +188,27 @@ export async function changeReview(repo: Repo, actor: Actor, code: string, c: Re
     st.questionIds.push(id);
     st.hiddenIds = st.hiddenIds.filter((x) => x !== id);
     if (!st.custom) st.count = Math.min(st.count + 1, st.questionIds.length);
+  } else if (c.op === "addSet") {
+    const extra = await sameSetSiblingIds(repo, actor.schoolId!, node);
+    let added = 0;
+    for (const qid of extra) {
+      if (st.questionIds.includes(qid) || st.questionIds.length >= MAX_REVIEW) continue;
+      st.questionIds.push(qid); st.hiddenIds = st.hiddenIds.filter((x) => x !== qid); added++;
+    }
+    if (!added) throw new ValidationError("Nothing new to add — every Vocabulary and Analyze Craft question here is already in your Review.");
+    if (!st.custom) st.count = Math.min(st.count + added, st.questionIds.length);
+  } else if (c.op === "addSkills") {
+    const skillIds = [...new Set((Array.isArray(c.skillIds) ? c.skillIds : []).map(s).filter(Boolean))].slice(0, 20);
+    if (!skillIds.length) throw new ValidationError("Choose at least one skill.");
+    let added = 0;
+    for (const skillId of skillIds) {
+      for (const qid of await skillAddableIds(repo, actor, skillId)) {
+        if (st.questionIds.includes(qid) || st.questionIds.length >= MAX_REVIEW) continue;
+        st.questionIds.push(qid); st.hiddenIds = st.hiddenIds.filter((x) => x !== qid); added++;
+      }
+    }
+    if (!added) throw new ValidationError("Nothing new to add from those skills.");
+    if (!st.custom) st.count = Math.min(st.count + added, st.questionIds.length);
   }
   if (!st.questionIds.length) throw new ValidationError("Keep at least one question in the Review (or press Reset).");
   await write(repo, actor, node.code, st, now);
@@ -220,6 +276,28 @@ export async function writeReviewQuestion(repo: Repo, actor: Actor, code: string
   if (!st.custom) st.count = Math.min(st.count + 1, st.questionIds.length);
   await write(repo, actor, node.code, st, now);
   return reviewControlView(repo, actor, node.code);
+}
+
+export interface ReviewSkillChoice { id: string; name: string; group: string }
+export interface ReviewSkillUnit { number: number; title: string; skills: ReviewSkillChoice[] }
+
+/**
+ * 🤖 r89 "Language" tab ("كل مهارات المنهج مش بس بتاعة الدرس ده"): every platform Skill of this Review's GRADE
+ * (the whole plan, every unit — not just this Text Set), grouped by unit, for the teacher to tick which ones to
+ * pull questions from.
+ */
+export async function reviewSkillChoices(repo: Repo, actor: Actor, code: string): Promise<ReviewSkillUnit[]> {
+  teacherOnly(actor);
+  const node = await reviewPlace(repo, actor.schoolId!, code);
+  const plan = await skillPlanData(repo, actor, node.grade);
+  if (!plan) return [];
+  return plan.units.map((u) => {
+    const seen = new Set<string>();
+    const skills: ReviewSkillChoice[] = [];
+    for (const sec of u.sections) for (const k of sec.skills) if (!seen.has(k.id)) { seen.add(k.id); skills.push({ id: k.id, name: k.name, group: k.group }); }
+    for (const k of u.writing) if (!seen.has(k.id)) { seen.add(k.id); skills.push({ id: k.id, name: k.name, group: k.group }); }
+    return { number: u.number, title: u.title, skills };
+  }).filter((u) => u.skills.length > 0);
 }
 
 /** 🔎 The bank, to pick a question for the Review (the Review test's search: skill or words, or my edited copies). */
