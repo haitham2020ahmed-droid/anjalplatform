@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useMemo, useRef, useState, type RefObject } from "react";
 import { useT } from "@/i18n/client";
 import type { TFn } from "@/i18n";
 import type { QuickAssignSkillInput } from "@/app/admin/curriculum-map/actions";
@@ -222,12 +222,12 @@ function SkillRow({ n, skill, canAssign, roster, quickAssign, initDone, priorAss
         <Link href={`/teacher/skill-assign?skillId=${encodeURIComponent(skill.id)}${roster[0] ? `&classId=${encodeURIComponent(roster[0].id)}` : ""}`} prefetch={false}
           className="text-sm font-medium text-blue-800 hover:underline" dir="ltr">{skill.name}</Link>
       </div>
-      {open && canAssign && <SuggestPanel skill={skill} roster={roster} quickAssign={quickAssign} priorAssignment={priorAssignment} masteredCount={masteredCount} cancelAssignment={cancelAssignment} onDone={() => setDone(true)} onRemoved={() => setDone(false)} onClose={() => setOpen(false)} />}
+      {open && canAssign && <SuggestPanel skill={skill} roster={roster} quickAssign={quickAssign} priorAssignment={priorAssignment} masteredCount={masteredCount} cancelAssignment={cancelAssignment} anchorRef={starRef} onDone={() => setDone(true)} onRemoved={() => setDone(false)} onClose={() => setOpen(false)} />}
     </li>
   );
 }
 
-function SuggestPanel({ skill, roster, quickAssign, priorAssignment, masteredCount, cancelAssignment, onDone, onRemoved, onClose }: { skill: MapPdfSkill; roster: RosterClass[]; quickAssign: SkillPlanProps["quickAssign"]; priorAssignment?: SkillPlanProps["priorAssignment"]; masteredCount?: SkillPlanProps["masteredCount"]; cancelAssignment?: SkillPlanProps["cancelAssignment"]; onDone: () => void; onRemoved: () => void; onClose: () => void }) {
+function SuggestPanel({ skill, roster, quickAssign, priorAssignment, masteredCount, cancelAssignment, anchorRef, onDone, onRemoved, onClose }: { skill: MapPdfSkill; roster: RosterClass[]; quickAssign: SkillPlanProps["quickAssign"]; priorAssignment?: SkillPlanProps["priorAssignment"]; masteredCount?: SkillPlanProps["masteredCount"]; cancelAssignment?: SkillPlanProps["cancelAssignment"]; anchorRef: RefObject<HTMLButtonElement | null>; onDone: () => void; onRemoved: () => void; onClose: () => void }) {
   const t = useT();
   const router = useRouter();
   const [classId, setClassId] = useState(roster[0]?.id ?? "");
@@ -261,15 +261,31 @@ function SuggestPanel({ skill, roster, quickAssign, priorAssignment, masteredCou
   const [removeMsg, setRemoveMsg] = useState<string | null>(null);
   const klass = roster.find((c) => c.id === classId) ?? roster[0];
   const students = useMemo(() => (klass?.students ?? []).filter((s) => s.name.toLowerCase().includes(q.trim().toLowerCase())), [klass, q]);
-  // 🎯 owner r87 ("باظت... خليها ثابته"): three rounds of "anchor the panel to the ⭐ that opened it" (clamp to
-  // the edge → hide while scrolled off-screen → flip above/below by the panel's real height) each fixed one case
-  // and broke another, because the star keeps moving under a `position: fixed` panel computed from a snapshot of
-  // its coordinates — any scroll, or the page's own layout shifting as other sections load, makes that snapshot
-  // stale. A FIXED spot removes the whole class of bug at the root: the panel always opens in the same safe,
-  // centered place on screen, never computed from the star's position, never needs to re-track scroll. A dimmed
-  // backdrop (click it, or Escape, to close) makes it obvious which skill it belongs to even without an arrow
-  // pointing at a star — the skill's own name is right there in the panel's header.
+  // 🎯 owner r87 round 5 ("عايز لما اضغط علي النجمه يظهر البانل قريب منها... لا احتاج اعمل scroll"): the earlier
+  // fixed-spot-near-the-top fix (round 4) stopped the panel from breaking, but put it far from the ⭐ that opened
+  // it. What actually broke rounds 1–3 was CONTINUOUS re-tracking — recomputing the panel's spot on every scroll
+  // / resize event off a `getBoundingClientRect()` snapshot that goes stale the instant the page moves again. This
+  // round keeps the "stop tracking" fix but drops the "always top of screen" trade-off: the spot is computed ONCE,
+  // synchronously, the moment the panel opens (`useLayoutEffect` with no dependencies — it never re-runs after
+  // that, so there is nothing left to go stale), from the ⭐'s real on-screen position AND the panel's own real
+  // rendered size (not an estimate), clamped so the whole card always stays fully inside the visible screen. If the
+  // panel is still open when the person scrolls afterward, it stays put in the viewport like any other popover —
+  // expected, not a bug.
   const boxRef = useRef<HTMLDivElement>(null);
+  const [pos, setPos] = useState<{ top: number; left: number } | null>(null);
+  useLayoutEffect(() => {
+    const star = anchorRef.current, box = boxRef.current;
+    if (!star || !box) return;
+    const sr = star.getBoundingClientRect(), br = box.getBoundingClientRect();
+    const margin = 12;
+    let top = sr.bottom + 8;
+    if (top + br.height > window.innerHeight - margin) top = sr.top - br.height - 8; // not enough room below → open above instead
+    top = Math.min(Math.max(top, margin), Math.max(margin, window.innerHeight - br.height - margin));
+    let left = sr.left + sr.width / 2 - br.width / 2; // centered on the star horizontally
+    left = Math.min(Math.max(left, margin), Math.max(margin, window.innerWidth - br.width - margin));
+    setPos({ top, left });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   useEffect(() => {
     const down = (e: MouseEvent) => { if (boxRef.current && !boxRef.current.contains(e.target as Node)) onClose(); };
     document.addEventListener("mousedown", down);
@@ -323,11 +339,13 @@ function SuggestPanel({ skill, roster, quickAssign, priorAssignment, masteredCou
     else { setRemoveStep("idle"); setRemoveMsg(r.message); }
   };
   return (
-    // 🎯 owner r87 ("خليها بنفس شكل المنصه... فقط المكان"): same card look as before (white, rounded, ring, shadow)
-    // — only the POSITION changed, to a fixed spot near the top of the screen that never depends on the ⭐'s own
-    // coordinates, so it can't drift off after a scroll or a layout shift the way the anchored version did.
+    // 🎯 owner r87 round 5 ("يظهر قريب من النجمه"): same card look as always (white, rounded, ring, shadow) — the
+    // JS above decides WHERE on screen it lands (top/left, in px, computed once above). Until that first
+    // measurement lands (one render), the card is kept invisible in its default spot so nothing flashes in the
+    // wrong place for a frame.
     <div ref={boxRef} role="dialog" aria-modal="true" aria-label={t("Suggest this skill to:")}
-      className="fixed inset-x-0 top-20 z-50 mx-auto max-h-[70vh] w-[calc(100%-2rem)] max-w-sm overflow-y-auto rounded-2xl bg-white p-4 text-start text-sm normal-case shadow-xl ring-1 ring-slate-200">
+      style={pos ? { top: pos.top, left: pos.left, visibility: "visible" } : { top: 0, left: 0, visibility: "hidden" }}
+      className="fixed z-50 max-h-[70vh] w-[calc(100%-2rem)] max-w-sm overflow-y-auto rounded-2xl bg-white p-4 text-start text-sm normal-case shadow-xl ring-1 ring-slate-200">
       <div className="flex items-start justify-between gap-2">
         <div>
           <p className="font-bold text-brand-navy">{t("Suggest this skill to:")}</p>
