@@ -1,6 +1,6 @@
 /**
  * 🚀 ReadRise content files read at run time (not seeded): the placement passages in data/readrise/placement.json
- *   { passages: [{ id, level, title, text, questions: [{ stem, options[4], answer, skill }] ×3 }] }  — 3 per level 300…1400.
+ *   { passages: [{ id, level, title, text, questions: [{ stem, options[4], answer, skill }] ×3 }] }  — 3 per level 300…1600.
  * The file is read once and cached (re-read when it changes on disk). A missing or broken file gives no passages
  * (the placement page then says the test is not ready yet) — it never crashes a page.
  */

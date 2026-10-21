@@ -146,7 +146,10 @@ export interface ClassReport {
   distribution: { from: number; to: number; count: number; inBand: boolean }[];
 }
 
-export const HIST_BUCKETS = Array.from({ length: 13 }, (_, i) => 200 + i * 100); // 200–299 … 1400+
+// 🐛 fix (audit finding, Oct 2026): was 13 buckets ending "1400+", one catch-all bin for everything at or above
+// 1400 — harmless before (nothing could measure above 1400), but it would have hidden the very distinction this
+// session's placement fix exists to show: two more buckets give the new 1500/1600 levels (level.ts) their own bars.
+export const HIST_BUCKETS = Array.from({ length: 15 }, (_, i) => 200 + i * 100); // 200–299 … 1600+
 
 export function histogram(levels: number[], band?: { low: number; high: number }): ClassReport["distribution"] {
   return HIST_BUCKETS.map((from, i) => {

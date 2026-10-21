@@ -128,7 +128,7 @@ export function LevelHistogram({ buckets, title }: { buckets: { from: number; to
 export function levelRange(values: (number | null)[], band?: { low: number; high: number }): { min: number; max: number; ticks: number[] } {
   const vs = values.filter((v): v is number => v !== null);
   let lo = Math.min(...vs, band?.low ?? Infinity), hi = Math.max(...vs, band?.high ?? -Infinity);
-  if (!Number.isFinite(lo) || !Number.isFinite(hi)) { lo = 300; hi = 1400; }
+  if (!Number.isFinite(lo) || !Number.isFinite(hi)) { lo = 300; hi = 1600; }
   const min = Math.max(0, Math.floor((lo - 50) / 100) * 100), max = Math.ceil((hi + 50) / 100) * 100;
   const step = max - min > 800 ? 200 : 100;
   const ticks: number[] = [];

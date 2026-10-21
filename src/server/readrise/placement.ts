@@ -29,6 +29,17 @@ import { runAfterResponse } from "../lib/after-response";
 export { setLevelByTeacher } from "./engine";
 
 export const PLACEMENT = { maxPassages: 8, minPassages: 5, reversals: 2, mapGap: 250 } as const;
+/**
+ * 🐛 fix (audit finding, Oct 2026): a 4-option multiple-choice question has real guessing odds, so the ordinary pass
+ * bar (2 of 3 correct) let a student "pass" the TOP level on a lucky guess — and since nothing could out-level the
+ * old ceiling (1400), that single lucky pass became their final result, with no way to tell a genuinely advanced
+ * reader from a guess. Two things now address this together: the scale itself gained two harder rungs (1500, 1600 —
+ * see level.ts), giving a strong reader real headroom; and near whatever the TOP of the scale is (the top two rungs)
+ * a pass now requires a clean 3 of 3 — a student who only gets 2 of 3 up there counts as a (soft) fail, which can
+ * trigger the normal two-reversal ceiling-finding logic below instead of locking in immediately.
+ */
+const TOP_TIER = 1500;
+const passBar = (level: number) => (level >= TOP_TIER ? 3 : 2);
 export interface PlacementStep { level: number; passageId: string; answers: string[]; correct: number }
 
 const clampP = (l: number) => Math.min(RR_MAX, Math.max(RR_MIN, l));
@@ -63,7 +74,7 @@ export function placementResult(steps: PlacementStep[], startLevel: number): num
   const by = new Map<number, { pass: number; fail: number }>();
   for (const st of steps) {
     const e = by.get(st.level) ?? { pass: 0, fail: 0 };
-    if (st.correct >= 2) e.pass++; else e.fail++;
+    if (st.correct >= passBar(st.level)) e.pass++; else e.fail++;
     by.set(st.level, e);
   }
   const failedTwice = [...by.entries()].filter(([, e]) => e.fail >= 2).map(([l]) => l);

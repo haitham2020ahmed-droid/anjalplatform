@@ -23,14 +23,18 @@ import { RR_LEVELS, RR_MAX, RR_MIN, defaultLevel } from "./level";
 
 export const s = (v: unknown) => String(v ?? "");
 export const toDate = (v: unknown) => (v instanceof Date ? v : new Date(s(v)));
-export const ENGINE = { up: 75, down: 50, step: 50, max: 1500, min: 200, /** one score at or under this → down at once */ floor: 25, /** a step down */ downStep: 100 } as const;
+// 🐛 fix (audit finding, Oct 2026): `max` keeps a 100-point margin above RR_MAX (same margin as before: it was 1500
+// when RR_MAX was 1400) so ordinary reading-growth adjustments have room to move a student past the nearest version
+// level without clamping — now that RR_MAX is 1600 (level.ts), this had to move too, or a student placed at 1600
+// would get silently pulled back down to 1500 by the very next level-change calculation.
+export const ENGINE = { up: 75, down: 50, step: 50, max: 1700, min: 200, /** one score at or under this → down at once */ floor: 25, /** a step down */ downStep: 100 } as const;
 /** RRLevelChange rows with this reason prefix only record a teacher's retake permission (no level change). */
 export const RETAKE_REASON = "Placement retake allowed";
 const DAY = 86_400_000, WEEK = 7 * DAY, RIYADH = 3 * 3_600_000;
 
-/** Round to 10 and keep inside the engine's range (200–1500). */
+/** Round to 10 and keep inside the engine's range (200–1700). */
 export const clampEngine = (l: number) => Math.min(ENGINE.max, Math.max(ENGINE.min, Math.round(l / 10) * 10));
-/** The nearest of the 12 version levels to a measure (clamped to 300–1400). */
+/** The nearest of the 14 version levels to a measure (clamped to 300–1600). */
 export function nearestLevel(x: number): number {
   const c = Math.min(RR_MAX, Math.max(RR_MIN, x));
   return (RR_LEVELS as readonly number[]).reduce((best, l) => (Math.abs(l - c) < Math.abs(best - c) ? l : best), RR_MIN);

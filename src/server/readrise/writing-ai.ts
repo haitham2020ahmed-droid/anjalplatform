@@ -21,7 +21,13 @@ import type { anthropicProvider, geminiProvider } from "../ai/question-generator
 import { schoolDay } from "../writing/ai-feedback";
 
 export const READRISE_WRITING_AI_PER_DAY = 40;
-const TOOL = "readrise-writing-score";
+// 🐛 fix (Oct 2026): was "readrise-writing-score" (22 chars) — AiRequestLog.tool is @db.VarChar(20), so EVERY call
+// (even a successful AI score) failed when engine.ts's log() tried to save this value, throwing a Prisma validation
+// error that callJson's own catch then tried to log again with the same too-long value, propagating out as a
+// thrown error. draftReadRiseWritingScore() catches that (see below) and returns "FAILED", so the student's answer
+// was silently never auto-scored — the teacher had to score every run by hand, and the Render logs filled with
+// repeating "prisma:error ... Column: tool" every few minutes. Shortened to fit the column; no schema change needed.
+const TOOL = "rr-writing-score";
 
 export interface AiScoreDraft { score: number; comment: string }
 export type AiOutcome = "SAVED" | "OFF" | "LIMIT" | "FAILED" | "TOO_SHORT";

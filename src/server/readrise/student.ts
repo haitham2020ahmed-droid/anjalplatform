@@ -27,7 +27,7 @@ import { loadReadRiseWindows, placementChecks, type RRPeriod } from "./windows";
 import type { Repo, Row } from "../seeding/repo";
 import { ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
-import { RR_LEVELS, bandOf, chooseVersion, stretchAbove, type MeasuredVersion, type RRBand } from "./level";
+import { LIBRARY_LEVELS, bandOf, chooseVersion, stretchAbove, type MeasuredVersion, type RRBand } from "./level";
 import { ENGINE, applyFirstTryScore, ensureRRStudent, goalStats, levelHistory, readRisePlaced, s, studentReadRiseSummary, toDate, yearEndFor, type GoalStats, type ReadRiseSummary } from "./engine";
 import { placementStatus } from "./placement";
 import { loadPlacementPassages, type PlacementPassage } from "./content-loader";
@@ -531,8 +531,8 @@ export async function submitPostPoll(repo: Repo, actor: Actor, runId: string, va
   return runView(repo, actor, runId, now);
 }
 
-/** Levels a student can see versions for (for labels). */
-export const VERSION_LEVELS = RR_LEVELS;
+/** Levels a student can see ARTICLE versions for (for labels) — the library's full 300–1600 range (see level.ts). */
+export const VERSION_LEVELS = LIBRARY_LEVELS;
 
 // ------------------------------------------------------------------ the ReadRise home page
 

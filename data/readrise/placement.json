@@ -1475,6 +1475,252 @@
           "skill": "vocabulary"
         }
       ]
+    },
+    {
+      "id": "P1500a",
+      "level": 1500,
+      "title": "The Logic of Antibiotic Resistance",
+      "text": "When a population of bacteria is exposed to an antibiotic, the drug does not create resistance; it reveals and amplifies a difference that already exists. A small fraction of bacteria may carry, by chance mutation or by acquiring genetic material from other microbes, a trait that lets them survive the drug's mechanism of action. While susceptible bacteria are eliminated, these resistant individuals are left with abundant resources and diminished competition, and they reproduce rapidly to dominate the surviving population. This process, a straightforward instance of natural selection operating on a microbial timescale, explains why incomplete courses of antibiotics are particularly dangerous: stopping treatment early tends to kill the most vulnerable bacteria while sparing those with partial resistance, effectively selecting for the very trait clinicians are trying to avoid. Compounding the problem, bacteria can transfer resistance genes directly to unrelated species through small circular strands of DNA called plasmids, allowing an adaptation that evolved in one organism to spread laterally across an entire microbial community within days. Public health officials now treat antibiotic stewardship, the careful, judicious use of these drugs, as inseparable from any long-term strategy for preserving their effectiveness, since every unnecessary prescription offers bacteria another opportunity to refine defenses that, once established, rarely disappear.",
+      "questions": [
+        {
+          "stem": "What is the central idea of the passage?",
+          "options": [
+            "Antibiotics directly cause bacteria to mutate into resistant forms.",
+            "Resistance already exists at low levels and spreads because antibiotics remove competition for resistant bacteria.",
+            "Plasmids are the only way bacteria can become resistant to antibiotics.",
+            "Stopping antibiotic treatment early always cures an infection faster."
+          ],
+          "answer": "B",
+          "skill": "central-idea"
+        },
+        {
+          "stem": "According to the passage, why is stopping an antibiotic course early considered dangerous?",
+          "options": [
+            "It allows bacteria with partial resistance to survive and multiply.",
+            "It causes the antibiotic to become toxic to the patient.",
+            "It prevents plasmids from transferring between bacteria.",
+            "It makes susceptible bacteria resistant instantly."
+          ],
+          "answer": "A",
+          "skill": "detail"
+        },
+        {
+          "stem": "In the passage, the word \"judicious\" most nearly means",
+          "options": [
+            "careless",
+            "wise and careful",
+            "expensive",
+            "illegal"
+          ],
+          "answer": "B",
+          "skill": "vocabulary"
+        }
+      ]
+    },
+    {
+      "id": "P1500b",
+      "level": 1500,
+      "title": "Detecting the Invisible: How Astronomers Find Black Holes",
+      "text": "A black hole, by definition, emits no light of its own, so no telescope can observe one directly. Astronomers instead infer a black hole's existence from its gravitational influence on its surroundings. In some cases, a black hole orbits a visible star, and the star's light appears to wobble in a precise, periodic pattern as the two objects circle a common center of mass; measuring that wobble reveals the unseen companion's mass. In other cases, gas and dust spiraling toward a black hole form what is called an accretion disk, and friction within this disk heats the material to such extreme temperatures that it radiates intense X-rays, which space-based observatories can detect even across vast distances. A third method, confirmed for the first time in 2019, captures the black hole's \"shadow\": a dark silhouette cast against the glowing gas that surrounds it, imaged by linking radio telescopes across the planet into a single instrument with the resolving power of an Earth-sized dish. Each technique provides indirect but compelling evidence, and together they have transformed black holes from a purely theoretical consequence of general relativity into objects whose mass, spin, and location can be measured with increasing precision.",
+      "questions": [
+        {
+          "stem": "What is the passage mainly about?",
+          "options": [
+            "Why black holes are the brightest objects in the universe.",
+            "Several indirect methods astronomers use to detect and study black holes.",
+            "The exact date the first black hole was discovered.",
+            "Why telescopes cannot observe any object beyond our galaxy."
+          ],
+          "answer": "B",
+          "skill": "central-idea"
+        },
+        {
+          "stem": "According to the passage, what causes the material in an accretion disk to emit X-rays?",
+          "options": [
+            "The material cools rapidly as it approaches the black hole.",
+            "Friction heats the material to extreme temperatures.",
+            "The black hole's shadow blocks visible light.",
+            "Radio telescopes heat the gas directly."
+          ],
+          "answer": "B",
+          "skill": "detail"
+        },
+        {
+          "stem": "In the passage, \"resolving power\" most nearly refers to a telescope's ability to",
+          "options": [
+            "move quickly across the sky",
+            "survive extreme temperatures",
+            "distinguish fine detail",
+            "generate its own light"
+          ],
+          "answer": "C",
+          "skill": "vocabulary"
+        }
+      ]
+    },
+    {
+      "id": "P1500c",
+      "level": 1500,
+      "title": "Why Nations Trade: The Idea of Comparative Advantage",
+      "text": "It might seem that a country should only trade with others if it can produce goods more efficiently than they can, but a principle developed in the early nineteenth century shows that this intuition is incomplete. Comparative advantage holds that a nation benefits from trade whenever it specializes in producing whatever it gives up the least to make, even if another country could produce every good more efficiently in absolute terms. Consider two countries, one able to produce both wheat and cloth more efficiently than the other overall; the principle still predicts gains from trade if each country focuses on the good it produces relatively better, measured by what it must sacrifice of the other good to make it. By specializing according to this relative efficiency and then exchanging goods, both countries can end up with more of both wheat and cloth than either could produce alone. This counterintuitive result explains why even a highly productive economy gains from trading with a far less productive one, and it remains one of the most frequently cited, though often misunderstood, arguments for open international trade, even as economists continue to debate how its benefits are actually distributed within each country.",
+      "questions": [
+        {
+          "stem": "What is the main point of the passage?",
+          "options": [
+            "Countries should only trade with nations that are equally productive.",
+            "A country can benefit from trade by specializing in what it gives up least to produce, even if another country is more efficient overall.",
+            "Comparative advantage proves that trade never benefits less productive countries.",
+            "Wheat and cloth are the only goods comparative advantage applies to."
+          ],
+          "answer": "B",
+          "skill": "central-idea"
+        },
+        {
+          "stem": "According to the passage, can a highly productive country still benefit from trading with a less productive one?",
+          "options": [
+            "No, because it can already produce everything more efficiently.",
+            "Yes, according to the principle of comparative advantage.",
+            "Only if the less productive country stops producing wheat.",
+            "Only if both countries are equally efficient."
+          ],
+          "answer": "B",
+          "skill": "detail"
+        },
+        {
+          "stem": "The passage suggests that economists today",
+          "options": [
+            "completely reject the idea of comparative advantage.",
+            "agree on exactly how trade's benefits are shared within a country.",
+            "still debate how the benefits of trade are distributed.",
+            "believe comparative advantage only applies to two specific goods."
+          ],
+          "answer": "C",
+          "skill": "inference"
+        }
+      ]
+    },
+    {
+      "id": "P1600a",
+      "level": 1600,
+      "title": "Entangled Particles and the Limits of Classical Intuition",
+      "text": "When two particles become quantum entangled, the mathematical description of the pair cannot be factored into independent descriptions of each particle separately, even after the particles are separated by an arbitrarily large distance. Measuring a property of one particle, such as its spin along a chosen axis, instantaneously determines the corresponding outcome for its partner, a correlation so precise that Einstein, skeptical of its implications, famously dismissed it as \"spooky action at a distance.\" For decades, physicists debated whether entanglement merely reflects our ignorance of some deeper, \"hidden\" set of variables that determines each particle's properties in advance, much as a pair of gloves sent to different cities are already, secretly, left and right before anyone opens the box. In the 1960s, physicist John Bell devised an inequality that any such hidden-variable theory must satisfy, and experiments conducted over the following decades, refined to close ever more loopholes, have consistently violated Bell's inequality, ruling out a broad class of these classical explanations. The implication is unsettling: the particles do not carry predetermined, independent properties waiting to be revealed by measurement; rather, their joint state exists in a genuinely non-classical form until measurement occurs, a conclusion that has moved from philosophical curiosity to the operating principle behind emerging technologies such as quantum cryptography and quantum computing.",
+      "questions": [
+        {
+          "stem": "What is the passage mainly about?",
+          "options": [
+            "Why Einstein invented quantum mechanics.",
+            "How experiments testing Bell's inequality showed that entangled particles do not have predetermined, independent properties.",
+            "The exact distance at which quantum entanglement stops working.",
+            "Why gloves are used to explain quantum computing."
+          ],
+          "answer": "B",
+          "skill": "central-idea"
+        },
+        {
+          "stem": "According to the passage, what did John Bell's inequality allow physicists to test?",
+          "options": [
+            "Whether hidden-variable theories could explain entanglement.",
+            "The exact speed of light.",
+            "Whether gloves can be entangled.",
+            "How quantum computers are built."
+          ],
+          "answer": "A",
+          "skill": "detail"
+        },
+        {
+          "stem": "In the passage, the phrase \"spooky action at a distance\" is used to describe Einstein's view that entanglement seemed",
+          "options": [
+            "completely predictable and ordinary",
+            "troublingly instantaneous and hard to explain classically",
+            "impossible to test experimentally",
+            "only relevant to gloves and mittens"
+          ],
+          "answer": "B",
+          "skill": "vocabulary"
+        }
+      ]
+    },
+    {
+      "id": "P1600b",
+      "level": 1600,
+      "title": "The Hard Problem: Consciousness and Its Explanatory Gap",
+      "text": "Neuroscience has made considerable progress explaining how the brain performs functions such as integrating sensory input, directing attention, or storing memories, processes philosopher David Chalmers grouped under what he called the \"easy problems\" of consciousness, easy only in the sense that they are, in principle, solvable by identifying the right neural mechanisms. The \"hard problem,\" by contrast, asks why any of this neural processing is accompanied by subjective experience at all, why there is \"something it is like\" to see red or feel pain rather than the information simply being processed in the dark, as a sophisticated but experienceless machine might process it. Even a complete map of every neuron firing during the perception of red would not, by itself, explain why that firing pattern gives rise to the felt quality of redness rather than nothing at all. This gap between physical description and subjective experience has led some philosophers to argue that consciousness may require an entirely new category of explanation, not reducible to current physical science, while others maintain that the hard problem will eventually dissolve as neuroscience matures, much as earlier mysteries about life itself dissolved once the mechanisms of biology were understood. The debate remains genuinely unresolved, and it continues to shape research across philosophy, psychology, and cognitive science.",
+      "questions": [
+        {
+          "stem": "What is the main idea of the passage?",
+          "options": [
+            "Neuroscience has already fully solved the mystery of subjective experience.",
+            "The \"hard problem\" asks why physical brain processes produce subjective experience, a question that remains unresolved.",
+            "The \"easy problems\" of consciousness are more important than the \"hard problem.\"",
+            "Philosophers agree that consciousness cannot be studied scientifically at all."
+          ],
+          "answer": "B",
+          "skill": "central-idea"
+        },
+        {
+          "stem": "According to the passage, what are the \"easy problems\" of consciousness?",
+          "options": [
+            "Questions about why subjective experience exists at all.",
+            "Functions like attention, memory, and processing sensory input, which can be explained by identifying neural mechanisms.",
+            "Problems that have never been studied by neuroscience.",
+            "Questions only philosophers, not scientists, can address."
+          ],
+          "answer": "B",
+          "skill": "detail"
+        },
+        {
+          "stem": "The comparison to \"earlier mysteries about life itself\" suggests that some philosophers believe the hard problem",
+          "options": [
+            "can never be solved by any future scientific advance.",
+            "might eventually be explained as science advances, similar to past biological mysteries.",
+            "was already solved before neuroscience existed.",
+            "is not related to biology in any way."
+          ],
+          "answer": "B",
+          "skill": "inference"
+        }
+      ]
+    },
+    {
+      "id": "P1600c",
+      "level": 1600,
+      "title": "Separation of Powers: Why Governments Divide Authority",
+      "text": "The principle of separating governmental authority into distinct branches, typically one that makes laws, one that enforces them, and one that interprets them, rests on an assumption articulated clearly by the eighteenth-century political philosopher Montesquieu: that concentrating all forms of power in a single person or body, however well-intentioned, creates conditions under which abuse becomes likely rather than merely possible. Rather than relying on the virtue of individual leaders, a separation-of-powers system distributes authority so that each branch retains tools to check the others, a legislature that can refuse to fund an executive initiative, an executive that can veto legislation, a judiciary that can declare an action unconstitutional, so that no single branch can act entirely unchecked. Critics have long pointed out that this arrangement, precisely because it is designed to prevent concentrated power, can also produce gridlock, where disagreement among branches stalls necessary action even during urgent crises. Defenders respond that this friction is a deliberate, acceptable cost, reasoning that a system built primarily for speed and efficiency would also be a system more easily captured by a single faction or individual. The tension between effective governance and protection against concentrated power has no permanent resolution; each generation of institutional designers must decide anew where, within that tension, to strike the balance.",
+      "questions": [
+        {
+          "stem": "What is the passage mainly about?",
+          "options": [
+            "Why one branch of government should always have more power than the others.",
+            "The reasoning behind dividing governmental authority among separate branches that check one another.",
+            "The exact year separation of powers was invented.",
+            "Why gridlock never occurs in governments with separated powers."
+          ],
+          "answer": "B",
+          "skill": "central-idea"
+        },
+        {
+          "stem": "According to the passage, what did Montesquieu argue?",
+          "options": [
+            "Concentrating all power in one person or body makes abuse of power more likely.",
+            "Only a single branch of government should exist.",
+            "Judiciaries should never be able to check executives.",
+            "Gridlock is always more dangerous than concentrated power."
+          ],
+          "answer": "A",
+          "skill": "detail"
+        },
+        {
+          "stem": "In the passage, the word \"gridlock\" most nearly means",
+          "options": [
+            "rapid, efficient decision-making",
+            "a situation of unified agreement",
+            "a standstill caused by disagreement among parts of a system",
+            "a type of legal document"
+          ],
+          "answer": "C",
+          "skill": "vocabulary"
+        }
+      ]
     }
   ]
 }

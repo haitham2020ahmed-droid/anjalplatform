@@ -1,7 +1,7 @@
 /**
  * 🚀 ReadRise — article import (JSON in data/readrise/FORMAT.md format, or the Excel template).
  *
- *   validateArticle(json)      strict checks (12 levels 300–1400, per band 5 key words + 8 questions with 4 options
+ *   validateArticle(json)      strict checks (14 levels 300–1600, per band 5 key words + 8 questions with 4 options
  *                              and an A–D answer + a prompt) and, per version, the estimated ReadRise Level and word
  *                              count against the target (warnings, with a hint for the writer)
  *   importArticleJson(...)     upserts RRArticle / RRVersion / RRQuestion / RRPrompt by code (school-scoped;
@@ -20,11 +20,14 @@ import { audit } from "../audit";
 import { analyzeText } from "../../reading/prl";
 import { readPart, readXlsx, readZipEntries } from "../../imports/xlsx";
 import { workbookXlsx, type Sheet } from "../../imports/questions/template-files";
-import { estimateLevel, RR_LEVELS, targetWords, type RRBand } from "./level";
+import { estimateLevel, LIBRARY_LEVELS, targetWords, type RRBand } from "./level";
 
 export const BANDS: readonly RRBand[] = ["LOW", "MID", "HIGH"];
-export const BAND_RANGE: Record<RRBand, string> = { LOW: "300–600", MID: "700–1000", HIGH: "1100–1400" };
-export const BAND_LEVELS: Record<RRBand, number[]> = { LOW: [300, 400, 500, 600], MID: [700, 800, 900, 1000], HIGH: [1100, 1200, 1300, 1400] };
+// ✨ (decision, Oct 2026): HIGH widened to include the new 1500/1600 rungs (level.ts) rather than adding a 4th band
+// — no new RRBand value, no schema change; the HIGH band's key words/questions/prompt must now also hold up for
+// the 1500/1600 versions, same as they already had to for 1100–1400.
+export const BAND_RANGE: Record<RRBand, string> = { LOW: "300–600", MID: "700–1000", HIGH: "1100–1600" };
+export const BAND_LEVELS: Record<RRBand, number[]> = { LOW: [300, 400, 500, 600], MID: [700, 800, 900, 1000], HIGH: [1100, 1200, 1300, 1400, 1500, 1600] };
 export const RR_SKILLS = ["central-idea", "detail", "inference", "vocabulary", "text-structure", "author-purpose", "cause-effect", "sequence", "compare"] as const;
 export const RR_TOPICS = ["Science", "Animals", "Space", "Earth", "Health", "Technology", "History", "People", "Environment", "Sports"] as const;
 export const PLATFORM_PREFIX = "RR-";
@@ -101,15 +104,15 @@ export function validateArticle(input: unknown, locate: Locate = () => undefined
 
   // ---- versions
   const rawVersions = Array.isArray(a.versions) ? (a.versions as unknown[]) : [];
-  if (!Array.isArray(a.versions)) err("version", "Versions are missing: an article needs 12 versions (levels 300, 400 … 1400).");
-  else if (rawVersions.length !== 12) err("version", `The article has ${rawVersions.length} version${rawVersions.length === 1 ? "" : "s"}; it needs exactly 12 (levels 300, 400 … 1400).`);
+  if (!Array.isArray(a.versions)) err("version", "Versions are missing: an article needs 14 versions (levels 300, 400 … 1600).");
+  else if (rawVersions.length !== 12) err("version", `The article has ${rawVersions.length} version${rawVersions.length === 1 ? "" : "s"}; it needs exactly 14 (levels 300, 400 … 1600).`);
   const versions: VersionJson[] = [];
   const seen = new Set<number>();
   for (const [i, rv] of rawVersions.entries()) {
     const v = (rv && typeof rv === "object" ? rv : {}) as Record<string, unknown>;
     const level = Number(str(v.level));
     const key = Number.isFinite(level) && level ? `version:${level}` : `version:#${i + 1}`;
-    if (!(RR_LEVELS as readonly number[]).includes(level)) { err(key, `Level “${str(v.level) || "(empty)"}” is not a ReadRise version level. Use 300, 400 … 1400.`); continue; }
+    if (!(LIBRARY_LEVELS as readonly number[]).includes(level)) { err(key, `Level “${str(v.level) || "(empty)"}” is not a ReadRise version level. Use 300, 400 … 1600.`); continue; }
     if (seen.has(level)) { err(key, `Level ${level} appears twice.`); continue; }
     seen.add(level);
     const vt = str(v.title), text = typeof v.text === "string" ? v.text.replace(/\r\n?/g, "\n").trim() : "";
@@ -121,7 +124,7 @@ export function validateArticle(input: unknown, locate: Locate = () => undefined
     if (off !== null && (!Number.isInteger(off) || off < 0 || off > 2000)) err(key, "Official Lexile must be a whole number from 0 to 2000 (or empty).");
     versions.push({ level, title: vt || title, text, ...(off !== null && Number.isInteger(off) ? { officialLexile: off } : {}) });
   }
-  if (Array.isArray(a.versions) && rawVersions.length === 12) for (const l of RR_LEVELS) if (!seen.has(l)) err("version", `Level ${l} is missing.`);
+  if (Array.isArray(a.versions) && rawVersions.length === 12) for (const l of LIBRARY_LEVELS) if (!seen.has(l)) err("version", `Level ${l} is missing.`);
   versions.sort((x, y) => x.level - y.level);
   let prevEst = -Infinity, prevLevel = 0;
   for (const v of versions) {
@@ -285,26 +288,26 @@ const validations = (...v: string[]) => `<dataValidations count="${v.length}">${
 
 /** The downloadable Excel template: one article per file. */
 export function templateWorkbook(): Uint8Array {
-  const levelRows = RR_LEVELS.map((l) => { const t = targetWords(l); return [String(l), l <= 600 ? "LOW" : l <= 1000 ? "MID" : "HIGH", `${t.min}–${t.max} words`]; });
+  const levelRows = LIBRARY_LEVELS.map((l) => { const t = targetWords(l); return [String(l), l <= 600 ? "LOW" : l <= 1000 ? "MID" : "HIGH", `${t.min}–${t.max} words`]; });
   const instructions: Sheet = {
     name: "Instructions", widths: [26, 110],
     rows: [
       ["ReadRise article template"],
-      ["One article per file. The same article is written 12 times, from level 300 (easiest) to 1400 (hardest). Every version teaches the same facts."],
+      ["One article per file. The same article is written 14 times, from level 300 (easiest) to 1600 (hardest). Every version teaches the same facts."],
       [""],
       ["Step", "What to do"],
       ["1.", "Article sheet: write the Code (letters, digits, dashes; codes starting with RR- are kept for the platform library), the Title, the Topic, a one-sentence Summary and a Poll statement students agree or disagree with before and after reading."],
-      ["2.", "Versions sheet: write a Title and the Text for each of the 12 levels. Separate paragraphs with a blank line (Alt+Enter twice in a cell). Keep each version near its target word count (table below)."],
+      ["2.", "Versions sheet: write a Title and the Text for each of the 14 levels. Separate paragraphs with a blank line (Alt+Enter twice in a cell). Keep each version near its target word count (table below)."],
       ["3.", "KeyWords sheet: 5 key words per band (LOW, MID, HIGH), each with part of speech, a kid-friendly definition and a NEW example sentence. The word must appear in every version of its band."],
       ["4.", "Questions sheet: 8 questions per band. Write the question, four choices A–D, the correct letter, the skill and why the answer is right. Mix skills: at least 1 central idea, 2 details, 2 inference, 1 vocabulary, 1 text structure or author's purpose, 1 cause–effect / sequence / compare."],
       ["5.", "Prompts sheet: one short written-answer prompt per band, with a checklist of what a strong answer includes (separate the lines with |)."],
       ["6.", "Upload the file in ReadRise → Import. The preview shows, for each version, the estimated ReadRise Level against the target (✓ or ⚠ with a hint), and every problem with its sheet and row. Nothing is saved until you click Import."],
-      ["7.", "The article is imported as a DRAFT. Open it, check the 12 versions side by side, then Publish (teachers without the publish permission ask an admin)."],
+      ["7.", "The article is imported as a DRAFT. Open it, check the 14 versions side by side, then Publish (teachers without the publish permission ask an admin)."],
       ["", `Rows that start with ${EXAMPLE_MARK} are examples: they are ignored. You may delete them.`],
       ["", "The ReadRise Level is an estimate on a Lexile-like scale (sentence length and word length). It is NOT an official Lexile measure; an official Lexile can be added per version on the review page."],
       ["", "If the estimate is too high: make sentences shorter and use simpler, shorter words. If it is too low: join ideas into longer sentences and use richer, more precise words."],
       [""],
-      ["Bands", "LOW = versions 300–600 · MID = versions 700–1000 · HIGH = versions 1100–1400. Each band has its own key words, questions and prompt, and they must work for every version in the band."],
+      ["Bands", "LOW = versions 300–600 · MID = versions 700–1000 · HIGH = versions 1100–1600. Each band has its own key words, questions and prompt, and they must work for every version in the band."],
       ["Skills", RR_SKILLS.join(", ")],
       ["Topics", RR_TOPICS.join(", ")],
       [""],
@@ -319,7 +322,7 @@ export function templateWorkbook(): Uint8Array {
   };
   const versions: Sheet = {
     name: "Versions", headerStyle: true, freeze: true, widths: [16, 30, 110], numericCols: new Set([0]),
-    rows: [VERSION_HEAD, [`${EXAMPLE_MARK} 300`, "Life in an Oasis", "An oasis is a green place in the desert. It has water.\n\nPalm trees grow there. People come to drink and rest."], ...RR_LEVELS.map((l) => [String(l), "", ""])],
+    rows: [VERSION_HEAD, [`${EXAMPLE_MARK} 300`, "Life in an Oasis", "An oasis is a green place in the desert. It has water.\n\nPalm trees grow there. People come to drink and rest."], ...LIBRARY_LEVELS.map((l) => [String(l), "", ""])],
   };
   const kwRows = BANDS.flatMap((b) => Array.from({ length: 5 }, () => [b, "", "", "", ""]));
   const keyWords: Sheet = {
@@ -475,5 +478,5 @@ export async function importArticleFile(repo: Repo, actor: Actor, name: string, 
 export function templateJson(): ArticleJson {
   const q = (): QuestionJson => ({ stem: "", options: ["", "", "", ""], answer: "A", skill: "detail", why: "" });
   const band = (): BandJson => ({ keyWords: Array.from({ length: 5 }, () => ({ word: "", partOfSpeech: "", definition: "", example: "" })), questions: Array.from({ length: 8 }, q), prompt: "", checklist: [""] });
-  return { code: "", title: "", topic: "", summary: "", poll: "", versions: RR_LEVELS.map((level) => ({ level, title: "", text: "" })), bands: { LOW: band(), MID: band(), HIGH: band() } };
+  return { code: "", title: "", topic: "", summary: "", poll: "", versions: LIBRARY_LEVELS.map((level) => ({ level, title: "", text: "" })), bands: { LOW: band(), MID: band(), HIGH: band() } };
 }
