@@ -236,13 +236,23 @@ function areaBreakdownOf(areas: Row[], goalRows: Row[], members: Set<string> | n
     const vals = goalRows.filter((g) => inScope(g) && s(g.goalAreaId) === s(a.id)).map((g) => Number(g.rit));
     return { area: s(a.name), areaId: s(a.id), meanRit: vals.length ? Math.round(vals.reduce((x, y) => x + y, 0) / vals.length) : null, students: vals.length };
   });
-  const out: AreaBreakdownRow[] = [];
+  // 🐛 fix (audit finding, Oct 2026): each `out` row now carries its own `sig`, computed once from its ORIGINAL
+  // (pre-merge) areaId. The old code re-derived a twin's signature by looking its already-merged display name back
+  // up in `raw` (`raw.find(r => r.area === m.area)!.areaId`) — that lookup assumed `m.area` still matched an
+  // unmerged raw name. True for the first merge, but a THIRD area merging into an already-merged pair never matches
+  // (the display name was rewritten to "Fam: A · B" on the first merge), so `raw.find(...)` returned undefined and
+  // `.areaId` crashed the whole report ("Cannot read properties of undefined (reading 'areaId')") — reproducible
+  // whenever 3+ sub-areas of one family share the same mean RIT and the same set of students (rare for Reading's
+  // richer goal-area set, common for Language Usage's few areas on a small roster, e.g. a Personalized Plan for a
+  // student with sparse MAP Language data). Storing each entry's own signature up front removes the lookup.
+  const out: (AreaBreakdownRow & { sig: string })[] = [];
   for (const x of raw) {
     const fam = x.area.split(":")[0];
-    const twin = out.find((m) => m.area.split(":")[0] === fam && m.meanRit === x.meanRit && x.meanRit !== null && sigOf(raw.find((r) => r.area === m.area)!.areaId) === sigOf(x.areaId));
+    const xSig = sigOf(x.areaId);
+    const twin = out.find((m) => m.area.split(":")[0] === fam && m.meanRit === x.meanRit && x.meanRit !== null && m.sig === xSig);
     if (twin) twin.area = `${fam}: ${twin.area.slice(fam.length + 2)} · ${x.area.slice(fam.length + 2)}`;
-    else out.push({ area: x.area, meanRit: x.meanRit, students: x.students });
+    else out.push({ area: x.area, meanRit: x.meanRit, students: x.students, sig: xSig });
   }
   out.sort((a, b) => (a.meanRit ?? Infinity) - (b.meanRit ?? Infinity) || a.area.localeCompare(b.area));
-  return out;
+  return out.map(({ area, meanRit, students }) => ({ area, meanRit, students }));
 }
