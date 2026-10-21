@@ -4,7 +4,7 @@ import { getActor, repo, requireActor } from "@/server/auth/next";
 import { can } from "@/server/auth/rbac";
 import { classLevels } from "@/server/curriculum-map/levels";
 import { nationalNorm, ritView, SEASONS } from "@/server/map/rit";
-import { enterRitAction, importMapScoresInline, levelsFromRitAction, updateNormsAction } from "../map-rit-actions";
+import { addNormGradeAction, enterRitAction, importMapScoresInline, levelsFromRitAction, updateNormsAction } from "../map-rit-actions";
 import { MapImportBox } from "@/components/map/import-box";
 import { PageHeader } from "@/components/page-header";
 
@@ -15,7 +15,7 @@ const VS: Record<string, [string, string]> = { ABOVE: ["Above class average", "t
 const signed = (n: number) => (n > 0 ? `+${n}` : String(n));
 
 /** 🗺️ MAP Reading RIT: ranking against the national average and the class average (Grades 4–6). */
-export default async function MapRitPage({ searchParams }: { searchParams: Promise<{ grade?: string; classId?: string; term?: string; msg?: string; subject?: string }> }) {
+export default async function MapRitPage({ searchParams }: { searchParams: Promise<{ grade?: string; classId?: string; term?: string; msg?: string; subject?: string; extraGrades?: string }> }) {
   const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"], permission: "reports:read" });
   const me = (await getActor())!.user;
   const sp = await searchParams;
@@ -29,7 +29,10 @@ export default async function MapRitPage({ searchParams }: { searchParams: Promi
   // personal-plan.ts then silently showed every such student as "On level" instead of a real percentile. Every
   // grade that actually has a class (v.grades, from ritView's own accessibleClasses — at least 4/5/6 always shown
   // even with none yet) now gets its own row, for both subjects.
-  const gradeList = [...new Set([4, 5, 6, ...v.grades])].sort((a, b) => a - b);
+  // ✨ feature (requested, Oct 2026): `extraGrades` (?extraGrades=7,8) adds rows for a grade with no class yet
+  // (e.g. preparing ahead of a grade the school is about to open) — see addNormGradeAction's "Add a grade" box below.
+  const extraGrades = (sp.extraGrades ?? "").split(",").map(Number).filter((n) => Number.isInteger(n) && n > 0);
+  const gradeList = [...new Set([4, 5, 6, ...v.grades, ...extraGrades])].sort((a, b) => a - b);
   const norms = isAdmin && can(actor, "settings:school") ? await Promise.all(gradeList.map(async (g) => ({
     g,
     s: await Promise.all(SEASONS.map(async (se) => ({ se, reading: await nationalNorm(repo, g, se, "READING"), language: await nationalNorm(repo, g, se, "LANGUAGE") }))),
@@ -138,6 +141,21 @@ export default async function MapRitPage({ searchParams }: { searchParams: Promi
           </div>
           <label className="mt-3 flex flex-col text-sm">Source<input name="source" required defaultValue={norms[0]?.s[0]?.reading?.source ?? norms[0]?.s[0]?.language?.source ?? ""} className={`${box} max-w-xl`} /></label>
           <button className="mt-4 rounded-xl bg-brand-navy px-5 py-2 font-semibold text-white hover:bg-brand-purple">Save national averages</button>
+        </form>
+      )}
+      {/* ✨ feature (requested, Oct 2026): a grade with no class yet (e.g. a grade the school is about to open) never
+       * appears via v.grades, so there's no row to fill in for it above. This separate form (a different server
+       * action, so it can't be nested inside the "Save national averages" form) adds an empty row for any grade
+       * 1–13; it's remembered via `extraGrades` in the URL only, not saved anywhere — once real numbers are entered
+       * and saved for that grade, nationalNorm() finds them on its own regardless of whether it's still listed here. */}
+      {norms && (
+        <form action={addNormGradeAction} className="mt-4 flex flex-wrap items-end gap-3 rounded-2xl bg-white p-5 ring-1 ring-slate-200">
+          <input type="hidden" name="extraGrades" value={extraGrades.join(",")} />
+          <label className="flex flex-col text-sm">
+            Add a grade (no class yet)
+            <input type="number" name="grade" min={1} max={13} placeholder="e.g. 7" className={`${box} w-32`} />
+          </label>
+          <button className="rounded-xl bg-brand-navy px-5 py-2 font-semibold text-white hover:bg-brand-purple">➕ Add a grade</button>
         </form>
       )}
     </AppShell>

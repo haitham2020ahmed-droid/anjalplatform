@@ -63,6 +63,18 @@ export async function updateNormsAction(f: FormData): Promise<void> {
   back({ msg });
 }
 
+/** ✨ feature (requested, Oct 2026): adds a grade row to the National Averages table that has no class yet (so it
+ * never shows up via `v.grades`) — e.g. preparing next year's Grade 7 ahead of time. Remembered across visits via
+ * `extraGrades` in the URL, not saved anywhere: it only decides which empty rows the admin sees to fill in: once
+ * real numbers are saved for that grade, nationalNorm() finds them regardless of whether it's still in this list. */
+export async function addNormGradeAction(f: FormData): Promise<void> {
+  const grade = Number(f.get("grade"));
+  const existing = String(f.get("extraGrades") ?? "").split(",").map(Number).filter((n) => Number.isInteger(n) && n > 0);
+  if (!Number.isInteger(grade) || grade < 1 || grade > 13) { back({ msg: "Enter a grade from 1 to 13.", extraGrades: existing.join(",") }); return; }
+  const merged = [...new Set([...existing, grade])].sort((a, b) => a - b).join(",");
+  redirect(`/teacher/map-rit?${new URLSearchParams({ extraGrades: merged })}`);
+}
+
 
 /** Simple MAP import: Fall RIT + Spring Projection per student (CSV or Excel). */
 export async function importMapScoresAction(f: FormData): Promise<void> {
