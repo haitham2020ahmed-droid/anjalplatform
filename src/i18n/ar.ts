@@ -4890,6 +4890,8 @@ export const ar: Record<UiString, string> = {
   "Added ✓": "تمت الإضافة ✓",
   "✓ Added": "✓ أُضيفت",
   "You already added this skill's questions — picking it again usually finds nothing new.": "أسئلة هذه المهارة مُضافة بالفعل — اختيارها مرة أخرى غالبًا لن يضيف جديدًا.",
+  "You already added this — picking it again usually finds nothing new.": "هذا مُضاف بالفعل — اختياره مرة أخرى غالبًا لن يضيف جديدًا.",
+  "Remove \"{section}\" from this Review? (Every other section stays as it is.)": "هل تريد حذف \"{section}\" من هذه المراجعة؟ (كل الأقسام الأخرى تبقى كما هي.)",
   "Tick the correct answer. The question is private to you.": "حدّد الإجابة الصحيحة. السؤال خاص بك.",
   "Add a choice": "أضف خيارًا",
   "Add to my Review": "أضف إلى مراجعتي",

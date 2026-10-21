@@ -54,6 +54,9 @@ export function ReviewBuilder({ grade, initial, sets, skillUnits, roster }: {
   const [skillsData, setSkillsData] = useState<ReviewSkillUnit[] | null>(skillUnits.length ? skillUnits : null);
   const [skillQ, setSkillQ] = useState("");
   const [setPicks, setSetPicks] = useState<Record<string, Set<Cat>>>({});
+  // 🔔 fix (Oct 2026, "لو اخترتها تاني تظهر تنبيه"): same as the Language tab's addedSkillIds below — which
+  // "{unit}.{setNumber}.{category}" picks were already added via "Add selected" THIS visit.
+  const [addedSetCats, setAddedSetCats] = useState<Set<string>>(new Set());
   const [skillPicks, setSkillPicks] = useState<Set<string>>(new Set());
   // 🔔 fix (Oct 2026, "لو اخترتها تاني تظهر تنبيه"): skills already added via "Add selected" THIS visit — ticking
   // one of them again shows a warning instead of silently re-queuing it, since re-adding it usually finds "nothing
@@ -264,6 +267,12 @@ export function ReviewBuilder({ grade, initial, sets, skillUnits, roster }: {
                     onChange={(e) => setSectionInputs((p) => ({ ...p, [sec.label]: e.target.value }))}
                     className="w-16 rounded-lg border border-slate-300 px-1.5 py-1 text-xs" />
                 </label>
+                {/* 🗑 fix (Oct 2026, "احذف اي نقطه من هنا"): remove this ONE section+level row's questions from the
+                    Review in one click — every other row is untouched. */}
+                <button type="button" className="shrink-0 rounded-full px-2 py-1 text-xs font-semibold text-red-700 ring-1 ring-red-200 hover:bg-red-50" disabled={busy}
+                  onClick={() => go(async () => { if (window.confirm(t('Remove "{section}" from this Review? (Every other section stays as it is.)', { section: label }))) apply(await customReviewChangeAction(grade, { op: "removeSection", label: sec.label }), t("Saved ✓")); })}>
+                  🗑 {t("Remove")}
+                </button>
               </div>
               {peeking && !open && (
                 <div className="space-y-1 border-t border-slate-100 bg-slate-50 p-3 text-xs text-slate-700">
@@ -363,8 +372,13 @@ export function ReviewBuilder({ grade, initial, sets, skillUnits, roster }: {
                                 return (
                                   <span key={cat} className="flex items-center gap-1">
                                     <label className="flex items-center gap-1.5 text-xs text-slate-700">
-                                      <input type="checkbox" checked={checked.has(cat)} onChange={() => toggleSetCat(set.unit, set.setNumber, cat)} />
+                                      <input type="checkbox" checked={checked.has(cat)}
+                                        onChange={() => {
+                                          if (!checked.has(cat) && addedSetCats.has(pKey)) setMsg({ ok: false, text: t("You already added this — picking it again usually finds nothing new.") });
+                                          toggleSetCat(set.unit, set.setNumber, cat);
+                                        }} />
                                       {t(CAT_LABEL[cat])}
+                                      {addedSetCats.has(pKey) && <span className="rounded-full bg-emerald-50 px-1.5 text-[11px] font-semibold text-emerald-700">{t("✓ Added")}</span>}
                                     </label>
                                     <button type="button" className="rounded-full px-1 text-xs text-slate-500 hover:bg-slate-100" disabled={busy}
                                       onClick={() => go(async () => { if (tsPreview?.key === pKey) { setTsPreview(null); return; } setTsPreview({ key: pKey, stems: [] }); const r = await setPreviewAction(grade, set.unit, set.setNumber, cat, level); setTsPreview({ key: pKey, stems: r.ok ? r.value : [] }); })}
@@ -389,7 +403,11 @@ export function ReviewBuilder({ grade, initial, sets, skillUnits, roster }: {
             <button type="button" className={main} disabled={busy || !setPicksCount}
               onClick={() => go(async () => {
                 const picks = Object.entries(setPicks).map(([key, cats]) => { const [unit, setNumber] = key.split(".").map(Number); return { unit, setNumber, categories: [...cats] }; });
-                if (apply(await customReviewChangeAction(grade, { op: "addSets", picks, level }), t("Added ✓"))) setSetPicks({});
+                if (apply(await customReviewChangeAction(grade, { op: "addSets", picks, level }), t("Added ✓"))) {
+                  const newlyAdded = picks.flatMap((p) => p.categories.map((cat) => `${p.unit}.${p.setNumber}.${cat}`));
+                  setAddedSetCats((s) => new Set([...s, ...newlyAdded]));
+                  setSetPicks({});
+                }
               })}>
               {t("Add selected ({n})", { n: setPicksCount })}
             </button>

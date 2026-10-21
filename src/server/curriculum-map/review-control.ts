@@ -312,6 +312,10 @@ export type ReviewChange =
   /** 🔁 fix (Oct 2026, "التوزيع"): set each section's own "take" count by hand (the collapsed section panel's ± on
    * one section), instead of one flat total spread automatically — see sectionBreakdown / reorderBySectionCounts. */
   | { op: "sectionCounts"; counts: Record<string, number> }
+  /** 🗑 fix (Oct 2026, "احذف اي نقطه من هنا"): remove every question of ONE section row (one exact section+level
+   * label, as shown on screen) from the Review in one click, instead of opening it and removing questions one by
+   * one — every OTHER section/level is untouched. */
+  | { op: "removeSection"; label: string }
   | { op: "reset" };
 
 /** One change to the teacher's Review (see the header). */
@@ -398,6 +402,17 @@ export async function changeReview(repo: Repo, actor: Actor, code: string, c: Re
       ? `Your Review is already at its maximum of ${MAX_REVIEW} questions. Remove some questions first, then add these skills.`
       : "Nothing new to add from those skills — every question of those skills is already in your Review.");
     if (!st.custom) st.count = Math.min(st.count + added, st.questionIds.length);
+  } else if (c.op === "removeSection") {
+    // 🗑 fix (Oct 2026, "احذف اي نقطه من هنا"): remove every question of ONE exact section+level row, found the
+    // same way the row itself was built (sectionGroups on the same rows) — so it matches the row the teacher
+    // actually clicked, whole or split by level.
+    const rows = await describePicks(repo, actor, st.questionIds, MAX_REVIEW);
+    const group = sectionGroups(rows).find((g) => g.label === s(c.label));
+    if (!group || !group.ids.length) throw new ValidationError("That section is not in your Review.");
+    const removeSet = new Set(group.ids);
+    st.questionIds = st.questionIds.filter((id) => !removeSet.has(id));
+    for (const id of group.ids) if (st.shared.includes(id) && !st.hiddenIds.includes(id)) st.hiddenIds.push(id);
+    // (write() below clamps `count` to the new questionIds.length, same as the single-question "remove" op.)
   }
   if (!st.questionIds.length) throw new ValidationError("Keep at least one question in the Review (or press Reset).");
   await write(repo, actor, node.code, st, now);
@@ -651,6 +666,8 @@ export type CustomReviewChange =
   | { op: "addSkillCount"; skillId: string; count: number; level?: LevelFilter }
   /** 🔁 fix (Oct 2026, "التوزيع"): same as ReviewChange's "sectionCounts" — set each section's own "take" by hand. */
   | { op: "sectionCounts"; counts: Record<string, number> }
+  /** 🗑 fix (Oct 2026, "احذف اي نقطه من هنا"): same as ReviewChange's "removeSection" — see its comment. */
+  | { op: "removeSection"; label: string }
   | { op: "reset" };
 
 /** One change to the teacher's whole-grade Review Builder (see the header above). */
@@ -757,6 +774,15 @@ export async function changeCustomReview(repo: Repo, actor: Actor, grade: number
     }
     if (!added) throw new ValidationError("Nothing new to add from that skill.");
     st.count = Math.min(st.count + added, st.questionIds.length);
+  } else if (c.op === "removeSection") {
+    // 🗑 fix (Oct 2026, "احذف اي نقطه من هنا"): same as ReviewChange's "removeSection" — see its comment.
+    const rows = await describePicks(repo, actor, st.questionIds, MAX_REVIEW);
+    const group = sectionGroups(rows).find((g2) => g2.label === s(c.label));
+    if (!group || !group.ids.length) throw new ValidationError("That section is not in your Review.");
+    const removeSet = new Set(group.ids);
+    st.questionIds = st.questionIds.filter((id) => !removeSet.has(id));
+    for (const id of group.ids) if (!st.hiddenIds.includes(id)) st.hiddenIds.push(id);
+    // (writeCustom() below clamps `count` to the new questionIds.length, same as the single-question "remove" op.)
   }
   if (!st.questionIds.length) throw new ValidationError("Add at least one question (or press Reset).");
   await writeCustom(repo, actor, g, st, now);

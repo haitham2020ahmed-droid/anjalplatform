@@ -138,6 +138,13 @@ export function ReviewControl({ initial, roster = [] }: { initial: ReviewControl
                       className="w-16 rounded-lg border border-slate-300 px-1.5 py-1 text-xs" />
                   </label>
                 )}
+                {/* 🗑 fix (Oct 2026, "احذف اي نقطه من هنا"): same as review-builder.tsx — see its comment. */}
+                {v.canEdit && (
+                  <button type="button" className="shrink-0 rounded-full px-2 py-1 text-xs font-semibold text-red-700 ring-1 ring-red-200 hover:bg-red-50" disabled={busy}
+                    onClick={() => go(async () => { if (window.confirm(t('Remove "{section}" from this Review? (Every other section stays as it is.)', { section: label }))) apply(await reviewChangeAction(v.code, { op: "removeSection", label: sec.label }), t("Saved ✓")); })}>
+                    🗑 {t("Remove")}
+                  </button>
+                )}
               </div>
               {peeking && !open && (
                 <div className="space-y-1 border-t border-slate-100 bg-slate-50 p-3 text-xs text-slate-700">
