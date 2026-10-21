@@ -118,6 +118,11 @@ export function ReviewBuilder({ grade, initial, sets, skillUnits, roster }: {
   // 🔄 fix (Oct 2026, "ضيف خيار ان المعلم يقدر يبدل السؤال"): which ASKED question's swap picker is open
   // ({sectionLabel, questionId}) — "⚡ Automatic" or pick one of the section's own SPARE questions to swap in.
   const [swapFor, setSwapFor] = useState<{ label: string; id: string } | null>(null);
+  // 📋 fix (Oct 2026, "عايز تيوب فيها كل ١٥١ سوال"): a flat, ungrouped-by-collapse view of every CURRENTLY TAKEN
+  // question (grouped only under its section's heading, always expanded) — for reviewing/editing all of them at
+  // once and for a clean, professional print (the per-section accordion above prints empty/collapsed sections
+  // unless each is opened by hand first).
+  const [flatView, setFlatView] = useState(false);
   const [sectionInputs, setSectionInputs] = useState<Record<string, string>>({});
   const sectionValue = (label: string, take: number) => sectionInputs[label] ?? String(take);
   // 🐛 fix (Oct 2026, "لازم امشي واحد واحد واضغط save"): used to fall back to the server's last-SAVED `sec.take` for
@@ -236,6 +241,9 @@ export function ReviewBuilder({ grade, initial, sets, skillUnits, roster }: {
             the per-Set Review page. The question list below already shows full, untruncated text, so printing it
             (or "Save as PDF" from the browser's print dialog) IS the full, clear review the teacher asked for. */}
         <div className="ms-auto flex items-center gap-2 print:hidden">
+          <button type="button" className={btn} aria-pressed={flatView} onClick={() => setFlatView((p) => !p)}>
+            {flatView ? `📑 ${t("By section")}` : `📋 ${t("All selected questions")}`}
+          </button>
           <PrintButton />
           {v.chosen > 0 && <button type="button" className={btn} disabled={busy} onClick={() => go(async () => { if (window.confirm(t("Remove every question from this Review?"))) apply(await customReviewChangeAction(grade, { op: "reset" }), t("Saved ✓")); })}>{t("Reset")}</button>}
         </div>
@@ -245,6 +253,7 @@ export function ReviewBuilder({ grade, initial, sets, skillUnits, roster }: {
       {level !== "ANY" && v.sections.length > 0 && visibleSections.length === 0 && (
         <p className="rounded-xl bg-white p-4 text-sm text-slate-600 ring-1 ring-slate-200">{t("No sections of this level yet.")}</p>
       )}
+      {!flatView && (
       <ol className="space-y-2" aria-label={t("Sections of the Review")}>
         {visibleSections.map((sec) => {
           const label = sec.label || t("Other");
@@ -358,6 +367,86 @@ export function ReviewBuilder({ grade, initial, sets, skillUnits, roster }: {
           );
         })}
       </ol>
+      )}
+      {flatView && (() => {
+        let n = 0;
+        const groups = visibleSections
+          .map((sec) => ({ sec, list: questionsOf(sec.label).filter((x) => ids.indexOf(x.id) < v.count) }))
+          .filter((g) => g.list.length > 0);
+        return (
+          <div className="space-y-4" aria-label={t("All selected questions")} data-testid="review-flat">
+            {groups.map(({ sec, list }) => {
+              const spare = questionsOf(sec.label).filter((x) => ids.indexOf(x.id) >= v.count);
+              return (
+                <div key={sec.label || "·"} className="space-y-2 break-inside-avoid">
+                  <h3 className="border-b border-slate-200 pb-1 font-semibold text-brand-navy" dir="ltr">{sec.label || t("Other")}</h3>
+                  <ol className="space-y-2">
+                    {list.map((x) => {
+                      n++;
+                      const swapping = swapFor?.label === sec.label && swapFor.id === x.id;
+                      return (
+                        <li key={x.id} data-testid="review-q" className="break-inside-avoid rounded-xl bg-white p-3 ring-1 ring-slate-200">
+                          <div className="flex flex-wrap items-start gap-2">
+                            <span className="w-6 shrink-0 text-end text-xs font-bold text-slate-400">{n}.</span>
+                            <p className="min-w-0 flex-1 text-sm text-slate-900" data-content lang="en"><RichInline text={x.stem} /></p>
+                            <span className="flex flex-wrap gap-1 text-xs">
+                              {x.own && <span className="rounded-full bg-violet-50 px-2 py-0.5 font-semibold text-violet-800 ring-1 ring-violet-200">✏️ {t("My copy")}</span>}
+                              <span className="rounded-full bg-slate-50 px-2 py-0.5 text-slate-600 ring-1 ring-slate-200">{x.typeLabel}</span>
+                            </span>
+                          </div>
+                          <div className="mt-2 flex flex-wrap gap-1.5 print:hidden">
+                            <button type="button" className={btn} disabled={busy} onClick={() => go(async () => { const r = await customDetailAction(grade, x.id); if (r.ok) setEdit(r.value); else setMsg({ ok: false, text: r.message }); })}>✏️ {t("Edit")}</button>
+                            <button type="button" className={btn} disabled={busy} onClick={() => go(async () => { apply(await customReviewChangeAction(grade, { op: "remove", questionId: x.id })); })}>➖ {t("Remove")}</button>
+                            <button type="button" className={btn} disabled={busy || !spare.length} aria-expanded={swapping}
+                              onClick={() => setSwapFor(swapping ? null : { label: sec.label, id: x.id })}>🔄 {t("Swap")}</button>
+                          </div>
+                          {swapping && (
+                            <div className="mt-2 space-y-1.5 rounded-xl bg-slate-50 p-2.5 print:hidden">
+                              <button type="button" className={`${main} w-full justify-center`} disabled={busy}
+                                onClick={() => go(async () => { if (apply(await customReviewChangeAction(grade, { op: "swapQuestion", label: sec.label, outId: x.id }), t("Saved ✓"))) setSwapFor(null); })}>
+                                ⚡ {t("Automatic swap")}
+                              </button>
+                              <p className="px-1 text-xs font-semibold text-slate-600">{t("Or pick one to swap in:")}</p>
+                              <ul className="max-h-56 space-y-1.5 overflow-y-auto">
+                                {spare.map((sp) => (
+                                  <li key={sp.id} className="flex items-start justify-between gap-2 rounded-lg bg-white p-2 ring-1 ring-slate-200">
+                                    <span className="min-w-0 flex-1 text-xs text-slate-800" dir="ltr" data-content><RichInline text={sp.stem} /></span>
+                                    <button type="button" className={`${btn} shrink-0`} disabled={busy}
+                                      onClick={() => go(async () => { if (apply(await customReviewChangeAction(grade, { op: "swapQuestion", label: sec.label, outId: x.id, inId: sp.id }), t("Saved ✓"))) setSwapFor(null); })}>
+                                      {t("Use this")}
+                                    </button>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          )}
+                          {edit?.id === x.id && (
+                            <form className="mt-3 space-y-2 rounded-xl bg-slate-50 p-3 print:hidden" onSubmit={(e) => { e.preventDefault(); go(async () => { if (apply(await customEditAction(grade, { questionId: edit.id, stem: edit.stem, options: edit.options.length ? edit.options : null, answer: edit.answer, answers: edit.answers.length ? edit.answers : null }), t("Saved as your private copy ✓"))) setEdit(null); }); }}>
+                              <p className="text-xs text-slate-600">{t("Your change makes a private copy for your classes. The shared question is not changed.")}</p>
+                              <label className="block text-sm font-semibold">{t("Question")}<textarea value={edit.stem} onChange={(e) => setEdit({ ...edit, stem: e.target.value })} rows={3} className={field} /></label>
+                              {edit.options.map((o, k) => (
+                                <label key={o.label} className="flex items-center gap-2 text-sm">
+                                  <input type={edit.type === "MULTI_SELECT" ? "checkbox" : "radio"} name="correct" checked={o.correct} onChange={() => setEdit({ ...edit, options: edit.options.map((y, j) => ({ ...y, correct: edit.type === "MULTI_SELECT" ? (j === k ? !y.correct : y.correct) : j === k })) })} aria-label={t("Correct answer")} />
+                                  <b>{o.label}</b><input value={o.text} onChange={(e) => setEdit({ ...edit, options: edit.options.map((y, j) => (j === k ? { ...y, text: e.target.value } : y)) })} className={`${field} mt-0`} />
+                                </label>
+                              ))}
+                              {edit.answer !== null && (
+                                <label className="text-sm">{t("Answer")} <select value={edit.answer ? "1" : "0"} onChange={(e) => setEdit({ ...edit, answer: e.target.value === "1" })} className="rounded-lg border border-slate-300 px-2 py-1"><option value="1">{t("True")}</option><option value="0">{t("False")}</option></select></label>
+                              )}
+                              <div className="flex gap-2"><button className={main} disabled={busy}>{t("Save my copy")}</button><button type="button" className={btn} onClick={() => setEdit(null)}>{t("Cancel")}</button></div>
+                            </form>
+                          )}
+                        </li>
+                      );
+                    })}
+                  </ol>
+                </div>
+              );
+            })}
+            {!groups.length && <p className="rounded-xl bg-white p-4 text-sm text-slate-600 ring-1 ring-slate-200">{t("This Review has no questions yet. Collect some below.")}</p>}
+          </div>
+        );
+      })()}
       {!v.questions.length && <p className="rounded-xl bg-white p-4 text-sm text-slate-600 ring-1 ring-slate-200">{t("This Review has no questions yet. Collect some below.")}</p>}
 
       {v.hidden.length > 0 && (
