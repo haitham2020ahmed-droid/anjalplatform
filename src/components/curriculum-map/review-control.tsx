@@ -42,6 +42,8 @@ export function ReviewControl({ initial, roster = [] }: { initial: ReviewControl
   // one of them again shows a warning instead of silently re-queuing it, since re-adding it usually finds "nothing
   // new" (every question of that skill is already in the Review).
   const [addedSkillIds, setAddedSkillIds] = useState<Set<string>>(new Set());
+  // 🔄 fix (Oct 2026, "تضيف مكانه سوال من نفس section"): same as review-builder.tsx — see its comment.
+  const [swapFor, setSwapFor] = useState<{ label: string; id: string } | null>(null);
   const [count, setCount] = useState(String(initial.count));
   // 🔓 r91: the level to collect at ("Collect..." and "Language") — narrows Analyze Craft and Structure only
   const [level, setLevel] = useState<LevelFilter>("ANY");
@@ -152,24 +154,52 @@ export function ReviewControl({ initial, roster = [] }: { initial: ReviewControl
                   {list.length > 3 && <p className="text-slate-500">{t("… and {n} more", { n: list.length - 3 })}</p>}
                 </div>
               )}
-              {open && (
+              {open && (() => {
+                const spare = list.filter((q) => ids.indexOf(q.id) >= v.count);
+                return (
                 <ol className="space-y-2 border-t border-slate-100 p-3">
                   {list.map((x) => {
                     const i = ids.indexOf(x.id);
+                    const asked = i < v.count;
+                    const swapping = swapFor?.label === sec.label && swapFor.id === x.id;
                     return (
-                      <li key={x.id} data-testid="review-q" className={`rounded-xl bg-white p-3 ring-1 ${i < v.count ? "ring-slate-200" : "opacity-60 ring-dashed ring-slate-300"}`}>
+                      <li key={x.id} data-testid="review-q" className={`rounded-xl bg-white p-3 ring-1 ${asked ? "ring-slate-200" : "opacity-60 ring-dashed ring-slate-300"}`}>
                         <div className="flex flex-wrap items-start gap-2">
                           <p className="min-w-0 flex-1 text-sm text-slate-900" data-content lang="en"><RichInline text={x.stem} /></p>
                           <span className="flex flex-wrap gap-1 text-xs">
                             {x.own && <span className="rounded-full bg-violet-50 px-2 py-0.5 font-semibold text-violet-800 ring-1 ring-violet-200">✏️ {t("My copy")}</span>}
                             <span className="rounded-full bg-slate-50 px-2 py-0.5 text-slate-600 ring-1 ring-slate-200">{x.typeLabel}</span>
-                            {i >= v.count && <span className="rounded-full bg-amber-50 px-2 py-0.5 text-amber-900 ring-1 ring-amber-200">{t("Not asked")}</span>}
+                            {!asked && <span className="rounded-full bg-amber-50 px-2 py-0.5 text-amber-900 ring-1 ring-amber-200">{t("Not asked")}</span>}
                           </span>
                         </div>
                         {v.canEdit && (
                           <div className="mt-2 flex flex-wrap gap-1.5">
                             <button type="button" className={btn} disabled={busy} onClick={() => go(async () => { const r = await reviewDetailAction(v.code, x.id); if (r.ok) setEdit(r.value); else setMsg({ ok: false, text: r.message }); })}>✏️ {t("Edit")}</button>
                             <button type="button" className={btn} disabled={busy || v.questions.length <= 1} onClick={() => go(async () => { apply(await reviewChangeAction(v.code, { op: "remove", questionId: x.id })); })}>➖ {t("Remove")}</button>
+                            {asked && (
+                              <button type="button" className={btn} disabled={busy || !spare.length} aria-expanded={swapping}
+                                onClick={() => setSwapFor(swapping ? null : { label: sec.label, id: x.id })}>🔄 {t("Swap")}</button>
+                            )}
+                          </div>
+                        )}
+                        {swapping && (
+                          <div className="mt-2 space-y-1.5 rounded-xl bg-slate-50 p-2.5">
+                            <button type="button" className={`${main} w-full justify-center`} disabled={busy}
+                              onClick={() => go(async () => { if (apply(await reviewChangeAction(v.code, { op: "swapQuestion", label: sec.label, outId: x.id }), t("Saved ✓"))) setSwapFor(null); })}>
+                              ⚡ {t("Automatic swap")}
+                            </button>
+                            <p className="px-1 text-xs font-semibold text-slate-600">{t("Or pick one to swap in:")}</p>
+                            <ul className="max-h-56 space-y-1.5 overflow-y-auto">
+                              {spare.map((sp) => (
+                                <li key={sp.id} className="flex items-start justify-between gap-2 rounded-lg bg-white p-2 ring-1 ring-slate-200">
+                                  <span className="min-w-0 flex-1 text-xs text-slate-800" dir="ltr" data-content><RichInline text={sp.stem} /></span>
+                                  <button type="button" className={`${btn} shrink-0`} disabled={busy}
+                                    onClick={() => go(async () => { if (apply(await reviewChangeAction(v.code, { op: "swapQuestion", label: sec.label, outId: x.id, inId: sp.id }), t("Saved ✓"))) setSwapFor(null); })}>
+                                    {t("Use this")}
+                                  </button>
+                                </li>
+                              ))}
+                            </ul>
                           </div>
                         )}
                         {edit?.id === x.id && (
@@ -192,7 +222,8 @@ export function ReviewControl({ initial, roster = [] }: { initial: ReviewControl
                     );
                   })}
                 </ol>
-              )}
+                );
+              })()}
             </li>
           );
         })}

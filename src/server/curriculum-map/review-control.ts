@@ -316,6 +316,10 @@ export type ReviewChange =
    * label, as shown on screen) from the Review in one click, instead of opening it and removing questions one by
    * one — every OTHER section/level is untouched. */
   | { op: "removeSection"; label: string }
+  /** 🔄 fix (Oct 2026, "ضيف خيار ان المعلم يقدر يبدل السؤال"): swap one ASKED question of a section/level row for a
+   * SPARE one already in this Review's own pool for that same row — so the row's own "Take" count never changes.
+   * `inId` omitted = automatic (the first spare one); given = the teacher's own manual pick. */
+  | { op: "swapQuestion"; label: string; outId: string; inId?: string }
   | { op: "reset" };
 
 /** One change to the teacher's Review (see the header). */
@@ -413,6 +417,23 @@ export async function changeReview(repo: Repo, actor: Actor, code: string, c: Re
     st.questionIds = st.questionIds.filter((id) => !removeSet.has(id));
     for (const id of group.ids) if (st.shared.includes(id) && !st.hiddenIds.includes(id)) st.hiddenIds.push(id);
     // (write() below clamps `count` to the new questionIds.length, same as the single-question "remove" op.)
+  } else if (c.op === "swapQuestion") {
+    // 🔄 fix (Oct 2026, "ضيف خيار ان المعلم يقدر يبدل السؤال"): the row's own "taken"/"spare" split is exactly the
+    // first/rest of its own ids within st.questionIds (that's how reorderBySectionCounts built it), so swapping is
+    // just exchanging two ARRAY POSITIONS — no reorder pass needed, and no other row is touched.
+    const outId = s(c.outId);
+    const rows = await describePicks(repo, actor, st.questionIds, MAX_REVIEW);
+    const group = sectionGroups(rows).find((g) => g.label === s(c.label));
+    if (!group) throw new ValidationError("That section is not in your Review.");
+    const takenSet = new Set(st.questionIds.slice(0, st.count));
+    const takenInGroup = group.ids.filter((id) => takenSet.has(id));
+    const spareInGroup = group.ids.filter((id) => !takenSet.has(id));
+    if (!takenInGroup.includes(outId)) throw new ValidationError("That question is not currently asked in this section.");
+    const inId = c.inId ? s(c.inId) : spareInGroup[0];
+    if (!inId || !spareInGroup.includes(inId)) throw new ValidationError("No spare question of this section to swap in.");
+    const outIdx = st.questionIds.indexOf(outId);
+    const inIdx = st.questionIds.indexOf(inId);
+    [st.questionIds[outIdx], st.questionIds[inIdx]] = [st.questionIds[inIdx], st.questionIds[outIdx]];
   }
   if (!st.questionIds.length) throw new ValidationError("Keep at least one question in the Review (or press Reset).");
   await write(repo, actor, node.code, st, now);
@@ -668,6 +689,9 @@ export type CustomReviewChange =
   | { op: "sectionCounts"; counts: Record<string, number> }
   /** 🗑 fix (Oct 2026, "احذف اي نقطه من هنا"): same as ReviewChange's "removeSection" — see its comment. */
   | { op: "removeSection"; label: string }
+  /** 🔄 fix (Oct 2026, "ضيف خيار ان المعلم يقدر يبدل السؤال"): same as ReviewChange's "swapQuestion" — see its
+   * comment. */
+  | { op: "swapQuestion"; label: string; outId: string; inId?: string }
   | { op: "reset" };
 
 /** One change to the teacher's whole-grade Review Builder (see the header above). */
@@ -783,6 +807,22 @@ export async function changeCustomReview(repo: Repo, actor: Actor, grade: number
     st.questionIds = st.questionIds.filter((id) => !removeSet.has(id));
     for (const id of group.ids) if (!st.hiddenIds.includes(id)) st.hiddenIds.push(id);
     // (writeCustom() below clamps `count` to the new questionIds.length, same as the single-question "remove" op.)
+  } else if (c.op === "swapQuestion") {
+    // 🔄 fix (Oct 2026, "ضيف خيار ان المعلم يقدر يبدل السؤال"): same as ReviewChange's "swapQuestion" — see its
+    // comment.
+    const outId = s(c.outId);
+    const rows = await describePicks(repo, actor, st.questionIds, MAX_REVIEW);
+    const group = sectionGroups(rows).find((g2) => g2.label === s(c.label));
+    if (!group) throw new ValidationError("That section is not in your Review.");
+    const takenSet = new Set(st.questionIds.slice(0, st.count));
+    const takenInGroup = group.ids.filter((id) => takenSet.has(id));
+    const spareInGroup = group.ids.filter((id) => !takenSet.has(id));
+    if (!takenInGroup.includes(outId)) throw new ValidationError("That question is not currently asked in this section.");
+    const inId = c.inId ? s(c.inId) : spareInGroup[0];
+    if (!inId || !spareInGroup.includes(inId)) throw new ValidationError("No spare question of this section to swap in.");
+    const outIdx = st.questionIds.indexOf(outId);
+    const inIdx = st.questionIds.indexOf(inId);
+    [st.questionIds[outIdx], st.questionIds[inIdx]] = [st.questionIds[inIdx], st.questionIds[outIdx]];
   }
   if (!st.questionIds.length) throw new ValidationError("Add at least one question (or press Reset).");
   await writeCustom(repo, actor, g, st, now);
