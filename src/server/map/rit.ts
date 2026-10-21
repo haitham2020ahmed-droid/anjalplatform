@@ -215,13 +215,17 @@ export async function levelsFromClassAverage(repo: Repo, actor: Actor, classId: 
   return out;
 }
 
-/** Admins update the national norms (e.g. when NWEA publishes new ones). */
-export async function updateNationalNorms(repo: Repo, actor: Actor, entries: { grade: number; season: Season; mean: number; sd: number }[], source: string): Promise<void> {
+/** Admins update the national norms (e.g. when NWEA publishes new ones, or to add a grade that has no norms yet —
+ *  any grade level is accepted, not just 4–6; a grade/season/subject left out of `entries` simply keeps whatever
+ *  it had before (null if nothing was ever set), so a student of that grade shows "no national comparison" instead
+ *  of a guessed band. `subject` defaults to READING for callers that don't send it (kept source-compatible). */
+export async function updateNationalNorms(repo: Repo, actor: Actor, entries: { grade: number; season: Season; subject?: NormSubject; mean: number; sd: number }[], source: string): Promise<void> {
   assertCan(actor, "settings:school");
   if (!s(source).trim()) throw new ValidationError("Write where the norms come from (e.g. NWEA 2025 norms).");
   for (const e of entries) {
-    if (!(e.mean > 100 && e.mean < 350 && e.sd > 0 && e.sd < 60)) throw new ValidationError(`Grade ${e.grade} ${e.season}: mean or SD out of range.`);
-    for (const [metric, value] of [[MEAN, e.mean], [SD, e.sd]] as const) {
+    if (!(e.mean > 100 && e.mean < 350 && e.sd > 0 && e.sd < 60)) throw new ValidationError(`Grade ${e.grade} ${e.season} (${e.subject ?? "READING"}): mean or SD out of range.`);
+    const [meanKey, sdKey] = e.subject === "LANGUAGE" ? [LANG_MEAN, LANG_SD] : [MEAN, SD];
+    for (const [metric, value] of [[meanKey, e.mean], [sdKey, e.sd]] as const) {
       await repo.upsert("BenchmarkReference", { scope: "NATIONAL", metric, gradeLevel: e.grade, season: e.season }, { value, source: s(source).slice(0, 190), importedAt: new Date() }, { value, source: s(source).slice(0, 190), importedAt: new Date() });
     }
   }
