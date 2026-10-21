@@ -60,9 +60,12 @@ export function ReviewControl({ initial, roster = [] }: { initial: ReviewControl
   const [openSection, setOpenSection] = useState<string>("");
   const [sectionInputs, setSectionInputs] = useState<Record<string, string>>({});
   const sectionValue = (label: string, take: number) => sectionInputs[label] ?? String(take);
-  const saveSectionCounts = (overrides: Record<string, number>) => go(async () => {
+  // 🐛 fix (Oct 2026, "لازم امشي واحد واحد واضغط save"): same fix as review-builder.tsx — fall back to the
+  // CURRENTLY TYPED value (sectionValue) for every section, not the server's last-saved `sec.take`, so saving one
+  // row no longer wipes every other row's not-yet-saved number back to its old value.
+  const saveSectionCounts = (overrides: Record<string, number> = {}) => go(async () => {
     const counts: Record<string, number> = {};
-    for (const sec of v.sections) counts[sec.label] = overrides[sec.label] ?? sec.take;
+    for (const sec of v.sections) counts[sec.label] = overrides[sec.label] ?? Number(sectionValue(sec.label, sec.take));
     apply(await reviewChangeAction(v.code, { op: "sectionCounts", counts }), t("Saved ✓"));
   });
   const questionsOf = (label: string) => v.questions.filter((x) => x.section === label);
@@ -80,6 +83,12 @@ export function ReviewControl({ initial, roster = [] }: { initial: ReviewControl
             </label>
             <button className={btn} disabled={busy}>{t("Save")}</button>
           </form>
+        )}
+        {/* 🐛 fix (Oct 2026, "لازم امشي واحد واحد واضغط save"): type into as many sections' "Take" boxes as you
+            like, then press this ONE button — it submits every section's current number at once (see
+            saveSectionCounts above), not just the row you happen to click. */}
+        {v.canEdit && Object.keys(sectionInputs).length > 0 && (
+          <button type="button" className={main} disabled={busy} onClick={() => saveSectionCounts()}>💾 {t("Save all changes")}</button>
         )}
         {v.canEdit && v.custom && <button type="button" className={`${btn} ms-auto`} disabled={busy} onClick={() => go(async () => { if (window.confirm(t("Go back to the shared Review? Your changes to this Review are removed (your copies stay yours)."))) apply(await reviewChangeAction(v.code, { op: "reset" }), t("Saved ✓")); })}>{t("Reset")}</button>}
       </div>
@@ -105,16 +114,12 @@ export function ReviewControl({ initial, roster = [] }: { initial: ReviewControl
                 <button type="button" className="shrink-0 rounded-full px-2 py-1 text-xs font-semibold text-slate-600 ring-1 ring-slate-300 hover:bg-slate-50" disabled={busy}
                   aria-pressed={peeking} aria-label={t("Preview")} onClick={() => setPeekSection(peeking ? "" : sec.label)}>👁 {t("Preview")}</button>
                 {v.canEdit && (
-                  <>
-                    <label className="flex shrink-0 items-center gap-1 text-xs font-semibold text-slate-700">
-                      {t("Take")}
-                      <input type="number" min={0} max={sec.available} value={sectionValue(sec.label, sec.take)}
-                        onChange={(e) => setSectionInputs((p) => ({ ...p, [sec.label]: e.target.value }))}
-                        className="w-16 rounded-lg border border-slate-300 px-1.5 py-1 text-xs" />
-                    </label>
-                    <button type="button" className={`${btn} shrink-0`} disabled={busy}
-                      onClick={() => saveSectionCounts({ [sec.label]: Number(sectionValue(sec.label, sec.take)) })}>{t("Save")}</button>
-                  </>
+                  <label className="flex shrink-0 items-center gap-1 text-xs font-semibold text-slate-700">
+                    {t("Take")}
+                    <input type="number" min={0} max={sec.available} value={sectionValue(sec.label, sec.take)}
+                      onChange={(e) => setSectionInputs((p) => ({ ...p, [sec.label]: e.target.value }))}
+                      className="w-16 rounded-lg border border-slate-300 px-1.5 py-1 text-xs" />
+                  </label>
                 )}
               </div>
               {peeking && !open && (

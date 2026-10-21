@@ -110,9 +110,14 @@ export function ReviewBuilder({ grade, initial, sets, skillUnits, roster }: {
   const [openSection, setOpenSection] = useState<string>("");
   const [sectionInputs, setSectionInputs] = useState<Record<string, string>>({});
   const sectionValue = (label: string, take: number) => sectionInputs[label] ?? String(take);
-  const saveSectionCounts = (overrides: Record<string, number>) => go(async () => {
+  // 🐛 fix (Oct 2026, "لازم امشي واحد واحد واضغط save"): used to fall back to the server's last-SAVED `sec.take` for
+  // every section except the one just clicked — so typing new numbers into several rows and saving only one row
+  // silently wiped the others' not-yet-saved numbers back to their old value the moment `apply()` cleared
+  // `sectionInputs`. Falls back to the CURRENTLY TYPED value (sectionValue) instead, so every row's Save button now
+  // submits every row's in-progress edits at once — type into as many rows as you like, one Save is enough.
+  const saveSectionCounts = (overrides: Record<string, number> = {}) => go(async () => {
     const counts: Record<string, number> = {};
-    for (const sec of v.sections) counts[sec.label] = overrides[sec.label] ?? sec.take;
+    for (const sec of v.sections) counts[sec.label] = overrides[sec.label] ?? Number(sectionValue(sec.label, sec.take));
     apply(await customReviewChangeAction(grade, { op: "sectionCounts", counts }), t("Saved ✓"));
   });
   const questionsOf = (label: string) => v.questions.filter((x) => x.section === label);
@@ -198,6 +203,12 @@ export function ReviewBuilder({ grade, initial, sets, skillUnits, roster }: {
             {(Object.keys(LV) as Level[]).map((k) => <option key={k} value={k}>{t(LV[k])}</option>)}
           </select>
         </label>
+        {/* 🐛 fix (Oct 2026, "لازم امشي واحد واحد واضغط save"): type into as many sections' "Take" boxes as you
+            like, then press this ONE button — it submits every section's current number at once (see
+            saveSectionCounts above), not just the row you happen to click. */}
+        {Object.keys(sectionInputs).length > 0 && (
+          <button type="button" className={main} disabled={busy} onClick={() => saveSectionCounts()}>💾 {t("Save all changes")}</button>
+        )}
         {/* 📄 fix (Oct 2026, "preview... ملف PDF"): this grade-wide Review had no Preview/Print link at all, unlike
             the per-Set Review page. The question list below already shows full, untruncated text, so printing it
             (or "Save as PDF" from the browser's print dialog) IS the full, clear review the teacher asked for. */}
@@ -233,8 +244,6 @@ export function ReviewBuilder({ grade, initial, sets, skillUnits, roster }: {
                     onChange={(e) => setSectionInputs((p) => ({ ...p, [sec.label]: e.target.value }))}
                     className="w-16 rounded-lg border border-slate-300 px-1.5 py-1 text-xs" />
                 </label>
-                <button type="button" className={`${btn} shrink-0`} disabled={busy}
-                  onClick={() => saveSectionCounts({ [sec.label]: Number(sectionValue(sec.label, sec.take)) })}>{t("Save")}</button>
               </div>
               {peeking && !open && (
                 <div className="space-y-1 border-t border-slate-100 bg-slate-50 p-3 text-xs text-slate-700">

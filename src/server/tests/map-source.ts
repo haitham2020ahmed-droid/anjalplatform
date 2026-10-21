@@ -54,6 +54,14 @@ function staff(actor: Actor): void {
 export const sectionTitle = (label: string): string => s(label).replace(/^\s*\d+\s*-\s*/, "").trim();
 const sectionLabel = (n: AttachmentNode): string => [sectionTitle(n.categoryLabel), n.level ? LEVEL_TITLE[n.level] : null].filter(Boolean).join(" · ");
 const setCode = (n: AttachmentNode): string => n.code.split(".").slice(0, 3).join(".");
+/**
+ * 🔁 fix (Oct 2026, "خليها باسم الدرس مثل skill plan"): the curated lesson name (same lookup/source as
+ * lesson-details.ts#unitCards and mapSourceTree's own `title` just below), used wherever a Text Set/Selection used
+ * to print its raw, generic `heading` ("Text Set 1: Narrative Nonfiction") in a question/section list — falls back
+ * to the raw heading when this Text Set has no entry yet in the curated file (lesson-details.json).
+ */
+const setHeading = (n: Pick<AttachmentNode, "grade" | "sharedRead" | "setTitle" | "unitTitle" | "heading">): string =>
+  (lessonDetail(n.grade, n.sharedRead) ?? lessonDetail(n.grade, n.setTitle) ?? lessonAt(n.grade, n.unitTitle, n.heading))?.name ?? n.heading;
 
 /** The places the actor may use: a teacher's own grades only. */
 export async function allowedNodes(repo: Repo, actor: Actor): Promise<AttachmentNode[]> {
@@ -146,7 +154,7 @@ export async function mapSectionQuestions(repo: Repo, actor: Actor, input: { cod
   const page = Math.max(1, Math.min(pages, Math.round(Number(input.page) || 1)));
   const slice = input.all ? match.slice(0, MAX_PICKS) : match.slice((page - 1) * SECTION_PAGE, page * SECTION_PAGE);
   const items = await loadQuestionItems(repo, slice.map((q) => s(q.id)));
-  const label = `${node.heading} · ${sectionLabel(node)}`;
+  const label = `${setHeading(node)} · ${sectionLabel(node)}`;
   const questions = slice.flatMap((q) => {
     const it = items.find((x) => x.questionId === s(q.id));
     return it ? [{ id: s(q.id), stem: s(it.stem).slice(0, 220), type: s(q.typeCode), typeLabel: s(q.typeName) || s(q.typeCode), level: levelOf(q), passageTitle: it.passageTitle ?? null, contentKey: contentKey(it), section: label, code: node.code }] : [];
@@ -189,7 +197,7 @@ export async function describePicks(repo: Repo, actor: Actor, ids: string[], lim
     const t = typeOf.get(s(q.typeId));
     const n = nodeOf.get(s(linkOf.get(id)?.nodeId));
     const skill = s(skillOf.get(s(q.skillId))?.name);
-    return [{ id, stem: s(it.stem).slice(0, 220), type: s(t?.code), typeLabel: s(t?.name ?? t?.code), level: (n?.level ?? fromDifficulty(Number(q.difficultyLevel ?? 4))) as QLevel, passageTitle: it.passageTitle ?? null, contentKey: contentKey(it), section: n ? `${n.heading} · ${sectionLabel(n)}` : skill ? `🧩 ${skill}` : "", code: n?.code ?? "", skill }];
+    return [{ id, stem: s(it.stem).slice(0, 220), type: s(t?.code), typeLabel: s(t?.name ?? t?.code), level: (n?.level ?? fromDifficulty(Number(q.difficultyLevel ?? 4))) as QLevel, passageTitle: it.passageTitle ?? null, contentKey: contentKey(it), section: n ? `${setHeading(n)} · ${sectionLabel(n)}` : skill ? `🧩 ${skill}` : "", code: n?.code ?? "", skill }];
   });
 }
 
