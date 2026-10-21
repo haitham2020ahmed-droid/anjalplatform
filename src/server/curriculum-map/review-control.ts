@@ -156,10 +156,18 @@ async function sameSetSiblingIds(repo: Repo, schoolId: string, node: AttachmentN
   return [...seen];
 }
 
-/** 🤖 r89/r90 "Language" tab: a skill's own published, auto-marked questions (optionally one level only), not
- * already private to another teacher. */
+/**
+ * 🤖 r89/r90 "Language" tab: a skill's own published, auto-marked questions (optionally one level only), not
+ * already private to another teacher.
+ * 🔁 fix (Oct 2026, "اخترت كذا درس من language ظهر منها فقط واحد"): `questionsOfSkill` excludes a question already
+ * tied to a Curriculum Map lesson by default — fine for the Assessments test builder (which offers those through
+ * its own separate "Curriculum Map questions" source), but the Review Builder's Language tab has no such separate
+ * source, so most skills (their questions mostly ARE tied to a lesson) looked empty here. `includeMapLinked: true`
+ * pulls from everywhere, so a ticked skill with real questions actually adds them, and the level filter (above)
+ * then has a real pool to filter — not an already-empty one.
+ */
 async function skillAddableIds(repo: Repo, actor: Actor, skillId: string, level: LevelFilter = "ANY"): Promise<string[]> {
-  const qs = await questionsOfSkill(repo, actor.schoolId!, skillId, { status: "PUBLISHED", ...(level === "ANY" ? {} : { level }) });
+  const qs = await questionsOfSkill(repo, actor.schoolId!, skillId, { status: "PUBLISHED", includeMapLinked: true, ...(level === "ANY" ? {} : { level }) });
   if (!qs.length) return [];
   const typeIds = [...new Set(qs.map((q) => q.typeId))];
   const types = await repo.findMany("QuestionType", { id: { in: typeIds } }, { select: ["id", "code", "isAutoScored"] });

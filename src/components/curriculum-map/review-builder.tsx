@@ -205,10 +205,9 @@ export function ReviewBuilder({ grade, initial, sets, skillUnits, roster }: {
         </label>
         {/* 🐛 fix (Oct 2026, "لازم امشي واحد واحد واضغط save"): type into as many sections' "Take" boxes as you
             like, then press this ONE button — it submits every section's current number at once (see
-            saveSectionCounts above), not just the row you happen to click. */}
-        {Object.keys(sectionInputs).length > 0 && (
-          <button type="button" className={main} disabled={busy} onClick={() => saveSectionCounts()}>💾 {t("Save all changes")}</button>
-        )}
+            saveSectionCounts above), not just the row you happen to click. Always shown (fix: "save all مش
+            موجود") — pale/disabled until you've actually typed something, rather than appearing and disappearing. */}
+        <button type="button" className={main} disabled={busy || Object.keys(sectionInputs).length === 0} onClick={() => saveSectionCounts()}>💾 {t("Save all changes")}</button>
         {/* 📄 fix (Oct 2026, "preview... ملف PDF"): this grade-wide Review had no Preview/Print link at all, unlike
             the per-Set Review page. The question list below already shows full, untruncated text, so printing it
             (or "Save as PDF" from the browser's print dialog) IS the full, clear review the teacher asked for. */}

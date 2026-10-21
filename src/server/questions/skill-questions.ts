@@ -34,7 +34,15 @@ const MAX_TAKE = 1000;
 export type SkillQuestionStatus = "PUBLISHED" | "DRAFT" | "UNDER_REVIEW" | "ARCHIVED" | "ANY";
 /** Below = levels 1–3, On = 4, Above = 5–6 (the platform's three practice levels), or exact difficulty levels. */
 export type SkillLevel = "BELOW" | "ON" | "ABOVE" | number | number[];
-export interface SkillQuestionOpts { level?: SkillLevel; status?: SkillQuestionStatus; take?: number; skip?: number }
+export interface SkillQuestionOpts {
+  level?: SkillLevel; status?: SkillQuestionStatus; take?: number; skip?: number;
+  /** 🔁 fix (Oct 2026, "فلتر مش شغال... اخترت كذا درس ما ظهرش"): by default this excludes a question already tied
+   * to a Curriculum Map lesson ("stays with its lesson" — kept for callers like the Assessments test builder, which
+   * already offers Curriculum Map questions through a separate source and would otherwise list the same question
+   * twice). Pass true to include those too — for a caller (like the Review Builder's "Language" tab) that has no
+   * such separate source of its own, excluding them left most skills looking empty. */
+  includeMapLinked?: boolean;
+}
 export interface SkillQuestion { id: string; skillId: string; difficultyLevel: number; typeId: string; standardId: string | null; passageId: string | null; status: string }
 
 export const LEVEL_OF = (d: number): "BELOW" | "ON" | "ABOVE" => (d <= 3 ? "BELOW" : d === 4 ? "ON" : "ABOVE");
@@ -252,8 +260,8 @@ export async function questionsOfSkill(repo: Repo, schoolId: string, skillId: st
   const fam = await familyIdsInSchool(repo, schoolId, skillId);
   if (!fam.length) return [];
   const take = Math.max(1, Math.min(MAX_TAKE, Math.floor(opts.take ?? 200)));
-  // the bank only (Curriculum Map questions stay with their lesson)
-  const onMap = [...(await mapLinkedQuestionIds(repo))];
+  // the bank only (Curriculum Map questions stay with their lesson) — unless the caller asked for both (includeMapLinked)
+  const onMap = opts.includeMapLinked ? [] : [...(await mapLinkedQuestionIds(repo))];
   const rows = await repo.findMany("Question", { skillId: fam.length === 1 ? fam[0] : { in: fam }, ...statusWhere(opts.status), ...levelWhere(opts.level), ...(onMap.length ? { id: { notIn: onMap } } : {}) }, {
     select: ["id", "skillId", "difficultyLevel", "typeId", "standardId", "passageId", "status"],
     orderBy: [{ field: "difficultyLevel", dir: "asc" }, { field: "id", dir: "asc" }], take, ...(opts.skip ? { skip: Math.max(0, Math.floor(opts.skip)) } : {}),

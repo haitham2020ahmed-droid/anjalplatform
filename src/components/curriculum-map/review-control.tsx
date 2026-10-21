@@ -86,9 +86,10 @@ export function ReviewControl({ initial, roster = [] }: { initial: ReviewControl
         )}
         {/* 🐛 fix (Oct 2026, "لازم امشي واحد واحد واضغط save"): type into as many sections' "Take" boxes as you
             like, then press this ONE button — it submits every section's current number at once (see
-            saveSectionCounts above), not just the row you happen to click. */}
-        {v.canEdit && Object.keys(sectionInputs).length > 0 && (
-          <button type="button" className={main} disabled={busy} onClick={() => saveSectionCounts()}>💾 {t("Save all changes")}</button>
+            saveSectionCounts above), not just the row you happen to click. Always shown (fix: "save all مش
+            موجود") — pale/disabled until you've actually typed something, rather than appearing and disappearing. */}
+        {v.canEdit && (
+          <button type="button" className={main} disabled={busy || Object.keys(sectionInputs).length === 0} onClick={() => saveSectionCounts()}>💾 {t("Save all changes")}</button>
         )}
         {v.canEdit && v.custom && <button type="button" className={`${btn} ms-auto`} disabled={busy} onClick={() => go(async () => { if (window.confirm(t("Go back to the shared Review? Your changes to this Review are removed (your copies stay yours)."))) apply(await reviewChangeAction(v.code, { op: "reset" }), t("Saved ✓")); })}>{t("Reset")}</button>}
       </div>
