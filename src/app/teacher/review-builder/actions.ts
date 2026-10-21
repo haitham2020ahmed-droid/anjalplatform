@@ -3,7 +3,7 @@ import { repo, requireActor } from "@/server/auth/next";
 import { ForbiddenError } from "@/server/auth/rbac";
 import { ValidationError } from "@/server/curriculum-admin";
 import {
-  changeCustomReview, customDraftQuestion, customEditQuestion, customQuestionDetail, customReviewView, customSetChoices, customSkillChoices, customWriteQuestion, MAX_REVIEW, reviewBankSearch, setQuestionPreview, skillQuestionPreview,
+  changeCustomReview, customDraftQuestion, customEditQuestion, customQuestionDetail, customQuestionOptionsBulk, customReviewView, customSetChoices, customSkillChoices, customWriteQuestion, MAX_REVIEW, reviewBankSearch, setQuestionPreview, skillQuestionPreview,
   type CustomReviewChange, type CustomReviewView, type ReviewSetUnit, type ReviewSkillUnit, type WrittenQuestion,
 } from "@/server/curriculum-map/review-control";
 import type { BankFilter, BankResults, CopyEdit } from "@/server/tests/review";
@@ -70,6 +70,11 @@ export async function customBankAction(f: BankFilter): Promise<Out<BankResults>>
 export async function customDetailAction(grade: number, questionId: string): Promise<Out<Awaited<ReturnType<typeof customQuestionDetail>>>> {
   const actor = await requireActor(TEACHER);
   return run(() => customQuestionDetail(repo, actor, Number(grade), String(questionId ?? "")));
+}
+/** 📋 The choices of many questions at once, keyed by id (for the "All selected questions" flat view). */
+export async function customOptionsBulkAction(grade: number, questionIds: string[]): Promise<Out<Awaited<ReturnType<typeof customQuestionOptionsBulk>>>> {
+  const actor = await requireActor(TEACHER);
+  return run(() => customQuestionOptionsBulk(repo, actor, Number(grade), Array.isArray(questionIds) ? questionIds.map(String) : []));
 }
 /** ⭐ Assign the built Review to a class — Fixed (every chosen question, same order, for every student) or
  * Adaptive (students answer toward a target-correct goal, drawing from as many as were collected). */

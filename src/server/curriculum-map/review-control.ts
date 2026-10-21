@@ -841,6 +841,23 @@ export async function customQuestionDetail(repo: Repo, actor: Actor, grade: numb
   return { id: s(questionId), type: x.type, stem: x.stem, options: (x.options ?? []).map((o) => ({ label: o.label, text: o.text, correct: Boolean(o.correct) })), answer: typeof x.answer === "boolean" ? x.answer : null, answers: Array.isArray(x.answers) ? x.answers.map(s) : [] };
 }
 
+/** 📋 fix (Oct 2026, "تضيف الاختيارات لكل سؤال"): the choices of MANY questions of the Review Builder at once (one
+ * round trip for the whole "All selected questions" flat view), keyed by question id — same shape per question as
+ * customQuestionDetail, just batched. Unknown ids (already removed/swapped by the time this resolves) are skipped. */
+export async function customQuestionOptionsBulk(repo: Repo, actor: Actor, grade: number, questionIds: string[]): Promise<Record<string, { type: string; options: { label: string; text: string; correct: boolean }[]; answer: boolean | null; answers: string[] }>> {
+  teacherOnly(actor);
+  const g = Math.trunc(Number(grade));
+  const st = await customStateOf(repo, actor, g);
+  const want = (Array.isArray(questionIds) ? questionIds : []).map(s).filter((id) => st.questionIds.includes(id));
+  const items = await loadQuestionItems(repo, want);
+  const out: Record<string, { type: string; options: { label: string; text: string; correct: boolean }[]; answer: boolean | null; answers: string[] }> = {};
+  for (const it of items) {
+    const x = it as unknown as { questionId: string; type: string; options?: { label: string; text: string; correct: boolean }[]; answer?: unknown; answers?: unknown[] };
+    out[x.questionId] = { type: x.type, options: (x.options ?? []).map((o) => ({ label: o.label, text: o.text, correct: Boolean(o.correct) })), answer: typeof x.answer === "boolean" ? x.answer : null, answers: Array.isArray(x.answers) ? x.answers.map(s) : [] };
+  }
+  return out;
+}
+
 /** ✏️ Edit = a private copy of the question; the copy takes the original's place in the Review Builder. */
 export async function customEditQuestion(repo: Repo, actor: Actor, grade: number, edit: CopyEdit, now = new Date()): Promise<CustomReviewView> {
   teacherOnly(actor);
