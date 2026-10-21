@@ -177,8 +177,9 @@ export async function reviewControlView(repo: Repo, actor: Actor, code: string):
   const node = await reviewPlace(repo, actor.schoolId!, code);
   const st = await stateOf(repo, actor, node);
   const sharedSet = new Set(st.shared);
-  const rows = await describePicks(repo, actor, st.questionIds);
-  const hiddenRows = await describePicks(repo, actor, st.hiddenIds.filter((id) => sharedSet.has(id) && !st.questionIds.includes(id)));
+  // 🐛 fix (Oct 2026, "التنظيم"): same MAX_REVIEW override as customReviewView — see its comment.
+  const rows = await describePicks(repo, actor, st.questionIds, MAX_REVIEW);
+  const hiddenRows = await describePicks(repo, actor, st.hiddenIds.filter((id) => sharedSet.has(id) && !st.questionIds.includes(id)), MAX_REVIEW);
   const owner = rows.length ? new Map((await repo.findMany("Question", { id: { in: rows.map((r) => r.id) } }, { select: ["id", "privateToId"] })).map((q) => [s(q.id), q.privateToId ? s(q.privateToId) : ""])) : new Map<string, string>();
   const available = new Set([...st.shared.filter((id) => !st.hiddenIds.includes(id)), ...st.questionIds]).size;
   return {
@@ -486,8 +487,10 @@ export async function customReviewView(repo: Repo, actor: Actor, grade: number):
   teacherOnly(actor);
   const g = Math.trunc(Number(grade));
   const st = await customStateOf(repo, actor, g);
-  const rows = await describePicks(repo, actor, st.questionIds);
-  const hiddenRows = await describePicks(repo, actor, st.hiddenIds);
+  // 🐛 fix (Oct 2026, "التنظيم"): describePicks() defaults to showing only 60 — pass MAX_REVIEW so a Review Builder
+  // past 60 questions actually shows (and so groups) every one of them, not just the first 60.
+  const rows = await describePicks(repo, actor, st.questionIds, MAX_REVIEW);
+  const hiddenRows = await describePicks(repo, actor, st.hiddenIds, MAX_REVIEW);
   const owner = rows.length ? new Map((await repo.findMany("Question", { id: { in: rows.map((r) => r.id) } }, { select: ["id", "privateToId"] })).map((q) => [s(q.id), q.privateToId ? s(q.privateToId) : ""])) : new Map<string, string>();
   return { grade: g, chosen: st.questionIds.length, count: st.count, questions: rows.map((r) => ({ ...r, own: owner.get(r.id) === actor.userId })), hidden: hiddenRows };
 }

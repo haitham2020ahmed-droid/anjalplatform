@@ -159,10 +159,17 @@ export async function mapSectionQuestions(repo: Repo, actor: Actor, input: { cod
   };
 }
 
-/** The picker rows of chosen questions (e.g. a saved draft's Curriculum Map picks), in the given order. */
-export async function describePicks(repo: Repo, actor: Actor, ids: string[]): Promise<MapSourceQuestion[]> {
+/**
+ * The picker rows of chosen questions (e.g. a saved draft's Curriculum Map picks), in the given order.
+ * `limit` (default MAX_PICKS = 60): how many of `ids` to describe. 🐛 fix (Oct 2026, "التنظيم"): the Review screens
+ * (review-control.ts) store and assign up to MAX_REVIEW (1000) questions, but this always silently truncated what
+ * it showed the teacher to the first 60 — so a Review past 60 questions looked incomplete/unorganized on screen
+ * even though every question was really there. Review now passes MAX_REVIEW here; every other caller (Assessments,
+ * search, generation, …) keeps the default 60 unchanged.
+ */
+export async function describePicks(repo: Repo, actor: Actor, ids: string[], limit: number = MAX_PICKS): Promise<MapSourceQuestion[]> {
   staff(actor);
-  const list = [...new Set((ids ?? []).map(s).filter(Boolean))].slice(0, MAX_PICKS);
+  const list = [...new Set((ids ?? []).map(s).filter(Boolean))].slice(0, limit);
   if (!list.length) return [];
   const [items, qs] = await Promise.all([loadQuestionItems(repo, list), repo.findMany("Question", { id: { in: list } }, { select: ["id", "typeId", "difficultyLevel", "skillId"] })]);
   const [types, skills] = qs.length ? await Promise.all([

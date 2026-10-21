@@ -73,18 +73,13 @@ export function cleanCode(v: unknown): string | null {
   return c.length === CODE_LENGTH && [...c].every((x) => CODE_ALPHABET.includes(x)) ? c : null;
 }
 
-/** First name; the same first name twice → + last initial; still the same → the full name (Live Challenge rule). */
+// 🐛 fix (Oct 2026, "اظهار الاسم كامل"): listNames() used to shorten every name to a first name (+ last initial on a
+// clash) for the class QR sign-in screen — on purpose, "like the Live Challenge board". The teacher asked for the
+// full name here instead (several students can share a first name, and a first-name-only button risks the wrong
+// student tapping in). Now just sorts and trims; the full name every student already has is shown as-is.
 export function listNames(people: { id: string; name: string }[]): { id: string; name: string }[] {
-  const parts = (n: string) => n.trim().split(/\s+/).filter(Boolean);
-  const first = (n: string) => parts(n)[0] ?? n;
-  const short = (n: string) => { const p = parts(n); return p.length > 1 ? `${p[0]} ${[...p[p.length - 1]][0]}.` : first(n); };
-  const count = (xs: string[]) => { const m = new Map<string, number>(); for (const x of xs) m.set(x.toLowerCase(), (m.get(x.toLowerCase()) ?? 0) + 1); return m; };
-  const firsts = count(people.map((p) => first(p.name)));
-  const step1 = people.map((p) => ((firsts.get(first(p.name).toLowerCase()) ?? 0) > 1 ? short(p.name) : first(p.name)));
-  const shorts = count(step1);
   const coll = new Intl.Collator(undefined, { sensitivity: "base", numeric: true });
-  return people.map((p, i) => ({ id: p.id, name: (shorts.get(step1[i].toLowerCase()) ?? 0) > 1 ? p.name.trim() : step1[i] }))
-    .sort((a, b) => coll.compare(a.name, b.name));
+  return people.map((p) => ({ id: p.id, name: p.name.trim() })).sort((a, b) => coll.compare(a.name, b.name));
 }
 
 // ------------------------------------------------------------------ teacher side
@@ -205,6 +200,17 @@ export async function signOutClassStudent(repo: Repo, actor: Actor, classId: str
   await revokeAllSessions(repo, st.userId);
   await repo.updateMany("ClassSignInUse", { classId, studentId, day: schoolDay(now), signedOutAt: null }, { signedOutAt: now });
   await audit(repo, { actorId: actor.userId, action: "class_signin.sign_out", entityType: "User", entityId: st.userId, after: { classId, studentId }, ip: opts.ip ?? null, at: now });
+}
+
+/**
+ * 🐛 fix (Oct 2026, "يقدر يدخل تاني"): the student's OWN "Sign out" only ended their session — it never cleared
+ * today's ClassSignInUse row, so their name stayed off the QR list and a re-scan was rejected ("already signed
+ * in") until the TEACHER pressed "Let in". No restriction asked for: this clears it for every class they signed
+ * into today (normally one), the moment they sign themselves out, so a fresh QR scan immediately lets them back in
+ * — any number of times, no teacher needed. No-op (and no audit entry) if they never signed in by class QR today.
+ */
+export async function clearOwnSignInUse(repo: Repo, userId: string, now = new Date()): Promise<void> {
+  await repo.updateMany("ClassSignInUse", { userId, day: schoolDay(now), signedOutAt: null }, { signedOutAt: now });
 }
 
 /** ➕ Let in a late student: the name is on the list again; when no QR of this class is open, a new one opens. */
