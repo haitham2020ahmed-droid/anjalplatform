@@ -428,7 +428,9 @@ export async function reviewAssign(repo: Repo, actor: Actor, code: string, input
   const title = (input.title || `${node.unitTitle} · ${node.heading} · ${node.categoryLabel.replace(/^\d+-\s*/, "")}`).slice(0, 150);
   return assignQuestions(repo, actor, {
     classId: input.classId, studentIds: input.studentIds, questionIds: ids, track: "CURRICULUM", exactTitle: true, source: input.source, title,
-    ...(input.adaptive ? { adaptive: input.adaptive } : { test: true }),
+    // 🔓 fix (Oct 2026): Fixed no longer stops at 60 — it can send every question the teacher chose (the Review
+    // itself allows up to MAX_REVIEW), same as Adaptive already could.
+    ...(input.adaptive ? { adaptive: input.adaptive } : { test: true, testCap: MAX_REVIEW }),
   }, now);
 }
 
@@ -716,4 +718,53 @@ export async function customSetChoices(repo: Repo, actor: Actor, grade: number):
     unit, unitTitle: nodes.find((n) => n.unit === unit)?.unitTitle ?? `Unit ${unit}`,
     sets: [...sets.values()].sort((a, b) => a.setNumber - b.setNumber),
   }));
+}
+
+/* =========================================================================================================
+ * 📚 r92 "My Reviews" ("تاب جديد فوق يعرض كل Reviews اللي اتعملت قبل كده"): every Review this teacher has built —
+ * both per-Text-Set Reviews (ReviewControl) and whole-grade Review Builders (ReviewBuilder) — in one list, so
+ * they can find, reopen and keep editing any of them without hunting back through the Curriculum Map, or remove
+ * one they no longer need. Reads the SAME TeacherReviewSet rows both screens already write; no new storage.
+ * ========================================================================================================= */
+
+export interface MyReviewRow {
+  id: string; code: string; title: string; grade: number | null; href: string;
+  chosen: number; count: number; updatedAt: string;
+  /** the Text Set/place this Review was for is no longer on the Curriculum Map (renamed, removed) — still listed
+   * (so the teacher can see and delete it), but there is nowhere left to "Open" it. */
+  stale: boolean;
+}
+
+const CUSTOM_PREFIX = "CUSTOM.G";
+const dateIso = (v: unknown): string => { const d = v instanceof Date ? v : new Date(String(v ?? "")); return Number.isNaN(d.getTime()) ? new Date(0).toISOString() : d.toISOString(); };
+
+/** Every Review (any grade, any Text Set, or a whole-grade Review Builder) this teacher has built so far. */
+export async function myReviews(repo: Repo, actor: Actor): Promise<MyReviewRow[]> {
+  teacherOnly(actor);
+  const rows = await repo.findMany("TeacherReviewSet", { teacherUserId: actor.userId }, { select: ["id", "code", "questionIds", "count", "updatedAt"] });
+  if (!rows.length) return [];
+  const nodes = await attachmentNodes(repo, actor.schoolId!);
+  const nodeByCode = new Map(nodes.map((n) => [n.code.toUpperCase(), n]));
+  const out: MyReviewRow[] = rows.map((r) => {
+    const code = s(r.code);
+    const chosen = json<string[]>(r.questionIds, []).length;
+    const base = { id: s(r.id), code, chosen, count: Number(r.count) || 0, updatedAt: dateIso(r.updatedAt) };
+    if (code.toUpperCase().startsWith(CUSTOM_PREFIX)) {
+      const grade = Math.trunc(Number(code.slice(CUSTOM_PREFIX.length))) || null;
+      return { ...base, title: grade ? `Review Builder · Grade ${grade}` : "Review Builder", grade, href: grade ? `/teacher/review-builder?grade=${grade}` : "/teacher/review-builder", stale: false };
+    }
+    const n = nodeByCode.get(code.toUpperCase());
+    return { ...base, title: n ? n.path.split(" › ").slice(1, 3).join(" · ") : code, grade: n ? n.grade : null, href: `/teacher/curriculum-review?code=${encodeURIComponent(code)}`, stale: !n };
+  });
+  return out.sort((a, b) => b.updatedAt.localeCompare(a.updatedAt));
+}
+
+/** Permanently remove one of the teacher's Reviews (a per-Set Review returns to the place's shared defaults for
+ * them; a whole-grade Review Builder is gone). Same effect as "Reset" on either screen — offered here too so a
+ * Review whose Text Set no longer exists (stale) can still be cleaned up. */
+export async function deleteTeacherReview(repo: Repo, actor: Actor, id: string): Promise<void> {
+  teacherOnly(actor);
+  const row = (await repo.findMany("TeacherReviewSet", { id: s(id), teacherUserId: actor.userId }, { take: 1 }))[0];
+  if (!row) throw new ValidationError("That Review was not found.");
+  await repo.deleteMany("TeacherReviewSet", { id: row.id });
 }

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { AppShell } from "@/components/app-shell";
 import { PageHeader } from "@/components/page-header";
 import { EmptyState } from "@/components/ui-kit/empty-state";
@@ -39,7 +40,9 @@ export default async function ReviewBuilderPage({ searchParams }: { searchParams
   return (
     <AppShell name={String(me.displayName)}>
       <PageHeader back={{ href: `/admin/curriculum-map?grade=${grade}&view=plan`, label: "Curriculum Map" }} icon="🔁" title={`${t("Review")}: ${t("Grade {n}", { n: grade })}`}
-        subtitle={t("Build a Review from any Text Sets or Skills of this grade's whole plan, then assign it.")} />
+        subtitle={t("Build a Review from any Text Sets or Skills of this grade's whole plan, then assign it.")}>
+        {actor.role === "TEACHER" && <Link href="/teacher/my-reviews" prefetch={false} className="rounded-xl px-4 py-2 text-sm font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">📚 {t("My Reviews")}</Link>}
+      </PageHeader>
       <ReviewBuilder grade={grade} initial={view} sets={sets} skillUnits={skills} roster={roster} />
     </AppShell>
   );

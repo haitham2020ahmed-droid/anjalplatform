@@ -1,4 +1,4 @@
-/** 🚀 ReadRise article review (admin and teacher): 12 versions side by side, key words / questions / prompt per band. */
+/** 🚀 ReadRise article review (admin and teacher): 14 versions side by side, key words / questions / prompt per band. */
 import type { ArticleDetail } from "@/server/readrise/library";
 import { BAND_RANGE, BANDS } from "@/server/readrise/import";
 import { deleteReadRiseAction, setReadRiseHiddenAction, setReadRiseLexileAction, setReadRiseStatusAction } from "../actions";
@@ -59,7 +59,7 @@ export function ArticleView({ a, base }: { a: ArticleDetail; base: string }) {
 
       <section aria-labelledby="versions-h">
         <div className="flex flex-wrap items-end justify-between gap-2">
-          <h2 id="versions-h" className="text-lg font-semibold text-brand-navy">📚 12 versions side by side</h2>
+          <h2 id="versions-h" className="text-lg font-semibold text-brand-navy">📚 14 versions side by side</h2>
           <p className="text-xs text-slate-500">{RR_NOTE} Scroll sideways to compare.</p>
         </div>
         <div className="mt-3 overflow-x-auto rounded-2xl bg-white ring-1 ring-slate-200">

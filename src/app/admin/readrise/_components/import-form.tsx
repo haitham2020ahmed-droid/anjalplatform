@@ -71,7 +71,7 @@ export function ImportForm({ base, canPublish }: { base: string; canPublish: boo
             <form action={importReadRiseAction} className="flex flex-wrap items-center gap-4 rounded-2xl bg-teal-50 p-4 ring-1 ring-teal-200">
               <input type="hidden" name="payload" value={st.payload} />
               <input type="hidden" name="base" value={base} />
-              <p className="me-auto text-sm text-teal-900">The article is imported as a <b>draft</b>. You review the 12 versions, then publish. Importing the same code again updates it.</p>
+              <p className="me-auto text-sm text-teal-900">The article is imported as a <b>draft</b>. You review the 14 versions, then publish. Importing the same code again updates it.</p>
               {canPublish && <label className="flex items-center gap-2 text-sm font-semibold text-teal-900"><input type="checkbox" name="publish" value="1" className="h-4 w-4 accent-teal-600" /> Publish right away</label>}
               <Submit className="rounded-xl bg-teal-700 px-5 py-2.5 text-sm font-bold text-white hover:bg-teal-800">📥 Import</Submit>
             </form>

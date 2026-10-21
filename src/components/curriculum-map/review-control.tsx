@@ -75,8 +75,15 @@ export function ReviewControl({ initial, roster = [] }: { initial: ReviewControl
       {msg && <p role={msg.ok ? "status" : "alert"} className={`rounded-xl px-4 py-2 text-sm ${msg.ok ? "bg-teal-50 text-teal-900" : "bg-red-50 text-red-800"}`}>{msg.text}</p>}
 
       <ol className="space-y-2" aria-label={t("Questions of the Review")}>
-        {v.questions.map((x, i) => (
+        {v.questions.map((x, i) => {
+          // 🗂️ fix (Oct 2026, "تنظيم"): a visual grouping header whenever the question's source (Text Set /
+          // skill, already computed server-side as `section`) changes from the one before it — no change to the
+          // underlying order, move up/down and the rest of the list mechanics work exactly as before.
+          const group = x.section || t("Other");
+          const prevGroup = i > 0 ? (v.questions[i - 1].section || t("Other")) : null;
+          return (
           <li key={x.id} data-testid="review-q" className={`rounded-xl bg-white p-3 ring-1 ${i < v.count ? "ring-slate-200" : "opacity-60 ring-dashed ring-slate-300"}`}>
+            {group !== prevGroup && <p className="-mt-1 mb-2 px-1 text-xs font-bold uppercase tracking-wide text-slate-500" dir="ltr">{group}</p>}
             <div className="flex flex-wrap items-start gap-2">
               <span className="w-7 shrink-0 font-bold text-brand-navy">{i + 1}.</span>
               <p className="min-w-0 flex-1 text-sm text-slate-900" data-content lang="en"><RichInline text={x.stem} /></p>
@@ -111,7 +118,8 @@ export function ReviewControl({ initial, roster = [] }: { initial: ReviewControl
               </form>
             )}
           </li>
-        ))}
+          );
+        })}
       </ol>
       {!v.questions.length && <p className="rounded-xl bg-white p-4 text-sm text-slate-600 ring-1 ring-slate-200">{t("This Review has no questions yet. Add some below.")}</p>}
 

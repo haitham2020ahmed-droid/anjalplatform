@@ -28,6 +28,7 @@ export default async function CurriculumReviewPage({ searchParams }: { searchPar
     <AppShell name={String(me.displayName)}>
       <PageHeader back={{ href: `/admin/curriculum-map${grade}`, label: "Curriculum Map" }} icon="🔁" title={v ? `${t("Review")}: ${v.title}` : "Review"}
         subtitle={t("Edit, add, remove and order the questions of this Review, and choose how many your students answer.")}>
+        {actor.role === "TEACHER" && <Link href="/teacher/my-reviews" prefetch={false} className="rounded-xl px-4 py-2 text-sm font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">📚 {t("My Reviews")}</Link>}
         {v && <Link href={`/teacher/preview?code=${encodeURIComponent(v.code)}`} prefetch={false} className="rounded-xl px-4 py-2 text-sm font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">👁 {t("Preview")}</Link>}
       </PageHeader>
       {error && <p role="alert" className="rounded-xl bg-red-50 px-4 py-3 text-red-800">{t(error)}</p>}

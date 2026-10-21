@@ -10,7 +10,7 @@ import { Flash } from "../_components/ui";
 
 export const metadata = { title: "ReadRise article" };
 
-/** 🚀 ReadRise (admin): review one article — 12 versions, estimated levels, questions; publish, hide, delete. */
+/** 🚀 ReadRise (admin): review one article — 14 versions, estimated levels, questions; publish, hide, delete. */
 export default async function ReadRiseArticleAdmin({ params, searchParams }: { params: Promise<{ articleId: string }>; searchParams: Promise<{ msg?: string }> }) {
   const actor = await requireActor({ roles: ["SCHOOL_ADMIN", "SUPER_ADMIN"], permission: "questions:read" });
   const me = (await getActor())!.user;

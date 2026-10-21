@@ -42,7 +42,7 @@ export function LibraryView({ base, items, topics, f }: { base: string; items: L
                 {a.summary && <p className="mt-2 line-clamp-2 text-sm text-slate-600">{a.summary}</p>}
                 <div className="mt-3 flex flex-wrap items-center gap-2 text-xs">
                   <SourcePill source={a.source} hidden={a.hidden} />
-                  <span className={`rounded-full px-2.5 py-0.5 font-semibold ring-1 ${a.versions === 12 ? "bg-slate-50 text-slate-700 ring-slate-200" : "bg-red-50 text-red-800 ring-red-200"}`}>{a.versions}/12 versions</span>
+                  <span className={`rounded-full px-2.5 py-0.5 font-semibold ring-1 ${a.versions === 14 ? "bg-slate-50 text-slate-700 ring-slate-200" : "bg-red-50 text-red-800 ring-red-200"}`}>{a.versions}/14 versions</span>
                   {a.levelWarnings > 0 && <span className="rounded-full bg-amber-50 px-2.5 py-0.5 font-semibold text-amber-900 ring-1 ring-amber-300">⚠ {a.levelWarnings} off level</span>}
                   <span className="ms-auto text-slate-400">{a.updatedAt.slice(0, 10)}</span>
                 </div>

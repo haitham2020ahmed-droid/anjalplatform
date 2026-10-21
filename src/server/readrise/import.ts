@@ -104,8 +104,12 @@ export function validateArticle(input: unknown, locate: Locate = () => undefined
 
   // ---- versions
   const rawVersions = Array.isArray(a.versions) ? (a.versions as unknown[]) : [];
-  if (!Array.isArray(a.versions)) err("version", "Versions are missing: an article needs 14 versions (levels 300, 400 … 1600).");
-  else if (rawVersions.length !== 12) err("version", `The article has ${rawVersions.length} version${rawVersions.length === 1 ? "" : "s"}; it needs exactly 14 (levels 300, 400 … 1600).`);
+  // 🐛 fix (Oct 2026): was hardcoded to 12 — a leftover from before LIBRARY_LEVELS grew to 14 (300…1600). An
+  // article correctly written with all 14 versions was rejected here (never imported), so it silently never
+  // reached the library. Now reads the count from LIBRARY_LEVELS so it can never drift from it again.
+  const NEEDED_VERSIONS = LIBRARY_LEVELS.length;
+  if (!Array.isArray(a.versions)) err("version", `Versions are missing: an article needs ${NEEDED_VERSIONS} versions (levels 300, 400 … 1600).`);
+  else if (rawVersions.length !== NEEDED_VERSIONS) err("version", `The article has ${rawVersions.length} version${rawVersions.length === 1 ? "" : "s"}; it needs exactly ${NEEDED_VERSIONS} (levels 300, 400 … 1600).`);
   const versions: VersionJson[] = [];
   const seen = new Set<number>();
   for (const [i, rv] of rawVersions.entries()) {
@@ -124,7 +128,7 @@ export function validateArticle(input: unknown, locate: Locate = () => undefined
     if (off !== null && (!Number.isInteger(off) || off < 0 || off > 2000)) err(key, "Official Lexile must be a whole number from 0 to 2000 (or empty).");
     versions.push({ level, title: vt || title, text, ...(off !== null && Number.isInteger(off) ? { officialLexile: off } : {}) });
   }
-  if (Array.isArray(a.versions) && rawVersions.length === 12) for (const l of LIBRARY_LEVELS) if (!seen.has(l)) err("version", `Level ${l} is missing.`);
+  if (Array.isArray(a.versions) && rawVersions.length === NEEDED_VERSIONS) for (const l of LIBRARY_LEVELS) if (!seen.has(l)) err("version", `Level ${l} is missing.`);
   versions.sort((x, y) => x.level - y.level);
   let prevEst = -Infinity, prevLevel = 0;
   for (const v of versions) {

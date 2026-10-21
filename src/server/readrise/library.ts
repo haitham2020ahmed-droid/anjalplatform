@@ -11,7 +11,7 @@ import { assertCan, can, ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
 import { audit } from "../audit";
 import { BANDS, LEVEL_TOLERANCE, type ArticleJson, type BandJson } from "./import";
-import { targetWords, type RRBand } from "./level";
+import { LIBRARY_LEVELS, targetWords, type RRBand } from "./level";
 import { modelVersion } from "../cache/bank-version";
 import { sweptWeakValue } from "../cache/idle";
 
@@ -136,7 +136,7 @@ async function loadArticle(repo: Repo, id: string): Promise<Row> {
   return a;
 }
 
-/** One article with all 12 versions, key words, questions and prompts per band. */
+/** One article with all {@link LIBRARY_LEVELS}.length (14) versions, key words, questions and prompts per band. */
 export async function articleDetail(repo: Repo, actor: Actor, id: string): Promise<ArticleDetail> {
   const a = await loadArticle(repo, id);
   const hidden = await hiddenArticleIds(repo, actor.schoolId);
@@ -176,7 +176,10 @@ export async function setArticleStatus(repo: Repo, actor: Actor, id: string, sta
   if (status !== "DRAFT" && status !== "PUBLISHED") throw new ValidationError("Unknown status.");
   if (status === "PUBLISHED") {
     const [v, q, p] = await Promise.all([repo.count("RRVersion", { articleId: id }), repo.count("RRQuestion", { articleId: id }), repo.count("RRPrompt", { articleId: id })]);
-    if (v !== 12 || q !== 24 || p !== 3) throw new ValidationError("This article is incomplete (12 versions, 24 questions and 3 prompts are needed). Import it again.");
+    // 🐛 fix (Oct 2026): "v !== 12" was a leftover from before LIBRARY_LEVELS grew to 14 (300…1600) — it blocked
+    // publishing any article actually imported with all 14 versions. Now reads the count from LIBRARY_LEVELS.
+    const NEEDED_VERSIONS = LIBRARY_LEVELS.length;
+    if (v !== NEEDED_VERSIONS || q !== 24 || p !== 3) throw new ValidationError(`This article is incomplete (${NEEDED_VERSIONS} versions, 24 questions and 3 prompts are needed). Import it again.`);
   }
   await repo.updateMany("RRArticle", { id }, { status, updatedAt: now });
   await audit(repo, { actorId: actor.userId, action: status === "PUBLISHED" ? "readrise.article.publish" : "readrise.article.unpublish", entityType: "RRArticle", entityId: id, before: { status: a.status }, after: { status }, at: now });

@@ -597,6 +597,11 @@ export interface AssignQuestionsInput {
   track?: Track; classId: string; questionIds: string[]; studentIds?: string[]; title?: string; startAt?: Date | null; dueAt?: Date | null; note?: string | null;
   /** a teacher-built test: at most MAX_TEST_SET_QUESTIONS questions (instead of MAX_SET_QUESTIONS) */
   test?: boolean;
+  // 🔓 fix (Oct 2026, "خلي fixed مفتوح وغير محدد"): a caller using `test` can override the 60-question
+  // MAX_TEST_SET_QUESTIONS cap with a higher one of its own (e.g. the teacher's Review, whose Fixed assignment
+  // should hold as many questions as the Review itself allows). Other `test` callers that don't pass this keep
+  // the original 60 cap untouched — this never changes behaviour for Assessments or any other test builder.
+  testCap?: number;
   /** r74: REQUIRED — MAP | NAFS | CURRICULUM | GRAMMAR | RTI (the assign window's Source; system work: its context) */
   source: string | null | undefined }
 
@@ -611,7 +616,7 @@ export async function assignQuestions(repo: Repo, actor: Actor, input: AssignQue
   const source = requireSource(input.source);
   const picked = [...new Set((input.questionIds ?? []).filter(Boolean))];
   if (!picked.length) throw new ValidationError("Choose at least one question.");
-  const cap = input.adaptive ? 1000 : input.test ? MAX_TEST_SET_QUESTIONS : MAX_SET_QUESTIONS;
+  const cap = input.adaptive ? 1000 : input.test ? Math.max(1, Math.min(1000, Math.trunc(Number(input.testCap)) || MAX_TEST_SET_QUESTIONS)) : MAX_SET_QUESTIONS;
   if (picked.length > 2000) throw new ValidationError(`Choose at most ${cap} questions at a time.`);
   // 👯 never two copies of the same content in one set or test (same fingerprint, or same stem + correct answer —
   // copies stored under different skills, grades or map places): the first copy stays (questions/fresh.ts)

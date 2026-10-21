@@ -3,7 +3,7 @@ import { repo, requireActor } from "@/server/auth/next";
 import { ForbiddenError } from "@/server/auth/rbac";
 import { ValidationError } from "@/server/curriculum-admin";
 import {
-  changeCustomReview, customDraftQuestion, customEditQuestion, customQuestionDetail, customReviewView, customSetChoices, customSkillChoices, customWriteQuestion, reviewBankSearch, setQuestionPreview, skillQuestionPreview,
+  changeCustomReview, customDraftQuestion, customEditQuestion, customQuestionDetail, customReviewView, customSetChoices, customSkillChoices, customWriteQuestion, MAX_REVIEW, reviewBankSearch, setQuestionPreview, skillQuestionPreview,
   type CustomReviewChange, type CustomReviewView, type ReviewSetUnit, type ReviewSkillUnit, type WrittenQuestion,
 } from "@/server/curriculum-map/review-control";
 import type { BankFilter, BankResults, CopyEdit } from "@/server/tests/review";
@@ -71,8 +71,8 @@ export async function customDetailAction(grade: number, questionId: string): Pro
   const actor = await requireActor(TEACHER);
   return run(() => customQuestionDetail(repo, actor, Number(grade), String(questionId ?? "")));
 }
-/** ⭐ Assign the built Review to a class — Fixed (a short test, up to 60 questions) or Adaptive (students answer
- * toward a target-correct goal, drawing from as many as were collected). */
+/** ⭐ Assign the built Review to a class — Fixed (every chosen question, same order, for every student) or
+ * Adaptive (students answer toward a target-correct goal, drawing from as many as were collected). */
 export async function customReviewAssignAction(input: {
   grade: number; classId: string; studentIds?: string[]; title?: string; source: string;
   adaptive?: { maxQuestions: number; targetCorrect?: number | null } | null;
@@ -84,7 +84,8 @@ export async function customReviewAssignAction(input: {
     if (!ids.length) throw new ValidationError("Collect some questions first.");
     return assignQuestions(repo, actor, {
       classId: input.classId, studentIds: input.studentIds, questionIds: ids, title: input.title || "Review", source: input.source,
-      ...(input.adaptive ? { adaptive: input.adaptive } : { test: true }),
+      // 🔓 fix (Oct 2026): Fixed no longer stops at 60 — see review-control.ts reviewAssign for the same fix.
+      ...(input.adaptive ? { adaptive: input.adaptive } : { test: true, testCap: MAX_REVIEW }),
     });
   });
 }

@@ -20,7 +20,7 @@ export default async function ReadRiseLibraryTeacher({ searchParams }: { searchP
   return (
     <AppShell name={String(me.displayName)}>
       <PageHeader back={{ href: "/teacher/readrise", label: "ReadRise" }} icon="📚" title="ReadRise Library"
-        subtitle={<>Published articles and your own drafts. Each article has 12 versions; every student reads the version of their level. <span className="text-xs text-slate-500">{RR_NOTE}</span></>}>
+        subtitle={<>Published articles and your own drafts. Each article has 14 versions; every student reads the version of their level. <span className="text-xs text-slate-500">{RR_NOTE}</span></>}>
         <ReadRiseTabs items={TEACHER_TABS} current="/teacher/readrise/library" />
       </PageHeader>
       <Flash msg={sp.msg} />

@@ -14,7 +14,7 @@ import { AssignDates } from "@/components/assign/assign-dates";
 
 export const metadata = { title: "ReadRise article" };
 
-/** 🚀 ReadRise (teacher): review one article (12 versions, questions per band); publish / delete own articles; assign it to a class. */
+/** 🚀 ReadRise (teacher): review one article (14 versions, questions per band); publish / delete own articles; assign it to a class. */
 export default async function ReadRiseArticleTeacher({ params, searchParams }: { params: Promise<{ articleId: string }>; searchParams: Promise<{ msg?: string }> }) {
   const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"], permission: "questions:read" });
   const me = (await getActor())!.user;

@@ -16,6 +16,7 @@ import { RichInline } from "@/components/rich-inline";
 import { SourceSelect } from "@/components/assign/source-select";
 import type { AssignSource } from "@/lib/assign-source";
 import type { RosterClass } from "./assign-button";
+import { PrintButton } from "@/components/plans/print-button";
 import { loadSkillQuestions } from "@/components/skill-picker/load";
 import { filterQuestions, isCorrectChoice, LEVEL_FILTERS, type LevelFilter as PickerLevelFilter, type PickerQuestion } from "@/components/skill-picker/helpers";
 
@@ -177,19 +178,32 @@ export function ReviewBuilder({ grade, initial, sets, skillUnits, roster }: {
             <button className={btn} disabled={busy}>{t("Save")}</button>
           </form>
         )}
-        <label className="text-sm font-semibold text-slate-700">{t("Level")}
+        <label className="text-sm font-semibold text-slate-700 print:hidden">{t("Level")}
           <select value={level} onChange={(e) => setLevel(e.target.value as LevelFilter)} className={`${field} w-40`}>
             <option value="ANY">{t("All levels")}</option>
             {(Object.keys(LV) as Level[]).map((k) => <option key={k} value={k}>{t(LV[k])}</option>)}
           </select>
         </label>
-        {v.chosen > 0 && <button type="button" className={`${btn} ms-auto`} disabled={busy} onClick={() => go(async () => { if (window.confirm(t("Remove every question from this Review?"))) apply(await customReviewChangeAction(grade, { op: "reset" }), t("Saved ✓")); })}>{t("Reset")}</button>}
+        {/* 📄 fix (Oct 2026, "preview... ملف PDF"): this grade-wide Review had no Preview/Print link at all, unlike
+            the per-Set Review page. The question list below already shows full, untruncated text, so printing it
+            (or "Save as PDF" from the browser's print dialog) IS the full, clear review the teacher asked for. */}
+        <div className="ms-auto flex items-center gap-2 print:hidden">
+          <PrintButton />
+          {v.chosen > 0 && <button type="button" className={btn} disabled={busy} onClick={() => go(async () => { if (window.confirm(t("Remove every question from this Review?"))) apply(await customReviewChangeAction(grade, { op: "reset" }), t("Saved ✓")); })}>{t("Reset")}</button>}
+        </div>
       </div>
       {msg && <p role={msg.ok ? "status" : "alert"} className={`rounded-xl px-4 py-2 text-sm ${msg.ok ? "bg-teal-50 text-teal-900" : "bg-red-50 text-red-800"}`}>{msg.text}</p>}
 
       <ol className="space-y-2" aria-label={t("Questions of the Review")}>
-        {v.questions.map((x, i) => (
+        {v.questions.map((x, i) => {
+          // 🗂️ fix (Oct 2026, "تنظيم"): same grouping header as the per-Set Review (review-control.tsx) — purely
+          // visual, grouping by the question's source (`section`, already computed server-side); the order, move
+          // up/down and the rest of the list mechanics are unchanged.
+          const group = x.section || t("Other");
+          const prevGroup = i > 0 ? (v.questions[i - 1].section || t("Other")) : null;
+          return (
           <li key={x.id} data-testid="review-q" className={`rounded-xl bg-white p-3 ring-1 ${i < v.count ? "ring-slate-200" : "opacity-60 ring-dashed ring-slate-300"}`}>
+            {group !== prevGroup && <p className="-mt-1 mb-2 px-1 text-xs font-bold uppercase tracking-wide text-slate-500" dir="ltr">{group}</p>}
             <div className="flex flex-wrap items-start gap-2">
               <span className="w-7 shrink-0 font-bold text-brand-navy">{i + 1}.</span>
               <p className="min-w-0 flex-1 text-sm text-slate-900" data-content lang="en"><RichInline text={x.stem} /></p>
@@ -199,7 +213,7 @@ export function ReviewBuilder({ grade, initial, sets, skillUnits, roster }: {
                 {i >= v.count && <span className="rounded-full bg-amber-50 px-2 py-0.5 text-amber-900 ring-1 ring-amber-200">{t("Not asked")}</span>}
               </span>
             </div>
-            <div className="mt-2 flex flex-wrap gap-1.5 ps-9">
+            <div className="mt-2 flex flex-wrap gap-1.5 ps-9 print:hidden">
               <button type="button" className={btn} disabled={busy || i === 0} onClick={() => move(i, -1)} aria-label={t("Move up")}>↑</button>
               <button type="button" className={btn} disabled={busy || i === v.questions.length - 1} onClick={() => move(i, 1)} aria-label={t("Move down")}>↓</button>
               <button type="button" className={btn} disabled={busy} onClick={() => go(async () => { const r = await customDetailAction(grade, x.id); if (r.ok) setEdit(r.value); else setMsg({ ok: false, text: r.message }); })}>✏️ {t("Edit")}</button>
@@ -222,12 +236,13 @@ export function ReviewBuilder({ grade, initial, sets, skillUnits, roster }: {
               </form>
             )}
           </li>
-        ))}
+          );
+        })}
       </ol>
       {!v.questions.length && <p className="rounded-xl bg-white p-4 text-sm text-slate-600 ring-1 ring-slate-200">{t("This Review has no questions yet. Collect some below.")}</p>}
 
       {v.hidden.length > 0 && (
-        <details className="rounded-xl bg-white p-3 ring-1 ring-slate-200">
+        <details className="rounded-xl bg-white p-3 ring-1 ring-slate-200 print:hidden">
           <summary className="cursor-pointer text-sm font-semibold text-slate-700">{t("Removed from my Review ({n})", { n: v.hidden.length })}</summary>
           <ul className="mt-2 space-y-1">{v.hidden.map((x) => (
             <li key={x.id} className="flex flex-wrap items-center justify-between gap-2 text-sm"><span data-content lang="en" className="min-w-0 flex-1"><RichInline text={x.stem} /></span>
@@ -236,7 +251,7 @@ export function ReviewBuilder({ grade, initial, sets, skillUnits, roster }: {
         </details>
       )}
 
-      <section className="rounded-2xl bg-white p-4 ring-1 ring-slate-200" aria-label={t("Add questions")}>
+      <section className="rounded-2xl bg-white p-4 ring-1 ring-slate-200 print:hidden" aria-label={t("Add questions")}>
         <div className="flex flex-wrap gap-2">
           <button type="button" className={btn} aria-pressed={tab === "sets"}
             onClick={() => { const next = tab === "sets" ? "" : "sets"; setTab(next); if (next === "sets" && !setsData) go(async () => { const r = await customSetChoicesAction(grade); if (r.ok) setSetsData(r.value); else setMsg({ ok: false, text: r.message }); }); }}>
@@ -424,7 +439,7 @@ export function ReviewBuilder({ grade, initial, sets, skillUnits, roster }: {
       </section>
 
       {bulkDialog && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4" role="dialog" aria-modal="true" aria-label={t("Add a whole skill")}
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4 print:hidden" role="dialog" aria-modal="true" aria-label={t("Add a whole skill")}
           onClick={(e) => { if (e.target === e.currentTarget) setBulkDialog(null); }}>
           <form className="w-full max-w-sm space-y-3 rounded-2xl bg-white p-4 shadow-xl"
             onSubmit={(e) => {
@@ -453,7 +468,7 @@ export function ReviewBuilder({ grade, initial, sets, skillUnits, roster }: {
       )}
 
       {v.chosen > 0 && roster.length > 0 && (
-        <section className="rounded-2xl bg-white p-4 ring-1 ring-slate-200" aria-label={t("Assign")}>
+        <section className="rounded-2xl bg-white p-4 ring-1 ring-slate-200 print:hidden" aria-label={t("Assign")}>
           <h2 className="font-semibold text-slate-900">⭐ {t("Assign")}</h2>
           {assignMsg && <p role={assignMsg.ok ? "status" : "alert"} className={`mt-2 rounded-xl px-4 py-2 text-sm ${assignMsg.ok ? "bg-teal-50 text-teal-900" : "bg-red-50 text-red-800"}`}>{assignMsg.text}</p>}
           <form className="mt-3 grid gap-3 sm:grid-cols-2" onSubmit={(e) => {
@@ -490,7 +505,9 @@ export function ReviewBuilder({ grade, initial, sets, skillUnits, roster }: {
             <SourceSelect t={t} value={source} onChange={setSource} />
             <div className="sm:col-span-2"><button className={main} disabled={busy || !classId}>⭐ {t("Assign")}</button></div>
           </form>
-          {mode === "FIXED" && v.count > 60 && <p className="mt-2 text-xs text-amber-800">{t("A Fixed assignment sends the first 60 questions only. Choose Adaptive to use all {n}.", { n: v.count })}</p>}
+          {/* 🔓 fix (Oct 2026, "خلي fixed مفتوح وغير محدد"): Fixed used to send only the first 60 questions, with
+              this note suggesting Adaptive instead. Fixed now sends every chosen question (see review-control.ts /
+              assign.ts testCap), so the note no longer applies. */}
         </section>
       )}
     </div>

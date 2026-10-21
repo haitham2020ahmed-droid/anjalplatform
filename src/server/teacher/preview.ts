@@ -8,6 +8,7 @@ import type { Repo } from "../seeding/repo";
 import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
 import { attachmentNodes } from "../curriculum-map/questions";
+import { MAX_REVIEW, teacherReviewQuestions } from "../curriculum-map/review-control";
 import { fromDifficulty } from "../curriculum-map/leveled-run";
 import { loadQuestionItems, loadSkillItems, toClientQuestion, type ClientQuestion, type PracticeItem } from "../practice/items";
 import { openStudentPreview } from "../tests/student-preview";
@@ -67,6 +68,26 @@ export async function previewWork(repo: Repo, actor: Actor, input: { code?: stri
     // 🧭 a teacher opens the Curriculum Map of their own grade(s) only
     const own = await teacherMapGrades(repo, actor);
     if (own && !own.has(places[0].grade)) throw new ForbiddenError("The Curriculum Map of this grade is not one of your classes' grades.");
+    // 🐛 fix (Oct 2026, "عايز اشوف المراجعه كامله"): this Preview used to always show the Review place's raw SHARED
+    // questions, ignoring anything the teacher added, removed, reordered, wrote themselves or edited into a private
+    // copy in their own Review (review-control.ts) — so the "👁 Preview" a teacher opened from their Review never
+    // actually matched what they had built there, and never reflected what Fixed assign would actually send. When
+    // this place is a Review the teacher has customized, show exactly their list, in their order, instead — a flat
+    // list (a Review has no Below/On/Above versions), so it is shown under the single "ON" tab.
+    if (places[0].category === "REVIEW" && actor.role === "TEACHER") {
+      const mine = await teacherReviewQuestions(repo, actor, places[0]);
+      if (mine && mine.length) {
+        const items = new Map((await loadQuestionItems(repo, mine)).map((i) => [i.questionId, i]));
+        const ordered = mine.map((id) => items.get(id)).filter(Boolean) as PracticeItem[];
+        const myTitle = `${places[0].heading} · ${places[0].categoryLabel.replace(/^\d+-\s*/, "")} · My Review`;
+        const mySubtitle = `Grade ${places[0].grade} · ${places[0].unitTitle}`;
+        return {
+          title: myTitle, subtitle: mySubtitle, level: "ON", counts: { BELOW: 0, ON: ordered.length, ABOVE: 0 },
+          questions: ordered.slice(0, MAX_REVIEW).map(view), shown: Math.min(MAX_REVIEW, ordered.length),
+          assignHref: null, // ⭐ Assign already lives on the Review page itself, against this same list
+        };
+      }
+    }
     const links = await repo.findMany("QuestionMapLink", { nodeId: { in: places.map((p) => p.id) } });
     const items = await loadQuestionItems(repo, [...new Set(links.map((l) => s(l.questionId)))]);
     const nodeLevel = new Map(places.map((p) => [p.id, p.level]));
