@@ -137,13 +137,17 @@ function UnitSection({ sec, canAssign, roster, quickAssign, assigned, priorAssig
   // a selection with no platform skills linked yet (no "No platform skills linked yet." placeholder row any more —
   // owner: "شيل ده خالص" / "حذف اي شي زي كده" — it just doesn't appear in the Skill plan at all)
   if (sec.skills.length === 0 && !sec.lessonSections?.length) return null;
+  // 🔁 fix (Oct 2026, "ممكن تضيف اسماء الدروس في skill plan زي ما هو موجود في lessons"): the curated lesson name
+  // (sec.name, same lookup/data as the Lessons tab — src/server/curriculum-map/lesson-details.ts) in place of the
+  // generic DB title wherever it's known; falls back to the old generic title when this Text Set has no entry yet.
+  const dispTitle = sec.name ?? sec.title;
   return (
     <div className="px-5 py-4">
       <p className="font-semibold text-slate-900" dir="ltr">
         {weeksLabel(sec, t)}
-        {sec.essentialQuestion ? `: ${sec.essentialQuestion}` : sec.title ? `: ${sec.title}` : ""}
+        {sec.essentialQuestion ? `: ${sec.essentialQuestion}` : dispTitle ? `: ${dispTitle}` : ""}
       </p>
-      {sec.essentialQuestion && sec.title && <p className="text-sm text-slate-500" dir="ltr">{sec.title}</p>}
+      {sec.essentialQuestion && dispTitle && <p className="text-sm text-slate-500" dir="ltr">{dispTitle}</p>}
       {sec.lessonSections?.length ? <LessonSectionRows sections={sec.lessonSections} canAssign={canAssign} roster={roster} /> : null}
       <SkillGroups skills={sec.skills} canAssign={canAssign} roster={roster} quickAssign={quickAssign} assigned={assigned} priorAssignment={priorAssignment} masteredCount={masteredCount} cancelAssignment={cancelAssignment} cancelAssignmentForStudents={cancelAssignmentForStudents} />
     </div>

@@ -37,7 +37,7 @@ import type { Branding, ReportDoc } from "../../reports/model";
 import { BRAND, PLATFORM, SOURCE_COLORS } from "../../components/print/tokens";
 import { appOrigin, isPlanHref, planHref, planQrSvg, PLAN_LINKS_NOTE, type PlanAudience } from "../../lib/plan-links";
 import { RateLimitedError, REPORT_RATE, loadBranding, type ReportDeps } from "../reports/service";
-import { curriculumLessons, studentCurriculumLessons, type CurriculumUnit } from "./lesson-details";
+import { curriculumLessons, studentCurriculumLessons, lessonDetail, type CurriculumUnit } from "./lesson-details";
 import eqData from "../../../data/curriculum-map/essential-questions.json";
 
 const s = (v: unknown) => (v === null || v === undefined ? "" : String(v));
@@ -70,6 +70,12 @@ export interface MapPdfSection {
    * printed PDF) — Grammar and punctuation (and Writing, Spelling & word study) still come from `skills` above,
    * unchanged; Concept Vocabulary and Analyze Craft and Structure no longer do. */
   lessonSections?: MapPdfLessonSection[];
+  /** 🔁 fix (Oct 2026, "ممكن تضيف اسماء الدروس في skill plan زي ما هو موجود في lessons"): the SAME curated lesson
+   * name the Lessons tab shows (e.g. "A Life in the Woods"), looked up the exact same way `unitCards()` does
+   * (lesson-details.ts#lessonDetail, by the Shared Read text, falling back to the raw title) — null when this
+   * Text Set has no entry in the curated file (data/curriculum-map/lesson-details.json), in which case callers keep
+   * showing `title` as before. */
+  name: string | null;
 }
 export interface MapPdfUnit { number: number; title: string; sections: MapPdfSection[]; /** the unit's writing skills (Wonders: one writing project per unit, not tied to one week) */ writing: MapPdfSkill[] }
 export interface MapPdfData { grade: number; book: string; units: MapPdfUnit[] }
@@ -120,9 +126,13 @@ export async function curriculumMapPdfData(repo: Repo, schoolId: string, grade: 
         const texts = json<Record<string, string>>(l.texts, {});
         const ks = (byLesson.get(s(l.id)) ?? []).map((id) => skill.get(id)).filter((k): k is Row => Boolean(k))
           .sort((a, b) => order(a) - order(b) || Number(a.sequence ?? 0) - Number(b.sequence ?? 0) || s(a.name).localeCompare(s(b.name)));
+        // 🔁 fix (Oct 2026, "ممكن تضيف اسماء الدروس في skill plan"): same lookup unitCards() (lesson-details.ts) uses
+        // for the Lessons tab's name — the Shared Read text first (the usual key in the curated file), the raw
+        // title as a fallback.
+        const lessonName = lessonDetail(grade, texts.shared_read) ?? lessonDetail(grade, s(l.title));
         return {
           number: Number(l.number), weeks, essentialQuestion: essentialQuestion(grade, Number(u.number), weeks[0]),
-          title: s(l.title), genre: l.genre ? s(l.genre) : null,
+          title: s(l.title), genre: l.genre ? s(l.genre) : null, name: lessonName?.name ?? null,
           selections: Object.entries(texts).filter(([, v]) => s(v).trim()).map(([k, v]) => ({ label: TEXT_LABEL[k] ?? k.replace(/_/g, " "), name: s(v).trim() })),
           skills: ks.map((k) => ({ id: s(k.id), name: s(k.name), code: s(k.code), group: groupOfCategory(s(k.category)).key })),
         };
@@ -272,9 +282,12 @@ export function curriculumMapHtml(d: MapPdfData, o: MapHtmlOptions): string {
     return lessonGroups + skillGroups;
   };
   const left = (sec: MapPdfSection) => {
+    // 🔁 fix (Oct 2026): the curated lesson name (same as the Lessons tab), when the file has one, in place of the
+    // generic Text Set title everywhere `sec.title` used to print.
+    const dispTitle = sec.name ?? sec.title;
     // Grade 6 (StudySync): the selection IS the lesson — its name once, not twice
-    const sels = sec.essentialQuestion ? sec.selections : sec.selections.filter((x) => x.name !== sec.title);
-    return `<span class="wk-pill">${esc(sectionLabel(sec, L))}</span><p class="wk-q"><bdi dir="ltr">${esc(sec.essentialQuestion ?? sec.title)}</bdi></p>${sec.essentialQuestion ? `<p class="ts" dir="ltr">${esc(sec.title)}</p>` : sec.genre && !sec.title.includes(sec.genre) ? `<p class="ts" dir="ltr">${esc(sec.genre)}</p>` : ""}${sels.length ? `<ul class="sel" dir="ltr">${sels.map((x) => `<li><span class="sl">${esc(x.label)}:</span> <i>${esc(x.name)}</i></li>`).join("")}</ul>` : ""}`;
+    const sels = sec.essentialQuestion ? sec.selections : sec.selections.filter((x) => x.name !== dispTitle);
+    return `<span class="wk-pill">${esc(sectionLabel(sec, L))}</span><p class="wk-q"><bdi dir="ltr">${esc(sec.essentialQuestion ?? dispTitle)}</bdi></p>${sec.essentialQuestion ? `<p class="ts" dir="ltr">${esc(dispTitle)}</p>` : sec.genre && !dispTitle.includes(sec.genre) ? `<p class="ts" dir="ltr">${esc(sec.genre)}</p>` : ""}${sels.length ? `<ul class="sel" dir="ltr">${sels.map((x) => `<li><span class="sl">${esc(x.label)}:</span> <i>${esc(x.name)}</i></li>`).join("")}</ul>` : ""}`;
   };
   // r87 (owner: "عدل شكلهم... زي ما اتفقنا قبل"): the Curriculum Map and the Skill Plan print the SAME PDF (this
   // file) — a plain bordered <table> of weeks vs. skills — so one visual pass covers both. Each Text Set is now its
