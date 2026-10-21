@@ -55,6 +55,10 @@ export function ReviewBuilder({ grade, initial, sets, skillUnits, roster }: {
   const [skillQ, setSkillQ] = useState("");
   const [setPicks, setSetPicks] = useState<Record<string, Set<Cat>>>({});
   const [skillPicks, setSkillPicks] = useState<Set<string>>(new Set());
+  // 🔔 fix (Oct 2026, "لو اخترتها تاني تظهر تنبيه"): skills already added via "Add selected" THIS visit — ticking
+  // one of them again shows a warning instead of silently re-queuing it, since re-adding it usually finds "nothing
+  // new" (every question of that skill is already in the Review).
+  const [addedSkillIds, setAddedSkillIds] = useState<Set<string>>(new Set());
   const [preview, setPreview] = useState<{ id: string; stems: string[] } | null>(null);
   // 👁 r91 "Text Sets" tab preview, keyed by "{unit}.{setNumber}.{category}"
   const [tsPreview, setTsPreview] = useState<{ key: string; stems: string[] } | null>(null);
@@ -393,8 +397,14 @@ export function ReviewBuilder({ grade, initial, sets, skillUnits, roster }: {
                           <li key={k.id}>
                             <div className="flex items-center gap-2 rounded-lg px-2 py-1 text-sm hover:bg-slate-50">
                               <label className="flex min-w-0 flex-1 items-center gap-2">
-                                <input type="checkbox" checked={skillPicks.has(k.id)} onChange={() => setSkillPicks((s) => { const n = new Set(s); if (n.has(k.id)) n.delete(k.id); else n.add(k.id); return n; })} />
+                                <input type="checkbox" checked={skillPicks.has(k.id)}
+                                  onChange={() => {
+                                    const checking = !skillPicks.has(k.id);
+                                    if (checking && addedSkillIds.has(k.id)) setMsg({ ok: false, text: t("You already added this skill's questions — picking it again usually finds nothing new.") });
+                                    setSkillPicks((s) => { const n = new Set(s); if (n.has(k.id)) n.delete(k.id); else n.add(k.id); return n; });
+                                  }} />
                                 <span dir="ltr" className="truncate">{k.name}</span>
+                                {addedSkillIds.has(k.id) && <span className="shrink-0 rounded-full bg-emerald-50 px-1.5 text-[11px] font-semibold text-emerald-700">{t("✓ Added")}</span>}
                               </label>
                               <button type="button" className="shrink-0 rounded-full px-1.5 text-xs text-slate-500 hover:bg-slate-100" disabled={busy}
                                 onClick={() => go(async () => { if (preview?.id === k.id) { setPreview(null); return; } setPreview({ id: k.id, stems: [] }); const r = await skillPreviewAction(k.id, level); setPreview({ id: k.id, stems: r.ok ? r.value : [] }); })}
@@ -414,7 +424,13 @@ export function ReviewBuilder({ grade, initial, sets, skillUnits, roster }: {
               </div>
             )}
             <button type="button" className={main} disabled={busy || !skillPicks.size}
-              onClick={() => go(async () => { if (apply(await customReviewChangeAction(grade, { op: "addSkills", skillIds: [...skillPicks], level }), t("Added ✓"))) setSkillPicks(new Set()); })}>
+              onClick={() => go(async () => {
+                const picked = [...skillPicks];
+                if (apply(await customReviewChangeAction(grade, { op: "addSkills", skillIds: picked, level }), t("Added ✓"))) {
+                  setAddedSkillIds((s) => new Set([...s, ...picked]));
+                  setSkillPicks(new Set());
+                }
+              })}>
               {t("Add selected ({n})", { n: skillPicks.size })}
             </button>
           </div>

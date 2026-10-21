@@ -355,17 +355,26 @@ export async function changeReview(repo: Repo, actor: Actor, code: string, c: Re
     if (!added) throw new ValidationError("Nothing new to add — every Vocabulary and Analyze Craft question here is already in your Review.");
     if (!st.custom) st.count = Math.min(st.count + added, st.questionIds.length);
   } else if (c.op === "addSkills") {
-    const skillIds = [...new Set((Array.isArray(c.skillIds) ? c.skillIds : []).map(s).filter(Boolean))].slice(0, 20);
+    // 🔓 fix (Oct 2026, "خليه مفتوح بلا تحديد"): used to cap at 20 skills per "Add selected" click, silently
+    // dropping the rest with no warning — removed; pick as many skills at once as you like.
+    const skillIds = [...new Set((Array.isArray(c.skillIds) ? c.skillIds : []).map(s).filter(Boolean))];
     if (!skillIds.length) throw new ValidationError("Choose at least one skill.");
     const level: LevelFilter = c.level && c.level !== "ANY" ? c.level : "ANY";
     let added = 0;
+    let atMax = false;
     for (const skillId of skillIds) {
       for (const qid of await skillAddableIds(repo, actor, skillId, level)) {
-        if (st.questionIds.includes(qid) || st.questionIds.length >= MAX_REVIEW) continue;
+        if (st.questionIds.length >= MAX_REVIEW) { atMax = true; continue; }
+        if (st.questionIds.includes(qid)) continue;
         st.questionIds.push(qid); st.hiddenIds = st.hiddenIds.filter((x) => x !== qid); added++;
       }
     }
-    if (!added) throw new ValidationError("Nothing new to add from those skills.");
+    // 🐛 fix (Oct 2026, "رسالة مضللة"): "Nothing new to add" used to fire for two very different reasons without
+    // telling them apart — every question of those skills already being in the Review, vs the Review having hit
+    // MAX_REVIEW so nothing more COULD be added. Say which one actually happened.
+    if (!added) throw new ValidationError(atMax
+      ? `Your Review is already at its maximum of ${MAX_REVIEW} questions. Remove some questions first, then add these skills.`
+      : "Nothing new to add from those skills — every question of those skills is already in your Review.");
     if (!st.custom) st.count = Math.min(st.count + added, st.questionIds.length);
   }
   if (!st.questionIds.length) throw new ValidationError("Keep at least one question in the Review (or press Reset).");
@@ -691,17 +700,25 @@ export async function changeCustomReview(repo: Repo, actor: Actor, grade: number
     if (!added) throw new ValidationError("Nothing new to add from those Text Sets.");
     st.count = Math.min(st.count + added, st.questionIds.length);
   } else if (c.op === "addSkills") {
-    const skillIds = [...new Set((Array.isArray(c.skillIds) ? c.skillIds : []).map(s).filter(Boolean))].slice(0, 20);
+    // 🔓 fix (Oct 2026, "خليه مفتوح بلا تحديد"): used to cap at 20 skills per "Add selected" click, silently
+    // dropping the rest with no warning — removed; pick as many skills at once as you like.
+    const skillIds = [...new Set((Array.isArray(c.skillIds) ? c.skillIds : []).map(s).filter(Boolean))];
     if (!skillIds.length) throw new ValidationError("Choose at least one skill.");
     const level: LevelFilter = c.level && c.level !== "ANY" ? c.level : "ANY";
     let added = 0;
+    let atMax = false;
     for (const skillId of skillIds) {
       for (const qid of await skillAddableIds(repo, actor, skillId, level)) {
-        if (st.questionIds.includes(qid) || st.questionIds.length >= MAX_REVIEW) continue;
+        if (st.questionIds.length >= MAX_REVIEW) { atMax = true; continue; }
+        if (st.questionIds.includes(qid)) continue;
         st.questionIds.push(qid); added++;
       }
     }
-    if (!added) throw new ValidationError("Nothing new to add from those skills.");
+    // 🐛 fix (Oct 2026, "رسالة مضللة"): tell apart "every question already in your Review" from "the Review is
+    // already at MAX_REVIEW so nothing more could be added" — they used to share one confusing message.
+    if (!added) throw new ValidationError(atMax
+      ? `Your Review is already at its maximum of ${MAX_REVIEW} questions. Remove some questions first, then add these skills.`
+      : "Nothing new to add from those skills — every question of those skills is already in your Review.");
     st.count = Math.min(st.count + added, st.questionIds.length);
   } else if (c.op === "addSkillCount") {
     const skillId = s(c.skillId);

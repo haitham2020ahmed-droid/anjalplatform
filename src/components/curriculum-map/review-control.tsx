@@ -38,6 +38,10 @@ export function ReviewControl({ initial, roster = [] }: { initial: ReviewControl
   const [skillUnits, setSkillUnits] = useState<ReviewSkillUnit[] | null>(null);
   const [skillQ, setSkillQ] = useState("");
   const [picked, setPicked] = useState<Set<string>>(new Set());
+  // 🔔 fix (Oct 2026, "لو اخترتها تاني تظهر تنبيه"): skills already added via "Add selected" THIS visit — ticking
+  // one of them again shows a warning instead of silently re-queuing it, since re-adding it usually finds "nothing
+  // new" (every question of that skill is already in the Review).
+  const [addedSkillIds, setAddedSkillIds] = useState<Set<string>>(new Set());
   const [count, setCount] = useState(String(initial.count));
   // 🔓 r91: the level to collect at ("Collect..." and "Language") — narrows Analyze Craft and Structure only
   const [level, setLevel] = useState<LevelFilter>("ANY");
@@ -254,8 +258,14 @@ export function ReviewControl({ initial, roster = [] }: { initial: ReviewControl
                           {matches.map((k) => (
                             <li key={k.id}>
                               <label className="flex items-center gap-2 rounded-lg px-2 py-1 text-sm hover:bg-slate-50">
-                                <input type="checkbox" checked={picked.has(k.id)} onChange={() => setPicked((s) => { const n = new Set(s); if (n.has(k.id)) n.delete(k.id); else n.add(k.id); return n; })} />
+                                <input type="checkbox" checked={picked.has(k.id)}
+                                  onChange={() => {
+                                    const checking = !picked.has(k.id);
+                                    if (checking && addedSkillIds.has(k.id)) setMsg({ ok: false, text: t("You already added this skill's questions — picking it again usually finds nothing new.") });
+                                    setPicked((s) => { const n = new Set(s); if (n.has(k.id)) n.delete(k.id); else n.add(k.id); return n; });
+                                  }} />
                                 <span dir="ltr">{k.name}</span>
+                                {addedSkillIds.has(k.id) && <span className="shrink-0 rounded-full bg-emerald-50 px-1.5 text-[11px] font-semibold text-emerald-700">{t("✓ Added")}</span>}
                               </label>
                             </li>
                           ))}
@@ -266,7 +276,13 @@ export function ReviewControl({ initial, roster = [] }: { initial: ReviewControl
                 </div>
               )}
               <button type="button" className={main} disabled={busy || !picked.size}
-                onClick={() => go(async () => { if (apply(await reviewChangeAction(v.code, { op: "addSkills", skillIds: [...picked], level }), t("Added ✓"))) setPicked(new Set()); })}>
+                onClick={() => go(async () => {
+                  const pickedIds = [...picked];
+                  if (apply(await reviewChangeAction(v.code, { op: "addSkills", skillIds: pickedIds, level }), t("Added ✓"))) {
+                    setAddedSkillIds((s) => new Set([...s, ...pickedIds]));
+                    setPicked(new Set());
+                  }
+                })}>
                 {t("Add selected ({n})", { n: picked.size })}
               </button>
             </div>
