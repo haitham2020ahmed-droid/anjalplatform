@@ -127,7 +127,7 @@ export function ReviewBuilder({ grade, initial, sets, skillUnits, roster }: {
   // 151 in one round trip) the first time the flat view opens, and refreshed after any edit/remove/swap made from
   // it; `showAnswers` just toggles the ✓ correct-choice marker on/off (on-screen AND in the printed page, which
   // prints the DOM exactly as it stands when "Print" is pressed).
-  const [flatOptions, setFlatOptions] = useState<Record<string, { type: string; options: { label: string; text: string; correct: boolean }[]; answer: boolean | null; answers: string[] }>>({});
+  const [flatOptions, setFlatOptions] = useState<Record<string, { type: string; options: { label: string; text: string; correct: boolean }[]; answer: boolean | null; answers: string[]; passageTitle: string | null; passageText: string | null }>>({});
   const [showAnswers, setShowAnswers] = useState(false);
   const loadFlatOptions = async (idList: string[]) => {
     const r = await customOptionsBulkAction(grade, idList);
@@ -402,6 +402,16 @@ export function ReviewBuilder({ grade, initial, sets, skillUnits, roster }: {
                       const swapping = swapFor?.label === sec.label && swapFor.id === x.id;
                       return (
                         <li key={x.id} data-testid="review-q" className="break-inside-avoid rounded-xl bg-white p-3 ring-1 ring-slate-200">
+                          {/* 📖 fix (Oct 2026, "فين الـ passage"): this question's own reading passage (at most
+                              one), shown right above it so the printed page is self-contained — repeated above
+                              every question of the same passage rather than de-duplicated once per section, since
+                              a section is not a guarantee every question in it shares exactly one passage. */}
+                          {flatOptions[x.id]?.passageText && (
+                            <div className="mb-2 rounded-lg bg-slate-50 p-2.5 ring-1 ring-slate-200">
+                              {flatOptions[x.id]?.passageTitle && <p className="mb-1 text-xs font-bold text-slate-600" dir="ltr">📖 {flatOptions[x.id]?.passageTitle}</p>}
+                              <p className="whitespace-pre-line text-xs text-slate-700" dir="ltr">{flatOptions[x.id]?.passageText}</p>
+                            </div>
+                          )}
                           <div className="flex flex-wrap items-start gap-2">
                             <span className="w-6 shrink-0 text-end text-xs font-bold text-slate-400">{n}.</span>
                             <p className="min-w-0 flex-1 text-sm text-slate-900" data-content lang="en"><RichInline text={x.stem} /></p>
