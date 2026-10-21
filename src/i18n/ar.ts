@@ -4897,6 +4897,8 @@ export const ar: Record<UiString, string> = {
   "Use this": "استخدم هذا",
   "By section": "حسب القسم",
   "All selected questions": "كل الأسئلة المختارة",
+  "Show answers": "إظهار الإجابات",
+  "Hide answers": "إخفاء الإجابات",
   "Tick the correct answer. The question is private to you.": "حدّد الإجابة الصحيحة. السؤال خاص بك.",
   "Add a choice": "أضف خيارًا",
   "Add to my Review": "أضف إلى مراجعتي",

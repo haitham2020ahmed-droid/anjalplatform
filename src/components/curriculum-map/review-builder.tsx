@@ -5,7 +5,7 @@ import type { CustomReviewView, ReviewSetUnit, ReviewSkillUnit, WrittenQuestion 
 import type { MapSourceQuestion } from "@/server/tests/map-source";
 import type { SkillFamily } from "@/server/teacher/home";
 import {
-  customBankAction, customDetailAction, customDraftAction, customEditAction, customReviewAssignAction, customReviewChangeAction,
+  customBankAction, customDetailAction, customDraftAction, customEditAction, customOptionsBulkAction, customReviewAssignAction, customReviewChangeAction,
   customSetChoicesAction, customSkillChoicesAction, customWriteAction, setPreviewAction, skillPreviewAction,
 } from "@/app/teacher/review-builder/actions";
 // 🔎 the SAME cross-grade "Find a skill and assign it" search the teacher already knows from the Teacher Home page
@@ -123,6 +123,16 @@ export function ReviewBuilder({ grade, initial, sets, skillUnits, roster }: {
   // once and for a clean, professional print (the per-section accordion above prints empty/collapsed sections
   // unless each is opened by hand first).
   const [flatView, setFlatView] = useState(false);
+  // 👁 fix (Oct 2026, "خيار عين تظهر الاجابه"): the choices of every TAKEN question, keyed by id — fetched once (all
+  // 151 in one round trip) the first time the flat view opens, and refreshed after any edit/remove/swap made from
+  // it; `showAnswers` just toggles the ✓ correct-choice marker on/off (on-screen AND in the printed page, which
+  // prints the DOM exactly as it stands when "Print" is pressed).
+  const [flatOptions, setFlatOptions] = useState<Record<string, { type: string; options: { label: string; text: string; correct: boolean }[]; answer: boolean | null; answers: string[] }>>({});
+  const [showAnswers, setShowAnswers] = useState(false);
+  const loadFlatOptions = async (idList: string[]) => {
+    const r = await customOptionsBulkAction(grade, idList);
+    if (r.ok) setFlatOptions((p) => ({ ...p, ...r.value }));
+  };
   const [sectionInputs, setSectionInputs] = useState<Record<string, string>>({});
   const sectionValue = (label: string, take: number) => sectionInputs[label] ?? String(take);
   // 🐛 fix (Oct 2026, "لازم امشي واحد واحد واضغط save"): used to fall back to the server's last-SAVED `sec.take` for
@@ -241,7 +251,8 @@ export function ReviewBuilder({ grade, initial, sets, skillUnits, roster }: {
             the per-Set Review page. The question list below already shows full, untruncated text, so printing it
             (or "Save as PDF" from the browser's print dialog) IS the full, clear review the teacher asked for. */}
         <div className="ms-auto flex items-center gap-2 print:hidden">
-          <button type="button" className={btn} aria-pressed={flatView} onClick={() => setFlatView((p) => !p)}>
+          <button type="button" className={btn} disabled={busy} aria-pressed={flatView}
+            onClick={() => { const next = !flatView; setFlatView(next); if (next) go(() => loadFlatOptions(ids.slice(0, v.count))); }}>
             {flatView ? `📑 ${t("By section")}` : `📋 ${t("All selected questions")}`}
           </button>
           <PrintButton />
@@ -375,6 +386,11 @@ export function ReviewBuilder({ grade, initial, sets, skillUnits, roster }: {
           .filter((g) => g.list.length > 0);
         return (
           <div className="space-y-4" aria-label={t("All selected questions")} data-testid="review-flat">
+            <div className="print:hidden">
+              <button type="button" className={btn} aria-pressed={showAnswers} onClick={() => setShowAnswers((p) => !p)}>
+                {showAnswers ? `🙈 ${t("Hide answers")}` : `👁 ${t("Show answers")}`}
+              </button>
+            </div>
             {groups.map(({ sec, list }) => {
               const spare = questionsOf(sec.label).filter((x) => ids.indexOf(x.id) >= v.count);
               return (
@@ -394,16 +410,47 @@ export function ReviewBuilder({ grade, initial, sets, skillUnits, roster }: {
                               <span className="rounded-full bg-slate-50 px-2 py-0.5 text-slate-600 ring-1 ring-slate-200">{x.typeLabel}</span>
                             </span>
                           </div>
+                          {/* 📋 fix (Oct 2026, "اظهر السوال كامل بالاختيارات"): the question's own choices (fetched
+                              in bulk when this view opens — loadFlatOptions), with the ✓ on the correct one only
+                              while "Show answers" is on. Nothing shown here yet (options not loaded or this type
+                              has none, e.g. written-response) just falls through silently. */}
+                          {(() => {
+                            const det = flatOptions[x.id];
+                            if (!det) return null;
+                            if (det.options.length) {
+                              return (
+                                <ol className="ms-8 mt-1.5 space-y-0.5">
+                                  {det.options.map((o) => (
+                                    <li key={o.label} className={`text-sm ${showAnswers && o.correct ? "font-semibold text-teal-700" : "text-slate-700"}`} dir="ltr">
+                                      {showAnswers && o.correct ? "✓ " : ""}<b>{o.label}.</b> <RichInline text={o.text} />
+                                    </li>
+                                  ))}
+                                </ol>
+                              );
+                            }
+                            if (det.answer !== null) {
+                              return (
+                                <ol className="ms-8 mt-1.5 space-y-0.5">
+                                  {[true, false].map((b) => (
+                                    <li key={String(b)} className={`text-sm ${showAnswers && det.answer === b ? "font-semibold text-teal-700" : "text-slate-700"}`} dir="ltr">
+                                      {showAnswers && det.answer === b ? "✓ " : ""}{b ? t("True") : t("False")}
+                                    </li>
+                                  ))}
+                                </ol>
+                              );
+                            }
+                            return null;
+                          })()}
                           <div className="mt-2 flex flex-wrap gap-1.5 print:hidden">
                             <button type="button" className={btn} disabled={busy} onClick={() => go(async () => { const r = await customDetailAction(grade, x.id); if (r.ok) setEdit(r.value); else setMsg({ ok: false, text: r.message }); })}>✏️ {t("Edit")}</button>
-                            <button type="button" className={btn} disabled={busy} onClick={() => go(async () => { apply(await customReviewChangeAction(grade, { op: "remove", questionId: x.id })); })}>➖ {t("Remove")}</button>
+                            <button type="button" className={btn} disabled={busy} onClick={() => go(async () => { const r = await customReviewChangeAction(grade, { op: "remove", questionId: x.id }); apply(r); if (r.ok) await loadFlatOptions(r.value.questions.map((qq) => qq.id).slice(0, r.value.count)); })}>➖ {t("Remove")}</button>
                             <button type="button" className={btn} disabled={busy || !spare.length} aria-expanded={swapping}
                               onClick={() => setSwapFor(swapping ? null : { label: sec.label, id: x.id })}>🔄 {t("Swap")}</button>
                           </div>
                           {swapping && (
                             <div className="mt-2 space-y-1.5 rounded-xl bg-slate-50 p-2.5 print:hidden">
                               <button type="button" className={`${main} w-full justify-center`} disabled={busy}
-                                onClick={() => go(async () => { if (apply(await customReviewChangeAction(grade, { op: "swapQuestion", label: sec.label, outId: x.id }), t("Saved ✓"))) setSwapFor(null); })}>
+                                onClick={() => go(async () => { const r = await customReviewChangeAction(grade, { op: "swapQuestion", label: sec.label, outId: x.id }); if (apply(r, t("Saved ✓"))) { setSwapFor(null); if (r.ok) await loadFlatOptions(r.value.questions.map((qq) => qq.id).slice(0, r.value.count)); } })}>
                                 ⚡ {t("Automatic swap")}
                               </button>
                               <p className="px-1 text-xs font-semibold text-slate-600">{t("Or pick one to swap in:")}</p>
@@ -412,7 +459,7 @@ export function ReviewBuilder({ grade, initial, sets, skillUnits, roster }: {
                                   <li key={sp.id} className="flex items-start justify-between gap-2 rounded-lg bg-white p-2 ring-1 ring-slate-200">
                                     <span className="min-w-0 flex-1 text-xs text-slate-800" dir="ltr" data-content><RichInline text={sp.stem} /></span>
                                     <button type="button" className={`${btn} shrink-0`} disabled={busy}
-                                      onClick={() => go(async () => { if (apply(await customReviewChangeAction(grade, { op: "swapQuestion", label: sec.label, outId: x.id, inId: sp.id }), t("Saved ✓"))) setSwapFor(null); })}>
+                                      onClick={() => go(async () => { const r = await customReviewChangeAction(grade, { op: "swapQuestion", label: sec.label, outId: x.id, inId: sp.id }); if (apply(r, t("Saved ✓"))) { setSwapFor(null); if (r.ok) await loadFlatOptions(r.value.questions.map((qq) => qq.id).slice(0, r.value.count)); } })}>
                                       {t("Use this")}
                                     </button>
                                   </li>
@@ -421,7 +468,7 @@ export function ReviewBuilder({ grade, initial, sets, skillUnits, roster }: {
                             </div>
                           )}
                           {edit?.id === x.id && (
-                            <form className="mt-3 space-y-2 rounded-xl bg-slate-50 p-3 print:hidden" onSubmit={(e) => { e.preventDefault(); go(async () => { if (apply(await customEditAction(grade, { questionId: edit.id, stem: edit.stem, options: edit.options.length ? edit.options : null, answer: edit.answer, answers: edit.answers.length ? edit.answers : null }), t("Saved as your private copy ✓"))) setEdit(null); }); }}>
+                            <form className="mt-3 space-y-2 rounded-xl bg-slate-50 p-3 print:hidden" onSubmit={(e) => { e.preventDefault(); go(async () => { const r = await customEditAction(grade, { questionId: edit.id, stem: edit.stem, options: edit.options.length ? edit.options : null, answer: edit.answer, answers: edit.answers.length ? edit.answers : null }); if (apply(r, t("Saved as your private copy ✓"))) { setEdit(null); if (r.ok) await loadFlatOptions(r.value.questions.map((qq) => qq.id).slice(0, r.value.count)); } }); }}>
                               <p className="text-xs text-slate-600">{t("Your change makes a private copy for your classes. The shared question is not changed.")}</p>
                               <label className="block text-sm font-semibold">{t("Question")}<textarea value={edit.stem} onChange={(e) => setEdit({ ...edit, stem: e.target.value })} rows={3} className={field} /></label>
                               {edit.options.map((o, k) => (
