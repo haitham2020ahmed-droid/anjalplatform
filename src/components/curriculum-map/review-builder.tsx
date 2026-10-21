@@ -191,7 +191,7 @@ export function ReviewBuilder({ grade, initial, sets, skillUnits, roster }: {
     <div className="space-y-4">
       <div className="flex flex-wrap items-end gap-4 rounded-2xl bg-white p-4 ring-1 ring-slate-200">
         <p className="text-sm text-slate-700">
-          {t("Chosen: {n}", { n: v.chosen })} · <b>{t("Students answer: {n}", { n: v.count })}</b>
+          {t("Chosen: {n}", { n: v.chosen })} · <b>{t("Total questions selected (all sections): {n}", { n: v.count })}</b>
         </p>
         {v.chosen > 0 && (
           <form className="flex items-end gap-2" onSubmit={(e) => { e.preventDefault(); go(async () => { apply(await customReviewChangeAction(grade, { op: "count", count: Number(count) }), t("Saved ✓")); }); }}>

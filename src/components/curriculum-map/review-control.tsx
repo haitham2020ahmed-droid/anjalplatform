@@ -78,7 +78,7 @@ export function ReviewControl({ initial, roster = [] }: { initial: ReviewControl
     <div className="space-y-4">
       <div className="flex flex-wrap items-end gap-4 rounded-2xl bg-white p-4 ring-1 ring-slate-200">
         <p className="text-sm text-slate-700" data-testid="review-counts">
-          {t("Available: {n}", { n: v.available })} · {t("Chosen: {n}", { n: v.chosen })} · <b>{t("Students answer: {n}", { n: v.count })}</b>
+          {t("Available: {n}", { n: v.available })} · {t("Chosen: {n}", { n: v.chosen })} · <b>{t("Total questions selected (all sections): {n}", { n: v.count })}</b>
         </p>
         {v.canEdit && (
           <form className="flex items-end gap-2" onSubmit={(e) => { e.preventDefault(); go(async () => { apply(await reviewChangeAction(v.code, { op: "count", count: Number(count) }), t("Saved ✓")); }); }}>

@@ -33,7 +33,11 @@ const s = (v: unknown) => String(v ?? "");
 // 🔓 r90 ("خليه بدون حد"): no practical cap any more, on a single Text Set's Review or the multi-Set Review Builder
 // below — kept as a number (not removed) only as a sane technical ceiling so one runaway click can't write an
 // unbounded JSON blob; no real classroom Review gets anywhere near it.
-export const MAX_REVIEW = 1000;
+// 🔁 fix (Oct 2026, grade-wide Review Builder pool hitting 1000 in real use — "القائمة وصلت الحد الأقصى"): raised
+// from 1000 — a teacher legitimately stockpiling many Text Sets/skills' question POOLS (not what students answer,
+// see `chosen` vs `count`) into one grade-wide Review hit the old ceiling. `questionIds` is a MySQL JSON column, so
+// even this size is trivial to store.
+export const MAX_REVIEW = 10000;
 type Level = "ABOVE" | "ON" | "BELOW";
 type LevelFilter = Level | "ANY";
 /** the Review's number of questions when the teacher has not chosen one */
