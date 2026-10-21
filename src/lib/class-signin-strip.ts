@@ -1,9 +1,12 @@
 /**
- * 🖨 r85: the small "class sign-in" strip printed in the header of a weekly sheet — the class's printable QR + "Class
- * code: 7351" + one line of instructions. Plain HTML string (for the report renderers: family week, Year plan). The
+ * 🖨 r85: the small "class sign-in" strip printed in the header of a weekly sheet — the class's printable QR, its
+ * name, and one line of instructions. Plain HTML string (for the report renderers: family week, Year plan). The
  * React print pages use <ClassSignInStrip> (src/components/class-signin/strip.tsx) with the same words.
  * Only ever built for a teacher's print of their own class (printQrForSheet): never for a student or parent page.
  * No server imports.
+ * 🔁 fix (Oct 2026, "الكود مالوش داعي... اي حد ممكن يستخدمه"): dropped the class code from the strip (and the
+ * "type the class code" step) — signing in no longer needs one (class-print-qr.ts#signInByName). `code` stays on
+ * `ClassSignInStrip` for now (unused here) so callers that still pass it don't need touching.
  */
 import { qrPath } from "./qr";
 
@@ -12,7 +15,7 @@ type T = (text: string, vars?: Record<string, string | number>) => string;
 
 const esc = (v: unknown) => String(v ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]!);
 
-export const STRIP_STEPS = "Scan → tap your name → type the class code";
+export const STRIP_STEPS = "Scan → tap your name → you're in";
 
 /** The QR as an SVG string ("" when the link cannot be drawn). */
 export function stripQrSvg(url: string, sizePx = 72): string {
@@ -33,6 +36,5 @@ export function classSignInStripHtml(s: ClassSignInStrip | null | undefined, t: 
   if (!s) return "";
   const svg = stripQrSvg(s.url);
   if (!svg) return "";
-  const [before, after] = t("Class code: {code}", { code: "\u0000" }).split("\u0000");
-  return `<div class="cs-strip" data-class-signin="1">${svg}<div><b>${esc(before)}<span class="cs-code" dir="ltr">${esc(s.code)}</span>${esc(after ?? "")}</b><small>${esc(t(STRIP_STEPS))}</small><small dir="auto"><bdi>${esc(s.className)}</bdi></small></div></div>`;
+  return `<div class="cs-strip" data-class-signin="1">${svg}<div><b dir="auto"><bdi>${esc(s.className)}</bdi></b><small>${esc(t(STRIP_STEPS))}</small></div></div>`;
 }

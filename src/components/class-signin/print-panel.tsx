@@ -4,7 +4,7 @@
 import { useState } from "react";
 import { useT } from "@/i18n/client";
 import { qrPath } from "@/lib/qr";
-import { newPrintCodeAction, newPrintLinkAction, turnOffPrintQrAction, turnOnPrintQrAction, type PrintQrResult } from "@/app/teacher/class-signin/print-actions";
+import { newPrintLinkAction, turnOffPrintQrAction, turnOnPrintQrAction, type PrintQrResult } from "@/app/teacher/class-signin/print-actions";
 
 type PrintQrView = Extract<PrintQrResult, { ok: true }>["view"];
 
@@ -37,27 +37,25 @@ export function PrintQrPanel({ initial, base, signedIn }: { initial: PrintQrView
   return (
     <section aria-label={t("Printable QR for the weekly plan")} data-testid="print-qr-panel" className="rounded-3xl bg-surface p-4 ring-1 ring-line sm:p-5">
       <h2 className="text-lg font-semibold text-ink">🖨 {t("Printable QR for the weekly plan")} · <bdi>{v.className}</bdi></h2>
-      <p className="mt-1 text-sm text-muted">{t("Students scan it at school or at home, tap their name and type the class code. It keeps working week after week.")}</p>
+      <p className="mt-1 text-sm text-muted">{t("Students scan it at school or at home and tap their name. It keeps working week after week.")}</p>
       {error && <p role="alert" className="mt-3 rounded-xl bg-red-50 px-4 py-2 text-sm font-semibold text-red-800">{t(error)}</p>}
       {v.active && qr ? (
         <div className="mt-4 flex flex-wrap items-center gap-5">
           <svg viewBox={`0 0 ${qr.total} ${qr.total}`} className="h-40 w-40 shrink-0 rounded-lg bg-white p-1" shapeRendering="crispEdges" role="img" aria-label={t("QR code to sign in to {name}", { name: v.className })}>
             <rect width="100%" height="100%" fill="#fff" /><path d={qr.d} fill="#000" />
           </svg>
-          <div>
-            <p className="text-sm font-semibold text-muted">{t("Class code")}</p>
-            <p className="font-mono text-5xl font-bold tracking-[0.3em] text-brand-navy" dir="ltr" data-testid="print-qr-code">{v.code}</p>
-            <p className="mt-1 text-xs text-muted">{t("Weekly plan prints add this QR and code for you.")}</p>
-          </div>
+          <p className="text-xs text-muted">{t("Weekly plan prints add this QR for you.")}</p>
         </div>
       ) : (
         <p className="mt-4 rounded-xl bg-amber-50 px-4 py-3 text-sm text-amber-900 ring-1 ring-amber-200">{v.exists ? t("The printed QR is off. Students cannot sign in with it.") : t("Turn it on to print a QR for this class.")}</p>
       )}
+      {/* 🔁 fix (Oct 2026, "الكود مالوش داعي"): "New code" removed — signing in no longer asks for a class code at
+          all (class-print-qr.ts#signInByName), so there is no code left to rotate. "New link" still matters: it is
+          the only way to make an old printed/photographed QR stop working. */}
       <div className="mt-4 flex flex-wrap gap-2">
         {v.active ? (
           <>
             <a href={`/teacher/class-signin/print?classId=${encodeURIComponent(v.classId)}&print=1`} target="_blank" rel="noopener" className={`${btn} bg-brand-navy text-white`}>🖨 {t("Print QR card")}</a>
-            <button type="button" disabled={busy} onClick={() => void run(newPrintCodeAction, "Make a new class code? The printed QR keeps working with the new code.")} className={`${btn} bg-white ring-1 ring-slate-300 hover:ring-brand-teal`}>🔢 {t("New code")}</button>
             <button type="button" disabled={busy} onClick={() => void run(newPrintLinkAction, "Make a new QR? QR codes printed before stop working.")} className={`${btn} bg-white ring-1 ring-slate-300 hover:ring-brand-teal`}>🔗 {t("New link")}</button>
             <button type="button" disabled={busy} onClick={() => void run(turnOffPrintQrAction, "Turn off the printed QR? Students cannot sign in with it until you turn it on again.")} className={`${btn} bg-white text-red-700 ring-1 ring-red-200 hover:bg-red-50`}>⏸ {t("Turn off")}</button>
           </>

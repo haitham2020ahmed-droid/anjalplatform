@@ -266,6 +266,33 @@ export async function printQrStudent(repo: Repo, token: string, studentId: strin
   return { className: data.className, name: n.name, locked: !lock.allowed };
 }
 
+/**
+ * 👆 fix (Oct 2026, "الكود مالوش داعي... اي حد ممكن يستخدمه"): tap a name → straight in, same as the board QR
+ * (class-signin.ts#signInByName) — no class code. The code used to be the only thing standing between "someone has
+ * the printed sheet" and "someone can sign in as any name on it" — but the code is printed ON that same sheet, so
+ * it never actually raised that bar; it only cost the real student an extra step. The per-IP rate limit below still
+ * guards against bulk/automated sign-in attempts. No once-a-day rule (a sheet is meant to be reused all week); every
+ * sign-in is still recorded (ClassPrintSignIn) and audited (class_print_qr.sign_in).
+ */
+export async function signInByName(repo: Repo, input: { token: string; studentId: string } & SessionMeta, cfg: AuthConfig, now = new Date()): Promise<{ token: string; expiresAt: Date; user: Row }> {
+  const ip = input.ip ?? "unknown";
+  await limit(repo, `classprint:signin:${ip}`, PRINT_LIMITS.signInPerIp, PRINT_LIMITS.windowMs, now);
+  const row = await findPrintQr(repo, input.token);
+  if (!row) throw new PrintQrError("OFF", "This QR code does not work now. Ask your teacher.");
+  const classId = s(row.classId);
+  const st = (await classStudents(repo, classId, s(row.schoolId))).find((x) => x.studentId === s(input.studentId));
+  if (!st) throw new PrintQrError("NOT_IN_CLASS", "This name is not in this class.");
+  const user = await repo.findUnique("User", { id: st.userId });
+  // students only: a staff, admin or parent account can never sign in this way
+  if (!user || user.role !== "STUDENT" || !user.isActive || user.deletedAt) throw new PrintQrError("NOT_IN_CLASS", "This name is not in this class.");
+  const expiresAt = printSessionExpiry(now);
+  const session = await createSession(repo, user, { ...cfg, sessionTtlMinutes: (expiresAt.getTime() - now.getTime()) / 60_000 }, { ip, userAgent: input.userAgent }, now);
+  await repo.create("ClassPrintSignIn", { printQrId: s(row.id), schoolId: s(row.schoolId), classId, studentId: st.studentId, userId: st.userId, day: schoolDay(now), createdAt: now });
+  await repo.updateMany("User", { id: user.id }, { lastLoginAt: now });
+  await audit(repo, { actorId: st.userId, action: "class_print_qr.sign_in", entityType: "User", entityId: st.userId, after: { classId, via: "printed QR" }, ip, at: now });
+  return { token: session.token, expiresAt: session.expiresAt, user };
+}
+
 const sameCode = (a: string, b: string) => a.length === b.length && timingSafeEqual(Buffer.from(a), Buffer.from(b));
 
 /** 🔢 Name + class code → that student's own session (students only, of THAT class; short). */
