@@ -1,7 +1,7 @@
 import { AppShell } from "@/components/app-shell";
 import { PageHeader } from "@/components/page-header";
 import { getActor, repo, requireActor } from "@/server/auth/next";
-import { myReviews } from "@/server/curriculum-map/review-control";
+import { myReviews, reviewGradeChoices } from "@/server/curriculum-map/review-control";
 import { MyReviewsList } from "@/components/curriculum-map/my-reviews-list";
 import { getT } from "@/i18n/server";
 
@@ -13,12 +13,12 @@ export default async function MyReviewsPage() {
   const actor = await requireActor({ roles: ["TEACHER"], permission: "assignments:create" });
   const me = (await getActor())!.user;
   const { t } = await getT();
-  const rows = await myReviews(repo, actor);
+  const [rows, grades] = await Promise.all([myReviews(repo, actor), reviewGradeChoices(repo, actor)]);
   return (
     <AppShell name={String(me.displayName)}>
       <PageHeader back={{ href: "/teacher", label: "Home" }} icon="📚" title={t("My Reviews")}
         subtitle={t("Every Review you've built. Open one to keep editing it, or remove one you no longer need.")} />
-      <MyReviewsList initial={rows} />
+      <MyReviewsList initial={rows} grades={grades} />
     </AppShell>
   );
 }

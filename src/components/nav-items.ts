@@ -79,6 +79,11 @@ export const TEACHER_MENU: NavItem[] = [
   { href: "/teacher", label: "Home", icon: "🏠", line: "home" },
   { href: "/teacher/students", label: "Students & Classes", icon: "👥", line: "users" },
   { href: "/admin/curriculum-map", label: "Curriculum Map", icon: "🧭", line: "compass" },
+  // 🔁 fix (Oct 2026, "عايز اضيف icon review"): its own menu entry, same place/style as Curriculum Map right above
+  // it — not a second page, just a first direct doorway to "My Reviews" (previously only reachable from inside
+  // Curriculum Map). Lets a teacher open/continue any Review, or start a brand-new whole-grade Review Builder by
+  // picking a grade right there, without ever opening Curriculum Map.
+  { href: "/teacher/my-reviews", label: "Review", icon: "🔁", line: "retry" },
   { href: "/teacher/plans", label: "Plans", icon: "🗂️", line: "plans" },
   // 📌 Assigned (owner r67): everything the teacher assigned, in one list, with Cancel / Undo
   { href: "/teacher/assigned", label: "Assigned", icon: "📌", line: "inbox" },

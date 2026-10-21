@@ -49,12 +49,23 @@ export function ReviewControl({ initial, roster = [] }: { initial: ReviewControl
   const [assignTitle, setAssignTitle] = useState("");
   const [assignMsg, setAssignMsg] = useState<{ ok: boolean; text: string } | null>(null);
   const apply = (r: { ok: true; value: ReviewControlView } | { ok: false; message: string }, done?: string) => {
-    if (r.ok) { setV(r.value); setCount(String(r.value.count)); if (done) setMsg({ ok: true, text: done }); } else setMsg({ ok: false, text: r.message });
+    if (r.ok) { setV(r.value); setCount(String(r.value.count)); setSectionInputs({}); if (done) setMsg({ ok: true, text: done }); } else setMsg({ ok: false, text: r.message });
     return r.ok;
   };
   const go = (fn: () => Promise<unknown>) => start(async () => { setMsg(null); await fn(); });
   const ids = v.questions.map((x) => x.id);
-  const move = (i: number, d: number) => go(async () => { const n = [...ids]; const j = i + d; if (j < 0 || j >= n.length) return; [n[i], n[j]] = [n[j], n[i]]; apply(await reviewChangeAction(v.code, { op: "order", questionIds: n })); });
+  // 🗂️ fix (Oct 2026, "التوزيع"): collapsed section panel — same as the Review Builder (review-builder.tsx), see
+  // its comment for the full rationale.
+  const [peekSection, setPeekSection] = useState<string>("");
+  const [openSection, setOpenSection] = useState<string>("");
+  const [sectionInputs, setSectionInputs] = useState<Record<string, string>>({});
+  const sectionValue = (label: string, take: number) => sectionInputs[label] ?? String(take);
+  const saveSectionCounts = (overrides: Record<string, number>) => go(async () => {
+    const counts: Record<string, number> = {};
+    for (const sec of v.sections) counts[sec.label] = overrides[sec.label] ?? sec.take;
+    apply(await reviewChangeAction(v.code, { op: "sectionCounts", counts }), t("Saved ✓"));
+  });
+  const questionsOf = (label: string) => v.questions.filter((x) => x.section === label);
 
   return (
     <div className="space-y-4">
@@ -74,50 +85,86 @@ export function ReviewControl({ initial, roster = [] }: { initial: ReviewControl
       </div>
       {msg && <p role={msg.ok ? "status" : "alert"} className={`rounded-xl px-4 py-2 text-sm ${msg.ok ? "bg-teal-50 text-teal-900" : "bg-red-50 text-red-800"}`}>{msg.text}</p>}
 
-      <ol className="space-y-2" aria-label={t("Questions of the Review")}>
-        {v.questions.map((x, i) => {
-          // 🗂️ fix (Oct 2026, "تنظيم"): a visual grouping header whenever the question's source (Text Set /
-          // skill, already computed server-side as `section`) changes from the one before it — no change to the
-          // underlying order, move up/down and the rest of the list mechanics work exactly as before.
-          const group = x.section || t("Other");
-          const prevGroup = i > 0 ? (v.questions[i - 1].section || t("Other")) : null;
+      <ol className="space-y-2" aria-label={t("Sections of the Review")}>
+        {v.sections.map((sec) => {
+          const label = sec.label || t("Other");
+          const open = openSection === sec.label;
+          const peeking = peekSection === sec.label;
+          const list = questionsOf(sec.label);
           return (
-          <li key={x.id} data-testid="review-q" className={`rounded-xl bg-white p-3 ring-1 ${i < v.count ? "ring-slate-200" : "opacity-60 ring-dashed ring-slate-300"}`}>
-            {group !== prevGroup && <p className="-mt-1 mb-2 px-1 text-xs font-bold uppercase tracking-wide text-slate-500" dir="ltr">{group}</p>}
-            <div className="flex flex-wrap items-start gap-2">
-              <span className="w-7 shrink-0 font-bold text-brand-navy">{i + 1}.</span>
-              <p className="min-w-0 flex-1 text-sm text-slate-900" data-content lang="en"><RichInline text={x.stem} /></p>
-              <span className="flex flex-wrap gap-1 text-xs">
-                {x.own && <span className="rounded-full bg-violet-50 px-2 py-0.5 font-semibold text-violet-800 ring-1 ring-violet-200">✏️ {t("My copy")}</span>}
-                <span className="rounded-full bg-slate-50 px-2 py-0.5 text-slate-600 ring-1 ring-slate-200">{x.typeLabel}</span>
-                {i >= v.count && <span className="rounded-full bg-amber-50 px-2 py-0.5 text-amber-900 ring-1 ring-amber-200">{t("Not asked")}</span>}
-              </span>
-            </div>
-            {v.canEdit && (
-              <div className="mt-2 flex flex-wrap gap-1.5 ps-9">
-                <button type="button" className={btn} disabled={busy || i === 0} onClick={() => move(i, -1)} aria-label={t("Move up")}>↑</button>
-                <button type="button" className={btn} disabled={busy || i === v.questions.length - 1} onClick={() => move(i, 1)} aria-label={t("Move down")}>↓</button>
-                <button type="button" className={btn} disabled={busy} onClick={() => go(async () => { const r = await reviewDetailAction(v.code, x.id); if (r.ok) setEdit(r.value); else setMsg({ ok: false, text: r.message }); })}>✏️ {t("Edit")}</button>
-                <button type="button" className={btn} disabled={busy || v.questions.length <= 1} onClick={() => go(async () => { apply(await reviewChangeAction(v.code, { op: "remove", questionId: x.id })); })}>➖ {t("Remove")}</button>
-              </div>
-            )}
-            {edit?.id === x.id && (
-              <form className="mt-3 space-y-2 rounded-xl bg-slate-50 p-3" onSubmit={(e) => { e.preventDefault(); go(async () => { if (apply(await reviewEditAction(v.code, { questionId: edit.id, stem: edit.stem, options: edit.options.length ? edit.options : null, answer: edit.answer, answers: edit.answers.length ? edit.answers : null }), t("Saved as your private copy ✓"))) setEdit(null); }); }}>
-                <p className="text-xs text-slate-600">{t("Your change makes a private copy for your classes. The shared question is not changed.")}</p>
-                <label className="block text-sm font-semibold">{t("Question")}<textarea value={edit.stem} onChange={(e) => setEdit({ ...edit, stem: e.target.value })} rows={3} className={field} /></label>
-                {edit.options.map((o, k) => (
-                  <label key={o.label} className="flex items-center gap-2 text-sm">
-                    <input type={edit.type === "MULTI_SELECT" ? "checkbox" : "radio"} name="correct" checked={o.correct} onChange={() => setEdit({ ...edit, options: edit.options.map((y, j) => ({ ...y, correct: edit.type === "MULTI_SELECT" ? (j === k ? !y.correct : y.correct) : j === k })) })} aria-label={t("Correct answer")} />
-                    <b>{o.label}</b><input value={o.text} onChange={(e) => setEdit({ ...edit, options: edit.options.map((y, j) => (j === k ? { ...y, text: e.target.value } : y)) })} className={`${field} mt-0`} />
-                  </label>
-                ))}
-                {edit.answer !== null && (
-                  <label className="text-sm">{t("Answer")} <select value={edit.answer ? "1" : "0"} onChange={(e) => setEdit({ ...edit, answer: e.target.value === "1" })} className="rounded-lg border border-slate-300 px-2 py-1"><option value="1">{t("True")}</option><option value="0">{t("False")}</option></select></label>
+            <li key={sec.label || "·"} className="rounded-xl bg-white ring-1 ring-slate-200">
+              <div className="flex flex-wrap items-center gap-2 p-3">
+                <button type="button" className="flex min-w-0 flex-1 items-center gap-2 text-start" aria-expanded={open}
+                  onClick={() => setOpenSection(open ? "" : sec.label)}>
+                  <span aria-hidden="true" className="text-slate-500">{open ? "▲" : "▼"}</span>
+                  <span className="min-w-0 truncate font-semibold text-brand-navy" dir="ltr">{label}</span>
+                  <span className="shrink-0 rounded-full bg-slate-50 px-2 py-0.5 text-xs font-semibold text-slate-600 ring-1 ring-slate-200">
+                    {t("{take} of {n} questions", { take: sec.take, n: sec.available })}
+                  </span>
+                </button>
+                <button type="button" className="shrink-0 rounded-full px-2 py-1 text-xs font-semibold text-slate-600 ring-1 ring-slate-300 hover:bg-slate-50" disabled={busy}
+                  aria-pressed={peeking} aria-label={t("Preview")} onClick={() => setPeekSection(peeking ? "" : sec.label)}>👁 {t("Preview")}</button>
+                {v.canEdit && (
+                  <>
+                    <label className="flex shrink-0 items-center gap-1 text-xs font-semibold text-slate-700">
+                      {t("Take")}
+                      <input type="number" min={0} max={sec.available} value={sectionValue(sec.label, sec.take)}
+                        onChange={(e) => setSectionInputs((p) => ({ ...p, [sec.label]: e.target.value }))}
+                        className="w-16 rounded-lg border border-slate-300 px-1.5 py-1 text-xs" />
+                    </label>
+                    <button type="button" className={`${btn} shrink-0`} disabled={busy}
+                      onClick={() => saveSectionCounts({ [sec.label]: Number(sectionValue(sec.label, sec.take)) })}>{t("Save")}</button>
+                  </>
                 )}
-                <div className="flex gap-2"><button className={main} disabled={busy}>{t("Save my copy")}</button><button type="button" className={btn} onClick={() => setEdit(null)}>{t("Cancel")}</button></div>
-              </form>
-            )}
-          </li>
+              </div>
+              {peeking && !open && (
+                <div className="space-y-1 border-t border-slate-100 bg-slate-50 p-3 text-xs text-slate-700">
+                  {list.slice(0, 3).map((x) => <p key={x.id} dir="ltr" className="truncate"><RichInline text={x.stem} /></p>)}
+                  {list.length > 3 && <p className="text-slate-500">{t("… and {n} more", { n: list.length - 3 })}</p>}
+                </div>
+              )}
+              {open && (
+                <ol className="space-y-2 border-t border-slate-100 p-3">
+                  {list.map((x) => {
+                    const i = ids.indexOf(x.id);
+                    return (
+                      <li key={x.id} data-testid="review-q" className={`rounded-xl bg-white p-3 ring-1 ${i < v.count ? "ring-slate-200" : "opacity-60 ring-dashed ring-slate-300"}`}>
+                        <div className="flex flex-wrap items-start gap-2">
+                          <p className="min-w-0 flex-1 text-sm text-slate-900" data-content lang="en"><RichInline text={x.stem} /></p>
+                          <span className="flex flex-wrap gap-1 text-xs">
+                            {x.own && <span className="rounded-full bg-violet-50 px-2 py-0.5 font-semibold text-violet-800 ring-1 ring-violet-200">✏️ {t("My copy")}</span>}
+                            <span className="rounded-full bg-slate-50 px-2 py-0.5 text-slate-600 ring-1 ring-slate-200">{x.typeLabel}</span>
+                            {i >= v.count && <span className="rounded-full bg-amber-50 px-2 py-0.5 text-amber-900 ring-1 ring-amber-200">{t("Not asked")}</span>}
+                          </span>
+                        </div>
+                        {v.canEdit && (
+                          <div className="mt-2 flex flex-wrap gap-1.5">
+                            <button type="button" className={btn} disabled={busy} onClick={() => go(async () => { const r = await reviewDetailAction(v.code, x.id); if (r.ok) setEdit(r.value); else setMsg({ ok: false, text: r.message }); })}>✏️ {t("Edit")}</button>
+                            <button type="button" className={btn} disabled={busy || v.questions.length <= 1} onClick={() => go(async () => { apply(await reviewChangeAction(v.code, { op: "remove", questionId: x.id })); })}>➖ {t("Remove")}</button>
+                          </div>
+                        )}
+                        {edit?.id === x.id && (
+                          <form className="mt-3 space-y-2 rounded-xl bg-slate-50 p-3" onSubmit={(e) => { e.preventDefault(); go(async () => { if (apply(await reviewEditAction(v.code, { questionId: edit.id, stem: edit.stem, options: edit.options.length ? edit.options : null, answer: edit.answer, answers: edit.answers.length ? edit.answers : null }), t("Saved as your private copy ✓"))) setEdit(null); }); }}>
+                            <p className="text-xs text-slate-600">{t("Your change makes a private copy for your classes. The shared question is not changed.")}</p>
+                            <label className="block text-sm font-semibold">{t("Question")}<textarea value={edit.stem} onChange={(e) => setEdit({ ...edit, stem: e.target.value })} rows={3} className={field} /></label>
+                            {edit.options.map((o, k) => (
+                              <label key={o.label} className="flex items-center gap-2 text-sm">
+                                <input type={edit.type === "MULTI_SELECT" ? "checkbox" : "radio"} name="correct" checked={o.correct} onChange={() => setEdit({ ...edit, options: edit.options.map((y, j) => ({ ...y, correct: edit.type === "MULTI_SELECT" ? (j === k ? !y.correct : y.correct) : j === k })) })} aria-label={t("Correct answer")} />
+                                <b>{o.label}</b><input value={o.text} onChange={(e) => setEdit({ ...edit, options: edit.options.map((y, j) => (j === k ? { ...y, text: e.target.value } : y)) })} className={`${field} mt-0`} />
+                              </label>
+                            ))}
+                            {edit.answer !== null && (
+                              <label className="text-sm">{t("Answer")} <select value={edit.answer ? "1" : "0"} onChange={(e) => setEdit({ ...edit, answer: e.target.value === "1" })} className="rounded-lg border border-slate-300 px-2 py-1"><option value="1">{t("True")}</option><option value="0">{t("False")}</option></select></label>
+                            )}
+                            <div className="flex gap-2"><button className={main} disabled={busy}>{t("Save my copy")}</button><button type="button" className={btn} onClick={() => setEdit(null)}>{t("Cancel")}</button></div>
+                          </form>
+                        )}
+                      </li>
+                    );
+                  })}
+                </ol>
+              )}
+            </li>
           );
         })}
       </ol>

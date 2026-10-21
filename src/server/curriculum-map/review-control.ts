@@ -18,6 +18,7 @@ import { ValidationError } from "../curriculum-admin";
 import { audit } from "../audit";
 import { safeIfBehind } from "../db/schema-errors";
 import { attachmentNodes, unclassifiedSkillId, type AttachmentNode } from "./questions";
+import { teacherMapGrades } from "./view";
 import { lessonAt } from "./lesson-details";
 import { skillPlanData } from "./skill-plan";
 import { describePicks, type MapSourceQuestion } from "../tests/map-source";
@@ -38,6 +39,79 @@ type LevelFilter = Level | "ANY";
 /** the Review's number of questions when the teacher has not chosen one */
 export const DEFAULT_COUNT = 10;
 const json = <T,>(v: unknown, fb: T): T => { if (v === null || v === undefined || v === "") return fb; if (typeof v === "string") { try { return JSON.parse(v) as T; } catch { return fb; } } return v as T; };
+
+/**
+ * 🔁 fix (Oct 2026, "التوزيع"): questions grouped by MapSourceQuestion.section ("Text Set 1 · Vocabulary", …), in
+ * the order sections first appear in `rows` — each group's `ids` kept in `rows` order. The basis for both the
+ * auto-distribution below and the collapsed section panel the teacher sees on screen.
+ */
+function sectionGroups(rows: MapSourceQuestion[]): { label: string; ids: string[] }[] {
+  const order: string[] = [];
+  const byLabel = new Map<string, string[]>();
+  for (const r of rows) {
+    if (!byLabel.has(r.section)) { byLabel.set(r.section, []); order.push(r.section); }
+    byLabel.get(r.section)!.push(r.id);
+  }
+  return order.map((label) => ({ label, ids: byLabel.get(label)! }));
+}
+
+/**
+ * Largest-remainder split of `total` across `sizes`-many buckets, each capped at its own size. Sums to exactly
+ * min(total, sum(sizes)). While `total` allows it, every nonzero bucket gets at least 1 — "no section left at zero".
+ */
+function proportionalSplit(sizes: number[], total: number): number[] {
+  const n = sizes.length;
+  const sum = sizes.reduce((a, b) => a + b, 0);
+  const target = Math.max(0, Math.min(Math.round(total), sum));
+  const take = sizes.map(() => 0);
+  if (!target) return take;
+  const raw = sizes.map((sz) => (sum ? (sz * target) / sum : 0));
+  for (let i = 0; i < n; i++) take[i] = Math.min(Math.floor(raw[i]), sizes[i]);
+  let used = take.reduce((a, b) => a + b, 0);
+  for (let i = 0; i < n && used < target; i++) if (take[i] === 0 && sizes[i] > 0) { take[i] = 1; used++; }
+  if (used < target) {
+    const byFrac = sizes.map((sz, i) => ({ i, frac: raw[i] - Math.floor(raw[i]), room: sz - take[i] })).filter((x) => x.room > 0).sort((a, b) => b.frac - a.frac);
+    for (const r of byFrac) { if (used >= target) break; take[r.i]++; used++; }
+  }
+  let guard = 0;
+  while (used < target && guard++ < 10000) {
+    let progressed = false;
+    for (let i = 0; i < n && used < target; i++) if (take[i] < sizes[i]) { take[i]++; used++; progressed = true; }
+    if (!progressed) break;
+  }
+  return take;
+}
+
+/** Reorders `rows`' ids so the first `counts[section]` of each section come first (grouped, section by section),
+ * then every leftover — so `questionIds.slice(0, sum of counts)` naturally yields exactly that per-section split. */
+function reorderBySectionCounts(rows: MapSourceQuestion[], counts: Record<string, number>): string[] {
+  const groups = sectionGroups(rows);
+  const taken: string[] = [];
+  const rest: string[] = [];
+  for (const g of groups) {
+    const want = Math.max(0, Math.min(Math.round(Number(counts[g.label] ?? 0)), g.ids.length));
+    taken.push(...g.ids.slice(0, want));
+    rest.push(...g.ids.slice(want));
+  }
+  return [...taken, ...rest];
+}
+
+/** Reorders `rows`' ids so a flat total `n` is spread proportionally across every section (see proportionalSplit). */
+function autoDistributedOrder(rows: MapSourceQuestion[], n: number): string[] {
+  const groups = sectionGroups(rows);
+  const take = proportionalSplit(groups.map((g) => g.ids.length), n);
+  const counts: Record<string, number> = {};
+  groups.forEach((g, i) => { counts[g.label] = take[i]; });
+  return reorderBySectionCounts(rows, counts);
+}
+
+/** For the on-screen collapsed section panel: each section's label, how many are available, and how many of the
+ * first `count` (the teacher's current "Number of questions") actually come from it. */
+function sectionBreakdown(rows: MapSourceQuestion[], count: number): { label: string; available: number; take: number }[] {
+  const groups = sectionGroups(rows);
+  const takenIds = new Set(rows.slice(0, Math.max(0, count)).map((r) => r.id));
+  return groups.map((g) => ({ label: g.label, available: g.ids.length, take: g.ids.filter((id) => takenIds.has(id)).length }));
+}
 
 function teacherOnly(actor: Actor): void {
   if (actor.role !== "TEACHER") throw new ForbiddenError("Only teachers can change their Review.");
@@ -168,6 +242,9 @@ export interface ReviewControlView {
   available: number; chosen: number; count: number;
   questions: (MapSourceQuestion & { own: boolean; shared: boolean })[];
   hidden: MapSourceQuestion[];
+  /** 🔁 fix (Oct 2026, "التوزيع"): collapsed-section panel — each section's label, how many are available, and how
+   * many of them are among the first `count` taken. */
+  sections: { label: string; available: number; take: number }[];
 }
 
 /** The Review place as this teacher has it: the questions in order, how many students answer, what was removed. */
@@ -187,6 +264,7 @@ export async function reviewControlView(repo: Repo, actor: Actor, code: string):
     available, chosen: st.questionIds.length, count: st.count,
     questions: rows.map((r) => ({ ...r, own: owner.get(r.id) === actor.userId, shared: sharedSet.has(r.id) })),
     hidden: hiddenRows,
+    sections: sectionBreakdown(rows, st.count),
   };
 }
 
@@ -201,6 +279,9 @@ export type ReviewChange =
   | { op: "addSet"; level?: LevelFilter }
   /** 🤖 r89 "Language" tab: pull in one or more platform Skills' own questions (any unit of the plan), once */
   | { op: "addSkills"; skillIds: string[]; level?: LevelFilter }
+  /** 🔁 fix (Oct 2026, "التوزيع"): set each section's own "take" count by hand (the collapsed section panel's ± on
+   * one section), instead of one flat total spread automatically — see sectionBreakdown / reorderBySectionCounts. */
+  | { op: "sectionCounts"; counts: Record<string, number> }
   | { op: "reset" };
 
 /** One change to the teacher's Review (see the header). */
@@ -228,7 +309,26 @@ export async function changeReview(repo: Repo, actor: Actor, code: string, c: Re
   } else if (c.op === "count") {
     const n = Math.round(Number(c.count));
     if (!(n >= 1 && n <= st.questionIds.length)) throw new ValidationError(`Choose from 1 to ${st.questionIds.length} questions.`);
+    // 🔁 fix (Oct 2026, "التوزيع"): used to just set st.count — Fixed assign (and the "take" list) then took
+    // literally the first n of questionIds in storage order, so a flat "Number of questions" could starve whole
+    // sections (e.g. all of them from Text Set 1, zero from the rest). Now spreads n proportionally across every
+    // section (largest-remainder; no section left at zero while n allows it) by reordering questionIds — slice(0,
+    // count) then reflects that split with no schema change. "sectionCounts" below lets the teacher override it
+    // section by section.
+    const rows = await describePicks(repo, actor, st.questionIds, MAX_REVIEW);
+    st.questionIds = autoDistributedOrder(rows, n);
     st.count = n;
+  } else if (c.op === "sectionCounts") {
+    const rows = await describePicks(repo, actor, st.questionIds, MAX_REVIEW);
+    const groups = sectionGroups(rows);
+    if (!groups.length) throw new ValidationError("Your Review has no questions: add some first.");
+    const wanted = (c.counts && typeof c.counts === "object") ? c.counts : {};
+    const counts: Record<string, number> = {};
+    let total = 0;
+    for (const g of groups) { const n = Math.max(0, Math.min(Math.round(Number(wanted[g.label] ?? 0)), g.ids.length)); counts[g.label] = n; total += n; }
+    if (!total) throw new ValidationError("Choose at least one question from a section.");
+    st.questionIds = reorderBySectionCounts(rows, counts);
+    st.count = Math.min(total, st.questionIds.length);
   } else if (c.op === "addBank") {
     await assertAddable(repo, actor, id);
     if (st.questionIds.includes(id)) throw new ValidationError("That question is already in your Review.");
@@ -480,6 +580,8 @@ export interface CustomReviewView {
   grade: number; chosen: number; count: number;
   questions: (MapSourceQuestion & { own: boolean })[];
   hidden: MapSourceQuestion[];
+  /** 🔁 fix (Oct 2026, "التوزيع"): same collapsed-section panel data as ReviewControlView.sections. */
+  sections: { label: string; available: number; take: number }[];
 }
 
 /** The teacher's whole-grade Review Builder as they have it: the questions in order, how many students answer. */
@@ -492,7 +594,7 @@ export async function customReviewView(repo: Repo, actor: Actor, grade: number):
   const rows = await describePicks(repo, actor, st.questionIds, MAX_REVIEW);
   const hiddenRows = await describePicks(repo, actor, st.hiddenIds, MAX_REVIEW);
   const owner = rows.length ? new Map((await repo.findMany("Question", { id: { in: rows.map((r) => r.id) } }, { select: ["id", "privateToId"] })).map((q) => [s(q.id), q.privateToId ? s(q.privateToId) : ""])) : new Map<string, string>();
-  return { grade: g, chosen: st.questionIds.length, count: st.count, questions: rows.map((r) => ({ ...r, own: owner.get(r.id) === actor.userId })), hidden: hiddenRows };
+  return { grade: g, chosen: st.questionIds.length, count: st.count, questions: rows.map((r) => ({ ...r, own: owner.get(r.id) === actor.userId })), hidden: hiddenRows, sections: sectionBreakdown(rows, st.count) };
 }
 
 export type CustomReviewChange =
@@ -508,6 +610,8 @@ export type CustomReviewChange =
   /** 🔎 r91 "From the bank" → "Or browse by skill": pull in up to `count` of ONE skill's own questions at once
    * (the teacher's chosen amount, e.g. the small "Add a skill" dialog), instead of adding each question by hand. */
   | { op: "addSkillCount"; skillId: string; count: number; level?: LevelFilter }
+  /** 🔁 fix (Oct 2026, "التوزيع"): same as ReviewChange's "sectionCounts" — set each section's own "take" by hand. */
+  | { op: "sectionCounts"; counts: Record<string, number> }
   | { op: "reset" };
 
 /** One change to the teacher's whole-grade Review Builder (see the header above). */
@@ -539,7 +643,22 @@ export async function changeCustomReview(repo: Repo, actor: Actor, grade: number
   } else if (c.op === "count") {
     const n = Math.round(Number(c.count));
     if (!(n >= 1 && n <= st.questionIds.length)) throw new ValidationError(`Choose from 1 to ${st.questionIds.length} questions.`);
+    // 🔁 fix (Oct 2026, "التوزيع"): see changeReview's "count" handler — same proportional-spread fix, applied here
+    // to the whole-grade Review Builder.
+    const rows = await describePicks(repo, actor, st.questionIds, MAX_REVIEW);
+    st.questionIds = autoDistributedOrder(rows, n);
     st.count = n;
+  } else if (c.op === "sectionCounts") {
+    const rows = await describePicks(repo, actor, st.questionIds, MAX_REVIEW);
+    const groups = sectionGroups(rows);
+    if (!groups.length) throw new ValidationError("Your Review has no questions: add some first.");
+    const wanted = (c.counts && typeof c.counts === "object") ? c.counts : {};
+    const counts: Record<string, number> = {};
+    let total = 0;
+    for (const g of groups) { const n = Math.max(0, Math.min(Math.round(Number(wanted[g.label] ?? 0)), g.ids.length)); counts[g.label] = n; total += n; }
+    if (!total) throw new ValidationError("Choose at least one question from a section.");
+    st.questionIds = reorderBySectionCounts(rows, counts);
+    st.count = Math.min(total, st.questionIds.length);
   } else if (c.op === "addBank") {
     const id = s(c.questionId);
     await assertAddable(repo, actor, id);
@@ -760,6 +879,20 @@ export async function myReviews(repo: Repo, actor: Actor): Promise<MyReviewRow[]
     return { ...base, title: n ? n.path.split(" › ").slice(1, 3).join(" · ") : code, grade: n ? n.grade : null, href: `/teacher/curriculum-review?code=${encodeURIComponent(code)}`, stale: !n };
   });
   return out.sort((a, b) => b.updatedAt.localeCompare(a.updatedAt));
+}
+
+/**
+ * 🔁 fix (Oct 2026, "عايز اضيف icon review"): the grades "My Reviews" offers to START a brand-new whole-grade
+ * Review Builder for — same grades the teacher sees on the Curriculum Map (their own classes' grades; every grade
+ * for an admin), but on purpose NOT limited to grades that already have Curriculum Map content: a teacher with no
+ * Curriculum Map set up yet can still open Review Builder and build one entirely from skill search ("Language" /
+ * "Find any skill"), never touching a Text Set.
+ */
+export async function reviewGradeChoices(repo: Repo, actor: Actor): Promise<{ level: number; name: string }[]> {
+  teacherOnly(actor);
+  const own = await teacherMapGrades(repo, actor);
+  const grades = (await repo.findMany("Grade", { schoolId: actor.schoolId })).filter((g) => !own || own.has(Number(g.level)));
+  return grades.map((g) => ({ level: Number(g.level), name: s(g.name) })).sort((a, b) => a.level - b.level);
 }
 
 /** Permanently remove one of the teacher's Reviews (a per-Set Review returns to the place's shared defaults for
