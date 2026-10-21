@@ -6307,6 +6307,7 @@ export const ar: Record<UiString, string> = {
   "Analyze Craft": "تحليل الأسلوب",
   "Remove every question from this Review?": "هل تريد حذف كل أسئلة هذا الـ Review؟",
   "This Review has no questions yet. Collect some below.": "لا توجد أسئلة في هذا الـ Review بعد. اجمع بعض الأسئلة من الأسفل.",
+  "No sections of this level yet.": "لا توجد أقسام بهذا المستوى بعد.",
   "No Text Set matches.": "لا توجد دروس مطابقة.",
   "Fixed": "ثابت",
   "Target correct answers": "عدد الإجابات الصحيحة المطلوبة",

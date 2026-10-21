@@ -44,17 +44,35 @@ type LevelFilter = Level | "ANY";
 export const DEFAULT_COUNT = 10;
 const json = <T,>(v: unknown, fb: T): T => { if (v === null || v === undefined || v === "") return fb; if (typeof v === "string") { try { return JSON.parse(v) as T; } catch { return fb; } } return v as T; };
 
+// 🔀 fix (Oct 2026, "لما اختار Meeting يظهر جزء خاص بيه"): Analyze Craft questions already live in separate
+// Approaching/Meeting/Exceeding curriculum nodes, so their MapSourceQuestion.section already ends with a level
+// ("… · Analyze Craft and Structure · Meeting"). Concept Vocabulary/Review questions share ONE node across every
+// level, so they used to show as a single mixed-level row with one "Take" covering all three levels together —
+// splitting one level's count necessarily meant touching the others'. Splits any section that ISN'T already
+// level-specific into its own Approaching/Meeting/Exceeding sub-rows, by each QUESTION's own level, so every
+// row's "Take" below is set and SAVED independently per level — same machinery as before (sectionCounts /
+// reorderBySectionCounts / autoDistributedOrder), just finer-grained groups; no schema change.
+const LEVEL_SUFFIX: Record<string, string> = { BELOW: "Approaching", ON: "Meeting", ABOVE: "Exceeding" };
+const LEVEL_TITLES = new Set(Object.values(LEVEL_SUFFIX));
+function sectionGroupLabel(r: MapSourceQuestion): string {
+  const parts = r.section.split(" · ");
+  if (LEVEL_TITLES.has(parts[parts.length - 1])) return r.section;
+  const suffix = LEVEL_SUFFIX[r.level];
+  return suffix ? `${r.section} · ${suffix}` : r.section;
+}
+
 /**
- * 🔁 fix (Oct 2026, "التوزيع"): questions grouped by MapSourceQuestion.section ("Text Set 1 · Vocabulary", …), in
- * the order sections first appear in `rows` — each group's `ids` kept in `rows` order. The basis for both the
- * auto-distribution below and the collapsed section panel the teacher sees on screen.
+ * 🔁 fix (Oct 2026, "التوزيع"): questions grouped by their (level-aware, see sectionGroupLabel above) section
+ * label, in the order sections first appear in `rows` — each group's `ids` kept in `rows` order. The basis for
+ * both the auto-distribution below and the collapsed section panel the teacher sees on screen.
  */
 function sectionGroups(rows: MapSourceQuestion[]): { label: string; ids: string[] }[] {
   const order: string[] = [];
   const byLabel = new Map<string, string[]>();
   for (const r of rows) {
-    if (!byLabel.has(r.section)) { byLabel.set(r.section, []); order.push(r.section); }
-    byLabel.get(r.section)!.push(r.id);
+    const label = sectionGroupLabel(r);
+    if (!byLabel.has(label)) { byLabel.set(label, []); order.push(label); }
+    byLabel.get(label)!.push(r.id);
   }
   return order.map((label) => ({ label, ids: byLabel.get(label)! }));
 }

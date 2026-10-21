@@ -124,7 +124,21 @@ export function ReviewBuilder({ grade, initial, sets, skillUnits, roster }: {
     for (const sec of v.sections) counts[sec.label] = overrides[sec.label] ?? Number(sectionValue(sec.label, sec.take));
     apply(await customReviewChangeAction(grade, { op: "sectionCounts", counts }), t("Saved ✓"));
   });
-  const questionsOf = (label: string) => v.questions.filter((x) => x.section === label);
+  // 🔀 fix (Oct 2026, "لما اختار Meeting يظهر جزء خاص بيه"): matches the server's sectionGroupLabel (see
+  // review-control.ts) — a question's raw `.section` stays unchanged everywhere else on the platform, but on THIS
+  // screen a section not already level-specific (Vocabulary/Review) is shown split by level, so matching a
+  // question to its row needs the same level-aware label the server used to build `v.sections`.
+  const LEVEL_TITLES = new Set(Object.values(LV));
+  const fineLabel = (section: string, lvl: string) => {
+    const parts = section.split(" · ");
+    if (LEVEL_TITLES.has(parts[parts.length - 1])) return section;
+    const suffix = LV[lvl as Level];
+    return suffix ? `${section} · ${suffix}` : section;
+  };
+  const questionsOf = (label: string) => v.questions.filter((x) => fineLabel(x.section, x.level) === label);
+  // 🔎 Level dropdown now also filters which section rows are SHOWN (not just what gets added): pick "Meeting" to
+  // see only that level's rows, each with its own "Take" to set and save independently of the other levels.
+  const visibleSections = level === "ANY" ? v.sections : v.sections.filter((sec) => sec.label.endsWith(` · ${LV[level]}`));
 
   const setKey = (unit: number, setNumber: number) => `${unit}.${setNumber}`;
   const toggleSetCat = (unit: number, setNumber: number, cat: Cat) => {
@@ -222,8 +236,11 @@ export function ReviewBuilder({ grade, initial, sets, skillUnits, roster }: {
       </div>
       {msg && <p role={msg.ok ? "status" : "alert"} className={`rounded-xl px-4 py-2 text-sm ${msg.ok ? "bg-teal-50 text-teal-900" : "bg-red-50 text-red-800"}`}>{msg.text}</p>}
 
+      {level !== "ANY" && v.sections.length > 0 && visibleSections.length === 0 && (
+        <p className="rounded-xl bg-white p-4 text-sm text-slate-600 ring-1 ring-slate-200">{t("No sections of this level yet.")}</p>
+      )}
       <ol className="space-y-2" aria-label={t("Sections of the Review")}>
-        {v.sections.map((sec) => {
+        {visibleSections.map((sec) => {
           const label = sec.label || t("Other");
           const open = openSection === sec.label;
           const peeking = peekSection === sec.label;

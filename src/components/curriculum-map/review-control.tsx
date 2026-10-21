@@ -72,7 +72,16 @@ export function ReviewControl({ initial, roster = [] }: { initial: ReviewControl
     for (const sec of v.sections) counts[sec.label] = overrides[sec.label] ?? Number(sectionValue(sec.label, sec.take));
     apply(await reviewChangeAction(v.code, { op: "sectionCounts", counts }), t("Saved ✓"));
   });
-  const questionsOf = (label: string) => v.questions.filter((x) => x.section === label);
+  // 🔀 fix (Oct 2026, "لما اختار Meeting يظهر جزء خاص بيه"): same as review-builder.tsx — see its comment.
+  const LEVEL_TITLES = new Set(Object.values(LV));
+  const fineLabel = (section: string, lvl: string) => {
+    const parts = section.split(" · ");
+    if (LEVEL_TITLES.has(parts[parts.length - 1])) return section;
+    const suffix = LV[lvl as Level];
+    return suffix ? `${section} · ${suffix}` : section;
+  };
+  const questionsOf = (label: string) => v.questions.filter((x) => fineLabel(x.section, x.level) === label);
+  const visibleSections = level === "ANY" ? v.sections : v.sections.filter((sec) => sec.label.endsWith(` · ${LV[level]}`));
 
   return (
     <div className="space-y-4">
@@ -99,8 +108,11 @@ export function ReviewControl({ initial, roster = [] }: { initial: ReviewControl
       </div>
       {msg && <p role={msg.ok ? "status" : "alert"} className={`rounded-xl px-4 py-2 text-sm ${msg.ok ? "bg-teal-50 text-teal-900" : "bg-red-50 text-red-800"}`}>{msg.text}</p>}
 
+      {level !== "ANY" && v.sections.length > 0 && visibleSections.length === 0 && (
+        <p className="rounded-xl bg-white p-4 text-sm text-slate-600 ring-1 ring-slate-200">{t("No sections of this level yet.")}</p>
+      )}
       <ol className="space-y-2" aria-label={t("Sections of the Review")}>
-        {v.sections.map((sec) => {
+        {visibleSections.map((sec) => {
           const label = sec.label || t("Other");
           const open = openSection === sec.label;
           const peeking = peekSection === sec.label;
