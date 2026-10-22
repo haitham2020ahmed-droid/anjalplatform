@@ -1,11 +1,13 @@
 "use client";
 import { useState, useTransition, type FormEvent } from "react";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
 import { useT } from "@/i18n/client";
 import type { CustomReviewView, ReviewSetUnit, ReviewSkillUnit, WrittenQuestion } from "@/server/curriculum-map/review-control";
 import type { MapSourceQuestion } from "@/server/tests/map-source";
 import type { SkillFamily } from "@/server/teacher/home";
 import {
-  customBankAction, customDetailAction, customDraftAction, customEditAction, customOptionsBulkAction, customReviewAssignAction, customReviewChangeAction,
+  customBankAction, customDeleteArchiveAction, customDetailAction, customDraftAction, customEditAction, customOptionsBulkAction, customReviewAssignAction, customReviewChangeAction,
   customSetChoicesAction, customSkillChoicesAction, customWriteAction, setPreviewAction, skillPreviewAction,
 } from "@/app/teacher/review-builder/actions";
 // 🔎 the SAME cross-grade "Find a skill and assign it" search the teacher already knows from the Teacher Home page
@@ -40,10 +42,14 @@ const CAT_LABEL: Record<Cat, string> = { CONCEPT_VOCABULARY: "Vocabulary", ANALY
  * optional level filter, then ↕ reorder / ➖ remove (with a "Removed from my Review" put-back list) / 🔢 how
  * many, then ⭐ Assign it directly (Fixed or Adaptive).
  */
-export function ReviewBuilder({ grade, initial, sets, skillUnits, roster }: {
-  grade: number; initial: CustomReviewView; sets: ReviewSetUnit[]; skillUnits: ReviewSkillUnit[]; roster: RosterClass[];
+export function ReviewBuilder({ grade, rev, initial, sets, skillUnits, roster }: {
+  // 📦 fix (Oct 2026, "اقدر ارجع لي القديم"): `rev` is set only when opening an ARCHIVED Review Builder (one saved
+  // with "💾 Save & start new") instead of the live one for this grade — every action below is passed through to
+  // the matching saved row, and the "💾 Save & start new"/🗑 buttons are hidden here (it's already archived).
+  grade: number; rev?: string; initial: CustomReviewView; sets: ReviewSetUnit[]; skillUnits: ReviewSkillUnit[]; roster: RosterClass[];
 }) {
   const t = useT();
+  const router = useRouter();
   const [v, setV] = useState(initial);
   const [msg, setMsg] = useState<{ ok: boolean; text: string } | null>(null);
   const [busy, start] = useTransition();
@@ -130,7 +136,7 @@ export function ReviewBuilder({ grade, initial, sets, skillUnits, roster }: {
   const [flatOptions, setFlatOptions] = useState<Record<string, { type: string; options: { label: string; text: string; correct: boolean }[]; answer: boolean | null; answers: string[]; passageTitle: string | null; passageText: string | null }>>({});
   const [showAnswers, setShowAnswers] = useState(false);
   const loadFlatOptions = async (idList: string[]) => {
-    const r = await customOptionsBulkAction(grade, idList);
+    const r = await customOptionsBulkAction(grade, idList, rev);
     if (r.ok) setFlatOptions((p) => ({ ...p, ...r.value }));
   };
   const [sectionInputs, setSectionInputs] = useState<Record<string, string>>({});
@@ -143,7 +149,7 @@ export function ReviewBuilder({ grade, initial, sets, skillUnits, roster }: {
   const saveSectionCounts = (overrides: Record<string, number> = {}) => go(async () => {
     const counts: Record<string, number> = {};
     for (const sec of v.sections) counts[sec.label] = overrides[sec.label] ?? Number(sectionValue(sec.label, sec.take));
-    apply(await customReviewChangeAction(grade, { op: "sectionCounts", counts }), t("Saved ✓"));
+    apply(await customReviewChangeAction(grade, { op: "sectionCounts", counts }, rev), t("Saved ✓"));
   });
   // 🔀 fix (Oct 2026, "لما اختار Meeting يظهر جزء خاص بيه"): matches the server's sectionGroupLabel (see
   // review-control.ts) — a question's raw `.section` stays unchanged everywhere else on the platform, but on THIS
@@ -205,7 +211,7 @@ export function ReviewBuilder({ grade, initial, sets, skillUnits, roster }: {
                     <li key={qq.id} className="rounded-xl bg-slate-50 p-2.5 ring-1 ring-slate-200">
                       <div className="flex items-start justify-between gap-2">
                         <span className="min-w-0 flex-1 text-sm text-slate-900" dir="ltr" data-content><RichInline text={qq.stem} /></span>
-                        <button type="button" className={`${btn} shrink-0`} disabled={busy || ids.includes(qq.id)} onClick={() => go(async () => { apply(await customReviewChangeAction(grade, { op: "addBank", questionId: qq.id }), t("Added ✓")); })}>{ids.includes(qq.id) ? "✓" : t("Add")}</button>
+                        <button type="button" className={`${btn} shrink-0`} disabled={busy || ids.includes(qq.id)} onClick={() => go(async () => { apply(await customReviewChangeAction(grade, { op: "addBank", questionId: qq.id }, rev), t("Added ✓")); })}>{ids.includes(qq.id) ? "✓" : t("Add")}</button>
                       </div>
                       {qq.choices?.length ? (
                         <ol className="mt-1 grid gap-0.5 text-xs" dir="ltr">
@@ -229,7 +235,7 @@ export function ReviewBuilder({ grade, initial, sets, skillUnits, roster }: {
           {t("Chosen: {n}", { n: v.chosen })} · <b>{t("Total questions selected (all sections): {n}", { n: v.count })}</b>
         </p>
         {v.chosen > 0 && (
-          <form className="flex items-end gap-2" onSubmit={(e) => { e.preventDefault(); go(async () => { apply(await customReviewChangeAction(grade, { op: "count", count: Number(count) }), t("Saved ✓")); }); }}>
+          <form className="flex items-end gap-2" onSubmit={(e) => { e.preventDefault(); go(async () => { apply(await customReviewChangeAction(grade, { op: "count", count: Number(count) }, rev), t("Saved ✓")); }); }}>
             <label className="text-sm font-semibold text-slate-700">{t("Number of questions")}
               <input type="number" min={1} max={Math.max(1, v.chosen)} value={count} onChange={(e) => setCount(e.target.value)} className={`${field} w-24`} />
             </label>
@@ -256,9 +262,29 @@ export function ReviewBuilder({ grade, initial, sets, skillUnits, roster }: {
             {flatView ? `📑 ${t("By section")}` : `📋 ${t("All selected questions")}`}
           </button>
           <PrintButton />
-          {v.chosen > 0 && <button type="button" className={btn} disabled={busy} onClick={() => go(async () => { if (window.confirm(t("Remove every question from this Review?"))) apply(await customReviewChangeAction(grade, { op: "reset" }), t("Saved ✓")); })}>{t("Reset")}</button>}
+          {/* 💾 fix (Oct 2026, "اقدر ارجع لي القديم"): replaces the old "Reset" (which used to delete the Review
+              outright) — keeps the current one, under its own saved id, listed forever in "My Reviews" (editable,
+              assignable, exactly like now), then clears this grade's live slot to build a fresh one. Hidden while
+              viewing an already-archived Review (see the banner above instead, with its own 🗑 Delete). */}
+          {!rev && v.chosen > 0 && (
+            <button type="button" className={btn} disabled={busy} onClick={() => go(async () => { if (window.confirm(t("Keep this Review exactly as it is (you can reopen it anytime from \"My Reviews\"), and start a brand-new one for Grade {n}?", { n: grade }))) apply(await customReviewChangeAction(grade, { op: "archive" }, rev), t("Saved ✓ — find it anytime in \"My Reviews\".")); })}>
+              💾 {t("Save & start new")}
+            </button>
+          )}
+          {rev && (
+            <button type="button" className={`${btn} text-red-700 ring-red-200 hover:bg-red-50`} disabled={busy}
+              onClick={() => go(async () => { if (window.confirm(t("Delete this saved Review for good? This cannot be undone."))) { const r = await customDeleteArchiveAction(grade, rev); if (r.ok) router.push("/teacher/my-reviews"); else setMsg({ ok: false, text: r.message }); } })}>
+              🗑 {t("Delete forever")}
+            </button>
+          )}
         </div>
       </div>
+      {rev && (
+        <p className="rounded-xl bg-amber-50 px-4 py-2 text-sm text-amber-900 ring-1 ring-amber-200">
+          📦 {t("This is a saved Review, kept separate from your current Grade {n} Review Builder — changes here only affect this saved copy.", { n: grade })}{" "}
+          <Link href={`/teacher/review-builder?grade=${grade}`} className="font-semibold underline">{t("Open the current one →")}</Link>
+        </p>
+      )}
       {msg && <p role={msg.ok ? "status" : "alert"} className={`rounded-xl px-4 py-2 text-sm ${msg.ok ? "bg-teal-50 text-teal-900" : "bg-red-50 text-red-800"}`}>{msg.text}</p>}
 
       {level !== "ANY" && v.sections.length > 0 && visibleSections.length === 0 && (
@@ -293,7 +319,7 @@ export function ReviewBuilder({ grade, initial, sets, skillUnits, roster }: {
                 {/* 🗑 fix (Oct 2026, "احذف اي نقطه من هنا"): remove this ONE section+level row's questions from the
                     Review in one click — every other row is untouched. */}
                 <button type="button" className="shrink-0 rounded-full px-2 py-1 text-xs font-semibold text-red-700 ring-1 ring-red-200 hover:bg-red-50" disabled={busy}
-                  onClick={() => go(async () => { if (window.confirm(t('Remove "{section}" from this Review? (Every other section stays as it is.)', { section: label }))) apply(await customReviewChangeAction(grade, { op: "removeSection", label: sec.label }), t("Saved ✓")); })}>
+                  onClick={() => go(async () => { if (window.confirm(t('Remove "{section}" from this Review? (Every other section stays as it is.)', { section: label }))) apply(await customReviewChangeAction(grade, { op: "removeSection", label: sec.label }, rev), t("Saved ✓")); })}>
                   🗑 {t("Remove")}
                 </button>
               </div>
@@ -325,8 +351,8 @@ export function ReviewBuilder({ grade, initial, sets, skillUnits, roster }: {
                           </span>
                         </div>
                         <div className="mt-2 flex flex-wrap gap-1.5 print:hidden">
-                          <button type="button" className={btn} disabled={busy} onClick={() => go(async () => { const r = await customDetailAction(grade, x.id); if (r.ok) setEdit(r.value); else setMsg({ ok: false, text: r.message }); })}>✏️ {t("Edit")}</button>
-                          <button type="button" className={btn} disabled={busy} onClick={() => go(async () => { apply(await customReviewChangeAction(grade, { op: "remove", questionId: x.id })); })}>➖ {t("Remove")}</button>
+                          <button type="button" className={btn} disabled={busy} onClick={() => go(async () => { const r = await customDetailAction(grade, x.id, rev); if (r.ok) setEdit(r.value); else setMsg({ ok: false, text: r.message }); })}>✏️ {t("Edit")}</button>
+                          <button type="button" className={btn} disabled={busy} onClick={() => go(async () => { apply(await customReviewChangeAction(grade, { op: "remove", questionId: x.id }, rev)); })}>➖ {t("Remove")}</button>
                           {asked && (
                             <button type="button" className={btn} disabled={busy || !spare.length} aria-expanded={swapping}
                               onClick={() => setSwapFor(swapping ? null : { label: sec.label, id: x.id })}>🔄 {t("Swap")}</button>
@@ -335,7 +361,7 @@ export function ReviewBuilder({ grade, initial, sets, skillUnits, roster }: {
                         {swapping && (
                           <div className="mt-2 space-y-1.5 rounded-xl bg-slate-50 p-2.5">
                             <button type="button" className={`${main} w-full justify-center`} disabled={busy}
-                              onClick={() => go(async () => { if (apply(await customReviewChangeAction(grade, { op: "swapQuestion", label: sec.label, outId: x.id }), t("Saved ✓"))) setSwapFor(null); })}>
+                              onClick={() => go(async () => { if (apply(await customReviewChangeAction(grade, { op: "swapQuestion", label: sec.label, outId: x.id }, rev), t("Saved ✓"))) setSwapFor(null); })}>
                               ⚡ {t("Automatic swap")}
                             </button>
                             <p className="px-1 text-xs font-semibold text-slate-600">{t("Or pick one to swap in:")}</p>
@@ -344,7 +370,7 @@ export function ReviewBuilder({ grade, initial, sets, skillUnits, roster }: {
                                 <li key={sp.id} className="flex items-start justify-between gap-2 rounded-lg bg-white p-2 ring-1 ring-slate-200">
                                   <span className="min-w-0 flex-1 text-xs text-slate-800" dir="ltr" data-content><RichInline text={sp.stem} /></span>
                                   <button type="button" className={`${btn} shrink-0`} disabled={busy}
-                                    onClick={() => go(async () => { if (apply(await customReviewChangeAction(grade, { op: "swapQuestion", label: sec.label, outId: x.id, inId: sp.id }), t("Saved ✓"))) setSwapFor(null); })}>
+                                    onClick={() => go(async () => { if (apply(await customReviewChangeAction(grade, { op: "swapQuestion", label: sec.label, outId: x.id, inId: sp.id }, rev), t("Saved ✓"))) setSwapFor(null); })}>
                                     {t("Use this")}
                                   </button>
                                 </li>
@@ -353,7 +379,7 @@ export function ReviewBuilder({ grade, initial, sets, skillUnits, roster }: {
                           </div>
                         )}
                         {edit?.id === x.id && (
-                          <form className="mt-3 space-y-2 rounded-xl bg-slate-50 p-3" onSubmit={(e) => { e.preventDefault(); go(async () => { if (apply(await customEditAction(grade, { questionId: edit.id, stem: edit.stem, options: edit.options.length ? edit.options : null, answer: edit.answer, answers: edit.answers.length ? edit.answers : null }), t("Saved as your private copy ✓"))) setEdit(null); }); }}>
+                          <form className="mt-3 space-y-2 rounded-xl bg-slate-50 p-3" onSubmit={(e) => { e.preventDefault(); go(async () => { if (apply(await customEditAction(grade, { questionId: edit.id, stem: edit.stem, options: edit.options.length ? edit.options : null, answer: edit.answer, answers: edit.answers.length ? edit.answers : null }, rev), t("Saved as your private copy ✓"))) setEdit(null); }); }}>
                             <p className="text-xs text-slate-600">{t("Your change makes a private copy for your classes. The shared question is not changed.")}</p>
                             <label className="block text-sm font-semibold">{t("Question")}<textarea value={edit.stem} onChange={(e) => setEdit({ ...edit, stem: e.target.value })} rows={3} className={field} /></label>
                             {edit.options.map((o, k) => (
@@ -452,15 +478,15 @@ export function ReviewBuilder({ grade, initial, sets, skillUnits, roster }: {
                             return null;
                           })()}
                           <div className="mt-2 flex flex-wrap gap-1.5 print:hidden">
-                            <button type="button" className={btn} disabled={busy} onClick={() => go(async () => { const r = await customDetailAction(grade, x.id); if (r.ok) setEdit(r.value); else setMsg({ ok: false, text: r.message }); })}>✏️ {t("Edit")}</button>
-                            <button type="button" className={btn} disabled={busy} onClick={() => go(async () => { const r = await customReviewChangeAction(grade, { op: "remove", questionId: x.id }); apply(r); if (r.ok) await loadFlatOptions(r.value.questions.map((qq) => qq.id).slice(0, r.value.count)); })}>➖ {t("Remove")}</button>
+                            <button type="button" className={btn} disabled={busy} onClick={() => go(async () => { const r = await customDetailAction(grade, x.id, rev); if (r.ok) setEdit(r.value); else setMsg({ ok: false, text: r.message }); })}>✏️ {t("Edit")}</button>
+                            <button type="button" className={btn} disabled={busy} onClick={() => go(async () => { const r = await customReviewChangeAction(grade, { op: "remove", questionId: x.id }, rev); apply(r); if (r.ok) await loadFlatOptions(r.value.questions.map((qq) => qq.id).slice(0, r.value.count)); })}>➖ {t("Remove")}</button>
                             <button type="button" className={btn} disabled={busy || !spare.length} aria-expanded={swapping}
                               onClick={() => setSwapFor(swapping ? null : { label: sec.label, id: x.id })}>🔄 {t("Swap")}</button>
                           </div>
                           {swapping && (
                             <div className="mt-2 space-y-1.5 rounded-xl bg-slate-50 p-2.5 print:hidden">
                               <button type="button" className={`${main} w-full justify-center`} disabled={busy}
-                                onClick={() => go(async () => { const r = await customReviewChangeAction(grade, { op: "swapQuestion", label: sec.label, outId: x.id }); if (apply(r, t("Saved ✓"))) { setSwapFor(null); if (r.ok) await loadFlatOptions(r.value.questions.map((qq) => qq.id).slice(0, r.value.count)); } })}>
+                                onClick={() => go(async () => { const r = await customReviewChangeAction(grade, { op: "swapQuestion", label: sec.label, outId: x.id }, rev); if (apply(r, t("Saved ✓"))) { setSwapFor(null); if (r.ok) await loadFlatOptions(r.value.questions.map((qq) => qq.id).slice(0, r.value.count)); } })}>
                                 ⚡ {t("Automatic swap")}
                               </button>
                               <p className="px-1 text-xs font-semibold text-slate-600">{t("Or pick one to swap in:")}</p>
@@ -469,7 +495,7 @@ export function ReviewBuilder({ grade, initial, sets, skillUnits, roster }: {
                                   <li key={sp.id} className="flex items-start justify-between gap-2 rounded-lg bg-white p-2 ring-1 ring-slate-200">
                                     <span className="min-w-0 flex-1 text-xs text-slate-800" dir="ltr" data-content><RichInline text={sp.stem} /></span>
                                     <button type="button" className={`${btn} shrink-0`} disabled={busy}
-                                      onClick={() => go(async () => { const r = await customReviewChangeAction(grade, { op: "swapQuestion", label: sec.label, outId: x.id, inId: sp.id }); if (apply(r, t("Saved ✓"))) { setSwapFor(null); if (r.ok) await loadFlatOptions(r.value.questions.map((qq) => qq.id).slice(0, r.value.count)); } })}>
+                                      onClick={() => go(async () => { const r = await customReviewChangeAction(grade, { op: "swapQuestion", label: sec.label, outId: x.id, inId: sp.id }, rev); if (apply(r, t("Saved ✓"))) { setSwapFor(null); if (r.ok) await loadFlatOptions(r.value.questions.map((qq) => qq.id).slice(0, r.value.count)); } })}>
                                       {t("Use this")}
                                     </button>
                                   </li>
@@ -478,7 +504,7 @@ export function ReviewBuilder({ grade, initial, sets, skillUnits, roster }: {
                             </div>
                           )}
                           {edit?.id === x.id && (
-                            <form className="mt-3 space-y-2 rounded-xl bg-slate-50 p-3 print:hidden" onSubmit={(e) => { e.preventDefault(); go(async () => { const r = await customEditAction(grade, { questionId: edit.id, stem: edit.stem, options: edit.options.length ? edit.options : null, answer: edit.answer, answers: edit.answers.length ? edit.answers : null }); if (apply(r, t("Saved as your private copy ✓"))) { setEdit(null); if (r.ok) await loadFlatOptions(r.value.questions.map((qq) => qq.id).slice(0, r.value.count)); } }); }}>
+                            <form className="mt-3 space-y-2 rounded-xl bg-slate-50 p-3 print:hidden" onSubmit={(e) => { e.preventDefault(); go(async () => { const r = await customEditAction(grade, { questionId: edit.id, stem: edit.stem, options: edit.options.length ? edit.options : null, answer: edit.answer, answers: edit.answers.length ? edit.answers : null }, rev); if (apply(r, t("Saved as your private copy ✓"))) { setEdit(null); if (r.ok) await loadFlatOptions(r.value.questions.map((qq) => qq.id).slice(0, r.value.count)); } }); }}>
                               <p className="text-xs text-slate-600">{t("Your change makes a private copy for your classes. The shared question is not changed.")}</p>
                               <label className="block text-sm font-semibold">{t("Question")}<textarea value={edit.stem} onChange={(e) => setEdit({ ...edit, stem: e.target.value })} rows={3} className={field} /></label>
                               {edit.options.map((o, k) => (
@@ -511,7 +537,7 @@ export function ReviewBuilder({ grade, initial, sets, skillUnits, roster }: {
           <summary className="cursor-pointer text-sm font-semibold text-slate-700">{t("Removed from my Review ({n})", { n: v.hidden.length })}</summary>
           <ul className="mt-2 space-y-1">{v.hidden.map((x) => (
             <li key={x.id} className="flex flex-wrap items-center justify-between gap-2 text-sm"><span data-content lang="en" className="min-w-0 flex-1"><RichInline text={x.stem} /></span>
-              <button type="button" className={btn} disabled={busy} onClick={() => go(async () => { apply(await customReviewChangeAction(grade, { op: "restore", questionId: x.id })); })}>{t("Put back")}</button></li>
+              <button type="button" className={btn} disabled={busy} onClick={() => go(async () => { apply(await customReviewChangeAction(grade, { op: "restore", questionId: x.id }, rev)); })}>{t("Put back")}</button></li>
           ))}</ul>
         </details>
       )}
@@ -546,7 +572,8 @@ export function ReviewBuilder({ grade, initial, sets, skillUnits, roster }: {
                         const checked = setPicks[key] ?? new Set<Cat>();
                         return (
                           <li key={set.setNumber} className="rounded-lg px-2 py-1.5 hover:bg-slate-50">
-                            <p className="text-sm font-semibold text-slate-800" dir="ltr">{set.title}</p>
+                            <p className="text-sm font-semibold text-slate-800" dir="ltr">{set.name ?? set.title}</p>
+                            {set.name && set.name !== set.title && <p className="text-xs text-slate-500" dir="ltr">{set.title}</p>}
                             <div className="mt-1 flex flex-wrap gap-3">
                               {set.categories.map((cat) => {
                                 const pKey = `${set.unit}.${set.setNumber}.${cat}`;
@@ -584,7 +611,7 @@ export function ReviewBuilder({ grade, initial, sets, skillUnits, roster }: {
             <button type="button" className={main} disabled={busy || !setPicksCount}
               onClick={() => go(async () => {
                 const picks = Object.entries(setPicks).map(([key, cats]) => { const [unit, setNumber] = key.split(".").map(Number); return { unit, setNumber, categories: [...cats] }; });
-                if (apply(await customReviewChangeAction(grade, { op: "addSets", picks, level }), t("Added ✓"))) {
+                if (apply(await customReviewChangeAction(grade, { op: "addSets", picks, level }, rev), t("Added ✓"))) {
                   const newlyAdded = picks.flatMap((p) => p.categories.map((cat) => `${p.unit}.${p.setNumber}.${cat}`));
                   setAddedSetCats((s) => new Set([...s, ...newlyAdded]));
                   setSetPicks({});
@@ -642,7 +669,7 @@ export function ReviewBuilder({ grade, initial, sets, skillUnits, roster }: {
             <button type="button" className={main} disabled={busy || !skillPicks.size}
               onClick={() => go(async () => {
                 const picked = [...skillPicks];
-                if (apply(await customReviewChangeAction(grade, { op: "addSkills", skillIds: picked, level }), t("Added ✓"))) {
+                if (apply(await customReviewChangeAction(grade, { op: "addSkills", skillIds: picked, level }, rev), t("Added ✓"))) {
                   setAddedSkillIds((s) => new Set([...s, ...picked]));
                   setSkillPicks(new Set());
                 }
@@ -653,7 +680,7 @@ export function ReviewBuilder({ grade, initial, sets, skillUnits, roster }: {
         )}
 
         {tab === "write" && (
-          <form className="mt-3 space-y-2" onSubmit={(e) => { e.preventDefault(); go(async () => { if (apply(await customWriteAction(grade, w), t("Added ✓"))) setW(blank()); }); }}>
+          <form className="mt-3 space-y-2" onSubmit={(e) => { e.preventDefault(); go(async () => { if (apply(await customWriteAction(grade, w, rev), t("Added ✓"))) setW(blank()); }); }}>
             <label className="block text-sm font-semibold">{t("Question")}<textarea value={w.stem} onChange={(e) => setW({ ...w, stem: e.target.value })} rows={3} className={field} /></label>
             {w.options.map((o, k) => (
               <label key={k} className="flex items-center gap-2 text-sm">
@@ -679,7 +706,7 @@ export function ReviewBuilder({ grade, initial, sets, skillUnits, roster }: {
               <>
                 <ul className="divide-y divide-slate-100">{bank.map((x) => (
                   <li key={x.id} className="flex flex-wrap items-center justify-between gap-2 py-2 text-sm"><span data-content lang="en" className="min-w-0 flex-1"><RichInline text={x.stem} /></span>
-                    <button type="button" className={btn} disabled={busy || ids.includes(x.id)} onClick={() => go(async () => { apply(await customReviewChangeAction(grade, { op: "addBank", questionId: x.id }), t("Added ✓")); })}>{ids.includes(x.id) ? "✓" : t("Add")}</button></li>
+                    <button type="button" className={btn} disabled={busy || ids.includes(x.id)} onClick={() => go(async () => { apply(await customReviewChangeAction(grade, { op: "addBank", questionId: x.id }, rev), t("Added ✓")); })}>{ids.includes(x.id) ? "✓" : t("Add")}</button></li>
                 ))}</ul>
                 {bankPage && bankPage.pages > 1 && (
                   <div className="flex items-center justify-between gap-2 pt-2 text-sm text-slate-600">
@@ -732,7 +759,7 @@ export function ReviewBuilder({ grade, initial, sets, skillUnits, roster }: {
               e.preventDefault();
               go(async () => {
                 const n = Math.max(1, Math.round(Number(bulkCount)) || 0);
-                if (apply(await customReviewChangeAction(grade, { op: "addSkillCount", skillId: bulkDialog.id, count: n, level: bulkLv === "ALL" ? "ANY" : bulkLv }), t("Added ✓"))) setBulkDialog(null);
+                if (apply(await customReviewChangeAction(grade, { op: "addSkillCount", skillId: bulkDialog.id, count: n, level: bulkLv === "ALL" ? "ANY" : bulkLv }, rev), t("Added ✓"))) setBulkDialog(null);
               });
             }}>
             <h3 className="font-semibold text-slate-900">{t("Add a whole skill")}</h3>
@@ -762,7 +789,7 @@ export function ReviewBuilder({ grade, initial, sets, skillUnits, roster }: {
             go(async () => {
               setAssignMsg(null);
               const r = await customReviewAssignAction({
-                grade, classId, source, title,
+                grade, classId, source, title, rev,
                 adaptive: mode === "ADAPTIVE" ? { maxQuestions: Math.max(v.count, 20), targetCorrect: Math.max(5, Math.min(50, Number(target) || 20)) } : null,
               });
               setAssignMsg(r.ok ? { ok: true, text: t("Assigned ✓ ({n} students)", { n: r.value.students }) } : { ok: false, text: r.message });

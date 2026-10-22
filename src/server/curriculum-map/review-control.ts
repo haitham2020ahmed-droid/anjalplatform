@@ -623,14 +623,19 @@ export async function reviewAssign(repo: Repo, actor: Actor, code: string, input
 
 interface CustomState { questionIds: string[]; hiddenIds: string[]; count: number }
 
-const customCode = (grade: number): string => `CUSTOM.G${Math.trunc(grade)}`;
+// 📦 fix (Oct 2026, "اقدر ارجع لي القديم"): `rev` identifies an ARCHIVED whole-grade Review Builder (one teacher
+// pressed "💾 Save & start new" on) — CUSTOM.G{grade}.A{rev}, a separate row from the LIVE one (CUSTOM.G{grade},
+// rev omitted). Every function below that touches a Review Builder's own stored row takes this same optional
+// `rev`, so an archived Review supports every op the live one does (edit, swap, collect more, assign…) — the only
+// difference is which row it reads and writes.
+const customCode = (grade: number, rev?: string): string => `CUSTOM.G${Math.trunc(grade)}${rev ? `.A${rev}` : ""}`;
 
-async function customRow(repo: Repo, userId: string, grade: number): Promise<Row | null> {
-  return safeIfBehind("review.custom", async () => (await repo.findMany("TeacherReviewSet", { teacherUserId: userId, code: customCode(grade) }, { take: 1 }))[0] ?? null, null);
+async function customRow(repo: Repo, userId: string, grade: number, rev?: string): Promise<Row | null> {
+  return safeIfBehind("review.custom", async () => (await repo.findMany("TeacherReviewSet", { teacherUserId: userId, code: customCode(grade, rev) }, { take: 1 }))[0] ?? null, null);
 }
 
-async function customStateOf(repo: Repo, actor: Actor, grade: number): Promise<CustomState> {
-  const row = await customRow(repo, actor.userId, grade);
+async function customStateOf(repo: Repo, actor: Actor, grade: number, rev?: string): Promise<CustomState> {
+  const row = await customRow(repo, actor.userId, grade, rev);
   if (!row) return { questionIds: [], hiddenIds: [], count: 0 };
   const listed = json<string[]>(row.questionIds, []).map(s);
   const hiddenListed = json<string[]>(row.hiddenIds, []).map(s);
@@ -642,8 +647,8 @@ async function customStateOf(repo: Repo, actor: Actor, grade: number): Promise<C
   return { questionIds, hiddenIds, count: Math.max(0, Math.min(Number(row.count) || 0, questionIds.length)) };
 }
 
-async function writeCustom(repo: Repo, actor: Actor, grade: number, st: CustomState, now: Date): Promise<void> {
-  const code = customCode(grade);
+async function writeCustom(repo: Repo, actor: Actor, grade: number, st: CustomState, now: Date, rev?: string): Promise<void> {
+  const code = customCode(grade, rev);
   const ids = [...new Set(st.questionIds)].slice(0, MAX_REVIEW);
   const data = { questionIds: ids, hiddenIds: [...new Set(st.hiddenIds)], count: ids.length ? Math.max(1, Math.min(st.count, ids.length)) : 0, updatedAt: now };
   const row = (await repo.findMany("TeacherReviewSet", { teacherUserId: actor.userId, code }, { take: 1 }))[0];
@@ -657,19 +662,24 @@ export interface CustomReviewView {
   hidden: MapSourceQuestion[];
   /** 🔁 fix (Oct 2026, "التوزيع"): same collapsed-section panel data as ReviewControlView.sections. */
   sections: { label: string; available: number; take: number }[];
+  /** 📦 fix (Oct 2026, "اقدر ارجع لي القديم"): set when this view is an ARCHIVED Review (not the live, editable
+   * one for this grade) — the id the UI echoes back on every change so it keeps editing/assigning THIS one. */
+  rev: string | null;
 }
 
-/** The teacher's whole-grade Review Builder as they have it: the questions in order, how many students answer. */
-export async function customReviewView(repo: Repo, actor: Actor, grade: number): Promise<CustomReviewView> {
+/** The teacher's whole-grade Review Builder as they have it: the questions in order, how many students answer.
+ * `rev`: omit for the LIVE Review Builder of this grade; pass an archived one's id (from myReviews) to open that
+ * saved snapshot instead — same shape, same ops, just a different stored row. */
+export async function customReviewView(repo: Repo, actor: Actor, grade: number, rev?: string): Promise<CustomReviewView> {
   teacherOnly(actor);
   const g = Math.trunc(Number(grade));
-  const st = await customStateOf(repo, actor, g);
+  const st = await customStateOf(repo, actor, g, rev);
   // 🐛 fix (Oct 2026, "التنظيم"): describePicks() defaults to showing only 60 — pass MAX_REVIEW so a Review Builder
   // past 60 questions actually shows (and so groups) every one of them, not just the first 60.
   const rows = await describePicks(repo, actor, st.questionIds, MAX_REVIEW);
   const hiddenRows = await describePicks(repo, actor, st.hiddenIds, MAX_REVIEW);
   const owner = rows.length ? new Map((await repo.findMany("Question", { id: { in: rows.map((r) => r.id) } }, { select: ["id", "privateToId"] })).map((q) => [s(q.id), q.privateToId ? s(q.privateToId) : ""])) : new Map<string, string>();
-  return { grade: g, chosen: st.questionIds.length, count: st.count, questions: rows.map((r) => ({ ...r, own: owner.get(r.id) === actor.userId })), hidden: hiddenRows, sections: sectionBreakdown(rows, st.count) };
+  return { grade: g, chosen: st.questionIds.length, count: st.count, questions: rows.map((r) => ({ ...r, own: owner.get(r.id) === actor.userId })), hidden: hiddenRows, sections: sectionBreakdown(rows, st.count), rev: rev || null };
 }
 
 export type CustomReviewChange =
@@ -692,18 +702,35 @@ export type CustomReviewChange =
   /** 🔄 fix (Oct 2026, "ضيف خيار ان المعلم يقدر يبدل السؤال"): same as ReviewChange's "swapQuestion" — see its
    * comment. */
   | { op: "swapQuestion"; label: string; outId: string; inId?: string }
-  | { op: "reset" };
+  /** 💾 fix (Oct 2026, "اقدر ارجع لي القديم"): only valid on the LIVE Review (never on an opened archive) —
+   * keeps this grade's current Review exactly as it stands under a new, separate, permanent id (it then shows up
+   * in "My Reviews" on its own, fully editable/assignable there), then clears the live slot so a brand-new one can
+   * be built. Replaces the old "reset" (which used to delete outright, with no way back). */
+  | { op: "archive" };
 
-/** One change to the teacher's whole-grade Review Builder (see the header above). */
-export async function changeCustomReview(repo: Repo, actor: Actor, grade: number, c: CustomReviewChange, now = new Date()): Promise<CustomReviewView> {
+/** One change to the teacher's whole-grade Review Builder (see the header above). `rev`: omit to change the LIVE
+ * Review Builder of this grade; pass an archived one's id to change that saved snapshot instead — every op works
+ * the same way on either, except "archive" itself, which only makes sense on the live one. */
+export async function changeCustomReview(repo: Repo, actor: Actor, grade: number, c: CustomReviewChange, now = new Date(), rev?: string): Promise<CustomReviewView> {
   teacherOnly(actor);
   const g = Math.trunc(Number(grade));
   if (!(g >= 1)) throw new ValidationError("Choose a grade.");
-  if (c.op === "reset") {
-    await repo.deleteMany("TeacherReviewSet", { teacherUserId: actor.userId, code: customCode(g) });
+  if (c.op === "archive") {
+    if (rev) throw new ValidationError("This Review is already archived.");
+    const liveCode = customCode(g);
+    const row = (await repo.findMany("TeacherReviewSet", { teacherUserId: actor.userId, code: liveCode }, { take: 1 }))[0];
+    if (row) {
+      const hasQuestions = json<string[]>(row.questionIds, []).length > 0;
+      if (hasQuestions) {
+        const archiveId = `${now.getTime().toString(36)}${Math.random().toString(36).slice(2, 6)}`;
+        await repo.updateMany("TeacherReviewSet", { id: row.id }, { code: customCode(g, archiveId) });
+      } else {
+        await repo.deleteMany("TeacherReviewSet", { id: row.id });
+      }
+    }
     return customReviewView(repo, actor, g);
   }
-  const st = await customStateOf(repo, actor, g);
+  const st = await customStateOf(repo, actor, g, rev);
   if (c.op === "remove") {
     const id = s(c.questionId);
     if (!st.questionIds.includes(id)) throw new ValidationError("That question is not in this Review.");
@@ -714,8 +741,8 @@ export async function changeCustomReview(repo: Repo, actor: Actor, grade: number
     if (!st.hiddenIds.includes(id)) throw new ValidationError("That question is not removed.");
     st.hiddenIds = st.hiddenIds.filter((x) => x !== id);
     if (!st.questionIds.includes(id)) { st.questionIds.push(id); st.count = Math.min(st.count + 1, st.questionIds.length) || 1; }
-    await writeCustom(repo, actor, g, st, now);
-    return customReviewView(repo, actor, g);
+    await writeCustom(repo, actor, g, st, now, rev);
+    return customReviewView(repo, actor, g, rev);
   } else if (c.op === "order") {
     const next = (Array.isArray(c.questionIds) ? c.questionIds : []).map(s);
     if (next.length !== st.questionIds.length || new Set(next).size !== next.length || next.some((x) => !st.questionIds.includes(x))) throw new ValidationError("The new order must hold the same questions.");
@@ -825,15 +852,15 @@ export async function changeCustomReview(repo: Repo, actor: Actor, grade: number
     [st.questionIds[outIdx], st.questionIds[inIdx]] = [st.questionIds[inIdx], st.questionIds[outIdx]];
   }
   if (!st.questionIds.length) throw new ValidationError("Add at least one question (or press Reset).");
-  await writeCustom(repo, actor, g, st, now);
-  return customReviewView(repo, actor, g);
+  await writeCustom(repo, actor, g, st, now, rev);
+  return customReviewView(repo, actor, g, rev);
 }
 
 /** ✏️ A question of the Review Builder with its choices (for the Edit form). */
-export async function customQuestionDetail(repo: Repo, actor: Actor, grade: number, questionId: string): Promise<{ id: string; type: string; stem: string; options: { label: string; text: string; correct: boolean }[]; answer: boolean | null; answers: string[] }> {
+export async function customQuestionDetail(repo: Repo, actor: Actor, grade: number, questionId: string, rev?: string): Promise<{ id: string; type: string; stem: string; options: { label: string; text: string; correct: boolean }[]; answer: boolean | null; answers: string[] }> {
   teacherOnly(actor);
   const g = Math.trunc(Number(grade));
-  const st = await customStateOf(repo, actor, g);
+  const st = await customStateOf(repo, actor, g, rev);
   if (!st.questionIds.includes(s(questionId))) throw new ValidationError("That question is not in this Review.");
   const [it] = await loadQuestionItems(repo, [s(questionId)]);
   if (!it) throw new ValidationError("That question was not found.");
@@ -844,10 +871,10 @@ export async function customQuestionDetail(repo: Repo, actor: Actor, grade: numb
 /** 📋 fix (Oct 2026, "تضيف الاختيارات لكل سؤال"): the choices of MANY questions of the Review Builder at once (one
  * round trip for the whole "All selected questions" flat view), keyed by question id — same shape per question as
  * customQuestionDetail, just batched. Unknown ids (already removed/swapped by the time this resolves) are skipped. */
-export async function customQuestionOptionsBulk(repo: Repo, actor: Actor, grade: number, questionIds: string[]): Promise<Record<string, { type: string; options: { label: string; text: string; correct: boolean }[]; answer: boolean | null; answers: string[]; passageTitle: string | null; passageText: string | null }>> {
+export async function customQuestionOptionsBulk(repo: Repo, actor: Actor, grade: number, questionIds: string[], rev?: string): Promise<Record<string, { type: string; options: { label: string; text: string; correct: boolean }[]; answer: boolean | null; answers: string[]; passageTitle: string | null; passageText: string | null }>> {
   teacherOnly(actor);
   const g = Math.trunc(Number(grade));
-  const st = await customStateOf(repo, actor, g);
+  const st = await customStateOf(repo, actor, g, rev);
   const want = (Array.isArray(questionIds) ? questionIds : []).map(s).filter((id) => st.questionIds.includes(id));
   const items = await loadQuestionItems(repo, want);
   const out: Record<string, { type: string; options: { label: string; text: string; correct: boolean }[]; answer: boolean | null; answers: string[]; passageTitle: string | null; passageText: string | null }> = {};
@@ -869,21 +896,21 @@ export async function customQuestionOptionsBulk(repo: Repo, actor: Actor, grade:
 }
 
 /** ✏️ Edit = a private copy of the question; the copy takes the original's place in the Review Builder. */
-export async function customEditQuestion(repo: Repo, actor: Actor, grade: number, edit: CopyEdit, now = new Date()): Promise<CustomReviewView> {
+export async function customEditQuestion(repo: Repo, actor: Actor, grade: number, edit: CopyEdit, now = new Date(), rev?: string): Promise<CustomReviewView> {
   teacherOnly(actor);
   const g = Math.trunc(Number(grade));
-  const st = await customStateOf(repo, actor, g);
+  const st = await customStateOf(repo, actor, g, rev);
   const id = s(edit?.questionId);
   if (!st.questionIds.includes(id)) throw new ValidationError("That question is not in this Review.");
   const copy = await editQuestionCopy(repo, actor, edit, now);
   st.questionIds = st.questionIds.map((x) => (x === id ? copy.id : x));
   if (!st.hiddenIds.includes(id)) st.hiddenIds.push(id);
-  await writeCustom(repo, actor, g, st, now);
-  return customReviewView(repo, actor, g);
+  await writeCustom(repo, actor, g, st, now, rev);
+  return customReviewView(repo, actor, g, rev);
 }
 
 /** ➕ Write a question (multiple choice, private to the teacher) straight into the Review Builder. */
-export async function customWriteQuestion(repo: Repo, actor: Actor, grade: number, w: WrittenQuestion, now = new Date()): Promise<CustomReviewView> {
+export async function customWriteQuestion(repo: Repo, actor: Actor, grade: number, w: WrittenQuestion, now = new Date(), rev?: string): Promise<CustomReviewView> {
   teacherOnly(actor);
   const g = Math.trunc(Number(grade));
   const stem = s(w?.stem).replace(/\r\n/g, "\n").trim().slice(0, 4000);
@@ -893,7 +920,7 @@ export async function customWriteQuestion(repo: Repo, actor: Actor, grade: numbe
   if (options.length < 2 || options.length > 6) throw new ValidationError("Write from 2 to 6 answer choices.");
   if (!(correct >= 0 && correct < options.length)) throw new ValidationError("Mark the correct answer.");
   if (new Set(options.map((o) => o.toLowerCase())).size !== options.length) throw new ValidationError("Two answer choices are the same.");
-  const st = await customStateOf(repo, actor, g);
+  const st = await customStateOf(repo, actor, g, rev);
   if (st.questionIds.length >= MAX_REVIEW) throw new ValidationError(`A Review has at most ${MAX_REVIEW} questions.`);
   const skillId = await unclassifiedSkillId(repo, actor.schoolId!, g);
   const mc = await repo.findUnique("QuestionType", { code: "MULTIPLE_CHOICE" });
@@ -911,8 +938,8 @@ export async function customWriteQuestion(repo: Repo, actor: Actor, grade: numbe
   await audit(repo, { actorId: actor.userId, action: "question.teacher_review_write", entityType: "Question", entityId: qid, after: { code: customCode(g) }, at: now });
   st.questionIds.push(qid);
   st.count = Math.min(st.count + 1, st.questionIds.length) || 1;
-  await writeCustom(repo, actor, g, st, now);
-  return customReviewView(repo, actor, g);
+  await writeCustom(repo, actor, g, st, now, rev);
+  return customReviewView(repo, actor, g, rev);
 }
 
 /** ✨ AI draft for the Review Builder: ONE multiple-choice question for this grade (curriculum content only — never
@@ -957,11 +984,14 @@ export async function customSkillChoices(repo: Repo, actor: Actor, grade: number
   }).filter((u) => u.skills.length > 0);
 }
 
-export interface ReviewSetChoice { unit: number; setNumber: number; title: string; heading: string; categories: ("CONCEPT_VOCABULARY" | "ANALYZE_CRAFT_AND_STRUCTURE" | "REVIEW")[] }
+export interface ReviewSetChoice { unit: number; setNumber: number; title: string; heading: string; name: string | null; categories: ("CONCEPT_VOCABULARY" | "ANALYZE_CRAFT_AND_STRUCTURE" | "REVIEW")[] }
 export interface ReviewSetUnit { unit: number; unitTitle: string; sets: ReviewSetChoice[] }
 
 /** 🗂️ Review Builder "Text Sets" tab: every Text Set/Selection of this grade, grouped by unit, each with which
- * categories (Vocabulary / Analyze Craft / that Set's own Review) it actually has to tick. */
+ * categories (Vocabulary / Analyze Craft / that Set's own Review) it actually has to tick.
+ * 📛 fix (Oct 2026, "عايز هنا يظهر اسماء الدرس مثل skill plan / lessons"): `name` is the same curated lesson
+ * name the Skill Plan/Lessons tab shows (lesson-details.json via lessonAt) — the UI shows it in place of the
+ * generic Text Set title wherever it's known, exactly like skill-plan.tsx's `sec.name ?? sec.title`. */
 export async function customSetChoices(repo: Repo, actor: Actor, grade: number): Promise<ReviewSetUnit[]> {
   teacherOnly(actor);
   const g = Math.trunc(Number(grade));
@@ -971,7 +1001,7 @@ export async function customSetChoices(repo: Repo, actor: Actor, grade: number):
   for (const n of nodes) {
     if (!byUnit.has(n.unit)) byUnit.set(n.unit, new Map());
     const sets = byUnit.get(n.unit)!;
-    if (!sets.has(n.setNumber)) sets.set(n.setNumber, { unit: n.unit, setNumber: n.setNumber, title: n.setTitle || n.heading, heading: n.heading, categories: [] });
+    if (!sets.has(n.setNumber)) sets.set(n.setNumber, { unit: n.unit, setNumber: n.setNumber, title: n.setTitle || n.heading, heading: n.heading, name: lessonAt(g, n.unitTitle, n.heading)?.name ?? null, categories: [] });
     const set = sets.get(n.setNumber)!;
     const cat = n.category as "CONCEPT_VOCABULARY" | "ANALYZE_CRAFT_AND_STRUCTURE" | "REVIEW";
     if (!set.categories.includes(cat)) set.categories.push(cat);
@@ -997,8 +1027,17 @@ export interface MyReviewRow {
   stale: boolean;
 }
 
-const CUSTOM_PREFIX = "CUSTOM.G";
 const dateIso = (v: unknown): string => { const d = v instanceof Date ? v : new Date(String(v ?? "")); return Number.isNaN(d.getTime()) ? new Date(0).toISOString() : d.toISOString(); };
+
+/** 🗑 Delete ONE archived whole-grade Review Builder (never the live one — that one only ever leaves through
+ * "💾 Save & start new" turning it into an archive first, or the Curriculum Map admin tools). */
+export async function deleteCustomReviewArchive(repo: Repo, actor: Actor, grade: number, rev: string): Promise<void> {
+  teacherOnly(actor);
+  const g = Math.trunc(Number(grade));
+  const id = s(rev);
+  if (!id) throw new ValidationError("Nothing to delete.");
+  await repo.deleteMany("TeacherReviewSet", { teacherUserId: actor.userId, code: customCode(g, id) });
+}
 
 /** Every Review (any grade, any Text Set, or a whole-grade Review Builder) this teacher has built so far. */
 export async function myReviews(repo: Repo, actor: Actor): Promise<MyReviewRow[]> {
@@ -1011,9 +1050,17 @@ export async function myReviews(repo: Repo, actor: Actor): Promise<MyReviewRow[]
     const code = s(r.code);
     const chosen = json<string[]>(r.questionIds, []).length;
     const base = { id: s(r.id), code, chosen, count: Number(r.count) || 0, updatedAt: dateIso(r.updatedAt) };
-    if (code.toUpperCase().startsWith(CUSTOM_PREFIX)) {
-      const grade = Math.trunc(Number(code.slice(CUSTOM_PREFIX.length))) || null;
-      return { ...base, title: grade ? `Review Builder · Grade ${grade}` : "Review Builder", grade, href: grade ? `/teacher/review-builder?grade=${grade}` : "/teacher/review-builder", stale: false };
+    // 📦 fix (Oct 2026, "اقدر ارجع لي القديم"): CUSTOM.G{grade} is the LIVE Review Builder; CUSTOM.G{grade}.A{id} is
+    // one a teacher archived with "💾 Save & start new" — same page, opened with ?rev= so it edits that saved copy
+    // instead of the live one. Dated in the title from its own updatedAt (saved once, never touched again).
+    const m = /^CUSTOM\.G(\d+)(?:\.A(.+))?$/i.exec(code);
+    if (m) {
+      const grade = Math.trunc(Number(m[1])) || null;
+      const rev = m[2] || null;
+      if (!grade) return { ...base, title: "Review Builder", grade: null, href: "/teacher/review-builder", stale: false };
+      if (!rev) return { ...base, title: `Review Builder · Grade ${grade}`, grade, href: `/teacher/review-builder?grade=${grade}`, stale: false };
+      const when = new Date(base.updatedAt).toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" });
+      return { ...base, title: `Review Builder · Grade ${grade} — ${when}`, grade, href: `/teacher/review-builder?grade=${grade}&rev=${encodeURIComponent(rev)}`, stale: false };
     }
     const n = nodeByCode.get(code.toUpperCase());
     return { ...base, title: n ? n.path.split(" › ").slice(1, 3).join(" · ") : code, grade: n ? n.grade : null, href: `/teacher/curriculum-review?code=${encodeURIComponent(code)}`, stale: !n };
