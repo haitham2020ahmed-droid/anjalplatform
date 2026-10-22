@@ -3,12 +3,12 @@ import { useState, useTransition, type FormEvent } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { useT } from "@/i18n/client";
-import type { CustomReviewView, ReviewSetUnit, ReviewSkillUnit, WrittenQuestion } from "@/server/curriculum-map/review-control";
+import type { CustomReviewView, ReviewSetUnit, ReviewSkillUnit, SchoolTeacher, WrittenQuestion } from "@/server/curriculum-map/review-control";
 import type { MapSourceQuestion } from "@/server/tests/map-source";
 import type { SkillFamily } from "@/server/teacher/home";
 import {
   customBankAction, customDeleteArchiveAction, customDetailAction, customDraftAction, customEditAction, customOptionsBulkAction, customReviewAssignAction, customReviewChangeAction,
-  customSetChoicesAction, customSkillChoicesAction, customWriteAction, setPreviewAction, skillPreviewAction,
+  customSetChoicesAction, customShareAction, customSkillChoicesAction, customWriteAction, schoolTeachersAction, setPreviewAction, skillPreviewAction,
 } from "@/app/teacher/review-builder/actions";
 // 🔎 the SAME cross-grade "Find a skill and assign it" search the teacher already knows from the Teacher Home page
 // (findSkillFamilies in src/server/teacher/home.ts) — reused here as-is, not rebuilt, per the audit's "doesn't have
@@ -54,6 +54,10 @@ export function ReviewBuilder({ grade, rev, initial, sets, skillUnits, roster }:
   const [msg, setMsg] = useState<{ ok: boolean; text: string } | null>(null);
   const [busy, start] = useTransition();
   const [count, setCount] = useState(String(initial.count));
+  // 🔗 r93 ("اخليه يشير review لمعلم اخر"): the "Share" picker — null = closed; an array (possibly still empty
+  // while it loads) = open.
+  const [sharePanel, setSharePanel] = useState<SchoolTeacher[] | null>(null);
+  const [sharePick, setSharePick] = useState("");
   const [tab, setTab] = useState<"" | "sets" | "skills" | "write" | "bank">("");
   const [level, setLevel] = useState<LevelFilter>("ANY");
   const [setsData, setSetsData] = useState<ReviewSetUnit[] | null>(sets.length ? sets : null);
@@ -262,12 +266,22 @@ export function ReviewBuilder({ grade, rev, initial, sets, skillUnits, roster }:
             {flatView ? `📑 ${t("By section")}` : `📋 ${t("All selected questions")}`}
           </button>
           <PrintButton />
+          {/* 🔗 r93 ("اخليه يشير review لمعلم اخر"): send a COPY of this Review straight into another teacher's
+              own "My Reviews" (live and ready to edit/assign) — never touches mine, never overwrites theirs.
+              Always visible (pale/disabled with nothing collected yet), same "always shown" habit as the other
+              buttons here — no need to add a question first just to see it. */}
+          <button type="button" className={btn} disabled={busy || v.chosen === 0} aria-pressed={!!sharePanel}
+            onClick={() => { if (sharePanel) { setSharePanel(null); return; } go(async () => { const r = await schoolTeachersAction(); setSharePanel(r.ok ? r.value : []); setSharePick(""); }); }}>
+            🔗 {t("Share with a teacher")}
+          </button>
           {/* 💾 fix (Oct 2026, "اقدر ارجع لي القديم"): replaces the old "Reset" (which used to delete the Review
               outright) — keeps the current one, under its own saved id, listed forever in "My Reviews" (editable,
               assignable, exactly like now), then clears this grade's live slot to build a fresh one. Hidden while
-              viewing an already-archived Review (see the banner above instead, with its own 🗑 Delete). */}
-          {!rev && v.chosen > 0 && (
-            <button type="button" className={btn} disabled={busy} onClick={() => go(async () => { if (window.confirm(t("Keep this Review exactly as it is (you can reopen it anytime from \"My Reviews\"), and start a brand-new one for Grade {n}?", { n: grade }))) apply(await customReviewChangeAction(grade, { op: "archive" }, rev), t("Saved ✓ — find it anytime in \"My Reviews\".")); })}>
+              viewing an already-archived Review (see the banner above instead, with its own 🗑 Delete).
+              🔁 fix (Oct 2026, "خلي القوايم دي ثابته من بدايه"): always shown now (pale/disabled at zero chosen),
+              not hidden until a question is added — same reasoning as "Save all changes" above. */}
+          {!rev && (
+            <button type="button" className={btn} disabled={busy || v.chosen === 0} onClick={() => go(async () => { if (window.confirm(t("Keep this Review exactly as it is (you can reopen it anytime from \"My Reviews\"), and start a brand-new one for Grade {n}?", { n: grade }))) apply(await customReviewChangeAction(grade, { op: "archive" }, rev), t("Saved ✓ — find it anytime in \"My Reviews\".")); })}>
               💾 {t("Save & start new")}
             </button>
           )}
@@ -279,6 +293,32 @@ export function ReviewBuilder({ grade, rev, initial, sets, skillUnits, roster }:
           )}
         </div>
       </div>
+      {sharePanel && (
+        <div className="flex flex-wrap items-center gap-2 rounded-xl bg-violet-50 px-4 py-2.5 ring-1 ring-violet-200 print:hidden">
+          <span className="text-sm font-semibold text-violet-900">🔗 {t("Share a copy with:")}</span>
+          {sharePanel.length === 0 && busy ? (
+            <span className="text-sm text-violet-700">…</span>
+          ) : sharePanel.length === 0 ? (
+            <span className="text-sm text-violet-700">{t("No other teachers found at your school.")}</span>
+          ) : (
+            <>
+              <select value={sharePick} onChange={(e) => setSharePick(e.target.value)} className={`${field} mt-0 w-56`}>
+                <option value="">{t("Choose a teacher…")}</option>
+                {sharePanel.map((tc) => <option key={tc.id} value={tc.id}>{tc.name}</option>)}
+              </select>
+              <button type="button" className={main} disabled={busy || !sharePick}
+                onClick={() => go(async () => {
+                  const r = await customShareAction(grade, sharePick, rev);
+                  if (r.ok) { setMsg({ ok: true, text: t("Shared ✓ — they'll find it in their own \"My Reviews\".") }); setSharePanel(null); }
+                  else setMsg({ ok: false, text: r.message });
+                })}>
+                {t("Send")}
+              </button>
+            </>
+          )}
+          <button type="button" className="rounded-full px-2 text-sm text-violet-700 hover:bg-violet-100" onClick={() => setSharePanel(null)}>✕</button>
+        </div>
+      )}
       {rev && (
         <p className="rounded-xl bg-amber-50 px-4 py-2 text-sm text-amber-900 ring-1 ring-amber-200">
           📦 {t("This is a saved Review, kept separate from your current Grade {n} Review Builder — changes here only affect this saved copy.", { n: grade })}{" "}
@@ -419,8 +459,14 @@ export function ReviewBuilder({ grade, rev, initial, sets, skillUnits, roster }:
             </div>
             {groups.map(({ sec, list }) => {
               const spare = questionsOf(sec.label).filter((x) => ids.indexOf(x.id) >= v.count);
+              /* 🖨 fix (Oct 2026, "عايزها منظمه بدون اي فراغ"): no longer break-inside-avoid at the whole
+                 SECTION level — a long section (a passage + several questions) taller than what's left on the
+                 page used to get pushed to the next page whole, leaving that leftover space blank. Each
+                 QUESTION below still keeps its own break-inside-avoid (never split mid-question), and the
+                 heading keeps h3's global break-after:avoid (never stranded alone at a page's bottom) — so a
+                 section can now flow across a page boundary between two questions, with no empty gap. */
               return (
-                <div key={sec.label || "·"} className="space-y-2 break-inside-avoid">
+                <div key={sec.label || "·"} className="space-y-2">
                   <h3 className="border-b border-slate-200 pb-1 font-semibold text-brand-navy" dir="ltr">{sec.label || t("Other")}</h3>
                   <ol className="space-y-2">
                     {list.map((x) => {

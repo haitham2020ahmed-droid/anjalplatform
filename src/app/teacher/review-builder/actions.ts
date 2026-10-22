@@ -3,8 +3,8 @@ import { repo, requireActor } from "@/server/auth/next";
 import { ForbiddenError } from "@/server/auth/rbac";
 import { ValidationError } from "@/server/curriculum-admin";
 import {
-  changeCustomReview, customDraftQuestion, customEditQuestion, customQuestionDetail, customQuestionOptionsBulk, customReviewView, customSetChoices, customSkillChoices, customWriteQuestion, deleteCustomReviewArchive, MAX_REVIEW, reviewBankSearch, setQuestionPreview, skillQuestionPreview,
-  type CustomReviewChange, type CustomReviewView, type ReviewSetUnit, type ReviewSkillUnit, type WrittenQuestion,
+  changeCustomReview, customDraftQuestion, customEditQuestion, customQuestionDetail, customQuestionOptionsBulk, customReviewView, customSetChoices, customSkillChoices, customWriteQuestion, deleteCustomReviewArchive, MAX_REVIEW, reviewBankSearch, schoolTeachers, setQuestionPreview, shareCustomReview, skillQuestionPreview,
+  type CustomReviewChange, type CustomReviewView, type ReviewSetUnit, type ReviewSkillUnit, type SchoolTeacher, type WrittenQuestion,
 } from "@/server/curriculum-map/review-control";
 import type { BankFilter, BankResults, CopyEdit } from "@/server/tests/review";
 import { assignQuestions } from "@/server/teacher/assign";
@@ -81,6 +81,16 @@ export async function customOptionsBulkAction(grade: number, questionIds: string
 export async function customDeleteArchiveAction(grade: number, rev: string): Promise<Out<null>> {
   const actor = await requireActor(TEACHER);
   return run(async () => { await deleteCustomReviewArchive(repo, actor, Number(grade), String(rev ?? "")); return null; });
+}
+/** 🔗 The other teachers of my school, for the "Share" picker. */
+export async function schoolTeachersAction(): Promise<Out<SchoolTeacher[]>> {
+  const actor = await requireActor(TEACHER);
+  return run(() => schoolTeachers(repo, actor));
+}
+/** 🔗 Share a copy of this whole-grade Review with another teacher — lands in THEIR "My Reviews", ready to use. */
+export async function customShareAction(grade: number, toTeacherUserId: string, rev?: string): Promise<Out<null>> {
+  const actor = await requireActor(TEACHER);
+  return run(async () => { await shareCustomReview(repo, actor, Number(grade), String(toTeacherUserId ?? ""), rev || undefined); return null; });
 }
 /** ⭐ Assign the built Review to a class — Fixed (every chosen question, same order, for every student) or
  * Adaptive (students answer toward a target-correct goal, drawing from as many as were collected). */

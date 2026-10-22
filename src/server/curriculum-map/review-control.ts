@@ -1039,6 +1039,37 @@ export async function deleteCustomReviewArchive(repo: Repo, actor: Actor, grade:
   await repo.deleteMany("TeacherReviewSet", { teacherUserId: actor.userId, code: customCode(g, id) });
 }
 
+export interface SchoolTeacher { id: string; name: string }
+
+/** 🔗 r93 ("اعمل review عند معلم واخليه يشير review لمعلم اخر"): the other teachers of this school, for the
+ * "Share" picker on a whole-grade Review Builder — me excluded. */
+export async function schoolTeachers(repo: Repo, actor: Actor): Promise<SchoolTeacher[]> {
+  teacherOnly(actor);
+  const rows = await repo.findMany("User", { schoolId: actor.schoolId, role: "TEACHER", isActive: true, deletedAt: null }, { select: ["id", "displayName"] });
+  return rows.filter((u) => s(u.id) !== actor.userId).map((u) => ({ id: s(u.id), name: s(u.displayName) || "Teacher" })).sort((a, b) => a.name.localeCompare(b.name));
+}
+
+/** 🔗 r93: shares a COPY of this whole-grade Review Builder (the live one, or one `rev` names) with another
+ * teacher at the school — written as a new, independent ARCHIVED Review straight into THEIR "My Reviews" (same
+ * shape "💾 Save & start new" produces), ready for them to open, edit and assign right away. Never touches the
+ * sender's own Review, and never overwrites anything the other teacher already has (always a brand-new row). */
+export async function shareCustomReview(repo: Repo, actor: Actor, grade: number, toTeacherUserId: string, rev?: string, now = new Date()): Promise<void> {
+  teacherOnly(actor);
+  const g = Math.trunc(Number(grade));
+  const to = s(toTeacherUserId);
+  if (!to) throw new ValidationError("Choose a teacher to share with.");
+  if (to === actor.userId) throw new ValidationError("That is your own Review already.");
+  const target = (await repo.findMany("User", { id: to, schoolId: actor.schoolId, role: "TEACHER", isActive: true, deletedAt: null }, { take: 1 }))[0];
+  if (!target) throw new ValidationError("That teacher was not found at your school.");
+  const row = (await repo.findMany("TeacherReviewSet", { teacherUserId: actor.userId, code: customCode(g, rev) }, { take: 1 }))[0];
+  const questionIds = json<string[]>(row?.questionIds, []).map(s);
+  if (!questionIds.length) throw new ValidationError("This Review has no questions yet.");
+  const hiddenIds = json<string[]>(row?.hiddenIds, []).map(s);
+  const count = Math.max(1, Math.min(Number(row?.count) || questionIds.length, questionIds.length));
+  const id = `${now.getTime().toString(36)}${Math.random().toString(36).slice(2, 6)}`;
+  await repo.create("TeacherReviewSet", { schoolId: actor.schoolId!, teacherUserId: to, code: customCode(g, id), questionIds, hiddenIds, count, createdAt: now, updatedAt: now });
+}
+
 /** Every Review (any grade, any Text Set, or a whole-grade Review Builder) this teacher has built so far. */
 export async function myReviews(repo: Repo, actor: Actor): Promise<MyReviewRow[]> {
   teacherOnly(actor);

@@ -664,6 +664,9 @@ export const UI_STRINGS = [
   // 📦 r92 ("اقدر ارجع لي القديم"): Review Builder — "Save & start new" replaces the old destructive "Reset",
   // archiving the current Review so it can be reopened, edited or assigned anytime from "My Reviews".
   "Save & start new", "Keep this Review exactly as it is (you can reopen it anytime from \"My Reviews\"), and start a brand-new one for Grade {n}?", "Saved ✓ — find it anytime in \"My Reviews\".", "Delete forever", "Delete this saved Review for good? This cannot be undone.", "This is a saved Review, kept separate from your current Grade {n} Review Builder — changes here only affect this saved copy.", "Open the current one →",
+  // 🔗 r93 ("اعمل review عند معلم واخليه يشير review لمعلم اخر"): Review Builder — send a copy of the whole
+  // Review straight into another teacher's own "My Reviews".
+  "Share with a teacher", "Share a copy with:", "No other teachers found at your school.", "Choose a teacher…", "Send", "Shared ✓ — they'll find it in their own \"My Reviews\".",
   // 👀 r89: Review's "collect the Text Set's own Vocabulary + Analyze Craft" button and the "Language" skills tab
   // ("Language" itself is already a UI string above, reused here as-is)
   "Collect this Text Set's Vocabulary + Analyze Craft", "Search skills", "Add selected ({n})", "No skill matches.",
