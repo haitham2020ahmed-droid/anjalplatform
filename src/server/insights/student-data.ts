@@ -7,7 +7,7 @@
 import { idsKey, sharedRead } from "../lib/shared-read";
 import type { Repo, Row } from "../seeding/repo";
 import { countGroups } from "../db/group-count";
-import { nationalNorm, seasonOf, type Season } from "../map/rit";
+import { nationalNorm, percentileFromNorm, seasonOf, type Season } from "../map/rit";
 import { bandOf as planBand } from "../map/personal-plan";
 import { cancelIndexForStudents, liveAssignmentWhere } from "../student/cancelled-work";
 
@@ -63,7 +63,10 @@ export async function mapSummaries(repo: Repo, studentIds: string[], subject: Su
       let pct = r.achievementPercentile === null || r.achievementPercentile === undefined ? null : Number(r.achievementPercentile);
       if (pct === null) {
         const n = await norm(gradeOf.get(id) ?? 0, season);
-        if (n) { const z = (Number(r.rit) - n.mean) / n.sd; pct = Math.max(1, Math.min(99, Math.round(100 / (1 + Math.exp(-1.702 * z))))); }
+        // 🔧 fix (Oct 2026): this was an inlined copy of pctOfZ's logistic approximation (not even calling pctOfZ) —
+        // a third different formula from the true-normal-CDF percentileFromNorm (rit.ts), so the same RIT could show
+        // a different percentile here than on the MAP reports. Now calls the one shared formula.
+        if (n) pct = percentileFromNorm(Number(r.rit), n);
       }
       return { rit: Number(r.rit), term: s(r.termName) || season, season, date: time(r.testDate), percentile: pct };
     };

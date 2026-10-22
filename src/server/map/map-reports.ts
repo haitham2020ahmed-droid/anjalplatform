@@ -24,12 +24,12 @@ import { classMembers, studentNames } from "../insights/student-data";
 import { isReportShared } from "../insights/parent-report";
 import { audit } from "../audit";
 import { newRowId, sendPartsBatch } from "../plans/batch-send";
-import { bandOf, seasonOf, CLASS_BAND_RIT, type Season } from "./rit";
+import { bandOf, seasonOf, CLASS_BAND_RIT, percentileFromNorm, type Season } from "./rit";
 import { groupOf, groupPools, GROUPS, mapProfiles, type GroupKey, type MapProfile, type Subject, type Descriptor } from "./map-plan";
 import { mapCache, MAP_KEEP_MS } from "./map-cache";
 import { continuumFor, continuumIndex, groupOfGoal, hasContinuum, skillsFor, type ContinuumIndex, type ContinuumView, type Stage } from "./continuum";
 import { buildRanges, skillPlan, type PlanRange } from "./skill-plan";
-import { GROWTH_SD, normFor, pctOfZ } from "./norm-tables";
+import { GROWTH_SD, normFor } from "./norm-tables";
 import { skillKeysFor, statusesOfSkills, type StarView } from "../skills/status";
 import type { StarInfo } from "../../lib/skill-stars";
 
@@ -319,7 +319,10 @@ export async function familyReport(repo: Repo, actor: Actor, studentId: string, 
     const last = rows[rows.length - 1], lp = points[points.length - 1];
     const ln = await normFor(repo, subject, lp.grade, lp.season);
     const fromFile = last.achievementPercentile !== null && last.achievementPercentile !== undefined;
-    const pct = fromFile ? Number(last.achievementPercentile) : ln ? pctOfZ((Number(last.rit) - ln.mean) / ln.sd) : null;
+    // 🔧 fix (Oct 2026): was pctOfZ's logistic approximation (100/(1+exp(-1.702*z))) — a different formula from the
+    // true-normal-CDF percentileFromNorm (rit.ts), so the same RIT showed a different percentile on this report than
+    // on others. Now calls the one shared formula, like everywhere else.
+    const pct = fromFile ? Number(last.achievementPercentile) : ln ? percentileFromNorm(Number(last.rit), ln) : null;
     // growth: from the latest Fall before the latest test
     let growth: FamilySubject["growth"] = null;
     const startIdx = [...points.keys()].reverse().find((i) => i < points.length - 1 && points[i].season === "FALL");
@@ -331,7 +334,9 @@ export async function familyReport(repo: Repo, actor: Actor, studentId: string, 
       const expected = projected ? Number(aRow.projectedGrowth) : na && ln ? ln.mean - na.mean : null;
       if (expected !== null) {
         const g = Number(last.rit) - Number(aRow.rit);
-        const gp = pctOfZ((g - expected) / (within ? GROWTH_SD.withinYear : GROWTH_SD.fallToFall));
+        // 🔧 fix (Oct 2026): same unification as above — percentileFromNorm takes (value, {mean, sd}), so the growth
+        // percentile is expressed as the growth value against a "norm" of {mean: expected, sd: growthSD}.
+        const gp = percentileFromNorm(g, { mean: expected, sd: within ? GROWTH_SD.withinYear : GROWTH_SD.fallToFall })!;
         growth = { from: a.term, to: lp.term, rit: g, expected: Math.round(expected * 10) / 10, percentile: gp, descriptor: DESCRIPTOR_NAME[bandOf(gp)], projected };
       }
     }
@@ -356,6 +361,60 @@ export async function familyReport(repo: Repo, actor: Actor, studentId: string, 
   const term = subjects.map((x) => x.latest?.term).filter(Boolean).sort().pop() ?? null;
   const note = await familyNote(repo, schoolId, studentId);
   return { student, term, subjects, practice: { answers: att.length, accuracy: att.length ? Math.round((att.filter((a) => a.isCorrect).length / att.length) * 100) : null, minutes: Math.round(att.reduce((t, a) => t + Number(a.responseMs ?? 0), 0) / 60000), mastered: mast, days }, note };
+}
+
+// 🔧 fix (Oct 2026): familyReport() above only reads MapResult (official NWEA scores imported by staff). A student
+// who has only ever taken the platform's OWN internal adaptive practice MAP test (MapSimSession, src/server/map/
+// sim.ts) has zero MapResult rows, so the "My growth over time" chart on their own My MAP page would render
+// nothing even with several practice sittings behind them. This merges both sources chronologically per subject,
+// so the student's growth line reflects every RIT they have, whichever table it lives in.
+export async function combinedRitHistory(repo: Repo, studentId: string, now = new Date()): Promise<{ subject: Subject; name: string; points: FamilyPoint[] }[]> {
+  const student = await repo.findUnique("Student", { id: studentId });
+  const studentGrade = Number(student?.grade ?? 0);
+  const [results, simRows] = await Promise.all([
+    repo.findMany("MapResult", { studentId }),
+    repo.findMany("MapSimSession", { studentId, kind: "SIM", status: "DONE" }),
+  ]);
+  const windowIds = [...new Set(simRows.map((r) => s(r.windowId)).filter(Boolean))];
+  const windows = windowIds.length ? await repo.findMany("MapSimWindow", { id: { in: windowIds } }) : [];
+  const winById = new Map(windows.map((w) => [s(w.id), w]));
+  const out: { subject: Subject; name: string; points: FamilyPoint[] }[] = [];
+  for (const subject of ["READING", "LANGUAGE"] as const) {
+    const isSubj = (v: unknown) => (subject === "READING" ? /read/i : /language/i).test(s(v));
+    type Entry = { date: number; term: string; season: Season; grade: number; rit: number };
+    const entries: Entry[] = [];
+    for (const r of results) {
+      if (!isSubj(r.subject) || r.goalName) continue;
+      const season = seasonOf(r.termName, r.testDate);
+      const grade = r.grade !== null && r.grade !== undefined ? Number(r.grade) : studentGrade;
+      entries.push({ date: time(r.testDate), term: s(r.termName), season, grade, rit: Number(r.rit) });
+    }
+    for (const row of simRows) {
+      if (s(row.subject) !== subject || row.resultRit === null || row.resultRit === undefined) continue;
+      const w = winById.get(s(row.windowId));
+      const finishedAt = row.finishedAt ?? w?.closesAt ?? w?.opensAt;
+      if (!finishedAt) continue;
+      const season = (w ? (s(w.season) as Season) : null) || seasonOf(null, finishedAt);
+      const grade = w && w.grade !== null && w.grade !== undefined ? Number(w.grade) : studentGrade;
+      entries.push({ date: time(finishedAt), term: s(w?.title), season, grade, rit: Number(row.resultRit) });
+    }
+    if (!entries.length) continue;
+    // one point per term+season+grade (the latest test matching that key), same "collapse to one per period"
+    // convention familyReport() uses, so re-testing within the same window doesn't crowd the chart with duplicates
+    const byTerm = new Map<string, Entry>();
+    for (const e of entries.sort((a, b) => a.date - b.date)) byTerm.set(`${e.term}·${e.season}·${e.grade}`, e);
+    const rows = [...byTerm.values()].sort((a, b) => a.date - b.date).slice(-8);
+    if (rows.length < 2) continue; // nothing to chart with fewer than 2 points
+    const points: FamilyPoint[] = [];
+    for (const e of rows) {
+      const n = await normFor(repo, subject, e.grade, e.season);
+      const yr = new Date(e.date).getUTCFullYear();
+      points.push({ term: e.term, label: `${e.season[0]}${e.season.slice(1).toLowerCase()} '${String(yr).slice(2)}`, season: e.season, grade: e.grade, rit: e.rit, national: n ? Math.round(n.mean) : null, nationalExact: Boolean(n?.exact) });
+    }
+    out.push({ subject, name: subject === "READING" ? "Reading" : "Language Usage", points });
+  }
+  void now;
+  return out;
 }
 
 export async function classFamilyReports(repo: Repo, actor: Actor, classId: string, now = new Date()): Promise<{ className: string; docs: FamilyDoc[] }> {

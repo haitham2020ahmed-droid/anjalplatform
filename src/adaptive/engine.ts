@@ -110,8 +110,14 @@ export function processAnswer(
     random,
   });
 
+  // 🔧 fix (Oct 2026): a skill already mastered BEFORE this answer (before.isMastered) was earning the
+  // same per-answer XP as unmastered practice, letting students farm XP by replaying mastered skills.
+  // Discount the base answer-XP once mastery was already achieved on an earlier answer; the +25 "newly
+  // mastered" bonus below (after.isMastered && !before.isMastered, i.e. THIS answer crosses the threshold)
+  // is untouched.
+  const baseXp = response.correct && !rapid && !response.usedHint ? (before.isMastered ? 1 : 2 + Math.max(0, response.level - 3)) : 0;
   const xp =
-    (response.correct && !rapid && !response.usedHint ? 2 + Math.max(0, response.level - 3) : 0) +
+    baseXp +
     (after.band !== before.band && after.score > before.score ? 10 : 0) +
     (after.isMastered && !before.isMastered ? 25 : 0);
 

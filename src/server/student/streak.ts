@@ -34,7 +34,9 @@ export async function streakAndPoints(repo: Repo, studentId: string, now = new D
   // recent days only (runs on every student home load); points are lifetime totals, so they are COUNTED
   const [recent, correct, articleRows, bonus] = await Promise.all([
     activeDays(repo, studentId, new Date(now.getTime() - STREAK_WINDOW_DAYS * DAY)),
-    repo.count("QuestionAttempt", { studentId, isCorrect: true }),
+    // 🔧 fix (Oct 2026): a rapid-guess answer (clicked too fast to have been read) should not earn points —
+    // excluded here the same way practice accuracy already excludes it elsewhere.
+    repo.count("QuestionAttempt", { studentId, isCorrect: true, rapidGuess: false }),
     // r85 audit: "25 per ReadMaster article" must mean 25 per DISTINCT, COUNTED (non-practice) article — a raw
     // repo.count() here counted every row, including repeated "Practice" reads of a below-level version of the
     // SAME article (readmaster/service.ts never limits how many times a student re-reads at Practice level), so

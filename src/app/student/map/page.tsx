@@ -17,6 +17,12 @@ import { mapPracticeSkills, type MapPracticeView } from "@/server/student/map-pr
 import { MapPracticeSkills } from "@/components/student/map-practice-skills";
 import { studentYearPlan } from "@/server/map/year-plan-share";
 import { StudentYearPlanView } from "@/components/map/student-year-plan";
+// 🆕 feature (Oct 2026): RIT growth-over-time chart on the student's own dashboard — reuses the same RitChart/
+// RitLegend SVG the Family Report uses. combinedRitHistory() merges BOTH official NWEA scores (MapResult) and
+// the platform's own internal practice MAP test (MapSimSession) — a student who has only ever taken the
+// platform's own test still sees their trend, not an empty section (familyReport() alone only reads MapResult).
+import { combinedRitHistory } from "@/server/map/map-reports";
+import { RitChart, RitLegend } from "@/components/map/report-ui";
 
 export const metadata = { title: "My MAP" };
 
@@ -41,10 +47,12 @@ export default async function StudentMapPage({ searchParams }: { searchParams: P
       </PreviewFrame></AppShell>
     );
   }
-  const [{ t }, m, work, tests, practised] = await Promise.all([
+  const [{ t }, m, work, tests, practised, history] = await Promise.all([
     getT(), myMap(repo, actor).catch((): MyMap => ({ subjects: [], plans: [] })), programWork(repo, sid, "MAP"),
     safeIfBehind("student.map.tests", myTests(repo, actor), { windows: [], warmupDone: false } as MyTests),
     safeIfBehind("student.map.practice", () => mapPracticeSkills(repo, sid), { areas: [], total: 0, counts: { MASTERED: 0, LEARNING: 0, REVIEW: 0, NOT_STARTED: 0 } } as MapPracticeView),
+    // 🆕 feature (Oct 2026): best-effort — no scores yet (either table) should never break My MAP
+    safeIfBehind("student.map.history", combinedRitHistory(repo, sid), [] as Awaited<ReturnType<typeof combinedRitHistory>>),
   ]);
   // 🧭 the MAP Test card: a test open for me (Start / Continue), or my latest result (my RIT)
   const openTests = tests.windows.filter((w) => w.open).flatMap((w) => w.sessions.filter((x) => x.status !== "DONE").map((x) => ({ w, x })));
@@ -80,6 +88,24 @@ export default async function StudentMapPage({ searchParams }: { searchParams: P
       )}
 
       <MapDashboard cards={cards} />
+
+      {/* 🆕 feature (Oct 2026): growth-over-time — the student's RIT across every past MAP window (not just the
+          latest), one small chart per subject that has 2+ points, from EITHER official NWEA scores or the
+          platform's own practice test (combinedRitHistory already filters to subjects with 2+ points). */}
+      {history.length > 0 && (
+        <section aria-labelledby="map-history-h" className="mt-4 rounded-3xl bg-white p-5 shadow-card ring-1 ring-slate-200/80 sm:p-6">
+          <h2 id="map-history-h" className="text-xl font-semibold text-brand-navy">📈 {t("My growth over time")}</h2>
+          <div className="mt-3 grid gap-5 md:grid-cols-2">
+            {history.map((x) => (
+              <div key={x.subject}>
+                <p className="text-sm font-semibold text-slate-600">{t(x.name)}</p>
+                <RitChart points={x.points} first={t("Me")} />
+                <RitLegend first={t("Me")} approx={x.points.some((p) => p.national !== null && !p.nationalExact)} />
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
 
       <Callout kind="meaning" className="mt-4" items={[
         t("RIT is my MAP score. It grows as I learn — like a height chart for reading."),

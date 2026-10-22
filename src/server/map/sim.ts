@@ -33,6 +33,7 @@ import { assertClassRead, readableClasses } from "../teacher/coordinators";
 import { assertClassAccess } from "../teacher/assignments";
 import { bandSettings, groupOf, groupPools, GROUPS, mapProfiles, ritBand, autoItems, type GroupKey, type MapProfile, type PoolQ, type Subject, type AreaStatus, type Descriptor } from "./map-plan";
 import { bandOf, ensureNationalNorms, nationalNorm, percentileFromNorm, type Season } from "./rit";
+import { isRapidGuess, itemTimeStats } from "../practice/guessing";
 import { effectiveEnd, liveKey, liveStamp, studentExtra } from "../timing/live-time";
 
 const s = (v: unknown) => String(v ?? "");
@@ -42,8 +43,6 @@ const DAY = 86_400_000;
 export const SIM_ITEMS = 50;
 export const WARMUP_ITEMS = 5;
 const PRIOR_SD = 15;
-/** answers faster than this are “rapid guesses” (not read): 3 s, or 6 s when there is a passage */
-export const rapidMs = (hasPassage: boolean) => (hasPassage ? 6000 : 3000);
 const subjectOfGroup = (g: GroupKey): Subject => groupOf(g).subject;
 const isStaff = (a: Actor) => a.role === "TEACHER" || a.role === "SCHOOL_ADMIN" || a.role === "SUPER_ADMIN";
 const isAdmin = (a: Actor) => a.role === "SCHOOL_ADMIN" || a.role === "SUPER_ADMIN";
@@ -388,7 +387,20 @@ export async function answerTest(repo: Repo, actor: Actor, sessionId: string, qu
   let ok = false, given: unknown = null;
   try { given = item ? normalizeResponse(item, response) : null; ok = Boolean(item) && scoreResponse(item as never, given as never) >= 1; } catch { ok = false; }
   const ms = Math.max(0, now.getTime() - time(row.servedAt));
-  const rapid = ms < rapidMs(Boolean(item?.passageText));
+  // 🔧 fix (Oct 2026): was a flat 3s / 6s-with-passage threshold, duplicated from (and drifted out of sync with)
+  // the real adaptive engine's smart rapid-guess detector (practice/guessing.ts: a question with ≥20 careful
+  // answers uses its OWN calibrated average time; the first question on a passage gets a threshold proportional
+  // to the passage's expected reading time, not a flat 6s). Now calls that same shared logic, with whatever is
+  // available in this sitting: the item's passage text and this question's own time-calibration stats.
+  // NOT wired through: `firstOnPassage` is approximated as "this passage's text has not appeared on an earlier
+  // question in this sitting" (a text-match over this sitting's own answers) rather than a live per-item passage
+  // id — this sim pool's items (PoolQ) carry no passageId, only the loaded item's passageText, so an exact id
+  // match (as the real engine can do) is not available here.
+  const prevIds = (await repo.findMany("MapSimAnswer", { sessionId }, { select: ["questionId"] })).map((a) => s(a.questionId));
+  const prevItems = prevIds.length ? await loadQuestionItems(repo, prevIds) : [];
+  const firstOnPassage = Boolean(item?.passageText) && !prevItems.some((p) => p.passageText === item!.passageText);
+  const itemStats = item ? await itemTimeStats(repo, s(item.questionId)) : null;
+  const rapid = isRapidGuess(ms, { passageText: item?.passageText ?? null, firstOnPassage, itemStats });
   const n = Number(row.answered) + 1;
   const area = fixed?.area ?? pool?.group.get(questionId) ?? (s(row.subject) === "LANGUAGE" ? "GRAMMAR" : "LIT");
   const itemRit = fixed ? Number(fixed.rit) : pool?.rit.get(questionId) ?? Number(row.rit);

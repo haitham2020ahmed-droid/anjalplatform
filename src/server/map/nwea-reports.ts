@@ -18,8 +18,8 @@ import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
 import { readableClasses } from "../teacher/coordinators";
 import { classMembers, studentNames } from "../insights/student-data";
-import { bandOf, seasonOf, type Season } from "./rit";
-import { normFor, pctOfZ, type NormPoint } from "./norm-tables";
+import { bandOf, percentileFromNorm, seasonOf, type Season } from "./rit";
+import { normFor, type NormPoint } from "./norm-tables";
 import { reportStudent, type ReportStudent } from "./map-reports";
 import type { Subject } from "./map-plan";
 import { mapCache, MAP_KEEP_MS } from "./map-cache";
@@ -212,7 +212,9 @@ async function termsOf(repo: Repo, ids: string[], subject: Subject, overallOnly 
  *  (NWEA doesn't publish one per area), bucketed into the same five bands. `null` with no norm to estimate from. */
 function estimatedBand(rit: number, norm: NormPoint | null): (typeof DESCRIPTORS)[number] | null {
   if (!norm || norm.sd <= 0) return null;
-  return DESCRIPTORS[quintileOf(pctOfZ((rit - norm.mean) / norm.sd))];
+  // 🔧 fix (Oct 2026): was pctOfZ's logistic approximation — unified onto the one shared true-normal-CDF formula
+  // (percentileFromNorm, rit.ts) so this estimate matches the percentile shown everywhere else for the same RIT.
+  return DESCRIPTORS[quintileOf(percentileFromNorm(rit, norm)!)];
 }
 
 function profileOf(rows: Row[], ids: string[], names: Map<string, { name: string }>, term: string, cut: number | null, norm: NormPoint | null): Omit<ClassProfile, "classId" | "className" | "grade" | "subject" | "terms" | "national" | "nationalExact"> {

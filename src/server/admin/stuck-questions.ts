@@ -67,6 +67,9 @@ export interface FixReport {
   notPublished: StuckItem[]; notPublishedCount: number;
   /** r68: removed because they need a passage / picture that is not attached (soft delete; first LIST_CAP) */
   removedNoPassage?: number; removedList?: StuckItem[];
+  /** 🔧 fix (Oct 2026): a question's answer key was corrected here after students had already answered it under the
+   *  old (missing) key — surfaced so an admin notices their past scores were not retroactively changed. */
+  warnings?: string[];
 }
 export interface StepResult { cursor: Cursor; processed: number; report: FixReport }
 
@@ -175,7 +178,13 @@ export async function classifyStep(repo: Repo, schoolId: string, actorId: string
 
 // ------------------------------------------------------------------ 2. repair
 
-export interface RepairResult { fixes: string[]; problem: string | null }
+export interface RepairResult {
+  fixes: string[]; problem: string | null;
+  /** 🔧 fix (Oct 2026): set when the "answer key" fix below actually flipped which choice is correct and students
+   *  had already answered this question under the old (missing) key — the number of those existing attempts, so
+   *  the caller can warn an admin that past scores were not retroactively changed. */
+  priorAttempts?: number;
+}
 
 const CHOICE = new Set(["MULTIPLE_CHOICE", "MULTI_SELECT", "DROPDOWN"]);
 
@@ -204,6 +213,7 @@ export async function repairQuestion(tx: Repo, q: Row, ctx: { typeCode: string |
     tx.findMany("QuestionExplanation", { questionId: id }, { select: ["id", "kind"] }),
   ]);
   const patch: Record<string, unknown> = {};
+  let priorAttempts: number | undefined;
 
   // the type: from the parts when it is missing
   let type = ctx.typeCode;
@@ -236,7 +246,15 @@ export async function repairQuestion(tx: Repo, q: Row, ctx: { typeCode: string |
         if (letters.length) for (const L of letters) { const byLabel = options.findIndex((o) => s(o.label).toUpperCase() === L); const i = byLabel >= 0 ? keep.indexOf(keep.find((x) => x.id === options[byLabel].id)!) : L.charCodeAt(0) - 65; if (i >= 0 && i < keep.length) want.add(i); }
         else { const i = keep.findIndex((o) => norm(o.text).toLowerCase() === k.toLowerCase()); if (i >= 0) want.add(i); }
       }
-      if (want.size && (type !== "MULTIPLE_CHOICE" && type !== "DROPDOWN" || want.size === 1)) { for (const i of want) keep[i].isCorrect = true; fixes.push("answer key"); }
+      if (want.size && (type !== "MULTIPLE_CHOICE" && type !== "DROPDOWN" || want.size === 1)) {
+        for (const i of want) keep[i].isCorrect = true;
+        fixes.push("answer key");
+        // 🔧 fix (Oct 2026): students may already have answered this question while it had no correct choice marked
+        // — count their attempts so the admin is warned that the key changed under them (their past scores are
+        // not changed by this repair).
+        const n = await tx.count("QuestionAttempt", { questionId: id });
+        if (n > 0) priorAttempts = n;
+      }
     }
     // a wrong choice without feedback: the platform's publish check asks for one — written from the key
     const right = keep.filter((o) => o.isCorrect);
@@ -278,8 +296,11 @@ export async function repairQuestion(tx: Repo, q: Row, ctx: { typeCode: string |
   }
 
   if (Object.keys(patch).length) await tx.updateMany("Question", { id }, { ...patch, updatedAt: now });
-  if (fixes.length) await tx.create("AuditLog", { actorId: null, action: "question.repair", entityType: "Question", entityId: id, after: { fixes: [...new Set(fixes)], via: "fix-stuck-questions" }, createdAt: now });
-  return { fixes: [...new Set(fixes)], problem: null };
+  // 🆕 feature (Oct 2026): record priorAttempts on the audit entry too (not just the return value) when the answer
+  // key changed under already-answered students — so the admin audit trail itself shows how many students were
+  // affected, without needing to cross-reference QuestionAttempt separately.
+  if (fixes.length) await tx.create("AuditLog", { actorId: null, action: "question.repair", entityType: "Question", entityId: id, after: { fixes: [...new Set(fixes)], via: "fix-stuck-questions", ...(priorAttempts !== undefined ? { priorAttempts } : {}) }, createdAt: now });
+  return { fixes: [...new Set(fixes)], problem: null, priorAttempts };
 }
 
 /** The editor's words for a publish problem, made plain. */
@@ -306,6 +327,9 @@ async function repairPublishPage(repo: Repo, actor: Actor, schoolId: string, sk:
   for (const q of page) {
     const r = await repo.transaction((tx) => repairQuestion(tx, q, { typeCode: codeOfType.get(s(q.typeId)) ?? null, typeIds, grade: sk.gradeOf.get(s(q.skillId)) ?? 0 }, now));
     if (r.fixes.length) { report.repairedQuestions++; for (const f of r.fixes) report.repaired[f] = (report.repaired[f] ?? 0) + 1; }
+    // 🔧 fix (Oct 2026): admin-visible warning when this repair changed the correct answer out from under students
+    // who had already answered the question (their past scores were not changed).
+    if (r.priorAttempts) { report.warnings = report.warnings ?? []; report.warnings.push(`Question ${s(q.id)}'s answer key was corrected after ${r.priorAttempts} student(s) had already answered it under the old key — their past scores were not changed.`); }
     if (r.problem) { no(q, r.problem); continue; }
     if (sk.hidden.includes(s(q.skillId)) && !onMap.has(s(q.id))) { no(q, "Not under a skill yet and not on the Curriculum Map: choose its skill first."); continue; }
     toPublish.push(s(q.id));
@@ -322,7 +346,7 @@ async function repairPublishPage(repo: Repo, actor: Actor, schoolId: string, sk:
 
 // ------------------------------------------------------------------ the run
 
-const emptyReport = (by: "admin" | "auto", before: StuckCounts, now: Date): FixReport => ({ startedAt: now.toISOString(), finishedAt: null, by, before, after: null, classified: 0, byVia: {}, left: [], leftCount: 0, repaired: {}, repairedQuestions: 0, published: 0, notPublished: [], notPublishedCount: 0, removedNoPassage: 0, removedList: [] });
+const emptyReport = (by: "admin" | "auto", before: StuckCounts, now: Date): FixReport => ({ startedAt: now.toISOString(), finishedAt: null, by, before, after: null, classified: 0, byVia: {}, left: [], leftCount: 0, repaired: {}, repairedQuestions: 0, published: 0, notPublished: [], notPublishedCount: 0, removedNoPassage: 0, removedList: [], warnings: [] });
 
 // ------------------------------------------------------------------ 0. passages
 

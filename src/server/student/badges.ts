@@ -5,6 +5,7 @@
  * there are no leaderboards or comparisons.
  */
 import type { Repo } from "../seeding/repo";
+import { isUniqueError } from "../db/prisma-repo";
 import { ladderSettings } from "../curriculum-map/ladder-settings";
 import { streakAndPoints } from "./streak";
 import { BADGES, type BadgeDef, type BadgeMetric } from "../../lib/badge-catalog";
@@ -27,7 +28,9 @@ async function metrics(repo: Repo, studentId: string, schoolId: string | null, n
     repo.count("ReadMasterAttempt", { studentId }),
     repo.findMany("RespondAssignmentStudent", { studentId }, { select: ["finishedAt"] }),
     streakAndPoints(repo, studentId, now),
-    repo.count("QuestionAttempt", { studentId, isCorrect: true }),
+    // 🔧 fix (Oct 2026): a rapid-guess answer should not count toward "First Steps" / "Sharp Shooter" / "Super Brain"
+    // (same exclusion as the points count in streak.ts).
+    repo.count("QuestionAttempt", { studentId, isCorrect: true, rapidGuess: false }),
     repo.findMany("MapResult", { studentId, goalName: null }, { select: ["subject", "rit", "termName", "testDate"] }),
     repo.findMany("MapSimSession", { studentId, kind: "SIM", status: "DONE" }, { select: ["subject", "resultRit", "finishedAt"] }),
     repo.count("StudentWord", { studentId }),
@@ -80,7 +83,14 @@ export async function studentBadges(repo: Repo, studentId: string, now = new Dat
   for (const b of BADGES) {
     const id = idOf.get(b.code)!, value = m[b.metric], earned = value >= b.target || have.has(id);
     let at = have.get(id);
-    if (earned && !have.has(id)) { awards.push(repo.create("StudentBadge", { studentId, badgeId: id, awardedAt: now })); have.set(id, now); at = now; }
+    // 🔧 fix (Oct 2026): two concurrent calls (e.g. two requests re-checking badges at once) could both see the badge
+    // not yet held and both insert — StudentBadge's composite PK (studentId, badgeId) then throws a unique-constraint
+    // error (P2002) on the loser. Same swallow-on-race pattern as insertLedger (motivation/coins.ts): only a unique
+    // error is swallowed, anything else is rethrown.
+    if (earned && !have.has(id)) {
+      awards.push(repo.create("StudentBadge", { studentId, badgeId: id, awardedAt: now }).catch((e) => { if (!isUniqueError(e)) throw e; }));
+      have.set(id, now); at = now;
+    }
     out.push({ ...b, earned, earnedAt: at ? new Date(at instanceof Date ? at.toISOString() : s(at)).toISOString() : null, value: Math.min(value, b.target) });
   }
   await Promise.all(awards);

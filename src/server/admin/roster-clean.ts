@@ -197,7 +197,9 @@ export async function deleteStudentsPermanently(repo: Repo, actor: Actor, scope:
     rows += await tx.deleteMany("Session", { userId: { in: userIds } });
     rows += await tx.deleteMany("Notification", { userId: { in: userIds } });
     rows += await tx.deleteMany("User", { id: { in: userIds } });
-    await tx.create("AuditLog", { actorId: actor.userId, action: "roster.delete", entityType: "Student", entityId: null, after: { count: ids.length, scope }, createdAt: now });
+    // 🆕 feature (Oct 2026): include the deleted students' own ids in the audit details, not just the count —
+    // this is a permanent delete, so the ids are the only trace left of exactly who was removed.
+    await tx.create("AuditLog", { actorId: actor.userId, action: "roster.delete", entityType: "Student", entityId: null, after: { count: ids.length, scope, ids }, createdAt: now });
   });
   return { students: ids.length, rows };
 }

@@ -518,7 +518,9 @@ export async function saveWriting(repo: Repo, actor: Actor, taskId: string, text
   const data: Record<string, unknown> = { text: body, status: "DRAFT", submittedAt: null, updatedAt: now };
   if (submit) {
     if (t.minWords && words(body) < Number(t.minWords)) throw new ValidationError(`Write at least ${t.minWords} words (you have ${words(body)}).`);
-    if (words(body) < 3) throw new ValidationError("Write your answer first.");
+    // 🔧 fix (Oct 2026): 3 words let near-empty submissions ("idk" + 2 words) count as "written" on tasks
+    // the teacher left without a minWords; raise the fallback floor to 15 words. Unaffected when minWords IS set.
+    if (words(body) < 15) throw new ValidationError("Write your answer first.");
     const genre = genreOf(t);
     if (checklistRequired(genre)) {
       const c = checkChecklist(genre, opts.checklist);

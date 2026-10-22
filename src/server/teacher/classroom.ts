@@ -148,7 +148,10 @@ async function weekAnswers(repo: Repo, studentIds: string[], from: Date): Promis
   if (!studentIds.length) return { n: 0, ms: 0, days: new Map() };
   const at = await repo.findMany("QuestionAttempt", { studentId: { in: studentIds }, createdAt: { gte: from } }, { select: ["studentId", "responseMs", "createdAt"] });
   const days = new Map<string, Set<string>>();
-  for (const a of at) { const k = s(a.studentId); const d = new Date(time(a.createdAt)).toISOString().slice(0, 10); days.set(k, (days.get(k) ?? new Set()).add(d)); }
+  // 🔧 fix (Oct 2026): this bucketed each attempt's "day" from raw UTC, while weekStart() (above) buckets the
+  // WEEK boundary in Riyadh time (UTC+3) — for ~21:00–23:59 UTC (00:00–02:59 Riyadh) an attempt landed on the
+  // wrong calendar day here, inflating/undercounting the weekly rhythm's distinct practice-day count.
+  for (const a of at) { const k = s(a.studentId); const d = new Date(time(a.createdAt) + CLASSROOM_RIYADH).toISOString().slice(0, 10); days.set(k, (days.get(k) ?? new Set()).add(d)); }
   return { n: at.length, ms: at.reduce((t, a) => t + Math.min(Number(a.responseMs ?? 0), 180_000), 0), days };
 }
 
@@ -215,7 +218,9 @@ export async function studentWeek(repo: Repo, actor: Actor, now = new Date()): P
     const cls = await repo.findUnique("Class", { id: c });
     if (g && !klass) { const p = await goalProgress(repo, s(g.kind) as GoalKind, await classMembers(repo, c), ws); klass = { kind: s(g.kind) as GoalKind, target: Number(g.target), progress: p, title: g.title ? s(g.title) : null, done: p >= Number(g.target), className: s(cls?.name) }; }
     const r = await classRhythm(repo, actor.schoolId!, c);
-    if (r && !rhythm) rhythm = { ...r, daysDone: w.days.get(sid)?.size ?? 0, className: s(cls?.name) };
+    // 🔧 fix (Oct 2026): defensive cap so the displayed fraction can never exceed the goal (e.g. "5 / 3"),
+    // even on an edge case the timezone fix above doesn't catch.
+    if (r && !rhythm) rhythm = { ...r, daysDone: Math.min(w.days.get(sid)?.size ?? 0, r.days), className: s(cls?.name) };
   }
   // reminder: from Wednesday, once a week, when the practice days are behind
   const dow = (now.getUTCDay() + 6) % 7;   // Monday 0

@@ -221,8 +221,12 @@ export async function dataHealth(repo: Repo, actor: Actor, now = new Date()): Pr
     const pr = await activityStats(repo, part, now, attempts);
     for (const [k, v] of nm) names.set(k, v);
     for (const [k, v] of pr) practice.set(k, v);
-    for (const x of maps) hasMap.add(s(x.studentId));
-    for (const x of diag) hasDiag.add(s(x.studentId));
+    // 🔧 fix (Oct 2026): a per-goal-area MAP sub-score shouldn't count as "has a MAP score" — only
+    // the overall/total row (goalName null) does, matching mapSummaries/familyReport/studentProfile.
+    for (const x of maps) if (!x.goalName) hasMap.add(s(x.studentId));
+    // 🔧 fix (Oct 2026): an invalid (rapid-guessed or stale) Diagnostic shouldn't count as "took the
+    // Diagnostic" here — apply the same diagnosticValid() check used elsewhere for level decisions.
+    for (const x of diag) if (diagnosticValid({ rapid: Number(x.rapid ?? 0), total: Number(x.total ?? 0), at: d(x.completedAt)?.getTime() ?? 0 }, now).valid) hasDiag.add(s(x.studentId));
     // the student's grade from their own grade row (as gradeOfStudents does), without reading the students again
     const otherGrades = [...new Set([...nm.values()].map((n) => n.gradeId).filter((g) => g && !levelOfGrade.has(g)))];
     if (otherGrades.length) for (const g of await repo.findMany("Grade", { id: { in: otherGrades } }, { select: ["id", "level"] })) levelOfGrade.set(s(g.id), Number(g.level ?? 0));

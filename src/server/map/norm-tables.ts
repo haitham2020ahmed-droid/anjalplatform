@@ -38,6 +38,3 @@ export async function normFor(repo: Repo, subject: "READING" | "LANGUAGE", grade
   if (fall === undefined || !r) return null;
   return { mean: Math.round((fall + (r[season] - r.FALL)) * 10) / 10, sd: ACHIEVEMENT_SD - 1, exact: false };
 }
-
-/** Percentile from a z-score (logistic approximation of the normal curve, as elsewhere on the platform). */
-export const pctOfZ = (z: number) => Math.max(1, Math.min(99, Math.round(100 / (1 + Math.exp(-1.702 * z)))));

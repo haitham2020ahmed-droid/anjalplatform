@@ -533,7 +533,9 @@ async function ensureClassAssignmentUnlocked(repo: Repo, t: Row, klass: Row, act
   const a = await repo.create("Assignment", { classId: klass.id, createdById: lead.teacherId, title: s(t.title), target: "ASSESSMENT", track: "CURRICULUM", assessmentId: t.assessmentId, startAt: opensAt, dueAt: closesAt, note: `${PERIOD_LABEL[asPeriod(t.period)]} Diagnostic Test`, createdAt: now, source: "CURRICULUM" });
   await repo.createMany("AssignmentStudent", members.map((studentId) => ({ assignmentId: a.id, studentId, status: "NOT_STARTED", progress: 0 })));
   const users = await repo.findMany("Student", { id: { in: members } }, { select: ["userId"] });
-  await repo.createMany("Notification", users.map((u) => ({ userId: u.userId, type: "NEW_ASSIGNMENT", title: "📝 Your Diagnostic Test is ready", body: `${s(t.title)}: about ${DIAGNOSTIC_SIZE} questions. Take your time and do your best — there is no score shown until your teacher shares your report.`, link: `/quiz/${s(a.id)}`, readAt: null, createdAt: now })));
+  // 🔧 fix (Oct 2026): this spelled out the internal question count (DIAGNOSTIC_SIZE) in student-facing text;
+  // reworded to avoid the specific number, matching map-notify.ts's deliberately number-free notification style.
+  await repo.createMany("Notification", users.map((u) => ({ userId: u.userId, type: "NEW_ASSIGNMENT", title: "📝 Your Diagnostic Test is ready", body: `${s(t.title)}: take your time and do your best — there is no score shown until your teacher shares your report.`, link: `/quiz/${s(a.id)}`, readAt: null, createdAt: now })));
   void actorUserId;
   return true;
 }
@@ -818,5 +820,10 @@ export async function resetDiagnosticAttempt(repo: Repo, actor: Actor, diagnosti
     await repo.deleteMany("PracticeSession", { id: { in: sessions.map((x) => s(x.id)) } });
   }
   if (score) await repo.deleteMany("DiagnosticScore", { id: s(score.id) });
+  // 🔧 fix (Oct 2026): this cleared the quiz data but left the student's AssignmentStudent row for this Diagnostic
+  // assignment as COMPLETED (progress 1, completedAt set), so "My Work" still showed it done and never offered the
+  // retake — only THIS student's row(s) on the SAME diagnostic assignments are touched, never other students' or
+  // other assignments' rows.
+  if (assignments.length) await repo.updateMany("AssignmentStudent", { studentId, assignmentId: { in: assignments.map((a) => s(a.id)) } }, { status: "NOT_STARTED", completedAt: null, progress: 0 });
   await audit(repo, { actorId: actor.userId, action: "diagnostic.reset_attempt", entityType: "DiagnosticTest", entityId: s(diagnosticId), after: { studentId, hadScore: Boolean(score) }, at: now });
 }
