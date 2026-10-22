@@ -93,6 +93,11 @@ export const REPORTS: ReportDef[] = [
   { key: "curriculum-results", category: "My class", line: "compass", title: "Curriculum results", hint: "How the class did on each unit and skill.",
     classUrl: (p) => `/teacher/curriculum-results?${qs({ classId: p.classId })}`,
     match: on(/^\/teacher\/curriculum-results$/, "class") },
+  // 🆕 feature (Oct 2026): a class-level report of sent Reviews (Review Builder / per-Text-Set Review ⭐ Assign),
+  // separate from Student Skills (which excludes multi-skill work like a Review by design — see review-reports.ts).
+  { key: "review-reports", category: "My class", line: "file", title: "Review Reports", hint: "Every Review you sent to a class: who finished, who is overdue, accuracy, and a per-skill breakdown.",
+    classUrl: (p) => `/teacher/reports/review-reports?${qs({ classId: p.classId })}`,
+    match: on(/^\/teacher\/reports\/review-reports$/, "class") },
   { key: "grammar", category: "My class", line: "layers", title: "Grammar results", hint: "Grammar skills: mastery, common errors, what to reteach.", period: true,
     classUrl: (p) => `/teacher/reports/grammar?${qs({ classId: p.classId, days: per(p.period).days })}`,
     studentUrl: (p) => `/teacher/reports/grammar/${id(p.studentId)}?${qs({ days: per(p.period).days })}`,

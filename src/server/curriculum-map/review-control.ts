@@ -27,7 +27,7 @@ import { loadQuestionItems } from "../practice/items";
 import { questionsOfSkill, schoolSkillIndex } from "../questions/skill-questions";
 import { anthropicProvider, buildPrompt, chooseAiProvider, geminiProvider, parseGenerated, type AiProvider } from "../ai/question-generator";
 import { aiEnv } from "../ai/env";
-import { assignQuestions } from "../teacher/assign";
+import { assignQuestions, updateSentReview, type UpdateSentReviewResult } from "../teacher/assign";
 
 const s = (v: unknown) => String(v ?? "");
 // 🔓 r90 ("خليه بدون حد"): no practical cap any more, on a single Text Set's Review or the multi-Set Review Builder
@@ -630,6 +630,25 @@ export async function reviewAssign(repo: Repo, actor: Actor, code: string, input
     // itself allows up to MAX_REVIEW), same as Adaptive already could.
     ...(input.adaptive ? { adaptive: input.adaptive } : { test: true, testCap: MAX_REVIEW, shuffle: Boolean(input.shuffle) }),
   }, now);
+}
+
+/**
+ * 🆕 feature (Oct 2026, "عايز اقدر اعدل Review بعد ما بعتها"): save changes to an ALREADY-SENT Review of this
+ * place, in place — reads this teacher's CURRENT Review state (same `st.questionIds.slice(0, st.count)` reviewAssign
+ * itself would send today) as the desired set, and hands it to updateSentReview (assign.ts), which is the one that
+ * actually enforces the "a question anyone already answered is never removed or changed" safety rule — see its
+ * own comment for exactly how. Adaptive Reviews have no fixed per-student set to edit this way (each student
+ * already draws live from the whole pool), so this is Fixed-Review only, same as the shuffle option above.
+ */
+export async function reviewUpdateSent(repo: Repo, actor: Actor, code: string, assignmentId: string, input: { title?: string } = {}, now = new Date()): Promise<UpdateSentReviewResult> {
+  teacherOnly(actor);
+  const node = await reviewPlace(repo, actor.schoolId!, code);
+  const st = await stateOf(repo, actor, node);
+  if (!st.questionIds.length) throw new ValidationError("Your Review has no questions: add some first.");
+  const ids = st.questionIds.slice(0, st.count);
+  if (!ids.length) throw new ValidationError("Your Review has no questions: add some first.");
+  const title = input.title ? input.title.slice(0, 150) : undefined;
+  return updateSentReview(repo, actor, { assignmentId, questionIds: ids, title }, now);
 }
 
 /* =========================================================================================================

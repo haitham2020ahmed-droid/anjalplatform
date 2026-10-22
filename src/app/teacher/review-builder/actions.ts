@@ -7,7 +7,7 @@ import {
   type CustomReviewChange, type CustomReviewView, type ReviewSetUnit, type ReviewSkillUnit, type SchoolTeacher, type WrittenQuestion,
 } from "@/server/curriculum-map/review-control";
 import type { BankFilter, BankResults, CopyEdit } from "@/server/tests/review";
-import { assignQuestions } from "@/server/teacher/assign";
+import { assignQuestions, convertReviewToAdaptive, sentReviewAssignmentsForClass, updateSentReview, type ConvertReviewToAdaptiveResult, type SentReviewSummary, type UpdateSentReviewResult } from "@/server/teacher/assign";
 
 type Out<T> = { ok: true; value: T } | { ok: false; message: string };
 const known = (e: unknown) => e instanceof ValidationError || e instanceof ForbiddenError;
@@ -113,4 +113,32 @@ export async function customReviewAssignAction(input: {
       ...(input.adaptive ? { adaptive: input.adaptive } : { test: true, testCap: MAX_REVIEW, shuffle: Boolean(input.shuffle) }),
     });
   });
+}
+/** 🆕 Reviews already sent to a class (so "⭐ Assign" can offer "update this sent Review" instead of a new one). */
+export async function sentReviewsForClassAction(classId: string): Promise<Out<SentReviewSummary[]>> {
+  const actor = await requireActor(TEACHER);
+  return run(() => sentReviewAssignmentsForClass(repo, actor, String(classId ?? "")));
+}
+/**
+ * 🆕 Save changes to an already-sent whole-grade Review Builder assignment IN PLACE (Fixed only — Adaptive has no
+ * fixed per-student set to edit this way). Reads the SAME current draft `customReviewAssignAction` above would
+ * send as a brand-new Assignment, and hands it to updateSentReview (assign.ts), which is what actually enforces
+ * the "a question anyone already answered is never removed or changed" safety rule — see its own comment.
+ */
+export async function customReviewUpdateAction(input: { grade: number; assignmentId: string; title?: string; rev?: string }): Promise<Out<UpdateSentReviewResult>> {
+  const actor = await requireActor(TEACHER);
+  return run(async () => {
+    const v = await customReviewView(repo, actor, Number(input.grade), input.rev || undefined);
+    const ids = v.questions.map((q) => q.id).slice(0, v.count || v.questions.length);
+    if (!ids.length) throw new ValidationError("Collect some questions first.");
+    return updateSentReview(repo, actor, { assignmentId: String(input.assignmentId ?? ""), questionIds: ids, title: input.title }, new Date());
+  });
+}
+/**
+ * 🆕 Flip an already-sent Fixed Review to Adaptive IN PLACE — only allowed while ZERO students have answered
+ * anything on it yet (see convertReviewToAdaptive's own comment in assign.ts for exactly why).
+ */
+export async function convertReviewToAdaptiveAction(assignmentId: string, input?: { maxQuestions?: number; targetCorrect?: number }): Promise<Out<ConvertReviewToAdaptiveResult>> {
+  const actor = await requireActor(TEACHER);
+  return run(() => convertReviewToAdaptive(repo, actor, { assignmentId: String(assignmentId ?? ""), maxQuestions: input?.maxQuestions, targetCorrect: input?.targetCorrect }, new Date()));
 }

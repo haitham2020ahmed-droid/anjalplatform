@@ -671,6 +671,258 @@ export async function assignQuestions(repo: Repo, actor: Actor, input: AssignQue
   return { assignmentId: id, students: recipients.length, questions: ids.length };
 }
 
+export interface UpdateSentReviewInput {
+  assignmentId: string;
+  /** the desired full question list, in the order the teacher wants them — e.g. the Review Builder's current
+   * draft, already sliced to its chosen count (exactly what a fresh ⭐ Assign would send today). */
+  questionIds: string[];
+  /** the Review's title, used EXACTLY (never "(N questions)" appended), same convention as reviewAssign /
+   * customReviewAssignAction's `exactTitle: true`. undefined = leave the title as it is. */
+  title?: string;
+  /** undefined = leave as it is; null clears it */
+  note?: string | null;
+  dueAt?: Date | null;
+  startAt?: Date | null;
+}
+
+export interface UpdateSentReviewResult {
+  /** brand-new questions no student has seen before, now added to the live set */
+  added: number;
+  /** unanswered questions dropped from the live set */
+  removed: number;
+  /** questions at least one student already answered — kept exactly as they were, not counted in added/removed */
+  lockedKept: number;
+  /** of the questions the teacher's desired list dropped, how many were locked and so were kept anyway */
+  protectedFromRemoval: number;
+  /** AssignmentStudent rows (NOT_STARTED or IN_PROGRESS) whose bookkeeping was refreshed for the new set */
+  studentsAffected: number;
+  /** the live set's size after the edit */
+  questions: number;
+}
+
+/**
+ * 🆕 feature (Oct 2026, "عايز اقدر اعدل Review بعد ما بعتها"): edits an ALREADY-SENT question-set Review (an
+ * Assignment + Assessment built by assignQuestions, e.g. from the Review Builder's ⭐ Assign) IN PLACE — the same
+ * Assignment and Assessment keep their id, so students and the teacher keep seeing the SAME assignment, just with
+ * an up-to-date question set / title / dates, instead of the teacher having to send a whole new, separate
+ * Assignment every time the Review changes (which used to leave students who'd already started seeing the old,
+ * possibly-wrong set forever, since editing the Review Builder draft never reached an already-sent Assignment).
+ *
+ * SAFETY RULE (confirmed with the product owner, finer-grained than question-sets.ts's swapInSets, which blocks a
+ * WHOLE assignment the moment ANYONE started it): a question that at least ONE assigned student has ALREADY
+ * ANSWERED — any QuestionAttempt of any PracticeSession of this assignment, whatever that student's status is
+ * NOW (even if they have since finished) — is LOCKED: its AssessmentQuestion row (content, order, everything) is
+ * never written to by this function, so it can never be removed or changed. Only questions nobody has answered
+ * yet ("free") may be added, removed or reordered; locked rows are left exactly where they were, and new/kept
+ * free rows are simply given fresh `order` values, all higher than every locked row's, so the free portion can be
+ * freely replaced without ever having to touch (or risk) a locked row. Per C-1 (see refreshQuestionSets below,
+ * and assign.ts's own comment on it), a student whose AssignmentStudent.status is already COMPLETED is left
+ * completely untouched — refreshQuestionSets skips them on its own; only NOT_STARTED / IN_PROGRESS students'
+ * status/progress are refreshed here to match the new question count.
+ */
+export async function updateSentReview(repo: Repo, actor: Actor, input: UpdateSentReviewInput, now = new Date()): Promise<UpdateSentReviewResult> {
+  assertCan(actor, "assignments:create");
+  const a = await repo.findUnique("Assignment", { id: input.assignmentId });
+  if (!a || a.deletedAt) throw new ForbiddenError("Assignment not found.");
+  if (a.target !== "ASSESSMENT" || !a.assessmentId) throw new ValidationError("Only a sent Review (built from chosen questions) can be edited this way.");
+  const klass = await assertClassAccess(repo, actor, s(a.classId));
+
+  const desired = [...new Set((input.questionIds ?? []).map(s).filter(Boolean))];
+  if (!desired.length) throw new ValidationError("Choose at least one question.");
+  if (desired.length > 2000) throw new ValidationError("Choose at most 2000 questions at a time.");
+
+  const assessmentId = s(a.assessmentId);
+  const [existing, sessions] = await Promise.all([
+    repo.findMany("AssessmentQuestion", { assessmentId }),
+    repo.findMany("PracticeSession", { assignmentId: input.assignmentId }, { select: ["id"] }),
+  ]);
+  const existingIds = new Set(existing.map((r) => s(r.questionId)));
+  const sessionIds = sessions.map((x) => s(x.id));
+  // "answered by anyone assigned to THIS assignment" — the core safety check; independent of any one student's
+  // own status, so a question a now-COMPLETED student answered stays locked for everybody else too
+  const attempts = sessionIds.length ? await repo.findMany("QuestionAttempt", { sessionId: { in: sessionIds } }, { select: ["questionId"] }) : [];
+  const lockedIds = new Set([...new Set(attempts.map((x) => s(x.questionId)))].filter((id) => existingIds.has(id)));
+
+  const lockedRows = existing.filter((r) => lockedIds.has(s(r.questionId)));
+  const oldFreeRows = existing.filter((r) => !lockedIds.has(s(r.questionId)));
+  const oldFreeIds = new Set(oldFreeRows.map((r) => s(r.questionId)));
+
+  // the desired free portion: the teacher's own order, with any locked id dropped (it already sits in the locked
+  // block untouched below — never duplicated, never removed just because the teacher's list left it out)
+  const desiredFreeIds = desired.filter((id) => !lockedIds.has(id));
+  const protectedFromRemoval = [...lockedIds].filter((id) => !desired.includes(id)).length;
+  const newFreeIds = desiredFreeIds.filter((id) => !oldFreeIds.has(id));
+  const removedIds = [...oldFreeIds].filter((id) => !desiredFreeIds.includes(id));
+
+  if (newFreeIds.length) {
+    // the same eligibility checks assignQuestions itself makes (published, auto-scored, this school), for the
+    // NEW content only — kept/locked content was already checked when it was first assigned; a question that
+    // went unpublished since is already hidden live by quizContext's own "still published" filter in
+    // practice/session.ts, so it can never be served to a student even if it were still a row here
+    const qs = await repo.findMany("Question", { id: { in: newFreeIds } }, { select: ["id", "skillId", "status", "deletedAt", "typeId"] });
+    if (qs.length !== newFreeIds.length || qs.some((q) => q.status !== "PUBLISHED" || q.deletedAt)) throw new ValidationError("Only published questions can be added.");
+    const types = await repo.findMany("QuestionType", { id: { in: [...new Set(qs.map((q) => q.typeId))] } }, { select: ["id", "code", "isAutoScored"] });
+    const manual = qs.filter((q) => { const t = types.find((x) => x.id === q.typeId); return !t || t.code === "SHORT_ANSWER" || t.isAutoScored === false; });
+    if (manual.length) throw new ValidationError(`${manual.length} of these questions ${manual.length === 1 ? "is a short answer" : "are short answers"} that a teacher must mark, so ${manual.length === 1 ? "it" : "they"} cannot be added here.`);
+    const skills = await repo.findMany("Skill", { id: { in: [...new Set(qs.map((q) => q.skillId))] } }, { select: ["id", "curriculumId"] });
+    const curs = await repo.findMany("Curriculum", { id: { in: [...new Set(skills.map((k) => k.curriculumId))] } }, { select: ["id", "gradeId"] });
+    const grades = await repo.findMany("Grade", { id: { in: [...new Set(curs.map((c) => c.gradeId))] } }, { select: ["id", "schoolId"] });
+    if (grades.some((g) => g.schoolId !== klass.schoolId)) throw new ForbiddenError("These questions belong to another school.");
+  }
+  // every new/kept free row gets a fresh `order`, strictly after every LOCKED row's own (untouched) order — so the
+  // free portion can be freely replaced/reordered with no risk of ever colliding with, or displacing, a locked row
+  const baseOrder = lockedRows.length ? Math.max(...lockedRows.map((r) => Number(r.order))) + 1 : 0;
+
+  const title = input.title && s(input.title).trim() ? s(input.title).replace(/\s+/g, " ").trim().slice(0, 180) : null;
+  const note = input.note === undefined ? undefined : (s(input.note).replace(/\s+/g, " ").trim().slice(0, 1000) || null);
+  const dueAt = input.dueAt === undefined ? undefined : d(input.dueAt);
+  const startAt = input.startAt === undefined ? undefined : d(input.startAt);
+  if (dueAt && dueAt.getTime() < now.getTime() - 60_000) throw new ValidationError("The due date is in the past.");
+  if (dueAt && startAt && dueAt <= startAt) throw new ValidationError("The due date must be after the start date.");
+
+  const before = await repo.findMany("AssignmentStudent", { assignmentId: input.assignmentId }, { select: ["studentId", "status"] });
+  const studentsAffected = before.filter((r) => r.status === "NOT_STARTED" || r.status === "IN_PROGRESS").length;
+
+  await repo.transaction(async (tx) => {
+    // the WHOLE free portion is deleted and recreated (kept ones included) so it gets one clean, teacher-ordered
+    // sequence after the locked block — locked rows are never part of this delete, so they are never at risk
+    if (oldFreeRows.length) await tx.deleteMany("AssessmentQuestion", { assessmentId, questionId: { in: [...oldFreeIds] } });
+    if (desiredFreeIds.length) await tx.createMany("AssessmentQuestion", desiredFreeIds.map((questionId, i) => ({ assessmentId, questionId, order: baseOrder + i, points: 1 })));
+    if (title) {
+      await tx.updateMany("Assignment", { id: input.assignmentId }, { title: title.slice(0, 191) });
+      await tx.updateMany("Assessment", { id: assessmentId }, { title: title.slice(0, 191) });
+    }
+    const patch: Record<string, unknown> = {};
+    if (note !== undefined) patch.note = note;
+    if (dueAt !== undefined) patch.dueAt = dueAt;
+    if (startAt !== undefined) patch.startAt = startAt;
+    if (Object.keys(patch).length) await tx.updateMany("Assignment", { id: input.assignmentId }, patch);
+    await audit(tx, {
+      actorId: actor.userId, action: "assignment.update_sent_review", entityType: "Assignment", entityId: input.assignmentId,
+      before: { questions: existing.length, title: s(a.title) },
+      after: { questions: lockedRows.length + desiredFreeIds.length, added: newFreeIds.length, removed: removedIds.length, lockedKept: lockedRows.length, title: title ?? s(a.title) },
+      at: now,
+    });
+  });
+
+  // NOT_STARTED / IN_PROGRESS students' status/progress now reflect the new question count; COMPLETED students are
+  // skipped by refreshQuestionSets's own C-1 guard ("finished work is never moved back") — untouched, as required
+  const fresh = await repo.findUnique("Assignment", { id: input.assignmentId });
+  if (fresh) await refreshQuestionSets(repo, [fresh], null, now);
+
+  return { added: newFreeIds.length, removed: removedIds.length, lockedKept: lockedRows.length, protectedFromRemoval, studentsAffected, questions: lockedRows.length + desiredFreeIds.length };
+}
+
+export interface ConvertReviewToAdaptiveInput {
+  assignmentId: string;
+  /** optional overrides; sensible defaults are used otherwise (see convertReviewToAdaptive's own comment) */
+  maxQuestions?: number;
+  targetCorrect?: number;
+}
+
+export interface ConvertReviewToAdaptiveResult {
+  converted: boolean;
+  /** present only when converted is false: why, for the teacher to read as-is */
+  reason?: string;
+  /** the set's question count (unchanged by this call either way) */
+  questions: number;
+}
+
+/**
+ * 🆕 feature (Oct 2026, "خليها Adaptive بعد ما بعتها"): flips an already-sent FIXED Review (an Assignment +
+ * Assessment built by assignQuestions, target ASSESSMENT) to Adaptive IN PLACE — same Assignment/Assessment id,
+ * so students and the teacher keep seeing the same assignment, just now drawing adaptively from its pool.
+ *
+ * SAFETY RULE: allowed ONLY when ZERO students have answered anything on this assignment yet (every
+ * AssignmentStudent row is still NOT_STARTED — checked directly via "any QuestionAttempt of any PracticeSession of
+ * this assignmentId", same technique updateSentReview already uses for its locked-question detection, since that is
+ * more robust than trusting AssignmentStudent.status alone). Once ANYONE has answered, converting is semantically
+ * broken: the adaptive engine (leveled-run.ts's adaptiveNext) fixes the student's starting rung from the LEVEL OF
+ * THE FIRST QUESTION THEY ANSWERED (`attempts[0]`) and then replays every answer through decideLevel assuming
+ * adaptive-engine-chosen ordering — a fixed, teacher-chosen order was never built with that replay in mind, so the
+ * starting level becomes an accident of whichever question the teacher happened to put first, while those answers
+ * still count against the question budget (maxQuestions/targetCorrect). With ZERO prior answers there is no
+ * history to misinterpret: adaptiveNext's first call sees `attempts.length === 0` and picks the start level the
+ * normal way (startLevel()), exactly as if the set had been Adaptive from the very start — so the conversion is
+ * fully safe precisely in, and only in, that case.
+ */
+export async function convertReviewToAdaptive(repo: Repo, actor: Actor, input: ConvertReviewToAdaptiveInput, now = new Date()): Promise<ConvertReviewToAdaptiveResult> {
+  assertCan(actor, "assignments:create");
+  const a = await repo.findUnique("Assignment", { id: input.assignmentId });
+  if (!a || a.deletedAt) throw new ForbiddenError("Assignment not found.");
+  if (a.target !== "ASSESSMENT" || !a.assessmentId) throw new ValidationError("Only a sent Review (built from chosen questions) can be converted this way.");
+  await assertClassAccess(repo, actor, s(a.classId));
+
+  const assessmentId = s(a.assessmentId);
+  const [set, existing, sessions] = await Promise.all([
+    repo.findUnique("Assessment", { id: assessmentId }),
+    repo.findMany("AssessmentQuestion", { assessmentId }, { select: ["questionId"] }),
+    repo.findMany("PracticeSession", { assignmentId: input.assignmentId }, { select: ["id"] }),
+  ]);
+  const questions = existing.length;
+  if (!set) throw new ForbiddenError("Assignment not found.");
+  if (set.isAdaptive) return { converted: false, reason: "This Review is already Adaptive.", questions };
+
+  // the core safety check: has ANY student assigned to THIS assignment answered ANYTHING yet (whatever their
+  // status is now) — independent of AssignmentStudent.status, same robustness as updateSentReview's lock check
+  const sessionIds = sessions.map((x) => s(x.id));
+  const attempts = sessionIds.length ? await repo.findMany("QuestionAttempt", { sessionId: { in: sessionIds } }, { select: ["id"] }) : [];
+  if (attempts.length) {
+    const started = await repo.count("AssignmentStudent", { assignmentId: input.assignmentId, status: { not: "NOT_STARTED" } });
+    return { converted: false, reason: `${started} student${started === 1 ? " has" : "s have"} already started this Review, so it can't be converted to Adaptive. Send a new Adaptive Review instead.`, questions };
+  }
+
+  // sensible defaults, mirroring assignQuestions' own adaptive-creation path: a goal of correct answers caps the
+  // pool read at GOAL_SAFETY_CAP (the student may keep going until they reach it); without a goal, the whole
+  // existing question set stays the pool (nothing the teacher already collected is dropped by converting)
+  const target = input.targetCorrect ? Math.max(5, Math.min(50, Math.round(input.targetCorrect))) : null;
+  const maxQuestions = target ? GOAL_SAFETY_CAP : Math.max(1, Math.min(questions, Math.round(input.maxQuestions || questions)));
+
+  await repo.transaction(async (tx) => {
+    await tx.updateMany("Assessment", { id: assessmentId }, { isAdaptive: true, maxQuestions, targetCorrect: target });
+    await audit(tx, {
+      actorId: actor.userId, action: "assignment.convert_to_adaptive", entityType: "Assignment", entityId: input.assignmentId,
+      before: { isAdaptive: false }, after: { isAdaptive: true, maxQuestions, targetCorrect: target }, at: now,
+    });
+  });
+  return { converted: true, questions };
+}
+
+export interface SentReviewSummary { assignmentId: string; title: string; createdAt: string; dueAt: string | null; questions: number; students: number; isAdaptive: boolean }
+
+/**
+ * 🆕 feature (Oct 2026): question-set Reviews this teacher already sent to a class (Assignment.target ASSESSMENT,
+ * not a My Tests test), newest first — lets the Review Builder's ⭐ Assign dialog offer "update this sent Review
+ * instead of sending a new one" for the chosen class, since there is no stored link from an Assignment back to the
+ * TeacherReviewSet it was built from (the Review Builder may have changed since) — the teacher picks the one they
+ * mean from their own recent sends, same as choosing a class or students today.
+ */
+export async function sentReviewAssignmentsForClass(repo: Repo, actor: Actor, classId: string): Promise<SentReviewSummary[]> {
+  assertCan(actor, "assignments:read");
+  const klass = await assertClassAccess(repo, actor, classId);
+  const teacher = await assigningTeacher(repo, actor, String(klass.id));
+  if (!teacher) return [];
+  // testId / curriculumPlanId excluded: My Tests and curriculum-plan places are built from the same assignQuestions
+  // helper but are not "a Review" the teacher edits here — only plain question-set sends (Review Builder, the
+  // shared ⭐ Assign window's "I'll pick the questions") show up to update
+  const rows = await repo.findMany("Assignment", { classId: klass.id, target: "ASSESSMENT", testId: null, curriculumPlanId: null, deletedAt: null, createdById: teacher.id }, { select: ["id", "title", "createdAt", "dueAt", "assessmentId"] });
+  if (!rows.length) return [];
+  const assessmentIds = [...new Set(rows.map((r) => s(r.assessmentId)))];
+  const [qRows, sRows, sets] = await Promise.all([
+    repo.findMany("AssessmentQuestion", { assessmentId: { in: assessmentIds } }, { select: ["assessmentId"] }),
+    repo.findMany("AssignmentStudent", { assignmentId: { in: rows.map((r) => s(r.id)) } }, { select: ["assignmentId"] }),
+    // 🆕 feature (Oct 2026): so the UI can offer "Convert to Adaptive" only for a Review that is still Fixed
+    repo.findMany("Assessment", { id: { in: assessmentIds } }, { select: ["id", "isAdaptive"] }),
+  ]);
+  const qCount = new Map<string, number>(); for (const x of qRows) qCount.set(s(x.assessmentId), (qCount.get(s(x.assessmentId)) ?? 0) + 1);
+  const sCount = new Map<string, number>(); for (const x of sRows) sCount.set(s(x.assignmentId), (sCount.get(s(x.assignmentId)) ?? 0) + 1);
+  const adaptiveOf = new Map(sets.map((x) => [s(x.id), Boolean(x.isAdaptive)]));
+  return rows.map((r) => ({
+    assignmentId: s(r.id), title: s(r.title), createdAt: d(r.createdAt)!.toISOString(), dueAt: d(r.dueAt)?.toISOString() ?? null,
+    questions: qCount.get(s(r.assessmentId)) ?? 0, students: sCount.get(s(r.id)) ?? 0, isAdaptive: adaptiveOf.get(s(r.assessmentId)) ?? false,
+  })).sort((x, y) => y.createdAt.localeCompare(x.createdAt));
+}
+
 /** Statuses for question sets: Completed when every question is answered; Overdue after the due date. */
 export async function refreshQuestionSets(repo: Repo, assignments: Row[], studentIds: string[] | null, now = new Date()): Promise<void> {
   const list = assignments.filter((a) => a.assessmentId && !a.deletedAt);

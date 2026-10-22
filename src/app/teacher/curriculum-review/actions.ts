@@ -2,7 +2,8 @@
 import { repo, requireActor } from "@/server/auth/next";
 import { ForbiddenError } from "@/server/auth/rbac";
 import { ValidationError } from "@/server/curriculum-admin";
-import { changeReview, draftReviewQuestion, editReviewQuestion, reviewAssign, reviewBankSearch, reviewQuestionDetail, reviewSkillChoices, writeReviewQuestion, type ReviewChange, type ReviewControlView, type ReviewSkillUnit, type WrittenQuestion } from "@/server/curriculum-map/review-control";
+import { changeReview, draftReviewQuestion, editReviewQuestion, reviewAssign, reviewBankSearch, reviewQuestionDetail, reviewSkillChoices, reviewUpdateSent, writeReviewQuestion, type ReviewChange, type ReviewControlView, type ReviewSkillUnit, type WrittenQuestion } from "@/server/curriculum-map/review-control";
+import { convertReviewToAdaptive, sentReviewAssignmentsForClass, type ConvertReviewToAdaptiveResult, type SentReviewSummary, type UpdateSentReviewResult } from "@/server/teacher/assign";
 import type { BankFilter, BankResults, CopyEdit } from "@/server/tests/review";
 
 type Out<T> = { ok: true; value: T } | { ok: false; message: string };
@@ -55,4 +56,23 @@ export async function reviewAssignAction(code: string, input: {
 }): Promise<Out<{ assignmentId: string; students: number; questions: number }>> {
   const actor = await requireActor(TEACHER);
   return run(() => reviewAssign(repo, actor, String(code ?? ""), input));
+}
+/** 🆕 Reviews already sent to a class (so "⭐ Assign" can offer "update this sent Review" instead of a new one). */
+export async function sentReviewsForClassAction(classId: string): Promise<Out<SentReviewSummary[]>> {
+  const actor = await requireActor(TEACHER);
+  return run(() => sentReviewAssignmentsForClass(repo, actor, String(classId ?? "")));
+}
+/** 🆕 Save changes to an already-sent Review (Fixed only) IN PLACE — see review-control.ts reviewUpdateSent /
+ * assign.ts updateSentReview for the "a question anyone already answered is never touched" safety rule. */
+export async function reviewUpdateSentAction(code: string, assignmentId: string, input: { title?: string } = {}): Promise<Out<UpdateSentReviewResult>> {
+  const actor = await requireActor(TEACHER);
+  return run(() => reviewUpdateSent(repo, actor, String(code ?? ""), String(assignmentId ?? ""), input));
+}
+/**
+ * 🆕 Flip an already-sent Fixed Review to Adaptive IN PLACE — only allowed while ZERO students have answered
+ * anything on it yet (see convertReviewToAdaptive's own comment in assign.ts for exactly why).
+ */
+export async function convertReviewToAdaptiveAction(assignmentId: string, input?: { maxQuestions?: number; targetCorrect?: number }): Promise<Out<ConvertReviewToAdaptiveResult>> {
+  const actor = await requireActor(TEACHER);
+  return run(() => convertReviewToAdaptive(repo, actor, { assignmentId: String(assignmentId ?? ""), maxQuestions: input?.maxQuestions, targetCorrect: input?.targetCorrect }, new Date()));
 }

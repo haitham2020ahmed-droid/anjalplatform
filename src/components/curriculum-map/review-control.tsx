@@ -1,13 +1,14 @@
 "use client";
-import { useState, useTransition } from "react";
+import { useEffect, useState, useTransition } from "react";
 import { useT } from "@/i18n/client";
 import type { ReviewControlView, ReviewSkillUnit, WrittenQuestion } from "@/server/curriculum-map/review-control";
 import type { MapSourceQuestion } from "@/server/tests/map-source";
-import { reviewAssignAction, reviewBankAction, reviewChangeAction, reviewDetailAction, reviewDraftAction, reviewEditAction, reviewSkillChoicesAction, reviewWriteAction } from "@/app/teacher/curriculum-review/actions";
+import { convertReviewToAdaptiveAction, reviewAssignAction, reviewBankAction, reviewChangeAction, reviewDetailAction, reviewDraftAction, reviewEditAction, reviewSkillChoicesAction, reviewUpdateSentAction, reviewWriteAction, sentReviewsForClassAction } from "@/app/teacher/curriculum-review/actions";
 import { RichInline } from "@/components/rich-inline";
 import { SourceSelect } from "@/components/assign/source-select";
 import type { AssignSource } from "@/lib/assign-source";
 import type { RosterClass } from "./assign-button";
+import type { SentReviewSummary } from "@/server/teacher/assign";
 
 const btn = "inline-flex min-h-9 items-center rounded-lg px-3 text-sm font-semibold ring-1 ring-slate-300 hover:ring-brand-teal disabled:opacity-50";
 const main = "inline-flex min-h-10 items-center rounded-xl bg-brand-navy px-4 text-sm font-semibold text-white disabled:opacity-50";
@@ -58,6 +59,20 @@ export function ReviewControl({ initial, roster = [] }: { initial: ReviewControl
   const [source, setSource] = useState<AssignSource | "">("");
   const [assignTitle, setAssignTitle] = useState("");
   const [assignMsg, setAssignMsg] = useState<{ ok: boolean; text: string } | null>(null);
+  // 🆕 feature (Oct 2026): Reviews already sent to the chosen class — "A new Assignment" (default) or pick one to
+  // update IN PLACE instead. See review-builder.tsx's twin of this for the whole-grade Review Builder.
+  const [sentReviews, setSentReviews] = useState<SentReviewSummary[]>([]);
+  const [updateTarget, setUpdateTarget] = useState("");
+  // 🆕 feature (Oct 2026): see review-builder.tsx's twin of this.
+  const [convertToAdaptive, setConvertToAdaptive] = useState(false);
+  useEffect(() => {
+    setUpdateTarget("");
+    setConvertToAdaptive(false);
+    if (!classId) { setSentReviews([]); return; }
+    let live = true;
+    sentReviewsForClassAction(classId).then((r) => { if (live && r.ok) setSentReviews(r.value); });
+    return () => { live = false; };
+  }, [classId]);
   const apply = (r: { ok: true; value: ReviewControlView } | { ok: false; message: string }, done?: string) => {
     if (r.ok) { setV(r.value); setCount(String(r.value.count)); setSectionInputs({}); if (done) setMsg({ ok: true, text: done }); } else setMsg({ ok: false, text: r.message });
     return r.ok;
@@ -362,6 +377,21 @@ export function ReviewControl({ initial, roster = [] }: { initial: ReviewControl
             e.preventDefault();
             go(async () => {
               setAssignMsg(null);
+              if (updateTarget) {
+                const r = await reviewUpdateSentAction(v.code, updateTarget, { title: assignTitle || v.title });
+                let text = r.ok
+                  ? t("Updated ✓ ({added} added, {removed} removed, {locked} kept — not changed because students already answered them)", { added: r.value.added, removed: r.value.removed, locked: r.value.lockedKept })
+                  : r.message;
+                let ok = r.ok;
+                if (r.ok && convertToAdaptive) {
+                  const c = await convertReviewToAdaptiveAction(updateTarget);
+                  if (c.ok && c.value.converted) text += " " + t("Converted to Adaptive ✓");
+                  else { ok = false; text = c.ok ? (c.value.reason ?? text) : c.message; }
+                }
+                setAssignMsg({ ok, text });
+                if (r.ok) sentReviewsForClassAction(classId).then((rr) => { if (rr.ok) setSentReviews(rr.value); });
+                return;
+              }
               const r = await reviewAssignAction(v.code, {
                 classId, source, title: assignTitle || v.title,
                 adaptive: assignMode === "ADAPTIVE" ? { maxQuestions: Math.max(v.count, 20), targetCorrect: Math.max(5, Math.min(50, Number(target) || 20)) } : null,
@@ -375,29 +405,54 @@ export function ReviewControl({ initial, roster = [] }: { initial: ReviewControl
                 {roster.map((c) => <option key={c.id} value={c.id}>{c.name}</option>)}
               </select>
             </label>
+            {sentReviews.length > 0 && (
+              <div className="flex flex-col text-sm font-semibold text-slate-700 sm:col-span-2">
+                <label className="flex flex-col">
+                  {t("Send as")}
+                  <select value={updateTarget} onChange={(e) => { setUpdateTarget(e.target.value); setConvertToAdaptive(false); }} className={field}>
+                    <option value="">{t("A new Assignment")}</option>
+                    {sentReviews.map((sr) => <option key={sr.assignmentId} value={sr.assignmentId}>{t("Update: {title} ({n} sent, {q} questions)", { title: sr.title, n: sr.students, q: sr.questions })}</option>)}
+                  </select>
+                </label>
+                {updateTarget && (
+                  <span className="mt-1 text-xs font-normal text-slate-500">
+                    {t("Saves this question set into that same Assignment — students who already started keep their answers; any question someone already answered is kept exactly as it was.")}
+                  </span>
+                )}
+                {updateTarget && sentReviews.find((sr) => sr.assignmentId === updateTarget)?.isAdaptive === false && (
+                  <label className="mt-2 flex items-center gap-1.5 font-normal">
+                    <input type="checkbox" checked={convertToAdaptive} onChange={(e) => setConvertToAdaptive(e.target.checked)} />
+                    {t("Also convert this Review to Adaptive")}
+                    <span className="text-xs text-slate-500">{t("(only possible while no student has answered anything yet)")}</span>
+                  </label>
+                )}
+              </div>
+            )}
             <label className="flex flex-col text-sm font-semibold text-slate-700">{t("Title")}
               <input value={assignTitle} onChange={(e) => setAssignTitle(e.target.value)} placeholder={v.title} className={field} />
             </label>
-            <fieldset className="flex flex-col text-sm font-semibold text-slate-700">
-              <span>{t("How")}</span>
-              <div className="mt-1 flex gap-4 font-normal">
-                <label className="flex items-center gap-1.5"><input type="radio" name="review-assign-mode" checked={assignMode === "FIXED"} onChange={() => setAssignMode("FIXED")} /> {t("Fixed")}</label>
-                <label className="flex items-center gap-1.5"><input type="radio" name="review-assign-mode" checked={assignMode === "ADAPTIVE"} onChange={() => setAssignMode("ADAPTIVE")} /> {t("Adaptive")}</label>
-              </div>
-            </fieldset>
-            {assignMode === "FIXED" && (
-              <label className="flex items-center gap-1.5 self-end text-sm font-semibold text-slate-700">
-                <input type="checkbox" checked={shuffleOrder} onChange={(e) => setShuffleOrder(e.target.checked)} />
-                {t("Different question order for each student")}
-              </label>
-            )}
-            {assignMode === "ADAPTIVE" && (
-              <label className="flex flex-col text-sm font-semibold text-slate-700">{t("Target correct answers")}
-                <input type="number" min={5} max={50} value={target} onChange={(e) => setTarget(e.target.value)} className={`${field} w-28`} />
-              </label>
-            )}
-            <SourceSelect t={t} value={source} onChange={setSource} />
-            <div className="sm:col-span-2"><button className={main} disabled={busy || !classId}>⭐ {t("Assign")}</button></div>
+            {!updateTarget && (<>
+              <fieldset className="flex flex-col text-sm font-semibold text-slate-700">
+                <span>{t("How")}</span>
+                <div className="mt-1 flex gap-4 font-normal">
+                  <label className="flex items-center gap-1.5"><input type="radio" name="review-assign-mode" checked={assignMode === "FIXED"} onChange={() => setAssignMode("FIXED")} /> {t("Fixed")}</label>
+                  <label className="flex items-center gap-1.5"><input type="radio" name="review-assign-mode" checked={assignMode === "ADAPTIVE"} onChange={() => setAssignMode("ADAPTIVE")} /> {t("Adaptive")}</label>
+                </div>
+              </fieldset>
+              {assignMode === "FIXED" && (
+                <label className="flex items-center gap-1.5 self-end text-sm font-semibold text-slate-700">
+                  <input type="checkbox" checked={shuffleOrder} onChange={(e) => setShuffleOrder(e.target.checked)} />
+                  {t("Different question order for each student")}
+                </label>
+              )}
+              {assignMode === "ADAPTIVE" && (
+                <label className="flex flex-col text-sm font-semibold text-slate-700">{t("Target correct answers")}
+                  <input type="number" min={5} max={50} value={target} onChange={(e) => setTarget(e.target.value)} className={`${field} w-28`} />
+                </label>
+              )}
+              <SourceSelect t={t} value={source} onChange={setSource} />
+            </>)}
+            <div className="sm:col-span-2"><button className={main} disabled={busy || !classId}>{updateTarget ? `💾 ${t("Save changes to sent Review")}` : `⭐ ${t("Assign")}`}</button></div>
           </form>
         </section>
       )}
