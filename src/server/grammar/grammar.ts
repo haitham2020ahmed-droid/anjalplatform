@@ -131,13 +131,21 @@ export async function ensureSimpleGrammarSkills(repo: Repo, actor: Actor, wb: Gr
   const skillCol = templateCol(header, "skill");
   const stdCol = templateCol(header, "standard");
   if (skillCol < 0) return { created: 0, skills: 0 };
+  // 🔓 fix (Oct 2026): an optional "Skill Kind" column (Grammar & Usage / Mechanics / Writing / Revision — same
+  // values as the strict format's skill_kind) lets a simple-format file create skills outside Language Usage
+  // Grammar too, e.g. Reading/Writing skills that should land in the Writing goal area instead of Grammar's. A
+  // file with no such column (every file before this fix) behaves exactly as before: every new skill is
+  // "Grammar & Usage".
+  const kindColRaw = header.findIndex((h) => s(h).toLowerCase().replace(/[\s_-]+/g, " ") === "skill kind");
   const names: string[] = [];
   const stdsByName = new Map<string, string[]>();
+  const kindByName = new Map<string, string>();
   for (const r of rows) {
     const name = s(r[skillCol]);
     if (!name) continue;
     if (!names.includes(name)) names.push(name);
     if (stdCol >= 0) { const list = stdsByName.get(name) ?? []; for (const c of ccssList(s(r[stdCol]))) if (!list.includes(c)) list.push(c); stdsByName.set(name, list); }
+    if (kindColRaw >= 0 && !kindByName.has(name)) { const k = s(r[kindColRaw]); if (k) kindByName.set(name, k); }
   }
   if (!names.length) return { created: 0, skills: 0 };
   const cur = await gradeCurriculum(repo, actor.schoolId, grade);
@@ -145,10 +153,8 @@ export async function ensureSimpleGrammarSkills(repo: Repo, actor: Actor, wb: Gr
   const norm = (v: string) => s(v).toLowerCase().replace(/\s+/g, " ");
   const existingNames = new Set(existing.map((k) => norm(s(k.name))));
   const toCreate = names.filter((n) => !existingNames.has(norm(n)));
-  const fam = kindOf("Grammar & Usage");
   const goals = new Map((await repo.findMany("MapGoalArea", {})).map((a) => [s(a.code), s(a.id)]));
-  const famData = { name: fam.name, domain: fam.domain, category: fam.category, mapGoalAreaId: goals.get(fam.goal) ?? null };
-  const familyId = s((await repo.upsert("SkillFamily", { code: fam.family }, famData, famData)).id);
+  const familyIdOf = new Map<string, string>(); // kind name → SkillFamily id (fetched/created once per distinct kind)
   const stdId = new Map((await repo.findMany("Standard", {}, { select: ["id", "code"] })).map((x) => [shortStandard(s(x.code)), s(x.id)]));
   const maxSeq = existing.reduce((m, k) => Math.max(m, Number(k.sequence) || 0), 9000);
   const slug = (v: string) => s(v).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "") || "skill";
@@ -156,6 +162,13 @@ export async function ensureSimpleGrammarSkills(repo: Repo, actor: Actor, wb: Gr
   const newSkills: { id: string; code: string; lesson: string; kind: string; rule: string }[] = [];
   const newLessons: GrammarLesson[] = [];
   for (const [i, name] of toCreate.entries()) {
+    const fam = kindOf(kindByName.get(name) ?? "Grammar & Usage");
+    let familyId = familyIdOf.get(fam.name);
+    if (!familyId) {
+      const famData = { name: fam.name, domain: fam.domain, category: fam.category, mapGoalAreaId: goals.get(fam.goal) ?? null };
+      familyId = s((await repo.upsert("SkillFamily", { code: fam.family }, famData, famData)).id);
+      familyIdOf.set(fam.name, familyId);
+    }
     const code = grammarCode(grade, slug(name));
     const data = { familyId, name: name.slice(0, 191), description: null, domain: fam.domain, category: fam.category, sequence: maxSeq + 1 + i, isActive: true, deletedAt: null };
     const row = await repo.upsert("Skill", { curriculumId: cur.id, code }, data, data);

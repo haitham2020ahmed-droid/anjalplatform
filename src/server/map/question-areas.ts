@@ -8,7 +8,9 @@
  *   apply     saves the areas, fixes the clearly wrong standards (the old one kept in QuestionStandardFix) and
  *             records the suggestions for an admin. No question is ever deleted. An area an admin set by hand,
  *             or one an import file gave, is kept.
- *   new questions are classified the moment they are saved (autoClassify).
+ *   new questions are classified the moment they are saved (autoClassifyMapArea).
+ * 🔧 renamed (Oct 2026): was `autoClassify`, same name as the unrelated skill-assignment function in
+ * ../curriculum-map/questions.ts — easy to import the wrong one by habit. No behavior change.
  */
 import type { Repo, Row } from "../seeding/repo";
 import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
@@ -154,7 +156,7 @@ export async function applyClassification(repo: Repo, actor: Actor, now = new Da
 }
 
 /** New or edited questions: classified as soon as they are saved (an area set by hand or by the file stays). */
-export async function autoClassify(repo: Repo, schoolId: string, questionIds: string[], now = new Date()): Promise<void> {
+export async function autoClassifyMapArea(repo: Repo, schoolId: string, questionIds: string[], now = new Date()): Promise<void> {
   if (!questionIds.length || !schoolId) return;
   try {
     const { list, stdByShort } = await context(repo, schoolId, questionIds);
@@ -201,7 +203,7 @@ export async function setQuestionArea(repo: Repo, actor: Actor, questionIds: str
   isAdmin(actor);
   const { list } = await context(repo, s(actor.schoolId), questionIds.slice(0, 2000));
   for (const c of list) await repo.updateMany("Question", { id: c.q.id }, area ? { mapTest: areaByKey(area).test, mapInstructionalArea: areaByKey(area).name, mapAreaSource: "ADMIN" } : { mapTest: null, mapInstructionalArea: null, mapAreaSource: null });
-  if (!area) await autoClassify(repo, s(actor.schoolId), list.map((c) => s(c.q.id)), now);
+  if (!area) await autoClassifyMapArea(repo, s(actor.schoolId), list.map((c) => s(c.q.id)), now);
   bumpBankVersion();
   await audit(repo, { actorId: actor.userId, action: "map.area.set", entityType: "Question", entityId: null, after: { n: list.length, area }, at: now });
   return list.length;
