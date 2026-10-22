@@ -97,6 +97,8 @@ export async function customShareAction(grade: number, toTeacherUserId: string, 
 export async function customReviewAssignAction(input: {
   grade: number; classId: string; studentIds?: string[]; title?: string; source: string; rev?: string;
   adaptive?: { maxQuestions: number; targetCorrect?: number | null } | null;
+  /** Fixed only: a different question order for each student (same question set, same every time they open it). */
+  shuffle?: boolean;
 }): Promise<Out<{ assignmentId: string; students: number; questions: number }>> {
   const actor = await requireActor(TEACHER);
   return run(async () => {
@@ -105,8 +107,10 @@ export async function customReviewAssignAction(input: {
     if (!ids.length) throw new ValidationError("Collect some questions first.");
     return assignQuestions(repo, actor, {
       classId: input.classId, studentIds: input.studentIds, questionIds: ids, title: input.title || "Review", source: input.source,
+      // 🔓 fix (Oct 2026): use the teacher's title exactly — never append "(N questions)" for students to see.
+      exactTitle: true,
       // 🔓 fix (Oct 2026): Fixed no longer stops at 60 — see review-control.ts reviewAssign for the same fix.
-      ...(input.adaptive ? { adaptive: input.adaptive } : { test: true, testCap: MAX_REVIEW }),
+      ...(input.adaptive ? { adaptive: input.adaptive } : { test: true, testCap: MAX_REVIEW, shuffle: Boolean(input.shuffle) }),
     });
   });
 }

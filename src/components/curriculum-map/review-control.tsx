@@ -54,6 +54,7 @@ export function ReviewControl({ initial, roster = [] }: { initial: ReviewControl
   const [classId, setClassId] = useState(roster[0]?.id ?? "");
   const [assignMode, setAssignMode] = useState<"FIXED" | "ADAPTIVE">("FIXED");
   const [target, setTarget] = useState("20");
+  const [shuffleOrder, setShuffleOrder] = useState(false);
   const [source, setSource] = useState<AssignSource | "">("");
   const [assignTitle, setAssignTitle] = useState("");
   const [assignMsg, setAssignMsg] = useState<{ ok: boolean; text: string } | null>(null);
@@ -364,6 +365,7 @@ export function ReviewControl({ initial, roster = [] }: { initial: ReviewControl
               const r = await reviewAssignAction(v.code, {
                 classId, source, title: assignTitle || v.title,
                 adaptive: assignMode === "ADAPTIVE" ? { maxQuestions: Math.max(v.count, 20), targetCorrect: Math.max(5, Math.min(50, Number(target) || 20)) } : null,
+                shuffle: assignMode === "FIXED" ? shuffleOrder : false,
               });
               setAssignMsg(r.ok ? { ok: true, text: t("Assigned ✓ ({n} students)", { n: r.value.students }) } : { ok: false, text: r.message });
             });
@@ -383,6 +385,12 @@ export function ReviewControl({ initial, roster = [] }: { initial: ReviewControl
                 <label className="flex items-center gap-1.5"><input type="radio" name="review-assign-mode" checked={assignMode === "ADAPTIVE"} onChange={() => setAssignMode("ADAPTIVE")} /> {t("Adaptive")}</label>
               </div>
             </fieldset>
+            {assignMode === "FIXED" && (
+              <label className="flex items-center gap-1.5 self-end text-sm font-semibold text-slate-700">
+                <input type="checkbox" checked={shuffleOrder} onChange={(e) => setShuffleOrder(e.target.checked)} />
+                {t("Different question order for each student")}
+              </label>
+            )}
             {assignMode === "ADAPTIVE" && (
               <label className="flex flex-col text-sm font-semibold text-slate-700">{t("Target correct answers")}
                 <input type="number" min={5} max={50} value={target} onChange={(e) => setTarget(e.target.value)} className={`${field} w-28`} />

@@ -597,6 +597,8 @@ export interface AssignQuestionsInput {
   track?: Track; classId: string; questionIds: string[]; studentIds?: string[]; title?: string; startAt?: Date | null; dueAt?: Date | null; note?: string | null;
   /** a teacher-built test: at most MAX_TEST_SET_QUESTIONS questions (instead of MAX_SET_QUESTIONS) */
   test?: boolean;
+  /** Fixed sets only: a different question order for each student (same question set; stable per student). */
+  shuffle?: boolean;
   // 🔓 fix (Oct 2026, "خلي fixed مفتوح وغير محدد"): a caller using `test` can override the 60-question
   // MAX_TEST_SET_QUESTIONS cap with a higher one of its own (e.g. the teacher's Review, whose Fixed assignment
   // should hold as many questions as the Review itself allows). Other `test` callers that don't pass this keep
@@ -656,7 +658,7 @@ export async function assignQuestions(repo: Repo, actor: Actor, input: AssignQue
     const target = input.adaptive?.targetCorrect ? Math.max(5, Math.min(50, Math.round(input.adaptive.targetCorrect))) : null;
     const set = await tx.create("Assessment", { title: title.slice(0, 191), type: input.kind ?? "TEACHER_QUIZ", isAdaptive: Boolean(input.adaptive), maxQuestions: input.adaptive ? (target ? GOAL_SAFETY_CAP : Math.min(ids.length, input.adaptive.maxQuestions)) : ids.length, targetCorrect: target, status: "PUBLISHED", createdById: actor.userId, createdAt: now });
     await tx.createMany("AssessmentQuestion", ids.map((questionId, order) => ({ assessmentId: set.id, questionId, order, points: 1 })));
-    const a = await tx.create("Assignment", { track: trackOf(input.track), classId: klass.id, createdById: teacher.id, title: title.slice(0, 191), target: "ASSESSMENT", assessmentId: set.id, startAt, dueAt, note, curriculumPlanId: input.curriculumPlanId ?? null, createdAt: now, source, ...(input.skillId ? { skillId: input.skillId } : {}), ...(programOrNull(input.program) ? { program: programOrNull(input.program) } : {}) });
+    const a = await tx.create("Assignment", { track: trackOf(input.track), classId: klass.id, createdById: teacher.id, title: title.slice(0, 191), target: "ASSESSMENT", assessmentId: set.id, startAt, dueAt, note, curriculumPlanId: input.curriculumPlanId ?? null, createdAt: now, source, shuffle: Boolean(input.shuffle), ...(input.skillId ? { skillId: input.skillId } : {}), ...(programOrNull(input.program) ? { program: programOrNull(input.program) } : {}) });
     await tx.createMany("AssignmentStudent", recipients.map((studentId) => ({ assignmentId: a.id, studentId, status: "NOT_STARTED", progress: 0 })));
     const due = dueAt ? ` Due ${dueAt.toISOString().slice(0, 10)}.` : "";
     if (!input.silent) await tx.createMany("Notification", students.map((st) => ({

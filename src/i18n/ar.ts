@@ -4910,6 +4910,7 @@ export const ar: Record<UiString, string> = {
   "All questions": "كل الأسئلة",
   "New only (not used before)": "الجديد فقط (لم يُستخدم من قبل)",
   "Used before": "استُخدم من قبل",
+  "Different question order for each student": "ترتيب أسئلة مختلف لكل طالب",
   "Search skills": "ابحث عن مهارة",
   "Add selected ({n})": "أضف المحدد ({n})",
   "No skill matches.": "لا توجد مهارة مطابقة.",

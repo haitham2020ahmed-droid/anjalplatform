@@ -614,6 +614,8 @@ export async function teacherReviewQuestions(repo: Repo, actor: Actor, node: Att
 export async function reviewAssign(repo: Repo, actor: Actor, code: string, input: {
   classId: string; studentIds?: string[]; title?: string; source: string | null | undefined;
   adaptive?: { maxQuestions: number; targetCorrect?: number | null } | null;
+  /** Fixed only: a different question order for each student (same question set, same every time they open it). */
+  shuffle?: boolean;
 }, now = new Date()): Promise<{ assignmentId: string; students: number; questions: number }> {
   teacherOnly(actor);
   const node = await reviewPlace(repo, actor.schoolId!, code);
@@ -626,7 +628,7 @@ export async function reviewAssign(repo: Repo, actor: Actor, code: string, input
     classId: input.classId, studentIds: input.studentIds, questionIds: ids, track: "CURRICULUM", exactTitle: true, source: input.source, title,
     // 🔓 fix (Oct 2026): Fixed no longer stops at 60 — it can send every question the teacher chose (the Review
     // itself allows up to MAX_REVIEW), same as Adaptive already could.
-    ...(input.adaptive ? { adaptive: input.adaptive } : { test: true, testCap: MAX_REVIEW }),
+    ...(input.adaptive ? { adaptive: input.adaptive } : { test: true, testCap: MAX_REVIEW, shuffle: Boolean(input.shuffle) }),
   }, now);
 }
 

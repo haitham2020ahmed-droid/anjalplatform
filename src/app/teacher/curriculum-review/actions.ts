@@ -51,6 +51,7 @@ export async function reviewSkillChoicesAction(code: string): Promise<Out<Review
 export async function reviewAssignAction(code: string, input: {
   classId: string; studentIds?: string[]; title?: string; source: string;
   adaptive?: { maxQuestions: number; targetCorrect?: number | null } | null;
+  shuffle?: boolean;
 }): Promise<Out<{ assignmentId: string; students: number; questions: number }>> {
   const actor = await requireActor(TEACHER);
   return run(() => reviewAssign(repo, actor, String(code ?? ""), input));

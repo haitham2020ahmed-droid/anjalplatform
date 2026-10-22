@@ -111,6 +111,7 @@ export function ReviewBuilder({ grade, rev, initial, sets, skillUnits, roster }:
   const [classId, setClassId] = useState(roster[0]?.id ?? "");
   const [mode, setMode] = useState<"FIXED" | "ADAPTIVE">("FIXED");
   const [target, setTarget] = useState("20");
+  const [shuffleOrder, setShuffleOrder] = useState(false);
   const [source, setSource] = useState<AssignSource | "">("");
   const [title, setTitle] = useState("Review");
   const [assignMsg, setAssignMsg] = useState<{ ok: boolean; text: string } | null>(null);
@@ -850,6 +851,7 @@ export function ReviewBuilder({ grade, rev, initial, sets, skillUnits, roster }:
               const r = await customReviewAssignAction({
                 grade, classId, source, title, rev,
                 adaptive: mode === "ADAPTIVE" ? { maxQuestions: Math.max(v.count, 20), targetCorrect: Math.max(5, Math.min(50, Number(target) || 20)) } : null,
+                shuffle: mode === "FIXED" ? shuffleOrder : false,
               });
               setAssignMsg(r.ok ? { ok: true, text: t("Assigned ✓ ({n} students)", { n: r.value.students }) } : { ok: false, text: r.message });
             });
@@ -869,6 +871,12 @@ export function ReviewBuilder({ grade, rev, initial, sets, skillUnits, roster }:
                 <label className="flex items-center gap-1.5"><input type="radio" name="mode" checked={mode === "ADAPTIVE"} onChange={() => setMode("ADAPTIVE")} /> {t("Adaptive")}</label>
               </div>
             </fieldset>
+            {mode === "FIXED" && (
+              <label className="flex items-center gap-1.5 self-end text-sm font-semibold text-slate-700">
+                <input type="checkbox" checked={shuffleOrder} onChange={(e) => setShuffleOrder(e.target.checked)} />
+                {t("Different question order for each student")}
+              </label>
+            )}
             {mode === "ADAPTIVE" && (
               <label className="flex flex-col text-sm font-semibold text-slate-700">{t("Target correct answers")}
                 <input type="number" min={5} max={50} value={target} onChange={(e) => setTarget(e.target.value)} className={`${field} w-28`} />
