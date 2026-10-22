@@ -113,6 +113,47 @@
        "familyCode": "pronouns"
       }
      ]
+    },
+    {
+     "number": 4,
+     "code": "G6-U1-L4",
+     "title": "The Lost Island",
+     "genre": "Realistic Fiction",
+     "texts": {
+      "selection": "The Lost Island"
+     },
+     "skills": [
+      {
+       "label": "Text Evidence",
+       "role": "AUTHORS_CRAFT",
+       "familyCode": "text-evidence"
+      },
+      {
+       "label": "Make Inferences",
+       "role": "COMPREHENSION_SKILL",
+       "familyCode": "inference"
+      },
+      {
+       "label": "Context Clues",
+       "role": "VOCABULARY_STRATEGY",
+       "familyCode": "context-clues"
+      },
+      {
+       "label": "Nouns: Common, Proper, Concrete, Abstract, Collective",
+       "role": "GRAMMAR",
+       "familyCode": "nouns"
+      }
+     ],
+     "vocabularyWords": [
+      "anchor",
+      "capsize",
+      "caution",
+      "damp",
+      "enormous",
+      "exhausted",
+      "intense",
+      "rescue"
+     ]
     }
    ],
    "writing": [

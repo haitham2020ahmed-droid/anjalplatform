@@ -21,7 +21,7 @@ import { attachmentNodes, unclassifiedSkillId, type AttachmentNode } from "./que
 import { teacherMapGrades } from "./view";
 import { lessonAt } from "./lesson-details";
 import { skillPlanData } from "./skill-plan";
-import { describePicks, type MapSourceQuestion } from "../tests/map-source";
+import { describePicks, usedQuestionIds, type MapSourceQuestion } from "../tests/map-source";
 import { bankSearch, editQuestionCopy, type BankFilter, type BankResults, type CopyEdit } from "../tests/review";
 import { loadQuestionItems } from "../practice/items";
 import { questionsOfSkill, schoolSkillIndex } from "../questions/skill-questions";
@@ -133,6 +133,14 @@ function sectionBreakdown(rows: MapSourceQuestion[], count: number): { label: st
   const groups = sectionGroups(rows);
   const takenIds = new Set(rows.slice(0, Math.max(0, count)).map((r) => r.id));
   return groups.map((g) => ({ label: g.label, available: g.ids.length, take: g.ids.filter((id) => takenIds.has(id)).length }));
+}
+
+/** 🆕 r92: tags each row with `usedBefore` (sent to students in a past Review of this school) — see
+ * map-source.ts's usedQuestionIds for exactly what counts as "used". Shown to the teacher as 🆕 / 🔁. */
+async function withUsedBefore(repo: Repo, rows: MapSourceQuestion[]): Promise<MapSourceQuestion[]> {
+  if (!rows.length) return rows;
+  const used = await usedQuestionIds(repo, rows.map((r) => r.id));
+  return rows.map((r) => ({ ...r, usedBefore: used.has(r.id) }));
 }
 
 function teacherOnly(actor: Actor): void {
@@ -285,7 +293,7 @@ export async function reviewControlView(repo: Repo, actor: Actor, code: string):
   const st = await stateOf(repo, actor, node);
   const sharedSet = new Set(st.shared);
   // 🐛 fix (Oct 2026, "التنظيم"): same MAX_REVIEW override as customReviewView — see its comment.
-  const rows = await describePicks(repo, actor, st.questionIds, MAX_REVIEW);
+  const rows = await withUsedBefore(repo, await describePicks(repo, actor, st.questionIds, MAX_REVIEW));
   const hiddenRows = await describePicks(repo, actor, st.hiddenIds.filter((id) => sharedSet.has(id) && !st.questionIds.includes(id)), MAX_REVIEW);
   const owner = rows.length ? new Map((await repo.findMany("Question", { id: { in: rows.map((r) => r.id) } }, { select: ["id", "privateToId"] })).map((q) => [s(q.id), q.privateToId ? s(q.privateToId) : ""])) : new Map<string, string>();
   const available = new Set([...st.shared.filter((id) => !st.hiddenIds.includes(id)), ...st.questionIds]).size;
@@ -305,10 +313,12 @@ export type ReviewChange =
   | { op: "count"; count: number }
   | { op: "addBank"; questionId: string }
   /** 🤖 r89: pull in this Text Set's Concept Vocabulary + Analyze Craft and Structure questions, once
-   * (🔓 r91: an optional level narrows Analyze Craft and Structure only — Vocabulary has no levels) */
-  | { op: "addSet"; level?: LevelFilter }
-  /** 🤖 r89 "Language" tab: pull in one or more platform Skills' own questions (any unit of the plan), once */
-  | { op: "addSkills"; skillIds: string[]; level?: LevelFilter }
+   * (🔓 r91: an optional level narrows Analyze Craft and Structure only — Vocabulary has no levels)
+   * (🆕 r92 "اقترح اسئله لم تستخدم من قبل": `onlyNew` — skip questions already sent to students in a past Review) */
+  | { op: "addSet"; level?: LevelFilter; onlyNew?: boolean }
+  /** 🤖 r89 "Language" tab: pull in one or more platform Skills' own questions (any unit of the plan), once
+   * (🆕 r92: `onlyNew` — same as addSet's) */
+  | { op: "addSkills"; skillIds: string[]; level?: LevelFilter; onlyNew?: boolean }
   /** 🔁 fix (Oct 2026, "التوزيع"): set each section's own "take" count by hand (the collapsed section panel's ± on
    * one section), instead of one flat total spread automatically — see sectionBreakdown / reorderBySectionCounts. */
   | { op: "sectionCounts"; counts: Record<string, number> }
@@ -376,13 +386,18 @@ export async function changeReview(repo: Repo, actor: Actor, code: string, c: Re
     if (!st.custom) st.count = Math.min(st.count + 1, st.questionIds.length);
   } else if (c.op === "addSet") {
     const level: LevelFilter = c.level && c.level !== "ANY" ? c.level : "ANY";
-    const extra = await sameSetSiblingIds(repo, actor.schoolId!, node, level);
+    let extra = await sameSetSiblingIds(repo, actor.schoolId!, node, level);
+    // 🆕 r92 "اقترح اسئله لم تستخدم من قبل": drop questions already sent to students in a past Review before
+    // adding — the pool is already scoped to this one lesson, so this alone picks "new to this lesson".
+    if (c.onlyNew) { const used = await usedQuestionIds(repo, extra); extra = extra.filter((id) => !used.has(id)); }
     let added = 0;
     for (const qid of extra) {
       if (st.questionIds.includes(qid) || st.questionIds.length >= MAX_REVIEW) continue;
       st.questionIds.push(qid); st.hiddenIds = st.hiddenIds.filter((x) => x !== qid); added++;
     }
-    if (!added) throw new ValidationError("Nothing new to add — every Vocabulary and Analyze Craft question here is already in your Review.");
+    if (!added) throw new ValidationError(c.onlyNew
+      ? "No new questions to add — every Vocabulary and Analyze Craft question here has already been used in a past Review."
+      : "Nothing new to add — every Vocabulary and Analyze Craft question here is already in your Review.");
     if (!st.custom) st.count = Math.min(st.count + added, st.questionIds.length);
   } else if (c.op === "addSkills") {
     // 🔓 fix (Oct 2026, "خليه مفتوح بلا تحديد"): used to cap at 20 skills per "Add selected" click, silently
@@ -393,7 +408,10 @@ export async function changeReview(repo: Repo, actor: Actor, code: string, c: Re
     let added = 0;
     let atMax = false;
     for (const skillId of skillIds) {
-      for (const qid of await skillAddableIds(repo, actor, skillId, level)) {
+      let ids = await skillAddableIds(repo, actor, skillId, level);
+      // 🆕 r92: same `onlyNew` as addSet, per skill.
+      if (c.onlyNew) { const used = await usedQuestionIds(repo, ids); ids = ids.filter((id) => !used.has(id)); }
+      for (const qid of ids) {
         if (st.questionIds.length >= MAX_REVIEW) { atMax = true; continue; }
         if (st.questionIds.includes(qid)) continue;
         st.questionIds.push(qid); st.hiddenIds = st.hiddenIds.filter((x) => x !== qid); added++;
@@ -404,7 +422,9 @@ export async function changeReview(repo: Repo, actor: Actor, code: string, c: Re
     // MAX_REVIEW so nothing more COULD be added. Say which one actually happened.
     if (!added) throw new ValidationError(atMax
       ? `Your Review is already at its maximum of ${MAX_REVIEW} questions. Remove some questions first, then add these skills.`
-      : "Nothing new to add from those skills — every question of those skills is already in your Review.");
+      : c.onlyNew
+        ? "No new questions to add from those skills — every question of those skills has already been used in a past Review."
+        : "Nothing new to add from those skills — every question of those skills is already in your Review.");
     if (!st.custom) st.count = Math.min(st.count + added, st.questionIds.length);
   } else if (c.op === "removeSection") {
     // 🗑 fix (Oct 2026, "احذف اي نقطه من هنا"): remove every question of ONE exact section+level row, found the
@@ -676,7 +696,7 @@ export async function customReviewView(repo: Repo, actor: Actor, grade: number, 
   const st = await customStateOf(repo, actor, g, rev);
   // 🐛 fix (Oct 2026, "التنظيم"): describePicks() defaults to showing only 60 — pass MAX_REVIEW so a Review Builder
   // past 60 questions actually shows (and so groups) every one of them, not just the first 60.
-  const rows = await describePicks(repo, actor, st.questionIds, MAX_REVIEW);
+  const rows = await withUsedBefore(repo, await describePicks(repo, actor, st.questionIds, MAX_REVIEW));
   const hiddenRows = await describePicks(repo, actor, st.hiddenIds, MAX_REVIEW);
   const owner = rows.length ? new Map((await repo.findMany("Question", { id: { in: rows.map((r) => r.id) } }, { select: ["id", "privateToId"] })).map((q) => [s(q.id), q.privateToId ? s(q.privateToId) : ""])) : new Map<string, string>();
   return { grade: g, chosen: st.questionIds.length, count: st.count, questions: rows.map((r) => ({ ...r, own: owner.get(r.id) === actor.userId })), hidden: hiddenRows, sections: sectionBreakdown(rows, st.count), rev: rev || null };
@@ -688,13 +708,16 @@ export type CustomReviewChange =
   | { op: "order"; questionIds: string[] }
   | { op: "count"; count: number }
   | { op: "addBank"; questionId: string }
-  /** 🤖 "Text Sets" tab: pull in the ticked categories of the ticked Text Sets/Selections */
-  | { op: "addSets"; picks: { unit: number; setNumber: number; categories: ("CONCEPT_VOCABULARY" | "ANALYZE_CRAFT_AND_STRUCTURE" | "REVIEW")[] }[]; level?: LevelFilter }
-  /** 🤖 "Language" tab: pull in one or more platform Skills' own questions, any unit of the grade's plan */
-  | { op: "addSkills"; skillIds: string[]; level?: LevelFilter }
+  /** 🤖 "Text Sets" tab: pull in the ticked categories of the ticked Text Sets/Selections
+   * (🆕 r92 "اقترح اسئله لم تستخدم من قبل": `onlyNew` — skip questions already sent to students in a past Review) */
+  | { op: "addSets"; picks: { unit: number; setNumber: number; categories: ("CONCEPT_VOCABULARY" | "ANALYZE_CRAFT_AND_STRUCTURE" | "REVIEW")[] }[]; level?: LevelFilter; onlyNew?: boolean }
+  /** 🤖 "Language" tab: pull in one or more platform Skills' own questions, any unit of the grade's plan
+   * (🆕 r92: `onlyNew` — same as addSets') */
+  | { op: "addSkills"; skillIds: string[]; level?: LevelFilter; onlyNew?: boolean }
   /** 🔎 r91 "From the bank" → "Or browse by skill": pull in up to `count` of ONE skill's own questions at once
-   * (the teacher's chosen amount, e.g. the small "Add a skill" dialog), instead of adding each question by hand. */
-  | { op: "addSkillCount"; skillId: string; count: number; level?: LevelFilter }
+   * (the teacher's chosen amount, e.g. the small "Add a skill" dialog), instead of adding each question by hand.
+   * (🆕 r92: `onlyNew` — same as addSets') */
+  | { op: "addSkillCount"; skillId: string; count: number; level?: LevelFilter; onlyNew?: boolean }
   /** 🔁 fix (Oct 2026, "التوزيع"): same as ReviewChange's "sectionCounts" — set each section's own "take" by hand. */
   | { op: "sectionCounts"; counts: Record<string, number> }
   /** 🗑 fix (Oct 2026, "احذف اي نقطه من هنا"): same as ReviewChange's "removeSection" — see its comment. */
@@ -781,13 +804,18 @@ export async function changeCustomReview(repo: Repo, actor: Actor, grade: number
     })).filter((p) => p.unit > 0 && p.setNumber > 0 && p.categories.length > 0);
     if (!picks.length) throw new ValidationError("Choose at least one Text Set and category.");
     const level: LevelFilter = c.level && c.level !== "ANY" ? c.level : "ANY";
-    const extra = await setsQuestionIds(repo, actor.schoolId!, g, picks, level);
+    let extra = await setsQuestionIds(repo, actor.schoolId!, g, picks, level);
+    // 🆕 r92 "اقترح اسئله لم تستخدم من قبل": drop questions already sent to students in a past Review — the
+    // pool here can span several Text Sets, so "used before" is still evaluated per question, not per lesson.
+    if (c.onlyNew) { const used = await usedQuestionIds(repo, extra); extra = extra.filter((id) => !used.has(id)); }
     let added = 0;
     for (const qid of extra) {
       if (st.questionIds.includes(qid) || st.questionIds.length >= MAX_REVIEW) continue;
       st.questionIds.push(qid); added++;
     }
-    if (!added) throw new ValidationError("Nothing new to add from those Text Sets.");
+    if (!added) throw new ValidationError(c.onlyNew
+      ? "No new questions to add from those Text Sets — every question there has already been used in a past Review."
+      : "Nothing new to add from those Text Sets.");
     st.count = Math.min(st.count + added, st.questionIds.length);
   } else if (c.op === "addSkills") {
     // 🔓 fix (Oct 2026, "خليه مفتوح بلا تحديد"): used to cap at 20 skills per "Add selected" click, silently
@@ -798,7 +826,10 @@ export async function changeCustomReview(repo: Repo, actor: Actor, grade: number
     let added = 0;
     let atMax = false;
     for (const skillId of skillIds) {
-      for (const qid of await skillAddableIds(repo, actor, skillId, level)) {
+      let ids = await skillAddableIds(repo, actor, skillId, level);
+      // 🆕 r92: same `onlyNew` as addSets'.
+      if (c.onlyNew) { const used = await usedQuestionIds(repo, ids); ids = ids.filter((id) => !used.has(id)); }
+      for (const qid of ids) {
         if (st.questionIds.length >= MAX_REVIEW) { atMax = true; continue; }
         if (st.questionIds.includes(qid)) continue;
         st.questionIds.push(qid); added++;
@@ -808,7 +839,9 @@ export async function changeCustomReview(repo: Repo, actor: Actor, grade: number
     // already at MAX_REVIEW so nothing more could be added" — they used to share one confusing message.
     if (!added) throw new ValidationError(atMax
       ? `Your Review is already at its maximum of ${MAX_REVIEW} questions. Remove some questions first, then add these skills.`
-      : "Nothing new to add from those skills — every question of those skills is already in your Review.");
+      : c.onlyNew
+        ? "No new questions to add from those skills — every question of those skills has already been used in a past Review."
+        : "Nothing new to add from those skills — every question of those skills is already in your Review.");
     st.count = Math.min(st.count + added, st.questionIds.length);
   } else if (c.op === "addSkillCount") {
     const skillId = s(c.skillId);
@@ -816,14 +849,18 @@ export async function changeCustomReview(repo: Repo, actor: Actor, grade: number
     const n = Math.round(Number(c.count));
     if (!(n >= 1)) throw new ValidationError("Choose how many questions to add.");
     const level: LevelFilter = c.level && c.level !== "ANY" ? c.level : "ANY";
-    const avail = await skillAddableIds(repo, actor, skillId, level);
+    let avail = await skillAddableIds(repo, actor, skillId, level);
+    // 🆕 r92: same `onlyNew` as addSets' — a count-limited add draws only from the still-unused pool.
+    if (c.onlyNew) { const used = await usedQuestionIds(repo, avail); avail = avail.filter((id) => !used.has(id)); }
     let added = 0;
     for (const qid of avail) {
       if (added >= n) break;
       if (st.questionIds.includes(qid) || st.questionIds.length >= MAX_REVIEW) continue;
       st.questionIds.push(qid); added++;
     }
-    if (!added) throw new ValidationError("Nothing new to add from that skill.");
+    if (!added) throw new ValidationError(c.onlyNew
+      ? "No new questions to add from that skill — every question of it has already been used in a past Review."
+      : "Nothing new to add from that skill.");
     st.count = Math.min(st.count + added, st.questionIds.length);
   } else if (c.op === "removeSection") {
     // 🗑 fix (Oct 2026, "احذف اي نقطه من هنا"): same as ReviewChange's "removeSection" — see its comment.

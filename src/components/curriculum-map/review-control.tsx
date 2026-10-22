@@ -47,6 +47,9 @@ export function ReviewControl({ initial, roster = [] }: { initial: ReviewControl
   const [count, setCount] = useState(String(initial.count));
   // 🔓 r91: the level to collect at ("Collect..." and "Language") — narrows Analyze Craft and Structure only
   const [level, setLevel] = useState<LevelFilter>("ANY");
+  // 🆕 r92 "اقترح اسئله لم تستخدم من قبل": "All" (default, unchanged behaviour) vs "New only" — when collecting
+  // ("Collect..." / "Language"), skip questions already sent to students in a past Review.
+  const [onlyNew, setOnlyNew] = useState(false);
   // ⭐ r91 Assign mini-form
   const [classId, setClassId] = useState(roster[0]?.id ?? "");
   const [assignMode, setAssignMode] = useState<"FIXED" | "ADAPTIVE">("FIXED");
@@ -169,6 +172,9 @@ export function ReviewControl({ initial, roster = [] }: { initial: ReviewControl
                           <span className="flex flex-wrap gap-1 text-xs">
                             {x.own && <span className="rounded-full bg-violet-50 px-2 py-0.5 font-semibold text-violet-800 ring-1 ring-violet-200">✏️ {t("My copy")}</span>}
                             <span className="rounded-full bg-slate-50 px-2 py-0.5 text-slate-600 ring-1 ring-slate-200">{x.typeLabel}</span>
+                            {/* 🆕 r92 "اقترح اسئله لم تستخدم من قبل": whether this question was ever SENT to students
+                                before, in a past Review anywhere in the school (see map-source.ts usedQuestionIds). */}
+                            {x.usedBefore ? <span className="rounded-full bg-slate-100 px-2 py-0.5 text-slate-600 ring-1 ring-slate-200">🔁 {t("Used before")}</span> : <span className="rounded-full bg-emerald-50 px-2 py-0.5 text-emerald-800 ring-1 ring-emerald-200">🆕 {t("New")}</span>}
                             {!asked && <span className="rounded-full bg-amber-50 px-2 py-0.5 text-amber-900 ring-1 ring-amber-200">{t("Not asked")}</span>}
                           </span>
                         </div>
@@ -248,12 +254,19 @@ export function ReviewControl({ initial, roster = [] }: { initial: ReviewControl
             <button type="button" className={btn} disabled={busy} onClick={() => go(async () => { const r = await reviewDraftAction(v.code); if (r.ok) { setW({ ...r.value, options: [...r.value.options] }); setAdding("write"); setMsg({ ok: true, text: t("AI draft ready: check and edit it, then add it.") }); } else setMsg({ ok: false, text: r.message }); })}>✨ {t("AI draft")}</button>
             {/* 🤖 r89: one press pulls in every Vocabulary + Analyze Craft question of THIS Text Set (not a live link —
                 press again later to pick up anything added since). */}
-            <button type="button" className={btn} disabled={busy} onClick={() => go(async () => { apply(await reviewChangeAction(v.code, { op: "addSet", level }), t("Added ✓")); })}>🤖 {t("Collect this Text Set's Vocabulary + Analyze Craft")}</button>
+            <button type="button" className={btn} disabled={busy} onClick={() => go(async () => { apply(await reviewChangeAction(v.code, { op: "addSet", level, onlyNew }), t("Added ✓")); })}>🤖 {t("Collect this Text Set's Vocabulary + Analyze Craft")}</button>
             <button type="button" className={btn} aria-pressed={adding === "skills"} onClick={() => { const next = adding === "skills" ? "" : "skills"; setAdding(next); if (next === "skills" && !skillUnits) go(async () => { const r = await reviewSkillChoicesAction(v.code); if (r.ok) setSkillUnits(r.value); else setMsg({ ok: false, text: r.message }); }); }}>🗣️ {t("Language")}</button>
             <label className="ms-auto flex items-center gap-1.5 text-sm font-semibold text-slate-700">{t("Level")}
               <select value={level} onChange={(e) => setLevel(e.target.value as LevelFilter)} className="rounded-lg border border-slate-300 px-2 py-1.5 text-sm font-normal">
                 <option value="ANY">{t("All levels")}</option>
                 {(Object.keys(LV) as Level[]).map((k) => <option key={k} value={k}>{t(LV[k])}</option>)}
+              </select>
+            </label>
+            {/* 🆕 r92 "اقترح اسئله لم تستخدم من قبل": applies to "Collect..." and "Language" → Add selected below. */}
+            <label className="flex items-center gap-1.5 text-sm font-semibold text-slate-700">{t("When collecting")}
+              <select value={onlyNew ? "NEW" : "ALL"} onChange={(e) => setOnlyNew(e.target.value === "NEW")} className="rounded-lg border border-slate-300 px-2 py-1.5 text-sm font-normal">
+                <option value="ALL">{t("All questions")}</option>
+                <option value="NEW">{t("New only (not used before)")}</option>
               </select>
             </label>
           </div>
@@ -328,7 +341,7 @@ export function ReviewControl({ initial, roster = [] }: { initial: ReviewControl
               <button type="button" className={main} disabled={busy || !picked.size}
                 onClick={() => go(async () => {
                   const pickedIds = [...picked];
-                  if (apply(await reviewChangeAction(v.code, { op: "addSkills", skillIds: pickedIds, level }), t("Added ✓"))) {
+                  if (apply(await reviewChangeAction(v.code, { op: "addSkills", skillIds: pickedIds, level, onlyNew }), t("Added ✓"))) {
                     setAddedSkillIds((s) => new Set([...s, ...pickedIds]));
                     setPicked(new Set());
                   }

@@ -60,6 +60,9 @@ export function ReviewBuilder({ grade, rev, initial, sets, skillUnits, roster }:
   const [sharePick, setSharePick] = useState("");
   const [tab, setTab] = useState<"" | "sets" | "skills" | "write" | "bank">("");
   const [level, setLevel] = useState<LevelFilter>("ANY");
+  // 🆕 r92 "اقترح اسئله لم تستخدم من قبل": "All" (default, unchanged behaviour) vs "New only" for the Text Sets
+  // and Language tabs' "Add selected" — skip questions already sent to students in a past Review.
+  const [onlyNew, setOnlyNew] = useState(false);
   const [setsData, setSetsData] = useState<ReviewSetUnit[] | null>(sets.length ? sets : null);
   const [skillsData, setSkillsData] = useState<ReviewSkillUnit[] | null>(skillUnits.length ? skillUnits : null);
   const [skillQ, setSkillQ] = useState("");
@@ -252,6 +255,13 @@ export function ReviewBuilder({ grade, rev, initial, sets, skillUnits, roster }:
             {(Object.keys(LV) as Level[]).map((k) => <option key={k} value={k}>{t(LV[k])}</option>)}
           </select>
         </label>
+        {/* 🆕 r92 "اقترح اسئله لم تستخدم من قبل": applies to the Text Sets and Language tabs' "Add selected". */}
+        <label className="text-sm font-semibold text-slate-700 print:hidden">{t("When collecting")}
+          <select value={onlyNew ? "NEW" : "ALL"} onChange={(e) => setOnlyNew(e.target.value === "NEW")} className={`${field} w-48`}>
+            <option value="ALL">{t("All questions")}</option>
+            <option value="NEW">{t("New only (not used before)")}</option>
+          </select>
+        </label>
         {/* 🐛 fix (Oct 2026, "لازم امشي واحد واحد واضغط save"): type into as many sections' "Take" boxes as you
             like, then press this ONE button — it submits every section's current number at once (see
             saveSectionCounts above), not just the row you happen to click. Always shown (fix: "save all مش
@@ -387,6 +397,9 @@ export function ReviewBuilder({ grade, rev, initial, sets, skillUnits, roster }:
                           <span className="flex flex-wrap gap-1 text-xs">
                             {x.own && <span className="rounded-full bg-violet-50 px-2 py-0.5 font-semibold text-violet-800 ring-1 ring-violet-200">✏️ {t("My copy")}</span>}
                             <span className="rounded-full bg-slate-50 px-2 py-0.5 text-slate-600 ring-1 ring-slate-200">{x.typeLabel}</span>
+                            {/* 🆕 r92 "اقترح اسئله لم تستخدم من قبل": whether this question was ever SENT to students
+                                before, in a past Review anywhere in the school (see map-source.ts usedQuestionIds). */}
+                            {x.usedBefore ? <span className="rounded-full bg-slate-100 px-2 py-0.5 text-slate-600 ring-1 ring-slate-200">🔁 {t("Used before")}</span> : <span className="rounded-full bg-emerald-50 px-2 py-0.5 text-emerald-800 ring-1 ring-emerald-200">🆕 {t("New")}</span>}
                             {!asked && <span className="rounded-full bg-amber-50 px-2 py-0.5 text-amber-900 ring-1 ring-amber-200">{t("Not asked")}</span>}
                           </span>
                         </div>
@@ -657,7 +670,7 @@ export function ReviewBuilder({ grade, rev, initial, sets, skillUnits, roster }:
             <button type="button" className={main} disabled={busy || !setPicksCount}
               onClick={() => go(async () => {
                 const picks = Object.entries(setPicks).map(([key, cats]) => { const [unit, setNumber] = key.split(".").map(Number); return { unit, setNumber, categories: [...cats] }; });
-                if (apply(await customReviewChangeAction(grade, { op: "addSets", picks, level }, rev), t("Added ✓"))) {
+                if (apply(await customReviewChangeAction(grade, { op: "addSets", picks, level, onlyNew }, rev), t("Added ✓"))) {
                   const newlyAdded = picks.flatMap((p) => p.categories.map((cat) => `${p.unit}.${p.setNumber}.${cat}`));
                   setAddedSetCats((s) => new Set([...s, ...newlyAdded]));
                   setSetPicks({});
@@ -715,7 +728,7 @@ export function ReviewBuilder({ grade, rev, initial, sets, skillUnits, roster }:
             <button type="button" className={main} disabled={busy || !skillPicks.size}
               onClick={() => go(async () => {
                 const picked = [...skillPicks];
-                if (apply(await customReviewChangeAction(grade, { op: "addSkills", skillIds: picked, level }, rev), t("Added ✓"))) {
+                if (apply(await customReviewChangeAction(grade, { op: "addSkills", skillIds: picked, level, onlyNew }, rev), t("Added ✓"))) {
                   setAddedSkillIds((s) => new Set([...s, ...picked]));
                   setSkillPicks(new Set());
                 }
@@ -805,7 +818,7 @@ export function ReviewBuilder({ grade, rev, initial, sets, skillUnits, roster }:
               e.preventDefault();
               go(async () => {
                 const n = Math.max(1, Math.round(Number(bulkCount)) || 0);
-                if (apply(await customReviewChangeAction(grade, { op: "addSkillCount", skillId: bulkDialog.id, count: n, level: bulkLv === "ALL" ? "ANY" : bulkLv }, rev), t("Added ✓"))) setBulkDialog(null);
+                if (apply(await customReviewChangeAction(grade, { op: "addSkillCount", skillId: bulkDialog.id, count: n, level: bulkLv === "ALL" ? "ANY" : bulkLv, onlyNew }, rev), t("Added ✓"))) setBulkDialog(null);
               });
             }}>
             <h3 className="font-semibold text-slate-900">{t("Add a whole skill")}</h3>

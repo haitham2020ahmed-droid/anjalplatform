@@ -225,7 +225,7 @@ export function AssignedSkills({ view, firstName, placement, area = "ALL", extra
                   <div className="min-w-0">
                     <h3 className="truncate text-[0.95rem] font-bold text-brand-navy" title={i.skill}><span aria-hidden="true">{i.grammar ? "🔤" : i.track === "MAP" ? "🗺️" : i.track === "NAFS" ? "🇸🇦" : i.track === "RTI" ? "🧩" : i.track === "CUSTOM" ? "✏️" : "📘"}</span> {i.skill}</h3>
                     {(() => { const k = sourceOfWork(i.track, Boolean(i.grammar)); return <span className={`mt-1 inline-flex items-center rounded-full px-2 py-0.5 text-xs font-semibold ring-1 ${SOURCE_TAG_CLASS[k]}`}>{SOURCE_LABEL[k]}</span>; })()}
-                    <p className="text-xs text-slate-600">{i.kind === "questions" ? `${i.questionCount} questions` : i.standard ?? "Practice"}{i.dueAt ? ` · due ${i.dueAt.slice(0, 10)}` : ""}</p>
+                    <p className="text-xs text-slate-600">{i.kind === "questions" ? "Review quiz" : i.standard ?? "Practice"}{i.dueAt ? ` · due ${i.dueAt.slice(0, 10)}` : ""}</p>
                     {i.note && <p className="mt-1 rounded-lg bg-amber-50 px-2 py-1 text-sm text-amber-900">💬 {i.note}</p>}
                   </div>
                   <span className={`shrink-0 rounded-full px-2 py-0.5 text-xs font-bold ${TONE[i.status]}`}>{LABEL[i.status]}</span>

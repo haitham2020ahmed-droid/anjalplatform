@@ -37,7 +37,7 @@ export interface MapSourceSection { code: string; category: string; label: strin
 export interface MapSourceSet { code: string; kind: string; number: number; heading: string; title: string; genre: string | null; keyWords: string[]; count: number; sections: MapSourceSection[] }
 export interface MapSourceUnit { unit: number; title: string; count: number; sets: MapSourceSet[] }
 export interface MapSourceTree { grades: number[]; grade: number | null; units: MapSourceUnit[] }
-export interface MapSourceQuestion { id: string; stem: string; type: string; typeLabel: string; level: QLevel; passageTitle: string | null; contentKey: string; section: string; code: string; skill?: string }
+export interface MapSourceQuestion { id: string; stem: string; type: string; typeLabel: string; level: QLevel; passageTitle: string | null; contentKey: string; section: string; code: string; skill?: string; usedBefore?: boolean }
 export interface MapSectionPage {
   code: string; label: string; total: number; page: number; pages: number;
   types: { code: string; label: string; count: number }[]; levels: { level: QLevel; count: number }[];
@@ -199,6 +199,31 @@ export async function describePicks(repo: Repo, actor: Actor, ids: string[], lim
     const skill = s(skillOf.get(s(q.skillId))?.name);
     return [{ id, stem: s(it.stem).slice(0, 220), type: s(t?.code), typeLabel: s(t?.name ?? t?.code), level: (n?.level ?? fromDifficulty(Number(q.difficultyLevel ?? 4))) as QLevel, passageTitle: it.passageTitle ?? null, contentKey: contentKey(it), section: n ? `${setHeading(n)} · ${sectionLabel(n)}` : skill ? `🧩 ${skill}` : "", code: n?.code ?? "", skill }];
   });
+}
+
+/**
+ * 🆕 r92 Review Builder ("اقترح اسئله لم تستخدم من قبل علي نفس الدرس"): which of these questions have already
+ * been ASSIGNED to students before, in a past Review (⭐ Assign on a Review place) anywhere in this school — not
+ * just sitting in a draft Review nobody has sent yet. "Used" = the question was part of a published TEACHER_QUIZ
+ * Assessment that a non-deleted, CURRICULUM-track Assignment actually sent out. The candidate ids are already
+ * scoped to one lesson/skill by the caller (sharedQuestions/setsQuestionIds/skillAddableIds), so this alone is
+ * enough to tell "new" from "used before" for that lesson — no extra schema needed.
+ */
+export async function usedQuestionIds(repo: Repo, ids: string[]): Promise<Set<string>> {
+  const list = [...new Set((ids ?? []).map(s).filter(Boolean))];
+  if (!list.length) return new Set();
+  const aqs = await repo.findMany("AssessmentQuestion", { questionId: { in: list } }, { select: ["questionId", "assessmentId"] });
+  if (!aqs.length) return new Set();
+  const assessmentIds = [...new Set(aqs.map((a) => s(a.assessmentId)))];
+  const quizzes = await repo.findMany("Assessment", { id: { in: assessmentIds }, type: "TEACHER_QUIZ" }, { select: ["id"] });
+  if (!quizzes.length) return new Set();
+  const quizIds = new Set(quizzes.map((a) => s(a.id)));
+  const sent = await repo.findMany("Assignment", { assessmentId: { in: [...quizIds] }, track: "CURRICULUM", deletedAt: null }, { select: ["assessmentId"] });
+  const sentIds = new Set(sent.map((a) => s(a.assessmentId)));
+  if (!sentIds.size) return new Set();
+  const used = new Set<string>();
+  for (const aq of aqs) if (sentIds.has(s(aq.assessmentId))) used.add(s(aq.questionId));
+  return used;
 }
 
 /**
