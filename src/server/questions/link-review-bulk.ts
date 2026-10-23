@@ -14,6 +14,7 @@ import { isHiddenSkill } from "../skills/master";
 import { aiSettings, callJson, pickProvider, rateState, type EnvLike, type Picked } from "../ai/engine";
 import { approveReview } from "./link-review";
 import { schoolSkillIndex } from "./skill-questions";
+import { memoryHigh } from "../monitoring/memory";
 
 const s = (v: unknown) => String(v ?? "");
 export const CONFIDENT = 0.8;
@@ -21,6 +22,16 @@ export const AI_REASON = "AI suggestion";
 export const AI_BATCH = 15;
 export const ACCEPT_BATCH = 25;
 export const GROUP_PAGE = 100;
+// 🛑 fix (Oct 2026, production OOM): "Accept all confident guesses" / "Accept every guess" used to call their batch
+// action back-to-back in a tight loop (up to 2000 batches of 25 rows, each row doing a real per-student mastery
+// recompute via approveReview → moveQuestionToSkill), with no pause and no server-side backpressure at all — on a
+// large backlog this sustained an allocation rate the instance's 512MB could not keep up with and the process was
+// OOM-killed by Render twice in one day (confirmed from the memory.jump log: "/admin/skill-links" hit 160+ times in
+// under a minute, while every named in-process cache stayed near zero, ruling out a cache leak — this loop is the
+// cause). The fix: before doing any work, each batch checks memoryHigh() (≥78% of the plan's RAM) and, if the
+// instance is already under pressure, does nothing and asks the client to pause BUSY_WAIT_MS before retrying the
+// same cursor position — giving GC a chance to catch up instead of piling more allocation on top of a high baseline.
+export const BUSY_WAIT_MS = 4_000;
 const OPEN_Q = (schoolId: string) => ({ schoolId, status: "OPEN", kind: "QUESTION" });
 
 function assertAdmin(actor: Actor): void {
@@ -149,14 +160,17 @@ export async function confidentCount(repo: Repo, actor: Actor): Promise<number> 
   return repo.count("SkillLinkReview", { ...OPEN_Q(s(actor.schoolId)), confidence: { gte: CONFIDENT }, guessId: { not: null } });
 }
 
-export interface AcceptBatchResult { linked: number; failed: number; next: string | null; done: boolean }
+export interface AcceptBatchResult { linked: number; failed: number; next: string | null; done: boolean; waitMs: number }
 /** Approves the next ~25 confident rows (after the cursor) with their best guess. A row that fails stays open. */
 export async function acceptConfidentBatch(repo: Repo, actor: Actor, after: string | null, now = new Date()): Promise<AcceptBatchResult> {
   assertAdmin(actor);
+  // 🛑 fix (Oct 2026): pause this batch (same cursor, nothing done) when the instance is already low on memory —
+  // see BUSY_WAIT_MS above.
+  if (memoryHigh()) return { linked: 0, failed: 0, next: after, done: false, waitMs: BUSY_WAIT_MS };
   const rows = await repo.findMany("SkillLinkReview", { ...OPEN_Q(s(actor.schoolId)), confidence: { gte: CONFIDENT }, guessId: { not: null }, ...cursor(after) }, { select: ["id"], orderBy: [{ field: "id", dir: "asc" }], take: ACCEPT_BATCH });
-  if (!rows.length) return { linked: 0, failed: 0, next: null, done: true };
+  if (!rows.length) return { linked: 0, failed: 0, next: null, done: true, waitMs: 0 };
   const r = await approveMany(repo, actor, rows.map((x) => s(x.id)), now);
-  return { ...r, next: s(rows[rows.length - 1].id), done: rows.length < ACCEPT_BATCH };
+  return { ...r, next: s(rows[rows.length - 1].id), done: rows.length < ACCEPT_BATCH, waitMs: 0 };
 }
 
 // ------------------------------------------------------------------ 2b. accept EVERY guess, any confidence
@@ -172,10 +186,12 @@ export async function guessedCount(repo: Repo, actor: Actor): Promise<number> {
 /** Approves the next ~25 rows with a best guess (after the cursor), whatever their confidence. A row that fails stays open. */
 export async function acceptAllGuessesBatch(repo: Repo, actor: Actor, after: string | null, now = new Date()): Promise<AcceptBatchResult> {
   assertAdmin(actor);
+  // 🛑 fix (Oct 2026): same memory circuit-breaker as acceptConfidentBatch above.
+  if (memoryHigh()) return { linked: 0, failed: 0, next: after, done: false, waitMs: BUSY_WAIT_MS };
   const rows = await repo.findMany("SkillLinkReview", { ...OPEN_Q(s(actor.schoolId)), guessId: { not: null }, ...cursor(after) }, { select: ["id"], orderBy: [{ field: "id", dir: "asc" }], take: ACCEPT_BATCH });
-  if (!rows.length) return { linked: 0, failed: 0, next: null, done: true };
+  if (!rows.length) return { linked: 0, failed: 0, next: null, done: true, waitMs: 0 };
   const r = await approveMany(repo, actor, rows.map((x) => s(x.id)), now);
-  return { ...r, next: s(rows[rows.length - 1].id), done: rows.length < ACCEPT_BATCH };
+  return { ...r, next: s(rows[rows.length - 1].id), done: rows.length < ACCEPT_BATCH, waitMs: 0 };
 }
 
 async function approveMany(repo: Repo, actor: Actor, ids: string[], now: Date): Promise<{ linked: number; failed: number }> {

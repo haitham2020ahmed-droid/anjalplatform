@@ -78,6 +78,7 @@ export function AcceptConfident() {
   const [phase, setPhase] = useState<"idle" | "preview" | "running" | "done">("idle");
   const [count, setCount] = useState(0);
   const [done, setDone] = useState({ linked: 0, failed: 0 });
+  const [note, setNote] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const stop = useRef(false);
 
@@ -94,6 +95,9 @@ export function AcceptConfident() {
     for (let guard = 0; guard < 2000 && !stop.current; guard++) {
       const r = await acceptConfidentAction(after);
       if (!r.result) { setError(r.error ?? t("Something went wrong. Try again.")); break; }
+      // 🛑 fix (Oct 2026): the server pauses a batch (same cursor, nothing done) when it is low on memory, instead
+      // of doing more work on top of an already-busy instance — wait it out here, same as the AI tool above.
+      if (r.result.waitMs > 0) { setNote(t("Waiting a moment for the server…")); await sleep(r.result.waitMs); setNote(null); continue; }
       sum = { linked: sum.linked + r.result.linked, failed: sum.failed + r.result.failed }; setDone(sum);
       if (r.result.done || !r.result.next) break;
       after = r.result.next;
@@ -123,6 +127,7 @@ export function AcceptConfident() {
           <button type="button" onClick={() => { stop.current = true; }} className={`${BTN_SECONDARY} mt-2`}>{t("Stop")}</button>
         </div>
       )}
+      {note && <p role="status" className="mt-2 text-sm text-slate-600">{t(note)}</p>}
       {phase === "done" && <p role="status" className={STATUS}>✓ {t("{n} question(s) linked to their skill.", { n: done.linked })}{done.failed ? ` ${t("{n} could not be linked and stay in the list.", { n: done.failed })}` : ""}</p>}
       {error && <p role="alert" className={ALERT}>{t(error)}</p>}
     </div>
@@ -138,6 +143,7 @@ export function AcceptAllGuesses() {
   const [phase, setPhase] = useState<"idle" | "preview" | "running" | "done">("idle");
   const [count, setCount] = useState(0);
   const [done, setDone] = useState({ linked: 0, failed: 0 });
+  const [note, setNote] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const stop = useRef(false);
 
@@ -154,6 +160,8 @@ export function AcceptAllGuesses() {
     for (let guard = 0; guard < 2000 && !stop.current; guard++) {
       const r = await acceptAllGuessesAction(after);
       if (!r.result) { setError(r.error ?? t("Something went wrong. Try again.")); break; }
+      // 🛑 fix (Oct 2026): same server-side memory pause as AcceptConfident above.
+      if (r.result.waitMs > 0) { setNote(t("Waiting a moment for the server…")); await sleep(r.result.waitMs); setNote(null); continue; }
       sum = { linked: sum.linked + r.result.linked, failed: sum.failed + r.result.failed }; setDone(sum);
       if (r.result.done || !r.result.next) break;
       after = r.result.next;
@@ -183,6 +191,7 @@ export function AcceptAllGuesses() {
           <button type="button" onClick={() => { stop.current = true; }} className={`${BTN_SECONDARY} mt-2`}>{t("Stop")}</button>
         </div>
       )}
+      {note && <p role="status" className="mt-2 text-sm text-slate-600">{t(note)}</p>}
       {phase === "done" && <p role="status" className={STATUS}>✓ {t("{n} question(s) linked to their skill.", { n: done.linked })}{done.failed ? ` ${t("{n} could not be linked and stay in the list.", { n: done.failed })}` : ""}</p>}
       {error && <p role="alert" className={ALERT}>{t(error)}</p>}
     </div>
