@@ -24,7 +24,7 @@ import { audit } from "../audit";
 import { assertNafs } from "../teacher/nafs-access";
 import { seededShuffle } from "../practice/items";
 import { hideLevels } from "../../lib/hide-levels";
-import { DIFFICULTIES, DIFFICULTY_NAME, isAdaptiveChoice, MAX_NAFS_MINUTES, MOE_BY_CODE, SKILL_BY_CODE, type Difficulty, type DifficultyMix } from "./framework";
+import { DIFFICULTIES, DIFFICULTY_NAME, domainOf, isAdaptiveChoice, MAX_NAFS_MINUTES, MOE_BY_CODE, SKILL_BY_CODE, type Difficulty, type DifficultyMix } from "./framework";
 import { isTargetCode, loadNafsQuestions, matchesTarget, nafsIndex, usable, type NafsEntry } from "./bank";
 import { assignedTo, grade6Class, json, nafsClasses } from "./tests";
 import { paragraphsOf } from "./student";
@@ -32,6 +32,8 @@ import { isRapidGuess } from "../practice/guessing";
 import { cellOf, classLine, roundPct, strengthsWeaknesses, type ClassLine, type NoneWhy } from "./strengths";
 import { nafsRemoved } from "./removed";
 import { cancelIndex } from "../student/cancelled-work";
+import { synAntFeedback } from "../../lib/syn-ant-feedback";
+import { dueVocabQuestionIds, type VocabAttempt } from "../../lib/vocab-review-schedule";
 
 const s = (v: unknown) => String(v ?? "");
 const d = (v: unknown): Date | null => (v === null || v === undefined || v === "" ? null : v instanceof Date ? v : new Date(String(v)));
@@ -46,6 +48,9 @@ export const START_LEVEL: Difficulty = 2;
 export const RECENT_DAYS = 30;
 /** One answer counts at most this long towards the time spent (a left-open tab is not practice time). */
 const MAX_ANSWER_MS = 10 * 60_000;
+/** Spaced-repetition vocabulary review (src/lib/vocab-review-schedule.ts): at most this many previously-missed,
+ *  now-due vocabulary questions are slipped into one practice run. */
+export const MAX_VOCAB_REVIEW_PER_RUN = 3;
 
 export const targetName = (code: string): string => SKILL_BY_CODE.get(code)?.name ?? MOE_BY_CODE.get(code)?.text ?? code;
 export const targetShort = (code: string): string => MOE_BY_CODE.get(code)?.short ?? SKILL_BY_CODE.get(code)?.name ?? code;
@@ -350,6 +355,23 @@ export async function myNafsPractice(repo: Repo, actor: Actor): Promise<MyPracti
   });
 }
 
+export interface NafsHistoryPoint { label: string; pct: number }
+/**
+ * 🆕 feature (Oct 2026): "My practice score over time" — one point per FINISHED adaptive NAFS practice run (any
+ * practice, any target mix), oldest first, score = correct ÷ asked of that run. NAFS has one skill area (reading),
+ * so one overall trend line is the natural shape here (unlike MAP's per-subject chart) — mirrors the same simple
+ * inline-SVG LineChart (src/components/nafs/charts.tsx) already used elsewhere in the NAFS section. At most the
+ * last 12 runs, so the chart stays readable; empty before a student's third-ever finished run would read as noise,
+ * so the page only renders it once there is something to show (2+ points).
+ */
+export async function nafsPracticeHistory(repo: Repo, studentId: string): Promise<NafsHistoryPoint[]> {
+  const rows = await repo.findMany("NafsPracticeRun", { studentId, finishedAt: { not: null } },
+    { select: ["asked", "correct", "finishedAt"], orderBy: [{ field: "finishedAt", dir: "desc" }], take: 12 });
+  return rows.map((r) => ({ asked: Number(r.asked ?? 0), correct: Number(r.correct ?? 0), finishedAt: new Date(String(r.finishedAt)) }))
+    .filter((r) => r.asked > 0).reverse()
+    .map((r) => ({ label: r.finishedAt.toLocaleDateString("en-GB", { day: "numeric", month: "short" }), pct: Math.round((r.correct / r.asked) * 100) }));
+}
+
 /** The practices not finished yet (the home NAFS card). */
 export async function nafsPracticeToDo(repo: Repo, actor: Actor): Promise<number> {
   if (actor.role !== "STUDENT" || !actor.studentId) return 0;
@@ -377,6 +399,21 @@ export interface PracticeView {
 async function recentOf(repo: Repo, studentId: string, now: Date): Promise<Set<string>> {
   const rows = await repo.findMany("NafsPracticeAnswer", { studentId, at: { gte: new Date(now.getTime() - RECENT_DAYS * 86_400_000) } }, { select: ["questionId"], orderBy: [{ field: "at", dir: "desc" }], take: 1000 });
   return new Set(rows.map((r) => s(r.questionId)));
+}
+
+/**
+ * 🔁 Spaced-repetition vocabulary review (no new schema — src/lib/vocab-review-schedule.ts holds the pure
+ * scheduling math). Reads this student's full NAFS answer history for the VOCABULARY-domain ("V") questions that
+ * are actually in `pool` (so a review pick is always one the student could legitimately be given in this practice
+ * anyway — same targets, same usable/MCQ rules), then asks the pure function which of them are due right now.
+ * Returns an empty set (no behaviour change) when the student has no missed vocabulary question in this pool.
+ */
+async function dueVocabInPool(repo: Repo, studentId: string, pool: NafsEntry[], now: Date): Promise<Set<string>> {
+  const vocabIds = [...new Set(pool.filter((e) => domainOf(e.nafsCode) === "V").map((e) => e.id))];
+  if (!vocabIds.length) return new Set();
+  const rows = await repo.findMany("NafsPracticeAnswer", { studentId, questionId: { in: vocabIds } }, { select: ["questionId", "correct", "at"] });
+  const attempts: VocabAttempt[] = rows.map((r) => ({ questionId: s(r.questionId), correct: Boolean(r.correct), at: d(r.at)?.getTime() ?? 0 }));
+  return dueVocabQuestionIds(attempts, now.getTime());
 }
 
 const finish = async (repo: Repo, runId: unknown, state: RunState, why: NonNullable<RunState["end"]>, now: Date) => {
@@ -407,10 +444,23 @@ export async function nafsPracticeView(repo: Repo, actor: Actor, id: string, now
     let pick: NextPick | null = null;
     if (!why) {
       const [pool, recent] = await Promise.all([practicePool(repo, s(p.schoolId), { targets, questionIds: json<string[] | null>(p.questionIds, null) }), recentOf(repo, studentId, now)]);
-      const prevId = state.used[state.used.length - 1];
-      const prev = prevId ? pool.find((e) => e.id === prevId) : undefined;
-      const res = pickNext(pool, targets, state, { recent, seed: `${s(p.id)}:${studentId}`, prevPassage: prev?.passageId ?? null });
-      pick = res.pick; why = res.why;
+      // 🔁 spaced-repetition vocabulary review: try a due, previously-missed vocabulary question first (up to
+      // MAX_VOCAB_REVIEW_PER_RUN per run — `state.used` already carries every review question injected earlier in
+      // THIS run, so counting how many of those are in `due` self-limits with no extra state to store).
+      const due = await dueVocabInPool(repo, studentId, pool, now);
+      if (due.size) {
+        const injectedSoFar = state.used.filter((id) => due.has(id)).length;
+        if (injectedSoFar < MAX_VOCAB_REVIEW_PER_RUN) {
+          const entry = pool.find((e) => due.has(e.id) && !state.used.includes(e.id));
+          if (entry) pick = { target: entry.nafsCode, entry };
+        }
+      }
+      if (!pick) {
+        const prevId = state.used[state.used.length - 1];
+        const prev = prevId ? pool.find((e) => e.id === prevId) : undefined;
+        const res = pickNext(pool, targets, state, { recent, seed: `${s(p.id)}:${studentId}`, prevPassage: prev?.passageId ?? null });
+        pick = res.pick; why = res.why;
+      }
     }
     if (!pick) { state = await finish(repo, r.id, state, why ?? "EMPTY", now); return { ...base, n: asked, done: true, end: state.end ?? null, question: null }; }
     state = { ...state, cur: { questionId: pick.entry.id, target: pick.target, difficulty: pick.entry.difficulty, at: now.toISOString() }, used: [...state.used, pick.entry.id] };
@@ -428,7 +478,20 @@ export async function nafsPracticeView(repo: Repo, actor: Actor, id: string, now
   };
 }
 
-export interface PracticeFeedback { correct: boolean; answer: number; explanation: string; done: boolean }
+export interface PracticeFeedback { correct: boolean; answer: number; explanation: string; done: boolean; hint?: string }
+
+/**
+ * The rationale authored for one option of a question (QuestionOption.rationale — every wrong option in this bank
+ * is required to have one; see data/questions/src/qb.py). Null when the option has none or does not exist.
+ * Used by the synonym/antonym feedback heuristic (src/lib/syn-ant-feedback.ts) to corroborate the specific mistake.
+ */
+async function optionRationale(repo: Repo, questionId: string, choiceIndex: number): Promise<string | null> {
+  const opts = await repo.findMany("QuestionOption", { questionId }, { select: ["rationale", "order"] });
+  const sorted = [...opts].sort((a, b) => Number(a.order) - Number(b.order));
+  const o = sorted[choiceIndex];
+  return o && o.rationale !== null && o.rationale !== undefined && s(o.rationale) !== "" ? s(o.rationale) : null;
+}
+
 /**
  * The student's answer to the question on screen: right or wrong, the next difficulty, mastery — stored in the NAFS
  * tables only (NafsPracticeAnswer + NafsPracticeRun). Returns the right option and its explanation (practice feedback).
@@ -475,16 +538,32 @@ export async function answerNafsPractice(repo: Repo, actor: Actor, input: { id: 
     if (replay) return replay;
     throw new ValidationError("This question is not on your screen any more. Open the practice again.");
   }
-  return { correct, answer: q.correct, explanation: q.explanation, done: Boolean(why) };
+  // 📖 synonym/antonym error-pattern feedback (src/lib/syn-ant-feedback.ts): only for a genuine wrong answer (not a
+  // rapid guess the student did not really attempt), and only when the heuristic is confident enough to say
+  // something (see that file for exactly what it requires — it returns null far more often than not).
+  let hint: string | undefined;
+  if (!correct && !rapid) {
+    const rationale = await optionRationale(repo, q.id, choice);
+    const h = synAntFeedback({ nafsTarget: state.cur.target, stem: q.stem, correct: false, chosenRationale: rationale });
+    if (h) hint = h.message;
+  }
+  return { correct, answer: q.correct, explanation: q.explanation, done: Boolean(why), ...(hint ? { hint } : {}) };
 }
 
 /** The saved result when this question is the run's LAST answer (a retry after a lost reply); null otherwise. */
 async function savedNafsAnswer(repo: Repo, runId: string, questionId: string, finished: boolean): Promise<PracticeFeedback | null> {
-  const last = (await repo.findMany("NafsPracticeAnswer", { runId }, { select: ["correct", "questionId"], orderBy: [{ field: "at", dir: "desc" }], take: 1 }))[0];
+  const last = (await repo.findMany("NafsPracticeAnswer", { runId }, { select: ["correct", "questionId", "choice", "target"], orderBy: [{ field: "at", dir: "desc" }], take: 1 }))[0];
   if (!last || String(last.questionId) !== questionId) return null;
   const q = (await loadNafsQuestions(repo, [questionId]))[0];
   if (!q) return null;
-  return { correct: Boolean(last.correct), answer: q.correct, explanation: q.explanation, done: finished };
+  const correct = Boolean(last.correct);
+  let hint: string | undefined;
+  if (!correct && last.choice !== null && last.choice !== undefined) {
+    const rationale = await optionRationale(repo, questionId, Number(last.choice));
+    const h = synAntFeedback({ nafsTarget: last.target ? s(last.target) : null, stem: q.stem, correct: false, chosenRationale: rationale });
+    if (h) hint = h.message;
+  }
+  return { correct, answer: q.correct, explanation: q.explanation, done: finished, ...(hint ? { hint } : {}) };
 }
 
 /** The difficulty's English name (teacher-facing; translated in the page). */

@@ -417,6 +417,26 @@ export async function combinedRitHistory(repo: Repo, studentId: string, now = ne
   return out;
 }
 
+/**
+ * 🧭 The Family Report's "What to practise next" (print-visible, unlike the Action plan's "See the study plan"
+ * button): the student's own Study Plan, Develop stage, not-mastered-yet skills, focus areas first — the very
+ * same picks as the Study Plan's own summary (readySkills, lib/report-summaries.ts) so the names never disagree.
+ * Only the subjects the Family Report actually has a score for are asked (no MAP score → no plan to read yet).
+ * Never throws: a student with no continuum/plan yet simply gets an empty list (the caller shows a fallback line).
+ */
+export async function familyNextSkills(repo: Repo, actor: Actor, studentId: string, subjects: readonly Subject[], opts: { student?: ReportStudent } = {}, max = 5): Promise<string[]> {
+  const { readySkills } = await import("../../lib/report-summaries");
+  const student = opts.student ?? (await reportStudent(repo, actor, studentId));
+  const docs = await Promise.all(subjects.map((subject) => studyPlan(repo, actor, studentId, subject, { student }).catch(() => null)));
+  const out: string[] = [];
+  const seen = new Set<string>();
+  for (const d of docs) {
+    if (!d) continue;
+    for (const k of readySkills(d, max)) { if (!seen.has(k.name)) { seen.add(k.name); out.push(k.name); } }
+  }
+  return out.slice(0, max);
+}
+
 export async function classFamilyReports(repo: Repo, actor: Actor, classId: string, now = new Date()): Promise<{ className: string; docs: FamilyDoc[] }> {
   assertCan(actor, "reports:read");
   const klass = await assertClassRead(repo, actor, classId);

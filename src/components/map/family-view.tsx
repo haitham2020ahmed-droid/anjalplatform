@@ -2,11 +2,24 @@ import type { FamilyDoc, FamilySubject } from "@/server/map/map-reports";
 import { PercentileBar, ReportHead, ReportPage, RitChart, RitLegend, ordinal } from "./report-ui";
 import { ReportSummary } from "@/components/report-kit/report-summary";
 import type { Summary } from "@/lib/report-summary";
+import { pctChange } from "@/lib/report-summary";
+import { homeTopicFor } from "@/server/reports/family-week-words";
+
+/** The weakest goal area across every subject (lowest RIT), for the one-activity fallback when no highlights were
+ *  computed yet (familyNextSkills, map-reports.ts) — pure, reads only what the page already loaded. */
+function weakestAreaName(d: FamilyDoc): string | null {
+  const all = d.subjects.flatMap((x) => x.areas);
+  if (!all.length) return null;
+  return [...all].sort((a, b) => a.rit - b.rit)[0].name;
+}
 
 /** 👪 Family Report: what MAP Growth is, then for each subject achievement, growth, the RIT history and the goal;
  *  then the student's practice on the platform and questions to ask the teacher. Two printed pages. */
-/** r72: `summary` = the parent-friendly summary (mapFamilySummary), at the end of the report (buttons not printed). */
-export function FamilyView({ d, first = true, summary }: { d: FamilyDoc; first?: boolean; summary?: Summary }) {
+/** r72: `summary` = the parent-friendly summary (mapFamilySummary), at the end of the report (buttons not printed).
+ *  `highlights` = the short "What to practise next" skill list (familyNextSkills, map-reports.ts) — unlike the
+ *  summary's "See the study plan" button (print:hidden, inside the Action plan), this renders in the page body so
+ *  it survives print/PDF. Undefined when the caller has not computed it; an empty array shows the fallback line. */
+export function FamilyView({ d, first = true, summary, highlights }: { d: FamilyDoc; first?: boolean; summary?: Summary; highlights?: string[] }) {
   const name = d.student.first.toUpperCase();
   return (
     <>
@@ -35,6 +48,20 @@ export function FamilyView({ d, first = true, summary }: { d: FamilyDoc; first?:
             ))}
           </div>
         </section>
+        {highlights !== undefined && (
+          <section className="mt-5 break-inside-avoid rounded-xl bg-teal-50 p-4 ring-1 ring-teal-200">
+            <h3 className="font-bold text-teal-900">🧭 What to practise next</h3>
+            {highlights.length ? (
+              <ul className="mt-1 list-disc space-y-0.5 ps-6 text-[13px] text-teal-900">{highlights.map((x) => <li key={x}>{x}</li>)}</ul>
+            ) : <p className="mt-1 text-[13px] text-teal-900">{name}&apos;s study plan is not set yet.</p>}
+            {/* r+1: ONE concrete home activity for the week, from the weakest skill/area already shown above —
+               not just a list of names (homeTopicFor, family-week-words.ts: the same activities the weekly family
+               report already uses, keyword-matched, no new data). */}
+            {(highlights[0] ?? weakestAreaName(d)) && (
+              <p className="mt-2 text-[13px] text-teal-900"><b>This week at home:</b> {homeTopicFor(highlights[0] ?? weakestAreaName(d)!).activity}</p>
+            )}
+          </section>
+        )}
         {d.note && (
           <section className="mt-5 break-inside-avoid rounded-xl bg-amber-50 p-4 ring-1 ring-amber-200">
             <h3 className="font-bold text-amber-900">📝 A note from {name}&apos;s teacher</h3>
@@ -86,6 +113,13 @@ function SubjectBlock({ x, name }: { x: FamilySubject; name: string }) {
               <p className="text-sm"><b>{x.growth.descriptor} Growth</b> ≈ {ordinal(x.growth.percentile)} Percentile</p>
               <div className="mt-1"><PercentileBar pct={x.growth.percentile} label={`${name} ${ordinal(x.growth.percentile)}`} /></div>
               <p className="mt-1 text-[12.5px] text-slate-700">{name} grew <b>{x.growth.rit >= 0 ? "+" : ""}{x.growth.rit} RIT</b> from {x.growth.from} to {x.growth.to}. Students who started at the same score grew about {x.growth.expected} ({x.growth.projected ? "NWEA projection" : "national norms"}), so this is more progress than about {x.growth.percentile}% of them.</p>
+              {/* r+1: % improvement alongside the RIT points, from the same before/after this growth already
+                 compares — never a bare discouraging negative %. */}
+              {(() => { const pct = pctChange(l.rit, l.rit - x.growth!.rit); return (
+                <p className="mt-1 text-[12.5px] font-semibold text-teal-700">
+                  {pct !== null && pct > 0 ? <>+{pct}% since {x.growth!.from} — great progress!</> : <>Holding steady since {x.growth!.from}.</>}
+                </p>
+              ); })()}
             </>
           ) : <p className="text-sm text-slate-500">Growth appears after the next MAP test (it compares two tests).</p>}
           {x.goal && <p className="mt-3 rounded-xl bg-teal-50 px-3 py-2 text-[12.5px] text-teal-900 ring-1 ring-teal-200">🎯 Goal for {x.goal.term}: <b>RIT {x.goal.target}</b> ({x.goal.target - l.rit >= 0 ? "+" : ""}{x.goal.target - l.rit} from now).</p>}

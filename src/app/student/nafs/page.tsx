@@ -8,9 +8,11 @@ import { studentPage } from "@/server/auth/student-page";
 import { PreviewFrame } from "@/components/student/preview-frame";
 import { inGrade6Class } from "@/server/student/menu-flags";
 import { myNafsTests } from "@/server/nafs/student";
-import { myNafsPractice } from "@/server/nafs/practice";
+import { myNafsPractice, nafsPracticeHistory } from "@/server/nafs/practice";
+import { studentNafsReadiness } from "@/server/nafs/readiness";
 import { studentSkillPlans } from "@/server/curriculum-map/plans";
 import { EmptyState, BTN_PRIMARY } from "@/components/ui-kit";
+import { LineChart } from "@/components/nafs/charts";
 import { getT } from "@/i18n/server";
 
 export const metadata = { title: "NAFS" };
@@ -42,9 +44,12 @@ export default async function StudentNafsPage({ searchParams }: { searchParams: 
       <EmptyState icon="🇸🇦" title="NAFS is for Grade 6 students." text="Your teacher will add work here soon." action={{ href: "/student", label: "Home" }} />
     </PreviewFrame></AppShell>
   );
-  const [practice, tests, plans] = await Promise.all([
+  const [practice, tests, plans, readiness, history] = await Promise.all([
     myNafsPractice(repo, actor).catch(() => []), myNafsTests(repo, actor).catch(() => []),
     part === "practice" ? studentSkillPlans(repo, actor).then((l) => l.filter((p) => p.kind === "NAFS")).catch(() => []) : Promise.resolve([]),
+    // 🆕 feature (Oct 2026): readiness badge + growth chart, best-effort (never break the page over them)
+    part === "practice" ? studentNafsReadiness(repo, actor.studentId!).catch(() => null) : Promise.resolve(null),
+    part === "practice" ? nafsPracticeHistory(repo, actor.studentId!).catch(() => []) : Promise.resolve([]),
   ]);
   const todoTests = tests.filter((x) => x.status !== "DONE");
   const results = tests.filter((x) => x.status === "DONE");
@@ -60,6 +65,24 @@ export default async function StudentNafsPage({ searchParams }: { searchParams: 
           </Link>
         ))}
       </nav>
+
+      {part === "practice" && readiness?.show && (
+        <div className={`mb-4 flex items-center gap-3 rounded-2xl p-4 ring-1 ${readiness.ready ? "bg-emerald-50 ring-emerald-200" : "bg-amber-50 ring-amber-200"}`}>
+          <span className="text-2xl" aria-hidden="true">{readiness.ready ? "🌟" : "💪"}</span>
+          <p className={`text-base font-semibold ${readiness.ready ? "text-emerald-900" : "text-amber-900"}`}>
+            {t(readiness.ready ? "You're on track for the real test!" : "Keep practicing — you're getting there.")}
+          </p>
+        </div>
+      )}
+
+      {part === "practice" && history.length >= 2 && (
+        <section aria-labelledby="nafs-history-h" className="mb-4 rounded-2xl bg-surface p-4 ring-1 ring-line">
+          <h2 id="nafs-history-h" className="text-base font-semibold text-brand-navy">📈 {t("My practice score over time")}</h2>
+          <div className="mt-2">
+            <LineChart title={t("My practice score over time")} labels={history.map((x) => x.label)} series={[{ name: t("Score"), cls: "text-teal-700", points: history.map((x) => x.pct) }]} />
+          </div>
+        </section>
+      )}
 
       {part === "practice" && (
         !practice.length && !plans.length ? <EmptyState icon="🎯" title="Nothing here yet" text="Your teacher will add NAFS practice here soon." action={{ href: "/student", label: "Home" }} /> : (
@@ -104,7 +127,7 @@ export default async function StudentNafsPage({ searchParams }: { searchParams: 
       )}
 
       {part === "results" && (
-        !results.length ? <EmptyState icon="📊" title="No results yet" text="Your score shows here after your teacher shares it." action={{ href: "/student/nafs?part=tests", label: "My tests" }} /> : (
+        !results.length ? <EmptyState icon="📊" title="No results yet" text="Practice scores show right away under My practice. My results is only for official NAFS tests your teacher has released." action={{ href: "/student/nafs?part=tests", label: "My tests" }} /> : (
           <ul className="grid gap-3">
             {results.map((x) => (
               <li key={x.id} className={CARD}>

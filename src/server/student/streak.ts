@@ -21,7 +21,8 @@ export function streakFromDays(days: number[], today: number): number {
 export const STREAK_WINDOW_DAYS = 60;
 const STREAK_MAX_DAYS = 365;
 
-async function activeDays(repo: Repo, studentId: string, since: Date): Promise<number[]> {
+/** Exported for the "Steady Practice" badge (student/badges.ts): distinct days counted, not consecutiveness. */
+export async function activeDays(repo: Repo, studentId: string, since: Date): Promise<number[]> {
   const [attempts, articles] = await Promise.all([
     repo.findMany("QuestionAttempt", { studentId, createdAt: { gte: since } }, { select: ["createdAt"] }),
     repo.findMany("ReadMasterAttempt", { studentId, createdAt: { gte: since } }, { select: ["createdAt"] }),

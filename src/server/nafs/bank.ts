@@ -32,7 +32,7 @@ export const HOLDING_FAMILY = "nafs-section";
 export const BOOKLET_FAMILY = "nafs-booklets";
 /** The holding family of the NAFS practice sets' questions (platform content; only the NAFS center uses them). */
 export const PRACTICE_FAMILY = "nafs-practice";
-const HOLDING_FAMILIES = new Set([HOLDING_FAMILY, BOOKLET_FAMILY, PRACTICE_FAMILY]);
+export const HOLDING_FAMILIES = new Set([HOLDING_FAMILY, BOOKLET_FAMILY, PRACTICE_FAMILY]);
 /** A practice set's code (NP-001); a model booklet's is NB-001. */
 export const isPracticeSetCode = (c: unknown) => /^NP-/.test(s(c));
 export const BANK_PAGE = 20;
@@ -455,6 +455,41 @@ export async function holdingSkill(repo: Repo, schoolId: string, family: string 
   const about = family === BOOKLET_FAMILY ? "The NAFS model booklets' questions (NAFS section). Not practised." : family === PRACTICE_FAMILY ? "The NAFS practice sets' questions (NAFS center only). Not practised elsewhere." : "The school's own NAFS questions (NAFS section). Not practised.";
   const k = await repo.create("Skill", { curriculumId: cur.id, familyId: fam.id, code, name, description: about, domain: "READING", category: "COMPREHENSION", sequence: 9999, isActive: false });
   return s(k.id);
+}
+
+/**
+ * The ids of this school's NAFS holding skills (model booklets / practice sets / the section's own-question skill)
+ * that already exist — a pure lookup, never creating one (unlike holdingSkill above). Every Question filed under
+ * one of these is platform/section content that was explicitly designed to never be practised directly by a
+ * student; a bug could still leave a stray real-looking SkillStatus row on one of them (see syncNafsPracticeStars
+ * and healHoldingSkillStatus below), and this is how both the leak-prevention and the self-heal recognise them.
+ */
+export async function existingHoldingSkillIds(repo: Repo, schoolId: string): Promise<Set<string>> {
+  const grade = (await repo.findMany("Grade", { schoolId, level: NAFS_GRADE }, { select: ["id"] }))[0] ?? (await repo.findMany("Grade", { schoolId }, { select: ["id"], orderBy: [{ field: "level", dir: "desc" }], take: 1 }))[0];
+  if (!grade) return new Set();
+  const cur = (await repo.findMany("Curriculum", { gradeId: grade.id }, { select: ["id"], take: 1 }))[0];
+  if (!cur) return new Set();
+  const codes = [...HOLDING_FAMILIES].map((f) => `G${NAFS_GRADE}.${f}`);
+  const rows = await repo.findMany("Skill", { curriculumId: cur.id, code: { in: codes } }, { select: ["id"] });
+  return new Set(rows.map((r) => s(r.id)));
+}
+
+/**
+ * Self-heal for the NAFS holding-skill leak (syncNafsPracticeStars used to call refreshSkillStatus directly on a
+ * holding skill's id, creating a real-looking SkillStatus row on a skill that was designed to be invisible — see
+ * that function and mapPracticeSkills). This sandbox has no connection to the production database, so there is no
+ * one-off SQL/migration script to clean up rows that already exist there; instead, this runs lazily, for ONE
+ * student at a time, wherever that student's own SkillStatus rows are naturally read (their Skills page, their MAP
+ * page) — every normal visit quietly removes that student's own stray rows, with no bulk/global operation needed.
+ * Conservative by design: it only ever deletes a row whose skillId is EXACTLY one of the holding ids above, never
+ * any other skill, so it can never touch legitimate data even if called on every read.
+ */
+export async function healHoldingSkillStatus(repo: Repo, schoolId: string, rows: readonly Row[]): Promise<Row[]> {
+  const holding = await existingHoldingSkillIds(repo, schoolId);
+  if (!holding.size) return [...rows];
+  const bad = rows.filter((r) => r.skillId && holding.has(s(r.skillId)));
+  if (bad.length) await Promise.all(bad.map((r) => repo.deleteMany("SkillStatus", { id: r.id }).catch(() => undefined)));
+  return rows.filter((r) => !(r.skillId && holding.has(s(r.skillId))));
 }
 
 /** Writes a question's content (new: on the holding skill; existing: in place). WRITTEN questions have no options. */

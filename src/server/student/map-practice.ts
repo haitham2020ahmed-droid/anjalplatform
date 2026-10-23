@@ -14,6 +14,7 @@ import { currentRows, skillKeyIndex, studentSchool, type StarStatus } from "../s
 import { schoolSkillIndex } from "../questions/skill-questions";
 import { strandOf, tabOf, type MySkillsTab } from "../skills/my-skills";
 import { GROUPS, groupPools, type GroupKey } from "../map/map-plan";
+import { healHoldingSkillStatus } from "../nafs/bank";
 
 const s = (v: unknown) => (v === null || v === undefined ? "" : String(v));
 /** mechanics families (capitals, punctuation, spelling): MAP's Mechanics goal area */
@@ -34,11 +35,13 @@ export async function mapPracticeSkills(repo: Repo, studentId: string): Promise<
   const schoolId = await studentSchool(repo, studentId);
   const st = await repo.findUnique("Student", { id: studentId });
   const g = st?.gradeId ? await repo.findUnique("Grade", { id: st.gradeId }) : null;
-  const [rows, ix, idx, pk] = await Promise.all([
-    repo.findMany("SkillStatus", { studentId }, { select: ["skillKey", "level", "status", "skillId"] }),
+  const [rowsRaw, ix, idx, pk] = await Promise.all([
+    repo.findMany("SkillStatus", { studentId }, { select: ["id", "skillKey", "level", "status", "skillId"] }),
     skillKeyIndex(repo, schoolId), schoolSkillIndex(repo, schoolId),
     g ? groupPools(repo, schoolId, Number(g.level)).catch(() => null) : Promise.resolve(null),
   ]);
+  // self-heal: quietly drop (and delete) any stray SkillStatus row left on a NAFS holding skill — see bank.ts healHoldingSkillStatus
+  const rows = await healHoldingSkillStatus(repo, schoolId, rowsRaw).catch(() => rowsRaw);
   const areaOfKey = new Map<string, GroupKey>();
   for (const k of pk?.skills.values() ?? []) { const key = ix.keyOf.get(k.id); if (key && !areaOfKey.has(key)) areaOfKey.set(key, k.group); }
   const counts: Record<MySkillsTab, number> = { MASTERED: 0, LEARNING: 0, REVIEW: 0, NOT_STARTED: 0 };
@@ -49,6 +52,7 @@ export async function mapPracticeSkills(repo: Repo, studentId: string): Promise<
     const skillId = s(r.skillId) || ix.skillsOf.get(key)?.[0] || "";
     if (!skillId) continue;
     const sk = idx.skillOf.get(skillId) ?? null;
+    if (sk && sk.isActive === false) continue; // defensive: never show an inactive (e.g. NAFS holding) skill here
     const area = areaOfKey.get(key) ?? areaOfStrand(key, sk);
     const tab = tabOf(status);
     counts[tab]++;

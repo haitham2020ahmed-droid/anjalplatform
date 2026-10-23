@@ -20,6 +20,7 @@ import { currentRows, skillKeyIndex, studentSchool, viewOf, type StarStatus, typ
 import { schoolSkillIndex } from "../questions/skill-questions";
 import { hiddenWorkKeys } from "../student/cancelled-work";
 import { safeIfBehind } from "../db/schema-errors";
+import { existingHoldingSkillIds, healHoldingSkillStatus } from "../nafs/bank";
 
 const s = (v: unknown) => (v === null || v === undefined ? "" : String(v));
 const ms = (v: unknown): number => (v === null || v === undefined || v === "" ? 0 : v instanceof Date ? v.getTime() : new Date(String(v)).getTime() || 0);
@@ -118,11 +119,13 @@ export async function planSkillIdsOf(repo: Repo, studentId: string, schoolId: st
 /** The student's My Skills (the student's own page, or the teacher's read-only view of it). */
 export async function mySkills(repo: Repo, studentId: string, now = new Date(), opts: { href?: boolean; /** r72: stars computed from the raw practice for keys with no row yet (teacher view, before the migration) */ extra?: ReadonlyMap<string, StarView> } = {}): Promise<MySkills> {
   const schoolId = await studentSchool(repo, studentId);
-  const [rows, ix, idx, plan] = await Promise.all([
-    repo.findMany("SkillStatus", { studentId }, { select: ["studentId", "skillKey", "level", "status", "skillId", "answered", "correct", "score", "startedAt", "masteredAt", "reviewDueAt", "needsSupportAt", "selfCheck", "updatedAt"] }),
+  const [rowsRaw, ix, idx, plan] = await Promise.all([
+    repo.findMany("SkillStatus", { studentId }, { select: ["id", "studentId", "skillKey", "level", "status", "skillId", "answered", "correct", "score", "startedAt", "masteredAt", "reviewDueAt", "needsSupportAt", "selfCheck", "updatedAt"] }),
     skillKeyIndex(repo, schoolId), schoolSkillIndex(repo, schoolId),
     planSkillIdsOf(repo, studentId, schoolId, now),
   ]);
+  // self-heal: quietly drop (and delete) any stray SkillStatus row left on a NAFS holding skill — see bank.ts healHoldingSkillStatus
+  const rows = await healHoldingSkillStatus(repo, schoolId, rowsRaw).catch(() => rowsRaw);
   const byKey = new Map<string, StarView>([...currentRows(rows)].map(([k, r]) => [k, viewOf(r)]));
   for (const [k, v] of opts.extra ?? []) if (!byKey.has(k)) byKey.set(k, v);
   // plan skills by key (each skill once, whichever copy the plan used)
@@ -178,11 +181,13 @@ export async function syncNafsPracticeStars(repo: Repo, studentId: string, now =
     const qs = await repo.findMany("Question", { id: { in: [...new Set(answers.map((a) => s(a.questionId)))] } }, { select: ["id", "skillId"] });
     const skillOfQ = new Map(qs.map((q) => [s(q.id), s(q.skillId)]));
     const schoolId = await studentSchool(repo, studentId);
-    const ix = await skillKeyIndex(repo, schoolId);
+    const [ix, holdingIds] = await Promise.all([skillKeyIndex(repo, schoolId), existingHoldingSkillIds(repo, schoolId).catch(() => new Set<string>())]);
     const newest = new Map<string, { at: number; skillId: string }>();
     for (const a of answers) {
       const sk = skillOfQ.get(s(a.questionId)); const key = sk ? ix.keyOf.get(sk) : undefined;
       if (!sk || !key) continue;
+      // every NAFS bank question's skillId is one of the holding skills (bank.ts) — never create a real status row on it
+      if (holdingIds.has(sk)) continue;
       if (!newest.has(key) || newest.get(key)!.at < ms(a.at)) newest.set(key, { at: ms(a.at), skillId: sk });
     }
     if (!newest.size) return 0;

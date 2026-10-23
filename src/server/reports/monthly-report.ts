@@ -22,7 +22,7 @@ import { translate, type Lang } from "../../i18n";
 import { homeTopicFor } from "./family-week-words";
 import { hasLevelWords } from "./family-words";
 import { masteredSkills } from "./mastered-count";
-import type { FamilyContent, ReportSection } from "./family-reports";
+import { adminUsers, type FamilyContent, type ReportSection } from "./family-reports";
 
 const s = (v: unknown) => String(v ?? "");
 const time = (v: unknown) => (v instanceof Date ? v.getTime() : v ? new Date(s(v)).getTime() : 0);
@@ -145,6 +145,11 @@ async function classMonthly(repo: Repo, klass: Row, authorId: string, span: Mont
   if (!rows.length) return 0;
   await repo.createMany("FamilyReport", rows);
   await repo.create("Notification", { userId: authorId, type: "REPORT_APPROVAL", title: "📅 Monthly family reports to review", body: `${rows.length} report(s) for ${s(klass.name)} (${span.label}) are ready. Read each one, add your note, then send it for approval.`, link: `/teacher/family-reports?${new URLSearchParams({ status: "DRAFT", classId: s(klass.id) })}`, readAt: null, createdAt: now });
+  // 🔔 dual-notify: every school admin hears about these drafts AT THE SAME TIME as the teacher (not only once
+  // the teacher submits them), so a draft the teacher never acts on is still found and approved — admins can open
+  // it straight from "Reports to Approve" (its new "Drafts" tab) and approve it themselves (report-approvals/actions.ts).
+  const admins = await adminUsers(repo, s(klass.schoolId));
+  if (admins.length) await repo.createMany("Notification", admins.map((userId) => ({ userId, type: "REPORT_APPROVAL", title: "📅 Monthly family reports ready to review", body: `${rows.length} draft report(s) for ${s(klass.name)} (${span.label}) are ready. The teacher has not sent them yet — you can open and approve them now from Reports to Approve.`, link: "/admin/report-approvals?tab=drafts", readAt: null, createdAt: now })));
   return rows.length;
 }
 

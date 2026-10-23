@@ -5,7 +5,7 @@
  * Every function is tested with a fixture of known numbers in tests/report-summary.test.ts.
  */
 import {
-  act, A, classSummary, fit, S, hrefs, line, listLine, mean, mostCommon, nameList, schoolSummary, studentSummary, weakestSkill,
+  act, A, classSummary, fit, S, hrefs, line, listLine, mean, mostCommon, nameList, pctChange, schoolSummary, studentSummary, weakestSkill,
   type Line, type Named, type PlanAction, type Scored, type SkillScore, type Summary,
 } from "./report-summary";
 
@@ -187,7 +187,10 @@ export const R = {
   // family report (parents read it: plain words, no teacher buttons)
   fmScores: "{first}'s latest MAP scores: {scores}.",
   fmNone: "{first} has no MAP score yet.",
-  fmGrowth: "Since {from}, {first}'s {subject} score changed by {g} points.",
+  // r+1: % improvement, alongside the points (never a bare discouraging negative %): up → the % framed as progress;
+  // flat or down → "holding steady" (no raw negative % shown at all).
+  fmGrowthUp: "Since {from}, {first}'s {subject} score is up {pct}% ({g} points) — great progress!",
+  fmGrowthFlat: "Since {from}, {first}'s {subject} score changed by {g} points — holding steady since last time.",
   fmStrong: "Strongest area: {area}.",
   fmWork: "Area to work on at home: {area}.",
   fmPractice: "In the last 30 days {first} practised on {days} days and answered {answers} questions ({acc}% right).",
@@ -671,10 +674,15 @@ export function mapFamilySummary(d: FamilyIn): Summary {
   const areas = d.subjects.flatMap((x) => x.areas.map((a) => ({ ...a, subject: x.subject }))).sort((a, b) => b.rit - a.rit || a.name.localeCompare(b.name));
   const best = areas[0] ?? null, worst = areas.length > 1 ? areas[areas.length - 1] : null;
   const grown = d.subjects.find((x) => x.growth);
+  // % improvement: from the SAME growth the points already come from (latest RIT vs. latest − the point change) —
+  // no new comparison point, no new storage. Never shown as a bare negative: flat/negative → "holding steady".
+  const grownPct = grown?.growth ? pctChange(grown.latest!.rit, grown.latest!.rit - grown.growth.rit) : null;
   const p = d.practice;
   const lines: (Line | null)[] = [
     tested.length ? line(R.fmScores, "info", { first, scores: tested.map((x) => `${x.name} ${x.latest!.rit}`).join(", ") }) : line(R.fmNone, "info", { first }),
-    grown ? line(R.fmGrowth, "info", { from: grown.growth!.from, first, subject: grown.name, g: signed(grown.growth!.rit) }) : null,
+    grown ? (grownPct !== null && grownPct > 0
+      ? line(R.fmGrowthUp, "info", { from: grown.growth!.from, first, subject: grown.name, g: signed(grown.growth!.rit), pct: grownPct })
+      : line(R.fmGrowthFlat, "info", { from: grown.growth!.from, first, subject: grown.name, g: signed(grown.growth!.rit) })) : null,
     best && worst && best.name !== worst.name ? line(R.fmStrong, "good", { area: best.name }) : null,
     worst && worst.rit < (best?.rit ?? 0) ? line(R.fmWork, "skill", { area: worst.name }) : null,
     p.days > 0 ? (p.accuracy !== null ? line(R.fmPractice, "good", { first, days: p.days, answers: p.answers, acc: p.accuracy }) : line(R.fmPracticeNoAcc, "good", { first, days: p.days, answers: p.answers })) : line(R.fmPractice0, "help", { first }),

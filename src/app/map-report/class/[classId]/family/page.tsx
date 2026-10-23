@@ -5,7 +5,7 @@ import { ReportPage } from "@/components/map/report-ui";
 import { ReportToolbar } from "@/components/map/report-toolbar";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { ForbiddenError } from "@/server/auth/rbac";
-import { classFamilyReports } from "@/server/map/map-reports";
+import { classFamilyReports, familyNextSkills } from "@/server/map/map-reports";
 import { ReportIntro, ReportSummary } from "@/components/report-kit";
 import { classFamilySummary, mapFamilySummary } from "@/lib/report-summaries";
 
@@ -18,6 +18,9 @@ export default async function ClassFamilyPage({ params }: { params: Promise<{ cl
   const { classId } = await params;
   let v;
   try { v = await classFamilyReports(repo, actor, classId); } catch (e) { if (e instanceof ForbiddenError) notFound(); throw e; }
+  const { mapLimit } = await import("@/server/db/parallel");
+  // 🧭 one "What to practise next" list per student, a few at a time (never fails the page)
+  const highlights = await mapLimit(v.docs, (d) => familyNextSkills(repo, actor, d.student.id, d.subjects.map((x) => x.subject), { student: d.student }).catch(() => []));
   return (
     <AppShell name={String(me.displayName)}>
       <ReportToolbar back={{ href: `/teacher/map-reports?classId=${classId}`, label: "MAP Reports" }} base={`/map-report/class/${classId}/family`} />
@@ -34,7 +37,7 @@ export default async function ClassFamilyPage({ params }: { params: Promise<{ cl
         </table>
         <ReportSummary summary={classFamilySummary(v.docs, classId)} />
       </ReportPage>
-      {v.docs.map((d) => <FamilyView key={d.student.id} d={d} first={false} summary={mapFamilySummary(d)} />)}
+      {v.docs.map((d, i) => <FamilyView key={d.student.id} d={d} first={false} summary={mapFamilySummary(d)} highlights={highlights[i]} />)}
     </AppShell>
   );
 }

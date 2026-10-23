@@ -17,7 +17,7 @@ export function NafsPracticePlayer({ id, n, max, minutesLeft, question }: { id: 
   const t = useT();
   const router = useRouter();
   const [choice, setChoice] = useState<number | null>(null);
-  const [fb, setFb] = useState<{ correct: boolean; answer: number; explanation: string; done: boolean } | null>(null);
+  const [fb, setFb] = useState<{ correct: boolean; answer: number; explanation: string; done: boolean; hint?: string } | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [busy, start] = useTransition();
   // r68: the answer is sent again by itself when the server is busy (it is saved once; a repeat gets its saved result),
@@ -78,6 +78,11 @@ export function NafsPracticePlayer({ id, n, max, minutesLeft, question }: { id: 
               {fb.correct ? `✓ ${t("Right!")}` : `${t("Not this time. The answer is {letter}.", { letter: "ABCD"[fb.answer] })}`}
               {fb.explanation && <span className="mt-1 block text-sm font-normal" lang="en" dir="ltr"><RichInline text={fb.explanation} /></span>}
             </p>
+            {fb.hint && (
+              <p className="rounded-xl bg-sky-50 px-4 py-3 text-sm text-sky-900 ring-1 ring-sky-200">
+                <b>{t("Hint")}:</b> <span lang="en" dir="ltr"><RichInline text={fb.hint} /></span>
+              </p>
+            )}
             <button type="button" onClick={next} disabled={moving} className="min-h-12 rounded-xl bg-brand-navy px-6 text-lg font-semibold text-white disabled:opacity-50">{t(fb.done ? "See how you did" : "Next question")}</button>
           </div>
         ) : (

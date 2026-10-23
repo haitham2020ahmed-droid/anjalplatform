@@ -88,6 +88,8 @@ export const ADMIN_TOOLS: AdminTool[] = [
   { href: "/admin/department", label: "Department Week", icon: "🏛", group: "reports", home: true, menu: true, hint: "Every class side by side this week", perm: "reports:read" },
   { href: "/admin/ai-dashboard", label: "School Insights", icon: "🔮", group: "reports", hint: "Trends, predictions and what works" },
   { href: "/admin/performance", label: "Teacher & Student Performance", icon: "🏆", group: "reports", home: true, menu: true, hint: "Every student's mastery, live — who needs attention", perm: "analytics:school" },
+  { href: "/admin/nafs-item-analysis", label: "NAFS Item Analysis", icon: "📊", group: "reports", hint: "The NAFS bank questions students most often get wrong", perm: "reports:read" },
+  { href: "/admin/skill-overlap", label: "Skill Overlap Across Classes", icon: "🔗", group: "reports", hint: "Skills weak in two or more classes at once", perm: "analytics:school" },
   { href: "/admin/school-goals", label: "School Goals", icon: "🎯", group: "reports", perm: "settings:school" },
   { href: "/teacher/grade-summary", label: "Grade Summary", icon: "🧮", group: "reports" },
   { href: "/teacher/intervention", label: "Who Needs Help", icon: "🚨", group: "reports" },

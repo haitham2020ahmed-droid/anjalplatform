@@ -18,6 +18,8 @@ import { assertClassAccess } from "../teacher/assignments";
 import { readableClasses } from "../teacher/coordinators";
 import { studentNames } from "../insights/student-data";
 import { fluencyGoalWords, fluencyPlanSection, gradeGoalWords, hasLevelWords, readRiseSection, writingSection } from "./family-sections";
+import { homeTopicFor } from "./family-week-words";
+import { pctChange } from "../../lib/report-summary";
 
 const s = (v: unknown) => String(v ?? "");
 const d = (v: unknown): Date | null => (v instanceof Date ? v : v ? new Date(s(v)) : null);
@@ -84,7 +86,12 @@ async function mapLines(repo: Repo, studentId: string): Promise<{ lines: string[
     const term = s(overall.termName);
     const pct = overall.achievementPercentile !== null && overall.achievementPercentile !== undefined ? `, percentile ${s(overall.achievementPercentile)}` : "";
     const proj = overall.projectedGrowth !== null && overall.projectedGrowth !== undefined ? ` · Spring goal ${Number(overall.rit) + Number(overall.projectedGrowth)}` : "";
-    const grow = overall.observedGrowth !== null && overall.observedGrowth !== undefined ? ` · growth ${Number(overall.observedGrowth) >= 0 ? "+" : ""}${s(overall.observedGrowth)} RIT${overall.metProjectedGrowth ? ` (${/yes/i.test(s(overall.metProjectedGrowth)) ? "met" : "did not meet"} the projected growth)` : ""}` : "";
+    // % improvement, alongside the RIT points (never a bare discouraging negative %): the same before/after this
+    // growth already compares (the previous test's RIT = this RIT minus the point change) — no new comparison point.
+    const growthPts = overall.observedGrowth !== null && overall.observedGrowth !== undefined ? Number(overall.observedGrowth) : null;
+    const growthPct = growthPts !== null ? pctChange(Number(overall.rit), Number(overall.rit) - growthPts) : null;
+    const growPctText = growthPct !== null && growthPct > 0 ? ` (+${growthPct}% — great progress!)` : growthPts !== null ? " (holding steady)" : "";
+    const grow = overall.observedGrowth !== null && overall.observedGrowth !== undefined ? ` · growth ${Number(overall.observedGrowth) >= 0 ? "+" : ""}${s(overall.observedGrowth)} RIT${growPctText}${overall.metProjectedGrowth ? ` (${/yes/i.test(s(overall.metProjectedGrowth)) ? "met" : "is working toward"} the projected growth)` : ""}` : "";
     lines.push(`${label} (${term}): RIT ${s(overall.rit)}${pct}${proj}${grow}.`);
     // areas: one line per instructional area (several platform goals may hold the same area score)
     const areas = new Map<string, { rit: number; descriptor: string | null }>();
@@ -145,7 +152,9 @@ export async function autoContent(repo: Repo, actor: Actor, studentId: string, n
     "15 minutes on the platform (“Today’s plan”) a few times a week.",
     // the Fluency Coach plan has its own two home ideas
     ...(!plan && flu.latest && flu.latest.level === "BELOW" ? ["Let your child read a short page aloud twice: the second reading is smoother and faster."] : []),
-    ...(next.length ? [`Ask your child to show you their practice on: ${next[0]}.`] : []),
+    // r+1: ONE concrete, actionable activity for the student's single weakest skill/area (not just its name) —
+    // the same keyword-matched home activities the weekly family report already uses (family-week-words.ts).
+    ...(next.length ? [homeTopicFor(next[0]).activity] : []),
   ] });
   // the student reads this report too: never level / tier wording about them
   const safe = (x: string) => !hasLevelWords(x);
@@ -231,7 +240,7 @@ export async function saveFamilyReport(repo: Repo, actor: Actor, id: string, inp
   await repo.updateMany("FamilyReport", { id }, { title, content, updatedAt: now });
 }
 
-async function adminUsers(repo: Repo, schoolId: string): Promise<string[]> {
+export async function adminUsers(repo: Repo, schoolId: string): Promise<string[]> {
   return (await repo.findMany("User", { schoolId, role: "SCHOOL_ADMIN", isActive: true }, { select: ["id"] })).map((u) => s(u.id));
 }
 async function familyUsers(repo: Repo, studentId: string): Promise<{ student: string | null; parents: string[] }> {
@@ -367,6 +376,14 @@ export async function staffFamilyReports(repo: Repo, actor: Actor, opts: { stude
 export async function pendingApprovals(repo: Repo, actor: Actor): Promise<FamilyReportRow[]> {
   if (!isAdmin(actor)) throw new ForbiddenError();
   const rows = (await repo.findMany("FamilyReport", { schoolId: s(actor.schoolId), status: "PENDING" })).sort((a, b) => (d(a.submittedAt)?.getTime() ?? 0) - (d(b.submittedAt)?.getTime() ?? 0));
+  return views(repo, rows);
+}
+/** Admin: this month's MONTHLY drafts the teacher has not sent for approval yet (oldest first). The nightly job
+ *  (monthly-report.ts) now notifies every admin as soon as these are created, not only once a teacher submits
+ *  them, so an admin can open and approve one directly from here without waiting on the teacher. */
+export async function draftMonthlyReports(repo: Repo, actor: Actor): Promise<FamilyReportRow[]> {
+  if (!isAdmin(actor)) throw new ForbiddenError();
+  const rows = (await repo.findMany("FamilyReport", { schoolId: s(actor.schoolId), status: "DRAFT", kind: "MONTHLY" })).sort((a, b) => (d(a.createdAt)?.getTime() ?? 0) - (d(b.createdAt)?.getTime() ?? 0));
   return views(repo, rows);
 }
 export async function pendingCount(repo: Repo, schoolId: string): Promise<number> {

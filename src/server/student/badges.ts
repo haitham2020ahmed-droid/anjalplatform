@@ -7,7 +7,10 @@
 import type { Repo } from "../seeding/repo";
 import { isUniqueError } from "../db/prisma-repo";
 import { ladderSettings } from "../curriculum-map/ladder-settings";
-import { streakAndPoints } from "./streak";
+import { activeDays, streakAndPoints } from "./streak";
+
+/** "Steady Practice": distinct days of activity in the last N days (consistency, not streak — gaps are fine). */
+const CONSISTENT_WINDOW_DAYS = 21;
 import { BADGES, type BadgeDef, type BadgeMetric } from "../../lib/badge-catalog";
 import { isGrammarCode } from "../grammar/grammar";
 
@@ -36,13 +39,16 @@ async function metrics(repo: Repo, studentId: string, schoolId: string | null, n
     repo.count("StudentWord", { studentId }),
   ]);
   // Games Part 3: ReadRise articles finished, Questions of the Day, Live Challenges, plans, coins (one more round trip)
-  const [rrArticles, qotdCorrect, qotdAnswered, ledger, wallet] = await Promise.all([
+  const [rrArticles, qotdCorrect, qotdAnswered, ledger, wallet, consistentDaysRaw] = await Promise.all([
     repo.count("RRRun", { studentId, step: "DONE" }),
     repo.count("QotdAnswer", { studentId, correct: true }),
     repo.count("QotdAnswer", { studentId }),
     repo.findMany("CoinLedger", { studentId, reason: { in: ["live", "live.win", "plan"] } }, { select: ["reason"], take: 2000 }),
     repo.findUnique("StudentReward", { studentId }),
+    // consistency, not score: how many DISTINCT days the student practised in the last 3 weeks (gaps are fine)
+    activeDays(repo, studentId, new Date(now.getTime() - CONSISTENT_WINDOW_DAYS * 86_400_000)),
   ]);
+  const consistentDays = new Set(consistentDaysRaw).size;
   const RANK: Record<string, number> = { SUPPORT: -1, BELOW: 0, ON: 1, ABOVE: 2, CHALLENGE: 3 };
   const levelUps = logs.filter((l) => { const a = (l.after ?? {}) as Record<string, unknown>, b = (l.before ?? {}) as Record<string, unknown>; return a.outcome === "CHANGED" && a.source === "ADAPTIVE" && b.level && RANK[s(a.level)] > RANK[s(b.level)]; }).length;
   const masteredRows = mastery.filter((m) => Number(m.attempts) >= rules.masteredMin && (Number(m.correct) / Math.max(1, Number(m.attempts))) * 100 >= rules.masteredPct);
@@ -63,7 +69,7 @@ async function metrics(repo: Repo, studentId: string, schoolId: string | null, n
   return { correct, mastered, tasks: tasks.length + finishedWriting, levelUps, streak: sp.streak, articles, writing: finishedWriting, growth: Math.max(0, growth), words, practiceTests: sims.length,
     rrArticles, grammarMastered, qotdCorrect, qotdAnswered,
     liveWins: ledger.filter((l) => l.reason === "live.win").length, liveGames: ledger.filter((l) => l.reason === "live").length, plans: ledger.filter((l) => l.reason === "plan").length,
-    coinsEarned: Number(wallet?.earned ?? 0) };
+    coinsEarned: Number(wallet?.earned ?? 0), consistentDays };
 }
 
 /** Every badge with earned / not yet and progress; newly earned ones are saved with today's date. */

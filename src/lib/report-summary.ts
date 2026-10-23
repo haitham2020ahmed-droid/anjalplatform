@@ -54,6 +54,16 @@ export function weakestSkill<T extends SkillScore>(skills: readonly T[] | undefi
   return ok.sort((a, b) => (a.pct as number) - (b.pct as number) || a.name.localeCompare(b.name))[0] ?? null;
 }
 
+/**
+ * % improvement (positive-framed): the % change from `previous` to `now` (null when `previous` is 0/unknown — no
+ * "Infinity%"). Callers decide the WORDING from the sign (e.g. "+12%" vs "holding steady"): this only computes the
+ * number, so it is reused by every report that already has a previous/latest pair (no new storage, no new query).
+ */
+export function pctChange(now: number, previous: number): number | null {
+  if (!Number.isFinite(now) || !Number.isFinite(previous) || previous === 0) return null;
+  return Math.round(((now - previous) / previous) * 100);
+}
+
 /** The most frequent name in a list of lists (e.g. each student's weakest skills), ties → name order. */
 export function mostCommon(lists: readonly (readonly string[])[]): { name: string; count: number } | null {
   const n = new Map<string, number>();

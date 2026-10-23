@@ -13,6 +13,7 @@ export const STUDENT_HOME_TILES: readonly HomeTile[] = [
   { key: "plans", href: "/student/plans", label: "My Plans", hint: "Every plan your teacher sent you", line: "plans", star: { bg: "#ffe4d6", fg: "#8a3b12" } },
   { key: "map", href: "/student/map", label: "MAP", hint: "Your scores, goal and practice", line: "map", star: { bg: "#e4e0f8", fg: "#3b2f8f" } },
   { key: "curriculum", href: "/student/curriculum", label: "Curriculum Map", hint: "Your study plan", line: "curriculum", star: { bg: "#d6f0f0", fg: "#0f6666" } },
+  { key: "family-report", href: "/student/reports?view=family", label: "Family Report", hint: "Share your progress with your family", line: "family", star: { bg: "#fbe4ea", fg: "#9c2b53" } },
   { key: "second-chance", href: "/student/second-chance", label: "Second Chance", hint: "Try missed questions again", line: "retry", star: { bg: "#fde9a0", fg: "#6b4e00" } },
   { key: "reading", href: "/student/reading", label: "ReadMaster / ReadRise", hint: "Articles to read", line: "reading", star: { bg: "#f2b705", fg: "#232a6e" } },
   { key: "fluency", href: "/student/fluency-coach", label: "Fluency Coach", hint: "Read aloud and get feedback", line: "mic", star: { bg: "#dfe9fb", fg: "#23407a" } },
