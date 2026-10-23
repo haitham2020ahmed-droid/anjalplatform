@@ -1,9 +1,10 @@
 import { AppShell } from "@/components/app-shell";
 import { ClassChips, Empty } from "@/components/reports/report-ui";
-import { AtAGlance, ReportHeader, ReportIntro, ReportSection, ReportTable, type Glance, type Col, type RRow } from "@/components/report-kit";
+import { AtAGlance, ReportHeader, ReportIntro, ReportSection, ReportSummary, ReportTable, type Glance, type Col, type RRow } from "@/components/report-kit";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { getT } from "@/i18n/server";
 import { reviewReports, type ReviewReportRow } from "@/server/skills/review-reports";
+import { reviewReportsSummary } from "@/lib/report-summaries";
 
 export const metadata = { title: "Review Reports" };
 
@@ -90,6 +91,7 @@ export default async function ReviewReportsPage({ searchParams }: { searchParams
               )}
             </ReportSection>
           ))}
+          <ReportSummary summary={reviewReportsSummary({ reviews: data.reviews }, data.classId)} />
         </div>
       )}
     </AppShell>

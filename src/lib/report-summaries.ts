@@ -228,6 +228,10 @@ export const R = {
   cpArea: "Weakest goal area for the class: {area} (mean RIT {rit}).",
   cpGrowth: "{p}% met their projected growth.",
   cpNext: "Next step: open the Group Study Plan and give each group its skills.",
+  // review reports
+  rvSent: "{n} Review(s) sent to this class so far.",
+  rvOverdue: "{n} student(s) overdue on at least one Review: {names}.",
+  rvNone: "No Review has been sent to this class yet.",
 } as const;
 
 // ── Reports hub ──────────────────────────────────────────────────────────────────────────────────────────────────
@@ -913,6 +917,47 @@ export function skillsPlanSummary(v: SkillsPlanIn): Summary {
     ]),
     actions: [],
   };
+}
+
+// ── Review Reports (r+1, Oct 2026) ──────────────────────────────────────────────────────────────────────────────
+export interface ReviewReportsIn {
+  reviews: readonly {
+    students: readonly { studentId: string; name: string; status: string; answered: number; correct: number }[];
+    skills: readonly { skillId: string; name: string; answered: number; correct: number }[];
+  }[];
+}
+/**
+ * Review Reports' summary: how many Reviews were sent, every student's OVERALL accuracy across every one of them
+ * (answers summed across all their sent Reviews — classSummary's usual well/help split and weakest-skill/next-step
+ * rules, same as every other report), and who is overdue on at least one Review. Pure: totals every number this
+ * page already loaded, no extra read.
+ */
+export function reviewReportsSummary(v: ReviewReportsIn, classId: string | null): Summary {
+  if (!v.reviews.length) return { lines: [line(R.rvNone, "info")], actions: [] };
+  const totals = new Map<string, { name: string; answered: number; correct: number }>();
+  const overdue = new Map<string, string>();
+  for (const r of v.reviews) {
+    for (const st of r.students) {
+      const cur = totals.get(st.studentId) ?? { name: st.name, answered: 0, correct: 0 };
+      cur.answered += st.answered; cur.correct += st.correct;
+      totals.set(st.studentId, cur);
+      if (st.status === "OVERDUE") overdue.set(st.studentId, st.name);
+    }
+  }
+  const rows: Scored[] = [...totals].map(([id, t]) => ({ id, name: t.name, pct: t.answered ? Math.round((100 * t.correct) / t.answered) : null }));
+  const skillAgg = new Map<string, { name: string; answered: number; correct: number }>();
+  for (const r of v.reviews) for (const k of r.skills) {
+    const cur = skillAgg.get(k.skillId) ?? { name: k.name, answered: 0, correct: 0 };
+    cur.answered += k.answered; cur.correct += k.correct;
+    skillAgg.set(k.skillId, cur);
+  }
+  const skills: SkillScore[] = [...skillAgg].map(([id, s]) => ({ id, name: s.name, pct: s.answered ? Math.round((100 * s.correct) / s.answered) : null, n: s.answered }));
+  const overdueList = [...overdue.values()].sort((a, b) => a.localeCompare(b)).map((name) => ({ name }));
+  const extra: (Line | null)[] = [
+    line(R.rvSent, "info", { n: v.reviews.length }),
+    overdueList.length ? line(R.rvOverdue, "help", { n: overdueList.length, names: nameList(overdueList) }) : null,
+  ];
+  return classSummary({ rows, skills, classId, extra });
 }
 
 export type { Named, Scored };

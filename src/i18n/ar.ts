@@ -2494,7 +2494,6 @@ export const ar: Record<UiString, string> = {
   "Restore": "استعادة",
   "Print accounts": "طباعة الحسابات",
   "Waiting for the AI limit: {n} s…": "انتظار حدّ الذكاء الاصطناعي: {n} ثانية…",
-  "Waiting a moment for the server…": "انتظار لحظة للسيرفر…",
   "Every question has an AI guess.": "لكل سؤال الآن تخمين من الذكاء الاصطناعي.",
   "Improve guesses with AI": "تحسين التخمينات بالذكاء الاصطناعي",
   "The AI reads each question and its choices and picks the best skill of its grade. Only the question text, the choices and the skill names are sent. Nothing is linked until you accept.": "يقرأ الذكاء الاصطناعي كل سؤال وخياراته ويختار أنسب مهارة في صفّه. تُرسل نصوص الأسئلة والخيارات وأسماء المهارات فقط. لا يُربط شيء حتى توافق.",
