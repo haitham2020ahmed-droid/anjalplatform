@@ -8,6 +8,8 @@ import type { StuckItem } from "@/server/admin/stuck-questions";
 import { autoClassifyBatchAction, type AutoBatch } from "./actions";
 import { RichInline } from "@/components/rich-inline";
 
+const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
+
 /**
  * 🪄 Auto-classify in batches with a progress bar: by standard → a same-grade skill, by Curriculum Map place → that
  * lesson's skill, by the import file / MAP goal. Ends with how many were classified and how many remain (with reasons).
@@ -18,15 +20,19 @@ export function AutoClassify({ total }: { total: number }) {
   const [run, setRun] = useState<{ processed: number; classified: number } | null>(null);
   const [done, setDone] = useState<{ classified: number; remaining: number; left: StuckItem[] } | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [note, setNote] = useState<string | null>(null);
 
   async function start() {
-    setError(null); setDone(null);
+    setError(null); setDone(null); setNote(null);
     let after: string | null = null, processed = 0, classified = 0;
     const left: StuckItem[] = [];
     setRun({ processed, classified });
     for (let guard = 0; guard < 2000; guard++) {
       const r: AutoBatch = await autoClassifyBatchAction(after).catch((): AutoBatch => ({ error: t("The server did not answer. Try again.") }));
       if (r.error) { setRun(null); setError(r.error); router.refresh(); return; }
+      // 🛑 fix (Oct 2026): the server pauses a batch (same cursor, nothing done) when it is low on memory, instead
+      // of doing more work on top of an already-busy instance — wait it out here, same as bulk-review.tsx.
+      if (r.waitMs && r.waitMs > 0) { setNote(t("Waiting a moment for the server…")); await sleep(r.waitMs); setNote(null); continue; }
       processed += r.processed ?? 0; classified += r.classified ?? 0;
       if (left.length < 50) left.push(...(r.left ?? []).slice(0, 50 - left.length));
       setRun({ processed, classified });
@@ -50,6 +56,7 @@ export function AutoClassify({ total }: { total: number }) {
           <p className="mt-1 text-sm text-amber-950">{t("Checked {n} of {m} · classified {c}", { n: run.processed, m: total, c: run.classified })}</p>
         </div>
       )}
+      {note && <p role="status" className="mt-2 text-sm text-amber-950">{t(note)}</p>}
       {error && <p role="alert" className="mt-3 rounded-lg bg-red-50 px-3 py-2 text-sm text-red-800">{error}</p>}
       {done && (
         <div role="status" className="mt-3 rounded-xl bg-white p-3 ring-1 ring-amber-200">

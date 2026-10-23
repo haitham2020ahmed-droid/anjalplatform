@@ -271,6 +271,10 @@ export async function autoClassify(repo: Repo, schoolId: string, actorId: string
   let after: string | null = null, classified = 0, left = 0;
   for (let guard = 0; guard < 2000; guard++) {
     const r = await classifyStep(repo, schoolId, actorId, after, now);
+    // 🛑 fix (Oct 2026): this is the whole run in one call (no client to show a “waiting” message to) — when a
+    // batch paused itself for memory (same cursor, nothing done), just wait it out here and retry, same as
+    // fixStuckQuestions above.
+    if (r.waitMs > 0) { await new Promise<void>((res) => setTimeout(res, r.waitMs)); continue; }
     classified += r.classified;
     left = r.remaining;
     if (!r.next) break;

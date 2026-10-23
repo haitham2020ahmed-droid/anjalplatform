@@ -33,6 +33,9 @@ import { LEVEL_TO_B } from "../../config/engine";
 import { isHiddenSkill } from "../skills/master";
 import { ritOf } from "../questions/bank-scope";
 import type { JobDef } from "../jobs/runner";
+import { memoryHigh } from "../monitoring/memory";
+
+const sleep = (ms: number) => new Promise<void>((r) => setTimeout(r, ms));
 
 const s = (v: unknown) => (v === null || v === undefined ? "" : String(v));
 const tagsOf = (v: unknown): Record<string, unknown> => {
@@ -46,6 +49,13 @@ const norm = (t: unknown) => s(t).replace(/\s+/g, " ").trim();
 export const CLASSIFY_BATCH = 100;
 export const PUBLISH_BATCH = 40;
 const LIST_CAP = 200;
+// 🛑 fix (Oct 2026, same production OOM as link-review-bulk.ts's AcceptConfident / AcceptAllGuesses): "Fix stuck
+// questions" and "Auto-classify" loop a batch at a time, up to thousands of times, with real DB writes in every
+// batch (soft-deletes, classifyPage's link pass, repairPublishPage's per-question transaction + publish) and no
+// pacing of their own. Each batch now checks memoryHigh() FIRST and, if the instance is already under pressure,
+// does nothing and asks the caller to pause BUSY_WAIT_MS before retrying the same cursor — same gate as
+// acceptConfidentBatch / acceptAllGuessesBatch.
+export const BUSY_WAIT_MS = 4_000;
 /** decisions at or above this are applied (standard, map place, import / tags, Respond to Reading); wording guesses (0.5) are not */
 export const FIX_LINK_THRESHOLD = 0.6;
 const REPORT_KEY = "questions.fixStuck.report";
@@ -71,7 +81,7 @@ export interface FixReport {
    *  old (missing) key — surfaced so an admin notices their past scores were not retroactively changed. */
   warnings?: string[];
 }
-export interface StepResult { cursor: Cursor; processed: number; report: FixReport }
+export interface StepResult { cursor: Cursor; processed: number; report: FixReport; waitMs: number }
 
 function adminOnly(actor: Actor): string {
   if (actor.role !== "SCHOOL_ADMIN" && actor.role !== "SUPER_ADMIN") throw new ForbiddenError("Only a school admin can fix the question bank.");
@@ -169,11 +179,14 @@ async function classifyPage(repo: Repo, schoolId: string, actorId: string | null
  * 🪄 One batch of classifying only (Classify Curriculum Questions → “Auto-classify”, with a progress bar): the same
  * rules as phase 1. Returns the cursor, how many were classified, those left with the reason, and how many remain.
  */
-export async function classifyStep(repo: Repo, schoolId: string, actorId: string | null, after: string | null, now = new Date()): Promise<{ next: string | null; processed: number; classified: number; left: StuckItem[]; remaining: number }> {
+export async function classifyStep(repo: Repo, schoolId: string, actorId: string | null, after: string | null, now = new Date()): Promise<{ next: string | null; processed: number; classified: number; left: StuckItem[]; remaining: number; waitMs: number }> {
+  // 🛑 fix (Oct 2026): pause this batch (same cursor, nothing done) when the instance is already low on memory —
+  // see BUSY_WAIT_MS above.
+  if (memoryHigh()) return { next: after, processed: 0, classified: 0, left: [], remaining: 0, waitMs: BUSY_WAIT_MS };
   const sk = await schoolSkills(repo, schoolId);
   const report = emptyReport("admin", { unclassified: 0, drafts: 0, waiting: 0 }, now);
   const r = await classifyPage(repo, schoolId, actorId, sk, after, report, now);
-  return { next: r.next, processed: r.processed, classified: report.classified, left: report.left, remaining: await unclassifiedCount(repo, schoolId) };
+  return { next: r.next, processed: r.processed, classified: report.classified, left: report.left, remaining: await unclassifiedCount(repo, schoolId), waitMs: 0 };
 }
 
 // ------------------------------------------------------------------ 2. repair
@@ -379,6 +392,11 @@ async function saveReport(repo: Repo, schoolId: string, r: FixReport, by: string
 export async function fixStuckStep(repo: Repo, actor: Actor, cursor: Cursor | null, opts: { by?: "admin" | "auto"; now?: Date } = {}): Promise<StepResult> {
   const schoolId = adminOnly(actor);
   const now = opts.now ?? new Date();
+  // 🛑 fix (Oct 2026): pause this batch (same cursor, nothing done) when the instance is already low on memory,
+  // instead of piling the soft-deletes / classify link pass / repair-and-publish transaction of a batch on top of
+  // an already-busy instance — see BUSY_WAIT_MS above. Cheap: no DB read, just a placeholder report (unused by the
+  // caller until the run is actually done).
+  if (memoryHigh()) return { cursor: cursor ?? { phase: "passages", after: null }, processed: 0, report: emptyReport(opts.by ?? "admin", { unclassified: 0, drafts: 0, waiting: 0 }, now), waitMs: BUSY_WAIT_MS };
   const sk = await schoolSkills(repo, schoolId);
   let report = cursor ? await lastFixReport(repo, schoolId) : null;
   if (!report || !cursor) report = emptyReport(opts.by ?? "admin", await stuckCounts(repo, schoolId), now);
@@ -401,7 +419,7 @@ export async function fixStuckStep(repo: Repo, actor: Actor, cursor: Cursor | nu
   }
   if (cur.phase === "done") { report.after = await stuckCounts(repo, schoolId); report.finishedAt = now.toISOString(); }
   await saveReport(repo, schoolId, report, opts.by === "auto" ? null : actor.userId);
-  return { cursor: cur, processed, report };
+  return { cursor: cur, processed, report, waitMs: 0 };
 }
 
 /** The whole run at once (the background job and tests). */
@@ -409,6 +427,10 @@ export async function fixStuckQuestions(repo: Repo, actor: Actor, opts: { by?: "
   let cursor: Cursor | null = null;
   for (let guard = 0; guard < 5000; guard++) {
     const r: StepResult = await fixStuckStep(repo, actor, cursor, opts);
+    // 🛑 fix (Oct 2026): this is the whole run in one call (no client to show a “waiting” message to) — when a
+    // batch paused itself for memory, just wait it out here and retry the same cursor, same as the job runner's
+    // memoryGate does for FIX_STUCK_JOB.
+    if (r.waitMs > 0) { await sleep(r.waitMs); continue; }
     if (r.cursor.phase === "done") return r.report;
     cursor = r.cursor;
   }

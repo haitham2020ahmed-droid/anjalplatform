@@ -8,6 +8,7 @@ import { FixReportView } from "@/components/admin/fix-report";
 import type { Cursor, FixReport, StuckCounts } from "@/server/admin/stuck-questions";
 import { fixStuckStepAction } from "./fix-actions";
 
+const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 const PHASE: Record<Cursor["phase"], string> = { passages: "Removing questions that need a missing passage…", classify: "Putting questions under their skills…", repair: "Repairing and publishing…", done: "Done" };
 
 /**
@@ -20,16 +21,20 @@ export function FixStuck({ counts, last }: { counts: StuckCounts; last: FixRepor
   const [busy, setBusy] = useState<{ phase: Cursor["phase"]; processed: number } | null>(null);
   const [report, setReport] = useState<FixReport | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [note, setNote] = useState<string | null>(null);
   const stuck = counts.unclassified + counts.drafts + counts.waiting;
 
   async function start() {
     if (!window.confirm(t("Fix stuck questions now? Questions that need a passage or picture that is not attached are hidden (students' answers are kept), questions get their skill, what can be repaired is repaired, and every question that passes the publish checks is published."))) return;
-    setError(null); setReport(null);
+    setError(null); setReport(null); setNote(null);
     let cursor: Cursor | null = null, processed = 0;
     setBusy({ phase: "passages", processed });
     for (let guard = 0; guard < 5000; guard++) {
       const r: Awaited<ReturnType<typeof fixStuckStepAction>> = await fixStuckStepAction(cursor).catch(() => ({ error: t("The server did not answer. Try again.") }));
       if (r.error || !r.cursor) { setBusy(null); setError(r.error ?? t("The server did not answer. Try again.")); router.refresh(); return; }
+      // 🛑 fix (Oct 2026): the server pauses a batch (same cursor, nothing done) when it is low on memory, instead
+      // of doing more work on top of an already-busy instance — wait it out here, same as bulk-review.tsx.
+      if (r.waitMs && r.waitMs > 0) { setNote(t("Waiting a moment for the server…")); await sleep(r.waitMs); setNote(null); continue; }
       processed += r.processed ?? 0;
       setBusy({ phase: r.cursor.phase, processed });
       if (r.cursor.phase === "done") { setBusy(null); setReport(r.report ?? null); router.refresh(); return; }
@@ -57,6 +62,7 @@ export function FixStuck({ counts, last }: { counts: StuckCounts; last: FixRepor
           <p className="mt-1 text-sm text-slate-700">{t(PHASE[busy.phase])} {t("{n} checked", { n: busy.processed.toLocaleString("en") })}</p>
         </div>
       )}
+      {note && <p role="status" className="mt-2 text-sm text-slate-600">{t(note)}</p>}
       <p className="mt-2 text-sm"><Link href="/admin/questions/missing-passage" className="font-semibold text-brand-navy underline" data-testid="missing-passage-link">{t("Remove questions that need a missing passage")}</Link></p>
       {error && <p role="alert" className="mt-3 rounded-lg bg-red-50 px-3 py-2 text-sm text-red-800">{error}</p>}
       {(report ?? last) && !busy && (

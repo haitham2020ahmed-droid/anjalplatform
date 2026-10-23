@@ -22,7 +22,7 @@ export async function classifyAction(f: FormData): Promise<void> {
   redirect(`/admin/questions/unclassified?page=${page}&msg=${encodeURIComponent(msg)}`);
 }
 
-export interface AutoBatch { error?: string; next?: string | null; processed?: number; classified?: number; remaining?: number; left?: StuckItem[] }
+export interface AutoBatch { error?: string; next?: string | null; processed?: number; classified?: number; remaining?: number; left?: StuckItem[]; waitMs?: number }
 
 /** 🪄 One batch of Auto-classify (the page calls it again with `next` until it is null, with a progress bar). */
 export async function autoClassifyBatchAction(after: string | null): Promise<AutoBatch> {
@@ -30,8 +30,9 @@ export async function autoClassifyBatchAction(after: string | null): Promise<Aut
   try {
     const cursor = after === null ? null : z.string().min(1).max(191).parse(after);
     const r = await classifyStep(repo, actor.schoolId!, actor.userId, cursor);
-    if (!r.next) { revalidatePath("/admin/questions"); revalidatePath("/admin/questions/unclassified"); }
-    return { next: r.next, processed: r.processed, classified: r.classified, remaining: r.remaining, left: r.left.slice(0, 50) };
+    // 🛑 fix (Oct 2026): a busy batch (waitMs > 0) does nothing and keeps the same cursor — never treated as "done".
+    if (!r.next && !r.waitMs) { revalidatePath("/admin/questions"); revalidatePath("/admin/questions/unclassified"); }
+    return { next: r.next, processed: r.processed, classified: r.classified, remaining: r.remaining, left: r.left.slice(0, 50), waitMs: r.waitMs };
   } catch (e) {
     if (e instanceof z.ZodError) return { error: "Invalid request." };
     return { error: (e as Error).message || "The server did not answer. Try again." };

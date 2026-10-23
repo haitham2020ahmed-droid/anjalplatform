@@ -13,14 +13,22 @@ import { ForbiddenError, assertCan, type Actor } from "../auth/rbac";
 import type { Repo } from "../seeding/repo";
 import { isHiddenSkill } from "../skills/master";
 import { linkBank } from "./link-bank";
+import { memoryHigh } from "../monitoring/memory";
 
+const sleep = (ms: number) => new Promise<void>((r) => setTimeout(r, ms));
 const s = (v: unknown) => (v === null || v === undefined ? "" : String(v));
 export const SORT_BATCH = 200;
 /** Review items returned per batch (the page shows the first few hundred, the full list is on /admin/skill-links). */
 const REVIEW_CAP = 200;
+// 🛑 fix (Oct 2026, same production OOM as link-review-bulk.ts's AcceptConfident / AcceptAllGuesses): "Sort
+// questions under their skills" loops a batch at a time (up to 1000 times from the page), each batch writing real
+// links for up to 200 questions, with no pacing of its own. Each batch now checks memoryHigh() FIRST and, if the
+// instance is already under pressure, does nothing and asks the caller to pause BUSY_WAIT_MS before retrying the
+// same cursor — same gate as acceptConfidentBatch / acceptAllGuessesBatch.
+export const BUSY_WAIT_MS = 4_000;
 
 export interface SortReviewItem { questionId: string; grade: number; excerpt: string; guess: string | null; reason: string }
-export interface SortBatchResult { total: number; processed: number; linked: number; review: number; next: string | null; done: boolean; reviewItems: SortReviewItem[] }
+export interface SortBatchResult { total: number; processed: number; linked: number; review: number; next: string | null; done: boolean; reviewItems: SortReviewItem[]; waitMs: number }
 
 function adminSchool(actor: Actor): string {
   if (actor.role !== "SCHOOL_ADMIN" && actor.role !== "SUPER_ADMIN") throw new ForbiddenError("Only a school admin can do this.");
@@ -45,18 +53,22 @@ export async function countUnclassified(repo: Repo, schoolId: string, since?: Da
 }
 
 async function runBatch(repo: Repo, schoolId: string, opts: { after: string | null; apply: boolean; actorId: string | null; since?: Date | null; size?: number; now?: Date; withTotal?: boolean }): Promise<SortBatchResult> {
+  // 🛑 fix (Oct 2026): pause this batch (same cursor, nothing done) when the instance is already low on memory —
+  // see BUSY_WAIT_MS above. Shared by sortBatch (the admin page) and nightlySort (the cron job) below.
+  if (memoryHigh()) return { total: 0, processed: 0, linked: 0, review: 0, next: opts.after, done: false, reviewItems: [], waitMs: BUSY_WAIT_MS };
   const hidden = await hiddenSkillIds(repo, schoolId);
   const size = Math.max(1, Math.min(SORT_BATCH, Math.floor(opts.size ?? SORT_BATCH)));
   const where = { skillId: { in: hidden }, deletedAt: null, ...(opts.since ? { createdAt: { gte: opts.since } } : {}) };
   const total = opts.withTotal && hidden.length ? await repo.count("Question", where) : 0;
   const page = hidden.length ? await repo.findMany("Question", { ...where, ...(opts.after ? { id: { gt: opts.after } } : {}) }, { select: ["id"], orderBy: [{ field: "id", dir: "asc" }], take: size }) : [];
-  if (!page.length) return { total, processed: 0, linked: 0, review: 0, next: null, done: true, reviewItems: [] };
+  if (!page.length) return { total, processed: 0, linked: 0, review: 0, next: null, done: true, reviewItems: [], waitMs: 0 };
   const ids = page.map((q) => s(q.id));
   const r = await linkBank(repo, schoolId, { apply: opts.apply, actorId: opts.actorId, now: opts.now, questionIds: ids, families: false, listCap: REVIEW_CAP });
   return {
     total, processed: ids.length, linked: r.summary.linked, review: r.summary.needsReview,
     next: ids[ids.length - 1], done: ids.length < size,
     reviewItems: r.review.slice(0, REVIEW_CAP).map((d) => ({ questionId: d.questionId, grade: d.grade, excerpt: d.excerpt.slice(0, 160), guess: d.toSkill, reason: d.detail.slice(0, 200) })),
+    waitMs: 0,
   };
 }
 
@@ -86,6 +98,10 @@ export async function nightlySort(repo: Repo, schoolId: string, now = new Date()
   let after: string | null = null;
   for (let guard = 0; guard < 500; guard++) {
     const r = await runBatch(repo, schoolId, { after, apply: true, actorId: null, since, now });
+    // 🛑 fix (Oct 2026): this is a background cron run with no page to show a “waiting” message to — wait out a
+    // busy batch here (same cursor) instead of piling more work on an already-busy instance, same as the job
+    // runner's memoryGate does for other background jobs.
+    if (r.waitMs > 0) { await sleep(r.waitMs); continue; }
     out.linked += r.linked; out.review += r.review; out.processed += r.processed;
     if (r.done || !r.next) break;
     after = r.next;
