@@ -302,7 +302,11 @@ export function curriculumMapHtml(d: MapPdfData, o: MapHtmlOptions): string {
     const lessonGroups = lessonSections.map((x) => {
       const href = lessonHref(x.code);
       const titleHtml = isPlanHref(href, origin) ? `<a class="plink" href="${esc(href)}">${esc(x.title)}</a>` : esc(x.title);
-      return `<div class="grp" data-cat="${CAT_OF[x.kind ?? ""] ?? "vocabulary"}"><h4>${titleHtml}</h4><ol><li><span class="n">${++n}.</span> ${aud !== "student" ? `<span class="status ${x.ready ? "ok" : "wait"}">${esc(x.ready ? readyWord : notReadyWord)}</span>` : ""}</li></ol></div>`;
+      // Oct 2026 ("اسماء الكلمات واسم skill لكل درس analyze craft and structure"): the lesson's own vocabulary
+      // words (Concept Vocabulary) / skill name(s) (Analyze Craft and Structure), printed right under the title —
+      // same `words` / `skillLabel` the live Skill plan page now shows (src/components/curriculum-map/skill-plan.tsx).
+      const sub = x.words?.length ? `<p class="grp-sub" dir="ltr">${esc(x.words.join(", "))}</p>` : x.skillLabel ? `<p class="grp-sub" dir="ltr">${esc(x.skillLabel)}</p>` : "";
+      return `<div class="grp" data-cat="${CAT_OF[x.kind ?? ""] ?? "vocabulary"}"><h4>${titleHtml}</h4>${sub}<ol><li><span class="n">${++n}.</span> ${aud !== "student" ? `<span class="status ${x.ready ? "ok" : "wait"}">${esc(x.ready ? readyWord : notReadyWord)}</span>` : ""}</li></ol></div>`;
     }).join("");
     // 🐛 r91 fix: used to unconditionally drop "vocabulary"/"comprehension" from sec.skills, assuming
     // lessonSections always supplies them. If the unit/lesson numbering used to key lessonSectionsByLesson
@@ -415,6 +419,7 @@ ul.sel li { margin: 1px 0; }
 .grp[data-cat="grammar"] { border-inline-start-color: #10b981; background: rgba(16,185,129,.06); }
 .grp[data-cat="review"] { border-inline-start-color: #0ea5e9; background: rgba(14,165,233,.06); }
 .grp h4 { margin: 0 0 3px; font-size: 9.6pt; color: ${navy}; }
+.grp-sub { margin: 0 0 4px; font-size: 8pt; color: #64748b; }
 .grp h4 a.plink { color: ${navy}; border-bottom-color: rgba(30,58,95,.35); }
 .grp[data-cat="vocabulary"] h4::before { content: "🔤  "; }
 .grp[data-cat="comprehension"] h4::before { content: "📖  "; }
