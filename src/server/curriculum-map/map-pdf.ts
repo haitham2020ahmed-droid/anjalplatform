@@ -141,51 +141,73 @@ export async function curriculumMapPdfData(repo: Repo, schoolId: string, grade: 
   };
 }
 
-/** Pure: Concept Vocabulary / Analyze Craft and Structure / Review out of an already-fetched Lessons-tab unit list
- * (either `curriculumLessons`'s, for staff, or `studentCurriculumLessons`'s, for students — both lesson-details.ts),
- * keyed `${unitNumber}|${selectionNumber}`. */
-function lessonSectionsFromUnits(units: CurriculumUnit[]): Map<string, MapPdfLessonSection[]> {
-  const out = new Map<string, MapPdfLessonSection[]>();
+/** 🔗 fix (Oct 2026, "اسم الوحدة واسم الدرس في Skill plan يتجابوا دايمًا من نفس مصدر Lessons"): the unit title and
+ * every selection's display name, read straight from the SAME place (and the SAME call) that already supplies
+ * `sections` below — never the platform's own (possibly stale) Unit.title / Lesson.title. `unitTitles` is keyed by
+ * unit number; `lessonNames` and `sections` share the `${unitNumber}|${selectionNumber}` key. When a grade's map has
+ * no entry for some unit/selection (no Curriculum Map for it at all, or numbering that doesn't line up), callers keep
+ * falling back to the platform's own title — this never hides a unit/lesson, only renames it when the Lessons tab
+ * agrees it has a better name. */
+export interface LessonsTabOverlay { sections: Map<string, MapPdfLessonSection[]>; unitTitles: Map<number, string>; lessonNames: Map<string, string> }
+const EMPTY_OVERLAY: LessonsTabOverlay = { sections: new Map(), unitTitles: new Map(), lessonNames: new Map() };
+
+/** Pure: unit titles, selection names, and Concept Vocabulary / Analyze Craft and Structure / Review out of an
+ * already-fetched Lessons-tab unit list (either `curriculumLessons`'s, for staff, or `studentCurriculumLessons`'s,
+ * for students — both lesson-details.ts). */
+function overlayFromUnits(units: CurriculumUnit[]): LessonsTabOverlay {
+  const sections = new Map<string, MapPdfLessonSection[]>();
+  const unitTitles = new Map<number, string>();
+  const lessonNames = new Map<string, string>();
   for (const u of units) {
     const um = /^G\d+\.U(\d+)$/.exec(u.code);
     if (!um) continue;
+    const unitNumber = Number(um[1]);
+    if (u.title.trim()) unitTitles.set(unitNumber, u.title.trim());
     for (const l of u.lessons) {
       // Text Set (Grades 4–5: "TS{n}") or Selection (Grade 6 / StudySync: "SEL{n}") — both are numbered the same
       // way as the matching Lesson.number, just named differently per book (see seed.ts expectedNodes)
       const tm = /^G\d+\.U\d+\.(?:TS|SEL)(\d+)$/.exec(l.code);
       if (!tm) continue;
+      const key = `${unitNumber}|${tm[1]}`;
+      if (l.name.trim()) lessonNames.set(key, l.name.trim());
       const secs = l.sections.filter((x) => x.kind === "CONCEPT_VOCABULARY" || x.kind === "ANALYZE_CRAFT_AND_STRUCTURE" || x.kind === "REVIEW")
         .map((x) => ({ code: x.code, title: x.title, kind: x.kind, ready: x.ready }));
-      if (secs.length) out.set(`${um[1]}|${tm[1]}`, secs);
+      if (secs.length) sections.set(key, secs);
     }
   }
-  return out;
+  return { sections, unitTitles, lessonNames };
 }
 
 /**
- * r86: Concept Vocabulary / Analyze Craft and Structure / Review for every selection — the exact sections (code,
- * title, ready) the Lessons tab itself lists and assigns (src/components/curriculum-map/lesson-card.tsx) — keyed
- * `${unitNumber}|${selectionNumber}`. Shared by the live Skill plan page (skill-plan.ts) and this file's own PDF
- * export below, so both read the Curriculum Map's own categories the same way. Staff only (curriculumLessons
- * forbids STUDENT/PARENT) — the PDF export below uses `studentCurriculumLessons` instead for a student's own copy.
- * Empty when this grade has no map.
+ * r86 + fix above: unit titles, selection names, and Concept Vocabulary / Analyze Craft and Structure / Review for
+ * every selection — the exact data (code, title, ready) the Lessons tab itself lists and assigns
+ * (src/components/curriculum-map/lesson-card.tsx) — keyed `${unitNumber}|${selectionNumber}` (unit titles by unit
+ * number alone). Shared by the live Skill plan page (skill-plan.ts) and this file's own PDF export below, so both
+ * read the Curriculum Map's own names the same way. Staff only (curriculumLessons forbids STUDENT/PARENT) — the PDF
+ * export below uses `studentCurriculumLessons` instead for a student's own copy. Empty when this grade has no map.
  */
-export async function lessonSectionsByLesson(repo: Repo, actor: Actor, grade: number): Promise<Map<string, MapPdfLessonSection[]>> {
+export async function lessonSectionsByLesson(repo: Repo, actor: Actor, grade: number): Promise<LessonsTabOverlay> {
   const { units, grade: level } = await curriculumLessons(repo, actor, grade);
-  return level === grade ? lessonSectionsFromUnits(units) : new Map(); // not this grade's own map (e.g. the actor has no map for it at all)
+  return level === grade ? overlayFromUnits(units) : EMPTY_OVERLAY; // not this grade's own map (e.g. the actor has no map for it at all)
 }
 
-/** Merges `lessonSectionsByLesson`'s output into a MapPdfData's sections (the one place both skill-plan.ts and
- * this file's own PDF export apply it, so the merge itself never drifts between the two). */
-export function withLessonSections(d: MapPdfData, lessonSections: Map<string, MapPdfLessonSection[]>): MapPdfData {
-  if (!lessonSections.size) return d;
+/** Merges `lessonSectionsByLesson`'s output into a MapPdfData — unit title, each selection's display name, and
+ * `lessonSections` — the one place both skill-plan.ts and this file's own PDF export apply it, so the merge itself
+ * never drifts between the two. A unit/selection with no entry in the overlay keeps its platform-side title/name
+ * exactly as before. */
+export function withLessonSections(d: MapPdfData, overlay: LessonsTabOverlay): MapPdfData {
+  const { sections, unitTitles, lessonNames } = overlay;
+  if (!sections.size && !unitTitles.size && !lessonNames.size) return d;
   return {
     ...d,
     units: d.units.map((u) => ({
       ...u,
+      title: unitTitles.get(u.number) ?? u.title,
       sections: u.sections.map((sec) => {
-        const ls = lessonSections.get(`${u.number}|${sec.number}`);
-        return ls?.length ? { ...sec, lessonSections: ls } : sec;
+        const key = `${u.number}|${sec.number}`;
+        const ls = sections.get(key);
+        const name = lessonNames.get(key) ?? sec.name;
+        return { ...sec, ...(ls?.length ? { lessonSections: ls } : {}), name };
       }),
     })),
   };
@@ -456,11 +478,11 @@ export async function exportCurriculumMapPdf(deps: ReportDeps, actor: Actor, gra
     // r86: Concept Vocabulary / Analyze Craft and Structure / Review print from the Curriculum Map's own categories
     // too now, same as the live Skill plan page (skillPlanData) — a student's own copy reads them through
     // studentCurriculumLessons (curriculumLessons/curriculumMapView forbid the STUDENT role outright).
-    const lessonSections = await (actor.role === "STUDENT"
-      ? studentCurriculumLessons(deps.repo, actor).then((r) => (r.grade === grade ? lessonSectionsFromUnits(r.units) : new Map<string, MapPdfLessonSection[]>()))
+    const overlay = await (actor.role === "STUDENT"
+      ? studentCurriculumLessons(deps.repo, actor).then((r) => (r.grade === grade ? overlayFromUnits(r.units) : EMPTY_OVERLAY))
       : lessonSectionsByLesson(deps.repo, actor, grade)
-    ).catch(() => new Map<string, MapPdfLessonSection[]>());
-    const d = withLessonSections(d0, lessonSections);
+    ).catch(() => EMPTY_OVERLAY);
+    const d = withLessonSections(d0, overlay);
     const { warning: _w, ...branding } = await loadBranding(deps.repo, schoolId, deps.brandingDir);
     const fonts = loadFonts(deps.fontDir);
     const html = curriculumMapHtml(d, { copy, locale, branding, fontCss: fonts.css, fontStack: fonts.stack, generatedAt: now });

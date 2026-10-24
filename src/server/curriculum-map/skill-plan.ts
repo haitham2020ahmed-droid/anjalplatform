@@ -23,7 +23,7 @@
  */
 import type { Repo } from "../seeding/repo";
 import { assertCan, type Actor } from "../auth/rbac";
-import { curriculumMapPdfData, lessonSectionsByLesson, withLessonSections, type MapPdfData, type MapPdfLessonSection } from "./map-pdf";
+import { curriculumMapPdfData, lessonSectionsByLesson, withLessonSections, type MapPdfData, type LessonsTabOverlay } from "./map-pdf";
 
 export type { MapPdfData, MapPdfUnit, MapPdfSection, MapPdfSkill, MapPdfLessonSection } from "./map-pdf";
 export { MAP_CATEGORY_GROUPS, sectionLabel } from "./map-pdf";
@@ -34,10 +34,11 @@ export { MAP_CATEGORY_GROUPS, sectionLabel } from "./map-pdf";
 export async function skillPlanData(repo: Repo, actor: Actor, grade: number): Promise<MapPdfData | null> {
   assertCan(actor, "curriculum:read");
   if (!actor.schoolId) return null;
-  const [base, lessonSections] = await Promise.all([
+  const EMPTY: LessonsTabOverlay = { sections: new Map(), unitTitles: new Map(), lessonNames: new Map() };
+  const [base, overlay] = await Promise.all([
     curriculumMapPdfData(repo, actor.schoolId, grade),
-    lessonSectionsByLesson(repo, actor, grade).catch(() => new Map<string, MapPdfLessonSection[]>()),
+    lessonSectionsByLesson(repo, actor, grade).catch(() => EMPTY),
   ]);
   if (!base) return null;
-  return withLessonSections(base, lessonSections);
+  return withLessonSections(base, overlay);
 }

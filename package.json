@@ -26,6 +26,7 @@
     "db:ddl": "tsx scripts/db/gen-ddl.ts",
     "db:verify:offline": "tsx scripts/db/verify.ts",
     "db:verify:mysql": "tsx scripts/db/verify-mysql.ts",
+    "db:cleanup-stale-lessons": "tsx scripts/db/cleanup-stale-lessons.ts",
     "jobs:rollups": "tsx scripts/jobs/nightly-rollups.ts",
     "jobs:items": "tsx scripts/jobs/item-analysis.ts",
     "reports:browser": "playwright-core install chromium",

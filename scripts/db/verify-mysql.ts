@@ -42,7 +42,11 @@ async function main() {
   const missing = await prisma.standard.count({ where: { framework: "CCSS_ELA", OR: [{ description: null }, { description: "" }] } });
   check("every standard has official wording", missing === 0);
 
-  const repo = new PrismaRepo(prisma);
+  // r95: against the real remote DB, seedCurriculum's writes (18 units, 78 lessons, 254 standards, lesson-skill
+  // links, prerequisites…) took over Prisma's 120s interactive-transaction cap and the whole thing rolled back
+  // (P2028) — nothing was saved, including a lesson-title fix this was run for. "none" is the mode seed scripts are
+  // documented to use (src/server/db/prisma-repo.ts) precisely so remote-network writes never hit that cap.
+  const repo = new PrismaRepo(prisma, { transactions: "none" });
   await seedCurriculum(repo, input);
   const q = await seedQuestions(repo, { schoolCode: "ALANJAL", bank });
   const after = await counts();
