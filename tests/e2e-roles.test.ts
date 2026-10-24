@@ -43,7 +43,16 @@ describe("end to end: admin → teacher → student → teacher", () => {
     await setSkillActive(repo, admin, String(k.id), true);
     await updateGrade(repo, admin, String(g.id), { name: "Grade Three" });
     assert.ok((await curriculumTree(repo, admin)).grades.some((x) => x.name === "Grade Three" && x.units[0].skills[0].standards[0] === "SCH.3.1"));
-    const qs = (await listQuestions(repo, admin, { status: "PUBLISHED", limit: 5 })).items;
+    // r89 fix: the Test School's own seeding practises real students on a random subset of published questions
+    // (unseeded rng, src/server/seeding/test-env.ts), and every published question shares the same bulk
+    // publishedAt/updatedAt, so ties in this list's sort break on each question's id (a timestamp + random suffix,
+    // scripts/db/sqlite-repo.ts cuidLike) — position 0 is not guaranteed to be an unanswered question. Fetch a wider
+    // page and pick explicitly for one with zero attempts to edit; delete/archive below tolerate an answered one fine.
+    const page = (await listQuestions(repo, admin, { status: "PUBLISHED", limit: 50 })).items;
+    const unanswered = await Promise.all(page.map(async (q) => ((await repo.count("QuestionAttempt", { questionId: q.id })) === 0 ? q : null)));
+    const editIdx = unanswered.findIndex((q) => q !== null);
+    assert.ok(editIdx >= 0, "at least one published question has no student answers yet");
+    const qs = [page[editIdx], ...page.filter((_, i) => i !== editIdx)];
     const d = await getQuestion(repo, admin, qs[0].id);
     const img = await saveQuestionImage(repo, admin, PNG, "a dot");
     await updateDraft(repo, admin, qs[0].id, { ...d.input, stem: d.input.stem + " (edited)", passageText: "A Short Story\n\nSomething happened.", imageId: img.id });

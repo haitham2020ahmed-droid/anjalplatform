@@ -118,8 +118,20 @@ export function WordLookup({ children, hint = true }: { children: React.ReactNod
     if (w.audioUrl) { void new Audio(w.audioUrl).play().catch(() => undefined); return; }
     try { const u = new SpeechSynthesisUtterance(w.word); u.lang = "en-US"; const v = bestBrowserVoice(); if (v) u.voice = v; window.speechSynthesis.speak(u); } catch { /* no speech */ }
   };
+  // ♿ keyboard entry point: double-click/tap/mouseup already resolve a word from a mouse position or an active
+  // selection (see `pick`) — a keyboard-only student has no pointer position, but can still select a word (e.g. with
+  // Shift+arrow keys, or via assistive tech) and confirm it the same way a button is activated: Enter or Space.
+  // Only handles the wrapper's own tabIndex=0 stop (checked via `target === box.current`, plus the existing SKIP
+  // list) so a real nested button/link/input keeps its native Enter/Space behavior untouched.
+  function onKeyDown(e: React.KeyboardEvent) {
+    if (e.key !== "Enter" && e.key !== " " && e.key !== "Spacebar") return;
+    const target = e.target as Element | null;
+    if (!target || target !== box.current || target.closest(SKIP)) return;
+    e.preventDefault();
+    void pick();
+  }
   return (
-    <div ref={box} onClick={tap} onDoubleClick={() => void pick()} onMouseUp={() => void pick()} onTouchEnd={() => setTimeout(() => void pick(), 50)}>
+    <div ref={box} tabIndex={0} role="button" onKeyDown={onKeyDown} onClick={tap} onDoubleClick={() => void pick()} onMouseUp={() => void pick()} onTouchEnd={() => setTimeout(() => void pick(), 50)}>
       {hint && <p className="mb-2 text-xs text-slate-500 print:hidden">📖 Tap or double-click any word to see its meaning.</p>}
       {children}
       {open && (

@@ -6,6 +6,7 @@ import { getActor, repo, requireActor } from "@/server/auth/next";
 import { readableClasses } from "@/server/teacher/coordinators";
 import { classTiers } from "@/server/tiers/views";
 import { strugglingSkills } from "@/server/tiers/struggling";
+import { quickSendSupportPlanAction } from "@/app/teacher/plans/editor-actions";
 
 export const metadata = { title: "Support plan" };
 
@@ -21,6 +22,8 @@ const SUPPORT_LEVEL = {
  * who needs support: name, colour (with the Tier term), struggling skills and "Create Plan" (a custom plan for that
  * student with those skills, sent with Review & Send). The platform still sets each level automatically every day.
  * Students never see any of this: their support skills arrive as normal work in My Work.
+ * r86: a second, optional "Send as-is" button sends that exact same suggested plan immediately (editor-actions.ts's
+ * quickSendSupportPlanAction) — a fast path for the clear-cut cases, kept beside (never replacing) "Create Plan".
  */
 export default async function SupportPlanPage({ searchParams }: { searchParams: Promise<{ classId?: string; class?: string }> }) {
   const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"] });
@@ -72,7 +75,20 @@ export default async function SupportPlanPage({ searchParams }: { searchParams: 
                     <td className="p-3"><Link href={`/teacher/students/${r.studentId}`} className="font-semibold text-brand-navy hover:underline"><bdi>{r.name}</bdi></Link></td>
                     <td className="p-3"><span className={`inline-block rounded-full px-2.5 py-0.5 text-xs font-semibold ring-1 ${lv.tone}`}>{lv.dot} {t(lv.plain)}</span><span className="mt-0.5 block text-xs text-slate-500">{lv.term} · <Link href={`/teacher/tiers/${r.studentId}`} className="underline">{t("Change")}</Link></span></td>
                     <td className="p-3 text-slate-700">{names.length ? names.join(" · ") : <span className="text-slate-500">{r.reason}</span>}</td>
-                    <td className="p-3 text-end"><Link href={plan} prefetch={false} className="inline-flex min-h-9 items-center rounded-lg bg-brand-navy px-3 text-sm font-semibold text-white hover:bg-brand-purple">{t("Create Plan")}</Link></td>
+                    <td className="p-3 text-end">
+                      <div className="flex flex-col items-end gap-1">
+                        <Link href={plan} prefetch={false} className="inline-flex min-h-9 items-center rounded-lg bg-brand-navy px-3 text-sm font-semibold text-white hover:bg-brand-purple">{t("Create Plan")}</Link>
+                        {ids.length > 0 && (
+                          <form action={quickSendSupportPlanAction}>
+                            <input type="hidden" name="classId" value={klass!.id} />
+                            <input type="hidden" name="sid" value={r.studentId} />
+                            {ids.map((id) => <input key={id} type="hidden" name="add" value={id} />)}
+                            <button className="inline-flex min-h-9 items-center rounded-lg bg-white px-3 text-sm font-semibold text-brand-navy ring-1 ring-slate-300 hover:bg-slate-50">{t("Send as-is")}</button>
+                            <span className="mt-0.5 block max-w-[10rem] text-end text-[11px] leading-tight text-slate-500">{t("Sends right away, no review")}</span>
+                          </form>
+                        )}
+                      </div>
+                    </td>
                   </tr>
                 );
               })}

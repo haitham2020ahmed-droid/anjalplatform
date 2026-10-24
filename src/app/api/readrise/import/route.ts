@@ -5,6 +5,7 @@ import { assertSameOrigin } from "@/server/auth/http";
 import { apiActor, repo } from "@/server/auth/next";
 import { can, ForbiddenError } from "@/server/auth/rbac";
 import { importArticleFile, previewArticleFile } from "@/server/readrise/import";
+import { withCappedBody, BodyTooLargeError } from "@/server/lib/capped-body";
 
 export const runtime = "nodejs";
 const MAX_FILE = 5 * 1024 * 1024;
@@ -20,8 +21,15 @@ export async function POST(req: Request) {
   const actor = await apiActor();
   if (!actor) return NextResponse.json({ error: "Your session has ended. Sign in again." }, { status: 401 });
   if (!["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"].includes(actor.role) || !can(actor, "questions:edit")) return NextResponse.json({ error: "Only teachers and admins can import ReadRise articles." }, { status: 403 });
-  if (Number(h.get("content-length") ?? 0) > MAX_FILE + 64_000) return NextResponse.json({ error: "The file is too large (5 MB at most)." }, { status: 413 });
-  const form = await req.formData().catch(() => null);
+  const maxBytes = MAX_FILE + 64_000;
+  if (Number(h.get("content-length") ?? 0) > maxBytes) return NextResponse.json({ error: "The file is too large (5 MB at most)." }, { status: 413 });
+  // r89: the Content-Length check above trusts the client; this enforces the same limit on the real bytes read
+  let form: FormData | null;
+  try { form = await withCappedBody(req, maxBytes).formData(); }
+  catch (e) {
+    if (e instanceof BodyTooLargeError) return NextResponse.json({ error: "The file is too large (5 MB at most)." }, { status: 413 });
+    form = null;
+  }
   const file = form?.get("file");
   if (!(file instanceof File) || !file.size) return NextResponse.json({ error: "Send the file in the field “file”." }, { status: 400 });
   if (file.size > MAX_FILE) return NextResponse.json({ error: "The file is too large (5 MB at most)." }, { status: 413 });

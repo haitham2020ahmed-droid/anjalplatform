@@ -231,8 +231,11 @@ describe("Learn in a school (demo data)", () => {
     assert.equal(h.forYou[0].dueAt?.slice(0, 10), "2026-10-20");
   });
 
-  test("assign to a student, a group and the class → My Work lists the lesson ONCE; checks: ≥ 2 = done, fewer = again", async () => {
+  // 🚫 owner (haitham, Oct 2026): Learn lessons never show in the student's My Work any more (all-work.ts) —
+  // "ONCE" and the status progression are checked on LearnAssignee directly, the row My Work used to read from.
+  test("assign to a student, a group and the class → the student has the lesson ONCE; checks: ≥ 2 = done, fewer = again", async () => {
     const sid = String(s1.studentId);
+    const mine = () => repo.findMany("LearnAssignee", { studentId: sid, kind: "LESSON", ref: "LN-000" });
     // a level group of the class
     await repo.create("StudentLevelState", { studentId: sid, schoolId, level: "BELOW", source: "PLATFORM", reason: "test", since: NOW, evaluatedAt: NOW });
     const g = await assignLearn(repo, t4a, { kind: "LESSON", ref: "LN-000", classId: class4a, target: "GROUP", groupLevel: "BELOW" }, NOW);
@@ -240,14 +243,12 @@ describe("Learn in a school (demo data)", () => {
     const c = await assignLearn(repo, t4a, { kind: "LESSON", ref: "LN-000", classId: class4a, target: "CLASS", level: 2 }, NOW);
     assert.ok(c.students >= 2);
     await assert.rejects(assignLearn(repo, t4b, { kind: "LESSON", ref: "LN-000", classId: class4a, target: "CLASS" }, NOW), /Not your class/);
-    let rows = (await extraWorkItems(repo, s1, NOW)).filter((r) => r.kind === "LEARN");
+    let rows = await mine();
     assert.equal(rows.length, 1, "once");
-    assert.equal(rows[0].href, "/student/learn/LN-000");
-    assert.equal(rows[0].status, "Not started");
-    assert.match(rows[0].skill, /^Learn — Main idea$/);
+    assert.equal(rows[0].status, "NOT_STARTED");
     await openLesson(repo, s1, "LN-000", NOW);
-    rows = (await extraWorkItems(repo, s1, NOW)).filter((r) => r.kind === "LEARN");
-    assert.equal(rows[0].status, "In progress");
+    rows = await mine();
+    assert.equal(rows[0].status, "IN_PROGRESS");
     // the 3 checks, marked on the server
     const v = (await studentLesson(repo, s1, "LN-000"))!;
     const right = v.content.checks.map((q) => q.answer), wrong = right.map((a) => (a + 1) % 4);
@@ -260,8 +261,8 @@ describe("Learn in a school (demo data)", () => {
     assert.deepEqual([r2.score, r2.passed], [2, true]);
     p = (await repo.findMany("LearnProgress", { studentId: sid, kind: "LESSON", ref: "LN-000" }))[0];
     assert.ok(p.finishedAt); assert.equal(Number(p.attempts), 2); assert.equal(Number(p.seconds), 180);
-    rows = (await extraWorkItems(repo, s1, NOW)).filter((r) => r.kind === "LEARN");
-    assert.deepEqual([rows.length, rows[0].status], [1, "Done"]);
+    rows = await mine();
+    assert.deepEqual([rows.length, rows[0].status], [1, "DONE"]);
     // the teacher's results
     const res = await learnResults(repo, t4a, "LESSON", "LN-000");
     const me = res.rows.find((r) => r.studentId === sid)!;
@@ -371,7 +372,7 @@ describe("Learn in a school (demo data)", () => {
 
   test("menus: Learn for students (after ReadRise) and teachers; the admin finds Learn by name", () => {
     // My Words (the curriculum words moved there) and Fluency have their own entries (owner's request) (r68: ⭐ My Skills after My Work)
-    assert.deepEqual(navItemsFor("STUDENT", { nafs: true }).map((i) => i.label), ["Home", "My Work", "My Skills", "My Plans", "My Tests", "MAP", "ReadMaster / ReadRise", "Learn", "My Words", "Fluency", "NAFS"]);
+    assert.deepEqual(navItemsFor("STUDENT", { nafs: true }).filter((i) => !i.group).map((i) => i.label), ["Home", "My Work", "My Skills", "My Plans", "My Tests", "MAP", "ReadMaster / ReadRise", "Learn", "My Words", "Fluency", "NAFS"]);
     assert.ok(navItemsFor("TEACHER").some((i) => i.href === "/teacher/learn" && i.line));
     const admin = searchablePagesFor("SCHOOL_ADMIN").map((i) => i.href);
     for (const h of ["/teacher/learn", "/teacher/learn/review", "/teacher/learn/coverage"]) assert.ok(admin.includes(h), h);
@@ -390,13 +391,14 @@ describe("Learn in a school (demo data)", () => {
     assert.ok(lesson <= 12, `a lesson: ${lesson} calls`);
     assert.ok(preview <= 14, `teacher preview: ${preview} calls`);
     assert.ok(list <= 2, `teacher list: ${list} calls`);
-    // My Work: Learn adds ONE read (LearnAssignee) to the student's home / My Work
+    // 🚫 owner (haitham, Oct 2026): Learn/Words never show in My Work any more — all-work.ts reads no
+    // LearnAssignee row at all for it (the teacher's own Assigned page reads it directly, unaffected).
     const c = counting(repo);
     await extraWorkItems(c.repo, other, NOW);
-    const withLearn = c.calls();
+    const withoutLearn = c.calls();
     const src = read("src/server/student/all-work.ts");
-    assert.equal((src.match(/"LearnAssignee"/g) ?? []).length, 1, "one read of the Learn rows");
-    assert.ok(withLearn > 0);
+    assert.equal((src.match(/"LearnAssignee"/g) ?? []).length, 0, "no read of Learn rows in My Work");
+    assert.ok(withoutLearn > 0);
     // the lesson text is never read from the database
     for (const f of ["src/server/learn/student.ts", "src/server/learn/teacher.ts"]) assert.doesNotMatch(read(f), /findMany\("LearnLesson", \{[^}]*\}, \{ select: \[[^\]]*"levels"/);
   });

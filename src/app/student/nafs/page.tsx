@@ -128,6 +128,8 @@ export default async function StudentNafsPage({ searchParams }: { searchParams: 
 
       {part === "results" && (
         !results.length ? <EmptyState icon="📊" title="No results yet" text="Practice scores show right away under My practice. My results is only for official NAFS tests your teacher has released." action={{ href: "/student/nafs?part=tests", label: "My tests" }} /> : (
+          <div className="grid gap-3">
+          <p className="text-sm text-muted">{t("NAFS scores here are from practice the school wrote in the style of the real exam — they show how ready your child is, not an official exam result.")}</p>
           <ul className="grid gap-3">
             {results.map((x) => (
               <li key={x.id} className={CARD}>
@@ -140,6 +142,7 @@ export default async function StudentNafsPage({ searchParams }: { searchParams: 
               </li>
             ))}
           </ul>
+          </div>
         )
       )}
     </PreviewFrame></AppShell>

@@ -16,10 +16,10 @@ type Place = StudentPlanView["places"][number];
 const STATE: Record<string, { icon: LineIconName; cls: string; label: string }> = {
   COMPLETED: { icon: "check", cls: "text-emerald-600", label: "done" },
   IN_PROGRESS: { icon: "half", cls: "text-amber-600", label: "started" },
-  NOT_STARTED: { icon: "circle", cls: "text-slate-300", label: "not started" },
+  NOT_STARTED: { icon: "circle", cls: "text-slate-500", label: "not started" },
   OVERDUE: { icon: "clock", cls: "text-rose-600", label: "started" },
   LOCKED: { icon: "lock", cls: "text-slate-400", label: "not open yet" },
-  EMPTY: { icon: "clock", cls: "text-slate-300", label: "not ready yet" },
+  EMPTY: { icon: "clock", cls: "text-slate-500", label: "not ready yet" },
 };
 const stateOf = (x: Place) => (x.locked ? "LOCKED" : x.empty ? "EMPTY" : x.status ?? "NOT_STARTED");
 

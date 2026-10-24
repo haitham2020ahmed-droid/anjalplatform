@@ -47,7 +47,7 @@ export interface StudentAnalytics {
   streakIncorrect: { longest: number; current: number };
   highestLevelCorrect: number;
   unitProgress: { unit: number; pct: number }[];
-  curriculumProgressPct: number;
+  curriculumProgressPct: number | null;
   recentActivity: string[];
   growth: StudentGrowth;
   importedMap: { testDate: string; subject: string; goalArea: string | null; rit: number; percentile: number | null }[];
@@ -107,7 +107,7 @@ export async function studentAnalytics(repo: Repo, actor: Actor, studentId: stri
     streakIncorrect: streaks(seq, false),
     highestLevelCorrect: Math.max(0, ...attempts.filter((a) => a.isCorrect && !a.rapidGuess).map((a) => level.get(String(a.questionId)) ?? 0)),
     unitProgress: cur.units.map((u) => ({ unit: u.number, pct: u.progressPct })),
-    curriculumProgressPct: allUnitSkills ? Math.round((100 * cur.units.reduce((t, u) => t + u.proficientOrBetter, 0)) / allUnitSkills) : 0,
+    curriculumProgressPct: allUnitSkills ? Math.round((100 * cur.units.reduce((t, u) => t + u.proficientOrBetter, 0)) / allUnitSkills) : null,
     recentActivity: [...new Set(attemptsAll.sort((a, b) => ms(b.createdAt) - ms(a.createdAt)).map((a) => new Date(ms(a.createdAt)).toISOString().slice(0, 10)))].slice(0, 5),
     growth,
     importedMap: mapRows.map((m) => ({

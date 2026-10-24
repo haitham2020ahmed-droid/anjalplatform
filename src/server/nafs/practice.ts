@@ -25,7 +25,9 @@ import { assertNafs } from "../teacher/nafs-access";
 import { seededShuffle } from "../practice/items";
 import { hideLevels } from "../../lib/hide-levels";
 import { DIFFICULTIES, DIFFICULTY_NAME, domainOf, isAdaptiveChoice, MAX_NAFS_MINUTES, MOE_BY_CODE, SKILL_BY_CODE, type Difficulty, type DifficultyMix } from "./framework";
-import { isTargetCode, loadNafsQuestions, matchesTarget, nafsIndex, usable, type NafsEntry } from "./bank";
+import { isTargetCode, loadNafsQuestions, matchesTarget, nafsIndex, syncSkillAfterNafsAnswer, usable, type NafsEntry } from "./bank";
+import { runAfterResponse } from "../lib/after-response";
+import { memoryHigh } from "../monitoring/memory";
 import { assignedTo, grade6Class, json, nafsClasses } from "./tests";
 import { paragraphsOf } from "./student";
 import { isRapidGuess } from "../practice/guessing";
@@ -537,6 +539,16 @@ export async function answerNafsPractice(repo: Repo, actor: Actor, input: { id: 
     const replay = await savedNafsAnswer(repo, s(r.id), q.id, false);
     if (replay) return replay;
     throw new ValidationError("This question is not on your screen any more. Open the practice again.");
+  }
+  // ⭐ r## per-answer skill-status freshness (see bank.ts syncSkillAfterNafsAnswer): fire-and-forget, after the
+  // response, bounded to the ONE skill of the question just answered (never a batch) — the existing page-visit
+  // sync (my-skills.ts syncNafsPracticeStars) stays in place as the 12-skill backstop. Skipped outright when the
+  // server is already memory-busy: best-effort freshness, not work that needs to complete (the next answer or the
+  // next My Skills visit catches it up), so there is nothing to queue or retry — the same circuit-breaker shape as
+  // questions/link-review-bulk.ts, but "skip" instead of "pause and retry" since nothing here needs to finish.
+  if (!memoryHigh()) {
+    const qid = q.id;
+    runAfterResponse("skills.nafs_answer_sync", () => syncSkillAfterNafsAnswer(repo, studentId, qid, now), { key: `skills.nafs_answer_sync|${studentId}|${qid}` });
   }
   // 📖 synonym/antonym error-pattern feedback (src/lib/syn-ant-feedback.ts): only for a genuine wrong answer (not a
   // rapid guess the student did not really attempt), and only when the heuristic is confident enough to say

@@ -497,3 +497,443 @@ mc("theme", "RL.6.2", 4, "What theme do “The New Field” and “Transplant”
 mc("theme", "RL.6.2", 6, "How does the setting of “Desert Night” support its theme of peace and wonder?",
    "The vast, silent desert under the stars creates a feeling of calm awe.", [("The busy city noise creates excitement.", "There is no city."), ("The storm creates fear.", "There is no storm."), ("The classroom creates focus.", "There is no classroom.")],
    "Quiet sounds, warm sand and a starry sky create calm wonder.", "Setting can help develop theme.", "G6-P7")
+
+
+# ============================================================ NAFS topup 2: V.SYNANT / RC.DETAIL / IAE.INFER
+# Grows three thin NAFS-mapped skills: synonyms-antonyms (NAFS.V.SYNANT), text-evidence
+# (NAFS.RC.DETAIL) and character (NAFS.IAE.INFER — Grade 6's curriculum does not offer
+# character-perspective or make-predictions as separate families, so new inference items
+# use "character" only). All reading items here are self-contained (a short original
+# excerpt inside the stem), so they do not depend on the existing numbered passages.
+
+# ---- synonyms-antonyms (NAFS.V.SYNANT) ----
+mc("synonyms-antonyms", "L.6.5.c", 2, "Which word is a synonym for “meticulous”?",
+   "precise", [("careless", "This is an antonym."), ("curious", "This is unrelated."), ("hasty", "This is the opposite characteristic.")],
+   "Meticulous and precise both describe extreme care with details.", "Formal synonyms like meticulous often replace simpler words such as careful.")
+mc("synonyms-antonyms", "L.6.5.c", 3, "Which word is an antonym for “reluctant”?",
+   "eager", [("hesitant", "Hesitant is a synonym of reluctant."), ("nervous", "Nervous is a different meaning, about fear."), ("quiet", "Quiet is unrelated.")],
+   "Reluctant means unwilling; eager means very willing — opposites.", "Picture someone dragging their feet versus someone racing to start.")
+dd("synonyms-antonyms", "L.6.5.c", 3, "Choose the synonym: “The lawyer presented a ____ (convincing) argument to the jury.”",
+   "persuasive", [("confusing", "This describes the opposite effect."), ("brief", "This describes length, not persuasiveness."), ("loud", "This describes volume, not the quality of the argument.")],
+   "Persuasive and convincing both describe an argument that changes people’s minds.", "Match the meaning in parentheses exactly, not just a related idea.")
+match("synonyms-antonyms", "L.6.5.c", 4, "Match each word with its SYNONYM.",
+      [("meticulous", "precise"), ("persuasive", "convincing"), ("reluctant", "hesitant"), ("candid", "honest")],
+      "Each pair shares nearly the same meaning.", "Replace one word with its match in a sentence to check the meaning holds.")
+tf("synonyms-antonyms", "L.6.5.c", 2, "A candid witness answers every question directly, while a deceptive witness twists the facts to hide the truth. True or false: this contrast means “candid” and “deceptive” are synonyms.", False,
+   "Candid means open and honest; deceptive means misleading — opposites, not synonyms.",
+   "If one word describes honesty and the other describes dishonesty, they are antonyms.")
+mc("synonyms-antonyms", "L.6.5.c", 4, "Which word is an antonym for “abundant”?",
+   "scarce", [("plentiful", "Plentiful is a synonym of abundant."), ("useful", "Useful is an unrelated meaning."), ("fresh", "Fresh is an unrelated meaning.")],
+   "Abundant means existing in large amounts; scarce means existing in very small amounts — opposites.", "Think of a harvest with plenty of food compared to one with almost none.")
+mc("synonyms-antonyms", "L.6.5.c", 3, "Read: “Unlike his impulsive younger brother, Khalid always paused to weigh the consequences before acting.” Which word could replace “impulsive” without changing the sentence’s meaning?",
+   "rash", [("cautious", "This describes Khalid, the opposite of impulsive."), ("patient", "This is the opposite quality."), ("curious", "This is an unrelated meaning.")],
+   "Impulsive and rash both describe acting quickly without thinking of consequences.", "Use the contrast in the sentence (Khalid pausing) as a clue to the opposite meaning of impulsive.")
+dd("synonyms-antonyms", "L.6.5.c", 4, "Choose the antonym: “The committee’s decision was ____ (unanimous); several members strongly disagreed.”",
+   "divided", [("agreed", "This is similar to unanimous, not opposite."), ("quick", "This describes speed, not agreement."), ("official", "This is an unrelated meaning.")],
+   "Unanimous means everyone agrees; divided means people disagree — opposites, which fits the sentence’s own contrast.", "Look for a word that fits the contrast the sentence itself describes.")
+mc("synonyms-antonyms", "L.6.5.c", 3, "Which word is a synonym for “ambiguous”?",
+   "unclear", [("obvious", "This is an antonym of ambiguous."), ("lengthy", "This describes length, not clarity."), ("formal", "This is an unrelated meaning.")],
+   "Ambiguous and unclear both describe something that can be understood in more than one way, or not understood at all.", "Ambiguous is a more formal word for unclear or confusing.")
+mc("synonyms-antonyms", "L.6.5.c", 5, "Which pair of words are near-synonyms with DIFFERENT levels of intensity?",
+   "annoyed / furious", [("hot / cold", "These are opposites, not near-synonyms."), ("fast / quick", "These are near-synonyms, but at nearly the SAME level of intensity."), ("happy / sad", "These are opposites, not near-synonyms.")],
+   "Annoyed and furious both describe anger, but furious is a much stronger degree of the same feeling.", "Near-synonyms can share a meaning but differ in strength or degree.")
+match("synonyms-antonyms", "L.6.5.c", 5, "Match each word with its ANTONYM.",
+      [("abundant", "scarce"), ("ambiguous", "clear"), ("candid", "deceptive"), ("meticulous", "careless")],
+      "Each pair has opposite meanings.", "Check that each pair truly contrasts, not just that the words are different.")
+mc("synonyms-antonyms", "L.6.5.c", 4, "Complete the analogy: honest : deceptive :: confident : ____",
+   "insecure", [("humble", "Humble is not necessarily an opposite of confident."), ("brave", "Brave is similar to confident, not its opposite."), ("proud", "Proud is similar to confident, not its opposite.")],
+   "Honest and deceptive are opposites, so confident should pair with its opposite: insecure.", "Analogies keep the same relationship — here, antonym pairs — on both sides.")
+tf("synonyms-antonyms", "L.6.5.c", 3, "True or false: “scarce” and “abundant” describe the same amount of something.", False,
+   "Scarce means very little is available; abundant means a lot is available — these describe opposite amounts.",
+   "Compare the actual quantities each word suggests.")
+mc("synonyms-antonyms", "L.6.5.c", 3, "Read: “The witness gave a candid account of the accident, unlike the driver’s evasive answers.” Which word is an antonym for “candid” as used here?",
+   "evasive", [("honest", "This is a synonym of candid."), ("brief", "This is unrelated to honesty."), ("loud", "This is an unrelated meaning.")],
+   "Candid means open and honest; evasive means avoiding giving a direct answer — opposites, as the sentence itself contrasts.", "The sentence’s own contrast (unlike) often names the antonym directly.")
+dd("synonyms-antonyms", "L.6.5.c", 2, "Choose the synonym: “The volunteers showed ____ (plentiful) kindness toward the flood victims.”",
+   "abundant", [("scarce", "This is an antonym."), ("brief", "This is an unrelated meaning."), ("formal", "This is an unrelated meaning.")],
+   "Abundant and plentiful both describe a large amount of something.", "Match the meaning in parentheses to the best synonym, not a similar-sounding word.")
+
+# ---- text-evidence (NAFS.RC.DETAIL) ----
+mc("text-evidence", "RI.6.1", 4, "Read: “Renewable energy sources like wind and solar now generate over 12 percent of global electricity, a figure that has tripled in the past decade.” Which detail is evidence that renewable energy use is growing rapidly?",
+   "“a figure that has tripled in the past decade.”",
+   [("“generate over 12 percent of global electricity.”", "This states the current amount, not the rate of growth."), ("“wind and solar.”", "This only names the sources."), ("“global electricity.”", "This only names the category.")],
+   "Tripling in just ten years is direct evidence of rapid growth.", "Evidence of growth usually compares a past amount with a present one.")
+ms("text-evidence", "RI.6.1", 5, "Read: “The city’s new bike-sharing program cut traffic near downtown by 8 percent in its first year, though some residents complained that stations were often empty during rush hour.” Which TWO details give a balanced view of the program’s first year?",
+   ["“cut traffic near downtown by 8 percent”", "“stations were often empty during rush hour”"],
+   [("“The city’s new bike-sharing program.”", "This only names the program, not a result."), ("“its first year.”", "This only tells the time frame.")],
+   "A balanced view includes both the positive result (less traffic) and a real complaint (empty stations).", "A balanced summary uses evidence from both sides of an issue.")
+mc("text-evidence", "RL.6.1", 4, "Read: “Mr. Aziz ran his thumb along the cracked door frame he had repaired decades earlier and said nothing for a long moment before speaking again.” Which detail suggests that the repair held a deep personal meaning for Mr. Aziz?",
+   "“he ran his thumb along the cracked door frame... and said nothing for a long moment”",
+   [("“he had repaired decades earlier.”", "This gives a timeframe, not evidence of feeling."), ("“before speaking again.”", "This only marks a transition."), ("“the door frame.”", "This only names the object.")],
+   "Pausing silently while touching his old work suggests a strong, quiet emotional connection to it.", "A long pause or silence in dialogue often signals strong, unspoken feeling.")
+mc("text-evidence", "RI.6.1", 3, "Read: “Deep-sea anglerfish produce their own light through a chemical reaction in a special organ, which attracts prey in the pitch-black water.” Which detail explains the PURPOSE of the anglerfish’s light?",
+   "“which attracts prey in the pitch-black water.”",
+   [("“produce their own light through a chemical reaction.”", "This explains how the light is made, not why."), ("“a special organ.”", "This only names a body part."), ("“pitch-black water.”", "This only describes the setting.")],
+   "Attracting prey is the stated reason the anglerfish produces light.", "Separate the explanation of HOW something happens from the explanation of WHY.")
+tf("text-evidence", "RI.6.1", 3, "Read: “Although four-day school weeks can save districts money on transportation and utilities, researchers found that younger students’ reading scores dropped slightly compared to five-day schools.” True or false: the text claims four-day school weeks have no drawbacks.", False,
+   "The text names a specific drawback — a drop in younger students’ reading scores — so it does not claim there are no drawbacks.",
+   "Watch for absolute claims like ‘no drawbacks’ when the text actually lists a cost.")
+mc("text-evidence", "RL.6.1", 3, "Read: “Huda crossed out her first three drafts of the letter, each one angrier than the last, before finally writing one that calmly explained her concerns.” Which detail shows that Huda chose to communicate respectfully rather than react in anger?",
+   "“crossed out her first three drafts... before finally writing one that calmly explained her concerns.”",
+   [("“each one angrier than the last.”", "This describes her early anger, not her final choice."), ("“the letter.”", "This only names the object."), ("“her concerns.”", "This only names the topic.")],
+   "Rewriting until she found a calm tone shows she deliberately chose respect over anger.", "Look at the FINAL version of a character’s words or actions, not just the early drafts.")
+mc("text-evidence", "RI.6.1", 4, "Read: “A single mature oak tree can absorb roughly 22 kilograms of carbon dioxide each year, which is why city planners increasingly favor planting them along busy streets.” Which detail supports the claim that oak trees help with pollution from traffic?",
+   "“can absorb roughly 22 kilograms of carbon dioxide each year”",
+   [("“city planners increasingly favor planting them along busy streets.”", "This describes a decision made because of the fact, not the evidence itself."), ("“A single mature oak tree.”", "This only names the subject."), ("“busy streets.”", "This only names a location.")],
+   "Absorbing carbon dioxide — a pollutant released by traffic — is the direct evidence for the claim.", "Trace the claim back to the specific number or fact that supports it.")
+ms("text-evidence", "RL.6.1", 5, "Read: “Yasmin woke at five every morning to practice before school, enjoyed listening to music on the bus, and kept a log of every mistake she made in rehearsal.” Which TWO details show Yasmin’s strong discipline?",
+   ["“woke at five every morning to practice before school”", "“kept a log of every mistake she made in rehearsal”"],
+   [("“enjoyed listening to music on the bus.”", "This is a personal preference, not evidence of discipline."), ("“before school.”", "This only tells when, not evidence by itself.")],
+   "A strict daily routine and tracking her own mistakes both show serious self-discipline.", "Look for repeated habits and self-monitoring as strong evidence of discipline.")
+mc("text-evidence", "RI.6.1", 3, "Read: “Lightning can heat the surrounding air to temperatures hotter than the surface of the sun, causing the air to expand explosively and produce the sound we hear as thunder.” Which detail explains WHY thunder happens?",
+   "“causing the air to expand explosively”",
+   [("“Lightning can heat the surrounding air to temperatures hotter than the surface of the sun.”", "This explains the heat, but the explosive expansion is the direct cause of the sound."), ("“the surface of the sun.”", "This is only a comparison, not the cause of thunder."), ("“we hear as thunder.”", "This only names the result, not the explanation.")],
+   "The explosive expansion of superheated air is the direct cause of the sound of thunder.", "Find the exact phrase describing the physical cause, not just a related fact.")
+mc("text-evidence", "RL.6.1", 4, "Read: “Huda signed her letter to the city council ‘Respectfully,’ even after writing three paragraphs disagreeing firmly with their plan.” Which detail shows that Huda disagreed without being disrespectful?",
+   "“signed her letter... ‘Respectfully,’ even after writing three paragraphs disagreeing firmly”",
+   [("“disagreeing firmly with their plan.”", "This shows firm disagreement alone, not the respectful tone."), ("“the city council.”", "This only names who received the letter."), ("“three paragraphs.”", "This only tells the length.")],
+   "Closing respectfully despite strong disagreement shows she kept a respectful, constructive tone.", "Compare the content of an argument with the TONE used to express it.")
+tf("text-evidence", "RI.6.1", 2, "Read: “Though bats are often feared, a single bat can eat more than a thousand insects in one night, making them valuable for controlling pests naturally.” True or false: the text presents bats as only dangerous to humans.", False,
+   "The text actually presents bats as valuable pest controllers, not as dangerous.",
+   "Check whether a statement matches the text’s actual claim, especially after a word like ‘though.’")
+mc("text-evidence", "RI.6.1", 4, "Read: “Switching a school’s lighting to LED bulbs cost the district $40,000 upfront, but the resulting savings on electricity paid back that cost within just three years.” Which detail shows that the LED switch was a good long-term investment?",
+   "“the resulting savings on electricity paid back that cost within just three years.”",
+   [("“cost the district $40,000 upfront.”", "This states the cost, not evidence that it was worthwhile."), ("“LED bulbs.”", "This only names the product."), ("“a school’s lighting.”", "This only names what was changed.")],
+   "Paying back the cost in just three years, with savings continuing after, shows a strong long-term benefit.", "Compare the initial cost with the eventual payoff to judge whether something is a good investment.")
+mc("text-evidence", "RL.6.1", 3, "Read: “Sara flipped through her notes one last time, closed the folder, and walked into the interview room without checking her phone even once.” Which detail shows that Sara stayed focused on the interview?",
+   "“walked into the interview room without checking her phone even once.”",
+   [("“flipped through her notes one last time.”", "This shows preparation, not sustained focus during the walk."), ("“closed the folder.”", "This is a small action, not strong evidence of focus."), ("“the interview room.”", "This only names a location.")],
+   "Not checking her phone, a common distraction, shows she stayed mentally focused.", "Look for what a character avoids doing as evidence of focus or self-control.")
+mc("text-evidence", "RI.6.1", 4, "Read: “Coastal mangrove forests can reduce the height of incoming storm waves by up to 66 percent, protecting the villages behind them from the worst flooding.” Which detail is the strongest evidence that mangroves protect coastal communities?",
+   "“can reduce the height of incoming storm waves by up to 66 percent”",
+   [("“protecting the villages behind them from the worst flooding.”", "This states the result of the evidence, repeating the claim rather than giving new proof."), ("“Coastal mangrove forests.”", "This only names the subject."), ("“storm waves.”", "This only names the threat.")],
+   "The specific percentage reduction in wave height is the measurable evidence behind the claim.", "A number or statistic is often the strongest kind of evidence for a claim.")
+ms("text-evidence", "RI.6.1", 5, "Read: “The region’s new desalination plant provides clean drinking water to 50,000 residents, but it also uses large amounts of electricity and releases concentrated salt water back into the sea.” Which TWO details describe a cost of the desalination plant?",
+   ["“uses large amounts of electricity”", "“releases concentrated salt water back into the sea”"],
+   [("“provides clean drinking water to 50,000 residents.”", "This describes the benefit, not a cost.")],
+   "High electricity use and releasing concentrated salt water are both environmental costs of the plant.", "Separate the stated benefit from the stated costs before choosing.")
+
+# ---- character (NAFS.IAE.INFER) ----
+mc("character", "RL.6.3", 3, "Read: “When the team’s presentation software crashed minutes before judging, Layla calmly grabbed a marker and sketched the diagrams by hand while her teammates panicked.” Which word best describes Layla?",
+   "resourceful", [("careless", "Her quick, calm solution shows the opposite of carelessness."), ("anxious", "She stays calm; her teammates panic instead."), ("indifferent", "She actively solves the problem, not ignoring it.")],
+   "Finding a quick, creative solution under pressure shows Layla is resourceful.", "A character’s response to an unexpected problem often reveals a trait.")
+mc("character", "RL.6.3", 4, "Read: “Despite knowing the answer, Khalid let his quieter teammate present the group’s findings, coaching her through the key points beforehand instead of taking the spotlight himself.” Which word best describes Khalid?",
+   "generous", [("competitive", "Stepping back from the spotlight is the opposite of trying to compete for credit."), ("insecure", "Coaching her confidently shows the opposite of insecurity."), ("careless", "Preparing her carefully shows the opposite of carelessness.")],
+   "Giving up the spotlight to help a teammate shine shows generosity.", "Notice when a character gives up personal credit to help someone else.")
+tf("character", "RL.6.3", 2, "Read: “Mariam re-checked the lab results three times before reporting them, even though her partner insisted the first result was obviously correct.” True or false: this detail shows Mariam is easily influenced by others’ opinions.", False,
+   "Checking three times despite her partner’s pressure shows independence and thoroughness, not being easily influenced.",
+   "Look for whether a character sticks to their own standards despite pressure from others.")
+mc("character", "RL.6.3", 4, "Read: “Omar admitted to the whole class that he had copied the homework answer, even though no one had noticed and he could easily have stayed silent.” Which word best describes Omar?",
+   "honest", [("foolish", "Telling the truth voluntarily is admirable, not foolish."), ("nervous", "The text shows a choice to admit, not a feeling of fear."), ("careless", "Copying was the mistake, but admitting it shows the trait being tested: honesty.")],
+   "Confessing a mistake no one would have noticed shows strong honesty.", "A character’s choice to tell the truth when they could easily hide it reveals honesty.")
+mc("character", "RL.6.3", 3, "Read: “Even after three failed attempts to code the robot’s arm correctly, Dana reread the manual, asked a mentor one specific question, and tried a fourth approach before lunch.” Which word best describes Dana?",
+   "persistent", [("discouraged", "Trying a fourth approach shows the opposite of giving up."), ("careless", "Rereading the manual and asking a focused question shows careful effort."), ("impatient", "Taking time to reread and ask questions shows patience, not impatience.")],
+   "Continuing to try new approaches after repeated failure shows persistence.", "Repeated attempts after failure are strong evidence of persistence.")
+mc("character", "RL.6.3", 4, "Read: “Yusuf noticed the new transfer student eating alone every day that week, so on Friday he invited him to sit with his usual group, even though it meant explaining the inside jokes all over again.” Which word best describes Yusuf?",
+   "inclusive", [("shy", "Inviting someone over confidently is not shy behavior."), ("indifferent", "Noticing and acting shows the opposite of indifference."), ("annoyed", "Nothing shows annoyance; he willingly includes the new student.")],
+   "Actively including someone who was left out, despite the extra effort, shows Yusuf is inclusive.", "Notice how a character treats someone who does not belong to the usual group.")
+tf("character", "RL.6.3", 3, "Read: “Huda spent the entire bus ride rehearsing excuses for being late, even though her coach had texted that practice was cancelled.” True or false: this detail shows that Huda is confident she will not be blamed for anything.", False,
+   "Rehearsing excuses, even unnecessarily, shows Huda expects to be blamed, not that she feels confident she is safe from blame.",
+   "A character’s private thoughts, like rehearsed excuses, often reveal a hidden worry.")
+mc("character", "RL.6.3", 3, "Read: “Sami offered to carry the heaviest box up three flights of stairs without being asked, then went back down for a second trip while his friends rested.” Which word best describes Sami?",
+   "considerate", [("lazy", "Volunteering for the heaviest box and a second trip is the opposite of lazy."), ("proud", "Nothing shows him bragging about the task."), ("careless", "Carrying boxes carefully does not show carelessness.")],
+   "Volunteering for the hardest task, twice, without being asked, shows Sami thinks of his tired friends — he is considerate.", "An unprompted offer to take on hard work for others is strong evidence of a considerate trait.")
+mc("character", "RL.6.3", 4, "Read: “Noura’s essay argued strongly against her own first opinion once new evidence changed her mind, and she rewrote the entire conclusion the night before it was due.” Which word best describes Noura?",
+   "open-minded", [("stubborn", "Changing her opinion based on evidence is the opposite of stubborn."), ("careless", "Rewriting the conclusion carefully shows the opposite of carelessness."), ("indecisive", "She makes a firm decision based on evidence, not indecision.")],
+   "Being willing to change her opinion when new evidence appeared shows Noura is open-minded.", "A willingness to change one’s mind based on evidence often reveals open-mindedness.")
+mc("character", "RL.6.3", 3, "Read: “Tariq always double-checked the exits and the fire extinguisher locations whenever he entered an unfamiliar building, a habit his friends often teased him about.” Which word best describes Tariq?",
+   "cautious", [("careless", "Checking exits carefully is the opposite of careless."), ("arrogant", "Nothing shows him bragging about this habit."), ("lazy", "The habit requires effort, not laziness.")],
+   "Consistently checking for safety exits, even when teased, shows Tariq is cautious.", "A repeated habit, even one that invites teasing, can reveal a consistent trait.")
+mc("character", "RL.6.3", 4, "Read: “Rather than arguing when the referee made a clearly wrong call against her team, Amal shook the referee’s hand after the match and thanked him for officiating.” Which word best describes Amal?",
+   "gracious", [("resentful", "Shaking hands and thanking him shows the opposite of resentment."), ("aggressive", "Her calm, respectful reaction is the opposite of aggressive."), ("indifferent", "Choosing to thank him shows she cares about sportsmanship, not indifference.")],
+   "Responding to an unfair call with respect, rather than anger, shows graciousness.", "How a character responds to being treated unfairly often reveals their true character.")
+ms("character", "RL.6.3", 5, "Read: “Khalid volunteered to tutor the younger students every Tuesday for free, enjoyed drawing comics in his free time, kept a careful record of each student’s progress, and stayed late twice to help a struggling student catch up before an exam.” Which TWO details show that Khalid takes his tutoring role seriously?",
+   ["“kept a careful record of each student’s progress”", "“stayed late twice to help a struggling student catch up before an exam”"],
+   [("“volunteered to tutor the younger students every Tuesday for free.”", "This shows generosity in starting, but is not itself evidence of ongoing seriousness and effort."), ("“enjoyed drawing comics in his free time.”", "This is a personal hobby, unrelated to his tutoring role.")],
+   "Tracking progress carefully and staying late to help show Khalid takes real, ongoing responsibility for his students’ learning.", "Look for evidence of sustained effort over time, not just the initial decision to help.")
+mc("character", "RL.6.3", 3, "Read: “When her little brother accidentally deleted her science project files the night before the deadline, Rania took a breath, said, ‘It’s okay, accidents happen,’ and started rebuilding the project together with him.” Which word best describes Rania?",
+   "patient", [("furious", "Her calm words show the opposite of fury."), ("careless", "Rebuilding carefully with her brother shows responsibility, not carelessness."), ("indifferent", "She actively helps rebuild, showing she cares about the outcome.")],
+   "Responding calmly to a stressful accident, instead of reacting in anger, shows patience.", "A character’s reaction to someone else’s mistake often reveals a trait.")
+mc("character", "RL.6.3", 4, "Read: “Yasmin refused to sign her name to the group project until every teammate’s contribution was listed accurately, even the smallest tasks.” Which word best describes Yasmin?",
+   "fair", [("selfish", "Insisting on crediting everyone equally is the opposite of selfish."), ("lazy", "Checking every detail requires effort, not laziness."), ("careless", "Checking accuracy carefully is the opposite of careless.")],
+   "Making sure every teammate gets accurate credit, even for small tasks, shows Yasmin values fairness.", "Look for a character’s insistence on fairness or accuracy toward others.")
+tf("character", "RL.6.3", 3, "Read: “Mr. Aziz polished the same old doorknob he had installed decades earlier, smiling faintly, before telling Sara, ‘There is not much to tell.’” True or false: this detail suggests Mr. Aziz feels no pride in his long career.", False,
+   "Smiling while polishing his old work suggests quiet pride, even though he downplays it in words.",
+   "A character’s actions can reveal feelings that their words try to hide.")
+
+
+# ============================================================ grade 6 thin curriculum families topup 3
+# Grows six Grade 6 skill families that had 0-3 items: word-choice-tone, multiple-meaning,
+# plot-setting, word-relationships, evaluate-argument, text-structure. Reading items reuse
+# existing Grade 6 passages (G6-P1 ... G6-P11); the vocabulary-strategy items (multiple-meaning,
+# word-relationships) are self-contained, like the NAFS topup above, since those skills test
+# words and word-pair relationships rather than a specific text.
+
+# ---- word-choice-tone (AUTHORS_CRAFT: word choice shapes tone) ----
+mc("word-choice-tone", "RL.6.4", 4, "How does the phrase “its red taillights shrinking down the hill” affect the tone of the opening of “The Last Bus Home”?",
+   "It creates a quiet, disappointed tone by picturing the bus getting farther and farther out of reach.",
+   [("It creates an exciting tone, as if Yusuf is about to catch up.", "The bus is shrinking away, not getting closer."),
+    ("It creates a comic tone meant to make the moment funny.", "Nothing about missing the last bus is played for laughs."),
+    ("It creates a frightening tone, warning of danger ahead.", "The moment is disappointing, not dangerous.")],
+   "Watching the lights shrink away pictures the bus as already out of reach, matching Yusuf's disappointment.",
+   "Picture the image a word choice creates, then ask what feeling that image gives.", "G6-P1")
+tf("word-choice-tone", "RI.6.6", 4, "True or false: the author's tone toward the claim that students would rather stay home anyway, in “Should Schools Switch to a Four-Day Week?”, is accepting and respectful.", False,
+   "The author calls it something “everyone knows” with no evidence, which is a dismissive, skeptical way to treat a claim, not a respectful one.",
+   "Test a description of tone against the author's actual word choices, not just the topic.", "G6-P2")
+mc("word-choice-tone", "RI.6.4", 4, "How does describing bleached coral as “starving” rather than simply “pale” affect the tone of paragraph 3 in “Coral Reefs Under Pressure”?",
+   "It creates a more urgent, concerned tone by stressing that the coral is in real danger, not just changing color.",
+   [("It creates a playful tone, comparing coral to a picky eater.", "Starving signals real danger, not a joke about appetite."),
+    ("It creates a hopeful tone, suggesting coral will recover quickly.", "Starving emphasizes risk, not quick recovery."),
+    ("It creates a flat, purely clinical tone with no feeling at all.", "A word like starving adds emotional weight that a clinical term would not.")],
+   "“Starving” frames bleaching as a survival crisis, which raises the emotional urgency of the paragraph.",
+   "Compare a word choice to a plainer synonym to see what extra feeling it adds.", "G6-P3")
+mc("word-choice-tone", "RL.6.4", 3, "How does Mr. Aziz's clipped dialogue in Scene 1 of “The Interview,” such as “I fix things. I clean things,” shape the tone of the opening?",
+   "It creates a plain, modest tone that fits a man who does not think his own story is worth telling.",
+   [("It creates a comic tone meant to make the audience laugh at him.", "His short answers are sincere, not played for laughs."),
+    ("It creates an angry tone, showing he resents Sara's questions.", "He is brief and shy, not hostile."),
+    ("It creates a mysterious tone meant to confuse the audience.", "His answers are plain and clear, just very short.")],
+   "Short, simple sentences from a character often reflect a plain, modest attitude rather than drama or mystery.",
+   "A character's sentence length and word choice can reveal their attitude before any action happens.", "G6-P5")
+mc("word-choice-tone", "RI.6.6", 5, "How does listing specific details like “carved wooden doors,” “copper workshops,” and “spice sellers” affect the tone of paragraph 3 in the souq letter?",
+   "It creates an admiring, affectionate tone by naming specific, cherished features that make the souq irreplaceable.",
+   [("It creates a tone of complaint about buildings falling apart.", "The details celebrate the souq's features, not its disrepair."),
+    ("It creates a sarcastic tone that mocks how old the souq is.", "The details are offered with pride, not mockery."),
+    ("It creates a flat, list-like tone with no feeling behind it.", "Naming cherished, specific features adds warmth, not a neutral list.")],
+   "Naming specific, beloved details shows affection and pride rather than a plain inventory.",
+   "Specific, well-chosen details often carry more feeling than a general statement would.", "G6-P8")
+
+# ---- multiple-meaning (VOCABULARY_STRATEGY: words with more than one meaning) ----
+mc("multiple-meaning", "L.6.4.a", 3, "Read: “The coach decided to bench the injured player for the rest of the match.” What does bench mean in this sentence?",
+   "to keep a player out of the game",
+   [("to build a long seat for players", "The sentence is about a decision affecting the player, not building furniture."),
+    ("to sit calmly and watch quietly", "Bench here is an action the coach takes, not a calm feeling."),
+    ("to repair damaged sports equipment", "Nothing in the sentence is being repaired.")],
+   "Benching a player means removing them from play, often because of injury.",
+   "Multiple-meaning words can shift from naming an object (a bench) to naming an action (to bench someone).")
+mc("multiple-meaning", "L.6.4.a", 3, "Read: “After the heavy rain, a fresh spring bubbled up at the base of the hill.” What does spring mean here?",
+   "a natural source of water flowing up from the ground",
+   [("the season between winter and summer", "No season is being described in this sentence."),
+    ("a coiled piece of metal that stretches", "Nothing mechanical is described here."),
+    ("to jump upward suddenly", "The sentence describes water, not a jumping motion.")],
+   "The surrounding words “bubbled up” and “base of the hill” describe water emerging from the ground.",
+   "Look closely at the words right around a multiple-meaning word to find which definition fits.")
+mc("multiple-meaning", "L.6.4.a", 4, "Read: “The boxer's trainer told him to guard his right side.” What does right mean in this sentence?",
+   "a direction, as opposed to left",
+   [("correct or accurate", "The sentence is about a body position, not accuracy."),
+    ("a legal entitlement, such as a right to vote", "No laws or entitlements are mentioned here."),
+    ("immediately, as in “right now”", "The sentence is not describing timing.")],
+   "In a sentence about guarding a side of the body during boxing, right names a direction.",
+   "Think about the overall topic of a sentence to narrow down which meaning of a word fits.")
+mc("multiple-meaning", "L.6.4.a", 4, "Read: “The elephant's trunk was strong enough to lift the fallen branch.” What does trunk mean here?",
+   "an elephant's long, flexible nose",
+   [("the thick main stem of a tree", "The sentence is about an elephant, not a tree."),
+    ("a large box used for storage", "Nothing about storage is described."),
+    ("the rear storage area of a car", "No car appears in this sentence.")],
+   "The sentence describes an elephant lifting something, which points to its long, flexible nose.",
+   "Multiple-meaning words can mean very different things depending on the subject of the sentence.")
+mc("multiple-meaning", "L.6.4.a", 3, "Read: “Because he parked illegally, Omar had to pay a fine.” What does fine mean here?",
+   "a sum of money paid as a penalty",
+   [("in good health or condition, as in “I feel fine”", "The sentence describes a penalty for parking, not a feeling."),
+    ("very thin or delicate, like fine sand", "No texture or thinness is described."),
+    ("to carefully adjust something, as in “fine-tune”", "No adjustment of an object is described.")],
+   "Paying something after parking illegally points directly to a monetary penalty.",
+   "Look for words like “pay” or “penalty” nearby to identify this meaning of fine.")
+dd("multiple-meaning", "L.6.4.a", 4, "Choose the meaning that fits: in “Hassan will table the proposal until the next meeting,” table means ____.",
+   "to postpone discussing something",
+   [("a piece of furniture with a flat top", "Here table is a verb describing an action, not naming furniture."),
+    ("a chart that organizes numbers", "No chart or data is being organized in this sentence."),
+    ("to place food in front of guests", "The sentence is about delaying a proposal, not serving food.")],
+   "As a verb in a meeting context, table means to put something off until later.",
+   "Check whether a multiple-meaning word is being used as a noun or a verb — that often changes its meaning.")
+match("multiple-meaning", "L.6.4.a", 4, "Match each sentence with the meaning of the underlined multiple-meaning word as it is used in that sentence.",
+      [("The committee will table the new policy until next month.", "to postpone discussing something"),
+       ("We set extra chairs around the table for our guests.", "a piece of furniture with a flat top"),
+       ("The pilot had to bank sharply to avoid the storm clouds.", "to tilt or turn to one side"),
+       ("Hassan opened a savings account at the local bank.", "a business that holds and manages money")],
+      "Context in each sentence shows which meaning of “table” and “bank” the author intends.",
+      "Mentally replace the underlined word with its definition to check that the sentence still makes sense.")
+ms("multiple-meaning", "L.6.4.a", 5, "Read these two sentences: “The students will note the date of the field trip on the calendar” and “Tariq left a short note on the fridge for his brother.” Which TWO meanings below correctly match note as used in the FIRST and SECOND sentence, in that order?",
+   ["to write something down so it is remembered", "a brief written message"],
+   [("a single musical sound", "This meaning does not fit either sentence."), ("to become famous or well known", "This meaning does not fit either sentence.")],
+   "In the first sentence note is a verb meaning to record; in the second it is a noun meaning a short written message.",
+   "Check each sentence separately — a multiple-meaning word's part of speech often signals which meaning fits.")
+
+# ---- plot-setting (AUTHORS_CRAFT: how setting is established and used) ----
+mc("plot-setting", "RL.6.3", 2, "Where does most of the action in “The Last Bus Home” take place?",
+   "along Yusuf's walk home, ending at Mrs. Qadri's bakery",
+   [("entirely inside Yusuf's house", "Most of the story follows Yusuf's walk, not a scene at home."),
+    ("at the robotics club meeting", "The club is only mentioned; the meeting itself is never shown."),
+    ("on the bus itself", "Yusuf misses the bus and never actually rides it in the story.")],
+   "The story follows Yusuf's forty-minute walk, passing specific places like the bakery, after missing the bus.",
+   "Track every place a character physically moves through to map out a story's setting.", "G6-P1")
+mc("plot-setting", "RL.6.3", 4, "How does the detail that the bakery's “lights were still on” late at night affect the mood of that scene in “The Last Bus Home”?",
+   "It creates a warm, welcoming feeling right after Yusuf's worried walk through the dark.",
+   [("It creates a frightening feeling of being watched.", "The bakery is friendly and familiar, not threatening."),
+    ("It suggests the bakery has been abandoned for the night.", "Lights being on shows the bakery is open and active."),
+    ("It shows that Yusuf is in physical danger.", "Nothing in this detail suggests danger.")],
+   "A lit, open bakery appearing after a dark, worried walk feels safe and welcoming, setting up the warm ending.",
+   "A setting detail, like light appearing in the dark, can build mood before the plot explains why it matters.", "G6-P1")
+mc("plot-setting", "RL.6.3", 2, "What is the setting of “The Interview”?",
+   "a quiet storage room at the school during the last week of the school year",
+   [("a busy newspaper office downtown", "The narrator specifies a school storage room, not an office."),
+    ("Sara's home kitchen", "No scene takes place at Sara's home."),
+    ("an empty school gym", "The flooded gym is only mentioned in Mr. Aziz's story, not shown as the setting.")],
+   "The narrator states both the time and the place at the very start of the play.",
+   "In drama, the opening narration or stage directions usually establish the setting.", "G6-P5")
+mc("plot-setting", "RL.6.3", 3, "How are the settings of “The New Field” and “Transplant” similar?",
+   "Both describe something being moved from a familiar place to a new, unfamiliar one.",
+   [("Both take place entirely at the seaside.", "Yasmin moves away from the coast, and the tree leaves its courtyard."),
+    ("Both take place within a single afternoon.", "Both unfold over several weeks, not one afternoon."),
+    ("Both are set inside a classroom.", "Neither text is set in a classroom.")],
+   "Yasmin moves from the coast to the mountains, and the lemon tree is lifted from its courtyard — both settings begin with displacement.",
+   "Paired texts in different genres can still share a similar kind of setting or situation.", "G6-P6")
+tf("plot-setting", "RL.6.3", 2, "True or false: the poem “Desert Night” is set during the daytime.", False,
+   "Details like the sun slipping under the dunes and the sky described as black and scattered with stars show a nighttime setting.",
+   "Time-of-day clues, such as a setting sun or visible stars, reveal when a scene is taking place.", "G6-P7")
+mc("plot-setting", "RL.6.3", 3, "Over what span of time is the setting of “The Old Olive Tree” described?",
+   "many decades, spanning the grandfather's and the speaker's lifetimes",
+   [("a single afternoon", "The poem describes seasons of drought and wars passing, far more than one afternoon."),
+    ("one autumn season only", "Autumn is mentioned, but the setting's timespan reaches back much further."),
+    ("the speaker's one birthday", "No birthday or single-day event is mentioned in the poem.")],
+   "References to “seasons of drought,” “wars that passed,” and “decades of patient toil” show a setting that spans a long time.",
+   "A poem's setting can stretch across years or generations, not just a single scene.", "G6-P11")
+mc("plot-setting", "RL.6.3", 4, "Where does the speaker stand while reflecting in the final stanza of “Ladder”?",
+   "climbing the ladder, reaching for apples in the present",
+   [("sitting beside the storm-felled tree", "The fallen tree became the ladder; the speaker now climbs it, in the present."),
+    ("inside the grandfather's house", "No indoor scene is described anywhere in the poem."),
+    ("watching a storm through a window", "The storm already happened years before the poem's present moment.")],
+   "“I climb it now to reach the apples” places the speaker in a present-day setting built from a past memory.",
+   "Look for present-tense verbs to find the “current” setting of a poem that also describes past memories.", "G6-P4")
+
+# ---- word-relationships (VOCABULARY_STRATEGY: part/whole, cause/effect, item/category, etc.) ----
+mc("word-relationships", "L.6.5.b", 3, "Which pair shows a WHOLE-to-PART relationship — the reverse order of part-to-whole?",
+   "tree : branch",
+   [("hour : minute", "This is a relationship between units of time, not a whole object and its part."),
+    ("fish : school", "This is item-to-category: a fish is one member of the group called a school."),
+    ("cold : hot", "This is a pair of antonyms, not a whole and its part.")],
+   "A tree is the whole object, and a branch is one part of it — the whole is named first here.",
+   "Decide which word names the whole object and which names a smaller piece of it, then check the order.")
+mc("word-relationships", "L.6.5.b", 4, "Which pair shows a CAUSE-and-EFFECT relationship?",
+   "practice : improvement",
+   [("teacher : student", "This describes two roles in a classroom, not a cause and its effect."),
+    ("hungry : food", "Being hungry does not cause food to exist; it is simply a feeling about needing food."),
+    ("book : chapter", "This is a part-to-whole relationship, not cause and effect.")],
+   "Practicing a skill is what causes improvement to happen over time.",
+   "Test a pair by making the sentence “X causes Y” — if it makes sense, the pair shows cause and effect.")
+dd("word-relationships", "L.6.5.b", 4, "Choose the word that completes the ITEM-to-CATEGORY analogy: trumpet : instrument :: oak : ____",
+   "tree",
+   [("leaf", "A leaf would be a PART of an oak, which is a different relationship than item-to-category."),
+    ("forest", "A forest is a group of many trees, not the general category that oak belongs to."),
+    ("wood", "Wood names a material, not the broader category an oak belongs to.")],
+   "An oak is one specific example within the broader category “tree,” just as a trumpet is one example within “instrument.”",
+   "Ask: is the first word ONE SPECIFIC EXAMPLE of the second, more general word?")
+match("word-relationships", "L.6.5.b", 5, "Match each word pair with the relationship it shows.",
+      [("slice : pizza", "part to whole"), ("key : lock", "tool to the object it operates"),
+       ("wolf : pack", "member to group"), ("melt : puddle", "cause to effect")],
+      "Each pair follows a different logical relationship between the two words.",
+      "Say the relationship aloud as a full sentence, such as “A slice is PART OF a pizza,” to test it.")
+tf("word-relationships", "L.6.5.b", 3, "True or false: in the pair “spark : wildfire,” spark is the EFFECT and wildfire is the CAUSE.", False,
+   "A spark is what starts, or causes, a wildfire; the wildfire itself is the effect, not the cause.",
+   "Identify which event happens first in time — that event is usually the cause.")
+ms("word-relationships", "L.6.5.b", 5, "Which TWO pairs below show a PART-to-WHOLE relationship? Choose two.",
+   ["chapter : novel", "ingredient : recipe"],
+   [("author : reader", "These name two different roles, not a part contained within a whole."), ("hot : cold", "This is a pair of antonyms, not part-to-whole.")],
+   "A chapter is one part of a whole novel, and an ingredient is one part of a whole recipe.",
+   "Check whether the first word names a small piece contained within the second, larger thing.")
+fill("word-relationships", "L.6.5.b", 3, "Complete the analogy by writing one word: finger : hand :: toe : ____",
+     ["foot"],
+     "A finger is part of a hand, just as a toe is part of a foot — the same part-to-whole relationship on both sides.",
+     "Keep the exact same relationship between the words on both sides of an analogy.")
+
+# ---- evaluate-argument (AUTHORS_CRAFT: evaluate claims, evidence and reasoning) ----
+mc("evaluate-argument", "RI.6.8", 5, "Is the reasoning behind “schools should be cautious” adequately supported by the evidence that follows it in “Should Schools Switch to a Four-Day Week?”?",
+   "Yes, because the article follows with a specific study on math scores, cost data, and a concern about childcare.",
+   [("No, because the author never gives any evidence to support caution.", "The article provides a study, cost data, and a specific family concern."),
+    ("No, because the article only offers one opinion with no facts.", "Multiple kinds of evidence are given, not a single unsupported opinion."),
+    ("Yes, but only because the author repeats the claim three times.", "Repetition alone does not support a claim; specific evidence does.")],
+   "The article backs its cautious claim with a study on scores, cost data, and a concrete family concern, which together make the reasoning well supported.",
+   "To evaluate an argument, check whether specific evidence — not just a repeated claim — actually backs it up.", "G6-P2")
+tf("evaluate-argument", "RI.6.8", 4, "True or false: the four-day week article provides sufficient evidence to evaluate its claim about cost savings, because it cites a specific percentage from named reports.", True,
+   "The article states that savings are “often less than two percent of the budget,” citing reports as its source, which counts as specific, checkable evidence.",
+   "A specific number tied to a named source usually counts as sufficient evidence, unlike a vague, unsupported claim.", "G6-P2")
+mc("evaluate-argument", "RI.6.8", 6, "A classmate claims the four-day week article is NOT persuasive because it never considers the supporters' point of view. Is this a fair evaluation of the argument?",
+   "No, because the article states each of the supporters' claims before responding to it with evidence.",
+   [("Yes, because the article completely ignores why anyone would want a four-day week.", "The article opens each point by stating the supporters' claim first."),
+    ("Yes, because the article only discusses cost, never learning.", "Learning is actually the first and most developed point in the article."),
+    ("No, but only because the article ultimately agrees with the supporters.", "The article disagrees with the supporters in its conclusion.")],
+   "The article consistently states a supporting claim first, then responds to it with evidence — a structure that does consider the other side fairly.",
+   "To evaluate a claim about an argument's fairness, check whether it actually addresses opposing views point by point.", "G6-P2")
+mc("evaluate-argument", "RI.6.8", 5, "Which type of support does Huda rely on MOST to persuade the council in her souq letter, based on the letter as a whole?",
+   "personal and emotional appeals, such as her family's connection to the souq",
+   [("statistical data about tourist numbers", "No statistics or survey numbers are given anywhere in the letter."),
+    ("expert testimony from historians", "No outside experts are quoted or cited in the letter."),
+    ("a formal economic comparison of both options", "No cost or economic analysis appears in the letter.")],
+   "Huda's strongest support comes from personal history and emotional appeal, since the letter contains no statistics, experts, or formal analysis.",
+   "Evaluate what KIND of evidence — personal, statistical, or expert — an argument actually relies on.", "G6-P8")
+mc("evaluate-argument", "RI.6.8", 6, "Is Huda's suggestion to “repair its roof, improve its lighting and add signs in several languages” a strong part of her argument?",
+   "Yes, because it offers the council a realistic alternative instead of only criticizing their plan.",
+   [("No, because she never explains what the council should do instead.", "She lists three specific actions the council could take."),
+    ("No, because repairs would clearly cost more than a new shopping center.", "Costs are never compared anywhere in the letter."),
+    ("Yes, but only because it is the longest paragraph in the letter.", "Its practicality, not its length, is what makes the suggestion effective.")],
+   "A persuasive argument is stronger when it offers a workable alternative rather than only a complaint, which is exactly what this paragraph does.",
+   "Strong arguments often propose a specific solution, not just an objection to the opposing plan.", "G6-P8")
+ms("evaluate-argument", "RI.6.8", 5, "Which TWO qualities make Huda's souq-letter argument more convincing to a fair-minded reader? Choose two.",
+   ["She directly answers the council's own reasoning about attracting visitors.", "She proposes a specific, practical alternative instead of only objecting."],
+   [("She insults the council members personally.", "She never insults anyone anywhere in the letter."), ("She repeats the same sentence many times for emphasis.", "She does not rely on repeating a sentence for emphasis.")],
+   "Directly addressing the opposing reasoning and offering a workable solution are two hallmarks of a convincing, fair argument.",
+   "Evaluate an argument's persuasiveness by looking for direct responses to the other side and practical solutions, not strong feelings alone.", "G6-P8")
+mc("evaluate-argument", "RI.6.8", 6, "Does the author of “Should Homework Be Optional?” adequately address the concern that optional homework could let struggling students fall behind?",
+   "Yes, because the author offers a specific counter-reason: teachers could give struggling students more targeted attention.",
+   [("No, because the author never mentions this concern at all.", "Paragraph 4 directly raises and responds to exactly this concern."),
+    ("No, because the author admits optional homework would hurt struggling students.", "The author argues the opposite — that support could actually improve."),
+    ("Yes, but only by repeating the original claim more forcefully.", "The author gives a genuinely new reason, not just a louder repetition.")],
+   "The author directly answers the concern with a new, specific reason — more precise, individualized teacher attention — rather than ignoring it or simply repeating the claim.",
+   "A strong rebuttal offers a NEW reason to support its position, not just a restatement of the original claim.", "G6-P10")
+
+# ---- text-structure (AUTHORS_CRAFT: how a text is organized) ----
+mc("text-structure", "RI.6.5", 4, "Which organizational structure does the author use across paragraphs 2 and 3 of “Coral Reefs Under Pressure”?",
+   "cause and effect — paragraph 2 explains the coral-algae partnership, and paragraph 3 explains what happens when warm water breaks it down",
+   [("compare and contrast — the two paragraphs compare two different reef locations", "No two separate reef locations are compared anywhere in the text."),
+    ("chronological order — the paragraphs describe events on a historical timeline", "No dates or historical timeline structure appear in these paragraphs."),
+    ("problem and solution — paragraph 3 proposes a fix for a problem raised in paragraph 2", "Paragraph 3 describes a problem; the proposed fix does not appear until paragraph 4.")],
+   "Paragraph 2 sets up the normal partnership, and paragraph 3 shows the effect of a cause — warm water — breaking that partnership down.",
+   "Look for signal words like “when” or “because” that connect a cause to its effect.", "G6-P3")
+mc("text-structure", "RI.6.5", 5, "What is the OVERALL organizational structure of “Coral Reefs Under Pressure”?",
+   "a problem-and-solution structure — it explains why reefs matter, the threat they face, and how scientists are responding",
+   [("a simple list of unrelated reef facts", "The paragraphs build logically from importance, to threat, to response, rather than listing unrelated facts."),
+    ("a step-by-step set of instructions for building a reef", "The text explains and informs rather than giving instructions to follow."),
+    ("a comparison between two very different kinds of coral reefs", "Only one general kind of reef is discussed throughout the text.")],
+   "The text moves from the value of reefs, to the threat of bleaching, to the scientific response — a clear problem-and-solution pattern.",
+   "Ask whether a whole informational text introduces a problem and then describes a response to find its overall structure.", "G6-P3")
+order("text-structure", "RI.6.5", 5, "Put these paragraph functions from “Coral Reefs Under Pressure” in the order they appear in the text.",
+      ["Describe why reefs matter to ocean life", "Explain how the coral-algae partnership normally works",
+       "Explain how warm water breaks down that partnership (bleaching)", "Describe how scientists are responding to help reefs"],
+      "The text builds logically: importance, how it normally works, what goes wrong, and how people are responding.",
+      "Identify what JOB each paragraph does, then put those jobs in the order they appear.", "G6-P3")
+tf("text-structure", "RI.6.5", 3, "True or false: the final paragraph of “Coral Reefs Under Pressure” is organized as a physical description of what coral looks like.", False,
+   "The final paragraph describes scientists' efforts and responses to bleaching, not a description of coral's appearance.",
+   "Check what a paragraph is actually DOING — describing, explaining, or arguing — rather than assuming from its topic.", "G6-P3")
+mc("text-structure", "RI.6.5", 5, "How does the author organize the body paragraphs of “Should Schools Switch to a Four-Day Week?”?",
+   "Each body paragraph states one of the supporters' claims, then responds to it with evidence or reasoning.",
+   [("Each paragraph describes a different school's daily schedule.", "No specific school schedules are described anywhere in the article."),
+    ("The paragraphs are organized in simple time order, from Monday to Friday.", "There is no day-by-day account of a school week."),
+    ("Each paragraph compares two different countries' school systems.", "No countries are compared in this article.")],
+   "Each body paragraph follows a claim-and-response pattern: it states what supporters believe, then evaluates that claim with evidence.",
+   "In argumentative texts, look for a repeating pattern across paragraphs, such as claim followed by a response.", "G6-P2")
+match("text-structure", "RI.6.5", 6, "Match each paragraph's main structural job in “Should Schools Switch to a Four-Day Week?” with its paragraph number.",
+      [("Paragraph 1", "introduces the issue and states the author's cautious claim"),
+       ("Paragraph 2", "responds to the rest-and-achievement claim with learning evidence"),
+       ("Paragraph 3", "responds to the money-saving claim with cost data"),
+       ("Paragraph 5", "restates the claim to close the argument")],
+      "Each numbered paragraph plays a specific structural role in building the overall argument.",
+      "Identify the JOB each paragraph does within the text's overall structure.", passage="G6-P2")
+mc("text-structure", "RI.6.5", 4, "What organizational structure does Huda use across her souq letter as a whole?",
+   "problem-and-solution — she explains why the council's plan is a problem, then proposes a specific solution",
+   [("a strict chronological retelling of her grandfather's entire life", "Her grandfather's story is one supporting detail, not the structure of the whole letter."),
+    ("a side-by-side comparison of two different cities' souqs", "No second city's souq is described anywhere in the letter."),
+    ("a plain physical description of the souq's architecture only", "Architecture is only one supporting detail among several, not the letter's overall structure.")],
+   "Huda explains the problem, argues the souq's importance, answers a counterargument, and proposes a specific solution — a problem-and-solution structure.",
+   "In a persuasive letter, look for a shift from describing a problem to proposing a specific action.", "G6-P8")
+tf("text-structure", "RI.6.5", 4, "True or false: Huda's souq letter uses a cause-and-effect structure, where each paragraph explains a different physical cause of damage to the building.", False,
+   "The letter is organized as problem-and-solution, built around persuasion, rather than a chain of physical causes and effects on the building itself.",
+   "Do not assume a structure type just from a text's topic — check how the paragraphs actually connect to one another.", "G6-P8")

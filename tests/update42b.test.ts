@@ -98,7 +98,9 @@ describe("Update 42B · same results, less waiting", () => {
       view = r.view;
     }
     assert.ok(maxTx <= 5, `writes only inside the transaction (session move, attempt, ability, mastery, XP): ${maxTx}`);
-    assert.ok(maxAll <= 16, `one answer with warm caches: ${maxAll} calls`);
+    // r89: budget bumped 16 → 17 for the one extra read currentQuestion() always does — the student's own StudentLevel
+    // row (src/server/practice/session.ts, "chunked passage" feature) — a real, already-shipped +1 query, not a leak
+    assert.ok(maxAll <= 17, `one answer with warm caches: ${maxAll} calls`);
     await afterResponseSettled();
     const logs = await raw.findMany("AdaptiveDecisionLog", { sessionId: view.sessionId });
     assert.equal(logs.filter((l) => l.attemptId).length, 4, "every answer's decision log was written after its response");

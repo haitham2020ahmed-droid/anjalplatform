@@ -12,10 +12,12 @@
         },
         "answered": 0,
         "correct": 0,
+        "guessCount": 0,
         "mastery": 0,
         "band": "BEGINNING",
         "ended": false,
-        "endReason": null
+        "endReason": null,
+        "studentLevel": null
       }
     },
     {
@@ -51,10 +53,12 @@
         },
         "answered": 1,
         "correct": 1,
+        "guessCount": 0,
         "mastery": 13,
         "band": "BEGINNING",
         "ended": false,
-        "endReason": null
+        "endReason": null,
+        "studentLevel": null
       }
     },
     {
@@ -90,10 +94,12 @@
         },
         "answered": 2,
         "correct": 2,
+        "guessCount": 0,
         "mastery": 24,
         "band": "BEGINNING",
         "ended": false,
-        "endReason": null
+        "endReason": null,
+        "studentLevel": null
       }
     },
     {
@@ -137,10 +143,12 @@
         },
         "answered": 3,
         "correct": 2,
+        "guessCount": 0,
         "mastery": 23,
         "band": "BEGINNING",
         "ended": false,
-        "endReason": null
+        "endReason": null,
+        "studentLevel": null
       }
     },
     {
@@ -176,10 +184,12 @@
         },
         "answered": 4,
         "correct": 3,
+        "guessCount": 0,
         "mastery": 30,
         "band": "BEGINNING",
         "ended": false,
-        "endReason": null
+        "endReason": null,
+        "studentLevel": null
       }
     },
     {
@@ -223,10 +233,12 @@
         },
         "answered": 5,
         "correct": 3,
+        "guessCount": 0,
         "mastery": 29,
         "band": "BEGINNING",
         "ended": false,
-        "endReason": null
+        "endReason": null,
+        "studentLevel": null
       }
     },
     {
@@ -265,10 +277,12 @@
         "question": null,
         "answered": 6,
         "correct": 3,
+        "guessCount": 0,
         "mastery": 29,
         "band": "BEGINNING",
         "ended": true,
-        "endReason": "SKILL_FINISHED"
+        "endReason": "SKILL_FINISHED",
+        "studentLevel": null
       }
     },
     {
@@ -283,10 +297,12 @@
         },
         "answered": 0,
         "correct": 0,
+        "guessCount": 0,
         "mastery": 0,
         "band": "BEGINNING",
         "ended": false,
-        "endReason": null
+        "endReason": null,
+        "studentLevel": null
       }
     },
     {
@@ -322,10 +338,12 @@
         },
         "answered": 1,
         "correct": 1,
+        "guessCount": 0,
         "mastery": 13,
         "band": "BEGINNING",
         "ended": false,
-        "endReason": null
+        "endReason": null,
+        "studentLevel": null
       }
     },
     {
@@ -361,10 +379,12 @@
         },
         "answered": 2,
         "correct": 2,
+        "guessCount": 0,
         "mastery": 24,
         "band": "BEGINNING",
         "ended": false,
-        "endReason": null
+        "endReason": null,
+        "studentLevel": null
       }
     },
     {
@@ -408,10 +428,12 @@
         },
         "answered": 3,
         "correct": 2,
+        "guessCount": 0,
         "mastery": 23,
         "band": "BEGINNING",
         "ended": false,
-        "endReason": null
+        "endReason": null,
+        "studentLevel": null
       }
     },
     {
@@ -447,10 +469,12 @@
         },
         "answered": 4,
         "correct": 3,
+        "guessCount": 0,
         "mastery": 30,
         "band": "BEGINNING",
         "ended": false,
-        "endReason": null
+        "endReason": null,
+        "studentLevel": null
       }
     },
     {
@@ -494,10 +518,12 @@
         },
         "answered": 5,
         "correct": 3,
+        "guessCount": 0,
         "mastery": 29,
         "band": "BEGINNING",
         "ended": false,
-        "endReason": null
+        "endReason": null,
+        "studentLevel": null
       }
     },
     {
@@ -536,10 +562,12 @@
         "question": null,
         "answered": 6,
         "correct": 3,
+        "guessCount": 0,
         "mastery": 29,
         "band": "BEGINNING",
         "ended": true,
-        "endReason": "SKILL_FINISHED"
+        "endReason": "SKILL_FINISHED",
+        "studentLevel": null
       }
     },
     {
@@ -565,7 +593,7 @@
         "tutor": null
       },
       "view": {
-        "title": "Scenario set (5 questions)",
+        "title": "Scenario set",
         "question": {
           "questionId": "G4-apostrophes-contractions-002",
           "type": "FILL_BLANK",
@@ -614,7 +642,7 @@
         }
       },
       "view": {
-        "title": "Scenario set (5 questions)",
+        "title": "Scenario set",
         "question": {
           "questionId": "G4-apostrophes-contractions-003",
           "type": "DROPDOWN",
@@ -663,7 +691,7 @@
         }
       },
       "view": {
-        "title": "Scenario set (5 questions)",
+        "title": "Scenario set",
         "question": {
           "questionId": "G4-apostrophes-contractions-004",
           "type": "MULTIPLE_CHOICE",
@@ -704,7 +732,7 @@
         "tutor": null
       },
       "view": {
-        "title": "Scenario set (5 questions)",
+        "title": "Scenario set",
         "question": {
           "questionId": "G4-apostrophes-contractions-005",
           "type": "MATCHING",
@@ -745,7 +773,7 @@
         "tutor": null
       },
       "view": {
-        "title": "Scenario set (5 questions)",
+        "title": "Scenario set",
         "question": null,
         "index": 5,
         "total": 5,

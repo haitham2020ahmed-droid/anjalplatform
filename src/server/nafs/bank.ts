@@ -492,6 +492,31 @@ export async function healHoldingSkillStatus(repo: Repo, schoolId: string, rows:
   return rows.filter((r) => !(r.skillId && holding.has(s(r.skillId))));
 }
 
+/**
+ * Per-answer freshness (Oct 2026): a NAFS practice answer never used to trigger a skill-status refresh at all — the
+ * only trigger was syncNafsPracticeStars (my-skills.ts), which runs lazily when the student opens My Skills (a
+ * 12-skill batch over the last 30 days). Reports (teacher/admin/family) read the stored SkillStatus directly, so a
+ * student who practises NAFS but never opens My Skills showed stale status there despite real practice having
+ * happened. This closes that gap for ONE skill at a time — the skill of the question just answered, nothing more —
+ * WITHOUT reviving the leak syncNafsPracticeStars itself used to have (see healHoldingSkillStatus above): a
+ * question's skillId that is one of this school's NAFS holding ids is never passed to refreshSkillStatus at all, so
+ * this can never create the stray row that function heals. The caller (nafs/practice.ts answerNafsPractice) runs
+ * this fire-and-forget, after the response, mirroring practice/session.ts's queueAfterAnswer — this function itself
+ * does no scheduling and is a plain, bounded, best-effort read-then-write of exactly one skill.
+ */
+export async function syncSkillAfterNafsAnswer(repo: Repo, studentId: string, questionId: string, now = new Date()): Promise<void> {
+  try {
+    const q = await repo.findUnique("Question", { id: questionId });
+    const skillId = q ? s(q.skillId) : "";
+    if (!skillId) return;
+    const { studentSchool, refreshSkillStatus } = await import("../skills/status");
+    const schoolId = await studentSchool(repo, studentId);
+    if (!schoolId) return;
+    if ((await existingHoldingSkillIds(repo, schoolId)).has(skillId)) return; // never a real status row on a holding skill
+    await refreshSkillStatus(repo, studentId, skillId, now, { schoolId });
+  } catch { /* best-effort: the next answer, or the next My Skills visit, catches it up */ }
+}
+
 /** Writes a question's content (new: on the holding skill; existing: in place). WRITTEN questions have no options. */
 export async function writeQuestion(repo: Repo, actor: Actor, schoolId: string, c: CleanQuestion, opts: { id?: string; status: "PUBLISHED" | "DRAFT"; origin: "TEACHER_AUTHORED" | "AI_GENERATED" | "IMPORTED"; skillId?: string; externalRef?: string; passageId?: string | null }, now: Date): Promise<string> {
   let passageId: string | null = opts.passageId ?? null;

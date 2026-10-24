@@ -7,6 +7,15 @@ export async function register(): Promise<void> {
   if (process.env.NEXT_RUNTIME === "nodejs") {
     const { loadEnv } = await import("./lib/env");
     loadEnv();
+    // 🛟 r89 (server-stability audit, Oct 2026): a last-resort net. Node terminates the WHOLE process by default on
+    // an uncaught exception or an unhandled promise rejection — one bad error anywhere outside a request's own
+    // try/catch (a timer callback, a stray fire-and-forget call) would otherwise take the whole school offline, not
+    // just fail one request. The rest of this codebase already guards the known-risky spots (timers, fire-and-forget
+    // calls, the job runner) individually; this is the net for whatever a future change misses. It only logs and
+    // keeps the process running — it never calls process.exit() — matching this codebase's "never throws, keeps
+    // serving" philosophy everywhere else (the job runner, the error boundaries, the daily job's per-step try/catch).
+    const { installCrashGuards } = await import("./server/monitoring/crash-guards");
+    installCrashGuards();
     // one log line a minute while the server uses more than 400 MB (what grew before a crash)
     const { startMemoryLog } = await import("./server/monitoring/memory");
     startMemoryLog();

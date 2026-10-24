@@ -18,7 +18,7 @@ export default async function ExitTicketPage({ params, searchParams }: { params:
     <AppShell name={String(me.displayName)}><PreviewFrame preview={preview}>
       <PageHeader back={{ href: "/student", label: "My work" }} icon="🎫" title={t?.id === ticketId ? t.title : "Exit ticket"} subtitle="Three quick questions about today’s lesson. Your teacher sees the results right away." />
       {t?.id !== ticketId ? <p className="rounded-2xl bg-white p-6 text-slate-700 ring-1 ring-slate-200">This exit ticket is closed or already answered. ✅</p>
-        : <QuestionSet id={t.id} questions={t.questions} submit={submitExitTicketAction} doneHref="/student" preview={Boolean(preview)} />}
+        : <QuestionSet id={t.id} questions={t.questions} submit={submitExitTicketAction} doneHref="/student" preview={Boolean(preview)} level={t.level} />}
     </PreviewFrame></AppShell>
   );
 }

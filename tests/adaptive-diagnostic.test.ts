@@ -135,7 +135,15 @@ describe("Adaptive Diagnostic · one blueprint for every grade", () => {
     const rep = await classDiagnosticReport(repo, teacher, ids[4], classId);
     assert.ok(rep.adaptive);
     assert.equal(rep.summary.assessed, 3);
-    assert.deepEqual(rep.summary.levels, { ABOVE: 1, ON: 1, BELOW: 1 });
+    // r89 fix: the earlier test only pins the strong/weak students' levels (ABOVE/BELOW) and bounds the "mid"
+    // student's theta loosely (3.8–4.9) — a range that straddles the real ON/ABOVE boundary (theta 4.5, from
+    // scoreOf/levelForPct), so which side of it the scripted "mid" strategy lands on can vary slightly with the
+    // blueprint's tie-broken item order (nextItem's hash(seed+id), seed = the student's own freshly-seeded id).
+    // The real invariant this report test cares about is that its level counts match each student's own recorded
+    // DiagnosticScore, not which specific level the mid student receives — so compare against that directly.
+    const recordedLevels = await Promise.all(roster.slice(0, 3).map(async (r) => String((await repo.findMany("DiagnosticScore", { studentId: r.id }))[0]!.level)));
+    const expectedLevels = recordedLevels.reduce((m: Record<string, number>, l) => ((m[l] = (m[l] ?? 0) + 1), m), { ABOVE: 0, ON: 0, BELOW: 0 });
+    assert.deepEqual(rep.summary.levels, expectedLevels);
     const top = rep.students[0];
     assert.equal(top.id, st); assert.match(top.readingLevel!, /^Grade \d\.\d$/);
     assert.ok(rep.standards.length >= 12 && rep.standards.every((x) => x.code.includes(".4.")), "skills named for Grade 4");

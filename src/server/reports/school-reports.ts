@@ -210,7 +210,7 @@ export interface FinalReport {
   studentId: string; name: string; studentNumber: string; grade: number; className: string | null;
   kpis: {
     questions: number; accuracyPct: number | null; minutes: number; skillsMastered: number; skillsDeveloping: number;
-    skillsNeedingSupport: number; curriculumProgressPct: number; pairedGrowth: number | null;
+    skillsNeedingSupport: number; curriculumProgressPct: number | null; pairedGrowth: number | null;
   };
   bySource: BySourceReport;
   domains: { label: string; level: string }[];

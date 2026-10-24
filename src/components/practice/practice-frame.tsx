@@ -13,7 +13,8 @@ import { AnswerInput, type AnswerValue } from "./answer-input";
 import { FeedbackPanel } from "./feedback-panel";
 import { CelebrateFx } from "../feedback-fx/answer-fx";
 import { ListenButton } from "@/components/listen-button";
-import { PassageText, plainPassage } from "@/components/passage-text";
+import { plainPassage } from "@/components/passage-text";
+import { ChunkedPassage } from "@/components/passage/chunked-passage";
 import { RichInline } from "@/components/rich-inline";
 
 const END_TEXT: Record<string, string> = {
@@ -97,7 +98,9 @@ export function PracticeFrame(props: {
           {q.passage && (
             <article className="max-h-[70vh] overflow-y-auto rounded-2xl bg-white p-6 ring-1 ring-slate-200 lg:sticky lg:top-4" aria-label="Reading passage">
               <div className="flex flex-wrap items-center justify-between gap-2"><h2 className="text-xl font-bold text-brand-navy"><RichInline text={q.passage.title} /></h2><ListenButton text={`${q.passage.title}. ${plainPassage(q.passage.text)}`} label="Listen to the text" /></div>
-              <PassageText text={q.passage.text} />
+              {/* keyed by the passage's own text: a new passage (next question) always starts back at chunk 1,
+                  instead of inheriting how far the student had scrolled through the PREVIOUS passage */}
+              <ChunkedPassage key={q.passage.text} text={q.passage.text} level={view.studentLevel} />
             </article>
           )}
           <div>

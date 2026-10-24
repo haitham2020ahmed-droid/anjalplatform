@@ -24,16 +24,16 @@ const time = (v: unknown) => new Date(v instanceof Date ? v.toISOString() : s(v)
 const DAY = 86_400_000;
 const parseIds = (v: unknown): string[] => (Array.isArray(v) ? (v as string[]) : typeof v === "string" ? (JSON.parse(v) as string[]) : []);
 
-/** Monday 00:00 Riyadh time (UTC+3) of the week of this date.
- * r85 audit: this used to compute the boundary from raw UTC date components with no Riyadh offset (like
- * readrise/engine.ts's weekStart and student/weekly.ts's weekStart both apply) — for ~21:00–23:59 UTC every day
- * (00:00–02:59 Riyadh) a weekly goal / exit-ticket read or write could land on the WRONG week's row. */
+/** Sunday 00:00 Riyadh time (UTC+3) of the week of this date — same Sunday-start convention as
+ * readrise/engine.ts's weekStart and student/weekly.ts's weekStart (the Saudi school week, Sun–Thu).
+ * r86 audit: this used to compute the boundary with Monday-start (ISO week) math, the only place in the
+ * codebase that did — every WeeklyGoal row it keyed landed on a different week bucket than the Sunday-start
+ * convention used everywhere else. Now matches that convention exactly, with the same Riyadh offset handling. */
 const CLASSROOM_RIYADH = 3 * 3_600_000;
 export function weekStart(d: Date): Date {
   const local = new Date(d.getTime() + CLASSROOM_RIYADH);
-  const t = new Date(Date.UTC(local.getUTCFullYear(), local.getUTCMonth(), local.getUTCDate()));
-  t.setUTCDate(t.getUTCDate() - ((t.getUTCDay() + 6) % 7));
-  return new Date(t.getTime() - CLASSROOM_RIYADH);
+  const midnight = Date.UTC(local.getUTCFullYear(), local.getUTCMonth(), local.getUTCDate());
+  return new Date(midnight - local.getUTCDay() * 86_400_000 - CLASSROOM_RIYADH);
 }
 
 async function myClassIds(repo: Repo, studentId: string): Promise<string[]> {
@@ -79,7 +79,7 @@ export async function closeExitTicket(repo: Repo, actor: Actor, ticketId: string
 const ticketItems = (items: PracticeItem[]): PracticeItem[] => dedupeByContent(items, (i) => i.questionId, itemContentKeys);
 
 /** The open exit ticket of the student's class that the student has not answered yet. */
-export async function myExitTicket(repo: Repo, actor: Actor): Promise<{ id: string; title: string; questions: ClientQuestion[] } | null> {
+export async function myExitTicket(repo: Repo, actor: Actor): Promise<{ id: string; title: string; questions: ClientQuestion[]; level: string | null } | null> {
   const sid = student(actor);
   const classes = await myClassIds(repo, sid);
   if (!classes.length) return null;
@@ -87,7 +87,10 @@ export async function myExitTicket(repo: Repo, actor: Actor): Promise<{ id: stri
   for (const t of open) {
     if ((await repo.count("ExitTicketAnswer", { ticketId: t.id, studentId: sid })) > 0) continue;
     const items = ticketItems(await loadQuestionItems(repo, parseIds(t.questionIds)));
-    return { id: s(t.id), title: s(t.title), questions: items.map((i) => toClientQuestion(i, `${t.id}:${i.questionId}`)) };
+    // the student's own working level, read only to offer a long passage in smaller chunks (never shown by name —
+    // see lib/hide-levels — ChunkedPassage only turns chunking on for "BELOW")
+    const lvl = await repo.findUnique("StudentLevel", { studentId: sid });
+    return { id: s(t.id), title: s(t.title), questions: items.map((i) => toClientQuestion(i, `${t.id}:${i.questionId}`)), level: lvl ? s(lvl.level) : null };
   }
   return null;
 }
@@ -96,12 +99,13 @@ export async function myExitTicket(repo: Repo, actor: Actor): Promise<{ id: stri
  * 👀 Preview as student: one exit ticket exactly as the student gets it (the same questions, the same choice order),
  * for a student of the ticket's class. Reads only — nothing is answered or recorded.
  */
-export async function exitTicketForStudentPreview(repo: Repo, studentActor: Actor, ticketId: string): Promise<{ id: string; title: string; questions: ClientQuestion[] } | null> {
+export async function exitTicketForStudentPreview(repo: Repo, studentActor: Actor, ticketId: string): Promise<{ id: string; title: string; questions: ClientQuestion[]; level: string | null } | null> {
   const sid = student(studentActor);
   const t = await repo.findUnique("ExitTicket", { id: ticketId });
   if (!t || !(await myClassIds(repo, sid)).includes(s(t.classId))) return null;
   const items = ticketItems(await loadQuestionItems(repo, parseIds(t.questionIds)));
-  return { id: s(t.id), title: s(t.title), questions: items.map((i) => toClientQuestion(i, `${t.id}:${i.questionId}`)) };
+  const lvl = await repo.findUnique("StudentLevel", { studentId: sid });
+  return { id: s(t.id), title: s(t.title), questions: items.map((i) => toClientQuestion(i, `${t.id}:${i.questionId}`)), level: lvl ? s(lvl.level) : null };
 }
 
 export async function submitExitTicket(repo: Repo, actor: Actor, ticketId: string, responses: Record<string, unknown>, now = new Date()): Promise<{ correct: number; total: number; review: Graded[] }> {

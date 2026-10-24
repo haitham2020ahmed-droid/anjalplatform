@@ -84,7 +84,8 @@ export function packSignature(def: PackDef): string | null {
 }
 
 type Loaded = { sets: SkillSet[]; nodes?: undefined } | { nodes: MapSetNode[]; sets?: undefined };
-// r68 memory: a parsed pack (up to 3 MB of JSON) is released 10 minutes after its last use
+// r68 memory: a parsed pack (the biggest source file is ~3.4 MB on disk; parsed into objects it runs larger — r89
+// audit: up to 6 cached entries can hold tens of MB for a worst-case admin session) is released 10 minutes after its last use
 const fileCache = sweptMap<string, { sig: string; at: number; p: Promise<Loaded> }>("packs.files", 10 * 60_000, 6);
 /** The pack's content (read once per file version, kept for the next chunks), or null when the file is missing. */
 export async function loadPack(def: PackDef): Promise<Loaded | null> {

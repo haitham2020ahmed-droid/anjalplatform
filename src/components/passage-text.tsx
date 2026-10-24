@@ -1,8 +1,11 @@
 /** A reading passage on screen (practice, quizzes, placement, ReadMaster): headings, paragraphs, text features. */
-import { passageBlocks, plainPassage } from "@/lib/passage";
+import { passageBlocks, plainPassage, type PassageBlock } from "@/lib/passage";
 import { RichInline } from "@/components/rich-inline";
 
 export { plainPassage };
+
+export const DEFAULT_PARA_CLASS = "mt-3 whitespace-pre-line text-lg leading-relaxed text-slate-800";
+export const DEFAULT_HEADING_CLASS = "mt-5 text-lg font-bold text-brand-navy";
 
 const FIG_ICON: Record<string, string> = { diagram: "🔬", map: "🗺️", photo: "📷", graph: "📈", chart: "📊", timeline: "🕰️", sidebar: "📌", "primary source": "📜", table: "📋", caption: "🖼️" };
 
@@ -20,6 +23,12 @@ function feature(key: number, figKind: string, title: string, text: string) {
   );
 }
 
-export function PassageText({ text, paraClassName = "mt-3 whitespace-pre-line text-lg leading-relaxed text-slate-800", headingClassName = "mt-5 text-lg font-bold text-brand-navy" }: { text: string; paraClassName?: string; headingClassName?: string }) {
-  return <>{passageBlocks(text).map((b, i) => (b.kind === "fig" ? feature(i, b.figKind, b.title, b.text) : b.kind === "h" ? <h3 key={i} data-wordtap className={headingClassName}><RichInline text={b.text} /></h3> : <p key={i} data-wordtap className={paraClassName}><RichInline text={b.text} /></p>))}</>;
+/** Renders already-split blocks (see lib/passage.ts and lib/passage-chunks.ts) — shared by PassageText below and
+ *  by ChunkedPassage (components/passage/chunked-passage.tsx), which shows these blocks a few at a time. */
+export function renderPassageBlocks(blocks: PassageBlock[], paraClassName: string = DEFAULT_PARA_CLASS, headingClassName: string = DEFAULT_HEADING_CLASS) {
+  return blocks.map((b, i) => (b.kind === "fig" ? feature(i, b.figKind, b.title, b.text) : b.kind === "h" ? <h3 key={i} data-wordtap className={headingClassName}><RichInline text={b.text} /></h3> : <p key={i} data-wordtap className={paraClassName}><RichInline text={b.text} /></p>));
+}
+
+export function PassageText({ text, paraClassName = DEFAULT_PARA_CLASS, headingClassName = DEFAULT_HEADING_CLASS }: { text: string; paraClassName?: string; headingClassName?: string }) {
+  return <>{renderPassageBlocks(passageBlocks(text), paraClassName, headingClassName)}</>;
 }

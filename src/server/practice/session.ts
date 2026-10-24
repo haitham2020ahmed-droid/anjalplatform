@@ -82,6 +82,9 @@ export interface PracticeView {
   work?: WorkProgress;
   /** r67: the practice is paused after too many rapid guesses (progress saved; it continues when the student comes back) */
   paused?: boolean;
+  /** ABOVE | ON | BELOW | null — never shown to the student by name (see lib/hide-levels); read only to decide
+   *  whether a long reading passage is offered in smaller chunks (components/passage/chunked-passage.tsx). */
+  studentLevel?: string | null;
 }
 
 export interface Feedback {
@@ -392,12 +395,15 @@ async function startPracticeUnlocked(repo: Repo, actor: Actor, skillId: string, 
 export async function currentQuestion(repo: Repo, actor: Actor, sessionId: string, _now = new Date(), known?: { session: Row; mastery: Row | null; work?: WorkProgress | null }): Promise<PracticeView> {
   // `known`: the answer transaction already has the updated session and mastery (ownership checked there)
   const s = known ? known.session : await ownSession(repo, actor, sessionId);
-  const [skillRow, m, items, work] = await Promise.all([
+  const [skillRow, m, items, work, studentLevel] = await Promise.all([
     known ? cachedSkill(repo, String(s.skillId)) : repo.findUnique("Skill", { id: s.skillId }),
     known ? Promise.resolve(known.mastery) : repo.findUnique("StudentSkillMastery", { studentId: s.studentId, skillId: s.skillId }),
     s.currentQuestionId && !s.endedAt ? practiceItems(repo, String(s.skillId), s.assignmentId).then((x) => x.items) : Promise.resolve([] as PracticeItem[]),
     // the assigned work's own progress (answered x of 30/50, its accuracy): read only for a linked session
     known?.work !== undefined ? Promise.resolve(known.work) : s.assignmentId ? workOfSession(repo, s) : Promise.resolve(null),
+    // the student's own working level (never shown by name — see lib/hide-levels — only used to decide whether a
+    // long passage is offered in smaller chunks, see components/passage/chunked-passage.tsx)
+    repo.findUnique("StudentLevel", { studentId: s.studentId }),
   ]);
   const skill = skillRow!;
   let question: ClientQuestion | null = null;
@@ -410,6 +416,7 @@ export async function currentQuestion(repo: Repo, actor: Actor, sessionId: strin
     answered: Number(s.questionCount), correct: Number(s.correctCount), guessCount: Number(s.guessCount ?? 0),
     mastery: Math.round(Number(m?.score ?? 0)), band: String(m?.band ?? "BEGINNING"),
     ended: Boolean(s.endedAt), endReason: s.endReason ? String(s.endReason) : null,
+    studentLevel: studentLevel ? String(studentLevel.level) : null,
     ...(work ? { work } : {}),
   };
 }

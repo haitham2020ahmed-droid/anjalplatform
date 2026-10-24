@@ -29,6 +29,7 @@ export const FAMILY_WEEK_CSS = `
 .fw-sec ul{margin:0;padding-inline-start:20px}
 .fw-sec li{margin:2px 0}
 .fw-none{color:#64748b;margin:0}
+.fw-hint{color:#64748b;font-size:10pt;font-style:italic;margin:4px 0 0}
 .fw-score{font-weight:700;color:#134e4a;white-space:nowrap}
 .fw-home{display:grid;gap:8px;margin:0;padding:0;list-style:none}
 .fw-home li{border-radius:12px;background:#fffbeb;border:1px solid #fde68a;padding:8px 10px}
@@ -66,7 +67,7 @@ ${first ? `<p class="fw-links">🔗 ${esc(t("Everything in this plan is clickabl
 <section class="fw-sec"><h3>${esc(t("Tasks I finished"))}</h3>${list(w.tasks, "No tasks finished yet this week.")}</section>
 <section class="fw-sec"><h3>${esc(t("ReadRise articles I read"))}</h3>${list(w.articles, "No articles yet this week.")}</section>
 <section class="fw-sec"><h3>${esc(t("Lessons I learned"))}</h3>${list(w.lessons, "No lessons yet this week.")}</section>
-<section class="fw-sec"><h3>${esc(t("My tests"))}</h3>${w.tests.length ? `<ul>${w.tests.map((x) => `<li>${iso(x.title)} · <span class="fw-score" dir="ltr">${x.pct}%</span></li>`).join("")}</ul>` : `<p class="fw-none">${esc(t("No test results this week."))}</p>`}</section>
+<section class="fw-sec"><h3>${esc(t("My tests"))}</h3>${w.tests.length ? `<ul>${w.tests.map((x) => `<li>${iso(x.title)} · <span class="fw-score" dir="ltr">${x.pct}%</span></li>`).join("")}</ul>` : `<p class="fw-none">${esc(t("No test results this week."))}</p>`}${w.tests.some((x) => x.kind === "NAFS") ? `<p class="fw-hint">${esc(t("NAFS scores here are from practice the school wrote in the style of the real exam — they show how ready your child is, not an official exam result."))}</p>` : ""}</section>
 <section class="fw-sec"><div class="fw-h3q"><h3>${esc(t("Things to practise at home"))}</h3>${qr && first ? `<a class="fw-qr" href="${esc(first)}">${qr}</a>` : ""}</div><ul class="fw-home">${w.practise.map((p) => { const href = p.skillId ? planHref({ kind: "skill", id: p.skillId }, "family") : null; const title = esc(t(p.title)); return `<li><b>${href && isPlanHref(href) ? `<a class="fw-link" href="${esc(href)}">${title}</a>` : title}</b>${esc(t("At home:"))} ${esc(t(p.activity))}</li>`; }).join("")}</ul></section>
 ${w.note ? `<section class="fw-sec"><h3>${esc(t("A note from my teacher"))}</h3><p class="fw-note" dir="auto">${esc(w.note)}</p></section>` : ""}
 <p class="fw-foot">${esc(t("Ask me what I learned this week!"))}</p>

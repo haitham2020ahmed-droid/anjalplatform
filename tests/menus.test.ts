@@ -11,7 +11,7 @@ import { resolveActor } from "../src/server/auth/actor";
 import { ForbiddenError, type Actor } from "../src/server/auth/rbac";
 import { seedTestEnvironment } from "../src/server/seeding/test-env";
 import { accessibleClasses } from "../src/server/teacher/assign";
-import { navItemsFor, navSections as sections, searchablePagesFor, MORE } from "../src/components/nav-items";
+import { navItemsFor, navSections as sections, searchablePagesFor, MORE, MORE_GROUPS } from "../src/components/nav-items";
 import { ADMIN_GROUPS, ADMIN_TOOLS } from "../src/components/admin-tools";
 import { matchesStudent, normalizeName } from "../src/components/teacher/name-match";
 import { REPORTS, REPORT_CATEGORIES, openReportUrl, reportUrls, scopesOf } from "../src/components/teacher/report-catalog";
@@ -40,30 +40,45 @@ function routeExists(url: string): boolean {
 
 describe("menus: short and tidy", () => {
   // r68 (owner): ⭐ My Skills right after My Work
-  test("student: Home, My Work, My Skills, My Plans (owner r82), My Tests, MAP, ReadMaster / ReadRise, Learn, My Words, Fluency (owner's spec) + NAFS only for Grade 6, line icons, no repeats", () => {
-    assert.deepEqual(navItemsFor("STUDENT", { rti: true, nafs: true }).map((i) => i.label), ["Home", "My Work", "My Skills", "My Plans", "My Tests", "MAP", "ReadMaster / ReadRise", "Learn", "My Words", "Fluency", "NAFS"], "the NAFS icon: students in a Grade 6 class");
+  // r87 (owner, Oct 2026): nothing is menu-only-by-search any more — every page that used to live only in OFF_MENU /
+  // adminOffMenu (findable by name, never an icon) is now ALSO a real icon, folded under the same "More" group each
+  // role already had (side-nav.tsx FOLDED_BY_DEFAULT). The short top list itself is unchanged.
+  test("student: Home, My Work, My Skills, My Plans (owner r82), My Tests, MAP, ReadMaster / ReadRise, Learn, My Words, Fluency (owner's spec) + NAFS only for Grade 6, then every other student page under More, line icons, no repeats", () => {
+    const top = (items: ReturnType<typeof navItemsFor>) => items.filter((i) => !i.group).map((i) => i.label);
+    assert.deepEqual(top(navItemsFor("STUDENT", { rti: true, nafs: true })), ["Home", "My Work", "My Skills", "My Plans", "My Tests", "MAP", "ReadMaster / ReadRise", "Learn", "My Words", "Fluency", "NAFS"], "the NAFS icon: students in a Grade 6 class");
     const items = navItemsFor("STUDENT", { rti: true, nafs: false });
-    assert.deepEqual(items.map((i) => i.label), ["Home", "My Work", "My Skills", "My Plans", "My Tests", "MAP", "ReadMaster / ReadRise", "Learn", "My Words", "Fluency"]);
+    assert.deepEqual(top(items), ["Home", "My Work", "My Skills", "My Plans", "My Tests", "MAP", "ReadMaster / ReadRise", "Learn", "My Words", "Fluency"]);
     assert.ok(items.every((i) => i.line), "every student entry has a clean line icon");
     assert.equal(new Set(items.map((i) => i.href)).size, items.length, "no page twice in the menu");
     assert.equal(new Set(items.map((i) => i.label)).size, items.length, "no label twice in the menu");
-    assert.deepEqual(items.map((i) => i.href), ["/student", "/student/work", "/student/skills", "/student/plans", "/student/tests", "/student/map", "/student/reading", "/student/learn", "/student/words", "/student/fluency-coach"]);
+    // the rest (r87/r88): every page that used to only be findable by name is now a real icon, under one of three
+    // themed "More · …" sub-sections (Reading / My Achievements / Other Tools)
+    assert.deepEqual([...new Set(items.filter((i) => i.group).map((i) => i.group))], [MORE_GROUPS.studentReading, MORE_GROUPS.studentAchievements, MORE_GROUPS.otherTools]);
+    const moreHrefs = new Set(items.filter((i) => i.group).map((i) => i.href));
+    for (const h of ["/student/readmaster", "/student/readrise", "/student/curriculum", "/student/second-chance", "/student/certificates", "/student/badges", "/student/reports", "/play", "/guide"]) assert.ok(moreHrefs.has(h), `now a More icon: ${h}`);
   });
 
-  test("student: never an RTI entry, whatever the flags (support work is ordinary work in My Work)", () => {
-    for (const f of [{}, { rti: true }, { nafs: true }, { rti: true, nafs: true }]) assert.ok(!navItemsFor("STUDENT", f).some((i) => /rti|tier|support/i.test(i.href + i.label)));
+  test("student: no RTI-worded entry anywhere (support work is ordinary work in My Work)", () => {
+    // word-boundary regex: a plain substring test would also flag "My Certificates" ("...ceRTIficates...")
+    for (const f of [{}, { rti: true }, { nafs: true }, { rti: true, nafs: true }]) assert.ok(!navItemsFor("STUDENT", f).some((i) => /\b(rti|tier|support)\b/i.test(`${i.href} ${i.label}`)));
     const pages = searchablePagesFor("STUDENT");
     assert.ok(!pages.some((p) => p.href === "/student/rti"));
-    for (const h of ["/student/readmaster", "/student/readrise", "/student/fluency-coach", "/student/curriculum", "/student/certificates", "/student/badges", "/student/reports", "/play"]) assert.ok(pages.some((p) => p.href === h), `still found by name: ${h}`);
+    for (const h of ["/student/readmaster", "/student/readrise", "/student/fluency-coach", "/student/curriculum", "/student/certificates", "/student/badges", "/student/reports", "/play"]) assert.ok(pages.some((p) => p.href === h), `still found (now as a menu icon too): ${h}`);
   });
 
-  test("teacher (Update 15): one place per area — Students & Classes, Curriculum Map, Plans, Assigned (owner r67), Assessments, Writing, Grammar, Reading, Learn, MAP, Reports; the rest folded under More", () => {
+  test("teacher (Update 15): one place per area — Students & Classes, Curriculum Map, Plans, Assigned (owner r67), Assessments, Writing, Grammar, Reading, Learn, MAP, Reports; the rest (r87: every teacher page, nothing search-only) folded under More", () => {
     const items = navItemsFor("TEACHER");
-    assert.deepEqual(items.filter((i) => !i.group).map((i) => i.label), ["Home", "Students & Classes", "Curriculum Map", "Plans", "Assigned", "Assessments", "Writing", "Grammar", "Reading", "Learn", "MAP", "Reports", "School Reports"]);
-    assert.deepEqual(items.filter((i) => i.group).map((i) => i.group), items.filter((i) => i.group).map(() => MORE), "the rest is under More");
+    // 🔁 Review (the teacher's own Review of a text set, src/server/curriculum-map/review-control.ts) added to the
+    // short menu, after Curriculum Map.
+    assert.deepEqual(items.filter((i) => !i.group).map((i) => i.label), ["Home", "Students & Classes", "Curriculum Map", "Review", "Plans", "Assigned", "Assessments", "Writing", "Grammar", "Reading", "Learn", "MAP", "Reports", "School Reports"]);
+    // r88: the rest is under one of 5 themed "More · …" sub-sections, plus the pre-existing plain "More" (My Week etc.)
+    assert.deepEqual([...new Set(items.filter((i) => i.group).map((i) => i.group))], [MORE, MORE_GROUPS.teacherSupport, MORE_GROUPS.teacherReading, MORE_GROUPS.teacherDiagnostics, MORE_GROUPS.otherTools, MORE_GROUPS.teacherMap]);
     assert.ok(items.every((i) => i.line), "every teacher entry has a line icon");
+    // admin-only tools stay admin-only even under More
     const hrefs = new Set(items.map((i) => i.href));
-    for (const h of ["/teacher/rti-plan", "/teacher/tiers", "/teacher/data-meeting", "/teacher/map-rit", "/teacher/progress"]) assert.ok(!hrefs.has(h), `not in the menu: ${h}`);
+    for (const h of ["/teacher/tiers", "/teacher/data-meeting"]) assert.ok(!hrefs.has(h), `admin-only, not in the teacher menu: ${h}`);
+    // r87: these used to be findable only by name — now real More icons too
+    for (const h of ["/teacher/plans/support", "/teacher/rti-plan", "/teacher/map-rit", "/teacher/progress", "/teacher/levels", "/teacher/knowledge-graph"]) assert.ok(hrefs.has(h), `now a More icon: ${h}`);
     const pages = searchablePagesFor("TEACHER");
     for (const h of ["/teacher/plans/support", "/teacher/assessments", "/teacher/games", "/teacher/week", "/teacher/messages", "/teacher/map-rit"]) assert.ok(pages.some((p) => p.href === h), `still found by name: ${h}`);
   });
@@ -92,11 +107,11 @@ describe("menus: short and tidy", () => {
     assert.ok(items.some((i) => i.label === "My Skills" && i.href === "/student/skills"), "where a student's assigned Grammar skills appear");
   });
 
-  test("admin: five sections (School, Content, Assessments & Programs, Reports, Settings), ≤ 6 working tools each, no More", () => {
+  test("admin: five top sections (School, Content, Assessments & Programs, Reports, Settings), ≤ 6 working tools each, then r87's More (every other admin tool, now a real icon, not just findable by name)", () => {
     assert.deepEqual(ADMIN_GROUPS.map((g) => g.title), ["School", "Content", "Assessments & Programs", "Reports", "Settings"]);
     const items = navItemsFor("SCHOOL_ADMIN");
-    assert.deepEqual([...new Set(items.map((i) => i.group).filter(Boolean))], ADMIN_GROUPS.map((g) => g.title));
-    assert.ok(!items.some((i) => i.group === MORE), "the admin menu has no More group (All Admin Tools has the rest)");
+    // r88: then one themed "More · <section>" per top section, same 5 names, each its own folded sub-section
+    assert.deepEqual([...new Set(items.map((i) => i.group).filter(Boolean))], [...ADMIN_GROUPS.map((g) => g.title), ...ADMIN_GROUPS.map((g) => `More · ${g.title}`)], "the five sections, then five More · sub-sections");
     const at = (g: string) => items.filter((i) => i.group === g).map((i) => i.href);
     for (const g of ADMIN_GROUPS) assert.ok(at(g.title).length <= 6, `${g.title}: ${at(g.title).length}`);
     for (const h of ["/admin/school", "/admin/users", "/teacher/students"]) assert.ok(at("School").includes(h), h);
@@ -105,7 +120,10 @@ describe("menus: short and tidy", () => {
     for (const h of ["/admin/analytics", "/admin/term-report", "/admin/report-approvals", "/teacher/reports"]) assert.ok(at("Reports").includes(h), h);
     for (const h of ["/admin/settings", "/admin/ai-tools", "/admin/backup", "/admin/data-health", "/admin/data-cleanup", "/admin/feedback"]) assert.ok(at("Settings").includes(h), h);
     assert.equal(ADMIN_TOOLS.find((x) => x.href === "/admin/skill-links")?.label, "Sort Questions");
-    // the rest is found by name in the top bar
+    // r87/r88: every ADMIN_TOOLS entry that isn't in the top five sections is now a real More · … icon, not just a search hit
+    const moreHrefs = new Set(items.filter((i) => typeof i.group === "string" && i.group.startsWith("More ·")).map((i) => i.href));
+    for (const x of ADMIN_TOOLS.filter((x) => !x.menu)) assert.ok(moreHrefs.has(x.href), `now a More · … icon: ${x.href}`);
+    // still found by name too (top bar "Find a page")
     const found = new Set(searchablePagesFor("SCHOOL_ADMIN").map((i) => i.href));
     for (const x of ADMIN_TOOLS) assert.ok(found.has(x.href), `findable: ${x.href}`);
   });
@@ -126,7 +144,7 @@ describe("menus: short and tidy", () => {
       for (const p of pages) assert.ok(hasAr(p.label), p.label);
     }
     const nav = read("src/components/ui/side-nav.tsx");
-    assert.match(nav, /FOLDED_BY_DEFAULT = new Set\(\["More"\]\)/);
+    assert.match(nav, /isMoreGroup = \(name: string\) => name === "More" \|\| name\.startsWith\("More ·"\)/);
     assert.match(nav, /GROUP_TONE/, "soft coloured group headings");
     assert.match(read("src/components/app-shell.tsx"), /<FeedbackButton \/>/);
     assert.ok(existsSync(join(ROOT, "src/components/feedback/feedback-button.tsx")));

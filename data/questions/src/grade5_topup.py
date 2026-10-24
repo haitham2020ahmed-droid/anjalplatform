@@ -556,3 +556,172 @@ mc("precise-language", "L.5.3", 7, "Which sentence uses precise language to crea
    "The committee postponed the meeting because of the sandstorm warning.",
    [("They put off the meeting ’cause of the storm thing.", "Informal and vague."), ("The meeting got moved, like, later.", "Informal."), ("Stuff happened, so no meeting.", "Vague and informal.")],
    "Precise verbs (postponed) and nouns (sandstorm warning) suit formal writing.", "Formal writing avoids slang.")
+
+
+# ============================================================ NAFS topup 2: V.SYNANT / RC.DETAIL / IAE.INFER
+# Grows three thin NAFS-mapped skills: synonyms-antonyms (NAFS.V.SYNANT), text-evidence
+# (NAFS.RC.DETAIL) and character / character-perspective / make-predictions (NAFS.IAE.INFER).
+# All reading items here are self-contained (a short original excerpt inside the stem), so
+# they do not depend on the existing numbered passages.
+
+# ---- synonyms-antonyms (NAFS.V.SYNANT) ----
+mc("synonyms-antonyms", "L.5.5.c", 1, "Which word is a synonym for “anxious”?",
+   "nervous", [("confident", "Confident is close to the opposite of anxious."), ("joyful", "Joyful is a different, positive feeling."), ("tired", "Tired is a different meaning, about energy.")],
+   "Anxious and nervous both describe feeling worried or uneasy.", "Synonyms describe the same feeling or idea in different words.")
+mc("synonyms-antonyms", "L.5.5.c", 3, "Which word is an antonym for “humble”?",
+   "arrogant", [("modest", "Modest is a synonym of humble."), ("shy", "Shy is not the opposite of humble."), ("quiet", "Quiet is unrelated to humility.")],
+   "Humble means not boastful; arrogant means overly proud — opposites.", "Think of someone who brags constantly — that is the opposite of humble.")
+dd("synonyms-antonyms", "L.5.5.c", 2, "Choose the synonym: “The lion crept ____ (quietly) toward its prey.”",
+   "stealthily", [("loudly", "This is an antonym."), ("quickly", "This describes speed, not quietness."), ("clumsily", "This describes awkwardness, not quietness.")],
+   "Stealthily means moving in a quiet, sneaky way, matching “quietly.”", "Replace the word in parentheses and see which choice keeps the same meaning.")
+match("synonyms-antonyms", "L.5.5.c", 4, "Match each word with its SYNONYM.",
+      [("vast", "enormous"), ("fragile", "delicate"), ("eager", "enthusiastic"), ("reluctant", "unwilling")],
+      "Each pair describes almost the same idea.", "Try substituting one word for the other in a sentence to test if they match.")
+tf("synonyms-antonyms", "L.5.5.c", 2, "A generous classmate shares her lunch without being asked, while a stingy classmate refuses to lend even a pencil. True or false: this contrast means “generous” and “stingy” are synonyms.", False,
+   "Generous means willing to give; stingy means unwilling to share — these are opposites.",
+   "If two words describe opposite behavior with money or gifts, they are antonyms.")
+mc("synonyms-antonyms", "L.5.5.c", 3, "Which word is a synonym for “stubborn”?",
+   "obstinate", [("agreeable", "Agreeable is close to the opposite of stubborn."), ("curious", "Curious is a different meaning, about wanting to know."), ("cheerful", "Cheerful is a different, unrelated feeling.")],
+   "Stubborn and obstinate both describe refusing to change one’s mind.", "Some synonyms sound more formal than the original word, like obstinate for stubborn.")
+mc("synonyms-antonyms", "L.5.5.c", 4, "Which word is an antonym for “cautious”?",
+   "reckless", [("careful", "Careful is a synonym of cautious."), ("curious", "Curious is an unrelated meaning."), ("calm", "Calm is not necessarily the opposite of cautious.")],
+   "Cautious means careful to avoid danger; reckless means acting without thinking of danger — opposites.", "Picture someone driving carefully versus someone driving without any caution.")
+dd("synonyms-antonyms", "L.5.5.c", 3, "Choose the antonym: “The desert was scorching at noon but ____ at midnight.”",
+   "frigid", [("warm", "Warm is closer to scorching than its opposite."), ("damp", "Damp describes wetness, not temperature."), ("bright", "Bright describes light, not temperature.")],
+   "Scorching means extremely hot; frigid means extremely cold — a strong contrast.", "Antonyms can show strong, dramatic opposites, like scorching and frigid.")
+mc("synonyms-antonyms", "L.5.5.c", 2, "Which word is a synonym for “exhausted”?",
+   "drained", [("energetic", "This is an antonym."), ("curious", "This is unrelated."), ("confused", "This is an unrelated meaning.")],
+   "Exhausted and drained both describe having no energy left.", "Look for words that both describe the same level of tiredness.")
+match("synonyms-antonyms", "L.5.5.c", 5, "Match each word with its ANTONYM.",
+      [("vast", "tiny"), ("cautious", "reckless"), ("humble", "arrogant"), ("generous", "stingy")],
+      "Each pair has opposite meanings.", "Check that the meanings are true opposites, not just different.")
+mc("synonyms-antonyms", "L.5.5.c", 3, "Read: “Compared to her shy younger brother, Dana was remarkably outgoing at the family gathering.” Which word is closest in meaning to “outgoing” as used here?",
+   "sociable", [("nervous", "This is the opposite of outgoing in this context."), ("quiet", "This describes shy, the opposite of outgoing."), ("tired", "This is an unrelated meaning.")],
+   "Outgoing and sociable both describe someone who enjoys talking with others.", "Use the contrast with “shy” in the sentence as a clue to the opposite meaning.")
+mc("synonyms-antonyms", "L.5.5.c", 4, "Which word is an antonym for “transparent” (as in see-through)?",
+   "opaque", [("clear", "Clear is a synonym of transparent."), ("colorful", "Colorful is unrelated to transparency."), ("shiny", "Shiny is unrelated to whether light passes through.")],
+   "Transparent means light passes through; opaque means light cannot pass through — opposites.", "Picture glass (transparent) compared to a brick wall (opaque).")
+tf("synonyms-antonyms", "L.5.5.c", 3, "A volunteer who is “eager” races to sign up first, but a volunteer who is “reluctant” drags their feet and hopes nobody notices. True or false: these two behaviors show the words are antonyms.", True,
+   "Eager means wanting to do something very much; reluctant means not wanting to do it — opposite feelings.",
+   "Antonyms often describe opposite levels of willingness.")
+mc("synonyms-antonyms", "L.5.5.c", 2, "Which word is a synonym for “vast”?",
+   "immense", [("narrow", "Narrow describes width, closer to an antonym of vast."), ("short", "Short describes length or height, not size overall."), ("bright", "Bright is unrelated to size.")],
+   "Vast and immense both describe something extremely large.", "Synonyms for size describe the same scale, whether big or small.")
+dd("synonyms-antonyms", "L.5.5.c", 4, "Choose the synonym: “The detective made a ____ (correct) guess about the thief.”",
+   "accurate", [("careless", "This is closer to the opposite of correct."), ("quick", "This describes speed, not correctness."), ("funny", "This is an unrelated meaning.")],
+   "Accurate and correct both describe being right or exact.", "Match the meaning given in parentheses, not just a similar-sounding word.")
+
+# ---- text-evidence (NAFS.RC.DETAIL) ----
+mc("text-evidence", "RI.5.1", 3, "Read: “Coral reefs cover less than 1 percent of the ocean floor, yet they support about 25 percent of all known marine species.” Which detail is evidence that coral reefs are vital to ocean life?",
+   "“they support about 25 percent of all known marine species.”",
+   [("“Coral reefs cover less than 1 percent of the ocean floor.”", "This shows how small reefs are, not how important they are."), ("“the ocean floor.”", "This is only part of the sentence."), ("“marine species.”", "This names a topic, not evidence of importance.")],
+   "Supporting a quarter of all marine species despite their tiny size shows how vital reefs are.", "Compare the small space with the large effect to see the real evidence.")
+ms("text-evidence", "RI.5.1", 4, "Read: “Microplastics have been found in Arctic sea ice and in rainwater collected far from any city. Scientists are still studying their effects on human health, and some researchers use special microscopes to detect the tiny particles.” Which TWO details show that microplastic pollution has spread very widely?",
+   ["“found in Arctic sea ice”", "“rainwater collected far from any city”"],
+   [("“Scientists are still studying their effects on human health.”", "This is about ongoing research, not about how widespread the pollution is."), ("“some researchers use special microscopes to detect the tiny particles.”", "This describes a research method, not the spread of pollution.")],
+   "Finding microplastics in the Arctic and in rainwater far from cities shows pollution has reached remote places.", "Choose evidence that matches the exact claim — here, how far pollution has spread.")
+mc("text-evidence", "RL.5.1", 3, "Read: “Dana’s heart pounded as she walked toward the microphone, but when she saw her best friend give her a thumbs-up from the front row, her shoulders relaxed.” Which detail shows that Dana’s friend helped calm her nerves?",
+   "“when she saw her best friend give her a thumbs-up... her shoulders relaxed.”",
+   [("“Dana’s heart pounded as she walked toward the microphone.”", "This shows nervousness before her friend’s support."), ("“she walked toward the microphone.”", "This is only an action."), ("“the front row.”", "This only tells where her friend sat.")],
+   "Her shoulders relaxing right after seeing the thumbs-up shows the support helped calm her.", "Find the detail that happens right after the cause you are checking.")
+mc("text-evidence", "RI.5.1", 4, "Read: “Ancient cisterns carved from rock could hold over two million liters of rainwater. Archaeologists have found some still partly filled after thousands of years.” Which detail supports the idea that these cisterns were built extremely well?",
+   "“Archaeologists have found some still partly filled after thousands of years.”",
+   [("“Ancient cisterns carved from rock could hold over two million liters of rainwater.”", "This shows large capacity, not lasting quality."), ("“rainwater.”", "This names what they held, not evidence of quality."), ("“thousands of years.”", "This only names a span of time without context.")],
+   "Still holding water after thousands of years proves the cisterns were extremely well built.", "Evidence of lasting quality usually mentions how something performs over time.")
+tf("text-evidence", "RL.5.1", 2, "Read: “Khalid double-checked the rope, tested each knot twice, and only then let his younger cousin begin the climb.” True or false: this detail shows that Khalid was careless about his cousin’s safety.", False,
+   "Double-checking the rope and testing each knot shows Khalid was extremely careful, not careless.",
+   "Compare the statement to what the text actually describes.")
+mc("text-evidence", "RI.5.1", 3, "Read: “A single beehive can produce more than 25 kilograms of honey in one season, and the bees travel the equivalent of several times around the world to collect enough nectar.” Which detail shows how much effort bees put into making honey?",
+   "“the bees travel the equivalent of several times around the world to collect enough nectar.”",
+   [("“A single beehive can produce more than 25 kilograms of honey in one season.”", "This shows the amount of honey, not the effort of travel."), ("“one season.”", "This only names a time period."), ("“nectar.”", "This names what they collect, not the amount of effort.")],
+   "Traveling the distance of several trips around the world shows an enormous amount of effort.", "Separate the result (honey) from the evidence about the process (travel).")
+ms("text-evidence", "RL.5.1", 5, "Read: “During the group hike, Omar carried extra water for anyone who ran low, counted the trail markers out loud for fun, and gave up his own seat on the final bus ride.” Which TWO details show that Omar was thoughtful of others during the trip?",
+   ["“carried extra water for anyone who ran low”", "“gave up his own seat on the final bus ride”"],
+   [("“counted the trail markers out loud for fun.”", "This is a personal habit, not an act of kindness toward others."), ("“During the group hike.”", "This only tells when, not an action showing thoughtfulness.")],
+   "Sharing water and giving up his seat are both actions that put others’ needs first.", "Look for actions that directly benefit someone else, not just personal habits.")
+mc("text-evidence", "RI.5.1", 4, "Read: “Villagers built small stone walls across dry streambeds to slow rushing rainwater, giving it time to soak into the ground instead of running off.” Which detail explains the PURPOSE of the stone walls?",
+   "“giving it time to soak into the ground instead of running off.”",
+   [("“Villagers built small stone walls across dry streambeds.”", "This describes the action, not the purpose."), ("“rushing rainwater.”", "This names the problem, not the reason for the walls."), ("“dry streambeds.”", "This only names the location.")],
+   "Letting water soak in instead of running off is the stated purpose of the walls.", "A purpose explains WHY something was done, not just what was done.")
+mc("text-evidence", "RL.5.1", 3, "Read: “Layla read the instructions three times and laid out every tool in order before she finally picked up the screwdriver.” Which detail BEST shows that Layla was being methodical?",
+   "“read the instructions three times and laid out every tool in order”",
+   [("“picked up the screwdriver.”", "This is just the final step, not evidence of careful planning."), ("“only then.”", "This is a transition word, not evidence by itself."), ("Layla", "This just names the character.")],
+   "Reading instructions multiple times and organizing tools before starting shows careful, methodical behavior.", "Look for repeated or extra careful actions before the main task begins.")
+tf("text-evidence", "RI.5.1", 3, "Read: “Urban gardens can lower a neighborhood’s summer temperature by several degrees because plants release moisture that cools the surrounding air.” True or false: the text explains a reason why urban gardens cool their neighborhoods.", True,
+   "The text gives the reason — plants releasing moisture — which explains how gardens cool the air.",
+   "A ‘because’ clause usually signals the reason the text is giving.")
+mc("text-evidence", "RI.5.1", 4, "Read: “After the new traffic light was installed, the number of accidents at the intersection dropped from twelve per year to only two.” Which detail is the strongest evidence that the traffic light improved safety?",
+   "“the number of accidents at the intersection dropped from twelve per year to only two.”",
+   [("“After the new traffic light was installed.”", "This only tells when, not the result."), ("“the intersection.”", "This only names the location."), ("“twelve per year.”", "This is only part of the comparison, not the full evidence.")],
+   "The sharp drop in accidents, compared before and after, is the clearest evidence of improved safety.", "Look for numbers that are compared before and after a change.")
+mc("text-evidence", "RL.5.1", 4, "Read: “Hamdan insisted the new well belonged to everyone, even though he had paid for most of the digging himself.” Which detail shows that Hamdan valued the community over his own gain?",
+   "“he insisted the new well belonged to everyone, even though he had paid for most of the digging himself.”",
+   [("“the new well.”", "This only names the object."), ("“the digging.”", "This names an action, not evidence of his values."), ("“himself.”", "This is only a pronoun, not evidence.")],
+   "Sharing something he paid for shows he values the community more than personal profit.", "Look for a contrast between what a character could have kept and what they chose to do.")
+ms("text-evidence", "RI.5.1", 5, "Read: “Solar panels need very little maintenance, but they produce far less electricity on cloudy days, and the panels themselves are expensive to install at first.” Which TWO details describe a DRAWBACK of solar panels?",
+   ["“they produce far less electricity on cloudy days”", "“the panels themselves are expensive to install at first”"],
+   [("“Solar panels need very little maintenance.”", "This describes an advantage, not a drawback.")],
+   "Less electricity on cloudy days and high installation cost are both disadvantages mentioned in the text.", "Separate the advantages from the disadvantages before choosing.")
+mc("text-evidence", "RL.5.1", 3, "Read: “Noor’s drawing won no ribbon at the fair, but she pinned it above her desk anyway and started sketching a new one that same evening.” Which detail shows that Noor did not let disappointment stop her?",
+   "“she pinned it above her desk anyway and started sketching a new one that same evening.”",
+   [("“Noor’s drawing won no ribbon at the fair.”", "This describes the disappointment, not her response to it."), ("“the fair.”", "This only names the event."), ("“a new one.”", "This is only part of the sentence.")],
+   "Starting a new drawing right away, instead of giving up, shows she kept going despite disappointment.", "Look for what a character does immediately AFTER a setback.")
+mc("text-evidence", "RI.5.1", 3, "Read: “Public libraries lend more than just books; many now lend tools, musical instruments, and even seeds for home gardens.” Which detail supports the idea that libraries offer more than books?",
+   "“many now lend tools, musical instruments, and even seeds for home gardens.”",
+   [("“Public libraries lend more than just books.”", "This states the claim itself, not the supporting evidence."), ("“books.”", "This is the opposite of what the detail should show."), ("“home gardens.”", "This is only part of the list, not full evidence.")],
+   "Naming specific items beyond books — tools, instruments, seeds — proves libraries offer more.", "The supporting evidence gives specific examples, not just a repeated claim.")
+
+# ---- character / character-perspective / make-predictions (NAFS.IAE.INFER) ----
+mc("character", "RL.5.3", 3, "Read: “When the team captain was injured, Rania quietly took over organizing practices without ever mentioning it to the coach, letting him think he had planned it himself.” Which word best describes Rania?",
+   "modest", [("boastful", "Boastful would mean bragging, the opposite of hiding her role."), ("careless", "Taking over organizing shows responsibility, not carelessness."), ("jealous", "Nothing shows jealousy of the captain.")],
+   "Rania does important work without taking credit, showing she is modest.", "Notice whether a character seeks credit for their actions or avoids it.")
+mc("character", "RL.5.3", 4, "Read: “Faisal spent his Saturday rebuilding the neighbor’s fence that his dog had knocked down, refusing any payment for his time.” Which word best describes Faisal?",
+   "responsible", [("stingy", "Refusing payment shows generosity, the opposite of stingy."), ("lazy", "Spending a Saturday rebuilding a fence is the opposite of lazy."), ("proud", "Nothing shows him bragging about it.")],
+   "Taking responsibility for his dog’s damage and fixing it himself shows Faisal is responsible.", "A character’s response to a mistake — theirs or someone else’s — often reveals a trait.")
+tf("character", "RL.5.3", 2, "Read: “Yara read the entire instruction manual twice before assembling the bookshelf, even though her brother said it was a waste of time.” True or false: this detail shows Yara is impulsive.", False,
+   "Reading instructions carefully twice shows she is careful and thorough, not impulsive.",
+   "Impulsive means acting quickly without thinking; look for the opposite behavior here.")
+mc("character", "RL.5.3", 3, "Read: “Even after losing the chess match for the third time, Khalid asked his opponent to explain the winning move so he could learn from it.” Which word best describes Khalid?",
+   "determined", [("sore", "Asking to learn shows he accepts the loss well, not that he is a bad loser."), ("careless", "Wanting to understand his mistake is the opposite of careless."), ("arrogant", "Asking for help shows humility, not arrogance.")],
+   "Wanting to learn from repeated losses instead of giving up shows determination.", "Look at how a character handles failure to find a trait.")
+mc("character", "RL.5.3", 4, "Read: “Dalia noticed her little cousin struggling with his shoelaces at the party, so she knelt down and showed him the trick slowly, twice, without anyone asking her to.” Which word best describes Dalia?",
+   "caring", [("impatient", "Showing him slowly and twice shows patience, not impatience."), ("shy", "Kneeling down to help in front of others shows confidence, not shyness."), ("bossy", "Helping gently is not the same as being bossy.")],
+   "Noticing someone’s struggle and helping patiently, without being asked, shows caring.", "An unprompted act of kindness is strong evidence of a caring trait.")
+mc("character-perspective", "RL.5.6", 3, "Read: “The whole class groaned when the teacher announced a surprise quiz, but Amira pulled out a pencil calmly, since she had reviewed her notes every night that week.” What is Amira’s perspective on the surprise quiz?",
+   "She is not worried, because she feels prepared.",
+   [("She is upset like the rest of the class.", "Her calm reaction is different from the class’s groaning."), ("She is confused about what a quiz is.", "Nothing suggests confusion."), ("She thinks the quiz is unfair.", "Nothing in the text shows this opinion.")],
+   "Her calm reaction, explained by her nightly review, shows she feels prepared rather than worried.", "When a character reacts differently from the group, look for a reason given in the text.")
+mc("character-perspective", "RL.5.6", 4, "Read: “Tariq thought the old clock tower should be torn down because it no longer worked, but his grandfather believed it should stay because it reminded the town of its history.” How do Tariq and his grandfather see the clock tower differently?",
+   "Tariq values its usefulness, while his grandfather values its connection to history.",
+   [("Both think it should be torn down.", "The grandfather wants it to stay."), ("Both value its history equally.", "Tariq focuses on it no longer working, not its history."), ("Tariq wants to keep it, and the grandfather wants it removed.", "This is the opposite of what the text says.")],
+   "Tariq judges the tower by whether it works; his grandfather judges it by its meaning to the town.", "Compare the REASON each character gives for their opinion.")
+tf("character-perspective", "RL.5.6", 2, "Read: “The coach called the scrimmage a success, but Sara kicked the grass and would not meet anyone’s eyes afterward.” True or false: Sara agrees with the coach’s view of the scrimmage.", False,
+   "Sara’s frustrated body language shows she does not share the coach’s positive view.",
+   "A character’s actions can reveal a perspective that contradicts what another character says.")
+mc("character-perspective", "RL.5.6", 3, "Read: “Grandma Zainab called the crowded, noisy souk ‘wonderfully alive,’ while her grandson Omar found it exhausting and could not wait to leave.” How is Omar’s perspective different from his grandmother’s?",
+   "Grandma Zainab enjoys the souk’s energy, while Omar finds it tiring.",
+   [("Both enjoy the souk equally.", "Omar wants to leave, showing he does not enjoy it as much."), ("Omar loves the noise, and Grandma Zainab hates it.", "This is the opposite of the text."), ("Neither of them likes the souk.", "Grandma Zainab calls it wonderfully alive.")],
+   "The same experience feels exciting to one character and exhausting to the other.", "The same event can feel different depending on who is experiencing it.")
+mc("character-perspective", "RL.5.6", 5, "A story about a school trip is told only through the diary entries of one student, Huda. How would the story change if it also included her teacher’s diary entries?",
+   "Readers would also learn the teacher’s private thoughts and concerns about the trip.",
+   [("The events of the trip would change.", "Adding another perspective does not change what happened."), ("Huda’s diary entries would disappear.", "Her entries would likely remain alongside the teacher’s."), ("The trip’s location would change.", "Perspective does not affect where the story takes place.")],
+   "Adding a second point of view lets readers hear another character’s private thoughts, not just events.", "More than one perspective means readers hear more than one character’s inner thoughts.")
+mc("make-predictions", "RL.5.1", 3, "Read: “Sami had ignored every warning about the incoming sandstorm and left his bike outside the shed, uncovered, right next to the open gate.” What will most likely happen?",
+   "The bike will likely be damaged or blown around by the sandstorm.",
+   [("The bike will stay perfectly clean.", "Leaving it uncovered in a storm makes this unlikely."), ("The sandstorm will not affect the bike at all.", "This ignores the direct exposure described."), ("The gate will close itself.", "Nothing suggests this will happen.")],
+   "Leaving a bike uncovered and exposed during a storm makes damage likely.", "Think about what usually happens when something is left exposed to a danger that was already warned about.")
+tf("make-predictions", "RL.5.1", 2, "Read: “Lina had saved exactly half of the money for the bicycle and had three more months of allowance before the sale ended.” Based on this, it makes sense to predict that Lina will probably be able to afford the bicycle in time.", True,
+   "If she already has half the money and has enough time left to save more, she will likely reach her goal.",
+   "Predictions about money often depend on comparing what is saved with what is still needed and how much time is left.")
+mc("make-predictions", "RL.5.1", 4, "Read: “Scientists noticed a volcano’s steam vents releasing gas more quickly than usual and recorded several small tremors over the past week.” What is the BEST prediction based on these clues?",
+   "The volcano may be building toward a larger eruption soon.",
+   [("The volcano has become completely safe.", "Increased gas and tremors suggest rising activity, not safety."), ("The volcano will stop all activity permanently.", "Nothing suggests activity is ending."), ("The tremors are unrelated to the volcano.", "The tremors are reported alongside the volcano’s activity, suggesting a connection.")],
+   "Increasing gas release and small tremors are warning signs scientists use to predict a possible eruption.", "Combine several related clues, not just one, to make a stronger prediction.")
+mc("make-predictions", "RL.5.1", 3, "Read: “Despite being told the bridge was closed for repairs, two hikers decided to climb over the barrier and cross it anyway.” Which detail BEST supports the prediction that the hikers are taking a serious risk?",
+   "“despite being told the bridge was closed for repairs”",
+   [("“two hikers decided to climb over the barrier.”", "This describes the action, but the warning about repairs is the stronger clue for risk."), ("“and cross it anyway.”", "This only confirms the action, not the specific danger."), ("“the bridge.”", "This only names the object.")],
+   "Ignoring a warning about repairs, specifically, is what signals real danger ahead.", "Look for the exact detail that names the danger, not just the action taken.")
+mc("make-predictions", "RL.5.1", 4, "Read: “After weeks of drought, dark clouds finally gathered over the dry farmland, and the wind carried the smell of rain for the first time in a month.” What will most likely happen next?",
+   "It will probably rain soon, bringing relief to the farmland.",
+   [("The drought will continue with no change.", "The clouds and smell of rain suggest a change is coming."), ("A sandstorm will begin instead.", "Nothing in the text mentions sand or a storm of that kind."), ("The farmland will flood immediately.", "A first rain after a drought does not usually cause sudden flooding.")],
+   "Dark clouds and the smell of rain are classic signs that rain is about to fall.", "Weather predictions often rely on recognizing familiar signs described in the text.")

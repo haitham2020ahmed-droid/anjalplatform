@@ -27,7 +27,7 @@ export default async function FluencyPage({ searchParams }: { searchParams: Prom
   const v = classId ? await classFluencyView(repo, actor, classId) : null;
   const { t } = await getT();
   const tone = (lv: string | null) => (lv === "ABOVE" ? "bg-emerald-100 text-emerald-900" : lv === "ON" ? "bg-sky-100 text-sky-900" : "bg-rose-100 text-rose-900");
-  const traitTone = (n: number | null) => (n === null ? "text-slate-300" : n >= 3 ? "bg-emerald-100 text-emerald-900" : n === 2 ? "bg-amber-100 text-amber-900" : "bg-rose-100 text-rose-900");
+  const traitTone = (n: number | null) => (n === null ? "text-slate-500" : n >= 3 ? "bg-emerald-100 text-emerald-900" : n === 2 ? "bg-amber-100 text-amber-900" : "bg-rose-100 text-rose-900");
   const arrow = { UP: "↗", DOWN: "↘", FLAT: "→" } as const;
   return (
     <AppShell name={String(me.displayName)}>

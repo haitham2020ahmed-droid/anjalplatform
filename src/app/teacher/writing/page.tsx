@@ -9,6 +9,8 @@ import { getActor, repo, requireActor } from "@/server/auth/next";
 import { readableClasses } from "@/server/teacher/coordinators";
 import { classTasks, classWritingErrors, taskForTeacher, writingSkillOptions, type TaskView } from "@/server/teacher/writing";
 import { GENRES, GENRE_LABEL } from "@/server/writing/genres";
+import { promptIdeasForGrade } from "@/server/writing/prompts";
+import { PromptPicker } from "@/components/writing/prompt-picker";
 import { WRITING_ERROR_CODES } from "@/server/writing/reteach";
 import { MISCONCEPTION_BY_CODE } from "@/insights/misconceptions";
 import { SkillListPicker, type SkillListRow } from "@/components/skill-picker";
@@ -193,15 +195,18 @@ function MovePicker({ task }: { task: TaskView }) {
   );
 }
 
-function NewTaskForm({ classId, skills, tr }: { classId: string; skills: SkillListRow[]; tr: (k: string) => string }) {
+function NewTaskForm({ classId, grade, skills, tr }: { classId: string; grade: number; skills: SkillListRow[]; tr: (k: string) => string }) {
   const kindTile = "inline-flex h-11 cursor-pointer items-center gap-2 rounded-lg px-3 font-semibold text-ink ring-1 ring-slate-300 has-[:checked]:bg-surface-2 has-[:checked]:ring-brand-navy";
+  const formId = `new-writing-task-${classId}`;
+  const ideas = promptIdeasForGrade(grade).map((p) => ({ id: p.id, genre: p.genre, genreLabel: GENRE_LABEL[p.genre], title: p.title, prompt: p.prompt }));
   return (
-    <form action={createTaskAction} className="mt-4 grid gap-x-5 gap-y-4 border-t border-line pt-4 text-sm md:grid-cols-2">
+    <form id={formId} action={createTaskAction} className="mt-4 grid gap-x-5 gap-y-4 border-t border-line pt-4 text-sm md:grid-cols-2">
       <input type="hidden" name="classId" value={classId} />
       <div role="radiogroup" className="flex flex-wrap gap-2 md:col-span-2">
         <label className={kindTile}><input type="radio" name="kind" value="WRITE" defaultChecked /><LineIcon name="writing" className="h-[18px] w-[18px]" />{tr("Writing")}</label>
         <label className={kindTile}><input type="radio" name="kind" value="READ_ALOUD" /><LineIcon name="mic" className="h-[18px] w-[18px]" />{tr("Read aloud")}</label>
       </div>
+      {ideas.length > 0 && <PromptPicker ideas={ideas} formId={formId} />}
       <label className={lbl}>{tr("Genre (writing)")}<select name="genre" defaultValue="NARRATIVE" className={inp}>{GENRES.map((g) => <option key={g} value={g}>{GENRE_LABEL[g]}</option>)}</select></label>
       <label className={lbl}>{tr("Title")}<input name="title" required maxLength={191} className={inp} /></label>
       <label className={lbl}>{tr("What students do")}<textarea name="prompt" required rows={4} className={area} placeholder="e.g. Write an opinion: should every school have a garden? Give two reasons." /></label>
@@ -245,9 +250,11 @@ export default async function WritingPage({ searchParams }: { searchParams: Prom
   if (sp.task && isLocked(await repo.findUnique("WritingTask", { id: sp.task }))) redirect(`/teacher/writing/task/${encodeURIComponent(sp.task)}`);
   const classes = (await readableClasses(repo, actor)).sort((a, b) => String(a.name).localeCompare(String(b.name)));
   const classId = classes.some((c) => c.id === sp.classId) ? String(sp.classId) : classes[0] ? String(classes[0].id) : "";
-  const [tasks, task, errors, skills] = classId
-    ? await Promise.all([classTasks(repo, actor, classId), sp.task ? taskForTeacher(repo, actor, sp.task).catch(() => null) : Promise.resolve(null), classWritingErrors(repo, actor, classId), writingSkillOptions(repo, actor, classId)])
-    : [[], null, { rows: [], pending: 0, pieces: 0 }, []];
+  const klass = classes.find((c) => String(c.id) === classId);
+  const [tasks, task, errors, skills, gradeRow] = classId
+    ? await Promise.all([classTasks(repo, actor, classId), sp.task ? taskForTeacher(repo, actor, sp.task).catch(() => null) : Promise.resolve(null), classWritingErrors(repo, actor, classId), writingSkillOptions(repo, actor, classId), klass ? repo.findUnique("Grade", { id: klass.gradeId }) : Promise.resolve(null)])
+    : [[], null, { rows: [], pending: 0, pieces: 0 }, [], null];
+  const grade = Number(gradeRow?.level ?? 0);
   const chip = (on: boolean) => `rounded-full px-4 py-1.5 text-sm font-semibold ${on ? "bg-brand-navy text-white" : "bg-white ring-1 ring-slate-200 hover:ring-brand-teal"}`;
   return (
     <AppShell name={String(me.displayName)}>
@@ -262,7 +269,7 @@ export default async function WritingPage({ searchParams }: { searchParams: Prom
       </div>
       <details className="group/new mt-4 rounded-[1.25rem] bg-surface p-5 shadow-card ring-1 ring-line print:hidden" open={!tasks.length}>
         <summary className="flex cursor-pointer list-none items-center gap-2 text-base font-semibold text-brand-navy [&::-webkit-details-marker]:hidden"><span className="grid h-8 w-8 place-items-center rounded-lg bg-surface-2 ring-1 ring-line"><LineIcon name="plus" className="h-4 w-4" /></span>{tr("New genre task or reading aloud")}<LineIcon name="chevron" className="ms-auto h-4 w-4 text-muted transition-transform group-open/new:rotate-90 rtl:-scale-x-100" /></summary>
-        <NewTaskForm classId={classId} skills={skills} tr={tr} />
+        <NewTaskForm classId={classId} grade={grade} skills={skills} tr={tr} />
       </details>
       {/* tasks + the chosen task: a side list beside the task when one is open; otherwise the list takes the full width (no empty panel) */}
       <div className={`mt-5 grid gap-5 ${task ? "lg:grid-cols-[20rem_minmax(0,1fr)]" : ""}`}>

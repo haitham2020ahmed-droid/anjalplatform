@@ -68,6 +68,15 @@ export async function updateNormsAction(f: FormData): Promise<void> {
  * `extraGrades` in the URL, not saved anywhere: it only decides which empty rows the admin sees to fill in: once
  * real numbers are saved for that grade, nationalNorm() finds them regardless of whether it's still in this list. */
 export async function addNormGradeAction(f: FormData): Promise<void> {
+  try {
+    await requireActor({ roles: ["SCHOOL_ADMIN", "SUPER_ADMIN"], permission: "settings:school" });
+  } catch (e) {
+    if (isNextControl(e)) throw e;
+    const msg = await friendly(e, "map-rit");
+    const existing = String(f.get("extraGrades") ?? "").split(",").map(Number).filter((n) => Number.isInteger(n) && n > 0);
+    back({ msg, extraGrades: existing.join(",") });
+    return;
+  }
   const grade = Number(f.get("grade"));
   const existing = String(f.get("extraGrades") ?? "").split(",").map(Number).filter((n) => Number.isInteger(n) && n > 0);
   if (!Number.isInteger(grade) || grade < 1 || grade > 13) { back({ msg: "Enter a grade from 1 to 13.", extraGrades: existing.join(",") }); return; }

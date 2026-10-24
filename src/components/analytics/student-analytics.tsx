@@ -30,7 +30,7 @@ export function StudentAnalyticsView({ a }: { a: StudentAnalytics }) {
         <M label="Best streak correct" value={String(a.streakCorrect.longest)} />
         <M label="Current streak" value={a.streakCorrect.current ? `${a.streakCorrect.current} correct` : a.streakIncorrect.current ? `${a.streakIncorrect.current} incorrect` : "–"} />
         <M label="Highest level correct" value={a.highestLevelCorrect ? `Level ${a.highestLevelCorrect}` : "–"} />
-        <M label="Curriculum progress" value={`${a.curriculumProgressPct}%`} />
+        <M label="Curriculum progress" value={a.curriculumProgressPct === null ? "–" : `${a.curriculumProgressPct}%`} />
       </dl>
       <div className="mt-6 grid gap-6 lg:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)]">
         <div>

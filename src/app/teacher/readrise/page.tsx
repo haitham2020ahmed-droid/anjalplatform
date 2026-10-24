@@ -32,7 +32,7 @@ const TABS = [
 ] as const;
 type Tab = (typeof TABS)[number]["key"];
 const LINE_COLORS = ["#93c5fd", "#fdba74", "#86efac", "#c4b5fd", "#f9a8d4", "#a5f3fc", "#fcd34d", "#cbd5e1"];
-const pctTone = (c?: SkillCell) => (!c || c.pct === null ? "text-slate-300" : c.pct >= 75 ? "bg-emerald-50 text-emerald-800" : c.pct >= 50 ? "bg-amber-50 text-amber-900" : "bg-red-50 text-red-800");
+const pctTone = (c?: SkillCell) => (!c || c.pct === null ? "text-slate-500" : c.pct >= 75 ? "bg-emerald-50 text-emerald-800" : c.pct >= 50 ? "bg-amber-50 text-amber-900" : "bg-red-50 text-red-800");
 
 /** 🚀 ReadRise (teacher): the class dashboard — levels and growth, skills, polls, writing to score, assignments. */
 export default async function ReadRiseTeacher({ searchParams }: { searchParams: Promise<{ class?: string; tab?: string; msg?: string; student?: string }> }) {

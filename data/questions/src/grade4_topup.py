@@ -786,3 +786,171 @@ mc("precise-language", "L.4.3", 7, "Which revision of “The big storm made a lo
     ("The large storm made much damage.", "Only slightly more precise."),
     ("Something happened during the storm.", "Less precise.")],
    "Specific words (fierce sandstorm, three palm trees, tore) show exactly what happened.", "Precise language names exact things, numbers and actions.")
+
+
+# ============================================================ NAFS topup 2: V.SYNANT / RC.DETAIL / IAE.INFER
+# Grows three thin NAFS-mapped skills: synonyms-antonyms (NAFS.V.SYNANT), text-evidence
+# (NAFS.RC.DETAIL) and character / character-perspective / make-predictions (NAFS.IAE.INFER).
+# All reading items here are self-contained (a short original excerpt inside the stem), so
+# they do not depend on the existing numbered passages.
+
+# ---- synonyms-antonyms (NAFS.V.SYNANT) ----
+mc("synonyms-antonyms", "L.4.5.c", 1, "Which word means almost the same as “happy”?",
+   "joyful", [("tired", "Tired describes low energy, not a feeling of happiness."), ("angry", "Angry is a different, unhappy feeling."), ("hungry", "Hungry is about needing food, not feelings.")],
+   "Happy and joyful both describe feeling good and pleased.", "Synonyms feel the same when you read them in a sentence.")
+mc("synonyms-antonyms", "L.4.5.c", 2, "Which word is an antonym for “noisy”?",
+   "quiet", [("loud", "Loud is a synonym for noisy, not an opposite."), ("busy", "Busy describes activity, not sound."), ("messy", "Messy is about tidiness, not sound.")],
+   "Noisy means full of sound; quiet means little or no sound — opposites.", "Test an antonym by putting “not” in front: not noisy = quiet.")
+dd("synonyms-antonyms", "L.4.5.c", 2, "Choose the synonym: “The cheetah ran ____ (fast) across the field.”",
+   "swiftly", [("slowly", "This is an antonym."), ("loudly", "This describes sound, not speed."), ("sadly", "This describes a feeling, not speed.")],
+   "Swiftly means moving very fast, the same as the word in parentheses.", "Try the word in the blank — a synonym keeps the same meaning.")
+mc("synonyms-antonyms", "L.4.5.c", 3, "Which word is an antonym for “careful”?",
+   "careless", [("cautious", "Cautious is close in meaning to careful."), ("slow", "Slow is not the opposite of careful."), ("neat", "Neat describes tidiness, not care.")],
+   "Careful means paying close attention; careless means not paying attention — opposites.", "Many antonyms are formed by adding a prefix or suffix like -less.")
+match("synonyms-antonyms", "L.4.5.c", 4, "Match each word with its SYNONYM.",
+      [("quick", "fast"), ("joyful", "happy"), ("tiny", "small"), ("polite", "courteous")],
+      "Each pair has almost the same meaning.", "Try saying each word in the same sentence to check the meaning stays close.")
+tf("synonyms-antonyms", "L.4.5.c", 2, "True or false: when describing a surface, “rough” and “smooth” are synonyms.", False,
+   "Rough means bumpy or uneven, and smooth means even and flat — these are opposites, not synonyms.",
+   "If two words describe opposite feelings when you touch something, they are antonyms.")
+mc("synonyms-antonyms", "L.4.5.c", 3, "Which word is a synonym for “gentle” in: “She gave the kitten a gentle pat”?",
+   "soft", [("rough", "Rough is an antonym of gentle."), ("fast", "Fast describes speed, not gentleness."), ("loud", "Loud describes sound, not touch.")],
+   "A soft pat and a gentle pat both describe a light, kind touch.", "Picture the action in the sentence to check which word fits the same way.")
+dd("synonyms-antonyms", "L.4.5.c", 3, "Choose the antonym: “The sky was sunny in the morning but ____ by noon.”",
+   "gloomy", [("bright", "Bright is similar to sunny, not opposite."), ("warm", "Warm does not describe the sky’s look."), ("clear", "Clear is similar to sunny.")],
+   "Gloomy (dark and cloudy) is the opposite of sunny.", "Look for a word that paints the opposite picture in the sky.")
+mc("synonyms-antonyms", "L.4.5.c", 1, "Which word means almost the same as “scared”?",
+   "frightened", [("excited", "Excited is a different feeling."), ("curious", "Curious means wanting to know, not fear."), ("proud", "Proud is a positive, different feeling.")],
+   "Scared and frightened both describe feeling afraid.", "Picture the feeling each word shows.")
+mc("synonyms-antonyms", "L.4.5.c", 2, "Which word is an antonym for “messy”?",
+   "neat", [("dirty", "Dirty is close in meaning to messy."), ("cluttered", "Cluttered means messy."), ("colorful", "Colorful is about color, not tidiness.")],
+   "Messy means untidy; neat means tidy and organized — opposites.", "Picture a messy room, then picture its opposite.")
+match("synonyms-antonyms", "L.4.5.c", 5, "Match each word with its ANTONYM.",
+      [("loud", "quiet"), ("strong", "weak"), ("wet", "dry"), ("bright", "dim")],
+      "Each pair has opposite meanings.", "Think of the exact opposite picture for each word.")
+mc("synonyms-antonyms", "L.4.5.c", 4, "Read: “Dana felt upset when her kite got stuck in the tree.” Which word could replace “upset” without changing the meaning?",
+   "unhappy", [("relieved", "Relieved means feeling better, the opposite feeling."), ("thrilled", "Thrilled means very excited and happy."), ("confused", "Confused means not understanding, a different feeling.")],
+   "Upset and unhappy both describe feeling bad about something.", "Replace the word in the sentence and check if the meaning stays the same.")
+tf("synonyms-antonyms", "L.4.5.c", 1, "A friendly neighbor smiles and waves, while an unfriendly neighbor looks away without a word. True or false: this contrast shows that “friendly” and “unfriendly” are antonyms.", True,
+   "Friendly means warm and kind to others; unfriendly means cold or unkind — opposite meanings.",
+   "The prefix “un-” often creates an antonym, as in friendly/unfriendly.")
+dd("synonyms-antonyms", "L.4.5.c", 2, "Choose the synonym: “The puppy was very ____ (small).”",
+   "tiny", [("heavy", "Heavy describes weight, not size."), ("loud", "Loud describes sound."), ("fast", "Fast describes speed.")],
+   "Tiny and small both describe something little in size.", "Match the word to the meaning given in parentheses.")
+mc("synonyms-antonyms", "L.4.5.c", 3, "Which word means almost the same as “repair”?",
+   "fix", [("break", "Break is an antonym of repair."), ("ignore", "Ignore means to pay no attention, unrelated to repairing."), ("replace", "Replace means to get a new one, not fixing the old one.")],
+   "Repair and fix both mean to make something work again.", "Think about what you do to something that is broken.")
+
+# ---- text-evidence (NAFS.RC.DETAIL) ----
+mc("text-evidence", "RI.4.1", 2, "Read: “Elephants flap their large ears to cool down in the heat. The ears are full of blood vessels, and flapping them helps release heat into the air.” Which detail explains HOW elephants’ ears help them cool down?",
+   "“The ears are full of blood vessels, and flapping them helps release heat into the air.”",
+   [("“Elephants flap their large ears to cool down in the heat.”", "This states that they cool down, but not how the ears do it."), ("“Elephants live in hot climates.”", "This sentence is not in the text."), ("“Elephants are the largest land animals.”", "This fact is not in the text and does not explain cooling.")],
+   "The sentence about blood vessels and releasing heat is the actual mechanism, which answers “how.”", "Look for the sentence that explains the process, not just the fact.")
+ms("text-evidence", "RI.4.1", 4, "Read: “Spider silk comes in two kinds. Sticky silk traps insects, while non-sticky silk forms the frame. The spider is careful to walk only on the non-sticky strands.” Which TWO details explain why the spider does not get stuck in its own web?",
+   ["“non-sticky silk forms the frame”", "“The spider is careful to walk only on the non-sticky strands.”"],
+   [("“Sticky silk traps insects.”", "This explains how prey gets caught, not how the spider avoids being caught.")],
+   "The web has two kinds of silk, and the spider only walks on the non-sticky kind.", "Choose evidence that explains the SPECIFIC claim, not just related facts.")
+mc("text-evidence", "RL.4.1", 3, "Read: “Yara practiced her violin every afternoon for a month before the recital. The night before, her hands trembled as she packed her case.” Which detail shows that Yara felt nervous the night before the recital?",
+   "“her hands trembled as she packed her case.”",
+   [("“Yara practiced her violin every afternoon for a month.”", "This describes her practice routine, not her feelings the night before."), ("“before the recital”", "This only tells when the event happens, not how she felt."), ("“Yara practiced her violin.”", "This states an action, not an emotion.")],
+   "Trembling hands are a physical sign of nervousness.", "Look for descriptions of feelings or body language.")
+tf("text-evidence", "RI.4.1", 2, "Read: “Bees communicate by dancing. A figure-eight dance tells other bees the direction and distance to flowers.” True or false: the text says bees use sound, not movement, to share information about flowers.", False,
+   "The text says bees communicate by dancing (movement), not sound.",
+   "Check whether the statement matches exactly what the text says.")
+mc("text-evidence", "RI.4.1", 3, "Read: “Rainforests cover about 6 percent of Earth’s land but are home to more than half of the world’s plant and animal species.” Which detail is evidence that rainforests are extremely important for wildlife?",
+   "“home to more than half of the world’s plant and animal species”",
+   [("“cover about 6 percent of Earth’s land”", "This describes size, not importance for wildlife."), ("“Rainforests”", "This is just the subject, not evidence."), ("“Earth’s land”", "This is part of the sentence, not evidence of importance.")],
+   "More than half of all species living there shows huge importance for wildlife.", "Match evidence to exactly what the claim is about.")
+ms("text-evidence", "RL.4.1", 5, "Read: “Khalid forgot his lunch at home. At recess, Fatima handed him half of her sandwich without saying a word, and Noor gave him one of her dates.” Which TWO details show that Khalid’s classmates were kind to him?",
+   ["“Fatima handed him half of her sandwich without saying a word”", "“Noor gave him one of her dates”"],
+   [("“Khalid forgot his lunch at home.”", "This explains the problem, not kindness."), ("“At recess”", "This only tells when, not an act of kindness.")],
+   "Sharing food with Khalid shows kindness from his classmates.", "Look for actions that directly help someone.")
+mc("text-evidence", "RI.4.1", 4, "Read: “Octopuses can change both the color and the texture of their skin in less than a second. This lets them blend in with rocks, sand, or coral to hide from predators.” Which detail explains WHY octopuses change their skin?",
+   "“This lets them blend in with rocks, sand, or coral to hide from predators.”",
+   [("“Octopuses can change both the color and the texture of their skin.”", "This describes what they do, not why."), ("“in less than a second”", "This tells how fast, not why."), ("“with rocks, sand, or coral”", "This names places, not the reason.")],
+   "Hiding from predators is the stated reason for changing color and texture.", "The word “why” means you need the reason, not just the action.")
+mc("text-evidence", "RL.4.1", 3, "Read: “Lina’s hands shook as she stepped onto the stage, but by the time she finished her poem, she was smiling and bowing to loud applause.” Which detail shows Lina’s feelings changed during her performance?",
+   "she was smiling and bowing to loud applause",
+   [("her hands shook as she stepped onto the stage", "This shows how she felt at the start, not the change."), ("she stepped onto the stage", "This is an action, not a feeling."), ("she finished her poem", "This states an event, not a feeling.")],
+   "Comparing the shaking hands at the start with the smiling at the end shows her feelings changed from nervous to happy.", "Compare the beginning and the end of the sentence to find a change.")
+tf("text-evidence", "RI.4.1", 3, "Read: “Most adult humans have 32 teeth, including four wisdom teeth that often appear in the late teenage years.” True or false: the text states that all 32 teeth appear by the age of five.", False,
+   "The text says wisdom teeth often appear in the late teenage years, not by age five.",
+   "Watch for specific ages or numbers that do not match the text.")
+mc("text-evidence", "RI.4.1", 2, "Read: “A rainbow forms when sunlight passes through raindrops and separates into different colors.” Which detail tells you WHAT two things are needed to form a rainbow?",
+   "sunlight passes through raindrops",
+   [("separates into different colors", "This describes the result, not what is needed."), ("A rainbow forms", "This names the event, not the two things needed."), ("different colors", "This is part of the result.")],
+   "The text names sunlight and raindrops as what must come together to form a rainbow.", "Find the exact words that answer the question being asked.")
+mc("text-evidence", "RL.4.1", 4, "Read: “Jamal practiced his multiplication tables every night, even when his friends asked him to play. On test day, he finished early and checked his answers twice.” Which detail shows that Jamal resisted a distraction to keep studying?",
+   "even when his friends asked him to play",
+   [("he practiced his multiplication tables every night", "This shows practice, not resisting distraction."), ("he finished early and checked his answers twice", "This happens on test day, not during practice."), ("On test day", "This only tells when, not about distraction.")],
+   "Despite being asked to play, Jamal kept studying — showing he resisted the distraction.", "Look for the exact moment the text shows a choice.")
+ms("text-evidence", "RI.4.1", 5, "Read: “Volcanoes can be helpful as well as dangerous. The ash from eruptions makes soil rich for farming, but fast-moving lava and toxic gases can destroy everything in their path.” Which TWO details show that volcanoes can be dangerous?",
+   ["“fast-moving lava”", "“toxic gases can destroy everything in their path”"],
+   [("“Volcanoes can be helpful as well as dangerous.”", "This states both ideas, not only danger."), ("“ash from eruptions makes soil rich for farming”", "This is a helpful effect, not dangerous.")],
+   "Lava and toxic gases are named as the dangerous parts of volcanoes.", "Separate the helpful details from the dangerous ones before choosing.")
+mc("text-evidence", "RI.4.1", 3, "Read: “Honey never spoils if it is stored properly, because its low moisture and natural acidity stop bacteria from growing.” Which detail explains WHY honey does not spoil?",
+   "its low moisture and natural acidity stop bacteria from growing",
+   [("Honey never spoils if it is stored properly.", "This states the fact, not the reason."), ("if it is stored properly", "This is a condition, not the reason."), ("Honey", "This just names the subject.")],
+   "Low moisture and acidity stopping bacteria is the scientific reason given.", "The word “because” often points straight to the reason.")
+mc("text-evidence", "RL.4.1", 4, "Read: “Sara’s little brother broke her favorite model airplane. She clenched her fists, took a deep breath, and then helped him find the missing pieces.” Which detail shows that Sara controlled her anger?",
+   "took a deep breath, and then helped him find the missing pieces",
+   [("clenched her fists", "This shows she felt angry, not that she controlled it."), ("broke her favorite model airplane", "This describes the brother’s action, not Sara’s response."), ("her little brother", "This names a character, not an action.")],
+   "Taking a breath and helping, instead of reacting in anger, shows self-control.", "Look for what the character does AFTER feeling a strong emotion.")
+tf("text-evidence", "RI.4.1", 2, "Read: “Reusable water bottles can save a family hundreds of plastic bottles each year, since one bottle can be refilled thousands of times.” True or false: according to the text, a reusable bottle must be thrown away after just a few uses.", False,
+   "The text says a reusable bottle can be refilled thousands of times, which is the opposite of being thrown away quickly.",
+   "Compare the statement word-for-word with what the text actually says.")
+
+# ---- character / character-perspective / make-predictions (NAFS.IAE.INFER) ----
+mc("character", "RL.4.3", 2, "Read: “Even though Omar’s team lost the match, he shook hands with every player on the other team and congratulated them.” Which word best describes Omar?",
+   "sportsmanlike", [("jealous", "Jealousy would show resentment, not congratulating the winners."), ("careless", "Nothing shows he is careless."), ("shy", "Shaking hands with everyone shows confidence, not shyness.")],
+   "Congratulating the winning team after losing shows good sportsmanship.", "A character’s actions after disappointment reveal a trait.")
+mc("character", "RL.4.3", 3, "Read: “Noor noticed a new student standing alone at lunch. She walked over, sat beside him, and asked about his favorite games.” Which word best describes Noor?",
+   "welcoming", [("nervous", "Walking over confidently does not show nervousness."), ("bossy", "Asking kindly about his interests is not bossy."), ("careless", "Noticing someone alone shows the opposite of carelessness.")],
+   "Noor notices someone left out and includes him, showing she is welcoming.", "Watch how a character treats people who are left out.")
+tf("character", "RL.4.3", 2, "Read: “Hassan checked his backpack three times before school to make sure he had every book and pencil he needed.” True or false: this detail shows that Hassan is careless about his schoolwork.", False,
+   "Checking three times shows Hassan is careful, the opposite of careless.",
+   "Match the character’s actions to the trait, not the opposite.")
+mc("character", "RL.4.3", 4, "Read: “During the group project, Maya let her teammates choose the topic, then quietly did most of the research herself without complaining.” Which word best describes Maya?",
+   "hardworking", [("selfish", "Letting others choose and doing the work without complaint is not selfish."), ("lazy", "Doing most of the research shows the opposite of lazy."), ("rude", "Nothing in the text shows rudeness.")],
+   "Doing the hard work quietly and without complaint shows Maya is hardworking.", "Look at what a character actually does, not just what they say.")
+mc("character", "RL.4.3", 3, "Read: “When the power went out during the storm, Yusuf calmly lit a candle, found the flashlight, and told his little sister it would be okay.” Which word best describes Yusuf?",
+   "calm", [("panicked", "His calm actions are the opposite of panicked."), ("confused", "He knows exactly what to do, showing he is not confused."), ("angry", "Nothing shows anger; he reassures his sister instead.")],
+   "Yusuf’s steady, helpful actions during a stressful moment show he stays calm.", "A character’s behavior in a difficult moment often reveals a trait.")
+mc("character-perspective", "RL.4.6", 3, "Read: “Everyone else cheered when the school trip was canceled because of rain, but Huda sighed and looked down at her new hiking boots.” What is Huda’s perspective on the cancellation?",
+   "She is disappointed because she was looking forward to the trip.",
+   [("She is relieved like everyone else.", "Sighing and looking down shows disappointment, not relief."), ("She is angry at her classmates.", "Nothing shows anger toward her classmates."), ("She did not care about the trip.", "Her reaction shows she did care.")],
+   "Sighing and looking at the boots she wanted to wear shows she is upset about missing the trip.", "Notice when a character’s reaction is different from everyone else’s — it shows their own perspective.")
+mc("character-perspective", "RL.4.6", 4, "Read: “Mona thought the broken vase was ruined, but her brother Khalid saw the pieces and said, ‘We can glue this back together — it will look even more interesting.’” How is Khalid’s point of view different from Mona’s?",
+   "Mona sees the vase as ruined, while Khalid sees a chance to fix and improve it.",
+   [("Both think the vase cannot be fixed.", "Khalid believes it can be fixed."), ("Mona wants to fix it, and Khalid wants to throw it away.", "This is the opposite of what the text says."), ("Both are excited about the broken vase.", "Mona is not excited; she thinks it is ruined.")],
+   "Mona focuses on the damage, while Khalid focuses on the possibility of repair.", "Compare what each character says about the same event.")
+tf("character-perspective", "RL.4.6", 2, "Read: “The coach said the team played well despite losing, but Tariq kicked the ground and refused to look at the scoreboard.” True or false: Tariq shares the coach’s positive view of the game.", False,
+   "Tariq’s actions show frustration and disappointment, not agreement with the coach’s positive view.",
+   "A character’s actions can show a different perspective from what another character says.")
+mc("character-perspective", "RL.4.6", 3, "Read: “Sami’s grandmother smiled at the old photograph and said, ‘Those were simple, happy days.’ Sami looked at the black-and-white photo and thought it looked dull and plain.” How do Sami and his grandmother see the old photograph differently?",
+   "His grandmother sees happy memories, while Sami sees only a dull, old picture.",
+   [("They both see the photo as boring.", "The grandmother’s smile shows she feels happy, not bored."), ("Sami remembers the days in the photo better than his grandmother.", "Sami was not alive then; the grandmother experienced it."), ("They both see the same happy memories.", "Sami only sees the picture itself, not the memories.")],
+   "The grandmother’s words show she values the memory, while Sami’s thought shows he only judges the photo’s look.", "A character’s own experience shapes how they see the same thing.")
+mc("character-perspective", "RL.4.6", 5, "A story is told from Layla’s point of view only. How would readers’ understanding change if her little brother told the same story?",
+   "Readers would learn the brother’s own thoughts and feelings instead of Layla’s.",
+   [("The events in the story would be different.", "Changing the narrator does not change what happened."), ("Layla would disappear from the story.", "She would still appear; only whose thoughts we hear would change."), ("The setting of the story would change.", "The setting stays the same no matter who narrates.")],
+   "The narrator decides whose inner thoughts and feelings the reader gets to know.", "Point of view controls whose feelings the reader can directly hear.")
+mc("make-predictions", "RL.4.1", 2, "Read: “Fatima watered the small seed every single day and made sure it got plenty of sunlight by the window.” What will most likely happen to the seed?",
+   "It will probably grow into a healthy plant.",
+   [("It will dry out and die.", "Regular watering makes this unlikely."), ("It will be eaten by a bird.", "Nothing in the text mentions birds."), ("Nothing will happen to it.", "Careful watering and sunlight usually cause a seed to grow.")],
+   "Regular water and sunlight are what a seed needs to grow, so it will most likely grow into a plant.", "Think about what usually happens when you combine the clues in the text.")
+tf("make-predictions", "RL.4.1", 2, "Read: “Khalid forgot his umbrella, and dark clouds were gathering quickly in the sky.” Based on this, it makes sense to predict that Khalid will probably get wet on his way home.", True,
+   "Dark clouds usually mean rain is coming, and Khalid has no umbrella, so he will likely get wet.",
+   "Good predictions connect text clues to what usually happens in real life.")
+mc("make-predictions", "RL.4.1", 3, "Read: “Noor had forgotten to study for her spelling test, but during recess she quickly asked her friend to quiz her on all the words.” What is the BEST prediction about Noor’s test?",
+   "She may do better than if she had not reviewed the words at all.",
+   [("She will fail the test no matter what.", "Her last-minute review could still help."), ("She will refuse to take the test.", "Nothing suggests she will refuse."), ("Her friend will take the test for her.", "Her friend is only quizzing her, not taking the test.")],
+   "A quick review before a test usually helps, even if it is not as good as studying earlier.", "Use the clue about her action right before the test to judge the likely outcome.")
+mc("make-predictions", "RL.4.1", 4, "Read: “The hikers noticed the trail markers becoming fewer and the sky growing darker, but they kept walking deeper into the unfamiliar forest without checking their map.” Which detail BEST supports the prediction that the hikers might get lost?",
+   "“they kept walking deeper into the unfamiliar forest without checking their map.”",
+   [("“The hikers noticed the trail markers becoming fewer.”", "This is a warning sign, but choosing to keep going without checking the map is the stronger clue for getting lost."), ("“the sky growing darker.”", "This is about light, not about losing the trail."), ("“trail markers.”", "This alone is only part of the sentence, not full evidence.")],
+   "Continuing without checking a map, after noticing fewer markers, strongly suggests they will lose their way.", "Choose the detail that connects most directly to the exact prediction.")
+mc("make-predictions", "RL.4.1", 3, "Read: “Every afternoon, Yusuf fed the stray cat behind his building and slowly it began following him to the bus stop.” What will the cat most likely do next?",
+   "It will probably keep following Yusuf and may even trust him more.",
+   [("It will run away and never return.", "The cat has been coming closer, not farther."), ("It will attack Yusuf.", "Nothing suggests the cat is aggressive."), ("It will stop eating altogether.", "The cat has been eating regularly, so this is unlikely.")],
+   "Since the cat already follows Yusuf after being fed daily, it will likely continue trusting and following him.", "A pattern of behavior usually continues unless the text gives a reason for it to change.")

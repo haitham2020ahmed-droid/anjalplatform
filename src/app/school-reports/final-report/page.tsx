@@ -29,7 +29,7 @@ function FinalReportArticle({ r, L, breakBefore }: { r: FinalReport; L: Locale; 
           {([
             ["Questions", r.kpis.questions], ["Accuracy", r.kpis.accuracyPct !== null ? `${r.kpis.accuracyPct}%` : "—"], ["Minutes", r.kpis.minutes],
             ["Skills mastered", r.kpis.skillsMastered], ["Developing", r.kpis.skillsDeveloping], ["Needs support", r.kpis.skillsNeedingSupport],
-            ["Curriculum progress", `${r.kpis.curriculumProgressPct}%`], ["Paired growth", r.kpis.pairedGrowth !== null ? `${r.kpis.pairedGrowth >= 0 ? "+" : ""}${r.kpis.pairedGrowth}` : "—"],
+            ["Curriculum progress", r.kpis.curriculumProgressPct !== null ? `${r.kpis.curriculumProgressPct}%` : "—"], ["Paired growth", r.kpis.pairedGrowth !== null ? `${r.kpis.pairedGrowth >= 0 ? "+" : ""}${r.kpis.pairedGrowth}` : "—"],
           ] as const).map(([l, v]) => (
             <div key={l} className="rounded-2xl bg-slate-50 p-3 ring-1 ring-slate-200"><dt className="text-xs text-slate-500">{l}</dt><dd className="text-xl font-extrabold text-brand-navy">{v}</dd></div>
           ))}

@@ -173,6 +173,36 @@ export async function startPlanAction(f: FormData) {
   redirect(target);
 }
 
+/**
+ * r86: 🛟 Support plan's fast path — "Send as-is", next to "Create Plan" on /teacher/plans/support. For a clear-cut
+ * case (one student, the platform's own struggling-skill list, nothing to customise) this builds the exact same
+ * draft startPlanAction would (program RTI, those skills, "Struggling skill" reason) and sends it immediately,
+ * instead of the teacher clicking through Who → What → Preview → Send for something they weren't going to change.
+ * The slower path (the "Create Plan" link, still on the same row) is never removed — this is only an extra,
+ * optional shortcut for the cases where review would just rubber-stamp the same draft.
+ */
+export async function quickSendSupportPlanAction(f: FormData) {
+  const a = await requireActor(ACCESS);
+  const { t } = await getT();
+  const classId = str(f, "classId"), studentId = str(f, "sid");
+  const skills = [...new Set(f.getAll("add").map(String).filter(Boolean))].slice(0, 20);
+  const fallback = `/teacher/plans?${new URLSearchParams([["tab", "new"], ["program", "RTI"], ["classId", classId], ["who", "student"], ["sid", studentId], ...skills.map((id) => ["add", id] as [string, string])])}`;
+  let target: string;
+  try {
+    if (!studentId) throw new ValidationError("Choose the student.");
+    if (!skills.length) throw new ValidationError("No struggling skill to build a plan from — use Create Plan to choose one yourself.");
+    const planId = await createDraft(repo, a, { classId, program: "RTI", studentIds: [studentId], sections: skills.map((skillId) => ({ skillId, count: 10, reason: "Struggling skill" })), suggested: true });
+    const r = await sendPlan(repo, a, planId, new Date(), null);
+    target = `/teacher/plans/support?classId=${encodeURIComponent(classId)}&msg=${encodeURIComponent(t("Sent: {parts} part(s) to {students} student(s). They see it in My Plans and My Work.", { parts: r.sections, students: r.students }))}`;
+  } catch (e) {
+    // a refusal (e.g. a program/grade mismatch, nothing buildable) lands the teacher in the full editor to fix it,
+    // rather than leaving them stuck on the Support plan page with only an error to read.
+    if (!ok(e)) throw e;
+    target = `${fallback}&msg=${encodeURIComponent(`⚠️ ${t((e as Error).message)}`)}`;
+  }
+  redirect(target);
+}
+
 /** 💡 A suggestion → a draft to review (the suggestion is made again on the server and found by its id). */
 export async function useSuggestionAction(f: FormData) {
   const a = await requireActor(ACCESS);

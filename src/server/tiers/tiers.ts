@@ -67,13 +67,19 @@ function groupBy(rows: Row[], key = "studentId"): Map<string, Row[]> {
   return m;
 }
 
-export interface ComputeResult { students: number; changed: number; notified: number; routed: number; rechecksEvaluated: number; locked: number }
+export interface ComputeResult { students: number; changed: number; notified: number; routed: number; rechecksEvaluated: number; locked: number; recheckOutcomesNotified: number }
 interface Change { studentId: string; from: Tier; to: Tier; reason: string }
 
-/** Re-check outcomes: RETEACH rows whose re-check is done (or closed) get their result. Returns check points by student. */
+/** A re-check that was just evaluated this run, for the teacher notification below. */
+export interface FreshRecheckOutcome { studentId: string; skillId: string; passed: boolean | null; pct: number | null; missed: boolean }
+
+/** Re-check outcomes: RETEACH rows whose re-check is done (or closed) get their result. Returns check points by
+ *  student, plus (r86) the outcomes that were freshly decided THIS run — so the teacher can be told once, right
+ *  when it happens, instead of having to come back to the Support plan page to notice. */
 type RawCheck = CheckPoint & { assignmentId?: string };
-async function evaluateRechecks(repo: Repo, ids: string[], now: Date): Promise<{ points: Map<string, RawCheck[]>; evaluated: number }> {
+async function evaluateRechecks(repo: Repo, ids: string[], now: Date): Promise<{ points: Map<string, RawCheck[]>; evaluated: number; fresh: FreshRecheckOutcome[] }> {
   const points = new Map<string, RawCheck[]>();
+  const fresh: FreshRecheckOutcome[] = [];
   const rows = await repo.findMany("TierChange", { studentId: { in: ids }, source: "RETEACH", createdAt: { gte: new Date(now.getTime() - 180 * DAY) } }, { select: ["id", "studentId", "evidence", "createdAt"] });
   const pending: { row: Row; ev: Record<string, unknown>; aid: string }[] = [];
   for (const r of rows) {
@@ -83,7 +89,7 @@ async function evaluateRechecks(repo: Repo, ids: string[], now: Date): Promise<{
     if (out && typeof out.pct === "number" && out.at) { const l = points.get(s(r.studentId)) ?? []; l.push({ at: new Date(out.at), pct: out.pct, kind: "RECHECK", assignmentId: rc?.assignmentId ? s(rc.assignmentId) : undefined }); points.set(s(r.studentId), l); }
     else if (!out && rc?.assignmentId) pending.push({ row: r, ev, aid: s(rc.assignmentId) });
   }
-  if (!pending.length) return { points, evaluated: 0 };
+  if (!pending.length) return { points, evaluated: 0, fresh };
   const aids = [...new Set(pending.map((p) => p.aid))];
   const [links, sessions] = await Promise.all([
     repo.findMany("AssignmentStudent", { assignmentId: { in: aids }, studentId: { in: ids } }, { select: ["assignmentId", "studentId", "status", "completedAt"] }),
@@ -105,9 +111,13 @@ async function evaluateRechecks(repo: Repo, ids: string[], now: Date): Promise<{
       outcome = { pct: pctv, correct: Number(x.correctCount), total: Number(x.questionCount), at: at.toISOString(), passed: pctv >= PASS_PCT, evaluatedAt: now.toISOString() };
       const list = points.get(s(p.row.studentId)) ?? []; list.push({ at, pct: pctv, kind: "RECHECK", assignmentId: p.aid }); points.set(s(p.row.studentId), list);
     } else if (!l || (due && due.getTime() < now.getTime())) outcome = { missed: true, evaluatedAt: now.toISOString() };
-    if (outcome) { await repo.updateMany("TierChange", { id: p.row.id }, { evidence: { ...p.ev, outcome } }); evaluated++; }
+    if (outcome) {
+      await repo.updateMany("TierChange", { id: p.row.id }, { evidence: { ...p.ev, outcome } });
+      evaluated++;
+      fresh.push({ studentId: s(p.row.studentId), skillId: s(p.ev.skillId), passed: typeof outcome.passed === "boolean" ? outcome.passed : null, pct: typeof outcome.pct === "number" ? outcome.pct : null, missed: Boolean(outcome.missed) });
+    }
   }
-  return { points, evaluated };
+  return { points, evaluated, fresh };
 }
 
 /** Prior of a check's ability: grade level, wide (a check should speak for itself). */
@@ -140,7 +150,7 @@ export async function checkDetails(repo: Repo, pairs: { assignmentId: string; st
 
 /** The tier rules for every student of a school (or some students). Idempotent: rows change only when the result does. */
 export async function computeTiers(repo: Repo, schoolId: string, now = new Date(), opts: { studentIds?: string[]; notify?: boolean; route?: boolean } = {}): Promise<ComputeResult> {
-  const res: ComputeResult = { students: 0, changed: 0, notified: 0, routed: 0, rechecksEvaluated: 0, locked: 0 };
+  const res: ComputeResult = { students: 0, changed: 0, notified: 0, routed: 0, rechecksEvaluated: 0, locked: 0, recheckOutcomesNotified: 0 };
   let students = await repo.findMany("Student", { schoolId, deletedAt: null }, { select: ["id", "gradeId"] });
   if (opts.studentIds) { const want = new Set(opts.studentIds); students = students.filter((x) => want.has(s(x.id))); }
   if (!students.length) return res;
@@ -183,12 +193,14 @@ export async function computeTiers(repo: Repo, schoolId: string, now = new Date(
   const changes: Change[] = [];
   const suggestions: Change[] = [];
   const toRoute: { studentId: string; tier: 2 | 3; skillId: string }[] = [];
+  const recheckOutcomes: FreshRecheckOutcome[] = [];
   const ids = students.map((x) => s(x.id));
   res.students = ids.length;
   for (let i = 0; i < ids.length; i += CHUNK) {
     const chunk = ids.slice(i, i + CHUNK);
     const rc = await evaluateRechecks(repo, chunk, now);
     res.rechecksEvaluated += rc.evaluated;
+    recheckOutcomes.push(...rc.fresh);
     // completed text-set progress checks count as checks too (two < 60% / two ≥ 80% in a row move the tier)
     const pc = await progressCheckPoints(repo, schoolId, chunk, new Date(now.getTime() - 180 * DAY), now);
     const [tiers, diags, weekly, profiles, risks, fluency, mastery, maps, levelStates, studentRows] = await Promise.all([
@@ -305,6 +317,9 @@ export async function computeTiers(repo: Repo, schoolId: string, now = new Date(
   if (suggestions.length && opts.notify !== false) await notifyTeachers(repo, suggestions, now, true).catch((e) => log("error", "tiers.suggest.notify.failed", { schoolId, error: e }));
   if (changes.length && opts.notify !== false) res.notified = await notifyTeachers(repo, changes, now).catch((e) => { log("error", "tiers.notify.failed", { schoolId, error: e }); return 0; });
   if (toRoute.length && opts.route !== false) res.routed = await routeReteach(repo, schoolId, toRoute, now).catch((e) => { log("error", "tiers.reteach.failed", { schoolId, error: e }); return 0; });
+  // r86: tell the teacher the moment a re-check result is in, instead of leaving it to be noticed on a later visit
+  // to the Support plan page — this is purely a notification; it changes nothing about the tier/evidence logic above.
+  if (recheckOutcomes.length && opts.notify !== false) res.recheckOutcomesNotified = await notifyRecheckOutcomes(repo, recheckOutcomes, now).catch((e) => { log("error", "tiers.recheck_outcome.notify.failed", { schoolId, error: e }); return 0; });
   return res;
 }
 
@@ -350,6 +365,52 @@ async function notifyTeachers(repo: Repo, changes: Change[], now: Date, suggest 
       const plain = mine.slice(0, 6).map((c) => `${name.get(c.studentId)} ${c.to < c.from ? "improved" : "needs more help"} — now ${SUPPORT_WORDS[c.to] ?? `Tier ${c.to}`} (Tier ${c.to})`).join("; ");
       rows.push({ userId: t.userId, type: "TIER_CHANGE", title: mine.length === 1 ? `🛟 ${plain.split(" (Tier")[0]}` : `🛟 Support changed for ${mine.length} students`, body: `${plain}${mine.length > 6 ? ` and ${mine.length - 6} more` : ""}. Open the Support plan to see why and to create a plan.`, link: `/teacher/plans/support?classId=${classId}`, readAt: null, createdAt: now });
     }
+  }
+  if (rows.length) await repo.createMany("Notification", rows);
+  return rows.length;
+}
+
+/**
+ * r86: One RETEACH_OUTCOME notification per teacher and run, naming the students whose re-check (assigned by
+ * routeReteach, 7–14 days earlier) was just graded or closed — so the teacher learns whether their plan worked
+ * without having to come back and check the Support plan page on their own. Mirrors notifyTeachers's grouping.
+ */
+async function notifyRecheckOutcomes(repo: Repo, outcomes: FreshRecheckOutcome[], now: Date): Promise<number> {
+  if (!outcomes.length) return 0;
+  const by = await teachersOf(repo, outcomes.map((o) => o.studentId));
+  if (!by.size) return 0;
+  const st = await repo.findMany("Student", { id: { in: outcomes.map((o) => o.studentId) } }, { select: ["id", "userId"] });
+  const users = st.length ? await repo.findMany("User", { id: { in: st.map((x) => s(x.userId)) } }, { select: ["id", "displayName"] }) : [];
+  const uname = new Map(users.map((u) => [s(u.id), s(u.displayName) || "Student"]));
+  const name = new Map(st.map((x) => [s(x.id), uname.get(s(x.userId)) ?? "Student"]));
+  const skillIds = [...new Set(outcomes.map((o) => o.skillId).filter(Boolean))];
+  const skillRows = skillIds.length ? await repo.findMany("Skill", { id: { in: skillIds } }, { select: ["id", "name"] }) : [];
+  const skillName = new Map(skillRows.map((k) => [s(k.id), s(k.name)]));
+  // last one per student (a student could have more than one skill re-checked the same run; keep it short per teacher)
+  const byStudent = new Map<string, FreshRecheckOutcome>();
+  for (const o of outcomes) byStudent.set(o.studentId, o);
+  const line = (o: FreshRecheckOutcome): string => {
+    const nm = name.get(o.studentId) ?? "Student", sk = skillName.get(o.skillId) ?? "the focus skill";
+    if (o.missed) return `${nm}: didn't take the re-check on ${sk} — worth checking in`;
+    const pct = o.pct ?? 0;
+    return o.passed ? `${nm}: passed the re-check on ${sk} (${pct}%) — the plan worked ✅` : `${nm}: didn't pass the re-check on ${sk} (${pct}%) — may need another round`;
+  };
+  const rows: Row[] = [];
+  for (const t of by.values()) {
+    const mine = [...new Set(t.students.map((x) => x.studentId))].map((id) => byStudent.get(id)!).filter(Boolean);
+    if (!mine.length) continue;
+    const classId = t.students[0].classId;
+    const anyPassed = mine.some((o) => o.passed), anyNeedsWork = mine.some((o) => !o.passed);
+    const icon = anyNeedsWork && !anyPassed ? "⚠️" : anyPassed && !anyNeedsWork ? "✅" : "🔁";
+    const list = mine.slice(0, 6).map(line).join("; ");
+    rows.push({
+      // reuses the TIER_CHANGE enum value (no schema change): same Support-plan destination as the tier-change
+      // notification above, just a different reason — the student's tier itself may not have moved.
+      userId: t.userId, type: "TIER_CHANGE",
+      title: mine.length === 1 ? `${icon} Re-check result: ${name.get(mine[0].studentId)}` : `${icon} ${mine.length} re-check results are in`,
+      body: `${list}${mine.length > 6 ? ` and ${mine.length - 6} more` : ""}. Open the Support plan to see the details or start a new plan.`,
+      link: `/teacher/plans/support?classId=${classId}`, readAt: null, createdAt: now,
+    });
   }
   if (rows.length) await repo.createMany("Notification", rows);
   return rows.length;

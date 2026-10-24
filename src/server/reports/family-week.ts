@@ -45,7 +45,11 @@ export interface FamilyWeek {
 export interface FamilyWeekBatch { classId: string; className: string; grade: number; week: string; items: FamilyWeek[] }
 
 const isAdmin = (a: Actor) => a.role === "SCHOOL_ADMIN" || a.role === "SUPER_ADMIN";
-const iso = (d: Date) => d.toISOString().slice(0, 10);
+// 🐛 fix: weekStart() (student/weekly.ts, r85 audit) returns Sunday 00:00 Riyadh time as a UTC instant — e.g.
+// 2026-10-10T21:00:00Z for the Riyadh calendar date 2026-10-11. A raw toISOString().slice(0,10) on that instant
+// prints the UTC calendar date (one day early), so the Riyadh offset is added back before formatting for display.
+const RIYADH = 3 * 3_600_000;
+const iso = (d: Date) => new Date(d.getTime() + RIYADH).toISOString().slice(0, 10);
 
 /** The current class of a student that this person may open (the student: their own; a parent: their own child). */
 async function classOfStudent(repo: Repo, actor: Actor, studentId: string): Promise<Row> {

@@ -39,8 +39,10 @@ describe("admin: calm home, nothing lost", () => {
     // forwarding pages (the MAP page / Reports hub / top-bar search have them) and the question pages (reached from Questions)
     const elsewhere = /^\/admin\/(question-|questions[/?]|bank-gaps|item-quality|imports)|^\/teacher\/(map-plans|map-reports|growth|map-recommendations|personal-plan|progress|curriculum-results|reports\/games-usage|search)$/;
     for (const h of [...oldMenu, ...OLD_HOME]) assert.ok(nav.has(h) || all.has(h) || removed.has(h) || elsewhere.test(h), `still reachable: ${h}`);
-    // every tool of the list is in the menu or on All Admin Tools; every menu page is a tool
-    for (const i of items) if (i.href !== "/admin" && i.href !== ALL_TOOLS_HREF) assert.ok(all.has(i.href), `${i.href} is in the tool list`);
+    // every tool of the list is in the menu or on All Admin Tools; every menu page is a tool — except the few
+    // extra pages r87 also folds under More that never lived in ADMIN_TOOLS (NAFS, the Learn pages, Assigned)
+    const EXTRA_MORE = new Set(["/admin", ALL_TOOLS_HREF, "/teacher/nafs", "/teacher/nafs?tab=reports", "/teacher/plans?tab=nafs", "/teacher/learn", "/teacher/learn/review", "/teacher/learn/coverage", "/teacher/assigned"]);
+    for (const i of items) if (!EXTRA_MORE.has(i.href)) assert.ok(all.has(i.href), `${i.href} is in the tool list`);
     assert.equal(new Set(ADMIN_TOOLS.map((x) => x.href)).size, ADMIN_TOOLS.length, "no tool listed twice");
     assert.ok(existsSync(join(process.cwd(), "src/app/admin/all/page.tsx")), "All Admin Tools page");
     // every admin page file still exists (nothing deleted)
@@ -49,17 +51,19 @@ describe("admin: calm home, nothing lost", () => {
     for (const h of [...all].filter((x) => x.startsWith("/admin/") && !PLANNED.has(x))) assert.ok(existsSync(join(process.cwd(), "src/app", h.split("?")[0], "page.tsx")), `page ${h}`);
   });
 
-  test("the menu: Home, All Admin Tools, the five sections (≤ 6 each), no More", () => {
+  test("the menu: Home, All Admin Tools, the five sections (≤ 6 each), then r88's 5 themed More · … sub-sections with everything else", () => {
     assert.equal(items[0].label, "Home");
     assert.equal(items[1].href, ALL_TOOLS_HREF);
     const groups = [...new Set(items.map((i) => i.group).filter(Boolean))];
-    assert.deepEqual(groups, ADMIN_GROUPS.map((g) => g.title));
+    assert.deepEqual(groups, [...ADMIN_GROUPS.map((g) => g.title), ...ADMIN_GROUPS.map((g) => `More · ${g.title}`)]);
     for (const g of ADMIN_GROUPS) {
       const n = items.filter((i) => i.group === g.title).length;
       assert.ok(n >= 3 && n <= 6, `${g.title}: ${n}`);
     }
-    assert.ok(items.length <= 32, `menu entries: ${items.length} (was 61)`);
-    assert.match(read("src/components/ui/side-nav.tsx"), /FOLDED_BY_DEFAULT = new Set\(\["More"\]\)/);
+    // r87/r88: the top five sections stay short; everything that used to be search-only now lives in a folded More · … sub-section
+    const top = items.filter((i) => !(typeof i.group === "string" && i.group.startsWith("More"))).length;
+    assert.ok(top <= 32, `top sections: ${top} (was 61)`);
+    assert.match(read("src/components/ui/side-nav.tsx"), /isMoreGroup = \(name: string\) => name === "More" \|\| name\.startsWith\("More ·"\)/);
   });
 
   test("the home: ≤ 5 groups of 3–6 tiles, ≤ 3 attention cards, More links to All Admin Tools", () => {

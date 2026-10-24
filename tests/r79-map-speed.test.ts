@@ -65,7 +65,11 @@ const BUDGET: Record<string, { first: number; next: number; rows: number }> = {
   "map-test (redirect)": { first: 8, next: 8, rows: 100 },
   "report: profile": { first: 26, next: 28, rows: 250 },
   "report: study plan": { first: 75, next: 36, rows: 800 },
-  "report: family": { first: 34, next: 30, rows: 300 },
+  // r89: the page's "What to practise next" list (map-report/family/[studentId]/page.tsx#familyNextSkills, a real,
+  // already-shipped feature) calls studyPlan() once per subject (Reading + Language Usage) on top of familyReport()
+  // itself — studyPlan alone is budgeted at up to 75 calls ("report: study plan" below); this budget never
+  // accounted for that extra cost. Raised to the feature's real cost (measured), not re-architected.
+  "report: family": { first: 85, next: 42, rows: 750 },
   "report: class profile": { first: 22, next: 22, rows: 900 },
   "report: class groups": { first: 65, next: 22, rows: 300 },
 };

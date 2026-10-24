@@ -50,7 +50,7 @@ export default async function PrintQrCardPage({ searchParams }: { searchParams: 
     <AppShell name={String(me.displayName)}>
       <div className="print:hidden">
         <PageHeader back={{ href: `/teacher/class-signin${v ? `?classId=${encodeURIComponent(v.classId)}` : ""}`, label: "Class sign-in" }} icon="🖨" title="Print QR card"
-          subtitle={t("Students scan it at school or at home, tap their name and type the class code. It keeps working week after week.")}><PrintButton /></PageHeader>
+          subtitle={t("Students scan it at school or at home and tap their name. It keeps working week after week.")}><PrintButton /></PageHeader>
       </div>
       {!v && <EmptyState icon="🔒" title="Only the class's own teacher can do this." />}
       {v && !qr && <EmptyState icon="⏸" title="The printed QR is off. Students cannot sign in with it." />}

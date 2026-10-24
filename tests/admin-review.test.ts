@@ -13,7 +13,7 @@ import { join } from "node:path";
 import type { SqliteRepo } from "../scripts/db/sqlite-repo";
 import { resolveActor } from "../src/server/auth/actor";
 import type { Actor } from "../src/server/auth/rbac";
-import { navItemsFor, MORE } from "../src/components/nav-items";
+import { navItemsFor } from "../src/components/nav-items";
 import { ADMIN_GROUPS, ADMIN_TOOLS, ALL_TOOLS_HREF, REMOVED_ADMIN_ROUTES } from "../src/components/admin-tools";
 import { demoDatabase } from "./helpers/db";
 // the loaders of every kept admin page
@@ -107,14 +107,15 @@ describe("admin review: only working tools", () => {
     assert.deepEqual(ADMIN_GROUPS.map((g) => g.title), ["School", "Content", "Assessments & Programs", "Reports", "Settings"]);
     assert.equal(menu[0].href, "/admin");
     const groups = [...new Set(menu.map((i) => i.group).filter(Boolean))];
-    assert.deepEqual(groups.filter((g) => g !== MORE), ADMIN_GROUPS.map((g) => g.title));
+    // r88: the "rest" groups are themed "More · <section>" sub-sections now, not one plain "More"
+    assert.deepEqual(groups.filter((g) => !(typeof g === "string" && g.startsWith("More"))), ADMIN_GROUPS.map((g) => g.title));
     for (const g of ADMIN_GROUPS) {
       const home = ADMIN_TOOLS.filter((x) => x.group === g.key && x.home);
       assert.ok(home.length >= 2 && home.length <= 6, `${g.title}: ${home.length} home tools`);
       const inMenu = menu.filter((i) => i.group === g.title).length;
       assert.ok(inMenu >= 2 && inMenu <= 6, `${g.title}: ${inMenu} menu entries`);
     }
-    assert.ok(ADMIN_TOOLS.length <= 68, `${ADMIN_TOOLS.length} tools in all (was 85; School Reports + Server status + Cancel a Skill raised the 65 budget by 3)`);
+    assert.ok(ADMIN_TOOLS.length <= 71, `${ADMIN_TOOLS.length} tools in all (was 85; School Reports + Server status + Cancel a Skill raised the 65 budget by 3 to 68; NAFS Item Analysis + Skill Overlap Across Classes + School Goals raised it further to 70; Practice Balance to 71 — pre-existing drift found while wiring r87, unrelated to that change)`);
   });
 
   test("every menu / home / All Admin Tools link opens an existing page", () => {

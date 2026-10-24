@@ -104,7 +104,11 @@ describe("automatic removal of questions with missing passages", () => {
     const toDelete = flagged.filter((x) => x.action === "DELETE").map((x) => x.id);
     const backup = await backupSubset(repo, toDelete);
     assert.equal(backup.tables.Question.length, toDelete.length);
-    assert.ok(backup.tables.QuestionOption.length >= toDelete.length * 2, "options are in the backup");
+    // r89 fix: `toDelete.length * 2` assumed only the two purpose-built fixture questions above would ever be
+    // flagged, each with exactly 3 options — but the seeded test environment's own bank can also contain questions
+    // that legitimately trip the same missing-passage detection, so the real option count must be read, not guessed
+    const expectedOptions = (await repo.findMany("QuestionOption", { questionId: { in: toDelete } })).length;
+    assert.equal(backup.tables.QuestionOption.length, expectedOptions, "every deleted question's options are in the backup");
     const r = await executePassageCleanup(repo, flagged);
     assert.ok(r.integrity.ok, r.integrity.problems.join("; "));
     assert.deepEqual(await counts(), before, "grades, units, skills, standards, curriculum, users untouched");

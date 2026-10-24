@@ -13,8 +13,10 @@ const TOUR_TARGET: Record<string, string> = {
   "/teacher/students": "students", "/teacher/plans": "plans", "/teacher/reports": "teacher-reports", "/admin/all": "all-tools",
 };
 
-/** Groups that start folded (opened by a tap, and the choice is remembered): every role's rarely used pages. */
-const FOLDED_BY_DEFAULT = new Set(["More"]);
+/** Groups that start folded (opened by a tap, and the choice is remembered): every role's rarely used pages. r88:
+ * "More" itself, plus each of its themed "More · …" sub-sections (nav-items.ts MORE_GROUPS) — each one folds and is
+ * remembered independently. */
+const isMoreGroup = (name: string) => name === "More" || name.startsWith("More ·");
 /** Menu groups the first-login tour points at. */
 const TOUR_GROUP: Record<string, string> = { Content: "content", Reports: "reports" };
 /** The small coloured dot before each group heading (Literise palette: calm, never loud); unknown groups are grey. */
@@ -61,13 +63,13 @@ export function SideNav({ items, brand, footer, tools, extras, variant = "defaul
         {sections(items).map((s, si) => {
           const tourGroup = s.name ? TOUR_GROUP[s.name] : undefined;
           // folded-by-default groups store "+name" once opened; the others store "name" once closed
-          const folded = s.name !== null && (FOLDED_BY_DEFAULT.has(s.name) ? !closed.includes(`+${s.name}`) : closed.includes(s.name));
+          const folded = s.name !== null && (isMoreGroup(s.name) ? !closed.includes(`+${s.name}`) : closed.includes(s.name));
           const isClosed = folded && !s.items.some((i) => i.href === current);
           const waiting = s.items.reduce((t, i) => t + (i.count ?? 0), 0);
           return (
             <div key={`${s.name ?? "top"}-${si}`} className={s.name ? "mt-3" : si ? "mt-1" : ""}>
               {s.name && (
-                <button type="button" onClick={() => toggle(FOLDED_BY_DEFAULT.has(s.name!) ? `+${s.name}` : s.name!)} aria-expanded={!isClosed} data-tour={tourGroup}
+                <button type="button" onClick={() => toggle(isMoreGroup(s.name!) ? `+${s.name}` : s.name!)} aria-expanded={!isClosed} data-tour={tourGroup}
                   className="flex min-h-9 w-full items-center justify-between rounded-lg px-3 text-[11px] font-semibold uppercase tracking-[0.08em] text-muted transition hover:text-ink">
                   <span className="flex items-center gap-2">{!calm && <span aria-hidden="true" className={`h-1.5 w-1.5 rounded-full ${GROUP_TONE[s.name] ?? "bg-slate-300"}`} />}{t(s.name)}</span>
                   <span className="flex items-center gap-2">{isClosed && waiting > 0 && <span className="rounded-full bg-surface-2 px-1.5 text-[11px] text-ink-2 ring-1 ring-line">{waiting}</span>}<svg aria-hidden="true" viewBox="0 0 24 24" className={`h-3.5 w-3.5 transition ${isClosed ? "-rotate-90 rtl:rotate-90" : ""}`} fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6" /></svg></span>

@@ -16,6 +16,7 @@ import qb  # noqa: E402
 import grade4, grade5, grade6, extremes  # noqa: E402,F401  (authoring modules register items)
 qb.EXPANSION = True  # items below get per-type answer-key balancing
 import grade4_more, grade5_more, grade6_more, grade4_topup, grade5_topup, grade6_topup  # noqa: E402,F401  (expansions: imported last so existing refs never change)
+import grade4_extra_passages, grade5_extra_passages, grade6_extra_passages  # noqa: E402,F401  (new passages + items, added without touching existing files)
 
 OFFICIAL = json.load(open(ROOT / "data/curriculum/ccss-standards.json"))
 TAX = json.load(open(ROOT / "data/curriculum/taxonomy.json"))

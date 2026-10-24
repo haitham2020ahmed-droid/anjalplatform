@@ -95,7 +95,11 @@ describe("1 · prerequisite routing (practice on the demo school)", () => {
     const sid = String((await repo.findUnique("Skill", { curriculumId: cur.id, code: "G4.theme" }))!.id);
     const items = await loadSkillItems(repo, sid, { wholePool: true });
     // the route's decision log is written after the response (as in production): wait for it before the next answer
-    const answerWrong = async (sessionId: string, q: ClientQuestion) => { const r = await submitAnswer(repo, omar, { sessionId, questionId: q.questionId, response: wrongFor(items.find((i) => i.questionId === q.questionId)!, q) }, later(30), rng); await afterResponseSettled(); return r; };
+    // r89 fix: 30 s was sometimes below the "first question on this passage" rapid-guess threshold (up to ~1/3 of a
+    // long passage's reading time, src/server/practice/guessing.ts), which silently dropped that answer from the
+    // wrong-answer streak (rapidGuess answers are excluded from sessionCorrect) and made the prerequisite route
+    // never fire. 240 s is comfortably above that threshold for any passage this skill's pool can contain.
+    const answerWrong = async (sessionId: string, q: ClientQuestion) => { const r = await submitAnswer(repo, omar, { sessionId, questionId: q.questionId, response: wrongFor(items.find((i) => i.questionId === q.questionId)!, q) }, later(240), rng); await afterResponseSettled(); return r; };
     let view = await startPractice(repo, omar, sid, later(0), rng);
     const routes = async () => (await repo.findMany("AdaptiveDecisionLog", { studentId: omar.studentId, skillId: sid, reasonCode: "PREREQ_ROUTE" }, { select: ["reason", "sessionId"] }));
     let n = 0;

@@ -66,27 +66,31 @@ before(async () => {
   await turnOnPrintQr(repo, teacherA, c4a);
 });
 
+// r89 fix (the whole file below): "fixed Oct 2026" in the production code's own comments — the printed QR's
+// "tap a name → type the class code" step was deliberately dropped (src/server/auth/class-print-qr.ts#signInByName,
+// src/components/class-signin/name-list.tsx): a tapped name now posts straight to the fixed /qr/c/signin address
+// and signs in at once, the same way the board QR already did; signInByClassCode still exists (and is still
+// exercised directly, unchanged, in tests/r85-print-qr.test.ts) but the page/route here no longer call it. These
+// three describe blocks were never updated for that change and were asserting the old, removed code-entry step.
 describe("🖨 the student's pages never carry the class code", () => {
-  test("the name list: that class's names, links to the code page; no code", async () => {
+  test("the name list: that class's names, each one posts straight to sign-in; no code anywhere", async () => {
     const v = await printQrPanel(repo, teacherA, c4a);
     const token = v.path!.replace("/qr/c/", "");
     const html = await page("src/app/qr/c/[token]/page.tsx", { token }, {});
     assert.match(html, /DEMO 4A/);
-    assert.ok(html.includes(`/qr/c/${token}`), "names open the code page");
+    assert.ok(html.includes("/qr/c/signin"), "every name's form posts to the fixed sign-in address");
+    assert.ok(html.includes(token), "the token travels as the form's hidden key, never as a visible link");
     assert.ok(!html.includes(v.code!), "the class code is not on the name list");
     const m = await repo.findMany("ClassMembership", { classId: c4a, leftAt: null });
     const sid = String(m[0].studentId);
-    const codePage = await page("src/app/qr/c/[token]/page.tsx", { token }, { s: sid });
-    assert.match(codePage, /\/qr\/c\/signin/, "the code form posts to the fixed address");
-    assert.ok(codePage.includes(sid));
-    assert.ok(!codePage.includes(v.code!), "the class code is not on the code page");
+    assert.ok(html.includes(sid), "each student's own hidden studentId is on the list");
     const dead = await page("src/app/qr/c/[token]/page.tsx", { token: "A".repeat(43) }, {});
     assert.match(dead, /does not work now/);
   });
 });
 
-describe("🔢 the code post", () => {
-  test("same-origin only; wrong code → back with the error; right code → the student's short session cookie", async () => {
+describe("👆 tap a name → signed in (no class code)", () => {
+  test("same-origin only; a name outside the class → back with the error; a name on the list → the student's short session cookie", async () => {
     const v = await printQrPanel(repo, teacherA, c4a);
     const token = v.path!.replace("/qr/c/", "");
     const m = await repo.findMany("ClassMembership", { classId: c4a, leftAt: null });
@@ -98,14 +102,14 @@ describe("🔢 the code post", () => {
     if (!Object.getOwnPropertyDescriptor(NextResponse.prototype, "cookies")) Object.defineProperty(NextResponse.prototype, "cookies", { get: () => ({ set: (name: string, value: string, opts: Record<string, unknown>) => set.push({ name, value, opts }) }) });
     // eslint-disable-next-line @typescript-eslint/no-require-imports
     const route = require(join(ROOT, "src/app/qr/c/signin/route.ts")) as { POST: (r: Request) => Promise<Response> };
-    const post = (code: string, origin = "http://localhost:3000") => route.POST(new Request("http://localhost:3000/qr/c/signin", {
-      method: "POST", headers: { origin, host: "localhost:3000", "content-type": "application/x-www-form-urlencoded" }, body: new URLSearchParams({ key: token, studentId: sid, code }).toString(),
+    const post = (studentId: string, origin = "http://localhost:3000") => route.POST(new Request("http://localhost:3000/qr/c/signin", {
+      method: "POST", headers: { origin, host: "localhost:3000", "content-type": "application/x-www-form-urlencoded" }, body: new URLSearchParams({ key: token, studentId }).toString(),
     }));
-    assert.equal((await post(v.code!, "https://evil.example")).status, 403, "cross-site blocked");
-    const bad = await post(v.code === "0000" ? "1111" : "0000");
-    assert.equal(bad.status, 303);
-    assert.match(String(bad.headers.get("location")), new RegExp(`^/qr/c/${token}\\?s=${sid}&e=WRONG_CODE$`));
-    const ok = await post(v.code!);
+    assert.equal((await post(sid, "https://evil.example")).status, 403, "cross-site blocked");
+    const notInClass = await post("not-a-real-student-id");
+    assert.equal(notInClass.status, 303);
+    assert.match(String(notInClass.headers.get("location")), new RegExp(`^/qr/c/${token}\\?e=NOT_IN_CLASS$`));
+    const ok = await post(sid);
     assert.equal(ok.status, 303);
     assert.equal(ok.headers.get("location"), "/student");
     assert.equal(set.length, 1, "one session cookie");
@@ -118,24 +122,28 @@ describe("🔢 the code post", () => {
 });
 
 describe("🧑‍🏫 the teacher's card and the weekly prints", () => {
-  test("the print card: the class's own teacher sees the code; another teacher does not", async () => {
+  test("the print card: the class's own teacher sees the code (printed for reference); another teacher does not", async () => {
     const v = await printQrPanel(repo, teacherA, c4a);
     const mine = await page("src/app/teacher/class-signin/print/page.tsx", {}, { classId: c4a }, await cookieFor("demo.teacher.4a"));
     assert.ok(mine.includes(v.code!), "the code on the card");
-    assert.match(mine, /Scan → tap your name → type the class code/);
-    assert.match(mine, /امسح الرمز/, "the Arabic steps too");
+    // the card's own steps line (STRIP_STEPS, src/lib/class-signin-strip.ts) already reflects the no-code sign-in;
+    // only the page's header subtitle still says the old "...type the class code" (a separate, still-unfixed string
+    // outside STRIP_STEPS — the teacher-facing header, not the card itself — worth a one-line fix, not a test problem)
+    assert.match(mine, /Scan → tap your name → you're in/);
+    assert.match(mine, /امسح الرمز ← اضغط على اسمك ← دخلت/, "the Arabic steps too");
     const other = await page("src/app/teacher/class-signin/print/page.tsx", {}, { classId: c4a }, await cookieFor("demo.teacher.4b"));
     assert.ok(!other.includes(v.code!), "another teacher: no code");
   });
 
-  test("family week of a class: QR + code by default; signin=0 or a student's own copy: none", async () => {
-    const v = await printQrPanel(repo, teacherA, c4a);
+  test("family week of a class: QR by default (no class code — name only sign-in); signin=0 or a student's own copy: none", async () => {
     const pages: string[] = [];
     const deps = { repo, fontDir: join(ROOT, "assets/fonts"), brandingDir: join(ROOT, "assets/branding"), now: () => NOW,
       pdf: { render: async (html: string) => { pages.push(html); return new TextEncoder().encode("%PDF-1.7 fake"); }, close: async () => undefined } };
     await exportFamilyWeek(deps, teacherA, { classId: c4a, lang: "en" });
     const text = (h: string) => h.replace(/<[^>]+>/g, "");
-    assert.ok(text(pages[0]).includes(`Class code: ${v.code}`), "the code in the header");
+    // 🔁 r85 fix ("الكود مالوش داعي... اي حد ممكن يستخدمه"): class-signin-strip.ts dropped the class code from the
+    // header strip — sign-in is by name only now (same fix as tests/r85-print-qr.test.ts).
+    assert.ok(!text(pages[0]).includes("Class code"), "no class code in the header");
     assert.match(pages[0], /data-class-signin="1"><svg/);
     await exportFamilyWeek(deps, teacherA, { classId: c4a, lang: "en", signin: false });
     assert.ok(!pages[1].includes("data-class-signin"), "signin=0 → off");
@@ -146,15 +154,14 @@ describe("🧑‍🏫 the teacher's card and the weekly prints", () => {
     assert.ok(!pages[2].includes("data-class-signin") && !text(pages[2]).includes(`Class code`), "a student's own copy: never");
     const c4b = String((await repo.findMany("Class", { name: "DEMO 4B" }))[0].id);
     await exportFamilyWeek(deps, teacherB, { classId: c4b, lang: "en" });
-    const b = await printQrPanel(repo, teacherB, c4b);
-    assert.ok(text(pages[3]).includes(`Class code: ${b.code}`), "another class: its own QR + code");
+    assert.match(pages[3], /data-class-signin="1"><svg/, "another class: its own QR");
     assert.ok(text(pages[3]).includes("DEMO 4B") && !text(pages[3]).includes("DEMO 4A"));
   });
 
-  test("MAP Year plan: QR + code in the header by default; signin=0 → none", async () => {
-    const v = await printQrPanel(repo, teacherA, c4a);
+  test("MAP Year plan: QR in the header by default (no class code); signin=0 → none", async () => {
     const on = renderHtml(await yearPlanDoc({ repo, brandingDir: "/nonexistent", now: () => NOW }, teacherA, c4a), { fontCss: "", fontStack: "sans-serif" });
-    assert.ok(on.replace(/<[^>]+>/g, "").includes(`Class code: ${v.code}`));
+    assert.ok(!on.replace(/<[^>]+>/g, "").includes("Class code"));
+    assert.match(on, /data-class-signin="1"><svg/);
     const off = renderHtml(await yearPlanDoc({ repo, brandingDir: "/nonexistent", now: () => NOW }, teacherA, c4a, { signin: false }), { fontCss: "", fontStack: "sans-serif" });
     assert.ok(!off.includes("data-class-signin"));
   });

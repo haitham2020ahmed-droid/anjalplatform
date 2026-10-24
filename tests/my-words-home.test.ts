@@ -34,8 +34,9 @@ describe("📒 My Words: the curriculum words + the words I saved, in one place"
 
   test("menu: My Words and Fluency are their own entries; the reading hub keeps ReadMaster and ReadRise only", () => {
     const items = navItemsFor("STUDENT", { nafs: false });
-    assert.deepEqual(items.map((i) => i.href), ["/student", "/student/work", "/student/skills", "/student/plans", "/student/tests", "/student/map", "/student/reading", "/student/learn", "/student/words", "/student/fluency-coach"]);
-    assert.deepEqual(items.slice(-2).map((i) => i.label), ["My Words", "Fluency"]);
+    const top = items.filter((i) => !i.group);
+    assert.deepEqual(top.map((i) => i.href), ["/student", "/student/work", "/student/skills", "/student/plans", "/student/tests", "/student/map", "/student/reading", "/student/learn", "/student/words", "/student/fluency-coach"]);
+    assert.deepEqual(top.slice(-2).map((i) => i.label), ["My Words", "Fluency"]);
     for (const i of items) assert.ok(i.line && AR[i.label as keyof typeof AR], `${i.label}: line icon and Arabic`);
     const pages = searchablePagesFor("STUDENT");
     assert.equal(new Set(pages.map((p) => p.href)).size, pages.length, "each page once");
@@ -52,7 +53,8 @@ describe("📒 My Words: the curriculum words + the words I saved, in one place"
     const old = code("src/app/student/learn/words/page.tsx");
     assert.match(old, /redirect\(`\/student\/words/);
     assert.match(old, /\["preview", "grade", "unit", "sel"\]/);
-    assert.match(code("src/server/student/all-work.ts"), /`\/student\/words\?sel=\$\{encodeURIComponent/);
+    // 🚫 owner (haitham, Oct 2026): WORDS assignments never show in the student's My Work any more (all-work.ts
+    // builds no /student/words href there) — the page is reached through Learn and the redirect checked above.
   });
 
   test("My Words page: two tabs; Curriculum words (default) with the Grade → Unit → Selection filter, Words I saved keeps every feature", () => {

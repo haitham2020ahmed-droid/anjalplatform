@@ -5,6 +5,7 @@ import { getActor, repo, requireActor } from "@/server/auth/next";
 import { getT } from "@/i18n/server";
 import { reviewReports, type ReviewReportRow } from "@/server/skills/review-reports";
 import { reviewReportsSummary } from "@/lib/report-summaries";
+import { cancelReviewAction } from "./actions";
 
 export const metadata = { title: "Review Reports" };
 
@@ -19,7 +20,7 @@ const STATUS_LABEL: Record<string, string> = { NOT_STARTED: "Not started", IN_PR
  * still in progress), and that one Review's own per-skill breakdown. Deliberately separate from the Student Skills
  * report (skills-grid.ts), which excludes multi-skill assignments like a Review by design — see review-reports.ts.
  */
-export default async function ReviewReportsPage({ searchParams }: { searchParams: Promise<{ classId?: string }> }) {
+export default async function ReviewReportsPage({ searchParams }: { searchParams: Promise<{ classId?: string; msg?: string }> }) {
   const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"], permission: "reports:read" });
   const me = (await getActor())!.user;
   const sp = await searchParams;
@@ -76,6 +77,7 @@ export default async function ReviewReportsPage({ searchParams }: { searchParams
         who={data.className ? <bdi>{data.className}</bdi> : undefined}
         filters={<ClassChips classes={data.classes} current={data.classId} href={url} />} />
       <ReportIntro text="Reviews built from chosen questions (the Review Builder or a Text Set's Review), sent to this class — separate from the Student Skills grid, which only counts single-skill work." />
+      {sp.msg && <p role="status" className="mb-3 rounded-xl bg-teal-50 px-4 py-3 text-teal-900 ring-1 ring-teal-200 print:hidden">{sp.msg}</p>}
       {!data.classId ? <Empty>{t("You have no classes yet.")}</Empty> : !data.reviews.length ? <Empty>{t("No Review has been sent to this class yet.")}</Empty> : (
         <div className="space-y-5">
           {data.reviews.map((r) => (
@@ -89,6 +91,19 @@ export default async function ReviewReportsPage({ searchParams }: { searchParams
                   <ReportTable label={t("By skill")} cols={skillCols} rows={skillRows(r)} empty="No skill on these questions." />
                 </div>
               )}
+              <details className="mt-4 rounded-2xl bg-white p-3 text-sm ring-1 ring-slate-200 print:hidden">
+                <summary className="cursor-pointer font-semibold text-red-800">{t("✖ Cancel this review")}</summary>
+                <form action={cancelReviewAction} className="mt-2 space-y-2">
+                  <input type="hidden" name="assignmentId" value={r.assignmentId} />
+                  <input type="hidden" name="classId" value={data.classId ?? ""} />
+                  <p className="text-slate-700">{t("It disappears from the students' lists and no more answers are accepted. Answers already given are kept and still count.")}</p>
+                  <label className="flex min-h-10 items-center gap-2">
+                    <input type="checkbox" name="confirm" value="yes" required />
+                    {t("Cancel “{title}” for everyone? Students will no longer see it; their answers are kept.", { title: r.title })}
+                  </label>
+                  <button className="min-h-10 rounded-lg bg-red-700 px-3 py-1.5 font-semibold text-white hover:bg-red-800">{t("Cancel assignment")}</button>
+                </form>
+              </details>
             </ReportSection>
           ))}
           <ReportSummary summary={reviewReportsSummary({ reviews: data.reviews }, data.classId)} />
