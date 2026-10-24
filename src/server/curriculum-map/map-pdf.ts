@@ -224,6 +224,39 @@ export function withLessonSections(d: MapPdfData, overlay: LessonsTabOverlay): M
   };
 }
 
+/**
+ * Oct 2026 ("عايز اشوف النسخه pdf الا هتروح للطالب بعد ما احدد قبل ما اعمل assign"): narrows an already-built
+ * MapPdfData down to exactly the scope chosen in the Curriculum Map's Send window (send-scope.ts) — `codes` are the
+ * SAME unit codes ("G6.U6") / selection codes ("G6.U6.SEL1") that window's step 1 already works with (`null` = the
+ * whole grade, the PLAN scope), and `excludeCodes` are the lessonSections codes (Concept Vocabulary / Analyze Craft
+ * and Structure / Review — e.g. "G6.U6.SEL1.CV") the teacher unticked in step 3's Preview. A selection kept by its
+ * unit/selection code still prints its Grammar & punctuation / Writing skills as usual (the Send window doesn't
+ * touch those), so the result is "this selection's normal PDF card, minus the parts you unticked" — not a
+ * question-by-question diff. Units left with no selections after filtering are dropped.
+ */
+export function scopeMapPdfData(d: MapPdfData, codes: string[] | null, excludeCodes: Set<string> = new Set()): MapPdfData {
+  const unitNums = new Set<number>();
+  const selKeys = new Set<string>();
+  for (const raw of codes ?? []) {
+    const c = s(raw).trim().toUpperCase();
+    const um = /^G\d+\.U(\d+)$/.exec(c);
+    if (um) { unitNums.add(Number(um[1])); continue; }
+    const sm = /^G\d+\.U(\d+)\.(?:TS|SEL)(\d+)$/.exec(c);
+    if (sm) selKeys.add(`${Number(sm[1])}|${Number(sm[2])}`);
+  }
+  return {
+    ...d,
+    units: d.units
+      .map((u) => ({
+        ...u,
+        sections: u.sections
+          .filter((sec) => codes === null || unitNums.has(u.number) || selKeys.has(`${u.number}|${sec.number}`))
+          .map((sec) => ({ ...sec, lessonSections: sec.lessonSections?.filter((ls) => !excludeCodes.has(ls.code.toUpperCase())) })),
+      }))
+      .filter((u) => u.sections.length > 0),
+  };
+}
+
 // ------------------------------------------------------------------ HTML
 
 const WORDS = {
@@ -478,21 +511,32 @@ function footerDoc(title: string, footer: string, locale: MapLocale, now: Date):
   return { kind: "class", locale, title, subtitle: "", branding: { name: "", nameAr: null, logo: null }, meta: [], sections: [], primaryTable: "", fileStem: "", generatedAt: now, generatedBy: "", footer };
 }
 
-export async function exportCurriculumMapPdf(deps: ReportDeps, actor: Actor, grade: number, copy: MapCopy, locale: MapLocale): Promise<{ bytes: Uint8Array; contentType: string; filename: string; cached: boolean }> {
+/** Oct 2026 ("عايز اشوف النسخه pdf الا هتروح للطالب قبل ما اعمل assign"): a preview scope, passed only from the
+ * Send window — exactly its step-1 codes (null = the whole-grade PLAN scope) and step-3 unticked section codes.
+ * A scoped request is never kept in the few-minutes cache (the combinations are unbounded and one-off — the point
+ * is to see THIS exact pick, not a stale one from a moment ago) but still goes through the same rate limit and
+ * one-at-a-time render queue as the full map, so it can't be used to bypass either. */
+export interface MapPdfPreviewScope { codes: string[] | null; exclude?: string[] }
+
+export async function exportCurriculumMapPdf(deps: ReportDeps, actor: Actor, grade: number, copy: MapCopy, locale: MapLocale, scope?: MapPdfPreviewScope): Promise<{ bytes: Uint8Array; contentType: string; filename: string; cached: boolean }> {
   if (!Number.isInteger(grade) || grade < 1 || grade > 12) throw new ValidationError("Choose a grade.");
   await assertMapPdfAccess(deps.repo, actor, grade, copy);
   const schoolId = s(actor.schoolId);
   const key = `${schoolId}|${grade}|${copy}|${locale}`;
   const now = deps.now?.() ?? new Date();
-  const hit = kept.get(key);
-  if (hit && Date.now() - hit.at < KEEP_MS) return { bytes: hit.bytes, contentType: "application/pdf", filename: hit.filename, cached: true };
+  if (!scope) {
+    const hit = kept.get(key);
+    if (hit && Date.now() - hit.at < KEEP_MS) return { bytes: hit.bytes, contentType: "application/pdf", filename: hit.filename, cached: true };
+  }
   const rl = await consumeRateLimit(deps.repo, `report:${actor.userId}`, REPORT_RATE.max, REPORT_RATE.windowMs, now);
   if (!rl.allowed) throw new RateLimitedError(Math.ceil(rl.retryAfterMs / 1000));
   if (!deps.pdf) throw new Error("PDF rendering is not configured.");
   const pdf = deps.pdf;
   return oneAtATime(async () => {
-    const again = kept.get(key); // a teacher who asked at the same moment waits for the first one and gets its file
-    if (again && Date.now() - again.at < KEEP_MS) return { bytes: again.bytes, contentType: "application/pdf", filename: again.filename, cached: true };
+    if (!scope) {
+      const again = kept.get(key); // a teacher who asked at the same moment waits for the first one and gets its file
+      if (again && Date.now() - again.at < KEEP_MS) return { bytes: again.bytes, contentType: "application/pdf", filename: again.filename, cached: true };
+    }
     const d0 = await curriculumMapPdfData(deps.repo, schoolId, grade);
     if (!d0 || !d0.units.length) throw new ValidationError("This grade has no curriculum yet.");
     // r86: Concept Vocabulary / Analyze Craft and Structure / Review print from the Curriculum Map's own categories
@@ -502,14 +546,18 @@ export async function exportCurriculumMapPdf(deps: ReportDeps, actor: Actor, gra
       ? studentCurriculumLessons(deps.repo, actor).then((r) => (r.grade === grade ? overlayFromUnits(r.units) : EMPTY_OVERLAY))
       : lessonSectionsByLesson(deps.repo, actor, grade)
     ).catch(() => EMPTY_OVERLAY);
-    const d = withLessonSections(d0, overlay);
+    let d = withLessonSections(d0, overlay);
+    if (scope) {
+      d = scopeMapPdfData(d, scope.codes, new Set((scope.exclude ?? []).map((c) => c.toUpperCase())));
+      if (!d.units.length) throw new ValidationError("Nothing to preview yet.");
+    }
     const { warning: _w, ...branding } = await loadBranding(deps.repo, schoolId, deps.brandingDir);
     const fonts = loadFonts(deps.fontDir);
     const html = curriculumMapHtml(d, { copy, locale, branding, fontCss: fonts.css, fontStack: fonts.stack, generatedAt: now });
-    const title = mapTitle(d, locale);
+    const title = scope ? `${locale === "ar" ? "معاينة" : "Preview"} — ${mapTitle(d, locale)}` : mapTitle(d, locale);
     const bytes = await pdf.render(html, footerDoc(title, fill(WORDS[locale].footer, { g: grade, book: d.book }), locale, now), fonts.stack);
-    const filename = `curriculum-map_grade-${grade}_${ascii(d.book)}_${copy}${locale === "ar" ? "_ar" : ""}.pdf`;
-    kept.set(key, { at: Date.now(), bytes, filename });
+    const filename = `curriculum-map${scope ? "-preview" : ""}_grade-${grade}_${ascii(d.book)}_${copy}${locale === "ar" ? "_ar" : ""}.pdf`;
+    if (!scope) kept.set(key, { at: Date.now(), bytes, filename });
     await audit(deps.repo, { actorId: actor.userId, action: "report.export", entityType: "CurriculumMap", entityId: `G${grade}`, after: { kind: "curriculum-map", copy, locale, bytes: bytes.length }, at: now }).catch(() => undefined);
     return { bytes, contentType: "application/pdf", filename, cached: false };
   });

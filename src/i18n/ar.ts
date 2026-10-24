@@ -524,6 +524,7 @@ export const ar: Record<UiString, string> = {
   "Upload the file and check the preview": "ارفع الملف وراجع المعاينة",
   "Roster file": "ملف قائمة الطلاب",
   "Preview": "معاينة",
+  "Preview the student PDF": "معاينة نسخة PDF الطالب",
   "{n} students added to {class}": "تمت إضافة {n} طالب إلى {class}",
   "{n} students ready": "{n} طالب جاهز",
   "{n} rows with errors": "{n} سطر فيه أخطاء",
