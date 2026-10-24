@@ -34,7 +34,7 @@ import { sweptMap } from "../cache/idle";
 import { loadFonts } from "../../reports/fonts";
 import { esc } from "../../reports/html";
 import type { Branding, ReportDoc } from "../../reports/model";
-import { BRAND, PLATFORM, SOURCE_COLORS } from "../../components/print/tokens";
+import { PLATFORM } from "../../components/print/tokens";
 import { appOrigin, isPlanHref, planHref, planQrSvg, PLAN_LINKS_NOTE, type PlanAudience } from "../../lib/plan-links";
 import { RateLimitedError, REPORT_RATE, loadBranding, type ReportDeps } from "../reports/service";
 import { curriculumLessons, studentCurriculumLessons, lessonDetail, type CurriculumUnit } from "./lesson-details";
@@ -62,7 +62,14 @@ export interface MapPdfSkill { id: string; name: string; code: string; group: st
 /** r86: one of a selection's Concept Vocabulary / Analyze Craft and Structure / Review sections, exactly as the
  * Lessons tab lists and assigns it (src/server/curriculum-map/lesson-details.ts#LessonSection) — a CurriculumMapNode
  * "place", not a platform Skill: `code` is the place's own code (what ⭐ Assign sends), not a skillId. */
-export interface MapPdfLessonSection { code: string; title: string; kind: string | null; ready: boolean }
+export interface MapPdfLessonSection {
+  code: string; title: string; kind: string | null; ready: boolean;
+  /** Oct 2026 ("ممكن تضيف اسماء الكلمات وكمان اسم skill لكل درس analyze craft and structure"): the lesson's own
+   * Concept Vocabulary word list (CONCEPT_VOCABULARY rows only) and its Analyze Craft and Structure skill name(s)
+   * (ANALYZE_CRAFT_AND_STRUCTURE rows only) — the exact same `vocabulary` / `readingSkills` the Lessons tab already
+   * carries (lesson-details.ts#LessonCard), just surfaced here too. Undefined when the source has none. */
+  words?: string[]; skillLabel?: string;
+}
 export interface MapPdfSection {
   number: number; weeks: number[]; essentialQuestion: string | null; title: string; genre: string | null; selections: { label: string; name: string }[]; skills: MapPdfSkill[];
   /** r86 (owner: "حول Concept Vocabulary / Analyze Craft and Structure لنفس اللي في Lessons بالظبط، بنفس ربط
@@ -171,7 +178,11 @@ function overlayFromUnits(units: CurriculumUnit[]): LessonsTabOverlay {
       const key = `${unitNumber}|${tm[1]}`;
       if (l.name.trim()) lessonNames.set(key, l.name.trim());
       const secs = l.sections.filter((x) => x.kind === "CONCEPT_VOCABULARY" || x.kind === "ANALYZE_CRAFT_AND_STRUCTURE" || x.kind === "REVIEW")
-        .map((x) => ({ code: x.code, title: x.title, kind: x.kind, ready: x.ready }));
+        .map((x) => ({
+          code: x.code, title: x.title, kind: x.kind, ready: x.ready,
+          ...(x.kind === "CONCEPT_VOCABULARY" && l.vocabulary.length ? { words: l.vocabulary } : {}),
+          ...(x.kind === "ANALYZE_CRAFT_AND_STRUCTURE" && l.readingSkills.length ? { skillLabel: l.readingSkills.join(" / ") } : {}),
+        }));
       if (secs.length) sections.set(key, secs);
     }
   }
@@ -241,7 +252,11 @@ export function curriculumMapHtml(d: MapPdfData, o: MapHtmlOptions): string {
   const L = o.locale, w = WORDS[L], origin = o.origin ?? appOrigin();
   const aud: PlanAudience = o.copy === "staff" ? "staff" : "student";
   const dir = L === "ar" ? "rtl" : "ltr";
-  const navy = BRAND.navy, teal = BRAND.teal, blue = SOURCE_COLORS.curriculum;
+  // Oct 2026 ("غيّر ألوان الـPDF اللي بتروح للطلاب، زي مثال اتفقنا عليه"): a single blue family (navy → bright
+  // blue) for the whole document, in place of the navy+teal mix — same structure/markup everywhere below,
+  // only these three values changed. Local to this one PDF; the shared BRAND/SOURCE_COLORS tokens (used by
+  // every other report) are untouched.
+  const navy = "#13295c", teal = "#4f82f7", blue = "#2a5fe0";
   const b = o.branding;
   const logo = b.logo ? `<img class="logo" alt="" src="data:${b.logo.mime};base64,${Buffer.from(b.logo.bytes).toString("base64")}">` : `<div class="logo-text" aria-hidden="true">${esc((b.name.match(/\b\p{L}/gu) ?? []).slice(0, 2).join(""))}</div>`;
   const school = L === "ar" && b.nameAr ? b.nameAr : b.name;
@@ -345,19 +360,19 @@ bdi { unicode-bidi: isolate; }
 .cover-top, .cover-mid, .howto { position: relative; z-index: 1; }
 .cover-top { display: flex; justify-content: space-between; align-items: center; }
 .brand { font-weight: 800; font-size: 20pt; letter-spacing: .02em; }
-.brand i { font-style: normal; color: #9be3e3; }
+.brand i { font-style: normal; color: #9fc1ff; }
 .logo { width: 70px; height: 70px; object-fit: contain; background: #fff; border-radius: 14px; padding: 6px; box-shadow: 0 6px 16px rgba(0,0,0,.18); }
 .logo-text { width: 70px; height: 70px; border-radius: 14px; background: #fff; color: ${navy}; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 22pt; box-shadow: 0 6px 16px rgba(0,0,0,.18); }
-.school { margin: 0; font-size: 12pt; color: #cdeeee; font-weight: 700; letter-spacing: .03em; text-transform: uppercase; }
+.school { margin: 0; font-size: 12pt; color: #cfe0ff; font-weight: 700; letter-spacing: .03em; text-transform: uppercase; }
 .cover h1 { margin: 6px 0 4px; font-size: 31pt; line-height: 1.15; text-shadow: 0 2px 10px rgba(0,0,0,.15); }
-.sub { margin: 0; font-size: 13pt; color: #e2f5f5; }
+.sub { margin: 0; font-size: 13pt; color: #dfeaff; }
 .copy { display: inline-block; margin-top: 12px; padding: 3px 14px; border-radius: 999px; background: rgba(255,255,255,.2); border: 1px solid rgba(255,255,255,.35); font-weight: 700; font-size: 9.5pt; }
 .stats { display: flex; gap: 10px; margin-top: 14px; }
 .stat { background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.25); border-radius: 12px; padding: 6px 16px; text-align: center; min-width: 76px; }
 .stat b { display: block; font-size: 17pt; line-height: 1.1; }
-.stat span { font-size: 7.6pt; color: #d7f3f3; text-transform: uppercase; letter-spacing: .05em; }
+.stat span { font-size: 7.6pt; color: #dbe8ff; text-transform: uppercase; letter-spacing: .05em; }
 .toc { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 4px 14px; margin-top: 14px; }
-.toc-i { display: flex; align-items: center; gap: 6px; font-size: 8.4pt; color: #eafbfb; }
+.toc-i { display: flex; align-items: center; gap: 6px; font-size: 8.4pt; color: #eaf1ff; }
 .toc-n { display: inline-flex; align-items: center; justify-content: center; width: 15px; height: 15px; border-radius: 50%; background: rgba(255,255,255,.22); font-size: 7.4pt; font-weight: 800; flex: none; }
 .toc-t { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .howto { background: #fff; color: #1e293b; border-radius: 14px; padding: 13px 17px; box-shadow: 0 10px 26px rgba(0,0,0,.18); }

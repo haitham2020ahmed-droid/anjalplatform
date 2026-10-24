@@ -27,6 +27,8 @@
     "db:verify:offline": "tsx scripts/db/verify.ts",
     "db:verify:mysql": "tsx scripts/db/verify-mysql.ts",
     "db:cleanup-stale-lessons": "tsx scripts/db/cleanup-stale-lessons.ts",
+    "db:list-map-questions": "tsx scripts/db/list-map-questions.ts",
+    "db:set-question-level": "tsx scripts/db/set-question-level.ts",
     "jobs:rollups": "tsx scripts/jobs/nightly-rollups.ts",
     "jobs:items": "tsx scripts/jobs/item-analysis.ts",
     "reports:browser": "playwright-core install chromium",

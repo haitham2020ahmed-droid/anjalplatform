@@ -173,14 +173,20 @@ function LessonSectionRows({ sections, canAssign, roster }: { sections: MapPdfLe
   return (
     <ul className="mt-2 divide-y divide-slate-100">
       {sections.map((s) => (
-        <li key={s.code} className="flex flex-wrap items-center justify-between gap-2 py-1.5">
-          <span className="text-sm font-medium text-slate-800" dir="ltr">{s.title}</span>
-          <span className="flex flex-wrap items-center gap-1">
-            {!s.ready && <span className={`${pill} bg-slate-100 text-slate-500 ring-slate-200`}>{t("Not ready")}</span>}
-            {s.ready && <Link href={`/teacher/preview?code=${encodeURIComponent(s.code)}`} prefetch={false} className={`${pill} bg-white text-brand-navy ring-slate-300 hover:bg-slate-50`}>👁 {t("Review")}</Link>}
-            {canAssign && s.kind === "REVIEW" && <Link href={`/teacher/curriculum-review?code=${encodeURIComponent(s.code)}`} prefetch={false} className={`${pill} bg-violet-50 text-violet-900 ring-violet-200 hover:bg-violet-100`}>✏️ {t("My Review")}</Link>}
-            {canAssign && s.ready && roster.length > 0 && <MapAssignButton code={s.code} label={t("Assign")} levels />}
-          </span>
+        <li key={s.code} className="py-1.5">
+          <div className="flex flex-wrap items-center justify-between gap-2">
+            <span className="text-sm font-medium text-slate-800" dir="ltr">{s.title}</span>
+            <span className="flex flex-wrap items-center gap-1">
+              {!s.ready && <span className={`${pill} bg-slate-100 text-slate-500 ring-slate-200`}>{t("Not ready")}</span>}
+              {s.ready && <Link href={`/teacher/preview?code=${encodeURIComponent(s.code)}`} prefetch={false} className={`${pill} bg-white text-brand-navy ring-slate-300 hover:bg-slate-50`}>👁 {t("Review")}</Link>}
+              {canAssign && s.kind === "REVIEW" && <Link href={`/teacher/curriculum-review?code=${encodeURIComponent(s.code)}`} prefetch={false} className={`${pill} bg-violet-50 text-violet-900 ring-violet-200 hover:bg-violet-100`}>✏️ {t("My Review")}</Link>}
+              {canAssign && s.ready && roster.length > 0 && <MapAssignButton code={s.code} label={t("Assign")} levels />}
+            </span>
+          </div>
+          {/* Oct 2026 r?: the Concept Vocabulary word list and the Analyze Craft and Structure skill name(s), right
+              under the row — the same `vocabulary` / `readingSkills` the Lessons tab already carries. */}
+          {s.words?.length ? <p className="mt-0.5 text-xs text-slate-500" dir="ltr">{s.words.join(", ")}</p> : null}
+          {s.skillLabel ? <p className="mt-0.5 text-xs text-slate-500" dir="ltr">{s.skillLabel}</p> : null}
         </li>
       ))}
     </ul>
