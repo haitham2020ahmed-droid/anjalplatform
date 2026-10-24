@@ -339,7 +339,14 @@ export function curriculumMapHtml(d: MapPdfData, o: MapHtmlOptions): string {
       // words (Concept Vocabulary) / skill name(s) (Analyze Craft and Structure), printed right under the title —
       // same `words` / `skillLabel` the live Skill plan page now shows (src/components/curriculum-map/skill-plan.tsx).
       const sub = x.words?.length ? `<p class="grp-sub" dir="ltr">${esc(x.words.join(", "))}</p>` : x.skillLabel ? `<p class="grp-sub" dir="ltr">${esc(x.skillLabel)}</p>` : "";
-      return `<div class="grp" data-cat="${CAT_OF[x.kind ?? ""] ?? "vocabulary"}"><h4>${titleHtml}</h4>${sub}<ol><li><span class="n">${++n}.</span> ${aud !== "student" ? `<span class="status ${x.ready ? "ok" : "wait"}">${esc(x.ready ? readyWord : notReadyWord)}</span>` : ""}</li></ol></div>`;
+      // 🐛 fix (Oct 2026, "الترقيم شكله مش كويس في نسخه الطالب"): this used to always print a numbered <ol><li>
+      // (e.g. "1.") here, with a Ready/Not ready pill next to it for STAFF only — so the STUDENT copy printed a
+      // bare, meaningless number with nothing beside it (the title and word list are already in the <h4>/<p>
+      // above). The number + pill is useful for staff (it's their at-a-glance "what's ready" scan); for students/
+      // parents it was only ever visual clutter. Staff copy: unchanged, byte for byte. Student copy: the numbered
+      // line is dropped entirely — just the title card and its word/skill list, nothing else.
+      const num = aud !== "student" ? `<ol><li><span class="n">${++n}.</span> <span class="status ${x.ready ? "ok" : "wait"}">${esc(x.ready ? readyWord : notReadyWord)}</span></li></ol>` : "";
+      return `<div class="grp" data-cat="${CAT_OF[x.kind ?? ""] ?? "vocabulary"}"><h4>${titleHtml}</h4>${sub}${num}</div>`;
     }).join("");
     // 🐛 r91 fix: used to unconditionally drop "vocabulary"/"comprehension" from sec.skills, assuming
     // lessonSections always supplies them. If the unit/lesson numbering used to key lessonSectionsByLesson
