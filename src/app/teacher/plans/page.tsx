@@ -109,12 +109,23 @@ async function PlanList({ t, actor, ctx, classId, bucket }: { t: T; actor: Actor
         {BUCKETS.map(([k, label]) => <Link key={k} href={link(k, classId)} aria-current={k === b ? "page" : undefined} className={chip(k === b)}>{t(label)} <span className="ms-1 tabular-nums opacity-80">{count(k)}</span></Link>)}
       </nav>
       {!rows.length ? <EmptyState icon="📋" title="No plans here yet" text="Start a New plan, or open a Suggested plan." /> : (
-        <form method="get" action="/teacher/plans/bulk">
+        <>
+          {/* 🐛 fix (Oct 2026, "delete مش شغال"): this used to be a <form method="get" action="/teacher/plans/bulk">
+              wrapping the whole list — and each row's own "Cancel this plan" panel below put ANOTHER <form> (Stop /
+              Delete, each a real server action) inside it. Browsers don't allow a <form> inside a <form>: the HTML
+              parser silently drops the inner <form> start tag (no element is ever created for it) and, worse, its
+              first "</form>" closes the OUTER list form early — so which action actually ran, if any, depended on
+              which row and which button, and "Delete permanently" could end up doing nothing or re-submitting the
+              bulk-select GET instead. Fix: the bulk-select form is now its own empty, separate <form id="plans-bulk">
+              — every checkbox and the "Change the ticked plans together" button just POINT to it with a plain HTML
+              `form="plans-bulk"` attribute instead of being physically inside it, so the Stop/Delete forms below are
+              free-standing, valid, never-nested forms again. */}
+          <form method="get" action="/teacher/plans/bulk" id="plans-bulk" />
           <Section title={t(BUCKETS.find(([k]) => k === b)![1])} icon="📋" hint={t("Tick several plans to change them together (for example the individual plans of several students).")}>
             <ul className="divide-y divide-slate-100">
               {rows.map((p) => (
                 <li key={p.id} className="flex flex-wrap items-start gap-3 py-3">
-                  <label className="flex min-h-11 items-center px-1"><input type="checkbox" name="id" value={p.id} className="h-5 w-5" aria-label={p.title} /></label>
+                  <label className="flex min-h-11 items-center px-1"><input type="checkbox" name="id" value={p.id} form="plans-bulk" className="h-5 w-5" aria-label={p.title} /></label>
                   <div className="min-w-0 flex-1">
                     <p className="flex flex-wrap items-center gap-2 font-semibold text-brand-navy"><span className="break-words">{p.title}</span><ProgramChip program={p.program} /><StatusChip t={t} status={p.status} finished={p.finished} /></p>
                     <p className="text-sm text-slate-600">{p.className} · {t(SCOPE[p.scope])} · {t("{n} student(s)", { n: p.students })} · {t("{n} part(s)", { n: p.sections })}{p.questions ? ` · ${t("{n} question(s)", { n: p.questions })}` : ""}{p.dueAt ? ` · ${t("Due {date}", { date: p.dueAt })}` : ""} · {p.date}</p>
@@ -151,9 +162,9 @@ async function PlanList({ t, actor, ctx, classId, bucket }: { t: T; actor: Actor
                 </li>
               ))}
             </ul>
-            <div className="mt-3 flex justify-end"><button className={BTN_SOFT}>{t("Change the ticked plans together")}</button></div>
+            <div className="mt-3 flex justify-end"><button form="plans-bulk" className={BTN_SOFT}>{t("Change the ticked plans together")}</button></div>
           </Section>
-        </form>
+        </>
       )}
     </>
   );
