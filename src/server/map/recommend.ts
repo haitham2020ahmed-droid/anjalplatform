@@ -4,7 +4,7 @@
  * is lowest. Teachers choose and assign; a student with no MAP work sees their own recommendations.
  */
 import { countGroups } from "../db/group-count";
-import type { Repo } from "../seeding/repo";
+import type { Repo, Row } from "../seeding/repo";
 import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
 import { requireSource } from "../assign/source";
@@ -29,7 +29,11 @@ export async function gradeAreaSkills(repo: Repo, schoolId: string, grade: numbe
 async function gradeAreaSkillsNow(repo: Repo, schoolId: string, grade: number, includeEmpty: boolean): Promise<AreaSkills> {
   const gs = await repo.findMany("Grade", { schoolId, level: grade }, { select: ["id"] });
   const curs = gs.length ? await repo.findMany("Curriculum", { gradeId: { in: gs.map((g) => g.id) } }, { select: ["id"] }) : [];
-  const skills = curs.length ? await repo.findMany("Skill", { curriculumId: { in: curs.map((c) => c.id) }, isActive: true, deletedAt: null }, { select: ["id", "name", "familyId"] }) : [];
+  let skills = curs.length ? await repo.findMany("Skill", { curriculumId: { in: curs.map((c) => c.id) }, isActive: true, deletedAt: null }, { select: ["id", "name", "familyId"] }) : [];
+  // ⚡ r91: a grade with no Curriculum of its own (not built yet) borrows the MAP-linked skills of the school's
+  // OTHER grades instead of returning nothing — only WHERE the skill list comes from changes; the actual
+  // question-to-student RIT matching (map-plan.ts pickBand) stays per-question and is completely unaffected.
+  if (!skills.length) skills = await otherGradesSkills(repo, schoolId, gs.map((g) => s(g.id)));
   if (!skills.length) return [];
   // ⚡ the families and the per-skill question counts side by side; no count at all when empty skills are wanted too
   const [fams, counts] = await Promise.all([
@@ -40,6 +44,17 @@ async function gradeAreaSkillsNow(repo: Repo, schoolId: string, grade: number, i
   const withQ = new Set([...counts.entries()].filter(([, n]) => n > 0).map(([k]) => k));
   const areaOf = new Map(fams.map((f) => [s(f.id), s(f.mapGoalAreaId)]));
   return areas.map((a) => ({ areaId: s(a.id), area: s(a.name), skills: skills.filter((k) => areaOf.get(s(k.familyId)) === a.id && (includeEmpty || withQ.has(s(k.id)))).map((k) => ({ id: s(k.id), name: s(k.name) })) })).filter((a) => a.skills.length);
+}
+
+/** r91: the active skills of every OTHER grade of this school (own grade's ids excluded) — the fallback source
+ *  when a grade has no Curriculum of its own yet. */
+async function otherGradesSkills(repo: Repo, schoolId: string, ownGradeIds: string[]): Promise<Row[]> {
+  const allGrades = await repo.findMany("Grade", { schoolId }, { select: ["id"] });
+  const otherIds = allGrades.map((g) => s(g.id)).filter((id) => !ownGradeIds.includes(id));
+  if (!otherIds.length) return [];
+  const curs = await repo.findMany("Curriculum", { gradeId: { in: otherIds } }, { select: ["id"] });
+  if (!curs.length) return [];
+  return repo.findMany("Skill", { curriculumId: { in: curs.map((c) => c.id) }, isActive: true, deletedAt: null }, { select: ["id", "name", "familyId"] });
 }
 
 async function recommendFor(repo: Repo, studentIds: string[], areaSkills: Awaited<ReturnType<typeof gradeAreaSkills>>, names: Map<string, string>): Promise<Recommendation[]> {

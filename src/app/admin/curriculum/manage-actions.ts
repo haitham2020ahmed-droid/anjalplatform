@@ -3,7 +3,7 @@ import { revalidatePath } from "next/cache";
 import { requireActor, repo } from "@/server/auth/next";
 import { ValidationError } from "@/server/curriculum-admin";
 import {
-  createGrade, createSkill, createStandard, createUnit, deleteGrade, deleteSkill, deleteStandard, deleteUnit, moveSkillInUnit, moveUnit,
+  cloneGradeStructure, createGrade, createSkill, createStandard, createUnit, deleteGrade, deleteSkill, deleteStandard, deleteUnit, moveSkillInUnit, moveUnit,
   placeSkillInUnit, setSkillActive, setUnitActive, updateGrade, updateStandard,
 } from "@/server/curriculum-manage";
 import type { Result } from "../actions";
@@ -57,6 +57,13 @@ export async function skillStateAction(_: Result, f: FormData): Promise<Result> 
   const actor = await requireActor({ permission: "curriculum:edit" });
   const op = str(f, "op"), skillId = str(f, "skillId"), unitId = str(f, "unitId");
   return act(actor, (a) => (op === "up" || op === "down" ? moveSkillInUnit(repo, a, unitId, skillId, op) : op === "place" ? placeSkillInUnit(repo, a, skillId, unitId) : op === "delete" ? deleteSkill(repo, a, skillId) : setSkillActive(repo, a, skillId, op === "activate")), "Saved.");
+}
+export async function cloneGradeAction(_: Result, f: FormData): Promise<Result> {
+  const actor = await requireActor({ permission: "curriculum:edit" });
+  return act(actor, (a) => cloneGradeStructure(repo, a, {
+    sourceGradeId: str(f, "sourceGradeId"), targetGradeId: str(f, "targetGradeId") || null,
+    newGradeLevel: str(f, "newGradeLevel") === "" ? null : Number(str(f, "newGradeLevel")), newGradeName: str(f, "newGradeName") || undefined,
+  }), "Grade structure cloned. Now open it below to name questions you want to link (Admin → Questions → Move to skill...).");
 }
 export async function createStandardAction(_: Result, f: FormData): Promise<Result> {
   const actor = await requireActor({ permission: "curriculum:edit" });

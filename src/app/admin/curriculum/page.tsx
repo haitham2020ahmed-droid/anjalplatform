@@ -5,7 +5,7 @@ import { MiniAction } from "@/components/admin/mini-action";
 import { card } from "@/components/admin/styles";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { SKILL_CATEGORIES, SKILL_DOMAINS, curriculumTree } from "@/server/curriculum-manage";
-import { createGradeAction, createSkillAction, createUnitAction, deleteGradeAction, skillStateAction, unitStateAction, updateGradeAction } from "./manage-actions";
+import { cloneGradeAction, createGradeAction, createSkillAction, createUnitAction, deleteGradeAction, skillStateAction, unitStateAction, updateGradeAction } from "./manage-actions";
 import { Combo } from "@/components/ui/combo";
 
 const input = "rounded-lg border border-slate-300 px-3 py-2";
@@ -17,6 +17,8 @@ export default async function CurriculumAdmin() {
   const actor = await requireActor({ permission: "curriculum:edit" });
   const me = (await getActor())!.user;
   const tree = await curriculumTree(repo, actor);
+  const gradesWithSkills = tree.grades.filter((g) => g.units.some((u) => u.skills.length > 0) || g.unplaced.length > 0);
+  const emptyGrades = tree.grades.filter((g) => !gradesWithSkills.includes(g));
   return (
     <AppShell name={String(me.displayName)}>
       <div className="flex flex-wrap items-end justify-between gap-3">
@@ -35,6 +37,21 @@ export default async function CurriculumAdmin() {
           <label className="text-sm">Name (optional)<input name="name" placeholder="e.g. Grade 7" maxLength={60} className={`${input} ms-2`} /></label>
         </ActionForm>
       </section>
+
+      {gradesWithSkills.length > 0 && (
+        <section className={card}>
+          <h2 className="font-semibold text-brand-navy">Clone a grade&apos;s skill structure</h2>
+          <p className="text-sm text-slate-600">Copies a grade&apos;s units and skills (names, domains, categories, standards) into a new or still-empty grade, and links each cloned skill to the same MAP goal area automatically — the skills are instantly ready for MAP plans and the Learning Continuum, no separate MAP Classification step. Questions are not copied; afterwards use Admin → Questions → &quot;Move to skill…&quot; to link matching questions to the new skills.</p>
+          <ActionForm action={cloneGradeAction} submit="Clone structure" className="mt-2 flex flex-wrap items-end gap-3">
+            <label className="text-sm">Clone from<select name="sourceGradeId" required className={`${input} ms-2`}>{gradesWithSkills.map((g) => <option key={g.id} value={g.id}>{g.name}</option>)}</select></label>
+            {emptyGrades.length > 0 && (
+              <label className="text-sm">Into an existing empty grade<select name="targetGradeId" className={`${input} ms-2`}><option value="">— or a new grade below —</option>{emptyGrades.map((g) => <option key={g.id} value={g.id}>{g.name}</option>)}</select></label>
+            )}
+            <label className="text-sm">Or new grade number<input name="newGradeLevel" type="number" min={0} max={12} className={`${input} ms-2 w-20`} /></label>
+            <label className="text-sm">New grade name (optional)<input name="newGradeName" placeholder="e.g. Grade 7" maxLength={60} className={`${input} ms-2`} /></label>
+          </ActionForm>
+        </section>
+      )}
 
       {tree.grades.map((g) => (
         <section key={g.id} className={card} aria-labelledby={`g-${g.id}`}>

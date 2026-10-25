@@ -6,6 +6,7 @@ import { repo, requireActor } from "@/server/auth/next";
 import {
   addLesson, addPrerequisite, linkSkillToLesson, linkStandard, removePrerequisite, unlinkSkillFromLesson, unlinkStandard, updateSkill, updateUnit, ValidationError,
 } from "@/server/curriculum-admin";
+import { linkQuestionsToSkill } from "@/server/skills/suggest-questions";
 
 type Result = { error?: string; ok?: boolean };
 const id = z.string().min(1).max(191);
@@ -78,4 +79,12 @@ export async function unlinkStandardAction(f: FormData): Promise<void> {
   const actor = await requireActor({ permission: "curriculum:edit" });
   const skillId = id.parse(f.get("skillId"));
   await run(`/admin/curriculum/skill/${skillId}`, () => unlinkStandard(repo, actor, skillId, String(f.get("code"))));
+}
+
+/** "Find matching questions" on the skill page: moves the ticked candidates' skillId to this skill. */
+export async function linkQuestionsAction(_: Result, f: FormData): Promise<Result> {
+  const actor = await requireActor({ permission: "curriculum:edit" });
+  const skillId = id.parse(f.get("skillId"));
+  const questionIds = f.getAll("qid").map(String);
+  return run(`/admin/curriculum/skill/${skillId}`, () => linkQuestionsToSkill(repo, actor, skillId, questionIds));
 }

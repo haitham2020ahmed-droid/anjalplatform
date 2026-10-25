@@ -89,10 +89,15 @@ export function readRosterFile(fileName: string, bytes: Uint8Array): string[][] 
   throw new ValidationError("Upload a .csv or .xlsx file.");
 }
 
+/** ⚡ r91: three STUDENT example rows (not one) — the repeated shape makes it obvious, without a word of English,
+ *  that every student is its own row underneath, as many as needed; TEACHER and PARENT stay as one example each,
+ *  clearly after all the students, since most imports are students only. */
 export function rosterTemplateCsv(): string {
   return toCsv([
     [...ROSTER_COLUMNS],
     ["STUDENT", "s.4001", "Layan Ahmed", "4001", "4", "4A", "", "", "", ""],
+    ["STUDENT", "s.4002", "Omar Khalid", "4002", "4", "4A", "", "", "", ""],
+    ["STUDENT", "s.4003", "Sara Nasser", "4003", "4", "4A", "", "", "", ""],
     ["TEACHER", "t.huda", "Huda Salem", "", "", "4A;4B", "huda@example.edu.sa", "Miss", "", ""],
     ["PARENT", "p.4001", "Ahmed Ali", "", "", "", "", "", "4001", "father"],
   ]);

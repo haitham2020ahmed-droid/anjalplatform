@@ -190,7 +190,12 @@ export function groupPools(repo: Repo, schoolId: string, grade: number): Promise
 /** The tables the pools are built from (other MAP caches built on the pools use them too). */
 export const MAP_POOL_MODELS: readonly string[] = POOL_MODELS;
 async function loadPools(repo: Repo, schoolId: string, grade: number): Promise<Pools> {
-  const skills = await masterSkills(repo, schoolId, { grade });
+  let skills = await masterSkills(repo, schoolId, { grade });
+  // ⚡ r91: a grade with no Curriculum of its own (not built yet) borrows the MAP-linked skills of the school's
+  // OTHER grades instead of returning empty pools — this is what feeds Individual MAP auto-drafts, group "Suggest
+  // skills" and the Learning Continuum for that grade. Only WHERE the skills come from changes: every question
+  // still joins its pool at its own RIT, and the per-student band matching below (pickBand) is unaffected.
+  if (!skills.length) skills = (await masterSkills(repo, schoolId, {})).filter((k) => k.area);
   const fams = skills.length ? await repo.findMany("Skill", { id: { in: skills.map((k) => k.id) } }, { select: ["id", "familyId"] }) : [];
   const famRows = fams.length ? await repo.findMany("SkillFamily", { id: { in: [...new Set(fams.map((f) => s(f.familyId)))] } }, { select: ["id", "mapGoalAreaId"] }) : [];
   const areas = await repo.findMany("MapGoalArea", {}, { select: ["id", "code"] });
