@@ -147,11 +147,17 @@ const OFF_MENU: Record<"TEACHER" | "STUDENT", NavItem[]> = {
   // r88: grouped into 5 themed "More" sub-sections, each block kept contiguous so navSections() renders one
   // folded heading per theme instead of several broken-up runs of the same name.
   TEACHER: [
-    // Support & Intervention
+    // Support & Intervention — owner request, Oct 2026: 8 similar-sounding entries were confusing to tell apart,
+    // and two of them ("Who Needs Help" / "Alerts") were already the exact same page reached two ways. Fix, done
+    // safely: a new hub page (/teacher/support) is added FIRST, with a plain-language explanation and one card per
+    // tool, grouping the two that are really one workflow each (Support plan's two steps; the two group-building
+    // tools) — so it reads as 5 simple cards. Every one of the 7 original pages below is untouched and kept in this
+    // menu exactly as before (existing tests require it): nothing that worked before stops working, this just adds
+    // one easier front door. Only the literal duplicate ("Who Needs Help", same destination as "Alerts") is dropped.
+    { href: "/teacher/support", label: "Support & Intervention", icon: "🧷", line: "puzzle", group: MORE_GROUPS.teacherSupport },
     { href: "/teacher/plans/support", label: "Support (RTI)", icon: "🛟", line: "puzzle", group: MORE_GROUPS.teacherSupport },
     { href: "/teacher/rti-plan", label: "Weekly Support Sessions", icon: "🗓", line: "calendar", group: MORE_GROUPS.teacherSupport },
     { href: "/teacher/lessons", label: "Intervention Lessons", icon: "🧩", line: "puzzle", group: MORE_GROUPS.teacherSupport },
-    { href: "/teacher/intervention", label: "Who Needs Help", icon: "🚨", line: "alert", group: MORE_GROUPS.teacherSupport },
     { href: "/teacher/alerts", label: "Alerts", icon: "🔔", line: "bell", group: MORE_GROUPS.teacherSupport },
     { href: "/teacher/intervention/groups", label: "Intervention Groups", icon: "🎯", line: "target", group: MORE_GROUPS.teacherSupport },
     { href: "/teacher/strategy-groups", label: "Strategy Groups", icon: "🧠", line: "learn", group: MORE_GROUPS.teacherSupport },

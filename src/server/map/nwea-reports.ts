@@ -265,10 +265,24 @@ function profileOf(rows: Row[], ids: string[], names: Map<string, { name: string
   };
 }
 
+// ⚡ Oct 2026 (server-stability audit, r79): every open of a class's Class Profile (achievement × growth, instructional
+// areas, quintiles) recomputes the whole class from every member's MapResult rows, from scratch, every time — a
+// teacher or admin flipping between Reading/Language or between terms for the same class reruns it each click. The
+// access check (assertCan + readableClasses) runs on every call, before the cache, so a class that isn't this actor's
+// never reaches a cached answer; once access is confirmed the result depends only on classId/subject/term, same as
+// schoolOverview's sibling cache above.
+const CLASS_PROFILE_MODELS = ["MapResult", "ClassMembership", "ClassTeacher", "Class", "Student", "Grade", "SchoolSetting", "BenchmarkReference"];
+const classProfileCache = mapCache<ClassProfile>("map.nwea-reports.classProfile", MAP_KEEP_MS, 40);
+
 export async function classProfile(repo: Repo, actor: Actor, classId: string, subject: Subject, term?: string | null): Promise<ClassProfile> {
   assertCan(actor, "reports:read");
   const klass = (await readableClasses(repo, actor)).find((c) => c.id === classId);
   if (!klass) throw new ForbiddenError("Class not found.");
+  const key = `${classId}|${subject}|${term ?? ""}`;
+  return structuredClone(await classProfileCache.get(repo, key, CLASS_PROFILE_MODELS, () => classProfileNow(repo, actor, klass, classId, subject, term)));
+}
+
+async function classProfileNow(repo: Repo, actor: Actor, klass: Row, classId: string, subject: Subject, term?: string | null): Promise<ClassProfile> {
   const grade = Number((await repo.findUnique("Grade", { id: klass.gradeId }))?.level ?? 0);
   const ids = await classMembers(repo, classId);
   const [names, { terms, rows }, cuts] = await Promise.all([studentNames(repo, ids), termsOf(repo, ids, subject), cutScores(repo, s(actor.schoolId))]);

@@ -20,7 +20,7 @@ const orig = Module._resolveFilename;
 Module._resolveFilename = function (this: unknown, r: unknown, ...x: unknown[]) {
   const q = String(r);
   if (q === "next/link") return "stub:next/link";
-  if (/star-actions$|stars-notice-actions$|plans\/actions$|nafs\/actions$/.test(q)) return "stub:actions";
+  if (/star-actions$|stars-notice-actions$|plans\/actions$|nafs\/actions$|map-report\/actions$/.test(q)) return "stub:actions";
   return orig.call(this, r, ...x);
 };
 const noop = async () => ({ ok: true });
@@ -157,7 +157,7 @@ describe("📘 Full curriculum map (PDF)", () => {
     assert.equal(data[4].units[0].sections[0].essentialQuestion, "How do people respond to natural disasters?");
     assert.ok(data[5].units.every((u) => u.sections.every((x) => x.essentialQuestion === null)));
     const g6 = data[6].units.flatMap((u) => u.sections);
-    assert.equal(g6.length, 23, "Grade 6: 23 StudySync selections");
+    assert.equal(g6.length, 24, "Grade 6: 24 StudySync selections"); // Grade 6 Unit 1 added "The Lost Island" (23 → 24)
     assert.ok(g6.every((x) => x.weeks.length === 0 && x.selections.length === 1 && x.selections[0].label === "Selection"));
     assert.equal(sectionLabel(g6[0]), "Selection 1");
     for (const g of [4, 5, 6]) assert.ok(data[g].units.every((u) => u.sections.some((x) => x.skills.length > 0)), `Grade ${g}: platform skills in every unit`);
@@ -173,14 +173,23 @@ describe("📘 Full curriculum map (PDF)", () => {
       assert.match(html, /Demo School/, "the school's own name");
       assert.doesNotMatch(html, /IXL/i, "never the other company's name");
       for (const u of d.units) assert.ok(html.includes(`<h2>Unit ${u.number}</h2>`), `Unit ${u.number}`);
-      assert.match(html, /<th scope="col">Textbook section<\/th><th scope="col">Platform skills<\/th>/);
-      if (g < 6) { assert.match(html, /<b>Weeks 1 and 2:<\/b>/); assert.match(html, /<b>Week 5:<\/b>/); assert.match(html, /Shared Read:<\/span> <i>/); }
-      else assert.match(html, /<b>Selection 1:<\/b> <bdi dir="ltr">Amigo Brothers<\/bdi>/);
+      // r87 (owner): the map moved from a <table> row layout to a card layout (sec-card) to stop long skill
+      // lists overlapping a short textbook blurb; the column heads are now a plain <div class="col-heads">.
+      assert.match(html, /<div class="col-heads"><span>Textbook section<\/span><span>Platform skills<\/span><\/div>/);
+      // r87 (owner): each Text Set is its own card now (sec-card/wk-pill), not a table row with a <b> label.
+      if (g < 6) {
+        assert.match(html, /<span class="wk-pill">Weeks 1 and 2<\/span>/); assert.match(html, /<span class="wk-pill">Week 5<\/span>/);
+        assert.match(html, /Anchor Text:<\/span> <i>/); assert.match(html, /Paired Selection:<\/span> <i>/);
+        // the selection IS the lesson: when "Shared Read"'s own name is the Text Set's title (shown once, in the
+        // card header already) it is not re-listed below — Grade 4 has an essential question instead of a title
+        // there, so nothing is deduplicated and all three selections (Shared Read included) print.
+        if (g === 4) assert.match(html, /Shared Read:<\/span> <i>/);
+      } else assert.match(html, /<span class="wk-pill">Selection 1<\/span><p class="wk-q"><bdi dir="ltr">Amigo Brothers<\/bdi><\/p>/);
       if (g === 4) assert.match(html, /How do people respond to natural disasters\?/);
       const groups = MAP_CATEGORY_GROUPS.filter((c) => html.includes(`<h4>${c.en.replace(/&/g, "&amp;")}</h4>`));
       assert.ok(groups.length >= 4, `the platform's categories (${groups.map((x) => x.key)})`);
       assert.ok(groups.some((x) => x.key === "writing"), "Writing (the unit's writing skills)");
-      if (g < 6) assert.match(html, /<b>Unit writing:<\/b>/);
+      if (g < 6) assert.match(html, /<span class="wk-pill uw-pill">Unit writing<\/span>/);
       // every skill: numbered, a link, its short code in grey
       const skills = d.units.flatMap((u) => u.sections.flatMap((x) => x.skills));
       for (const k of skills.slice(0, 40)) {
@@ -298,7 +307,7 @@ describe("🔗 every plan PDF / print: clickable, absolute, the right reader's p
   });
 
   test("👥 MAP group plan (Word): each goal skill links to its skill page; note; QR per group", () => {
-    const p: PersonalPlan = { classId, className: "4A", grade: 4, teacher: "T", subject: "READING", term: "Fall 2026", notTested: [], classAverageRit: 195, bands: (["BELOW", "ON", "ABOVE"] as const).map((band) => ({ band, ritRange: "190–200", students: [], goals: [{ area: "Literature", areaId: "a1", meanRit: 195, skills: skills.slice(0, 2).map((k) => ({ id: k.id, name: k.name, standards: [] })), continuumFocus: [] }], strengths: [], resources: [], monitoring: [] })) } as unknown as PersonalPlan;
+    const p: PersonalPlan = { classId, className: "4A", grade: 4, teacher: "T", subject: "READING", term: "Fall 2026", notTested: [], classAverageRit: 195, nationalAverageRit: 198, areaBreakdown: [], bands: (["BELOW", "ON", "ABOVE"] as const).map((band) => ({ band, ritRange: "190–200", students: [], goals: [{ area: "Literature", areaId: "a1", meanRit: 195, skills: skills.slice(0, 2).map((k) => ({ id: k.id, name: k.name, standards: [] })), continuumFocus: [] }], strengths: [], resources: [], monitoring: [] })) } as unknown as PersonalPlan;
     const html = personalPlanDoc(p, now);
     assert.match(html, /Everything in this plan is clickable/);
     for (const k of skills.slice(0, 2)) assert.ok(html.includes(`href="${ORIGIN}/skill/${k.id}"`), k.name);

@@ -31,6 +31,7 @@ export const ar: Record<I18nKey, string> = {
   "personalizedPlan.ritScore": "درجة RIT",
   "personalizedPlan.projection": "توقع RIT للربيع",
   "personalizedPlan.percentile": "النسبة المئوية",
+  "personalizedPlan.percentileNote": "النسبة المئوية تقارن درجة الطالب بكل طلاب نفس الصف على مستوى الدولة في نفس فترة اختبار MAP. الرقم ١ معناه إن الطالب بعيد جدًا تحت المتوسط الوطني، والرقم ٩٩ معناه إنه بعيد جدًا فوقه — مش ترتيب دقيق لكل طالب، وممكن أكتر من طالب يظهروا بنفس الرقم لو كلهم بعيدين عن المتوسط بنفس القدر تقريبًا.",
   "personalizedPlan.noPlan": "لا توجد خطة قائمة على MAP لهذا الطالب حتى الآن (لا فصل، أو لا توجد نتائج MAP لهذه المادة والفصل الدراسي).",
   "personalizedPlan.view.student": "👤 طالب واحد",
   "personalizedPlan.view.class": "👥 الفصل كامل",

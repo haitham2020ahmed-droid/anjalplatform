@@ -27,7 +27,7 @@ import { newRowId, sendPartsBatch } from "../plans/batch-send";
 import { bandOf, seasonOf, CLASS_BAND_RIT, percentileFromNorm, type Season } from "./rit";
 import { groupOf, groupPools, GROUPS, mapProfiles, type GroupKey, type MapProfile, type Subject, type Descriptor } from "./map-plan";
 import { mapCache, MAP_KEEP_MS } from "./map-cache";
-import { continuumFor, continuumIndex, groupOfGoal, hasContinuum, skillsFor, type ContinuumIndex, type ContinuumView, type Stage } from "./continuum";
+import { contModels, continuumFor, continuumIndex, groupOfGoal, hasContinuum, skillsFor, type ContinuumIndex, type ContinuumView, type Stage } from "./continuum";
 import { buildRanges, skillPlan, type PlanRange } from "./skill-plan";
 import { GROWTH_SD, normFor } from "./norm-tables";
 import { skillKeysFor, statusesOfSkills, type StarView } from "../skills/status";
@@ -144,8 +144,37 @@ async function masteryOf(repo: Repo, studentIds: string[]): Promise<Map<string, 
 /** The RIT used for a goal area: its goal-area RIT, else the overall RIT. */
 const areaRit = (p: MapProfile | undefined, g: GroupKey) => { const a = p?.areas.find((x) => x.group === g); return a?.rit !== null && a?.rit !== undefined ? { rit: a.rit, fromGoal: true, pct: a.percentile, desc: a.descriptor } : p?.overall ? { rit: p.overall.rit, fromGoal: false, pct: p.overall.percentile, desc: p.overall.descriptor } : null; };
 
-export async function studyPlan(repo: Repo, actor: Actor, studentId: string, subject: Subject, opts: { full?: boolean; student?: ReportStudent; index?: ContinuumIndex; mastery?: Mastery; profile?: MapProfile; stars?: Map<string, StarView> } = {}): Promise<StudyPlanDoc> {
+export type StudyPlanOpts = { full?: boolean; student?: ReportStudent; index?: ContinuumIndex; mastery?: Mastery; profile?: MapProfile; stars?: Map<string, StarView> };
+// ⚡ Oct 2026 (server-stability audit, r79): the Family Report calls this once per subject (READING + LANGUAGE), and
+// the class Family Report calls it twice per student of the class — all uncached, every time, even though the result
+// is the same for a given student/subject/full combination regardless of who's asking (reportStudent/isReportShared
+// already gate WHO may see it before this runs). `noteWrite` bumps every listed model's version the instant it
+// changes, so a freshly mastered skill or a new MAP score is never shown stale — the cache only skips re-deriving the
+// SAME answer over and over inside one burst (a report render, a teacher paging through a class).
+const studyPlanCache = mapCache<StudyPlanDoc>("map.map-reports.studyPlan", MAP_KEEP_MS, 200);
+// bug found & fixed in the same pass: studyPlan() picks CONTINUUM vs SKILLS mode from hasContinuum()/continuumFor()
+// (whether the school has imported a Learning Continuum) — that reads LearningStatement, which the first model list
+// here left out, so a plan cached before an admin imports the continuum kept answering "SKILLS" after the import.
+// contModels() (continuum.ts) is the platform's own list of everything a continuum-aware MAP read depends on
+// (LearningStatement, SkillStandard, Standard, plus the skill/question bank) — reused here instead of hand-rolled.
+// Built lazily (on first use, not at module load): map-plan.ts and continuum.ts import each other's area of the MAP
+// module graph, and calling contModels() at the top of this file — before every module in that graph has finished
+// initializing — can hit its MAP_POOL_MODELS import mid-TDZ depending on which file the test runner loads first.
+let studyPlanModelsCache: string[] | null = null;
+const studyPlanModels = (): string[] => (studyPlanModelsCache ??= ["MapResult", "StudentSkillMastery", "SkillStatus", "QuestionAttempt", "Question", "SchoolSetting", ...contModels()]);
+
+export async function studyPlan(repo: Repo, actor: Actor, studentId: string, subject: Subject, opts: StudyPlanOpts = {}): Promise<StudyPlanDoc> {
   const student = opts.student ?? (await reportStudent(repo, actor, studentId));
+  // a caller passing its own index/mastery/profile/stars already holds shared, precomputed data (e.g. a group plan
+  // batching many students at once) — that shape doesn't fit a simple per-student cache key, so it skips the cache
+  // rather than risk serving one caller's override to another's request.
+  if (opts.index || opts.mastery || opts.profile || opts.stars) return studyPlanNow(repo, student, subject, opts);
+  const key = `${studentId}|${subject}|${Boolean(opts.full)}`;
+  return structuredClone(await studyPlanCache.get(repo, key, studyPlanModels(), () => studyPlanNow(repo, student, subject, opts)));
+}
+
+async function studyPlanNow(repo: Repo, student: ReportStudent, subject: Subject, opts: StudyPlanOpts): Promise<StudyPlanDoc> {
+  const studentId = student.id;
   const schoolId = s((await repo.findUnique("Student", { id: studentId }))?.schoolId);
   const p = opts.profile ?? (await mapProfiles(repo, schoolId, [studentId], subject)).get(studentId);
   const m = opts.mastery ?? (await masteryOf(repo, [studentId])).get(studentId) ?? new Map();

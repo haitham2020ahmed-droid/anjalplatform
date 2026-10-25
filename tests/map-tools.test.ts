@@ -38,6 +38,18 @@ describe("📋 personalized plan · 🚨 intervention board · 🕳 bank gaps", 
     assert.deepEqual([bandOf(40, null), bandOf(41, null), bandOf(60, null), bandOf(61, null), bandOf(null, -6), bandOf(null, 6)], ["BELOW", "ON", "ON", "ABOVE", "BELOW", "ABOVE"]);
   });
 
+  // 🐛 fix (audit finding, Oct 2026 — "Grade 11: كل الطلاب on غلط"): with no national percentile AND no diff-from-
+  // national at all (no national norm for that grade/season), bandOf() used to default every such student to "ON"
+  // unconditionally — a whole class/grade all showing the same band when the platform simply had no comparison to
+  // make. It now falls back to ritView's own vsClass (RIT vs. the class's own average), so students still spread
+  // out by how they compare to their classmates instead of being silently bucketed together.
+  test("no national norm at all: falls back to vs. class average, not a constant 'ON' for everyone", () => {
+    assert.deepEqual([bandOf(null, null, "ABOVE"), bandOf(null, null, "AT"), bandOf(null, null, "BELOW"), bandOf(null, null, null)], ["ABOVE", "ON", "BELOW", "ON"]);
+    // a real national percentile/diff still wins over vsClass when both are available (unchanged priority order)
+    assert.equal(bandOf(70, null, "BELOW"), "ABOVE");
+    assert.equal(bandOf(null, -6, "ABOVE"), "BELOW");
+  });
+
   test("the plan: students in their groups, weakest areas as goals with skills and standards", async () => {
     const p = await personalPlan(repo, teacher, classId, "READING");
     const by = Object.fromEntries(p.bands.map((b) => [b.band, b]));

@@ -29,6 +29,7 @@ export const en = {
   "personalizedPlan.ritScore": "RIT Score",
   "personalizedPlan.projection": "Projected Spring RIT",
   "personalizedPlan.percentile": "Percentile",
+  "personalizedPlan.percentileNote": "Percentile compares this score to every student nationally in the same grade and test term. 1 means far below the national average and 99 means far above it — it is not an exact rank, and several students can show the same number when they're all far from the average.",
   "personalizedPlan.noPlan": "No MAP-based plan yet for this student (no class, or no MAP scores for this subject and term).",
   "personalizedPlan.view.student": "👤 One student",
   "personalizedPlan.view.class": "👥 Whole class",

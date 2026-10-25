@@ -50,19 +50,26 @@ export function ensureNationalNorms(repo: Repo): Promise<void> {
   }
   return p;
 }
+// 🐛 fix (audit finding, Oct 2026 — "صف 11 كله ON غلط"): used to bail out entirely the moment ANY national-norm row
+// existed ("if (...count...) return"), so a school whose database was first seeded back when this table only had
+// grades 4-6 could NEVER get the newly-added grades (7-12, Language Usage 2-11, …) inserted later — every later
+// deploy's wider national-norms.ts table silently did nothing for them. Now checks what's already there and adds
+// only the grade/season/metric rows still missing, so expanding national-norms.ts in code actually reaches an
+// already-seeded school on its next deploy. Never touches a row that already exists (admin-edited ones included).
 async function insertNorms(repo: Repo): Promise<void> {
-  if (await repo.count("BenchmarkReference", { scope: "NATIONAL", metric: MEAN })) return;
+  const have = new Set((await repo.findMany("BenchmarkReference", { scope: "NATIONAL" }, { select: ["metric", "gradeLevel", "season"] })).map((r) => `${r.metric}|${r.gradeLevel}|${r.season}`));
   const rows: Row[] = [];
+  const add = (metric: string, grade: number, season: Season, value: number) => { if (!have.has(`${metric}|${grade}|${season}`)) rows.push({ scope: "NATIONAL", metric, gradeLevel: grade, season, value, source: NATIONAL_NORMS_SOURCE, importedAt: new Date() }); };
   for (const [g, bySeason] of Object.entries(NATIONAL_READING_NORMS)) for (const season of SEASONS) {
-    rows.push({ scope: "NATIONAL", metric: MEAN, gradeLevel: Number(g), season, value: bySeason[season].mean, source: NATIONAL_NORMS_SOURCE, importedAt: new Date() });
-    rows.push({ scope: "NATIONAL", metric: SD, gradeLevel: Number(g), season, value: bySeason[season].sd, source: NATIONAL_NORMS_SOURCE, importedAt: new Date() });
+    add(MEAN, Number(g), season, bySeason[season].mean);
+    add(SD, Number(g), season, bySeason[season].sd);
   }
   // 🐛 r91 fix: seed Language Usage's own norms too (previously only Reading was ever stored).
   for (const [g, bySeason] of Object.entries(NATIONAL_LANGUAGE_NORMS)) for (const season of SEASONS) {
-    rows.push({ scope: "NATIONAL", metric: LANG_MEAN, gradeLevel: Number(g), season, value: bySeason[season].mean, source: NATIONAL_NORMS_SOURCE, importedAt: new Date() });
-    rows.push({ scope: "NATIONAL", metric: LANG_SD, gradeLevel: Number(g), season, value: bySeason[season].sd, source: NATIONAL_NORMS_SOURCE, importedAt: new Date() });
+    add(LANG_MEAN, Number(g), season, bySeason[season].mean);
+    add(LANG_SD, Number(g), season, bySeason[season].sd);
   }
-  await repo.createMany("BenchmarkReference", rows);
+  if (rows.length) await repo.createMany("BenchmarkReference", rows);
 }
 
 /** 🐛 r91 fix: `subject` picks Reading's or Language Usage's own norms (defaults to Reading — every pre-existing

@@ -5,7 +5,7 @@ import { resolveActor } from "../src/server/auth/actor";
 import { ForbiddenError, type Actor } from "../src/server/auth/rbac";
 import { seedTestEnvironment } from "../src/server/seeding/test-env";
 import { teacherRoster } from "../src/server/teacher/assign";
-import { bandOf, enterRitScores, levelsFromClassAverage, nationalNorm, ritView, seasonOf, updateNationalNorms } from "../src/server/map/rit";
+import { bandOf, enterRitScores, ensureNationalNorms, levelsFromClassAverage, nationalNorm, ritView, seasonOf, updateNationalNorms } from "../src/server/map/rit";
 import { studentLevels } from "../src/server/curriculum-map/levels";
 import { demoDatabase } from "./helpers/db";
 
@@ -69,5 +69,26 @@ describe("MAP Reading RIT: national norms, ranking, class comparison", () => {
     assert.equal((await nationalNorm(repo, 4, "FALL"))?.mean, 197);
     await ritView(repo, teacher, { classId });   // re-running never overwrites the admin's change
     assert.equal((await nationalNorm(repo, 4, "FALL"))?.mean, 197);
+  });
+
+  // 🐛 fix (audit finding, Oct 2026 — "صف 11 كله ON غلط"): national-norms.ts used to cover grades 4-6 only, and
+  // once a school's database had ANY national-norm row, insertNorms() bailed out for good — so a school whose DB
+  // was already seeded under the old (4-6-only) table could never pick up the newly-added grades on a later
+  // deploy, even after national-norms.ts grew to cover them. This is grade 11, available in this test suite only
+  // because that fell-back-to-the-platform-wide norms and nothing else; a school's real DB is this scenario exactly.
+  test("a school already seeded with only grades 4-6: a later deploy's wider table still backfills the rest", async () => {
+    const { repo: fresh } = await demoDatabase();
+    const now = new Date();
+    // simulate an old, already-seeded database: only grades 4-6 present (what insertNorms() used to insert)
+    const rows = [4, 5, 6].flatMap((g) => ["FALL", "WINTER", "SPRING"].flatMap((season) => [
+      { scope: "NATIONAL", metric: "MAP_READING_RIT_MEAN", gradeLevel: g, season, value: 200, source: "old seed", importedAt: now },
+      { scope: "NATIONAL", metric: "MAP_READING_RIT_SD", gradeLevel: g, season, value: 18, source: "old seed", importedAt: now },
+    ]));
+    await fresh.createMany("BenchmarkReference", rows);
+    await ensureNationalNorms(fresh);
+    // grade 11 (not in the old seed) is now filled in from the current, wider national-norms.ts table
+    assert.deepEqual(await nationalNorm(fresh, 11, "FALL").then((n) => [n?.mean, n?.sd]), [218, 18]);
+    // an existing grade-4 row from the "old seed" is left exactly as it was — never overwritten by the backfill
+    assert.deepEqual(await nationalNorm(fresh, 4, "FALL").then((n) => [n?.mean, n?.sd]), [200, 18]);
   });
 });

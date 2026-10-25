@@ -54,6 +54,15 @@ export const UI_STRINGS = [
   "Strategy Groups", "Data Meeting", "Skill Connections", "Word Journals", "Family Reports", "MAP Scores", "MAP Plans",
   "Curriculum Map", "RTI Weekly Plan", "Support Tiers", "ReadRise", "ReadMaster", "Teach · Check · Reteach", "Diagnostic Test",
   "Progress Checks", "Decoding Screener", "Reading Fluency", "Grammar", "Worksheets", "Intervention Lessons",
+
+  // ---- Support & Intervention hub (owner request, Oct 2026: 7 similar-sounding pages, one simple hub with cards)
+  "Support & Intervention",
+  "Everything for a student who needs extra help, in one place. Start with Alerts to see who needs attention now, then Support Plan to build their plan. Lessons, Small Groups and the Full Picture are there whenever you need them.",
+  "Students who need attention now, and MAP or practice flags.",
+  "Support Plan (RTI)", "Who needs support, by level — and this week's plan.", "Who needs support",
+  "Assign a lesson and follow each student's progress.",
+  "Small Groups", "Group students for extra practice.", "Groups with measured impact", "Reading strategy groups",
+  "Full Picture", "The whole class on one wheel: teach, check, reteach.",
   "Writing & Reading Aloud", "Respond to Reading", "Games", "Dictionary", "Help", "Reports to Approve", "Department Week",
   "Question Bank", "Question Insights", "Bank Coverage (fill to 20)", "Skills", "AI Tools", "Tags & Review",
   "Flagged Questions", "Question Quality", "ReadRise Library", "ReadRise Growth", "School Insights", "Learning Engine",

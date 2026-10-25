@@ -10,14 +10,23 @@ import { assertCan, type Actor } from "../auth/rbac";
 import { assertClassAccess } from "../teacher/assignments";
 import { ritView } from "./rit";
 import { gradeAreaSkills } from "./recommend";
-import { continuumFor, continuumIndex, groupOfGoal, hasContinuum, type ContinuumIndex } from "./continuum";
+import { contModels, continuumFor, continuumIndex, groupOfGoal, hasContinuum, type ContinuumIndex } from "./continuum";
+import { mapCache, MAP_KEEP_MS } from "./map-cache";
 
 const s = (v: unknown) => String(v ?? "");
 export type Band = "BELOW" | "ON" | "ABOVE";
 export const BAND_RULE: Record<Band, string> = { BELOW: "below the 41st percentile", ON: "41st–60th percentile", ABOVE: "above the 60th percentile" };
-export function bandOf(percentile: number | null, diffFromNational: number | null): Band {
+// 🐛 fix (audit finding, Oct 2026 — same incident as the Grade 11 national-norms gap): when neither a percentile
+// nor a diff-from-national is available (no national norm at all for that grade/season — e.g. a grade national-
+// norms.ts doesn't cover yet, or one an admin hasn't filled in on the MAP RIT page), this used to default EVERY
+// such student to "ON" — a silent, uniform, wrong answer for the whole class. Now falls back to the class's own
+// vsClass (ritView's RitRow.vsClass, already computed from RIT vs. class average, ±CLASS_BAND_RIT) — the same
+// "no national norm" fallback planLevelOf() (map-reports.ts) already uses — so students actually spread out by
+// how they compare to their own classmates instead of being bucketed together by a constant.
+export function bandOf(percentile: number | null, diffFromNational: number | null, vsClass: "ABOVE" | "AT" | "BELOW" | null = null): Band {
   if (percentile !== null) return percentile < 41 ? "BELOW" : percentile <= 60 ? "ON" : "ABOVE";
   if (diffFromNational !== null) return diffFromNational < -5 ? "BELOW" : diffFromNational <= 5 ? "ON" : "ABOVE";
+  if (vsClass !== null) return vsClass === "ABOVE" ? "ABOVE" : vsClass === "BELOW" ? "BELOW" : "ON";
   return "ON";
 }
 
@@ -129,9 +138,30 @@ const RESOURCES: Record<Band, string[]> = {
 };
 const MONITORING = ["Platform: mastery and the adaptive path of each assignment (reports)", "Quizzes and personalized worksheets", "MAP Winter results against the Spring projection"];
 
+// ⚡ Oct 2026 (server-stability audit, r79): a whole-class computation (every member's MAP + 28-day practice +
+// level-change log), but called PER STUDENT — a Final Report pulls it twice (Reading + Language) just to read one
+// student's row, and a teacher opening Personalized Plan for each student of a class in turn reruns the entire
+// class's numbers from scratch every time, with nothing shared between those calls. The result only depends on
+// classId/subject/term (access is already checked above, every call, before the cache is even consulted), so it's
+// identical for every student of the same class and every actor permitted to see it.
+const personalPlanCache = mapCache<PersonalPlan>("map.personal-plan.personalPlan", MAP_KEEP_MS, 60);
+// same bug found in studyPlan's own cache (map-reports.ts), fixed the same way: personalPlan() also consults
+// hasContinuum()/continuumIndex() (whether the school's Learning Continuum covers this grade/subject), which reads
+// LearningStatement — missing from the first model list here too. contModels() (continuum.ts) covers it (plus
+// SkillStandard/Standard/the skill bank, already listed by hand below — kept for the models contModels doesn't cover).
+// Built lazily (on first use, not at module load) — see the matching note in map-reports.ts's studyPlanModels():
+// calling contModels() while map-plan.ts/continuum.ts are still initializing each other can hit a TDZ error.
+let personalPlanModelsCache: string[] | null = null;
+const personalPlanModels = (): string[] => (personalPlanModelsCache ??= ["MapResult", "ClassMembership", "QuestionAttempt", "AuditLog", "MapGoalArea", "Class", "ClassTeacher", "Teacher", "User", "Student", "SchoolSetting", ...contModels()]);
+
 export async function personalPlan(repo: Repo, actor: Actor, classId: string, subject: "READING" | "LANGUAGE", term?: string): Promise<PersonalPlan> {
   assertCan(actor, "assignments:create");
   await assertClassAccess(repo, actor, classId);
+  const key = `${classId}|${subject}|${term ?? ""}`;
+  return structuredClone(await personalPlanCache.get(repo, key, personalPlanModels(), () => personalPlanNow(repo, actor, classId, subject, term)));
+}
+
+async function personalPlanNow(repo: Repo, actor: Actor, classId: string, subject: "READING" | "LANGUAGE", term?: string): Promise<PersonalPlan> {
   const klass = (await repo.findUnique("Class", { id: classId }))!;
   const grade = Number((await repo.findUnique("Grade", { id: klass.gradeId }))?.level ?? 0);
   const ct = (await repo.findMany("ClassTeacher", { classId }))[0];
@@ -166,7 +196,7 @@ export async function personalPlan(repo: Repo, actor: Actor, classId: string, su
   const contIx = (await hasContinuum(repo, subject)) ? await continuumIndex(repo, actor.schoolId!, grade, subject) : null;
   const RANK: Record<string, number> = { BELOW: 0, ON: 1, ABOVE: 2 };
   const bands: PlanBand[] = (["BELOW", "ON", "ABOVE"] as Band[]).map((band) => {
-    const rows = v.rows.filter((r) => bandOf(r.national?.percentile ?? null, r.national?.diff ?? null) === band);
+    const rows = v.rows.filter((r) => bandOf(r.national?.percentile ?? null, r.national?.diff ?? null, r.vsClass) === band);
     const mine = new Set(rows.map((r) => r.studentId));
     const bandRits = rows.map((r) => r.rit);
     const midRit = bandRits.length ? Math.round((Math.min(...bandRits) + Math.max(...bandRits)) / 2) : null;

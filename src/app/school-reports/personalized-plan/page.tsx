@@ -181,6 +181,7 @@ export default async function PersonalizedPlanReportPage({ searchParams }: { sea
                     <tbody><tr><td className="py-1 font-semibold">{BAND_RULE[p.band]}</td><td className="tabular-nums">{p.rit ?? "—"}</td><td className="tabular-nums">{p.projection ?? "—"}</td><td className="tabular-nums">{p.percentile ?? "—"}</td></tr></tbody>
                   </table>
                 )}
+                {p.percentile !== null && <p className="mt-2 max-w-md text-xs text-slate-500">{t(L, "personalizedPlan.percentileNote")}</p>}
               </header>
               <InstructionalAreas rows={p.areaBreakdown} L={L} classAverageRit={null} nationalAverageRit={null} scope="student" />
               <InstructionalAreaPercentiles rows={p.areaPercentiles} L={L} />
@@ -258,6 +259,7 @@ export default async function PersonalizedPlanReportPage({ searchParams }: { sea
               <PercentileDistribution rows={cls.percentileDistribution} L={L} />
               {classPercentiles && <InstructionalAreaPercentiles rows={classPercentiles.areas} L={L} />}
               <InstructionalAreas rows={cls.areaBreakdown} L={L} classAverageRit={cls.classAverageRit} nationalAverageRit={cls.nationalAverageRit} scope="class" />
+              {cls.bands.some((b) => b.students.length > 0) && <p className="-mb-2 max-w-2xl text-xs text-slate-500">ℹ️ {t(L, "personalizedPlan.percentileNote")}</p>}
               {cls.bands.map((b) => (
                 <section key={b.band} className="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-slate-200 print:break-inside-avoid">
                   <h2 className="text-xl font-extrabold text-brand-navy">{TITLE[b.band]} <span className="text-base font-normal text-slate-500">· {BAND_RULE[b.band]}{b.ritRange ? ` · RIT ${b.ritRange}` : ""} · {b.students.length} {t(L, "personalizedPlan.studentsInBand")}</span></h2>
