@@ -231,7 +231,7 @@ async function NewPlan({ t, actor, ctx, canSend, program, who, sids, add, subjec
             </div>
           </div>
         )}
-        <fieldset className="mt-4">
+        <fieldset className="group/kind mt-4">
           <legend className="font-semibold text-slate-700">{t("Kind of plan")}</legend>
           <div className="mt-2 grid gap-2 sm:grid-cols-2 lg:grid-cols-5">
             {PROGRAM_CHOICES.filter(([k]) => k !== "NAFS" || klass.grade === NAFS_GRADE).map(([k, label, text]) => {
@@ -245,7 +245,11 @@ async function NewPlan({ t, actor, ctx, canSend, program, who, sids, add, subjec
               );
             })}
           </div>
-          <label className="mt-3 flex flex-wrap items-center gap-2 text-sm text-slate-700">{t("MAP subject")}
+          {/* ⚡ r92: "MAP subject" only ever filters the MAP kind of plan — for Support/Custom/Curriculum it had no
+              effect at all, which looked like a broken filter (e.g. picking "Language Usage" under Support still
+              showed Reading skills). Shown only when "MAP" is the chosen kind, via a pure-CSS :has() on the fieldset
+              (group/kind) — no JS needed, and it still shows correctly on first load for an existing MAP plan. */}
+          <label className="mt-3 hidden flex-wrap items-center gap-2 text-sm text-slate-700 group-has-[input[value=MAP]:checked]/kind:flex">{t("MAP subject")}
             <select name="subject" defaultValue={subject === "LANGUAGE" ? "LANGUAGE" : "READING"} className="min-h-11 rounded-xl border border-slate-300 bg-white px-3"><option value="READING">{t("Reading")}</option><option value="LANGUAGE">{t("Language Usage")}</option></select>
           </label>
         </fieldset>
