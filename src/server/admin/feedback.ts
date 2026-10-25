@@ -53,3 +53,12 @@ export async function setFeedbackResolved(repo: Repo, actor: Actor, id: string, 
   if (!row || (schoolId && s(row.schoolId) !== schoolId)) throw new ValidationError("Feedback not found.");
   await repo.updateMany("Feedback", { id: row.id }, { resolved });
 }
+
+/** Removes a feedback note for good (the admin's own "clear this out" tool — not visible to the person who sent it
+ *  either way, so nothing of theirs is lost by this). */
+export async function deleteFeedback(repo: Repo, actor: Actor, id: string): Promise<void> {
+  const schoolId = adminScope(actor);
+  const row = await repo.findUnique("Feedback", { id: s(id) });
+  if (!row || (schoolId && s(row.schoolId) !== schoolId)) throw new ValidationError("Feedback not found.");
+  await repo.deleteMany("Feedback", { id: row.id });
+}

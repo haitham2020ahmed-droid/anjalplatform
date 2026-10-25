@@ -1926,6 +1926,7 @@ export const ar: Record<UiString, string> = {
   "Resolved": "تمت المعالجة",
   "Open again": "أعد فتحها",
   "Mark resolved": "علّمها كمعالجة",
+  "Delete this feedback? This cannot be undone.": "حذف هذه الملاحظة؟ لا يمكن التراجع عن هذا.",
   "No grades yet": "لا توجد صفوف بعد",
   "Start with + Add grade, then add classes and teachers.": "ابدأ بـ + أضف صفًا دراسيًا، ثم أضف الفصول والمعلمين.",
   "Nothing matches": "لا توجد نتائج",

@@ -557,7 +557,7 @@ export const UI_STRINGS = [
   "Students cannot practise these skills yet.", "Add questions", "Students with no MAP scores",
   "Add their MAP scores so their plans can be made.", "Add MAP scores",
   "Thank you! Your feedback was sent.", "What would you like to tell us?", "Which page? (optional)", "Sending…",
-  "Please sign in again.", "{n} open", "Resolved", "Open again", "Mark resolved", "No grades yet",
+  "Please sign in again.", "{n} open", "Resolved", "Open again", "Mark resolved", "Delete this feedback? This cannot be undone.", "No grades yet",
   "Start with + Add grade, then add classes and teachers.", "Nothing matches", "Try another name or spelling.",
   "No feedback yet", "Notes sent with the Feedback button appear here.", "Write a few words first.",
   // ---- admin home (calm): five groups, More tools, All Admin Tools; teacher home without the Question Bank
