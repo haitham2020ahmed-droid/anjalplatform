@@ -155,7 +155,7 @@ export function PlanBuilder(p: BuilderProps) {
                 {withWork.slice(0, 40).map((s) => <Link key={s.id} href={link(s.id)} aria-current={s.id === as.id ? "true" : undefined} className={chip(s.id === as.id)}><bdi>{s.name}</bdi></Link>)}
               </nav>
             )}
-            <StudentPlanPreview title={title} studentName={as.name} className={p.className} program={p.program} skills={mine.map((k) => k.name)} note={form.note || null} dueAt={form.dueText || null} />
+            <StudentPlanPreview title={title} studentName={as.name} className={p.className} program={p.program} skills={mine.map((k) => k.name)} skillIds={mine.map((k) => k.id)} note={form.note || null} dueAt={form.dueText || null} />
           </>
         )}
         <div className="mt-5 grid gap-4 md:grid-cols-3">

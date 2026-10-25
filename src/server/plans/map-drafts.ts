@@ -20,7 +20,7 @@ const itemsOf = (v: unknown): PlanItem[] => { try { const x = typeof v === "stri
 /** at most this many drafts are listed at once */
 export const MAX_DRAFTS = 80;
 
-export interface MapDraftArea { name: string; icon: string; skills: string[] }
+export interface MapDraftArea { name: string; icon: string; skills: { id: string; name: string }[] }
 export interface MapDraft { id: string; studentId: string; studentName: string; subject: Subject; term: string; createdAt: string; areas: MapDraftArea[]; note: string | null }
 
 /** The class's MAP plan drafts waiting for the teacher (not sent, not dismissed), by student name. Read only. */
@@ -39,7 +39,9 @@ export async function mapDraftsForClass(repo: Repo, actor: Actor, classId: strin
     term: s(r.term), createdAt: iso(r.createdAt), note: r.note ? s(r.note) : null,
     areas: itemsOf(r.items).map((it) => {
       const g = groupOf(s(it.group));
-      return { name: g?.name ?? s(it.group), icon: g?.icon ?? "🗺️", skills: [...new Set((it.skillIds ?? []).map((id) => skillName.get(s(id)) ?? "").filter(Boolean))] };
+      const seen = new Set<string>();
+      const skills = (it.skillIds ?? []).map(s).filter((id) => skillName.has(id) && !seen.has(skillName.get(id)!) && seen.add(skillName.get(id)!)).map((id) => ({ id, name: skillName.get(id)! }));
+      return { name: g?.name ?? s(it.group), icon: g?.icon ?? "🗺️", skills };
     }),
   })).sort((a, b) => a.studentName.localeCompare(b.studentName) || a.subject.localeCompare(b.subject));
 }

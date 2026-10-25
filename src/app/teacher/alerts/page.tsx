@@ -7,12 +7,21 @@ import { ALERT_INFO, alertList, type AlertKind, type AlertRow } from "@/server/i
 import { readableClasses } from "@/server/teacher/coordinators";
 import { getT } from "@/i18n/server";
 import { InsightActions } from "@/components/teacher/insight-actions";
+import type { InsightAction } from "@/components/teacher/insight-links";
 import { handleAlertAction } from "./actions";
 import { FlagsView } from "./flags-view";
 
 export const metadata = { title: "Student alerts" };
 
 const QUICK = ["Talked with the student", "Called / messaged the parent", "Reteaching in a small group", "Sent easier practice", "Asked for a MAP retest"];
+
+/** One best-first action per alert reason, so each alert shows a single main button instead of all five. */
+const PRIMARY_ACTION: Record<AlertKind, InsightAction> = {
+  EARLY_WARNING: "plan", DECLINING: "plan", LEVEL_CONFLICT: "plan", RR_MAP_GAP: "plan",
+  MAP_RISK: "group",
+  DROPPED: "reteach", WEAK_SKILL: "reteach",
+  LATE_WORK: "parent", NO_PRACTICE: "parent", RAPID_GUESS: "parent", INVALID_TEST: "parent", RR_STUCK_UNRELIABLE: "parent",
+};
 
 /**
  * 🚨 Students who need attention (Reports → Follow-up): act, write what you did, mark handled. The head of department
@@ -75,7 +84,7 @@ export default async function AlertsPage({ searchParams }: { searchParams: Promi
                   {r.status === "HANDLED" && <p className="mt-1 text-sm text-emerald-800">✅ {r.action} — {r.handledBy} · {r.handledAt?.slice(0, 10)}</p>}
                 </div>
               </div>
-              {r.status === "OPEN" && <InsightActions t={t} target={{ classId: r.classId, studentId: r.studentId }} className="mt-3" />}
+              {r.status === "OPEN" && <InsightActions t={t} target={{ classId: r.classId, studentId: r.studentId }} primary={PRIMARY_ACTION[r.kind]} className="mt-3" />}
               {r.status === "OPEN" ? (
                 <form action={handleAlertAction} className="mt-3 flex flex-wrap items-center gap-2 print:hidden">
                   <input type="hidden" name="alertId" value={r.id} /><input type="hidden" name="status" value={status} /><input type="hidden" name="classId" value={sp.classId ?? ""} />

@@ -117,35 +117,40 @@ export async function PlanTab({ actor, t, sp, classId, subject }: { actor: Actor
 
 /**
  * Individual plans: one per student, made automatically from the student's own MAP score (the drafts made when the
- * scores were imported). Each row: Preview (opens right here) · Send · Dismiss; "Send all" sends every one.
- * Nothing is sent until the teacher presses Send.
+ * scores were imported). Each row: Send · Dismiss are always visible (no need to open Preview first); Preview opens
+ * the full detail, with an "Example question" link per skill so the teacher can check the content before sending.
+ * "Send all" sends every one. Nothing is sent until the teacher presses Send.
  */
 function IndividualPlans({ t, drafts, classId, className, subject }: { t: TFn; drafts: MapDraft[]; classId: string; className: string; subject: Subject }) {
   const subjectName = (v: Subject) => t(v === "LANGUAGE" ? "Language Usage" : "Reading");
   const hidden = (id?: string) => <>{id && <input type="hidden" name="planId" value={id} />}<input type="hidden" name="classId" value={classId} /><input type="hidden" name="subject" value={subject} /></>;
   if (!drafts.length) return <EmptyState icon="🗺️" title="No individual plans to check" text="They are made automatically when MAP scores are entered or imported. You can also make a Group plan." action={{ href: "/teacher/map-rit", label: "Enter scores" }} />;
   return (
-    <Section title="Individual plans" icon="🧑‍🎓" hint={t("{n} plan(s) ready, one per student. Open Preview to see what the student will get.", { n: drafts.length })}>
+    <Section title="Individual plans" icon="🧑‍🎓" hint={t("{n} plan(s) ready, one per student. Send sends it now — open Preview first if you want to check what the student will get.", { n: drafts.length })}>
       <ul className="divide-y divide-slate-100 rounded-2xl bg-white ring-1 ring-slate-200" data-testid="map-drafts">
-        {drafts.map((d) => (
-          <li key={d.id} className="px-4 py-3">
-            <details>
-              <summary className="flex min-h-11 cursor-pointer list-none flex-wrap items-center gap-3">
+        {drafts.map((d) => {
+          const labels = d.areas.map((a) => (a.skills.length ? `${a.name}: ${a.skills.map((k) => k.name).join(", ")}` : a.name));
+          const skillIds = d.areas.map((a) => a.skills[0]?.id ?? null);
+          return (
+            <li key={d.id} className="px-4 py-3">
+              <div className="flex flex-wrap items-center gap-3">
                 <span className="font-semibold text-brand-navy"><bdi>{d.studentName}</bdi></span>
                 <span className="flex flex-wrap gap-1">{d.areas.slice(0, 4).map((a) => <span key={a.name} className="rounded-full bg-emerald-50 px-2.5 py-0.5 text-xs font-semibold text-emerald-900 ring-1 ring-emerald-200">{a.icon} {a.name}</span>)}</span>
-                <span className={`${BTN_SOFT} ms-auto`}>{t("Preview")}</span>
-              </summary>
-              <div className="mt-4 space-y-3">
-                <StudentPlanPreview title={`${t("MAP Plan")} · ${subjectName(d.subject)}`} studentName={d.studentName} className={className} program="MAP"
-                  skills={d.areas.map((a) => (a.skills.length ? `${a.name}: ${a.skills.join(", ")}` : a.name))} note={d.note} />
-                <div className="flex flex-wrap justify-end gap-2">
-                  <form action={dismissMapDraftAction}>{hidden(d.id)}<button className={BTN_SOFT}>{t("Dismiss")}</button></form>
+                <div className="ms-auto flex flex-wrap items-center gap-2">
+                  <form action={dismissMapDraftAction}>{hidden(d.id)}<button className="text-xs font-semibold text-slate-500 underline">{t("Dismiss")}</button></form>
                   <form action={sendMapDraftAction}>{hidden(d.id)}<PendingButton className={BTN_MAIN} label="Send to {name}" vars={{ name: d.studentName }} pendingLabel="Sending…" /></form>
                 </div>
               </div>
-            </details>
-          </li>
-        ))}
+              <details className="mt-2">
+                <summary className={`${BTN_SOFT} inline-flex min-h-9 w-fit cursor-pointer list-none items-center`}>{t("Preview")}</summary>
+                <div className="mt-4">
+                  <StudentPlanPreview title={`${t("MAP Plan")} · ${subjectName(d.subject)}`} studentName={d.studentName} className={className} program="MAP"
+                    skills={labels} skillIds={skillIds} note={d.note} />
+                </div>
+              </details>
+            </li>
+          );
+        })}
       </ul>
       <form action={sendAllMapDraftsAction} className="mt-4 flex justify-end">{hidden()}<PendingButton className={`${BTN_MAIN} px-8 text-lg`} label="Send all {n} plans" vars={{ n: drafts.length }} pendingLabel="Sending…" /></form>
     </Section>
