@@ -1000,7 +1000,8 @@ export async function coachHome(repo: Repo, actor: Actor, env: EnvLike, now = ne
   const errs = mine.slice(0, 8).flatMap((x) => json<{ word?: string; heard?: string; arabic?: string[] }[]>(x.errors, []).map((e) => ({ word: s(e.word), heard: s(e.heard), arabic: e.arabic })));
   // the remedial plan as it stands today (reviewed with the latest checks: a check due, on track, …)
   const stored = latestRemedial(mine);
-  const remedial = stored ? reviewPlan(stored, { grade, cold: coldReads(checks), readings: readingEvidence(mine), words: [], patterns: [] }, now) : null;
+  // words/patterns omitted (undefined): this is a status-only re-check, not a fresh reading — keep the stored list.
+  const remedial = stored ? reviewPlan(stored, { grade, cold: coldReads(checks), readings: readingEvidence(mine) }, now) : null;
   if (remedial && !repeatedOffered(officialLevel)) remedial.daily = remedial.daily.map((st) => (st.href && /mode=REPEATED/.test(st.href) ? { ...st, href: st.href.replace("mode=REPEATED", "mode=PASSAGE") } : st));
   return {
     enabled, ready: !("error" in chooseAiProvider({ ...env, AI_PROVIDER: "gemini" })), grade, rubric: fluencyRubricText(grade, season), bands: fluencyBands(grade, season),

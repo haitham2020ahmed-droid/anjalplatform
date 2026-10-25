@@ -110,14 +110,15 @@ async function PlanList({ t, actor, ctx, classId, bucket }: { t: T; actor: Actor
       </nav>
       {!rows.length ? <EmptyState icon="📋" title="No plans here yet" text="Start a New plan, or open a Suggested plan." /> : (
         <>
-          {/* 🐛 fix (Oct 2026, "delete مش شغال"): this used to be a <form method="get" action="/teacher/plans/bulk">
-              wrapping the whole list — and each row's own "Cancel this plan" panel below put ANOTHER <form> (Stop /
-              Delete, each a real server action) inside it. Browsers don't allow a <form> inside a <form>: the HTML
-              parser silently drops the inner <form> start tag (no element is ever created for it) and, worse, its
-              first "</form>" closes the OUTER list form early — so which action actually ran, if any, depended on
-              which row and which button, and "Delete permanently" could end up doing nothing or re-submitting the
-              bulk-select GET instead. Fix: the bulk-select form is now its own empty, separate <form id="plans-bulk">
-              — every checkbox and the "Change the ticked plans together" button just POINT to it with a plain HTML
+          {/* 🐛 fix (Oct 2026, "delete مش شغال"): this used to be a form element, method get, action
+              /teacher/plans/bulk, wrapping the whole list — and each row's own "Cancel this plan" panel below put
+              ANOTHER form element (Stop / Delete, each a real server action) inside it. Browsers don't allow a
+              form nested inside another form: the HTML parser silently drops the inner form's start tag (no
+              element is ever created for it) and, worse, its own closing form tag closes the OUTER list form
+              early — so which action actually ran, if any, depended on which row and which button, and "Delete
+              permanently" could end up doing nothing or re-submitting the bulk-select GET instead. Fix: the
+              bulk-select form is now its own empty, separate form element with id "plans-bulk" — every checkbox
+              and the "Change the ticked plans together" button just POINT to it with a plain HTML
               `form="plans-bulk"` attribute instead of being physically inside it, so the Stop/Delete forms below are
               free-standing, valid, never-nested forms again. */}
           <form method="get" action="/teacher/plans/bulk" id="plans-bulk" />

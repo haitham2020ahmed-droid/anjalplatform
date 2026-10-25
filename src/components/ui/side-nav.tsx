@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { usePathname, useSearchParams } from "next/navigation";
+import { Suspense, useEffect, useState } from "react";
 import type { NavItem } from "./main-nav";
 import { navSections as sections } from "../nav-items";
 import { useT } from "@/i18n/client";
@@ -17,6 +17,14 @@ const TOUR_TARGET: Record<string, string> = {
  * "More" itself, plus each of its themed "More · …" sub-sections (nav-items.ts MORE_GROUPS) — each one folds and is
  * remembered independently. */
 const isMoreGroup = (name: string) => name === "More" || name.startsWith("More ·");
+/** Reports `useSearchParams()` up to a plain string via `onChange`, wrapped in its own Suspense (required for the
+ * hook) so it never blocks the rest of the menu from rendering — see SideNav's use of it below. */
+function SearchSync({ onChange }: { onChange: (s: string) => void }) {
+  const sp = useSearchParams();
+  const qs = sp.toString();
+  useEffect(() => { onChange(qs); }, [qs, onChange]);
+  return null;
+}
 /** Menu groups the first-login tour points at. */
 const TOUR_GROUP: Record<string, string> = { Content: "content", Reports: "reports" };
 /** The small coloured dot before each group heading (Literise palette: calm, never loud); unknown groups are grey. */
@@ -40,11 +48,29 @@ export function SideNav({ items, brand, footer, tools, extras, variant = "defaul
   const path = usePathname() ?? "";
   const [drawer, setDrawer] = useState(false);
   const [closed, setClosed] = useState<string[]>([]);
+  // the current page's query string, kept in sync by <SearchSync> below (a plain `window.location.search` read tied
+  // to `path` misses a navigation that only changes the query, e.g. /student/reports?view=progress →
+  // ?view=family — exactly the case that made "Progress Report" / "Family Report" never highlight correctly).
+  const [search, setSearch] = useState("");
   // MAP reports and the MAP plan open on the MAP page's address but belong to Reports and Plans
-  const [tab, setTab] = useState("");
-  useEffect(() => { try { setTab(new URLSearchParams(window.location.search).get("tab") ?? ""); } catch { setTab(""); } }, [path]);
+  const tab = new URLSearchParams(search).get("tab") ?? "";
   const here = path === "/teacher/map-center" && tab === "reports" ? "/teacher/reports" : path === "/teacher/map-center" && tab === "plan" ? "/teacher/plans" : path;
-  const current = items.filter((i) => here === i.href || here.startsWith(`${i.href}/`)).sort((a, b) => b.href.length - a.href.length)[0]?.href;
+  // 🐛 fix (audit finding, Oct 2026): an item's href can carry its own query string (e.g. "/student/reports?view=
+  // family"); matching only on path meant two or more items that all resolve to the same page (My Reports /
+  // Progress Report / Family Report all live at /student/reports) could never be told apart, so the base item
+  // ("My Reports") was always shown as current even while viewing one of the others. A query-specific href now
+  // also has to match the live query params, and wins over a plain (no-query) href to the same path.
+  const splitHref = (href: string) => { const i = href.indexOf("?"); return i === -1 ? { p: href, q: null as URLSearchParams | null } : { p: href.slice(0, i), q: new URLSearchParams(href.slice(i + 1)) }; };
+  const hereParams = new URLSearchParams(search);
+  const matchesHref = (href: string) => {
+    const { p, q } = splitHref(href);
+    if (!(here === p || here.startsWith(`${p}/`))) return false;
+    if (!q) return true;
+    for (const [k, v] of q) if (hereParams.get(k) !== v) return false;
+    return true;
+  };
+  const current = items.filter((i) => matchesHref(i.href))
+    .sort((a, b) => (b.href.includes("?") ? 1 : 0) - (a.href.includes("?") ? 1 : 0) || b.href.length - a.href.length)[0]?.href;
   useEffect(() => { setDrawer(false); }, [path]);
   useEffect(() => { try { setClosed(JSON.parse(localStorage.getItem("nav-closed") ?? "[]")); } catch { /* private mode */ } }, []);
   useEffect(() => {
@@ -104,6 +130,7 @@ export function SideNav({ items, brand, footer, tools, extras, variant = "defaul
   );
   return (
     <>
+      <Suspense fallback={null}><SearchSync onChange={setSearch} /></Suspense>
       <aside className="fixed inset-y-0 start-0 z-30 hidden w-64 border-e border-line bg-surface lg:block print:hidden">{list}</aside>
       {drawer && (
         <div className="fixed inset-0 z-50 lg:hidden print:hidden" role="dialog" aria-modal="true" aria-label={t("Menu")}>

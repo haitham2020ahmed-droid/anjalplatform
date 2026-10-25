@@ -191,8 +191,14 @@ const OFF_MENU: Record<"TEACHER" | "STUDENT", NavItem[]> = {
     { href: "/student/certificates", label: "My Certificates", icon: "📜", line: "award", group: MORE_GROUPS.studentAchievements },
     { href: "/student/badges", label: "Badges", icon: "🏅", line: "award", group: MORE_GROUPS.studentAchievements },
     { href: "/student/reports", label: "My Reports", icon: "📊", line: "chart", group: MORE_GROUPS.studentAchievements },
-    { href: "/student/insights", label: "Progress Report", icon: "📈", line: "growth", group: MORE_GROUPS.studentAchievements },
-    { href: "/student/family", label: "Family Report", icon: "👪", line: "family", group: MORE_GROUPS.studentAchievements },
+    // 🐛 fix (audit finding, Oct 2026): these two used to point at /student/insights and /student/family, which only
+    // ever redirect() to /student/reports?view=progress / ?view=family. The side menu's "current page" highlight
+    // (side-nav.tsx) is based on the page actually shown, so going through a redirect always highlighted "My
+    // Reports" instead of the item the student actually clicked. Pointing straight at the real page fixes the
+    // highlight and drops an unnecessary redirect hop; /student/insights and /student/family still work for any old
+    // bookmark or link.
+    { href: "/student/reports?view=progress", label: "Progress Report", icon: "📈", line: "growth", group: MORE_GROUPS.studentAchievements },
+    { href: "/student/reports?view=family", label: "Family Report", icon: "👪", line: "family", group: MORE_GROUPS.studentAchievements },
     // Other Tools
     { href: "/student/lesson", label: "My Lessons", icon: "📑", line: "book", group: MORE_GROUPS.otherTools },
     { href: "/student/respond", label: "Respond to Reading", icon: "✍️", line: "writing", group: MORE_GROUPS.otherTools },

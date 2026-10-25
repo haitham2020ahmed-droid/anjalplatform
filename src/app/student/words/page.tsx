@@ -155,7 +155,7 @@ async function SavedWords({ actor, sp }: { actor: Actor; sp: Search }) {
                 {w.arabicGloss && <GlossButton gloss={w.arabicGloss} />}
                 {w.myExample && <p className="mt-2 rounded-lg bg-emerald-50 px-2 py-1 text-sm text-emerald-900"><b>My sentence:</b> {w.myExample}</p>}
                 {w.notExample && <p className="mt-1 rounded-lg bg-red-50 px-2 py-1 text-sm text-red-900"><b>Not an example:</b> {w.notExample}</p>}
-                <p className="mt-1 text-xs text-slate-400">{w.lookups ? `looked up ${w.lookups}× · ` : ""}{w.nextReviewAt ? `next review ${w.nextReviewAt.slice(0, 10)}` : w.lastAt.slice(0, 10)}</p>
+                <p className="mt-1 text-xs text-slate-600">{w.lookups ? `looked up ${w.lookups}× · ` : ""}{w.nextReviewAt ? `next review ${w.nextReviewAt.slice(0, 10)}` : w.lastAt.slice(0, 10)}</p>
               </li>
             ))}
           </ul>

@@ -137,7 +137,11 @@ describe("menus: short and tidy", () => {
       for (const i of items) { assert.ok(hasAr(i.label), `${role}: “${i.label}”`); if (i.group) assert.ok(hasAr(i.group), `${role}: group “${i.group}”`); }
     }
     // pages that left a menu are still found by name (top bar "Find a page" and the search)
-    for (const [role, h] of [["TEACHER", "/teacher/alerts"], ["TEACHER", "/teacher/map-rit"], ["STUDENT", "/student/insights"], ["STUDENT", "/play"]] as const) {
+    // 🐛 fix (audit finding, Oct 2026): "Progress Report" now points straight at /student/reports?view=progress
+    // instead of the old /student/insights redirect shim (see nav-items.ts's own comment on the change — it fixed a
+    // side-menu highlight bug); /student/insights itself still works for an old bookmark, but is no longer a
+    // distinct, separately-findable entry, so this checks the new canonical href instead.
+    for (const [role, h] of [["TEACHER", "/teacher/alerts"], ["TEACHER", "/teacher/map-rit"], ["STUDENT", "/student/reports?view=progress"], ["STUDENT", "/play"]] as const) {
       const pages = searchablePagesFor(role);
       assert.ok(pages.some((p) => p.href === h), `${role} finds ${h}`);
       assert.equal(new Set(pages.map((p) => p.href)).size, pages.length);
@@ -235,8 +239,13 @@ describe("My Students, Reports and My Week on the Test School", () => {
     await assert.rejects(classToday(repo, t1, other), ForbiddenError);
   });
 
-  test("role guides are Arabic; the moved-where table lists every role", () => {
-    assert.match(read("src/app/guide/page.tsx"), /dir="rtl" lang="ar"/);
+  test("role guides: English by default with an Arabic toggle (?lang=ar); the moved-where table lists every role", () => {
+    // 🐛 fix (audit finding, Oct 2026): /guide used to be Arabic-only no matter the site's language toggle — it now
+    // defaults to English (guides-en.ts) like the rest of the interface, with an explicit "?lang=ar" switch for
+    // Arabic (guides-ar.ts, content unchanged). See guide/page.tsx's own doc comment on the change.
+    const page = read("src/app/guide/page.tsx");
+    assert.match(page, /dir=\{ar \? "rtl" : "ltr"\}/);
+    assert.match(page, /GUIDES_EN, GUIDE_UI_EN, ROLE_LABEL_EN/, "English guide set is imported");
     for (const k of ["STUDENT", "TEACHER", "SCHOOL_ADMIN"] as const) {
       assert.match(GUIDES[k].title, /^[\u0600-\u06FF ]+$/, `${k}: Arabic title`);
       assert.ok(GUIDES[k].steps.length >= 5 && GUIDES[k].steps.every((s) => s.href.startsWith("/")), `${k}: numbered steps with links`);

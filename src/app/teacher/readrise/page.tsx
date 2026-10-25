@@ -213,7 +213,7 @@ function SkillsTab({ data }: { data: Awaited<ReturnType<typeof skillsReport>> })
             <li key={k} className="grid grid-cols-[10rem_minmax(0,1fr)_6rem] items-center gap-3 text-sm">
               <span className="truncate font-semibold text-slate-700">{skillName(k)}</span>
               <span className="h-3 rounded-full bg-slate-100"><span className={`block h-3 rounded-full ${(c.pct ?? 0) >= 75 ? "bg-emerald-500" : (c.pct ?? 0) >= 50 ? "bg-amber-400" : "bg-red-400"}`} style={{ width: `${c.pct ?? 0}%` }} /></span>
-              <span className="text-right tabular-nums text-slate-700">{fmt(c.pct, "%")} <span className="text-xs text-slate-400">({c.correct}/{c.total})</span></span>
+              <span className="text-right tabular-nums text-slate-700">{fmt(c.pct, "%")} <span className="text-xs text-slate-600">({c.correct}/{c.total})</span></span>
             </li>
           ); })}
         </ul>

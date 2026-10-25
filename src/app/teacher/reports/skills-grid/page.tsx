@@ -356,7 +356,7 @@ function ReportView({ d, t, href }: { d: ClassSkills; t: T; href: (o: Partial<SP
   });
   if (!r.skillsAssigned) return <EmptyState icon="📋" title="No assigned skills yet" text="Only the skills you assign appear here (from MAP, NAFS, Curriculum, Grammar or RTI). Assign a skill, then come back." />;
   const nums = [
-    { key: "mastery", label: "Class mastery", value: `${r.masteryPct}%`, tip: "Mastered stars (⭐ or ☆⬆) of every skill assigned to every student." },
+    { key: "mastery", label: "Class mastery", value: r.masteryPct !== null ? `${r.masteryPct}%` : "—", tip: "Mastered stars (⭐ or ☆⬆) of every skill assigned to every student." },
     { key: "skills", label: "Skills assigned", value: String(r.skillsAssigned), tip: "Skills you assigned to this class, from every source and every plan (each skill counted once)." },
     { key: "track", label: "Students on track", value: String(r.onTrack), tip: "On track + Ready for next level." },
     { key: "support", label: "Students needing support", value: String(r.needSupport), tip: GROUP_RULE },

@@ -63,7 +63,8 @@ export async function classFluencyView(repo: Repo, actor: Actor, classId: string
     // the remedial plan as it stands today: reviewed with every cold read and reading (a check due, raise, change…)
     const stored = asRemedialPlan(r.coach.remedial);
     const mineChecks = checks.filter((c) => s(c.studentId) === r.id);
-    const ev = { grade: base.grade, cold: coldReads(mineChecks), readings: readingEvidence(pr), words: [], patterns: [] };
+    // words/patterns omitted (undefined): a status-only re-check, not a fresh reading — keep the stored list.
+    const ev = { grade: base.grade, cold: coldReads(mineChecks), readings: readingEvidence(pr) };
     // no coach plan yet (e.g. only the teacher's own checks): the plan the evidence suggests
     const reviewed = stored ? reviewPlan(stored, ev, now) : buildRemedialPlan(ev, now);
     const plan = reviewed ? { ...reviewed, focusName: FOCUS_TEACHER[reviewed.focus], onLine: goalLine(reviewed, now.toISOString()) } : null;

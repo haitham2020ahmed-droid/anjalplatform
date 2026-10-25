@@ -102,7 +102,7 @@ export default async function ReadRiseReportPage({ searchParams }: { searchParam
                 <li key={k.type} className="grid grid-cols-[9rem_minmax(0,1fr)_6rem] items-center gap-3 text-sm">
                   <span className="truncate font-semibold text-slate-700">{t(k.name)}</span>
                   <span className="h-3 rounded-full bg-slate-100" role="img" aria-label={`${k.name}: ${fmt(k.pct, "%")}`}><span className={`block h-3 rounded-full ${(k.pct ?? 0) >= 75 ? "bg-emerald-500" : (k.pct ?? 0) >= 50 ? "bg-amber-400" : "bg-red-400"}`} style={{ width: `${k.pct ?? 0}%` }} /></span>
-                  <span className="text-end tabular-nums text-slate-700">{fmt(k.pct, "%")} <span className="text-xs text-slate-400">({k.correct}/{k.total})</span></span>
+                  <span className="text-end tabular-nums text-slate-700">{fmt(k.pct, "%")} <span className="text-xs text-slate-600">({k.correct}/{k.total})</span></span>
                 </li>
               ))}
             </ul>

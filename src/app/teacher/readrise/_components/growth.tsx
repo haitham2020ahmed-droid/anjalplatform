@@ -30,7 +30,7 @@ function SkillBars({ skills, t }: { skills: { skill: string; pct: number | null;
         <li key={k.skill} className="grid grid-cols-[9rem_minmax(0,1fr)_6rem] items-center gap-3 text-sm">
           <span className="truncate font-semibold text-slate-700">{t(skillLabel(k.skill))}</span>
           <span className="h-3 rounded-full bg-slate-100"><span className={`block h-3 rounded-full ${pctBar(k.pct)}`} style={{ width: `${k.pct ?? 0}%` }} /></span>
-          <span className="text-end tabular-nums text-slate-700">{fmt(k.pct, "%")} <span className="text-xs text-slate-400">({k.correct}/{k.total})</span></span>
+          <span className="text-end tabular-nums text-slate-700">{fmt(k.pct, "%")} <span className="text-xs text-slate-600">({k.correct}/{k.total})</span></span>
         </li>
       ))}
     </ul>
@@ -162,7 +162,7 @@ export function ClassGrowthTab({ g, t, studentHref, assignHref }: { g: ClassGrow
           <ul className="space-y-4">
             {g.weaknesses.map((w) => (
               <li key={w.skill} className="rounded-xl p-3 ring-1 ring-slate-200">
-                <p className="font-semibold text-brand-navy">{t(skillLabel(w.skill))} <span className="ms-2 tabular-nums text-red-700">{fmt(w.cell.pct, "%")}</span> <span className="text-xs text-slate-400">({w.cell.correct}/{w.cell.total})</span></p>
+                <p className="font-semibold text-brand-navy">{t(skillLabel(w.skill))} <span className="ms-2 tabular-nums text-red-700">{fmt(w.cell.pct, "%")}</span> <span className="text-xs text-slate-600">({w.cell.correct}/{w.cell.total})</span></p>
                 {w.struggling.length > 0 && <p className="mt-1 text-sm text-slate-700">{t("Under 60%")}: {w.struggling.slice(0, 12).map((x) => `${x.name} (${x.pct}%)`).join(", ")}</p>}
                 <p className="mt-1 text-sm text-slate-700">{t("Suggested articles")}: {w.suggested.length ? w.suggested.map((a) => `${a.title} (${t("{n} questions", { n: a.questions })})`).join(" · ") : "—"}</p>
               </li>

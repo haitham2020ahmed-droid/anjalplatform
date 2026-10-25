@@ -5,7 +5,7 @@
  *   QuestionAttempt   practice / My Work, assigned sets, tests, the Diagnostic, placement, ReadMaster, lessons
  *   QotdAnswer        Question of the Day (bank questions)
  *   ExitTicketAnswer  exit tickets
- *   MapSimAnswer      MAP practice tests (finished ones)
+ *   MapSimAnswer      MAP practice tests
  *   SecondChanceAnswer source GAME: questions missed in games (solo rounds, live games; games write no attempts)
  *   RRRun.answers     ReadRise quizzes (RRQuestion, kept as "rr:<id>")
  * One entry per question: copies of one question (same fingerprint, or same stem + correct answer, stored under
@@ -14,7 +14,9 @@
  * A question is FIXED when, after its last wrong answer, there is a correct normal answer or a correct
  * SecondChanceAnswer. Second Chance answers are practice only: they are stored in SecondChanceAnswer and never in
  * the attempt tables, so levels, mastery, tiers, reports and norms never see them.
- * Questions of a test the student has not finished yet are left out until the test is over.
+ * 🐛 fix (owner, Oct 2026, "ليه الأخطاء لا تذهب الي second chance ... خليها علي الكل"): a wrong answer counts the
+ * instant it is given — a test, quiz or Review the student has not finished yet still feeds its mistakes in right
+ * away (it no longer waits for the whole set to be over). This applies to every source above, tests included.
  */
 import type { Repo, Row } from "../seeding/repo";
 import { safeIfBehind } from "../db/schema-errors";
@@ -72,7 +74,7 @@ export async function answerEvents(repo: Repo, studentIds: string[], opts: { now
   const now = opts.now ?? new Date();
   const since = new Date(now.getTime() - LOOKBACK_DAYS * DAY);
   const who = studentIds.length === 1 ? studentIds[0] : { in: studentIds };
-  const [attempts, qotd, runs, open, exits, games, sims] = await Promise.all([
+  const [attempts, qotd, runs, exits, games, sims] = await Promise.all([
     // "rapidGuess"/"unreliable" selected so these can be excluded below — r85 audit: every other reader of
     // QuestionAttempt in this codebase (learn/auto.ts, skills/status.ts, teacher/interventions.ts, etc.) treats a
     // rapid-guessed or Unreliable-session answer as no evidence either way; without this, a guessed-through wrong
@@ -83,23 +85,31 @@ export async function answerEvents(repo: Repo, studentIds: string[], opts: { now
       { select: ["studentId", "questionId", "skillId", "correct", "createdAt"], orderBy: [{ field: "createdAt", dir: "desc" }], take: MAX_ROWS }),
     repo.findMany("RRRun", { studentId: who, startedAt: { gte: since } },
       { select: ["studentId", "articleId", "band", "answers", "score", "startedAt"], orderBy: [{ field: "startedAt", dir: "desc" }], take: MAX_RR_RUNS * studentIds.length }),
-    // tests still being taken: their questions wait until the test is over
-    repo.findMany("PracticeSession", { studentId: who, endedAt: null }, { select: ["id", "assessmentId"], take: 200 }),
     !opts.everySource ? Promise.resolve([] as Row[]) : repo.findMany("ExitTicketAnswer", { studentId: who, createdAt: { gte: since }, ...(opts.wrongOnly ? { isCorrect: false } : {}) },
       { select: ["studentId", "questionId", "isCorrect", "createdAt"], orderBy: [{ field: "createdAt", dir: "desc" }], take: MAX_ROWS }),
     !opts.everySource ? Promise.resolve([] as Row[]) : safeIfBehind("second-chance.games", repo.findMany("SecondChanceAnswer", { studentId: who, source: GAME_MISS, createdAt: { gte: since } },
       { select: ["studentId", "questionId", "createdAt"], orderBy: [{ field: "createdAt", dir: "desc" }], take: MAX_ROWS }), [] as Row[]),
-    // MAP practice tests: only finished ones (like other tests)
-    !opts.everySource ? Promise.resolve([] as Row[]) : repo.findMany("MapSimSession", { studentId: who, status: "DONE", startedAt: { gte: since } }, { select: ["id", "studentId"], take: 50 * studentIds.length }),
+    // 🐛 fix (owner, Oct 2026, "ليه الأخطاء لا تذهب الي second chance ... خليها علي الكل"): MAP practice tests used
+    // to feed Second Chance only once the whole sim was DONE — a student mid-way through a long MAP practice test
+    // never got any of its mistakes queued for retry. Second Chance answers never affect the score (SecondChanceAnswer
+    // is a separate table, never the attempt tables), so there is no fairness reason to wait: every answer counts
+    // the moment it is given, finished test or not — same as every other source below.
+    !opts.everySource ? Promise.resolve([] as Row[]) : repo.findMany("MapSimSession", { studentId: who, startedAt: { gte: since } }, { select: ["id", "studentId"], take: 50 * studentIds.length }),
   ]);
-  const openTests = new Set(open.filter((x) => x.assessmentId).map((x) => s(x.id)));
   // which sessions are tests (for the source label): only the sessions of the rows read
   const sesIds = [...new Set(attempts.map((a) => s(a.sessionId)))];
   const tests = new Set((await inChunks(sesIds, 500, (c) => repo.findMany("PracticeSession", { id: { in: c } }, { select: ["id", "assessmentId"] }))).filter((x) => x.assessmentId).map((x) => s(x.id)));
 
+  // 🐛 fix (owner, Oct 2026, "ليه الأخطاء لا تذهب الي second chance ... خليها علي الكل"): a question used to wait
+  // out of Second Chance for as long as its test/quiz/Review set was still open (not finished) — meant for exam-like
+  // tests so a student could not "peek" at which answers were wrong mid-test, but it just as silently swallowed
+  // ordinary Curriculum Map Review / quiz mistakes whenever a student left one half-done, which is common. The
+  // owner's call: apply the same rule everywhere — every wrong answer counts the instant it is given, finished or
+  // not, for every kind of assignment including real tests (Diagnostic, MAP). Only genuinely unreliable evidence
+  // (a rapid guess, or a whole session flagged guessy) still never counts — unchanged below.
   const out: AnswerEvent[] = [];
   for (const a of attempts) {
-    if (openTests.has(s(a.sessionId)) || a.rapidGuess || a.unreliable) continue;
+    if (a.rapidGuess || a.unreliable) continue;
     const src: ChanceSource = tests.has(s(a.sessionId)) ? "TEST" : s(a.source) === "READMASTER" ? "READMASTER" : "PRACTICE";
     out.push({ studentId: s(a.studentId), key: s(a.questionId), skillKey: s(a.skillId), correct: Boolean(a.isCorrect), at: time(a.createdAt), source: src });
   }

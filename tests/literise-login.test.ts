@@ -13,7 +13,7 @@ import { I18nProvider } from "../src/i18n/client";
 import { makeT, type Lang } from "../src/i18n";
 import { UI_STRINGS } from "../src/i18n/en";
 import { ar } from "../src/i18n/ar";
-import { LoginForm, SIGN_IN_ROLES } from "../src/app/login/login-form";
+import { LoginForm } from "../src/app/login/login-form";
 import { LoginHero } from "../src/app/login/login-hero";
 import { LiteriseLogo, LITERISE } from "../src/components/brand/literise-logo";
 import { PLATFORM } from "../src/components/print/tokens";
@@ -36,21 +36,28 @@ const renderPage = (lang: Lang, props: { error?: string | null; username?: strin
     h(LoginForm, { error: props.error ?? null, username: props.username ?? "", next: props.next ?? "" }))));
 
 describe("sign-in page (Literise)", () => {
-  test("Literise name, headline, role tiles; the form posts to the same address with the same fields", () => {
+  // 🐛 fix (Oct 2026): the role tiles (Student/Teacher/Admin) this test used to check were removed outright, with
+  // no replacement, per the owner's explicit call ("احذف من صفحه دي كلمه teacher Student admin ... شيلهم من غير
+  // بديل" — see login-form.tsx's own doc comment). They never affected sign-in (the real role always came from the
+  // account), so dropping them is a real, intentional design change, not a regression — this test (and the removed
+  // `SIGN_IN_ROLES` export it referenced) is updated to match the current one-plain-flow page instead of the tiles
+  // that no longer exist.
+  test("Literise name, headline; the form posts to the same address with the same fields", () => {
     const html = renderPage("en");
     const words = text(html);
     assert.ok(words.includes("Literise"));
     // Literise D1 (redesign): the navy half says "Read today. Rise tomorrow." and one short line
     assert.ok(words.includes("Read today. Rise tomorrow."));
     assert.ok(words.includes("Reading, writing and vocabulary at the right level for every student."));
-    assert.ok(words.includes("Welcome back!") && words.includes("Who's signing in today?"));
-    for (const r of ["Student", "Teacher", "Admin"]) assert.match(html, new RegExp(`type="radio"[^>]*value="${r}"`), r);
+    assert.ok(words.includes("Welcome back!"));
+    // no role tiles any more: one plain flow for everyone
+    for (const r of ["Student", "Teacher", "Admin"]) assert.doesNotMatch(html, new RegExp(`type="radio"[^>]*value="${r}"`), r);
     const form = html.match(/<form[^>]*>/)![0];
     assert.match(form, /action="\/login\/submit"/);
     assert.match(form, /method="post"/);
     assert.match(html, /name="username"/);
     assert.match(html, /name="password"[^>]*type="password"|type="password"[^>]*name="password"/);
-    assert.match(html, /placeholder="Your student username"/, "Student is chosen first");
+    assert.match(html, /placeholder="Your username"/);
     assert.ok(words.includes("Let's go"));
     // the button names no role: just "Let's go" with the arrow
     assert.doesNotMatch(words, /Let's go, (Student|Teacher|Admin)/);
@@ -70,10 +77,11 @@ describe("sign-in page (Literise)", () => {
     }
   });
 
-  test("the role tiles only change wording; every role has its own placeholder and help line; one plain \"Let's go\" button", () => {
-    assert.deepEqual(SIGN_IN_ROLES.map((r) => r.who), ["Student", "Teacher", "Admin"]);
-    assert.equal(new Set(SIGN_IN_ROLES.map((r) => r.placeholder)).size, 3);
-    // the tiles never reach the server as a role: the sign-in route reads only username, password and next
+  test("no role tiles left anywhere: one plain \"Let's go\" button, the sign-in route reads no role field", () => {
+    const html = renderPage("en");
+    assert.doesNotMatch(text(html), /Who's signing in today\?/);
+    // the route never read a role from the tiles in the first place (confirmed by the removal's own audit) — still
+    // true now that the tiles are gone
     const route = read("src/app/login/submit/route.ts");
     assert.doesNotMatch(route, /signin-as|form\.get\("role"\)/);
   });
@@ -93,8 +101,7 @@ describe("sign-in page (Literise)", () => {
     assert.ok(words.includes("مرحبًا بعودتك!"));
     assert.ok(words.includes("اقرأ اليوم، وارتقِ غدًا."));
     assert.ok(words.includes("هيا بنا"));
-    const keys = ["Read today. Rise tomorrow.", "Reading, writing and vocabulary at the right level for every student.", "Welcome back!", "Who's signing in today?", "Enter your password", "Al-Anjal Private Schools",
-      ...SIGN_IN_ROLES.flatMap((r) => [r.who, r.placeholder, r.help]), "Let's go"];
+    const keys = ["Read today. Rise tomorrow.", "Reading, writing and vocabulary at the right level for every student.", "Welcome back!", "Your username", "Use the username the school gave you.", "Enter your password", "Al-Anjal Private Schools", "Let's go"];
     for (const k of keys) {
       assert.ok((UI_STRINGS as readonly string[]).includes(k), `en.ts: ${k}`);
       assert.ok((ar as Record<string, string>)[k], `ar.ts: ${k}`);

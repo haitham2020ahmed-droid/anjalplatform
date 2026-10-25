@@ -22,7 +22,13 @@ export function fluencySeason(d: Date = new Date()): Season {
   return m >= 8 && m <= 11 ? "FALL" : m === 12 || m <= 2 ? "WINTER" : "SPRING";
 }
 
-const gradeRow = (grade: number, season: Season): Row | null => HT_2017[season][Math.min(6, Math.max(4, Math.round(grade)))] ?? null;
+// 🐛 fix (audit finding, Oct 2026): this used to clamp every grade into 4–6 before the lookup, so a Grade 7–12
+// student's percentile, band and `needsFluencyWork` flag — which feed RTI tier decisions — were silently computed
+// against the GRADE 6 norm row (and a Grade 1–3 student against Grade 4's). Hasbrouck & Tindal's published norms
+// only cover grades 4–6 here (HT_2017 above), so a grade outside that range now correctly gets no norm row at all
+// (null) rather than a borrowed, wrong one — every caller below already treats a missing row as "no data" rather
+// than a false reading, and `needsFluencyWork`/tier logic already skip a student with no usable fluency evidence.
+const gradeRow = (grade: number, season: Season): Row | null => HT_2017[season][Math.round(grade)] ?? null;
 
 /** The 50th percentile for the grade and season (the norms' benchmark). */
 export function norm50(grade: number, season: Season = fluencySeason()): number | null {
@@ -92,7 +98,10 @@ export function ordinal(n: number): string {
 /** Everything a page needs about one score: "92 WCPM = 23rd percentile (winter, Grade 5)". */
 export interface NormView { wcpm: number; grade: number; season: Season; percentile: number | null; band: "BELOW" | "ON" | "ABOVE" | null; p50: number | null; needsWork: boolean; text: string; kid: string }
 export function normView(grade: number, wcpm: number, season: Season = fluencySeason()): NormView {
-  const g = Math.min(6, Math.max(4, Math.round(grade)));
+  // 🐛 fix (audit finding, Oct 2026): was clamped into 4–6 — a Grade 11 student's own number got replaced by a
+  // fake "Grade 6", so the text/percentile looked precise while actually comparing the wrong grade. Now the real
+  // grade is kept; `p`/`e` below are null outside 4–6 (see gradeRow), and both branches below already handle that.
+  const g = Math.round(grade);
   const p = wcpmPercentile(g, wcpm, season);
   const e = bandEdges(g, season);
   const band = e ? (wcpm <= e.below ? "BELOW" : wcpm > e.above ? "ABOVE" : "ON") : null;

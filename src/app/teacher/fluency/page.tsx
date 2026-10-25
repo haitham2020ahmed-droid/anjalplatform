@@ -5,7 +5,8 @@ import { getActor, repo, requireActor } from "@/server/auth/next";
 import { accessibleClasses } from "@/server/teacher/assign";
 import { classFluencyView } from "@/server/fluency/class-view";
 import { SEASON_NAME, NORM_SOURCE } from "@/server/fluency/norms";
-import { saveFluencyAction } from "./actions";
+import { saveFluencyAction, overrideRemedialPlanAction } from "./actions";
+import { FOCUS_TEACHER } from "@/server/fluency/remedial";
 import { getT } from "@/i18n/server";
 import { InfoTip, ReportIntro, ReportSummary } from "@/components/report-kit";
 import { fluencySummary } from "@/lib/report-summaries";
@@ -88,6 +89,28 @@ export default async function FluencyPage({ searchParams }: { searchParams: Prom
                           {pl.words.length > 0 && <p className="mt-2 text-xs text-slate-600">{t("Words")}: {pl.words.join(", ")}{pl.patterns.length ? ` · ${t("patterns")}: ${pl.patterns.join(", ")}` : ""}</p>}
                         </div>
                       </div>
+                      <form action={overrideRemedialPlanAction} className="mt-3 flex flex-wrap items-end gap-2 border-t border-slate-200 pt-3 text-xs">
+                        <input type="hidden" name="classId" value={classId} />
+                        <input type="hidden" name="studentId" value={r.id} />
+                        <span className="font-bold uppercase text-slate-500">{t("Teacher override")}</span>
+                        <label className="flex flex-col gap-0.5">
+                          <span className="text-slate-500">{t("Focus")}</span>
+                          <select name="force" defaultValue={pl.focus} className="rounded-lg border border-slate-300 px-2 py-1">
+                            <option value="AUTO">{t("Automatic")}</option>
+                            {(Object.keys(FOCUS_TEACHER) as (keyof typeof FOCUS_TEACHER)[]).map((f) => <option key={f} value={f}>{FOCUS_TEACHER[f]}</option>)}
+                          </select>
+                        </label>
+                        <label className="flex flex-col gap-0.5">
+                          <span className="text-slate-500">{t("Method")}</span>
+                          <select name="methodSet" defaultValue={pl.methodSet} className="rounded-lg border border-slate-300 px-2 py-1">
+                            <option value="AUTO">{t("Automatic")}</option>
+                            <option value="A">{t("Plan A")}</option>
+                            <option value="B">{t("Plan B")}</option>
+                          </select>
+                        </label>
+                        <button className="rounded-lg bg-brand-navy px-3 py-1.5 font-bold text-white hover:bg-brand-purple">{t("Apply")}</button>
+                        <span className="text-slate-500">{t("Choose a focus or a practice method for this student, or leave both on Automatic.")}</span>
+                      </form>
                     </details>
                   </li>); })}
               </ul>

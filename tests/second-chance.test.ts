@@ -88,9 +88,14 @@ describe("⭐ Second Chance and 🧡 repeated mistakes", () => {
     assert.equal((await navCounts(repo, student, NOW))["/student/second-chance"]?.count, 4);
   });
 
-  test("a test still being taken is left out until it is over", async () => {
+  // 🐛 fix (owner, Oct 2026, "ليه الأخطاء لا تذهب الي second chance ... خليها علي الكل"): a question used to wait
+  // out of Second Chance for as long as its test was still open — the owner's explicit call removed that wait for
+  // every kind of assignment, including real tests: a wrong answer counts the instant it is given, finished or not
+  // (see service.ts's answerEvents, which no longer filters by the session's endedAt at all). This test used to
+  // check the old wait-until-finished behavior; it now checks the opposite, intentional one.
+  test("a test still being taken is included right away (no wait for it to finish)", async () => {
     await repo.updateMany("PracticeSession", { id: testSession }, { endedAt: null });
-    assert.ok(!(await pendingMistakes(repo, student.studentId!, NOW)).some((x) => x.key === items[4].questionId));
+    assert.ok((await pendingMistakes(repo, student.studentId!, NOW)).some((x) => x.key === items[4].questionId));
     await repo.updateMany("PracticeSession", { id: testSession }, { endedAt: at(50) });
   });
 

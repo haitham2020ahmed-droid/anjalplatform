@@ -155,14 +155,20 @@ export function homeTips(focus: HomeFocus, words: string[] = []): string[] {
 export async function fluencyPlanSection(repo: Repo, studentId: string, grade: number, now = new Date()): Promise<ReportSection | null> {
   const { latestRemedial, readingEvidence, coldReads } = await import("../fluency/coach");
   const { reviewPlan } = await import("../fluency/remedial");
+  // 🐛 fix (audit finding, Oct 2026): this used to cap at the latest 30 FluencyPractice rows. A remedial plan is only
+  // ever stored on a passage-type reading (never on an ECHO/DRILL row), so a student doing a lot of echo/drill
+  // practice between passage reads could push the last plan-carrying row past this window — the parent would then
+  // see a stale/missing plan while the student's and teacher's (unbounded) views already showed the real one. Now
+  // unbounded, matching coachHome (coach.ts) and classFluencyView (class-view.ts).
   const [rows, checks] = await Promise.all([
-    repo.findMany("FluencyPractice", { studentId }, { select: ["mode", "practiceKind", "wcpm", "accuracy", "plan", "createdAt", "prosody", "expression", "trial"], orderBy: [{ field: "createdAt", dir: "desc" }], take: 30 }),
-    repo.findMany("FluencyCheck", { studentId }, { select: ["wcpm", "accuracy", "checkedAt"], orderBy: [{ field: "checkedAt", dir: "desc" }], take: 30 }),
+    repo.findMany("FluencyPractice", { studentId }, { select: ["mode", "practiceKind", "wcpm", "accuracy", "plan", "createdAt", "prosody", "expression", "trial"], orderBy: [{ field: "createdAt", dir: "desc" }] }),
+    repo.findMany("FluencyCheck", { studentId }, { select: ["wcpm", "accuracy", "checkedAt"], orderBy: [{ field: "checkedAt", dir: "desc" }] }),
   ]);
   if (!rows.length) return null;
   const stored = latestRemedial(rows);
   if (stored) {
-    const p = reviewPlan(stored, { grade, cold: coldReads(checks), readings: readingEvidence(rows), words: [], patterns: [] }, now);
+    // words/patterns omitted (undefined): a status-only re-check, not a fresh reading — keep the stored list.
+    const p = reviewPlan(stored, { grade, cold: coldReads(checks), readings: readingEvidence(rows) }, now);
     const latest = p.status.latest ?? p.baseline.wcpm;
     const left = p.goals.wcpm - latest;
     const lines = [

@@ -79,8 +79,12 @@ export interface ReportRow {
 }
 export interface ActionPoint { kind: "RETEACH" | "GUESSING" | "SMALL_GROUP" | "STALLED" | "NEXT_LEVEL" | "FOLLOW_UP" | "SOURCE"; text: string; vars: Record<string, string | number>; href: string; button: string }
 export interface ClassReport {
-  /** the 4 numbers */
-  masteryPct: number; skillsAssigned: number; onTrack: number; needSupport: number;
+  /** the 4 numbers. masteryPct is null when no student/skill pair exists yet to measure (an empty class, or skills
+   * assigned to the class but not yet to any student) — audit fix, Oct 2026: this used to fall back to a plain 0 via
+   * masteredPct's own 0-for-empty default, so a class with nothing to measure showed "Class mastery 0%" as if that
+   * were a real result, inconsistent with the NAFS adaptive report's "—" for the same situation (strengths.ts's
+   * roundPct). Null here, same as there, and the page renders "—" for it. */
+  masteryPct: number | null; skillsAssigned: number; onTrack: number; needSupport: number;
   /** one line */
   strongest: { name: string; pct: number } | null; weakest: { name: string; pct: number } | null; weakestSource: { source: AssignSource; label: string; pct: number } | null;
   groups: Record<StudentGroup, { id: string; name: string; notStarted: boolean }[]>;
@@ -156,7 +160,7 @@ export function classReport(d: ClassSkills, links: ReportLinks, now = new Date()
   if (idle.length) actions.push({ kind: "FOLLOW_UP", text: "Follow up ({n}): {names} have not started their assigned skills.", vars: { n: idle.length, names: names(idle) }, href: idle.length === 1 ? links.student(idle[0].id) : links.assigned, button: idle.length === 1 ? "Open the student" : "Open Assigned" });
   if (weakestSource && actions.length < 5) actions.push({ kind: "SOURCE", text: "Weakest source: {source} ({pct}% mastered). Check its skills.", vars: { source: weakestSource.label, pct: weakestSource.pct }, href: links.source(weakestSource.source), button: "Open by source" });
   return {
-    masteryPct: masteredPct(masteredPairs, pairs), skillsAssigned: d.skills.length, onTrack: groups.ON_TRACK.length + groups.NEXT_LEVEL.length, needSupport: groups.SUPPORT.length,
+    masteryPct: pairs > 0 ? masteredPct(masteredPairs, pairs) : null, skillsAssigned: d.skills.length, onTrack: groups.ON_TRACK.length + groups.NEXT_LEVEL.length, needSupport: groups.SUPPORT.length,
     strongest: strong,
     weakest: weakest && (!strong || weakest.key !== strongest?.key) ? { name: weakest.name, pct: weakest.pct ?? 0 } : null,
     weakestSource: weakestSource ? { source: weakestSource.source, label: weakestSource.label, pct: weakestSource.pct } : null,
