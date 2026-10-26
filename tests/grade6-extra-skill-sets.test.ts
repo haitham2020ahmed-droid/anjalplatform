@@ -24,6 +24,9 @@ import { missingPassageHit } from "../src/lib/missing-passage";
 import { definitelyNeedsPassage } from "../src/lib/passage-detect";
 import { normalizeSkillName, schoolSkillIndex } from "../src/server/questions/skill-questions";
 import { skillPickerList } from "../src/server/skills/picker";
+import { parseCurriculumMap } from "../src/server/curriculum-map/source";
+import { seedCurriculumMap } from "../src/server/curriculum-map/seed";
+import { curriculumLessons } from "../src/server/curriculum-map/lesson-details";
 
 const s = (v: unknown) => String(v ?? "");
 const FILE = "grade6-extra-skill-sets.json";
@@ -101,6 +104,9 @@ describe("➕ Grade 6 extras: loaded into a school", () => {
     admin = await resolveActor(repo, (await repo.findUnique("User", { username: "demo.admin" }))!);
     teacher = await resolveActor(repo, (await repo.findUnique("User", { username: "demo.teacher.4a" }))!);
     schoolId = admin.schoolId!;
+    // the Curriculum Map (Mother to Son / Shakespeare in Harlem included) is already seeded on a real school
+    // before this pack is ever loaded — seed it here too so the 🩹 map-linking fix has somewhere to place questions
+    await seedCurriculumMap(repo, parseCurriculumMap(readFileSync(join(ROOT, "data/curriculum-map/source.txt"), "utf8")), { schoolId });
   });
 
   test("the gradeSixExtras pack creates the two new skills in Grades 4–6, tops up Cite Text Evidence, and adds every question; a second run adds nothing", async () => {
@@ -132,15 +138,30 @@ describe("➕ Grade 6 extras: loaded into a school", () => {
     assert.equal(again, 0, "safe to run again");
   });
 
-  test("both new skills are in the teacher's skill picker with their questions", async () => {
+  test("🩹 (Oct 2026) the two lessons' Analyze Craft and Structure is ready on the Skill-plan page — the map-linking fix", async () => {
+    const { units } = await curriculumLessons(repo, admin, 6);
+    for (const lessonName of ["Mother to Son", "Shakespeare in Harlem"]) {
+      const lesson = units.flatMap((u) => u.lessons).find((l) => l.name.includes(lessonName));
+      assert.ok(lesson, lessonName);
+      const section = lesson!.sections.find((s) => s.kind === "ANALYZE_CRAFT_AND_STRUCTURE");
+      assert.ok(section?.ready, `${lessonName}: Analyze Craft and Structure should be ready, not "Not ready"`);
+    }
+  });
+
+  test("both new skills are listed for the teacher; their questions now live on the Curriculum Map, not the generic skill pool", async () => {
     const def = packOf("gradeSixExtras")!;
     let next = 0;
     for (;;) { const w = await runPackChunk(repo, schoolId, def, next); next = w.next; if (next >= w.total) break; }
     const rows = await skillPickerList(repo, teacher);
+    // 🩹 (Oct 2026) now that these questions are placed on the Curriculum Map (same fix as above), the bank's
+    // own counts rightly exclude them (skill-questions.ts: "Curriculum Map questions belong to their lesson,
+    // not to the bank's counts") — exactly like Concept Vocabulary / Review questions always have. The skill
+    // itself is still listed (teachers can still find it by name); it is the lesson's Skill-plan page, not this
+    // picker, that now correctly shows the 100 questions as "ready".
     for (const name of [FIG, INFO]) {
       const row = rows.find((r) => r.name === name);
       assert.ok(row, `${name}: listed`);
-      assert.ok(row!.questions >= 100, name);
+      assert.equal(row!.questions, 0, `${name}: pooled count is 0 — the questions are on the map, not double-counted here`);
     }
   });
 
