@@ -115,7 +115,18 @@ describe("Update 56 · data files: 30 per skill, Curriculum Map Concept Vocabula
     const file = await loadMapSetsFile();
     assert.equal(file.filter((n) => n.code.endsWith(".REV")).length, 62);
     assert.equal(file.filter((n) => n.code.endsWith(".CV")).length, 62);
-    for (const n of file) assert.equal(n.questions.length, 30, n.code);
+    // 🩹 (Oct 2026) "Mother to Son" and "Shakespeare in Harlem" were low on vocabulary/review questions — their
+    // CV and REV nodes were topped up from 10 to 30 questions per level (30 → 90 total each); every other
+    // Text Set / Selection still carries the original 30.
+    const EXPANDED = new Set(["G6.U2.SEL4.CV", "G6.U2.SEL4.REV", "G6.U3.SEL3.CV", "G6.U3.SEL3.REV"]);
+    for (const n of file) assert.equal(n.questions.length, EXPANDED.has(n.code) ? 90 : 30, n.code);
+    for (const code of EXPANDED) {
+      const n = file.find((x) => x.code === code)!;
+      assert.ok(n, code);
+      for (const lvl of ["BELOW", "ON", "ABOVE"] as const) {
+        assert.equal(n.questions.filter((q) => q.level === lvl).length, 30, `${code}: ${lvl}`);
+      }
+    }
     const pick = [file.find((n) => n.code.endsWith(".CV"))!, file.find((n) => n.code.endsWith(".REV"))!];
     const res = await addMapSets(repo, schoolId, pick);
     for (const r of res) { assert.deepEqual(r.errors, [], r.code); assert.equal(r.added, 30, r.code); }
