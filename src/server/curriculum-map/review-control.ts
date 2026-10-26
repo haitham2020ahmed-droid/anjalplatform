@@ -12,6 +12,7 @@
  * Saved per teacher and place (TeacherReviewSet); with no set the Review is the place's shared questions as before.
  * ⭐ Assign on the Review place (curriculum-map/levels.ts assignFromMap) uses the teacher's set.
  */
+import { randomBytes } from "node:crypto";
 import type { Repo, Row } from "../seeding/repo";
 import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
@@ -27,6 +28,7 @@ import { loadQuestionItems } from "../practice/items";
 import { questionsOfSkill, schoolSkillIndex } from "../questions/skill-questions";
 import { anthropicProvider, buildPrompt, chooseAiProvider, geminiProvider, parseGenerated, type AiProvider } from "../ai/question-generator";
 import { aiEnv } from "../ai/env";
+import { aiSettings, rateState } from "../ai/engine";
 import { assignQuestions, updateSentReview, type UpdateSentReviewResult } from "../teacher/assign";
 
 const s = (v: unknown) => String(v ?? "");
@@ -564,6 +566,33 @@ export async function reviewQuestionDetail(repo: Repo, actor: Actor, code: strin
 }
 
 /**
+ * 🛟 r90 (stability audit, Oct 2026): draftReviewQuestion/customDraftQuestion used to call the provider's
+ * .complete() directly — unlike every other AI tool in the platform, which goes through ai/engine.ts for a
+ * per-minute/per-day rate check (the school's own AiSettings) and an AiRequestLog entry. A burst of teachers
+ * clicking "Draft with AI" at once could exceed the real Gemini quota with nothing here to notice or slow down.
+ * This helper applies the same rate check and logging ONLY when the default (server-chosen) provider is used —
+ * when a provider is injected directly (tests only; never happens in production, where `provider` is always
+ * undefined), the call is left exactly as before so test fakes keep working unchanged.
+ */
+async function draftComplete(repo: Repo, actor: Actor, ai: AiProvider, meta: { name: "gemini" | "anthropic"; model: string } | null, system: string, user: string): Promise<string> {
+  if (!meta) return ai.complete(system, user); // explicit provider injected (tests): unchanged, no network call to guard
+  const schoolId = actor.schoolId!;
+  const settings = await aiSettings(repo, schoolId);
+  const rs = await rateState(repo, schoolId, settings);
+  if (rs.waitMs > 0) throw new ValidationError(rs.reason ?? "The AI tools are busy right now — please try again in a minute.");
+  const started = Date.now();
+  try {
+    const text = await ai.complete(system, user);
+    await repo.create("AiRequestLog", { schoolId, tool: "cm_review_draft", provider: meta.name, model: meta.model.slice(0, 80), ok: true, items: 1, ms: Date.now() - started, error: null, createdAt: new Date() });
+    return text;
+  } catch (e) {
+    const msg = ((e as Error).message ?? String(e)).slice(0, 500);
+    await repo.create("AiRequestLog", { schoolId, tool: "cm_review_draft", provider: meta.name, model: meta.model.slice(0, 80), ok: false, items: 1, ms: Date.now() - started, error: msg, createdAt: new Date() }).catch(() => {});
+    throw e;
+  }
+}
+
+/**
  * ✨ AI draft for the Review: ONE multiple-choice question about the lesson (curriculum content only — never student
  * data). It is NOT saved: the teacher reads it, edits it and adds it with Write (writeReviewQuestion).
  */
@@ -571,10 +600,12 @@ export async function draftReviewQuestion(repo: Repo, actor: Actor, code: string
   teacherOnly(actor);
   const node = await reviewPlace(repo, actor.schoolId!, code);
   let ai = provider;
+  let meta: { name: "gemini" | "anthropic"; model: string } | null = null;
   if (!ai) {
     const c = chooseAiProvider(aiEnv());
     if ("error" in c) throw new ValidationError("AI drafts are not set up on this server. Write the question yourself.");
     ai = c.provider === "gemini" ? geminiProvider({ apiKey: c.apiKey, model: c.model }) : anthropicProvider({ apiKey: c.apiKey, model: c.model });
+    meta = { name: c.provider, model: c.model };
   }
   const lesson = lessonAt(node.grade, node.unitTitle, node.heading);
   const st = await stateOf(repo, actor, node);
@@ -585,7 +616,7 @@ export async function draftReviewQuestion(repo: Repo, actor: Actor, code: string
     standard: { code: `RL.${node.grade}.1`, description: null }, slots: [{ slot: 1, level: 4 }], avoid,
   });
   let list: unknown[];
-  try { list = parseGenerated(await ai.complete(p.system, p.user)); } catch (e) { throw new ValidationError(`The AI draft did not work: ${(e as Error).message}`); }
+  try { list = parseGenerated(await draftComplete(repo, actor, ai, meta, p.system, p.user)); } catch (e) { throw new ValidationError(`The AI draft did not work: ${(e as Error).message}`); }
   const q = (list[0] ?? {}) as { stem?: unknown; options?: { text?: unknown; correct?: unknown }[]; explanation?: unknown };
   const options = (Array.isArray(q.options) ? q.options : []).map((o) => s(o?.text).trim()).filter(Boolean).slice(0, 6);
   const correct = (Array.isArray(q.options) ? q.options : []).findIndex((o) => o?.correct === true);
@@ -766,7 +797,7 @@ export async function changeCustomReview(repo: Repo, actor: Actor, grade: number
     if (row) {
       const hasQuestions = json<string[]>(row.questionIds, []).length > 0;
       if (hasQuestions) {
-        const archiveId = `${now.getTime().toString(36)}${Math.random().toString(36).slice(2, 6)}`;
+        const archiveId = `${now.getTime().toString(36)}${randomBytes(3).toString("hex")}`;
         await repo.updateMany("TeacherReviewSet", { id: row.id }, { code: customCode(g, archiveId) });
       } else {
         await repo.deleteMany("TeacherReviewSet", { id: row.id });
@@ -1006,10 +1037,12 @@ export async function customDraftQuestion(repo: Repo, actor: Actor, grade: numbe
   teacherOnly(actor);
   const g = Math.trunc(Number(grade));
   let ai = provider;
+  let meta: { name: "gemini" | "anthropic"; model: string } | null = null;
   if (!ai) {
     const c = chooseAiProvider(aiEnv());
     if ("error" in c) throw new ValidationError("AI drafts are not set up on this server. Write the question yourself.");
     ai = c.provider === "gemini" ? geminiProvider({ apiKey: c.apiKey, model: c.model }) : anthropicProvider({ apiKey: c.apiKey, model: c.model });
+    meta = { name: c.provider, model: c.model };
   }
   const st = await customStateOf(repo, actor, g);
   const avoid = (await describePicks(repo, actor, st.questionIds.slice(0, 30))).map((r) => r.stem);
@@ -1019,7 +1052,7 @@ export async function customDraftQuestion(repo: Repo, actor: Actor, grade: numbe
     standard: { code: `RL.${g}.1`, description: null }, slots: [{ slot: 1, level: 4 }], avoid,
   });
   let list: unknown[];
-  try { list = parseGenerated(await ai.complete(p.system, p.user)); } catch (e) { throw new ValidationError(`The AI draft did not work: ${(e as Error).message}`); }
+  try { list = parseGenerated(await draftComplete(repo, actor, ai, meta, p.system, p.user)); } catch (e) { throw new ValidationError(`The AI draft did not work: ${(e as Error).message}`); }
   const q = (list[0] ?? {}) as { stem?: unknown; options?: { text?: unknown; correct?: unknown }[]; explanation?: unknown };
   const options = (Array.isArray(q.options) ? q.options : []).map((o) => s(o?.text).trim()).filter(Boolean).slice(0, 6);
   const correct = (Array.isArray(q.options) ? q.options : []).findIndex((o) => o?.correct === true);
@@ -1124,7 +1157,7 @@ export async function shareCustomReview(repo: Repo, actor: Actor, grade: number,
   if (!questionIds.length) throw new ValidationError("This Review has no questions yet.");
   const hiddenIds = json<string[]>(row?.hiddenIds, []).map(s);
   const count = Math.max(1, Math.min(Number(row?.count) || questionIds.length, questionIds.length));
-  const id = `${now.getTime().toString(36)}${Math.random().toString(36).slice(2, 6)}`;
+  const id = `${now.getTime().toString(36)}${randomBytes(3).toString("hex")}`;
   await repo.create("TeacherReviewSet", { schoolId: actor.schoolId!, teacherUserId: to, code: customCode(g, id), questionIds, hiddenIds, count, createdAt: now, updatedAt: now });
 }
 

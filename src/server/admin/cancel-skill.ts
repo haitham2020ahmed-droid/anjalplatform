@@ -12,6 +12,10 @@ import { ForbiddenError, canAccessStudent, assertCan, type Actor } from "../auth
 import { searchStudents, type FoundStudent } from "../insights/student-file";
 import { accessibleClasses } from "../teacher/assign";
 import { assignedWorkOfClasses, cancelAssignment, type AssignedKind } from "../teacher/assigned";
+import { ValidationError } from "../curriculum-admin";
+import { memoryHigh } from "../monitoring/memory";
+import { inJobSlot } from "../jobs/runner";
+import { log } from "../monitoring/log";
 
 const s = (v: unknown) => (v === null || v === undefined ? "" : String(v));
 const isAdmin = (a: Actor) => a.role === "SCHOOL_ADMIN" || a.role === "SUPER_ADMIN";
@@ -122,34 +126,59 @@ export async function adminFindAssignedSkillsInClass(repo: Repo, actor: Actor, c
   return groupedByTitle(repo, actor, await assignedSkillItemsOfClass(repo, actor, classId), q.trim().toLowerCase());
 }
 
+/**
+ * 🛟 r90 (stability audit, Oct 2026): before this fix, these 4 school-wide "cancel everything" actions ran an
+ * unbounded number of sequential cancelAssignment calls (one DB read + write each) inside a SINGLE HTTP request,
+ * with no memory check and no protection against two such actions (or one of these overlapping the nightly/manual
+ * learning-engine run) racing at the same time on this 512 MB web server — exactly the class of problem r89 fixed
+ * for the "Update now" button, just in this admin surface instead. Now: (1) a busy server defers the whole action
+ * immediately (same message style as "Update now"); (2) the batch runs through the school's own job slot, so two
+ * admin clicks (or a click landing mid-way through another one for the same school) can never run concurrently —
+ * the second simply waits its turn; (3) items are cancelled in small concurrent chunks instead of one at a time,
+ * so a large school's "cancel all" finishes in a fraction of the wall-clock time without ever firing more than
+ * CHUNK cancelAssignment calls at once.
+ */
+const CHUNK = 20;
+async function cancelItems(repo: Repo, actor: Actor, schoolId: string, items: { kind: AssignedKind; id: string }[]): Promise<number> {
+  if (memoryHigh()) {
+    log("warn", "admin.cancel_skill.deferred_memory", { schoolId, count: items.length });
+    throw new ValidationError("The server is busy right now — please try again in a few minutes.");
+  }
+  return inJobSlot(`cancel-skill|${schoolId}`, async () => {
+    let done = 0;
+    for (let i = 0; i < items.length; i += CHUNK) {
+      const part = items.slice(i, i + CHUNK);
+      await Promise.all(part.map((it) => cancelAssignment(repo, actor, it.kind, it.id, null)));
+      done += part.length;
+    }
+    return done;
+  });
+}
+
 /** Cancel every live assignment of this exact skill title, for every student, in every class of the school. Returns how many items were cancelled. */
 export async function adminCancelSkillEverywhere(repo: Repo, actor: Actor, kind: AssignedKind, title: string): Promise<number> {
   assertCan(actor, "assignments:create");
   const items = (await allAssignedSkillItems(repo, actor)).filter((it) => it.kind === kind && it.title === title);
-  for (const it of items) await cancelAssignment(repo, actor, it.kind, it.id, null);
-  return items.length;
+  return cancelItems(repo, actor, actor.schoolId!, items);
 }
 
 /** Cancel EVERY currently-assigned skill/progress-check, for every student, in every grade and class of the school. Returns how many items were cancelled. */
 export async function adminCancelAllAssignedSkills(repo: Repo, actor: Actor): Promise<number> {
   assertCan(actor, "assignments:create");
   const items = await allAssignedSkillItems(repo, actor);
-  for (const it of items) await cancelAssignment(repo, actor, it.kind, it.id, null);
-  return items.length;
+  return cancelItems(repo, actor, actor.schoolId!, items);
 }
 
 /** Cancel every live assignment of this exact skill title, for every student, in ONE class only. Returns how many items were cancelled. */
 export async function adminCancelSkillInClass(repo: Repo, actor: Actor, kind: AssignedKind, title: string, classId: string): Promise<number> {
   assertCan(actor, "assignments:create");
   const items = (await assignedSkillItemsOfClass(repo, actor, classId)).filter((it) => it.kind === kind && it.title === title);
-  for (const it of items) await cancelAssignment(repo, actor, it.kind, it.id, null);
-  return items.length;
+  return cancelItems(repo, actor, actor.schoolId!, items);
 }
 
 /** Cancel EVERY currently-assigned skill/progress-check of ONE class only (every student in it). Returns how many items were cancelled. */
 export async function adminCancelAllAssignedSkillsInClass(repo: Repo, actor: Actor, classId: string): Promise<number> {
   assertCan(actor, "assignments:create");
   const items = await assignedSkillItemsOfClass(repo, actor, classId);
-  for (const it of items) await cancelAssignment(repo, actor, it.kind, it.id, null);
-  return items.length;
+  return cancelItems(repo, actor, actor.schoolId!, items);
 }
