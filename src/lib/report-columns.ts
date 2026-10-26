@@ -84,6 +84,12 @@ export const GLOSSARY: Record<string, string> = {
   "National": "The national average RIT for students in the same grade and term (NWEA norms).",
   "Flags": "Tests NWEA flagged to double-check — often fast guessing during the test.",
   "Percentile bands": "How the tested students split into five equal national groups, from the lowest fifth to the highest fifth.",
+  // r?: Student Profile card (src/components/insights/student-profile-card.tsx) had no plain-words tooltips yet
+  "Weekly Check": "A short adaptive check the student can take between official MAP tests. It gives an early estimate of their reading score, not an official NWEA result.",
+  "Next MAP": "An estimate of the student's score on the next official MAP test, based on their recent progress. The real score is usually within ± 5 points of this estimate.",
+  "% chance": "The estimated chance the student reaches their MAP growth goal by the next test, based on their recent pace of progress.",
+  "Weakest NWEA area": "Of the parts of English MAP measures (reading, vocabulary, grammar, mechanics…), the one where this student is furthest from their goal.",
+  "Learning trajectory": "How the student's estimated reading ability has moved over recent weeks, from their practice answers (not a MAP RIT score).",
 };
 
 /** The tooltip of a heading: its own hint, or the glossary's plain words, or nothing. */

@@ -25,16 +25,18 @@ export function ReportHead({ s, title, term, right }: { s: ReportStudent; title:
 }
 
 export const BAND_COLORS = ["#ef4444", "#f97316", "#facc15", "#22c55e", "#3b82f6"];
+export const BAND_LABELS = ["Low", "Low Avg", "Average", "High Avg", "High"];
 /** Percentile on the five descriptor bands (Low · Low Average · Average · High Average · High) with a marker. */
 export function PercentileBar({ pct, label }: { pct: number; label: string }) {
   const x = Math.max(1, Math.min(99, pct));
   return (
-    <svg viewBox="0 0 220 64" className="w-full max-w-[260px]" role="img" aria-label={`${label}: ${x}th percentile`}>
+    <svg viewBox="0 0 220 74" className="w-full max-w-[260px]" role="img" aria-label={`${label}: ${x}th percentile`}>
       <text x={(x / 100) * 200 + 10} y="12" textAnchor="middle" fontSize="10" fontWeight="700" fill="#1f3a68">{label}</text>
       <polygon points={`${(x / 100) * 200 + 4},16 ${(x / 100) * 200 + 16},16 ${(x / 100) * 200 + 10},24`} fill="#1f3a68" />
       {BAND_COLORS.map((c, i) => <rect key={c} x={10 + i * 40} y="26" width="39" height="14" rx="2" fill={c} />)}
-      <line x1="110" y1="24" x2="110" y2="48" stroke="#334155" strokeWidth="1" />
-      <text x="110" y="60" textAnchor="middle" fontSize="9" fill="#475569">Average: 50th</text>
+      {BAND_LABELS.map((t, i) => <text key={t} x={10 + i * 40 + 19.5} y="48" textAnchor="middle" fontSize="6.5" fill="#475569">{t}</text>)}
+      <line x1="110" y1="24" x2="110" y2="58" stroke="#334155" strokeWidth="1" />
+      <text x="110" y="70" textAnchor="middle" fontSize="9" fill="#475569">Average: 50th</text>
     </svg>
   );
 }

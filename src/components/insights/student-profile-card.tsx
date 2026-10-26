@@ -2,6 +2,8 @@
 import type { ProfileView } from "@/server/insights/student-profile";
 import { MISCONCEPTION_BY_CODE } from "@/insights/misconceptions";
 import { EVIDENCE_NAME, type Evidence } from "@/server/curriculum-map/evidence-level";
+import { InfoTip } from "@/components/report-kit/info-tip";
+import { GLOSSARY } from "@/lib/report-columns";
 
 const LEVEL = { ABOVE: "Exceeding the standard", ON: "Meeting the standard", BELOW: "Approaching the standard", UNKNOWN: "No data yet" } as Record<string, string>;
 const AREA: Record<string, string> = { LIT: "Literary Text", INFO: "Informational Text", VOCAB: "Vocabulary", GRAMMAR: "Grammar and Usage", MECH: "Mechanics", WRITING: "Writing" };
@@ -18,9 +20,9 @@ export function StudentProfileCard({ p, tier, tierHref }: { p: ProfileView | nul
       <h2 className="text-lg font-bold text-brand-navy">🧠 Student profile <span className="text-xs font-normal text-slate-500">· updated {p.updatedAt?.slice(0, 10) ?? "—"}</span></h2>
       <div className="mt-3 grid gap-3 md:grid-cols-4">
         <div className="rounded-2xl bg-white p-3 ring-1 ring-slate-200"><p className="text-xs text-slate-500">Level</p><p className="text-xl font-extrabold text-brand-navy">{LEVEL[p.level] ?? p.level}</p><p className="text-xs text-slate-500">from: {EVIDENCE_NAME[p.levelSource as Evidence] ?? p.levelSource}</p></div>
-        <div className="rounded-2xl bg-white p-3 ring-1 ring-slate-200"><p className="text-xs text-slate-500">MAP RIT</p><p className="text-xl font-extrabold tabular-nums text-brand-navy">{p.readingRit ?? "—"} <span className="text-sm font-normal">Reading</span></p><p className="text-sm tabular-nums">{p.languageRit ?? "—"} Language{p.estReadingRit ? ` · Weekly Check ≈ ${p.estReadingRit}` : ""}{p.lexile ? ` · ${p.lexile}L` : ""}</p></div>
-        <div className="rounded-2xl bg-white p-3 ring-1 ring-slate-200" title={p.predictionWhy ?? ""}><p className="text-xs text-slate-500">🔮 Next MAP ({p.predictedTerm ?? "—"})</p><p className="text-xl font-extrabold tabular-nums text-brand-navy">{p.predictedReading ? `≈ ${p.predictedReading} ± 5` : "—"}</p><p className="text-sm">{p.goalChance !== null ? <>goal {p.goalReading} · <b className={p.goalChance < 40 ? "text-red-700" : p.goalChance < 60 ? "text-amber-700" : "text-emerald-700"}>{p.goalChance}% chance</b></> : "No MAP goal yet"}</p></div>
-        <div className="rounded-2xl bg-white p-3 ring-1 ring-slate-200"><p className="text-xs text-slate-500">Weakest NWEA area</p><p className="text-lg font-bold text-brand-navy">{p.weakestArea ? AREA[p.weakestArea] ?? p.weakestArea : "—"}</p><p className="text-xs text-slate-500">{p.practiceDays14} practice day(s) in 14</p></div>
+        <div className="rounded-2xl bg-white p-3 ring-1 ring-slate-200"><p className="text-xs text-slate-500">MAP RIT</p><p className="text-xl font-extrabold tabular-nums text-brand-navy">{p.readingRit ?? "—"} <span className="text-sm font-normal">Reading</span></p><p className="text-sm tabular-nums">{p.languageRit ?? "—"} Language{p.lexile ? ` · ${p.lexile}L` : ""}{p.estReadingRit ? <> · Weekly Check ≈ {p.estReadingRit} <InfoTip text={GLOSSARY["Weekly Check"]} /></> : null}</p></div>
+        <div className="rounded-2xl bg-white p-3 ring-1 ring-slate-200"><p className="flex items-center gap-1 text-xs text-slate-500">🔮 Next MAP ({p.predictedTerm ?? "—"}) <InfoTip text={GLOSSARY["Next MAP"]} /></p><p className="text-xl font-extrabold tabular-nums text-brand-navy">{p.predictedReading ? `≈ ${p.predictedReading} ± 5` : "—"}</p><p className="text-sm">{p.goalChance !== null ? <>goal {p.goalReading} · <b className={p.goalChance < 40 ? "text-red-700" : p.goalChance < 60 ? "text-amber-700" : "text-emerald-700"}>{p.goalChance}% chance</b> <InfoTip text={GLOSSARY["% chance"]} /></> : "No MAP goal yet"}</p>{p.predictionWhy && <p className="mt-1 text-[11px] text-slate-400">{p.predictionWhy}.</p>}</div>
+        <div className="rounded-2xl bg-white p-3 ring-1 ring-slate-200"><p className="flex items-center gap-1 text-xs text-slate-500">Weakest NWEA area <InfoTip text={GLOSSARY["Weakest NWEA area"]} /></p><p className="text-lg font-bold text-brand-navy">{p.weakestArea ? AREA[p.weakestArea] ?? p.weakestArea : "—"}</p><p className="text-xs text-slate-500">{p.practiceDays14} practice day(s) in 14</p></div>
       </div>
       {tier && (
         <p className="mt-3 flex flex-wrap items-center gap-2 rounded-2xl bg-white p-3 text-sm ring-1 ring-slate-200" data-testid="student-tier">
@@ -51,7 +53,7 @@ const VERDICT: Record<string, string> = { PREREQUISITE: "A foundation skill unde
 function Intelligence({ i }: { i: NonNullable<ProfileView["intelligence"]> }) {
   const pts = i.trajectory;
   const min = Math.min(-1, ...pts.map((x) => x.theta)), max = Math.max(1, ...pts.map((x) => x.theta));
-  const X = (k: number) => 8 + (pts.length > 1 ? (k * 224) / (pts.length - 1) : 112), Y = (t: number) => 52 - ((t - min) / (max - min || 1)) * 44;
+  const X = (k: number) => 28 + (pts.length > 1 ? (k * 204) / (pts.length - 1) : 112), Y = (t: number) => 52 - ((t - min) / (max - min || 1)) * 44;
   return (
     <div className="mt-4 grid gap-3 lg:grid-cols-2">
       <div className="rounded-2xl bg-white p-3 ring-1 ring-slate-200">
@@ -75,8 +77,17 @@ function Intelligence({ i }: { i: NonNullable<ProfileView["intelligence"]> }) {
         <p className="mt-1 text-xs text-slate-600">{i.developing.slice(0, 8).map((x) => `${x.name} ${x.mastery}`).join(" · ") || "—"}</p>
       </div>
       <div className="rounded-2xl bg-white p-3 ring-1 ring-slate-200">
-        <h3 className="font-bold text-brand-navy">📈 Learning trajectory</h3>
-        {pts.length >= 2 ? <svg viewBox="0 0 240 60" className="mt-1 h-16 w-full" role="img" aria-label="Ability by week"><polyline fill="none" stroke="#4f46e5" strokeWidth="2" points={pts.map((x, k) => `${X(k)},${Y(x.theta)}`).join(" ")} />{pts.map((x, k) => <circle key={k} cx={X(k)} cy={Y(x.theta)} r="2.5" fill="#4f46e5" />)}</svg> : <p className="mt-1 text-xs text-slate-500">The trajectory appears after two weekly updates.</p>}
+        <h3 className="flex items-center gap-1 font-bold text-brand-navy">📈 Learning trajectory <InfoTip text={GLOSSARY["Learning trajectory"]} /></h3>
+        {pts.length >= 2 ? <svg viewBox="0 0 260 60" className="mt-1 h-16 w-full" role="img" aria-label="Ability by week">
+          <text x="2" y={Y(max) + 3} fontSize="7" fill="#94a3b8">{max.toFixed(1)}</text>
+          <text x="2" y={Y(min) + 3} fontSize="7" fill="#94a3b8">{min.toFixed(1)}</text>
+          <line x1="20" y1={Y(max)} x2="232" y2={Y(max)} stroke="#e2e8f0" strokeWidth="1" />
+          <line x1="20" y1={Y(min)} x2="232" y2={Y(min)} stroke="#e2e8f0" strokeWidth="1" />
+          <polyline fill="none" stroke="#4f46e5" strokeWidth="2" points={pts.map((x, k) => `${X(k)},${Y(x.theta)}`).join(" ")} />
+          {pts.map((x, k) => <circle key={k} cx={X(k)} cy={Y(x.theta)} r="2.5" fill="#4f46e5" />)}
+          <text x={X(0)} y="59" fontSize="7" fill="#94a3b8" textAnchor="middle">wk 1</text>
+          <text x={X(pts.length - 1)} y="59" fontSize="7" fill="#94a3b8" textAnchor="end">wk {pts.length}</text>
+        </svg> : <p className="mt-1 text-xs text-slate-500">The trajectory appears after two weekly updates.</p>}
         <p className="text-xs text-slate-600">{i.growthPerWeek !== null ? `+${i.growthPerWeek} mastery points a week (last 14 days)` : "No practice in the last 14 days"}{i.thetaTrend !== null ? ` · ability ${i.thetaTrend >= 0 ? "+" : ""}${i.thetaTrend} a week` : ""}</p>
       </div>
     </div>

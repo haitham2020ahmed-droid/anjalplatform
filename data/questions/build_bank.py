@@ -17,6 +17,11 @@ import grade4, grade5, grade6, extremes  # noqa: E402,F401  (authoring modules r
 qb.EXPANSION = True  # items below get per-type answer-key balancing
 import grade4_more, grade5_more, grade6_more, grade4_topup, grade5_topup, grade6_topup  # noqa: E402,F401  (expansions: imported last so existing refs never change)
 import grade4_extra_passages, grade5_extra_passages, grade6_extra_passages  # noqa: E402,F401  (new passages + items, added without touching existing files)
+# top-up 2, Oct 2026: every family brought to >=50 items; see data/questions/README.md
+import topup2_batch01, topup2_batch02, topup2_batch03, topup2_batch04  # noqa: E402,F401
+import topup2_batch05, topup2_batch06, topup2_batch07, topup2_batch08  # noqa: E402,F401
+import topup2_batch09, topup2_batch10, topup2_batch11, topup2_batch12  # noqa: E402,F401
+import topup2_batch13, topup2_batch14, topup2_batch15, topup2_batch16  # noqa: E402,F401
 
 OFFICIAL = json.load(open(ROOT / "data/curriculum/ccss-standards.json"))
 TAX = json.load(open(ROOT / "data/curriculum/taxonomy.json"))

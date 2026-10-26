@@ -25,8 +25,12 @@ export function ParentReportView({ r }: { r: ParentReport }) {
       </div>
       {r.map.length > 0 && (
         <section className={box}><h2 className="font-bold text-brand-navy">🗺️ MAP Test</h2>
-          <ul className="mt-2 space-y-1">{r.map.map((m) => <li key={m.subject}><b>{m.subject}</b>: Fall {m.fall ?? "—"}{m.latest ? ` → ${m.latestTerm} ${m.latest}` : ""}{m.target ? ` · Spring goal ${m.target}` : ""} — {m.status}</li>)}</ul>
-          <p className="mt-2 text-xs text-slate-500">The MAP score (RIT) grows during the year. The goal is the score NWEA expects by Spring.</p>
+          <div className="mt-2 grid gap-x-6 gap-y-1 text-[12px] leading-snug text-slate-600 sm:grid-cols-2">
+            <p><b>What is MAP Growth?</b> A test that adapts to your child&apos;s answers in real time to measure their level.</p>
+            <p><b>What is a RIT score?</b> The overall score for a subject, on a scale from 100 to 350. Higher is further along.</p>
+          </div>
+          <ul className="mt-3 space-y-1">{r.map.map((m) => <li key={m.subject}><b>{m.subject}</b>: Fall {m.fall ?? "—"}{m.latest ? ` → ${m.latestTerm} ${m.latest}` : ""}{m.target ? ` · Spring goal ${m.target}` : ""} — {m.status}</li>)}</ul>
+          <p className="mt-2 text-xs text-slate-500">The MAP score (RIT) grows during the year. The <b>Spring goal</b> is the score NWEA expects your child to reach by the Spring MAP test, based on where they started.</p>
         </section>
       )}
       {r.mapPlans.length > 0 && (
