@@ -17,11 +17,13 @@ import type { Program } from "./program";
 import { assertProgramFitsGrade, createDraft, type PlanSource, type SectionSpec } from "./editor";
 import { suggestMapPlan, type MapSubject } from "./map-suggest";
 import { suggestNafsPlan } from "./nafs-suggest";
-import { sourceOf, suggestPlans, weakestSkillsFor } from "./perf-suggest";
+import { excellingSkillsFor, sourceOf, suggestPlans, weakestSkillsFor } from "./perf-suggest";
 
 const s = (v: unknown) => String(v ?? "");
 
-export interface StartInput { classId: string; program: Program | null; studentIds: string[]; mode: "suggested" | "empty"; subject?: MapSubject; title?: string | null }
+// ⚡ Enrichment: additive-only, kept out of the Program type (`null`, same safe bucket as Custom) so it never
+// touches AssignSource/source-tags/the RTI-tier system — just this one extra flag, checked before the others.
+export interface StartInput { classId: string; program: Program | null; studentIds: string[]; mode: "suggested" | "empty"; subject?: MapSubject; title?: string | null; enrichment?: boolean }
 
 /** The platform's sections for a new plan of this program (empty list = nothing to suggest yet). */
 export async function suggestedSections(repo: Repo, actor: Actor, input: StartInput): Promise<{ sections: SectionSpec[]; source: PlanSource | null }> {
@@ -31,6 +33,10 @@ export async function suggestedSections(repo: Repo, actor: Actor, input: StartIn
   const all = (await repo.findMany("ClassMembership", { classId: klass.id, leftAt: null }, { select: ["studentId"] })).map((m) => s(m.studentId));
   const who = input.studentIds.length ? input.studentIds : all;
   const scoped = (ids: string[]) => (ids.length >= who.length ? null : ids);
+  if (input.enrichment) {
+    const e = await excellingSkillsFor(repo, actor, input.classId, input.studentIds, 4);
+    return { sections: e.sections.map((k) => ({ skillId: k.skillId, count: k.count, lesson: k.lesson, level: k.level, reason: k.reason })), source: e.source };
+  }
   if (input.program === "MAP") {
     const sug = await suggestMapPlan(repo, actor, { classId: input.classId, studentIds: input.studentIds, subject: input.subject });
     return {
@@ -68,7 +74,7 @@ export async function startPlan(repo: Repo, actor: Actor, input: StartInput, now
     const klass = await assertClassAccess(repo, actor, input.classId);
     assertProgramFitsGrade(input.program, Number((await repo.findUnique("Grade", { id: klass.gradeId }))?.level ?? 0));
   }
-  const planId = await createDraft(repo, actor, { classId: input.classId, program: input.program, studentIds: input.studentIds, title: input.title, sections: sug.sections, suggested: sug.sections.length > 0, source: sug.source }, now);
+  const planId = await createDraft(repo, actor, { classId: input.classId, program: input.program, studentIds: input.studentIds, title: input.title, sections: sug.sections, suggested: sug.sections.length > 0, source: sug.source, enrichment: input.enrichment }, now);
   return { planId, empty: sug.sections.length === 0 };
 }
 

@@ -210,6 +210,8 @@ export interface CreateDraftInput {
   /** the sections are the platform's suggestion: kept as the baseline to compare with */
   suggested?: boolean;
   source?: PlanSource | null;
+  /** ⚡ additive: an Enrichment plan (kind "ENRICHMENT" instead of "CUSTOM") — program stays null, same safe bucket. */
+  enrichment?: boolean;
 }
 
 const LABEL: Record<string, string> = { MAP: "MAP Plan", RTI: "Support Plan", NAFS: "NAFS Plan", CURRICULUM: "Curriculum Plan", CUSTOM: "Custom Plan" };
@@ -309,7 +311,7 @@ export async function createDraft(repo: Repo, actor: Actor, input: CreateDraftIn
   if (input.sections.length && !doc.sections.length) throw new ValidationError(notes[0] ?? "Nothing could be added to the plan.");
   const title = (s(input.title).replace(/\s+/g, " ").trim() || `${editorPlanLabel(program)} · ${s(klass.name)}`).slice(0, 191);
   const row = await repo.create("SkillPlan", {
-    schoolId, classId: klass.id, title, kind: planKindOf(program), targetCorrect: null, gradeLevel: grade, note: s(input.note).trim().slice(0, 1000) || null,
+    schoolId, classId: klass.id, title, kind: input.enrichment ? "ENRICHMENT" : planKindOf(program), targetCorrect: null, gradeLevel: grade, note: s(input.note).trim().slice(0, 1000) || null,
     createdById: actor.userId, createdAt: now, updatedAt: now, status: "DRAFT", program, doc, baseline: input.suggested ? doc : null,
     source: input.source ?? null, studentIds, goals: s(input.goals).trim().slice(0, 1000) || null, dueAt: input.dueAt ?? null, startAt: input.startAt ?? null,
   });
@@ -530,7 +532,8 @@ export async function sendPlan(repo: Repo, actor: Actor, planId: string, now = n
   // Curriculum); a custom plan needs the teacher's choice
   const head = await repo.findUnique("SkillPlan", { id: String(planId ?? "") });
   const program: Program | null = !head ? null : isProgram(head.program) ? head.program : programOfPlanKind(head.kind);
-  const source = planSource(program, sourceIn);
+  // ⚡ an Enrichment plan's source is "Enrichment" — shown, not asked, exactly like a program plan's own program.
+  const source: AssignSource | null = s(head?.kind) === "ENRICHMENT" ? "ENRICHMENT" : planSource(program, sourceIn);
   if (!source) throw new ValidationError(SOURCE_REQUIRED);
   const p = await loadPlan(repo, actor, planId);
   if (p.status !== "DRAFT") throw new ValidationError("This plan was sent already. Your changes reach the students as you make them.");
@@ -829,7 +832,7 @@ export async function plansOverview(repo: Repo, actor: Actor, opts: { classId?: 
 export interface EditorQuestion { id: string; stem: string; type: string; level: PlanLevel; skillName: string; passageId: string | null; passageTitle: string | null; published: boolean; answeredBy: number }
 export interface EditorSection extends PlanSection { questions: EditorQuestion[]; students: { id: string; name: string }[]; done: number; total: number; poolSize: number | null }
 export interface PlanEditorView {
-  id: string; title: string; status: PlanStatus; program: Program | null; classId: string; className: string; grade: number;
+  id: string; title: string; status: PlanStatus; program: Program | null; kind: string; classId: string; className: string; grade: number;
   note: string | null; goals: string | null; dueAt: string | null; startAt: string | null; sentAt: string | null;
   classStudents: { id: string; name: string }[]; planStudentIds: string[]; wholeClass: boolean;
   sections: EditorSection[]; changes: PlanChange[]; hasBaseline: boolean; source: PlanSource | null; progress: number; finished: boolean;
@@ -874,7 +877,7 @@ export async function planEditorView(repo: Repo, actor: Actor, planId: string, n
   const progress = links.length ? Math.round((100 * links.reduce((t, x) => t + (x.status === "COMPLETED" ? 1 : Math.max(0, Math.min(1, Number(x.progress) || 0))), 0)) / links.length) : 0;
   const due = d(p.row.dueAt);
   return {
-    id: s(p.row.id), title: s(p.row.title), status: p.status, program: p.program, classId: s(p.klass.id), className: s(p.klass.name), grade: p.grade,
+    id: s(p.row.id), title: s(p.row.title), status: p.status, program: p.program, kind: s(p.row.kind), classId: s(p.klass.id), className: s(p.klass.name), grade: p.grade,
     note: p.row.note ? s(p.row.note) : null, goals: p.row.goals ? s(p.row.goals) : null, dueAt: day(p.row.dueAt), startAt: day(p.row.startAt), sentAt: day(p.row.sentAt),
     classStudents: p.members.map((id) => ({ id, name: names.get(id) ?? "Student" })).sort((a, b) => a.name.localeCompare(b.name)),
     planStudentIds: p.planStudents, wholeClass: p.row.studentIds == null || jsonIds(p.row.studentIds).length === 0,

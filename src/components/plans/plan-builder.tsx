@@ -1,6 +1,6 @@
 import { StarAssign } from "@/components/assign/star-assign";
 import { SourceSelect } from "@/components/assign/source-select";
-import { ASSIGN_SOURCE_LABEL } from "@/lib/assign-source";
+import { ASSIGN_SOURCE_LABEL, type AssignSource } from "@/lib/assign-source";
 import { PendingButton } from "@/components/pending-button";
 import Link from "next/link";
 import type { ReactNode } from "react";
@@ -32,9 +32,10 @@ const chip = (on: boolean) => `inline-flex min-h-11 items-center rounded-full px
 
 /**
  * r82 (owner, r74 rule): a program plan's Source is its program — RTI plan → RTI, NAFS → NAFS, MAP → MAP, Curriculum →
- * Curriculum — shown, not asked (the server sets it too); only a custom plan has the Source select.
+ * Curriculum — shown, not asked (the server sets it too); only a custom plan has the Source select. An Enrichment
+ * plan's source ("ENRICHMENT") is shown the same way — it isn't a Program, so this takes the wider AssignSource type.
  */
-export function PlanSourceFixed({ t, program }: { t: TFn; program: Program }) {
+export function PlanSourceFixed({ t, program }: { t: TFn; program: AssignSource }) {
   return (
     <span className="flex flex-col text-sm font-semibold text-slate-700" data-testid="plan-source">
       <span>{t("Source")}</span>

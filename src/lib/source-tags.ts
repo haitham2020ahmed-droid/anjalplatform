@@ -3,11 +3,11 @@
  * Curriculum = blue, MAP = green, RTI = orange, Grammar = purple, NAFS = teal, Custom = grey.
  * Client-safe (no server imports). The stored value is Assignment.track / SkillPlan.kind.
  */
-export type SourceKey = "CURRICULUM" | "MAP" | "NAFS" | "RTI" | "GRAMMAR" | "CUSTOM";
-export type SourceLabel = "Curriculum" | "MAP" | "NAFS" | "RTI" | "Grammar" | "Custom";
+export type SourceKey = "CURRICULUM" | "MAP" | "NAFS" | "RTI" | "GRAMMAR" | "CUSTOM" | "ENRICHMENT";
+export type SourceLabel = "Curriculum" | "MAP" | "NAFS" | "RTI" | "Grammar" | "Custom" | "Enrichment";
 
 export const SOURCE_LABEL: Record<SourceKey, SourceLabel> = {
-  CURRICULUM: "Curriculum", MAP: "MAP", NAFS: "NAFS", RTI: "RTI", GRAMMAR: "Grammar", CUSTOM: "Custom",
+  CURRICULUM: "Curriculum", MAP: "MAP", NAFS: "NAFS", RTI: "RTI", GRAMMAR: "Grammar", CUSTOM: "Custom", ENRICHMENT: "Enrichment",
 };
 
 /** Tailwind classes for the small colored tag. */
@@ -18,6 +18,7 @@ export const SOURCE_TAG_CLASS: Record<SourceKey, string> = {
   RTI: "bg-orange-100 text-orange-900 ring-orange-300",
   GRAMMAR: "bg-purple-100 text-purple-900 ring-purple-300",
   CUSTOM: "bg-slate-100 text-slate-800 ring-slate-300",
+  ENRICHMENT: "bg-amber-100 text-amber-900 ring-amber-300",
 };
 
 const KEYS = Object.keys(SOURCE_LABEL) as SourceKey[];
@@ -35,5 +36,5 @@ export function sourceOfWork(track: unknown, grammar: boolean): SourceKey {
 /** Plan kind (SkillPlan.kind) → its source. PLACES / CURRICULUM / UNIT plans are Curriculum plans. */
 export function sourceOfPlanKind(kind: unknown): SourceKey {
   const k = String(kind ?? "");
-  return k === "MAP" ? "MAP" : k === "NAFS" ? "NAFS" : k === "RTI" ? "RTI" : k === "CUSTOM" ? "CUSTOM" : "CURRICULUM";
+  return k === "MAP" ? "MAP" : k === "NAFS" ? "NAFS" : k === "RTI" ? "RTI" : k === "CUSTOM" ? "CUSTOM" : k === "ENRICHMENT" ? "ENRICHMENT" : "CURRICULUM";
 }

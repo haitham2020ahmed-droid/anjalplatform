@@ -26,6 +26,8 @@ const s = (v: unknown) => String(v ?? "");
 const time = (v: unknown) => new Date(v instanceof Date ? v.getTime() : s(v)).getTime() || 0;
 /** under this accuracy a skill is "weak" for a student */
 export const WEAK_PCT = 60;
+/** at or above this accuracy a skill is "excelling" for a student (Enrichment) */
+export const STRONG_PCT = 90;
 /** answers needed before a skill is judged */
 export const MIN_ANSWERS = 5;
 /** students weak in the same skill for a group plan */
@@ -231,6 +233,22 @@ export async function suggestPlans(repo: Repo, actor: Actor, classId: string, no
     });
   }
   return out;
+}
+
+/** The strongest skills of some students (manual "suggest for these students", Enrichment): up to `n`, most students first. */
+export async function excellingSkillsFor(repo: Repo, actor: Actor, classId: string, studentIds: string[], n = 4, now = new Date()): Promise<{ sections: SuggestedPlan["sections"]; source: PlanSource | null }> {
+  const d = await classPerformance(repo, actor, classId, now);
+  const who = studentIds.length ? studentIds.filter((id) => d.members.includes(id)) : d.members;
+  const count = new Map<string, { n: number; sum: number }>();
+  for (const st of who) for (const [k, x] of d.stats.get(st) ?? []) if (d.skillName.has(k) && pct(x) >= STRONG_PCT) { const c = count.get(k) ?? { n: 0, sum: 0 }; c.n++; c.sum += pct(x); count.set(k, c); }
+  const top = [...count].sort((a, b) => b[1].n - a[1].n || b[1].sum / b[1].n - a[1].sum / a[1].n).slice(0, n);
+  if (!top.length) return { sections: [], source: null };
+  const sections: SuggestedPlan["sections"] = [];
+  for (const [k] of top) sections.push({ skillId: k, skillName: d.skillName.get(k)!, count: who.length === 1 ? 8 : 12, lesson: false, level: "ABOVE", reason: "Excelling skill" });
+  const src = new Set<string>();
+  const rows = who.map((st) => { const r = lines(d, st, top.map(([k]) => k)); r.sources.forEach((x) => src.add(x)); return { name: d.names.get(st) ?? "Student", lines: r.lines }; }).filter((r) => r.lines.length).slice(0, 40);
+  const reasonT: Txt = { t: who.length === 1 ? "Strongest skills of {name}: {list}" : "Strongest skills of these {n} students: {list}", v: { name: d.names.get(who[0]) ?? "", n: who.length, list: top.map(([k, c]) => `${d.skillName.get(k)} (${Math.round(c.sum / c.n)}%)`).join(", ") } };
+  return { sections, source: { reason: fmt(reasonT), reasonT, sources: [...src], rows } };
 }
 
 /** The plan source saved with a draft made from a suggestion (shown in the editor). */

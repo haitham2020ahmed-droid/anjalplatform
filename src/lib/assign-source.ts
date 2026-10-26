@@ -9,11 +9,14 @@
  */
 import { SOURCE_LABEL, SOURCE_TAG_CLASS } from "./source-tags";
 
-export type AssignSource = "MAP" | "NAFS" | "CURRICULUM" | "GRAMMAR" | "RTI";
-/** the order of the select and of the badges / cards: MAP, NAFS, Curriculum, Grammar, RTI (owner) */
-export const ASSIGN_SOURCES: readonly AssignSource[] = ["MAP", "NAFS", "CURRICULUM", "GRAMMAR", "RTI"];
-export const ASSIGN_SOURCE_LABEL: Record<AssignSource, string> = { MAP: SOURCE_LABEL.MAP, NAFS: SOURCE_LABEL.NAFS, CURRICULUM: SOURCE_LABEL.CURRICULUM, GRAMMAR: SOURCE_LABEL.GRAMMAR, RTI: SOURCE_LABEL.RTI };
-export const ASSIGN_SOURCE_CLASS: Record<AssignSource, string> = { MAP: SOURCE_TAG_CLASS.MAP, NAFS: SOURCE_TAG_CLASS.NAFS, CURRICULUM: SOURCE_TAG_CLASS.CURRICULUM, GRAMMAR: SOURCE_TAG_CLASS.GRAMMAR, RTI: SOURCE_TAG_CLASS.RTI };
+// ⚡ ENRICHMENT is additive: it is never offered in the teacher's manual "Source" dropdown (components/assign/
+// source-select.tsx filters it out) — it is only ever set automatically for a plan created as Enrichment. It is
+// listed here so it is counted wherever ASSIGN_SOURCES drives a report or badge list (e.g. "By source").
+export type AssignSource = "MAP" | "NAFS" | "CURRICULUM" | "GRAMMAR" | "RTI" | "ENRICHMENT";
+/** the order of the select and of the badges / cards: MAP, NAFS, Curriculum, Grammar, RTI (owner), Enrichment */
+export const ASSIGN_SOURCES: readonly AssignSource[] = ["MAP", "NAFS", "CURRICULUM", "GRAMMAR", "RTI", "ENRICHMENT"];
+export const ASSIGN_SOURCE_LABEL: Record<AssignSource, string> = { MAP: SOURCE_LABEL.MAP, NAFS: SOURCE_LABEL.NAFS, CURRICULUM: SOURCE_LABEL.CURRICULUM, GRAMMAR: SOURCE_LABEL.GRAMMAR, RTI: SOURCE_LABEL.RTI, ENRICHMENT: SOURCE_LABEL.ENRICHMENT };
+export const ASSIGN_SOURCE_CLASS: Record<AssignSource, string> = { MAP: SOURCE_TAG_CLASS.MAP, NAFS: SOURCE_TAG_CLASS.NAFS, CURRICULUM: SOURCE_TAG_CLASS.CURRICULUM, GRAMMAR: SOURCE_TAG_CLASS.GRAMMAR, RTI: SOURCE_TAG_CLASS.RTI, ENRICHMENT: SOURCE_TAG_CLASS.ENRICHMENT };
 
 /** EN text of the refusal (translated through UI_STRINGS / ar.ts) */
 export const SOURCE_REQUIRED = "Choose the source of this work (MAP, NAFS, Curriculum, Grammar or RTI).";

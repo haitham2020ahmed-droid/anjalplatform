@@ -18,7 +18,9 @@ export function SourceSelect({ t = same, value, onChange, name = "source", class
       <span>{t("Source")} <span aria-hidden="true" className="text-rose-600">*</span></span>
       <select name={name} required aria-required="true" disabled={disabled} {...ctl} className={`${field} ${compact ? "h-8 text-xs" : ""}`}>
         <option value="">{t("Choose a source…")}</option>
-        {ASSIGN_SOURCES.map((k) => <option key={k} value={k}>{t(ASSIGN_SOURCE_LABEL[k])}</option>)}
+        {/* ⚡ Enrichment is never a manual choice here — it's only ever set automatically for a plan created as
+            Enrichment (plan-builder.tsx / editor-ui.tsx show it fixed, like a program plan's source). */}
+        {ASSIGN_SOURCES.filter((k) => k !== "ENRICHMENT").map((k) => <option key={k} value={k}>{t(ASSIGN_SOURCE_LABEL[k])}</option>)}
       </select>
     </label>
   );

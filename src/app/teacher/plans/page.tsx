@@ -28,6 +28,7 @@ const PROGRAM_CHOICES: [string, string, string][] = [
   ["MAP", "MAP", "From each student's lowest MAP sub-areas."],
   ["CURRICULUM", "Curriculum", "Lessons of the Curriculum Map."],
   ["NAFS", "NAFS", "Grade 6 only: from the NAFS results or areas."],
+  ["ENRICHMENT", "Enrichment", "Skills these students have mastered, with harder practice."],
 ];
 const chip = (on: boolean) => `inline-flex min-h-11 items-center rounded-full px-4 text-sm font-semibold ${on ? "bg-brand-navy text-white" : "bg-white text-brand-navy ring-1 ring-slate-200 hover:ring-brand-teal"}`;
 
@@ -209,7 +210,7 @@ async function Suggested({ t, actor, ctx, canSend }: { t: T; actor: Actor; ctx: 
 
 async function NewPlan({ t, actor, ctx, canSend, program, who, sids, add, subject }: { t: T; actor: Actor; ctx: WizardContext; canSend: boolean; program: string; who: string | null; sids: string[]; add: string[]; subject: string | null }) {
   const klass = ctx.klass!;
-  const chosenProgram = isProgram(program) ? program : "CUSTOM";
+  const chosenProgram = program === "ENRICHMENT" ? "ENRICHMENT" : isProgram(program) ? program : "CUSTOM";
   const w = who === "student" || who === "group" ? who : "class";
   const start = add.length ? await skillsByIds(repo, actor, add.slice(0, 20)) : [];
   return (

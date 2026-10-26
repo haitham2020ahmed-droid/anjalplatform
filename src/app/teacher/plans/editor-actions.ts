@@ -157,14 +157,19 @@ export async function startPlanAction(f: FormData) {
   const classId = str(f, "classId"), who = str(f, "who");
   const sids = [...new Set(f.getAll("sid").map(String).filter(Boolean))];
   const studentIds = who === "class" ? [] : who === "student" ? sids.slice(0, 1) : sids;
-  const program = programOf(str(f, "program"));
+  const rawProgram = str(f, "program");
+  const program = programOf(rawProgram);
+  // ⚡ Enrichment isn't a Program (it stays null, same safe bucket as Custom) — just one extra flag read off the
+  // raw posted value, so it never touches the RTI-tier system or the student-grade-restriction logic; it does set
+  // SkillPlan.kind = "ENRICHMENT" (createDraft) so it shows as its own source in By source and My Plans / My Work.
+  const enrichment = rawProgram === "ENRICHMENT";
   const skills = [...new Set(f.getAll("add").map(String).filter(Boolean))].slice(0, 20);
   let target: string;
   try {
     if (who !== "class" && !studentIds.length) throw new ValidationError(who === "student" ? "Tick the student in step 1." : "Tick the students of the group in step 1.");
     let planId: string;
-    if (skills.length) planId = await createDraft(repo, a, { classId, program, studentIds, sections: skills.map((skillId) => ({ skillId, count: 10, reason: "Struggling skill" })), suggested: true });
-    else planId = (await startPlan(repo, a, { classId, program, studentIds, mode: str(f, "mode") === "empty" ? "empty" : "suggested", subject: str(f, "subject") === "LANGUAGE" ? "LANGUAGE" : "READING" })).planId;
+    if (skills.length) planId = await createDraft(repo, a, { classId, program, studentIds, sections: skills.map((skillId) => ({ skillId, count: 10, reason: "Struggling skill" })), suggested: true, enrichment });
+    else planId = (await startPlan(repo, a, { classId, program, studentIds, mode: str(f, "mode") === "empty" ? "empty" : "suggested", subject: str(f, "subject") === "LANGUAGE" ? "LANGUAGE" : "READING", enrichment, title: enrichment ? t("Enrichment") : undefined })).planId;
     target = `/teacher/plans/${planId}?msg=${encodeURIComponent(t("Draft ready. Check and change anything, then Preview and Send. Nothing reaches students before you press Send."))}`;
   } catch (e) {
     if (!ok(e)) throw e;

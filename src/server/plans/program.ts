@@ -29,11 +29,11 @@ export function programOf(a: Record<string, unknown> | { program?: unknown; trac
   return "CURRICULUM"; // CURRICULUM, GRAMMAR and rows from before the track column
 }
 
-/** The program of a plan (SkillPlan.kind): MAP / RTI / NAFS keep theirs; CUSTOM → null; every other kind is Curriculum. */
+/** The program of a plan (SkillPlan.kind): MAP / RTI / NAFS keep theirs; CUSTOM and ENRICHMENT → null; every other kind is Curriculum. */
 export function programOfPlanKind(kind: unknown): Program | null {
   const k = String(kind ?? "");
   if (k === "MAP" || k === "RTI" || k === "NAFS") return k;
-  return k === "CUSTOM" ? null : "CURRICULUM";
+  return k === "CUSTOM" || k === "ENRICHMENT" ? null : "CURRICULUM";
 }
 
 /** SkillPlan.kind for a plan sent from a program's page (Curriculum plans made here are UNIT plans). */

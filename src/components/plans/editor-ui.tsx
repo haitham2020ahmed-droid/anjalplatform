@@ -464,11 +464,12 @@ export function SendStep({ t, v, canSend, classes }: { t: TFn; v: PlanEditorView
           <div className="mt-4 flex flex-wrap items-center justify-end gap-3">
             <Link href={`/teacher/plans/${v.id}?step=preview`} className={BTN_SOFT}>{t("Preview as student")}</Link>
             <form action={deleteDraftAction}><Keep planId={v.id} step="send" /><button className={`${BTN} bg-white text-red-700 ring-1 ring-red-200 hover:bg-red-50`}>{t("Delete draft")}</button></form>
-            {/* r82: a program plan's source is its program (RTI plan → RTI …); a custom plan: the teacher's choice. The
-                button answers at once ("Sending…", disabled: a second press never sends twice). */}
+            {/* r82: a program plan's source is its program (RTI plan → RTI …); an Enrichment plan's source is
+                "Enrichment" the same way; a custom plan: the teacher's choice. The button answers at once
+                ("Sending…", disabled: a second press never sends twice). */}
             {canSend && v.sections.length > 0 && <form action={sendPlanAction} className="flex flex-wrap items-end gap-2" data-testid="plan-send">
               <Keep planId={v.id} step="what" />
-              {v.program ? <PlanSourceFixed t={t} program={v.program} /> : <SourceSelect t={t} />}
+              {v.kind === "ENRICHMENT" ? <PlanSourceFixed t={t} program="ENRICHMENT" /> : v.program ? <PlanSourceFixed t={t} program={v.program} /> : <SourceSelect t={t} />}
               <PendingButton className={`${BTN_MAIN} px-8 text-lg`} label="Send" pendingLabel="Sending…" testId="plan-send-button" />
             </form>}
           </div>
