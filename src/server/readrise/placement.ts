@@ -1,11 +1,13 @@
 /**
  * 🚀 ReadRise placement (LevelSet-like): a short adaptive test of passages, 3 questions each.
  *
- *  Start   latest MAP Lexile (clamped 300–1400 → nearest version level), else the grade's default level.
- *  Step    3/3 → +200 · 2/3 → +100 · 1/3 → −100 · 0/3 → −200 (clamped 300–1400). After the first reversal
+ *  Start   latest MAP Lexile (clamped 300–1600 → nearest version level), else the grade's default level.
+ *  Step    3/3 → +200 · 2/3 → +100 · 1/3 → −100 · 0/3 → −200 (clamped 300–1600). After the first reversal
  *          (the direction changes) every move is ±100. A passage is never shown twice.
  *  Stop    after 8 passages, or after two reversals once at least 5 passages were read.
- *  Result  the highest level read with 2+/3 correct that is not above a level failed (0–1/3) twice; rounded to 10.
+ *  Result  the highest level read with a PASS (passBar below) that is not above a level failed twice; rounded to
+ *          10. The pass bar is 2 of 3 below 1200, 3 of 3 from 1200 up (passBar, below) — a weak reader cannot
+ *          "luck" past 1200 into a result that reads as advanced on a single lucky guess.
  *          MAP check: when a MAP Lexile exists and the result differs from it by more than 250, the result is the
  *          average of both (the reason says so).
  *  Then    RRStudent { level = startLevel = result, source PLACEMENT } and an RRLevelChange "Placement".
@@ -34,11 +36,19 @@ export const PLACEMENT = { maxPassages: 8, minPassages: 5, reversals: 2, mapGap:
  * bar (2 of 3 correct) let a student "pass" the TOP level on a lucky guess — and since nothing could out-level the
  * old ceiling (1400), that single lucky pass became their final result, with no way to tell a genuinely advanced
  * reader from a guess. Two things now address this together: the scale itself gained two harder rungs (1500, 1600 —
- * see level.ts), giving a strong reader real headroom; and near whatever the TOP of the scale is (the top two rungs)
- * a pass now requires a clean 3 of 3 — a student who only gets 2 of 3 up there counts as a (soft) fail, which can
- * trigger the normal two-reversal ceiling-finding logic below instead of locking in immediately.
+ * see level.ts), giving a strong reader real headroom; and near whatever the TOP of the scale is a pass now requires
+ * a clean 3 of 3 — a student who only gets 2 of 3 up there counts as a (soft) fail, which can trigger the normal
+ * two-reversal ceiling-finding logic below instead of locking in immediately.
+ * 🐛 fix (2nd audit finding, Oct 2026): TOP_TIER was 1500, so the same lucky-guess problem the paragraph above
+ * describes was still wide open for levels 1100–1400 — a school reported a student well below grade level
+ * (a struggling Grade 11 reader) reaching a final placement of 1400 purely by stringing together a few 2-of-3
+ * passes (each one has real odds on a 4-option question) before the test ever reversed. Lowered to 1200 so the
+ * harder 3-of-3 bar covers the whole upper quarter of the scale (1200–1600), not just its last two rungs — a
+ * weak reader can no longer "luck" past 1200 into a result that reads as advanced. Levels at/below 1100 keep the
+ * ordinary 2-of-3 bar (unchanged; covered by existing tests), since that part of the scale has plenty of room
+ * left for the normal reversal logic to catch a one-off guess before it could ever become the final result.
  */
-const TOP_TIER = 1500;
+const TOP_TIER = 1200;
 const passBar = (level: number) => (level >= TOP_TIER ? 3 : 2);
 export interface PlacementStep { level: number; passageId: string; answers: string[]; correct: number }
 
