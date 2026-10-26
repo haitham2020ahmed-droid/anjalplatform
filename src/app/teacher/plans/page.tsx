@@ -22,6 +22,9 @@ type SP = Record<string, string | string[] | undefined>;
 type Tab = "plans" | "suggested" | "new";
 const TABS: [Tab, string, string][] = [["plans", "My plans", "📋"], ["suggested", "Suggested plans", "💡"], ["new", "New plan", "✏️"]];
 const BUCKETS: [PlanBucket | "ALL", string][] = [["ALL", "All"], ["DRAFTS", "Drafts"], ["SENT", "Sent"], ["ACTIVE", "Active"], ["FINISHED", "Finished"]];
+/** My plans' own filter + summary, by the same key the chip shows (program, or "ENRICHMENT"/"CUSTOM" when there is none). */
+const KIND_FILTERS: [string, string][] = [["CUSTOM", "Custom"], ["RTI", "Support"], ["MAP", "MAP"], ["CURRICULUM", "Curriculum"], ["NAFS", "NAFS"], ["ENRICHMENT", "Enrichment"]];
+const kindKeyOf = (r: PlanListRow): string => (r.kind === "ENRICHMENT" ? "ENRICHMENT" : r.program ?? "CUSTOM");
 const PROGRAM_CHOICES: [string, string, string][] = [
   ["CUSTOM", "Custom", "Any skills and questions you choose."],
   ["RTI", "Support", "Struggling skills of students who need support."],
@@ -71,7 +74,7 @@ export default async function PlansPage({ searchParams }: { searchParams: Promis
       </nav>
       {msg && <p role="status" className="mb-5 rounded-2xl bg-teal-50 px-4 py-3 text-teal-900 ring-1 ring-teal-200">{t(msg)}</p>}
       {!ctx.klass ? <EmptyState icon="🗂️" title="No classes yet" text="When the admin adds you to a class, you can make plans here." action={{ href: actor.role === "TEACHER" ? "/teacher" : "/admin", label: "Home" }} />
-        : tab === "plans" ? <PlanList t={t} actor={actor} ctx={ctx} classId={get("classId")} bucket={get("bucket")} />
+        : tab === "plans" ? <PlanList t={t} actor={actor} ctx={ctx} classId={get("classId")} bucket={get("bucket")} kind={get("kind")} />
         : tab === "suggested" ? <Suggested t={t} actor={actor} ctx={ctx} canSend={canSend} />
         : <NewPlan t={t} actor={actor} ctx={ctx} canSend={canSend} program={program} who={get("who")} sids={getAll("sid")} add={getAll("add")} subject={get("subject")} />}
       <p className="mt-6 text-sm text-slate-600">{t("Also:")}{" "}
@@ -97,17 +100,26 @@ function ClassChips({ t, ctx, hrefOf, all }: { t: T; ctx: WizardContext; hrefOf:
 
 const SCOPE: Record<PlanListRow["scope"], string> = { CLASS: "Whole class", GROUP: "Group", STUDENT: "One student" };
 
-async function PlanList({ t, actor, ctx, classId, bucket }: { t: T; actor: Actor; ctx: WizardContext; classId: string | null; bucket: string | null }) {
+async function PlanList({ t, actor, ctx, classId, bucket, kind }: { t: T; actor: Actor; ctx: WizardContext; classId: string | null; bucket: string | null; kind: string | null }) {
   const b = (BUCKETS.find(([k]) => k === bucket)?.[0] ?? "ALL") as PlanBucket | "ALL";
   const all = await plansOverview(repo, actor, { classId: classId || null });
   const count = (k: PlanBucket | "ALL") => all.filter((r) => k === "ALL" || (k === "DRAFTS" ? r.status === "DRAFT" : k === "SENT" ? r.status !== "DRAFT" : k === "ACTIVE" ? (r.status === "SENT" || r.status === "PAUSED") && !r.finished : r.status !== "DRAFT" && r.finished)).length;
-  const rows = all.filter((r) => b === "ALL" || (b === "DRAFTS" ? r.status === "DRAFT" : b === "SENT" ? r.status !== "DRAFT" : b === "ACTIVE" ? (r.status === "SENT" || r.status === "PAUSED") && !r.finished : r.status !== "DRAFT" && r.finished));
-  const link = (k: string, cid: string | null) => `/teacher/plans?${new URLSearchParams({ tab: "plans", ...(k !== "ALL" ? { bucket: k } : {}), ...(cid ? { classId: cid } : {}) })}`;
+  const bucketRows = all.filter((r) => b === "ALL" || (b === "DRAFTS" ? r.status === "DRAFT" : b === "SENT" ? r.status !== "DRAFT" : b === "ACTIVE" ? (r.status === "SENT" || r.status === "PAUSED") && !r.finished : r.status !== "DRAFT" && r.finished));
+  // ⚡ kind filter + its counts (the summary: "5 Support, 3 MAP, 2 Enrichment…" lives in these chip counts, scoped
+  // to the bucket already chosen above): a kind only shows a chip when at least one plan of it is in this bucket.
+  const k = KIND_FILTERS.find(([x]) => x === kind)?.[0] ?? null;
+  const kindCount = (x: string) => bucketRows.filter((r) => kindKeyOf(r) === x).length;
+  const rows = bucketRows.filter((r) => !k || kindKeyOf(r) === k);
+  const link = (kk: string, cid: string | null, kn?: string | null) => `/teacher/plans?${new URLSearchParams({ tab: "plans", ...(kk !== "ALL" ? { bucket: kk } : {}), ...(cid ? { classId: cid } : {}), ...((kn ?? k) ? { kind: (kn ?? k)! } : {}) })}`;
   return (
     <>
       <ClassChips t={t} ctx={ctx} hrefOf={(id) => link(b, id)} all={{ on: !classId }} />
-      <nav aria-label={t("Plan status")} className="mb-4 flex flex-wrap gap-2">
-        {BUCKETS.map(([k, label]) => <Link key={k} href={link(k, classId)} aria-current={k === b ? "page" : undefined} className={chip(k === b)}>{t(label)} <span className="ms-1 tabular-nums opacity-80">{count(k)}</span></Link>)}
+      <nav aria-label={t("Plan status")} className="mb-2 flex flex-wrap gap-2">
+        {BUCKETS.map(([bk, label]) => <Link key={bk} href={link(bk, classId)} aria-current={bk === b ? "page" : undefined} className={chip(bk === b)}>{t(label)} <span className="ms-1 tabular-nums opacity-80">{count(bk)}</span></Link>)}
+      </nav>
+      <nav aria-label={t("Kind of plan")} className="mb-4 flex flex-wrap gap-2">
+        <Link href={link(b, classId, "")} aria-current={!k ? "page" : undefined} className={chip(!k)}>{t("Every kind")} <span className="ms-1 tabular-nums opacity-80">{bucketRows.length}</span></Link>
+        {KIND_FILTERS.filter(([x]) => kindCount(x) > 0).map(([x, label]) => <Link key={x} href={link(b, classId, x)} aria-current={k === x ? "page" : undefined} className={chip(k === x)}>{t(label)} <span className="ms-1 tabular-nums opacity-80">{kindCount(x)}</span></Link>)}
       </nav>
       {!rows.length ? <EmptyState icon="📋" title="No plans here yet" text="Start a New plan, or open a Suggested plan." /> : (
         <>
@@ -129,8 +141,12 @@ async function PlanList({ t, actor, ctx, classId, bucket }: { t: T; actor: Actor
                 <li key={p.id} className="flex flex-wrap items-start gap-3 py-3">
                   <label className="flex min-h-11 items-center px-1"><input type="checkbox" name="id" value={p.id} form="plans-bulk" className="h-5 w-5" aria-label={p.title} /></label>
                   <div className="min-w-0 flex-1">
-                    <p className="flex flex-wrap items-center gap-2 font-semibold text-brand-navy"><span className="break-words">{p.title}</span><ProgramChip program={p.program} /><StatusChip t={t} status={p.status} finished={p.finished} /></p>
+                    <p className="flex flex-wrap items-center gap-2 font-semibold text-brand-navy">
+                      <span className="break-words">{p.title}</span><ProgramChip program={p.program} kind={p.kind} /><StatusChip t={t} status={p.status} finished={p.finished} />
+                      {p.stale && <span className="inline-flex items-center rounded-full bg-amber-50 px-2.5 py-0.5 text-xs font-semibold text-amber-800 ring-1 ring-amber-200">⏳ {t(p.status === "DRAFT" ? "Sitting as a draft" : "Sent, no progress yet")}</span>}
+                    </p>
                     <p className="text-sm text-slate-600">{p.className} · {t(SCOPE[p.scope])} · {t("{n} student(s)", { n: p.students })} · {t("{n} part(s)", { n: p.sections })}{p.questions ? ` · ${t("{n} question(s)", { n: p.questions })}` : ""}{p.dueAt ? ` · ${t("Due {date}", { date: p.dueAt })}` : ""} · {p.date}</p>
+                    {p.effect && <p className="text-sm font-semibold text-emerald-700" title={t("Accuracy on this plan's own skills, before it was sent vs. since.")}>📈 <span dir="ltr">{p.effect.before}% → {p.effect.after}%</span></p>}
                   </div>
                   {p.status !== "DRAFT" && (
                     <div className="flex w-40 items-center gap-2" title={t("Progress")}>

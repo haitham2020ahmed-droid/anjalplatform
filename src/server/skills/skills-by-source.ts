@@ -12,7 +12,7 @@
  * grade's MAP Growth goal areas) → Curriculum (the grade's book units, the default).
  */
 import type { Period } from "../../analytics/periods";
-import { studentGrowth } from "../analytics/growth";
+import { studentGrowth, type SeriesPoint } from "../analytics/growth";
 import { canAccessStudent, ForbiddenError, type Actor } from "../auth/rbac";
 import { gradeAreaSkills } from "../map/recommend";
 import type { Repo, Row } from "../seeding/repo";
@@ -34,6 +34,10 @@ export type Trend = "UP" | "DOWN" | "FLAT";
 export interface SourceSkillRow {
   skillId: string; name: string; score: number; stars: number; band: string; attempts: number; accuracyPct: number;
   trend: Trend | null; trendValue: number | null;
+  /** ⚡ this skill's own mastery by month end of the report period (same figures the trend arrow is computed
+   *  from) — for the sparkline next to it. Copied straight from SkillGrowth.series; null-filled months draw
+   *  as a gap, same as the student's own trend chart already does. */
+  series: SeriesPoint[];
 }
 export interface SourceGroup {
   source: SkillSource; label: string; skills: SourceSkillRow[]; avgMastery: number | null; stars: number;
@@ -83,7 +87,7 @@ export async function bySourceReport(repo: Repo, actor: Actor, studentId: string
   const [skillRows, sourceOf, growth] = await Promise.all([
     skillIds.length ? repo.findMany("Skill", { id: { in: skillIds } }, { select: ["id", "name"] }) : Promise.resolve([] as Row[]),
     classifySkillSources(repo, s(st.schoolId), grade, studentId, skillIds),
-    studentGrowth(repo, studentId, period),
+    studentGrowth(repo, studentId, period, { perSkillSeries: true }),
   ]);
   const nameOf = new Map(skillRows.map((k) => [s(k.id), s(k.name)]));
   const growthOf = new Map(growth.skills.map((g) => [g.skillId, g]));
@@ -97,7 +101,7 @@ export async function bySourceReport(repo: Repo, actor: Actor, studentId: string
         return {
           skillId: s(m.skillId), name: nameOf.get(s(m.skillId)) ?? "", score, stars: starsFor(score), band: BAND_OF(score),
           attempts: num(m.attempts), accuracyPct: num(m.attempts) ? Math.round((100 * num(m.correct)) / num(m.attempts)) : 0,
-          trend, trendValue: g ? g.growth : null,
+          trend, trendValue: g ? g.growth : null, series: g?.series ?? [],
         };
       })
       .sort((a, b) => a.score - b.score);

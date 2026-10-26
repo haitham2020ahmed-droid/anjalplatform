@@ -168,6 +168,11 @@ export interface ClassProfile {
   n: number; notTested: { id: string; name: string }[]; meanRit: number | null; medianRit: number | null; medianPct: number | null; national: number | null; nationalExact: boolean;
   quintiles: number[]; areaNames: string[]; areas: (AreaQuintileRow & { mean: number | null })[]; students: ClassStudent[];
   growth: { n: number; meanObserved: number | null; meanProjected: number | null; pctMet: number | null; medianCgp: number | null; enough: boolean };
+  /** ⚡ class-average RIT per term (up to the last 8), the same shape `studentProfile`'s own `history` uses — so the
+   *  existing `GrowthBandsChart` (built for one student) draws the whole class's line against the same national bands
+   *  with no changes of its own. Empty unless the current term has NWEA's advised 10+ tested students (`growth.enough`
+   *  uses the same bar) — a sparse class average would be as misleading as the growth summary it already guards. */
+  history: HistoryPoint[];
   proficiency: { level: string; count: number }[]; flagged: number;
 }
 
@@ -217,7 +222,7 @@ function estimatedBand(rit: number, norm: NormPoint | null): (typeof DESCRIPTORS
   return DESCRIPTORS[quintileOf(percentileFromNorm(rit, norm)!)];
 }
 
-function profileOf(rows: Row[], ids: string[], names: Map<string, { name: string }>, term: string, cut: number | null, norm: NormPoint | null): Omit<ClassProfile, "classId" | "className" | "grade" | "subject" | "terms" | "national" | "nationalExact"> {
+function profileOf(rows: Row[], ids: string[], names: Map<string, { name: string }>, term: string, cut: number | null, norm: NormPoint | null): Omit<ClassProfile, "classId" | "className" | "grade" | "subject" | "terms" | "national" | "nationalExact" | "history"> {
   const students: ClassStudent[] = [];
   const notTested: { id: string; name: string }[] = [];
   const areaSet = new Set<string>();
@@ -282,6 +287,26 @@ export async function classProfile(repo: Repo, actor: Actor, classId: string, su
   return structuredClone(await classProfileCache.get(repo, key, CLASS_PROFILE_MODELS, () => classProfileNow(repo, actor, klass, classId, subject, term)));
 }
 
+/** Class-average RIT per term, grouped from the same overall rows `profileOf` already has in memory — no new reads.
+ *  Mirrors `studentProfile`'s own per-term loop (grade/season adjustment, same `shortLabel`/norm lookup) but averages
+ *  the term's tested students instead of reading one student's row. */
+async function classHistoryOf(repo: Repo, rows: Row[], grade: number, subject: Subject, syNow: number): Promise<HistoryPoint[]> {
+  const overall = rows.filter((r) => !r.goalName);
+  const byTerm = new Map<string, Row[]>();
+  for (const r of overall) { const k = s(r.termName) || s(r.testDate); const l = byTerm.get(k); if (l) l.push(r); else byTerm.set(k, [r]); }
+  const terms = [...byTerm.entries()].sort((a, b) => time(a[1][0].testDate) - time(b[1][0].testDate)).slice(-8);
+  const history: HistoryPoint[] = [];
+  for (const [term, rs] of terms) {
+    const r0 = rs[0];
+    const season = seasonOf(r0.termName, r0.testDate), g = grade - (syNow - schoolYear(season, yearOf(s(r0.termName), r0.testDate)));
+    const nm = await normFor(repo, subject, g, season);
+    const avg = mean(rs.map((r) => Number(r.rit)));
+    if (avg === null) continue;
+    history.push({ term, label: shortLabel(s(r0.termName), season), grade: g, rit: avg, se: null, national: nm ? Math.round(nm.mean) : null, exact: Boolean(nm?.exact), bands: nm ? BAND_Z.map((z) => Math.round(nm.mean + z * nm.sd)) : null });
+  }
+  return history;
+}
+
 async function classProfileNow(repo: Repo, actor: Actor, klass: Row, classId: string, subject: Subject, term?: string | null): Promise<ClassProfile> {
   const grade = Number((await repo.findUnique("Grade", { id: klass.gradeId }))?.level ?? 0);
   const ids = await classMembers(repo, classId);
@@ -290,7 +315,9 @@ async function classProfileNow(repo: Repo, actor: Actor, klass: Row, classId: st
   const season = seasonOf(t, null);
   const nm = t ? await normFor(repo, subject, grade, season) : null;
   const p = profileOf(rows, ids, names, t, cuts[subject][grade] ?? null, nm);
-  return { classId, className: s(klass.name), grade, subject, terms, national: nm ? Math.round(nm.mean * 10) / 10 : null, nationalExact: Boolean(nm?.exact), ...p };
+  const syNow = new Date().getUTCMonth() + 1 >= 8 ? new Date().getUTCFullYear() : new Date().getUTCFullYear() - 1;
+  const history = p.n >= GROWTH_MIN_N ? await classHistoryOf(repo, rows, grade, subject, syNow) : [];
+  return { classId, className: s(klass.name), grade, subject, terms, national: nm ? Math.round(nm.mean * 10) / 10 : null, nationalExact: Boolean(nm?.exact), history, ...p };
 }
 
 // ------------------------------------------------------------------ 🏫 School overview (admins; a teacher sees their classes)

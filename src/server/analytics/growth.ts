@@ -28,6 +28,11 @@ export interface SkillGrowth {
   start: number;
   now: number;
   growth: number;
+  /** ⚡ this one skill's own mastery at each month end of the period (last value carried forward, like the
+   *  student-level `series` above) — for a sparkline next to the skill, not the whole-student trend. Optional:
+   *  only `bySourceReport` (By source report) asks `growthFromLogs` to fill it; every other caller leaves it
+   *  unset and pays nothing extra. */
+  series?: SeriesPoint[];
 }
 
 export interface StudentGrowth {
@@ -46,10 +51,18 @@ const stateAt = (days: DayState[], at: number): DayState | null => {
   return found;
 };
 
+const skillSeries = (sorted: { at: number; masteryAfter: number }[], period: Period): SeriesPoint[] =>
+  months(period).map((m) => {
+    let found: number | null = null;
+    for (const l of sorted) { if (l.at <= m.end.getTime()) found = l.masteryAfter; else break; }
+    return { label: m.label, mastery: found !== null ? round1(found) : null, theta: null };
+  });
+
 export function growthFromLogs(
   logs: { skillId: string; at: number; masteryAfter: number; newTheta: number }[],
   period: Period,
   skillInfo: Map<string, { name: string; domain: string }>,
+  opts: { perSkillSeries?: boolean } = {},
 ): StudentGrowth {
   const days = replayDays(logs);
   const series = months(period).map((m) => {
@@ -76,11 +89,13 @@ export function growthFromLogs(
     if (l.at <= period.to.getTime()) after.set(l.skillId, l.masteryAfter);
   }
   const measurable = [...countIn.keys()].filter((id) => before.has(id) || (countIn.get(id) ?? 0) >= 2);
+  const bySkill = opts.perSkillSeries ? new Map<string, { at: number; masteryAfter: number }[]>() : null;
+  if (bySkill) for (const l of [...logs].sort((a, b) => a.at - b.at)) (bySkill.get(l.skillId) ?? bySkill.set(l.skillId, []).get(l.skillId)!).push(l);
   const skills: SkillGrowth[] = measurable.map((id) => {
     const s = before.get(id) ?? firstIn.get(id)!;
     const n = after.get(id) ?? s;
     const info = skillInfo.get(id) ?? { name: "", domain: "" };
-    return { skillId: id, name: info.name, domain: info.domain, start: Math.round(s), now: Math.round(n), growth: Math.round(n - s) };
+    return { skillId: id, name: info.name, domain: info.domain, start: Math.round(s), now: Math.round(n), growth: Math.round(n - s), ...(bySkill ? { series: skillSeries(bySkill.get(id) ?? [], period) } : {}) };
   }).sort((a, b) => b.growth - a.growth);
   const byDomain = new Map<string, number[]>();
   for (const s of skills) (byDomain.get(s.domain) ?? byDomain.set(s.domain, []).get(s.domain)!).push(s.growth);
@@ -99,9 +114,9 @@ async function skillInfoMap(repo: Repo, logs: Map<string, { skillId: string }[]>
   return new Map(rows.map((r) => [String(r.id), { name: String(r.name), domain: String(r.domain) }]));
 }
 
-export async function studentGrowth(repo: Repo, studentId: string, period: Period): Promise<StudentGrowth> {
+export async function studentGrowth(repo: Repo, studentId: string, period: Period, opts: { perSkillSeries?: boolean } = {}): Promise<StudentGrowth> {
   const logs = await practiceLogs(repo, [studentId], period.to);
-  return growthFromLogs(logs.get(studentId) ?? [], period, await skillInfoMap(repo, logs));
+  return growthFromLogs(logs.get(studentId) ?? [], period, await skillInfoMap(repo, logs), opts);
 }
 
 export interface GroupGrowth {

@@ -1,6 +1,7 @@
 /** @jsxRuntime automatic */
 /** @jsxImportSource react */
 import type { BySourceReport, Trend } from "../../server/skills/skills-by-source";
+import { Sparkline } from "../nafs/charts";
 
 const ARROW: Record<Trend, string> = { UP: "↑", DOWN: "↓", FLAT: "→" };
 const ARROW_LABEL: Record<Trend, string> = { UP: "improving", DOWN: "declining", FLAT: "stable" };
@@ -44,7 +45,7 @@ export function BySourceView({ r }: { r: BySourceReport }) {
           <h4 className="mt-4 text-sm font-bold text-brand-navy">📈 Progress direction</h4>
           <div className="mt-1 overflow-x-auto">
             <table className="w-full text-left text-sm">
-              <thead><tr className="border-b text-slate-500"><th className="py-1 pe-2">Skill</th><th className="pe-2">Trend</th><th>Change</th></tr></thead>
+              <thead><tr className="border-b text-slate-500"><th className="py-1 pe-2">Skill</th><th className="pe-2">Trend</th><th className="pe-2">Change</th><th>This period</th></tr></thead>
               <tbody>
                 {g.skills.map((k) => (
                   <tr key={k.skillId} className="border-b last:border-0">
@@ -52,7 +53,8 @@ export function BySourceView({ r }: { r: BySourceReport }) {
                     <td className={`pe-2 text-lg font-bold ${k.trend ? ARROW_TONE[k.trend] : "text-slate-400"}`} title={k.trend ? ARROW_LABEL[k.trend] : "not enough data yet"}>
                       {k.trend ? ARROW[k.trend] : "—"}
                     </td>
-                    <td className="tabular-nums text-slate-600">{k.trendValue !== null ? `${k.trendValue >= 0 ? "+" : ""}${k.trendValue}` : "not enough data yet"}</td>
+                    <td className="pe-2 tabular-nums text-slate-600">{k.trendValue !== null ? `${k.trendValue >= 0 ? "+" : ""}${k.trendValue}` : "not enough data yet"}</td>
+                    <td>{k.series.some((p) => p.mastery !== null) ? <Sparkline points={k.series.map((p) => p.mastery)} label={k.name} /> : <span className="text-slate-400">—</span>}</td>
                   </tr>
                 ))}
               </tbody>

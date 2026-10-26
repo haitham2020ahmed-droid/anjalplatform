@@ -781,8 +781,12 @@ export function planDiff(baseline: PlanDoc | null, doc: PlanDoc): PlanChange[] {
 
 export type PlanBucket = "DRAFTS" | "SENT" | "ACTIVE" | "FINISHED";
 export interface PlanListRow {
-  id: string; title: string; status: PlanStatus; finished: boolean; program: Program | null; classId: string; className: string;
+  id: string; title: string; status: PlanStatus; finished: boolean; program: Program | null; kind: string; classId: string; className: string;
   students: number; scope: "CLASS" | "GROUP" | "STUDENT"; sections: number; questions: number; progress: number; dueAt: string | null; date: string; href: string;
+  /** did it work? accuracy on the plan's own skills, before it was sent vs. since (null = not enough data either side). */
+  effect: { before: number; after: number } | null;
+  /** a sent plan going nowhere (0% progress, sent 7+ days ago) or a draft forgotten for 14+ days. */
+  stale: boolean;
 }
 
 /**
@@ -802,9 +806,42 @@ export async function plansOverview(repo: Repo, actor: Actor, opts: { classId?: 
   const items = rows.length ? await repo.findMany("SkillPlanItem", { planId: { in: rows.map((p) => s(p.id)) } }, { select: ["planId", "assignmentIds"] }) : [];
   const aids = [...new Set(items.flatMap((i) => jsonIds(i.assignmentIds)))];
   const links = aids.length ? await repo.findMany("AssignmentStudent", { assignmentId: { in: aids } }, { select: ["assignmentId", "studentId", "status", "progress"] }) : [];
-  const members = await repo.findMany("ClassMembership", { classId: { in: classes.map((c) => s(c.id)) }, leftAt: null }, { select: ["classId"] });
+  const members = await repo.findMany("ClassMembership", { classId: { in: classes.map((c) => s(c.id)) }, leftAt: null }, { select: ["classId", "studentId"] });
   const size = new Map<string, number>();
   for (const m of members) size.set(s(m.classId), (size.get(s(m.classId)) ?? 0) + 1);
+  // ⚡ "did it work?": one bounded read of the attempts of every sent plan's own skills and students (180 days,
+  // 20 000 rows — the same bound perf-suggest.ts uses), split per plan by its own sentAt into before / since. A
+  // plan's own skills may well have been practised through OTHER work too; this is a fair, cheap proxy, not a
+  // controlled trial — EFFECT_MIN answers are required on each side, else effect stays null (never a misleading 0%).
+  const EFFECT_MIN = 5;
+  const sentRows = rows.filter((p) => s(p.status) !== "DRAFT" && p.sentAt);
+  const docOf = new Map<string, PlanDoc | null>(sentRows.map((p) => [s(p.id), p.doc ? parseDoc(p.doc) : null]));
+  const studentsOf = new Map<string, string[]>(sentRows.map((p) => {
+    const chosen = p.studentIds == null ? null : jsonIds(p.studentIds);
+    return [s(p.id), chosen?.length ? chosen : members.filter((m) => s(m.classId) === s(p.classId)).map((m) => s(m.studentId))];
+  }));
+  const effectSkillIds = [...new Set(sentRows.flatMap((p) => docOf.get(s(p.id))?.sections.map((x) => x.skillId) ?? []))];
+  const effectStudentIds = [...new Set(sentRows.flatMap((p) => studentsOf.get(s(p.id)) ?? []))];
+  const since = new Date(now.getTime() - 180 * 86_400_000);
+  const effectAttempts = effectSkillIds.length && effectStudentIds.length
+    ? await repo.findMany("QuestionAttempt", { studentId: { in: effectStudentIds }, skillId: { in: effectSkillIds }, createdAt: { gte: since } },
+        { select: ["studentId", "skillId", "isCorrect", "createdAt"], orderBy: [{ field: "createdAt", dir: "desc" }], take: 20000 })
+    : [];
+  const effectOf = (p: Row): { before: number; after: number } | null => {
+    const doc = docOf.get(s(p.id)); const sentAt = d(p.sentAt)?.getTime() ?? 0;
+    if (!doc || !sentAt) return null;
+    const skillIds = new Set(doc.sections.map((x) => x.skillId));
+    const studentIds = new Set(studentsOf.get(s(p.id)) ?? []);
+    if (!skillIds.size || !studentIds.size) return null;
+    let beforeN = 0, beforeC = 0, afterN = 0, afterC = 0;
+    for (const a of effectAttempts) {
+      if (!skillIds.has(s(a.skillId)) || !studentIds.has(s(a.studentId))) continue;
+      const t = d(a.createdAt)?.getTime() ?? 0;
+      if (t < sentAt) { beforeN++; if (a.isCorrect) beforeC++; } else { afterN++; if (a.isCorrect) afterC++; }
+    }
+    if (beforeN < EFFECT_MIN || afterN < EFFECT_MIN) return null;
+    return { before: Math.round((100 * beforeC) / beforeN), after: Math.round((100 * afterC) / afterN) };
+  };
   const out: PlanListRow[] = rows.map((p) => {
     const status = statusOf(p.status);
     const doc = p.doc ? parseDoc(p.doc) : null;
@@ -816,9 +853,14 @@ export async function plansOverview(repo: Repo, actor: Actor, opts: { classId?: 
     const due = d(p.dueAt);
     const finished = status === "WITHDRAWN" || (status !== "DRAFT" && ((l.length > 0 && l.every((x) => x.status === "COMPLETED")) || (!!due && due.getTime() < now.getTime())));
     const klass = classes.find((c) => s(c.id) === s(p.classId));
+    // ⚡ stale: a draft nobody opened again in 14+ days, or a plan sent 7+ days ago that is still at 0% and not finished.
+    const stale = status === "DRAFT"
+      ? (now.getTime() - (d(p.updatedAt ?? p.createdAt)?.getTime() ?? now.getTime())) > 14 * 86_400_000
+      : !finished && progress === 0 && (now.getTime() - (d(p.sentAt)?.getTime() ?? now.getTime())) > 7 * 86_400_000;
     return {
-      id: s(p.id), title: s(p.title), status, finished, program: isProgram(p.program) ? p.program : programOfPlanKind(p.kind), classId: s(p.classId), className: s(klass?.name),
+      id: s(p.id), title: s(p.title), status, finished, program: isProgram(p.program) ? p.program : programOfPlanKind(p.kind), kind: s(p.kind), classId: s(p.classId), className: s(klass?.name),
       students, scope: students <= 1 ? "STUDENT" : students >= (size.get(s(p.classId)) ?? 0) ? "CLASS" : "GROUP",
+      effect: effectOf(p), stale,
       sections: doc ? doc.sections.length : items.filter((i) => s(i.planId) === s(p.id)).length, questions: doc ? doc.sections.reduce((t, x) => t + x.questionIds.length, 0) : 0,
       progress, dueAt: day(p.dueAt), date: day(status === "DRAFT" ? p.updatedAt ?? p.createdAt : p.sentAt ?? p.createdAt) ?? "", href: `/teacher/plans/${s(p.id)}`,
     };

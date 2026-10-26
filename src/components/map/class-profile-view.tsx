@@ -2,7 +2,7 @@ import { NameList } from "@/components/name-list";
 import Link from "next/link";
 import type { ClassProfile } from "@/server/map/nwea-reports";
 import { DESCRIPTOR_NAME, GROWTH_MIN_N, QUINTILES, SUBJECT_NAME } from "@/server/map/nwea-reports";
-import { QuadrantChart, QuintileBars, Q_COLORS } from "./nwea-charts";
+import { GrowthBandsChart, QuadrantChart, QuintileBars, Q_COLORS } from "./nwea-charts";
 
 const sign = (v: number | null) => (v === null ? "—" : `${v >= 0 ? "+" : ""}${v}`);
 const DESC_BG: Record<string, string> = { Low: "bg-red-100 text-red-900", LoAvg: "bg-orange-100 text-orange-900", Avg: "bg-yellow-100 text-yellow-900", HiAvg: "bg-green-100 text-green-900", High: "bg-blue-100 text-blue-900" };
@@ -86,6 +86,7 @@ export function ClassProfileView({ d }: { d: ClassProfile }) {
               {!d.growth.enough && <p className="mt-2 rounded-lg bg-amber-50 px-3 py-2 text-xs text-amber-900">Fewer than {GROWTH_MIN_N} students: NWEA advises reading group growth with care.</p>}
             </>
           )}
+          {d.history.length > 1 && <div className="mt-4"><GrowthBandsChart points={d.history} title="Class mean RIT vs. national percentile bands" /></div>}
           {d.proficiency.length > 0 && (
             <>
               <h3 className="mt-4 font-bold text-brand-navy">🎯 Projected proficiency</h3>
