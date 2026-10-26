@@ -5,7 +5,7 @@
  * "Shakespeare in Harlem" lesson, plus a 20-question topup from "The Woman Who Mapped the Ocean Floor") — and a
  * 20-question topup for the existing "Cite Text Evidence" skill (from "The Repair"). The file: every choice question
  * has distinct options and a valid answer, a passage for every question that speaks of one, no duplicate stems (in
- * the file or the other question files). The load (demo school in memory): the "grade6Extras" pack creates the two
+ * the file or the other question files). The load (demo school in memory): the "gradeSixExtras" pack creates the two
  * new skills in Grades 4–6, tops up the existing "Cite Text Evidence" skill, adds all published questions, and a
  * second run adds nothing.
  */
@@ -103,8 +103,8 @@ describe("➕ Grade 6 extras: loaded into a school", () => {
     schoolId = admin.schoolId!;
   });
 
-  test("the grade6Extras pack creates the two new skills in Grades 4–6, tops up Cite Text Evidence, and adds every question; a second run adds nothing", async () => {
-    const def = packOf("grade6Extras")!;
+  test("the gradeSixExtras pack creates the two new skills in Grades 4–6, tops up Cite Text Evidence, and adds every question; a second run adds nothing", async () => {
+    const def = packOf("gradeSixExtras")!;
     assert.equal(def.file, FILE);
     assert.ok(!def.onlyExisting, "the pack creates the new skills");
     let next = 0, added = 0, created = 0;
@@ -133,7 +133,7 @@ describe("➕ Grade 6 extras: loaded into a school", () => {
   });
 
   test("both new skills are in the teacher's skill picker with their questions", async () => {
-    const def = packOf("grade6Extras")!;
+    const def = packOf("gradeSixExtras")!;
     let next = 0;
     for (;;) { const w = await runPackChunk(repo, schoolId, def, next); next = w.next; if (next >= w.total) break; }
     const rows = await skillPickerList(repo, teacher);
@@ -145,7 +145,7 @@ describe("➕ Grade 6 extras: loaded into a school", () => {
   });
 
   test("addSkillSets straight (the terminal script's path) skips everything already there", async () => {
-    const def = packOf("grade6Extras")!;
+    const def = packOf("gradeSixExtras")!;
     let next = 0;
     for (;;) { const w = await runPackChunk(repo, schoolId, def, next); next = w.next; if (next >= w.total) break; }
     const r = await addSkillSets(repo, schoolId, sets);

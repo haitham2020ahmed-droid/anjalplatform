@@ -1,5 +1,5 @@
 {
- "_note": "r? grade6-extra: two new Grade 6 skills (Analyzing Figurative, Connotative, and Technical Language; Analyzing Informational Text Elements) with 100 original questions each (80 from their own curriculum-map lessons + 20 Phase-B topup from companion passages), plus a 20-question topup for the existing Cite Text Evidence skill. Loaded via the grade6Extras pack (data/questions/sets/grade6-extra-skill-sets.json).",
+ "_note": "r? grade6-extra: two new Grade 6 skills (Analyzing Figurative, Connotative, and Technical Language; Analyzing Informational Text Elements) with 100 original questions each (80 from their own curriculum-map lessons + 20 Phase-B topup from companion passages), plus a 20-question topup for the existing Cite Text Evidence skill. Loaded via the gradeSixExtras pack (data/questions/sets/grade6-extra-skill-sets.json).",
  "sets": [
   {
    "skill": "Analyzing Figurative, Connotative, and Technical Language",
