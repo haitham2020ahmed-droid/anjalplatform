@@ -979,6 +979,21 @@ Genre: Personal Narrative
 - On Level
 - Below Level
 
+--------------------------------------------------
+
+Selection 4: Mother to Son
+
+Genre: Poetry
+
+1- Concept Vocabulary
+
+2- Analyze Craft and Structure
+(Analyzing Figurative, Connotative, and Technical Language)
+
+- Above Level
+- On Level
+- Below Level
+
 ==================================================
 
 Unit 3
@@ -1006,6 +1021,21 @@ Genre: Informational Text
 
 2- Analyze Craft and Structure
 (Part-Whole Relationship \ Item-Category Relationship \ Cause and Effect \ Evaluate Argument and Claims)
+
+- Above Level
+- On Level
+- Below Level
+
+--------------------------------------------------
+
+Selection 3: Shakespeare in Harlem
+
+Genre: Poetry
+
+1- Concept Vocabulary
+
+2- Analyze Craft and Structure
+(Analyzing Informational Text Elements)
 
 - Above Level
 - On Level

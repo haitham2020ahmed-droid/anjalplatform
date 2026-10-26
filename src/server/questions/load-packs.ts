@@ -13,6 +13,10 @@
  *            their 100 MAP-style questions each (five RIT bands of 20 = one set per band, so a chunk stays short)
  *   agreement  New skill (r74: agreement-skill-sets.json) — creates "Subject-Verb Agreement with Compound Subjects" in
  *            Grades 4–6 when missing (like newSkills) and adds its 100 MAP-style questions (five sets of 20, one per RIT band)
+ *   grade6Extras  Grade 6 extras (grade6-extra-skill-sets.json) — creates "Analyzing Figurative, Connotative, and Technical
+ *            Language" and "Analyzing Informational Text Elements" in Grades 4–6 when missing (like newSkills), each with
+ *            100 questions (its own lesson's 80 + a 20-question Phase-B topup), and adds a 20-question topup to the
+ *            existing "Cite Text Evidence" skill — for the "Mother to Son" / "Shakespeare in Harlem" curriculum additions
  *   nafs     NAFS model booklets (data/nafs/booklets/NB-*.json) — passage + questions into the NAFS bank (Grade 6),
  *            one booklet file per chunk; an invalid file is skipped and reported (src/server/nafs/booklets.ts)
  *   nafsPractice  NAFS practice sets (data/nafs/practice/NP-*.json) — passage + 10 questions with a difficulty into the
@@ -42,7 +46,7 @@ import { LEARN_PER_CHUNK, learnCount, loadLessonsInto } from "../learn/load";
 
 const s = (v: unknown) => String(v ?? "");
 
-export type PackKey = "gap" | "topup" | "span" | "map" | "grammar" | "newSkills" | "agreement" | "nafs" | "nafsPractice" | "learn";
+export type PackKey = "gap" | "topup" | "span" | "map" | "grammar" | "newSkills" | "agreement" | "grade6Extras" | "nafs" | "nafsPractice" | "learn";
 export interface PackDef {
   key: PackKey; title: string; hint: string; file: string; kind: "skills" | "topup" | "map" | "nafs" | "nafsPractice" | "learn";
   /** add only to skills the school already has (never create one) */
@@ -59,6 +63,7 @@ export const PACKS: readonly PackDef[] = [
   { key: "grammar", title: "Grammar extras", hint: "More grammar questions for the skills the school already has.", file: "grammar-extra-sets.json", kind: "skills", onlyExisting: true, perChunk: 3 },
   { key: "newSkills", title: "New skills: sentence types and point of view", hint: "Adds the skills Complex and Compound-Complex Sentences and Point of View (first, second, third limited, third omniscient) to Grades 4–6, with 100 MAP-style questions each.", file: "new-skill-sets.json", kind: "skills", perChunk: 2 },
   { key: "agreement", title: "New skill: agreement with compound subjects", hint: "Adds the skill Subject-Verb Agreement with Compound Subjects (and, or, nor, both…and, either…or, neither…nor) to Grades 4–6, with 100 MAP-style questions.", file: "agreement-skill-sets.json", kind: "skills", perChunk: 2 },
+  { key: "grade6Extras", title: "Grade 6 extras: Mother to Son / Shakespeare in Harlem skills", hint: "Adds the skills Analyzing Figurative, Connotative, and Technical Language and Analyzing Informational Text Elements to Grades 4–6 (100 questions each), and tops up Cite Text Evidence with 20 more.", file: "grade6-extra-skill-sets.json", kind: "skills", perChunk: 2 },
   { key: "nafs", title: "NAFS model booklets", hint: "English NAFS model booklets (a text + its questions under the 13 Ministry standards) for the NAFS section's question bank.", file: "data/nafs/booklets", kind: "nafs", perChunk: 1 },
   { key: "nafsPractice", title: "NAFS practice sets", hint: "English NAFS practice sets (a short text + 10 questions with Easy / Medium / Hard) for the NAFS center's practice and tests.", file: "data/nafs/practice", kind: "nafsPractice", perChunk: 1 },
   { key: "learn", title: "Learn lessons", hint: "Short lessons that explain each skill (slides, an example, practice together and 3 checks) for the Learn section.", file: "data/learn/lessons", kind: "learn", perChunk: 1 },

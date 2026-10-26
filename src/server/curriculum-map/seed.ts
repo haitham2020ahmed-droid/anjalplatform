@@ -107,7 +107,11 @@ export interface GradeCheck {
 export interface VerifyResult { grades: GradeCheck[]; totalAttachment: number; questionsLinked: number; ok: boolean; problems: string[] }
 
 /** Compares the database with the source, node by node and field by field (exact text). */
-export async function verifyCurriculumMap(repo: Repo, map: MapGrade[], expected = { 4: { units: 6, sets: 18, nodes: 144 }, 5: { units: 6, sets: 18, nodes: 144 }, 6: { units: 6, sets: 23, nodes: 115 } } as Record<number, { units: number; sets: number; nodes: number }>, opts: { schoolId?: string } = {}): Promise<VerifyResult> {
+// Grade 6 Unit 1: "The Lost Island" added alongside "Amigo Brothers" / "Never Too Young to Change the World" /
+// "Cocoon", raising Grade 6 from 23 to 24 Selections (115 → 120 nodes; 403 → 408 attachment nodes in all).
+// Then "Mother to Son" (Unit 2) and "Shakespeare in Harlem" (Unit 3) added, raising Grade 6 to 26 Selections
+// (130 nodes; 418 attachment nodes in all).
+export async function verifyCurriculumMap(repo: Repo, map: MapGrade[], expected = { 4: { units: 6, sets: 18, nodes: 144 }, 5: { units: 6, sets: 18, nodes: 144 }, 6: { units: 6, sets: 26, nodes: 130 } } as Record<number, { units: number; sets: number; nodes: number }>, opts: { schoolId?: string } = {}): Promise<VerifyResult> {
   const grades = await repo.findMany("Grade", { level: { in: map.map((g) => g.level) }, ...(opts.schoolId ? { schoolId: opts.schoolId } : {}) });
   const checks: GradeCheck[] = [];
   const problems: string[] = [];

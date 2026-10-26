@@ -1,13 +1,16 @@
 /**
  * ⭐ Skills "by source": which program produced the skill a student practised — the grade's
- * book Curriculum, MAP Growth goal areas, Grammar, RTI/Intervention, or ReadMaster (the
- * school's NAFS-style reading-comprehension articles) — each with a star/mastery rating,
- * a progress-direction arrow per skill (↑/→/↓, the exact PAIRED skill growth figure the
- * student/class growth reports already use — see analytics/growth.ts), and a cross-source
- * summary. No new numbers: every value is StudentSkillMastery or SkillGrowth already stored.
+ * book Curriculum, MAP Growth goal areas, Grammar, RTI/Intervention, ReadMaster (the
+ * school's NAFS-style reading-comprehension articles), or Enrichment (a plan built from the
+ * Enrichment source) — each with a star/mastery rating, a progress-direction arrow per skill
+ * (↑/→/↓, the exact PAIRED skill growth figure the student/class growth reports already use —
+ * see analytics/growth.ts), and a cross-source summary. No new numbers: every value is
+ * StudentSkillMastery or SkillGrowth already stored.
  *
  * A skill is placed in exactly one source, by priority (most specific first): Grammar
- * (Skill.domain) → ReadMaster (the skill is a ReadMasterArticle's target skill) → RTI (an
+ * (Skill.domain) → Enrichment (the student was assigned it from an Enrichment plan — the one
+ * place ENRICHMENT, lib/assign-source.ts, is read outside the Assign dropdown it is deliberately
+ * left out of) → ReadMaster (the skill is a ReadMasterArticle's target skill) → RTI (an
  * InterventionAlert was raised on it for this student) → MAP (it belongs to one of the
  * grade's MAP Growth goal areas) → Curriculum (the grade's book units, the default).
  */
@@ -16,19 +19,22 @@ import { studentGrowth, type SeriesPoint } from "../analytics/growth";
 import { canAccessStudent, ForbiddenError, type Actor } from "../auth/rbac";
 import { gradeAreaSkills } from "../map/recommend";
 import type { Repo, Row } from "../seeding/repo";
+import { studentAssignedSkills } from "./assigned-skills";
+import { skillKeyIndex } from "./status";
 
 const s = (v: unknown) => String(v ?? "");
 const num = (v: unknown) => Number(v ?? 0);
 
-export type SkillSource = "CURRICULUM" | "MAP" | "GRAMMAR" | "READMASTER" | "RTI";
+export type SkillSource = "CURRICULUM" | "MAP" | "GRAMMAR" | "READMASTER" | "RTI" | "ENRICHMENT";
 export const SOURCE_LABEL: Record<SkillSource, string> = {
   CURRICULUM: "Curriculum",
   MAP: "MAP Growth",
   GRAMMAR: "Grammar",
   READMASTER: "ReadMaster (NAFS-style)",
   RTI: "RTI / Intervention",
+  ENRICHMENT: "Enrichment",
 };
-export const SOURCE_ORDER: SkillSource[] = ["CURRICULUM", "MAP", "GRAMMAR", "READMASTER", "RTI"];
+export const SOURCE_ORDER: SkillSource[] = ["CURRICULUM", "MAP", "GRAMMAR", "READMASTER", "RTI", "ENRICHMENT"];
 
 export type Trend = "UP" | "DOWN" | "FLAT";
 export interface SourceSkillRow {
@@ -56,18 +62,28 @@ export const starsFor = (score: number): number => Math.max(1, Math.min(5, Math.
 export async function classifySkillSources(repo: Repo, schoolId: string, grade: number, studentId: string, skillIds: string[]): Promise<Map<string, SkillSource>> {
   const out = new Map<string, SkillSource>();
   if (!skillIds.length) return out;
-  const [skills, mapAreas, rti, nafs] = await Promise.all([
+  const ix = await skillKeyIndex(repo, schoolId);
+  const [skills, mapAreas, rti, nafs, assigned] = await Promise.all([
     repo.findMany("Skill", { id: { in: skillIds } }, { select: ["id", "domain"] }),
     gradeAreaSkills(repo, schoolId, grade, true),
     repo.findMany("InterventionAlert", { studentId, skillId: { in: skillIds } }, { select: ["skillId"] }),
     repo.findMany("ReadMasterArticle", { skillId: { in: skillIds } }, { select: ["skillId"] }),
+    studentAssignedSkills(repo, studentId, ix, null),
   ]);
   const mapSet = new Set(mapAreas.flatMap((a) => a.skills.map((k) => k.id)));
   const rtiSet = new Set(rti.map((r) => s(r.skillId)));
   const nafsSet = new Set(nafs.map((r) => s(r.skillId)));
+  // ⚡ Enrichment (r?? owner): a skill the student was assigned from an Enrichment plan (the key → its sources, from
+  // Assignment.source) is classified Enrichment regardless of where else it also appears, same priority spirit as Grammar.
+  const keyOfSkill = new Map([...assigned.skillIdOf].map(([key, id]) => [id, key]));
+  const studentSources = assigned.byStudent.get(studentId);
+  const enrichedSet = new Set(
+    skillIds.filter((id) => { const key = keyOfSkill.get(id); return Boolean(key && studentSources?.get(key)?.has("ENRICHMENT")); }),
+  );
   for (const k of skills) {
     const id = s(k.id);
     if (s(k.domain) === "GRAMMAR") out.set(id, "GRAMMAR");
+    else if (enrichedSet.has(id)) out.set(id, "ENRICHMENT");
     else if (nafsSet.has(id)) out.set(id, "READMASTER");
     else if (rtiSet.has(id)) out.set(id, "RTI");
     else if (mapSet.has(id)) out.set(id, "MAP");

@@ -21,7 +21,7 @@ import { curriculumSelections, readWordFiles, selectionLabel, useLearnDir } from
 import { decideEdit, proposals, saveWordEdit } from "../src/server/learn/edits";
 import { aiWordDraft, findSelection, practiceQuestions, selectionWords, studentWords, submitWordPractice, teacherWords, wordsCoverage } from "../src/server/learn/words";
 import { assignLearn } from "../src/server/learn/teacher";
-import { extraWorkItems } from "../src/server/student/all-work";
+import { assignedList } from "../src/server/teacher/assigned";
 
 const NOW = new Date("2026-10-13T08:00:00Z");
 const G4U1 = "4|1|1";
@@ -63,12 +63,14 @@ describe("Learn → Words", () => {
   });
   after(() => { useLearnDir(null); rmSync(dir, { recursive: true, force: true }); });
 
-  test("every Curriculum Map vocabulary word: Grade 4 = 136, Grade 5 = 144, Grade 6 = 118; labels Grade · Unit · Selection", () => {
+  // Grade 6 Unit 1: "The Lost Island" added (23 → 24 Selections), raising Grade 6 from 118 to 126 words.
+  // "Mother to Son" (3 words) and "Shakespeare in Harlem" (5 words) added two more selections, raising it to 134.
+  test("every Curriculum Map vocabulary word: Grade 4 = 136, Grade 5 = 144, Grade 6 = 134; labels Grade · Unit · Selection", () => {
     const sels = curriculumSelections();
     const count = (g: number) => sels.filter((x) => x.grade === g).reduce((n, x) => n + x.vocabulary.length, 0);
     assert.equal(count(4), 136);
     assert.equal(count(5), 144);
-    assert.equal(count(6), 118, "Grade 6 words from the school booklets");
+    assert.equal(count(6), 134, "Grade 6 words from the school booklets");
     assert.equal(selectionLabel(sel()), "Grade 4 · Unit 1 · A World of Change");
   });
 
@@ -145,21 +147,22 @@ describe("Learn → Words", () => {
     assert.equal(cov.byGrade.find((g) => g.grade === 4)!.explained, 7, "7 fixture cards (alter: now the school's)");
   });
 
-  test("assign a selection's words → My Work (once); Practise these words marked on the server → Done", async () => {
+  // 🚫 owner (haitham, Oct 2026): WORDS assignments never show in the student's My Work any more (all-work.ts) —
+  // "once, then Done" is checked on the teacher's Assigned list instead, the one place that still carries them.
+  test("assign a selection's words (once); Practise these words marked on the server → Done on the Assigned list", async () => {
     const sid = String(s1.studentId);
     const a = await assignLearn(repo, t4a, { kind: "WORDS", ref: G4U1, title: selectionLabel(sel()), classId: class4a, target: "CLASS" }, NOW);
     assert.ok(a.students >= 1);
-    let rows = (await extraWorkItems(repo, s1, NOW)).filter((r) => r.kind === "LEARN");
+    let rows = (await assignedList(repo, t4a, { kind: "WORDS" }, NOW)).items.filter((x) => x.id === a.assignId);
     assert.equal(rows.length, 1);
-    assert.equal(rows[0].href, `/student/words?sel=${encodeURIComponent(G4U1)}`);
-    assert.equal(rows[0].skill, "Words — Grade 4 · Unit 1 · A World of Change");
+    assert.equal(rows[0].title, "Grade 4 · Unit 1 · A World of Change");
     const v = (await studentWords(repo, s1, { sel: G4U1 })).view!;
     const qs = practiceQuestions(v);
     const picks = qs.map((q, i) => ({ word: q.word, choice: i < 3 ? v.words.find((w) => w.word === q.word)!.card!.check.answer : 9 }));
     const r = await submitWordPractice(repo, s1, G4U1, picks, NOW);
     assert.deepEqual([r.score, r.total], [3, 5]);
-    rows = (await extraWorkItems(repo, s1, NOW)).filter((x) => x.kind === "LEARN");
-    assert.equal(rows[0].status, "Done");
+    rows = (await assignedList(repo, t4a, { kind: "WORDS" }, NOW)).items.filter((x) => x.id === a.assignId);
+    assert.equal(rows[0].done, 1, "Done for the one student");
     const p = (await repo.findMany("LearnProgress", { studentId: sid, kind: "WORDS", ref: G4U1 }))[0];
     assert.equal(Number(p.score), 3);
   });

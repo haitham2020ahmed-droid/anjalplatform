@@ -20,8 +20,10 @@ import { demoDatabase } from "./helpers/db";
 const details = allLessonDetails();
 
 describe("Curriculum Map lesson details (the school's own summary)", () => {
-  test("18 / 18 / 23 lessons for Grades 4 / 5 / 6, and every name is on the map", () => {
-    assert.deepEqual(["4", "5", "6"].map((g) => Object.keys(details[g]).length), [18, 18, 23]);
+  test("18 / 18 / 26 lessons for Grades 4 / 5 / 6, and every name is on the map", () => {
+    // Grade 6 Unit 1: "The Lost Island" added (23 → 24 Selections; data/curriculum-map/lesson-details.json
+    // already has its entry). Then "Mother to Son" (Unit 2) and "Shakespeare in Harlem" (Unit 3) added: 24 → 26.
+    assert.deepEqual(["4", "5", "6"].map((g) => Object.keys(details[g]).length), [18, 18, 26]);
     const map = parseCurriculumMap(readFileSync("data/curriculum-map/source.txt", "utf8"));
     for (const g of map) {
       const names = g.units.flatMap((u) => u.sets.map((s) => (s.sharedRead ?? s.title).replace(/^“|”$/g, "")));
@@ -44,8 +46,8 @@ describe("Curriculum Map lesson details (the school's own summary)", () => {
   test("Grade 6: name, genre, skills and the booklets' vocabulary (no Text Idea)", () => {
     for (const l of Object.values(details["6"])) {
       assert.equal(l.textIdea, null);
-      // the school booklets have no vocabulary box for this one selection
-      if (l.name !== "Who Is the Real Hero?") assert.ok(l.vocabulary.length >= 4, `6 ${l.name}: vocabulary`);
+      // the school booklets have no vocabulary box for this one selection; "Mother to Son" has only 3 words
+      if (l.name !== "Who Is the Real Hero?" && l.name !== "Mother to Son") assert.ok(l.vocabulary.length >= 4, `6 ${l.name}: vocabulary`);
       assert.ok(l.readingSkills.length >= 1, l.name);
     }
   });

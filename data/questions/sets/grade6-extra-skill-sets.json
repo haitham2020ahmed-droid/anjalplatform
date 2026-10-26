@@ -1,0 +1,3110 @@
+{
+ "_note": "r? grade6-extra: two new Grade 6 skills (Analyzing Figurative, Connotative, and Technical Language; Analyzing Informational Text Elements) with 100 original questions each (80 from their own curriculum-map lessons + 20 Phase-B topup from companion passages), plus a 20-question topup for the existing Cite Text Evidence skill. Loaded via the grade6Extras pack (data/questions/sets/grade6-extra-skill-sets.json).",
+ "sets": [
+  {
+   "skill": "Analyzing Figurative, Connotative, and Technical Language",
+   "grade": 6,
+   "ccss": "L.6.5",
+   "domain": "Vocabulary",
+   "mapArea": "VOCAB",
+   "questions": [
+    {
+     "ref": "MTS-SK-B000",
+     "level": "BELOW",
+     "stem": "\"The sky cried all afternoon\" is an example of what kind of language?",
+     "options": [
+      "figurative language",
+      "technical language",
+      "a true, literal statement",
+      "a scientific fact"
+     ],
+     "correct": "A",
+     "why": "The sky cannot literally cry; this is figurative language (personification) describing rain."
+    },
+    {
+     "ref": "MTS-SK-B001",
+     "level": "BELOW",
+     "stem": "Which type of language describes a word's dictionary definition with no feeling attached?",
+     "options": [
+      "literal language",
+      "connotative language",
+      "figurative language",
+      "poetic language"
+     ],
+     "correct": "A",
+     "why": "Literal language states the plain, factual meaning of a word."
+    },
+    {
+     "ref": "MTS-SK-B002",
+     "level": "BELOW",
+     "stem": "The word \"photosynthesis\" is an example of what kind of language?",
+     "options": [
+      "technical language",
+      "figurative language",
+      "connotative language",
+      "casual slang"
+     ],
+     "correct": "A",
+     "why": "\"Photosynthesis\" is a specialized, field-specific term, which makes it technical language."
+    },
+    {
+     "ref": "MTS-SK-B003",
+     "level": "BELOW",
+     "stem": "\"Her smile was a ray of sunshine\" uses what kind of language?",
+     "options": [
+      "figurative language",
+      "technical language",
+      "a literal fact",
+      "a scientific term"
+     ],
+     "correct": "A",
+     "why": "A smile cannot literally be a ray of sunshine; this is a figurative comparison (metaphor)."
+    },
+    {
+     "ref": "MTS-SK-B004",
+     "level": "BELOW",
+     "stem": "Which word carries a more negative connotation than the neutral word \"thin\"?",
+     "options": [
+      "skinny",
+      "slender",
+      "narrow",
+      "lean"
+     ],
+     "correct": "A",
+     "why": "\"Skinny\" often carries a more negative, unflattering feeling than the neutral word \"thin.\""
+    },
+    {
+     "ref": "MTS-SK-B005",
+     "level": "BELOW",
+     "stem": "Which word carries a more positive connotation than the neutral word \"thin\"?",
+     "options": [
+      "slender",
+      "scrawny",
+      "bony",
+      "gaunt"
+     ],
+     "correct": "A",
+     "why": "\"Slender\" suggests a graceful, positive quality, unlike the other more negative words."
+    },
+    {
+     "ref": "MTS-SK-B006",
+     "level": "BELOW",
+     "stem": "The term \"algorithm\" used in a computer science class is an example of what kind of language?",
+     "options": [
+      "technical language",
+      "figurative language",
+      "connotative language",
+      "exaggeration"
+     ],
+     "correct": "A",
+     "why": "\"Algorithm\" is a specialized term used in a particular field, making it technical language."
+    },
+    {
+     "ref": "MTS-SK-B007",
+     "level": "BELOW",
+     "stem": "\"The news hit her like a ton of bricks\" is an example of what kind of language?",
+     "options": [
+      "figurative language",
+      "literal language",
+      "technical language",
+      "a plain fact"
+     ],
+     "correct": "A",
+     "why": "News cannot literally weigh like bricks; this is a figurative comparison describing shock."
+    },
+    {
+     "ref": "MTS-SK-B008",
+     "level": "BELOW",
+     "stem": "Which best defines \"connotative language\"?",
+     "options": [
+      "language that carries an emotional feeling beyond its dictionary meaning",
+      "language that states only scientific facts",
+      "language that is always spoken, never written",
+      "language that has no meaning at all"
+     ],
+     "correct": "A",
+     "why": "Connotative language carries an emotional or associative feeling beyond the literal dictionary definition."
+    },
+    {
+     "ref": "MTS-SK-B009",
+     "level": "BELOW",
+     "stem": "Which best defines \"literal language\"?",
+     "options": [
+      "language that means exactly what it says, with no hidden or extra meaning",
+      "language that always exaggerates the truth",
+      "language used only by scientists",
+      "language that hides its true meaning on purpose"
+     ],
+     "correct": "A",
+     "why": "Literal language means exactly what it says, without any figurative or hidden meaning."
+    },
+    {
+     "ref": "MTS-SK-B010",
+     "level": "BELOW",
+     "stem": "In a biology class, the word \"cross-examine\" would NOT be considered technical because it belongs to which field instead?",
+     "options": [
+      "law",
+      "biology",
+      "chemistry",
+      "physics"
+     ],
+     "correct": "A",
+     "why": "\"Cross-examine\" is a technical term from the field of law, not biology."
+    },
+    {
+     "ref": "MTS-SK-B011",
+     "level": "BELOW",
+     "stem": "\"The old house groaned in the wind\" is an example of what kind of language?",
+     "options": [
+      "figurative language",
+      "literal language",
+      "technical language",
+      "a true scientific fact"
+     ],
+     "correct": "A",
+     "why": "A house cannot literally groan; this figurative language (personification) describes creaking sounds."
+    },
+    {
+     "ref": "MTS-SK-B012",
+     "level": "BELOW",
+     "stem": "Which word has a more positive connotation than the neutral word \"old\"?",
+     "options": [
+      "vintage",
+      "ancient",
+      "decrepit",
+      "outdated"
+     ],
+     "correct": "A",
+     "why": "\"Vintage\" suggests something valuable or charming, giving it a more positive connotation than \"old.\""
+    },
+    {
+     "ref": "MTS-SK-B013",
+     "level": "BELOW",
+     "stem": "Which word has a more negative connotation than the neutral word \"old\"?",
+     "options": [
+      "decrepit",
+      "classic",
+      "vintage",
+      "mature"
+     ],
+     "correct": "A",
+     "why": "\"Decrepit\" suggests something worn out and falling apart, giving it a negative connotation."
+    },
+    {
+     "ref": "MTS-SK-B014",
+     "level": "BELOW",
+     "stem": "The term \"photosynthesis\" would most likely appear in which kind of text?",
+     "options": [
+      "a science textbook",
+      "a poem about love",
+      "a recipe for cookies",
+      "a sports article"
+     ],
+     "correct": "A",
+     "why": "\"Photosynthesis\" is a technical biology term, so it would most likely appear in a science textbook."
+    },
+    {
+     "ref": "MTS-SK-B015",
+     "level": "BELOW",
+     "stem": "\"Time is a thief\" is an example of what kind of language?",
+     "options": [
+      "figurative language",
+      "literal language",
+      "technical language",
+      "a plain fact"
+     ],
+     "correct": "A",
+     "why": "Time cannot literally steal; this is a figurative comparison (metaphor) suggesting time takes things away."
+    },
+    {
+     "ref": "MTS-SK-B016",
+     "level": "BELOW",
+     "stem": "Which choice best explains the difference between \"literal\" and \"figurative\" language?",
+     "options": [
+      "literal language means exactly what it says; figurative language means something beyond the actual words",
+      "literal language is always longer than figurative language",
+      "figurative language is only used in science writing",
+      "there is no real difference between the two"
+     ],
+     "correct": "A",
+     "why": "Literal language states the plain meaning, while figurative language suggests a meaning beyond the literal words."
+    },
+    {
+     "ref": "MTS-SK-B017",
+     "level": "BELOW",
+     "stem": "\"Cross-examine,\" \"verdict,\" and \"testimony\" are examples of what kind of language?",
+     "options": [
+      "technical language from the field of law",
+      "figurative language from poetry",
+      "connotative language about feelings",
+      "slang used only by teenagers"
+     ],
+     "correct": "A",
+     "why": "These words are specialized terms used in the legal field, making them technical language."
+    },
+    {
+     "ref": "MTS-SK-B018",
+     "level": "BELOW",
+     "stem": "Which sentence uses figurative language?",
+     "options": [
+      "The stars winked at the sleepy travelers below.",
+      "The thermometer read ten degrees this morning.",
+      "The library opens at nine o'clock.",
+      "The recipe calls for two cups of flour."
+     ],
+     "correct": "A",
+     "why": "Stars cannot literally wink; this is figurative language (personification)."
+    },
+    {
+     "ref": "MTS-SK-B019",
+     "level": "BELOW",
+     "stem": "Which sentence uses only literal language, with no figurative meaning?",
+     "options": [
+      "The bus arrives at the corner every morning at eight.",
+      "The wind whispered secrets through the trees.",
+      "Her words cut deeper than any knife.",
+      "The classroom was a zoo during the fire drill."
+     ],
+     "correct": "A",
+     "why": "This sentence states a plain fact about the bus schedule with no figurative language."
+    },
+    {
+     "ref": "MTS-SK-B020",
+     "level": "BELOW",
+     "stem": "A word's \"connotation\" refers to what?",
+     "options": [
+      "the feeling or association a word carries beyond its dictionary meaning",
+      "the exact number of letters in a word",
+      "the part of speech a word belongs to",
+      "the country where a word was invented"
+     ],
+     "correct": "A",
+     "why": "Connotation is the emotional feeling or association attached to a word beyond its literal definition."
+    },
+    {
+     "ref": "MTS-SK-B021",
+     "level": "BELOW",
+     "stem": "Which of these is most likely a technical term used specifically in a weather report?",
+     "options": [
+      "barometric pressure",
+      "a heart of gold",
+      "time flies",
+      "raining cats and dogs"
+     ],
+     "correct": "A",
+     "why": "\"Barometric pressure\" is a specialized term used in meteorology (weather science)."
+    },
+    {
+     "ref": "MTS-SK-B022",
+     "level": "BELOW",
+     "stem": "\"He was a lion in the fight\" is an example of what kind of language?",
+     "options": [
+      "figurative language",
+      "literal language",
+      "technical language",
+      "a plain fact"
+     ],
+     "correct": "A",
+     "why": "He is not literally a lion; this figurative comparison (metaphor) suggests bravery or fierceness."
+    },
+    {
+     "ref": "MTS-SK-B023",
+     "level": "BELOW",
+     "stem": "Which word choice would create a more negative feeling about a small living space, compared to \"cozy\"?",
+     "options": [
+      "cramped",
+      "snug",
+      "compact",
+      "intimate"
+     ],
+     "correct": "A",
+     "why": "\"Cramped\" suggests discomfort, giving it a more negative connotation than \"cozy\" or \"snug.\""
+    },
+    {
+     "ref": "MTS-SK-B024",
+     "level": "BELOW",
+     "stem": "Which word choice would create a more positive feeling about a small living space, compared to \"cramped\"?",
+     "options": [
+      "cozy",
+      "tiny",
+      "cramped",
+      "squeezed"
+     ],
+     "correct": "A",
+     "why": "\"Cozy\" suggests warmth and comfort, giving it a positive connotation unlike \"cramped.\""
+    },
+    {
+     "ref": "MTS-SK-B025",
+     "level": "BELOW",
+     "stem": "The phrase \"the company's bottom line\" uses \"bottom line\" as what kind of language?",
+     "options": [
+      "technical business language meaning final profit or loss",
+      "figurative language about the ocean floor",
+      "connotative language about feelings",
+      "a casual nickname with no real meaning"
+     ],
+     "correct": "A",
+     "why": "In business, \"bottom line\" is a technical term referring to a company's final profit or loss."
+    },
+    {
+     "ref": "MTS-SK-B026",
+     "level": "BELOW",
+     "stem": "Which sentence best shows the use of a technical term from the field of medicine?",
+     "options": [
+      "The doctor measured the patient's blood pressure before the exam.",
+      "The patient's heart was a drum pounding with fear.",
+      "The waiting room felt like a prison cell.",
+      "Her smile was sunshine on a cloudy day."
+     ],
+     "correct": "A",
+     "why": "\"Blood pressure\" is a specialized medical term, making this sentence an example of technical language."
+    },
+    {
+     "ref": "MTS-SK-O001",
+     "level": "ON",
+     "stem": "Which sentence uses connotative language to make a crowded room sound unpleasant, rather than simply full?",
+     "options": [
+      "The room was packed, with bodies pressed against every wall.",
+      "The room contained thirty people at the time of the meeting.",
+      "The room measured twenty feet by thirty feet.",
+      "The room had four windows facing the courtyard."
+     ],
+     "correct": "A",
+     "why": "\"Packed, with bodies pressed\" carries a negative, uncomfortable feeling beyond the literal fact of a full room."
+    },
+    {
+     "ref": "MTS-SK-O002",
+     "level": "ON",
+     "stem": "A news article states, \"The defendant's testimony was examined during cross-examination.\" Which words are technical, field-specific vocabulary?",
+     "options": [
+      "testimony and cross-examination",
+      "defendant's and was",
+      "during and the",
+      "stated and article"
+     ],
+     "correct": "A",
+     "why": "\"Testimony\" and \"cross-examination\" are specialized legal terms, making them technical vocabulary."
+    },
+    {
+     "ref": "MTS-SK-O003",
+     "level": "ON",
+     "stem": "Which revision replaces a neutral word with one that has a more positive connotation, without changing the literal meaning?",
+     "options": [
+      "The chef served a generous portion of the stew.",
+      "The chef served a large portion of the stew.",
+      "The chef served an excessive portion of the stew.",
+      "The chef served a bloated portion of the stew."
+     ],
+     "correct": "A",
+     "why": "\"Generous\" carries a warm, positive connotation, while still meaning roughly the same amount as \"large.\""
+    },
+    {
+     "ref": "MTS-SK-O004",
+     "level": "ON",
+     "stem": "Which sentence below is figurative rather than literal?",
+     "options": [
+      "The mountain stood guard over the quiet valley.",
+      "The mountain rose eight thousand feet above sea level.",
+      "The mountain was covered in snow by October.",
+      "The mountain had three marked hiking trails."
+     ],
+     "correct": "A",
+     "why": "A mountain cannot literally \"stand guard\"; this is figurative language (personification)."
+    },
+    {
+     "ref": "MTS-SK-O005",
+     "level": "ON",
+     "stem": "A biology textbook defines \"photosynthesis\" as the process by which plants convert light into energy. What kind of language is \"photosynthesis\"?",
+     "options": [
+      "technical language specific to the field of biology",
+      "figurative language comparing plants to people",
+      "connotative language with a negative feeling",
+      "slang used informally among students"
+     ],
+     "correct": "A",
+     "why": "\"Photosynthesis\" is a precise, specialized term used in biology, making it technical language."
+    },
+    {
+     "ref": "MTS-SK-O006",
+     "level": "ON",
+     "stem": "Which pair of words has the same basic (literal/denotative) meaning but different connotations?",
+     "options": [
+      "childlike and childish",
+      "run and jump",
+      "happy and chair",
+      "quickly and slowly"
+     ],
+     "correct": "A",
+     "why": "\"Childlike\" and \"childish\" both relate to children, but \"childlike\" feels positive (innocent) while \"childish\" feels negative (immature)."
+    },
+    {
+     "ref": "MTS-SK-O007",
+     "level": "ON",
+     "stem": "In the sentence \"The negotiations collapsed overnight,\" what is the effect of the word \"collapsed\" rather than \"ended\"?",
+     "options": [
+      "it suggests a sudden, dramatic failure rather than a calm, neutral stop",
+      "it suggests the negotiations succeeded completely",
+      "it has no effect on the tone of the sentence at all",
+      "it is a technical legal term with no emotional weight"
+     ],
+     "correct": "A",
+     "why": "\"Collapsed\" has a connotation of sudden, dramatic failure, unlike the neutral word \"ended.\""
+    },
+    {
+     "ref": "MTS-SK-O008",
+     "level": "ON",
+     "stem": "Which sentence contains a technical term that a reader unfamiliar with cooking might not immediately understand?",
+     "options": [
+      "The chef began to julienne the carrots for the salad.",
+      "The chef chopped the carrots into small pieces.",
+      "The chef added the carrots to the boiling water.",
+      "The chef washed the carrots before cooking."
+     ],
+     "correct": "A",
+     "why": "\"Julienne\" is a specialized cooking term for cutting vegetables into thin strips, making it technical vocabulary."
+    },
+    {
+     "ref": "MTS-SK-O009",
+     "level": "ON",
+     "stem": "What effect does the word \"ancient\" have, compared to the neutral word \"old,\" when describing a tradition?",
+     "options": [
+      "it adds a sense of deep respect and long history",
+      "it suggests the tradition is broken and useless",
+      "it removes all meaning from the sentence",
+      "it is a purely technical scientific term"
+     ],
+     "correct": "A",
+     "why": "\"Ancient\" carries a connotation of deep history and respect, stronger than the neutral word \"old.\""
+    },
+    {
+     "ref": "MTS-SK-O010",
+     "level": "ON",
+     "stem": "Which sentence uses a metaphor, a type of figurative language that says one thing IS another?",
+     "options": [
+      "Her courage was a shield against every insult.",
+      "Her courage helped her face every insult calmly.",
+      "Her courage was measured by a psychologist.",
+      "Her courage grew slowly over several years."
+     ],
+     "correct": "A",
+     "why": "Saying courage \"was a shield\" directly equates two unlike things, which is the definition of a metaphor."
+    },
+    {
+     "ref": "MTS-SK-O011",
+     "level": "ON",
+     "stem": "In the passage, what does the phrase \"felt like a boulder\" figuratively suggest about Mina's backpack?",
+     "options": [
+      "it felt extremely heavy and burdensome",
+      "it was literally made of stone",
+      "it was unusually light and easy to carry",
+      "it had been left behind at school"
+     ],
+     "correct": "A",
+     "why": "\"Felt like a boulder\" is a figurative comparison (simile) suggesting the backpack felt very heavy.",
+     "passageTitle": "The Late Bus",
+     "passage": "Mina stood at the empty bus stop as the last light drained from the sky. Her backpack felt like a boulder on her shoulders. When the bus finally groaned around the corner, relief washed over her like a warm wave."
+    },
+    {
+     "ref": "MTS-SK-O012",
+     "level": "ON",
+     "stem": "In the passage, the bus is described as \"groaned around the corner.\" What kind of language is this?",
+     "options": [
+      "figurative language (personification), giving the bus a human-like sound",
+      "technical language describing a mechanical part",
+      "a literal description of a human voice",
+      "connotative language with a cheerful feeling"
+     ],
+     "correct": "A",
+     "why": "Buses cannot literally groan; this is figurative language (personification) describing the bus's noise.",
+     "passageTitle": "The Late Bus",
+     "passage": "Mina stood at the empty bus stop as the last light drained from the sky. Her backpack felt like a boulder on her shoulders. When the bus finally groaned around the corner, relief washed over her like a warm wave."
+    },
+    {
+     "ref": "MTS-SK-O013",
+     "level": "ON",
+     "stem": "In the passage, \"relief washed over her like a warm wave\" is an example of what kind of figurative language?",
+     "options": [
+      "a simile, comparing relief to a wave using \"like\"",
+      "a technical term from ocean science",
+      "a literal description of actual water",
+      "a negative connotation of comfort"
+     ],
+     "correct": "A",
+     "why": "This is a simile because it compares relief to a wave using the word \"like.\"",
+     "passageTitle": "The Late Bus",
+     "passage": "Mina stood at the empty bus stop as the last light drained from the sky. Her backpack felt like a boulder on her shoulders. When the bus finally groaned around the corner, relief washed over her like a warm wave."
+    },
+    {
+     "ref": "MTS-SK-O014",
+     "level": "ON",
+     "stem": "Which word or phrase in the passage is a technical term from science class?",
+     "options": [
+      "cellular respiration",
+      "double-checked",
+      "trembled",
+      "speak for itself"
+     ],
+     "correct": "A",
+     "why": "\"Cellular respiration\" is a specialized biology term, making it technical language.",
+     "passageTitle": "The Science Fair",
+     "passage": "Before the judges arrived, Hana double-checked her poster on cellular respiration. She had labeled each diagram carefully, hoping the evidence of her experiment would speak for itself. Still, her hands trembled like leaves in a storm."
+    },
+    {
+     "ref": "MTS-SK-O015",
+     "level": "ON",
+     "stem": "What does \"her hands trembled like leaves in a storm\" figuratively suggest about Hana?",
+     "options": [
+      "she was extremely nervous",
+      "she was literally standing outside in bad weather",
+      "she was completely calm and confident",
+      "she had just finished exercising"
+     ],
+     "correct": "A",
+     "why": "This simile compares her trembling hands to leaves in a storm, suggesting intense nervousness.",
+     "passageTitle": "The Science Fair",
+     "passage": "Before the judges arrived, Hana double-checked her poster on cellular respiration. She had labeled each diagram carefully, hoping the evidence of her experiment would speak for itself. Still, her hands trembled like leaves in a storm."
+    },
+    {
+     "ref": "MTS-SK-O016",
+     "level": "ON",
+     "stem": "What effect does the phrase \"the evidence would speak for itself\" have, compared to simply saying \"the evidence was good\"?",
+     "options": [
+      "it personifies the evidence, suggesting it is powerful enough to convince on its own",
+      "it is a technical scientific term with no figurative meaning",
+      "it suggests the evidence was weak and unconvincing",
+      "it has no connotation or figurative meaning at all"
+     ],
+     "correct": "A",
+     "why": "\"Speak for itself\" personifies the evidence, giving it human qualities to emphasize its persuasive strength.",
+     "passageTitle": "The Science Fair",
+     "passage": "Before the judges arrived, Hana double-checked her poster on cellular respiration. She had labeled each diagram carefully, hoping the evidence of her experiment would speak for itself. Still, her hands trembled like leaves in a storm."
+    },
+    {
+     "ref": "MTS-SK-T001",
+     "level": "ON",
+     "type": "TRUE_FALSE",
+     "stem": "A word's connotation can change the emotional feeling of a sentence even when its literal, dictionary meaning stays the same.",
+     "answer": true,
+     "why": "Connotation adds emotional weight beyond the literal meaning, which can shift how a sentence feels."
+    },
+    {
+     "ref": "MTS-SK-T002",
+     "level": "ON",
+     "type": "TRUE_FALSE",
+     "stem": "Technical language is meant to be understood easily by anyone, regardless of their background knowledge.",
+     "answer": false,
+     "why": "Technical language is often specialized and may be unclear to readers unfamiliar with that particular field."
+    },
+    {
+     "ref": "MTS-SK-T003",
+     "level": "ON",
+     "type": "TRUE_FALSE",
+     "stem": "Figurative language always states the plain, literal truth about a situation.",
+     "answer": false,
+     "why": "Figurative language suggests meaning beyond the literal words; it does not state a plain, literal truth."
+    },
+    {
+     "ref": "MTS-SK-M001",
+     "level": "ON",
+     "type": "MATCHING",
+     "stem": "Match each example to the correct type of language.",
+     "pairs": [
+      {
+       "left": "\"Her anger boiled over during the meeting.\"",
+       "right": "figurative language"
+      },
+      {
+       "left": "\"The mitochondria produce energy for the cell.\"",
+       "right": "technical language"
+      },
+      {
+       "left": "\"The apartment felt cozy rather than cramped.\"",
+       "right": "connotative language"
+      }
+     ],
+     "why": "Each phrase demonstrates a different type of language: figurative comparison, specialized vocabulary, and emotional word choice."
+    },
+    {
+     "ref": "MTS-SK-O017",
+     "level": "ON",
+     "stem": "Which sentence below best demonstrates connotative language shaping a reader's opinion of a character?",
+     "options": [
+      "The stubborn old man refused every offer of help.",
+      "The elderly man was seventy-two years old.",
+      "The man lived alone in a small house.",
+      "The man walked to the store every Tuesday."
+     ],
+     "correct": "A",
+     "why": "\"Stubborn\" carries a negative connotation that shapes the reader's opinion of the character, beyond a neutral fact."
+    },
+    {
+     "ref": "MTS-SK-O018",
+     "level": "ON",
+     "stem": "A weather report uses the term \"barometric pressure.\" Why might the reporter also explain this term in simpler words?",
+     "options": [
+      "because it is technical language that general audiences may not fully understand",
+      "because it is figurative language with a hidden meaning",
+      "because it is slang used only by teenagers",
+      "because it has no real meaning in meteorology"
+     ],
+     "correct": "A",
+     "why": "\"Barometric pressure\" is technical vocabulary from meteorology, so a reporter may clarify it for general audiences."
+    },
+    {
+     "ref": "MTS-SK-O019",
+     "level": "ON",
+     "stem": "Which revised sentence uses a word with a more negative connotation than the original word \"careful\"?",
+     "options": [
+      "The paranoid driver checked his mirrors every few seconds.",
+      "The careful driver checked his mirrors every few seconds.",
+      "The attentive driver checked his mirrors every few seconds.",
+      "The cautious driver checked his mirrors every few seconds."
+     ],
+     "correct": "A",
+     "why": "\"Paranoid\" suggests excessive, unhealthy worry, giving it a more negative connotation than \"careful.\""
+    },
+    {
+     "ref": "MTS-SK-O020",
+     "level": "ON",
+     "stem": "Which sentence below contains an example of a symbol, where an object represents a larger idea?",
+     "options": [
+      "The dove on the flag represented the nation's hope for peace.",
+      "The flag was made of cotton and dyed bright red.",
+      "The flag measured six feet by four feet.",
+      "The flag was raised at exactly eight in the morning."
+     ],
+     "correct": "A",
+     "why": "The dove functions as a symbol, representing the larger idea of peace rather than just a literal bird."
+    },
+    {
+     "ref": "MTS-SK-O021",
+     "level": "ON",
+     "stem": "In the sentence \"The debate team dismantled their opponent's argument piece by piece,\" what is the effect of \"dismantled\"?",
+     "options": [
+      "it suggests a thorough, methodical defeat, as if taking apart a machine",
+      "it suggests the argument was never actually discussed",
+      "it is a neutral, purely technical engineering term with no figurative use here",
+      "it suggests the debate team lost badly"
+     ],
+     "correct": "A",
+     "why": "\"Dismantled\" figuratively compares defeating an argument to taking apart a machine piece by piece, suggesting a thorough defeat."
+    },
+    {
+     "ref": "MTS-SK-O022",
+     "level": "ON",
+     "stem": "Which sentence uses a technical term from the field of music rather than everyday vocabulary?",
+     "options": [
+      "The conductor asked the orchestra to play the next passage in a slow tempo marked largo.",
+      "The conductor asked the orchestra to play the next part more quietly.",
+      "The conductor stood at the front of the stage with a baton.",
+      "The conductor smiled as the audience applauded loudly."
+     ],
+     "correct": "A",
+     "why": "\"Tempo\" and \"largo\" are specialized musical terms, making this sentence an example of technical language."
+    },
+    {
+     "ref": "MTS-SK-O023",
+     "level": "ON",
+     "stem": "In the sentence \"The committee's decision cast a shadow over the celebration,\" what does \"cast a shadow\" figuratively suggest?",
+     "options": [
+      "it dampened or darkened the mood of an otherwise happy event",
+      "it literally blocked sunlight from reaching the celebration",
+      "it is a technical term used in photography",
+      "it suggests the celebration became brighter and more joyful"
+     ],
+     "correct": "A",
+     "why": "\"Cast a shadow\" is a figurative expression suggesting something darkened or dampened the mood of an event."
+    },
+    {
+     "ref": "MTS-SK-AB001",
+     "level": "ABOVE",
+     "stem": "In the passage, \"the small town had become a fortress of ice\" is best described as what kind of language, and what does it suggest?",
+     "options": [
+      "figurative language suggesting the town felt cold, isolated, and difficult to penetrate",
+      "technical language describing an actual military structure",
+      "literal language describing a real fortress built from ice blocks",
+      "connotative language with an entirely positive, warm feeling"
+     ],
+     "correct": "A",
+     "why": "This is figurative language (metaphor) suggesting the town felt isolated and harshly cold, like a fortress of ice.",
+     "passageTitle": "The Long Winter",
+     "passage": "By February, the small town had become a fortress of ice. Pipes froze overnight, and even conversations seemed to crystallize in the cold air. Mr. Aziz, the baker, kept insisting that spring was only a heartbeat away, though no one quite believed him anymore."
+    },
+    {
+     "ref": "MTS-SK-AB002",
+     "level": "ABOVE",
+     "stem": "What is the effect of saying conversations \"seemed to crystallize in the cold air\" rather than simply \"people stopped talking\"?",
+     "options": [
+      "it figuratively suggests words becoming sharp, brittle, and frozen in place, emphasizing the harshness of the cold",
+      "it is a purely technical scientific description of actual crystal formation",
+      "it suggests people were talking more cheerfully than usual",
+      "it has no figurative meaning and simply states a plain fact"
+     ],
+     "correct": "A",
+     "why": "This figurative use of \"crystallize\" suggests words becoming frozen and brittle, emphasizing the oppressive cold more vividly than a plain statement.",
+     "passageTitle": "The Long Winter",
+     "passage": "By February, the small town had become a fortress of ice. Pipes froze overnight, and even conversations seemed to crystallize in the cold air. Mr. Aziz, the baker, kept insisting that spring was only a heartbeat away, though no one quite believed him anymore."
+    },
+    {
+     "ref": "MTS-SK-AB003",
+     "level": "ABOVE",
+     "stem": "Why might the author choose the phrase \"only a heartbeat away\" instead of \"coming soon\" to describe spring's arrival?",
+     "options": [
+      "it connects spring's arrival to something alive and urgent, adding emotional hope despite the townspeople's doubt",
+      "it is a technical medical term describing cardiac rhythm",
+      "it suggests spring is actually very far away",
+      "it removes all emotional meaning from the sentence"
+     ],
+     "correct": "A",
+     "why": "\"A heartbeat away\" figuratively connects spring to something alive and immediate, adding a hopeful emotional tone that contrasts with the townspeople's doubt.",
+     "passageTitle": "The Long Winter",
+     "passage": "By February, the small town had become a fortress of ice. Pipes froze overnight, and even conversations seemed to crystallize in the cold air. Mr. Aziz, the baker, kept insisting that spring was only a heartbeat away, though no one quite believed him anymore."
+    },
+    {
+     "ref": "MTS-SK-AB004",
+     "level": "ABOVE",
+     "stem": "Which words in the passage are technical, field-specific vocabulary from the legal system?",
+     "options": [
+      "cross-examination, testimony, and verdict",
+      "sharper, steady, and forward",
+      "attorney's and witness's",
+      "grew and began"
+     ],
+     "correct": "A",
+     "why": "\"Cross-examination,\" \"testimony,\" and \"verdict\" are specialized legal terms, making them technical vocabulary.",
+     "passageTitle": "Courtroom Notes",
+     "passage": "The attorney's cross-examination grew sharper with each question. The witness's testimony, once steady, began to splinter under the pressure, and the jury leaned forward as if sensing the verdict shift."
+    },
+    {
+     "ref": "MTS-SK-AB005",
+     "level": "ABOVE",
+     "stem": "In the passage, the testimony is described as beginning \"to splinter under the pressure.\" What does this figurative use of \"splinter\" suggest?",
+     "options": [
+      "the witness's once-steady account was starting to break apart and become inconsistent",
+      "the witness literally touched a piece of broken wood during questioning",
+      "the testimony became stronger and more convincing",
+      "the jury fell asleep during the questioning"
+     ],
+     "correct": "A",
+     "why": "Figuratively, \"splinter\" suggests the testimony was breaking apart into inconsistent pieces under pressure, not literal wood breaking.",
+     "passageTitle": "Courtroom Notes",
+     "passage": "The attorney's cross-examination grew sharper with each question. The witness's testimony, once steady, began to splinter under the pressure, and the jury leaned forward as if sensing the verdict shift."
+    },
+    {
+     "ref": "MTS-SK-AB006",
+     "level": "ABOVE",
+     "stem": "What is the combined effect of pairing technical legal vocabulary with figurative language like \"splinter\" in this passage?",
+     "options": [
+      "it grounds the scene in a real courtroom setting while also conveying the emotional tension of the moment",
+      "it makes the passage purely informational, with no emotional tone at all",
+      "it confuses the reader by mixing unrelated topics with no purpose",
+      "it removes any sense of tension from the courtroom scene"
+     ],
+     "correct": "A",
+     "why": "Combining technical vocabulary with figurative language grounds the scene realistically while still conveying emotional tension through vivid imagery.",
+     "passageTitle": "Courtroom Notes",
+     "passage": "The attorney's cross-examination grew sharper with each question. The witness's testimony, once steady, began to splinter under the pressure, and the jury leaned forward as if sensing the verdict shift."
+    },
+    {
+     "ref": "MTS-SK-AB007",
+     "level": "ABOVE",
+     "stem": "A reviewer writes, \"The algorithm elegantly solves the problem in record time.\" Which word in this sentence is technical, and which carries connotation?",
+     "options": [
+      "\"algorithm\" is technical; \"elegantly\" carries a positive connotation",
+      "\"elegantly\" is technical; \"algorithm\" carries a positive connotation",
+      "both words are purely literal with no connotation or technical meaning",
+      "neither word has any specialized or emotional meaning"
+     ],
+     "correct": "A",
+     "why": "\"Algorithm\" is a specialized computer science term, while \"elegantly\" adds a positive emotional judgment beyond the literal meaning."
+    },
+    {
+     "ref": "MTS-SK-AB008",
+     "level": "ABOVE",
+     "stem": "Which sentence best demonstrates how connotation can shift a reader's sympathy toward a character, even though the literal facts stay the same?",
+     "options": [
+      "The old woman shuffled slowly, her frail hands trembling with every step.",
+      "The woman, age seventy-eight, walked at a reduced pace.",
+      "The woman walked from the kitchen to the front door.",
+      "The woman's house had three bedrooms and two bathrooms."
+     ],
+     "correct": "A",
+     "why": "Words like \"shuffled,\" \"frail,\" and \"trembling\" carry connotations of vulnerability, shifting sympathy, even though the underlying fact (an old woman walking slowly) is the same."
+    },
+    {
+     "ref": "MTS-SK-AB009",
+     "level": "ABOVE",
+     "stem": "A critic says a poem's imagery is \"crystal,\" while its central metaphor is \"murky.\" What is the critic most likely contrasting?",
+     "options": [
+      "sharp, clear description versus a confusing, unclear comparison",
+      "two equally confusing elements of the poem",
+      "two equally clear elements of the poem",
+      "the poem's rhyme scheme versus its punctuation"
+     ],
+     "correct": "A",
+     "why": "\"Crystal\" figuratively suggests clarity, while \"murky\" figuratively suggests confusion, so the critic is contrasting clear imagery with an unclear metaphor."
+    },
+    {
+     "ref": "MTS-SK-AB010",
+     "level": "ABOVE",
+     "stem": "Why would an author use the technical term \"photosynthesis\" rather than a vague phrase like \"plants making food\" in a nature documentary script?",
+     "options": [
+      "precision and credibility matter in scientific explanations, and the technical term conveys exact meaning",
+      "technical terms always confuse viewers, so they should never be used",
+      "vague phrases are always more scientifically accurate than technical terms",
+      "there is no difference in meaning between the two phrases"
+     ],
+     "correct": "A",
+     "why": "A technical term like \"photosynthesis\" offers precise, credible meaning appropriate for scientific explanation, unlike a vague paraphrase."
+    },
+    {
+     "ref": "MTS-SK-AB011",
+     "level": "ABOVE",
+     "stem": "In the sentence \"The negotiations were a chess match, each side calculating its next move,\" which best explains the figurative language?",
+     "options": [
+      "an extended metaphor compares the negotiation process to a strategic game",
+      "a technical term from the field of chess competition rules",
+      "a literal description of an actual chess match taking place",
+      "connotative language with no figurative comparison at all"
+     ],
+     "correct": "A",
+     "why": "This is an extended metaphor comparing the negotiation process to a chess match, emphasizing strategy and calculation."
+    },
+    {
+     "ref": "MTS-SK-AB012",
+     "level": "ABOVE",
+     "stem": "A speech uses the connotative phrase \"the backbone of our community\" to describe local teachers. What does this figurative phrase suggest about teachers?",
+     "options": [
+      "they provide essential support and structure that holds the community together",
+      "they are literally part of the human skeletal system",
+      "they are the weakest, least important members of the community",
+      "they have no real impact on the community at all"
+     ],
+     "correct": "A",
+     "why": "\"Backbone\" figuratively suggests teachers provide essential, structural support, much like a backbone supports a body."
+    },
+    {
+     "ref": "MTS-SK-AB013",
+     "level": "ABOVE",
+     "stem": "Which choice best explains the difference in effect between describing rain as \"a gentle mist\" versus \"a relentless downpour\"?",
+     "options": [
+      "the first connotes calm and softness, while the second connotes overwhelming, unstoppable force",
+      "both phrases are purely literal with identical connotations",
+      "the first is technical language, and the second is figurative language",
+      "there is no meaningful difference between the two phrases"
+     ],
+     "correct": "A",
+     "why": "\"Gentle mist\" connotes softness and calm, while \"relentless downpour\" connotes overwhelming force, even though both describe rain."
+    },
+    {
+     "ref": "MTS-SK-AB014",
+     "level": "ABOVE",
+     "stem": "A scientist explains, \"The data's margin of error undermines the study's conclusions.\" Which phrase is technical, field-specific language from statistics?",
+     "options": [
+      "margin of error",
+      "undermines the study's",
+      "the data's",
+      "conclusions"
+     ],
+     "correct": "A",
+     "why": "\"Margin of error\" is a specialized statistical term, making it technical language from that field."
+    },
+    {
+     "ref": "MTS-SK-AB015",
+     "level": "ABOVE",
+     "stem": "Why might an author deliberately combine technical vocabulary with figurative language in a single passage about a hospital?",
+     "options": [
+      "to ground the scene in medical realism while still conveying the emotional weight of the situation",
+      "to confuse the reader with no clear purpose",
+      "to remove all emotional content from the passage entirely",
+      "technical and figurative language can never appear together in good writing"
+     ],
+     "correct": "A",
+     "why": "Combining technical vocabulary with figurative language can ground a scene in realism while still conveying emotional depth."
+    },
+    {
+     "ref": "MTS-SK-AB016",
+     "level": "ABOVE",
+     "stem": "A columnist writes that a rival's proposal is \"all bark and no bite.\" What does this figurative idiom suggest?",
+     "options": [
+      "the proposal sounds aggressive or impressive but has little real effect or substance",
+      "the proposal was created by a dog trainer",
+      "the proposal was extremely effective and powerful",
+      "the proposal contained detailed technical specifications"
+     ],
+     "correct": "A",
+     "why": "\"All bark and no bite\" is a figurative idiom suggesting something seems threatening or impressive but lacks real substance or effect."
+    },
+    {
+     "ref": "MTS-SK-AB017",
+     "level": "ABOVE",
+     "stem": "Which sentence best shows a word's connotation reinforcing the overall tone of determination in a paragraph about an athlete?",
+     "options": [
+      "She refused to quit, relentlessly pushing through every grueling mile of the marathon.",
+      "She ran a marathon that was twenty-six point two miles long.",
+      "She finished the race in four hours and twelve minutes.",
+      "She wore running shoes and a blue headband during the race."
+     ],
+     "correct": "A",
+     "why": "Words like \"refused,\" \"relentlessly,\" and \"grueling\" carry connotations of determination, reinforcing the paragraph's tone."
+    },
+    {
+     "ref": "MTS-SK-AB018",
+     "level": "ABOVE",
+     "stem": "A business report states the company's \"net profit margin\" declined. Which best explains why this phrase is technical rather than figurative?",
+     "options": [
+      "it refers to a precise, calculable financial measurement used specifically in business and accounting",
+      "it compares the company to a living creature in a figurative way",
+      "it uses a metaphor to describe the company's emotional state",
+      "it has no specific or specialized meaning in any field"
+     ],
+     "correct": "A",
+     "why": "\"Net profit margin\" is a precise, calculable financial term used specifically in accounting, making it technical rather than figurative."
+    },
+    {
+     "ref": "MTS-SK-AB019",
+     "level": "ABOVE",
+     "stem": "Which revision best demonstrates how changing a single word's connotation can shift a sentence from sounding like praise to sounding like criticism?",
+     "options": [
+      "\"The manager was assertive\" versus \"The manager was aggressive,\" describing the same behavior",
+      "\"The manager arrived\" versus \"The employee arrived,\" describing different people",
+      "\"The manager left early\" versus \"The manager left late,\" describing different times",
+      "\"The manager spoke\" versus \"The manager wrote,\" describing different actions"
+     ],
+     "correct": "A",
+     "why": "\"Assertive\" and \"aggressive\" can describe the same behavior but carry very different connotations, shifting the sentence from praise to criticism."
+    },
+    {
+     "ref": "MTS-SK-AB020",
+     "level": "ABOVE",
+     "stem": "A nature writer describes a hawk's dive as \"a blade cutting through the sky.\" What is the effect of this figurative comparison?",
+     "options": [
+      "it emphasizes the hawk's sharp, swift, and precise movement",
+      "it is a literal description of an actual blade falling from the sky",
+      "it is a technical term used in ornithology to classify hawk species",
+      "it suggests the hawk moved slowly and clumsily"
+     ],
+     "correct": "A",
+     "why": "Comparing the hawk's dive to a blade figuratively emphasizes its sharp, swift, and precise movement."
+    },
+    {
+     "ref": "MTS-SK-AB021",
+     "level": "ABOVE",
+     "stem": "In the passage, describing the opponent's statement as \"a loaded gun\" is an example of what kind of language, and what does it suggest?",
+     "options": [
+      "figurative language suggesting the statement was dangerously sharp and ready to do damage",
+      "technical language describing an actual firearm used in the debate",
+      "literal language stating that a real weapon was present in the room",
+      "connotative language suggesting the statement was calm and gentle"
+     ],
+     "correct": "A",
+     "why": "This figurative comparison suggests the opponent's statement felt dangerously sharp and ready to strike, not a literal weapon.",
+     "passageTitle": "The Debate Final",
+     "passage": "As the final round began, Jo felt the room's energy sharpen into something electric. Her opponent's opening statement was a loaded gun, every word aimed with precision. Jo took a breath and reminded herself that preparation, not panic, was her only real ammunition."
+    },
+    {
+     "ref": "MTS-SK-AB022",
+     "level": "ABOVE",
+     "stem": "Why does the author extend the metaphor by having Jo think of \"preparation\" as her \"ammunition\"?",
+     "options": [
+      "it continues the battle imagery, showing Jo reframing her own strength in the same figurative terms as the threat she faces",
+      "it introduces a new, unrelated technical term from a different field",
+      "it suggests Jo is literally carrying a weapon into the debate",
+      "it removes all figurative meaning established earlier in the passage"
+     ],
+     "correct": "A",
+     "why": "Extending the \"weapon\" metaphor to Jo's preparation shows her reframing her own strength using the same figurative battle imagery.",
+     "passageTitle": "The Debate Final",
+     "passage": "As the final round began, Jo felt the room's energy sharpen into something electric. Her opponent's opening statement was a loaded gun, every word aimed with precision. Jo took a breath and reminded herself that preparation, not panic, was her only real ammunition."
+    },
+    {
+     "ref": "MTS-SK-AB023",
+     "level": "ABOVE",
+     "stem": "What does the phrase \"the room's energy sharpen into something electric\" suggest about the mood in the passage?",
+     "options": [
+      "the atmosphere became tense, charged, and intensely focused",
+      "the room literally filled with static electricity",
+      "the atmosphere became calm and relaxed",
+      "the lights in the room began to flicker"
+     ],
+     "correct": "A",
+     "why": "This figurative language suggests a tense, highly charged, focused atmosphere, not literal electricity.",
+     "passageTitle": "The Debate Final",
+     "passage": "As the final round began, Jo felt the room's energy sharpen into something electric. Her opponent's opening statement was a loaded gun, every word aimed with precision. Jo took a breath and reminded herself that preparation, not panic, was her only real ammunition."
+    },
+    {
+     "ref": "MTS-SK-AB024",
+     "level": "ABOVE",
+     "stem": "A sports commentator says a player's performance was \"surgical.\" What is the effect of borrowing this technical, medical term figuratively?",
+     "options": [
+      "it suggests the performance was extremely precise and controlled, like a skilled surgeon's work",
+      "it suggests the player literally performed a medical procedure",
+      "it suggests the performance was careless and disorganized",
+      "it is used only in its literal medical sense with no figurative meaning"
+     ],
+     "correct": "A",
+     "why": "Borrowing \"surgical\" from medicine figuratively emphasizes extreme precision and control in the performance."
+    },
+    {
+     "ref": "MTS-SK-AB025",
+     "level": "ABOVE",
+     "stem": "An editorial calls a proposed law \"a Band-Aid solution.\" What does this figurative, borrowed-from-medicine phrase suggest about the law?",
+     "options": [
+      "it only temporarily covers a problem without truly fixing its underlying cause",
+      "it permanently and completely solves the underlying problem",
+      "it is a precise technical term with no figurative meaning",
+      "it refers to an actual medical treatment being proposed as law"
+     ],
+     "correct": "A",
+     "why": "\"Band-Aid solution\" figuratively suggests a fix that only covers a problem temporarily, without solving its root cause."
+    },
+    {
+     "ref": "MTS-SK-AB026",
+     "level": "ABOVE",
+     "stem": "Which best explains why authors often blend technical vocabulary with figurative language, as in calling a skilled debater's argument \"surgical precision\"?",
+     "options": [
+      "blending the two lets a writer borrow the exactness of technical language while still creating a vivid, memorable image",
+      "the two types of language cancel each other out and create no meaning",
+      "figurative language always replaces technical vocabulary entirely in formal writing",
+      "technical vocabulary can never be used figuratively in any context"
+     ],
+     "correct": "A",
+     "why": "Blending technical precision with figurative imagery lets a writer create a vivid, memorable description while still conveying exactness."
+    },
+    {
+     "ref": "WOS-001",
+     "level": "BELOW",
+     "stem": "In the sentence \"her heart a drum pounding against her ribs,\" what two things are being compared?",
+     "options": [
+      "Elena's hands and the surgeon's hands",
+      "Elena's heart and a drum",
+      "The operating room and the hallway",
+      "Fear and precision"
+     ],
+     "correct": "B",
+     "why": "The sentence figuratively compares Elena's heart to a pounding drum.",
+     "passageTitle": "The Weight of Silence",
+     "passage": "The surgeon's hands moved with practiced precision, each incision a calculated decision made in fractions of a second. Outside the operating room, Elena paced the hallway, her heart a drum pounding against her ribs. She had swallowed her fear that morning, but now it clawed its way back up her throat."
+    },
+    {
+     "ref": "WOS-002",
+     "level": "BELOW",
+     "stem": "What type of language is used in \"her heart a drum pounding against her ribs\"?",
+     "options": [
+      "Technical language",
+      "Figurative language",
+      "A literal statement of fact",
+      "A scientific term"
+     ],
+     "correct": "B",
+     "why": "Comparing a heart to a drum without using \"like\" or \"as\" is a metaphor, a form of figurative language.",
+     "passageTitle": "The Weight of Silence",
+     "passage": "The surgeon's hands moved with practiced precision, each incision a calculated decision made in fractions of a second. Outside the operating room, Elena paced the hallway, her heart a drum pounding against her ribs. She had swallowed her fear that morning, but now it clawed its way back up her throat."
+    },
+    {
+     "ref": "WOS-003",
+     "level": "BELOW",
+     "stem": "In the passage, the word \"incision\" is an example of what kind of language?",
+     "options": [
+      "Figurative language",
+      "Technical language specific to medicine",
+      "Connotative language with a negative feeling",
+      "A metaphor"
+     ],
+     "correct": "B",
+     "why": "\"Incision\" is a precise, specialized medical term, making it technical language.",
+     "passageTitle": "The Weight of Silence",
+     "passage": "The surgeon's hands moved with practiced precision, each incision a calculated decision made in fractions of a second. Outside the operating room, Elena paced the hallway, her heart a drum pounding against her ribs. She had swallowed her fear that morning, but now it clawed its way back up her throat."
+    },
+    {
+     "ref": "WOS-004",
+     "level": "BELOW",
+     "stem": "What does the phrase \"she had swallowed her fear\" mean?",
+     "options": [
+      "Elena literally swallowed something.",
+      "Elena pushed down or hid her fear instead of showing it.",
+      "Elena was eating breakfast.",
+      "Elena was not afraid at all."
+     ],
+     "correct": "B",
+     "why": "\"Swallowed her fear\" is a figurative way of saying she suppressed or hid her fear.",
+     "passageTitle": "The Weight of Silence",
+     "passage": "The surgeon's hands moved with practiced precision, each incision a calculated decision made in fractions of a second. Outside the operating room, Elena paced the hallway, her heart a drum pounding against her ribs. She had swallowed her fear that morning, but now it clawed its way back up her throat."
+    },
+    {
+     "ref": "WOS-005",
+     "level": "BELOW",
+     "stem": "Which word in the passage has a strong, almost frightening connotation?",
+     "options": [
+      "\"precision\"",
+      "\"calculated\"",
+      "\"clawed\"",
+      "\"paced\""
+     ],
+     "correct": "C",
+     "why": "\"Clawed\" suggests something sharp and violent, giving it a harsh, frightening feeling.",
+     "passageTitle": "The Weight of Silence",
+     "passage": "The surgeon's hands moved with practiced precision, each incision a calculated decision made in fractions of a second. Outside the operating room, Elena paced the hallway, her heart a drum pounding against her ribs. She had swallowed her fear that morning, but now it clawed its way back up her throat."
+    },
+    {
+     "ref": "WOS-006",
+     "level": "BELOW",
+     "stem": "What is the literal action Elena is doing outside the operating room?",
+     "options": [
+      "Performing surgery",
+      "Walking back and forth in the hallway",
+      "Sleeping",
+      "Talking to the surgeon"
+     ],
+     "correct": "B",
+     "why": "\"Elena paced the hallway\" literally describes her walking back and forth.",
+     "passageTitle": "The Weight of Silence",
+     "passage": "The surgeon's hands moved with practiced precision, each incision a calculated decision made in fractions of a second. Outside the operating room, Elena paced the hallway, her heart a drum pounding against her ribs. She had swallowed her fear that morning, but now it clawed its way back up her throat."
+    },
+    {
+     "ref": "WOS-007",
+     "level": "BELOW",
+     "stem": "Which phrase from the passage is a literal, factual description rather than a figurative one?",
+     "options": [
+      "\"her heart a drum\"",
+      "\"it clawed its way back up her throat\"",
+      "\"Outside the operating room, Elena paced the hallway\"",
+      "\"she had swallowed her fear\""
+     ],
+     "correct": "C",
+     "why": "This phrase simply states where Elena was and what she was doing, with no figurative comparison.",
+     "passageTitle": "The Weight of Silence",
+     "passage": "The surgeon's hands moved with practiced precision, each incision a calculated decision made in fractions of a second. Outside the operating room, Elena paced the hallway, her heart a drum pounding against her ribs. She had swallowed her fear that morning, but now it clawed its way back up her throat."
+    },
+    {
+     "ref": "WOS-008",
+     "level": "ON",
+     "stem": "What effect does the phrase \"it clawed its way back up her throat\" have on the reader's understanding of Elena's fear?",
+     "options": [
+      "It makes the fear seem calm and manageable.",
+      "It makes the fear feel sharp, physical, and hard to control.",
+      "It suggests Elena is not afraid anymore.",
+      "It describes a medical procedure."
+     ],
+     "correct": "B",
+     "why": "The violent image of clawing makes the fear feel intense and almost unbearable, not calm.",
+     "passageTitle": "The Weight of Silence",
+     "passage": "The surgeon's hands moved with practiced precision, each incision a calculated decision made in fractions of a second. Outside the operating room, Elena paced the hallway, her heart a drum pounding against her ribs. She had swallowed her fear that morning, but now it clawed its way back up her throat."
+    },
+    {
+     "ref": "WOS-009",
+     "level": "ON",
+     "stem": "How does the connotation of the word \"precision\" affect the reader's impression of the surgeon?",
+     "options": [
+      "It makes the surgeon seem careless.",
+      "It makes the surgeon seem highly skilled and exact.",
+      "It makes the surgeon seem frightened.",
+      "It has no effect on the reader's impression."
+     ],
+     "correct": "B",
+     "why": "\"Precision\" has a positive connotation suggesting great skill and exactness.",
+     "passageTitle": "The Weight of Silence",
+     "passage": "The surgeon's hands moved with practiced precision, each incision a calculated decision made in fractions of a second. Outside the operating room, Elena paced the hallway, her heart a drum pounding against her ribs. She had swallowed her fear that morning, but now it clawed its way back up her throat."
+    },
+    {
+     "ref": "WOS-010",
+     "level": "ON",
+     "stem": "Why does the author compare Elena's heart to \"a drum pounding against her ribs\" instead of simply saying \"Elena's heart was beating fast\"?",
+     "options": [
+      "To give technical medical detail",
+      "To help the reader feel the intensity and force of her anxiety",
+      "To describe the sound of music",
+      "To explain how surgery works"
+     ],
+     "correct": "B",
+     "why": "The metaphor creates a vivid, physical sense of how hard and forcefully her heart was pounding, which a plain statement would not convey.",
+     "passageTitle": "The Weight of Silence",
+     "passage": "The surgeon's hands moved with practiced precision, each incision a calculated decision made in fractions of a second. Outside the operating room, Elena paced the hallway, her heart a drum pounding against her ribs. She had swallowed her fear that morning, but now it clawed its way back up her throat."
+    },
+    {
+     "ref": "WOS-011",
+     "level": "ON",
+     "stem": "In a new sentence, \"The lawyer filed the motion before the deadline,\" which word is technical language specific to the legal field?",
+     "options": [
+      "\"lawyer\"",
+      "\"motion\"",
+      "\"before\"",
+      "\"deadline\""
+     ],
+     "correct": "B",
+     "why": "\"Motion\" is a specialized legal term for a formal request to a court.",
+     "passageTitle": "The Weight of Silence",
+     "passage": "The surgeon's hands moved with practiced precision, each incision a calculated decision made in fractions of a second. Outside the operating room, Elena paced the hallway, her heart a drum pounding against her ribs. She had swallowed her fear that morning, but now it clawed its way back up her throat."
+    },
+    {
+     "ref": "WOS-012",
+     "level": "ON",
+     "stem": "Consider the sentence: \"After the final loss, the team's spirit was shattered.\" What does \"shattered\" suggest about the team's spirit?",
+     "options": [
+      "The spirit was physically broken into pieces.",
+      "The team's morale was completely crushed and difficult to repair.",
+      "The team was happy and confident.",
+      "The team won the game."
+     ],
+     "correct": "B",
+     "why": "\"Shattered\" is used figuratively to show the team's morale was deeply and painfully damaged.",
+     "passageTitle": "The Weight of Silence",
+     "passage": "The surgeon's hands moved with practiced precision, each incision a calculated decision made in fractions of a second. Outside the operating room, Elena paced the hallway, her heart a drum pounding against her ribs. She had swallowed her fear that morning, but now it clawed its way back up her throat."
+    },
+    {
+     "ref": "WOS-013",
+     "level": "ON",
+     "stem": "A writer describes a character as \"scrawny\" instead of \"thin.\" What is the difference in connotation between these two words?",
+     "options": [
+      "There is no difference; they mean exactly the same thing with the same feeling.",
+      "\"Scrawny\" carries a more negative, unflattering feeling, while \"thin\" is more neutral.",
+      "\"Scrawny\" is a positive, complimentary word.",
+      "\"Thin\" is only used in technical writing."
+     ],
+     "correct": "B",
+     "why": "\"Scrawny\" suggests weakness or an unattractive thinness, while \"thin\" is a more neutral description of size.",
+     "passageTitle": "The Weight of Silence",
+     "passage": "The surgeon's hands moved with practiced precision, each incision a calculated decision made in fractions of a second. Outside the operating room, Elena paced the hallway, her heart a drum pounding against her ribs. She had swallowed her fear that morning, but now it clawed its way back up her throat."
+    },
+    {
+     "ref": "WOS-014",
+     "level": "ON",
+     "stem": "In the sentence, \"The doctor noted inflammation around the wound,\" what kind of language is the word \"inflammation\"?",
+     "options": [
+      "Figurative language",
+      "Technical, medical language",
+      "A word with a strongly positive connotation",
+      "Slang"
+     ],
+     "correct": "B",
+     "why": "\"Inflammation\" is a precise medical term describing a bodily condition.",
+     "passageTitle": "The Weight of Silence",
+     "passage": "The surgeon's hands moved with practiced precision, each incision a calculated decision made in fractions of a second. Outside the operating room, Elena paced the hallway, her heart a drum pounding against her ribs. She had swallowed her fear that morning, but now it clawed its way back up her throat."
+    },
+    {
+     "ref": "WOS-015",
+     "level": "ABOVE",
+     "stem": "What does the figurative phrase \"his hands were maps of a life spent working outdoors\" suggest about the character?",
+     "options": [
+      "His hands are shaped like actual maps.",
+      "His hands show lines and marks that reveal years of hard, outdoor labor.",
+      "He works as a mapmaker.",
+      "His hands are soft and unused."
+     ],
+     "correct": "B",
+     "why": "Comparing hands to \"maps\" figuratively suggests the lines and marks tell the story of years of outdoor work.",
+     "passageTitle": "The Weight of Silence",
+     "passage": "The surgeon's hands moved with practiced precision, each incision a calculated decision made in fractions of a second. Outside the operating room, Elena paced the hallway, her heart a drum pounding against her ribs. She had swallowed her fear that morning, but now it clawed its way back up her throat."
+    },
+    {
+     "ref": "WOS-016",
+     "level": "ABOVE",
+     "stem": "Compare \"his heart was beating fast\" with \"her heart a drum pounding against her ribs.\" Why is the second phrase more effective at conveying intense emotion?",
+     "options": [
+      "The second phrase uses a technical medical term.",
+      "The second phrase uses a vivid metaphor and physical imagery that make the feeling more powerful and memorable.",
+      "The second phrase is shorter.",
+      "The two phrases have the same effect on the reader."
+     ],
+     "correct": "B",
+     "why": "The metaphor creates a specific, forceful image that conveys intensity more vividly than the plain statement.",
+     "passageTitle": "The Weight of Silence",
+     "passage": "The surgeon's hands moved with practiced precision, each incision a calculated decision made in fractions of a second. Outside the operating room, Elena paced the hallway, her heart a drum pounding against her ribs. She had swallowed her fear that morning, but now it clawed its way back up her throat."
+    },
+    {
+     "ref": "WOS-017",
+     "level": "ABOVE",
+     "stem": "The passage mixes technical language (\"incision,\" \"calculated decision\") with figurative language (\"her heart a drum\"). What overall effect does this combination create?",
+     "options": [
+      "It makes the passage purely informational, like a textbook.",
+      "It contrasts the surgeon's controlled, clinical world with Elena's raw, emotional experience.",
+      "It shows that both characters feel the exact same way.",
+      "It removes all emotion from the passage."
+     ],
+     "correct": "B",
+     "why": "The technical language reflects the surgeon's controlled environment, while the figurative language captures Elena's intense emotional state, creating contrast.",
+     "passageTitle": "The Weight of Silence",
+     "passage": "The surgeon's hands moved with practiced precision, each incision a calculated decision made in fractions of a second. Outside the operating room, Elena paced the hallway, her heart a drum pounding against her ribs. She had swallowed her fear that morning, but now it clawed its way back up her throat."
+    },
+    {
+     "ref": "WOS-018",
+     "level": "ABOVE",
+     "stem": "If the author had written \"Elena was nervous\" instead of \"she had swallowed her fear, but now it clawed its way back up her throat,\" how would the tone of the passage likely change?",
+     "options": [
+      "The tone would become more vivid and intense than before.",
+      "The tone would become flatter and less emotionally intense.",
+      "The meaning would stay exactly the same with no change in tone.",
+      "The sentence would become more technical."
+     ],
+     "correct": "B",
+     "why": "The original figurative language creates intensity and physical sensation that a plain statement like \"Elena was nervous\" would lose.",
+     "passageTitle": "The Weight of Silence",
+     "passage": "The surgeon's hands moved with practiced precision, each incision a calculated decision made in fractions of a second. Outside the operating room, Elena paced the hallway, her heart a drum pounding against her ribs. She had swallowed her fear that morning, but now it clawed its way back up her throat."
+    },
+    {
+     "ref": "WOS-019",
+     "level": "ABOVE",
+     "stem": "Why might an author choose the connotative word \"scrawny\" over the neutral word \"thin\" when describing a struggling character?",
+     "options": [
+      "To make the reader feel more sympathy or pity, or see the character as weak",
+      "To give purely factual, emotion-free information",
+      "Because \"scrawny\" is a technical term",
+      "There is no real reason; the words are interchangeable in effect"
+     ],
+     "correct": "A",
+     "why": "Connotative word choices like \"scrawny\" shape the reader's emotional reaction, often creating sympathy or an impression of weakness, beyond the literal meaning.",
+     "passageTitle": "The Weight of Silence",
+     "passage": "The surgeon's hands moved with practiced precision, each incision a calculated decision made in fractions of a second. Outside the operating room, Elena paced the hallway, her heart a drum pounding against her ribs. She had swallowed her fear that morning, but now it clawed its way back up her throat."
+    },
+    {
+     "ref": "WOS-020",
+     "level": "ABOVE",
+     "stem": "A student says, \"Technical language and figurative language always do the same job in a text.\" Explain why this statement is inaccurate, using the passage as evidence.",
+     "options": [
+      "It is accurate; both always create the same emotional effect.",
+      "It is inaccurate: technical language (like \"incision\") gives precise, factual information, while figurative language (like \"her heart a drum\") creates emotional, sensory effects.",
+      "Technical language is only used in poetry.",
+      "Figurative language is only used in science writing."
+     ],
+     "correct": "B",
+     "why": "Technical language conveys exact factual meaning, whereas figurative language conveys feeling and imagery; the passage uses both for different purposes.",
+     "passageTitle": "The Weight of Silence",
+     "passage": "The surgeon's hands moved with practiced precision, each incision a calculated decision made in fractions of a second. Outside the operating room, Elena paced the hallway, her heart a drum pounding against her ribs. She had swallowed her fear that morning, but now it clawed its way back up her throat."
+    }
+   ]
+  },
+  {
+   "skill": "Analyzing Informational Text Elements",
+   "grade": 6,
+   "ccss": "RI.6.5",
+   "domain": "Reading Informational Text",
+   "mapArea": "INFO_STRUCTURE",
+   "questions": [
+    {
+     "ref": "SIH-SK-001",
+     "level": "BELOW",
+     "stem": "According to the passage, what key detail tells other bees how far away the flowers are?",
+     "options": [
+      "the color of the scout bee",
+      "the length of the waggle dance",
+      "the size of the hive",
+      "the number of bees in the hive"
+     ],
+     "correct": "B",
+     "why": "The passage states that the length of the dance tells the other bees how far the flowers are.",
+     "passageTitle": "Honeybee Scouts",
+     "passage": "When a honeybee scout finds a rich patch of flowers, she returns to the hive and performs a 'waggle dance,' moving in a figure-eight pattern. The direction and length of the dance tell other bees exactly which way to fly and how far the flowers are. A chart included with the article shows the angle of the dance compared to the position of the sun."
+    },
+    {
+     "ref": "SIH-SK-002",
+     "level": "ON",
+     "stem": "What is the most likely purpose of the chart described in the passage?",
+     "options": [
+      "to show how the dance's angle relates to the sun's position, helping readers understand the direction information",
+      "to list the different flowers bees prefer",
+      "to show how many bees live in one hive",
+      "to compare bee size to human size"
+     ],
+     "correct": "A",
+     "why": "The passage says the chart shows the angle of the dance compared to the sun, which helps explain how direction is communicated.",
+     "passageTitle": "Honeybee Scouts",
+     "passage": "When a honeybee scout finds a rich patch of flowers, she returns to the hive and performs a 'waggle dance,' moving in a figure-eight pattern. The direction and length of the dance tell other bees exactly which way to fly and how far the flowers are. A chart included with the article shows the angle of the dance compared to the position of the sun."
+    },
+    {
+     "ref": "SIH-SK-003",
+     "level": "ABOVE",
+     "stem": "Which detail from the passage serves as supporting evidence that the waggle dance communicates real information, not just random movement?",
+     "options": [
+      "bees live in hives",
+      "the dance's direction and length tell other bees exactly which way and how far to fly",
+      "flowers come in many colors",
+      "bees are insects"
+     ],
+     "correct": "B",
+     "why": "This detail directly explains how the dance conveys specific, useful information, supporting the idea that it is a real form of communication.",
+     "passageTitle": "Honeybee Scouts",
+     "passage": "When a honeybee scout finds a rich patch of flowers, she returns to the hive and performs a 'waggle dance,' moving in a figure-eight pattern. The direction and length of the dance tell other bees exactly which way to fly and how far the flowers are. A chart included with the article shows the angle of the dance compared to the position of the sun."
+    },
+    {
+     "ref": "SIH-SK-004",
+     "level": "BELOW",
+     "stem": "Which key detail from the passage tells us exactly when Gutenberg built his printing press?",
+     "options": [
+      "Within fifty years, presses had spread across Europe.",
+      "In 1440, Johannes Gutenberg built a printing press.",
+      "A monk might spend months copying one book.",
+      "Printing presses produced millions of books."
+     ],
+     "correct": "B",
+     "why": "The passage gives the specific date 1440 as when Gutenberg built the press.",
+     "passageTitle": "The First Printing Press",
+     "passage": "In 1440, Johannes Gutenberg built a printing press that used movable metal letters, allowing pages to be printed far faster than by hand copying. Before his invention, a single monk might spend months copying one book by hand. Within fifty years, printing presses had spread across Europe and produced millions of books."
+    },
+    {
+     "ref": "SIH-SK-005",
+     "level": "ON",
+     "stem": "Which example from the passage best supports the idea that hand-copying books was slow?",
+     "options": [
+      "printing presses used movable metal letters",
+      "a single monk might spend months copying one book by hand",
+      "presses spread across Europe within fifty years",
+      "millions of books were eventually produced"
+     ],
+     "correct": "B",
+     "why": "The detail about a monk spending months on one book is a concrete example showing just how slow hand-copying was.",
+     "passageTitle": "The First Printing Press",
+     "passage": "In 1440, Johannes Gutenberg built a printing press that used movable metal letters, allowing pages to be printed far faster than by hand copying. Before his invention, a single monk might spend months copying one book by hand. Within fifty years, printing presses had spread across Europe and produced millions of books."
+    },
+    {
+     "ref": "SIH-SK-006",
+     "level": "ABOVE",
+     "stem": "What is the overall purpose of mentioning that printing presses 'produced millions of books' within fifty years?",
+     "options": [
+      "to show how expensive books became",
+      "to provide evidence of how dramatically and quickly printing changed the spread of books",
+      "to explain how monks felt about printing",
+      "to describe what pitchblende is"
+     ],
+     "correct": "B",
+     "why": "This detail serves as evidence showing the enormous, rapid impact the printing press had on book production.",
+     "passageTitle": "The First Printing Press",
+     "passage": "In 1440, Johannes Gutenberg built a printing press that used movable metal letters, allowing pages to be printed far faster than by hand copying. Before his invention, a single monk might spend months copying one book by hand. Within fifty years, printing presses had spread across Europe and produced millions of books."
+    },
+    {
+     "ref": "SIH-SK-007",
+     "level": "BELOW",
+     "stem": "Which key detail tells readers exactly what year Marie Curie isolated the two new elements?",
+     "options": [
+      "She tested tons of pitchblende.",
+      "In 1898, she and Pierre isolated polonium and radium.",
+      "She worked in a cold, leaky shed.",
+      "Her notebooks helped doctors later."
+     ],
+     "correct": "B",
+     "why": "The passage states the specific year, 1898, when the elements were isolated.",
+     "passageTitle": "Marie Curie's Discovery",
+     "passage": "Marie Curie spent years testing tons of a mineral called pitchblende in a cold, leaky shed because she suspected it contained an unknown element. In 1898, she and her husband Pierre successfully isolated two new radioactive elements, which she named polonium and radium. Her careful measurements, recorded in dozens of notebooks, eventually helped doctors develop new treatments for cancer."
+    },
+    {
+     "ref": "SIH-SK-008",
+     "level": "ON",
+     "stem": "What supporting evidence shows that Marie Curie's work was difficult and demanding?",
+     "options": [
+      "she named the elements polonium and radium",
+      "she worked for years testing tons of mineral in a cold, leaky shed",
+      "her work helped treat cancer",
+      "she recorded her results in notebooks"
+     ],
+     "correct": "B",
+     "why": "Working for years in harsh conditions on huge quantities of material is direct evidence of how demanding her research was.",
+     "passageTitle": "Marie Curie's Discovery",
+     "passage": "Marie Curie spent years testing tons of a mineral called pitchblende in a cold, leaky shed because she suspected it contained an unknown element. In 1898, she and her husband Pierre successfully isolated two new radioactive elements, which she named polonium and radium. Her careful measurements, recorded in dozens of notebooks, eventually helped doctors develop new treatments for cancer."
+    },
+    {
+     "ref": "SIH-SK-009",
+     "level": "ABOVE",
+     "stem": "Why does the author likely mention that Curie's measurements 'eventually helped doctors develop new treatments for cancer'?",
+     "options": [
+      "to prove pitchblende is a common rock",
+      "to give a pertinent example of the real-world impact of her discovery",
+      "to explain how radium is mined today",
+      "to describe the shed she worked in"
+     ],
+     "correct": "B",
+     "why": "This detail is a pertinent example connecting her scientific discovery to a meaningful, real-world benefit.",
+     "passageTitle": "Marie Curie's Discovery",
+     "passage": "Marie Curie spent years testing tons of a mineral called pitchblende in a cold, leaky shed because she suspected it contained an unknown element. In 1898, she and her husband Pierre successfully isolated two new radioactive elements, which she named polonium and radium. Her careful measurements, recorded in dozens of notebooks, eventually helped doctors develop new treatments for cancer."
+    },
+    {
+     "ref": "SIH-SK-010",
+     "level": "BELOW",
+     "stem": "Which key detail gives the approximate total distance Arctic terns fly each year?",
+     "options": [
+      "30 years",
+      "44,000 miles",
+      "a million miles",
+      "the Atlantic Ocean"
+     ],
+     "correct": "B",
+     "why": "The passage states that terns cover roughly 44,000 miles in their yearly round trip.",
+     "passageTitle": "Migration of Arctic Terns",
+     "passage": "Arctic terns fly from the Arctic to Antarctica and back again every single year, covering roughly 44,000 miles in total. Scientists tracked one tern that lived for about thirty years, meaning it may have flown over a million miles in its lifetime. A map in the article traces the bird's looping path down the Atlantic Ocean and back."
+    },
+    {
+     "ref": "SIH-SK-011",
+     "level": "ON",
+     "stem": "What is the most likely purpose of the map described in the passage?",
+     "options": [
+      "to show where the tern was born",
+      "to help readers visualize the long, looping migration route the tern followed",
+      "to show the weight of the bird",
+      "to compare terns to other bird species"
+     ],
+     "correct": "B",
+     "why": "A map tracing the bird's path helps readers see and understand the shape and scale of its migration route.",
+     "passageTitle": "Migration of Arctic Terns",
+     "passage": "Arctic terns fly from the Arctic to Antarctica and back again every single year, covering roughly 44,000 miles in total. Scientists tracked one tern that lived for about thirty years, meaning it may have flown over a million miles in its lifetime. A map in the article traces the bird's looping path down the Atlantic Ocean and back."
+    },
+    {
+     "ref": "SIH-SK-012",
+     "level": "ABOVE",
+     "stem": "Which detail serves as supporting evidence for the claim that a single tern can fly 'over a million miles in its lifetime'?",
+     "options": [
+      "the tern lived for about thirty years and travels roughly 44,000 miles yearly",
+      "the map traces a looping path",
+      "terns fly from the Arctic to Antarctica",
+      "scientists track birds using tags"
+     ],
+     "correct": "A",
+     "why": "Multiplying the tern's roughly thirty-year lifespan by its yearly distance supports the claim about lifetime mileage.",
+     "passageTitle": "Migration of Arctic Terns",
+     "passage": "Arctic terns fly from the Arctic to Antarctica and back again every single year, covering roughly 44,000 miles in total. Scientists tracked one tern that lived for about thirty years, meaning it may have flown over a million miles in its lifetime. A map in the article traces the bird's looping path down the Atlantic Ocean and back."
+    },
+    {
+     "ref": "SIH-SK-013",
+     "level": "BELOW",
+     "stem": "Which key detail tells readers approximately how many limestone blocks were used to build the pyramid?",
+     "options": [
+      "nine tons",
+      "more than two million blocks",
+      "thousands of workers",
+      "ramps for hauling stones"
+     ],
+     "correct": "B",
+     "why": "The passage states that more than two million limestone blocks were used.",
+     "passageTitle": "Building the Great Pyramid",
+     "passage": "Workers built the Great Pyramid of Giza using more than two million limestone blocks, some weighing as much as nine tons. Archaeologists have found worker villages nearby with bakeries and bread molds, suggesting thousands of paid laborers, not slaves, built the pyramid. A diagram shows the ramps researchers believe workers used to haul the heavy stones upward."
+    },
+    {
+     "ref": "SIH-SK-014",
+     "level": "ON",
+     "stem": "What evidence does the passage give to support the idea that paid laborers, not slaves, built the pyramid?",
+     "options": [
+      "the blocks weighed up to nine tons",
+      "worker villages nearby included bakeries and bread molds",
+      "the pyramid is in Giza",
+      "ramps were used to move stone"
+     ],
+     "correct": "B",
+     "why": "Finding bakeries and bread molds in worker villages suggests organized, supported laborers rather than enslaved workers.",
+     "passageTitle": "Building the Great Pyramid",
+     "passage": "Workers built the Great Pyramid of Giza using more than two million limestone blocks, some weighing as much as nine tons. Archaeologists have found worker villages nearby with bakeries and bread molds, suggesting thousands of paid laborers, not slaves, built the pyramid. A diagram shows the ramps researchers believe workers used to haul the heavy stones upward."
+    },
+    {
+     "ref": "SIH-SK-015",
+     "level": "ABOVE",
+     "stem": "What is the likely purpose of the diagram mentioned in the passage?",
+     "options": [
+      "to show what bread molds look like",
+      "to help readers understand how workers may have moved heavy stones using ramps",
+      "to compare pyramid sizes around the world",
+      "to list the names of the workers"
+     ],
+     "correct": "B",
+     "why": "The diagram illustrates the ramps researchers believe were used, helping readers visualize the construction method.",
+     "passageTitle": "Building the Great Pyramid",
+     "passage": "Workers built the Great Pyramid of Giza using more than two million limestone blocks, some weighing as much as nine tons. Archaeologists have found worker villages nearby with bakeries and bread molds, suggesting thousands of paid laborers, not slaves, built the pyramid. A diagram shows the ramps researchers believe workers used to haul the heavy stones upward."
+    },
+    {
+     "ref": "SIH-SK-016",
+     "level": "BELOW",
+     "stem": "Which key detail explains how quickly an octopus can change its appearance?",
+     "options": [
+      "in less than a second",
+      "over several days",
+      "once a year",
+      "only underwater at night"
+     ],
+     "correct": "A",
+     "why": "The passage states that an octopus can change color and texture in less than a second.",
+     "passageTitle": "The Octopus's Clever Camouflage",
+     "passage": "An octopus can change both the color and the texture of its skin in less than a second to match rocks, sand, or coral. Special cells called chromatophores expand and contract to produce different colors almost instantly. A close-up photograph included with the article shows an octopus blending almost perfectly into a bed of orange coral."
+    },
+    {
+     "ref": "SIH-SK-017",
+     "level": "ON",
+     "stem": "What supporting evidence explains HOW an octopus is able to change color so quickly?",
+     "options": [
+      "it lives near coral reefs",
+      "special cells called chromatophores expand and contract to produce different colors",
+      "it has eight arms",
+      "it can swim quickly"
+     ],
+     "correct": "B",
+     "why": "The passage explains the mechanism, chromatophores, that allows the rapid color change, supporting the main claim.",
+     "passageTitle": "The Octopus's Clever Camouflage",
+     "passage": "An octopus can change both the color and the texture of its skin in less than a second to match rocks, sand, or coral. Special cells called chromatophores expand and contract to produce different colors almost instantly. A close-up photograph included with the article shows an octopus blending almost perfectly into a bed of orange coral."
+    },
+    {
+     "ref": "SIH-SK-018",
+     "level": "ABOVE",
+     "stem": "What is the purpose of including the close-up photograph described in the passage?",
+     "options": [
+      "to show what chromatophores look like under a microscope",
+      "to let readers see just how well the octopus blends into its coral surroundings",
+      "to show how big an octopus can grow",
+      "to compare an octopus to a squid"
+     ],
+     "correct": "B",
+     "why": "The photograph visually demonstrates the camouflage effect described in the text, letting readers see it for themselves.",
+     "passageTitle": "The Octopus's Clever Camouflage",
+     "passage": "An octopus can change both the color and the texture of its skin in less than a second to match rocks, sand, or coral. Special cells called chromatophores expand and contract to produce different colors almost instantly. A close-up photograph included with the article shows an octopus blending almost perfectly into a bed of orange coral."
+    },
+    {
+     "ref": "SIH-SK-019",
+     "level": "BELOW",
+     "stem": "Which key detail tells readers exactly how long Amelia Earhart's flight lasted?",
+     "options": [
+      "nearly fifteen hours",
+      "1932",
+      "Ireland",
+      "a leaking fuel gauge"
+     ],
+     "correct": "A",
+     "why": "The passage states the flight lasted nearly fifteen hours.",
+     "passageTitle": "Amelia Earhart's Record Flight",
+     "passage": "In 1932, Amelia Earhart became the first woman to fly solo across the Atlantic Ocean, landing in a pasture in Ireland after nearly fifteen hours in the air. Her plane had faced icy conditions and a leaking fuel gauge during the flight. Newspapers around the world printed her photograph on their front pages the following morning."
+    },
+    {
+     "ref": "SIH-SK-020",
+     "level": "ON",
+     "stem": "Which detail serves as supporting evidence that the flight was dangerous?",
+     "options": [
+      "she landed in a pasture",
+      "her plane faced icy conditions and a leaking fuel gauge",
+      "newspapers printed her photo",
+      "she flew in 1932"
+     ],
+     "correct": "B",
+     "why": "Facing icy conditions and equipment problems during the flight is direct evidence of the danger involved.",
+     "passageTitle": "Amelia Earhart's Record Flight",
+     "passage": "In 1932, Amelia Earhart became the first woman to fly solo across the Atlantic Ocean, landing in a pasture in Ireland after nearly fifteen hours in the air. Her plane had faced icy conditions and a leaking fuel gauge during the flight. Newspapers around the world printed her photograph on their front pages the following morning."
+    },
+    {
+     "ref": "SIH-SK-021",
+     "level": "ABOVE",
+     "stem": "Why does the passage likely mention that newspapers 'printed her photograph on their front pages the following morning'?",
+     "options": [
+      "to prove that cameras existed in 1932",
+      "to show how significant and celebrated her achievement was at the time",
+      "to explain how airplanes were built",
+      "to describe the weather in Ireland"
+     ],
+     "correct": "B",
+     "why": "Front-page coverage worldwide is evidence of how big an achievement her flight was considered at the time.",
+     "passageTitle": "Amelia Earhart's Record Flight",
+     "passage": "In 1932, Amelia Earhart became the first woman to fly solo across the Atlantic Ocean, landing in a pasture in Ireland after nearly fifteen hours in the air. Her plane had faced icy conditions and a leaking fuel gauge during the flight. Newspapers around the world printed her photograph on their front pages the following morning."
+    },
+    {
+     "ref": "SIH-SK-022",
+     "level": "BELOW",
+     "stem": "Which key detail tells readers approximately when the Library of Alexandria was built?",
+     "options": [
+      "around 300 BCE",
+      "hundreds of thousands of scrolls",
+      "mathematics and medicine",
+      "scholars traveled there"
+     ],
+     "correct": "A",
+     "why": "The passage states the library was built around 300 BCE.",
+     "passageTitle": "The Ancient Library of Alexandria",
+     "passage": "The Library of Alexandria, built in Egypt around 300 BCE, may have held hundreds of thousands of scrolls on subjects ranging from mathematics to medicine. Scholars from across the ancient world traveled there to study and copy rare texts. A timeline in the article shows how the library grew over several centuries before it was eventually destroyed."
+    },
+    {
+     "ref": "SIH-SK-023",
+     "level": "ON",
+     "stem": "What evidence from the passage supports the idea that the library was an important center of learning?",
+     "options": [
+      "it was located in Egypt",
+      "scholars from across the ancient world traveled there to study and copy rare texts",
+      "it was eventually destroyed",
+      "it had many scrolls"
+     ],
+     "correct": "B",
+     "why": "Scholars traveling from far away specifically to study there is strong evidence of the library's importance as a center of learning.",
+     "passageTitle": "The Ancient Library of Alexandria",
+     "passage": "The Library of Alexandria, built in Egypt around 300 BCE, may have held hundreds of thousands of scrolls on subjects ranging from mathematics to medicine. Scholars from across the ancient world traveled there to study and copy rare texts. A timeline in the article shows how the library grew over several centuries before it was eventually destroyed."
+    },
+    {
+     "ref": "SIH-SK-024",
+     "level": "ABOVE",
+     "stem": "What is the purpose of the timeline mentioned in the passage?",
+     "options": [
+      "to list the names of every scholar who visited",
+      "to help readers see how the library changed and grew across several centuries",
+      "to show the exact number of scrolls lost",
+      "to compare it to a modern library"
+     ],
+     "correct": "B",
+     "why": "The timeline is meant to show the library's growth and history over an extended period of time.",
+     "passageTitle": "The Ancient Library of Alexandria",
+     "passage": "The Library of Alexandria, built in Egypt around 300 BCE, may have held hundreds of thousands of scrolls on subjects ranging from mathematics to medicine. Scholars from across the ancient world traveled there to study and copy rare texts. A timeline in the article shows how the library grew over several centuries before it was eventually destroyed."
+    },
+    {
+     "ref": "SIH-SK-025",
+     "level": "BELOW",
+     "stem": "Which key detail tells readers what percentage of marine species coral reefs support?",
+     "options": [
+      "less than one percent",
+      "roughly a quarter",
+      "fifty years",
+      "a quarter of ocean temperatures"
+     ],
+     "correct": "B",
+     "why": "The passage states that coral reefs support roughly a quarter of all known marine species.",
+     "passageTitle": "Coral Reefs Under Threat",
+     "passage": "Coral reefs cover less than one percent of the ocean floor, yet they support roughly a quarter of all known marine species. When ocean water becomes too warm, corals can expel the colorful algae living inside them in a process called bleaching, leaving the coral white and vulnerable. A graph in the article tracks rising ocean temperatures over the past fifty years."
+    },
+    {
+     "ref": "SIH-SK-026",
+     "level": "ON",
+     "stem": "Which detail is a pertinent example of what happens when ocean water becomes too warm?",
+     "options": [
+      "reefs cover less than one percent of the ocean floor",
+      "corals expel colorful algae in a process called bleaching",
+      "reefs support many species",
+      "a graph tracks ocean temperatures"
+     ],
+     "correct": "B",
+     "why": "Coral bleaching is given as a specific, directly relevant example of the effect of warming ocean water on reefs.",
+     "passageTitle": "Coral Reefs Under Threat",
+     "passage": "Coral reefs cover less than one percent of the ocean floor, yet they support roughly a quarter of all known marine species. When ocean water becomes too warm, corals can expel the colorful algae living inside them in a process called bleaching, leaving the coral white and vulnerable. A graph in the article tracks rising ocean temperatures over the past fifty years."
+    },
+    {
+     "ref": "SIH-SK-027",
+     "level": "ABOVE",
+     "stem": "What is the likely purpose of the graph described in the passage?",
+     "options": [
+      "to show the exact number of fish species in reefs",
+      "to show how ocean temperatures have changed over the past fifty years",
+      "to compare reef colors around the world",
+      "to list countries with coral reefs"
+     ],
+     "correct": "B",
+     "why": "The graph is described as tracking temperature change over fifty years, helping readers see the trend described in the text.",
+     "passageTitle": "Coral Reefs Under Threat",
+     "passage": "Coral reefs cover less than one percent of the ocean floor, yet they support roughly a quarter of all known marine species. When ocean water becomes too warm, corals can expel the colorful algae living inside them in a process called bleaching, leaving the coral white and vulnerable. A graph in the article tracks rising ocean temperatures over the past fifty years."
+    },
+    {
+     "ref": "SIH-SK-028",
+     "level": "BELOW",
+     "stem": "Which key detail tells readers the exact date of the Wright brothers' first powered flight?",
+     "options": [
+      "December 17, 1903",
+      "twelve seconds",
+      "120 feet",
+      "a homemade wind tunnel"
+     ],
+     "correct": "A",
+     "why": "The passage gives the exact date, December 17, 1903, for the first flight.",
+     "passageTitle": "The Wright Brothers' First Flight",
+     "passage": "On December 17, 1903, Orville Wright flew the Wright brothers' first powered airplane for twelve seconds, covering a distance of 120 feet. The brothers had tested dozens of wing designs using a homemade wind tunnel before that historic flight. A photograph taken at the exact moment of liftoff later became one of the most famous images in aviation history."
+    },
+    {
+     "ref": "SIH-SK-029",
+     "level": "ON",
+     "stem": "Which detail serves as supporting evidence that the brothers carefully prepared before their historic flight?",
+     "options": [
+      "the flight lasted only twelve seconds",
+      "they tested dozens of wing designs using a homemade wind tunnel",
+      "Orville flew the plane",
+      "a photograph was taken"
+     ],
+     "correct": "B",
+     "why": "Testing dozens of wing designs beforehand is evidence of the careful preparation behind their success.",
+     "passageTitle": "The Wright Brothers' First Flight",
+     "passage": "On December 17, 1903, Orville Wright flew the Wright brothers' first powered airplane for twelve seconds, covering a distance of 120 feet. The brothers had tested dozens of wing designs using a homemade wind tunnel before that historic flight. A photograph taken at the exact moment of liftoff later became one of the most famous images in aviation history."
+    },
+    {
+     "ref": "SIH-SK-030",
+     "level": "ABOVE",
+     "stem": "What is the likely purpose of the photograph mentioned in the passage?",
+     "options": [
+      "to show what the wind tunnel looked like",
+      "to capture and preserve the exact historic moment the plane left the ground",
+      "to show the brothers as children",
+      "to compare the plane to a bird"
+     ],
+     "correct": "B",
+     "why": "The photograph is described as capturing the exact moment of liftoff, preserving that historic instant visually.",
+     "passageTitle": "The Wright Brothers' First Flight",
+     "passage": "On December 17, 1903, Orville Wright flew the Wright brothers' first powered airplane for twelve seconds, covering a distance of 120 feet. The brothers had tested dozens of wing designs using a homemade wind tunnel before that historic flight. A photograph taken at the exact moment of liftoff later became one of the most famous images in aviation history."
+    },
+    {
+     "ref": "SIH-SK-031",
+     "level": "BELOW",
+     "stem": "Which key detail explains where female sea turtles often return to lay their eggs?",
+     "options": [
+      "any warm beach nearby",
+      "the very same beach where they themselves hatched decades earlier",
+      "a beach chosen at random each year",
+      "a beach close to deep water only"
+     ],
+     "correct": "B",
+     "why": "The passage states turtles often return to the exact beach where they hatched, sometimes decades earlier.",
+     "passageTitle": "Sea Turtle Navigation",
+     "passage": "Female sea turtles often return to lay their eggs on the very same beach where they themselves hatched decades earlier, sometimes after swimming thousands of miles. Scientists believe turtles sense the Earth's magnetic field and use it like an internal compass to find their way home. A map included with the article shows the long migration routes of three tracked turtles."
+    },
+    {
+     "ref": "SIH-SK-032",
+     "level": "ON",
+     "stem": "What evidence does the passage give to explain HOW turtles find their way home across long distances?",
+     "options": [
+      "turtles swim very fast",
+      "turtles likely sense the Earth's magnetic field and use it like an internal compass",
+      "turtles lay many eggs",
+      "turtles live for decades"
+     ],
+     "correct": "B",
+     "why": "The passage explains the magnetic-field sensing ability as the mechanism supporting the turtles' long-distance navigation.",
+     "passageTitle": "Sea Turtle Navigation",
+     "passage": "Female sea turtles often return to lay their eggs on the very same beach where they themselves hatched decades earlier, sometimes after swimming thousands of miles. Scientists believe turtles sense the Earth's magnetic field and use it like an internal compass to find their way home. A map included with the article shows the long migration routes of three tracked turtles."
+    },
+    {
+     "ref": "SIH-SK-033",
+     "level": "ABOVE",
+     "stem": "What is the purpose of the map described in the passage?",
+     "options": [
+      "to show where turtle eggs are sold",
+      "to let readers visualize the long migration routes of three tracked turtles",
+      "to compare turtle shell sizes",
+      "to show ocean depth"
+     ],
+     "correct": "B",
+     "why": "The map is explicitly described as showing the long migration routes, helping readers visualize the turtles' journeys.",
+     "passageTitle": "Sea Turtle Navigation",
+     "passage": "Female sea turtles often return to lay their eggs on the very same beach where they themselves hatched decades earlier, sometimes after swimming thousands of miles. Scientists believe turtles sense the Earth's magnetic field and use it like an internal compass to find their way home. A map included with the article shows the long migration routes of three tracked turtles."
+    },
+    {
+     "ref": "SIH-SK-034",
+     "level": "BELOW",
+     "stem": "Which key detail tells readers how much water a camel can drink in ten minutes?",
+     "options": [
+      "up to thirty gallons",
+      "more than a week",
+      "fat for energy",
+      "extreme desert heat"
+     ],
+     "correct": "A",
+     "why": "The passage states a camel can drink up to thirty gallons of water in ten minutes.",
+     "passageTitle": "Camels in the Desert",
+     "passage": "A camel can drink up to thirty gallons of water in just ten minutes and then go without drinking again for more than a week. Its hump does not store water as many people believe; instead, it stores fat that the camel's body can convert into energy and water. A diagram labels the parts of a camel's body that help it survive extreme desert heat."
+    },
+    {
+     "ref": "SIH-SK-035",
+     "level": "ON",
+     "stem": "Which detail corrects a common misunderstanding about camels, according to the passage?",
+     "options": [
+      "camels can go a week without water",
+      "the hump does not store water; it stores fat",
+      "camels live in deserts",
+      "camels drink large amounts of water quickly"
+     ],
+     "correct": "B",
+     "why": "The passage directly addresses and corrects the misconception that camel humps store water.",
+     "passageTitle": "Camels in the Desert",
+     "passage": "A camel can drink up to thirty gallons of water in just ten minutes and then go without drinking again for more than a week. Its hump does not store water as many people believe; instead, it stores fat that the camel's body can convert into energy and water. A diagram labels the parts of a camel's body that help it survive extreme desert heat."
+    },
+    {
+     "ref": "SIH-SK-036",
+     "level": "ABOVE",
+     "stem": "What is the likely purpose of the diagram described in the passage?",
+     "options": [
+      "to show how much a camel weighs",
+      "to label the parts of a camel's body that help it survive desert heat",
+      "to compare camels to horses",
+      "to show where camels are sold"
+     ],
+     "correct": "B",
+     "why": "The diagram is described as labeling body parts related to heat survival, helping readers connect anatomy to function.",
+     "passageTitle": "Camels in the Desert",
+     "passage": "A camel can drink up to thirty gallons of water in just ten minutes and then go without drinking again for more than a week. Its hump does not store water as many people believe; instead, it stores fat that the camel's body can convert into energy and water. A diagram labels the parts of a camel's body that help it survive extreme desert heat."
+    },
+    {
+     "ref": "SIH-SK-037",
+     "level": "BELOW",
+     "stem": "Which key detail explains what the Nile's yearly flood deposited on farmland?",
+     "options": [
+      "a thick layer of rich black soil",
+      "wheat and barley seeds",
+      "a stone calendar",
+      "fresh water only"
+     ],
+     "correct": "A",
+     "why": "The passage states the flood deposited a thick layer of rich black soil.",
+     "passageTitle": "The Nile River's Yearly Flood",
+     "passage": "For thousands of years, the Nile River flooded its banks every summer, depositing a thick layer of rich black soil across the surrounding farmland. Ancient Egyptian farmers depended on this flood to grow wheat and barley, and they even developed a calendar based on its yearly pattern. A chart in the article compares the Nile's historic flood levels across several centuries."
+    },
+    {
+     "ref": "SIH-SK-038",
+     "level": "ON",
+     "stem": "What is a pertinent example from the passage of how ancient Egyptians depended on the Nile's flood?",
+     "options": [
+      "they built pyramids nearby",
+      "they grew wheat and barley using the fertile soil left behind",
+      "they sailed boats on the river",
+      "they worshipped many gods"
+     ],
+     "correct": "B",
+     "why": "Growing wheat and barley using the flood-enriched soil is a specific, directly relevant example of this dependence.",
+     "passageTitle": "The Nile River's Yearly Flood",
+     "passage": "For thousands of years, the Nile River flooded its banks every summer, depositing a thick layer of rich black soil across the surrounding farmland. Ancient Egyptian farmers depended on this flood to grow wheat and barley, and they even developed a calendar based on its yearly pattern. A chart in the article compares the Nile's historic flood levels across several centuries."
+    },
+    {
+     "ref": "SIH-SK-039",
+     "level": "ABOVE",
+     "stem": "What is the likely purpose of the chart described in the passage?",
+     "options": [
+      "to compare the Nile to other rivers in the world",
+      "to show how flood levels changed across several centuries",
+      "to list the crops Egyptians grew",
+      "to show the river's exact length"
+     ],
+     "correct": "B",
+     "why": "The chart is described as comparing flood levels across centuries, letting readers see historical patterns.",
+     "passageTitle": "The Nile River's Yearly Flood",
+     "passage": "For thousands of years, the Nile River flooded its banks every summer, depositing a thick layer of rich black soil across the surrounding farmland. Ancient Egyptian farmers depended on this flood to grow wheat and barley, and they even developed a calendar based on its yearly pattern. A chart in the article compares the Nile's historic flood levels across several centuries."
+    },
+    {
+     "ref": "SIH-SK-040",
+     "level": "BELOW",
+     "stem": "Which key detail names the technique Rosalind Franklin used to study DNA?",
+     "options": [
+      "X-ray diffraction",
+      "Photo 51",
+      "a double helix",
+      "genetic information"
+     ],
+     "correct": "A",
+     "why": "The passage names X-ray diffraction as the technique Franklin used.",
+     "passageTitle": "Rosalind Franklin and DNA",
+     "passage": "Rosalind Franklin used a technique called X-ray diffraction to capture an image, known as Photo 51, that revealed the double-helix shape of DNA. Her careful, painstaking lab work took months of trial and error to perfect. Other scientists later used her image to help build a model explaining how DNA carries genetic information."
+    },
+    {
+     "ref": "SIH-SK-041",
+     "level": "ON",
+     "stem": "Which detail serves as supporting evidence that Franklin's work required great skill and patience?",
+     "options": [
+      "she worked with X-rays",
+      "her careful, painstaking lab work took months of trial and error to perfect",
+      "other scientists used her image",
+      "DNA has a double-helix shape"
+     ],
+     "correct": "B",
+     "why": "Spending months of trial and error on careful lab work is clear evidence of the skill and patience her research required.",
+     "passageTitle": "Rosalind Franklin and DNA",
+     "passage": "Rosalind Franklin used a technique called X-ray diffraction to capture an image, known as Photo 51, that revealed the double-helix shape of DNA. Her careful, painstaking lab work took months of trial and error to perfect. Other scientists later used her image to help build a model explaining how DNA carries genetic information."
+    },
+    {
+     "ref": "SIH-SK-042",
+     "level": "ABOVE",
+     "stem": "Why does the passage likely mention that 'other scientists later used her image to help build a model explaining how DNA carries genetic information'?",
+     "options": [
+      "to prove DNA was first discovered by Franklin alone",
+      "to give a pertinent example of how her discovery impacted later scientific understanding",
+      "to describe what a double helix looks like",
+      "to explain how X-rays are produced"
+     ],
+     "correct": "B",
+     "why": "This detail connects Franklin's specific discovery to its real, lasting impact on scientific understanding, which is a pertinent example.",
+     "passageTitle": "Rosalind Franklin and DNA",
+     "passage": "Rosalind Franklin used a technique called X-ray diffraction to capture an image, known as Photo 51, that revealed the double-helix shape of DNA. Her careful, painstaking lab work took months of trial and error to perfect. Other scientists later used her image to help build a model explaining how DNA carries genetic information."
+    },
+    {
+     "ref": "SIH-SK-043",
+     "level": "BELOW",
+     "stem": "Which key detail tells readers roughly how much a modern electric car battery pack can weigh?",
+     "options": [
+      "over a thousand pounds",
+      "300 miles",
+      "several hours",
+      "a decade ago"
+     ],
+     "correct": "A",
+     "why": "The passage states battery packs can weigh over a thousand pounds.",
+     "passageTitle": "Electric Cars and Batteries",
+     "passage": "Modern electric cars rely on large lithium-ion battery packs that can weigh over a thousand pounds and take several hours to fully recharge. Engineers have steadily increased how far a single charge can carry a car, from under 100 miles a decade ago to over 300 miles in many new models today. A graph in the article shows how driving range has improved year by year."
+    },
+    {
+     "ref": "SIH-SK-044",
+     "level": "ON",
+     "stem": "Which detail is supporting evidence that electric car technology has improved significantly over the last decade?",
+     "options": [
+      "batteries take several hours to recharge",
+      "driving range has grown from under 100 miles to over 300 miles in many new models",
+      "battery packs are heavy",
+      "engineers work on car design"
+     ],
+     "correct": "B",
+     "why": "The large increase in driving range over ten years is direct evidence of significant technological improvement.",
+     "passageTitle": "Electric Cars and Batteries",
+     "passage": "Modern electric cars rely on large lithium-ion battery packs that can weigh over a thousand pounds and take several hours to fully recharge. Engineers have steadily increased how far a single charge can carry a car, from under 100 miles a decade ago to over 300 miles in many new models today. A graph in the article shows how driving range has improved year by year."
+    },
+    {
+     "ref": "SIH-SK-045",
+     "level": "ABOVE",
+     "stem": "What is the likely purpose of the graph described in this passage about electric cars?",
+     "options": [
+      "to show the price of electric cars",
+      "to show how driving range has changed year by year",
+      "to compare battery colors",
+      "to list car brands"
+     ],
+     "correct": "B",
+     "why": "The graph is described as tracking range improvement over time, helping readers visualize the trend.",
+     "passageTitle": "Electric Cars and Batteries",
+     "passage": "Modern electric cars rely on large lithium-ion battery packs that can weigh over a thousand pounds and take several hours to fully recharge. Engineers have steadily increased how far a single charge can carry a car, from under 100 miles a decade ago to over 300 miles in many new models today. A graph in the article shows how driving range has improved year by year."
+    },
+    {
+     "ref": "SIH-SK-046",
+     "level": "BELOW",
+     "stem": "Which key detail tells readers how old some trapped air bubbles in the ice cores can be?",
+     "options": [
+      "more than 800,000 years old",
+      "several hours old",
+      "30 feet long",
+      "from last winter only"
+     ],
+     "correct": "A",
+     "why": "The passage states some air bubbles are more than 800,000 years old.",
+     "passageTitle": "Antarctic Ice Cores",
+     "passage": "Scientists drill deep into Antarctic ice and pull out long cylindrical samples called ice cores, some containing air bubbles trapped more than 800,000 years ago. By studying gases trapped inside these bubbles, researchers can estimate what Earth's atmosphere and climate were like long before humans kept written records. A photograph shows a scientist carefully holding a freshly drilled ice core in a bright white lab."
+    },
+    {
+     "ref": "SIH-SK-047",
+     "level": "ON",
+     "stem": "What evidence does the passage give to explain why ice cores are scientifically valuable?",
+     "options": [
+      "they are shaped like cylinders",
+      "researchers can study trapped gases to estimate Earth's ancient atmosphere and climate",
+      "they are drilled in Antarctica",
+      "scientists wear white lab coats"
+     ],
+     "correct": "B",
+     "why": "The ability to learn about ancient atmosphere and climate from trapped gases is the key evidence of the cores' scientific value.",
+     "passageTitle": "Antarctic Ice Cores",
+     "passage": "Scientists drill deep into Antarctic ice and pull out long cylindrical samples called ice cores, some containing air bubbles trapped more than 800,000 years ago. By studying gases trapped inside these bubbles, researchers can estimate what Earth's atmosphere and climate were like long before humans kept written records. A photograph shows a scientist carefully holding a freshly drilled ice core in a bright white lab."
+    },
+    {
+     "ref": "SIH-SK-048",
+     "level": "ABOVE",
+     "stem": "What is the likely purpose of the photograph described in the passage?",
+     "options": [
+      "to show what Antarctica looks like from space",
+      "to show readers what a freshly drilled ice core sample actually looks like",
+      "to compare ice cores to glaciers",
+      "to show the temperature of the lab"
+     ],
+     "correct": "B",
+     "why": "The photograph is described as showing a scientist holding a core sample, helping readers picture the physical object discussed.",
+     "passageTitle": "Antarctic Ice Cores",
+     "passage": "Scientists drill deep into Antarctic ice and pull out long cylindrical samples called ice cores, some containing air bubbles trapped more than 800,000 years ago. By studying gases trapped inside these bubbles, researchers can estimate what Earth's atmosphere and climate were like long before humans kept written records. A photograph shows a scientist carefully holding a freshly drilled ice core in a bright white lab."
+    },
+    {
+     "ref": "SIH-SK-049",
+     "level": "BELOW",
+     "stem": "Which key detail tells readers how old Louis Braille was when he became blind?",
+     "options": [
+      "five years old",
+      "fifteen years old",
+      "130 languages",
+      "raised dots"
+     ],
+     "correct": "A",
+     "why": "The passage states Braille became blind at the age of five.",
+     "passageTitle": "The Invention of Braille",
+     "passage": "Louis Braille, who became blind at the age of five, developed a system of raised dots that blind readers could feel with their fingertips to read words. He finished an early version of his system by the time he was just fifteen years old. Today, Braille has been adapted into more than 130 languages around the world."
+    },
+    {
+     "ref": "SIH-SK-050",
+     "level": "ON",
+     "stem": "Which detail serves as supporting evidence that Braille's system became widely useful around the world?",
+     "options": [
+      "he became blind at age five",
+      "today, Braille has been adapted into more than 130 languages",
+      "he finished an early version by age fifteen",
+      "raised dots can be felt with fingertips"
+     ],
+     "correct": "B",
+     "why": "Being adapted into more than 130 languages is strong evidence of how widely useful and successful the Braille system became.",
+     "passageTitle": "The Invention of Braille",
+     "passage": "Louis Braille, who became blind at the age of five, developed a system of raised dots that blind readers could feel with their fingertips to read words. He finished an early version of his system by the time he was just fifteen years old. Today, Braille has been adapted into more than 130 languages around the world."
+    },
+    {
+     "ref": "SIH-SK-051",
+     "level": "ABOVE",
+     "stem": "In an informational article, which of these is the best example of a 'key detail'?",
+     "options": [
+      "a vague opinion about how interesting the topic is",
+      "a specific fact, date, or name mentioned in the text",
+      "a made-up story unrelated to the topic",
+      "a question the author never answers"
+     ],
+     "correct": "B",
+     "why": "A key detail is a specific fact, date, or name that the text directly provides."
+    },
+    {
+     "ref": "SIH-SK-052",
+     "level": "BELOW",
+     "stem": "Which of these is the best example of 'supporting evidence' in an informational text?",
+     "options": [
+      "a fact, example, or piece of data that backs up a claim the author makes",
+      "a random sentence with no connection to the topic",
+      "the title of the article",
+      "a question posed at the end of the article"
+     ],
+     "correct": "A",
+     "why": "Supporting evidence is specific information, such as a fact or example, used to back up a claim."
+    },
+    {
+     "ref": "SIH-SK-053",
+     "level": "ON",
+     "stem": "A 'pertinent example' in an informational text is best described as:",
+     "options": [
+      "any example, even one unrelated to the main idea",
+      "a specific instance that is logically and clearly connected to the idea being explained",
+      "a drawing with no caption",
+      "a list of unrelated vocabulary words"
+     ],
+     "correct": "B",
+     "why": "A pertinent example is directly and logically connected to the idea it is meant to illustrate."
+    },
+    {
+     "ref": "SIH-SK-054",
+     "level": "ABOVE",
+     "stem": "Which of the following is considered a 'text feature' in informational writing?",
+     "options": [
+      "a chapter of a novel",
+      "a photograph, chart, map, or diagram included alongside the text",
+      "a character's thoughts",
+      "a made-up dialogue between two characters"
+     ],
+     "correct": "B",
+     "why": "Text features include visual elements like photographs, charts, maps, and diagrams that support the written text."
+    },
+    {
+     "ref": "SIH-SK-055",
+     "level": "BELOW",
+     "type": "TRUE_FALSE",
+     "stem": "A chart or graph included in an informational article is an example of a text feature.",
+     "answer": true,
+     "why": "Charts and graphs are common text features used to present information visually."
+    },
+    {
+     "ref": "SIH-SK-056",
+     "level": "ON",
+     "stem": "Why do authors of informational texts often include supporting evidence after making a claim?",
+     "options": [
+      "to make the article longer without adding meaning",
+      "to help convince readers that the claim is accurate and well supported",
+      "to confuse the reader on purpose",
+      "to avoid stating an actual claim"
+     ],
+     "correct": "B",
+     "why": "Supporting evidence helps readers trust and understand why a claim is accurate."
+    },
+    {
+     "ref": "SIH-SK-057",
+     "level": "ABOVE",
+     "stem": "Which question would best help a reader identify the KEY DETAILS in a biography?",
+     "options": [
+      "What is the author's favorite color?",
+      "What specific facts, dates, or names does the text provide about this person's life?",
+      "How long is the biography?",
+      "What font is used in the book?"
+     ],
+     "correct": "B",
+     "why": "Key details are specific facts, dates, or names, so asking about those helps identify them."
+    },
+    {
+     "ref": "SIH-SK-058",
+     "level": "BELOW",
+     "stem": "A student reads an article and notices a labeled diagram next to a paragraph about how a volcano erupts. What is the most likely purpose of that diagram?",
+     "options": [
+      "to decorate the page with no real purpose",
+      "to help readers visually understand the stages or structure described in the text",
+      "to replace the need for reading the paragraph",
+      "to test the reader's drawing skills"
+     ],
+     "correct": "B",
+     "why": "Diagrams are typically included to help readers visualize a process or structure explained in the text."
+    },
+    {
+     "ref": "SIH-SK-059",
+     "level": "ON",
+     "type": "TRUE_FALSE",
+     "stem": "Supporting evidence can include facts, examples, statistics, or data that back up a claim made in the text.",
+     "answer": true,
+     "why": "Supporting evidence is any fact, example, or data used to back up the author's claim."
+    },
+    {
+     "ref": "SIH-SK-060",
+     "level": "ABOVE",
+     "stem": "Which of these text features would be most useful for showing where an historical event took place?",
+     "options": [
+      "a map",
+      "a glossary of difficult words",
+      "a table of contents",
+      "a list of chapter titles"
+     ],
+     "correct": "A",
+     "why": "A map is the text feature best suited for showing geographic location."
+    },
+    {
+     "ref": "SIH-SK-061",
+     "level": "BELOW",
+     "stem": "An author writing about healthy eating states: 'Eating more vegetables can improve your health.' Which sentence would be the best piece of supporting evidence for this claim?",
+     "options": [
+      "Vegetables come in many colors.",
+      "A study of 10,000 people found that those who ate five servings of vegetables daily had fewer illnesses.",
+      "Some people dislike the taste of vegetables.",
+      "Vegetables are sold at most grocery stores."
+     ],
+     "correct": "B",
+     "why": "A specific study with data directly supports the health claim, making it strong supporting evidence."
+    },
+    {
+     "ref": "SIH-SK-062",
+     "level": "ON",
+     "stem": "Why might an author include a specific pertinent example rather than just stating a general idea?",
+     "options": [
+      "to make the idea harder to understand",
+      "to help the reader see exactly how the general idea applies in a real, specific situation",
+      "to avoid explaining the idea at all",
+      "to lengthen the article with unrelated information"
+     ],
+     "correct": "B",
+     "why": "A pertinent example makes an abstract idea concrete by showing how it applies in a specific situation."
+    },
+    {
+     "ref": "SIH-SK-063",
+     "level": "ABOVE",
+     "stem": "Which of these is NOT typically considered a text feature?",
+     "options": [
+      "a photograph with a caption",
+      "a bar graph showing data over time",
+      "a character's internal thoughts in a short story",
+      "a labeled map"
+     ],
+     "correct": "C",
+     "why": "A character's internal thoughts belong to fiction, not to the visual text features used in informational writing."
+    },
+    {
+     "ref": "SIH-SK-064",
+     "level": "BELOW",
+     "type": "TRUE_FALSE",
+     "stem": "A 'key detail' in a biography could include the exact year a person was born or an important event in their life.",
+     "answer": true,
+     "why": "Key details often include specific facts such as dates and significant life events."
+    },
+    {
+     "ref": "SIH-SK-065",
+     "level": "ON",
+     "stem": "A speech includes the line 'Over three hundred volunteers rebuilt the community center in just two weekends.' This sentence is best described as:",
+     "options": [
+      "a key detail providing a specific fact about the rebuilding effort",
+      "a text feature",
+      "an unrelated opinion",
+      "a made-up story"
+     ],
+     "correct": "A",
+     "why": "This sentence gives specific facts (a number and a timeframe), making it a key detail."
+    },
+    {
+     "ref": "SIH-SK-066",
+     "level": "ABOVE",
+     "stem": "An interview transcript includes a photograph of the person being interviewed standing in their workshop. What is the most likely reason the interviewer included this photograph?",
+     "options": [
+      "to prove the interview never happened",
+      "to help readers visualize the person and the setting discussed in the interview",
+      "to replace the need for any interview questions",
+      "to decorate the page randomly"
+     ],
+     "correct": "B",
+     "why": "Photographs in interviews often help readers picture the subject and setting being discussed."
+    },
+    {
+     "ref": "SIH-SK-067",
+     "level": "BELOW",
+     "stem": "Which of the following best describes the difference between a key detail and supporting evidence?",
+     "options": [
+      "they are exactly the same thing with no difference",
+      "a key detail is a specific fact, while supporting evidence specifically backs up a claim the author is making",
+      "a key detail only appears in fiction",
+      "supporting evidence never includes facts"
+     ],
+     "correct": "B",
+     "why": "A key detail is simply a specific fact, while supporting evidence is information used specifically to back up a claim."
+    },
+    {
+     "ref": "SIH-SK-068",
+     "level": "ON",
+     "stem": "A letter written by a historical figure describes the exact date and weather conditions of a famous journey. These specific facts are best described as:",
+     "options": [
+      "text features",
+      "key details",
+      "pertinent examples only",
+      "unrelated opinions"
+     ],
+     "correct": "B",
+     "why": "Specific facts like a date and weather conditions are key details."
+    },
+    {
+     "ref": "SIH-SK-069",
+     "level": "ABOVE",
+     "type": "TRUE_FALSE",
+     "stem": "A caption underneath a photograph in an article is an example of a text feature.",
+     "answer": true,
+     "why": "Captions, like the photographs they accompany, are considered text features."
+    },
+    {
+     "ref": "SIH-SK-070",
+     "level": "BELOW",
+     "stem": "An essay claims that 'reading for just twenty minutes a day can improve a student's vocabulary.' Which addition would make the claim most convincing?",
+     "options": [
+      "a joke unrelated to reading",
+      "a cited study showing vocabulary test score improvements among students who read daily",
+      "a description of the essay's cover page",
+      "a list of unrelated hobbies"
+     ],
+     "correct": "B",
+     "why": "A cited study with real results directly supports the claim with credible evidence."
+    },
+    {
+     "ref": "SIH-SK-071",
+     "level": "ON",
+     "stem": "Which of these questions would best help identify the PURPOSE of a chart included in an article about rainfall?",
+     "options": [
+      "What color is the chart?",
+      "What information does the chart show, and how does it help explain the text's main idea?",
+      "How many words are in the article?",
+      "What is the author's name?"
+     ],
+     "correct": "B",
+     "why": "Understanding a chart's purpose means considering what it shows and how it supports the article's main idea."
+    },
+    {
+     "ref": "SIH-SK-072",
+     "level": "ABOVE",
+     "stem": "A biography states, 'She faced rejection from twelve publishers before her first book was finally accepted.' This detail is best used by the author to:",
+     "options": [
+      "prove the subject never became successful",
+      "provide evidence of the subject's persistence despite many setbacks",
+      "describe an unrelated event",
+      "criticize the publishers unfairly"
+     ],
+     "correct": "B",
+     "why": "This detail supports a claim about persistence by showing a specific, relevant struggle the subject overcame."
+    },
+    {
+     "ref": "SIH-SK-073",
+     "level": "BELOW",
+     "stem": "Which text feature would be most helpful for comparing the populations of five different cities at a glance?",
+     "options": [
+      "a bar graph",
+      "a single photograph",
+      "a caption",
+      "a table of contents"
+     ],
+     "correct": "A",
+     "why": "A bar graph is well suited for comparing numerical data, such as populations, across several categories at once."
+    },
+    {
+     "ref": "SIH-SK-074",
+     "level": "ON",
+     "stem": "An article about ancient trade routes includes a labeled map showing the paths traders traveled between cities. What skill is a reader using when they study this map to understand the article better?",
+     "options": [
+      "ignoring the text completely",
+      "connecting a text feature to the information described in the written text",
+      "memorizing every city name without understanding why",
+      "assuming the map is unrelated to the article"
+     ],
+     "correct": "B",
+     "why": "Studying a map alongside the text to deepen understanding is exactly how readers use text features effectively."
+    },
+    {
+     "ref": "SIH-SK-075",
+     "level": "ABOVE",
+     "type": "TRUE_FALSE",
+     "stem": "A pertinent example must have a clear, logical connection to the idea it is illustrating; a completely unrelated anecdote would not count as a pertinent example.",
+     "answer": true,
+     "why": "By definition, a pertinent example is directly and logically connected to the idea it illustrates."
+    },
+    {
+     "ref": "SIH-SK-076",
+     "level": "BELOW",
+     "stem": "A science article claims that 'exercise improves memory' and then describes a specific experiment where students who exercised before a test scored higher than those who did not. This experiment is best described as:",
+     "options": [
+      "an unrelated detail",
+      "a pertinent example supporting the claim about exercise and memory",
+      "a text feature",
+      "a contradiction of the claim"
+     ],
+     "correct": "B",
+     "why": "The experiment is a specific, directly relevant instance that supports the claim, making it a pertinent example."
+    },
+    {
+     "ref": "SIH-SK-077",
+     "level": "ON",
+     "stem": "Which of the following best explains why authors of informational texts often combine key details, supporting evidence, and text features together?",
+     "options": [
+      "to make the text as long and confusing as possible",
+      "to build a clear, well-supported explanation that readers can both read and visually understand",
+      "because it is required by law",
+      "because images are always more important than words"
+     ],
+     "correct": "B",
+     "why": "Combining these elements helps authors create clear, convincing, and visually supported explanations for readers."
+    },
+    {
+     "ref": "SIH-SK-078",
+     "level": "ABOVE",
+     "stem": "An article about bridges includes a cutaway diagram showing the different layers and materials inside a bridge's support beam. This diagram most directly helps readers to:",
+     "options": [
+      "memorize the names of bridge engineers",
+      "see the internal structure described in the text that would be difficult to picture otherwise",
+      "learn the cost of building a bridge",
+      "avoid reading the article's text"
+     ],
+     "correct": "B",
+     "why": "A cutaway diagram helps readers visualize internal structures that are hard to picture from text alone."
+    },
+    {
+     "ref": "SIH-SK-079",
+     "level": "BELOW",
+     "stem": "A student is asked to explain 'how a detail elaborates on the author's main point.' Which response best completes this task?",
+     "options": [
+      "simply repeating the detail word for word with no explanation",
+      "explaining exactly how the specific detail adds support or clarity to the author's broader idea",
+      "ignoring the main point entirely",
+      "describing an unrelated detail instead"
+     ],
+     "correct": "B",
+     "why": "Elaborating on a point means explaining how a specific detail connects to and supports the broader idea."
+    },
+    {
+     "ref": "SIH-SK-080",
+     "level": "ON",
+     "stem": "Which of these best explains why an author might choose one particular piece of evidence over another when writing an informational article?",
+     "options": [
+      "because the shortest piece of evidence is always best, regardless of relevance",
+      "because the chosen evidence most clearly and directly supports the specific claim being made",
+      "because any random fact works equally well",
+      "because evidence should never relate to the claim"
+     ],
+     "correct": "B",
+     "why": "Authors choose evidence based on how directly and clearly it supports the specific claim they are making."
+    },
+    {
+     "ref": "OCF-001",
+     "level": "BELOW",
+     "stem": "What was Marie Tharp's main job in the 1950s, according to the passage?",
+     "options": [
+      "Sailing on research ships",
+      "Translating sonar readings into hand-drawn ocean floor profiles",
+      "Teaching geology at a university",
+      "Designing new sonar equipment"
+     ],
+     "correct": "B",
+     "why": "The passage states she spent the 1950s \"translating raw sonar readings into hand-drawn profiles of the ocean floor.\"",
+     "passageTitle": "The Woman Who Mapped the Ocean Floor",
+     "passage": "Marie Tharp spent most of the 1950s hunched over data tables, translating raw sonar readings into hand-drawn profiles of the ocean floor. At the time, women were not permitted on the research ships that collected the data — so Tharp did her work entirely from land, relying on measurements gathered by her male colleagues at sea. Piece by piece, she assembled a picture no one had ever seen before.\n\nIn 1953, Tharp noticed something strange in her calculations: a deep, V-shaped valley running down the center of a long underwater mountain range. She believed it was a rift valley — evidence that the ocean floor was spreading apart. Her research partner initially dismissed the idea as \"girl talk,\" since it contradicted the accepted theory of the time. But Tharp kept mapping. Her charts, later published in 1977 as the World Ocean Floor Panorama, provided crucial visual evidence for what would become the theory of plate tectonics — now a cornerstone of modern geology."
+    },
+    {
+     "ref": "OCF-002",
+     "level": "BELOW",
+     "stem": "Why did Marie Tharp do her work entirely from land?",
+     "options": [
+      "She preferred working indoors.",
+      "Women were not permitted on the research ships that collected the data.",
+      "She did not know how to swim.",
+      "The ships were too small for extra passengers."
+     ],
+     "correct": "B",
+     "why": "The passage directly states that women were not permitted on the research ships at that time.",
+     "passageTitle": "The Woman Who Mapped the Ocean Floor",
+     "passage": "Marie Tharp spent most of the 1950s hunched over data tables, translating raw sonar readings into hand-drawn profiles of the ocean floor. At the time, women were not permitted on the research ships that collected the data — so Tharp did her work entirely from land, relying on measurements gathered by her male colleagues at sea. Piece by piece, she assembled a picture no one had ever seen before.\n\nIn 1953, Tharp noticed something strange in her calculations: a deep, V-shaped valley running down the center of a long underwater mountain range. She believed it was a rift valley — evidence that the ocean floor was spreading apart. Her research partner initially dismissed the idea as \"girl talk,\" since it contradicted the accepted theory of the time. But Tharp kept mapping. Her charts, later published in 1977 as the World Ocean Floor Panorama, provided crucial visual evidence for what would become the theory of plate tectonics — now a cornerstone of modern geology."
+    },
+    {
+     "ref": "OCF-003",
+     "level": "BELOW",
+     "stem": "In what year did Tharp notice the strange V-shaped valley in her calculations?",
+     "options": [
+      "1950",
+      "1953",
+      "1977",
+      "1960"
+     ],
+     "correct": "B",
+     "why": "The passage states, \"In 1953, Tharp noticed something strange in her calculations.\"",
+     "passageTitle": "The Woman Who Mapped the Ocean Floor",
+     "passage": "Marie Tharp spent most of the 1950s hunched over data tables, translating raw sonar readings into hand-drawn profiles of the ocean floor. At the time, women were not permitted on the research ships that collected the data — so Tharp did her work entirely from land, relying on measurements gathered by her male colleagues at sea. Piece by piece, she assembled a picture no one had ever seen before.\n\nIn 1953, Tharp noticed something strange in her calculations: a deep, V-shaped valley running down the center of a long underwater mountain range. She believed it was a rift valley — evidence that the ocean floor was spreading apart. Her research partner initially dismissed the idea as \"girl talk,\" since it contradicted the accepted theory of the time. But Tharp kept mapping. Her charts, later published in 1977 as the World Ocean Floor Panorama, provided crucial visual evidence for what would become the theory of plate tectonics — now a cornerstone of modern geology."
+    },
+    {
+     "ref": "OCF-004",
+     "level": "BELOW",
+     "stem": "What did Tharp believe the V-shaped valley was evidence of?",
+     "options": [
+      "A shipwreck",
+      "A rift valley showing the ocean floor was spreading apart",
+      "A volcanic eruption",
+      "An error in the sonar equipment"
+     ],
+     "correct": "B",
+     "why": "The passage states she believed it was \"a rift valley — evidence that the ocean floor was spreading apart.\"",
+     "passageTitle": "The Woman Who Mapped the Ocean Floor",
+     "passage": "Marie Tharp spent most of the 1950s hunched over data tables, translating raw sonar readings into hand-drawn profiles of the ocean floor. At the time, women were not permitted on the research ships that collected the data — so Tharp did her work entirely from land, relying on measurements gathered by her male colleagues at sea. Piece by piece, she assembled a picture no one had ever seen before.\n\nIn 1953, Tharp noticed something strange in her calculations: a deep, V-shaped valley running down the center of a long underwater mountain range. She believed it was a rift valley — evidence that the ocean floor was spreading apart. Her research partner initially dismissed the idea as \"girl talk,\" since it contradicted the accepted theory of the time. But Tharp kept mapping. Her charts, later published in 1977 as the World Ocean Floor Panorama, provided crucial visual evidence for what would become the theory of plate tectonics — now a cornerstone of modern geology."
+    },
+    {
+     "ref": "OCF-005",
+     "level": "BELOW",
+     "stem": "What did Tharp's research partner initially call her idea?",
+     "options": [
+      "\"Brilliant science\"",
+      "\"Girl talk\"",
+      "\"A proven fact\"",
+      "\"Old news\""
+     ],
+     "correct": "B",
+     "why": "The passage says her partner \"dismissed the idea as 'girl talk.'\"",
+     "passageTitle": "The Woman Who Mapped the Ocean Floor",
+     "passage": "Marie Tharp spent most of the 1950s hunched over data tables, translating raw sonar readings into hand-drawn profiles of the ocean floor. At the time, women were not permitted on the research ships that collected the data — so Tharp did her work entirely from land, relying on measurements gathered by her male colleagues at sea. Piece by piece, she assembled a picture no one had ever seen before.\n\nIn 1953, Tharp noticed something strange in her calculations: a deep, V-shaped valley running down the center of a long underwater mountain range. She believed it was a rift valley — evidence that the ocean floor was spreading apart. Her research partner initially dismissed the idea as \"girl talk,\" since it contradicted the accepted theory of the time. But Tharp kept mapping. Her charts, later published in 1977 as the World Ocean Floor Panorama, provided crucial visual evidence for what would become the theory of plate tectonics — now a cornerstone of modern geology."
+    },
+    {
+     "ref": "OCF-006",
+     "level": "BELOW",
+     "stem": "In what year were Tharp's charts published as the World Ocean Floor Panorama?",
+     "options": [
+      "1953",
+      "1960",
+      "1977",
+      "1980"
+     ],
+     "correct": "C",
+     "why": "The passage states the charts were \"later published in 1977 as the World Ocean Floor Panorama.\"",
+     "passageTitle": "The Woman Who Mapped the Ocean Floor",
+     "passage": "Marie Tharp spent most of the 1950s hunched over data tables, translating raw sonar readings into hand-drawn profiles of the ocean floor. At the time, women were not permitted on the research ships that collected the data — so Tharp did her work entirely from land, relying on measurements gathered by her male colleagues at sea. Piece by piece, she assembled a picture no one had ever seen before.\n\nIn 1953, Tharp noticed something strange in her calculations: a deep, V-shaped valley running down the center of a long underwater mountain range. She believed it was a rift valley — evidence that the ocean floor was spreading apart. Her research partner initially dismissed the idea as \"girl talk,\" since it contradicted the accepted theory of the time. But Tharp kept mapping. Her charts, later published in 1977 as the World Ocean Floor Panorama, provided crucial visual evidence for what would become the theory of plate tectonics — now a cornerstone of modern geology."
+    },
+    {
+     "ref": "OCF-007",
+     "level": "BELOW",
+     "stem": "What theory did Tharp's work eventually provide crucial evidence for?",
+     "options": [
+      "The theory of evolution",
+      "The theory of plate tectonics",
+      "The theory of relativity",
+      "The theory of gravity"
+     ],
+     "correct": "B",
+     "why": "The passage states her charts \"provided crucial visual evidence for what would become the theory of plate tectonics.\"",
+     "passageTitle": "The Woman Who Mapped the Ocean Floor",
+     "passage": "Marie Tharp spent most of the 1950s hunched over data tables, translating raw sonar readings into hand-drawn profiles of the ocean floor. At the time, women were not permitted on the research ships that collected the data — so Tharp did her work entirely from land, relying on measurements gathered by her male colleagues at sea. Piece by piece, she assembled a picture no one had ever seen before.\n\nIn 1953, Tharp noticed something strange in her calculations: a deep, V-shaped valley running down the center of a long underwater mountain range. She believed it was a rift valley — evidence that the ocean floor was spreading apart. Her research partner initially dismissed the idea as \"girl talk,\" since it contradicted the accepted theory of the time. But Tharp kept mapping. Her charts, later published in 1977 as the World Ocean Floor Panorama, provided crucial visual evidence for what would become the theory of plate tectonics — now a cornerstone of modern geology."
+    },
+    {
+     "ref": "OCF-008",
+     "level": "ON",
+     "stem": "Which detail from the passage best supports the idea that Tharp faced obstacles because of her gender?",
+     "options": [
+      "\"she assembled a picture no one had ever seen before\"",
+      "\"women were not permitted on the research ships that collected the data\"",
+      "\"a deep, V-shaped valley running down the center\"",
+      "\"now a cornerstone of modern geology\""
+     ],
+     "correct": "B",
+     "why": "This detail is direct evidence that gender restrictions limited what Tharp was allowed to do.",
+     "passageTitle": "The Woman Who Mapped the Ocean Floor",
+     "passage": "Marie Tharp spent most of the 1950s hunched over data tables, translating raw sonar readings into hand-drawn profiles of the ocean floor. At the time, women were not permitted on the research ships that collected the data — so Tharp did her work entirely from land, relying on measurements gathered by her male colleagues at sea. Piece by piece, she assembled a picture no one had ever seen before.\n\nIn 1953, Tharp noticed something strange in her calculations: a deep, V-shaped valley running down the center of a long underwater mountain range. She believed it was a rift valley — evidence that the ocean floor was spreading apart. Her research partner initially dismissed the idea as \"girl talk,\" since it contradicted the accepted theory of the time. But Tharp kept mapping. Her charts, later published in 1977 as the World Ocean Floor Panorama, provided crucial visual evidence for what would become the theory of plate tectonics — now a cornerstone of modern geology."
+    },
+    {
+     "ref": "OCF-009",
+     "level": "ON",
+     "stem": "How does the second paragraph build on the first paragraph's central idea?",
+     "options": [
+      "It introduces an unrelated topic about ship design.",
+      "It shows a specific discovery that resulted from the painstaking work described in the first paragraph.",
+      "It contradicts everything stated in the first paragraph.",
+      "It only repeats information from the first paragraph."
+     ],
+     "correct": "B",
+     "why": "The first paragraph describes her patient data work; the second shows the specific major discovery that work led to.",
+     "passageTitle": "The Woman Who Mapped the Ocean Floor",
+     "passage": "Marie Tharp spent most of the 1950s hunched over data tables, translating raw sonar readings into hand-drawn profiles of the ocean floor. At the time, women were not permitted on the research ships that collected the data — so Tharp did her work entirely from land, relying on measurements gathered by her male colleagues at sea. Piece by piece, she assembled a picture no one had ever seen before.\n\nIn 1953, Tharp noticed something strange in her calculations: a deep, V-shaped valley running down the center of a long underwater mountain range. She believed it was a rift valley — evidence that the ocean floor was spreading apart. Her research partner initially dismissed the idea as \"girl talk,\" since it contradicted the accepted theory of the time. But Tharp kept mapping. Her charts, later published in 1977 as the World Ocean Floor Panorama, provided crucial visual evidence for what would become the theory of plate tectonics — now a cornerstone of modern geology."
+    },
+    {
+     "ref": "OCF-010",
+     "level": "ON",
+     "stem": "What is the relationship between Tharp's research partner dismissing her idea and the eventual publication of her charts?",
+     "options": [
+      "Her partner's dismissal caused her to permanently stop her research.",
+      "Despite the dismissal, Tharp continued mapping, and her persistence eventually led to important charts and evidence.",
+      "Her partner's dismissal was proven correct, and her idea was incorrect.",
+      "The two events are unrelated to each other."
+     ],
+     "correct": "B",
+     "why": "The passage shows that despite being dismissed, Tharp persisted (\"But Tharp kept mapping\"), which led to her important later contribution.",
+     "passageTitle": "The Woman Who Mapped the Ocean Floor",
+     "passage": "Marie Tharp spent most of the 1950s hunched over data tables, translating raw sonar readings into hand-drawn profiles of the ocean floor. At the time, women were not permitted on the research ships that collected the data — so Tharp did her work entirely from land, relying on measurements gathered by her male colleagues at sea. Piece by piece, she assembled a picture no one had ever seen before.\n\nIn 1953, Tharp noticed something strange in her calculations: a deep, V-shaped valley running down the center of a long underwater mountain range. She believed it was a rift valley — evidence that the ocean floor was spreading apart. Her research partner initially dismissed the idea as \"girl talk,\" since it contradicted the accepted theory of the time. But Tharp kept mapping. Her charts, later published in 1977 as the World Ocean Floor Panorama, provided crucial visual evidence for what would become the theory of plate tectonics — now a cornerstone of modern geology."
+    },
+    {
+     "ref": "OCF-011",
+     "level": "ON",
+     "stem": "Which detail is a supporting example of Tharp's careful, methodical approach to her work?",
+     "options": [
+      "\"women were not permitted on the research ships\"",
+      "\"hunched over data tables, translating raw sonar readings into hand-drawn profiles\"",
+      "\"now a cornerstone of modern geology\"",
+      "\"contradicted the accepted theory of the time\""
+     ],
+     "correct": "B",
+     "why": "This phrase shows the detailed, hands-on, careful process she used.",
+     "passageTitle": "The Woman Who Mapped the Ocean Floor",
+     "passage": "Marie Tharp spent most of the 1950s hunched over data tables, translating raw sonar readings into hand-drawn profiles of the ocean floor. At the time, women were not permitted on the research ships that collected the data — so Tharp did her work entirely from land, relying on measurements gathered by her male colleagues at sea. Piece by piece, she assembled a picture no one had ever seen before.\n\nIn 1953, Tharp noticed something strange in her calculations: a deep, V-shaped valley running down the center of a long underwater mountain range. She believed it was a rift valley — evidence that the ocean floor was spreading apart. Her research partner initially dismissed the idea as \"girl talk,\" since it contradicted the accepted theory of the time. But Tharp kept mapping. Her charts, later published in 1977 as the World Ocean Floor Panorama, provided crucial visual evidence for what would become the theory of plate tectonics — now a cornerstone of modern geology."
+    },
+    {
+     "ref": "OCF-012",
+     "level": "ON",
+     "stem": "What is the central idea that both paragraphs of the passage support together?",
+     "options": [
+      "Sonar equipment is difficult to use.",
+      "Despite facing obstacles, Marie Tharp made a discovery that became crucial evidence for a major scientific theory.",
+      "Research ships are the best way to study the ocean floor.",
+      "Plate tectonics was discovered by many scientists working together on a ship."
+     ],
+     "correct": "B",
+     "why": "Both paragraphs together build toward this idea: her challenges, her careful work, her discovery, and its lasting scientific importance.",
+     "passageTitle": "The Woman Who Mapped the Ocean Floor",
+     "passage": "Marie Tharp spent most of the 1950s hunched over data tables, translating raw sonar readings into hand-drawn profiles of the ocean floor. At the time, women were not permitted on the research ships that collected the data — so Tharp did her work entirely from land, relying on measurements gathered by her male colleagues at sea. Piece by piece, she assembled a picture no one had ever seen before.\n\nIn 1953, Tharp noticed something strange in her calculations: a deep, V-shaped valley running down the center of a long underwater mountain range. She believed it was a rift valley — evidence that the ocean floor was spreading apart. Her research partner initially dismissed the idea as \"girl talk,\" since it contradicted the accepted theory of the time. But Tharp kept mapping. Her charts, later published in 1977 as the World Ocean Floor Panorama, provided crucial visual evidence for what would become the theory of plate tectonics — now a cornerstone of modern geology."
+    },
+    {
+     "ref": "OCF-013",
+     "level": "ON",
+     "stem": "Why does the author mention that Tharp's partner called her idea \"girl talk\"?",
+     "options": [
+      "To show that everyone agreed with Tharp right away.",
+      "To highlight the resistance and bias Tharp faced even though her idea turned out to be groundbreaking.",
+      "To prove that Tharp's idea was wrong.",
+      "To describe a conversation that had nothing to do with science."
+     ],
+     "correct": "B",
+     "why": "Including this detail emphasizes the skepticism and bias Tharp overcame before her idea was recognized as important.",
+     "passageTitle": "The Woman Who Mapped the Ocean Floor",
+     "passage": "Marie Tharp spent most of the 1950s hunched over data tables, translating raw sonar readings into hand-drawn profiles of the ocean floor. At the time, women were not permitted on the research ships that collected the data — so Tharp did her work entirely from land, relying on measurements gathered by her male colleagues at sea. Piece by piece, she assembled a picture no one had ever seen before.\n\nIn 1953, Tharp noticed something strange in her calculations: a deep, V-shaped valley running down the center of a long underwater mountain range. She believed it was a rift valley — evidence that the ocean floor was spreading apart. Her research partner initially dismissed the idea as \"girl talk,\" since it contradicted the accepted theory of the time. But Tharp kept mapping. Her charts, later published in 1977 as the World Ocean Floor Panorama, provided crucial visual evidence for what would become the theory of plate tectonics — now a cornerstone of modern geology."
+    },
+    {
+     "ref": "OCF-014",
+     "level": "ON",
+     "stem": "What evidence in the passage shows that Tharp's discovery had a lasting impact on science?",
+     "options": [
+      "\"She did her work entirely from land\"",
+      "\"provided crucial visual evidence for what would become the theory of plate tectonics — now a cornerstone of modern geology\"",
+      "\"a deep, V-shaped valley\"",
+      "\"hunched over data tables\""
+     ],
+     "correct": "B",
+     "why": "This phrase directly states that her work became foundational to a major, lasting scientific theory.",
+     "passageTitle": "The Woman Who Mapped the Ocean Floor",
+     "passage": "Marie Tharp spent most of the 1950s hunched over data tables, translating raw sonar readings into hand-drawn profiles of the ocean floor. At the time, women were not permitted on the research ships that collected the data — so Tharp did her work entirely from land, relying on measurements gathered by her male colleagues at sea. Piece by piece, she assembled a picture no one had ever seen before.\n\nIn 1953, Tharp noticed something strange in her calculations: a deep, V-shaped valley running down the center of a long underwater mountain range. She believed it was a rift valley — evidence that the ocean floor was spreading apart. Her research partner initially dismissed the idea as \"girl talk,\" since it contradicted the accepted theory of the time. But Tharp kept mapping. Her charts, later published in 1977 as the World Ocean Floor Panorama, provided crucial visual evidence for what would become the theory of plate tectonics — now a cornerstone of modern geology."
+    },
+    {
+     "ref": "OCF-015",
+     "level": "ABOVE",
+     "stem": "How does the detail about the gap between Tharp's 1953 discovery and the 1977 publication help the reader understand her work?",
+     "options": [
+      "It shows the discovery was quick and easy.",
+      "It suggests that turning her discovery into complete, published charts took many years of continued effort.",
+      "It shows that she gave up for a long period of time.",
+      "It has no relevance to understanding her work."
+     ],
+     "correct": "B",
+     "why": "The passage says Tharp \"kept mapping\" after the initial 1953 discovery, so the gap until 1977 suggests years of ongoing, dedicated work.",
+     "passageTitle": "The Woman Who Mapped the Ocean Floor",
+     "passage": "Marie Tharp spent most of the 1950s hunched over data tables, translating raw sonar readings into hand-drawn profiles of the ocean floor. At the time, women were not permitted on the research ships that collected the data — so Tharp did her work entirely from land, relying on measurements gathered by her male colleagues at sea. Piece by piece, she assembled a picture no one had ever seen before.\n\nIn 1953, Tharp noticed something strange in her calculations: a deep, V-shaped valley running down the center of a long underwater mountain range. She believed it was a rift valley — evidence that the ocean floor was spreading apart. Her research partner initially dismissed the idea as \"girl talk,\" since it contradicted the accepted theory of the time. But Tharp kept mapping. Her charts, later published in 1977 as the World Ocean Floor Panorama, provided crucial visual evidence for what would become the theory of plate tectonics — now a cornerstone of modern geology."
+    },
+    {
+     "ref": "OCF-016",
+     "level": "ABOVE",
+     "stem": "How do the two paragraphs work together to develop the central idea of perseverance despite resistance?",
+     "options": [
+      "The first paragraph shows her careful work and limitations; the second shows her significant discovery and the doubt she faced before being proven right, together illustrating perseverance.",
+      "The paragraphs are unrelated and develop two separate, unconnected ideas.",
+      "Only the second paragraph relates to perseverance; the first paragraph is unrelated.",
+      "The first paragraph proves she gave up quickly."
+     ],
+     "correct": "A",
+     "why": "Paragraph one establishes her limited circumstances and painstaking process, and paragraph two shows her persisting through doubt to a lasting discovery — together these develop the idea of perseverance.",
+     "passageTitle": "The Woman Who Mapped the Ocean Floor",
+     "passage": "Marie Tharp spent most of the 1950s hunched over data tables, translating raw sonar readings into hand-drawn profiles of the ocean floor. At the time, women were not permitted on the research ships that collected the data — so Tharp did her work entirely from land, relying on measurements gathered by her male colleagues at sea. Piece by piece, she assembled a picture no one had ever seen before.\n\nIn 1953, Tharp noticed something strange in her calculations: a deep, V-shaped valley running down the center of a long underwater mountain range. She believed it was a rift valley — evidence that the ocean floor was spreading apart. Her research partner initially dismissed the idea as \"girl talk,\" since it contradicted the accepted theory of the time. But Tharp kept mapping. Her charts, later published in 1977 as the World Ocean Floor Panorama, provided crucial visual evidence for what would become the theory of plate tectonics — now a cornerstone of modern geology."
+    },
+    {
+     "ref": "OCF-017",
+     "level": "ABOVE",
+     "stem": "Which pair of details, taken together, best supports the conclusion that Tharp's contribution was both scientifically important and personally difficult to achieve?",
+     "options": [
+      "\"hunched over data tables\" and \"a cornerstone of modern geology\"",
+      "\"women were not permitted on the research ships\" paired with \"provided crucial visual evidence for... plate tectonics\"",
+      "\"In 1953\" and \"In 1977\"",
+      "\"a deep, V-shaped valley\" and \"accepted theory of the time\""
+     ],
+     "correct": "B",
+     "why": "One detail shows the restriction she had to work around, and the other shows the major scientific importance of what she still achieved, together supporting both parts of the claim.",
+     "passageTitle": "The Woman Who Mapped the Ocean Floor",
+     "passage": "Marie Tharp spent most of the 1950s hunched over data tables, translating raw sonar readings into hand-drawn profiles of the ocean floor. At the time, women were not permitted on the research ships that collected the data — so Tharp did her work entirely from land, relying on measurements gathered by her male colleagues at sea. Piece by piece, she assembled a picture no one had ever seen before.\n\nIn 1953, Tharp noticed something strange in her calculations: a deep, V-shaped valley running down the center of a long underwater mountain range. She believed it was a rift valley — evidence that the ocean floor was spreading apart. Her research partner initially dismissed the idea as \"girl talk,\" since it contradicted the accepted theory of the time. But Tharp kept mapping. Her charts, later published in 1977 as the World Ocean Floor Panorama, provided crucial visual evidence for what would become the theory of plate tectonics — now a cornerstone of modern geology."
+    },
+    {
+     "ref": "OCF-018",
+     "level": "ABOVE",
+     "stem": "A student claims the passage's central idea is \"primarily about sonar technology.\" Why is this an inaccurate reading of the passage?",
+     "options": [
+      "The passage never mentions sonar.",
+      "The passage focuses mainly on Tharp's personal struggles, discovery, and lasting scientific contribution, using sonar only as background context for how she gathered data.",
+      "Sonar technology is mentioned in every sentence of the passage.",
+      "The claim is accurate; sonar is the true central idea."
+     ],
+     "correct": "B",
+     "why": "Sonar is mentioned only briefly as part of how the data was collected; the passage's focus is on Tharp's work, discovery, and impact, not sonar technology itself.",
+     "passageTitle": "The Woman Who Mapped the Ocean Floor",
+     "passage": "Marie Tharp spent most of the 1950s hunched over data tables, translating raw sonar readings into hand-drawn profiles of the ocean floor. At the time, women were not permitted on the research ships that collected the data — so Tharp did her work entirely from land, relying on measurements gathered by her male colleagues at sea. Piece by piece, she assembled a picture no one had ever seen before.\n\nIn 1953, Tharp noticed something strange in her calculations: a deep, V-shaped valley running down the center of a long underwater mountain range. She believed it was a rift valley — evidence that the ocean floor was spreading apart. Her research partner initially dismissed the idea as \"girl talk,\" since it contradicted the accepted theory of the time. But Tharp kept mapping. Her charts, later published in 1977 as the World Ocean Floor Panorama, provided crucial visual evidence for what would become the theory of plate tectonics — now a cornerstone of modern geology."
+    },
+    {
+     "ref": "OCF-019",
+     "level": "ABOVE",
+     "stem": "Why is the detail that Tharp \"kept mapping\" after her partner's dismissal especially important to the passage's overall message?",
+     "options": [
+      "It is a minor detail that could be removed without changing the passage's message.",
+      "It shows that her persistence despite doubt was essential to eventually producing evidence that changed scientific understanding.",
+      "It shows that she agreed with her partner and stopped working.",
+      "It is unrelated to the theory of plate tectonics."
+     ],
+     "correct": "B",
+     "why": "This detail links her personal determination directly to the larger outcome: without continuing despite being dismissed, the evidence for plate tectonics might never have been produced.",
+     "passageTitle": "The Woman Who Mapped the Ocean Floor",
+     "passage": "Marie Tharp spent most of the 1950s hunched over data tables, translating raw sonar readings into hand-drawn profiles of the ocean floor. At the time, women were not permitted on the research ships that collected the data — so Tharp did her work entirely from land, relying on measurements gathered by her male colleagues at sea. Piece by piece, she assembled a picture no one had ever seen before.\n\nIn 1953, Tharp noticed something strange in her calculations: a deep, V-shaped valley running down the center of a long underwater mountain range. She believed it was a rift valley — evidence that the ocean floor was spreading apart. Her research partner initially dismissed the idea as \"girl talk,\" since it contradicted the accepted theory of the time. But Tharp kept mapping. Her charts, later published in 1977 as the World Ocean Floor Panorama, provided crucial visual evidence for what would become the theory of plate tectonics — now a cornerstone of modern geology."
+    },
+    {
+     "ref": "OCF-020",
+     "level": "ABOVE",
+     "stem": "Considering the passage as a whole, which statement best explains how the examples of the ship restriction, the \"girl talk\" dismissal, and the eventual 1977 publication relate to one another?",
+     "options": [
+      "They are three unrelated facts with no connection to each other.",
+      "Each example builds on the last to show a repeated pattern of obstacles that Tharp overcame on her way to a lasting scientific achievement.",
+      "They show that Tharp faced no real difficulties in her career.",
+      "They prove that her research partner was correct all along."
+     ],
+     "correct": "B",
+     "why": "Together, these examples form a pattern — restriction, doubt, and eventual vindication — that traces Tharp's journey toward her lasting contribution.",
+     "passageTitle": "The Woman Who Mapped the Ocean Floor",
+     "passage": "Marie Tharp spent most of the 1950s hunched over data tables, translating raw sonar readings into hand-drawn profiles of the ocean floor. At the time, women were not permitted on the research ships that collected the data — so Tharp did her work entirely from land, relying on measurements gathered by her male colleagues at sea. Piece by piece, she assembled a picture no one had ever seen before.\n\nIn 1953, Tharp noticed something strange in her calculations: a deep, V-shaped valley running down the center of a long underwater mountain range. She believed it was a rift valley — evidence that the ocean floor was spreading apart. Her research partner initially dismissed the idea as \"girl talk,\" since it contradicted the accepted theory of the time. But Tharp kept mapping. Her charts, later published in 1977 as the World Ocean Floor Panorama, provided crucial visual evidence for what would become the theory of plate tectonics — now a cornerstone of modern geology."
+    }
+   ]
+  },
+  {
+   "skill": "Cite Text Evidence",
+   "grade": 6,
+   "ccss": "RL.6.1",
+   "domain": "Reading Literature",
+   "mapArea": "INFO_CENTRAL_IDEA",
+   "questions": [
+    {
+     "ref": "RPR-001",
+     "level": "BELOW",
+     "stem": "Which detail from the passage best shows that Deshawn had little experience fixing mechanical things?",
+     "options": [
+      "\"studying the screws, the cracked dial, the frayed cord\"",
+      "\"He had never fixed anything more complicated than a bicycle chain.\"",
+      "\"a faint hum came from the speaker\"",
+      "\"Deshawn grinned and ran to find his grandfather.\""
+     ],
+     "correct": "B",
+     "why": "This sentence directly states his lack of experience with complex repairs.",
+     "passageTitle": "The Repair",
+     "passage": "Deshawn stared at the tangle of wires spilling out of the old radio. His grandfather had given it to him that morning, saying only, \"See if you can bring it back to life.\" Deshawn had never fixed anything more complicated than a bicycle chain.\n\nHe turned the radio over in his hands, studying the screws, the cracked dial, the frayed cord. Then he set it down and pulled a notebook from his backpack, sketching the inside of the radio from memory before he'd even opened it.\n\nAn hour passed. Then two. Deshawn's stomach growled, but he barely noticed. He tested one wire, then another, muttering to himself each time something didn't work. When a spark suddenly jumped from the battery terminal, he yelped and dropped his screwdriver — but a moment later, he picked it back up.\n\nBy evening, the dial was still cracked, but a faint hum came from the speaker. Deshawn grinned and ran to find his grandfather."
+    },
+    {
+     "ref": "RPR-002",
+     "level": "BELOW",
+     "stem": "What can the reader infer about Deshawn's attitude when he first receives the radio?",
+     "options": [
+      "He is annoyed that his grandfather gave him a broken radio.",
+      "He is cautious and begins by carefully studying the radio before touching it.",
+      "He already knows exactly how to fix the radio.",
+      "He plans to ask someone else to fix it for him."
+     ],
+     "correct": "B",
+     "why": "\"He turned the radio over in his hands, studying the screws, the cracked dial, the frayed cord\" shows careful observation before acting.",
+     "passageTitle": "The Repair",
+     "passage": "Deshawn stared at the tangle of wires spilling out of the old radio. His grandfather had given it to him that morning, saying only, \"See if you can bring it back to life.\" Deshawn had never fixed anything more complicated than a bicycle chain.\n\nHe turned the radio over in his hands, studying the screws, the cracked dial, the frayed cord. Then he set it down and pulled a notebook from his backpack, sketching the inside of the radio from memory before he'd even opened it.\n\nAn hour passed. Then two. Deshawn's stomach growled, but he barely noticed. He tested one wire, then another, muttering to himself each time something didn't work. When a spark suddenly jumped from the battery terminal, he yelped and dropped his screwdriver — but a moment later, he picked it back up.\n\nBy evening, the dial was still cracked, but a faint hum came from the speaker. Deshawn grinned and ran to find his grandfather."
+    },
+    {
+     "ref": "RPR-003",
+     "level": "BELOW",
+     "stem": "Which phrase from the passage provides evidence that Deshawn was deeply focused on the repair?",
+     "options": [
+      "\"Deshawn stared at the tangle of wires\"",
+      "\"His grandfather had given it to him that morning\"",
+      "\"Deshawn's stomach growled, but he barely noticed.\"",
+      "\"the dial was still cracked\""
+     ],
+     "correct": "C",
+     "why": "Not noticing his hunger shows how absorbed he was in the task.",
+     "passageTitle": "The Repair",
+     "passage": "Deshawn stared at the tangle of wires spilling out of the old radio. His grandfather had given it to him that morning, saying only, \"See if you can bring it back to life.\" Deshawn had never fixed anything more complicated than a bicycle chain.\n\nHe turned the radio over in his hands, studying the screws, the cracked dial, the frayed cord. Then he set it down and pulled a notebook from his backpack, sketching the inside of the radio from memory before he'd even opened it.\n\nAn hour passed. Then two. Deshawn's stomach growled, but he barely noticed. He tested one wire, then another, muttering to himself each time something didn't work. When a spark suddenly jumped from the battery terminal, he yelped and dropped his screwdriver — but a moment later, he picked it back up.\n\nBy evening, the dial was still cracked, but a faint hum came from the speaker. Deshawn grinned and ran to find his grandfather."
+    },
+    {
+     "ref": "RPR-004",
+     "level": "BELOW",
+     "stem": "Based on the passage, about how long did Deshawn work on the radio before it made any sound?",
+     "options": [
+      "A few minutes",
+      "Until evening",
+      "Only one hour",
+      "He never got it to make a sound"
+     ],
+     "correct": "B",
+     "why": "\"By evening, the dial was still cracked, but a faint hum came from the speaker\" shows it took until evening.",
+     "passageTitle": "The Repair",
+     "passage": "Deshawn stared at the tangle of wires spilling out of the old radio. His grandfather had given it to him that morning, saying only, \"See if you can bring it back to life.\" Deshawn had never fixed anything more complicated than a bicycle chain.\n\nHe turned the radio over in his hands, studying the screws, the cracked dial, the frayed cord. Then he set it down and pulled a notebook from his backpack, sketching the inside of the radio from memory before he'd even opened it.\n\nAn hour passed. Then two. Deshawn's stomach growled, but he barely noticed. He tested one wire, then another, muttering to himself each time something didn't work. When a spark suddenly jumped from the battery terminal, he yelped and dropped his screwdriver — but a moment later, he picked it back up.\n\nBy evening, the dial was still cracked, but a faint hum came from the speaker. Deshawn grinned and ran to find his grandfather."
+    },
+    {
+     "ref": "RPR-005",
+     "level": "BELOW",
+     "stem": "Which sentence shows that Deshawn did not give up after something frightened him?",
+     "options": [
+      "\"He turned the radio over in his hands\"",
+      "\"When a spark suddenly jumped from the battery terminal, he yelped and dropped his screwdriver — but a moment later, he picked it back up.\"",
+      "\"An hour passed. Then two.\"",
+      "\"Deshawn grinned and ran to find his grandfather.\""
+     ],
+     "correct": "B",
+     "why": "This sentence shows he was startled but immediately returned to work.",
+     "passageTitle": "The Repair",
+     "passage": "Deshawn stared at the tangle of wires spilling out of the old radio. His grandfather had given it to him that morning, saying only, \"See if you can bring it back to life.\" Deshawn had never fixed anything more complicated than a bicycle chain.\n\nHe turned the radio over in his hands, studying the screws, the cracked dial, the frayed cord. Then he set it down and pulled a notebook from his backpack, sketching the inside of the radio from memory before he'd even opened it.\n\nAn hour passed. Then two. Deshawn's stomach growled, but he barely noticed. He tested one wire, then another, muttering to himself each time something didn't work. When a spark suddenly jumped from the battery terminal, he yelped and dropped his screwdriver — but a moment later, he picked it back up.\n\nBy evening, the dial was still cracked, but a faint hum came from the speaker. Deshawn grinned and ran to find his grandfather."
+    },
+    {
+     "ref": "RPR-006",
+     "level": "BELOW",
+     "stem": "Which piece of evidence from the passage shows that the radio was in poor condition before Deshawn started working on it?",
+     "options": [
+      "\"a faint hum came from the speaker\"",
+      "\"the tangle of wires spilling out of the old radio... the cracked dial, the frayed cord\"",
+      "\"Deshawn grinned\"",
+      "\"his grandfather had given it to him\""
+     ],
+     "correct": "B",
+     "why": "These details describe the radio's damaged, worn parts.",
+     "passageTitle": "The Repair",
+     "passage": "Deshawn stared at the tangle of wires spilling out of the old radio. His grandfather had given it to him that morning, saying only, \"See if you can bring it back to life.\" Deshawn had never fixed anything more complicated than a bicycle chain.\n\nHe turned the radio over in his hands, studying the screws, the cracked dial, the frayed cord. Then he set it down and pulled a notebook from his backpack, sketching the inside of the radio from memory before he'd even opened it.\n\nAn hour passed. Then two. Deshawn's stomach growled, but he barely noticed. He tested one wire, then another, muttering to himself each time something didn't work. When a spark suddenly jumped from the battery terminal, he yelped and dropped his screwdriver — but a moment later, he picked it back up.\n\nBy evening, the dial was still cracked, but a faint hum came from the speaker. Deshawn grinned and ran to find his grandfather."
+    },
+    {
+     "ref": "RPR-007",
+     "level": "BELOW",
+     "stem": "What evidence shows that Deshawn's grandfather gave him the radio without telling him exactly how to fix it?",
+     "options": [
+      "\"Deshawn stared at the tangle of wires\"",
+      "His grandfather said only, \"See if you can bring it back to life.\"",
+      "\"Deshawn's stomach growled\"",
+      "\"a faint hum came from the speaker\""
+     ],
+     "correct": "B",
+     "why": "The grandfather's brief, open-ended instruction shows he did not give Deshawn a specific method to follow.",
+     "passageTitle": "The Repair",
+     "passage": "Deshawn stared at the tangle of wires spilling out of the old radio. His grandfather had given it to him that morning, saying only, \"See if you can bring it back to life.\" Deshawn had never fixed anything more complicated than a bicycle chain.\n\nHe turned the radio over in his hands, studying the screws, the cracked dial, the frayed cord. Then he set it down and pulled a notebook from his backpack, sketching the inside of the radio from memory before he'd even opened it.\n\nAn hour passed. Then two. Deshawn's stomach growled, but he barely noticed. He tested one wire, then another, muttering to himself each time something didn't work. When a spark suddenly jumped from the battery terminal, he yelped and dropped his screwdriver — but a moment later, he picked it back up.\n\nBy evening, the dial was still cracked, but a faint hum came from the speaker. Deshawn grinned and ran to find his grandfather."
+    },
+    {
+     "ref": "RPR-008",
+     "level": "ON",
+     "stem": "Which inference is best supported by the sentence, \"Then he set it down and pulled a notebook from his backpack, sketching the inside of the radio from memory before he'd even opened it\"?",
+     "options": [
+      "Deshawn is impulsive and does not think before acting.",
+      "Deshawn likes to plan and understand something before working on it.",
+      "Deshawn does not care about fixing the radio correctly.",
+      "Deshawn has fixed many radios before."
+     ],
+     "correct": "B",
+     "why": "Sketching the radio's inside before opening it shows a thoughtful, planning approach.",
+     "passageTitle": "The Repair",
+     "passage": "Deshawn stared at the tangle of wires spilling out of the old radio. His grandfather had given it to him that morning, saying only, \"See if you can bring it back to life.\" Deshawn had never fixed anything more complicated than a bicycle chain.\n\nHe turned the radio over in his hands, studying the screws, the cracked dial, the frayed cord. Then he set it down and pulled a notebook from his backpack, sketching the inside of the radio from memory before he'd even opened it.\n\nAn hour passed. Then two. Deshawn's stomach growled, but he barely noticed. He tested one wire, then another, muttering to himself each time something didn't work. When a spark suddenly jumped from the battery terminal, he yelped and dropped his screwdriver — but a moment later, he picked it back up.\n\nBy evening, the dial was still cracked, but a faint hum came from the speaker. Deshawn grinned and ran to find his grandfather."
+    },
+    {
+     "ref": "RPR-009",
+     "level": "ON",
+     "stem": "A student claims, \"Deshawn was excited and proud by the end of the passage.\" Which detail from the text best supports this claim?",
+     "options": [
+      "\"He turned the radio over in his hands\"",
+      "\"Deshawn's stomach growled\"",
+      "\"Deshawn grinned and ran to find his grandfather.\"",
+      "\"the cracked dial, the frayed cord\""
+     ],
+     "correct": "C",
+     "why": "Grinning and running to share the news are direct evidence of excitement and pride.",
+     "passageTitle": "The Repair",
+     "passage": "Deshawn stared at the tangle of wires spilling out of the old radio. His grandfather had given it to him that morning, saying only, \"See if you can bring it back to life.\" Deshawn had never fixed anything more complicated than a bicycle chain.\n\nHe turned the radio over in his hands, studying the screws, the cracked dial, the frayed cord. Then he set it down and pulled a notebook from his backpack, sketching the inside of the radio from memory before he'd even opened it.\n\nAn hour passed. Then two. Deshawn's stomach growled, but he barely noticed. He tested one wire, then another, muttering to himself each time something didn't work. When a spark suddenly jumped from the battery terminal, he yelped and dropped his screwdriver — but a moment later, he picked it back up.\n\nBy evening, the dial was still cracked, but a faint hum came from the speaker. Deshawn grinned and ran to find his grandfather."
+    },
+    {
+     "ref": "RPR-010",
+     "level": "ON",
+     "stem": "Which detail provides the best evidence that Deshawn's grandfather trusted him with the task?",
+     "options": [
+      "\"Deshawn stared at the tangle of wires spilling out of the old radio.\"",
+      "His grandfather said, \"See if you can bring it back to life.\"",
+      "\"Deshawn's stomach growled, but he barely noticed.\"",
+      "\"a faint hum came from the speaker\""
+     ],
+     "correct": "B",
+     "why": "Giving Deshawn the open-ended challenge shows the grandfather believed he was capable of trying.",
+     "passageTitle": "The Repair",
+     "passage": "Deshawn stared at the tangle of wires spilling out of the old radio. His grandfather had given it to him that morning, saying only, \"See if you can bring it back to life.\" Deshawn had never fixed anything more complicated than a bicycle chain.\n\nHe turned the radio over in his hands, studying the screws, the cracked dial, the frayed cord. Then he set it down and pulled a notebook from his backpack, sketching the inside of the radio from memory before he'd even opened it.\n\nAn hour passed. Then two. Deshawn's stomach growled, but he barely noticed. He tested one wire, then another, muttering to himself each time something didn't work. When a spark suddenly jumped from the battery terminal, he yelped and dropped his screwdriver — but a moment later, he picked it back up.\n\nBy evening, the dial was still cracked, but a faint hum came from the speaker. Deshawn grinned and ran to find his grandfather."
+    },
+    {
+     "ref": "RPR-011",
+     "level": "ON",
+     "stem": "What text evidence best supports the idea that Deshawn worked through trial and error rather than following a plan he already knew by heart?",
+     "options": [
+      "\"sketching the inside of the radio from memory\"",
+      "\"He tested one wire, then another, muttering to himself each time something didn't work.\"",
+      "\"his grandfather had given it to him that morning\"",
+      "\"Deshawn grinned\""
+     ],
+     "correct": "B",
+     "why": "Testing wires one at a time and reacting when they failed shows trial and error, not a memorized fix.",
+     "passageTitle": "The Repair",
+     "passage": "Deshawn stared at the tangle of wires spilling out of the old radio. His grandfather had given it to him that morning, saying only, \"See if you can bring it back to life.\" Deshawn had never fixed anything more complicated than a bicycle chain.\n\nHe turned the radio over in his hands, studying the screws, the cracked dial, the frayed cord. Then he set it down and pulled a notebook from his backpack, sketching the inside of the radio from memory before he'd even opened it.\n\nAn hour passed. Then two. Deshawn's stomach growled, but he barely noticed. He tested one wire, then another, muttering to himself each time something didn't work. When a spark suddenly jumped from the battery terminal, he yelped and dropped his screwdriver — but a moment later, he picked it back up.\n\nBy evening, the dial was still cracked, but a faint hum came from the speaker. Deshawn grinned and ran to find his grandfather."
+    },
+    {
+     "ref": "RPR-012",
+     "level": "ON",
+     "stem": "Which sentence from the passage best supports the inference that the repair was only partly successful?",
+     "options": [
+      "\"By evening, the dial was still cracked, but a faint hum came from the speaker.\"",
+      "\"Deshawn stared at the tangle of wires\"",
+      "\"An hour passed. Then two.\"",
+      "\"He turned the radio over in his hands\""
+     ],
+     "correct": "A",
+     "why": "The dial remained broken even though the speaker worked, showing partial success.",
+     "passageTitle": "The Repair",
+     "passage": "Deshawn stared at the tangle of wires spilling out of the old radio. His grandfather had given it to him that morning, saying only, \"See if you can bring it back to life.\" Deshawn had never fixed anything more complicated than a bicycle chain.\n\nHe turned the radio over in his hands, studying the screws, the cracked dial, the frayed cord. Then he set it down and pulled a notebook from his backpack, sketching the inside of the radio from memory before he'd even opened it.\n\nAn hour passed. Then two. Deshawn's stomach growled, but he barely noticed. He tested one wire, then another, muttering to himself each time something didn't work. When a spark suddenly jumped from the battery terminal, he yelped and dropped his screwdriver — but a moment later, he picked it back up.\n\nBy evening, the dial was still cracked, but a faint hum came from the speaker. Deshawn grinned and ran to find his grandfather."
+    },
+    {
+     "ref": "RPR-013",
+     "level": "ON",
+     "stem": "When citing text evidence to support an inference, what should a reader look for?",
+     "options": [
+      "Any sentence from the passage, even if it is unrelated to the inference",
+      "A specific word or phrase from the text that directly connects to the claim being made",
+      "Their own opinion about the characters",
+      "A summary of the whole passage"
+     ],
+     "correct": "B",
+     "why": "Strong evidence is a specific detail from the text that directly connects to and supports the claim.",
+     "passageTitle": "The Repair",
+     "passage": "Deshawn stared at the tangle of wires spilling out of the old radio. His grandfather had given it to him that morning, saying only, \"See if you can bring it back to life.\" Deshawn had never fixed anything more complicated than a bicycle chain.\n\nHe turned the radio over in his hands, studying the screws, the cracked dial, the frayed cord. Then he set it down and pulled a notebook from his backpack, sketching the inside of the radio from memory before he'd even opened it.\n\nAn hour passed. Then two. Deshawn's stomach growled, but he barely noticed. He tested one wire, then another, muttering to himself each time something didn't work. When a spark suddenly jumped from the battery terminal, he yelped and dropped his screwdriver — but a moment later, he picked it back up.\n\nBy evening, the dial was still cracked, but a faint hum came from the speaker. Deshawn grinned and ran to find his grandfather."
+    },
+    {
+     "ref": "RPR-014",
+     "level": "ON",
+     "stem": "Which quotation best supports the claim that Deshawn approached the radio methodically, not randomly?",
+     "options": [
+      "\"Deshawn grinned and ran to find his grandfather.\"",
+      "\"studying the screws, the cracked dial, the frayed cord\" and sketching it \"before he'd even opened it\"",
+      "\"a spark suddenly jumped from the battery terminal\"",
+      "\"Deshawn's stomach growled\""
+     ],
+     "correct": "B",
+     "why": "Studying each part and sketching it beforehand shows a careful, step-by-step approach.",
+     "passageTitle": "The Repair",
+     "passage": "Deshawn stared at the tangle of wires spilling out of the old radio. His grandfather had given it to him that morning, saying only, \"See if you can bring it back to life.\" Deshawn had never fixed anything more complicated than a bicycle chain.\n\nHe turned the radio over in his hands, studying the screws, the cracked dial, the frayed cord. Then he set it down and pulled a notebook from his backpack, sketching the inside of the radio from memory before he'd even opened it.\n\nAn hour passed. Then two. Deshawn's stomach growled, but he barely noticed. He tested one wire, then another, muttering to himself each time something didn't work. When a spark suddenly jumped from the battery terminal, he yelped and dropped his screwdriver — but a moment later, he picked it back up.\n\nBy evening, the dial was still cracked, but a faint hum came from the speaker. Deshawn grinned and ran to find his grandfather."
+    },
+    {
+     "ref": "RPR-015",
+     "level": "ABOVE",
+     "stem": "Which detail from the passage would best support an inference that Deshawn values figuring things out for himself?",
+     "options": [
+      "He asked his grandfather for help fixing the radio.",
+      "He read an instruction manual before starting.",
+      "He tested wires on his own, muttering each time something failed, rather than stopping to ask for help.",
+      "He gave up after the spark jumped from the battery."
+     ],
+     "correct": "C",
+     "why": "Working through failures alone, without quitting or asking for help, shows self-reliance.",
+     "passageTitle": "The Repair",
+     "passage": "Deshawn stared at the tangle of wires spilling out of the old radio. His grandfather had given it to him that morning, saying only, \"See if you can bring it back to life.\" Deshawn had never fixed anything more complicated than a bicycle chain.\n\nHe turned the radio over in his hands, studying the screws, the cracked dial, the frayed cord. Then he set it down and pulled a notebook from his backpack, sketching the inside of the radio from memory before he'd even opened it.\n\nAn hour passed. Then two. Deshawn's stomach growled, but he barely noticed. He tested one wire, then another, muttering to himself each time something didn't work. When a spark suddenly jumped from the battery terminal, he yelped and dropped his screwdriver — but a moment later, he picked it back up.\n\nBy evening, the dial was still cracked, but a faint hum came from the speaker. Deshawn grinned and ran to find his grandfather."
+    },
+    {
+     "ref": "RPR-016",
+     "level": "ABOVE",
+     "stem": "A reader infers that Deshawn felt a mix of fear and determination during the repair. Which piece of evidence best supports BOTH emotions together?",
+     "options": [
+      "\"sketching the inside of the radio from memory\"",
+      "\"he yelped and dropped his screwdriver — but a moment later, he picked it back up\"",
+      "\"Deshawn grinned and ran to find his grandfather.\"",
+      "\"studying the screws, the cracked dial, the frayed cord\""
+     ],
+     "correct": "B",
+     "why": "Yelping shows fear, while picking the screwdriver back up shows determination, both in one moment.",
+     "passageTitle": "The Repair",
+     "passage": "Deshawn stared at the tangle of wires spilling out of the old radio. His grandfather had given it to him that morning, saying only, \"See if you can bring it back to life.\" Deshawn had never fixed anything more complicated than a bicycle chain.\n\nHe turned the radio over in his hands, studying the screws, the cracked dial, the frayed cord. Then he set it down and pulled a notebook from his backpack, sketching the inside of the radio from memory before he'd even opened it.\n\nAn hour passed. Then two. Deshawn's stomach growled, but he barely noticed. He tested one wire, then another, muttering to himself each time something didn't work. When a spark suddenly jumped from the battery terminal, he yelped and dropped his screwdriver — but a moment later, he picked it back up.\n\nBy evening, the dial was still cracked, but a faint hum came from the speaker. Deshawn grinned and ran to find his grandfather."
+    },
+    {
+     "ref": "RPR-017",
+     "level": "ABOVE",
+     "stem": "Which combination of details best supports the inference that Deshawn grew more confident as he worked?",
+     "options": [
+      "\"He had never fixed anything more complicated than a bicycle chain\" and \"Deshawn stared at the tangle of wires\"",
+      "Being startled by the spark but continuing anyway, and eventually producing a working, if imperfect, result",
+      "\"His grandfather had given it to him that morning\"",
+      "\"the cracked dial, the frayed cord\""
+     ],
+     "correct": "B",
+     "why": "Pushing through the scare and succeeding at least partly shows growing confidence over the course of the task.",
+     "passageTitle": "The Repair",
+     "passage": "Deshawn stared at the tangle of wires spilling out of the old radio. His grandfather had given it to him that morning, saying only, \"See if you can bring it back to life.\" Deshawn had never fixed anything more complicated than a bicycle chain.\n\nHe turned the radio over in his hands, studying the screws, the cracked dial, the frayed cord. Then he set it down and pulled a notebook from his backpack, sketching the inside of the radio from memory before he'd even opened it.\n\nAn hour passed. Then two. Deshawn's stomach growled, but he barely noticed. He tested one wire, then another, muttering to himself each time something didn't work. When a spark suddenly jumped from the battery terminal, he yelped and dropped his screwdriver — but a moment later, he picked it back up.\n\nBy evening, the dial was still cracked, but a faint hum came from the speaker. Deshawn grinned and ran to find his grandfather."
+    },
+    {
+     "ref": "RPR-018",
+     "level": "ABOVE",
+     "stem": "Why is \"He tested one wire, then another, muttering to himself each time something didn't work\" stronger evidence for \"Deshawn was persistent\" than \"Deshawn stared at the tangle of wires\"?",
+     "options": [
+      "It is a longer sentence.",
+      "It shows repeated effort despite failure, while the other sentence only shows his first reaction to the radio.",
+      "It mentions the word \"persistent\" directly.",
+      "It happens earlier in the passage."
+     ],
+     "correct": "B",
+     "why": "Persistence means continuing despite setbacks, which the repeated testing shows directly; staring is just an initial reaction.",
+     "passageTitle": "The Repair",
+     "passage": "Deshawn stared at the tangle of wires spilling out of the old radio. His grandfather had given it to him that morning, saying only, \"See if you can bring it back to life.\" Deshawn had never fixed anything more complicated than a bicycle chain.\n\nHe turned the radio over in his hands, studying the screws, the cracked dial, the frayed cord. Then he set it down and pulled a notebook from his backpack, sketching the inside of the radio from memory before he'd even opened it.\n\nAn hour passed. Then two. Deshawn's stomach growled, but he barely noticed. He tested one wire, then another, muttering to himself each time something didn't work. When a spark suddenly jumped from the battery terminal, he yelped and dropped his screwdriver — but a moment later, he picked it back up.\n\nBy evening, the dial was still cracked, but a faint hum came from the speaker. Deshawn grinned and ran to find his grandfather."
+    },
+    {
+     "ref": "RPR-019",
+     "level": "ABOVE",
+     "stem": "A student wants to prove that the ending of the story shows success, not failure. Which piece of evidence is LEAST useful for that argument, even though it appears near the end?",
+     "options": [
+      "\"a faint hum came from the speaker\"",
+      "\"Deshawn grinned\"",
+      "\"the dial was still cracked\"",
+      "\"ran to find his grandfather\""
+     ],
+     "correct": "C",
+     "why": "This detail actually points to something that did NOT get fixed, so it works against an argument for complete success.",
+     "passageTitle": "The Repair",
+     "passage": "Deshawn stared at the tangle of wires spilling out of the old radio. His grandfather had given it to him that morning, saying only, \"See if you can bring it back to life.\" Deshawn had never fixed anything more complicated than a bicycle chain.\n\nHe turned the radio over in his hands, studying the screws, the cracked dial, the frayed cord. Then he set it down and pulled a notebook from his backpack, sketching the inside of the radio from memory before he'd even opened it.\n\nAn hour passed. Then two. Deshawn's stomach growled, but he barely noticed. He tested one wire, then another, muttering to himself each time something didn't work. When a spark suddenly jumped from the battery terminal, he yelped and dropped his screwdriver — but a moment later, he picked it back up.\n\nBy evening, the dial was still cracked, but a faint hum came from the speaker. Deshawn grinned and ran to find his grandfather."
+    },
+    {
+     "ref": "RPR-020",
+     "level": "ABOVE",
+     "stem": "Why is it important, when citing evidence, to choose a quotation that matches the exact claim being made rather than one that is only loosely related?",
+     "options": [
+      "Exact matches make the response longer.",
+      "Loosely related evidence may not actually prove the specific claim, weakening the argument.",
+      "Teachers prefer long quotations regardless of relevance.",
+      "It does not matter as long as the quotation comes from the same paragraph."
+     ],
+     "correct": "B",
+     "why": "Evidence must precisely support the claim, or the argument becomes weak or illogical.",
+     "passageTitle": "The Repair",
+     "passage": "Deshawn stared at the tangle of wires spilling out of the old radio. His grandfather had given it to him that morning, saying only, \"See if you can bring it back to life.\" Deshawn had never fixed anything more complicated than a bicycle chain.\n\nHe turned the radio over in his hands, studying the screws, the cracked dial, the frayed cord. Then he set it down and pulled a notebook from his backpack, sketching the inside of the radio from memory before he'd even opened it.\n\nAn hour passed. Then two. Deshawn's stomach growled, but he barely noticed. He tested one wire, then another, muttering to himself each time something didn't work. When a spark suddenly jumped from the battery terminal, he yelped and dropped his screwdriver — but a moment later, he picked it back up.\n\nBy evening, the dial was still cracked, but a faint hum came from the speaker. Deshawn grinned and ran to find his grandfather."
+    }
+   ]
+  }
+ ]
+}

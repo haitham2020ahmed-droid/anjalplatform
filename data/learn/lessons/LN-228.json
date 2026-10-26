@@ -1,0 +1,453 @@
+{
+ "code": "LN-228",
+ "title": "Figurative, connotative, and technical language",
+ "subject": "READING",
+ "goalArea": "Vocabulary",
+ "subtopic": "Vocabulary",
+ "standards": [
+  "L.4.5",
+  "L.5.5",
+  "L.6.5"
+ ],
+ "families": [
+  "figurative-connotative-technical-language"
+ ],
+ "skillNames": [
+  "Analyzing Figurative, Connotative, and Technical Language"
+ ],
+ "statements": [],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "Literal words mean just what they say",
+     "text": "**Literal** language means exactly what the words say. \"The dog ran fast.\" The dog really ran. There is no hidden meaning."
+    },
+    {
+     "title": "Figurative words mean more than they say",
+     "text": "**Figurative** language means something beyond the exact words. \"Her smile was sunshine.\" Her smile was not really sunshine — it means her smile felt warm and bright."
+    },
+    {
+     "title": "Some words carry a feeling",
+     "text": "**Connotation** is the feeling a word carries, even when another word means almost the same thing. \"Slim\" sounds nice. \"Skinny\" can sound less nice. Both can describe someone thin."
+    },
+    {
+     "title": "Technical words belong to a subject",
+     "text": "**Technical** language is a word with a special meaning in one subject, like science or math. \"Photosynthesis\" is a technical word plants and science use."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Read the word or phrase closely.\n2. Ask: does it mean exactly what it says? → **literal**.\n3. Does it mean something beyond the words? → **figurative**.\n4. Does it carry a good or bad feeling? → **connotation**.\n5. Is it a special word from one subject? → **technical**."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The waves crashed against the rocks.",
+      "role": "main"
+     },
+     {
+      "t": "The waves were giant hands pounding the shore.",
+      "role": "key"
+     }
+    ],
+    "explain": "Sentence 1 tells exactly what happened: **literal**. Sentence 2 compares the waves to **giant hands** — a comparison like that is **figurative language**."
+   },
+   "together": {
+    "passage": "The lion roared loudly in the zoo. The crowd said the lion's roar was thunder breaking the sky. Many visitors felt amazed by the sound.",
+    "stem": "What kind of language is used in the phrase 'thunder breaking the sky'?",
+    "options": [
+     "Figurative language",
+     "Literal language",
+     "Connotative language",
+     "Technical language"
+    ],
+    "answer": 0,
+    "hint": "Does a roar really become thunder, or is this a comparison?",
+    "good": "Yes! The roar is compared to **thunder breaking the sky**. A comparison that is not literally true is **figurative language**."
+   },
+   "evidence": {
+    "sentences": [
+     "The thunder rumbled like a giant drum.",
+     "The rain fell on the roof.",
+     "Her joy felt like sunshine filling the room.",
+     "The man closed the window before the storm."
+    ],
+    "proof": [
+     0,
+     2
+    ],
+    "need": 2,
+    "stem": "Tap 2 sentences that use figurative language — language that means more than the exact words.",
+    "wrong": "That sentence tells exactly what happened. Find the sentences that compare something to another thing."
+   },
+   "checks": [
+    {
+     "passage": "The coach described the new player as slender.",
+     "stem": "What kind of language is the word 'slender' in this sentence?",
+     "options": [
+      "Literal language",
+      "Connotative language",
+      "Figurative language",
+      "Technical language"
+     ],
+     "answer": 1,
+     "why": "**Slender** means almost the same as 'thin,' but it carries a nicer feeling. That good feeling is **connotation**."
+    },
+    {
+     "passage": "The teacher explained that photosynthesis lets plants make food from sunlight.",
+     "stem": "What kind of language is the word 'photosynthesis' in this sentence?",
+     "options": [
+      "Literal language",
+      "Figurative language",
+      "Technical language",
+      "Connotative language"
+     ],
+     "answer": 2,
+     "why": "**Photosynthesis** is a special word science uses. A special-subject word like this is **technical language**."
+    },
+    {
+     "passage": "The boy opened the door and walked into the kitchen.",
+     "stem": "What kind of language describes what the boy did?",
+     "options": [
+      "Figurative language",
+      "Connotative language",
+      "Technical language",
+      "Literal language"
+     ],
+     "answer": 3,
+     "why": "The sentence says exactly what happened — the boy opened the door and walked in. That is **literal language**."
+    }
+   ],
+   "again": {
+    "title": "Ask: real or compared?",
+    "text": "Read the word or phrase. Ask: Does it mean exactly what it says? That's **literal**. Does it compare one thing to something else? That's **figurative**. Does it carry a feeling? That's **connotation**. Is it a special subject word? That's **technical**.",
+    "example": "\"The wind howled like a wolf.\" The wind does not really howl like a wolf — this is a comparison, so it is **figurative language**."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "Figurative language paints a picture",
+     "text": "Writers use **figurative** language — like metaphors and similes — to paint a picture in your mind. \"The classroom was a beehive of noise\" does not mean real bees. It means the room was busy and loud."
+    },
+    {
+     "title": "Connotation can be positive or negative",
+     "text": "Two words can share almost the same meaning but feel different. **Brave** feels positive. **Reckless** feels negative, even though both describe someone who takes risks."
+    },
+    {
+     "title": "Technical words need a subject",
+     "text": "A **technical** word has one exact meaning inside a subject, like math, science, or law. \"Perimeter\" is a technical word in math class — it means the distance around a shape."
+    },
+    {
+     "title": "Word choice changes the tone",
+     "text": "Writers pick words on purpose. Choosing **reckless** instead of **brave** changes how a reader feels about a character — that change in feeling is part of the **tone**."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find the word or phrase.\n2. Ask what it means exactly, and what feeling it gives.\n3. Compare it to a similar word with a different feeling.\n4. Decide: literal, figurative, connotative, or technical.\n5. Point to the clue words that prove your choice."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The wind was a quiet whisper through the open window.",
+      "role": "key"
+     },
+     {
+      "t": "Engineers measured the bridge's exact perimeter before building.",
+      "role": "main"
+     }
+    ],
+    "explain": "The first sentence compares the wind to a **whisper** — that is figurative language. The second sentence uses **perimeter**, an exact math term — that is technical language."
+   },
+   "together": {
+    "passage": "Our science class visited a small pond behind the school. Mr. Hassan told us that the pond was a mirror holding the sky. Later he explained that scientists call the thin layer of tiny plants on top of the water algae, a technical word we wrote in our notebooks. By the end of the trip, the clear water near the edge looked almost silver in the afternoon light.",
+    "stem": "What kind of language is the phrase 'the pond was a mirror holding the sky'?",
+    "options": [
+     "Connotative language",
+     "Figurative language",
+     "Technical language",
+     "Literal language"
+    ],
+    "answer": 1,
+    "hint": "Is the pond really a mirror, or is this a comparison?",
+    "good": "Yes! The pond is compared to a **mirror** — a comparison that is not literally true is **figurative language**."
+   },
+   "evidence": {
+    "sentences": [
+     "The pond was a mirror holding the sky.",
+     "Scientists call the thin layer of plants algae.",
+     "The hush of the water felt like a soft blanket over the yard.",
+     "The class wrote the new word in their notebooks."
+    ],
+    "proof": [
+     0,
+     2
+    ],
+    "need": 2,
+    "stem": "Tap 2 sentences that use figurative language — language that compares something to another thing.",
+    "wrong": "That sentence names a fact or a special word. Find the sentences that make a comparison."
+   },
+   "checks": [
+    {
+     "passage": "The coach called the young goalkeeper fearless after he dove for the ball without hesitation.",
+     "stem": "What kind of language is the word 'fearless' in this sentence?",
+     "options": [
+      "Literal language",
+      "Technical language",
+      "Connotative language",
+      "Figurative language"
+     ],
+     "answer": 2,
+     "why": "**Fearless** means almost the same as 'not afraid,' but it carries an admiring feeling. That feeling is **connotation**."
+    },
+    {
+     "passage": "In math class, the students learned that the perimeter of the garden is the distance around its edge.",
+     "stem": "What kind of language is the word 'perimeter' in this sentence?",
+     "options": [
+      "Figurative language",
+      "Connotative language",
+      "Literal language",
+      "Technical language"
+     ],
+     "answer": 3,
+     "why": "**Perimeter** is an exact word used in math. A special-subject word like this is **technical language**."
+    },
+    {
+     "passage": "The librarian placed the new books on the shelf near the window.",
+     "stem": "What kind of language describes what the librarian did?",
+     "options": [
+      "Literal language",
+      "Figurative language",
+      "Connotative language",
+      "Technical language"
+     ],
+     "answer": 0,
+     "why": "The sentence says exactly what the librarian did — nothing is implied or compared. That is **literal language**."
+    }
+   ],
+   "again": {
+    "title": "Swap the word, feel the difference",
+    "text": "To test connotation, swap the word for a similar one. \"The reckless driver\" feels negative. \"The brave driver\" feels positive, even though both mean the driver took a risk. The feeling a word carries, beyond its exact meaning, is **connotation**.",
+    "example": "\"The stubborn goat would not move.\" Swap **stubborn** for **determined** and the goat suddenly sounds admirable instead of annoying — that shift in feeling is connotation."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "Why authors choose connotation",
+     "text": "Authors choose words for their **connotation**, not just their dictionary meaning, to control how a reader feels about a person, place, or event."
+    },
+    {
+     "title": "Same meaning, different tone",
+     "text": "\"The old man was **frail**\" feels sad and gentle. \"The old man was **feeble**\" can feel pitying or harsh. Same basic meaning — thin, weak — but a different **tone**."
+    },
+    {
+     "title": "Figurative language sets a mood",
+     "text": "A metaphor or simile can set a **mood**. \"The silence pressed down like a heavy blanket\" makes a scene feel tense, not calm."
+    },
+    {
+     "title": "Technical language builds trust",
+     "text": "Technical words make writing sound exact and trustworthy. A report that says **tremor** instead of **shaking** sounds more like an official science report."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find the exact word or phrase the author chose.\n2. Think of a similar word with a different feeling — does the chosen word feel more positive, negative, or neutral?\n3. Ask what mood or tone that word choice creates for the reader.\n4. Point to the word and explain the effect it has."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The reporter wrote that protesters had gathered, not that a mob had formed.",
+      "role": "key"
+     },
+     {
+      "t": "Choosing 'protesters' over 'mob' makes the crowd sound calm and organized instead of dangerous.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The word **protesters** has a neutral-to-positive connotation, while **mob** has a negative, threatening connotation. The author's choice shapes how calm or dangerous the scene feels."
+   },
+   "together": {
+    "passage": "The old fishing boat had sailed every morning for thirty years, and the fisherman always called it faithful rather than stubborn, even though it groaned and resisted the waves on rough days. His daughter once asked why he never complained about the engine's constant shudder, a technical problem mechanics called vibration fatigue. He laughed and said a faithful boat deserved patience, not blame. That small word choice, faithful instead of stubborn, made the old boat sound like a loyal friend rather than a broken machine.",
+    "stem": "Why does the author have the fisherman call the boat 'faithful' instead of 'stubborn'?",
+    "options": [
+     "To show that the boat is technically broken and needs repair.",
+     "To describe exactly what material the boat is made of.",
+     "To make the boat sound loyal and likable instead of difficult.",
+     "To explain the engine's vibration problem in scientific terms."
+    ],
+    "answer": 2,
+    "hint": "Faithful and stubborn can describe the same behavior. Which word feels warmer?",
+    "good": "Yes! **Faithful** has a warm, positive connotation, so it makes the old boat sound like a loyal friend instead of a stubborn machine."
+   },
+   "evidence": {
+    "sentences": [
+     "The fisherman called the boat faithful rather than stubborn.",
+     "Mechanics call the engine's shudder vibration fatigue.",
+     "A faithful boat deserved patience, not blame, he said.",
+     "The boat had sailed every morning for thirty years."
+    ],
+    "proof": [
+     0,
+     2
+    ],
+    "need": 2,
+    "stem": "Tap 2 sentences that show the author choosing a word for its warm, positive feeling rather than its exact dictionary meaning.",
+    "wrong": "That sentence states a fact or a technical term, not a word chosen for its feeling. Find the sentences about calling the boat 'faithful.'"
+   },
+   "checks": [
+    {
+     "passage": "When the new neighbor asked about everyone's daily schedule, some people on the street described her as curious, while others called her nosy.",
+     "stem": "What effect does the word 'nosy' have that 'curious' does not?",
+     "options": [
+      "It gives the neighbor a purely technical description.",
+      "It states a fact with no feeling attached.",
+      "It makes the neighbor's question sound playful and fun.",
+      "It makes the neighbor's curiosity sound unwelcome and annoying."
+     ],
+     "answer": 3,
+     "why": "**Nosy** carries a negative connotation, making the same behavior sound unwelcome, while **curious** sounds more neutral or positive."
+    },
+    {
+     "passage": "The author wrote, 'Fear crawled up his spine like a cold spider,' instead of simply writing that he felt afraid.",
+     "stem": "What effect does the figurative phrase 'crawled up his spine like a cold spider' create?",
+     "options": [
+      "It makes the character's fear feel slow, creepy, and physical.",
+      "It explains the scientific cause of fear in the body.",
+      "It states plainly that the character was afraid.",
+      "It names a specific medical condition."
+     ],
+     "answer": 0,
+     "why": "Comparing fear to a **cold spider crawling** creates a creepy, physical feeling of dread — more vivid than simply saying 'he felt afraid.'"
+    },
+    {
+     "passage": "The weather report said a tremor shook the region, rather than saying the ground simply shook.",
+     "stem": "Why might the weather report use the technical word 'tremor' instead of just 'shook'?",
+     "options": [
+      "To make the event sound more frightening than it was.",
+      "To sound precise and scientific, like an official report.",
+      "To compare the ground to a living creature.",
+      "To show the writer's personal feelings about the event."
+     ],
+     "answer": 1,
+     "why": "**Tremor** is a technical word used in science and news reports. It makes the writing sound exact and official rather than emotional."
+    }
+   ],
+   "again": {
+    "title": "Compare the near-twin words",
+    "text": "When you see a word choice, think of a near-twin word with almost the same meaning — like faithful/stubborn or curious/nosy. Ask which feeling the author wanted the reader to have, and that tells you the effect of the connotation.",
+    "example": "\"The crowd was **enthusiastic**\" feels positive. \"The crowd was **rowdy**\" feels negative — the author's choice shapes how the reader pictures the same crowd."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "One paragraph, many kinds of words",
+     "text": "A single paragraph can mix **literal**, **figurative**, **connotative**, and **technical** language. Strong readers notice which kind of language each part uses."
+    },
+    {
+     "title": "Spot the clue, name the type",
+     "text": "Ask: does it state a fact (**literal**)? Compare two things (**figurative**)? Carry a feeling (**connotative**)? Use a subject's exact term (**technical**)?"
+    },
+    {
+     "title": "Type plus effect",
+     "text": "Naming the type is step one. Step two is explaining the **effect**: how does that word choice change the tone, mood, or how the reader sees someone or something?"
+    },
+    {
+     "title": "Authors build meaning on purpose",
+     "text": "Every word choice is a decision. A careful reader asks not just what the word means, but why the author picked that exact word over a similar one."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find the exact bolded or quoted phrase.\n2. Decide its type: literal, figurative, connotative, or technical.\n3. Name a near-twin word to test the feeling, if it's connotative.\n4. Explain the effect: what the word choice makes the reader think or feel.\n5. Point to the phrase and your reasoning together as proof."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "The engineer explained that the dam's structural fatigue had weakened one wall.",
+      "role": "key"
+     },
+     {
+      "t": "Townspeople said the river had grown restless, clawing at the old dam's walls.",
+      "role": "key"
+     }
+    ],
+    "explain": "The first sentence uses **structural fatigue**, an exact engineering term — technical language that sounds precise and official. The second sentence gives the river human behavior, calling it **restless** and letting it **claw** — figurative language that makes the river feel dangerous and alive."
+   },
+   "together": {
+    "passage": "By early morning, engineers had already measured the dam's structural fatigue, a technical term for the slow weakening of its concrete walls. Townspeople who had lived beside the river for decades said the water had grown restless, clawing at the old dam each night like an animal testing a cage. The mayor, trying to calm residents, called the situation manageable rather than dangerous, choosing a word that sounded steady and under control. Workers closed the lower road and placed sandbags along the bank, a simple fact nobody argued with. By sunset, the river's edge had risen two meters, and the restless water seemed closer than ever to breaking free.",
+    "stem": "What kind of language is used in the phrase 'clawing at the old dam each night like an animal testing a cage,' and what effect does it have?",
+    "options": [
+     "It is technical language that gives an exact engineering measurement.",
+     "It is literal language that states plainly what the river did.",
+     "It is connotative language that makes the mayor sound calm.",
+     "It is figurative language that makes the river feel alive and threatening."
+    ],
+    "answer": 3,
+    "hint": "Does the river really have claws, or is this a comparison to an animal?",
+    "good": "Yes! Comparing the river to an **animal testing a cage** is a comparison, not a literal fact — that is **figurative language**, and it makes the river feel alive and dangerous."
+   },
+   "evidence": {
+    "sentences": [
+     "Engineers measured the dam's structural fatigue.",
+     "The water had grown restless, clawing at the dam like an animal testing a cage.",
+     "The mayor called the situation manageable rather than dangerous.",
+     "Workers closed the lower road and placed sandbags along the bank."
+    ],
+    "proof": [
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "Tap 2 sentences where the author's specific word choice shapes how calm or dangerous the situation feels, beyond the plain facts.",
+    "wrong": "That sentence states a plain fact or a technical measurement, not a word chosen mainly for its feeling or comparison. Find the sentences about the river's behavior and the mayor's word choice."
+   },
+   "checks": [
+    {
+     "passage": "The coach described the losing team's effort as careless instead of relaxed, even though both words could describe players who were not tense.",
+     "stem": "What effect does choosing 'careless' over 'relaxed' have on how the reader sees the team?",
+     "options": [
+      "It makes the team sound irresponsible rather than simply calm.",
+      "It gives an exact technical description of the team's strategy.",
+      "It states a plain fact about the final score.",
+      "It compares the team to an animal or object."
+     ],
+     "answer": 0,
+     "why": "**Careless** carries a negative connotation — it blames the players — while **relaxed** would sound neutral or even positive for describing the same calm behavior."
+    },
+    {
+     "passage": "The article explained that the bridge had suffered metal corrosion, then added that the bridge looked like 'an old soldier, tired and bent.'",
+     "stem": "What kind of language is the phrase 'an old soldier, tired and bent,' and what effect does it have?",
+     "options": [
+      "It is technical language that names the exact chemical process.",
+      "It is figurative language that makes the bridge seem worn and sympathetic, almost human.",
+      "It is literal language that states the bridge's exact age.",
+      "It is connotative language that makes the engineers sound careless."
+     ],
+     "answer": 1,
+     "why": "Comparing the bridge to a tired, bent **old soldier** is a comparison, not a literal fact. It is **figurative language**, and it makes readers feel sympathy for the bridge, as if it were a person."
+    },
+    {
+     "passage": "The witness said the driver had been reckless, while the driver's lawyer insisted he had only been assertive behind the wheel.",
+     "stem": "What effect do the words 'reckless' and 'assertive' have, even though they describe the same driving?",
+     "options": [
+      "They are both technical terms used only in traffic law.",
+      "They both state the same plain fact with no feeling attached.",
+      "They give the same action two very different feelings — one negative, one more neutral or positive.",
+      "They compare the driver to a fast-moving animal."
+     ],
+     "answer": 2,
+     "why": "**Reckless** has a negative connotation that blames the driver, while **assertive** has a more neutral-to-positive connotation for the same action — the words shape how the reader judges him."
+    }
+   ],
+   "again": {
+    "title": "Type, then effect, every time",
+    "text": "For any bolded or quoted phrase: first name its type (literal, figurative, connotative, or technical). Then explain the effect: does the word choice make something sound scarier, calmer, more official, or more sympathetic than a near-twin word would?",
+    "example": "\"The crowd **surged** forward\" (figurative, makes the crowd feel like a wave, powerful and hard to stop) versus \"The crowd **moved** forward\" (literal, plain, no extra feeling)."
+   }
+  }
+ }
+}

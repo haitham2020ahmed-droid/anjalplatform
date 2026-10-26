@@ -1702,6 +1702,26 @@
    "ccssStems": [
     "RI.{g}.5"
    ]
+  },
+  {
+   "code": "figurative-connotative-technical-language",
+   "name": "Analyzing Figurative, Connotative, and Technical Language",
+   "domain": "VOCABULARY",
+   "category": "VOCABULARY",
+   "mapGoalArea": "VOCAB",
+   "ccssStems": [
+    "L.{g}.5"
+   ]
+  },
+  {
+   "code": "informational-text-elements",
+   "name": "Analyzing Informational Text Elements",
+   "domain": "READING",
+   "category": "INFORMATIONAL",
+   "mapGoalArea": "INFO_STRUCTURE",
+   "ccssStems": [
+    "RI.{g}.5"
+   ]
   }
  ],
  "standards": [

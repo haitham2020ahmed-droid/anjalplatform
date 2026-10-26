@@ -931,6 +931,22 @@
      "Author’s Perspective"
     ]
    },
+   "Mother to Son": {
+    "unit": 2,
+    "number": 4,
+    "name": "Mother to Son",
+    "genre": "Poetry",
+    "textIdea": null,
+    "vocabulary": [
+     "crystal",
+     "landing",
+     "splinter"
+    ],
+    "vocabularySkill": null,
+    "readingSkills": [
+     "Analyzing Figurative, Connotative, and Technical Language"
+    ]
+   },
    "Everybody Jump": {
     "unit": 3,
     "number": 1,
@@ -970,6 +986,24 @@
      "Item-Category Relationship",
      "Cause and Effect",
      "Evaluate Argument and Claims"
+    ]
+   },
+   "Shakespeare in Harlem": {
+    "unit": 3,
+    "number": 3,
+    "name": "Shakespeare in Harlem",
+    "genre": "Poetry",
+    "textIdea": null,
+    "vocabulary": [
+     "anthology",
+     "defer",
+     "evoke",
+     "influence",
+     "prolific"
+    ],
+    "vocabularySkill": null,
+    "readingSkills": [
+     "Analyzing Informational Text Elements"
     ]
    },
    "I Am Malala": {

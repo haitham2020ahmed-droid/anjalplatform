@@ -157,7 +157,7 @@ describe("📘 Full curriculum map (PDF)", () => {
     assert.equal(data[4].units[0].sections[0].essentialQuestion, "How do people respond to natural disasters?");
     assert.ok(data[5].units.every((u) => u.sections.every((x) => x.essentialQuestion === null)));
     const g6 = data[6].units.flatMap((u) => u.sections);
-    assert.equal(g6.length, 24, "Grade 6: 24 StudySync selections"); // Grade 6 Unit 1 added "The Lost Island" (23 → 24)
+    assert.equal(g6.length, 26, "Grade 6: 26 StudySync selections"); // Grade 6 Unit 1 added "The Lost Island" (23 → 24); then "Mother to Son" (U2) and "Shakespeare in Harlem" (U3) (24 → 26)
     assert.ok(g6.every((x) => x.weeks.length === 0 && x.selections.length === 1 && x.selections[0].label === "Selection"));
     assert.equal(sectionLabel(g6[0]), "Selection 1");
     for (const g of [4, 5, 6]) assert.ok(data[g].units.every((u) => u.sections.some((x) => x.skills.length > 0)), `Grade ${g}: platform skills in every unit`);

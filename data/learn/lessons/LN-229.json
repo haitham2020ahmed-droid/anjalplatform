@@ -1,0 +1,459 @@
+{
+ "code": "LN-229",
+ "title": "Analyzing informational text elements",
+ "subject": "READING",
+ "goalArea": "Informational Text",
+ "subtopic": "Informational Text",
+ "standards": [
+  "RI.4.5",
+  "RI.5.5",
+  "RI.6.5"
+ ],
+ "families": [
+  "informational-text-elements"
+ ],
+ "skillNames": [
+  "Analyzing Informational Text Elements"
+ ],
+ "statements": [],
+ "levels": {
+  "1": {
+   "slides": [
+    {
+     "title": "What is a key detail?",
+     "text": "A **key detail** is an important fact in informational text.\n\nIt helps explain the **main idea** — the big point the author wants you to know.\n\nLook for facts, numbers, or names that support that big point."
+    },
+    {
+     "title": "Text features give clues",
+     "text": "Informational text often has **text features** like photos, captions, and headings.\n\nA **caption** is the short text under a photo. It tells you what the photo shows and why it matters."
+    },
+    {
+     "title": "Picking out the detail",
+     "text": "To find a key detail, ask: **What fact does this sentence give me?**\n\nThen ask: **Does it help explain the main idea?**"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Read the main idea sentence first.\n2. Look for a fact, number, or name in the next sentences.\n3. Ask: does this fact explain or support the main idea?\n4. That fact is your key detail — point to it as proof."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Octopuses are amazing sea animals with three hearts.",
+      "role": "main"
+     },
+     {
+      "t": "Two hearts pump blood to the gills, and one heart pumps blood to the rest of the body.",
+      "role": "key"
+     },
+     {
+      "t": "Octopuses live in oceans around the world.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The **main** sentence tells the big idea: octopuses are amazing with three hearts.\n\nThe **key** sentence gives the fact that proves it — exactly how the three hearts work."
+   },
+   "together": {
+    "passage": "Octopuses are unusual sea animals. They have three hearts instead of one. Two hearts pump blood to the gills, and one heart pumps blood to the rest of the body. A caption under a photo of an octopus explains this fact.",
+    "stem": "Which detail best supports the idea that octopuses are unusual?",
+    "options": [
+     "Octopuses have three hearts that work in different ways.",
+     "Octopuses live in the ocean.",
+     "A photo shows an octopus swimming.",
+     "Octopuses are sea animals."
+    ],
+    "answer": 0,
+    "hint": "Look for the fact that explains why three hearts make octopuses unusual.",
+    "good": "Yes! The detail about **three hearts working in different ways** directly supports the main idea that octopuses are unusual."
+   },
+   "evidence": {
+    "sentences": [
+     "Octopuses are unusual sea animals.",
+     "They have three hearts instead of one.",
+     "Two hearts pump blood to the gills, and one heart pumps blood to the rest of the body.",
+     "A caption under a photo of an octopus explains this fact."
+    ],
+    "proof": [
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "Tap 2 sentences that explain the fact about octopus hearts.",
+    "wrong": "This sentence does not explain how the hearts work. Find the sentences about the two kinds of hearts."
+   },
+   "checks": [
+    {
+     "passage": "A nonfiction page about deserts shows a photo of a camel. The caption under the photo reads: Camels store fat in their humps, not water.",
+     "stem": "Why did the author most likely include this caption?",
+     "options": [
+      "To tell readers the exact name of the camel in the photo.",
+      "To explain what the photo shows and add a new fact.",
+      "To describe what the weather is usually like in a desert.",
+      "To list several camels that are currently for sale."
+     ],
+     "answer": 1,
+     "why": "The **caption** explains the photo and adds the fact that camels store fat, not water."
+    },
+    {
+     "passage": "A book about ancient Egypt includes a map of the Nile River next to a paragraph about farming.",
+     "stem": "What is the best reason the author placed a map next to the paragraph?",
+     "options": [
+      "To show readers where to buy the book.",
+      "To completely replace the paragraph with only a picture.",
+      "To help readers see where farming happened along the river.",
+      "To test how well readers can draw maps."
+     ],
+     "answer": 2,
+     "why": "A **map** is a text feature that helps readers picture the location the paragraph describes — where farming happened along the Nile."
+    },
+    {
+     "passage": "Bats are the only mammals that can truly fly. Their wings are made of thin skin stretched between long finger bones.",
+     "stem": "Which detail best supports the idea that bats are unusual mammals?",
+     "options": [
+      "Bats usually sleep hanging upside down during the day.",
+      "Bats often live together in large groups inside caves.",
+      "Bats eat insects and other small creatures at night.",
+      "Bats fly using wings made of skin stretched between finger bones."
+     ],
+     "answer": 3,
+     "why": "This detail explains exactly **how** bats fly, which supports the idea that they are unusual among mammals."
+    }
+   ],
+   "again": {
+    "title": "Find the fact that fits",
+    "text": "Read the main idea first. Then check each fact: does it explain or support that idea? If yes, it is a key detail.",
+    "example": "Main idea: Sharks have an excellent sense of smell. Key detail: Sharks can smell one drop of blood in a large amount of water."
+   }
+  },
+  "2": {
+   "slides": [
+    {
+     "title": "What is supporting evidence?",
+     "text": "**Supporting evidence** is a fact, number, or example an author uses to back up a point.\n\nGood evidence directly explains or proves the author's claim."
+    },
+    {
+     "title": "Not all facts are evidence",
+     "text": "Some facts are just background information. They don't prove the author's main point.\n\nAsk: **Does this fact prove the claim, or is it just extra information?**"
+    },
+    {
+     "title": "Matching evidence to the claim",
+     "text": "To find the best evidence, reread the **claim** first.\n\nThen pick the fact that most directly proves it — not just a fact that is related."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find the author's claim or point.\n2. Look at each fact the author gives.\n3. Ask: does this fact directly prove the claim?\n4. Point to the fact that proves it best — that is your evidence."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Honeybees are important workers for farmers.",
+      "role": "main"
+     },
+     {
+      "t": "A single bee colony can pollinate millions of flowers in one season.",
+      "role": "key"
+     },
+     {
+      "t": "Bees also make honey that people enjoy eating.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The **main** sentence states the claim: bees are important workers.\n\nThe **key** sentence is the strongest **evidence** — it gives a specific number that proves bees do a lot of work."
+   },
+   "together": {
+    "passage": "Many farmers depend on honeybees to grow fruit and vegetables. A single bee colony can visit and pollinate millions of flowers during one growing season. Without this pollination, many crops would produce far less fruit. Bees also make honey, which people enjoy eating with bread or tea.",
+    "stem": "Which detail is the strongest evidence that farmers depend on honeybees?",
+    "options": [
+     "Bees also make a large amount of honey that people enjoy eating.",
+     "A single bee colony can pollinate millions of flowers in one season.",
+     "Many different crops grow well during the warm summer months.",
+     "People enjoy eating honey with bread or tea."
+    ],
+    "answer": 1,
+    "hint": "Look for the fact with a specific number that proves bees help crops grow.",
+    "good": "Yes! The fact that one colony can **pollinate millions of flowers** directly proves that farmers depend on bees."
+   },
+   "evidence": {
+    "sentences": [
+     "Many farmers depend on honeybees to grow fruit and vegetables.",
+     "A single bee colony can visit and pollinate millions of flowers during one growing season.",
+     "Without this pollination, many crops would produce far less fruit.",
+     "Bees also make honey, which people enjoy eating with bread or tea."
+    ],
+    "proof": [
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "Tap 2 sentences that give evidence that bees help crops grow.",
+    "wrong": "This sentence is about honey, not about crops growing. Find the sentences about pollination."
+   },
+   "checks": [
+    {
+     "passage": "Recycling aluminum cans saves a huge amount of energy. Making a new can from recycled aluminum uses only about five percent of the energy needed to make a can from new metal. Recycling also keeps cans out of landfills.",
+     "stem": "Which detail is the best evidence that recycling saves energy?",
+     "options": [
+      "Recycling keeps cans out of landfills.",
+      "Cans are made of aluminum.",
+      "Making a recycled can uses only about five percent of the energy of a new one.",
+      "People recycle cans at home."
+     ],
+     "answer": 2,
+     "why": "The **specific percentage** directly proves how much energy recycling saves."
+    },
+    {
+     "passage": "Scientists believe sea turtles can sense Earth's magnetic field. This sense may help the turtles find their way back to the same beach where they hatched, even after swimming thousands of miles.",
+     "stem": "Which detail best supports the claim that turtles use Earth's magnetic field to navigate?",
+     "options": [
+      "Turtles hatch on sandy beaches near the ocean.",
+      "Turtles swim in the ocean for most of their long lives.",
+      "Scientists study turtles in labs around the world.",
+      "Turtles return to the beach where they hatched after swimming far."
+     ],
+     "answer": 3,
+     "why": "This detail shows the turtles' amazing sense of direction, which supports the claim about sensing the magnetic field."
+    },
+    {
+     "passage": "Many modern medicines come from rainforest plants. Scientists have found that a chemical in one rainforest vine helps treat certain illnesses.",
+     "stem": "Which detail is the strongest evidence that rainforest plants are important for medicine?",
+     "options": [
+      "A chemical from a rainforest vine helps treat certain illnesses.",
+      "Rainforests receive an enormous amount of rain throughout the year.",
+      "Many animals live in rainforests.",
+      "Rainforests are located near the equator around the world."
+     ],
+     "answer": 0,
+     "why": "This detail gives a specific example of a plant chemical that treats illness, which directly supports the claim."
+    }
+   ],
+   "again": {
+    "title": "Check if it proves the point",
+    "text": "Find the claim first. Then test each fact: does it directly prove the claim, or is it just related information?",
+    "example": "Claim: Exercise keeps your heart healthy. Evidence: Regular exercise lowers the risk of heart disease. Not evidence: Exercise can happen outdoors."
+   }
+  },
+  "3": {
+   "slides": [
+    {
+     "title": "What is a pertinent example?",
+     "text": "A **pertinent example** is a specific case that clearly illustrates a general idea.\n\nA good example matches the point exactly — it isn't just something related."
+    },
+    {
+     "title": "Why authors use charts",
+     "text": "A **chart** or **diagram** is a text feature that organizes numbers or steps.\n\nAuthors add charts to help readers compare information quickly, without reading long paragraphs."
+    },
+    {
+     "title": "Checking an example",
+     "text": "To check an example, reread the point it illustrates.\n\nAsk: **Does this example show exactly what the point describes, or just something similar?**"
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Find the general point the author makes.\n2. Look at each example offered.\n3. Ask: does this example show exactly that point, step by step?\n4. Point to the example that matches best — that is your proof."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Many cities are switching to renewable energy to reduce pollution.",
+      "role": "main"
+     },
+     {
+      "t": "For example, the city of Austin now gets nearly half of its electricity from wind farms.",
+      "role": "key"
+     },
+     {
+      "t": "A bar chart on the next page compares energy sources used in different cities.",
+      "role": "other"
+     }
+    ],
+    "explain": "The **main** sentence states the point: cities are switching to renewable energy.\n\nThe **key** sentence gives a **pertinent example** — a real case, Austin, that matches the point exactly."
+   },
+   "together": {
+    "passage": "Many scientists say that solar power is becoming cheaper every year. For example, the cost of solar panels has dropped by more than eighty percent since 2010, making solar farms affordable for many cities. A bar chart next to the article compares the price of solar power across different years, showing a steady drop. Wind power has also become more common, though its price has not fallen as quickly. Some readers skip the chart, but it helps explain the trend with numbers instead of only words.",
+    "stem": "Which example best supports the point that solar power is becoming cheaper?",
+    "options": [
+     "Wind power has also become much more common in recent years.",
+     "A bar chart compares solar prices across years.",
+     "Solar panel costs have dropped more than eighty percent since 2010.",
+     "Some readers skip the chart entirely when they read the article."
+    ],
+    "answer": 2,
+    "hint": "Look for the example with a specific percentage that proves solar got cheaper.",
+    "good": "Yes! The **eighty percent price drop since 2010** is a pertinent example that proves solar power became cheaper."
+   },
+   "evidence": {
+    "sentences": [
+     "Many scientists say that solar power is becoming cheaper every year.",
+     "The cost of solar panels has dropped by more than eighty percent since 2010.",
+     "A bar chart next to the article compares the price of solar power across different years.",
+     "Wind power has also become more common, though its price has not fallen as quickly.",
+     "Some readers skip the chart, but it helps explain the trend with numbers."
+    ],
+    "proof": [
+     1,
+     2
+    ],
+    "need": 2,
+    "stem": "Tap 2 sentences that show why the author included the price chart.",
+    "wrong": "This sentence is about wind power, not the chart. Find the sentences about the chart and the price drop."
+   },
+   "checks": [
+    {
+     "passage": "Nutritionists often say that eating a variety of fruit improves health. For instance, oranges provide a large amount of vitamin C, which helps the body fight off colds. A pie chart in the article shows how much vitamin C different fruits contain.",
+     "stem": "Which example best supports the point that fruit improves health?",
+     "options": [
+      "A pie chart in the article shows vitamin C amounts in different fruits.",
+      "Nutritionists study many kinds of food.",
+      "Fruit is sold at most grocery stores.",
+      "Oranges provide a large amount of vitamin C, which helps fight off colds."
+     ],
+     "answer": 3,
+     "why": "This specific example shows exactly how one fruit, oranges, improves health, which proves the author's point."
+    },
+    {
+     "passage": "A science book describes how a caterpillar changes into a butterfly. Next to the paragraph is a diagram with four pictures showing egg, caterpillar, pupa, and adult butterfly, each labeled with an arrow.",
+     "stem": "Why did the author most likely include this diagram?",
+     "options": [
+      "To show the order of the stages so readers can follow the change step by step.",
+      "To replace the need for any paragraph about butterflies.",
+      "To test how well readers can draw butterflies.",
+      "To list the colors of butterfly wings."
+     ],
+     "answer": 0,
+     "why": "The **diagram** uses labeled pictures and arrows to help readers see the order of each stage clearly."
+    },
+    {
+     "passage": "Engineers say strong triangles make bridges stable. The Firth Bridge in Scotland, built using a web of steel triangles, has carried trains safely for well over a century.",
+     "stem": "Which example best supports the point that triangles make bridges stable?",
+     "options": [
+      "Bridges are usually built near rivers or other large bodies of water.",
+      "The Firth Bridge's steel triangles have carried trains safely for over a century.",
+      "Engineers study many different shapes and structures while in school.",
+      "Scotland has several other famous bridges and castles as well."
+     ],
+     "answer": 1,
+     "why": "This specific, long-lasting bridge example proves exactly how triangles keep bridges stable."
+    }
+   ],
+   "again": {
+    "title": "Match example to point",
+    "text": "Reread the point. Then check: does the example show that exact point in action, or is it just a related fact?",
+    "example": "Point: Reading often improves vocabulary. Example: A student who read one book a week learned hundreds of new words in a year."
+   }
+  },
+  "4": {
+   "slides": [
+    {
+     "title": "Finding the most relevant evidence",
+     "text": "Some facts are related to a point but don't prove it directly.\n\nThe **most relevant** evidence proves the exact claim — not just something connected to the topic."
+    },
+    {
+     "title": "Elaborating with an example",
+     "text": "An author may give an example to **elaborate**, or add more detail to, a point.\n\nA strong example explains exactly how or why the point is true."
+    },
+    {
+     "title": "Comparing two details",
+     "text": "When two details seem similar, ask: **Which one proves the claim most directly, and which is just background?**"
+    },
+    {
+     "title": "Using text features together",
+     "text": "Sometimes a caption, a chart, and a paragraph all work together.\n\nEach text feature adds a different piece of proof for the same point."
+    }
+   ],
+   "proof": {
+    "title": "Prove it from the text",
+    "text": "1. Restate the author's claim in your own words.\n2. List each detail or example that relates to it.\n3. Ask which detail proves the claim most directly — not just one that is related.\n4. Point to that detail as your strongest proof."
+   },
+   "example": {
+    "sentences": [
+     {
+      "t": "Community gardens can help reduce food deserts in cities.",
+      "role": "main"
+     },
+     {
+      "t": "In one neighborhood, a new community garden gave fresh vegetables to over two hundred families who previously had no nearby grocery store.",
+      "role": "key"
+     },
+     {
+      "t": "Community gardens are usually run by volunteers.",
+      "role": "detail"
+     }
+    ],
+    "explain": "The **main** sentence states the claim. The **key** sentence gives the **most relevant** evidence — it directly shows families getting food they lacked. The **detail** sentence is related but does not prove the claim as directly."
+   },
+   "together": {
+    "passage": "City planners often say that community gardens can help reduce food deserts, which are neighborhoods without easy access to fresh produce. In one such neighborhood, residents turned an empty lot into a community garden, and within two years the garden supplied fresh vegetables to more than two hundred families who previously had to travel far to buy fruit and vegetables. A photo caption beside the article notes that the garden is run entirely by volunteers who meet on weekends. The article also mentions that community gardens often improve neighborhood appearance and encourage neighbors to know each other better. While these social benefits are real, the clearest proof that gardens reduce food deserts is the number of families who gained closer access to fresh food.",
+    "stem": "Which detail is the most relevant evidence that community gardens reduce food deserts?",
+    "options": [
+     "The garden is run entirely by volunteers who meet on weekends.",
+     "Community gardens often improve neighborhood appearance.",
+     "Gardens encourage neighbors to know each other better.",
+     "The garden supplied fresh vegetables to over two hundred families nearby."
+    ],
+    "answer": 3,
+    "hint": "Look for the detail that directly shows families gaining access to fresh food, not just a social benefit.",
+    "good": "Yes! The fact that **over two hundred families gained access to fresh vegetables** most directly proves that the garden reduced a food desert."
+   },
+   "evidence": {
+    "sentences": [
+     "City planners often say that community gardens can help reduce food deserts.",
+     "The garden supplied fresh vegetables to more than two hundred families who previously had to travel far for produce.",
+     "The garden is run entirely by volunteers who meet on weekends.",
+     "Community gardens often improve neighborhood appearance and encourage neighbors to know each other better.",
+     "The clearest proof that gardens reduce food deserts is the number of families who gained closer access to fresh food."
+    ],
+    "proof": [
+     1,
+     4
+    ],
+    "need": 2,
+    "stem": "Tap 2 sentences that give the strongest proof that the garden reduced a food desert.",
+    "wrong": "This sentence is about volunteers or neighborhood appearance, not about families gaining access to food. Find the sentences about the number of families."
+   },
+   "checks": [
+    {
+     "passage": "A school newsletter claims that the new recycling program cut the school's trash in half. In its first year, the program reduced the amount of trash sent to the landfill from twenty bags a week to ten bags a week. The newsletter also notes that students decorated the recycling bins with colorful posters, and that the program has made students feel proud of their school.",
+     "stem": "Which detail is the most relevant evidence that the recycling program cut trash in half?",
+     "options": [
+      "Trash sent to the landfill dropped from twenty bags a week to ten bags a week.",
+      "Students decorated the recycling bins with colorful posters.",
+      "The program made students feel proud of their school.",
+      "The newsletter was written by a student reporter."
+     ],
+     "answer": 0,
+     "why": "This is the exact measurement that proves the trash was cut in half — the clearest, most relevant evidence."
+    },
+    {
+     "passage": "Many animals use camouflage to avoid predators. For example, the arctic hare grows a pure white coat in winter that blends almost perfectly with the snow, making it very hard for foxes to spot the hare from a distance.",
+     "stem": "How does the example of the arctic hare elaborate the author's point about camouflage?",
+     "options": [
+      "It lists the many different foods that arctic hares typically eat during winter.",
+      "It shows exactly how one animal's coat color helps it hide from a specific predator.",
+      "It explains why foxes often hunt together in small groups.",
+      "It describes how extremely cold the arctic winter season can get."
+     ],
+     "answer": 1,
+     "why": "The example gives a specific, detailed case — coat color matching snow — that shows exactly how camouflage works for this animal."
+    },
+    {
+     "passage": "An article about droughts includes a line graph showing rainfall totals dropping over ten years, along with a caption explaining that farmers lost more crops each year rainfall fell. A nearby paragraph states that some farmers switched to growing crops that need less water.",
+     "stem": "Why do the graph and caption work together to support the article's point?",
+     "options": [
+      "The graph alone proves that farmers changed which crops they decided to plant.",
+      "The caption completely replaces the need to ever read the graph.",
+      "The graph shows the numbers, and the caption explains what those numbers mean for farmers.",
+      "The graph and caption both describe the exact same individual farmer's story."
+     ],
+     "answer": 2,
+     "why": "The **graph** provides the data and the **caption** explains its meaning — together they give fuller, more relevant evidence for the point about droughts."
+    }
+   ],
+   "again": {
+    "title": "Pick the strongest proof",
+    "text": "When details seem similar, ask which one gives a number or specific fact that directly proves the claim. Social or related details are good support, but they are not the strongest proof.",
+    "example": "Claim: The new library increased reading scores. Strongest evidence: Reading scores rose 15 percent after the library opened. Weaker: Students say they like visiting the library."
+   }
+  }
+ }
+}

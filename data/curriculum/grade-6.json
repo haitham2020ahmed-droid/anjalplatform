@@ -31,14 +31,14 @@
        "familyCode": "text-evidence"
       },
       {
-       "label": "Multiple Meaning Words",
-       "role": "VOCABULARY_STRATEGY",
-       "familyCode": "multiple-meaning"
+       "label": "Word Choice and Tone",
+       "role": "AUTHORS_CRAFT",
+       "familyCode": "word-choice-tone"
       },
       {
-       "label": "Make Inferences",
+       "label": "Compare and Contrast Texts",
        "role": "COMPREHENSION_SKILL",
-       "familyCode": "inference"
+       "familyCode": "compare-texts"
       },
       {
        "label": "Adjectives, Articles and Order of Adjectives",
@@ -67,14 +67,9 @@
        "familyCode": "text-evidence"
       },
       {
-       "label": "Word Choice and Tone",
+       "label": "Connotation and Denotation",
        "role": "AUTHORS_CRAFT",
-       "familyCode": "word-choice-tone"
-      },
-      {
-       "label": "Summarize",
-       "role": "COMPREHENSION_SKILL",
-       "familyCode": "summarize"
+       "familyCode": "connotation"
       },
       {
        "label": "Adverbs and Relative Adverbs",
@@ -103,9 +98,9 @@
        "familyCode": "central-idea"
       },
       {
-       "label": "Compare and Contrast Texts",
+       "label": "Make Inferences",
        "role": "COMPREHENSION_SKILL",
-       "familyCode": "compare-texts"
+       "familyCode": "inference"
       },
       {
        "label": "Pronouns and Antecedents",
@@ -129,14 +124,14 @@
        "familyCode": "text-evidence"
       },
       {
-       "label": "Make Inferences",
-       "role": "COMPREHENSION_SKILL",
-       "familyCode": "inference"
+       "label": "Multiple Meaning Words",
+       "role": "VOCABULARY_STRATEGY",
+       "familyCode": "multiple-meaning"
       },
       {
-       "label": "Context Clues",
-       "role": "VOCABULARY_STRATEGY",
-       "familyCode": "context-clues"
+       "label": "Summarize",
+       "role": "COMPREHENSION_SKILL",
+       "familyCode": "summarize"
       },
       {
        "label": "Nouns: Common, Proper, Concrete, Abstract, Collective",
@@ -264,14 +259,14 @@
        "familyCode": "precise-language"
       },
       {
-       "label": "Character Development",
+       "label": "Setting",
        "role": "AUTHORS_CRAFT",
-       "familyCode": "character"
+       "familyCode": "plot-setting"
       },
       {
-       "label": "Author’s Perspective",
-       "role": "AUTHORS_CRAFT",
-       "familyCode": "author-perspective"
+       "label": "Imagery and Sensory Language",
+       "role": "COMPREHENSION_SKILL",
+       "familyCode": "imagery"
       },
       {
        "label": "Nouns: Common, Proper, Concrete, Abstract, Collective",
@@ -310,9 +305,9 @@
        "familyCode": "word-choice-tone"
       },
       {
-       "label": "Imagery and Sensory Language",
-       "role": "COMPREHENSION_SKILL",
-       "familyCode": "imagery"
+       "label": "Author’s Point of View",
+       "role": "AUTHORS_CRAFT",
+       "familyCode": "point-of-view"
       },
       {
        "label": "Fragments and Run-On Sentences",
@@ -350,6 +345,37 @@
        "role": "GRAMMAR",
        "familyCode": "subjects-predicates"
       }
+     ]
+    },
+    {
+     "number": 4,
+     "code": "G6-U2-L4",
+     "title": "Mother to Son",
+     "genre": "Poetry",
+     "texts": {
+      "selection": "Mother to Son"
+     },
+     "skills": [
+      {
+       "label": "Character Development",
+       "role": "AUTHORS_CRAFT",
+       "familyCode": "character"
+      },
+      {
+       "label": "Analyzing Figurative, Connotative, and Technical Language",
+       "role": "AUTHORS_CRAFT",
+       "familyCode": "figurative-connotative-technical-language"
+      },
+      {
+       "label": "Punctuation and Commas",
+       "role": "GRAMMAR",
+       "familyCode": "commas"
+      }
+     ],
+     "vocabularyWords": [
+      "crystal",
+      "landing",
+      "splinter"
      ]
     }
    ],
@@ -394,6 +420,11 @@
      "label": "Author’s Perspective",
      "role": "AUTHORS_CRAFT",
      "familyCode": "author-perspective"
+    },
+    {
+     "label": "Analyzing Figurative, Connotative, and Technical Language",
+     "role": "AUTHORS_CRAFT",
+     "familyCode": "figurative-connotative-technical-language"
     },
     {
      "label": "Imagery and Sensory Language",
@@ -461,19 +492,14 @@
        "familyCode": "central-idea"
       },
       {
-       "label": "Part-Whole Relationship",
+       "label": "Cause and Effect",
        "role": "AUTHORS_CRAFT",
-       "familyCode": "word-relationships"
+       "familyCode": "cause-effect"
       },
       {
-       "label": "Evaluate Argument and Claims",
-       "role": "AUTHORS_CRAFT",
-       "familyCode": "evaluate-argument"
-      },
-      {
-       "label": "Dictionary, Glossary and Thesaurus",
+       "label": "Make Inferences",
        "role": "COMPREHENSION_SKILL",
-       "familyCode": "reference-materials"
+       "familyCode": "inference"
       },
       {
        "label": "Synonyms and Antonyms",
@@ -507,9 +533,40 @@
        "familyCode": "text-structure"
       },
       {
-       "label": "Make Inferences",
+       "label": "Evaluate Argument and Claims",
+       "role": "AUTHORS_CRAFT",
+       "familyCode": "evaluate-argument"
+      },
+      {
+       "label": "Dictionary, Glossary and Thesaurus",
        "role": "COMPREHENSION_SKILL",
-       "familyCode": "inference"
+       "familyCode": "reference-materials"
+      },
+      {
+       "label": "Adjectives, Articles and Order of Adjectives",
+       "role": "GRAMMAR",
+       "familyCode": "adjectives"
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "code": "G6-U3-L3",
+     "title": "Shakespeare in Harlem",
+     "genre": "Poetry",
+     "texts": {
+      "selection": "Shakespeare in Harlem"
+     },
+     "skills": [
+      {
+       "label": "Part-Whole Relationship",
+       "role": "AUTHORS_CRAFT",
+       "familyCode": "word-relationships"
+      },
+      {
+       "label": "Analyzing Informational Text Elements",
+       "role": "AUTHORS_CRAFT",
+       "familyCode": "informational-text-elements"
       },
       {
        "label": "Plot: Sequence of Events",
@@ -517,10 +574,17 @@
        "familyCode": "plot-events"
       },
       {
-       "label": "Adjectives, Articles and Order of Adjectives",
+       "label": "Prefixes",
        "role": "GRAMMAR",
-       "familyCode": "adjectives"
+       "familyCode": "prefixes"
       }
+     ],
+     "vocabularyWords": [
+      "anthology",
+      "defer",
+      "evoke",
+      "influence",
+      "prolific"
      ]
     }
    ],
@@ -555,6 +619,11 @@
      "label": "Evaluate Argument and Claims",
      "role": "AUTHORS_CRAFT",
      "familyCode": "evaluate-argument"
+    },
+    {
+     "label": "Analyzing Informational Text Elements",
+     "role": "AUTHORS_CRAFT",
+     "familyCode": "informational-text-elements"
     },
     {
      "label": "Make Inferences",

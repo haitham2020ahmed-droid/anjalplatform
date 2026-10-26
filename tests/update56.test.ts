@@ -106,12 +106,15 @@ describe("Update 56 · data files: 30 per skill, Curriculum Map Concept Vocabula
     const nodes = await attachmentNodes(repo, schoolId);
     const rev = nodes.filter((n) => n.category === "REVIEW");
     const sets = new Set(nodes.map((n) => `${n.grade}.${n.unit}.${n.setNumber}`));
-    assert.equal(rev.length, 59, "one Review per Text Set / Selection");
+    // r92: Grade 6 Unit 1's "The Lost Island" lesson added one more Text Set/Selection (59 → 60; see r79-plan-links.test.ts)
+    // "Mother to Son" (U2) and "Shakespeare in Harlem" (U3) added two more (60 → 62); their Concept Vocabulary / Review
+    // content is now authored in data/questions/sets/map-vocab-review-sets.json (file counts below are 62).
+    assert.equal(rev.length, 62, "one Review per Text Set / Selection");
     assert.equal(rev.length, sets.size);
     for (const n of rev) assert.match(n.code, /\.REV$/);
     const file = await loadMapSetsFile();
-    assert.equal(file.filter((n) => n.code.endsWith(".REV")).length, 59);
-    assert.equal(file.filter((n) => n.code.endsWith(".CV")).length, 59);
+    assert.equal(file.filter((n) => n.code.endsWith(".REV")).length, 62);
+    assert.equal(file.filter((n) => n.code.endsWith(".CV")).length, 62);
     for (const n of file) assert.equal(n.questions.length, 30, n.code);
     const pick = [file.find((n) => n.code.endsWith(".CV"))!, file.find((n) => n.code.endsWith(".REV"))!];
     const res = await addMapSets(repo, schoolId, pick);
