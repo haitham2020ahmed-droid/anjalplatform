@@ -10,8 +10,8 @@ import { assignSkillByLevel } from "../src/server/teacher/skill-assign";
 import { listChallengeTemplates, saveChallengeTemplate } from "../src/server/game/live-challenge";
 import { questionsOfSkill } from "../src/server/questions/skill-questions";
 import {
-  AUTO, MAX_PICKED, dedupeSkillsByName, defaultProgram, filterQuestions, isCorrectChoice, normalizeSkillName, parseQuestionIdsField,
-  pickerOutput, previewQuestions, programOf, questionIdsField, type PickerQuestion,
+  AUTO, MAX_PICKED, dedupeSkillsByName, defaultProgram, filterQuestions, isAllShownPicked, isCorrectChoice, normalizeSkillName,
+  parseQuestionIdsField, pickFirstN, pickerOutput, previewQuestions, programOf, questionIdsField, toggleSelectAll, type PickerQuestion,
 } from "../src/components/skill-picker/helpers";
 import { UI_STRINGS } from "../src/i18n/en";
 import { ar } from "../src/i18n/ar";
@@ -39,8 +39,8 @@ describe("🧩 skill picker: pure helpers", () => {
   test("output shape: { auto: true } or { auto: false, questionIds } and the hidden questionIds field", () => {
     assert.deepEqual(pickerOutput(true, ["a", "b"]), { auto: true });
     assert.deepEqual(pickerOutput(false, ["a", "b", "a", ""]), { auto: false, questionIds: ["a", "b"] });
-    assert.equal(pickerOutput(false, Array.from({ length: 80 }, (_, i) => `q${i}`)).auto, false);
-    const many = pickerOutput(false, Array.from({ length: 80 }, (_, i) => `q${i}`));
+    assert.equal(pickerOutput(false, Array.from({ length: 250 }, (_, i) => `q${i}`)).auto, false);
+    const many = pickerOutput(false, Array.from({ length: 250 }, (_, i) => `q${i}`));
     assert.equal(!many.auto && many.questionIds.length, MAX_PICKED);
     assert.equal(questionIdsField(AUTO), "");
     assert.equal(questionIdsField({ auto: false, questionIds: ["a", "b"] }), '["a","b"]');
@@ -78,9 +78,38 @@ describe("🧩 skill picker: pure helpers", () => {
     assert.deepEqual(previewQuestions(list, { auto: false, questionIds: ["3", "1", "zz"] }).map((x) => x.id), ["3", "1"], "the teacher's questions, in order");
   });
 
+  test("🔁 Select all ↔ Clear never gets stuck when the filtered list is bigger than the cap (Oct 2026 bug fix)", () => {
+    const ids = (n: number) => Array.from({ length: n }, (_, i) => ({ id: `q${i}` }));
+    const big = ids(70); // more than a small max — reproduces the reported bug
+    // first click: selectAll ticks up to `max` (here 50, smaller than the 70 shown) — the button must now read "Clear".
+    const afterSelect = toggleSelectAll(big, [], 50);
+    assert.equal(afterSelect.length, 50, "capped at max, not all 70");
+    assert.equal(isAllShownPicked(big, afterSelect, 50), true, "button must read Clear, not stuck on Select all");
+    // second click ("Clear"): must empty the selection, not try to select more.
+    const afterClear = toggleSelectAll(big, afterSelect, 50);
+    assert.deepEqual(afterClear, []);
+    assert.equal(isAllShownPicked(big, afterClear, 50), false, "back to Select all");
+    // the simple case (shown.length <= max) still works exactly as before.
+    const small = ids(5);
+    const selectedSmall = toggleSelectAll(small, [], 50);
+    assert.deepEqual(selectedSmall.sort(), small.map((q) => q.id).sort());
+    assert.equal(isAllShownPicked(small, selectedSmall, 50), true);
+    assert.deepEqual(toggleSelectAll(small, selectedSmall, 50), [], "clears every shown id");
+  });
+
+  test("Pick first N: the first N of the shown list, clamped to [0, max, shown.length]", () => {
+    const list = Array.from({ length: 10 }, (_, i) => ({ id: `q${i}` }));
+    assert.deepEqual(pickFirstN(list, 3, 50), ["q0", "q1", "q2"]);
+    assert.deepEqual(pickFirstN(list, 0, 50), [], "N=0 picks nothing");
+    assert.deepEqual(pickFirstN(list, 999, 50), list.map((q) => q.id), "clamped to shown.length");
+    assert.deepEqual(pickFirstN(list, 999, 4), list.slice(0, 4).map((q) => q.id), "clamped to max");
+    assert.deepEqual(pickFirstN(list, -5, 50), [], "negative/garbage N picks nothing");
+    assert.deepEqual(pickFirstN(list, NaN, 50), [], "NaN N picks nothing");
+  });
+
   test("every new interface string has an Arabic version; no grade tags left in the skill choosers", () => {
     const known = new Set<string>(UI_STRINGS);
-    for (const s of ["Let the platform choose for each student (recommended)", "I'll pick the questions", "{n} selected", "Select all", "Preview as student", "Program", "Search the questions…"]) {
+    for (const s of ["Let the platform choose for each student (recommended)", "I'll pick the questions", "{n} selected", "Select all", "Pick first N", "Preview as student", "Program", "Search the questions…"]) {
       assert.ok(known.has(s), s);
       assert.match(ar[s as keyof typeof ar], /[؀-ۿ]/, s);
     }
@@ -125,13 +154,13 @@ describe("🧩 skill picker: the server keeps the program and the teacher's ques
     assert.equal((await repo.findUnique("Assignment", { id: old.assignmentId }))!.program ?? null, null, "older callers: no program");
   });
 
-  test("picked questions are checked: published, of this school, at most 50", async () => {
+  test("picked questions are checked: published, of this school, at most 200 (raised from 50, Oct 2026)", async () => {
     const id = (await questionsOfSkill(repo, teacher.schoolId!, skillId))[0].id;
     assert.equal(await pickedQuestionIds(repo, teacher.schoolId, []), null);
     assert.deepEqual(await pickedQuestionIds(repo, teacher.schoolId, [id]), [id]);
     await assert.rejects(pickedQuestionIds(repo, teacher.schoolId, ["no-such-question"]), /published/);
     await assert.rejects(pickedQuestionIds(repo, "another-school", [id]), ForbiddenError);
-    await assert.rejects(pickedQuestionIds(repo, teacher.schoolId, Array.from({ length: 51 }, (_, i) => `q${i}`)), /at most 50/);
+    await assert.rejects(pickedQuestionIds(repo, teacher.schoolId, Array.from({ length: 201 }, (_, i) => `q${i}`)), /at most 200/);
   });
 
   test("Assign a skill page: picked questions only, and the program on every set", async () => {

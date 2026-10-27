@@ -570,7 +570,9 @@ export async function assignmentDetail(repo: Repo, actor: Actor, assignmentId: s
 
 // ------------------------------------------------------------------ ⭐ assign chosen questions (question sets)
 
-export const MAX_SET_QUESTIONS = 50;
+/** Raised from 50 → 200 (Oct 2026, "خليه مفتوح") — tracks skill-picker/helpers.ts MAX_PICKED and
+ *  plans/question-pick.ts MAX_SECTION_QUESTIONS; keep all three equal. */
+export const MAX_SET_QUESTIONS = 200;
 /** a teacher-built test (Assessments) may hold a few more questions than a practice set */
 export const MAX_TEST_SET_QUESTIONS = 60;
 /** sets with a goal of correct answers stop here anyway (the teacher is told the student is stuck) */

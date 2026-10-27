@@ -2,7 +2,8 @@
 import { useCallback, useEffect, useRef, useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
 import { useT } from "@/i18n/client";
-import { bulkAssignedAction } from "@/app/teacher/assigned/actions";
+import { bulkAssignedAction, setTabAssignedAction } from "@/app/teacher/assigned/actions";
+import { WORK_TABS, WORK_TAB_LABEL } from "@/lib/work-tab";
 
 /**
  * ☑ Assigned → several at once (owner r68): the list's checkboxes (name "sel", value "KIND:id", data-kind, data-unit)
@@ -16,6 +17,7 @@ export function AssignedBulkBar({ listId, kinds, units, cancelledView }: { listI
   const [n, setN] = useState(0);
   const [busy, start] = useTransition();
   const [toast, setToast] = useState<{ text: string; undo: string[] | null } | null>(null);
+  const [tabVal, setTabVal] = useState("");
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const boxes = useCallback(() => Array.from(document.querySelectorAll<HTMLInputElement>(`#${CSS.escape(listId)} input[type=checkbox][name="sel"]`)), [listId]);
   const recount = useCallback(() => setN(boxes().filter((b) => b.checked).length), [boxes]);
@@ -48,6 +50,16 @@ export function AssignedBulkBar({ listId, kinds, units, cancelledView }: { listI
     if (!window.confirm(t("Cancel {n} items for everyone? Students will no longer see them; their answers are kept.", { n: refs.length }))) return;
     run("cancel", refs);
   };
+  /** 📂 "Set tab" on the ticked SKILL rows (My Work tab) — a non-SKILL ref is quietly skipped (setTabAssignedAction). */
+  const setTab = () => start(async () => {
+    const refs = boxes().filter((b) => b.checked).map((b) => b.value);
+    if (!refs.length) return;
+    const r = await setTabAssignedAction({ refs, tab: tabVal });
+    if (!r.ok) { show(r.message ? t(r.message) : t("Nothing was changed."), null); return; }
+    pick(() => false);
+    show(tabVal ? t("Tab set.") : t("Tab cleared."), null);
+    router.refresh();
+  });
   const field = "h-8 rounded-lg bg-surface px-2 text-xs text-ink ring-1 ring-line";
   return (
     <>
@@ -64,6 +76,18 @@ export function AssignedBulkBar({ listId, kinds, units, cancelledView }: { listI
             <option value="">{t("Select by unit…")}</option>
             {units.map((u) => <option key={u} value={u}>{u}</option>)}
           </select>
+        )}
+        {!cancelledView && (
+          <>
+            <select aria-label={t("My Work tab")} className={field} value={tabVal} onChange={(e) => setTabVal(e.target.value)}>
+              <option value="">{t("No tab")}</option>
+              {WORK_TABS.map((k) => <option key={k} value={k}>{t(WORK_TAB_LABEL[k])}</option>)}
+            </select>
+            <button type="button" onClick={setTab} disabled={!n || busy}
+              className="inline-flex h-8 items-center rounded-lg bg-surface px-2.5 font-semibold text-brand-navy ring-1 ring-line hover:ring-brand-teal disabled:opacity-50">
+              📂 {t("Set the tab for the ticked skill(s)")}
+            </button>
+          </>
         )}
         {n > 0 && <button type="button" onClick={() => pick(() => false)} className="font-semibold text-muted hover:underline">{t("Clear")}</button>}
         <span className="ms-auto text-muted" dir="ltr">{t("{n} selected", { n })}</span>

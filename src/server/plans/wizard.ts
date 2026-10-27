@@ -34,6 +34,7 @@ import type { Program } from "./program";
 import { nafsAreaList as sharedNafsAreaList, nafsAreaSkills, publishedQuestionCounts } from "./nafs-areas";
 import { SOURCE_LABEL, sourceOfPlanKind, sourceOfWork, type SourceKey, type SourceLabel } from "../../lib/source-tags";
 import type { WorkKind } from "../../lib/work-kinds";
+import type { WorkTab } from "../../lib/work-tab";
 import { needsSupportPairs } from "../skills/status-extras";
 
 const s = (v: unknown) => String(v ?? "");
@@ -43,7 +44,7 @@ export const PLAN_TYPES: { type: PlanType; label: string; icon: string; text: st
   { type: "MAP", label: "MAP Plan", icon: "🗺️", text: "Built from each student's MAP scores (Learning Continuum)." },
   { type: "NAFS", label: "NAFS Plan", icon: "🇸🇦", text: "General NAFS practice from the NAFS areas." },
   { type: "CURRICULUM", label: "Curriculum Plan", icon: "📘", text: "The skills of a unit's lessons." },
-  { type: "RTI", label: "RTI Plan", icon: "🧩", text: "This week's skills for students in RTI (Tier 2 and 3)." },
+  { type: "RTI", label: "Support Plan", icon: "🧩", text: "This week's skills for students in Support (Tier 2 and 3)." },
   { type: "CUSTOM", label: "Custom", icon: "✏️", text: "Pick any skills, from any grade." },
 ];
 export const planTypeOf = (v: unknown): PlanType | null => (PLAN_TYPES.some((t) => t.type === v) ? (v as PlanType) : null);
@@ -309,9 +310,9 @@ export async function proposePlan(repo: Repo, actor: Actor, input: ProposeInput)
       // no focus skill and no practice yet: the core reading skills (whole bank, any grade) as a start
       for (const q of ["central idea", "make inferences", "context clues"]) {
         const hit = (await skillsMatching(repo, s(klass.schoolId), q)).find((k) => k.questions > 0);
-        if (hit) want(hit.id, noData, "RTI: a core reading skill to start (no practice data yet)");
+        if (hit) want(hit.id, noData, "Support: a core reading skill to start (no practice data yet)");
       }
-      notes.push(`${noData.length} student(s) in RTI have no focus skill or practice yet: the core reading skills are suggested. Change them if you like.`);
+      notes.push(`${noData.length} student(s) in Support have no focus skill or practice yet: the core reading skills are suggested. Change them if you like.`);
     }
   }
 
@@ -527,6 +528,12 @@ export interface MyWorkItem {
   sources?: SourceKey[];
   startAt?: string | null;
   /**
+   * the student's My Work tab this row is filed under (e.g. "Extra Practice"); null/undefined = shows normally in
+   * the usual Due this week / Later / Done grouping. r74-style merge: the tab follows the "leading" (most active)
+   * of the merged assignment rows — a fresh, active, untagged reassignment of the same skill clears an old tab.
+   */
+  tab?: WorkTab | null;
+  /**
    * work that is not a skill or a set of questions (student/all-work.ts): a test, a MAP Test, a NAFS test or
    * practice, a ReadRise article, writing, reading aloud, an exit ticket … — shown with this kind instead of the program
    */
@@ -560,7 +567,7 @@ export function mergeWorkItems(items: readonly AssignedSkillItem[], now = new Da
       status, overdue: i.status === "OVERDUE", dueAt: i.dueAt,
       href: status === "Done" ? `/student/assignments/${i.assignmentId}/report` : i.kind === "skill" ? `/practice/${i.skillId}` : `/quiz/${i.assignmentId}`,
       action: status === "Done" ? "Review" : status === "Not started" ? "Start" : "Continue",
-      note: i.note, sources: [sourceOfWork(i.source ?? i.track, Boolean(i.grammar) && !i.source)], startAt: i.startAt ?? null,
+      note: i.note, sources: [sourceOfWork(i.source ?? i.track, Boolean(i.grammar) && !i.source)], startAt: i.startAt ?? null, tab: i.tab ?? null,
     };
     const dedupe = i.kind === "skill" ? `skill:${i.skillId}` : `set:${i.assignmentId}`;
     const at = seen.get(dedupe);

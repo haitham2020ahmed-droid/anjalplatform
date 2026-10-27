@@ -13,8 +13,10 @@ export interface PickerQuestion { id: string; stem: string; choices: string[] | 
 export type PickerValue = { auto: true } | { auto: false; questionIds: string[] };
 
 export const AUTO: PickerValue = { auto: true };
-/** At most this many chosen questions per skill (the size of a question set). */
-export const MAX_PICKED = 50;
+/** At most this many chosen questions per skill (the size of a question set). Raised from 50 → 200 (Oct 2026,
+ *  "خليه مفتوح"): tracks server/teacher/assign.ts MAX_SET_QUESTIONS and server/plans/question-pick.ts
+ *  MAX_SECTION_QUESTIONS — keep all three equal. */
+export const MAX_PICKED = 200;
 
 /** The picker's output from the current choice. An empty manual choice is still manual (the form blocks it). */
 export function pickerOutput(auto: boolean, selected: Iterable<string>): PickerValue {
@@ -83,7 +85,7 @@ export function dedupeSkillsByName<T extends { name: string }>(rows: readonly T[
 
 export type Program = "MAP" | "RTI" | "CURRICULUM" | "NAFS";
 export const PROGRAMS: readonly Program[] = ["CURRICULUM", "MAP", "RTI", "NAFS"];
-export const PROGRAM_LABEL: Record<Program, string> = { CURRICULUM: "Curriculum", MAP: "MAP", RTI: "RTI", NAFS: "NAFS" };
+export const PROGRAM_LABEL: Record<Program, string> = { CURRICULUM: "Curriculum", MAP: "MAP", RTI: "Support", NAFS: "NAFS" };
 
 export const isProgram = (v: unknown): v is Program => (PROGRAMS as readonly unknown[]).includes(v);
 /** A form value → a program (unknown values are Curriculum). */
@@ -116,6 +118,33 @@ export function isCorrectChoice(choice: string, answer: string | null | undefine
   if (!answer) return false;
   const c = choice.trim().toLowerCase();
   return answer.split(/;\s*/).some((part) => { const p = part.trim().toLowerCase(); return p === c || p.replace(/^[a-z0-9]{1,2}[.)]\s+/, "") === c; });
+}
+
+// ------------------------------------------------------------------ Select all / Clear / Pick first N (Oct 2026)
+
+/**
+ * 🔁 fix: is the shown (filtered) list fully picked, for the "Select all" ↔ "Clear" toggle? When `shown` has more
+ * than `max` questions, selectAll can never tick every one of them (it stops at `max`) — so a plain `shown.every(…)`
+ * check could never flip true, and the button got stuck on "Select all" forever (a second click just re-ran the
+ * capped select instead of clearing). Count it as "picked" either way: every shown question is ticked, OR the
+ * selection is already at the cap (so there is nothing more selectAll could add).
+ */
+export function isAllShownPicked<Q extends { id: string }>(shown: readonly Q[], selected: readonly string[], max: number): boolean {
+  return shown.length > 0 && (shown.every((q) => selected.includes(q.id)) || selected.length >= max);
+}
+
+/** The next `selected` after pressing "Select all" / "Clear": adds every shown id (capped at `max`), or removes
+ *  every shown id from the current selection when they were already all picked (see isAllShownPicked). */
+export function toggleSelectAll<Q extends { id: string }>(shown: readonly Q[], selected: readonly string[], max: number): string[] {
+  return isAllShownPicked(shown, selected, max)
+    ? selected.filter((id) => !shown.some((q) => q.id === id))
+    : [...new Set([...selected, ...shown.map((q) => q.id)])].slice(0, max);
+}
+
+/** The next `selected` for "Pick first N": the first N of the shown (filtered) list, clamped to [0, max, shown.length]. */
+export function pickFirstN<Q extends { id: string }>(shown: readonly Q[], n: number, max: number): string[] {
+  const count = Math.max(0, Math.min(Math.trunc(n) || 0, max, shown.length));
+  return shown.slice(0, count).map((q) => q.id);
 }
 
 /** The first questions the student would see: the chosen ones in order, or (platform's choice) On Level first. */

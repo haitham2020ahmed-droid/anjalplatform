@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { StudentHome } from "@/server/student/student-home";
 import { EmptyState, StatusPill } from "@/components/ui-kit";
 import type { TFn } from "@/i18n";
-import { groupMyWork, SHOW_FIRST, type TypeGroup, type WorkGroups } from "@/lib/my-work-groups";
+import { groupMyWork, tabGroups, SHOW_FIRST, type TabGroup, type TypeGroup, type WorkGroups } from "@/lib/my-work-groups";
 import { SkillStar } from "@/components/skills/skill-star";
 import { MasteryMeter } from "@/components/skills/mastery-meter";
 import type { StarInfo } from "@/lib/skill-stars";
@@ -69,6 +69,23 @@ function TypeBlock({ g, t }: { g: TypeGroup<Row>; t: TFn }) {
   );
 }
 
+/** 📂 One My Work tab section (e.g. "Extra Practice"): a flat list of its rows, same compact cards, "Show all" past SHOW_FIRST. */
+function TabBlock({ g, t }: { g: TabGroup<Row>; t: TFn }) {
+  const first = g.rows.slice(0, SHOW_FIRST), more = g.rows.slice(SHOW_FIRST);
+  return (
+    <section data-testid="work-tab" data-tab={g.tab} aria-label={t(g.label)} className="space-y-1.5 rounded-2xl bg-sky-50/60 p-3 ring-1 ring-sky-100">
+      <h2 className="flex items-center gap-1.5 text-base font-bold text-brand-navy"><span aria-hidden="true">📂</span>{t(g.label)} <span className="font-normal text-slate-500">({g.rows.length})</span></h2>
+      <ul className="grid gap-1.5 sm:grid-cols-2">{first.map((r) => <CompactCard key={r.assignmentId} r={r} t={t} />)}</ul>
+      {more.length > 0 && (
+        <details className="mt-1.5">
+          <summary className="flex min-h-10 cursor-pointer items-center text-sm font-semibold text-brand-navy">{t("Show all ({n})", { n: g.rows.length })}</summary>
+          <ul className="mt-1.5 grid gap-1.5 sm:grid-cols-2">{more.map((r) => <CompactCard key={r.assignmentId} r={r} t={t} />)}</ul>
+        </details>
+      )}
+    </section>
+  );
+}
+
 function TimeBlock({ g, t }: { g: WorkGroups<Row>; t: TFn }) {
   return (
     <section data-testid="work-time" data-time={g.time} aria-label={t(g.label)} className="space-y-3">
@@ -88,8 +105,10 @@ function TimeBlock({ g, t }: { g: WorkGroups<Row>; t: TFn }) {
  */
 export function MyWorkGroups({ rows, t, now = new Date(), query = "", totalAll }: { rows: readonly Row[]; t: TFn; now?: Date; query?: string; totalAll?: number }) {
   const [week, later, done] = groupMyWork(rows, now);
+  const tabs = tabGroups(rows);
+  const tabTotal = tabs.reduce((n, g) => n + g.rows.length, 0);
   const showSearch = (totalAll ?? rows.length) > SHOW_FIRST;
-  if (!week.total && !later.total && !query) {
+  if (!week.total && !later.total && !tabTotal && !query) {
     return (
       <>
         <EmptyState compact icon={done.total ? "🎉" : "🌈"} title={done.total ? "No work right now — great job!" : "Nothing here yet"} text="Your teacher will add work here soon. Pick something to read!" />
@@ -107,11 +126,12 @@ export function MyWorkGroups({ rows, t, now = new Date(), query = "", totalAll }
           {query && <Link href="/student/work" className="text-sm font-semibold text-brand-teal hover:underline">{t("Clear")}</Link>}
         </form>
       )}
-      {query && !week.total && !later.total && !done.total
+      {query && !week.total && !later.total && !done.total && !tabTotal
         ? <EmptyState compact icon="🔍" title="No matches" text="Try a different word, or clear the search." />
         : <>
             {week.total > 0 && <TimeBlock g={week} t={t} />}
             {later.total > 0 && <TimeBlock g={later} t={t} />}
+            {tabs.map((g) => <TabBlock key={g.tab} g={g} t={t} />)}
             {done.total > 0 && <DoneBlock g={done} t={t} />}
           </>}
     </div>

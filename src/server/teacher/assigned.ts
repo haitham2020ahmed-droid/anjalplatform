@@ -32,6 +32,7 @@ import { TEST_MARK } from "../tests/runtime";
 import { activeCancels, cancelIndexOf } from "../student/cancelled-work";
 import { bookletSourceOf } from "../nafs/booklet-source";
 import { ASSIGN_SOURCE_LABEL } from "../../lib/assign-source";
+import { parseWorkTab, type WorkTab } from "../../lib/work-tab";
 
 export const ASSIGNED_KINDS = ["SKILL", "PROGRESS_CHECK", "TEST", "MAP_TEST", "NAFS_TEST", "NAFS_PRACTICE", "LEARN", "WORDS", "READRISE", "WRITING", "FLUENCY", "EXIT_TICKET", "RESPOND", "PLAN", "LESSON"] as const;
 export type AssignedKind = (typeof ASSIGNED_KINDS)[number];
@@ -654,3 +655,32 @@ async function bulk(repo: Repo, actor: Actor, refs: readonly BulkRef[], now: Dat
   if (out.done.length) await forgetCachedReports(repo, sc.schoolId);
   return out;
 }
+
+// ------------------------------------------------------------------ My Work tab (Oct 2026, "خليها تنضاف")
+
+/**
+ * 📂 File several SKILL assignments under a My Work tab at once (e.g. "Extra Practice"), or clear it (tab = null).
+ * SKILL-only (the tab is a skill-work concept): a non-SKILL ref in the list fails on its own, like a bad id would —
+ * the rest still go through. Each ref is checked like cancelMany (the teacher's own work, or a class they teach).
+ */
+export async function setTabMany(repo: Repo, actor: Actor, refs: readonly BulkRef[], tab: WorkTab | null, now = new Date()): Promise<BulkResult> {
+  assertCan(actor, "assignments:create");
+  const list = parseBulkRefs(refs.map((r) => `${r.kind}:${r.id}`));
+  const out: BulkResult = { done: [], failed: [] };
+  if (!list.length) return out;
+  for (const ref of list) {
+    try {
+      if (ref.kind !== "SKILL") throw new ValidationError("Only an assigned skill can have a My Work tab.");
+      const { item } = await manageable(repo, actor, ref.kind, ref.id);
+      await repo.updateMany("Assignment", { id: item.id }, { tab });
+      out.done.push(ref);
+    } catch (e) {
+      if (e instanceof ForbiddenError || e instanceof ValidationError) out.failed.push({ ...ref, message: e.message });
+      else throw e;
+    }
+  }
+  if (out.done.length) await audit(repo, { actorId: actor.userId, action: "assignment.tab.bulk", entityType: "Assigned", entityId: String(out.done.length), after: { tab, items: out.done.slice(0, 50) }, at: now }).catch(() => undefined);
+  if (out.done.length) await forgetCachedReports(repo, s(actor.schoolId));
+  return out;
+}
+export { parseWorkTab };

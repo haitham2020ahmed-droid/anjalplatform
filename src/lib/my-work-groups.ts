@@ -5,6 +5,7 @@
  * rows it already has (student/all-work.ts is not read again).
  */
 import type { WorkKind } from "./work-kinds";
+import { WORK_TABS, WORK_TAB_LABEL, type WorkTab } from "./work-tab";
 
 export const SHOW_FIRST = 6;
 export type WorkType = "SKILLS" | "TESTS" | "READING" | "LEARN" | "WRITING" | "MAP" | "NAFS" | "OTHER";
@@ -22,6 +23,9 @@ export interface WorkRowLike {
   skill?: string;
   /** the skill star, when the row is a skill already being learned — used only by byPriority */
   star?: { status?: string; score?: number | null } | null;
+  /** the My Work tab this row is filed under (e.g. "Extra Practice"); set = hidden from the normal time grouping
+   * (groupMyWork) and shown under its own section instead (tabGroups) */
+  tab?: WorkTab | null;
 }
 
 /** The type of a row: its kind (tests, reading, Learn …), else its program (a MAP / NAFS skill set), else Skills. */
@@ -80,17 +84,38 @@ export function searchWork<T extends WorkRowLike>(rows: readonly T[], query: str
   return q ? rows.filter((r) => String(r.skill ?? "").toLowerCase().includes(q)) : (rows as T[]);
 }
 
-/** Due this week · Later · Done, each split by type (the rows keep their My Work order inside a group). */
+/**
+ * Due this week · Later · Done, each split by type (the rows keep their My Work order inside a group). A row
+ * filed under a My Work tab (r.tab set) is left out here — it shows under its tab's own section instead
+ * (tabGroups), never in both places.
+ */
 export function groupMyWork<T extends WorkRowLike>(rows: readonly T[], now = new Date(), cap = SHOW_FIRST): WorkGroups<T>[] {
+  const untabbed = rows.filter((r) => !r.tab);
   const out: WorkGroups<T>[] = [];
   for (const time of ["WEEK", "LATER", "DONE"] as TimeGroup[]) {
-    const mine = rows.filter((r) => timeOf(r, now) === time);
+    const mine = untabbed.filter((r) => timeOf(r, now) === time);
     const types: TypeGroup<T>[] = [];
     for (const type of TYPE_ORDER) {
       const list = mine.filter((r) => typeOf(r) === type);
       if (list.length) types.push({ type, label: TYPE_LABEL[type].label, icon: TYPE_LABEL[type].icon, rows: list, first: list.slice(0, cap), more: list.slice(cap) });
     }
     out.push({ time, label: TIME_LABEL[time], total: mine.length, types });
+  }
+  return out;
+}
+
+export interface TabGroup<T> { tab: WorkTab; label: string; rows: T[] }
+
+/**
+ * 📂 My Work tab sections (e.g. "Extra Practice"): every row filed under a tab (r.tab set), one section per tab
+ * that actually has rows, in WORK_TABS order. A tabbed row never also appears in groupMyWork's WEEK/LATER/DONE —
+ * the two functions partition the same rows, they never overlap.
+ */
+export function tabGroups<T extends WorkRowLike>(rows: readonly T[]): TabGroup<T>[] {
+  const out: TabGroup<T>[] = [];
+  for (const tab of WORK_TABS) {
+    const list = rows.filter((r) => r.tab === tab);
+    if (list.length) out.push({ tab, label: WORK_TAB_LABEL[tab], rows: list });
   }
   return out;
 }

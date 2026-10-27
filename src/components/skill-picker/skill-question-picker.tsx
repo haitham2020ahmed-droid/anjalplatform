@@ -10,7 +10,7 @@
  */
 import { useMemo, useState } from "react";
 import { useT } from "@/i18n/client";
-import { AUTO, LEVEL_FILTERS, MAX_PICKED, filterQuestions, isCorrectChoice, pickerOutput, questionIdsField, type LevelFilter, type PickerQuestion, type PickerValue } from "./helpers";
+import { AUTO, LEVEL_FILTERS, MAX_PICKED, filterQuestions, isAllShownPicked, isCorrectChoice, pickFirstN, pickerOutput, questionIdsField, toggleSelectAll, type LevelFilter, type PickerQuestion, type PickerValue } from "./helpers";
 import { draftsOf, useSkillQuestions } from "./load";
 import { QuestionDrawer } from "@/components/tests/question-drawer";
 import type { MapSourceQuestion } from "@/server/tests/map-source";
@@ -62,9 +62,12 @@ export function SkillQuestionPicker({ skillId, skillName, mode = "pick", default
     const next = selected.includes(id) ? selected.filter((x) => x !== id) : selected.length < max ? [...selected, id] : selected;
     setSelected(next); emit(auto, next);
   };
-  const allShownPicked = shown.length > 0 && shown.every((q) => selected.includes(q.id));
-  const selectAll = () => {
-    const next = allShownPicked ? selected.filter((id) => !shown.some((q) => q.id === id)) : [...new Set([...selected, ...shown.map((q) => q.id)])].slice(0, max);
+  const allShownPicked = isAllShownPicked(shown, selected, max);
+  const selectAll = () => { const next = toggleSelectAll(shown, selected, max); setSelected(next); emit(auto, next); };
+  const [pickN, setPickN] = useState("");
+  const applyPickN = () => {
+    const next = pickFirstN(shown, Number(pickN), max);
+    if (!next.length) return;
     setSelected(next); emit(auto, next);
   };
 
@@ -97,6 +100,14 @@ export function SkillQuestionPicker({ skillId, skillName, mode = "pick", default
           {pick && !auto && (
             <div className="flex flex-wrap items-center gap-3">
               <button type="button" onClick={selectAll} disabled={!shown.length} className="min-h-11 rounded-xl bg-white px-4 font-semibold text-brand-navy ring-1 ring-slate-300 disabled:opacity-50">{t(allShownPicked ? "Clear" : "Select all")}</button>
+              <span className="flex min-h-11 items-center gap-1.5 rounded-xl bg-white px-2 ring-1 ring-slate-300">
+                <label htmlFor={`pick-n-${skillId}`} className="text-sm font-semibold text-brand-navy">{t("Pick first N")}</label>
+                <input id={`pick-n-${skillId}`} type="number" min={1} max={Math.min(max, shown.length) || 1} value={pickN}
+                  onChange={(e) => setPickN(e.target.value)}
+                  onKeyDown={(e) => { if (e.key === "Enter") { e.preventDefault(); applyPickN(); } }}
+                  placeholder="N" className="h-8 w-16 rounded-lg border border-slate-300 px-2" aria-label={t("Pick first N")} />
+                <button type="button" onClick={applyPickN} disabled={!shown.length || !pickN} className="min-h-8 rounded-lg px-2 text-sm font-semibold text-brand-navy ring-1 ring-slate-300 disabled:opacity-50">{t("Go")}</button>
+              </span>
               <span role="status" className="font-semibold text-slate-700">{t("{n} selected", { n: selected.length })}</span>
               {selected.length >= max && <span className="text-sm text-amber-800">{t("At most {n} questions.", { n: max })}</span>}
             </div>
