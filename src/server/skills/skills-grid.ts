@@ -27,7 +27,7 @@ import { classMembers, studentNames } from "../insights/student-data";
 import { currentRows, historyOf, ms, NOT_STARTED_VIEW, skillKeyIndex, viewOf, type StarStatus, type StarView } from "./status";
 import { MISMATCH_TEXT, selfCheckMismatch } from "./status-extras";
 import { countAnswers, countedSessions, engineOf, engineRows, fallbackFrom, readAnswers, starsMigrated, type Counted } from "./grid-fallback";
-import { isGuessing, rangeBounds, STAR_RANK, starFromAnswers, starFromHistory, TREND_BACK_DAYS, trendOf, type DateRange, type GuessCount, type StudentTrend, type Trend } from "./skills-trend";
+import { isGuessing, rangeBounds, STAR_RANK, starFromAnswers, starFromHistory, TREND_BACK_DAYS, TREND_MID_DAYS, trendOf, type DateRange, type GuessCount, type StudentTrend, type Trend } from "./skills-trend";
 import { STRAND_LABEL, STRANDS, strandOf, type Strand } from "./my-skills";
 import { classAssignedSkills, type PlanType } from "./assigned-skills";
 import { viewerCreators } from "../teacher/assigned";
@@ -99,6 +99,8 @@ export interface GridStudent {
   id: string; name: string; practised?: number; mastered?: number; assigned?: number;
   /** r75: ⬆️ ➖ ⬇️ against 2 weeks before (null: nothing assigned) and ⚡ answering too fast */
   trend?: Trend | null; guessing?: boolean;
+  /** r94 (audit): the same trend as a short history (14d ago → 7d ago → now), for teachers who want more than the badge */
+  trendPoints?: TrendPoint[] | null;
 }
 /** r72: the strand groups of the columns, in order (`count` columns each) */
 export interface GridGroup { strand: Strand; label: string; count: number }
@@ -136,6 +138,9 @@ export interface ClassSkills {
   pairs: Record<string, Record<string, AssignSource[]>>;
   /** r75: student → key → the star 2 weeks before (now, or the "To" date) — the trend ⬆️ ➖ ⬇️ */
   before?: Record<string, Record<string, StarStatus>>;
+  /** r94 (audit): student → key → the star 1 week before — a middle checkpoint, so the trend can show a short
+   * history (14d ago → 7d ago → now) instead of only two points. Same stored history as `before`, no new read. */
+  before7?: Record<string, Record<string, StarStatus>>;
   /** r75: student → key → answers / rapid guesses in the last 2 weeks (or the chosen dates) — the ⚡ flag */
   guesses?: Record<string, Record<string, GuessCount>>;
   /** r75: the date filter (empty = the whole year) and the day the trend compares with */
@@ -167,7 +172,8 @@ export async function classSkills(repo: Repo, actor: Actor, opts: { classId?: st
   const range: DateRange = opts.range ?? { from: null, to: null };
   const b = rangeBounds(range, nowIn);
   const cut = b.end - TREND_BACK_DAYS * DAY;
-  const empty: ClassSkills = { classes, classId, className: "", migrated: true, estimated: 0, students: [], skills: [], stars: {}, pairs: {}, before: {}, guesses: {}, range, trendSince: new Date(cut).toISOString().slice(0, 10) };
+  const cut7 = b.end - TREND_MID_DAYS * DAY;
+  const empty: ClassSkills = { classes, classId, className: "", migrated: true, estimated: 0, students: [], skills: [], stars: {}, pairs: {}, before: {}, before7: {}, guesses: {}, range, trendSince: new Date(cut).toISOString().slice(0, 10) };
   if (!classId) return empty;
   const klass = await assertClassRead(repo, actor, classId);
   const schoolId = s(klass.schoolId);
@@ -192,7 +198,7 @@ export async function classSkills(repo: Repo, actor: Actor, opts: { classId?: st
   const pairList = ids.flatMap((id) => [...(assigned.byStudent.get(id)?.keys() ?? [])].filter((k) => !isNafsKey(k)).map((k) => [id, k] as const));
   // a star must be recomputed from the answers when its rows have no usable history (or, before the migration, no row)
   const recompute = (id: string, k: string, at: number) => { const pr = rowsOf.get(`${id}|${k}`); return pr?.length ? starFromHistory(pr, at) === null : !migrated; };
-  const needAll = pairList.some(([id, k]) => recompute(id, k, cut) || (b.past && recompute(id, k, b.end)));
+  const needAll = pairList.some(([id, k]) => recompute(id, k, cut) || recompute(id, k, cut7) || (b.past && recompute(id, k, b.end)));
   const since = b.on ? b.start : b.end - TREND_BACK_DAYS * DAY;
   let answers: Row[] = [], ok = new Set<string>(), mastery: Row[] = [];
   if (keys.length) {
@@ -225,10 +231,10 @@ export async function classSkills(repo: Repo, actor: Actor, opts: { classId?: st
     c.answers++; if (a.rapidGuess === true || a.rapidGuess === 1) c.rapid++;
     guess.set(k, c);
   }
-  const stars: ClassSkills["stars"] = {}, pairs: ClassSkills["pairs"] = {}, before: NonNullable<ClassSkills["before"]> = {}, guesses: NonNullable<ClassSkills["guesses"]> = {};
+  const stars: ClassSkills["stars"] = {}, pairs: ClassSkills["pairs"] = {}, before: NonNullable<ClassSkills["before"]> = {}, before7: NonNullable<ClassSkills["before7"]> = {}, guesses: NonNullable<ClassSkills["guesses"]> = {};
   let estimated = 0;
   for (const id of ids) {
-    stars[id] = {}; pairs[id] = {}; before[id] = {}; guesses[id] = {};
+    stars[id] = {}; pairs[id] = {}; before[id] = {}; before7[id] = {}; guesses[id] = {};
     for (const [k, src] of assigned.byStudent.get(id) ?? []) {
       if (isNafsKey(k)) {
         // r82: a NAFS practice target — its star from the student's NAFS practice answers (nafs-skills.ts)
@@ -237,6 +243,7 @@ export async function classSkills(repo: Repo, actor: Actor, opts: { classId?: st
         stars[id][k] = c?.inRange ? { ...v, answered: c.inRange.answered, correct: c.inRange.correct } : b.on ? { ...v, answered: 0, correct: 0 } : v;
         pairs[id][k] = ASSIGN_SOURCES.filter((x) => src.has(x));
         before[id][k] = c?.before ?? "NOT_STARTED";
+        before7[id][k] = c?.before ?? "NOT_STARTED"; // NAFS practice has no 7-day checkpoint of its own; reuse the 2-week one
         continue;
       }
       const cur =currentRows(rowsOf.get(`${id}|${k}`) ?? []).get(k);
@@ -251,6 +258,7 @@ export async function classSkills(repo: Repo, actor: Actor, opts: { classId?: st
       stars[id][k] = v;
       pairs[id][k] = ASSIGN_SOURCES.filter((x) => src.has(x));
       before[id][k] = starAt(id, k, cut);
+      before7[id][k] = starAt(id, k, cut7);
       const gc = guess.get(`${id}|${k}`); if (gc) guesses[id][k] = gc;
     }
   }
@@ -271,7 +279,7 @@ export async function classSkills(repo: Repo, actor: Actor, opts: { classId?: st
     id: p.id, title: p.title, type: p.type, sentAt: new Date(p.sentAt || 0).toISOString(), createdById: p.createdById, closed: Boolean(closed[p.id]),
     students: Object.fromEntries([...p.byStudent].map(([st, ks]) => [st, [...ks].filter((k) => stars[st]?.[k])] as const).filter(([, ks]) => ks.length)),
   })).filter((p) => Object.keys(p.students).length);
-  return { classes, classId, className: s(klass.name), migrated, estimated, students, skills, stars, pairs, before, guesses, range, trendSince: empty.trendSince, cols, plans };
+  return { classes, classId, className: s(klass.name), migrated, estimated, students, skills, stars, pairs, before, before7, guesses, range, trendSince: empty.trendSince, cols, plans };
 }
 
 /** r84: the SchoolSetting row that keeps a class's closed plans (the teacher's "Close plan"): plan id → when */
@@ -302,6 +310,21 @@ export function studentTrend(d: ClassSkills, id: string): StudentTrend | null {
   const mine = Object.entries(d.stars[id] ?? {});
   if (!mine.length || !d.before) return null;
   return trendOf(mine.map(([k, v]) => ({ then: d.before![id]?.[k] ?? "NOT_STARTED", now: v.status })));
+}
+
+export interface TrendPoint { daysAgo: number; pct: number }
+/** Pure (r94 audit): a short history alongside the ⬆️➖⬇️ badge — the student's average skill level (%, 0 = ☆,
+ * 50 = ◐/🔄, 100 = ⭐/☆⬆) 2 weeks ago, 1 week ago and now, e.g. "62% → 71% → 78%". Same stored star history as
+ * `studentTrend`, nothing new to read; null when nothing is assigned. */
+export function studentTrendPoints(d: ClassSkills, id: string): TrendPoint[] | null {
+  const keys = Object.keys(d.stars[id] ?? {});
+  if (!keys.length || !d.before || !d.before7) return null;
+  const avg = (at: (k: string) => StarStatus) => Math.round((100 * keys.reduce((sum, k) => sum + STAR_RANK[at(k)], 0)) / (2 * keys.length));
+  return [
+    { daysAgo: TREND_BACK_DAYS, pct: avg((k) => d.before![id]?.[k] ?? "NOT_STARTED") },
+    { daysAgo: TREND_MID_DAYS, pct: avg((k) => d.before7![id]?.[k] ?? "NOT_STARTED") },
+    { daysAgo: 0, pct: avg((k) => d.stars[id][k].status) },
+  ];
 }
 /** Pure (r75): a student's answers / rapid guesses on their assigned pairs in this view. */
 export function studentGuess(d: ClassSkills, id: string): GuessCount {
@@ -353,7 +376,7 @@ export function gridOf(d: ClassSkills, opts: { plan?: GridPlan; weakOnly?: boole
   const practisingStudents = v.students.filter((st) => mine(st.id).some((k) => isPractised(v.stars[st.id][k]))).length;
   const everyone: GridStudent[] = v.students.map((st) => ({
     id: st.id, name: st.name, assigned: mine(st.id).length, practised: mine(st.id).filter((k) => isPractised(v.stars[st.id][k])).length, mastered: mine(st.id).filter((k) => isMasteredStar(v.stars[st.id][k])).length,
-    trend: studentTrend(v, st.id)?.trend ?? null, guessing: isGuessing(studentGuess(v, st.id)),
+    trend: studentTrend(v, st.id)?.trend ?? null, guessing: isGuessing(studentGuess(v, st.id)), trendPoints: studentTrendPoints(v, st.id),
   }));
   // r68: paginated (GRID_PAGE students a page); the column counts stay for the whole class
   const pages = Math.max(1, Math.ceil(everyone.length / GRID_PAGE));

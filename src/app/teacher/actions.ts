@@ -12,6 +12,7 @@ import { assertClassAccess } from "@/server/teacher/assignments";
 import { ValidationError } from "@/server/curriculum-admin";
 import { parseQuestionIdsField, programOf } from "@/components/skill-picker/helpers";
 import { startOfDay } from "@/lib/assign-dates";
+import { studentSkillAccuracy } from "@/server/plans/perf-suggest";
 
 const id = z.string().min(1).max(191);
 
@@ -165,4 +166,16 @@ export async function priorAssignmentAction(input: { classIds: string[]; skillId
   try { for (const id of classIds) await assertClassAccess(repo, actor, id); } catch { return { assigned: false }; }
   const ids = await assignedSkillIds(repo, classIds);
   return { assigned: ids.has(String(input.skillId)) };
+}
+
+/** 🆕 r90 (multi-expert audit, Oct 2026): the Assign dialog's "one student" mode asks this when the teacher picks
+ * Enrichment as Source, so it can warn (never block) if the student isn't actually excelling on this skill yet by
+ * the platform's own data. `acc: null` means not enough data to judge either way (also worth a soft warning). */
+export async function studentAccuracyAction(input: { classId: string; studentId: string; skillId: string }): Promise<{ acc: number | null }> {
+  const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"] });
+  const classId = String(input?.classId ?? ""), studentId = String(input?.studentId ?? ""), skillId = String(input?.skillId ?? "");
+  if (!classId || !studentId || !skillId) return { acc: null };
+  try { await assertClassAccess(repo, actor, classId); } catch { return { acc: null }; }
+  const acc = await studentSkillAccuracy(repo, actor, classId, studentId, skillId);
+  return { acc };
 }

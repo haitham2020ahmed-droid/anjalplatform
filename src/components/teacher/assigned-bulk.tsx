@@ -57,7 +57,8 @@ export function AssignedBulkBar({ listId, kinds, units, cancelledView }: { listI
     const r = await setTabAssignedAction({ refs, tab: tabVal });
     if (!r.ok) { show(r.message ? t(r.message) : t("Nothing was changed."), null); return; }
     pick(() => false);
-    show(tabVal ? t("Tab set.") : t("Tab cleared."), null);
+    const base = tabVal ? t("Tab set.") : t("Tab cleared.");
+    show(r.failed > 0 ? `${base} ${t("{n} item(s) were skipped.", { n: r.failed })}` : base, null);
     router.refresh();
   });
   const field = "h-8 rounded-lg bg-surface px-2 text-xs text-ink ring-1 ring-line";

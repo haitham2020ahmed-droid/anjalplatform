@@ -64,6 +64,8 @@ export interface AssignedItem {
   startAt?: string | null;
   /** "Unit 1" when the title names a unit (the Assigned page's "Select unit" smart select) */
   unit?: string | null;
+  /** 📂 the My Work tab this skill is filed under (SKILL rows only; null = none) */
+  tab?: WorkTab | null;
   status: AssignedStatus; cancelled: boolean;
 }
 export interface AssignedStudent { id: string; name: string; done: boolean; removed: boolean; /** ⭐ the student's ONE status of the assigned skill (skill work only) */ star?: StarStatus }
@@ -121,6 +123,8 @@ interface Raw {
   students: Map<string, boolean>; keys: string[];
   /** r78: Assignment-based kinds — the Assignment rows it is made of (a plan: its places) and their student links */
   aids?: string[]; links?: Row[];
+  /** 📂 SKILL rows only: the My Work tab this assignment is filed under */
+  tab?: WorkTab | null;
 }
 interface ReadOpts { kinds: Set<AssignedKind>; only?: string; creators: string[] | null; /** r78: read only this student's links (Student Skills of one student) */ studentId?: string }
 
@@ -144,7 +148,7 @@ async function collect(repo: Repo, sc: Scope, o: ReadOpts): Promise<Raw[]> {
     if (!want("SKILL") && !want("PROGRESS_CHECK") && !want("TEST") && !want("PLAN")) return [];
     const onlyKind = o.only ? [...o.kinds][0] : null;
     const [plain, tests, plans] = await Promise.all([
-      want("SKILL") || want("PROGRESS_CHECK") ? repo.findMany("Assignment", { classId: { in: classIds }, deletedAt: null, ...by(), ...one() }, { select: ["id", "classId", "createdById", "title", "testId", "curriculumPlanId", "createdAt", "dueAt", "startAt"], ...newest, take: o.only ? 1 : SKILL_TAKE }) : Promise.resolve([] as Row[]),
+      want("SKILL") || want("PROGRESS_CHECK") ? repo.findMany("Assignment", { classId: { in: classIds }, deletedAt: null, ...by(), ...one() }, { select: ["id", "classId", "createdById", "title", "testId", "curriculumPlanId", "createdAt", "dueAt", "startAt", "tab"], ...newest, take: o.only ? 1 : SKILL_TAKE }) : Promise.resolve([] as Row[]),
       want("TEST") ? safeIfBehind("assigned.tests", () => repo.findMany("TeacherTest", { classId: { in: classIds }, deletedAt: null, ...by("createdById", []), ...one() }, { select: ["id", "classId", "createdById", "title", "testType", "createdAt", "dueAt", "openAt"], ...newest }), [] as Row[]) : Promise.resolve([] as Row[]),
       want("PLAN") ? safeIfBehind("assigned.plans", () => repo.findMany("SkillPlan", { classId: { in: classIds }, ...by(), ...one() }, { select: ["id", "classId", "createdById", "title", "kind", "status", "createdAt", "dueAt", "startAt", "studentIds"], ...newest }), [] as Row[]) : Promise.resolve([] as Row[]),
     ]);
@@ -173,7 +177,8 @@ async function collect(repo: Repo, sc: Scope, o: ReadOpts): Promise<Raw[]> {
       const kind: AssignedKind = checkIds.has(s(a.id)) ? "PROGRESS_CHECK" : "SKILL";
       const cls = ofClass.get(s(a.classId)) ?? [];
       res.push({ kind, id: s(a.id), title: s(a.title), detail: null, classIds: [s(a.classId)], createdById: s(a.createdById), scope: st.length < cls.length ? "students" : "class",
-        createdAt: iso(a.createdAt), dueAt: iso(a.dueAt), startAt: iso(a.startAt), students: new Map(st.map((r) => [s(r.studentId), s(r.status) === "COMPLETED"] as const)), keys: [s(a.id)], aids: [s(a.id)], links: st });
+        createdAt: iso(a.createdAt), dueAt: iso(a.dueAt), startAt: iso(a.startAt), students: new Map(st.map((r) => [s(r.studentId), s(r.status) === "COMPLETED"] as const)), keys: [s(a.id)], aids: [s(a.id)], links: st,
+        tab: kind === "SKILL" ? parseWorkTab(a.tab) : undefined });
     }
     for (const t of tests) {
       const mineSets = sets.filter((x) => s(x.testId) === s(t.id));
@@ -424,7 +429,7 @@ export async function assignedList(repo: Repo, actor: Actor, f: AssignedFilters 
     items.push({
       kind: r.kind, id: r.id, title: r.title, detail: r.detail, classIds: r.classIds, classNames: r.classIds.map((x) => className.get(x) ?? "").filter(Boolean),
       teacher: teacherOf.get(r.createdById) ?? null, scope: r.scope, recipients: live.length, done, removed: [...c.removed].filter((sid) => r.students.has(sid)).length,
-      createdAt: r.createdAt, dueAt: r.dueAt, startAt: r.startAt ?? null, unit: unitOfTitle(r.title), status, cancelled: c.all,
+      createdAt: r.createdAt, dueAt: r.dueAt, startAt: r.startAt ?? null, unit: unitOfTitle(r.title), tab: r.tab ?? null, status, cancelled: c.all,
     });
   }
   items.sort((a, b) => (b.createdAt ?? "").localeCompare(a.createdAt ?? ""));

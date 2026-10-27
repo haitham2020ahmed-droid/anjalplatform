@@ -65,6 +65,9 @@ function AssignForm({ skill, classId, classes, track, close }: { skill: Skill; c
   const t = useT();
   const router = useRouter();
   const [mode, setMode] = useState<"class" | "students" | "one">("class");
+  // 🆕 r90: tracked only so "one student" mode can pass studentId/classId to SkillAssignSteps (the Enrichment-
+  // accuracy warning) — purely additive, nothing here changes what gets submitted.
+  const [oneStudent, setOneStudent] = useState<{ id: string; classId: string } | null>(null);
   // the page's class is ticked first; the teacher may add (or swap to) any other class of theirs
   const [chosen, setChosen] = useState<string[]>(() => [classes.some((c) => c.id === classId) ? classId : classes[0]?.id].filter(Boolean) as string[]);
   const picked = classes.filter((c) => chosen.includes(c.id));
@@ -80,6 +83,7 @@ function AssignForm({ skill, classId, classes, track, close }: { skill: Skill; c
   const [priorAssigned, setPriorAssigned] = useState(false);
   const [confirmReassign, setConfirmReassign] = useState(false);
   const chosenKey = chosen.join(",");
+  useEffect(() => { setOneStudent(null); }, [mode, chosenKey]);
   useEffect(() => {
     let live = true;
     setExclude(null);
@@ -151,7 +155,7 @@ function AssignForm({ skill, classId, classes, track, close }: { skill: Skill; c
               {picked.map((c) => (
                 <div key={c.id}>
                   {picked.length > 1 && <p className="mt-1 text-xs font-bold uppercase tracking-wide text-slate-500">{c.name}</p>}
-                  {c.students.map((st) => <label key={st.id} className="flex items-center gap-2 py-0.5 text-sm"><input type={mode === "one" ? "radio" : "checkbox"} name="studentIds" value={st.id} />{st.name}</label>)}
+                  {c.students.map((st) => <label key={st.id} className="flex items-center gap-2 py-0.5 text-sm"><input type={mode === "one" ? "radio" : "checkbox"} name="studentIds" value={st.id} onChange={mode === "one" ? () => setOneStudent({ id: st.id, classId: c.id }) : undefined} />{st.name}</label>)}
                 </div>
               ))}
             </div>
@@ -175,6 +179,7 @@ function AssignForm({ skill, classId, classes, track, close }: { skill: Skill; c
                 <button type="button" onClick={close} className={BTN_SECONDARY}>{t("Close")}</button>
               </div>
             : <SkillAssignSteps skillId={skill.id} track={skill.track ?? track} grammar={skill.track === "GRAMMAR"} trackField pending={pending}
+                studentId={mode === "one" ? oneStudent?.id : undefined} classId={mode === "one" ? oneStudent?.classId : undefined}
                 cancel={<span className="flex gap-2"><button type="button" onClick={close} className={BTN_SECONDARY}>{t("Cancel")}</button><button type="submit" name="intent" value="draft" disabled={pending} data-testid="assign-draft" className={BTN_SECONDARY}>📝 {t("Save as draft")}</button></span>} />}
         </>
       )}

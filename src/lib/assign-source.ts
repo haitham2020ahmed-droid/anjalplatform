@@ -19,7 +19,7 @@ export const ASSIGN_SOURCE_LABEL: Record<AssignSource, string> = { MAP: SOURCE_L
 export const ASSIGN_SOURCE_CLASS: Record<AssignSource, string> = { MAP: SOURCE_TAG_CLASS.MAP, NAFS: SOURCE_TAG_CLASS.NAFS, CURRICULUM: SOURCE_TAG_CLASS.CURRICULUM, GRAMMAR: SOURCE_TAG_CLASS.GRAMMAR, RTI: SOURCE_TAG_CLASS.RTI, ENRICHMENT: SOURCE_TAG_CLASS.ENRICHMENT };
 
 /** EN text of the refusal (translated through UI_STRINGS / ar.ts) */
-export const SOURCE_REQUIRED = "Choose the source of this work (MAP, NAFS, Curriculum, Grammar or RTI).";
+export const SOURCE_REQUIRED = "Choose the source of this work (MAP, NAFS, Curriculum, Grammar or Support).";
 
 export const isAssignSource = (v: unknown): v is AssignSource => (ASSIGN_SOURCES as readonly unknown[]).includes(String(v ?? "").trim().toUpperCase());
 /** a form value → the source, or null (empty / unknown). Case-insensitive. */

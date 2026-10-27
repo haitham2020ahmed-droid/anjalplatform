@@ -28,8 +28,12 @@ const time = (v: unknown) => new Date(v instanceof Date ? v.getTime() : s(v)).ge
 export const WEAK_PCT = 60;
 /** at or above this accuracy a skill is "excelling" for a student (Enrichment) */
 export const STRONG_PCT = 90;
-/** answers needed before a skill is judged */
+/** answers needed before a skill is judged (weak-skill side: Diagnostic/support, group & individual plans) */
 export const MIN_ANSWERS = 5;
+/** answers needed before a skill counts as "excelling" for Enrichment — higher than MIN_ANSWERS so a lucky short
+ * streak doesn't read as mastery; Stat.answers already carries the true count, so this is just a stricter re-check
+ * on top of the (lower) MIN_ANSWERS used to populate `stats` in the first place. */
+export const MIN_ANSWERS_STRONG = 12;
 /** students weak in the same skill for a group plan */
 export const GROUP_MIN = 3;
 export const LOOKBACK_DAYS = 30;
@@ -240,7 +244,7 @@ export async function excellingSkillsFor(repo: Repo, actor: Actor, classId: stri
   const d = await classPerformance(repo, actor, classId, now);
   const who = studentIds.length ? studentIds.filter((id) => d.members.includes(id)) : d.members;
   const count = new Map<string, { n: number; sum: number }>();
-  for (const st of who) for (const [k, x] of d.stats.get(st) ?? []) if (d.skillName.has(k) && pct(x) >= STRONG_PCT) { const c = count.get(k) ?? { n: 0, sum: 0 }; c.n++; c.sum += pct(x); count.set(k, c); }
+  for (const st of who) for (const [k, x] of d.stats.get(st) ?? []) if (d.skillName.has(k) && pct(x) >= STRONG_PCT && x.answers >= MIN_ANSWERS_STRONG) { const c = count.get(k) ?? { n: 0, sum: 0 }; c.n++; c.sum += pct(x); count.set(k, c); }
   const top = [...count].sort((a, b) => b[1].n - a[1].n || b[1].sum / b[1].n - a[1].sum / a[1].n).slice(0, n);
   if (!top.length) return { sections: [], source: null };
   const sections: SuggestedPlan["sections"] = [];
@@ -249,6 +253,30 @@ export async function excellingSkillsFor(repo: Repo, actor: Actor, classId: stri
   const rows = who.map((st) => { const r = lines(d, st, top.map(([k]) => k)); r.sources.forEach((x) => src.add(x)); return { name: d.names.get(st) ?? "Student", lines: r.lines }; }).filter((r) => r.lines.length).slice(0, 40);
   const reasonT: Txt = { t: who.length === 1 ? "Strongest skills of {name}: {list}" : "Strongest skills of these {n} students: {list}", v: { name: d.names.get(who[0]) ?? "", n: who.length, list: top.map(([k, c]) => `${d.skillName.get(k)} (${Math.round(c.sum / c.n)}%)`).join(", ") } };
   return { sections, source: { reason: fmt(reasonT), reasonT, sources: [...src], rows } };
+}
+
+/** 🆕 r90 (multi-expert audit, Oct 2026): one student's recent accuracy on one skill, reusing classPerformance's
+ * already-bounded per-skill Stat — null when there isn't enough data to judge (same MIN_ANSWERS bar as everywhere
+ * else). Used only to WARN a teacher who manually picks Enrichment as Source for a student who isn't (by this same
+ * data) actually excelling yet — never to block the assignment. */
+export async function studentSkillAccuracy(repo: Repo, actor: Actor, classId: string, studentId: string, skillId: string, now = new Date()): Promise<number | null> {
+  const d = await classPerformance(repo, actor, classId, now);
+  const x = d.stats.get(studentId)?.get(skillId);
+  return x ? pct(x) : null;
+}
+
+/** 🏠 Teacher Home's "Enrichment opportunities" tile: how many of the class's students have at least one skill
+ * currently excelling (STRONG_PCT, MIN_ANSWERS_STRONG) — the Enrichment-ready counterpart of "Needs attention".
+ * Cheap: reuses classPerformance's already-bounded reads, no plan text is built. */
+export async function excellingStudentCount(repo: Repo, actor: Actor, classId: string, now = new Date()): Promise<number> {
+  const d = await classPerformance(repo, actor, classId, now);
+  let n = 0;
+  for (const st of d.members) {
+    for (const [k, x] of d.stats.get(st) ?? []) {
+      if (d.skillName.has(k) && pct(x) >= STRONG_PCT && x.answers >= MIN_ANSWERS_STRONG) { n++; break; }
+    }
+  }
+  return n;
 }
 
 /** The plan source saved with a draft made from a suggestion (shown in the editor). */

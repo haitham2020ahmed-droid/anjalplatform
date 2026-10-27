@@ -8,7 +8,7 @@ import { SourceBadges, SourceSelect } from "@/components/assign/source-select";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { ForbiddenError } from "@/server/auth/rbac";
 import { ValidationError } from "@/server/curriculum-admin";
-import { cellDetail, classSkills, GRID_PLANS, gridOf, isGridPlan, isPractised, isStrand, type CellDetail, type ClassSkills, type GridPlan, type SkillsGrid } from "@/server/skills/skills-grid";
+import { cellDetail, classSkills, GRID_PLANS, gridOf, isGridPlan, isPractised, isStrand, type CellDetail, type ClassSkills, type GridPlan, type SkillsGrid, type TrendPoint } from "@/server/skills/skills-grid";
 import { classReport, GROUP_LABEL, GROUP_ORDER, GROUP_RULE, sourceCards, type ClassReport, type SourceCard, type StudentGroup } from "@/server/skills/skills-report";
 import { GUESS_RULE, GUESS_TIP, parseRange, rangePresets, TREND_ICON, TREND_RULE, TREND_WORD, type DateRange, type RangePreset, type Trend } from "@/server/skills/skills-trend";
 import { defaultCycle, loadCycle } from "@/server/assessment-cycle/cycle";
@@ -158,11 +158,15 @@ function DatePresets({ range, presets, t, href }: { range: DateRange; presets: R
     </nav>
   );
 }
-/** r75: ⬆️ ➖ ⬇️ next to a student's name (the word in the tooltip) and ⚡ when answering too fast */
-function StudentMarks({ trend, guessing, t }: { trend?: Trend | null; guessing?: boolean; t: T }) {
+/** r75: ⬆️ ➖ ⬇️ next to a student's name (the word in the tooltip) and ⚡ when answering too fast.
+ * r94 (audit): the tooltip also carries a short history ("45% → 60% → 75%", 14d ago → 7d ago → now) instead of
+ * only the two-point UP/SAME/DOWN badge, for a teacher who wants more than the arrow. */
+function StudentMarks({ trend, guessing, trendPoints, t }: { trend?: Trend | null; guessing?: boolean; trendPoints?: TrendPoint[] | null; t: T }) {
+  const history = trendPoints?.length ? trendPoints.map((p) => `${p.pct}%`).join(" → ") : null;
+  const trendTitle = trend ? (history ? `${t(TREND_WORD[trend])} (${history})` : t(TREND_WORD[trend])) : "";
   return (
     <>
-      {trend ? <span className="ms-1 text-xs" title={t(TREND_WORD[trend])} aria-label={t(TREND_WORD[trend])} data-testid="trend" data-trend={trend}>{TREND_ICON[trend]}</span> : null}
+      {trend ? <span className="ms-1 text-xs" title={trendTitle} aria-label={trendTitle} data-testid="trend" data-trend={trend} data-trend-history={history ?? undefined}>{TREND_ICON[trend]}</span> : null}
       {guessing ? <span className="ms-1 text-xs" title={t(GUESS_TIP)} aria-label={t(GUESS_TIP)} data-testid="guessing">⚡</span> : null}
     </>
   );
@@ -205,7 +209,7 @@ function GridView({ g, t, href, plan, strand, detail, filters, range }: { g: Ski
       {detail && <Detail d={detail} t={t} close={href({ page: String(g.page ?? 1) })} />}
       {!g.students.length || !g.skills.length ? (
         <EmptyState icon="⭐" title="No assigned skills yet"
-          text={plan === "ALL" && !strand && !g.weakOnly ? "Only the skills you assign appear here (from MAP, NAFS, Curriculum, Grammar or RTI). Assign a skill, then come back." : "No assigned skill fits this filter. Choose All sources to see every assigned skill."} />
+          text={plan === "ALL" && !strand && !g.weakOnly ? "Only the skills you assign appear here (from MAP, NAFS, Curriculum, Grammar or Support). Assign a skill, then come back." : "No assigned skill fits this filter. Choose All sources to see every assigned skill."} />
       ) : (
         <>
           <p className="mb-1 text-xs text-slate-500 print:hidden">{t("Click a cell for its detail, a skill for its page. — = not assigned.")}</p>
@@ -242,7 +246,7 @@ function GridView({ g, t, href, plan, strand, detail, filters, range }: { g: Ski
                   <tr key={st.id} data-testid="grid-row">
                     <th scope="row" className="sticky start-0 z-10 border-b border-e border-slate-100 bg-white px-3 py-1.5 text-start font-semibold">
                       <Link prefetch={false} href={href({ view: "student", student: st.id })} className="text-brand-navy hover:underline"><bdi>{st.name}</bdi></Link>
-                      <StudentMarks trend={st.trend} guessing={st.guessing} t={t} />
+                      <StudentMarks trend={st.trend} guessing={st.guessing} trendPoints={st.trendPoints} t={t} />
                       <span className="block text-[11px] font-normal text-slate-500" data-testid="grid-row-count">{t("{m} of {n} mastered", { n: st.assigned ?? 0, m: st.mastered ?? 0 })}</span>
                     </th>
                     {g.skills.map((k, i) => {
@@ -295,7 +299,7 @@ const STAR_PARTS: StarStatus[] = ["MASTERED", "NEXT_LEVEL", "IN_PROGRESS", "NEED
 
 function BySourceView({ d, g, src, t, href, detail }: { d: ClassSkills; g: SkillsGrid; src: GridPlan; t: T; href: (o: Partial<SP>) => string; detail: CellDetail | null }) {
   const cards = sourceCards(d);
-  if (!cards.length) return <EmptyState icon="🏷️" title="No assigned skills yet" text="Only the skills you assign appear here (from MAP, NAFS, Curriculum, Grammar or RTI). Assign a skill, then come back." />;
+  if (!cards.length) return <EmptyState icon="🏷️" title="No assigned skills yet" text="Only the skills you assign appear here (from MAP, NAFS, Curriculum, Grammar or Support). Assign a skill, then come back." />;
   return (
     <section data-testid="by-source" className="space-y-4">
       <OneLine l={skillsSourceOneLine(cards)} t={t} />
@@ -354,7 +358,7 @@ function ReportView({ d, t, href }: { d: ClassSkills; t: T; href: (o: Partial<SP
     source: (s) => href({ tab: "source", src: s }),
     assigned: `/teacher/assigned?${new URLSearchParams({ classId: cid })}`,
   });
-  if (!r.skillsAssigned) return <EmptyState icon="📋" title="No assigned skills yet" text="Only the skills you assign appear here (from MAP, NAFS, Curriculum, Grammar or RTI). Assign a skill, then come back." />;
+  if (!r.skillsAssigned) return <EmptyState icon="📋" title="No assigned skills yet" text="Only the skills you assign appear here (from MAP, NAFS, Curriculum, Grammar or Support). Assign a skill, then come back." />;
   const nums = [
     { key: "mastery", label: "Class mastery", value: r.masteryPct !== null ? `${r.masteryPct}%` : "—", tip: "Mastered stars (⭐ or ☆⬆) of every skill assigned to every student." },
     { key: "skills", label: "Skills assigned", value: String(r.skillsAssigned), tip: "Skills you assigned to this class, from every source and every plan (each skill counted once)." },
@@ -470,7 +474,7 @@ const STATE_ICON: Record<PlanStudentState, string> = { FINISHED: "⭐", SUPPORT:
 
 function PlansView({ d, t, href, pid, now, range }: { d: ClassSkills; t: T; href: (o: Partial<SP>) => string; pid: string | null; now: Date; range: DateRange }) {
   const cards = planCards(d);
-  if (!cards.length) return <EmptyState icon="🗂️" title="No plans yet" text="Plans you send from the Plans pages (RTI, MAP, Custom, Curriculum) and NAFS practice on 2 or more standards appear here, one card each." />;
+  if (!cards.length) return <EmptyState icon="🗂️" title="No plans yet" text="Plans you send from the Plans pages (Support, MAP, Custom, Curriculum) and NAFS practice on 2 or more standards appear here, one card each." />;
   const active = cards.filter((c) => c.status === "ACTIVE"), done = cards.filter((c) => c.status === "FINISHED");
   const open = pid ? planGrid(d, pid) : null;
   const list = (xs: PlanCard[]) => <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">{xs.map((c) => <li key={c.id}><PlanCardView c={c} t={t} on={open?.card.id === c.id} href={href({ tab: "plans", pid: c.id, page: undefined, student: undefined, key: undefined })} classId={d.classId ?? ""} now={now} range={range} /></li>)}</ul>;
@@ -510,7 +514,7 @@ function PlanCardView({ c, t, on, href, classId, now, range }: { c: PlanCard; t:
         <span className="mt-1 block h-2.5 overflow-hidden rounded-full bg-slate-100" role="progressbar" aria-valuemin={0} aria-valuemax={100} aria-valuenow={c.pct} aria-label={t("Class achievement")}><span className="block h-full bg-amber-400" style={{ width: `${c.pct}%` }} /></span>
         <span className="mt-2 flex flex-wrap gap-x-3 gap-y-1 text-sm text-slate-700">
           <span title={t("Finished all the skills of the plan")}>⭐ <b data-testid="plan-finished">{c.finished}</b> {t("finished all")}</span>
-          <span title={t("At least one skill needs support")}>⚠️ <b data-testid="plan-support">{c.support}</b> {t("need support")}</span>
+          <span title={t("At least one skill's star is currently \"Needs support\" — based on this plan's own skill stars, not a test score. Other reports can use a different measure.")}>⚠️ <b data-testid="plan-support">{c.support}</b> {t("need support")}</span>
           <span title={t("No answer yet on the plan's skills")}>⏳ <b data-testid="plan-idle">{c.notStarted}</b> {t("not started")}</span>
         </span>
         <span className="mt-1 block text-xs text-slate-500">{t("Last activity")}: <span data-testid="plan-last">{t(ago.key, ago.vars)}</span></span>

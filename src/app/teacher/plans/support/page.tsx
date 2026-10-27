@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { AppShell } from "@/components/app-shell";
 import { PageHeader } from "@/components/page-header";
+import { InfoTip } from "@/components/report-kit/info-tip";
 import { getT } from "@/i18n/server";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { readableClasses } from "@/server/teacher/coordinators";
@@ -9,6 +10,12 @@ import { strugglingSkills } from "@/server/tiers/struggling";
 import { quickSendSupportPlanAction } from "@/app/teacher/plans/editor-actions";
 
 export const metadata = { title: "Support plan" };
+
+/** Clarifies that this level is not a single test score: it only moves with MAP, weekly checks and the Diagnostic
+ * agreeing, and stays put for 14 days even then — a different, stricter basis than the "Needs support" label used
+ * on Student Skills or the drop/rise patterns on Early warning (r94: teachers compared the three screens and asked
+ * why they disagreed; they don't disagree, they measure different things). */
+const SUPPORT_LEVEL_RULE = "This level only changes when MAP, weekly checks and the Diagnostic agree, and stays for at least 14 days — it is not based on one test. \"Needs support\" on other pages (Student Skills, Early warning) can use a different measure.";
 
 /** The three support levels: the plain colour the teacher reads, with the usual RTI term kept beside it. */
 const SUPPORT_LEVEL = {
@@ -43,7 +50,7 @@ export default async function SupportPlanPage({ searchParams }: { searchParams: 
         subtitle={t("Students who need support and the skills they struggle with. The platform sets each level automatically from their results and tells you when it changes.")} />
 
       <section aria-label={t("What the levels mean")} className="mb-5 rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-200">
-        <h2 className="text-base font-semibold text-brand-navy">{t("What the levels mean")}</h2>
+        <h2 className="flex items-center gap-1 text-base font-semibold text-brand-navy">{t("What the levels mean")} <InfoTip text={SUPPORT_LEVEL_RULE} /></h2>
         <ul className="mt-2 grid gap-2 sm:grid-cols-3">
           {([1, 2, 3] as const).map((k) => (
             <li key={k} className={`rounded-xl px-3 py-2 text-sm ring-1 ${SUPPORT_LEVEL[k].tone}`}>

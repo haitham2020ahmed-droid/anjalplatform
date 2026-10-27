@@ -10,8 +10,13 @@ import { PATTERN_ARROW, PATTERN_NAME, SEVERITY_ICON, SEVERITY_NAME, type Severit
 import { handleEarlyWarningAction } from "./actions";
 import { Combo } from "@/components/ui/combo";
 import { InsightActions } from "@/components/teacher/insight-actions";
+import { InfoTip } from "@/components/report-kit/info-tip";
 
 export const metadata = { title: "Early warning" };
+
+/** Clarifies this screen's own basis (trend direction over time, not a single accuracy %), since "Student Skills"
+ * and "Support plan" use different measures for "needs support" / "weak" — r94 audit. */
+const EARLY_WARNING_RULE = "This page flags a direction of travel (a drop, a swing, no progress) across two or more results over time — not a single accuracy percentage. \"Needs support\" on Student Skills or Support plan can use a different measure.";
 
 type SP = { classId?: string; gradeId?: string; teacherId?: string; severity?: string; msg?: string };
 const QUICK = ["Talked with the student", "Called / messaged the parent", "Reteaching in a small group", "Sent easier practice", "Made a support plan"];
@@ -60,6 +65,7 @@ export default async function EarlyWarningPage({ searchParams }: { searchParams:
         downloads={v.classId || school ? [{ href: files("xlsx"), label: "Excel" }, { href: files("pdf"), label: "PDF file" }] : []} />
       {sp.msg && <p role="status" className="mb-4 rounded-xl bg-teal-50 px-4 py-3 text-teal-900 ring-1 ring-teal-200 print:hidden">{sp.msg}</p>}
       <ReportIntro text="Students whose results dropped, rose or swung, with the ones who need action now first." />
+      <p className="mb-4 flex items-center gap-1 text-sm text-slate-600 print:hidden">{t("How this is different from other reports")} <InfoTip text={EARLY_WARNING_RULE} /></p>
 
       {v.isAdmin ? (
         <form method="get" className="mb-4 flex flex-wrap items-end gap-2 print:hidden">

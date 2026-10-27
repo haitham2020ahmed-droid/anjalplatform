@@ -1142,7 +1142,7 @@ model Assignment {
   source        String?  @db.VarChar(16)
   /// the student's My Work tab this assignment is filed under (e.g. "EXTRA_PRACTICE"); null = shows normally
   /// (lib/work-tab.ts). Oct 2026, "خليها تنضاف" → My Work tab request.
-  tab           String?  @db.VarChar(16)
+  tab           String?  @db.VarChar(32)
 
   class      Class               @relation(fields: [classId], references: [id])
   createdBy  Teacher             @relation(fields: [createdById], references: [id])

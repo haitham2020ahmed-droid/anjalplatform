@@ -12,6 +12,7 @@ import { AddStudentButton, SkillFinder } from "@/components/teacher/home-widgets
 import { ShortcutRow } from "@/components/teacher/home-shortcuts";
 import { AssignHostAll } from "./assign-host-all";
 import { teacherHomeSummary, type TeacherHomeSummary } from "@/server/teacher/needs-attention";
+import { excellingStudentCount } from "@/server/plans/perf-suggest";
 import { teacherWeekInReview } from "@/server/insights/week-in-review";
 import { canSeeNafsCached } from "@/server/teacher/nafs-access";
 import { writingToGrade } from "@/server/writing/locked";
@@ -58,6 +59,8 @@ export default async function TeacherHome({ searchParams }: { searchParams?: Pro
   ]);
   const nafs = await nafsP;
   const k = h.klass;
+  // Enrichment opportunities (students with ≥1 excelling skill, the positive counterpart of "Needs attention")
+  const enriching = k ? await excellingStudentCount(repo, actor, k.id).catch(() => 0) : 0;
   const gradeOf = new Map(h.classes.map((c) => [c.id, c.grade]));
   const shortcuts: { href: string; label: string; line: LineIconName }[] = [
     { href: "/teacher/students", label: "My classes", line: "users" },
@@ -65,16 +68,18 @@ export default async function TeacherHome({ searchParams }: { searchParams?: Pro
     { href: "/teacher/progress", label: "Students' My Work", line: "work" },
     { href: "/teacher/reports", label: "Reports", line: "chart" },
     { href: "/teacher/reports/early-warning", label: "Early warning", line: "alert" },
+    { href: `/teacher/plans?${new URLSearchParams([["kind", "ENRICHMENT"], ...(k ? [["classId", k.id]] : [])])}`, label: "Enrichment", line: "sparkle" },
     { href: "/teacher/map-center", label: "MAP", line: "target" },
     { href: "/teacher/learn", label: "Learn", line: "learn" },
     ...(nafs ? [{ href: "/teacher/nafs", label: "NAFS", line: "flag" as LineIconName }] : []),
     { href: "/teacher/assigned", label: "Assigned", line: "inbox" },
     { href: "/teacher/class-signin", label: "Class sign-in", line: "qr" },
   ];
-  const cards: { label: string; value: number; line: LineIconName; alert?: boolean }[] = [
+  const cards: { label: string; value: number; line: LineIconName; alert?: boolean; href?: string }[] = [
     { label: "My students", value: sum.students, line: "users" },
     { label: "Work sent this week", value: sum.workThisWeek, line: "send" },
-    { label: "Needs attention", value: sum.needsAttention, line: "alert", alert: sum.needsAttention > 0 },
+    { label: "Needs attention", value: sum.needsAttention, line: "alert", alert: sum.needsAttention > 0, href: "#needs-attention" },
+    { label: "Enrichment opportunities", value: enriching, line: "sparkle", href: `/teacher/plans?${new URLSearchParams([["kind", "ENRICHMENT"], ...(k ? [["classId", k.id]] : [])])}` },
     { label: "Writing to grade", value: toGrade, line: "pen" },
   ];
   const small = "inline-flex h-7 shrink-0 items-center rounded-md bg-white px-2.5 text-xs font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal";
@@ -128,7 +133,7 @@ export default async function TeacherHome({ searchParams }: { searchParams?: Pro
                     {r.stuck.length === 0 && !r.stars?.length && <span className="text-slate-600">{r.neverPractised ? t("Has not practised yet") : t("No practice for {n} days", { n: r.idleDays ?? 0 })}</span>}
                   </p>
                   {r.stars?.[0]?.kind === "NO_MASTERY"
-                    ? <Link prefetch={false} href={`/teacher/rti-plan?classId=${r.classId}&who=student&sid=${r.studentId}`} className={small}>{t("RTI plan")}</Link>
+                    ? <Link prefetch={false} href={`/teacher/rti-plan?classId=${r.classId}&who=student&sid=${r.studentId}`} className={small}>{t("Support plan")}</Link>
                     : r.stars?.length && r.stars[0].skillId
                     ? <Link prefetch={false} href={`/teacher/plans?${new URLSearchParams([["tab", "custom"], ["classId", r.classId], ["who", "student"], ["sid", r.studentId], ...r.stars.filter((x) => x.skillId).map((x) => ["add", x.skillId!] as [string, string])])}`} className={small}>{t("Create Plan")}</Link>
                     : r.stuck.length > 0
@@ -169,8 +174,8 @@ export default async function TeacherHome({ searchParams }: { searchParams?: Pro
             </>
           );
           // the numbers are not links to pages (the shortcuts and the menu have them); "Needs attention" jumps to its list
-          return c.alert
-            ? <a key={c.label} href="#needs-attention" className="flex items-center gap-2.5 rounded-xl bg-surface px-3 py-2 shadow-card ring-1 ring-rose-200 hover:ring-rose-300">{body}</a>
+          return c.href
+            ? <Link key={c.label} prefetch={false} href={c.href} className={`flex items-center gap-2.5 rounded-xl bg-surface px-3 py-2 shadow-card ring-1 ${c.alert ? "ring-rose-200 hover:ring-rose-300" : "ring-line hover:ring-brand-teal"}`}>{body}</Link>
             : <div key={c.label} className="flex items-center gap-2.5 rounded-xl bg-surface px-3 py-2 shadow-card ring-1 ring-line">{body}</div>;
         })}
       </section>

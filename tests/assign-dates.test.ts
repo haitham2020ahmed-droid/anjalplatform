@@ -72,10 +72,13 @@ describe("📅 start and end dates everywhere", () => {
   });
 
   test("Learn, ReadRise and writing honour the start date", async () => {
+    // 🚫 owner (haitham, Oct 2026): Learn lessons never show in the student's My Work any more (all-work.ts) — the
+    // teacher's own Assigned page (assignedList) is the one place that still reads the start date, as "Scheduled".
     const learn = await assignLearn(repo, teacher, { kind: "LESSON", ref: "LN-000", classId, target: "CLASS", startAt: startOfDay(ymd(later)), dueAt: endOfDay(ymd(new Date(later.getTime() + 2 * DAY))) }, now);
     assert.ok(learn.students > 0);
-    assert.ok(!(await keys(now)).has("learn:LESSON:LN-000"), "Learn: not before");
-    assert.ok((await keys(new Date(later.getTime() + DAY))).has("learn:LESSON:LN-000"), "Learn: from the start");
+    const learnRow = (await assignedList(repo, teacher, {}, now)).items.find((x) => x.id === learn.assignId)!;
+    assert.equal(learnRow.status, "SCHEDULED", "Learn: scheduled, not yet started");
+    assert.ok(learnRow.startAt, "Learn: the start date is kept");
     const art = String((await repo.create("RRArticle", { schoolId, code: "T-9", title: "Owls", topic: "Science", pollStatement: "Owls see well.", status: "PUBLISHED", createdAt: now, updatedAt: now })).id);
     await assignArticle(repo, teacher, classId, art, endOfDay(ymd(new Date(later.getTime() + 2 * DAY))), now, startOfDay(ymd(later)));
     assert.ok(!(await keys(now)).has(`readrise:${art}`), "ReadRise: not before");

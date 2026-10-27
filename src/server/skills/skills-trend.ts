@@ -24,6 +24,9 @@ const DAY = 86_400_000;
 
 /** the trend compares with this many days before */
 export const TREND_BACK_DAYS = 14;
+/** r94 (audit): a middle checkpoint, so the trend can show a short history (14d ago → 7d ago → now) instead of
+ * only two points — no new data, just one more read of the same stored star history. */
+export const TREND_MID_DAYS = 7;
 /** ⚡ from this share of rapid guesses (the platform's effort threshold: 20 %) */
 export const GUESS_SHARE = UNRELIABLE_SHARE;
 /** ⚡ needs at least this many answers (one fast answer is not a habit) */

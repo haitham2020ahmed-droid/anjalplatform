@@ -6313,6 +6313,10 @@ export const ar: Record<UiString, string> = {
   "Turn off the printed QR? Students cannot sign in with it until you turn it on again.": "إيقاف رمز QR المطبوع؟ لن يستطيع الطلاب الدخول به حتى تشغّله مرة أخرى.",
   "{n} times": "{n} مرات",
   "Not you? Choose your name": "لست أنت؟ اختر اسمك",
+  "This level only changes when MAP, weekly checks and the Diagnostic agree, and stays for at least 14 days — it is not based on one test. \"Needs support\" on other pages (Student Skills, Early warning) can use a different measure.": "هذا المستوى بيتغير بس لو MAP والفحوص الأسبوعية والتشخيصي اتفقوا مع بعض، وبيفضل ثابت لمدة 14 يوم على الأقل — مش بناءً على اختبار واحد. \"تحتاج إلى دعم\" في صفحات تانية (مهارات الطلاب، الإنذار المبكر) ممكن تكون بمعيار مختلف.",
+  "At least one skill's star is currently \"Needs support\" — based on this plan's own skill stars, not a test score. Other reports can use a different measure.": "في مهارة واحدة على الأقل نجمتها دلوقتي \"تحتاج إلى دعم\" — بناءً على نجوم المهارات في هذه الخطة بس، مش على درجة اختبار. تقارير تانية ممكن تستخدم معيار مختلف.",
+  "How this is different from other reports": "ليه هذا التقرير مختلف عن التقارير التانية",
+  "This page flags a direction of travel (a drop, a swing, no progress) across two or more results over time — not a single accuracy percentage. \"Needs support\" on Student Skills or Support plan can use a different measure.": "هذه الصفحة بتوريك اتجاه التغيير (انخفاض، تذبذب، أو عدم تقدّم) عبر نتيجتين أو أكتر على مدار وقت — مش نسبة دقة واحدة. \"تحتاج إلى دعم\" في مهارات الطلاب أو خطة الدعم ممكن تكون بمعيار مختلف.",
 
   // Daily Dictation
   "Daily Dictation": "الإملاء اليومي",
@@ -6463,4 +6467,7 @@ export const ar: Record<UiString, string> = {
   "Set the tab for the ticked skill(s)": "حدد التبويب للمهارات المحددة",
   "Tab set.": "تم تحديد التبويب.",
   "Tab cleared.": "تم إلغاء التبويب.",
+  "{n} item(s) were skipped.": "تم تجاهل {n} عنصر (غير قابل للتبويب).",
+  "This student's recent accuracy on this skill is below the usual Enrichment threshold (90%). You can still assign it.": "دقة الطالب الأخيرة في هذه المهارة أقل من حد الإثراء المعتاد (90%). تقدر تكمل التكليف برغم ذلك.",
+  "Enrichment opportunities": "فرص الإثراء",
 };
