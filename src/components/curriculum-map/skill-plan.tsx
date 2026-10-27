@@ -134,9 +134,12 @@ export function SkillPlan({ basePath, grade, grades, unitIx, units, pdfHref, stu
 
 function UnitSection({ sec, canAssign, roster, quickAssign, assigned, priorAssignment, masteredCount, cancelAssignment, cancelAssignmentForStudents }: { sec: MapPdfSection; canAssign: boolean; roster: RosterClass[]; quickAssign: SkillPlanProps["quickAssign"]; assigned?: ReadonlySet<string>; priorAssignment?: SkillPlanProps["priorAssignment"]; masteredCount?: SkillPlanProps["masteredCount"]; cancelAssignment?: SkillPlanProps["cancelAssignment"]; cancelAssignmentForStudents?: SkillPlanProps["cancelAssignmentForStudents"] }) {
   const t = useT();
-  // a selection with no platform skills linked yet (no "No platform skills linked yet." placeholder row any more —
-  // owner: "شيل ده خالص" / "حذف اي شي زي كده" — it just doesn't appear in the Skill plan at all)
-  if (sec.skills.length === 0 && !sec.lessonSections?.length) return null;
+  // 🩹 fix (Oct 2026, "عايز الدروس الي موجودة في Lessons تكون موجودة في Skill plan كمان"): a selection used to be
+  // hidden entirely here whenever it had neither platform skills nor a Curriculum Map overlay match — but some
+  // selections (e.g. Mother to Son) DO have both, and still failed to show, for reasons never fully pinned down
+  // live. Rather than keep hiding selections on a guess, every selection that exists in the underlying Lesson row
+  // now always shows (its title/weeks), same as the Lessons tab — skills/lessonSections sections below simply
+  // render nothing of their own when there's genuinely nothing to show, instead of hiding the whole row.
   // 🔁 fix (Oct 2026, "ممكن تضيف اسماء الدروس في skill plan زي ما هو موجود في lessons"): the curated lesson name
   // (sec.name, same lookup/data as the Lessons tab — src/server/curriculum-map/lesson-details.ts) in place of the
   // generic DB title wherever it's known; falls back to the old generic title when this Text Set has no entry yet.
