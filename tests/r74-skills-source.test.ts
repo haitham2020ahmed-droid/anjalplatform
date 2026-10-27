@@ -98,7 +98,7 @@ describe("r74 🏷️ source on every assign + Student Skills = assigned skills 
   });
 
   test("pure rules: the source of a row (saved, else inferred), the tests that assign nothing, the groups", () => {
-    assert.deepEqual([...ASSIGN_SOURCES], ["MAP", "NAFS", "CURRICULUM", "GRAMMAR", "RTI"]);
+    assert.deepEqual([...ASSIGN_SOURCES], ["MAP", "NAFS", "CURRICULUM", "GRAMMAR", "RTI", "ENRICHMENT"]);
     assert.equal(parseAssignSource(" map "), "MAP"); assert.equal(parseAssignSource(""), null); assert.equal(isAssignSource("CUSTOM"), false);
     assert.equal(sourceOfAssignment({ source: "RTI", program: "MAP" }), "RTI", "the saved source wins");
     assert.equal(sourceOfAssignment({ program: "NAFS" }), "NAFS");
@@ -278,6 +278,7 @@ describe("r74 🏷️ source on every assign + Student Skills = assigned skills 
       "src/app/admin/questions/assign-questions-dialog.tsx", "src/app/teacher/assignments/new/assignment-form.tsx", "src/app/teacher/skill-assign/bank-panel.tsx",
       "src/app/teacher/map-assign/page.tsx", "src/app/teacher/plans/curriculum/page.tsx", "src/app/teacher/ai/page.tsx", "src/app/teacher/alerts/flags-view.tsx",
       "src/components/map/group-plan-view.tsx", "src/app/teacher/assessments/new/test-builder.tsx", "src/app/teacher/writing/page.tsx", "src/app/teacher/reports/skills-grid/page.tsx",
+      "src/components/curriculum-map/skill-plan.tsx",
     ];
     for (const f of files) assert.match(read(f), /<SourceSelect\b/, f);
     assert.doesNotMatch(read("src/components/skill-picker/assign-steps.tsx"), /<ProgramChoice/, "the Program choice (with a default) is replaced by the Source");
