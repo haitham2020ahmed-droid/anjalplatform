@@ -7,6 +7,8 @@ import { evidenceLevels } from "./evidence-level";
 import { ladderRulesForStudent } from "./ladder-settings";
 import { cachedContentKeys, cachedSeenIndex, freshFilter, Sitting } from "../questions/fresh";
 import { ASSIGNMENT_MAX_QUESTIONS, ASSIGNMENT_MIN_QUESTIONS } from "../practice/completion";
+import { questionsOfSkill } from "../questions/skill-questions";
+import { isHiddenSkill } from "../skills/master";
 
 const s = (v: unknown) => String(v ?? "");
 const time = (v: unknown) => new Date(v instanceof Date ? v.toISOString() : s(v)).getTime();
@@ -37,6 +39,54 @@ export async function poolOf(repo: Repo, ids: string[]): Promise<PoolItem[]> {
     const level: Rung = node && base && g > base ? "CHALLENGE" : node && base && g < base ? "SUPPORT" : (s(node?.level) as Level) || fromDifficulty(Number(q.difficultyLevel ?? 4));
     return { id: s(q.id), lexile: q.lexile === null || q.lexile === undefined ? null : Number(q.lexile), difficulty: Number(q.difficultyLevel ?? 4), level };
   });
+}
+
+/**
+ * 🩹 (Oct 2026, "عايز نستفيد من البنك لو المنهج خلص والعكس"): when a set's own questions (`order`) are genuinely
+ * exhausted at every level, borrow more of the SAME skill(s) — every question, Curriculum Map or Question Bank,
+ * carries the same `skillId` either way (`questionsOfSkill(..., { includeMapLinked: true })` is the platform's one
+ * existing "questions of a skill" reader, already used to bridge Bank ↔ MAP elsewhere — see skill-questions.ts). Not
+ * a new matching rule: the exact taxonomy both pools already share. Only ever called once the set's own pool has
+ * nothing left (poolOf/tryLevels of `order` failed) — never changes which question comes next while the set still
+ * has one of its own, and never repeats a question already in `order`, already answered in THIS session/sitting
+ * (`avoid`), or ever answered by this student in ANY earlier session (checked straight off QuestionAttempt — the
+ * same table every other "already answered" check in this file reads, no schema change).
+ *
+ * 🎯 scoped to every "real, lesson-attached" skill role — Grammar/Writing (GRAMMAR, SPELLING, WRITING) AND
+ * Comprehension (COMPREHENSION_SKILL, STRATEGY_AND_FEATURE, AUTHORS_CRAFT, VOCABULARY_STRATEGY) — any skillId with
+ * a LessonSkill row of one of these roles, same exact mechanism either family: the skillId IS the specific topic
+ * (e.g. "Main Idea", "Compare and Contrast"), never the shared bucket below. Left out even so: a grade's hidden
+ * "Unclassified (Curriculum Map)" skill (`isHiddenSkill`) — one bucket for every Concept-Vocabulary/Comprehension
+ * question of a grade that has NOT been classified onto a real, specific skill yet ("not used for assignments or
+ * adaptive practice" per questions.ts). Classifying those onto a real skill is the platform's existing "Fix stuck
+ * questions" admin tool (src/server/admin/stuck-questions.ts, phase "classify") — once a question/lesson is
+ * classified there, it already has exactly the LessonSkill row this function reads, no change needed here. Concept
+ * Vocabulary words themselves still have no per-word platform skill (only a shared grade bucket) and are NOT
+ * covered by this function — see the parent report for why that needs its own, separate design.
+ */
+async function crossSkillPool(repo: Repo, schoolId: string, studentId: string, order: string[], avoid: ReadonlySet<string>): Promise<PoolItem[]> {
+  if (!order.length || !schoolId) return [];
+  const own = await repo.findMany("Question", { id: { in: order } }, { select: ["id", "skillId"] });
+  const candidateSkillIds = [...new Set(own.map((q) => s(q.skillId)).filter(Boolean))];
+  if (!candidateSkillIds.length) return [];
+  const skillRows = await repo.findMany("Skill", { id: { in: candidateSkillIds } }, { select: ["id", "code"] });
+  const realSkillIds = skillRows.filter((k) => !isHiddenSkill(k.code)).map((k) => s(k.id));
+  if (!realSkillIds.length) return [];
+  const LESSON_ATTACHED_ROLES = new Set(["GRAMMAR", "SPELLING", "WRITING", "COMPREHENSION_SKILL", "STRATEGY_AND_FEATURE", "AUTHORS_CRAFT", "VOCABULARY_STRATEGY"]);
+  const languageLinked = new Set((await repo.findMany("LessonSkill", { skillId: { in: realSkillIds } }, { select: ["skillId", "role"] })).filter((l) => LESSON_ATTACHED_ROLES.has(s(l.role))).map((l) => s(l.skillId)));
+  const skillIds = realSkillIds.filter((id) => languageLinked.has(id));
+  if (!skillIds.length) return [];
+  const seen = new Set([...order, ...avoid]);
+  const extra: string[] = [];
+  for (const skillId of skillIds) {
+    const qs = await questionsOfSkill(repo, schoolId, skillId, { status: "PUBLISHED", includeMapLinked: true, take: 200 });
+    for (const q of qs) if (!seen.has(q.id)) { extra.push(q.id); seen.add(q.id); }
+  }
+  if (!extra.length) return [];
+  const everAnswered = new Set((await repo.findMany("QuestionAttempt", { studentId, questionId: { in: extra } }, { select: ["questionId"] })).map((a) => s(a.questionId)));
+  const fresh = extra.filter((id) => !everAnswered.has(id));
+  if (!fresh.length) return [];
+  return poolOf(repo, fresh);
 }
 
 /** The student's latest Lexile from MAP (or null). */
@@ -128,6 +178,17 @@ export async function adaptiveNext(repo: Repo, set: Row, order: string[], sessio
     return null;
   };
   // a missed question never comes back in the set: it waits in Second Chance (the set ends when nothing new is left)
-  const nextId = tryLevels(notFresh) ?? tryLevels(answered);
+  let nextId = tryLevels(notFresh) ?? tryLevels(answered);
+  // 🩹 the set's own pool is genuinely exhausted at every level (native + Second Chance retries) — before giving up,
+  // borrow more of the same skill(s) from the OTHER pool (Bank ↔ Curriculum Map). Skipped for a Placement test: its
+  // item set is deliberately fixed for the ability estimate, never widened mid-test.
+  if (!nextId && !placement) {
+    const st = await repo.findUnique("Student", { id: studentId });
+    const schoolId = st?.schoolId ? s(st.schoolId) : "";
+    const avoidIds = new Set([...answered, ...attempts.map((a) => s(a.questionId))]);
+    const borrowed = schoolId ? await crossSkillPool(repo, schoolId, studentId, order, avoidIds) : [];
+    for (const q of borrowed) if (!pool.some((p) => p.id === q.id)) pool.push(q);
+    if (borrowed.length) nextId = tryLevels(notFresh) ?? tryLevels(answered);
+  }
   return { nextId, total, done: !nextId, decision: nextId ? decision : { ...decision, done: true, reason: "NO_QUESTIONS" }, start, goal, attempts: attempts.length };
 }
