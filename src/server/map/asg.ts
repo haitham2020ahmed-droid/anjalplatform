@@ -18,7 +18,11 @@ export interface PdfItem { s: string; x: number; y: number }
 /** The text items of each PDF page (with their position). */
 export async function pdfPages(bytes: Uint8Array): Promise<PdfItem[][]> {
   const pdfjs = (await import(/* webpackIgnore: true */ "pdfjs-dist/legacy/build/pdf.mjs")) as unknown as { getDocument: (o: Record<string, unknown>) => { promise: Promise<{ numPages: number; getPage: (n: number) => Promise<{ getTextContent: () => Promise<{ items: { str: string; transform: number[] }[] }> }> }> } };
-  const doc = await pdfjs.getDocument({ data: bytes, isEvalSupported: false, useSystemFonts: false, disableFontFace: true }).promise;
+  // pdfjs-dist insists on a plain Uint8Array and rejects a Node Buffer at runtime even though Buffer is itself a
+  // Uint8Array subclass ("Please provide binary data as Uint8Array, rather than Buffer") — normalize here so
+  // every caller (reading a file straight off disk included) works, instead of each call site remembering to.
+  const data = bytes.constructor === Uint8Array ? bytes : new Uint8Array(bytes);
+  const doc = await pdfjs.getDocument({ data, isEvalSupported: false, useSystemFonts: false, disableFontFace: true }).promise;
   const out: PdfItem[][] = [];
   for (let p = 1; p <= doc.numPages; p++) {
     const page = await doc.getPage(p);

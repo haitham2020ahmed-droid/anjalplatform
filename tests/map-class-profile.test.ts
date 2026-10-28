@@ -128,7 +128,7 @@ describe("Class Profile PDF → MAP scores", () => {
 
   // Haitham's real NWEA "Class Profile" PDFs (the ones this parser was built for) — the real-world regression test.
   test("real NWEA Reading Class Profile PDF (fixtures/class-profile-reading.pdf): all 19 tested students, every value", async () => {
-    const bytes = readFileSync(new URL("./fixtures/class-profile-reading.pdf", import.meta.url));
+    const bytes = readFileSync(new URL("./fixtures/class-profile-reading.pdf", import.meta.url)); // a plain Buffer, on purpose — pdfPages() must accept it
     const p = parseClassProfile(await pdfPages(bytes));
     assert.equal(p.subject, "READING");
     assert.equal(p.className, "5A");
@@ -145,7 +145,7 @@ describe("Class Profile PDF → MAP scores", () => {
   });
 
   test("real NWEA Language Usage Class Profile PDF (fixtures/class-profile-language.pdf): all 19 tested students", async () => {
-    const bytes = readFileSync(new URL("./fixtures/class-profile-language.pdf", import.meta.url));
+    const bytes = readFileSync(new URL("./fixtures/class-profile-language.pdf", import.meta.url)); // a plain Buffer, on purpose — pdfPages() must accept it
     const p = parseClassProfile(await pdfPages(bytes));
     assert.equal(p.subject, "LANGUAGE_USAGE");
     assert.equal(p.className, "5A");

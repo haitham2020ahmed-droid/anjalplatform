@@ -75,7 +75,7 @@ export function parseClassProfile(pages: PdfItem[][]): ClassProfileParsed {
 
     // Build the active [lo, hi) vertical segments on this page from the markers, continuing `inTable` across the page boundary.
     const segs: { lo: number; hi: number }[] = [];
-    let lo = inTable ? -Infinity : null;
+    let lo: number | null = inTable ? -Infinity : null;
     for (const m of markers) {
       if (m.start) { lo = m.d; }
       else { if (lo !== null) segs.push({ lo, hi: m.d }); lo = null; }
