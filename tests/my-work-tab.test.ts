@@ -139,7 +139,7 @@ describe("📋 My Work, 3 sections (This week / Needs Catch-up / Done) + Extra P
     assert.ok(everyShownId.includes("x2"), "the untagged row shows normally");
   });
 
-  test("tabGroups: one 'Extra Practice' section when any row is tagged; empty when none are", () => {
+  test("tabGroups: always one 'Extra Practice' section (owner: tabs stay visible with a 0 count rather than disappearing)", () => {
     const rows = [
       row({ assignmentId: "x1", skill: "A", tab: "EXTRA_PRACTICE" as const }),
       row({ assignmentId: "x2", skill: "B", tab: "EXTRA_PRACTICE" as const }),
@@ -148,7 +148,9 @@ describe("📋 My Work, 3 sections (This week / Needs Catch-up / Done) + Extra P
     const g = tabGroups(rows);
     assert.deepEqual(g.map((x) => x.tab), ["EXTRA_PRACTICE"]);
     assert.equal(g[0].rows.length, 2);
-    assert.deepEqual(tabGroups(rows.filter((r) => !r.tab)), [], "no tagged rows → no Extra Practice section");
+    const empty = tabGroups(rows.filter((r) => !r.tab));
+    assert.deepEqual(empty.map((x) => x.tab), ["EXTRA_PRACTICE"], "no tagged rows → section is still present");
+    assert.equal(empty[0].rows.length, 0, "…but with a 0 count");
   });
 
   test("the Done footer still surfaces completed work (via groupMyWork's DONE section)", () => {

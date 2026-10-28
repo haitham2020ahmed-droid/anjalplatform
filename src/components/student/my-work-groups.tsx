@@ -1,11 +1,12 @@
 import Link from "next/link";
 import type { StudentHome } from "@/server/student/student-home";
-import { EmptyState, StatusPill } from "@/components/ui-kit";
+import { EmptyState, SourceTag, StatusPill } from "@/components/ui-kit";
 import type { TFn } from "@/i18n";
 import { groupMyWork, tabGroups, SHOW_FIRST, type TabGroup, type TypeGroup, type WorkGroups } from "@/lib/my-work-groups";
 import { SkillStar } from "@/components/skills/skill-star";
 import { MasteryMeter } from "@/components/skills/mastery-meter";
 import type { StarInfo } from "@/lib/skill-stars";
+import { WORK_KIND_LABEL } from "@/lib/work-kinds";
 import { SourceChips } from "./my-work-list";
 
 type Row = StudentHome["work"][number];
@@ -41,7 +42,15 @@ function CompactCard({ r, t }: { r: Row; t: TFn }) {
       <div className="min-w-0 flex-1">
         <p className="flex items-center gap-1.5 truncate text-sm font-semibold text-brand-navy">{star && <SkillStar info={star} who="student" t={t} label={r.skill} />}<bdi className="truncate">{r.skill}</bdi></p>
         <div className="mt-0.5 flex flex-wrap items-center gap-1.5 text-xs">
-          {!r.kind && (r.sources?.length ?? 0) > 1 && <SourceChips sources={r.sources!} t={t} />}
+          {r.kind
+            ? <SourceTag source={r.sourceKey} label={t(WORK_KIND_LABEL[r.kind])} />
+            : r.reteach
+              ? <SourceTag source="CUSTOM" label={t("Reteach")} />
+              : (r.sources?.length ?? 0) > 1
+                ? <SourceChips sources={r.sources!} t={t} />
+                : r.sourceKey === "RTI"
+                  ? <SourceTag source="CUSTOM" label={t("Practice")} />
+                  : <SourceTag source={r.sourceKey} icon />}
           <StatusPill status={STATUS[r.status]} />
           {meter && <MasteryMeter score={star!.score!} answered={star!.answered} />}
           {r.overdue && r.status !== "Done" && <span className="rounded-full bg-red-50 px-2 py-0.5 font-semibold text-red-700 ring-1 ring-red-200">{t("Late")}</span>}
@@ -78,15 +87,19 @@ function TabBlock({ g, t }: { g: TabGroup<Row>; t: TFn }) {
       <summary className="flex min-h-10 cursor-pointer items-center gap-1.5 text-base font-bold text-brand-navy">
         <span aria-hidden="true">📂</span>{t(g.label)} <span className="font-normal text-slate-500">({g.rows.length})</span>
       </summary>
-      <div className="mt-2 space-y-1.5">
-        <ul className="grid gap-1.5 sm:grid-cols-2">{first.map((r) => <CompactCard key={r.assignmentId} r={r} t={t} />)}</ul>
-        {more.length > 0 && (
-          <details className="mt-1.5">
-            <summary className="flex min-h-10 cursor-pointer items-center text-sm font-semibold text-brand-navy">{t("Show all ({n})", { n: g.rows.length })}</summary>
-            <ul className="mt-1.5 grid gap-1.5 sm:grid-cols-2">{more.map((r) => <CompactCard key={r.assignmentId} r={r} t={t} />)}</ul>
-          </details>
-        )}
-      </div>
+      {g.rows.length > 0 ? (
+        <div className="mt-2 space-y-1.5">
+          <ul className="grid gap-1.5 sm:grid-cols-2">{first.map((r) => <CompactCard key={r.assignmentId} r={r} t={t} />)}</ul>
+          {more.length > 0 && (
+            <details className="mt-1.5">
+              <summary className="flex min-h-10 cursor-pointer items-center text-sm font-semibold text-brand-navy">{t("Show all ({n})", { n: g.rows.length })}</summary>
+              <ul className="mt-1.5 grid gap-1.5 sm:grid-cols-2">{more.map((r) => <CompactCard key={r.assignmentId} r={r} t={t} />)}</ul>
+            </details>
+          )}
+        </div>
+      ) : (
+        <p className="mt-2 text-sm text-slate-500">{t("Nothing here right now.")}</p>
+      )}
     </details>
   );
 }
@@ -105,7 +118,9 @@ function SectionBlock({ g, t, open, tone }: { g: WorkGroups<Row>; t: TFn; open: 
       <summary className={`flex min-h-10 cursor-pointer items-center gap-2 text-base font-bold ${text}`}>
         <span aria-hidden="true">{icon}</span>{t(g.label)} <span className="font-normal text-slate-500">({g.total})</span>
       </summary>
-      <div className="mt-2 space-y-3">{g.types.map((x) => <TypeBlock key={x.type} g={x} t={t} />)}</div>
+      {g.total > 0
+        ? <div className="mt-2 space-y-3">{g.types.map((x) => <TypeBlock key={x.type} g={x} t={t} />)}</div>
+        : <p className="mt-2 text-sm text-slate-500">{t("Nothing here right now.")}</p>}
     </details>
   );
 }
@@ -146,8 +161,8 @@ export function MyWorkGroups({ rows, t, now = new Date(), query = "", totalAll }
       {query && !thisWeek.total && !catchup.total && !done.total && !tabTotal
         ? <EmptyState compact icon="🔍" title="No matches" text="Try a different word, or clear the search." />
         : <>
-            {thisWeek.total > 0 && <SectionBlock g={thisWeek} t={t} open tone="navy" />}
-            {catchup.total > 0 && <SectionBlock g={catchup} t={t} open={false} tone="amber" />}
+            <SectionBlock g={thisWeek} t={t} open tone="navy" />
+            <SectionBlock g={catchup} t={t} open={false} tone="amber" />
             {tabs.map((g) => <TabBlock key={g.tab} g={g} t={t} />)}
             {done.total > 0 && <DoneFooter g={done} t={t} />}
           </>}

@@ -125,14 +125,10 @@ export interface TabGroup<T> { tab: WorkTab; label: string; rows: T[] }
 
 /**
  * 📂 My Work tab sections (today just "Extra Practice"): every row filed under a tab (r.tab set), one section per
- * tab that actually has rows, in WORK_TABS order. A tabbed row never also appears in groupMyWork's 3 sections —
- * the two functions partition the same rows, they never overlap.
+ * tab in WORK_TABS order — always present, even with 0 rows (the section stays visible with its count so a
+ * student/teacher can see it exists, rather than disappearing when nothing is tagged yet). A tabbed row never also
+ * appears in groupMyWork's 3 sections — the two functions partition the same rows, they never overlap.
  */
 export function tabGroups<T extends WorkRowLike>(rows: readonly T[]): TabGroup<T>[] {
-  const out: TabGroup<T>[] = [];
-  for (const tab of WORK_TABS) {
-    const list = rows.filter((r) => r.tab === tab);
-    if (list.length) out.push({ tab, label: WORK_TAB_LABEL[tab], rows: list });
-  }
-  return out;
+  return WORK_TABS.map((tab) => ({ tab, label: WORK_TAB_LABEL[tab], rows: rows.filter((r) => r.tab === tab) }));
 }

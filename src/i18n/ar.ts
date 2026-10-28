@@ -471,6 +471,7 @@ export const ar: Record<UiString, string> = {
   // empty states
   "No work right now — great job!": "لا توجد واجبات الآن — أحسنت!",
   "Nothing here yet": "لا يوجد شيء هنا بعد",
+  "Nothing here right now.": "لا يوجد شيء هنا حاليًا.",
   "Nothing to show yet": "لا يوجد ما يُعرض بعد",
   "No tests waiting — well done!": "لا توجد اختبارات بانتظارك — أحسنت!",
   "No plans yet": "لا توجد خطط بعد",

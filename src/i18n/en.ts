@@ -96,7 +96,7 @@ export const UI_STRINGS = [
   "Curriculum", "RTI", "NAFS", "Custom", "Diagnostic", "Weekly Quiz", "Chapter Test", "Other", "Vocabulary",
 
   // ---------------------------------------------------------------- friendly empty states
-  "No work right now — great job!", "Nothing here yet", "Nothing to show yet", "No tests waiting — well done!",
+  "No work right now — great job!", "Nothing here yet", "Nothing here right now.", "Nothing to show yet", "No tests waiting — well done!",
   "No plans yet", "Your teacher will add work here soon.", "No students in this class yet", "No results yet",
   "Check back later.", "Nothing matches your search",
 
