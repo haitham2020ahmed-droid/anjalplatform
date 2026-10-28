@@ -528,6 +528,13 @@ export interface MyWorkItem {
   sources?: SourceKey[];
   startAt?: string | null;
   /**
+   * Oct 2026, Needs Catch-up: when this (the leading/kept) assignment was created — unlike startAt (only set for a
+   * scheduled-start assignment, and merged as the earliest of the group, see below), this is always present and,
+   * like tab, simply follows the "leading" row on a merge (not earliest-of-both) — so a fresh reassignment of a
+   * previously stale skill carries a fresh assignedAt, the same way a fresh reassignment already clears a stale tab.
+   */
+  assignedAt?: string;
+  /**
    * the student's My Work tab this row is filed under (e.g. "Extra Practice"); null/undefined = shows normally in
    * the usual Due this week / Later / Done grouping. r74-style merge: the tab follows the "leading" (most active)
    * of the merged assignment rows — a fresh, active, untagged reassignment of the same skill clears an old tab.
@@ -568,6 +575,7 @@ export function mergeWorkItems(items: readonly AssignedSkillItem[], now = new Da
       href: status === "Done" ? `/student/assignments/${i.assignmentId}/report` : i.kind === "skill" ? `/practice/${i.skillId}` : `/quiz/${i.assignmentId}`,
       action: status === "Done" ? "Review" : status === "Not started" ? "Start" : "Continue",
       note: i.note, sources: [sourceOfWork(i.source ?? i.track, Boolean(i.grammar) && !i.source)], startAt: i.startAt ?? null, tab: i.tab ?? null,
+      assignedAt: i.assignedAt,
     };
     const dedupe = i.kind === "skill" ? `skill:${i.skillId}` : `set:${i.assignmentId}`;
     const at = seen.get(dedupe);

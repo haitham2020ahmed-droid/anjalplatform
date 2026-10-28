@@ -904,6 +904,9 @@ export const UI_STRINGS = [
   // 🆕 r94-follow-up: the home page's one-line daily summary
   "This week: {sent} items sent, {attn} student(s) need attention, {enrich} ready for enrichment.",
   "Today: {students} students, {urgent} need urgent attention, {pending} approval(s) pending.",
+  // 🆕 r95 (My Work restructure, Oct 2026): the 3-section My Work page — This week / Needs Catch-up / Extra
+  // Practice, plus a minimal "Done" footer (see lib/my-work-groups.ts)
+  "Needs Catch-up",
 ] as const;
 
 export type UiString = (typeof UI_STRINGS)[number];

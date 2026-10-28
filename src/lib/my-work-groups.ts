@@ -1,8 +1,15 @@
 /**
- * 📋 My Work, organised (owner r67): the rows of My Work in three time groups — Due this week · Later · Done — and, in
- * each, small type groups (Skills, Tests, Reading, Learn, Writing, MAP, NAFS, Other). At most SHOW_FIRST rows of a
- * type group are shown at once (the rest under "Show all"); Done is folded. Pure and client-safe: the page passes the
- * rows it already has (student/all-work.ts is not read again).
+ * 📋 My Work, organised (Oct 2026 restructure, owner r67 → this update): exactly 3 sections — This week · Needs
+ * Catch-up · Extra Practice — plus a small, low-prominence "Done" footer, each split into small type groups
+ * (Skills, Tests, Reading, Learn, Writing, MAP, NAFS, Other). At most SHOW_FIRST rows of a type group are shown at
+ * once (the rest under "Show all"). Pure and client-safe: the page passes the rows it already has (student/
+ * all-work.ts is not read again).
+ *
+ * This replaces the old Due this week / Later / Done time split: "This week" now holds every untagged, not-yet-done
+ * row regardless of due date (no more separate "Later" bucket). "Needs Catch-up" is new: an untagged, not-done row
+ * that has gone CATCHUP_DAYS or more without being finished. "Extra Practice" is the old per-tab sections (Extra
+ * Practice / Review / Previous Term) collapsed into one (see lib/work-tab.ts) — still computed by tabGroups below,
+ * unchanged in shape, just down to a single tab value now.
  */
 import type { WorkKind } from "./work-kinds";
 import { WORK_TABS, WORK_TAB_LABEL, type WorkTab } from "./work-tab";
@@ -14,8 +21,10 @@ export const TYPE_LABEL: Record<WorkType, { label: string; icon: string }> = {
   SKILLS: { label: "Skills", icon: "🧩" }, TESTS: { label: "Tests", icon: "📝" }, READING: { label: "Reading", icon: "📖" }, LEARN: { label: "Learn", icon: "📘" },
   WRITING: { label: "Writing", icon: "✍️" }, MAP: { label: "MAP", icon: "🗺️" }, NAFS: { label: "NAFS", icon: "🇸🇦" }, OTHER: { label: "Other", icon: "📌" },
 };
-export type TimeGroup = "WEEK" | "LATER" | "DONE";
-export const TIME_LABEL: Record<TimeGroup, string> = { WEEK: "Due this week", LATER: "Later", DONE: "Done" };
+
+/** the 3 main sections of My Work (a 4th, Done, is shown separately as a minimal footer — not a peer section) */
+export type Section = "THIS_WEEK" | "CATCHUP" | "DONE";
+export const SECTION_LABEL: Record<Section, string> = { THIS_WEEK: "This week", CATCHUP: "Needs Catch-up", DONE: "Done" };
 
 export interface WorkRowLike {
   assignmentId: string; status: "Not started" | "In progress" | "Done"; overdue: boolean; dueAt: string | null; sourceKey: string; kind?: WorkKind | null;
@@ -23,9 +32,19 @@ export interface WorkRowLike {
   skill?: string;
   /** the skill star, when the row is a skill already being learned — used only by byPriority */
   star?: { status?: string; score?: number | null } | null;
-  /** the My Work tab this row is filed under (e.g. "Extra Practice"); set = hidden from the normal time grouping
-   * (groupMyWork) and shown under its own section instead (tabGroups) */
+  /** the My Work tab this row is filed under (e.g. "Extra Practice"); set = hidden from the normal 3-section
+   * grouping (groupMyWork) and shown under its own tab section instead (tabGroups) */
   tab?: WorkTab | null;
+  /**
+   * Needs Catch-up: when this row was assigned (its own, or its merged group's leading row's, createdAt — see
+   * server/plans/wizard.ts MyWorkItem.assignedAt). startAt (below) wins when it is set — it is only ever set for a
+   * scheduled-start assignment, and by the time a row reaches My Work it is already in the past. A row with
+   * neither date (most non-skill work: tests, writing, reading-aloud, lessons, surveys, exit tickets, …) is never
+   * eligible for Needs Catch-up — there is no reliable "assigned since" date for it — and always counts as This
+   * week while not done.
+   */
+  assignedAt?: string | null;
+  startAt?: string | null;
 }
 
 /** The type of a row: its kind (tests, reading, Learn …), else its program (a MAP / NAFS skill set), else Skills. */
@@ -43,24 +62,22 @@ export function typeOf(r: WorkRowLike): WorkType {
 }
 
 const DAY = 86_400_000;
-const RIYADH = 3 * 3_600_000;
-/** The end of this school week (Saturday 23:59 Riyadh): work due by then is "this week". */
-export function weekEnd(now: Date): number {
-  const local = now.getTime() + RIYADH;
-  const dow = new Date(local).getUTCDay(); // 0 Sunday … 6 Saturday
-  const midnight = local - (local % DAY);
-  return midnight + (7 - dow) * DAY - RIYADH - 1;
-}
+/** Needs Catch-up threshold: an untagged, not-done row ages out of "This week" once it has gone this many days
+ * since it was assigned (see WorkRowLike.assignedAt above) without being finished. Mirrors the "days since X" idle
+ * check server/teacher/needs-attention.ts already uses for idleDays. */
+export const CATCHUP_DAYS = 10;
 
-export function timeOf(r: WorkRowLike, now: Date): TimeGroup {
+/** Which of the 3 main sections a row belongs to. Tabbed rows never reach this (groupMyWork filters them out first
+ * — they are handled by tabGroups instead, see below). */
+export function sectionOf(r: WorkRowLike, now: Date): Section {
   if (r.status === "Done") return "DONE";
-  if (r.overdue) return "WEEK";
-  if (r.dueAt && Date.parse(r.dueAt) <= weekEnd(now)) return "WEEK";
-  return "LATER";
+  const since = r.startAt ?? r.assignedAt ?? null;
+  if (since && Math.floor((now.getTime() - Date.parse(since)) / DAY) >= CATCHUP_DAYS) return "CATCHUP";
+  return "THIS_WEEK";
 }
 
 export interface TypeGroup<T> { type: WorkType; label: string; icon: string; rows: T[]; first: T[]; more: T[] }
-export interface WorkGroups<T> { time: TimeGroup; label: string; total: number; types: TypeGroup<T>[] }
+export interface WorkGroups<T> { section: Section; label: string; total: number; types: TypeGroup<T>[] }
 
 /**
  * 🔎 Needier rows first within a group: overdue-and-not-done, then an in-progress skill whose mastery score is
@@ -85,21 +102,21 @@ export function searchWork<T extends WorkRowLike>(rows: readonly T[], query: str
 }
 
 /**
- * Due this week · Later · Done, each split by type (the rows keep their My Work order inside a group). A row
- * filed under a My Work tab (r.tab set) is left out here — it shows under its tab's own section instead
+ * This week · Needs Catch-up · Done (in that order), each split by type (the rows keep their My Work order inside
+ * a group). A row filed under a My Work tab (r.tab set) is left out here — it shows under Extra Practice instead
  * (tabGroups), never in both places.
  */
 export function groupMyWork<T extends WorkRowLike>(rows: readonly T[], now = new Date(), cap = SHOW_FIRST): WorkGroups<T>[] {
   const untabbed = rows.filter((r) => !r.tab);
   const out: WorkGroups<T>[] = [];
-  for (const time of ["WEEK", "LATER", "DONE"] as TimeGroup[]) {
-    const mine = untabbed.filter((r) => timeOf(r, now) === time);
+  for (const section of ["THIS_WEEK", "CATCHUP", "DONE"] as Section[]) {
+    const mine = untabbed.filter((r) => sectionOf(r, now) === section);
     const types: TypeGroup<T>[] = [];
     for (const type of TYPE_ORDER) {
       const list = mine.filter((r) => typeOf(r) === type);
       if (list.length) types.push({ type, label: TYPE_LABEL[type].label, icon: TYPE_LABEL[type].icon, rows: list, first: list.slice(0, cap), more: list.slice(cap) });
     }
-    out.push({ time, label: TIME_LABEL[time], total: mine.length, types });
+    out.push({ section, label: SECTION_LABEL[section], total: mine.length, types });
   }
   return out;
 }
@@ -107,8 +124,8 @@ export function groupMyWork<T extends WorkRowLike>(rows: readonly T[], now = new
 export interface TabGroup<T> { tab: WorkTab; label: string; rows: T[] }
 
 /**
- * 📂 My Work tab sections (e.g. "Extra Practice"): every row filed under a tab (r.tab set), one section per tab
- * that actually has rows, in WORK_TABS order. A tabbed row never also appears in groupMyWork's WEEK/LATER/DONE —
+ * 📂 My Work tab sections (today just "Extra Practice"): every row filed under a tab (r.tab set), one section per
+ * tab that actually has rows, in WORK_TABS order. A tabbed row never also appears in groupMyWork's 3 sections —
  * the two functions partition the same rows, they never overlap.
  */
 export function tabGroups<T extends WorkRowLike>(rows: readonly T[]): TabGroup<T>[] {

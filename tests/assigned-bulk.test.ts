@@ -100,11 +100,43 @@ describe("📌 Assigned: select several, cancel / undo in one go", () => {
     assert.match(page, /data-unit=/); assert.match(page, /<AssignedBulkBar/);
     assert.match(page, /<option value="">\{t\("Not cancelled"\)\}<\/option>/, "the default list = not cancelled");
     assert.doesNotMatch(page, /line-through/, "no struck-through rows any more");
+    // the bulk-select bar's checkboxes live anywhere inside #assigned-list — still exactly one such container
+    assert.match(page, /<div id="assigned-list"/, "the bulk bar's querySelector(#assigned-list …) still has its container");
+    assert.equal((page.match(/id="assigned-list"/g) ?? []).length, 1, "exactly one #assigned-list container (bulk bar unambiguous)");
     const bar = read("src/components/teacher/assigned-bulk.tsx");
     for (const x of ["Select all shown", "Select by type…", "Select by unit…", "Cancel selected", "Undo selected", "Cancelled {n}", "window.confirm", "assigned-toast", "router.refresh"]) assert.ok(bar.includes(x), x);
     assert.match(read("src/app/teacher/assigned/actions.ts"), /export async function bulkAssignedAction/);
     for (const w of ["Select all shown", "Cancel selected", "Undo selected", "Cancelled {n}", "Scheduled", "Cancel {n} items for everyone? Students will no longer see them; their answers are kept."]) {
       assert.ok((UI_STRINGS as readonly string[]).includes(w), w); assert.ok(ar[w as (typeof UI_STRINGS)[number]], w);
     }
+  });
+
+  test("the page: rows grouped by status (Late open by default) and by same skill title, in a real table", () => {
+    const page = read("src/app/teacher/assigned/page.tsx");
+    // status grouping: a <details> per status section, Late open by default, the others collapsed
+    assert.match(page, /function groupByStatus/, "rows are grouped by status");
+    assert.match(page, /STATUS_ORDER:\s*AssignedStatus\[\]\s*=\s*\["LATE",\s*"OPEN",\s*"SCHEDULED",\s*"DONE",\s*"CANCELLED"\]/, "Late, then Open, then Scheduled");
+    assert.match(page, /<details open=\{defaultOpen\}>/, "each status section is a native details/summary accordion");
+    assert.match(page, /defaultOpen=\{g\.status === "LATE"\}/, "only Late starts open; Open and Scheduled start collapsed");
+    // same-skill-title grouping: duplicate rows (e.g. the same skill assigned 3 times) roll up into one group with a count
+    assert.match(page, /function groupBySkill/, "rows sharing the same kind \+ title are grouped");
+    assert.match(page, /g\.rows\.length === 1\) return <ItemRow/, "a skill assigned only once renders as a plain row, no extra accordion");
+    assert.match(page, /\(\{g\.rows\.length\}\)/, "a repeated skill's group header shows its count");
+    // a real table: column headers (Skill · Class · Due · Progress · Status · Tab · Actions), reusing existing strings
+    for (const col of ['t("Skill")', 't("Class")', 't("Due")', 't("Progress")', 't("Status")', 't("Tab")', 't("Actions")']) assert.ok(page.includes(col), col);
+    assert.match(page, /const COLS = "grid grid-cols-/, "rows use a CSS-grid table layout, one column template shared by the header and every row");
+  });
+
+  test("the page: the per-row ⋮ overflow menu still exposes Students / Cancel assignment / Undo, without the bulk bar", () => {
+    const page = read("src/app/teacher/assigned/page.tsx");
+    assert.match(page, /function RowActions/, "the always-visible per-row buttons were replaced by one small menu component");
+    assert.match(page, /⋮<\/summary>/, "a native details/summary menu (no client JS) opened by the ⋮ button");
+    assert.match(page, /\{t\("Students"\)\}<\/Link>/, "Students is still reachable from the row");
+    assert.match(page, /label=\{t\("Cancel assignment"\)\}/, "Cancel assignment is still offered");
+    assert.match(page, /label=\{t\("Undo"\)\}/, "Undo is still offered for a cancelled row");
+    // the bulk-select bar (checkbox + Select all shown + tab dropdown + Set the tab + Cancel selected) is untouched
+    const bar = read("src/components/teacher/assigned-bulk.tsx");
+    assert.match(bar, /export function AssignedBulkBar/);
+    assert.match(bar, /Set the tab for the ticked skill\(s\)/);
   });
 });

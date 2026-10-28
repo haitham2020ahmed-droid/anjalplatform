@@ -69,7 +69,7 @@ function TypeBlock({ g, t }: { g: TypeGroup<Row>; t: TFn }) {
   );
 }
 
-/** 📂 One My Work tab section (e.g. "Extra Practice"): a flat list of its rows, same compact cards, "Show all" past SHOW_FIRST. */
+/** 📂 One My Work tab section ("Extra Practice"): a flat list of its rows, same compact cards, "Show all" past SHOW_FIRST. */
 function TabBlock({ g, t }: { g: TabGroup<Row>; t: TFn }) {
   const first = g.rows.slice(0, SHOW_FIRST), more = g.rows.slice(SHOW_FIRST);
   return (
@@ -86,33 +86,45 @@ function TabBlock({ g, t }: { g: TabGroup<Row>; t: TFn }) {
   );
 }
 
-function TimeBlock({ g, t }: { g: WorkGroups<Row>; t: TFn }) {
+/**
+ * 📋 One of the 3 main sections (This week / Needs Catch-up), as a collapsible accordion — the same native
+ * <details>/<summary> disclosure already used everywhere else in this file (TypeBlock's "Show all", DoneBlock).
+ * `open` controls which sections start expanded: This week open, Needs Catch-up collapsed.
+ */
+function SectionBlock({ g, t, open, tone }: { g: WorkGroups<Row>; t: TFn; open: boolean; tone: "navy" | "amber" }) {
+  const ring = tone === "amber" ? "bg-amber-50/60 ring-amber-100" : "bg-white ring-slate-200";
+  const text = tone === "amber" ? "text-amber-900" : "text-brand-navy";
+  const icon = tone === "amber" ? "⏰" : "📅";
   return (
-    <section data-testid="work-time" data-time={g.time} aria-label={t(g.label)} className="space-y-3">
-      <h2 className="text-base font-bold text-brand-navy">{t(g.label)} <span className="font-normal text-slate-500">({g.total})</span></h2>
-      {g.types.map((x) => <TypeBlock key={x.type} g={x} t={t} />)}
-    </section>
+    <details data-testid="work-section" data-section={g.section} open={open} className={`rounded-2xl p-3 ring-1 ${ring}`}>
+      <summary className={`flex min-h-10 cursor-pointer items-center gap-2 text-base font-bold ${text}`}>
+        <span aria-hidden="true">{icon}</span>{t(g.label)} <span className="font-normal text-slate-500">({g.total})</span>
+      </summary>
+      <div className="mt-2 space-y-3">{g.types.map((x) => <TypeBlock key={x.type} g={x} t={t} />)}</div>
+    </details>
   );
 }
 
 /**
- * 📋 My Work, organised: Due this week · Later · Done (folded), each split by type with small headers; compact
- * cards; at most 6 per type group, the rest under "Show all". Calm and mobile-first; students never see level
- * words. ⭐ Rows needing attention (overdue, or a skill in progress with low mastery) surface first inside their
- * group (src/lib/my-work-groups.ts byPriority — applied by the page before this component ever sees the rows).
+ * 📋 My Work, organised (Oct 2026 restructure): exactly 3 sections — This week (open), Needs Catch-up (collapsed),
+ * Extra Practice (collapsed) — plus a minimal "Done" line at the very bottom (not a 4th equal section: completed
+ * work is still reachable, just out of the way). Each section split by type with small headers; compact cards; at
+ * most 6 per type group, the rest under "Show all". Calm and mobile-first; students never see level words.
+ * ⭐ Rows needing attention (overdue, or a skill in progress with low mastery) surface first inside their group
+ * (src/lib/my-work-groups.ts byPriority — applied by the page before this component ever sees the rows).
  * A plain "search my work" box (a GET form, same pattern as the rest of the admin lists — no client JS) appears
  * once there is enough work to be worth searching; the page re-renders filtered by ?q=.
  */
 export function MyWorkGroups({ rows, t, now = new Date(), query = "", totalAll }: { rows: readonly Row[]; t: TFn; now?: Date; query?: string; totalAll?: number }) {
-  const [week, later, done] = groupMyWork(rows, now);
+  const [thisWeek, catchup, done] = groupMyWork(rows, now);
   const tabs = tabGroups(rows);
   const tabTotal = tabs.reduce((n, g) => n + g.rows.length, 0);
   const showSearch = (totalAll ?? rows.length) > SHOW_FIRST;
-  if (!week.total && !later.total && !tabTotal && !query) {
+  if (!thisWeek.total && !catchup.total && !tabTotal && !query) {
     return (
       <>
         <EmptyState compact icon={done.total ? "🎉" : "🌈"} title={done.total ? "No work right now — great job!" : "Nothing here yet"} text="Your teacher will add work here soon. Pick something to read!" />
-        {done.total > 0 && <DoneBlock g={done} t={t} />}
+        {done.total > 0 && <DoneFooter g={done} t={t} />}
       </>
     );
   }
@@ -126,22 +138,27 @@ export function MyWorkGroups({ rows, t, now = new Date(), query = "", totalAll }
           {query && <Link href="/student/work" className="text-sm font-semibold text-brand-teal hover:underline">{t("Clear")}</Link>}
         </form>
       )}
-      {query && !week.total && !later.total && !done.total && !tabTotal
+      {query && !thisWeek.total && !catchup.total && !done.total && !tabTotal
         ? <EmptyState compact icon="🔍" title="No matches" text="Try a different word, or clear the search." />
         : <>
-            {week.total > 0 && <TimeBlock g={week} t={t} />}
-            {later.total > 0 && <TimeBlock g={later} t={t} />}
+            {thisWeek.total > 0 && <SectionBlock g={thisWeek} t={t} open tone="navy" />}
+            {catchup.total > 0 && <SectionBlock g={catchup} t={t} open={false} tone="amber" />}
             {tabs.map((g) => <TabBlock key={g.tab} g={g} t={t} />)}
-            {done.total > 0 && <DoneBlock g={done} t={t} />}
+            {done.total > 0 && <DoneFooter g={done} t={t} />}
           </>}
     </div>
   );
 }
 
-function DoneBlock({ g, t }: { g: WorkGroups<Row>; t: TFn }) {
+/**
+ * ✅ Done: a minimal, low-prominence footer line — a student can still open it to see completed work, but it
+ * deliberately does NOT read as a 4th section alongside This week / Needs Catch-up / Extra Practice (the user's
+ * "only 3 sections" spec). Plain text link + native <details>, no colored card, no icon badge of its own weight.
+ */
+function DoneFooter({ g, t }: { g: WorkGroups<Row>; t: TFn }) {
   return (
-    <details id="my-work-done" data-testid="work-time" data-time="DONE" className="rounded-2xl bg-emerald-50/60 p-3 ring-1 ring-emerald-100">
-      <summary className="flex min-h-10 cursor-pointer items-center gap-2 font-semibold text-emerald-900"><span aria-hidden="true">✅</span>{t("Done ({n})", { n: g.total })}</summary>
+    <details id="my-work-done" data-testid="work-section" data-section="DONE" className="border-t border-slate-200 pt-2">
+      <summary className="inline-flex min-h-10 cursor-pointer items-center gap-1.5 text-sm font-semibold text-slate-500 hover:text-slate-700">✓ {t("Done ({n})", { n: g.total })}</summary>
       <div className="mt-2 space-y-3">{g.types.map((x) => <TypeBlock key={x.type} g={x} t={t} />)}</div>
     </details>
   );
