@@ -6501,4 +6501,6 @@ export const ar: Record<UiString, string> = {
   "This week: {sent} items sent, {attn} student(s) need attention, {enrich} ready for enrichment.": "هذا الأسبوع: {sent} مهمة اتبعتت، {attn} طالب محتاج متابعة، {enrich} جاهز للإثراء.",
   "Today: {students} students, {urgent} need urgent attention, {pending} approval(s) pending.": "النهاردة: {students} طالب، {urgent} محتاجين متابعة عاجلة، {pending} طلب موافقة معلّق.",
   "Needs Catch-up": "محتاج تلحيق",
+  "Needs follow-up": "محتاج متابعة",
+  "Done / Cancelled": "تم / ملغي",
 };

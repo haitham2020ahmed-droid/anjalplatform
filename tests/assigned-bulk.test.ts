@@ -66,6 +66,8 @@ describe("📌 Assigned: select several, cancel / undo in one go", () => {
     for (const r of refs) assert.ok(before.items.some((x) => x.kind === r.kind && x.id === r.id), `${r.kind} listed`);
     const respond = before.items.filter((x) => x.kind === "RESPOND");
     assert.ok(respond.every((x) => x.unit && /^Unit \d+$/.test(x.unit)), "each row knows its unit (smart select)");
+    const skillRows = before.items.filter((x) => x.kind === "SKILL");
+    assert.ok(skillRows.length > 0 && skillRows.every((x) => x.source === "CURRICULUM"), "each SKILL row knows its source (Curriculum/RTI/MAP/…), for the source tag shown next to it");
     const work0 = (await allWorkItems(repo, me, now)).length;
     const res = await cancelMany(repo, teacher, refs, now);
     assert.equal(res.done.length, refs.length); assert.equal(res.failed.length, 0);
@@ -111,17 +113,23 @@ describe("📌 Assigned: select several, cancel / undo in one go", () => {
     }
   });
 
-  test("the page: rows grouped by status (Late open by default) and by same skill title, in a real table", () => {
+  test("the page: rows grouped by bucket (New / Needs follow-up / Extra Practice, Done+Cancelled in one footer) and by same skill title, in a real table", () => {
     const page = read("src/app/teacher/assigned/page.tsx");
-    // status grouping: a <details> per status section, Late open by default, the others collapsed
-    assert.match(page, /function groupByStatus/, "rows are grouped by status");
-    assert.match(page, /STATUS_ORDER:\s*AssignedStatus\[\]\s*=\s*\["LATE",\s*"OPEN",\s*"SCHEDULED",\s*"DONE",\s*"CANCELLED"\]/, "Late, then Open, then Scheduled");
-    assert.match(page, /<details open=\{defaultOpen\}>/, "each status section is a native details/summary accordion");
-    assert.match(page, /defaultOpen=\{g\.status === "LATE"\}/, "only Late starts open; Open and Scheduled start collapsed");
+    // bucket grouping (Oct 2026 restructure, mirrors My Work): a <details> per bucket, New & Needs follow-up open
+    // by default, Extra Practice collapsed; Done/Cancelled rows pulled out into one separate footer section
+    assert.match(page, /function groupByBucket/, "rows are grouped by bucket");
+    assert.match(page, /BUCKET_ORDER:\s*Bucket\[\]\s*=\s*\["FOLLOWUP",\s*"NEW",\s*"EXTRA"\]/, "Needs follow-up, then New, then Extra Practice");
+    assert.match(page, /<details className="group" open=\{defaultOpen\}>/, "each bucket section is a native details/summary accordion");
+    assert.match(page, /defaultOpen=\{g\.bucket !== "EXTRA"\}/, "New and Needs follow-up start open; only Extra Practice starts collapsed");
+    assert.match(page, /function DoneSection/, "Done and Cancelled rows are collected into one minimal footer, not scattered across the buckets");
+    assert.match(page, /doneRows = shown\.filter\(\(x\) => x\.status === "DONE" \|\| x\.status === "CANCELLED"\)/, "done/cancelled rows are pulled out before bucketing");
     // same-skill-title grouping: duplicate rows (e.g. the same skill assigned 3 times) roll up into one group with a count
     assert.match(page, /function groupBySkill/, "rows sharing the same kind \+ title are grouped");
     assert.match(page, /g\.rows\.length === 1\) return <ItemRow/, "a skill assigned only once renders as a plain row, no extra accordion");
     assert.match(page, /\(\{g\.rows\.length\}\)/, "a repeated skill's group header shows its count");
+    assert.match(page, /group-open:rotate-90/, "the same-skill group has a visible chevron that rotates when open");
+    // every skill row shows where it came from (Curriculum / RTI / MAP / Grammar / NAFS / Custom), next to its type tag
+    assert.match(page, /x\.source &&.*SOURCE_TAG_CLASS\[x\.source\]/, "a skill's source (Curriculum/RTI/MAP/…) is shown as a small tag on its row");
     // a real table: column headers (Skill · Class · Due · Progress · Status · Tab · Actions), reusing existing strings
     for (const col of ['t("Skill")', 't("Class")', 't("Due")', 't("Progress")', 't("Status")', 't("Tab")', 't("Actions")']) assert.ok(page.includes(col), col);
     assert.match(page, /const COLS = "grid grid-cols-/, "rows use a CSS-grid table layout, one column template shared by the header and every row");

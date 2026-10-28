@@ -11,21 +11,39 @@ import { ASSIGNED_KIND_LABEL, ASSIGNED_KINDS, ASSIGNED_STATUS_LABEL, assignedLis
 import { cancelAssignedAction, restoreAssignedAction } from "./actions";
 import { AssignedBulkBar } from "@/components/teacher/assigned-bulk";
 import { WORK_TABS, WORK_TAB_LABEL, isWorkTab } from "@/lib/work-tab";
+import { CATCHUP_DAYS } from "@/lib/my-work-groups";
+import { SOURCE_LABEL, SOURCE_TAG_CLASS } from "@/lib/source-tags";
 
 export const metadata = { title: "Assigned" };
 
 type SP = { classId?: string; kind?: string; status?: string; from?: string; to?: string; teacher?: string; open?: string; done?: string; k?: string; i?: string; s?: string; err?: string; all?: string; tab?: string };
 const SHOWN = 100;
+const DAY = 86_400_000;
 const day = (iso: string | null) => (iso ? iso.slice(0, 10) : "—");
 const TONE: Record<AssignedStatus, string> = {
   SCHEDULED: "bg-violet-50 text-violet-800 ring-violet-200", OPEN: "bg-sky-50 text-sky-800 ring-sky-200", LATE: "bg-amber-50 text-amber-900 ring-amber-200",
   DONE: "bg-emerald-50 text-emerald-800 ring-emerald-200", CANCELLED: "bg-slate-100 text-slate-600 ring-slate-300",
 };
-/** 🔴🟢⏳ the status groups, in this order; Late opens by default (most urgent), the rest start collapsed. */
-const STATUS_ORDER: AssignedStatus[] = ["LATE", "OPEN", "SCHEDULED", "DONE", "CANCELLED"];
-const STATUS_ICON: Record<AssignedStatus, string> = { LATE: "🔴", OPEN: "🟢", SCHEDULED: "⏳", DONE: "✅", CANCELLED: "🗂️" };
 /** a real table's columns: a leading checkbox cell, then Skill · Class · Due · Progress · Status · Tab · Actions. */
 const COLS = "grid grid-cols-[1.75rem_minmax(0,1.6fr)_minmax(0,10rem)_7rem_3.5rem_6rem_6rem_2.25rem] items-center gap-x-2";
+
+/**
+ * 🆕⏰📂 The 3 main groups (Oct 2026 restructure, mirrors My Work's This week / Needs Catch-up / Extra Practice):
+ * New (assigned under CATCHUP_DAYS ago) · Needs follow-up (CATCHUP_DAYS+ old, still not finished) · Extra Practice
+ * (tagged). Done and Cancelled rows are pulled out before this grouping (see DoneSection) — they never show here.
+ * The Late/Open/Scheduled status is still shown as a small coloured badge on every row (TONE), just no longer the
+ * top-level grouping.
+ */
+type Bucket = "FOLLOWUP" | "NEW" | "EXTRA";
+const BUCKET_ORDER: Bucket[] = ["FOLLOWUP", "NEW", "EXTRA"];
+const BUCKET_ICON: Record<Bucket, string> = { FOLLOWUP: "⏰", NEW: "🆕", EXTRA: "📂" };
+const BUCKET_LABEL: Record<Bucket, string> = { FOLLOWUP: "Needs follow-up", NEW: "New", EXTRA: "Extra Practice" };
+
+function bucketOf(x: AssignedItem, now: Date): Bucket {
+  if (x.tab === "EXTRA_PRACTICE") return "EXTRA";
+  if (x.createdAt && Math.floor((now.getTime() - Date.parse(x.createdAt)) / DAY) >= CATCHUP_DAYS) return "FOLLOWUP";
+  return "NEW";
+}
 
 /** Rows sharing the same kind + title grouped together (the user's screenshot: the same skill assigned 3 times). */
 function groupBySkill(rows: AssignedItem[]): { key: string; title: string; rows: AssignedItem[] }[] {
@@ -39,11 +57,11 @@ function groupBySkill(rows: AssignedItem[]): { key: string; title: string; rows:
   return order.map((key) => ({ key, title: by.get(key)![0].title, rows: by.get(key)! }));
 }
 
-/** 📂 Rows grouped by status (Late / Open / Scheduled / Done / Cancelled), in STATUS_ORDER, only the statuses present. */
-function groupByStatus(rows: AssignedItem[]): { status: AssignedStatus; rows: AssignedItem[] }[] {
-  const by = new Map<AssignedStatus, AssignedItem[]>();
-  for (const x of rows) by.set(x.status, [...(by.get(x.status) ?? []), x]);
-  return STATUS_ORDER.filter((st) => by.has(st)).map((status) => ({ status, rows: by.get(status)! }));
+/** 🆕⏰📂 Rows grouped by bucket (New / Needs follow-up / Extra Practice), in BUCKET_ORDER, only those present. */
+function groupByBucket(rows: AssignedItem[], now: Date): { bucket: Bucket; rows: AssignedItem[] }[] {
+  const by = new Map<Bucket, AssignedItem[]>();
+  for (const x of rows) { const b = bucketOf(x, now); by.set(b, [...(by.get(b) ?? []), x]); }
+  return BUCKET_ORDER.filter((b) => by.has(b)).map((bucket) => ({ bucket, rows: by.get(bucket)! }));
 }
 
 /** ⋮ a small overflow menu (native <details>, no client JS) replacing the always-visible per-row buttons. */
@@ -69,6 +87,7 @@ function ItemRow({ x, t, who, href, back, admin }: { x: AssignedItem; t: TFn; wh
       <span className="min-w-0 truncate">
         <span className={`font-semibold ${x.cancelled ? "text-muted" : "text-ink"}`} data-content lang="en">{x.title}</span>
         <span className="ms-1.5 rounded-full bg-surface-2 px-1.5 py-0.5 text-xs text-ink-2 ring-1 ring-line">{t(ASSIGNED_KIND_LABEL[x.kind])}{x.detail ? ` · ${x.detail}` : ""}</span>
+        {x.source && <span className={`ms-1 rounded-full px-1.5 py-0.5 text-xs font-semibold ring-1 ${SOURCE_TAG_CLASS[x.source]}`}>{t(SOURCE_LABEL[x.source])}</span>}
       </span>
       <span className="min-w-0 truncate text-xs text-muted"><bdi>{who(x)}</bdi>{admin && x.teacher ? <> · <bdi>{x.teacher.name}</bdi></> : null}</span>
       <span className="truncate text-xs text-muted" dir="ltr">{x.startAt ? <>{t("Start")}: {day(x.startAt)} · </> : null}{day(x.dueAt)}</span>
@@ -84,8 +103,9 @@ function ItemRow({ x, t, who, href, back, admin }: { x: AssignedItem; t: TFn; wh
 function SkillGroup({ g, t, who, href, back, admin }: { g: { key: string; title: string; rows: AssignedItem[] }; t: TFn; who: (x: AssignedItem) => string; href: (e: Record<string, string | null>) => string; back: string; admin: boolean }) {
   if (g.rows.length === 1) return <ItemRow x={g.rows[0]} t={t} who={who} href={href} back={back} admin={admin} />;
   return (
-    <details>
+    <details className="group">
       <summary className="flex min-h-9 cursor-pointer items-center gap-1.5 px-3 py-1.5 text-sm">
+        <span aria-hidden="true" className="text-muted transition-transform group-open:rotate-90">▶</span>
         <span className="min-w-0 truncate font-semibold text-ink" data-content lang="en">{g.title}</span>
         <span className="font-normal text-muted">({g.rows.length})</span>
       </summary>
@@ -96,12 +116,13 @@ function SkillGroup({ g, t, who, href, back, admin }: { g: { key: string; title:
   );
 }
 
-/** One status section (🔴 Late / 🟢 Open / ⏳ Scheduled / …): its own column header, then its skill groups. */
-function StatusSection({ g, t, who, href, back, admin, defaultOpen }: { g: { status: AssignedStatus; rows: AssignedItem[] }; t: TFn; who: (x: AssignedItem) => string; href: (e: Record<string, string | null>) => string; back: string; admin: boolean; defaultOpen: boolean }) {
+/** One bucket section (🆕 New / ⏰ Needs follow-up / 📂 Extra Practice): its own column header, then its skill groups. */
+function BucketSection({ g, t, who, href, back, admin, defaultOpen }: { g: { bucket: Bucket; rows: AssignedItem[] }; t: TFn; who: (x: AssignedItem) => string; href: (e: Record<string, string | null>) => string; back: string; admin: boolean; defaultOpen: boolean }) {
   return (
-    <details open={defaultOpen}>
+    <details className="group" open={defaultOpen}>
       <summary className="flex min-h-10 cursor-pointer items-center gap-1.5 bg-surface-2/50 px-3 py-2 text-sm font-semibold text-ink">
-        <span aria-hidden="true">{STATUS_ICON[g.status]}</span>{t(ASSIGNED_STATUS_LABEL[g.status])} <span className="font-normal text-muted">({g.rows.length})</span>
+        <span aria-hidden="true" className="text-muted transition-transform group-open:rotate-90">▶</span>
+        <span aria-hidden="true">{BUCKET_ICON[g.bucket]}</span>{t(BUCKET_LABEL[g.bucket])} <span className="font-normal text-muted">({g.rows.length})</span>
       </summary>
       <div className="overflow-x-auto">
         <div className="min-w-[720px]">
@@ -111,6 +132,30 @@ function StatusSection({ g, t, who, href, back, admin, defaultOpen }: { g: { sta
           </div>
           <div className="divide-y divide-line">
             {groupBySkill(g.rows).map((sg) => <SkillGroup key={sg.key} g={sg} t={t} who={who} href={href} back={back} admin={admin} />)}
+          </div>
+        </div>
+      </div>
+    </details>
+  );
+}
+
+/** ✓ Done / Cancelled: everything finished or cancelled, collected in one minimal collapsed footer (not scattered). */
+function DoneSection({ rows, t, who, href, back, admin }: { rows: AssignedItem[]; t: TFn; who: (x: AssignedItem) => string; href: (e: Record<string, string | null>) => string; back: string; admin: boolean }) {
+  if (!rows.length) return null;
+  return (
+    <details className="group border-t border-line">
+      <summary className="flex min-h-10 cursor-pointer items-center gap-1.5 px-3 py-2 text-sm font-semibold text-muted">
+        <span aria-hidden="true" className="transition-transform group-open:rotate-90">▶</span>
+        <span aria-hidden="true">✓</span>{t("Done / Cancelled")} <span className="font-normal text-muted">({rows.length})</span>
+      </summary>
+      <div className="overflow-x-auto">
+        <div className="min-w-[720px]">
+          <div className={`${COLS} border-b border-line px-3 py-1.5 text-[11px] font-semibold uppercase tracking-wide text-muted`}>
+            <span aria-hidden="true" />
+            <span>{t("Skill")}</span><span>{t("Class")}</span><span dir="ltr">{t("Due")}</span><span>{t("Progress")}</span><span>{t("Status")}</span><span>{t("Tab")}</span><span className="text-end">{t("Actions")}</span>
+          </div>
+          <div className="divide-y divide-line">
+            {groupBySkill(rows).map((sg) => <SkillGroup key={sg.key} g={sg} t={t} who={who} href={href} back={back} admin={admin} />)}
           </div>
         </div>
       </div>
@@ -139,6 +184,9 @@ export default async function AssignedPage({ searchParams }: { searchParams: Pro
   // 📂 My Work tab filter: "NONE" = untagged skills only; a tab value = that tab only; unset = everyone
   const byTab = sp.tab === "NONE" ? v.items.filter((x) => !x.tab) : isWorkTab(sp.tab) ? v.items.filter((x) => x.tab === sp.tab) : v.items;
   const shown = sp.all ? byTab : byTab.slice(0, SHOWN);
+  const now = new Date();
+  const doneRows = shown.filter((x) => x.status === "DONE" || x.status === "CANCELLED");
+  const activeRows = shown.filter((x) => x.status !== "DONE" && x.status !== "CANCELLED");
   const field = "h-9 rounded-lg bg-surface px-2 text-sm text-ink ring-1 ring-line";
   const who = (x: AssignedItem) => x.scope === "class" ? (x.classNames.join(", ") || t("Whole class")) : `${x.classNames.join(", ")}${x.classNames.length ? " · " : ""}${t("{n} chosen students", { n: x.recipients + x.removed })}`;
   const doneMsg = sp.done === "cancelled" ? t("Cancelled. Students no longer see it; their answers are kept.") : sp.done === "removed" ? t("Removed for this student. Their answers are kept.") : sp.done === "restored" ? t("Restored: it is back in the students' My Work.") : null;
@@ -197,9 +245,10 @@ export default async function AssignedPage({ searchParams }: { searchParams: Pro
           <AssignedBulkBar listId="assigned-list" cancelledView={sp.status === "CANCELLED"}
             kinds={ASSIGNED_KINDS.filter((k) => shown.some((x) => x.kind === k)).map((k) => ({ key: k, label: t(ASSIGNED_KIND_LABEL[k]) }))}
             units={[...new Set(shown.map((x) => x.unit).filter((u): u is string => Boolean(u)))].sort((a, b) => Number(a.slice(5)) - Number(b.slice(5)))} />
-          {/* 🔴🟢⏳ status groups (Late open by default, the rest collapsed) → same-skill groups → table rows */}
+          {/* 🆕⏰📂 bucket groups (New / Needs follow-up open by default, Extra Practice collapsed) → same-skill groups → table rows; Done/Cancelled collected in one footer */}
           <div id="assigned-list" className="divide-y divide-line">
-            {groupByStatus(shown).map((g) => <StatusSection key={g.status} g={g} t={t} who={who} href={href} back={back} admin={v.admin} defaultOpen={g.status === "LATE"} />)}
+            {groupByBucket(activeRows, now).map((g) => <BucketSection key={g.bucket} g={g} t={t} who={who} href={href} back={back} admin={v.admin} defaultOpen={g.bucket !== "EXTRA"} />)}
+            <DoneSection rows={doneRows} t={t} who={who} href={href} back={back} admin={v.admin} />
           </div>
           {!sp.all && byTab.length > SHOWN && <p className="border-t border-line px-3 py-2"><Link prefetch={false} href={href({ all: "1" })} className="text-sm font-semibold text-brand-teal hover:underline">{t("Show all ({n})", { n: byTab.length })}</Link></p>}
         </section>

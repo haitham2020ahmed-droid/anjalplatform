@@ -907,6 +907,9 @@ export const UI_STRINGS = [
   // 🆕 r95 (My Work restructure, Oct 2026): the 3-section My Work page — This week / Needs Catch-up / Extra
   // Practice, plus a minimal "Done" footer (see lib/my-work-groups.ts)
   "Needs Catch-up",
+  // 🆕 r96 (Assigned restructure, Oct 2026): the Assigned page's top-level grouping replaced with 3 buckets
+  // (New / Needs follow-up / Extra Practice) mirroring My Work, plus a minimal Done/Cancelled footer
+  "Needs follow-up", "Done / Cancelled",
 ] as const;
 
 export type UiString = (typeof UI_STRINGS)[number];
