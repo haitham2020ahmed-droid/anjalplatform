@@ -69,20 +69,25 @@ function TypeBlock({ g, t }: { g: TypeGroup<Row>; t: TFn }) {
   );
 }
 
-/** 📂 One My Work tab section ("Extra Practice"): a flat list of its rows, same compact cards, "Show all" past SHOW_FIRST. */
+/** 📂 One My Work tab section ("Extra Practice"): collapsed by default (same accordion pattern as the 3 main
+ * sections), a flat list of its rows inside, same compact cards, "Show all" past SHOW_FIRST. */
 function TabBlock({ g, t }: { g: TabGroup<Row>; t: TFn }) {
   const first = g.rows.slice(0, SHOW_FIRST), more = g.rows.slice(SHOW_FIRST);
   return (
-    <section data-testid="work-tab" data-tab={g.tab} aria-label={t(g.label)} className="space-y-1.5 rounded-2xl bg-sky-50/60 p-3 ring-1 ring-sky-100">
-      <h2 className="flex items-center gap-1.5 text-base font-bold text-brand-navy"><span aria-hidden="true">📂</span>{t(g.label)} <span className="font-normal text-slate-500">({g.rows.length})</span></h2>
-      <ul className="grid gap-1.5 sm:grid-cols-2">{first.map((r) => <CompactCard key={r.assignmentId} r={r} t={t} />)}</ul>
-      {more.length > 0 && (
-        <details className="mt-1.5">
-          <summary className="flex min-h-10 cursor-pointer items-center text-sm font-semibold text-brand-navy">{t("Show all ({n})", { n: g.rows.length })}</summary>
-          <ul className="mt-1.5 grid gap-1.5 sm:grid-cols-2">{more.map((r) => <CompactCard key={r.assignmentId} r={r} t={t} />)}</ul>
-        </details>
-      )}
-    </section>
+    <details data-testid="work-tab" data-tab={g.tab} className="space-y-1.5 rounded-2xl bg-sky-50/60 p-3 ring-1 ring-sky-100">
+      <summary className="flex min-h-10 cursor-pointer items-center gap-1.5 text-base font-bold text-brand-navy">
+        <span aria-hidden="true">📂</span>{t(g.label)} <span className="font-normal text-slate-500">({g.rows.length})</span>
+      </summary>
+      <div className="mt-2 space-y-1.5">
+        <ul className="grid gap-1.5 sm:grid-cols-2">{first.map((r) => <CompactCard key={r.assignmentId} r={r} t={t} />)}</ul>
+        {more.length > 0 && (
+          <details className="mt-1.5">
+            <summary className="flex min-h-10 cursor-pointer items-center text-sm font-semibold text-brand-navy">{t("Show all ({n})", { n: g.rows.length })}</summary>
+            <ul className="mt-1.5 grid gap-1.5 sm:grid-cols-2">{more.map((r) => <CompactCard key={r.assignmentId} r={r} t={t} />)}</ul>
+          </details>
+        )}
+      </div>
+    </details>
   );
 }
 

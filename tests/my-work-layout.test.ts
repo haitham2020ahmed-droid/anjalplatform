@@ -113,6 +113,15 @@ describe("📋 My Work groups", () => {
     assert.match(html, /Extra Practice/);
   });
 
+  test("Extra Practice tab section is collapsed by default, same as Needs Catch-up (not an always-open block)", async () => {
+    const { MyWorkGroups } = await comp();
+    const t = makeT("en");
+    const rows = [row({ skill: "Tagged", tab: "EXTRA_PRACTICE" as never })];
+    const html = renderToStaticMarkup(React.createElement(MyWorkGroups, { rows: rows as never, t, now: NOW }));
+    assert.match(html, /<details data-testid="work-tab" data-tab="EXTRA_PRACTICE"/, "Extra Practice is a <details> accordion, not a plain <section>");
+    assert.doesNotMatch(html.match(/<details data-testid="work-tab"[^]{0,400}/)?.[0] ?? "", /\bopen\b/, "Extra Practice starts collapsed");
+  });
+
   test("the Done footer reads as a minor afterthought, not a 4th equal section (no shared card styling with the 3 main sections)", async () => {
     const { MyWorkGroups } = await comp();
     const t = makeT("en");
