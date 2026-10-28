@@ -99,21 +99,34 @@ export async function importMapScoresAction(f: FormData): Promise<void> {
   back({ msg });
 }
 
-/** MAP import that stays on the page: new students (from one class) are created and their sign-ins returned. */
-export async function importMapScoresInline(f: FormData): Promise<{ ok: boolean; message: string; created: { name: string; username: string; password: string }[] }> {
+export type MapImportInlineResult = { ok: boolean; message: string; created: { name: string; username: string; password: string }[]; /** names left out because they already match a student of one of the teacher's OTHER classes (so adding them here would risk a duplicate) — each can be confirmed one at a time via confirmAmbiguousMapStudent */ ambiguous?: { name: string; classes: string[] }[] };
+
+/** MAP import that stays on the page: new students (from one class) are created and their sign-ins returned.
+ * `forceName`, when set, is the teacher's own one-click confirmation that this ONE ambiguous name (shown after
+ * a previous import of the SAME file) is a genuinely different student and should be added here anyway. */
+export async function importMapScoresInline(f: FormData, forceName?: string): Promise<MapImportInlineResult> {
   try {
     const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN"], permission: "assignments:create" });
     const file = f.get("file");
     if (!(file instanceof File) || !file.size) throw new ValidationError("Choose the file with the scores (template, NWEA CSV export, or the ASG report PDF).");
     if (file.size > 4_000_000) throw new ValidationError("The file is larger than 4 MB.");
     const classId = String(f.get("classId") ?? "") || undefined;
-    const r = await importMapFile(repo, actor, file.name, new Uint8Array(await file.arrayBuffer()), Number(f.get("year")) || new Date().getFullYear(), { createInClassId: classId });
+    const r = await importMapFile(repo, actor, file.name, new Uint8Array(await file.arrayBuffer()), Number(f.get("year")) || new Date().getFullYear(), { createInClassId: classId, forceCreateName: forceName });
     const message = importMessage(r);
-    return { ok: true, message, created: r.created };
+    const ambiguous = (r.unmatched ?? []).filter((u): u is { number: string; name: string; classes: string[] } => !!u.classes?.length);
+    return { ok: true, message, created: r.created, ambiguous };
   } catch (e) {
     if (isNextControl(e)) throw e;
     if (e instanceof ValidationError || e instanceof ForbiddenError) return { ok: false, message: e.message, created: [] };
     if (e instanceof Error && /read|xlsx|csv|file/i.test(e.message)) return { ok: false, message: `The file could not be read: ${e.message}`, created: [] };
     return { ok: false, message: await friendly(e, "importMapScoresInline"), created: [] };
   }
+}
+
+/** 👆 The teacher's one-click confirmation for a single ambiguous name, from the SAME file they just imported
+ * (kept client-side since the first call already consumed its bytes once — nothing is stored server-side
+ * between the two calls). Re-runs the normal import with that one name force-created; everyone else already
+ * matched keeps their scores unchanged (re-importing the same term just replaces it with itself). */
+export async function confirmAmbiguousMapStudent(f: FormData, name: string): Promise<MapImportInlineResult> {
+  return importMapScoresInline(f, name);
 }

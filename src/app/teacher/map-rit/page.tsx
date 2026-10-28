@@ -4,7 +4,7 @@ import { getActor, repo, requireActor } from "@/server/auth/next";
 import { can } from "@/server/auth/rbac";
 import { classLevels } from "@/server/curriculum-map/levels";
 import { nationalNorm, ritView, SEASONS } from "@/server/map/rit";
-import { addNormGradeAction, enterRitAction, importMapScoresInline, levelsFromRitAction, updateNormsAction } from "../map-rit-actions";
+import { addNormGradeAction, confirmAmbiguousMapStudent, enterRitAction, importMapScoresInline, levelsFromRitAction, updateNormsAction } from "../map-rit-actions";
 import { MapImportBox } from "@/components/map/import-box";
 import { PageHeader } from "@/components/page-header";
 
@@ -47,7 +47,7 @@ export default async function MapRitPage({ searchParams }: { searchParams: Promi
           <Link href="/teacher/alerts?view=flags" className="rounded-xl bg-white px-4 py-2 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">🚨 Intervention</Link></PageHeader>
       {sp.msg && <p role="status" className="mt-4 rounded-xl bg-teal-50 px-4 py-3 text-teal-900 ring-1 ring-teal-200">{sp.msg}</p>}
       {v.canEdit && (
-        <MapImportBox classId={v.classId} className={v.classes.find((c) => c.id === v.classId)?.name ?? null} run={importMapScoresInline} />
+        <MapImportBox classId={v.classId} className={v.classes.find((c) => c.id === v.classId)?.name ?? null} run={importMapScoresInline} confirmAmbiguous={confirmAmbiguousMapStudent} />
       )}
       <nav aria-label="Subject" className="mt-4 flex flex-wrap gap-2">
         {([["READING", "📖 Reading"], ["LANGUAGE", "✍️ Language Usage"]] as const).map(([k, l]) => <Link key={k} href={`/teacher/map-rit?${new URLSearchParams({ ...(v.classId ? { classId: v.classId } : v.grade ? { grade: String(v.grade) } : {}), ...(k === "LANGUAGE" ? { subject: "language" } : {}) })}`} aria-current={subject === k ? "page" : undefined} className={`rounded-full px-4 py-1.5 text-sm font-bold ${subject === k ? "bg-emerald-600 text-white" : "bg-white text-brand-navy ring-1 ring-slate-200"}`}>{l}</Link>)}

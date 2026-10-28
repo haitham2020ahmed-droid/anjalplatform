@@ -211,7 +211,7 @@ async function createStudentFromMap(repo: Repo, actor: Actor, classId: string, n
 }
 
 /** Imports Fall RIT + Spring projection. Teachers: their own classes' students only; admins: the whole school. */
-export async function importMapScores(repo: Repo, actor: Actor, table: string[][], fallYear: number, now = new Date(), opts: { createInClassId?: string; term?: { name: string; date: Date }; wholeFile?: boolean } = {}): Promise<MapImportResult> {
+export async function importMapScores(repo: Repo, actor: Actor, table: string[][], fallYear: number, now = new Date(), opts: { createInClassId?: string; term?: { name: string; date: Date }; wholeFile?: boolean; /** the teacher confirmed, by hand, that this ONE name (ambiguous — it also matches a student of another of their classes) should be added as a genuinely new, separate student here anyway */ forceCreateName?: string } = {}): Promise<MapImportResult> {
   assertCan(actor, "assignments:create");
   if (!(fallYear >= 2000 && fallYear <= 2100)) throw new ValidationError("Choose the year of the Fall test (e.g. 2026).");
   // NWEA's own export: converted, its term taken from the file; it covers whole grades without classes,
@@ -326,12 +326,16 @@ export async function importMapScores(repo: Repo, actor: Actor, table: string[][
       // classes (e.g. "Ali Hussain" in both 5A and 6A) — never auto-create in that case, or we'd mint a true
       // duplicate of someone who already exists; only a name that matches NO existing student at all is new.
       const hits = nk ? (byName.get(nk) ?? []) : [];
-      if (!sid && hits.length === 1) sid = hits[0].id;   // one unambiguous match (same student, other number): no duplicate
+      // the teacher's own one-click confirmation for exactly this name overrides the ambiguity check — they've
+      // seen the "already in another class" warning and said, by hand, that this one is a genuinely different student
+      const forced = !!(opts.forceCreateName && nk && nk === nameKey(opts.forceCreateName));
+      if (!sid && hits.length === 1 && !forced) sid = hits[0].id;   // one unambiguous match (same student, other number): no duplicate
       const rowGrade = gradeCol >= 0 ? Number(cell(r, gradeCol)) : 0;
       if (!sid && opts.createInClassId && rowGrade && classGrade && rowGrade !== classGrade) throw new ValidationError(`${fullName || key} is in Grade ${rowGrade} in the file, but this class is Grade ${classGrade}: import them from their own class.`);
       // A report with no Student ID column (e.g. NWEA's Class Profile) has an empty `key` for every row — a
-      // student number isn't required to add someone this way, only a name that matches nobody already on record.
-      if (!sid && opts.createInClassId && fullName && !hits.length && (key || !anyNumberInFile)) {
+      // student number isn't required to add someone this way, only a name that matches nobody already on record
+      // (or, for the one forced name, that the teacher has now confirmed by hand is a genuinely different student).
+      if (!sid && opts.createInClassId && fullName && (!hits.length || forced) && (key || !anyNumberInFile)) {
         if (key) {
           // a student number IS given (e.g. the platform's own template): still guard against colliding with one
           // that already exists under a different name/class, same as before.
