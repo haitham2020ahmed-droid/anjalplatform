@@ -31,7 +31,7 @@ export async function importMapFile(repo: Repo, actor: Actor, fileName: string, 
     if (asg.rows.length) {
       const season = asg.season, y = asg.year;
       const term = `${season[0]}${season.slice(1).toLowerCase()} ${y}`;
-      const r = await importMapScores(repo, actor, asgToTable(asg), y, now, { term: { name: term, date: new Date(Date.UTC(y, season === "FALL" ? 8 : season === "WINTER" ? 0 : 3, 15)) }, wholeFile: true });
+      const r = await importMapScores(repo, actor, asgToTable(asg), y, now, { term: { name: term, date: new Date(Date.UTC(y, season === "FALL" ? 8 : season === "WINTER" ? 0 : 3, 15)) }, wholeFile: true, createInClassId: opts.createInClassId });
       await notifyMapScores(repo, actor, r, now);
       return { ...r, kind: "ASG", norms: asg.norms };
     }
@@ -40,7 +40,7 @@ export async function importMapFile(repo: Repo, actor: Actor, fileName: string, 
     if (cp.rows.length) {
       const season = cp.season, y = cp.year;
       const term = `${season[0]}${season.slice(1).toLowerCase()} ${y}`;
-      const r = await importMapScores(repo, actor, classProfileToTable(cp), y, now, { term: { name: term, date: new Date(Date.UTC(y, season === "FALL" ? 8 : season === "WINTER" ? 0 : 3, 15)) }, wholeFile: true });
+      const r = await importMapScores(repo, actor, classProfileToTable(cp), y, now, { term: { name: term, date: new Date(Date.UTC(y, season === "FALL" ? 8 : season === "WINTER" ? 0 : 3, 15)) }, wholeFile: true, createInClassId: opts.createInClassId });
       await notifyMapScores(repo, actor, r, now);
       const subjectLabel = cp.subject === "READING" ? "Reading" : cp.subject === "LANGUAGE_USAGE" ? "Language Usage" : null;
       return { ...r, kind: "CLASS_PROFILE", norms: null, classHint: cp.className && subjectLabel ? `${cp.className} · ${subjectLabel}` : cp.className };

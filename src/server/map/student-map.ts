@@ -280,6 +280,11 @@ export async function importMapScores(repo: Repo, actor: Actor, table: string[][
   // readiness S-12: the same student twice in one file (same term and subject) is a problem row, not “last one wins”
   const inFile = new Map<string, number>();
   const cell = (r: string[], ix: number) => (ix >= 0 ? s(r[ix]).trim() : "");
+  // Some reports (NWEA's Class Profile) have no Student ID column at all, so every row's number is blank — that's
+  // expected there, and a name-only match is the best we can do. In a file that DOES carry real numbers (the
+  // platform's own template, a CSV), a single blank number is more likely a data-entry slip, so that one row still
+  // requires a number before it's allowed to mint a new account — only a file with no numbers anywhere skips that.
+  const anyNumberInFile = table.slice(at + 1).some((r) => !!cell(r, c.number).trim());
   const ritOf = (raw: string, what: string): number | null => { if (!raw) return null; const n = Number(raw); if (!Number.isInteger(n) || n < 100 || n > 350) throw new ValidationError(`${what} “${raw}” must be a whole number from 100 to 350.`); return n; };
   for (let i = at + 1; i < table.length; i++) {
     const r = table[i]; const rowNo = i + 1;
@@ -305,16 +310,27 @@ export async function importMapScores(repo: Repo, actor: Actor, table: string[][
       const readRapid = rapidOf(cell(r, c.rapid)), langRapid = rapidOf(cell(r, c.langRapid));
       let sid = byKey.get(key.toLowerCase());
       const fullName = nameCol >= 0 ? s(r[nameCol]).replace(/\s+/g, " ").trim() : "";
-      if (!sid && fullName) { const hit = byName.get(nameKey(fullName)); if (hit) sid = hit; }   // same student, other number: no duplicate
+      const nk = fullName ? nameKey(fullName) : "";
+      // byName.has() but get()===null means 2+ accessible students share this exact name (ambiguous: e.g. the
+      // same name in two of the teacher's classes) — never auto-create in that case, or we'd mint a true duplicate
+      // of someone who already exists; only a name that matches NO existing student at all is genuinely new.
+      const nameIsKnown = nk ? byName.has(nk) : false;
+      if (!sid && nk) { const hit = byName.get(nk); if (hit) sid = hit; }   // same student, other number: no duplicate
       const rowGrade = gradeCol >= 0 ? Number(cell(r, gradeCol)) : 0;
       if (!sid && opts.createInClassId && rowGrade && classGrade && rowGrade !== classGrade) throw new ValidationError(`${fullName || key} is in Grade ${rowGrade} in the file, but this class is Grade ${classGrade}: import them from their own class.`);
-      if (!sid && opts.createInClassId && key && fullName) {
+      // A report with no Student ID column (e.g. NWEA's Class Profile) has an empty `key` for every row — a
+      // student number isn't required to add someone this way, only a name that matches nobody already on record.
+      if (!sid && opts.createInClassId && fullName && !nameIsKnown && (key || !anyNumberInFile)) {
+        if (key) {
+          // a student number IS given (e.g. the platform's own template): still guard against colliding with one
+          // that already exists under a different name/class, same as before.
+          const taken = (await repo.findMany("Student", { schoolId: actor.schoolId, studentNumber: key }))[0];
+          if (taken?.deletedAt) throw new ValidationError(`Student number ${key} belongs to an archived student: bring them back with the roster import (Admin → Import users).`);
+          if (taken) throw new ValidationError(`Student number ${key} already belongs to a student of another class.`);
+        }
         // a new student: added to the platform in this class, then their scores are saved below
-        const taken = (await repo.findMany("Student", { schoolId: actor.schoolId, studentNumber: key }))[0];
-        if (taken?.deletedAt) throw new ValidationError(`Student number ${key} belongs to an archived student: bring them back with the roster import (Admin → Import users).`);
-        if (taken) throw new ValidationError(`Student number ${key} already belongs to a student of another class.`);
         const n = await createStudentFromMap(repo, actor, opts.createInClassId, key, fullName);
-        sid = n.id; byKey.set(key.toLowerCase(), n.id); created.push({ name: fullName, username: n.username, password: n.password });
+        sid = n.id; if (key) byKey.set(key.toLowerCase(), n.id); byName.set(nk, n.id); created.push({ name: fullName, username: n.username, password: n.password });
       }
       if (!sid && (nwea || opts.wholeFile)) { notInClasses++; unmatched.push({ number: key, name: fullName }); continue; }   // a grade-wide file: other classes' students are expected
       if (!sid) throw new ValidationError(`Student “${key}” was not found in your classes${opts.createInClassId ? " (write the Student Name to add them)" : " (import from one class to add new students)"}.`);
