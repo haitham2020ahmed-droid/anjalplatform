@@ -59,7 +59,7 @@ export default async function ReportsPage({ searchParams }: { searchParams: Prom
   // excellingStudentCount() blew this page's DB-call budget (43 vs 18). Only "Needs attention" (already cheap,
   // already used on /teacher) keeps a live number; the other two are quick links without a count.
   const daily = [
-    { label: "Needs attention", value: attention.needsAttention, line: "alert" as const, href: "/teacher#needs-attention", reportKey: "NEEDS_ATTENTION" as const },
+    { label: "Needs attention", value: attention.needsAttention, line: "alert" as const, href: `/teacher/reports/needs-attention${cid ? `?${new URLSearchParams([["classId", cid]])}` : ""}`, reportKey: "NEEDS_ATTENTION" as const },
     { label: "Early warning", value: null as number | null, line: "alert" as const, href: "/teacher/reports/early-warning", reportKey: "EARLY_WARNING" as const },
     { label: "Enrichment opportunities", value: null as number | null, line: "sparkle" as const, href: `/teacher/plans?${new URLSearchParams([["kind", "ENRICHMENT"], ...(cid ? [["classId", cid]] : [])])}`, reportKey: "ENRICHMENT" as const },
   ];

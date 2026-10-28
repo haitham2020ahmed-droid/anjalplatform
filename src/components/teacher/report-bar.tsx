@@ -34,7 +34,7 @@ export async function ReportBar({ actor, report: r, at, search }: { actor: Actor
   // page, and fetching them per-page blew the DB-call perf budget (/teacher/students/[id], /teacher/progress, …).
   // The live numbers stay on the Reports hub's "Daily check" section (one fetch, one page); here just quick links.
   const daily = [
-    { label: "Needs attention", href: "/teacher#needs-attention" },
+    { label: "Needs attention", href: `/teacher/reports/needs-attention${classId ? `?${new URLSearchParams([["classId", classId]])}` : ""}` },
     { label: "Early warning", href: "/teacher/reports/early-warning" },
     { label: "Enrichment opportunities", href: `/teacher/plans?${new URLSearchParams([["kind", "ENRICHMENT"], ...(classId ? [["classId", classId]] : [])])}` },
   ];

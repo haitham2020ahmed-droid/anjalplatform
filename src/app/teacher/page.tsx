@@ -19,13 +19,13 @@ import { canSeeNafsCached } from "@/server/teacher/nafs-access";
 import { writingToGrade } from "@/server/writing/locked";
 import { LineIcon, type LineIconName } from "@/components/ui/line-icon";
 import { StarGlyph } from "@/components/skills/skill-star";
+import { NeedsAttentionList } from "@/components/teacher/needs-attention-list";
 import { noticeSeen, STARS_NOTICE } from "@/server/skills/notices";
 import { dismissStarsNoticeAction } from "./stars-notice-actions";
 
 export const metadata = { title: "Teacher Home" };
 
 /** Needs attention rows shown before "Show all (N)". */
-const FIRST_ROWS = 5;
 
 /**
  * 🏠 Teacher Home (owner r67), top to bottom: a row of SMALL shortcuts to the most used tools (My classes, Assign,
@@ -120,40 +120,13 @@ export default async function TeacherHome({ searchParams }: { searchParams?: Pro
         </section>
       )}
 
-      <section id="needs-attention" aria-labelledby="na-h" className="group/na mt-4 rounded-xl bg-surface shadow-card ring-1 ring-line">
+      <section id="needs-attention" aria-labelledby="na-h" className="mt-4 rounded-xl bg-surface shadow-card ring-1 ring-line">
         <h2 id="na-h" className="flex items-center gap-2 border-b border-line px-3 py-2 text-base font-semibold text-ink">
           <LineIcon name="alert" className="h-4 w-4 text-rose-600" />{t("Needs attention")}
           {sum.list.length > 0 && <span className="rounded-full bg-rose-50 px-1.5 text-xs font-semibold tabular-nums text-rose-700 ring-1 ring-rose-200" dir="ltr">{sum.list.length}</span>}
           <span className="ms-auto hidden text-xs font-normal text-muted sm:inline">{t("No practice for 7 days or more · stuck on a skill · ◐ no progress for 7 days · 50 questions without mastery · new 🔄.")}</span>
         </h2>
-        {sum.list.length === 0 ? <p className="px-3 py-2 text-sm text-slate-600">{t("Everyone is on track.")}</p> : (
-          // compact one-line rows (name · grade · reason · small button): the first 5; "Show all" opens the rest in a
-          // box the teacher scrolls (mouse, touch or keyboard: the box takes focus)
-          <div role="region" aria-label={t("Needs attention")} tabIndex={0} className="max-h-[15rem] overflow-y-auto [scrollbar-gutter:stable] [scrollbar-width:thin] focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal">
-            <ul className="divide-y divide-slate-100">
-              {sum.list.map((r, ix) => (
-                <li key={r.studentId} className={`${ix >= FIRST_ROWS ? "hidden group-has-[:checked]/na:flex" : "flex"} items-center justify-between gap-2 px-3 py-1 text-[13px] leading-5`}>
-                  <p className="min-w-0 flex-1 truncate">
-                    <Link prefetch={false} href={`/teacher/students/${r.studentId}`} className="font-semibold text-brand-navy hover:underline"><bdi>{r.name}</bdi></Link>
-                    <span className="ms-1.5 text-xs text-slate-500">{gradeOf.has(r.classId) ? t("Grade {n}", { n: gradeOf.get(r.classId)! }) : <bdi>{r.className}</bdi>}</span>
-                    <span className="mx-1.5 text-slate-300" aria-hidden="true">·</span>
-                    {r.stars && r.stars.length > 0 && <span data-testid="na-star" className="me-1.5 inline-flex items-center gap-1 text-slate-700"><StarGlyph status={r.stars[0].kind === "REVIEW" ? "NEEDS_REVIEW" : "IN_PROGRESS"} size={14} />{r.stars[0].kind === "REVIEW" ? t("Needs review: {skill}", { skill: r.stars[0].skill }) : r.stars[0].kind === "NO_MASTERY" ? t("50 questions without mastery: {skill}", { skill: r.stars[0].skill }) : t("No progress for {n} days: {skill}", { n: r.stars[0].days, skill: r.stars[0].skill })}{r.stars.length > 1 && <span className="ms-1 rounded-full bg-slate-100 px-1.5 text-xs text-slate-600">{t("+{n} more", { n: r.stars.length - 1 })}</span>}</span>}
-                    {r.stuck.length > 0 && <span className="text-slate-600" title={r.stuck.map((x) => `${x.skill} (${x.questions}, ${x.score}%)`).join(" · ")}>{t("Stuck on")}: {r.stuck[0].skill} <span className="text-slate-600">({r.stuck[0].score}%)</span>{r.stuck.length > 1 && <Link prefetch={false} href={`/teacher/students/${r.studentId}#skills`} className="ms-1 rounded-full bg-slate-100 px-1.5 text-xs text-slate-600 hover:underline">{t("+{n} more", { n: r.stuck.length - 1 })}</Link>}</span>}
-                    {r.stuck.length === 0 && !r.stars?.length && <span className="text-slate-600">{r.neverPractised ? t("Has not practised yet") : t("No practice for {n} days", { n: r.idleDays ?? 0 })}</span>}
-                  </p>
-                  {r.stars?.[0]?.kind === "NO_MASTERY"
-                    ? <Link prefetch={false} href={`/teacher/rti-plan?classId=${r.classId}&who=student&sid=${r.studentId}`} className={small}>{t("Support plan")}</Link>
-                    : r.stars?.length && r.stars[0].skillId
-                    ? <Link prefetch={false} href={`/teacher/plans?${new URLSearchParams([["tab", "custom"], ["classId", r.classId], ["who", "student"], ["sid", r.studentId], ...r.stars.filter((x) => x.skillId).map((x) => ["add", x.skillId!] as [string, string])])}`} className={small}>{t("Create Plan")}</Link>
-                    : r.stuck.length > 0
-                    ? <Link prefetch={false} href={`/teacher/plans?${new URLSearchParams([["tab", "custom"], ["classId", r.classId], ["who", "student"], ["sid", r.studentId], ...r.stuck.map((x) => ["add", x.skillId] as [string, string])])}`} className={small}>{t("Create Plan")}</Link>
-                    : <Link prefetch={false} href={`/teacher/students/${r.studentId}${r.neverPractised ? "#start" : ""}`} className={small}>{t("Open")}</Link>}
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
-        {sum.list.length > FIRST_ROWS && <p className="border-t border-slate-100 px-3 py-1.5"><label className="inline-flex cursor-pointer items-center gap-1 text-xs font-semibold text-brand-teal has-[:focus-visible]:underline"><input type="checkbox" className="peer sr-only" data-na-toggle /> <span className="group-has-[:checked]/na:hidden">{t("Show all ({n})", { n: sum.list.length })}</span><span className="hidden group-has-[:checked]/na:inline">{t("Show fewer")}</span></label></p>}
+        <NeedsAttentionList list={sum.list} gradeOf={gradeOf} />
       </section>
 
       {/* Week in Review (new): 3 headline numbers for the class, this rolling week — same window as the "Work sent

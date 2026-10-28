@@ -17,7 +17,7 @@ export const REPORT_KEY_LABEL: Record<ReportKey, string> = {
 
 /** Where a favourited report's link points, for the "Pin reports" panel in the Reports hub. */
 export const REPORT_KEY_HREF: Record<ReportKey, string> = {
-  NEEDS_ATTENTION: "/teacher#needs-attention",
+  NEEDS_ATTENTION: "/teacher/reports/needs-attention",
   EARLY_WARNING: "/teacher/reports/early-warning",
   ENRICHMENT: "/teacher/plans?kind=ENRICHMENT",
   SKILLS_GRID: "/teacher/reports/skills-grid",

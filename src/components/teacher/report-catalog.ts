@@ -90,6 +90,12 @@ export const REPORTS: ReportDef[] = [
   { key: "errors", category: "My class", line: "puzzle", title: "Mistakes and root causes", hint: "Mistakes in plain words, the real gap underneath, and what to re-teach.",
     classUrl: (p) => `/teacher/reports/errors?${qs({ classId: p.classId })}`,
     match: on(/^\/teacher\/reports\/errors$/, "class") },
+  // 🆕 r94 (needs-attention/class-snapshot fix follow-up): moved here from HUB_LINKS — it had NO class-switching UI
+  // of its own (unlike every other HubLink), so a teacher with more than one class was stuck on whichever class
+  // started the page. A full ReportDef gets the shared class switcher (report-bar.tsx) for free.
+  { key: "class-snapshot", category: "My class", line: "target", title: "Class snapshot", hint: "Urgent, needs support, on level, excelling — one class, one screen.",
+    classUrl: (p) => `/teacher/reports/class-snapshot/${id(p.classId)}`,
+    match: on(/^\/teacher\/reports\/class-snapshot\/(?<classId>[^/]+)$/, "class") },
   { key: "curriculum-results", category: "My class", line: "compass", title: "Curriculum results", hint: "How the class did on each unit and skill.",
     classUrl: (p) => `/teacher/curriculum-results?${qs({ classId: p.classId })}`,
     match: on(/^\/teacher\/curriculum-results$/, "class") },
@@ -151,6 +157,12 @@ export const REPORTS: ReportDef[] = [
     classUrl: (p) => `/teacher/reports/early-warning?${qs({ classId: p.classId })}`,
     files: (p) => [{ label: "Excel", href: `/api/reports?${qs({ kind: "warning", format: "xlsx", lang: "en", period: "TERM", scope: "class", classId: p.classId })}` }, { label: "PDF file", href: `/api/reports?${qs({ kind: "warning", format: "pdf", lang: "en", period: "TERM", scope: "class", classId: p.classId, print: 1 })}` }],
     match: on(/^\/teacher\/reports\/early-warning$/, "class") },
+  // 🆕 r94: a dedicated page for "Needs attention" — it used to exist ONLY embedded in the teacher Home page, so
+  // every cross-page link to it (report-bar.tsx, reports hub, class-snapshot, report-keys.ts) landed teachers on
+  // Home instead of a real report. Reuses teacherHomeSummary() (same data as Home), filtered by classId here.
+  { key: "needs-attention", category: "Follow-up", line: "alert", title: "Needs attention", hint: "No practice for 7+ days, stuck on a skill, or flagged by ReadRise/Learn — who needs you now.",
+    classUrl: (p) => `/teacher/reports/needs-attention?${qs({ classId: p.classId })}`,
+    match: on(/^\/teacher\/reports\/needs-attention$/, "class") },
   { key: "family-reports", category: "Follow-up", line: "mail", title: "Family Reports", hint: "Monthly and weekly reports for parents: you add a note, the school admin approves.", send: true,
     classUrl: (p) => `/teacher/family-reports?${qs({ classId: p.classId })}`,
     match: on(/^\/teacher\/family-reports$/, "class") },
@@ -168,9 +180,6 @@ export interface HubLink { key: string; category: ReportCategory; line: LineIcon
 export const HUB_LINKS: HubLink[] = [
   // ⭐ the Skills grid (the skill-status stars, every student × skill) — its page arrives from the skill-status branch
   { key: "skills-grid", category: "My class", line: "star", title: "Student Skills", hint: "Every student and every skill: the stars at a glance.", href: (c) => `/teacher/reports/skills-grid${c ? `?${qs({ classId: c })}` : ""}`, pending: true },
-  // 🆕 r90 (multi-expert audit follow-up): 4 big numbers for one class (Urgent · Needs support · On level ·
-  // Excelling), each reusing its own full report's rule — see src/app/teacher/reports/class-snapshot/[classId].
-  { key: "class-snapshot", category: "My class", line: "target", title: "Class snapshot", hint: "Urgent, needs support, on level, excelling — one class, one screen.", href: (c) => `/teacher/reports/class-snapshot/${c}` },
   { key: "nafs-reports", category: "Programs", line: "flag", title: "NAFS reports", hint: "NAFS tests and practice: results by student and skill.", href: () => "/teacher/nafs?tab=reports", nafs: true },
   { key: "readrise-growth", category: "Programs", line: "rise", title: "ReadRise report", hint: "ReadRise levels over the year, the reading checks, who is stuck or rising fast, accuracy by question type.", href: (c) => `/teacher/readrise/report${c ? `?${qs({ class: c })}` : ""}` },
   { key: "learn-results", category: "Programs", line: "learn", title: "Learn results", hint: "Each lesson: who finished, scores, who needs it again.", href: () => "/teacher/learn" },
