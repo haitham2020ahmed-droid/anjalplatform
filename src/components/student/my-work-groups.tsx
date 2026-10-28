@@ -34,9 +34,11 @@ export function WorkRing({ done, total, label }: { done: number; total: number; 
 /** One compact row: the title, its status and due date, one button. */
 function CompactCard({ r, t }: { r: Row; t: TFn }) {
   const star = (r as Row & { star?: StarInfo }).star;
-  // a small "stars filled x/5" meter toward mastery, only while the skill is actively being learned (Mastered
-  // already shows its gold star; Not started has no progress yet to show)
-  const meter = star && star.status === "IN_PROGRESS" && typeof star.score === "number";
+  // a small "stars filled x/5" meter toward mastery, shown for every skill row (including a brand-new one with no
+  // star data yet, or an in-progress one whose score hasn't been computed yet) so the 5 dots are always there to
+  // show progress consistently — starting empty (0/5) rather than disappearing. Non-skill work (r.kind set) never
+  // shows it: there is no mastery concept for a test/writing/lesson row.
+  const meter = !r.kind;
   return (
     <li data-testid="my-work-row" data-source={r.reteach ? "RETEACH" : r.sourceKey} data-kind={r.kind ?? "SKILL"} className="flex items-center gap-2 rounded-xl bg-white px-3 py-2 ring-1 ring-slate-200">
       <div className="min-w-0 flex-1">
@@ -52,7 +54,7 @@ function CompactCard({ r, t }: { r: Row; t: TFn }) {
                   ? <SourceTag source="CUSTOM" label={t("Practice")} />
                   : <SourceTag source={r.sourceKey} icon />}
           <StatusPill status={STATUS[r.status]} />
-          {meter && <MasteryMeter score={star!.score!} answered={star!.answered} />}
+          {meter && <MasteryMeter score={typeof star?.score === "number" ? star.score : 0} answered={star?.answered ?? 0} />}
           {r.overdue && r.status !== "Done" && <span className="rounded-full bg-red-50 px-2 py-0.5 font-semibold text-red-700 ring-1 ring-red-200">{t("Late")}</span>}
           {r.dueAt && r.status !== "Done" && !r.overdue && <span className="text-slate-600">📅 {t("Due {date}", { date: day(r.dueAt) })}</span>}
           {r.awaitingReview && <span className="rounded-full bg-amber-50 px-2 py-0.5 font-semibold text-amber-800 ring-1 ring-amber-200">{t("Sent, waiting for the score")}</span>}
