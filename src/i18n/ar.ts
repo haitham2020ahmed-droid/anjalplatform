@@ -6489,7 +6489,6 @@ export const ar: Record<UiString, string> = {
   "Watchlist": "قائمة الملاحظة",
   "Add to watchlist": "إضافة لقائمة الملاحظة",
   "Note (optional)": "ملاحظة (اختياري)",
-  "Student": "طالب",
   "Choose a student": "اختر طالبًا",
   "Why you are watching this student": "سبب متابعتك لهذا الطالب",
   "No one on your watchlist yet. Add a student above.": "لا يوجد أحد في قائمة الملاحظة بعد. أضف طالبًا من فوق.",
