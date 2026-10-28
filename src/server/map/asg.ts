@@ -15,8 +15,37 @@ export interface AsgParsed { term: string | null; season: "FALL" | "WINTER" | "S
 
 export interface PdfItem { s: string; x: number; y: number }
 
+/**
+ * Minimal 2D-affine `DOMMatrix` (the browser API pdfjs-dist's own Node build still reaches for internally, for
+ * some PDFs' text-positioning matrices) — Node has no such global, so without this, reading an otherwise perfectly
+ * valid PDF throws "ReferenceError: DOMMatrix is not defined" and the whole import is rejected as "unreadable"
+ * even though nothing is actually wrong with the file. Installed once, only if the environment doesn't already
+ * have one (so this never overrides a real browser DOMMatrix if this code ever runs somewhere that has one).
+ */
+class NodeDOMMatrix {
+  a = 1; b = 0; c = 0; d = 1; e = 0; f = 0;
+  constructor(init?: number[]) { if (init && init.length === 6) [this.a, this.b, this.c, this.d, this.e, this.f] = init; }
+  multiply(o: NodeDOMMatrix) {
+    return new NodeDOMMatrix([
+      this.a * o.a + this.c * o.b, this.b * o.a + this.d * o.b,
+      this.a * o.c + this.c * o.d, this.b * o.c + this.d * o.d,
+      this.a * o.e + this.c * o.f + this.e, this.b * o.e + this.d * o.f + this.f,
+    ]);
+  }
+  translate(tx: number, ty: number) { return this.multiply(new NodeDOMMatrix([1, 0, 0, 1, tx, ty])); }
+  scale(sx: number, sy = sx) { return this.multiply(new NodeDOMMatrix([sx, 0, 0, sy, 0, 0])); }
+  inverse() {
+    const det = this.a * this.d - this.b * this.c;
+    const a = this.d / det, b = -this.b / det, c = -this.c / det, d = this.a / det;
+    return new NodeDOMMatrix([a, b, c, d, -(a * this.e + c * this.f), -(b * this.e + d * this.f)]);
+  }
+  transformPoint(p: { x: number; y: number }) { return { x: this.a * p.x + this.c * p.y + this.e, y: this.b * p.x + this.d * p.y + this.f }; }
+}
+function ensureDomMatrixPolyfill() { if (typeof (globalThis as { DOMMatrix?: unknown }).DOMMatrix === "undefined") (globalThis as { DOMMatrix?: unknown }).DOMMatrix = NodeDOMMatrix; }
+
 /** The text items of each PDF page (with their position). */
 export async function pdfPages(bytes: Uint8Array): Promise<PdfItem[][]> {
+  ensureDomMatrixPolyfill();
   const pdfjs = (await import(/* webpackIgnore: true */ "pdfjs-dist/legacy/build/pdf.mjs")) as unknown as { getDocument: (o: Record<string, unknown>) => { promise: Promise<{ numPages: number; getPage: (n: number) => Promise<{ getTextContent: () => Promise<{ items: { str: string; transform: number[] }[] }> }> }> } };
   // pdfjs-dist insists on a plain Uint8Array and rejects a Node Buffer at runtime even though Buffer is itself a
   // Uint8Array subclass ("Please provide binary data as Uint8Array, rather than Buffer") — normalize here so

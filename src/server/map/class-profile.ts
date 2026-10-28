@@ -114,10 +114,18 @@ export function parseClassProfile(pages: PdfItem[][]): ClassProfileParsed {
           for (const b of anchors) { const dist = Math.abs(b.d - w.d); if (dist < bestDist) { best = b; bestDist = dist; } }
           return best === a && bestDist <= 20;
         });
-        const toks = mine.sort((x, y) => x.x - y.x).map((w) => w.s.trim());
+        // NWEA sometimes draws the percentile's ordinal suffix ("17th") as its own separate text run right after
+        // the digits ("17", "th"), instead of one combined run — re-glue those before reading columns positionally,
+        // or every row in that PDF is silently dropped (the suffix-only token fails ordinal() on its own).
+        const rawToks = mine.sort((x, y) => x.x - y.x).map((w) => w.s.trim());
+        const toks: string[] = [];
+        for (const t of rawToks) {
+          if (/^(st|nd|rd|th)$/i.test(t) && toks.length && /^\d+$/.test(toks[toks.length - 1])) toks[toks.length - 1] += t;
+          else toks.push(t);
+        }
         if (subject === "READING") {
           if (toks.length < 7) continue; // grade, pct, rit, 1-2 lexile parts, info, lit, vocab
-          const grade = Number(toks[0]), pct = ordinal(toks[1]), rit = Number(toks[2]);
+          const grade = parseInt(toks[0], 10), pct = ordinal(toks[1]), rit = Number(toks[2]);
           const lexParts = toks.slice(3, toks.length - 3);
           const [info, lit, vocab] = toks.slice(-3).map(Number);
           const lexile = lexileMid(lexParts.join(""));
@@ -125,7 +133,7 @@ export function parseClassProfile(pages: PdfItem[][]): ClassProfileParsed {
           rows.push({ name, grade: Number.isFinite(grade) ? grade : null, percentile: pct, rit, lexile, areas: [info, lit, vocab] });
         } else if (subject === "LANGUAGE_USAGE") {
           if (toks.length !== 6) continue; // grade, pct, rit, grammar, mech, writing
-          const grade = Number(toks[0]), pct = ordinal(toks[1]), rit = Number(toks[2]);
+          const grade = parseInt(toks[0], 10), pct = ordinal(toks[1]), rit = Number(toks[2]);
           const [grammar, mech, writing] = toks.slice(3).map(Number);
           if (pct === null || !Number.isFinite(rit) || !Number.isFinite(grammar) || !Number.isFinite(mech) || !Number.isFinite(writing)) continue;
           rows.push({ name, grade: Number.isFinite(grade) ? grade : null, percentile: pct, rit, lexile: null, areas: [grammar, mech, writing] });
