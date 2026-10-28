@@ -4437,7 +4437,6 @@ export const ar: Record<UiString, string> = {
   "🚨 Early warning": "🚨 الإنذار المبكر",
   "Early Warning": "الإنذار المبكر",
   "Drops, rises and up-down swings of every student, and who needs action now.": "انخفاضات كل طالب وارتفاعاته وتذبذبه، ومن يحتاج إلى تدخل الآن.",
-  "No practice for 7+ days, stuck on a skill, or flagged by ReadRise/Learn — who needs you now.": "لم يتدرّب منذ 7 أيام أو أكثر، أو متعثّر في مهارة، أو مُعلَّم من ReadRise/Learn — من يحتاج إليك الآن.",
   "Urgent students not handled for 7+ days": "طلاب عاجلون لم تُعالَج حالتهم منذ 7 أيام أو أكثر",
   "Level movements of every student — drops, rises, up-down swings — and the serious problems that need action now.": "تحركات مستوى كل طالب — الانخفاض والارتفاع والتذبذب — والمشكلات الجدية التي تحتاج إلى تدخل الآن.",
   "Urgent": "عاجل",
