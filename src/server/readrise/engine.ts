@@ -7,7 +7,7 @@
  *      one first-try score ≤ 25%                   → −100 at once
  *      two first-try scores in a row < 50%         → −100
  *      3 of the last 4 ≥ 75% and the latest ≥ 75%  → +50 (unchanged)
- *    never below 200 or above 1500; the reason is written in plain words (RRLevelChange) for the teacher.
+ *    never below 200 or above 1700; the reason is written in plain words (RRLevelChange) for the teacher.
  *  - An UNRELIABLE run (2+ rapid answers, accuracy.ts) never takes part: no level move, no goal, no skill evidence.
  *  - A STRETCH reading (one version higher) joins the window only when it scored ≥ 75%: it can help a student
  *    move up and counts toward the weekly goal, but never lowers the level.
