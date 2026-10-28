@@ -20,7 +20,12 @@ export async function importMapFile(repo: Repo, actor: Actor, fileName: string, 
   if (/\.pdf$/i.test(fileName)) {
     let pages;
     try { pages = await pdfPages(bytes); }
-    catch { throw new ValidationError("This PDF could not be read. Upload NWEA's “Achievement Status and Growth” report, NWEA's “Class Profile” report (Instructional Areas tab), the NWEA data export (CSV) or the platform's template."); }
+    catch (e) {
+      // Log the real underlying error (pdfjs-dist failure, module-resolution issue, etc.) to the server logs before
+      // showing the teacher the generic message — otherwise the actual cause is silently lost on every failure.
+      console.error(`[MAP import] pdfPages() failed for "${fileName}" (${bytes.length} bytes):`, e);
+      throw new ValidationError("This PDF could not be read. Upload NWEA's “Achievement Status and Growth” report, NWEA's “Class Profile” report (Instructional Areas tab), the NWEA data export (CSV) or the platform's template.");
+    }
 
     const asg = parseAsg(asgLinesFromPages(pages));
     if (asg.rows.length) {
