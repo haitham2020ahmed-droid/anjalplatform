@@ -11,6 +11,10 @@ import { readableClasses } from "@/server/teacher/coordinators";
 import { classMembers, studentNames } from "@/server/insights/student-data";
 import { canSeeNafsCached } from "@/server/teacher/nafs-access";
 import { weeklySummary } from "@/server/insights/class-compare";
+import { teacherHomeSummary } from "@/server/teacher/needs-attention";
+import { favoriteReportsFor } from "@/server/teacher/favorites";
+import { PinnedReports } from "@/components/teacher/report-favorites";
+import { watchedStudentCount } from "@/server/teacher/watchlist";
 
 export const metadata = { title: "Reports" };
 
@@ -44,8 +48,21 @@ export default async function ReportsPage({ searchParams }: { searchParams: Prom
     }
   }
 
-  const [me, { t }, nafs, week] = await Promise.all([getActor(), getT(), canSeeNafsCached(repo, actor).catch(() => false), weeklySummary(repo, actor).catch(() => null)]);
+  const [me, { t }, nafs, week, attention, favorites, watchedCount] = await Promise.all([
+    getActor(), getT(), canSeeNafsCached(repo, actor).catch(() => false), weeklySummary(repo, actor).catch(() => null),
+    teacherHomeSummary(repo, actor).catch(() => ({ needsAttention: 0 })),
+    favoriteReportsFor(repo, actor).catch(() => []),
+    watchedStudentCount(repo, actor).catch(() => 0),
+  ]);
   const cards = hubCards({ nafs: nafs || actor.role !== "TEACHER" });
+  // 🚫 r91: Early warning / Enrichment counts dropped from here — earlyWarning()'s full scan and
+  // excellingStudentCount() blew this page's DB-call budget (43 vs 18). Only "Needs attention" (already cheap,
+  // already used on /teacher) keeps a live number; the other two are quick links without a count.
+  const daily = [
+    { label: "Needs attention", value: attention.needsAttention, line: "alert" as const, href: "/teacher#needs-attention", reportKey: "NEEDS_ATTENTION" as const },
+    { label: "Early warning", value: null as number | null, line: "alert" as const, href: "/teacher/reports/early-warning", reportKey: "EARLY_WARNING" as const },
+    { label: "Enrichment opportunities", value: null as number | null, line: "sparkle" as const, href: `/teacher/plans?${new URLSearchParams([["kind", "ENRICHMENT"], ...(cid ? [["classId", cid]] : [])])}`, reportKey: "ENRICHMENT" as const },
+  ];
   const hrefOf = (c: HubCard) => {
     if (c.link) return c.link.href(cid);
     const r = c.report!;
@@ -62,6 +79,31 @@ export default async function ReportsPage({ searchParams }: { searchParams: Prom
           <p className="font-semibold text-brand-navy">{t("This week: {stars} new stars · {review} students need review · weakest class skill: {skill}", { stars: week.newStars, review: week.needReview, skill: week.weakest ?? "—" })}</p>
           <p className="mt-1 text-sm text-slate-600">{t("Practice: {minutes} minutes by {active} of {total} students.", { minutes: week.minutes, active: week.active, total: week.students })}</p>
         </section>
+      )}
+      <section aria-label={t("Daily check")} data-daily-check className="mb-6">
+        <h2 className="mb-3 flex items-center gap-2 text-base font-semibold tracking-tight text-brand-navy"><LineIcon name="alert" className="h-5 w-5 text-brand-teal" />{t("Daily check")}</h2>
+        <ul className="grid gap-3 sm:grid-cols-3">
+          {daily.map((d) => (
+            <li key={d.label}>
+              <Link prefetch={false} href={d.href} data-daily={d.label}
+                className="group flex h-full items-center gap-3 rounded-xl bg-white p-4 shadow-sm ring-1 ring-slate-200 transition hover:-translate-y-px hover:shadow-card hover:ring-brand-teal/60">
+                <span className="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-slate-50 text-brand-navy ring-1 ring-slate-200 group-hover:text-brand-teal"><LineIcon name={d.line} /></span>
+                <span className="min-w-0">
+                  {d.value !== null && <span className="block text-2xl font-bold text-brand-navy">{d.value}</span>}
+                  <span className="block text-sm leading-snug text-slate-500">{t(d.label)}</span>
+                </span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </section>
+      <PinnedReports favorites={favorites} />
+      {actor.role === "TEACHER" && (
+        <p className="mb-6">
+          <Link prefetch={false} href="/teacher/watchlist" className="inline-flex items-center gap-1 text-sm font-semibold text-brand-navy hover:underline">
+            <LineIcon name="search" className="h-4 w-4" />{t("Watchlist")}{watchedCount > 0 && <span className="rounded-full bg-slate-100 px-1.5 text-xs tabular-nums text-slate-600" dir="ltr">{watchedCount}</span>}
+          </Link>
+        </p>
       )}
       {!classes.length ? <p className="rounded-2xl bg-white p-6 text-slate-600 ring-1 ring-slate-200">{t("You do not teach any class yet.")}</p> : (
         <div className="space-y-8">

@@ -78,10 +78,11 @@ export async function teacherFollowup(repo: Repo, actor: Actor, now = new Date()
   const gradeOf = new Map(members.map((m) => [s(m.studentId), Number(grades.find((g) => g.id === classes.find((c) => c.id === m.classId)?.gradeId)?.level ?? 0)]));
   // r78: an assignment cancelled on Assigned does not count as the teacher's work
   const ix = await cancelIndex(repo, actor.schoolId);
-  const [maps, practice, assignments, views, asgStudents, tiers] = await Promise.all([
+  const [maps, practice, assignments, views, ewViews, asgStudents, tiers] = await Promise.all([
     mapSummaries(repo, studentIds, "READING", gradeOf), practiceStats(repo, studentIds, now),
     teachers.length ? repo.findMany("Assignment", liveAssignmentWhere({ createdById: { in: teachers.map((t) => t.id) } }), { select: ["id", "createdById", "createdAt", "classId", "title", "note", "curriculumPlanId", "testId"] }).then((l) => l.filter((a) => !isSystemAssignment(a) && ix.live(a))) : Promise.resolve([] as Row[]),
     repo.findMany("AuditLog", { action: "results.view", actorId: { in: users.map((u) => u.id) } }, { select: ["actorId", "createdAt"] }),
+    repo.findMany("AuditLog", { action: "early_warning.view", actorId: { in: users.map((u) => u.id) } }, { select: ["actorId", "createdAt"] }),
     studentIds.length ? repo.findMany("AssignmentStudent", { studentId: { in: studentIds } }, { select: ["studentId", "assignmentId"] }) : Promise.resolve([] as Row[]),
     tiersOf(repo, studentIds),
   ]);
@@ -111,6 +112,12 @@ export async function teacherFollowup(repo: Repo, actor: Actor, now = new Date()
       const stale = oldAlerts.filter((x) => myClassIds.includes(s(x.classId))).length;
       if (stale) warnings.push(`${stale} student alert(s) open for more than 7 days (${ctx}).`);
       if (atRiskIds.length > helped.length) warnings.push(`${atRiskIds.length - helped.length} at-risk student(s) without new work in ${rules.atRiskDays} days (${ctx}).`);
+      // 🆕 Oct 2026 (daily-reports consolidation): flag a teacher with at-risk students who hasn't opened Early
+      // warning in EARLY_WARNING_CHECKIN_DAYS — only when there is something for them to actually check.
+      if (atRiskIds.length) {
+        const lastEw = ewViews.filter((v) => v.actorId === u.id).reduce((m, v) => Math.max(m, time(v.createdAt)), 0);
+        if (!lastEw || lastEw < now.getTime() - EARLY_WARNING_CHECKIN_DAYS * DAY) warnings.push(`Has not opened Early warning in ${EARLY_WARNING_CHECKIN_DAYS}+ days despite ${atRiskIds.length} at-risk student(s) (${ctx}).`);
+      }
     }
     return {
       userId: s(u.id), name: s(u.displayName), classes: myClasses.map((c) => s(c.name)).sort(), students: myStudents.length,
@@ -128,6 +135,17 @@ export async function recordResultsView(repo: Repo, actor: Actor, now = new Date
   if (actor.role !== "TEACHER") return;
   await repo.create("AuditLog", { actorId: actor.userId, action: "results.view", entityType: "User", entityId: actor.userId, before: null, after: null, createdAt: now });
 }
+
+/** 🆕 Oct 2026 (daily-reports consolidation): records that a teacher opened Early warning — same mechanism as
+ * recordResultsView, its own action name so teacherFollowup can tell the two apart. */
+export async function recordEarlyWarningView(repo: Repo, actor: Actor, now = new Date()): Promise<void> {
+  if (actor.role !== "TEACHER") return;
+  await repo.create("AuditLog", { actorId: actor.userId, action: "early_warning.view", entityType: "User", entityId: actor.userId, before: null, after: null, createdAt: now });
+}
+
+/** How many days ago a teacher must have opened Early warning, if they have at-risk students, before the
+ * follow-up page flags them as not checking in. */
+export const EARLY_WARNING_CHECKIN_DAYS = 3;
 
 /**
  * ⚡ The admin home's teacher follow-up (Update 55, performance): it reads every student's recent practice, so the

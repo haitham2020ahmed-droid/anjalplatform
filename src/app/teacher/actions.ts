@@ -13,6 +13,8 @@ import { ValidationError } from "@/server/curriculum-admin";
 import { parseQuestionIdsField, programOf } from "@/components/skill-picker/helpers";
 import { startOfDay } from "@/lib/assign-dates";
 import { studentSkillAccuracy } from "@/server/plans/perf-suggest";
+import { toggleFavoriteReport } from "@/server/teacher/favorites";
+import { toggleWatchStudent } from "@/server/teacher/watchlist";
 
 const id = z.string().min(1).max(191);
 
@@ -178,4 +180,20 @@ export async function studentAccuracyAction(input: { classId: string; studentId:
   try { await assertClassAccess(repo, actor, classId); } catch { return { acc: null }; }
   const acc = await studentSkillAccuracy(repo, actor, classId, studentId, skillId);
   return { acc };
+}
+
+/** 🆕 Oct 2026 (daily-reports consolidation): pin/unpin a report to the top of the Reports hub. */
+export async function toggleFavoriteReportAction(reportKey: string): Promise<{ favorited: boolean }> {
+  const actor = await requireActor({ roles: ["TEACHER"] });
+  const r = await toggleFavoriteReport(repo, actor, reportKey);
+  revalidatePath("/teacher/reports");
+  return r;
+}
+
+/** 🆕 Oct 2026 (daily-reports consolidation): toggle a student on the teacher's own watchlist. */
+export async function toggleWatchStudentAction(studentId: string, note?: string): Promise<{ watching: boolean }> {
+  const actor = await requireActor({ roles: ["TEACHER"] });
+  const r = await toggleWatchStudent(repo, actor, studentId, note);
+  revalidatePath("/teacher/watchlist");
+  return r;
 }

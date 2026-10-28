@@ -11,6 +11,7 @@ import { handleEarlyWarningAction } from "./actions";
 import { Combo } from "@/components/ui/combo";
 import { InsightActions } from "@/components/teacher/insight-actions";
 import { InfoTip } from "@/components/report-kit/info-tip";
+import { recordEarlyWarningView } from "@/server/insights/teacher-followup";
 
 export const metadata = { title: "Early warning" };
 
@@ -36,6 +37,7 @@ export default async function EarlyWarningPage({ searchParams }: { searchParams:
   const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"], permission: "reports:read" });
   const me = (await getActor())!.user;
   const { t } = await getT();
+  await recordEarlyWarningView(repo, actor);
   const sp = await searchParams;
   const severity = sp.severity === "URGENT" || sp.severity === "WATCH" || sp.severity === "GOOD" ? sp.severity : null;
   const v = await earlyWarning(repo, actor, { classId: sp.classId || null, gradeId: sp.gradeId || null, teacherId: sp.teacherId || null, severity });

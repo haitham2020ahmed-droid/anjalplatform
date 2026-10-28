@@ -13,6 +13,7 @@ import { ShortcutRow } from "@/components/teacher/home-shortcuts";
 import { AssignHostAll } from "./assign-host-all";
 import { teacherHomeSummary, type TeacherHomeSummary } from "@/server/teacher/needs-attention";
 import { excellingStudentCount } from "@/server/plans/perf-suggest";
+import { urgentCount } from "@/server/insights/early-warning";
 import { teacherWeekInReview } from "@/server/insights/week-in-review";
 import { canSeeNafsCached } from "@/server/teacher/nafs-access";
 import { writingToGrade } from "@/server/writing/locked";
@@ -49,13 +50,14 @@ export default async function TeacherHome({ searchParams }: { searchParams?: Pro
   const me = (await getActor())!.user;
   // the NAFS shortcut: the same request-cached answer the menu uses (no extra read)
   const nafsP = canSeeNafsCached(repo, actor).catch(() => false);
-  const [{ t }, h, sum, toGrade, seen, wk] = await Promise.all([
+  const [{ t }, h, sum, toGrade, seen, wk, urgent] = await Promise.all([
     getT(),
     teacherHomeData(repo, actor, sp.classId ?? null).catch(() => teacherHomeData(repo, actor, null)),
     teacherHomeSummary(repo, actor).catch(() => ({ students: 0, workThisWeek: 0, needsAttention: 0, list: [] as TeacherHomeSummary["list"] })),
     writingToGrade(repo, actor).catch(() => 0),
     noticeSeen(repo, actor.userId, STARS_NOTICE),
     teacherWeekInReview(repo, actor).catch(() => ({ questions: 0, minutes: 0, skills: 0 })),
+    urgentCount(repo, actor).catch(() => 0),
   ]);
   const nafs = await nafsP;
   const k = h.klass;
@@ -79,9 +81,14 @@ export default async function TeacherHome({ searchParams }: { searchParams?: Pro
     { label: "My students", value: sum.students, line: "users" },
     { label: "Work sent this week", value: sum.workThisWeek, line: "send" },
     { label: "Needs attention", value: sum.needsAttention, line: "alert", alert: sum.needsAttention > 0, href: "#needs-attention" },
+    { label: "Early warning", value: urgent, line: "alert", alert: urgent > 0, href: "/teacher/reports/early-warning" },
     { label: "Enrichment opportunities", value: enriching, line: "sparkle", href: `/teacher/plans?${new URLSearchParams([["kind", "ENRICHMENT"], ...(k ? [["classId", k.id]] : [])])}` },
     { label: "Writing to grade", value: toGrade, line: "pen" },
   ];
+  // 📋 one-line daily summary (audit r94-follow-up): numbers already on this page, in one sentence — no new
+  // tracking. "Work sent this week" is the closest already-computed completions-style number on this page; the
+  // sentence says "this week" (not "today") so it stays honest about what it's counting.
+  const dailySummary = t("This week: {sent} items sent, {attn} student(s) need attention, {enrich} ready for enrichment.", { sent: sum.workThisWeek, attn: sum.needsAttention, enrich: enriching });
   const small = "inline-flex h-7 shrink-0 items-center rounded-md bg-white px-2.5 text-xs font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal";
   return (
     <AppShell name={String(me.displayName)}>
@@ -92,6 +99,8 @@ export default async function TeacherHome({ searchParams }: { searchParams?: Pro
         </div>
         {k && <div className="w-full sm:w-44"><AddStudentButton classId={k.id} className={k.name} /></div>}
       </header>
+
+      <p className="mb-3 text-sm text-ink-2">{dailySummary}</p>
 
       {/* the most used tools: small icon + label shortcuts, one line (‹ › when they do not fit) */}
       <ShortcutRow label={t("Shortcuts")} prev={t("Previous")} next={t("Next")}>

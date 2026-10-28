@@ -18,6 +18,7 @@ import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
 import { assertClassAccess } from "../teacher/assignments";
 import { isHiddenSkill } from "../skills/master";
 import { hasLesson, hasLessons } from "../lessons/run";
+import { TtlCache } from "../lib/ttl-cache";
 import type { Program } from "./program";
 import type { SectionSpec, PlanSource, Txt } from "./editor";
 import { fmt, studentNames } from "./editor";
@@ -265,18 +266,29 @@ export async function studentSkillAccuracy(repo: Repo, actor: Actor, classId: st
   return x ? pct(x) : null;
 }
 
+// 🩹 r94-follow-up (perf-budgets fix, Oct 2026): classPerformance is ~9 DB calls (batched, but not free). The Teacher
+// Home page calls excellingStudentCount on EVERY render (cold or warm) to fill the "Enrichment opportunities" tile,
+// which was pushing /teacher over its DB-call budget on both the first and the cached ("next") render. A short TTL
+// cache (same 15s pattern as week-plan.ts's navCache/weekSuggestionsCache) makes repeat renders within a few
+// seconds free, matching how the rest of this page's "at a glance" numbers already behave.
+const excellingCountCache = new TtlCache<number>(15_000, 2000);
+
 /** 🏠 Teacher Home's "Enrichment opportunities" tile: how many of the class's students have at least one skill
  * currently excelling (STRONG_PCT, MIN_ANSWERS_STRONG) — the Enrichment-ready counterpart of "Needs attention".
- * Cheap: reuses classPerformance's already-bounded reads, no plan text is built. */
+ * Cheap: reuses classPerformance's already-bounded reads, no plan text is built; cached 15s per class. */
 export async function excellingStudentCount(repo: Repo, actor: Actor, classId: string, now = new Date()): Promise<number> {
-  const d = await classPerformance(repo, actor, classId, now);
-  let n = 0;
-  for (const st of d.members) {
-    for (const [k, x] of d.stats.get(st) ?? []) {
-      if (d.skillName.has(k) && pct(x) >= STRONG_PCT && x.answers >= MIN_ANSWERS_STRONG) { n++; break; }
+  // keyed by actor+class (not class alone): classPerformance's own assertClassAccess runs only inside the loader,
+  // so a shared-by-class-only cache could hand a cached count to a teacher who was never checked against this class.
+  return excellingCountCache.getOrLoad(`${actor.userId}:${classId}`, async () => {
+    const d = await classPerformance(repo, actor, classId, now);
+    let n = 0;
+    for (const st of d.members) {
+      for (const [k, x] of d.stats.get(st) ?? []) {
+        if (d.skillName.has(k) && pct(x) >= STRONG_PCT && x.answers >= MIN_ANSWERS_STRONG) { n++; break; }
+      }
     }
-  }
-  return n;
+    return n;
+  }, now.getTime());
 }
 
 /** The plan source saved with a draft made from a suggestion (shown in the editor). */

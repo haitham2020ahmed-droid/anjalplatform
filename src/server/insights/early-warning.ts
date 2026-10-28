@@ -51,6 +51,12 @@ interface SchoolScan { at: number; rows: WarningRow[]; moves: GroupMove[] }
 // ------------------------------------------------------------------ the school's read (chunked, bounded)
 
 const cache = sweptWeakMap<SchoolScan>("insights.early-warning.cache", 30 * 60_000);
+// 🩹 r94-follow-up (perf-budgets fix, Oct 2026): an in-flight dedup map, keyed the same as `cache`. Two callers in the
+// SAME request (e.g. the teacher-home card's direct urgentCount() and AppShell's navCountsCached()→urgentCount(), run
+// concurrently via Promise.all) used to both see a cache miss and each kick off their own full chunked readSchool()
+// scan — doubling the DB-call cost of /teacher. Now a second caller awaits the first caller's in-flight promise
+// instead of starting a second scan.
+const inFlight = sweptWeakMap<Promise<SchoolScan>>("insights.early-warning.inflight", 60_000);
 /** Forget the cached scan (tests, or after a big import). */
 export function clearEarlyWarningCache(repo: Repo, schoolId?: string): void { if (schoolId) cache.get(repo)?.delete(schoolId); else cache.delete(repo); }
 
@@ -60,6 +66,15 @@ export async function schoolEarlyWarning(repo: Repo, schoolId: string, now = new
   if (!byRepo) cache.set(repo, (byRepo = new Map()));
   const hit = byRepo.get(schoolId);
   if (!fresh && hit && now.getTime() - hit.at < SCAN_CACHE_MS && now.getTime() >= hit.at) return hit;
+  if (!fresh) {
+    let flights = inFlight.get(repo);
+    if (!flights) inFlight.set(repo, (flights = new Map()));
+    const pending = flights.get(schoolId);
+    if (pending) return pending;
+    const p = readSchool(repo, schoolId, now).then((scan) => { byRepo!.set(schoolId, scan); flights!.delete(schoolId); return scan; }, (e) => { flights!.delete(schoolId); throw e; });
+    flights.set(schoolId, p);
+    return p;
+  }
   const scan = await readSchool(repo, schoolId, now);
   byRepo.set(schoolId, scan);
   return scan;
@@ -250,6 +265,27 @@ const staffOnly = (actor: Actor) => {
   assertCan(actor, "reports:read");
   if (actor.role !== "TEACHER" && actor.role !== "SCHOOL_ADMIN" && actor.role !== "SUPER_ADMIN") throw new ForbiddenError();
 };
+
+/**
+ * 🔔 Urgent count only, cheap (owner: audit r94-follow-up): the school's cached scan + this person's readable
+ * classes, no alert/note/weakest-skill enrichment — for the nav badge and the home-page card, which both read this
+ * on every page and must stay cheap. A teacher counts only their own (readable) classes; the admin counts the
+ * whole school.
+ */
+export async function urgentCount(repo: Repo, actor: Actor, now = new Date()): Promise<number> {
+  staffOnly(actor);
+  const isAdmin = actor.role === "SCHOOL_ADMIN" || actor.role === "SUPER_ADMIN";
+  // 🩹 r94-follow-up (perf-budgets fix, Oct 2026): a full schoolEarlyWarning() scan is too expensive to run on
+  // every home-page/nav render (it cost 150-180+ DB calls for a 225-student school — this is now the home page's
+  // ENTIRE budget several times over). The 3-hourly alert scan (alerts.ts → scanAlerts) already computes the same
+  // thing in the background and writes one OPEN StudentAlert of kind EW_KIND per urgent student, so read THAT
+  // (one cheap count query) instead of recomputing the scan here. Same freshness window as before (≤3h stale),
+  // just read from where the scan already wrote it rather than re-running it.
+  if (isAdmin) return repo.count("StudentAlert", { schoolId: s(actor.schoolId), kind: EW_KIND, status: "OPEN" });
+  const readable = await readableClasses(repo, actor);
+  if (!readable.length) return 0;
+  return repo.count("StudentAlert", { classId: { in: readable.map((c) => s(c.id)) }, kind: EW_KIND, status: "OPEN" });
+}
 
 /** The early-warning view this person may see: a teacher → one of their (readable) classes; the admin → the school, filtered. */
 export async function earlyWarning(repo: Repo, actor: Actor, f: EwFilter = {}, now = new Date()): Promise<EarlyWarningView> {

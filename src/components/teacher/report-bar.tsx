@@ -30,6 +30,14 @@ export async function ReportBar({ actor, report: r, at, search }: { actor: Actor
     classId = String(m[0]?.classId ?? "");
   }
   classId ||= classes[0]?.id ?? "";
+  // 🚫 r91: no live counts here (Needs attention / Early warning / Enrichment) — this bar renders on every report
+  // page, and fetching them per-page blew the DB-call perf budget (/teacher/students/[id], /teacher/progress, …).
+  // The live numbers stay on the Reports hub's "Daily check" section (one fetch, one page); here just quick links.
+  const daily = [
+    { label: "Needs attention", href: "/teacher#needs-attention" },
+    { label: "Early warning", href: "/teacher/reports/early-warning" },
+    { label: "Enrichment opportunities", href: `/teacher/plans?${new URLSearchParams([["kind", "ENRICHMENT"], ...(classId ? [["classId", classId]] : [])])}` },
+  ];
   const ids = r.studentUrl && classId ? await classMembers(repo, classId) : [];
   const names = ids.length ? await studentNames(repo, ids) : new Map<string, { name: string }>();
   const students = ids.map((id) => ({ id, name: names.get(id)?.name ?? "Student" })).sort((a, b) => a.name.localeCompare(b.name));
@@ -55,7 +63,14 @@ export async function ReportBar({ actor, report: r, at, search }: { actor: Actor
   const btn = "inline-flex min-h-10 items-center gap-2 rounded-lg px-3.5 text-sm font-semibold";
   const seg = (on: boolean) => `inline-flex min-h-9 items-center rounded-md px-3 text-sm font-medium transition ${on ? "bg-white text-brand-navy shadow-sm ring-1 ring-slate-200" : "text-slate-600 hover:text-brand-navy"}`;
   return (
-    <section aria-label={t("Report options")} data-report-bar={r.key} className="report-bar mb-5 rounded-2xl bg-white shadow-card ring-1 ring-slate-200/80 print:hidden">
+    <section aria-label={t("Report options")} data-report-bar={r.key} className="report-bar sticky top-2 z-10 mb-5 rounded-2xl bg-white shadow-card ring-1 ring-slate-200/80 print:hidden">
+      <div aria-label={t("Daily check")} data-daily-strip className="flex flex-wrap items-center gap-x-4 gap-y-1 rounded-t-2xl border-b border-slate-100 bg-slate-50/70 px-4 py-1.5 text-xs">
+        {daily.map((d) => (
+          <Link key={d.label} prefetch={false} href={d.href} className="inline-flex items-center gap-1 font-medium text-slate-600 hover:text-brand-teal">
+            <span aria-hidden="true">•</span>{t(d.label)}
+          </Link>
+        ))}
+      </div>
       <div className="flex flex-wrap items-center gap-x-3 gap-y-2 border-b border-slate-100 px-4 py-2.5">
         <Link prefetch={false} href="/teacher/reports" className="inline-flex min-h-10 items-center gap-1 text-sm font-medium text-slate-500 hover:text-brand-teal">
           <span aria-hidden="true" className="inline-block rtl:rotate-180">‹</span>{t("All reports")}

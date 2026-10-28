@@ -37,6 +37,8 @@ export default async function ClassPage({ params, searchParams }: { params: Prom
     <AppShell name={String(me.displayName)}>
       {/* My Students: the class list (names open the student profile) and the class's accounts (Teacher Home Phase 3) */}
       <p className="mb-4 flex flex-wrap justify-end gap-2 print:hidden">
+        {/* 🆕 r90: Quick snapshot — 4 numbers (Urgent/Needs support/On level/Excelling) for this class */}
+        <a href={`/teacher/reports/class-snapshot/${classId}`} className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-white px-4 py-2 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal"><span aria-hidden="true">🎯</span> Quick snapshot</a>
         <a href={`/teacher/accounts?classId=${classId}`} className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-white px-4 py-2 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal"><span aria-hidden="true">⬇️</span> Download Accounts</a>
         <a href={`/teacher/accounts/roster?classId=${classId}`} className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-white px-4 py-2 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal"><span aria-hidden="true">📤</span> Upload Roster</a>
       </p>

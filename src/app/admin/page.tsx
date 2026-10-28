@@ -17,7 +17,7 @@ import { teacherFollowupForHome, type teacherFollowup } from "@/server/insights/
 import { ADMIN_TOOLS, ALL_TOOLS_HREF } from "@/components/admin-tools";
 import { adminMayUse } from "@/server/admin/tools";
 import { LineIcon, type LineIconName } from "@/components/ui/line-icon";
-import { urgentUnhandledCount } from "@/server/insights/early-warning";
+import { urgentUnhandledCount, urgentCount } from "@/server/insights/early-warning";
 import { schoolWeekInReview } from "@/server/insights/week-in-review";
 
 export const metadata = { title: "Administration" };
@@ -97,8 +97,8 @@ export default async function AdminHome() {
 function GlanceLoading({ label }: { label: string }) {
   return (
     <div role="status" aria-label={label} className="animate-pulse motion-reduce:animate-none">
-      <div className="grid grid-cols-2 gap-3 lg:grid-cols-4" aria-hidden="true">
-        {[0, 1, 2, 3].map((i) => <div key={i} className="h-[6.25rem] rounded-[1.25rem] bg-surface p-4 ring-1 ring-line"><div className="h-8 w-16 rounded bg-surface-2" /><div className="mt-4 h-3 w-24 rounded bg-surface-2" /></div>)}
+      <div className="grid grid-cols-2 gap-3 lg:grid-cols-5" aria-hidden="true">
+        {[0, 1, 2, 3, 4].map((i) => <div key={i} className="h-[6.25rem] rounded-[1.25rem] bg-surface p-4 ring-1 ring-line"><div className="h-8 w-16 rounded bg-surface-2" /><div className="mt-4 h-3 w-24 rounded bg-surface-2" /></div>)}
       </div>
     </div>
   );
@@ -124,10 +124,11 @@ function BlockLoading({ label, title }: { label: string; title: string }) {
 
 /** The school at a glance (4 numbers) and what waits for the admin's decision (≤ 3 chips, most urgent first). */
 async function Glance({ actor, now, follow, t }: { actor: Actor; now: Date; follow: Promise<{ rows: Follow }>; t: TFn }) {
-  const [c, short, urgentOld, conn, f] = await Promise.all([
+  const [c, short, urgentOld, urgentNow, conn, f] = await Promise.all([
     adminHomeCounts(repo, actor, now),
     mapShortAreas(repo, actor), // the kept answer; never built while the admin waits
     urgentUnhandledCount(repo, actor.schoolId!, now).catch(() => 0), // early warning: urgent, not handled for 7+ days
+    urgentCount(repo, actor, now).catch(() => 0), // early warning: urgent right now, whole school (audit r94-follow-up)
     connectionsKept(repo, actor), // the kept check (it builds the MAP pools): never built while the admin waits
     follow,
   ]);
@@ -147,11 +148,15 @@ async function Glance({ actor, now, follow, t }: { actor: Actor; now: Date; foll
     { href: "/admin/teachers", label: "Teachers", value: String(f.rows.length), icon: "teacher" as LineIconName },
     { href: "/admin/users", label: "Students", value: String(c.students), icon: "users" as LineIconName },
     { href: "/admin/analytics", label: "Activity this week", value: c.students ? `${Math.round((100 * practised) / c.students)}%` : "—", icon: "growth" as LineIconName },
+    { href: "/teacher/reports/early-warning", label: "Early warning", value: String(urgentNow), icon: "alert" as LineIconName, alert: urgentNow > 0 },
     { href: attention[0]?.href ?? "/admin/report-approvals", label: "Pending approvals", value: String(pending), icon: "clock" as LineIconName, alert: pending > 0 },
   ];
+  // one-line daily summary (audit r94-follow-up): numbers already computed above, whole-school, no new tracking.
+  const dailySummary = t("Today: {students} students, {urgent} need urgent attention, {pending} approval(s) pending.", { students: c.students, urgent: urgentNow, pending });
   return (
     <>
-      <section aria-label={t("School at a glance")} className="grid grid-cols-2 gap-3 lg:grid-cols-4">
+      <p className="mb-3 text-sm text-ink-2">{dailySummary}</p>
+      <section aria-label={t("School at a glance")} className="grid grid-cols-2 gap-3 lg:grid-cols-5">
         {cards.map((x) => (
           <Link key={x.label} prefetch={false} href={x.href} className="rounded-[1.25rem] bg-surface p-4 shadow-card ring-1 ring-line hover:ring-brand-teal">
             <span className="flex items-center justify-between"><span dir="ltr" className={`font-display text-[2.25rem] leading-none tabular-nums ${x.alert ? "text-amber-700" : "text-ink"}`}>{x.value}</span><span aria-hidden="true" className="grid h-9 w-9 place-items-center rounded-xl bg-surface-2 text-ink-2 ring-1 ring-line"><LineIcon name={x.icon} className="h-[18px] w-[18px]" /></span></span>

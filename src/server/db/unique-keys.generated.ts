@@ -193,4 +193,6 @@ export const UNIQUE_KEYS: Record<string, readonly (readonly string[])[]> = {
   SkillStatus: [["id"], ["studentId", "skillKey", "level"]],
   SkillReviewCheck: [["id"], ["studentId", "kind", "periodKey"]],
   UserNotice: [["userId", "key"]],
+  TeacherReportFavorite: [["teacherId", "reportKey"]],
+  StudentWatch: [["teacherId", "studentId"]],
 };

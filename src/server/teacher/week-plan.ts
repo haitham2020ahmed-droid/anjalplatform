@@ -14,6 +14,7 @@ import { assignSkill } from "./assign";
 import { classMembers } from "../insights/student-data";
 import { weakestSkills } from "../insights/department";
 import { openAlertCount } from "../insights/alerts";
+import { urgentCount } from "../insights/early-warning";
 import { classPlans, sendPlans, smallGroups } from "../map/map-plan";
 import { classRhythm, weekStart } from "./classroom";
 import { secondChanceCount } from "../second-chance/service";
@@ -198,6 +199,10 @@ export async function navCounts(repo: Repo, actor: Actor, now = new Date()): Pro
       const f = await repo.count("QuestionFlag", { schoolId: actor.schoolId, status: "OPEN" });
       if (f) out["/admin/question-flags"] = { count: f, alert: false };
     }
+    // 🚨 Early warning red dot on "Reports" (audit r94-follow-up): same cheap count the home-page card uses — a
+    // teacher's own urgent students, or the whole school for admin.
+    const urgent = await urgentCount(repo, actor, now).catch(() => 0);
+    if (urgent) out["/teacher/reports"] = { count: urgent, alert: true };
   }
   return out;
 }

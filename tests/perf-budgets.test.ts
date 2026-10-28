@@ -45,13 +45,23 @@ const BUDGETS: Record<string, { first: number; next: number }> = {
   "src/app/student/badges/page.tsx": { first: 37, next: 37 },
   "src/app/student/learn/page.tsx": { first: 40, next: 13 },
   "src/app/practice/[skillId]/page.tsx": { first: 80, next: 43 },
-  "src/app/teacher/page.tsx": { first: 50, next: 32 },
+  // r94-follow-up (audit, Oct 2026): + the "Early warning" at-a-glance card and the "Enrichment opportunities" tile's
+  // excellingStudentCount (classPerformance, ~9 calls, 15s-cached so only the first/cold render pays it; see
+  // src/server/plans/perf-suggest.ts). urgentCount itself is now cheap (one StudentAlert count, not a full scan —
+  // see src/server/insights/early-warning.ts) and in-flight-deduped against AppShell's own nav badge call.
+  "src/app/teacher/page.tsx": { first: 65, next: 32 },
   "src/app/teacher/students/page.tsx": { first: 36, next: 41 },
-  "src/app/teacher/students/[studentId]/page.tsx": { first: 171, next: 98 }, // r67: + effort, skill stars and the strands/mistakes insights on the student file; r87c: + the By Source report (+2 calls)
+  // r67: + effort, skill stars and the strands/mistakes insights on the student file; r87c: + the By Source report
+  // (+2 calls); r94-follow-up: + the nav's early-warning red-dot badge (urgentCount, now a cheap StudentAlert count)
+  // rippling through AppShell on every framed page (+a few calls on "next").
+  "src/app/teacher/students/[studentId]/page.tsx": { first: 171, next: 106 },
   "src/app/teacher/classes/[classId]/page.tsx": { first: 61, next: 53 },
   "src/app/teacher/assignments/page.tsx": { first: 11, next: 11 },
   // r67 (owner): the Reports hub shows the teacher's week in two lines (stars, reviews due, weakest skill, minutes): 12 calls
-  "src/app/teacher/reports/page.tsx": { first: 18, next: 18 },
+  // r94-follow-up: + "Daily Check" (reuses the already-cheap "Needs attention" count only — Early warning/Enrichment
+  // stay links-only per r91's note below), + pinned Favorites (favoriteReportsFor, 2 calls) and the Watchlist badge
+  // (watchedStudentCount, a plain count — not the enriched watchedStudentsFor list; see src/server/teacher/watchlist.ts).
+  "src/app/teacher/reports/page.tsx": { first: 22, next: 22 },
   "src/app/teacher/progress/page.tsx": { first: 38, next: 38 },
   "src/app/teacher/plans/page.tsx": { first: 31, next: 30 },
   "src/app/teacher/curriculum/page.tsx": { first: 63, next: 60 },
