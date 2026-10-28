@@ -190,7 +190,7 @@ export function fromNweaCdf(table: string[][]): { table: string[][]; term: strin
 }
 const SUBJECT_NAME = { READING: "Reading", LANGUAGE_USAGE: "Language Usage" } as const;
 
-export interface MapImportResult { imported: number; skipped: number; errors: { row: number; message: string }[]; term: string; created: { name: string; username: string; password: string }[]; /** students of the file not found on the platform (check their Student ID) */ unmatched?: { number: string; name: string }[]; /** individual plan drafts made from these scores */ plans?: AutoPlans }
+export interface MapImportResult { imported: number; skipped: number; errors: { row: number; message: string }[]; term: string; created: { name: string; username: string; password: string }[]; /** students of the file not found on the platform (check their Student ID) — `classes` set means the name was NOT auto-added because it already matches a student of one of these OTHER classes (ambiguous), so it's not "missing", just not auto-creatable here */ unmatched?: { number: string; name: string; classes?: string[] }[]; /** individual plan drafts made from these scores */ plans?: AutoPlans }
 
 /**
  * A student in the MAP file who is not on the platform yet: created in this class (teachers: their own class).
@@ -252,7 +252,11 @@ export async function importMapScores(repo: Repo, actor: Actor, table: string[][
   const created: MapImportResult["created"] = [];
   // students this actor may update
   const classes = await accessibleClasses(repo, actor);
-  const members = classes.length ? await repo.findMany("ClassMembership", { classId: { in: classes.map((k) => k.id) }, leftAt: null }, { select: ["studentId"] }) : [];
+  const members = classes.length ? await repo.findMany("ClassMembership", { classId: { in: classes.map((k) => k.id) }, leftAt: null }, { select: ["studentId", "classId"] }) : [];
+  const classNameOf = new Map(classes.map((k) => [s(k.id), s(k.name)]));
+  // a student's class, for the "already in another of your classes" hint below (first membership is enough for a hint)
+  const classOfStudent = new Map<string, string>();
+  for (const m of members) { const sid = s(m.studentId); if (!classOfStudent.has(sid)) classOfStudent.set(sid, classNameOf.get(s(m.classId)) || ""); }
   const allowed = new Set(members.map((m) => s(m.studentId)));
   const students = allowed.size ? await repo.findMany("Student", { id: { in: [...allowed] } }, { select: ["id", "userId", "studentNumber", "gradeId"] }) : [];
   const users = students.length ? await repo.findMany("User", { id: { in: students.map((x) => x.userId) } }, { select: ["id", "username", "displayName"] }) : [];
@@ -263,8 +267,15 @@ export async function importMapScores(repo: Repo, actor: Actor, table: string[][
   const byKey = new Map<string, string>();
   // names, as a fallback when the file's number is not the platform's (e.g. NWEA IDs): “AALBAQSHI, AHMED” = “Ahmed Aalbaqshi”
   const nameKey = (n: string) => n.toLowerCase().replace(/[^a-z0-9\u0600-\u06ff ]+/g, " ").split(/\s+/).filter(Boolean).sort().join(" ");
-  const byName = new Map<string, string | null>();
-  for (const st of students) { const u = users.find((x) => x.id === st.userId); if (!u) continue; const k = nameKey(s(u.displayName)); byName.set(k, byName.has(k) ? null : s(st.id)); }
+  // every accessible student under this name (normally 1 — more than 1 means the exact same name exists in
+  // 2+ of the teacher's own classes, which the "not found" message below calls out by name, so there's no need
+  // to go hunting for it by hand)
+  const byName = new Map<string, { id: string; className: string }[]>();
+  for (const st of students) {
+    const u = users.find((x) => x.id === st.userId); if (!u) continue;
+    const k = nameKey(s(u.displayName));
+    const list = byName.get(k) ?? []; list.push({ id: s(st.id), className: classOfStudent.get(s(st.id)) || "" }); byName.set(k, list);
+  }
   const gradeCol = header.findIndex((h) => h === "grade" || h === "grd");
   const classGrade = opts.createInClassId ? Number((await repo.findUnique("Grade", { id: (await repo.findUnique("Class", { id: opts.createInClassId }))?.gradeId }))?.level ?? 0) : 0;
   for (const st of students) {
@@ -311,16 +322,16 @@ export async function importMapScores(repo: Repo, actor: Actor, table: string[][
       let sid = byKey.get(key.toLowerCase());
       const fullName = nameCol >= 0 ? s(r[nameCol]).replace(/\s+/g, " ").trim() : "";
       const nk = fullName ? nameKey(fullName) : "";
-      // byName.has() but get()===null means 2+ accessible students share this exact name (ambiguous: e.g. the
-      // same name in two of the teacher's classes) — never auto-create in that case, or we'd mint a true duplicate
-      // of someone who already exists; only a name that matches NO existing student at all is genuinely new.
-      const nameIsKnown = nk ? byName.has(nk) : false;
-      if (!sid && nk) { const hit = byName.get(nk); if (hit) sid = hit; }   // same student, other number: no duplicate
+      // 2+ hits for this name means it's ambiguous: the exact same name exists in 2+ of the teacher's own
+      // classes (e.g. "Ali Hussain" in both 5A and 6A) — never auto-create in that case, or we'd mint a true
+      // duplicate of someone who already exists; only a name that matches NO existing student at all is new.
+      const hits = nk ? (byName.get(nk) ?? []) : [];
+      if (!sid && hits.length === 1) sid = hits[0].id;   // one unambiguous match (same student, other number): no duplicate
       const rowGrade = gradeCol >= 0 ? Number(cell(r, gradeCol)) : 0;
       if (!sid && opts.createInClassId && rowGrade && classGrade && rowGrade !== classGrade) throw new ValidationError(`${fullName || key} is in Grade ${rowGrade} in the file, but this class is Grade ${classGrade}: import them from their own class.`);
       // A report with no Student ID column (e.g. NWEA's Class Profile) has an empty `key` for every row — a
       // student number isn't required to add someone this way, only a name that matches nobody already on record.
-      if (!sid && opts.createInClassId && fullName && !nameIsKnown && (key || !anyNumberInFile)) {
+      if (!sid && opts.createInClassId && fullName && !hits.length && (key || !anyNumberInFile)) {
         if (key) {
           // a student number IS given (e.g. the platform's own template): still guard against colliding with one
           // that already exists under a different name/class, same as before.
@@ -330,9 +341,12 @@ export async function importMapScores(repo: Repo, actor: Actor, table: string[][
         }
         // a new student: added to the platform in this class, then their scores are saved below
         const n = await createStudentFromMap(repo, actor, opts.createInClassId, key, fullName);
-        sid = n.id; if (key) byKey.set(key.toLowerCase(), n.id); byName.set(nk, n.id); created.push({ name: fullName, username: n.username, password: n.password });
+        sid = n.id; if (key) byKey.set(key.toLowerCase(), n.id); byName.set(nk, [{ id: n.id, className: "" }]); created.push({ name: fullName, username: n.username, password: n.password });
       }
-      if (!sid && (nwea || opts.wholeFile)) { notInClasses++; unmatched.push({ number: key, name: fullName }); continue; }   // a grade-wide file: other classes' students are expected
+      // a grade-wide file: other classes' students are expected. `hits` here means the name is ambiguous (ties
+      // to 2+ of the teacher's OWN classes) — pass those class names along so the summary message can say exactly
+      // where the student already is, instead of the teacher having to search for the name themselves.
+      if (!sid && (nwea || opts.wholeFile)) { notInClasses++; unmatched.push({ number: key, name: fullName, ...(hits.length > 1 ? { classes: [...new Set(hits.map((h) => h.className).filter(Boolean))] } : {}) }); continue; }
       if (!sid) throw new ValidationError(`Student “${key}” was not found in your classes${opts.createInClassId ? " (write the Student Name to add them)" : " (import from one class to add new students)"}.`);
       const subjectsHere = (["READING", "LANGUAGE_USAGE"] as const).filter((sub) => (sub === "READING" ? readRit : langRit) !== null || goals.some((x) => x.g.subject === sub));
       const twice = subjectsHere.filter((sub) => inFile.has(`${sid}|${sub}`));

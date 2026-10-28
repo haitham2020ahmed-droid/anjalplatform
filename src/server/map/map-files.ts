@@ -61,7 +61,13 @@ export function importMessage(r: MapImportResult & { kind?: string; norms?: stri
   if (r.created.length) parts.push(`${r.created.length} new student(s) added`);
   if (r.plans?.plans) parts.push(`📋 ${r.plans.plans} individual MAP plan draft(s) ready (${r.plans.classes.filter((c) => c.plans).map((c) => c.name).join(", ")}) — MAP → MAP plans`);
   if (r.skipped) parts.push(`${r.skipped} row(s) without a score skipped`);
-  if (r.unmatched?.length) parts.push(`⚠️ not found on the platform (check their Student ID): ${r.unmatched.slice(0, 12).map((u) => `${u.name || "?"} (${u.number})`).join(", ")}${r.unmatched.length > 12 ? ` and ${r.unmatched.length - 12} more` : ""}`);
+  // split by WHY a name wasn't matched, so the teacher never has to go searching for it by hand:
+  // - already in another of the teacher's own classes (ambiguous by name) → say exactly which class(es)
+  // - truly not found anywhere → the old, simpler message
+  const already = r.unmatched?.filter((u) => u.classes?.length) ?? [];
+  const trulyUnmatched = r.unmatched?.filter((u) => !u.classes?.length) ?? [];
+  if (already.length) parts.push(`⚠️ already a student of another of your classes (not added here — check which class is right): ${already.slice(0, 12).map((u) => `${u.name || "?"} (${u.classes!.join(", ")})`).join(", ")}${already.length > 12 ? ` and ${already.length - 12} more` : ""}`);
+  if (trulyUnmatched.length) parts.push(`⚠️ not found on the platform at all (check the name spelling, or write their Student ID): ${trulyUnmatched.slice(0, 12).map((u) => `${u.name || "?"} (${u.number})`).join(", ")}${trulyUnmatched.length > 12 ? ` and ${trulyUnmatched.length - 12} more` : ""}`);
   const errs = r.errors.filter((e) => !/not in your classes|not in the school's classes/.test(e.message));
   if (errs.length) parts.push(`${errs.length} problem(s): ${errs.slice(0, 5).map((e) => (e.row ? `row ${e.row}: ${e.message}` : e.message)).join(" · ")}`);
   return parts.join(" · ");
