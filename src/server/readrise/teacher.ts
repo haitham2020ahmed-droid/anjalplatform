@@ -66,6 +66,28 @@ export async function unassignArticle(repo: Repo, actor: Actor, classId: string,
   await audit(repo, { actorId: actor.userId, action: "readrise.unassign", entityType: "RRClassArticle", entityId: `${classId}:${articleId}`, at: now });
 }
 
+export interface AssignedClassRef { classId: string; className: string }
+
+/**
+ * 🚦 "Already assigned" badge on the Library catalog (owner request, Oct 2026): every article this teacher has
+ * assigned, and to which of their OWN classes — so the Library page can show "✓ Assigned — 6A" without the
+ * teacher opening the separate Assign tab just to check. Admins (no "my classes" here) and a teacher with no
+ * classes of their own get an empty map — the Library page then shows no badges, same as today.
+ */
+export async function assignedClassesByArticle(repo: Repo, actor: Actor): Promise<Map<string, AssignedClassRef[]>> {
+  if (actor.role !== "TEACHER") return new Map();
+  const mine = (await teacherReadRiseClasses(repo, actor)).filter((c) => c.own);
+  if (!mine.length) return new Map();
+  const links = await repo.findMany("RRClassArticle", { classId: { in: mine.map((c) => c.id) } }, { select: ["articleId", "classId"] });
+  const nameOf = new Map(mine.map((c) => [c.id, c.name]));
+  const out = new Map<string, AssignedClassRef[]>();
+  for (const l of links) {
+    const articleId = s(l.articleId), classId = s(l.classId);
+    out.set(articleId, [...(out.get(articleId) ?? []), { classId, className: nameOf.get(classId) ?? "" }]);
+  }
+  return out;
+}
+
 export interface ClassArticleRow { articleId: string; code: string; title: string; topic: string; dueAt: string | null; assignedAt: string; done: number; students: number }
 
 /** The class's assigned articles with how many students finished each (first try). */

@@ -1,4 +1,5 @@
 import type { FamilyDoc, FamilySubject } from "@/server/map/map-reports";
+import type { ReportSection } from "@/server/reports/family-reports";
 import { PercentileBar, ReportHead, ReportPage, RitChart, RitLegend, ordinal } from "./report-ui";
 import { ReportSummary } from "@/components/report-kit/report-summary";
 import type { Summary } from "@/lib/report-summary";
@@ -19,7 +20,7 @@ function weakestAreaName(d: FamilyDoc): string | null {
  *  `highlights` = the short "What to practise next" skill list (familyNextSkills, map-reports.ts) — unlike the
  *  summary's "See the study plan" button (print:hidden, inside the Action plan), this renders in the page body so
  *  it survives print/PDF. Undefined when the caller has not computed it; an empty array shows the fallback line. */
-export function FamilyView({ d, first = true, summary, highlights }: { d: FamilyDoc; first?: boolean; summary?: Summary; highlights?: string[] }) {
+export function FamilyView({ d, first = true, summary, highlights, performance }: { d: FamilyDoc; first?: boolean; summary?: Summary; highlights?: string[]; performance?: ReportSection[] }) {
   const name = d.student.first.toUpperCase();
   return (
     <>
@@ -91,6 +92,8 @@ export function FamilyView({ d, first = true, summary, highlights }: { d: Family
         {summary && <ReportSummary summary={summary} />}
         <p className="mt-8 text-[11px] text-slate-400">Percentiles marked ≈ and growth percentiles are estimated by the platform from national norms; NWEA&apos;s own reports are the official results. Confidential: for the student&apos;s family and school.</p>
       </ReportPage>
+      {d.subjects.length > 0 && <SummaryTablePage d={d} />}
+      {performance !== undefined && performance.length > 0 && <PerformancePage d={d} sections={performance} />}
     </>
   );
 }
@@ -126,5 +129,73 @@ function SubjectBlock({ x, name }: { x: FamilySubject; name: string }) {
         </div>
       </div>
     </section>
+  );
+}
+
+/** 👪 Page 3 — a Ministry-of-Education-style summary table (owner request, Oct 2026): the student's identity
+ *  fields, then one row per subject with its Fall RIT, Projected Spring RIT, the class and national average RIT.
+ *  (Nationality was requested too, but the platform does not record it, so it is left out by the owner's choice.) */
+function SummaryTablePage({ d }: { d: FamilyDoc }) {
+  const rows = d.subjects.filter((x) => x.latest);
+  return (
+    <ReportPage>
+      <ReportHead s={d.student} title="Family Report" term={d.term} />
+      <section className="mt-5">
+        <h2 className="rounded-lg bg-slate-100 px-3 py-1.5 text-lg font-bold text-brand-navy">📋 Summary</h2>
+        <div className="mt-3 grid grid-cols-2 gap-2 text-[13px] text-slate-700 sm:grid-cols-4 print:grid-cols-4">
+          <p><b>Student Name:</b> {d.student.name}</p>
+          <p><b>Class:</b> {d.student.className || "—"}</p>
+          <p><b>Semester:</b> {d.term ?? "—"}</p>
+          <p><b>Student ID:</b> {d.student.number || "—"}</p>
+        </div>
+        <table className="mt-4 w-full text-sm">
+          <thead>
+            <tr className="border-b-2 border-brand-navy text-left text-xs text-slate-600">
+              <th className="py-1.5">Subject</th>
+              <th className="py-1.5">Fall RIT Score</th>
+              <th className="py-1.5">Projected Spring RIT</th>
+              <th className="py-1.5">Class Average RIT</th>
+              <th className="py-1.5">National Average RIT</th>
+            </tr>
+          </thead>
+          <tbody>
+            {rows.map((x) => {
+              const national = x.points[x.points.length - 1]?.national ?? null;
+              return (
+                <tr key={x.subject} className="border-b last:border-0">
+                  <td className="py-2 font-semibold text-brand-navy">{x.name}</td>
+                  <td className="py-2 tabular-nums">{x.fallRit ?? "—"}</td>
+                  <td className="py-2 tabular-nums">{x.goal ? x.goal.target : "—"}</td>
+                  <td className="py-2 tabular-nums">{x.classAvgRit ?? "—"}</td>
+                  <td className="py-2 tabular-nums">{national ?? "—"}</td>
+                </tr>
+              );
+            })}
+            {!rows.length && <tr><td colSpan={5} className="py-3 text-slate-500">No MAP results yet.</td></tr>}
+          </tbody>
+        </table>
+        <p className="mt-3 text-[11px] text-slate-400">Fall RIT is this school year&apos;s Fall test; the Projected Spring RIT is NWEA&apos;s growth projection for Spring. Class and National Average RIT use each subject&apos;s most recent test.</p>
+      </section>
+    </ReportPage>
+  );
+}
+
+/** 👪 Page 4 — "Student&apos;s performance on the platform" (owner request, Oct 2026): writing, ReadRise, fluency,
+ *  diagnostic test and overall practice/assignment activity, built by platformPerformanceSections (family-sections.ts)
+ *  and rendered here as plain titled blocks (the same look the rest of this report already uses). */
+function PerformancePage({ d, sections }: { d: FamilyDoc; sections: ReportSection[] }) {
+  return (
+    <ReportPage>
+      <ReportHead s={d.student} title="Family Report" term={d.term} />
+      <section className="mt-5">
+        <h2 className="rounded-lg bg-slate-100 px-3 py-1.5 text-lg font-bold text-brand-navy">💻 Performance on the platform</h2>
+        {sections.map((sec) => (
+          <div key={sec.heading} className="mt-4 break-inside-avoid">
+            <h3 className="font-bold text-brand-navy">{sec.icon} {sec.heading}</h3>
+            <ul className="mt-1 list-disc space-y-0.5 ps-6 text-[13px] text-slate-700">{sec.lines.map((l, i) => <li key={i}>{l}</li>)}</ul>
+          </div>
+        ))}
+      </section>
+    </ReportPage>
   );
 }

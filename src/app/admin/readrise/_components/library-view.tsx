@@ -3,7 +3,9 @@ import Link from "next/link";
 import type { LibraryFilters, LibraryItem } from "@/server/readrise/library";
 import { field, SourcePill, StatusPill } from "./ui";
 
-export function LibraryView({ base, items, topics, f }: { base: string; items: LibraryItem[]; topics: string[]; f: LibraryFilters }) {
+/** ✓ "Already assigned" (owner request, Oct 2026): which of the teacher's OWN classes an article is already
+ * assigned to — admin has none of this, so it is optional and simply shows no badges for admin. */
+export function LibraryView({ base, items, topics, f, assignedByArticle }: { base: string; items: LibraryItem[]; topics: string[]; f: LibraryFilters; assignedByArticle?: Map<string, { classId: string; className: string }[]> }) {
   const filtered = !!(f.topic || f.status || f.source || f.q);
   const counts = { published: items.filter((i) => i.status === "PUBLISHED").length, drafts: items.filter((i) => i.status !== "PUBLISHED").length };
   return (
@@ -44,6 +46,9 @@ export function LibraryView({ base, items, topics, f }: { base: string; items: L
                   <SourcePill source={a.source} hidden={a.hidden} />
                   <span className={`rounded-full px-2.5 py-0.5 font-semibold ring-1 ${a.versions === 14 ? "bg-slate-50 text-slate-700 ring-slate-200" : "bg-red-50 text-red-800 ring-red-200"}`}>{a.versions}/14 versions</span>
                   {a.levelWarnings > 0 && <span className="rounded-full bg-amber-50 px-2.5 py-0.5 font-semibold text-amber-900 ring-1 ring-amber-300">⚠ {a.levelWarnings} off level</span>}
+                  {assignedByArticle?.get(a.id)?.map((c) => (
+                    <span key={c.classId} className="rounded-full bg-emerald-50 px-2.5 py-0.5 font-semibold text-emerald-800 ring-1 ring-emerald-200">✓ Assigned — {c.className}</span>
+                  ))}
                   <span className="ms-auto text-slate-400">{a.updatedAt.slice(0, 10)}</span>
                 </div>
               </Link>

@@ -10,9 +10,10 @@
  * "Lexile"). Every query is bounded (one student, selected columns, `take`).
  */
 import type { Repo, Row } from "../seeding/repo";
+import type { Actor } from "../auth/rbac";
 import type { ReportSection } from "./family-reports";
 import { isLocked } from "../writing/locked";
-import { hasLevelWords } from "./family-words";
+import { fluencyGoalWords, gradeGoalWords, hasLevelWords } from "./family-words";
 export { fluencyGoalWords, gradeGoalWords, hasLevelWords } from "./family-words";
 
 const s = (v: unknown) => String(v ?? "");
@@ -191,4 +192,57 @@ export async function fluencyPlanSection(repo: Repo, studentId: string, grade: n
     ...(minute ? [`Progress: the latest 1-minute reading was ${Number(minute.wcpm)} words correctly per minute${Number(plan.goal) - Number(minute.wcpm) > 0 ? ` · ${Number(plan.goal) - Number(minute.wcpm)} more to reach the goal` : " — the goal is reached!"}.`] : []),
     ...homeTips(focus, Array.isArray(plan.words) ? plan.words : []).map((x) => `At home: ${x}`),
   ] };
+}
+
+// ------------------------------------------------------------------ 💻 Platform performance (Family Report, page 4)
+
+/**
+ * 👪 "Student's performance on the platform" (owner request, Oct 2026): a fuller picture than the Family Report's
+ * own "Practice on the platform · last 30 days" tile — this term's writing, ReadRise, fluency, diagnostic test and
+ * overall practice/assignment activity, each in the same friendly words the weekly AUTO family report already uses
+ * (reusing the exact building blocks `autoContent()` combines: readRiseSection, fluencyPlanSection, writingSection,
+ * `parentReport()`'s practice/badges, `coachSummary()`'s latest fluency check, `studentDiagnosticReport()`).
+ * Every call is independently wrapped: one missing/failing signal (e.g. no diagnostic test taken) never drops the
+ * others. `actor` is passed straight through to the staff/family-access checks those functions already do — the
+ * caller (the Family Report page) has already confirmed access to this student before calling this.
+ */
+export async function platformPerformanceSections(repo: Repo, actor: Actor, studentId: string, grade: number, now = new Date()): Promise<ReportSection[]> {
+  const { parentReport } = await import("../insights/parent-report");
+  const { studentDiagnosticReport } = await import("../diagnostic/report");
+  const { coachSummary } = await import("../fluency/coach");
+  const [p, diag, flu, writing, readrise, plan] = await Promise.all([
+    parentReport(repo, actor, studentId, now).catch(() => null),
+    studentDiagnosticReport(repo, actor, studentId).catch(() => null),
+    coachSummary(repo, studentId).catch(() => null),
+    writingSection(repo, studentId).catch(() => null),
+    readRiseSection(repo, studentId, now).catch(() => null),
+    fluencyPlanSection(repo, studentId, grade, now).catch(() => null),
+  ]);
+  const sections: ReportSection[] = [];
+  if (p) {
+    sections.push({ heading: "Practice & assignments this month", icon: "💻", lines: [
+      `${p.practice.answers} question${p.practice.answers === 1 ? "" : "s"} answered${p.practice.accuracy !== null ? `, ${p.practice.accuracy}% correct` : ""} · ${p.practice.minutesMonth} minutes of practice.`,
+      `Assigned work: ${p.practice.tasksDone} task${p.practice.tasksDone === 1 ? "" : "s"} done${p.practice.tasksLate ? `, ${p.practice.tasksLate} returned late` : ""}.`,
+      ...(p.completed.length ? [`Skills mastered this term: ${p.completed.slice(0, 8).join(", ")}${p.completed.length > 8 ? ` and ${p.completed.length - 8} more` : ""}.`] : []),
+      ...(p.badges.length ? [`Badges earned: ${p.badges.map((b) => `${b.icon} ${b.name}`).join(", ")}.`] : []),
+    ] });
+  }
+  if (readrise) sections.push(readrise);
+  if (flu?.latest) sections.push({ heading: "Reading fluency check", icon: "🎙️", lines: [`${flu.latest.wcpm} words correct per minute (${flu.latest.date}) · ${fluencyGoalWords(flu.latest.level)}.`] });
+  if (plan) sections.push(plan);
+  if (writing) sections.push(writing);
+  if (diag) sections.push({ heading: "Diagnostic test", icon: "📝", lines: [
+    `${diag.title}: ${diag.pct}% · ${gradeGoalWords(diag.level)}${diag.readingLevel ? ` · reading level ${diag.readingLevel}` : ""}.`,
+    ...(diag.strengths.length ? [`Strong in: ${diag.strengths.slice(0, 3).join(", ")}.`] : []),
+    ...(diag.needs.length ? [`To work on: ${diag.needs.slice(0, 3).map((x) => x.label).join(", ")}.`] : []),
+  ] });
+  if (p && (p.strengths.length || p.practiseNext.length)) {
+    sections.push({ heading: "Strengths & next steps on the platform", icon: "🧭", lines: [
+      ...(p.strengths.length ? [`Strengths: ${p.strengths.join(", ")}.`] : []),
+      ...(p.practiseNext.length ? [`Next steps: ${p.practiseNext.join(", ")}.`] : []),
+    ] });
+  }
+  // the student reads this report too: never level / tier wording about them (same rule autoContent() follows)
+  const safe = (x: string) => !hasLevelWords(x);
+  return sections.map((x) => ({ ...x, lines: x.lines.filter(safe) })).filter((x) => x.lines.length);
 }

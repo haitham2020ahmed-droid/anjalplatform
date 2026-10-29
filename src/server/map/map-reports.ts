@@ -294,6 +294,10 @@ export interface FamilySubject {
   growth: { from: string; to: string; rit: number; expected: number; percentile: number; descriptor: string; projected: boolean } | null;
   goal: { target: number; term: string } | null;
   areas: { name: string; icon: string; rit: number; descriptor: string | null }[];
+  /** r+1: this school year's Fall RIT and the class's current average RIT (same subject) — for the Ministry-style
+   *  summary table (owner request, Oct 2026). `classAvgRit` is null with no class or no scored classmates. */
+  fallRit: number | null;
+  classAvgRit: number | null;
 }
 export interface FamilyDoc { student: ReportStudent; term: string | null; subjects: FamilySubject[]; practice: { answers: number; accuracy: number | null; minutes: number; mastered: number; days: number }; /** the teacher's own words, edited before sending */ note: string | null }
 
@@ -330,6 +334,10 @@ export async function familyReport(repo: Repo, actor: Actor, studentId: string, 
   const syNow = now.getUTCMonth() + 1 >= 8 ? now.getUTCFullYear() : now.getUTCFullYear() - 1;
   const subjects: FamilySubject[] = [];
   const schoolId = s((await repo.findUnique("Student", { id: studentId }))?.schoolId);
+  // r+1: classmates' ids, for the Ministry-style table's "Class Average RIT" column — same students for both
+  // subjects, fetched once (classMembers never asserts access on its own; the student itself was already
+  // access-checked above by reportStudent, and a class average exposes no individual classmate's score).
+  const classmateIds = student.classId ? (await classMembers(repo, student.classId)).filter((id) => id !== studentId) : [];
   for (const subject of ["READING", "LANGUAGE"] as const) {
     const isSubj = (v: unknown) => (subject === "READING" ? /read/i : /language/i).test(s(v));
     const overall = results.filter((r) => isSubj(r.subject) && !r.goalName).sort((a, b) => time(a.testDate) - time(b.testDate));
@@ -372,12 +380,16 @@ export async function familyReport(repo: Repo, actor: Actor, studentId: string, 
     // the Spring goal of this school year
     const fallNow = [...rows].reverse().find((r) => seasonOf(r.termName, r.testDate) === "FALL" && schoolYear("FALL", yearOf(s(r.termName), r.testDate)) === syNow);
     const goal = fallNow && fallNow.projectedGrowth !== null && fallNow.projectedGrowth !== undefined ? { target: Number(fallNow.rit) + Number(fallNow.projectedGrowth), term: `Spring ${syNow + 1}` } : null;
-    const prof = (await mapProfiles(repo, schoolId, [studentId], subject)).get(studentId);
+    const profiles = await mapProfiles(repo, schoolId, [studentId, ...classmateIds], subject);
+    const prof = profiles.get(studentId);
+    const classRits = classmateIds.map((id) => profiles.get(id)?.overall?.rit).filter((v): v is number => typeof v === "number");
+    const classAvgRit = classRits.length ? Math.round((10 * classRits.reduce((t, v) => t + v, 0)) / classRits.length) / 10 : null;
     subjects.push({
       subject, name: subject === "READING" ? "Reading" : "Language Usage",
       latest: { rit: Number(last.rit), term: lp.term, grade: lp.grade, percentile: pct, percentileFromFile: fromFile, descriptor: descriptor(pct) },
       points, growth, goal,
       areas: (prof?.areas ?? []).filter((a) => a.rit !== null).map((a) => ({ name: a.name, icon: a.icon, rit: a.rit!, descriptor: a.descriptor ? DESCRIPTOR_NAME[a.descriptor] : null })),
+      fallRit: fallNow ? Number(fallNow.rit) : null, classAvgRit,
     });
   }
   // practice on the platform, last 30 days
