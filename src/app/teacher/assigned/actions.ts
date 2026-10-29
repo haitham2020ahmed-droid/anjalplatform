@@ -5,6 +5,8 @@ import { repo, requireActor } from "@/server/auth/next";
 import { ForbiddenError } from "@/server/auth/rbac";
 import { ValidationError } from "@/server/curriculum-admin";
 import { cancelAssignment, cancelMany, isAssignedKind, parseBulkRefs, restoreAssignment, restoreMany, setTabMany } from "@/server/teacher/assigned";
+import { assignedQrForItem } from "@/server/auth/assigned-qr";
+import { appOrigin } from "@/lib/plan-links";
 import { parseWorkTab } from "@/lib/work-tab";
 
 const STAFF = ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"] as const;
@@ -63,6 +65,22 @@ export async function setTabAssignedAction(input: { refs: string[]; tab: string 
     return { ok: r.done.length > 0, done: r.done.map((x) => `${x.kind}:${x.id}`), failed: r.failed.length, message: r.failed[0]?.message };
   } catch (e) {
     if (known(e)) return { ok: false, done: [], failed: refs.length, message: (e as Error).message.slice(0, 200) };
+    throw e;
+  }
+}
+
+/**
+ * 🔗 The QR / link for one assigned item + one of its classes (owner request, Oct 2026 — "ركز خليه لما يضغط علي
+ * QR code or link يظهر له خيار اي فصل ثم يظهر له link or QR code"): the teacher picks the class, THIS returns the
+ * link for exactly that pair; the page itself asks which class first when an item reaches more than one.
+ */
+export async function getAssignedQrLinkAction(kind: string, id: string, classId: string): Promise<{ ok: true; url: string } | { ok: false; error: string }> {
+  const actor = await requireActor({ roles: [...STAFF], permission: "assignments:read" });
+  try {
+    const r = await assignedQrForItem(repo, actor, kind, id, classId, appOrigin());
+    return r ? { ok: true, url: r.url } : { ok: false, error: "This kind of work does not have a link yet." };
+  } catch (e) {
+    if (known(e)) return { ok: false, error: (e as Error).message.slice(0, 200) };
     throw e;
   }
 }

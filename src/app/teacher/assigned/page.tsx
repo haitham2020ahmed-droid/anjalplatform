@@ -10,6 +10,8 @@ import type { TFn } from "@/i18n";
 import { ASSIGNED_KIND_LABEL, ASSIGNED_KINDS, ASSIGNED_STATUS_LABEL, assignedList, assignedStudents, isAssignedKind, type AssignedItem, type AssignedStatus } from "@/server/teacher/assigned";
 import { cancelAssignedAction, restoreAssignedAction } from "./actions";
 import { AssignedBulkBar } from "@/components/teacher/assigned-bulk";
+import { AssignedQrButton } from "@/components/teacher/assigned-qr-button";
+import { isAssignedQrKind } from "@/server/auth/assigned-qr";
 import { WORK_TABS, WORK_TAB_LABEL, isWorkTab } from "@/lib/work-tab";
 import { CATCHUP_DAYS } from "@/lib/my-work-groups";
 import { SOURCE_LABEL, SOURCE_TAG_CLASS } from "@/lib/source-tags";
@@ -25,7 +27,7 @@ const TONE: Record<AssignedStatus, string> = {
   DONE: "bg-emerald-50 text-emerald-800 ring-emerald-200", CANCELLED: "bg-slate-100 text-slate-600 ring-slate-300",
 };
 /** a real table's columns: a leading checkbox cell, then Skill · Class · Due · Progress · Status · Tab · Actions. */
-const COLS = "grid grid-cols-[1.75rem_minmax(0,1.6fr)_minmax(0,10rem)_7rem_3.5rem_6rem_6rem_2.25rem] items-center gap-x-2";
+const COLS = "grid grid-cols-[1.75rem_minmax(0,1.6fr)_minmax(0,10rem)_7rem_3.5rem_6rem_6rem_4.25rem] items-center gap-x-2";
 
 /**
  * 🆕⏰📂 The 3 main groups (Oct 2026 restructure, mirrors My Work's This week / Needs Catch-up / Extra Practice):
@@ -84,17 +86,26 @@ function ItemRow({ x, t, who, href, back, admin }: { x: AssignedItem; t: TFn; wh
   return (
     <div className={`${COLS} px-3 py-1.5 text-sm ${x.cancelled ? "bg-surface-2/60" : ""}`}>
       <input type="checkbox" name="sel" value={`${x.kind}:${x.id}`} data-kind={x.kind} data-unit={x.unit ?? ""} aria-label={`${t("Select")}: ${x.title}`} className="h-4 w-4 shrink-0" />
-      <span className="min-w-0 truncate">
-        <span className={`font-semibold ${x.cancelled ? "text-muted" : "text-ink"}`} data-content lang="en">{x.title}</span>
-        <span className="ms-1.5 rounded-full bg-surface-2 px-1.5 py-0.5 text-xs text-ink-2 ring-1 ring-line">{t(ASSIGNED_KIND_LABEL[x.kind])}{x.detail ? ` · ${x.detail}` : ""}</span>
-        {x.source && <span className={`ms-1 rounded-full px-1.5 py-0.5 text-xs font-semibold ring-1 ${SOURCE_TAG_CLASS[x.source]}`}>{t(SOURCE_LABEL[x.source])}</span>}
+      {/* 🐛 fix (requested, Oct 2026): title + both pills used to share ONE truncating span, so a long title (e.g.
+          a curriculum unit/text-set/skill name) filled the whole width and clipped the type/source pills off
+          entirely — not just visually crowded, literally never rendered past the title's ellipsis. The title now
+          truncates on its own (min-w-0 + flex-1) while the pills are shrink-0, so they always stay visible. */}
+      <span className="flex min-w-0 items-center gap-1.5">
+        <span className={`min-w-0 flex-1 truncate font-semibold ${x.cancelled ? "text-muted" : "text-ink"}`} data-content lang="en">{x.title}</span>
+        <span className="shrink-0 whitespace-nowrap rounded-full bg-surface-2 px-1.5 py-0.5 text-xs text-ink-2 ring-1 ring-line">{t(ASSIGNED_KIND_LABEL[x.kind])}{x.detail ? ` · ${x.detail}` : ""}</span>
+        {x.source && <span className={`shrink-0 whitespace-nowrap rounded-full px-1.5 py-0.5 text-xs font-semibold ring-1 ${SOURCE_TAG_CLASS[x.source]}`}>{t(SOURCE_LABEL[x.source])}</span>}
       </span>
       <span className="min-w-0 truncate text-xs text-muted"><bdi>{who(x)}</bdi>{admin && x.teacher ? <> · <bdi>{x.teacher.name}</bdi></> : null}</span>
       <span className="truncate text-xs text-muted" dir="ltr">{x.startAt ? <>{t("Start")}: {day(x.startAt)} · </> : null}{day(x.dueAt)}</span>
       <span className="text-xs tabular-nums text-ink-2" dir="ltr" title={t("Finished / students")}>{x.done}/{x.recipients}</span>
       <span className={`justify-self-start rounded-full px-2 py-0.5 text-xs font-semibold ring-1 ${TONE[x.status]}`}>{t(ASSIGNED_STATUS_LABEL[x.status])}</span>
       <span>{x.tab ? <span className="rounded-full bg-indigo-50 px-2 py-0.5 text-xs font-semibold text-indigo-700 ring-1 ring-indigo-200">📂 {t(WORK_TAB_LABEL[x.tab])}</span> : null}</span>
-      <RowActions x={x} t={t} href={href} back={back} />
+      {/* 🔗 "open straight on this" link/QR (owner request, Oct 2026) — not offered for a cancelled row, or a kind
+          with no single resolvable solve page yet (MAP Test's one-row-per-subject, Learn/Words). */}
+      <span className="flex items-center justify-self-end gap-1">
+        {!x.cancelled && isAssignedQrKind(x.kind) && <AssignedQrButton kind={x.kind} id={x.id} classIds={x.classIds} classNames={x.classNames} />}
+        <RowActions x={x} t={t} href={href} back={back} />
+      </span>
     </div>
   );
 }
