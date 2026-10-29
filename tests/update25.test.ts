@@ -30,7 +30,10 @@ const approveAll = async (repo: { [k: string]: unknown }, admin: Actor) => { for
 describe("Update 25 · goals, the curriculum plan and the family", () => {
   let repo: SqliteRepo; let teacher: Actor; let admin: Actor; let classId: string; let roster: { id: string; name: string }[];
   const student = async (id: string) => resolveActor(repo, (await repo.findUnique("User", { id: (await repo.findUnique("Student", { id }))!.userId }))!);
-  const CODE = "G4.U1.TS2.ACS";
+  // r91's "Analyze Craft and Structure" mastery gate (leveled-run.ts#analyzeCraftAllMastered) only applies to ACS —
+  // this test is about the plain correct-answers goal (any category), so it uses Respond to Reading instead, never
+  // gated on mastery, exactly like every other category besides ACS.
+  const CODE = "G4.U1.TS2.RTR";
 
   /** Answers the current question; right or wrong. */
   async function answer(st: Actor, aid: string, v: QuizView, right: boolean, at: Date): Promise<QuizView> {

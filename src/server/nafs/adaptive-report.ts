@@ -23,14 +23,14 @@ const ms = (v: unknown): number => { const t = (v instanceof Date ? v : new Date
 
 export const MAX_ADAPTIVE_PRACTICES = 300;
 export const MAX_ADAPTIVE_RUNS = 6000;
-/** Under this accuracy (with at least 2 answers) a standard / skill is "to work on" — the ONE NAFS rule (strengths.ts). */
+/** Under this accuracy (with at least 4 answers) a standard / skill is "to work on" — the ONE NAFS rule (strengths.ts). */
 export const WORK_ON_BELOW = WEAKNESS_BELOW;
 
 export type Reached = 0 | Difficulty;
 export interface TargetRow { code: string; short: string; name: string; students: number; answers: number; pct: number | null; mastered: number; reached: Record<Reached, number>; secPerAnswer: number | null }
 /**
  * r70: score = right ÷ answers; wrong = answers − right; finishedAll = every practice the student started is finished;
- * strengths (≥ 80 %) / workOn (< 60 %) per standard or skill with at least 2 answers (strengths.ts — never "mastered
+ * strengths (≥ 80 %) / workOn (< 60 %) per standard or skill with at least 4 answers (strengths.ts — never "mastered
  * only": a student at 88 % shows the standard as a strength).
  */
 export interface StudentRow { id: string; name: string; classId: string; className: string; practices: number; finished: number; finishedAll: boolean; answers: number; right: number; wrong: number; pct: number | null; mastered: number; tried: number; best: Reached; seconds: number; trend: (number | null)[]; strengths: string[]; workOn: string[]; strengthWhy: NoneWhy | null; weaknessWhy: NoneWhy | null }

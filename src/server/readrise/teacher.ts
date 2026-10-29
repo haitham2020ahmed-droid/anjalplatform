@@ -36,8 +36,9 @@ export async function teacherReadRiseClasses(repo: Repo, actor: Actor): Promise<
     .sort((a, b) => a.grade - b.grade || a.name.localeCompare(b.name, undefined, { numeric: true }));
 }
 
-/** A class the actor teaches (or any class of an admin's school). */
-async function assertClassWrite(repo: Repo, actor: Actor, classId: string): Promise<Row> {
+/** A class the actor teaches (or any class of an admin's school). Exported so multi-class callers can validate
+ * every class BEFORE writing anything (all-or-nothing), instead of discovering a bad class mid-loop. */
+export async function assertClassWrite(repo: Repo, actor: Actor, classId: string): Promise<Row> {
   if (!isStaff(actor)) throw new ForbiddenError("Only teachers and admins can assign ReadRise articles.");
   assertCan(actor, "assignments:create");
   const c = (await accessibleClasses(repo, actor)).find((k) => s(k.id) === classId);

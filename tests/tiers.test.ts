@@ -9,6 +9,7 @@ import { computeTiers, setTierManually, unlockTier } from "../src/server/tiers/t
 import { classTiers, schoolTierSummary, studentTierProgress } from "../src/server/tiers/views";
 import { dataMeetingSnapshot, listDataMeetings, saveDataMeeting } from "../src/server/tiers/data-meeting";
 import { evidenceLevels, withFluency } from "../src/server/curriculum-map/evidence-level";
+import { suggestedSections } from "../src/server/plans/start";
 import { demoDatabase } from "./helpers/db";
 
 const DAY = 86_400_000;
@@ -275,5 +276,28 @@ describe("🧭 support tiers on the Test School", () => {
     const grade = (await classTiers(repo, teacher, classId, NOW)).grade;
     const team = await dataMeetingSnapshot(repo, admin, { gradeLevel: grade }, NOW);
     assert.ok(team.students > ids.length);
+  });
+
+  test("an RTI plan suggestion uses each Tier 2/3 student's real focus skill (the support-tier rules), never a bare mastery dip for a confirmed Tier 1", async () => {
+    const [t1, t2, unscreened] = ids.slice(8, 11);
+    const klass = (await repo.findUnique("Class", { id: classId }))!;
+    const cur = (await repo.findMany("Curriculum", { gradeId: klass.gradeId, isActive: true }))[0];
+    const skills = await repo.findMany("Skill", { curriculumId: cur.id, deletedAt: null });
+    const [skillA, skillB, skillC] = skills;
+    // confirmed Tier 1 by the real rules (locked out from matching the RTI suggestion), even though a mastery score
+    // alone would look like "struggling" — a single dip should not override evidence-based clearance
+    await repo.upsert("StudentTier", { studentId: t1 }, { studentId: t1, schoolId, tier: 1, source: "AUTO", locked: false, reason: "Tier 1: on track.", focusSkillId: null, since: ago(20), reviewAt: null, monitorEveryDays: 0 }, { tier: 1, source: "AUTO", locked: false, reason: "Tier 1: on track.", focusSkillId: null, since: ago(20), reviewAt: null, monitorEveryDays: 0 });
+    await repo.create("StudentSkillMastery", { studentId: t1, skillId: skillA.id, score: 30, attempts: 8, correct: 2, lastPracticedAt: ago(2), band: "BEGINNING" });
+    // confirmed Tier 2, with its own focus skill from the real rules
+    await repo.upsert("StudentTier", { studentId: t2 }, { studentId: t2, schoolId, tier: 2, source: "AUTO", locked: false, reason: "Tier 2: low fluency.", focusSkillId: skillB.id, since: ago(20), reviewAt: null, monitorEveryDays: 14 }, { tier: 2, source: "AUTO", locked: false, reason: "Tier 2: low fluency.", focusSkillId: skillB.id, since: ago(20), reviewAt: null, monitorEveryDays: 14 });
+    // not yet screened at all (no StudentTier row): the platform struggling-skills read is the only signal there is
+    // (an earlier test in this file already ran computeTiers for the whole school, so clear the row it wrote)
+    await repo.deleteMany("StudentTier", { studentId: unscreened });
+    await repo.create("StudentSkillMastery", { studentId: unscreened, skillId: skillC.id, score: 35, attempts: 6, correct: 2, lastPracticedAt: ago(2), band: "BEGINNING" });
+    const sug = await suggestedSections(repo, teacher, { classId, program: "RTI", studentIds: [t1, t2, unscreened], mode: "suggested" });
+    assert.ok(sug.sections.some((k) => k.skillId === skillB.id && (k.studentIds ?? []).includes(t2)), "Tier 2's own focus skill is suggested");
+    assert.ok(sug.sections.some((k) => k.skillId === skillC.id && (k.studentIds ?? []).includes(unscreened)), "not-yet-screened falls back to the platform struggling-skills read");
+    assert.ok(!sug.sections.some((k) => (k.studentIds ?? []).includes(t1)), "a confirmed Tier 1 is never suggested, even with a low mastery score");
+    assert.ok(sug.source?.sources.includes("Tiers"), "the suggestion names the support-tier rules as a source");
   });
 });

@@ -539,7 +539,7 @@ export async function nafsStudentDashboard(repo: Repo, actor: Actor, studentId: 
     return { code: x.code, short: x.short, text: x.text, testPct: pctOf(t), testN: t.n, practicePct: pctOf(p), practiceN: p.n, pct: roundPct(t.sum + p.sum, t.n + p.n), n: t.n + p.n, first, latest, change: trend.length > 1 && first !== null && latest !== null ? latest - first : null, trend };
   });
   const enough = standards.filter((x) => x.n >= MIN_STD_ITEMS && x.pct !== null);
-  // r70: the ONE rule (strengths.ts): strength ≥ 80 %, weakness < 60 %, at least 2 answers
+  // r70: the ONE rule (strengths.ts): strength ≥ 80 %, weakness < 60 %, at least 4 answers
   const { strengths, weaknesses } = strengthsWeaknesses(standards.map((x) => [x.code, { pct: x.pct, n: x.n }] as [string, { pct: number | null; n: number }]));
   // practice history (newest first) with each target's state from the run
   const runOf = new Map(data.runs.map((r) => [s(r.practiceId), r]));

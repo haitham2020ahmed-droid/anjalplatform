@@ -136,24 +136,41 @@ describe("practice: at least 30, at most 50 — never an early stop (the 4-quest
     assert.equal(whole.length, all.length + 1);
   });
 
-  test("the teacher's own count: exactly that many counted answers, then Done", async () => {
+  test("r91: the teacher's own count is an EXTRA bar (that many correct) on top of mastery, not a shortcut past 30", async () => {
     const me = kids[2];
     const { assignmentId } = await assignSkill(repo, teacher, { source: "CURRICULUM", classId, skillId: skill.count, studentIds: [me.studentId!], questionCount: 8 }, tick(0));
     assert.equal(Number((await repo.findUnique("Assignment", { id: assignmentId }))!.questionCount), 8);
     await assert.rejects(assignSkill(repo, teacher, { source: "CURRICULUM", classId, skillId: skill.count, studentIds: [me.studentId!], questionCount: 2 }, tick(0)), /between 5 and 50/);
     let v: PracticeView = await startPractice(repo, me, skill.count, tick(0), seededRandom(5));
     let n = 0; let fb: Feedback | null = null;
-    // one rapid guess on the way: it does not count toward the teacher's 8
+    // one rapid guess on the way: it never counts toward the work, nor toward the teacher's 8 correct
     v = (await submitAnswer(repo, me, { sessionId: v.sessionId, questionId: v.question!.questionId, response: "A" }, tick(1000), seededRandom(1))).view;
-    while (v.question && n < 20) {
+    // answering correctly ("A") clears the teacher's 8-correct bar almost at once, but the 30-answer floor still
+    // applies in full — the work is NOT done at 8, only once both 30 answers AND mastery AND the 8-correct bar hold
+    while (v.question && n < ASSIGNMENT_MAX_QUESTIONS && !fb?.work?.justDone) {
       const r = await submitAnswer(repo, me, { sessionId: v.sessionId, questionId: v.question.questionId, response: "A" }, tick(), seededRandom(n));
       n++; v = r.view; fb = r.feedback;
+      if (n === 8) assert.equal(fb.work?.justDone ?? false, false, "8 correct answers alone never finish the work early");
     }
-    assert.equal(n, 8, "exactly the teacher's count (the guess not counted)");
-    assert.equal(fb!.work?.doneBy, "COUNT");
-    assert.equal(fb!.next.endReason, "COMPLETED");
+    assert.ok(n >= ASSIGNMENT_MIN_QUESTIONS, `the 30-answer floor still holds even with a smaller teacher's count (${n})`);
+    assert.equal(fb!.work?.doneBy, "MASTERED", "done once mastered AND the 8-correct bar is met");
     const row = (await repo.findMany("AssignmentStudent", { assignmentId, studentId: me.studentId }))[0];
-    assert.deepEqual([s(row.status), Number(row.coreAnswered)], ["COMPLETED", 8]);
+    assert.equal(s(row.status), "COMPLETED");
+    assert.ok(Number(row.coreCorrect) >= 8, "at least the teacher's required correct answers");
+  });
+
+  test("r91: still not mastered (or the count not met) at 50 — Done anyway, the student chooses", async () => {
+    const me = kids[4] ?? kids[0];
+    const { assignmentId } = await assignSkill(repo, teacher, { source: "CURRICULUM", classId, skillId: skill.hard, studentIds: [me.studentId!], questionCount: 45 }, tick(0));
+    let v: PracticeView = await startPractice(repo, me, skill.hard, tick(0), seededRandom(9));
+    let last: Feedback | null = null;
+    for (let k = 1; k <= ASSIGNMENT_MAX_QUESTIONS; k++) {
+      const r = await submitAnswer(repo, me, { sessionId: v.sessionId, questionId: v.question!.questionId, response: "B" }, tick(), seededRandom(k));
+      v = r.view; last = r.feedback;
+    }
+    assert.equal(last!.work?.doneBy, "MAX", "50 answers without clearing mastery+count: Done anyway");
+    const row = (await repo.findMany("AssignmentStudent", { assignmentId, studentId: me.studentId }))[0];
+    assert.equal(s(row.status), "COMPLETED");
   });
 
   test("a skill with fewer than 30 questions in its whole pool: all of them, Done, and the teacher is told", async () => {

@@ -8,13 +8,25 @@ import { useT } from "@/i18n/client";
 
 const input = "w-full rounded-lg border border-slate-300 px-3 py-2 focus:border-brand-teal focus:outline-none focus:ring-2 focus:ring-brand-teal/30";
 
-export function AssignmentForm({ classId, units, skills }: { classId: string; units: { id: string; label: string }[]; skills: SkillListRow[] }) {
+export function AssignmentForm({ classId, classes, units, skills }: { classId: string; classes: { id: string; name: string }[]; units: { id: string; label: string }[]; skills: SkillListRow[] }) {
   const [state, action, pending] = useActionState(createAssignmentAction, {});
   const [target, setTarget] = useState<"SKILL" | "UNIT">("SKILL");
   const t = useT();
   return (
     <form action={action} className="mt-6 max-w-2xl space-y-5">
-      <input type="hidden" name="classId" value={classId} />
+      {classes.length > 1 ? (
+        <fieldset data-testid="assign-classes">
+          <legend className="font-medium">Classes <span className="font-normal text-slate-500">(choose one or more)</span></legend>
+          <div className="mt-1 flex flex-wrap gap-2 text-sm">
+            {classes.map((c) => (
+              <label key={c.id} className="cursor-pointer">
+                <input type="checkbox" name="classIds" value={c.id} defaultChecked={c.id === classId} className="peer sr-only" />
+                <span className="rounded-full px-3 py-1.5 font-semibold ring-1 ring-slate-300 peer-checked:bg-brand-teal peer-checked:text-white peer-checked:ring-0">{c.name}</span>
+              </label>
+            ))}
+          </div>
+        </fieldset>
+      ) : <input type="hidden" name="classIds" value={classId} />}
       <label className="block font-medium">Title<input name="title" required maxLength={191} className={input} placeholder="Context clues review" /></label>
       <fieldset>
         <legend className="font-medium">What to practise</legend>

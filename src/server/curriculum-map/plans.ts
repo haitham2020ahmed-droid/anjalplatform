@@ -120,12 +120,19 @@ export async function skillPlanForStaff(repo: Repo, actor: Actor, planId: string
   const allAids = [...new Set(items.flatMap((it) => ids(it.assignmentIds)))];
   const byAid = new Map<string, Row[]>();
   for (let i = 0; i < allAids.length; i += 1000) {
-    for (const r of await repo.findMany("AssignmentStudent", { assignmentId: { in: allAids.slice(i, i + 1000) } }, { select: ["assignmentId", "status"] })) { const k = s(r.assignmentId); const l = byAid.get(k); if (l) l.push(r); else byAid.set(k, [r]); }
+    for (const r of await repo.findMany("AssignmentStudent", { assignmentId: { in: allAids.slice(i, i + 1000) } }, { select: ["assignmentId", "studentId", "status"] })) { const k = s(r.assignmentId); const l = byAid.get(k); if (l) l.push(r); else byAid.set(k, [r]); }
   }
+  // r97 fix: AssignmentStudent.status === "COMPLETED" also covers a student who merely ran out of questions / hit
+  // the 50-cap WITHOUT truly reaching the goal — now a real, more common case for Analyze Craft and Structure's
+  // mastery-gated goal. goalReachedAt lives on the TEACHER_QUIZ PracticeSession (same source teacher/assign.ts
+  // and teacher/support.ts already use for "did this student really reach the goal") — read it from there.
+  const sessions = allAids.length ? await repo.findMany("PracticeSession", { assignmentId: { in: allAids }, mode: "TEACHER_QUIZ" }, { select: ["assignmentId", "studentId", "goalReachedAt"] }) : [];
+  const reached = new Set(sessions.filter((x) => x.goalReachedAt).map((x) => `${s(x.assignmentId)}:${s(x.studentId)}`));
   for (const it of items) {
     const rows = [...new Set(ids(it.assignmentIds))].flatMap((a) => byAid.get(a) ?? []);
     const sp = split(s(it.label));
-    places.push({ code: s(it.code), label: sp.place, unit: sp.unit, set: sp.set, status: null, progress: rows.length ? rows.filter((r) => r.status === "COMPLETED").length / rows.length : 0, href: null, students: { done: rows.filter((r) => r.status === "COMPLETED").length, total: rows.length } });
+    const done = rows.filter((r) => reached.has(`${s(r.assignmentId)}:${s(r.studentId)}`)).length;
+    places.push({ code: s(it.code), label: sp.place, unit: sp.unit, set: sp.set, status: null, progress: rows.length ? done / rows.length : 0, href: null, students: { done, total: rows.length } });
   }
   return { id: s(plan.id), title: s(plan.title), className: s(klass.name), grade: Number(plan.gradeLevel), note: plan.note ? s(plan.note) : null, createdAt: s(plan.createdAt instanceof Date ? plan.createdAt.toISOString() : plan.createdAt).slice(0, 10), places };
 }
@@ -225,8 +232,12 @@ export async function skillPlanForStudent(repo: Repo, actor: Actor, planId: stri
   if (hidden.has(`plan:${s(plan.id)}`)) throw new ForbiddenError("Your teacher cancelled this plan.");
   const byId = new Map(mine.map((m) => [s(m.assignmentId), m]));
   items = items.filter((it) => !placeCancelled(ids(it.assignmentIds), ids(it.assignmentIds).filter((a) => byId.has(a)), hidden));
-  const sessions = await repo.findMany("PracticeSession", { studentId: actor.studentId, mode: "TEACHER_QUIZ" }, { select: ["assignmentId", "correctCount"] });
+  const sessions = await repo.findMany("PracticeSession", { studentId: actor.studentId, mode: "TEACHER_QUIZ" }, { select: ["assignmentId", "correctCount", "goalReachedAt"] });
   const correctOf = new Map(sessions.map((x) => [s(x.assignmentId), Number(x.correctCount ?? 0)]));
+  // r97 fix: status "COMPLETED" also covers running out of questions / hitting the 50-cap WITHOUT truly reaching
+  // the goal (now a real case for Analyze Craft and Structure's mastery-gated goal) — floor the shown correct
+  // count to "full" only once the goal was truly reached, not merely once the assignment ended.
+  const reachedOf = new Set(sessions.filter((x) => x.goalReachedAt).map((x) => s(x.assignmentId)));
   const skillKind = isSkillPlanKind(s(plan.kind));
   const skills = skillKind ? new Map<string, string>() : await placeSkills(repo, s(plan.schoolId));
   const ready = curriculum ? await partsWithQuestions(repo, s(plan.schoolId), Number(plan.gradeLevel)) : null;
@@ -245,7 +256,7 @@ export async function skillPlanForStudent(repo: Repo, actor: Actor, planId: stri
       itemId: s(it.id), code: s(it.code), label: sp.place, unit: sp.unit, set: sp.set,
       status: row ? (s(row.status) as PlanPlace["status"]) : "NOT_STARTED", progress: Number(row?.progress ?? 0),
       href: locked || empty ? null : aid ? (skillOfAid.get(aid) ? `/practice/${skillOfAid.get(aid)}` : `/quiz/${aid}`) : `/student/plans/${s(plan.id)}/open/${s(it.id)}`,
-      locked, empty, skills: skills.get(s(it.code)) ?? null, correct: !aid ? 0 : row?.status === "COMPLETED" ? Math.max(correctOf.get(aid) ?? 0, Number(plan.targetCorrect) || DEFAULT_TARGET_CORRECT) : Math.min(correctOf.get(aid) ?? 0, (Number(plan.targetCorrect) || DEFAULT_TARGET_CORRECT) - 1),
+      locked, empty, skills: skills.get(s(it.code)) ?? null, correct: !aid ? 0 : reachedOf.has(aid) ? Math.max(correctOf.get(aid) ?? 0, Number(plan.targetCorrect) || DEFAULT_TARGET_CORRECT) : Math.min(correctOf.get(aid) ?? 0, (Number(plan.targetCorrect) || DEFAULT_TARGET_CORRECT) - 1),
     });
   }
   if (!places.length) throw new ForbiddenError("This plan is not assigned to you.");

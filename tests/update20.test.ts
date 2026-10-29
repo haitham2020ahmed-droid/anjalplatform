@@ -161,7 +161,10 @@ describe("Update 20 · MAP practice test", () => {
     const done = await repo.findMany("MapSimSession", { windowId, subject: "READING", status: "DONE" });
     for (const x of done) await repo.create("MapResult", { studentId: x.studentId, testDate: realDay, subject: "Reading", goalName: null, rit: Number(x.resultRit) + 3, termName: "Winter 2027", importedAt: realDay });
     const a = await accuracy(repo, admin, windowId, "READING");
-    assert.equal(a.pairs, 3);
+    // r97: accuracy() now excludes sessions with too many rapid guesses (same UNRELIABLE_SHARE bar NAFS compare.ts
+    // already applies) — the weak reader's session from the "rapid guessing" test above crosses that bar, so
+    // only 2 of the 3 finished sessions count here (bias/within5 unchanged — the excluded one didn't move them).
+    assert.equal(a.pairs, 2);
     assert.equal(a.bias, -3);
     assert.equal(a.within5, 100);
     const r = await recalibrateFromReal(repo, admin, windowId, realDay);

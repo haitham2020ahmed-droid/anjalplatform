@@ -1,0 +1,82 @@
+السلام عليكم أستاذ هيثم،
+
+ده ملف التحديث النهائي اللي هينزل على المنصة من التيرمينال - فيه كل حاجة مجمعة في زيب واحد (التحديثات + الإصلاحات + حل RTI الكامل)، مش محتاج تطبق أكتر من ملف.
+
+===========================================
+الخطوات (كلها مجمعة في بلوك واحد):
+===========================================
+
+١) افتح Terminal على الماك بتاعك.
+
+٢) روح لمجلد المشروع:
+cd /Users/haithamahmed/Downloads/project/alanjal-adaptive-ela
+
+٣) تأكد إنك مجهز وعندك آخر نسخة:
+git status
+git pull origin main
+
+٤) فك ملفات الزيب ده فوق مجلد المشروع (استبدل أي ملف موجود بنفس الاسم).
+
+٥) تأكد إن كل حاجة اتحطت صح:
+git status
+
+المفروض تشوف الملفات دي "modified":
+- src/components/skill-picker/assign-steps.tsx
+- src/components/teacher/assigned-qr-button.tsx
+- src/server/plans/start.ts
+- src/server/nafs/strengths.ts
+- src/server/nafs/adaptive-report.ts
+- src/server/nafs/dashboard.ts
+- src/server/teacher/skill-assign.ts
+- src/server/map/sim.ts
+- src/server/curriculum-map/leveled-run.ts
+- src/server/curriculum-map/plans.ts
+- src/server/readrise/teacher.ts
+- src/server/tiers/struggling.ts
+- src/server/reports/monthly-report.ts
+- src/server/practice/session.ts
+- src/server/practice/completion.ts
+- src/app/teacher/actions.ts
+- src/app/teacher/skill-assign/actions.ts
+- src/app/teacher/skill-assign/page.tsx
+- src/app/teacher/readrise/actions.ts
+- src/app/teacher/readrise/page.tsx
+- src/app/teacher/assignments/new/page.tsx
+- src/app/teacher/assignments/new/assignment-form.tsx
+- src/i18n/en.ts
+- src/i18n/ar.ts
+- tests/r70-reports-a.test.ts
+- tests/update20.test.ts
+- tests/update25.test.ts
+- tests/practice-30-pool.test.ts
+- tests/tiers.test.ts (ملف جديد)
+
+٦) اعمل commit:
+git add -A
+git commit -m "feat: real-mastery assign gate + multi-class assign + QR copy-as-image + seven-expert audit fixes + RTI wired to the real support-tier rules"
+
+٧) ارفع التحديث على GitHub:
+git push origin main
+
+٨) روح على Render، افتح السيرفس "anjalplatform"، واضغط Manual Deploy → Deploy latest commit.
+
+٩) استنى لغاية ما يخلص الـ deploy، وبعدين جرب المنصة.
+
+===========================================
+اللي فيه التحديث ده (ملخص سريع — الملف التفصيلي بالعربي اتبعت ليك في ملف Word منفصل):
+===========================================
+
+١) الهدف المطلوب (عدد الإجابات) بقى شرط إضافي فوق الإتقان الحقيقي، مش بديل عنه (فئة تحليل البناء والأسلوب بس).
+٢) تعيين مهارة لأكتر من فصل في وقت واحد (ReadRise، Skill-Assign التلقائي، تعيين واجب جديد).
+٣) زرار "نسخ صورة" لكود QR في شاشة المُعيّن.
+٤) كل إصلاحات فحص السبع خبراء (أداء، رسائل، تقارير، معايير المتعثر والقوة/الضعف، فرق التوقيت، التخمين السريع، وإصلاح خطأ "استلاف الأسئلة" الحرج).
+٥) نظام RTI بقى بيستخدم نفس مستوى الدعم الحقيقي (Tier 1/2/3) اللي المنصة بتحسبه يوميًا، بدل معيار منفصل وأضعف.
+
+===========================================
+الفحص اللي تم:
+===========================================
+- اختبارات جديدة مخصصة لكل تحديث.
+- كل الاختبارات القديمة اتشغّلت تاني بنفس النتائج - مافيش حاجة اتبوّظت.
+- فحص TypeScript على كل الملفات المعدّلة - مافيش أخطاء جديدة.
+
+لو في أي استفسار أنا موجود.

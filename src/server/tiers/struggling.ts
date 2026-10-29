@@ -1,12 +1,19 @@
 /**
- * 🧩 A student's struggling skills (Support plan): the skills practised enough to judge (5+ answers) whose mastery
+ * 🧩 A student's struggling skills (Support plan): the skills practised enough to judge (8+ answers) whose mastery
  * score is still under 60, weakest first — at most 3 per student. One bounded read for all the students.
+ *
+ * r97 note: this picks the SKILLS an RTI plan targets; it is a separate, much simpler rule than the full Tier
+ * engine (tiers/rules.ts — dwell time, two-source corroboration), which decides whether the STUDENT needs Tier
+ * 2/3 support at all. plans/start.ts's "RTI" program currently calls only this function, with no tier-engine
+ * gate — a single bad short run can still suggest a plan the full engine would not yet confirm. Raised the
+ * minimum answers (5→8) as a safer interim bar; routing this through decideTier's evidence is a bigger, separate
+ * change (it needs MAP/fluency/check data this function doesn't have) left for a dedicated follow-up.
  */
 import type { Repo } from "../seeding/repo";
 import { isHiddenSkill } from "../skills/master";
 
 const s = (v: unknown) => String(v ?? "");
-export const STRUGGLE_MIN_ANSWERS = 5;
+export const STRUGGLE_MIN_ANSWERS = 8;
 export const STRUGGLE_SCORE = 60;
 
 export async function strugglingSkills(repo: Repo, studentIds: string[]): Promise<Map<string, { id: string; name: string; score: number }[]>> {

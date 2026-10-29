@@ -114,7 +114,7 @@ export default async function ReadRiseTeacher({ searchParams }: { searchParams: 
       {skills && <SkillsTab data={skills} />}
       {polls && <PollsTab rows={polls} />}
       {writing && <WritingTab q={writing} classId={klass.id} canWrite={canWrite} />}
-      {assigned && <AssignTab classId={klass.id} canWrite={canWrite && can(actor, "assignments:create")} assigned={assigned} library={library} />}
+      {assigned && <AssignTab classId={klass.id} canWrite={canWrite && can(actor, "assignments:create")} assigned={assigned} library={library} classes={classes.filter((c) => c.own)} />}
     </AppShell>
   );
 }
@@ -309,7 +309,7 @@ function WritingTab({ q, classId, canWrite }: { q: Awaited<ReturnType<typeof wri
   );
 }
 
-function AssignTab({ classId, canWrite, assigned, library }: { classId: string; canWrite: boolean; assigned: Awaited<ReturnType<typeof classArticles>>; library: Awaited<ReturnType<typeof assignableArticles>> }) {
+function AssignTab({ classId, canWrite, assigned, library, classes }: { classId: string; canWrite: boolean; assigned: Awaited<ReturnType<typeof classArticles>>; library: Awaited<ReturnType<typeof assignableArticles>>; classes: { id: string; name: string }[] }) {
   const have = new Set(assigned.map((a) => a.articleId));
   const topics = [...new Set(library.map((a) => a.topic))].sort();
   return (
@@ -332,10 +332,22 @@ function AssignTab({ classId, canWrite, assigned, library }: { classId: string; 
         )}
       </Section>
       {canWrite ? (
-        <Section title="Assign articles" icon="➕" hint="Tick one or more published articles. Assigning again changes the due date.">
+        <Section title="Assign articles" icon="➕" hint="Tick one or more published articles — and, if you teach more than one class, one or more classes at once. Assigning again changes the due date.">
           {library.length === 0 ? <p className="text-sm text-slate-600">No published articles yet.</p> : (
             <form action={assignReadRiseAction} className="space-y-3">
-              <input type="hidden" name="classId" value={classId} />
+              {classes.length > 1 ? (
+                <fieldset data-testid="assign-classes">
+                  <legend className="text-sm font-semibold text-slate-700">Classes <span className="font-normal text-slate-500">(choose one or more)</span></legend>
+                  <div className="mt-1 flex flex-wrap gap-2 text-sm">
+                    {classes.map((c) => (
+                      <label key={c.id} className="cursor-pointer">
+                        <input type="checkbox" name="classIds" value={c.id} defaultChecked={c.id === classId} className="peer sr-only" />
+                        <span className="rounded-full px-3 py-1.5 font-semibold ring-1 ring-slate-300 peer-checked:bg-brand-teal peer-checked:text-white peer-checked:ring-0">{c.name}</span>
+                      </label>
+                    ))}
+                  </div>
+                </fieldset>
+              ) : <input type="hidden" name="classIds" value={classId} />}
               <div className="max-h-96 space-y-3 overflow-y-auto rounded-xl bg-slate-50 p-3 ring-1 ring-slate-200">
                 {topics.map((t) => (
                   <fieldset key={t}><legend className="text-xs font-bold uppercase tracking-wide text-slate-500">{t}</legend>
@@ -347,7 +359,7 @@ function AssignTab({ classId, canWrite, assigned, library }: { classId: string; 
               </div>
               <div className="flex flex-wrap items-end gap-3">
                 <AssignDates field={field} />
-                <button className={btn}>Assign to the class</button>
+                <button className={btn}>{classes.length > 1 ? "Assign" : "Assign to the class"}</button>
               </div>
             </form>
           )}

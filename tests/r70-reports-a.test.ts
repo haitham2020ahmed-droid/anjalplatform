@@ -43,12 +43,12 @@ type Rows = { id: string; columns: { key: string }[]; rows: Record<string, unkno
 const table = (doc: { sections: unknown[] }, id: string) => (doc.sections as Rows[]).find((x) => x.id === id)!;
 
 describe("3. the ONE strength / weakness rule (strengths.ts)", () => {
-  test("cut-offs: strength ≥ 80 with ≥ 2 answers, weakness < 60 with ≥ 2 answers; everyone uses them", () => {
-    assert.deepEqual([STRENGTH_FROM, WEAKNESS_BELOW, MIN_ANSWERS], [80, 60, 2]);
+  test("cut-offs: strength ≥ 80 with ≥ 4 answers, weakness < 60 with ≥ 4 answers; everyone uses them", () => {
+    assert.deepEqual([STRENGTH_FROM, WEAKNESS_BELOW, MIN_ANSWERS], [80, 60, 4]); // r97: raised 2→4, too unreliable at n=2
     assert.equal(STRONG_FROM, STRENGTH_FROM, "suggested plan"); assert.equal(WEAK_BELOW, WEAKNESS_BELOW, "dashboard");
-    const sw = strengthsWeaknesses({ A: { pct: 80, n: 2 }, B: { pct: 79, n: 9 }, C: { pct: 60, n: 5 }, D: { pct: 59, n: 2 }, E: { pct: 100, n: 1 }, F: { pct: 0, n: 1 } });
-    assert.deepEqual([sw.strengths, sw.weaknesses, sw.top, sw.weak], [["A"], ["D"], "A", "D"], "80 is a strength, 79 is not; 59 is weak, 60 is not; one answer never counts");
-    assert.deepEqual(strengthsOf({ A: { pct: 80, n: 2 }, D: { pct: 59, n: 2 } }), { strong: ["A"], weak: ["D"] }, "the overall tab's helper delegates");
+    const sw = strengthsWeaknesses({ A: { pct: 80, n: 4 }, B: { pct: 79, n: 9 }, C: { pct: 60, n: 5 }, D: { pct: 59, n: 4 }, E: { pct: 100, n: 1 }, F: { pct: 0, n: 1 } });
+    assert.deepEqual([sw.strengths, sw.weaknesses, sw.top, sw.weak], [["A"], ["D"], "A", "D"], "80 is a strength, 79 is not; 59 is weak, 60 is not; too few answers never counts");
+    assert.deepEqual(strengthsOf({ A: { pct: 80, n: 4 }, D: { pct: 59, n: 4 } }), { strong: ["A"], weak: ["D"] }, "the overall tab's helper delegates");
   });
   test("the 88 % student: a strength is shown (it was '—' before)", () => {
     const sw = strengthsWeaknesses({ "MOE.S01": { pct: roundPct(7, 8), n: 8 } });
@@ -56,7 +56,7 @@ describe("3. the ONE strength / weakness rule (strengths.ts)", () => {
     assert.deepEqual([sw.top, sw.topWhy, sw.weak, sw.weakWhy], ["MOE.S01", null, null, "NONE_LOW"]);
   });
   test("'—' only with a reason", () => {
-    assert.deepEqual([strengthsWeaknesses({}).topWhy, strengthsWeaknesses({ A: { pct: 100, n: 1 } }).topWhy, strengthsWeaknesses({ A: { pct: 70, n: 3 } }).topWhy, strengthsWeaknesses({ A: { pct: 70, n: 3 } }).weakWhy], ["NO_ANSWERS", "TOO_FEW", "NONE_HIGH", "NONE_LOW"]);
+    assert.deepEqual([strengthsWeaknesses({}).topWhy, strengthsWeaknesses({ A: { pct: 100, n: 1 } }).topWhy, strengthsWeaknesses({ A: { pct: 70, n: 5 } }).topWhy, strengthsWeaknesses({ A: { pct: 70, n: 5 } }).weakWhy], ["NO_ANSWERS", "TOO_FEW", "NONE_HIGH", "NONE_LOW"]);
     for (const x of Object.values(WHY_TEXT)) assert.ok((UI_STRINGS as readonly string[]).includes(x) && (ar as Record<string, string>)[x], x);
   });
   test("score / right / wrong, the average (each student once), the class line", () => {
@@ -156,7 +156,7 @@ describe("3. NAFS reports with known answers", () => {
     const r = buildAdaptiveReport(P, [run("p1", "a", { "MOE.S01": [8, 7] }, true), run("p2", "a", { "MOE.S04": [4, 1] }, true), run("p1", "b", { "MOE.S01": [2, 1] }, false)], [{ id: "k", name: "6A", students: [{ id: "a", name: "Ali" }, { id: "b", name: "Badr" }, { id: "c", name: "Coby" }] }], null);
     const a = r.students.find((x) => x.id === "a")!, b = r.students.find((x) => x.id === "b")!;
     assert.deepEqual([a.pct, a.answers, a.right, a.wrong, a.finishedAll, a.mastered, a.strengths, a.workOn], [67, 12, 8, 4, true, 0, ["MOE.S01"], ["MOE.S04"]], "S01 7/8 = 88 % → strength although not mastered");
-    assert.deepEqual([b.pct, b.right, b.wrong, b.finishedAll, b.strengths, b.strengthWhy, b.workOn], [50, 1, 1, false, [], "NONE_HIGH", ["MOE.S01"]]);
+    assert.deepEqual([b.pct, b.right, b.wrong, b.finishedAll, b.strengths, b.strengthWhy, b.workOn], [50, 1, 1, false, [], "TOO_FEW", []], "r97: S01 has only 2 answers, below the new 4-answer floor (MIN_ANSWERS) — too few to call it a weakness");
     const c = r.classes[0];
     assert.deepEqual([c.average, c.finished, c.students, c.practised, c.right, c.wrong, c.pct, c.strongest, c.weakest], [59, 1, 3, 2, 9, 5, 64, "MOE.S01", "MOE.S04"], "(67 + 50) / 2 = 58.5 → 59; pooled S01 8/10 = 80, S04 1/4 = 25; 9/14 = 64");
     assert.deepEqual([r.cls.average, r.cls.finished, r.cls.of, r.summary.right, r.summary.wrong, r.summary.answers], [59, 1, 3, 9, 5, 14]);
@@ -171,7 +171,7 @@ describe("3. NAFS reports with known answers", () => {
     const r = practiceReportOf({ id: "p", title: "P", className: "6A", maxQuestions: 10, minutes: null, dueAt: null }, ["MOE.S01", "MOE.S04"], [{ id: "x", name: "X" }, { id: "y", name: "Y" }, { id: "z", name: "Z" }], runs);
     const [x, y, z] = r.students;
     assert.deepEqual([x.pct, x.right, x.wrong, x.finished, x.strength, x.weakness], [63, 5, 3, true, "MOE.S01", "MOE.S04"], "5/8 = 62.5 → 63");
-    assert.deepEqual([y.pct, y.right, y.wrong, y.finished, y.strength, y.strengthWhy, y.weakness], [50, 1, 1, false, null, "NONE_HIGH", "MOE.S01"]);
+    assert.deepEqual([y.pct, y.right, y.wrong, y.finished, y.strength, y.strengthWhy, y.weakness], [50, 1, 1, false, null, "TOO_FEW", null], "r97: S01 has only 2 answers, below the new 4-answer floor (MIN_ANSWERS) — too few to call it a weakness");
     assert.deepEqual([z.pct, z.right, z.wrong, z.finished, z.strengthWhy, z.status], [null, 0, 0, false, "NO_ANSWERS", "NOT_STARTED"]);
     assert.deepEqual([r.cls.average, r.cls.finished, r.cls.of, r.cls.strongest, r.cls.weakest], [57, 1, 3, "MOE.S01", "MOE.S04"], "(63 + 50) / 2 = 56.5 → 57; S01 5/6 = 83, S04 1/4 = 25");
   });

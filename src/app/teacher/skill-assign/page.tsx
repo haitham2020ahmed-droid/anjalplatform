@@ -64,10 +64,25 @@ export default async function SkillAssignPage({ searchParams }: { searchParams: 
       )}
       {!k ? <p className="text-slate-600">You have no class yet.</p> : dup ? null : !total ? <p className="rounded-2xl bg-white p-6 text-slate-600 ring-1 ring-slate-200">This skill has no questions yet.</p> : (
         <form action={assignSkillAction} className="rounded-2xl bg-white p-5 ring-1 ring-slate-200">
-          <input type="hidden" name="skillId" value={pool.skill.id} /><input type="hidden" name="classId" value={String(k.id)} /><input type="hidden" name="mode" value={manual ? "MANUAL" : "AUTOMATIC"} />
-          <nav aria-label="Classes" className="mb-4 flex flex-wrap gap-2">
+          <input type="hidden" name="skillId" value={pool.skill.id} />{(manual || classes.length <= 1) && <input type="hidden" name="classId" value={String(k.id)} />}<input type="hidden" name="mode" value={manual ? "MANUAL" : "AUTOMATIC"} />
+          <nav aria-label="Classes (preview and, in Manual mode, the class assigned)" className="mb-4 flex flex-wrap gap-2">
             {classes.map((c) => <Link key={String(c.id)} href={`/teacher/skill-assign?${new URLSearchParams({ skillId: pool.skill.id, classId: String(c.id), ...(manual ? { manual: "1" } : {}) })}`} aria-current={c.id === k.id ? "page" : undefined} className={`rounded-full px-4 py-1.5 text-sm font-semibold ${c.id === k.id ? "bg-brand-navy text-white" : "bg-white ring-1 ring-slate-200"}`}>{String(c.name)} · Grade {levelOfClass(c)}</Link>)}
           </nav>
+          {/* r91: Automatic mode may assign several classes at once (owner: "I do this step twice, once per
+              class"); Manual keeps one class (the level board above places specific students of this one class). */}
+          {!manual && classes.length > 1 && (
+            <fieldset className="mb-4" data-testid="assign-classes">
+              <legend className="text-sm font-semibold text-slate-700">Also assign to <span className="font-normal text-slate-500">(choose one or more)</span></legend>
+              <div className="mt-1 flex flex-wrap gap-2 text-sm">
+                {classes.map((c) => (
+                  <label key={String(c.id)} className="cursor-pointer">
+                    <input type="checkbox" name="classIds" value={String(c.id)} defaultChecked={c.id === k.id} className="peer sr-only" />
+                    <span className="rounded-full px-3 py-1.5 font-semibold ring-1 ring-slate-300 peer-checked:bg-brand-teal peer-checked:text-white peer-checked:ring-0">{String(c.name)}</span>
+                  </label>
+                ))}
+              </div>
+            </fieldset>
+          )}
           <div className="grid gap-2 md:grid-cols-2">
             <Link href={link({ manual: "" })} aria-current={!manual ? "page" : undefined} className={`rounded-2xl p-4 ring-2 ${!manual ? "bg-emerald-50 ring-emerald-400" : "bg-white ring-slate-200"}`}><b>🤖 Automatic (recommended)</b><br /><span className="text-sm text-slate-600">Each student starts at their own level and moves up or down by their answers.</span></Link>
             <Link href={link({ manual: "1" })} aria-current={manual ? "page" : undefined} className={`rounded-2xl p-4 ring-2 ${manual ? "bg-sky-50 ring-sky-400" : "bg-white ring-slate-200"}`}><b>✋ Manual</b><br /><span className="text-sm text-slate-600">You choose who is Approaching, Meeting and Exceeding; each gets only that level.</span></Link>

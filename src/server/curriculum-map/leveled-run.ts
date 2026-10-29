@@ -1,6 +1,7 @@
 /** Runs the level progression (leveled.ts) for an adaptive question set, from the database. */
-import { categoryOfQuestions } from "./student-level";
+import { categoryOfQuestions, type Category } from "./student-level";
 import type { Repo, Row } from "../seeding/repo";
+import { TtlCache } from "../lib/ttl-cache";
 import { decideLevel, LADDER, pickNext, type Decision, type Level, type Rung } from "./leveled";
 import { lexileBands, levelForLexile } from "./lexile";
 import { evidenceLevels } from "./evidence-level";
@@ -12,6 +13,12 @@ import { isHiddenSkill } from "../skills/master";
 
 const s = (v: unknown) => String(v ?? "");
 const time = (v: unknown) => new Date(v instanceof Date ? v.toISOString() : s(v)).getTime();
+// r97 fix: a Set's question pool is immutable once created, so its CV/ACS/RTR category never changes for the life
+// of the set — cache it per setId instead of re-querying QuestionMapLink+CurriculumMapNode on every answer of
+// every goal-based Curriculum Map session (adaptiveNext runs this per answer; 1h TTL, bounded to 2000 sets).
+const categoryCache = new TtlCache<Category | null>(60 * 60 * 1000, 2000);
+const cachedCategoryOf = (repo: Repo, setId: string, order: string[]): Promise<Category | null> =>
+  categoryCache.getOrLoad(setId, () => categoryOfQuestions(repo, order));
 /** A question's level: its Curriculum Map level, else from its difficulty (1–3 Below, 4 On, 5–7 Above). */
 export const fromDifficulty = (d: number): Level => (d <= 3 ? "BELOW" : d >= 5 ? "ABOVE" : "ON");
 
@@ -119,13 +126,34 @@ const STRUGGLE_RUN = 5;
 /** Answers without reaching the goal: the teacher is told the student is stuck (r67: the 50-answer end of a set). */
 export const STUCK_AFTER = ASSIGNMENT_MAX_QUESTIONS;
 
+/**
+ * r91 (owner): whether every distinct, real skill this question pool covers is already mastered for this student —
+ * the extra bar "Analyze Craft and Structure" category assigns must clear, on top of the plain correct-answers
+ * goal. Every question already carries a `skillId` (required, non-nullable); a grade's hidden "Unclassified"
+ * bucket (`isHiddenSkill`) is left out — it is a catch-all, not a real, gradeable skill, so it is never required.
+ * Mastery itself is not computed here: every answer in this set already upserts the SAME StudentSkillMastery rows
+ * practice does (session.ts#submitQuizAnswerUnlocked, "mastery: the same engine as practice") — this only reads them.
+ */
+async function analyzeCraftAllMastered(repo: Repo, order: string[], studentId: string): Promise<boolean> {
+  if (!order.length) return true;
+  const qs = await repo.findMany("Question", { id: { in: order } }, { select: ["id", "skillId"] });
+  const skillIds = [...new Set(qs.map((q) => s(q.skillId)).filter(Boolean))];
+  if (!skillIds.length) return true;
+  const skills = await repo.findMany("Skill", { id: { in: skillIds } }, { select: ["id", "code"] });
+  const real = skills.filter((k) => !isHiddenSkill(k.code)).map((k) => s(k.id));
+  if (!real.length) return true;
+  const rows = await repo.findMany("StudentSkillMastery", { studentId, skillId: { in: real } }, { select: ["skillId", "isMastered"] });
+  const mastered = new Set(rows.filter((r) => r.isMastered).map((r) => s(r.skillId)));
+  return real.every((id) => mastered.has(id));
+}
+
 /** Next question of an adaptive set for this session (null = finished). */
 export async function adaptiveNext(repo: Repo, set: Row, order: string[], sessionId: string, studentId: string): Promise<AdaptiveState> {
   const attempts = (await repo.findMany("QuestionAttempt", { sessionId }, { select: ["questionId", "isCorrect", "rapidGuess", "createdAt"] })).sort((a, b) => time(a.createdAt) - time(b.createdAt));
   const pool = await poolOf(repo, order);
   const levelOf = new Map(pool.map((q) => [q.id, q.level]));
   // the start is fixed by the first question the student answered (later level changes never rewrite the path)
-  const start: Rung = attempts.length && levelOf.has(s(attempts[0].questionId)) ? levelOf.get(s(attempts[0].questionId))! : (await startLevel(repo, studentId, "ON", String(set.type) === "PLACEMENT" ? null : await categoryOfQuestions(repo, order))).level;
+  const start: Rung = attempts.length && levelOf.has(s(attempts[0].questionId)) ? levelOf.get(s(attempts[0].questionId))! : (await startLevel(repo, studentId, "ON", String(set.type) === "PLACEMENT" ? null : await cachedCategoryOf(repo, s(set.id), order))).level;
   const target = Number(set.targetCorrect) > 0 ? Number(set.targetCorrect) : null;
   const total = target ? target : Math.min(Number(set.maxQuestions) || order.length, order.length);
   const rungs = LADDER.filter((r) => pool.some((q) => q.level === r) || r === "BELOW" || r === "ON" || r === "ABOVE");
@@ -148,7 +176,15 @@ export async function adaptiveNext(repo: Repo, set: Row, order: string[], sessio
     let wrongRun = 0;
     for (let i = careful.length - 1; i >= 0 && !careful[i].isCorrect; i--) wrongRun++;
     const early = correct < target && (streak >= STRONG_STREAK || moved.reason === "MASTERED_ABOVE");
-    goal = { target, correct, reached: (correct >= target || early) && counted >= minimum, early: early && counted >= minimum, streak, struggling: wrongRun >= STRUGGLE_RUN, stuck: counted >= STUCK_AFTER && correct < target };
+    // r91 (owner): "Analyze Craft and Structure" category assigns ONLY (never Concept Vocabulary, Respond to
+    // Reading or Review — categoryOfQuestions tells them apart by the Curriculum Map node codes the pool's own
+    // questions are linked to) must ALSO have every distinct skill the lesson's question pool covers reach real
+    // mastery before the goal counts as reached — not just the correct-answers count. The existing 30-min/50-max
+    // window (`minimum`/`decision`'s LIMIT cap above) already counts across the WHOLE pool (every skill combined,
+    // since `order` already spans them all), so no separate per-skill or shared counter is needed — only this one
+    // extra condition on `reached`, gated to the one category it was agreed to apply to.
+    const allMastered = (await cachedCategoryOf(repo, s(set.id), order)) === "ACS" ? await analyzeCraftAllMastered(repo, order, studentId) : true;
+    goal = { target, correct, reached: (correct >= target || early) && counted >= minimum && allMastered, early: early && counted >= minimum && allMastered, streak, struggling: wrongRun >= STRUGGLE_RUN, stuck: counted >= STUCK_AFTER && (correct < target || !allMastered) };
   }
   const cap = Number(set.maxQuestions) || order.length;
   const decision = target

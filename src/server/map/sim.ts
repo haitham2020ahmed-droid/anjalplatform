@@ -33,7 +33,7 @@ import { assertClassRead, readableClasses } from "../teacher/coordinators";
 import { assertClassAccess } from "../teacher/assignments";
 import { bandSettings, groupOf, groupPools, GROUPS, mapProfiles, ritBand, autoItems, type GroupKey, type MapProfile, type PoolQ, type Subject, type AreaStatus, type Descriptor } from "./map-plan";
 import { bandOf, ensureNationalNorms, nationalNorm, percentileFromNorm, type Season } from "./rit";
-import { isRapidGuess, itemTimeStats } from "../practice/guessing";
+import { isRapidGuess, itemTimeStats, UNRELIABLE_SHARE } from "../practice/guessing";
 import { effectiveEnd, liveKey, liveStamp, studentExtra } from "../timing/live-time";
 
 const s = (v: unknown) => String(v ?? "");
@@ -571,6 +571,10 @@ export async function accuracy(repo: Repo, actor: Actor, windowId: string, subje
     const mine = new Set(cls.length ? (await repo.findMany("ClassMembership", { classId: { in: cls }, leftAt: null }, { select: ["studentId"] })).map((m) => s(m.studentId)) : []);
     sessions = sessions.filter((x) => mine.has(s(x.studentId)));
   }
+  // r97 fix: a practice test with too many rapid guesses (same UNRELIABLE_SHARE bar NAFS compare.ts already
+  // applies) is excluded here too — its resultRit is not a trustworthy prediction, so it should not count
+  // toward how accurate the predictions "really" are.
+  sessions = sessions.filter((x) => !(Number(x.answered) > 0 && Number(x.rapid) / Number(x.answered) > UNRELIABLE_SHARE));
   const ids = sessions.map((x) => s(x.studentId));
   const real = ids.length ? (await repo.findMany("MapResult", { studentId: { in: ids }, goalName: null })).filter((r) => (subject === "READING" ? /read/i : /language/i).test(s(r.subject)) && time(r.testDate) >= time(w.opensAt) - 7 * DAY && time(r.testDate) <= time(w.closesAt) + 75 * DAY) : [];
   const names = await studentNames(repo, ids);

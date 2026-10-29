@@ -26,23 +26,29 @@ export async function resolveAlertAction(f: FormData) {
 
 export async function createAssignmentAction(_: { error?: string }, f: FormData): Promise<{ error?: string }> {
   const actor = await requireActor({ roles: ["TEACHER"], permission: "assignments:create" });
-  const classId = id.parse(f.get("classId"));
+  // r91: "classIds" (plural, checkboxes) lets the teacher assign several classes at once; "classId" (singular)
+  // still works alone — each class is fully independent here, so looping is safe.
+  const classIds = [...new Set([...f.getAll("classIds"), ...f.getAll("classId")].map(String).filter(Boolean))];
+  if (!classIds.length) return { error: "Choose at least one class." };
   const target = z.enum(["SKILL", "UNIT"]).parse(f.get("target"));
   const due = String(f.get("dueAt") ?? "");
   try {
-    await createAssignment(repo, actor, {
-      classId, title: String(f.get("title") ?? ""), target,
-      skillIds: target === "SKILL" ? f.getAll("skillIds").map(String) : undefined,
-      unitId: target === "UNIT" ? String(f.get("unitId") ?? "") : undefined,
-      dueAt: due ? new Date(`${due}T23:59:00`) : null, startAt: startOfDay(f.get("startAt")),
-      targetMastery: z.coerce.number().int().min(40).max(100).parse(f.get("targetMastery") ?? 75),
-      source: String(f.get("source") ?? ""),
-    });
+    for (const classId of classIds) {
+      await createAssignment(repo, actor, {
+        classId, title: String(f.get("title") ?? ""), target,
+        skillIds: target === "SKILL" ? f.getAll("skillIds").map(String) : undefined,
+        unitId: target === "UNIT" ? String(f.get("unitId") ?? "") : undefined,
+        dueAt: due ? new Date(`${due}T23:59:00`) : null, startAt: startOfDay(f.get("startAt")),
+        targetMastery: z.coerce.number().int().min(40).max(100).parse(f.get("targetMastery") ?? 75),
+        source: String(f.get("source") ?? ""),
+      });
+    }
   } catch (e) {
     if (e instanceof ValidationError) return { error: e.message };
     throw e;
   }
-  redirect(`/teacher/classes/${classId}`);
+  redirect(`/teacher/classes/${classIds[0]}`);
+  return {};
 }
 
 // ------------------------------------------------------------------ ⭐ Assign a skill

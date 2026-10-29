@@ -64,12 +64,13 @@ export function SkillAssignSteps({ skillId, track, grammar = false, trackField =
         {step === "edit" && showEnrichmentWarning && <p className="max-w-xs rounded-xl bg-amber-50 px-3 py-2 text-sm text-amber-900">{t("This student's recent accuracy on this skill is below the usual Enrichment threshold (90%). You can still assign it.")}</p>}
         <SkillQuestionPicker key={skillId} skillId={skillId} onChange={setValue} />
         {empty && <p className="rounded-xl bg-amber-50 px-3 py-2 text-sm text-amber-900">{t("Tick at least one question, or let the platform choose.")}</p>}
-        {/* r67: the platform chooses → at least 30 questions, Done when mastered, at most 50 — unless the teacher sets a count */}
+        {/* r91: the platform chooses → at least 30 questions, Done when mastered, at most 50; a teacher's own
+            number is now an EXTRA requirement (that many CORRECT answers) on top of mastery, not instead of it */}
         {value.auto && (
           <label className="grid gap-1 text-sm text-slate-700">
-            <span className="font-semibold text-brand-navy">{t("Number of questions (optional)")}</span>
-            <input type="number" name="questionCount" min={5} max={50} inputMode="numeric" placeholder="30–50" className="w-32 rounded-lg border border-slate-300 px-3 py-2" />
-            <span className="text-xs text-slate-500">{t("Leave empty: each student answers at least 30 questions, done when mastered, at most 50.")}</span>
+            <span className="font-semibold text-brand-navy">{t("Required correct answers (optional)")}</span>
+            <input type="number" name="questionCount" min={5} max={50} inputMode="numeric" placeholder="5–50" className="w-32 rounded-lg border border-slate-300 px-3 py-2" />
+            <span className="text-xs text-slate-500">{t("Leave empty: each student answers at least 30 questions, done when mastered, at most 50. Set a number to also require that many correct answers before it's Done — mastery is still required either way.")}</span>
           </label>
         )}
       </div>

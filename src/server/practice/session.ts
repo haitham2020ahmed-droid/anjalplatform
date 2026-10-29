@@ -262,7 +262,8 @@ async function practiceItems(repo: Repo, skillId: string, assignmentId: unknown)
   // (the lesson's own questions were answered in the set itself) — only a skill assignment's picks restrict practice
   const a = assignmentId ? await repo.findUnique("Assignment", { id: String(assignmentId) }) : null;
   const ids = a && !a.assessmentId ? await chosenQuestionIdsOfAssignment(repo, String(assignmentId)) : null;
-  // r67: the teacher's own question count for skill work (exactly that many counted answers), else the 30–50 rule
+  // r91: the teacher's own required number of CORRECT answers (an extra bar on top of the 30–50 mastery rule, not
+  // a replacement for it — see completion.ts#countCoreAnswer)
   const count = a && !a.assessmentId && Number(a.questionCount) > 0 ? Math.min(ASSIGNMENT_MAX_QUESTIONS, Number(a.questionCount)) : null;
   if (ids?.length) {
     const items = await loadSkillItems(repo, skillId, { questionIds: ids });
@@ -629,8 +630,8 @@ async function submitAnswerUnlocked(
   // content gap (no new question within 2 levels of a student whose estimate fell after a few wrong answers:
   // NO_ITEM_IN_RANGE) or a prerequisite route after 3 wrong answers. None of these ends the practice any more: the
   // allowed question closest to the student's level comes next (the gap stays in the decision log for Bank Gaps,
-  // the prerequisite is only suggested in the log). Only an empty pool, the 30–50 rule, the teacher's count, the
-  // guessing pause or the student's own choice end it.
+  // the prerequisite is only suggested in the log). Only an empty pool, the 30–50 rule (the teacher's count is now
+  // an extra bar inside it, never a separate stopping point), the guessing pause or the student's own choice end it.
   if (!nextId && choose.ids.length) nextId = closestAllowed(items, choose, abilityNow.theta, item.questionId);
   let endReason: string | null = null;
   if (allowed.phase === "DONE") { nextId = null; endReason = "SKILL_FINISHED"; }
@@ -666,14 +667,18 @@ async function submitAnswerUnlocked(
   const displayAttempts = masteryData ? masteryData.attempts : Number(prevMastery?.attempts ?? 0);
   const displayBand = displayAttempts < STAR_MIN_ANSWERS && mst.band === "MASTERED" ? "PROFICIENT" : mst.band;
   const displayMasteryAfter = displayScore(Math.round(mst.score), displayAttempts);
-  // 🎯 the 30–50 rule (completion.ts): this answer is the work's next core answer while the work is open (a rapid guess
-  // is not counted); the teacher's own count replaces the rule (exactly that many)
+  // 🎯 the 30–50 rule (completion.ts): this answer is the work's next core answer while the work is open (a rapid
+  // guess is not counted); r91: the teacher's own count is now an EXTRA bar (that many correct answers) on top of
+  // mastery, not a replacement for the 30–50 window — so it never shortens or lengthens that window by itself.
   const workOpen = Boolean(workBefore && !workFrozen && !workRow?.completedAt);
   const coreNext = workBefore ? Math.min(ASSIGNMENT_MAX_QUESTIONS, workBefore.answered + (rapid ? 0 : 1)) : 0;
-  // mastered at (or after) the 30th answer: the work is Done and the session ends with a celebration
-  const masteredDone = workOpen && !rapid && !count && coreNext >= ASSIGNMENT_MIN_QUESTIONS && mst.isMastered;
-  // the 50th answer without mastery (or the teacher's count): the work is Done
-  const maxDone = workOpen && !rapid && coreNext >= (count ?? ASSIGNMENT_MAX_QUESTIONS);
+  const coreNextCorrect = workBefore ? workBefore.correct + (!rapid && correct ? 1 : 0) : 0;
+  const countMet = !count || coreNextCorrect >= count;
+  // mastered at (or after) the 30th answer, and (if the teacher set one) the required correct count also met: Done
+  // with a celebration
+  const masteredDone = workOpen && !rapid && coreNext >= ASSIGNMENT_MIN_QUESTIONS && mst.isMastered && countMet;
+  // the 50th answer without clearing both: the work is Done regardless (the student then chooses)
+  const maxDone = workOpen && !rapid && coreNext >= ASSIGNMENT_MAX_QUESTIONS;
   // r67: practice WITHOUT open work (the MAP plan, Skills, a Curriculum Map lesson continued, practising again): the
   // same 30–50 rule counted in this session — mastered at 30+ ends it with the celebration; at 50 the student chooses
   const sessionRule = !workOpen;
@@ -684,8 +689,8 @@ async function submitAnswerUnlocked(
   // the rest of the file already uses, not a behavior change for the normal case.
   const sessionMax = sessionRule && !rapid && !sessionMastered && counted >= ASSIGNMENT_MAX_QUESTIONS;
   if ((masteredDone || sessionMastered) && (!endReason || endReason === "COMPLETED")) { nextId = null; endReason = "WORK_MASTERED"; }
-  // the teacher's count reached: exactly that many — the work is Done and this practice ends
-  if (workOpen && count && maxDone && !endReason) { nextId = null; endReason = "COMPLETED"; }
+  // r91: reaching 50 without clearing mastery+count no longer force-ends the practice itself — same as the plain
+  // 30–50 rule, the work is marked Done (maxDone, below) and the student is offered "Stop for now" / "Keep practising".
   // ⏸ 5 guesses in the last 10: the practice pauses calmly — not ended, not a failed attempt; it continues with the
   // next question when the student comes back (the guess window starts again from here)
   const paused = guessAction === "PAUSE" && !endReason && Boolean(nextId);
@@ -974,7 +979,17 @@ async function startQuizUnlocked(repo: Repo, actor: Actor, assignmentId: string,
 /** One answer: scored, saved (one attempt per question), counted toward mastery; returns feedback and the next question. */
 async function submitQuizAnswerUnlocked(repo: Repo, actor: Actor, input: { assignmentId: string; questionId: string; response: unknown }, now = new Date()): Promise<{ feedback: Feedback; view: QuizView }> {
   const { a, order } = await quizContext(repo, actor, input.assignmentId, now);
-  if (!order.includes(input.questionId)) throw new ValidationError("This question is not part of the assignment.");
+  if (!order.includes(input.questionId)) {
+    // 🩹 an adaptive set borrows a question from the cross-skill "bank" once its own pool is genuinely exhausted
+    // (leveled-run.ts#crossSkillPool) — that borrowed question is never in the assessment's own `order`, so it would
+    // otherwise be wrongly refused here. Accept it only when it is truly the one the adaptive engine itself is
+    // offering this student right now (re-derived server-side, never trusted from the client).
+    const early = await repo.findMany("PracticeSession", { studentId: actor.studentId!, assignmentId: a.id, mode: "TEACHER_QUIZ" });
+    const s0 = early[0];
+    const set0 = s0 ? await repo.findUnique("Assessment", { id: a.assessmentId }) : null;
+    const legitBorrow = s0 && set0?.isAdaptive ? (await adaptiveNext(repo, set0, order, String(s0.id), String(s0.studentId))).nextId : null;
+    if (!legitBorrow || legitBorrow !== input.questionId) throw new ValidationError("This question is not part of the assignment.");
+  }
   // Update 42B: the reads first (in parallel, outside the transaction), then one short transaction of writes guarded
   // by the session's answer count (a double click or a second server is still refused, its writes rolled back)
   const [sessions, set, items, diag] = await Promise.all([
@@ -1111,7 +1126,12 @@ async function submitQuizAnswerUnlocked(repo: Repo, actor: Actor, input: { assig
       const teachers = await repo.findMany("ClassTeacher", { classId: a.classId }, { select: ["teacherId"] });
       const tRows = teachers.length ? await repo.findMany("Teacher", { id: { in: teachers.map((x) => x.teacherId) } }, { select: ["userId"] }) : [];
       const me = await repo.findUnique("User", { id: (await repo.findUnique("Student", { id: studentId }))?.userId });
-      if (tRows.length) await repo.createMany("Notification", tRows.map((x) => ({ userId: x.userId, type: "PARENT_PROGRESS", title: `🆘 ${String(me?.displayName ?? "A student")} is stuck`, body: `${STUCK_AFTER} answers on “${hideLevels(String(a.title))}” and only ${goal.correct} of ${goal.target} correct. A short reteach may help.`, link: `/admin/student-file/${studentId}`, readAt: null, createdAt: now })));
+      // r97 fix: when the correct-answer target is already met, "only X of Y correct" is misleading (X ≥ Y) —
+      // the real reason is the mastery gate (e.g. Analyze Craft and Structure), not an answer-count shortfall.
+      const body = goal.correct >= goal.target
+        ? `${STUCK_AFTER} answers on “${hideLevels(String(a.title))}”: reached the correct-answer target but has not mastered every skill in this set yet. A short reteach may help.`
+        : `${STUCK_AFTER} answers on “${hideLevels(String(a.title))}” and only ${goal.correct} of ${goal.target} correct. A short reteach may help.`;
+      if (tRows.length) await repo.createMany("Notification", tRows.map((x) => ({ userId: x.userId, type: "PARENT_PROGRESS", title: `🆘 ${String(me?.displayName ?? "A student")} is stuck`, body, link: `/admin/student-file/${studentId}`, readAt: null, createdAt: now })));
     });
   }
   const feedback: Feedback = {

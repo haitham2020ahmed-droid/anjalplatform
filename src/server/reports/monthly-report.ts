@@ -27,19 +27,28 @@ import { adminUsers, type FamilyContent, type ReportSection } from "./family-rep
 const s = (v: unknown) => String(v ?? "");
 const time = (v: unknown) => (v instanceof Date ? v.getTime() : v ? new Date(s(v)).getTime() : 0);
 const DAY = 86_400_000;
+// r97 fix: the same class of bug family-week.ts documents and corrects ("weekStart() returns Sunday 00:00
+// Riyadh time as a UTC instant… a raw UTC read is one day early for ~3h/day"). monthSpan's boundaries used raw
+// Date.UTC(year, month, 1) with no Riyadh offset, so practice in the ~3-hour window around local midnight on a
+// month-boundary day could be attributed to the wrong month in this parent-facing report.
+const RIYADH = 3 * 3_600_000;
 export const MONTHLY = "MONTHLY";
 
 export interface MonthSpan { key: string; from: Date; to: Date; label: string }
 const MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
-/** The month a report covers: in the first 7 days of a month the month that just ended, else the current month. */
+/** The month a report covers: in the first 7 days (Riyadh calendar date) of a month, the month that just ended;
+ * else the current month. */
 export function monthToReport(now: Date): MonthSpan {
-  const y = now.getUTCFullYear(), m = now.getUTCMonth();
-  const [yy, mm] = now.getUTCDate() <= 7 ? (m === 0 ? [y - 1, 11] : [y, m - 1]) : [y, m];
+  const local = new Date(now.getTime() + RIYADH);
+  const y = local.getUTCFullYear(), m = local.getUTCMonth();
+  const [yy, mm] = local.getUTCDate() <= 7 ? (m === 0 ? [y - 1, 11] : [y, m - 1]) : [y, m];
   return monthSpan(yy, mm);
 }
+/** `year`/`month` are Riyadh calendar components; the returned `from`/`to` are the UTC instants of Riyadh
+ * midnight on the 1st of this month and the 1st of the next, matching weekStart()'s convention. */
 export function monthSpan(year: number, month: number): MonthSpan {
-  const from = new Date(Date.UTC(year, month, 1)), to = new Date(Date.UTC(year, month + 1, 1));
+  const from = new Date(Date.UTC(year, month, 1) - RIYADH), to = new Date(Date.UTC(year, month + 1, 1) - RIYADH);
   return { key: `${year}-${String(month + 1).padStart(2, "0")}`, from, to, label: `${MONTHS[month]} ${year}` };
 }
 

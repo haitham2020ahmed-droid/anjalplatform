@@ -79,3 +79,26 @@ export async function assignSkillByLevel(repo: Repo, actor: Actor, input: { clas
   }
   return { groups, notes };
 }
+
+/**
+ * r91: the same Assign, for several classes at once (owner: "I have to do the same Assign step twice, once per
+ * class"). AUTOMATIC only — each class resolves its OWN students and starts them at their own level, so looping
+ * is safe. MANUAL is refused here: its level board places SPECIFIC student ids of the one class shown on screen,
+ * so running the same placements against a second class's different students would silently do nothing useful for
+ * them — safer to ask the teacher to assign that class separately in Manual mode than to pretend it worked.
+ */
+export async function assignSkillByLevelToClasses(repo: Repo, actor: Actor, input: Omit<Parameters<typeof assignSkillByLevel>[2], "classId"> & { classIds: string[] }, now = new Date()): Promise<{ groups: { level: Level | null; students: number; questions: number }[]; notes: string[]; classes: number }> {
+  const classIds = [...new Set(input.classIds.map(s).filter(Boolean))];
+  if (!classIds.length) throw new ValidationError("Choose at least one class.");
+  if (input.mode === "MANUAL" && classIds.length > 1) throw new ValidationError("Manual placement works for one class at a time — choose a single class, or switch to Automatic to assign several classes at once.");
+  // every class is checked BEFORE anything is written (all or nothing)
+  for (const id of classIds) await assertClassAccess(repo, actor, id);
+  const groups: { level: Level | null; students: number; questions: number }[] = [];
+  const notes: string[] = [];
+  for (const classId of classIds) {
+    const r = await assignSkillByLevel(repo, actor, { ...input, classId }, now);
+    groups.push(...r.groups);
+    for (const n of r.notes) if (!notes.includes(n)) notes.push(n);
+  }
+  return { groups, notes, classes: classIds.length };
+}

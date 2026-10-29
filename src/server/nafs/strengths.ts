@@ -20,19 +20,22 @@ export const roundPct = (sum: number, n: number): number | null => (n ? Math.flo
 
 export const STRENGTH_FROM = 80;
 export const WEAKNESS_BELOW = 60;
-export const MIN_ANSWERS = 2;
+// r97 fix: 2 answers (e.g. 2/2 = "100%, strength") has essentially no reliability as a mastery estimate, and the
+// Ministry blueprint gives most standards only 3 items per booklet — one missed item could flip a reported
+// "strength" to average. Raised to 4 as a safer floor for a number shown to teachers and parents as fact.
+export const MIN_ANSWERS = 4;
 
 export interface Cell { pct: number | null; n: number }
 export type NoneWhy = "NO_ANSWERS" | "TOO_FEW" | "NONE_HIGH" | "NONE_LOW";
 /** Why a strength / weakness shows "—" (the tooltip). */
 export const WHY_TEXT: Record<NoneWhy, string> = {
   NO_ANSWERS: "No answers yet.",
-  TOO_FEW: "Not enough answers yet: a standard needs at least 2 answers.",
-  NONE_HIGH: "No standard at 80% or more yet (with at least 2 answers).",
-  NONE_LOW: "No standard under 60% (with at least 2 answers): nothing weak.",
+  TOO_FEW: "Not enough answers yet: a standard needs at least 4 answers.",
+  NONE_HIGH: "No standard at 80% or more yet (with at least 4 answers).",
+  NONE_LOW: "No standard under 60% (with at least 4 answers): nothing weak.",
 };
 /** The rule in one plain sentence (the column tooltips). */
-export const RULE_TEXT = "Strength = a standard at 80% or more with at least 2 answers. Weakness = under 60% with at least 2 answers.";
+export const RULE_TEXT = "Strength = a standard at 80% or more with at least 4 answers. Weakness = under 60% with at least 4 answers.";
 
 export interface StrengthsWeaknesses {
   strengths: string[]; weaknesses: string[];

@@ -4,7 +4,7 @@ import { revalidatePath } from "next/cache";
 import { repo, requireActor } from "@/server/auth/next";
 import { ForbiddenError } from "@/server/auth/rbac";
 import { ValidationError } from "@/server/curriculum-admin";
-import { allowPlacementRetake, assignArticle, scoreWriting, setStudentLevel, unassignArticle } from "@/server/readrise/teacher";
+import { allowPlacementRetake, assertClassWrite, assignArticle, scoreWriting, setStudentLevel, unassignArticle } from "@/server/readrise/teacher";
 import { assignDatesOf } from "@/lib/assign-dates";
 
 const STAFF = { roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"] as ("TEACHER" | "SCHOOL_ADMIN" | "SUPER_ADMIN")[] };
@@ -21,23 +21,32 @@ function dueDate(raw: string): Date | null {
   return new Date(`${raw}T23:59:00+03:00`);
 }
 
-/** 📌 Assign articles to a class (r68: a start date and an end / due date). */
+/** 📌 Assign articles to one or more classes at once (r91: classIds[], was a single classId; r68: a start/due date). */
 export async function assignReadRiseAction(f: FormData): Promise<void> {
   const actor = await requireActor({ ...STAFF, permission: "assignments:create" });
-  const classId = id(f, "classId");
+  // r91: the page shows checkboxes named "classIds" now; "classId" (singular) still works for one class, kept so
+  // nothing breaks if an older tab/bookmark somehow posts the old field name.
+  const classIds = [...new Set([...f.getAll("classIds"), ...f.getAll("classId")].map(String).filter(Boolean))].slice(0, 30);
+  const backTo = classIds[0] ?? "";
   let msg: string;
   try {
+    if (!classIds.length) throw new ValidationError("Choose at least one class.");
     const articleIds = f.getAll("articleId").map(String).filter(Boolean).slice(0, 30);
     if (!articleIds.length) throw new ValidationError("Choose at least one article.");
     const due = dueDate(String(f.get("dueAt") ?? ""));
     const dates = assignDatesOf(f);
     if (dates.error) throw new ValidationError(dates.error);
+    // r97 fix: validate EVERY class before writing anything (all-or-nothing), so a bad class in the middle of the
+    // list can never leave the earlier classes assigned and the later ones not.
+    for (const c of classIds) await assertClassWrite(repo, actor, c);
     let created = 0;
-    for (const a of articleIds) if ((await assignArticle(repo, actor, classId, a, due, new Date(), dates.startAt)).created) created++;
+    const total = classIds.length * articleIds.length;
+    for (const c of classIds) for (const a of articleIds) if ((await assignArticle(repo, actor, c, a, due, new Date(), dates.startAt)).created) created++;
     revalidatePath("/teacher/readrise");
-    msg = `${created} article${created === 1 ? "" : "s"} assigned${articleIds.length - created ? `, ${articleIds.length - created} updated` : ""}${due ? ` · due ${String(f.get("dueAt"))}` : ""}. Each student reads the version of their level.`;
+    const classesMsg = classIds.length > 1 ? ` across ${classIds.length} classes` : "";
+    msg = `${created} article${created === 1 ? "" : "s"} assigned${classesMsg}${total - created ? `, ${total - created} updated` : ""}${due ? ` · due ${String(f.get("dueAt"))}` : ""}. Each student reads the version of their level.`;
   } catch (e) { msg = msgOf(e); }
-  back(classId, msg, "assign");
+  back(backTo, msg, "assign");
 }
 
 export async function unassignReadRiseAction(f: FormData): Promise<void> {
