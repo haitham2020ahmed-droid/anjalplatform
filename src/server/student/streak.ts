@@ -2,18 +2,27 @@
  * Daily streak and points (motivation): a day counts when the student answered at least one question
  * (practice, assigned sets, tests) or finished a ReadMaster article. Days in Saudi time (UTC+3).
  * Points: 10 per correct answer + 25 per ReadMaster article + 10 per Respond to Reading answer + 50 per level moved up.
+ * 🔧 fix (requested, Oct 2026): the school week is Sunday-Thursday — Friday/Saturday (the weekend) used to
+ * silently reset an otherwise-perfect streak every week, since the engine counted every calendar day with no
+ * exception. Now Friday/Saturday are a "bonus, never a break": practising on them still extends the streak, but
+ * NOT practising on them never breaks it — the streak just holds and resumes on Sunday.
  */
 import type { Repo } from "../seeding/repo";
 
 const DAY = 86_400_000, KSA = 3 * 3_600_000;
 const dayOf = (v: unknown) => Math.floor((new Date(v instanceof Date ? v.toISOString() : String(v)).getTime() + KSA) / DAY);
+/** Sunday-first weekday of a Saudi day number (day 0 = 1 Jan 1970, a Thursday). */
+export const weekdayOf = (day: number) => (day + 4) % 7;
+const isWeekend = (day: number) => { const w = weekdayOf(day); return w === 5 || w === 6; };   // Friday, Saturday
 
 export function streakFromDays(days: number[], today: number): number {
   const set = new Set(days);
-  let d = set.has(today) ? today : set.has(today - 1) ? today - 1 : null;   // yesterday still keeps the streak alive
-  if (d === null) return 0;
-  let n = 0;
-  while (set.has(d)) { n++; d--; }
+  let d = today, n = 0;
+  while (true) {
+    if (set.has(d)) { n++; d--; continue; }                 // practised this day: counts, keep going back
+    if (d === today || isWeekend(d)) { d--; continue; }      // today not done YET (still time left), or a weekend gap: skip, never breaks
+    break;                                                    // any other missing day ends the streak here
+  }
   return n;
 }
 
@@ -61,9 +70,6 @@ export async function streakAndPoints(repo: Repo, studentId: string, now = new D
 /** The school week (Sunday → Thursday, Saudi time) for the home's week strip: which days had practice. */
 export interface PracticeWeek { days: { day: number; date: string; practised: boolean; today: boolean; future: boolean }[] }
 export const SCHOOL_DAYS = 5;
-
-/** Sunday-first weekday of a Saudi day number (day 0 = 1 Jan 1970, a Thursday). */
-export const weekdayOf = (day: number) => (day + 4) % 7;
 
 /** Days of this school week, from two bounded reads (this week's answers and ReadMaster articles, dates only). */
 export async function practiceWeek(repo: Repo, studentId: string, now = new Date()): Promise<PracticeWeek> {
