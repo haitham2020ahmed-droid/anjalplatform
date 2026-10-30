@@ -16,6 +16,7 @@ import { assertClassAccess } from "../teacher/assignments";
 import { createUser } from "../admin/users";
 import { draftPlansFor, type AutoPlans } from "./map-auto";
 import { bandOf, ensureNationalNorms, nationalNorm, percentileFromNorm, seasonOf } from "./rit";
+import { backfillReadRiseFromMap } from "../readrise/engine";
 
 const s = (v: unknown) => String(v ?? "");
 // “Fall Percentile (optional)” → “fallpercentile”: the template's own headers must always be recognised
@@ -371,7 +372,12 @@ export async function importMapScores(repo: Repo, actor: Actor, table: string[][
         const ex = cdf?.extras.get(`${key.toLowerCase()}|${subject}`);
         const more = ex ? { ritSE: ex.ritSE, growthPercentile: ex.growthPercentile, observedGrowth: ex.observedGrowth, conditionalGrowthIndex: ex.conditionalGrowthIndex, metProjectedGrowth: ex.metProjectedGrowth, testMinutes: ex.testMinutes, lexileLow: subject === "READING" ? ex.lexileLow : null, lexileHigh: subject === "READING" ? ex.lexileHigh : null, typicalGrowth: ex.typicalGrowth, proficiency: ex.proficiency } : {};
         const gradeAtTest = rowGrade || currentGradeOf.get(sid) || null; // 🐛 r91 fix: file's own Grade column wins, else the student's current grade
-        if (rit !== null) await repo.create("MapResult", { studentId: sid, testDate, subject: name, goalName: null, rit, grade: gradeAtTest, achievementPercentile: keep(pct, "achievementPercentile"), projectedGrowth: keep(growth, "projectedGrowth"), lexile: subject === "READING" ? keep(lexile, "lexile") : null, rapidGuessPct: keep(rapid, "rapidGuessPct"), termName: term, importedAt: now, ...more });
+        const keptLexile = subject === "READING" ? keep(lexile, "lexile") : null;
+        if (rit !== null) await repo.create("MapResult", { studentId: sid, testDate, subject: name, goalName: null, rit, grade: gradeAtTest, achievementPercentile: keep(pct, "achievementPercentile"), projectedGrowth: keep(growth, "projectedGrowth"), lexile: keptLexile, rapidGuessPct: keep(rapid, "rapidGuessPct"), termName: term, importedAt: now, ...more });
+        // 🩹 Oct 2026 fix: a Reading Lexile landing here may be the first REAL one this student has ever had — if
+        // their ReadRise level is still on the grade-based guess (source DEFAULT), correct it now automatically
+        // instead of leaving it stuck until someone notices (see engine.ts#backfillReadRiseFromMap for the full why).
+        if (rit !== null && subject === "READING" && keptLexile !== null) await backfillReadRiseFromMap(repo, sid, Number(keptLexile), now);
         for (const x of subjGoals) { const gx = ex?.goals[GOAL_GROUP[x.g.code]]; await repo.create("MapResult", { studentId: sid, testDate, subject: name, goalName: s(x.g.area!.name), goalAreaId: s(x.g.area!.id), rit: x.rit, grade: gradeAtTest, termName: term, importedAt: now, ...(gx ? { descriptor: gx.descriptor, ritSE: gx.se } : {}) }); }
       }
       imported++; touched.add(sid);

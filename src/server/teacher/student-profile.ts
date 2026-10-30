@@ -16,7 +16,15 @@ import { mapSummaries, practiceStats, type MapSummary } from "../insights/studen
 const s = (v: unknown) => (v === null || v === undefined ? "" : String(v));
 
 export interface ProfileExtras {
-  work: { items: MyWorkItem[]; done: number; inProgress: number; notStarted: number };
+  work: {
+    items: MyWorkItem[];
+    done: number;
+    inProgress: number;
+    notStarted: number;
+    /** My Work Tab breakdown (Oct 2026): how much of the student's "Extra Practice" tab is finished, so the
+     * teacher can see this at a glance instead of having to open the student's own My Work page and count rows. */
+    extraPractice: { done: number; total: number };
+  };
   plans: MyPlan[];
   tests: MyTests;
   /** assignmentId → TeacherTest id (for the teacher's review link of a completed test) */
@@ -52,8 +60,15 @@ export async function studentProfileExtras(repo: Repo, actor: Actor, studentId: 
   if (setIds.length) for (const a of await repo.findMany("Assignment", { id: { in: setIds } }, { select: ["id", "testId"] })) if (a.testId) testOf[s(a.id)] = s(a.testId);
   const p = practice.get(studentId);
   const total = p?.answers ?? 0, correct = p?.correct ?? 0;
+  const extraPracticeItems = items.filter((i) => i.tab === "EXTRA_PRACTICE");
   return {
-    work: { items, done: items.filter((i) => i.status === "Done").length, inProgress: items.filter((i) => i.status === "In progress").length, notStarted: items.filter((i) => i.status === "Not started").length },
+    work: {
+      items,
+      done: items.filter((i) => i.status === "Done").length,
+      inProgress: items.filter((i) => i.status === "In progress").length,
+      notStarted: items.filter((i) => i.status === "Not started").length,
+      extraPractice: { done: extraPracticeItems.filter((i) => i.status === "Done").length, total: extraPracticeItems.length },
+    },
     plans, tests, testOf,
     answers: { total, correct, incorrect: Math.max(0, total - correct), accuracy: total ? Math.round((100 * correct) / total) : null },
     time: { totalMinutes: p?.totalMinutes ?? 0, weekMinutes: p?.week.minutes ?? 0, monthMinutes: p?.month.minutes ?? 0, lastActive: p?.lastActive ?? null },

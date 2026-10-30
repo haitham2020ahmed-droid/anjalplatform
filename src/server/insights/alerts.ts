@@ -21,6 +21,7 @@ import { statusOf } from "./progress";
 import { isHiddenSkill } from "../skills/master";
 import { safeIfBehind } from "../db/schema-errors";
 import { cancelIndex, liveAssignmentWhere } from "../student/cancelled-work";
+import { weekStart } from "../student/weekly";
 
 const s = (v: unknown) => String(v ?? "");
 const time = (v: unknown) => new Date(v instanceof Date ? v.toISOString() : s(v)).getTime();
@@ -44,13 +45,15 @@ export const ALERT_INFO: Record<AlertKind, { icon: string; title: string; tip: s
 };
 const ORDER: AlertKind[] = ["EARLY_WARNING", "DECLINING", "INVALID_TEST", "MAP_RISK", "RAPID_GUESS", "LEVEL_CONFLICT", "RR_MAP_GAP", "RR_STUCK_UNRELIABLE", "DROPPED", "WEAK_SKILL", "LATE_WORK", "NO_PRACTICE"];
 
-/** ISO week label of a date, e.g. 2026-W41. */
+/**
+ * Week label of a date, e.g. 2026-10-26 (the Sunday that starts its week).
+ * 🐛 fix (Oct 2026): this was a pure-UTC ISO week (Monday start) — the platform's real week everywhere else
+ * (family-week.ts, ReadRise, student-profile.ts) is Sunday 00:00 Riyadh time (student/weekly.ts#weekStart). Near
+ * the boundary (e.g. Sunday 1am Riyadh = Saturday 10pm UTC) the old key could put the same real week's alert into
+ * two different "weeks", defeating the "once per student and reason per week" de-dup this key exists for.
+ */
 export function weekKey(d: Date): string {
-  const t = new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate()));
-  const day = t.getUTCDay() || 7;
-  t.setUTCDate(t.getUTCDate() + 4 - day);
-  const y = t.getUTCFullYear(), w = Math.ceil(((t.getTime() - Date.UTC(y, 0, 1)) / DAY + 1) / 7);
-  return `${y}-W${String(w).padStart(2, "0")}`;
+  return weekStart(d).toISOString().slice(0, 10);
 }
 
 interface Found { studentId: string; classId: string; kind: AlertKind; key: string; detail: string }

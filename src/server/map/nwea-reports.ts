@@ -115,7 +115,9 @@ export async function studentProfile(repo: Repo, actor: Actor, studentId: string
   const student = await reportStudent(repo, actor, studentId);
   const rows = await repo.findMany("MapResult", { studentId });
   const cuts = await cutScores(repo, s(actor.schoolId));
-  const syNow = now.getUTCMonth() + 1 >= 8 ? now.getUTCFullYear() : now.getUTCFullYear() - 1;
+  // 🐛 fix (Oct 2026): check the Aug 1 school-year rollover in Riyadh time, not UTC (same fix as map-reports.ts).
+  const nowRiyadh = new Date(now.getTime() + 3 * 3_600_000);
+  const syNow = nowRiyadh.getUTCMonth() + 1 >= 8 ? nowRiyadh.getUTCFullYear() : nowRiyadh.getUTCFullYear() - 1;
   const subjects: ProfileSubject[] = [];
   for (const subject of ["READING", "LANGUAGE"] as const) {
     const mine = rows.filter((r) => isSubj(subject)(r.subject));
@@ -315,7 +317,9 @@ async function classProfileNow(repo: Repo, actor: Actor, klass: Row, classId: st
   const season = seasonOf(t, null);
   const nm = t ? await normFor(repo, subject, grade, season) : null;
   const p = profileOf(rows, ids, names, t, cuts[subject][grade] ?? null, nm);
-  const syNow = new Date().getUTCMonth() + 1 >= 8 ? new Date().getUTCFullYear() : new Date().getUTCFullYear() - 1;
+  // 🐛 fix (Oct 2026): same Riyadh-time rollover fix as above — avoid a second drifted UTC calc of "now".
+  const nowRiyadh2 = new Date(Date.now() + 3 * 3_600_000);
+  const syNow = nowRiyadh2.getUTCMonth() + 1 >= 8 ? nowRiyadh2.getUTCFullYear() : nowRiyadh2.getUTCFullYear() - 1;
   const history = p.n >= GROWTH_MIN_N ? await classHistoryOf(repo, rows, grade, subject, syNow) : [];
   return { classId, className: s(klass.name), grade, subject, terms, national: nm ? Math.round(nm.mean * 10) / 10 : null, nationalExact: Boolean(nm?.exact), history, ...p };
 }

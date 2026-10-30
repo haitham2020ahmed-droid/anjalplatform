@@ -227,6 +227,18 @@ export async function assignFromMap(repo: Repo, actor: Actor, input: { classId: 
     pool.push(...challenge.filter((id) => !pool.includes(id)), ...support.filter((id) => !pool.includes(id)));
     if (challenge.length) notes.push(`🚀 Challenge path: ${challenge.length} question(s) from Grade ${places[0].grade + 1} (same skill) for students who master Exceeding.`);
     if (support.length) notes.push(`🛟 Support path: ${support.length} question(s) from Grade ${places[0].grade - 1} (same skill) for students who struggle at Approaching.`);
+    // 🐛 fix (Oct 2026): ACS ("Analyze Craft and Structure") assignments now require real per-skill mastery
+    // (≥15 independent correct answers each, config/engine.ts) for the goal to be reached, not just a question
+    // count — see leveled-run.ts#analyzeCraftAllMastered. A small pool spread across many skills means a student
+    // will lean heavily on the cross-skill "borrow from the bank" fallback just to gather enough practice. Warn
+    // the teacher up front, the same way the Challenge/Support notes above already do — no new UI needed.
+    if (places[0].category === "ANALYZE_CRAFT_AND_STRUCTURE") {
+      const skillRows = pool.length ? await repo.findMany("Question", { id: { in: pool } }, { select: ["skillId"] }) : [];
+      const skillCount = new Set(skillRows.map((q) => s(q.skillId)).filter(Boolean)).size;
+      if (skillCount > 0 && pool.length / skillCount < 10) {
+        notes.push(`⚠️ This pool has ${pool.length} question(s) across ${skillCount} skill(s) — that is thin for Analyze Craft and Structure's real-mastery requirement. Students will likely need a lot of borrowed questions from elsewhere to reach mastery on every skill. Consider adding more questions to this pool.`);
+      }
+    }
     const r = await assignQuestions(repo, actor, {
       classId: input.classId, studentIds: chosen.map((x) => x.id), questionIds: pool, track: "CURRICULUM", exactTitle: true, source,
       title: `${base} (adaptive: Approaching → Meeting → Exceeding)`, adaptive: { maxQuestions: Math.max(5, Math.min(60, input.maxQuestions ?? 20)), targetCorrect: input.targetCorrect ?? null }, silent: input.silent, curriculumPlanId: input.curriculumPlanId ?? null,

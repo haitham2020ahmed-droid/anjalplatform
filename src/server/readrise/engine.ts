@@ -86,6 +86,32 @@ export async function ensureRRStudent(repo: Repo, studentId: string, now = new D
   return repo.upsert("RRStudent", { studentId }, { studentId, schoolId: s(st.schoolId), level: init.level, startLevel: init.level, source: init.source, placedAt: now }, {});
 }
 
+/**
+ * 🩹 fix (Oct 2026): ensureRRStudent() only ever runs its MAP lookup ONCE, the first time a student opens
+ * ReadRise — if their MAP Reading Lexile is imported LATER (after that first open), the row it already created
+ * stays on the grade-based guess (source DEFAULT) forever, since nothing ever re-checks it. Call this right after a
+ * MAP Reading score with a Lexile lands, so that specific gap closes automatically with no teacher action needed.
+ *
+ * Deliberately narrow: only touches a student whose RRStudent row is still source === "DEFAULT" (never had a real
+ * anchor — placement test, teacher override, or an earlier MAP import). A student already on MAP/PLACEMENT/TEACHER
+ * is left completely alone, even if this new MAP score differs — their level may already reflect real reading
+ * growth from practice since that anchor, and a fresh test score re-anchoring it would throw that away. If the
+ * student has no RRStudent row yet, there is nothing to backfill: ensureRRStudent() will pick this MAP score up
+ * correctly the first time they do open ReadRise, same as always.
+ */
+export async function backfillReadRiseFromMap(repo: Repo, studentId: string, mapLexile: number, now = new Date()): Promise<void> {
+  const rr = await repo.findUnique("RRStudent", { studentId });
+  if (!rr || s(rr.source) !== "DEFAULT") return;
+  const level = nearestLevel(mapLexile);
+  if (level === Number(rr.level)) return; // same rung already: nothing to change, no noise in the level history
+  await repo.updateMany("RRStudent", { studentId }, { level, startLevel: level, source: "MAP" });
+  await recordLevelChange(repo, {
+    studentId, schoolId: s(rr.schoolId), from: Number(rr.level), to: level,
+    reason: "MAP Reading Lexile imported after this student's placeholder grade-level start — level corrected to the real measure.",
+    now,
+  });
+}
+
 /** A teacher of the student's class, or a school admin of the student's school. Returns the Student row. */
 export async function assertStaffForStudent(repo: Repo, actor: Actor, studentId: string): Promise<Row> {
   const st = await repo.findUnique("Student", { id: studentId });

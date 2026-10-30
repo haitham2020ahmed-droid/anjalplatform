@@ -22,6 +22,7 @@ import { evidenceLevels } from "../curriculum-map/evidence-level";
 import { mapSummaries, type MapSummary } from "./student-data";
 import { detectMisconceptions } from "./misconception-tags";
 import { pathContext, planFromContext } from "../graph/learning-path";
+import { weekStart } from "../student/weekly";
 import { diagnose, rootGaps, struggling } from "../graph/knowledge-graph";
 import { riyadhDay } from "../analytics/practice";
 import { groupBy, perWeek, weightedSkillTheta } from "../predict/risk";
@@ -188,8 +189,6 @@ export interface ProfileIntelligence {
   thetaTrend: number | null;    // ability change per week over the trajectory
 }
 
-const monday = (d: Date) => { const x = new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate())); x.setUTCDate(x.getUTCDate() - ((x.getUTCDay() + 6) % 7)); return x; };
-
 /** The intelligence part of one profile; also saves this week's point of the trajectory (AbilitySnapshot "PROFILE"). */
 export async function profileIntelligence(repo: Repo, studentId: string, now = new Date(), cache?: Map<string, unknown>): Promise<ProfileIntelligence | null> {
   const c = await pathContext(repo, studentId, now, cache);
@@ -203,7 +202,10 @@ export async function profileIntelligence(repo: Repo, studentId: string, now = n
   // this week's point: average ability on practised skills and skills mastered
   const th = [...c.states.values()].filter((x) => x.theta !== null && x.attempts >= 3).map((x) => x.theta!);
   const theta = th.length ? Math.round((th.reduce((a, b) => a + b, 0) / th.length) * 100) / 100 : 0;
-  const week = monday(now);
+  // 🐛 fix (Oct 2026): was a plain UTC-Monday week — the platform's real week is Sunday 00:00 Riyadh time
+  // (student/weekly.ts#weekStart, same convention family-week.ts/ReadRise use), so this weekly snapshot could
+  // land in a different week than every other "this week" report for the same student around the boundary.
+  const week = weekStart(now);
   await repo.upsert("AbilitySnapshot", { studentId, scope: "PROFILE", takenOn: week }, { theta, mastery: mastered.length }, { theta, mastery: mastered.length }).catch(() => null);
   const snaps = (await repo.findMany("AbilitySnapshot", { studentId, scope: "PROFILE" }, { orderBy: [{ field: "takenOn", dir: "desc" }], take: 8 })).reverse();
   const trajectory = snaps.map((x) => ({ week: new Date(x.takenOn instanceof Date ? x.takenOn.toISOString() : String(x.takenOn)).toISOString().slice(0, 10), theta: Number(x.theta), mastered: Number(x.mastery ?? 0) }));

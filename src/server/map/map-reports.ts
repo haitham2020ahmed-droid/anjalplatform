@@ -331,7 +331,10 @@ const schoolYear = (season: Season, year: number) => (season === "FALL" ? year :
 export async function familyReport(repo: Repo, actor: Actor, studentId: string, now = new Date(), opts: { student?: ReportStudent } = {}): Promise<FamilyDoc> {
   const student = opts.student ?? (await reportStudent(repo, actor, studentId));
   const results = await repo.findMany("MapResult", { studentId });
-  const syNow = now.getUTCMonth() + 1 >= 8 ? now.getUTCFullYear() : now.getUTCFullYear() - 1;
+  // 🐛 fix (Oct 2026): the Aug 1 / school-year rollover must be checked in Riyadh time, not UTC — otherwise the
+  // few hours around midnight UTC on the boundary could put a student's grade a year off.
+  const nowRiyadh = new Date(now.getTime() + 3 * 3_600_000);
+  const syNow = nowRiyadh.getUTCMonth() + 1 >= 8 ? nowRiyadh.getUTCFullYear() : nowRiyadh.getUTCFullYear() - 1;
   const subjects: FamilySubject[] = [];
   const schoolId = s((await repo.findUnique("Student", { id: studentId }))?.schoolId);
   // r+1: classmates' ids, for the Ministry-style table's "Class Average RIT" column — same students for both

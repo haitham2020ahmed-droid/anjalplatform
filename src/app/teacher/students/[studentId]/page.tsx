@@ -210,13 +210,13 @@ export default async function StudentPage({ params, searchParams }: { params: Pr
       </section>
 
       <section id="work" className={`${card} scroll-mt-20`} aria-labelledby="work-h">
-        <h2 id="work-h" className={h2}><span aria-hidden="true">📘</span> {t("My Work")} <InfoTip text={GLOSSARY["My Work"]} /> <span className="text-sm font-normal text-slate-500">· {t("{n} not started", { n: x.work.notStarted })} · {t("{n} in progress", { n: x.work.inProgress })} · {t("{n} done", { n: x.work.done })}</span></h2>
+        <h2 id="work-h" className={h2}><span aria-hidden="true">📘</span> {t("My Work")} <InfoTip text={GLOSSARY["My Work"]} /> <span className="text-sm font-normal text-slate-500">· {t("{n} not started", { n: x.work.notStarted })} · {t("{n} in progress", { n: x.work.inProgress })} · {t("{n} done", { n: x.work.done })}{x.work.extraPractice.total > 0 ? <> · {t("Extra Practice: {done} / {total} done", { done: x.work.extraPractice.done, total: x.work.extraPractice.total })}</> : null}</span></h2>
         {x.work.items.length === 0 ? <div className="mt-3"><EmptyState compact icon="📭" title="Nothing here yet" /></div> : (
           <div className="rk-box rk-tall mt-3">
             <table className="w-full min-w-[480px] text-sm">
               <thead><tr><th className="p-2 text-start">{t("Skill")}</th><th className="p-2 text-start">{t("From")}</th><th className="p-2 text-start">{t("Status")}</th><th className="p-2 text-start">{t("Due")}</th></tr></thead>
               <tbody className="divide-y divide-slate-100">{x.work.items.map((w) => (
-                <tr key={w.assignmentId}><td className="p-2" data-content lang="en">{w.skill}</td><td className="p-2"><SourceTag source={w.sourceKey} size="sm" /></td><td className="p-2"><StatusPill status={w.status === "Done" ? "DONE" : w.status === "In progress" ? "IN_PROGRESS" : "NOT_STARTED"} />{w.overdue && <span className="ms-2 text-xs font-semibold text-red-700">{t("Late")}</span>}</td><td className="p-2 tabular-nums" dir="ltr">{day(w.dueAt)}</td></tr>
+                <tr key={w.assignmentId}><td className="p-2" data-content lang="en">{w.skill}{w.tab === "EXTRA_PRACTICE" && <span className="ms-2 rounded-full bg-violet-50 px-2 py-0.5 text-xs font-semibold text-violet-800 ring-1 ring-violet-200">{t("Extra Practice")}</span>}</td><td className="p-2"><SourceTag source={w.sourceKey} size="sm" /></td><td className="p-2"><StatusPill status={w.status === "Done" ? "DONE" : w.status === "In progress" ? "IN_PROGRESS" : "NOT_STARTED"} />{w.overdue && <span className="ms-2 text-xs font-semibold text-red-700">{t("Late")}</span>}</td><td className="p-2 tabular-nums" dir="ltr">{day(w.dueAt)}</td></tr>
               ))}</tbody>
             </table>
           </div>
