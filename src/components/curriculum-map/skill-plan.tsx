@@ -63,9 +63,14 @@ export interface SkillPlanProps {
   /** ↩ Undo the un-star above, right after (owner request, Oct 2026: a star pressed by accident should be easy to
    * reverse) — re-adds only the named students, everyone else untouched. */
   reassignAssignmentForStudents?: (input: { classId: string; skillId: string; studentIds: string[] }) => Promise<{ ok: boolean; message: string }>;
+  /** 🩹 fix ("ليه vocabulary/analyze لما بعمل assign مش بيظهر علامه"): code (upper-cased) → the date it was last sent
+   * — the SAME map the Lessons tab already computes (src/server/curriculum-map/sent.ts) for its own "✓ Sent" badge
+   * on these exact rows. Threaded through here too so Concept Vocabulary / Analyze Craft and Structure / Review
+   * show the same "already sent" indicator on the Skill plan tab, not only on Lessons. */
+  sent?: Record<string, string>;
 }
 
-export function SkillPlan({ basePath, grade, grades, unitIx, units, pdfHref, studentPdfHref, reportHref, canAssign, roster, quickAssign, assigned, priorAssignment, masteredCount, cancelAssignment, cancelAssignmentForStudents, reassignAssignmentForStudents }: SkillPlanProps) {
+export function SkillPlan({ basePath, grade, grades, unitIx, units, pdfHref, studentPdfHref, reportHref, canAssign, roster, quickAssign, assigned, priorAssignment, masteredCount, cancelAssignment, cancelAssignmentForStudents, reassignAssignmentForStudents, sent }: SkillPlanProps) {
   const t = useT();
   const router = useRouter();
   const unit = units[unitIx] as MapPdfUnit | undefined;
@@ -117,7 +122,7 @@ export function SkillPlan({ basePath, grade, grades, unitIx, units, pdfHref, stu
               </div>
               <div className="divide-y divide-slate-100">
                 {unit.sections.map((sec) => (
-                  <UnitSection key={`${unit.number}-${sec.number}`} sec={sec} canAssign={canAssign} roster={roster} quickAssign={quickAssign} assigned={assigned} priorAssignment={priorAssignment} masteredCount={masteredCount} cancelAssignment={cancelAssignment} cancelAssignmentForStudents={cancelAssignmentForStudents} reassignAssignmentForStudents={reassignAssignmentForStudents} />
+                  <UnitSection key={`${unit.number}-${sec.number}`} sec={sec} canAssign={canAssign} roster={roster} quickAssign={quickAssign} assigned={assigned} priorAssignment={priorAssignment} masteredCount={masteredCount} cancelAssignment={cancelAssignment} cancelAssignmentForStudents={cancelAssignmentForStudents} reassignAssignmentForStudents={reassignAssignmentForStudents} sent={sent} />
                 ))}
                 {unit.writing.length > 0 && (
                   <div className="px-5 py-4">
@@ -135,7 +140,7 @@ export function SkillPlan({ basePath, grade, grades, unitIx, units, pdfHref, stu
   );
 }
 
-function UnitSection({ sec, canAssign, roster, quickAssign, assigned, priorAssignment, masteredCount, cancelAssignment, cancelAssignmentForStudents, reassignAssignmentForStudents }: { sec: MapPdfSection; canAssign: boolean; roster: RosterClass[]; quickAssign: SkillPlanProps["quickAssign"]; assigned?: ReadonlySet<string>; priorAssignment?: SkillPlanProps["priorAssignment"]; masteredCount?: SkillPlanProps["masteredCount"]; cancelAssignment?: SkillPlanProps["cancelAssignment"]; cancelAssignmentForStudents?: SkillPlanProps["cancelAssignmentForStudents"]; reassignAssignmentForStudents?: SkillPlanProps["reassignAssignmentForStudents"] }) {
+function UnitSection({ sec, canAssign, roster, quickAssign, assigned, priorAssignment, masteredCount, cancelAssignment, cancelAssignmentForStudents, reassignAssignmentForStudents, sent }: { sec: MapPdfSection; canAssign: boolean; roster: RosterClass[]; quickAssign: SkillPlanProps["quickAssign"]; assigned?: ReadonlySet<string>; priorAssignment?: SkillPlanProps["priorAssignment"]; masteredCount?: SkillPlanProps["masteredCount"]; cancelAssignment?: SkillPlanProps["cancelAssignment"]; cancelAssignmentForStudents?: SkillPlanProps["cancelAssignmentForStudents"]; reassignAssignmentForStudents?: SkillPlanProps["reassignAssignmentForStudents"]; sent?: SkillPlanProps["sent"] }) {
   const t = useT();
   // 🩹 fix (Oct 2026, "عايز الدروس الي موجودة في Lessons تكون موجودة في Skill plan كمان"): a selection used to be
   // hidden entirely here whenever it had neither platform skills nor a Curriculum Map overlay match — but some
@@ -154,7 +159,7 @@ function UnitSection({ sec, canAssign, roster, quickAssign, assigned, priorAssig
         {sec.essentialQuestion ? `: ${sec.essentialQuestion}` : dispTitle ? `: ${dispTitle}` : ""}
       </p>
       {sec.essentialQuestion && dispTitle && <p className="text-sm text-slate-500" dir="ltr">{dispTitle}</p>}
-      {sec.lessonSections?.length ? <LessonSectionRows sections={sec.lessonSections} canAssign={canAssign} roster={roster} /> : null}
+      {sec.lessonSections?.length ? <LessonSectionRows sections={sec.lessonSections} canAssign={canAssign} roster={roster} sent={sent} /> : null}
       <SkillGroups skills={sec.skills} canAssign={canAssign} roster={roster} quickAssign={quickAssign} assigned={assigned} priorAssignment={priorAssignment} masteredCount={masteredCount} cancelAssignment={cancelAssignment} cancelAssignmentForStudents={cancelAssignmentForStudents} reassignAssignmentForStudents={reassignAssignmentForStudents} />
     </div>
   );
@@ -169,24 +174,32 @@ function weeksLabel(sec: Pick<MapPdfSection, "weeks" | "number">, t: TFn): strin
 
 /**
  * 🔗 r86: Concept Vocabulary / Analyze Craft and Structure / Review, exactly as the Lessons tab lists and assigns
- * them — same titles, same Ready/Not ready, same 👁 Review / ✏️ My Review / ⭐ Assign. Deliberately mirrors
+ * them — same titles, same Ready/Not ready, same 👁 Review / ✏️ My Review / ⭐ Assign / ✓ Sent. Deliberately mirrors
  * CompactLesson's row markup (src/components/curriculum-map/lesson-card.tsx) so it reads as the SAME feature, not a
  * lookalike: these rows assign the CurriculumMapNode place itself (code), not a platform Skill.
+ * 🩹 fix ("ليه vocabulary/analyze لما بعمل assign مش بيظهر علامه إن تم الإرسال، زي النجمه؟"): the mirror above missed
+ * one piece — CompactLesson's own "✓ Sent <date>" badge (and its Assign → "Send again" label swap) never made it
+ * over to these rows, so a teacher doing the exact same Assign from the Skill plan tab saw nothing confirming it
+ * went through. `sent` is the same code → date map src/app/admin/curriculum-map/page.tsx already builds for
+ * CompactLesson — just threaded through to here too.
  */
-function LessonSectionRows({ sections, canAssign, roster }: { sections: MapPdfLessonSection[]; canAssign: boolean; roster: RosterClass[] }) {
+function LessonSectionRows({ sections, canAssign, roster, sent }: { sections: MapPdfLessonSection[]; canAssign: boolean; roster: RosterClass[]; sent?: Record<string, string> }) {
   const t = useT();
   const pill = "inline-flex min-h-8 items-center rounded-full px-2.5 text-xs font-bold ring-1";
   return (
     <ul className="mt-2 divide-y divide-slate-100">
-      {sections.map((s) => (
+      {sections.map((s) => {
+        const sentOn = sent?.[s.code.toUpperCase()];
+        return (
         <li key={s.code} className="py-1.5">
           <div className="flex flex-wrap items-center justify-between gap-2">
             <span className="text-sm font-medium text-slate-800" dir="ltr">{s.title}</span>
             <span className="flex flex-wrap items-center gap-1">
               {!s.ready && <span className={`${pill} bg-slate-100 text-slate-500 ring-slate-200`}>{t("Not ready")}</span>}
+              {sentOn && <span title={sentOn} className={`${pill} bg-emerald-50 text-emerald-800 ring-emerald-200`}>✓ {t("Sent")} {sentOn.slice(5).replace("-", "/")}</span>}
               {s.ready && <Link href={`/teacher/preview?code=${encodeURIComponent(s.code)}`} prefetch={false} className={`${pill} bg-white text-brand-navy ring-slate-300 hover:bg-slate-50`}>👁 {t("Review")}</Link>}
               {canAssign && s.kind === "REVIEW" && <Link href={`/teacher/curriculum-review?code=${encodeURIComponent(s.code)}`} prefetch={false} className={`${pill} bg-violet-50 text-violet-900 ring-violet-200 hover:bg-violet-100`}>✏️ {t("My Review")}</Link>}
-              {canAssign && s.ready && roster.length > 0 && <MapAssignButton code={s.code} label={t("Assign")} levels />}
+              {canAssign && s.ready && roster.length > 0 && <MapAssignButton code={s.code} label={t(sentOn ? "Send again" : "Assign")} levels />}
             </span>
           </div>
           {/* Oct 2026 r?: the Concept Vocabulary word list and the Analyze Craft and Structure skill name(s), right
@@ -194,7 +207,8 @@ function LessonSectionRows({ sections, canAssign, roster }: { sections: MapPdfLe
           {s.words?.length ? <p className="mt-0.5 text-xs text-slate-500" dir="ltr">{s.words.join(", ")}</p> : null}
           {s.skillLabel ? <p className="mt-0.5 text-xs text-slate-500" dir="ltr">{s.skillLabel}</p> : null}
         </li>
-      ))}
+        );
+      })}
     </ul>
   );
 }
