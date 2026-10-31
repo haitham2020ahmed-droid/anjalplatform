@@ -286,7 +286,7 @@ function SuggestPanel({ skill, roster, quickAssign, priorAssignment, masteredCou
   // ↩ Undo the per-student un-star, right after (owner request, Oct 2026: a star pressed by accident should be easy
   // to reverse) — the exact students + class of the last unassign, offered for this panel's life only (not a
   // persisted "last action"; closing the panel and reopening it drops the offer, same as the Removed ✓ message does).
-  const [lastRemoved, setLastRemoved] = useState<{ classId: string; studentIds: string[] } | null>(null);
+  const [lastRemoved, setLastRemoved] = useState<{ classId: string; skillId: string; studentIds: string[] } | null>(null);
   const klass = roster.find((c) => c.id === classId) ?? roster[0];
   const students = useMemo(() => (klass?.students ?? []).filter((s) => s.name.toLowerCase().includes(q.trim().toLowerCase())), [klass, q]);
   // 🎯 owner r87 round 5 ("عايز لما اضغط علي النجمه يظهر البانل قريب منها... لا احتاج اعمل scroll"): the earlier
@@ -371,7 +371,7 @@ function SuggestPanel({ skill, roster, quickAssign, priorAssignment, masteredCou
     if (r.ok) {
       setStarred((s) => { const n = new Set(s); for (const id of studentIds) n.delete(id); return n; });
       setMsg(t("Removed ✓"));
-      if (reassignAssignmentForStudents) setLastRemoved({ classId, studentIds });
+      if (reassignAssignmentForStudents) setLastRemoved({ classId, skillId: skill.id, studentIds });
       // emptied the whole class's assignment of this skill (the "All students" row, or the last starred student)
       if ((klass?.students.length ?? 0) > 0 && studentIds.length === klass!.students.length) {
         onRemoved(); setPriorAssigned(false); setConfirmed(false); setJustAssigned(false);
