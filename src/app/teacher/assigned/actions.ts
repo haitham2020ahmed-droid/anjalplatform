@@ -4,7 +4,7 @@ import { revalidatePath } from "next/cache";
 import { repo, requireActor } from "@/server/auth/next";
 import { ForbiddenError } from "@/server/auth/rbac";
 import { ValidationError } from "@/server/curriculum-admin";
-import { cancelAssignment, cancelMany, isAssignedKind, parseBulkRefs, restoreAssignment, restoreMany, setTabMany } from "@/server/teacher/assigned";
+import { cancelAssignment, cancelMany, isAssignedKind, parseBulkRefs, restoreAssignment, restoreMany, setTabMany, updateAssignedStart } from "@/server/teacher/assigned";
 import { assignedQrForItem } from "@/server/auth/assigned-qr";
 import { appOrigin } from "@/lib/plan-links";
 import { parseWorkTab } from "@/lib/work-tab";
@@ -83,6 +83,21 @@ export async function getAssignedQrLinkAction(kind: string, id: string, classId:
     if (known(e)) return { ok: false, error: (e as Error).message.slice(0, 200) };
     throw e;
   }
+}
+
+/**
+ * 📅 Change a "Scheduled" row's own start date (owner request, Oct 2026) — a date string (YYYY-MM-DD) or empty to
+ * clear it (the work opens for students at once).
+ */
+export async function updateAssignedStartAction(f: FormData): Promise<void> {
+  const actor = await requireActor({ roles: [...STAFF], permission: "assignments:create" });
+  const kind = String(f.get("kind") ?? ""), id = String(f.get("id") ?? "");
+  const raw = String(f.get("startAt") ?? "").trim();
+  if (!isAssignedKind(kind)) back(f, { err: "Unknown kind of work." });
+  const startAt = raw && /^\d{4}-\d{2}-\d{2}$/.test(raw) ? new Date(`${raw}T00:00:00`) : null;
+  try { await updateAssignedStart(repo, actor, kind, id, startAt); }
+  catch (e) { if (known(e)) back(f, { err: (e as Error).message.slice(0, 200) }); throw e; }
+  back(f, { done: "start_updated", k: kind, i: id });
 }
 
 /** ↩ Undo: the work is back in the students' My Work, with their answers as they were. */

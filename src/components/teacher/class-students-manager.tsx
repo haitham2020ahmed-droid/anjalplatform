@@ -91,7 +91,7 @@ export function ClassStudentsManager({ classId, className, schoolName, canAdd, s
       <details className="mt-3 rounded-xl p-3 ring-1 ring-slate-200 print:hidden">
         <summary className="flex min-h-11 cursor-pointer items-center font-semibold text-brand-navy">✏️ {t("Fix a name or take a student out of this class")}</summary>
         {note.error && <p role="alert" className="mt-2 rounded-lg bg-red-50 px-3 py-1.5 text-sm text-red-700">{t(note.error)}</p>}
-        {note.message && !note.error && <p role="status" className="mt-2 text-sm text-emerald-800">{t(note.message)}</p>}
+        {note.message && !note.error && <p role="status" className="mt-2 text-sm text-emerald-800">{t(note.message, note.withdrawn ? { n: note.withdrawn } : undefined)}</p>}
         {students.length === 0 ? <p className="mt-2 text-sm text-slate-500">{t("No students in this class yet")}</p> : (
           <ul className="mt-2 divide-y divide-slate-100">
             {students.map((s) => (

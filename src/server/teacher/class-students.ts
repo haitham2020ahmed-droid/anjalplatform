@@ -170,13 +170,19 @@ export async function renameClassStudent(repo: Repo, actor: Actor, input: { clas
   return { name };
 }
 
-/** The student leaves this class (the account and all their work stay; the admin can place them in another class). */
-export async function removeFromClass(repo: Repo, actor: Actor, input: { classId: string; studentId: string }, now = new Date()): Promise<void> {
+/**
+ * The student leaves this class (the account and all their work stay; the admin can place them in another class).
+ * Returns how many of their open assignments in this class were withdrawn (owner request, Oct 2026: "المعلم كان
+ * مستغرب ليه المهمة اختفت" — the count used to be computed and thrown away; a non-technical teacher had no way to
+ * know this already-silent side effect had happened, let alone how many assignments it touched).
+ */
+export async function removeFromClass(repo: Repo, actor: Actor, input: { classId: string; studentId: string }, now = new Date()): Promise<{ withdrawn: number }> {
   const klass = await ownClass(repo, actor, input.classId);
   const { st } = await ownStudent(repo, actor, klass, input.studentId, now, "student.class.leave");
-  await repo.transaction(async (tx) => {
+  const withdrawn = await repo.transaction(async (tx) => {
     await tx.updateMany("ClassMembership", { classId: klass.id, studentId: st.id, leftAt: null }, { leftAt: now });
-    await withdrawOldClassWork(tx, s(st.id), [s(klass.id)], null); // this class's unfinished work leaves their list
+    return withdrawOldClassWork(tx, s(st.id), [s(klass.id)], null); // this class's unfinished work leaves their list
   });
-  await audit(repo, { actorId: actor.userId, action: "student.class.leave", entityType: "Student", entityId: s(st.id), before: { classId: s(klass.id) }, after: { classId: null, via: "teacher.class" }, at: now });
+  await audit(repo, { actorId: actor.userId, action: "student.class.leave", entityType: "Student", entityId: s(st.id), before: { classId: s(klass.id) }, after: { classId: null, via: "teacher.class", withdrawn }, at: now });
+  return { withdrawn };
 }

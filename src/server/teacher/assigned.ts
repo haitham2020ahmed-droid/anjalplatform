@@ -594,6 +594,25 @@ export async function restoreAssignment(repo: Repo, actor: Actor, kind: Assigned
   return n;
 }
 
+/**
+ * 📅 Change a SKILL / PROGRESS_CHECK's own start date (owner request, Oct 2026: "ضيف جنب كلمه scheduled خيار انه
+ * يعدل تاريخ" — a "Scheduled" row used to need a full cancel + reassign just to move its date). null clears the
+ * start date (the work opens for students at once). A single Assignment row only (one aid) — a test set or a
+ * plan's places have several Assignment rows and are not offered this control on the page.
+ */
+export async function updateAssignedStart(repo: Repo, actor: Actor, kind: AssignedKind, id: string, startAt: Date | null, now = new Date()): Promise<{ startAt: string | null }> {
+  assertCan(actor, "assignments:create");
+  if (kind !== "SKILL" && kind !== "PROGRESS_CHECK") throw new ValidationError("Only a skill or progress check's start date can be changed here.");
+  const { sc, item } = await manageable(repo, actor, kind, id);
+  const assignmentId = item.aids?.[0];
+  if (!assignmentId) throw new ValidationError("This item has no single start date to change.");
+  if (item.dueAt && startAt && Date.parse(item.dueAt) <= startAt.getTime()) throw new ValidationError("The start date must be before the due date.");
+  await repo.updateMany("Assignment", { id: assignmentId }, { startAt });
+  await audit(repo, { actorId: actor.userId, action: "assignment.update_start", entityType: kind, entityId: assignmentId, before: { startAt: item.startAt ?? null }, after: { startAt: startAt ? startAt.toISOString() : null }, at: now }).catch(() => undefined);
+  await forgetCachedReports(repo, sc.schoolId);
+  return { startAt: startAt ? startAt.toISOString() : null };
+}
+
 // ------------------------------------------------------------------ several at once (owner r68 §8 / §E)
 
 export interface BulkRef { kind: AssignedKind; id: string }

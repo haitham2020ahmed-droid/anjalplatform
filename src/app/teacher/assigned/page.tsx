@@ -8,7 +8,7 @@ import { getActor, repo, requireActor } from "@/server/auth/next";
 import { getT } from "@/i18n/server";
 import type { TFn } from "@/i18n";
 import { ASSIGNED_KIND_LABEL, ASSIGNED_KINDS, ASSIGNED_STATUS_LABEL, assignedList, assignedStudents, isAssignedKind, type AssignedItem, type AssignedStatus } from "@/server/teacher/assigned";
-import { cancelAssignedAction, restoreAssignedAction } from "./actions";
+import { cancelAssignedAction, restoreAssignedAction, updateAssignedStartAction } from "./actions";
 import { AssignedBulkBar } from "@/components/teacher/assigned-bulk";
 import { AssignedQrButton } from "@/components/teacher/assigned-qr-button";
 import { isAssignedQrKind } from "@/server/auth/assigned-qr";
@@ -81,6 +81,26 @@ function RowActions({ x, t, href, back }: { x: AssignedItem; t: TFn; href: (e: R
   );
 }
 
+/**
+ * 📅 "Scheduled" row's own quick date editor (owner request, Oct 2026) — a small popover with a date input, next to
+ * the status badge: change the start date (or clear it, so the work opens for students at once) without cancelling
+ * and reassigning the whole thing. SKILL / PROGRESS_CHECK only (one Assignment row, so one date to change).
+ */
+function EditStartForm({ x, t, back }: { x: AssignedItem; t: TFn; back: string }) {
+  return (
+    <details className="relative">
+      <summary aria-label={t("Edit start date")} className="inline-flex h-6 cursor-pointer list-none items-center rounded-md px-1.5 text-[11px] font-semibold text-brand-navy ring-1 ring-line hover:ring-brand-teal">📅 {t("Edit")}</summary>
+      <form action={updateAssignedStartAction} className="absolute start-0 top-7 z-20 flex items-center gap-1.5 whitespace-nowrap rounded-lg bg-surface p-2 shadow-card ring-1 ring-line">
+        <input type="hidden" name="kind" value={x.kind} />
+        <input type="hidden" name="id" value={x.id} />
+        <input type="hidden" name="back" value={back} />
+        <input type="date" name="startAt" defaultValue={x.startAt ? x.startAt.slice(0, 10) : ""} className="h-8 rounded-md border border-line px-2 text-xs" dir="ltr" />
+        <button className="h-8 shrink-0 rounded-md bg-brand-navy px-2 text-xs font-semibold text-white">{t("Save")}</button>
+      </form>
+    </details>
+  );
+}
+
 /** One table row: a single assignment (a leaf row, whether shown directly or nested under its skill's group). */
 function ItemRow({ x, t, who, href, back, admin }: { x: AssignedItem; t: TFn; who: (x: AssignedItem) => string; href: (e: Record<string, string | null>) => string; back: string; admin: boolean }) {
   return (
@@ -98,7 +118,10 @@ function ItemRow({ x, t, who, href, back, admin }: { x: AssignedItem; t: TFn; wh
       <span className="min-w-0 truncate text-xs text-muted"><bdi>{who(x)}</bdi>{admin && x.teacher ? <> · <bdi>{x.teacher.name}</bdi></> : null}</span>
       <span className="truncate text-xs text-muted" dir="ltr">{x.startAt ? <>{t("Start")}: {day(x.startAt)} · </> : null}{day(x.dueAt)}</span>
       <span className="text-xs tabular-nums text-ink-2" dir="ltr" title={t("Finished / students")}>{x.done}/{x.recipients}</span>
-      <span className={`justify-self-start rounded-full px-2 py-0.5 text-xs font-semibold ring-1 ${TONE[x.status]}`}>{t(ASSIGNED_STATUS_LABEL[x.status])}</span>
+      <span className="flex min-w-0 items-center gap-1">
+        <span className={`justify-self-start rounded-full px-2 py-0.5 text-xs font-semibold ring-1 ${TONE[x.status]}`}>{t(ASSIGNED_STATUS_LABEL[x.status])}</span>
+        {x.status === "SCHEDULED" && !x.cancelled && (x.kind === "SKILL" || x.kind === "PROGRESS_CHECK") && <EditStartForm x={x} t={t} back={back} />}
+      </span>
       <span>{x.tab ? <span className="rounded-full bg-indigo-50 px-2 py-0.5 text-xs font-semibold text-indigo-700 ring-1 ring-indigo-200">📂 {t(WORK_TAB_LABEL[x.tab])}</span> : null}</span>
       {/* 🔗 "open straight on this" link/QR (owner request, Oct 2026) — not offered for a cancelled row, or a kind
           with no single resolvable solve page yet (MAP Test's one-row-per-subject, Learn/Words). */}
@@ -200,7 +223,7 @@ export default async function AssignedPage({ searchParams }: { searchParams: Pro
   const activeRows = shown.filter((x) => x.status !== "DONE" && x.status !== "CANCELLED");
   const field = "h-9 rounded-lg bg-surface px-2 text-sm text-ink ring-1 ring-line";
   const who = (x: AssignedItem) => x.scope === "class" ? (x.classNames.join(", ") || t("Whole class")) : `${x.classNames.join(", ")}${x.classNames.length ? " · " : ""}${t("{n} chosen students", { n: x.recipients + x.removed })}`;
-  const doneMsg = sp.done === "cancelled" ? t("Cancelled. Students no longer see it; their answers are kept.") : sp.done === "removed" ? t("Removed for this student. Their answers are kept.") : sp.done === "restored" ? t("Restored: it is back in the students' My Work.") : null;
+  const doneMsg = sp.done === "cancelled" ? t("Cancelled. Students no longer see it; their answers are kept.") : sp.done === "removed" ? t("Removed for this student. Their answers are kept.") : sp.done === "restored" ? t("Restored: it is back in the students' My Work.") : sp.done === "start_updated" ? t("Start date updated.") : null;
   return (
     <AppShell name={String(me.displayName)}>
       <PageHeader title="Assigned" subtitle={v.admin ? t("Everything the teachers assigned. Cancel hides it from the students at once; their answers are kept.") : t("Everything you assigned. Cancel hides it from the students at once; their answers are kept.")} />
@@ -208,7 +231,7 @@ export default async function AssignedPage({ searchParams }: { searchParams: Pro
       {doneMsg && (
         <p role="status" className="mb-3 flex flex-wrap items-center gap-2 rounded-xl bg-teal-50 px-3 py-2 text-sm text-teal-900 ring-1 ring-teal-200">
           {doneMsg}
-          {sp.done !== "restored" && isAssignedKind(sp.k) && sp.i && <ConfirmForm action={restoreAssignedAction} fields={{ kind: sp.k, id: sp.i, studentId: sp.s ?? "", back }} label={t("Undo")} />}
+          {sp.done !== "restored" && sp.done !== "start_updated" && isAssignedKind(sp.k) && sp.i && <ConfirmForm action={restoreAssignedAction} fields={{ kind: sp.k, id: sp.i, studentId: sp.s ?? "", back }} label={t("Undo")} />}
         </p>
       )}
       {sp.err && <p role="alert" className="mb-3 rounded-xl bg-rose-50 px-3 py-2 text-sm text-rose-800 ring-1 ring-rose-200">{t(sp.err)}</p>}

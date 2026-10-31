@@ -84,7 +84,11 @@ export async function teacherClassesAction(_: Result, f: FormData): Promise<Resu
 export async function moveStudentAction(_: Result, f: FormData): Promise<Result> {
   const actor = await requireActor({ permission: "classes:manage" });
   const userId = id.parse(f.get("userId"));
-  return run([`/admin/users/${userId}`, "/admin/users"], () => moveStudent(repo, actor, userId, str(f, "classId") || null).then(() => ({ message: "Class updated." })));
+  return run([`/admin/users/${userId}`, "/admin/users"], () =>
+    moveStudent(repo, actor, userId, str(f, "classId") || null).then(({ withdrawn }) => ({
+      message: withdrawn > 0 ? `Class updated. ${withdrawn} open assignment(s) from the old class no longer show in their My Work (answers are kept).` : "Class updated.",
+    })),
+  );
 }
 
 export async function linkParentAction(_: Result, f: FormData): Promise<Result> {

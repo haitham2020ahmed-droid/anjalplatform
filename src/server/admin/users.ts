@@ -345,16 +345,19 @@ export async function setTeacherClasses(repo: Repo, actor: Actor, teacherUserId:
  * Move a student to a class (or remove from all classes with classId = null).
  * The old membership is closed (leftAt), not deleted, so class history stays correct.
  * Moving into a class of another grade also changes the student's grade (promotion).
+ * Returns how many of the student's open assignments in their old class(es) were withdrawn (owner request, Oct
+ * 2026: the count used to be computed and thrown away, so a teacher seeing an assignment vanish from a moved
+ * student's My Work had no way to connect it back to the move).
  */
-export async function moveStudent(repo: Repo, actor: Actor, studentUserId: string, classId: string | null, now = new Date()): Promise<void> {
+export async function moveStudent(repo: Repo, actor: Actor, studentUserId: string, classId: string | null, now = new Date()): Promise<{ withdrawn: number }> {
   assertCan(actor, "classes:manage");
   const u = await manageableUser(repo, actor, studentUserId);
   if (u.role !== "STUDENT") throw new ValidationError("Only students can be moved between classes.");
   const st = (await repo.findUnique("Student", { userId: studentUserId }))!;
   const target = classId ? await classInSchool(repo, actor, classId) : null;
   const open = await repo.findMany("ClassMembership", { studentId: st.id, leftAt: null });
-  if (target && open.length === 1 && open[0].classId === classId) return;
-  await repo.transaction(async (tx) => {
+  if (target && open.length === 1 && open[0].classId === classId) return { withdrawn: 0 };
+  const withdrawn = await repo.transaction(async (tx) => {
     for (const m of open) await tx.updateMany("ClassMembership", { classId: m.classId, studentId: st.id }, { leftAt: now });
     if (target) {
       const prior = await tx.findUnique("ClassMembership", { classId: target.id, studentId: st.id });
@@ -366,9 +369,10 @@ export async function moveStudent(repo: Repo, actor: Actor, studentUserId: strin
       }
     }
     // unfinished work of the old class leaves the student's list (S-9)
-    await withdrawOldClassWork(tx, String(st.id), open.map((m) => String(m.classId)), target ? String(target.id) : null);
+    return withdrawOldClassWork(tx, String(st.id), open.map((m) => String(m.classId)), target ? String(target.id) : null);
   });
-  await audit(repo, { actorId: actor.userId, action: "student.class.move", entityType: "Student", entityId: String(st.id), before: { classIds: open.map((m) => String(m.classId)), gradeId: st.gradeId }, after: { classId, gradeId: target?.gradeId ?? st.gradeId }, at: now });
+  await audit(repo, { actorId: actor.userId, action: "student.class.move", entityType: "Student", entityId: String(st.id), before: { classIds: open.map((m) => String(m.classId)), gradeId: st.gradeId }, after: { classId, gradeId: target?.gradeId ?? st.gradeId, withdrawn }, at: now });
+  return { withdrawn };
 }
 
 export async function linkParent(repo: Repo, actor: Actor, parentUserId: string, studentUserId: string, relationship: string | null, now = new Date()): Promise<void> {

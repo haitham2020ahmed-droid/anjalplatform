@@ -3,7 +3,7 @@ import { repo, requireActor } from "@/server/auth/next";
 import { ForbiddenError } from "@/server/auth/rbac";
 import { ValidationError } from "@/server/curriculum-admin";
 import { assignFromMap, placeQuestionChoices, setStudentLevels, type PlaceQuestionChoice } from "@/server/curriculum-map/levels";
-import { assignSkill, cancelSkillAssignmentsForClass, cancelSkillAssignmentsForStudents, DEFAULT_TARGET_CORRECT, hasPriorSkillAssignment } from "@/server/teacher/assign";
+import { assignSkill, cancelSkillAssignmentsForClass, cancelSkillAssignmentsForStudents, DEFAULT_TARGET_CORRECT, hasPriorSkillAssignment, reassignSkillAssignmentsForStudents } from "@/server/teacher/assign";
 import { assertClassAccess } from "@/server/teacher/assignments";
 import { masteredInClasses } from "@/server/skills/status-extras";
 import { DATE_ORDER_ERROR, startOfDay } from "@/lib/assign-dates";
@@ -114,6 +114,22 @@ export async function cancelSkillAssignmentForStudentsAction(input: { classId: s
     const r = await cancelSkillAssignmentsForStudents(repo, actor, input.classId, input.skillId, input.studentIds);
     if (!r.removed) return { ok: false, message: "Nothing to remove — this student has no open assignment of this skill." };
     return { ok: true, message: "Removed ✓ Students no longer see it; their answers are kept." };
+  } catch (e) {
+    if (e instanceof ValidationError || e instanceof ForbiddenError) return { ok: false, message: e.message };
+    throw e;
+  }
+}
+
+/** ↩ Undo the per-student un-star, right after (same screen): re-adds only the named students, everyone else
+ * untouched. Students see it again at once; nothing of theirs was lost in the few seconds it was gone. */
+export async function reassignSkillAssignmentForStudentsAction(input: { classId: string; skillId: string; studentIds: string[] }): Promise<{ ok: boolean; message: string }> {
+  const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"], permission: "assignments:create" });
+  try {
+    if (!input.classId || !input.skillId || !input.studentIds?.length) return { ok: false, message: "Choose a class." };
+    await assertClassAccess(repo, actor, input.classId);
+    const r = await reassignSkillAssignmentsForStudents(repo, actor, input.classId, input.skillId, input.studentIds);
+    if (!r.added) return { ok: false, message: "Nothing to undo — this student already has the assignment." };
+    return { ok: true, message: "Added back ✓" };
   } catch (e) {
     if (e instanceof ValidationError || e instanceof ForbiddenError) return { ok: false, message: e.message };
     throw e;

@@ -537,6 +537,37 @@ export async function cancelSkillAssignmentsForStudents(repo: Repo, actor: Actor
   return { removed };
 }
 
+/**
+ * ↩ Undo "يشيل طالب واحد بس", right after (same screen, owner request Oct 2026 — a star pressed by accident should
+ * be easy to reverse): the exact reverse of cancelSkillAssignmentsForStudents above — re-adds the named students to
+ * this skill's assignment(s) in this class. A student already linked (never actually removed, or added again by
+ * someone else meanwhile) is skipped, never duplicated. If removing the last student emptied the assignment (it was
+ * soft-deleted, see above), re-adding revives that SAME assignment row — never a brand-new one — so nothing else
+ * about it (its due date, note, questions) is lost; an assignment deleted for a real, unrelated reason (still has
+ * other students on it) is never touched here.
+ */
+export async function reassignSkillAssignmentsForStudents(repo: Repo, actor: Actor, classId: string, skillId: string, studentIds: string[], now = new Date()): Promise<{ added: number }> {
+  assertCan(actor, "assignments:create");
+  await assertClassAccess(repo, actor, classId);
+  if (!studentIds.length) return { added: 0 };
+  const assignments = await repo.findMany("Assignment", { classId, skillId }, { select: ["id", "title", "deletedAt"] });
+  let added = 0;
+  for (const a of assignments) {
+    const assignmentId = s(a.id);
+    const have = new Set((await repo.findMany("AssignmentStudent", { assignmentId, studentId: { in: studentIds } }, { select: ["studentId"] })).map((r) => s(r.studentId)));
+    const missing = studentIds.filter((id) => !have.has(id));
+    if (!missing.length) continue;
+    if (a.deletedAt) {
+      if ((await repo.count("AssignmentStudent", { assignmentId })) > 0) continue; // genuinely cancelled, others still on it: never revived here
+      await repo.updateMany("Assignment", { id: assignmentId }, { deletedAt: null });
+    }
+    await repo.createMany("AssignmentStudent", missing.map((studentId) => ({ assignmentId, studentId, status: "NOT_STARTED", progress: 0 })));
+    added += missing.length;
+    await audit(repo, { actorId: actor.userId, action: "assignment.undoRemoveStudents", entityType: "Assignment", entityId: assignmentId, after: { title: s(a.title), studentIds: missing }, at: now }).catch(() => undefined);
+  }
+  return { added };
+}
+
 export async function assignmentDetail(repo: Repo, actor: Actor, assignmentId: string, now = new Date()): Promise<AssignmentDetail> {
   assertCan(actor, "assignments:read");
   if (actor.role !== "TEACHER" && actor.role !== "SCHOOL_ADMIN" && actor.role !== "SUPER_ADMIN") throw new ForbiddenError("Only teachers and admins can see assignment results.");
