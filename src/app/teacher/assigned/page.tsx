@@ -7,7 +7,7 @@ import { ConfirmForm } from "@/components/teacher/confirm-form";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { getT } from "@/i18n/server";
 import type { TFn } from "@/i18n";
-import { ASSIGNED_KIND_LABEL, ASSIGNED_KINDS, ASSIGNED_STATUS_LABEL, assignedList, assignedStudents, isAssignedKind, type AssignedItem, type AssignedStatus } from "@/server/teacher/assigned";
+import { ASSIGNED_KIND_LABEL, ASSIGNED_KINDS, ASSIGNED_STATUS_LABEL, EDITABLE_START_KINDS, assignedList, assignedStudents, isAssignedKind, type AssignedItem, type AssignedStatus } from "@/server/teacher/assigned";
 import { cancelAssignedAction, restoreAssignedAction, updateAssignedStartAction } from "./actions";
 import { AssignedBulkBar } from "@/components/teacher/assigned-bulk";
 import { AssignedQrButton } from "@/components/teacher/assigned-qr-button";
@@ -84,7 +84,8 @@ function RowActions({ x, t, href, back }: { x: AssignedItem; t: TFn; href: (e: R
 /**
  * 📅 "Scheduled" row's own quick date editor (owner request, Oct 2026) — a small popover with a date input, next to
  * the status badge: change the start date (or clear it, so the work opens for students at once) without cancelling
- * and reassigning the whole thing. SKILL / PROGRESS_CHECK only (one Assignment row, so one date to change).
+ * and reassigning the whole thing. Offered for every kind EDITABLE_START_KINDS lists (one table row = one date to
+ * change); NAFS_PRACTICE / EXIT_TICKET / LESSON have no start date at all, and PLAN keeps its own resend flow.
  */
 function EditStartForm({ x, t, back }: { x: AssignedItem; t: TFn; back: string }) {
   return (
@@ -120,7 +121,7 @@ function ItemRow({ x, t, who, href, back, admin }: { x: AssignedItem; t: TFn; wh
       <span className="text-xs tabular-nums text-ink-2" dir="ltr" title={t("Finished / students")}>{x.done}/{x.recipients}</span>
       <span className="flex min-w-0 items-center gap-1">
         <span className={`justify-self-start rounded-full px-2 py-0.5 text-xs font-semibold ring-1 ${TONE[x.status]}`}>{t(ASSIGNED_STATUS_LABEL[x.status])}</span>
-        {x.status === "SCHEDULED" && !x.cancelled && (x.kind === "SKILL" || x.kind === "PROGRESS_CHECK") && <EditStartForm x={x} t={t} back={back} />}
+        {x.status === "SCHEDULED" && !x.cancelled && EDITABLE_START_KINDS.has(x.kind) && <EditStartForm x={x} t={t} back={back} />}
       </span>
       <span>{x.tab ? <span className="rounded-full bg-indigo-50 px-2 py-0.5 text-xs font-semibold text-indigo-700 ring-1 ring-indigo-200">📂 {t(WORK_TAB_LABEL[x.tab])}</span> : null}</span>
       {/* 🔗 "open straight on this" link/QR (owner request, Oct 2026) — not offered for a cancelled row, or a kind
