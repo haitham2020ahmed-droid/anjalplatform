@@ -598,10 +598,12 @@ export async function restoreAssignment(repo: Repo, actor: Actor, kind: Assigned
  * 📅 Change any kind's own start date (owner request, Oct 2026: "ضيف جنب كلمه scheduled خيار انه يعدل تاريخ"، ثم
  * "خليه يشمل الكل" — a "Scheduled" row used to need a full cancel + reassign just to move its date). null clears
  * the start date (the work opens for students at once). Each kind in ONE_ROW_START keeps its own startAt on its
- * own table, one row = one item.id, so the update goes straight to that table/field — no AssignmentStudent fan-out.
- * Excluded on purpose: NAFS_PRACTICE, EXIT_TICKET and LESSON have no start-date field at all (never show
- * "Scheduled"), and PLAN is several Assignment rows (one per class/place) behind one item, so a single edit here
- * could not move every one of them together — it keeps its own cancel-and-resend flow instead.
+ * own table, one row = one item.id, so the update goes straight to that table/field. PLAN is handled separately
+ * below: its own SkillPlan.startAt is only the display copy of the first place's date (src/server/plans/editor.ts,
+ * src/server/plans/send.ts) — the real gate every student hits is each PLACE's own Assignment.startAt
+ * (mergeWorkItems/startsLater), so moving only SkillPlan.startAt would just repaint the teacher's page while every
+ * student kept the old date. Genuinely excluded: NAFS_PRACTICE, EXIT_TICKET and LESSON have no start-date column
+ * anywhere in the schema (never show "Scheduled" — there is nothing a button here could change).
  */
 const ONE_ROW_START: Partial<Record<AssignedKind, { table: string; field: string }>> = {
   SKILL: { table: "Assignment", field: "startAt" }, PROGRESS_CHECK: { table: "Assignment", field: "startAt" },
@@ -611,15 +613,22 @@ const ONE_ROW_START: Partial<Record<AssignedKind, { table: string; field: string
   WRITING: { table: "WritingTask", field: "startAt" }, FLUENCY: { table: "WritingTask", field: "startAt" },
   RESPOND: { table: "RespondAssignment", field: "startAt" },
 };
-/** Which kinds the page's 📅 Edit-start-date control should offer (keys of ONE_ROW_START, without leaking its table names to the client). */
-export const EDITABLE_START_KINDS = new Set<AssignedKind>(Object.keys(ONE_ROW_START) as AssignedKind[]);
+/** Which kinds the page's 📅 Edit-start-date control should offer (ONE_ROW_START's keys, plus PLAN which is handled on its own below). */
+export const EDITABLE_START_KINDS = new Set<AssignedKind>([...Object.keys(ONE_ROW_START), "PLAN"] as AssignedKind[]);
 export async function updateAssignedStart(repo: Repo, actor: Actor, kind: AssignedKind, id: string, startAt: Date | null, now = new Date()): Promise<{ startAt: string | null }> {
   assertCan(actor, "assignments:create");
   const where = ONE_ROW_START[kind];
-  if (!where) throw new ValidationError("This item has no single start date to change.");
+  if (!where && kind !== "PLAN") throw new ValidationError("This item has no single start date to change.");
   const { sc, item } = await manageable(repo, actor, kind, id);
   if (item.dueAt && startAt && Date.parse(item.dueAt) <= startAt.getTime()) throw new ValidationError("The start date must be before the due date.");
-  await repo.updateMany(where.table, { id: item.id }, { [where.field]: startAt });
+  if (kind === "PLAN") {
+    const places = item.aids ?? [];
+    if (!places.length) throw new ValidationError("This plan has no places to move.");
+    await repo.updateMany("SkillPlan", { id: item.id }, { startAt });
+    await repo.updateMany("Assignment", { id: { in: places } }, { startAt }); // the real per-student gate (mergeWorkItems)
+  } else {
+    await repo.updateMany(where!.table, { id: item.id }, { [where!.field]: startAt });
+  }
   await audit(repo, { actorId: actor.userId, action: "assignment.update_start", entityType: kind, entityId: item.id, before: { startAt: item.startAt ?? null }, after: { startAt: startAt ? startAt.toISOString() : null }, at: now }).catch(() => undefined);
   await forgetCachedReports(repo, sc.schoolId);
   return { startAt: startAt ? startAt.toISOString() : null };

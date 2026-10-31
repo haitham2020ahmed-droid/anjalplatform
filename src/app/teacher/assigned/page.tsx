@@ -84,8 +84,10 @@ function RowActions({ x, t, href, back }: { x: AssignedItem; t: TFn; href: (e: R
 /**
  * 📅 "Scheduled" row's own quick date editor (owner request, Oct 2026) — a small popover with a date input, next to
  * the status badge: change the start date (or clear it, so the work opens for students at once) without cancelling
- * and reassigning the whole thing. Offered for every kind EDITABLE_START_KINDS lists (one table row = one date to
- * change); NAFS_PRACTICE / EXIT_TICKET / LESSON have no start date at all, and PLAN keeps its own resend flow.
+ * and reassigning the whole thing. Offered for every kind EDITABLE_START_KINDS lists: each one-table-row kind plus
+ * PLAN (which moves every one of its places' Assignment rows together, not just the plan's own display copy).
+ * NAFS_PRACTICE / EXIT_TICKET / LESSON have no start-date column anywhere in the database, so there is nothing a
+ * button here could change for them.
  */
 function EditStartForm({ x, t, back }: { x: AssignedItem; t: TFn; back: string }) {
   return (
