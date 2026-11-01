@@ -53,6 +53,9 @@ export interface StudentPersonalizedPlan {
   resources: string[]; monitoring: string[];
   /** Every instructional area's own RIT for this one student (not just their 3 weakest goals), weakest first. */
   areaBreakdown: PersonalPlan["areaBreakdown"];
+  /** NWEA's published national average RIT for this grade/season/subject — same number as the class's own, so the
+   *  one-student "Instructional Areas" bar can be scaled against it too (see InstructionalAreas' fix comment). */
+  nationalAverageRit: number | null;
   /** "Instructional Area Achievement Percentiles" for this one student: which NWEA national-percentile band
    *  (Low/LoAvg/Avg/HiAvg/High) each area's own descriptor falls in. Needs the comprehensive MAP data file; empty
    *  (never thrown) when only a basic RIT-only import exists, or the class profile can't be read. */
@@ -82,6 +85,7 @@ export async function personalizedPlanForStudent(repo: Repo, actor: Actor, stude
     rit: row?.rit ?? null, projection: row?.projection ?? null, percentile: row?.percentile ?? null,
     goals: own?.goals ?? [], strengths: own?.strengths ?? [], resources: band?.resources ?? [], monitoring: band?.monitoring ?? [],
     areaBreakdown: p.studentAreaBreakdown[studentId] ?? [],
+    nationalAverageRit: p.nationalAverageRit,
     areaPercentiles: profile ? studentAreaQuintiles(profile, studentId) : [],
   };
 }

@@ -14,10 +14,17 @@ export const metadata = { title: "Personalized Plan" };
 const TITLE = { BELOW: "🟠 Below level", ON: "🔵 On level", ABOVE: "🟢 Above level" } as const;
 
 /** "Instructional Areas": every goal area's own RIT (not just the top goals), weakest first — the whole class's
- *  average, or (no `students` column) one student's own score. Shared by the student and class views. */
+ *  average, or (no `students` column) one student's own score. Shared by the student and class views.
+ *
+ * 🐛 fix (audit finding, Nov 2026): the bar's length used to be scaled against the HIGHEST area's own RIT here
+ * (`Math.max(...rows.map(meanRit), classAverageRit)`) — so three areas close to each other (e.g. 182/186/186)
+ * all drew ~100% full however far below the national average they actually were, giving the false visual
+ * impression of strong performance. Now scaled against the national average RIT (with headroom, so a RIT right
+ * at the national average draws at ~87%, not maxed out) when one is known; falls back to the old relative scale
+ * only when no national norm exists for this grade/season (nothing real to anchor against). */
 function InstructionalAreas({ rows, L, classAverageRit, nationalAverageRit, scope }: { rows: PersonalPlan["areaBreakdown"]; L: "en" | "ar"; classAverageRit: number | null; nationalAverageRit: number | null; scope: "class" | "student" }) {
   if (!rows.length) return null;
-  const max = Math.max(1, ...rows.map((x) => x.meanRit ?? 0), classAverageRit ?? 0);
+  const max = Math.max(1, nationalAverageRit !== null ? nationalAverageRit * 1.15 : Math.max(...rows.map((x) => x.meanRit ?? 0), classAverageRit ?? 0));
   return (
     <section className="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-slate-200 print:break-inside-avoid">
       <h2 className="text-lg font-extrabold text-brand-navy">📈 {t(L, "personalizedPlan.instructionalAreas")} <span className="text-base font-normal text-slate-500">— {t(L, scope === "class" ? "personalizedPlan.wholeClass" : "personalizedPlan.thisStudent")}</span></h2>
@@ -183,7 +190,7 @@ export default async function PersonalizedPlanReportPage({ searchParams }: { sea
                 )}
                 {p.percentile !== null && <p className="mt-2 max-w-md text-xs text-slate-500">{t(L, "personalizedPlan.percentileNote")}</p>}
               </header>
-              <InstructionalAreas rows={p.areaBreakdown} L={L} classAverageRit={null} nationalAverageRit={null} scope="student" />
+              <InstructionalAreas rows={p.areaBreakdown} L={L} classAverageRit={null} nationalAverageRit={p.nationalAverageRit} scope="student" />
               <InstructionalAreaPercentiles rows={p.areaPercentiles} L={L} scope="student" />
               <section className="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-slate-200 print:break-inside-avoid">
                 <h2 className="text-xl font-extrabold text-brand-navy">🎯 {t(L, "personalizedPlan.goals")}</h2>
