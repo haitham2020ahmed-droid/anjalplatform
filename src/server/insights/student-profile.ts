@@ -26,6 +26,7 @@ import { weekStart } from "../student/weekly";
 import { diagnose, rootGaps, struggling } from "../graph/knowledge-graph";
 import { riyadhDay } from "../analytics/practice";
 import { groupBy, perWeek, weightedSkillTheta } from "../predict/risk";
+import { starBook, starLearning, starMastered, starNeedsReview, type StarBook } from "../skills/star-read";
 
 const s = (v: unknown) => String(v ?? "");
 const time = (v: unknown) => new Date(v instanceof Date ? v.toISOString() : s(v)).getTime();
@@ -159,15 +160,34 @@ export async function buildProfiles(repo: Repo, schoolId: string, now = new Date
 
 export interface ProfileView { intelligence: ProfileIntelligence | null; level: string; levelSource: string; readingRit: number | null; languageRit: number | null; estReadingRit: number | null; lexile: number | null; predictedTerm: string | null; predictedReading: number | null; predictedLanguage: number | null; goalReading: number | null; goalChance: number | null; predictionWhy: string | null; misconceptions: { code: string; count: number }[]; weakestArea: string | null; practiceDays14: number; updatedAt: string | null }
 
-/** Profiles of these students (null for a student whose profile was not built yet). */
+/**
+ * ⭐ The LIVE star lists of a student (owner, 1 Nov 2026): the saved profile is rebuilt only now and then, so the
+ * "mastered" and "growing" lists every page shows are read from SkillStatus at read time — the same stars as My
+ * Skills, one per skill key: mastered = ⭐, growing = ◐ / 🔄 (🔄 first, then the lowest star score).
+ */
+export function liveStarLists(book: StarBook, studentId: string): Pick<ProfileIntelligence, "mastered" | "developing"> {
+  const mastered: ProfileIntelligence["mastered"] = [], growing: (ProfileIntelligence["developing"][number] & { review: boolean })[] = [];
+  for (const [key, v] of book.byKey.get(studentId) ?? new Map()) {
+    const skillId = v.skillId ?? book.ix.skillsOf.get(key)?.[0] ?? "";
+    if (starMastered(v)) mastered.push({ skillId, name: book.nameOf(key) });
+    else if (starLearning(v) || starNeedsReview(v)) growing.push({ skillId, name: book.nameOf(key), mastery: v.score, review: starNeedsReview(v) });
+  }
+  mastered.sort((a, b) => a.name.localeCompare(b.name));
+  growing.sort((a, b) => Number(b.review) - Number(a.review) || a.mastery - b.mastery);
+  return { mastered, developing: growing.map(({ review: _r, ...x }) => x) };
+}
+
+/** Profiles of these students (null for a student whose profile was not built yet). The star lists are live. */
 export async function profilesOf(repo: Repo, ids: string[]): Promise<Map<string, ProfileView>> {
   if (!ids.length) return new Map();
   const rows = await repo.findMany("StudentProfile", { studentId: { in: ids } });
+  // one batched star read for every student of the page
+  const book = rows.some((r) => r.intelligence) ? await starBook(repo, rows.map((r) => s(r.studentId))) : null;
   return new Map(rows.map((r) => {
     const mis = (typeof r.misconceptions === "string" ? JSON.parse(r.misconceptions) : r.misconceptions ?? {}) as { list?: { code: string; count: number }[]; why?: string | null };
     const n = (v: unknown) => (v === null || v === undefined ? null : Number(v));
     return [s(r.studentId), {
-      intelligence: (typeof r.intelligence === "string" ? JSON.parse(r.intelligence) : r.intelligence ?? null) as ProfileIntelligence | null,
+      intelligence: withLiveStars((typeof r.intelligence === "string" ? JSON.parse(r.intelligence) : r.intelligence ?? null) as ProfileIntelligence | null, book, s(r.studentId)),
       level: s(r.level), levelSource: s(r.levelSource), readingRit: n(r.readingRit), languageRit: n(r.languageRit), estReadingRit: n(r.estReadingRit), lexile: n(r.lexile),
       predictedTerm: r.predictedTerm ? s(r.predictedTerm) : null, predictedReading: n(r.predictedReading), predictedLanguage: n(r.predictedLanguage), goalReading: n(r.goalReading), goalChance: n(r.goalChance),
       predictionWhy: mis.why ?? null, misconceptions: Array.isArray(mis.list) ? mis.list : [], weakestArea: r.weakestArea ? s(r.weakestArea) : null, practiceDays14: Number(r.practiceDays14 ?? 0),
@@ -175,6 +195,9 @@ export async function profilesOf(repo: Repo, ids: string[]): Promise<Map<string,
     }];
   }));
 }
+
+const withLiveStars = (i: ProfileIntelligence | null, book: StarBook | null, studentId: string): ProfileIntelligence | null =>
+  i && book ? { ...i, ...liveStarLists(book, studentId) } : i;
 
 export interface ProfileIntelligence {
   mastered: { skillId: string; name: string }[];
@@ -196,8 +219,13 @@ export async function profileIntelligence(repo: Repo, studentId: string, now = n
   const plan = planFromContext(c, 5);
   const nodes = [...c.graph.nodes.values()];
   const st = (id: string) => c.states.get(id);
-  const mastered = nodes.filter((n) => st(n.id)?.isMastered).map((n) => ({ skillId: n.id, name: n.name }));
-  const developing = nodes.filter((n) => { const x = st(n.id); return x && x.attempts > 0 && !x.isMastered; }).map((n) => ({ skillId: n.id, name: n.name, mastery: Math.round(st(n.id)!.mastery) })).sort((a, b) => a.mastery - b.mastery);
+  // ⭐ stars by skill KEY (copies of a skill count once): mastered = ⭐, growing = ◐ / 🔄 (🔄 first), the star score shown
+  const seen = new Set<string>();
+  const once = (id: string) => { const k = st(id)?.key ?? id; if (seen.has(k)) return false; seen.add(k); return true; };
+  const mastered = nodes.filter((n) => st(n.id)?.isMastered && once(n.id)).map((n) => ({ skillId: n.id, name: n.name }));
+  const developing = nodes.filter((n) => { const x = st(n.id); return x && (x.star === "IN_PROGRESS" || x.star === "NEEDS_REVIEW") && once(n.id); })
+    .map((n) => ({ skillId: n.id, name: n.name, mastery: Math.round(st(n.id)!.starScore ?? 0), review: st(n.id)!.star === "NEEDS_REVIEW" }))
+    .sort((a, b) => Number(b.review) - Number(a.review) || a.mastery - b.mastery).map(({ review: _r, ...x }) => x);
   const gaps = rootGaps(c.graph, c.states).slice(0, 5).map((gp) => ({ skillId: gp.skillId, name: gp.name, mastery: gp.mastery, blocks: gp.blocks.map((b) => b.name) }));
   // this week's point: average ability on practised skills and skills mastered
   const th = [...c.states.values()].filter((x) => x.theta !== null && x.attempts >= 3).map((x) => x.theta!);

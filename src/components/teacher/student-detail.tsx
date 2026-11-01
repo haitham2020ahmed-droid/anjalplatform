@@ -2,6 +2,7 @@
 /** @jsxImportSource react */
 import type { StudentDetail } from "../../server/teacher/queries";
 import { RichInline } from "@/components/rich-inline";
+import { SkillStar } from "@/components/skills/skill-star";
 
 /** One student for the teacher: placement, skills, recent answers, and the engine's decisions (audit trail). */
 export function StudentDetailView({ d, classHref, header = true }: { d: StudentDetail; classHref: string; header?: boolean }) {
@@ -38,9 +39,9 @@ export function StudentDetailView({ d, classHref, header = true }: { d: StudentD
           <h2 className="text-lg font-bold text-brand-navy">Skills Practised</h2>
           <ul className="mt-2 divide-y divide-slate-100">
             {d.skills.map((s) => (
-              <li key={s.skillId} className="grid grid-cols-[minmax(0,1fr)_auto] gap-2 py-1.5">
-                <span>{s.name}</span>
-                <span className="tabular-nums text-slate-600">{s.band} {s.score}, {s.attempts} answers, {s.accuracyPct}%</span>
+              <li key={s.key} className="grid grid-cols-[minmax(0,1fr)_auto] gap-2 py-1.5">
+                <span className="inline-flex items-center gap-2"><SkillStar info={s.star} label={s.name} />{s.name}</span>
+                <span className="tabular-nums text-slate-600">{s.band} · score {s.score}, {s.attempts} answers, {s.accuracyPct}%</span>
               </li>
             ))}
           </ul>

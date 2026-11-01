@@ -34,6 +34,7 @@ import { bookletSourceOf } from "../nafs/booklet-source";
 import { ASSIGN_SOURCE_LABEL } from "../../lib/assign-source";
 import { parseWorkTab, type WorkTab } from "../../lib/work-tab";
 import { sourceKeyOf, type SourceKey } from "../../lib/source-tags";
+import { isReviewWork } from "../practice/completion";
 
 export const ASSIGNED_KINDS = ["SKILL", "PROGRESS_CHECK", "TEST", "MAP_TEST", "NAFS_TEST", "NAFS_PRACTICE", "LEARN", "WORDS", "READRISE", "WRITING", "FLUENCY", "EXIT_TICKET", "RESPOND", "PLAN", "LESSON"] as const;
 export type AssignedKind = (typeof ASSIGNED_KINDS)[number];
@@ -71,7 +72,7 @@ export interface AssignedItem {
   source?: SourceKey | null;
   status: AssignedStatus; cancelled: boolean;
 }
-export interface AssignedStudent { id: string; name: string; done: boolean; removed: boolean; /** ⭐ the student's ONE status of the assigned skill (skill work only) */ star?: StarStatus }
+export interface AssignedStudent { id: string; name: string; done: boolean; removed: boolean; /** ⭐ the student's ONE status of the assigned skill (skill work only) */ star?: StarStatus; /** 🔄 the skill was ⭐ before the work was set: a 20-question review for this student */ review?: boolean }
 
 const s = (v: unknown) => (v === null || v === undefined ? "" : String(v));
 const iso = (v: unknown): string | null => (v === null || v === undefined || v === "" ? null : (v instanceof Date ? v : new Date(s(v))).toISOString());
@@ -546,7 +547,11 @@ export async function assignedStudents(repo: Repo, actor: Actor, kind: AssignedK
     const a = await repo.findUnique("Assignment", { id: r.id });
     if (a?.skillId) {
       const by = await safeIfBehind("assigned.stars", () => statusesOfSkills(repo, sc.schoolId, students.map((x) => x.id), [s(a.skillId)]), new Map());
-      for (const x of students) x.star = by.get(x.id)?.get(s(a.skillId))?.status ?? "NOT_STARTED";
+      for (const x of students) {
+        const v = by.get(x.id)?.get(s(a.skillId));
+        x.star = v?.status ?? "NOT_STARTED";
+        x.review = isReviewWork(v ? { status: v.status, masteredAt: v.masteredAt } : null, a.createdAt);
+      }
     }
   }
   const live = students.filter((x) => !x.removed);

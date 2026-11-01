@@ -519,7 +519,9 @@ export async function refreshSkillStatus(repo: Repo, studentId: string, skillId:
     ...(d.justMastered ? { masteredAt: now, reviewDueAt: new Date(now.getTime() + REVIEW_AFTER_DAYS * DAY), needsSupportAt: null, celebratedAt: null } : {}),
     ...(d.justNeedsSupport ? { needsSupportAt: now } : {}),
   };
-  if (prev) await repo.updateMany("SkillStatus", { id: prev.id }, data);
+  // guarded: written only if the row's status did not change since it was read (a review settled meanwhile — e.g.
+  // 🔄 written by the 20th answer of review work — is never overwritten by an older refresh)
+  if (prev) { if ((await repo.updateMany("SkillStatus", { id: prev.id, status: s(prev.status) }, data)) === 0) return { key, status: s(prev.status) as StarStatus, justMastered: false, justNeedsSupport: false, answered: cnt.answered, level }; }
   else {
     try { await repo.create("SkillStatus", { studentId, skillKey: key, level, createdAt: now, ...data }); }
     catch { await repo.updateMany("SkillStatus", { studentId, skillKey: key, level }, data); } // a second request won the race

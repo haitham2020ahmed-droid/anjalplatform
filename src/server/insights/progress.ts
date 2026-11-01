@@ -14,6 +14,8 @@ import { assertClassRead, coordinatorGrades, readableClasses } from "../teacher/
 import { gradeAreaSkills } from "../map/recommend";
 import { cancelIndex, liveAssignmentWhere } from "../student/cancelled-work";
 import { intensityFor, reconcileStatus, tiersOf } from "./student-status";
+import { starBook, starMastered, starNeedsHelp } from "../skills/star-read";
+import type { StarStatus } from "../skills/status";
 import { classMembers, levelsOf, mapSummaries, practiceStats, studentNames, workStats, type Level, type MapSummary, type PracticeStats, type Subject, type WorkStats } from "./student-data";
 
 const s = (v: unknown) => String(v ?? "");
@@ -47,7 +49,9 @@ export interface ProgressRow {
   map: MapSummary | null; status: ReturnType<typeof statusOf>["status"]; statusWhy: string; intensity: Intensity | null;
   /** where the intensity label comes from: "Tier 2" or the MAP test with its season and date ("Fall MAP · 2026-09-15") */
   intensityFrom: string | null;
-  level: Level | null; categories: Record<string, Level>; practice: PracticeStats; work: WorkStats; weakest: string[]; mastered: number; needsWork: number;
+  level: Level | null; categories: Record<string, Level>; practice: PracticeStats; work: WorkStats; weakest: string[];
+  /** ⭐ skills mastered and 🔄 skills needing work (needs review, or in progress needing support), counted by skill KEY */
+  mastered: number; needsWork: number;
 }
 export interface StudentTrend { weeks: (number | null)[]; trend: Trend | null; consistency: "Steady" | "Uneven" | null; sd: number | null; change: ReturnType<typeof changeOf>; percentile: number | null }
 export interface ClassProgress {
@@ -73,14 +77,18 @@ async function weeklyAccuracy(repo: Repo, ids: string[], now: Date): Promise<Map
   return out;
 }
 
-async function masteryCounts(repo: Repo, ids: string[], _schoolId: string | null): Promise<Map<string, { mastered: number; needsWork: number }>> {
+/**
+ * “Skills mastered / need work” per student from the ONE star system (SkillStatus, the same stars as Student Skills),
+ * counted by skill KEY (copies of a skill count once): mastered = ⭐ (Mastered or Next level); need work = 🔄 Needs
+ * review, or ◐ In progress with the needs-support flag (50 answers without mastery). One batched read.
+ */
+async function masteryCounts(repo: Repo, ids: string[], schoolId: string | null): Promise<Map<string, { mastered: number; needsWork: number }>> {
   const out = new Map(ids.map((id) => [id, { mastered: 0, needsWork: 0 }]));
   if (!ids.length) return out;
-  const rows = await repo.findMany("StudentSkillMastery", { studentId: { in: ids } }, { select: ["studentId", "attempts", "isMastered"] });
-  for (const r of rows) {
-    const o = out.get(s(r.studentId)); if (!o) continue;
-    // “mastered” = the adaptive engine's mastery decision (the same flag the teacher views use)
-    if (r.isMastered) o.mastered++; else if (Number(r.attempts ?? 0) >= 3) o.needsWork++;
+  const book = await starBook(repo, ids, schoolId);
+  for (const id of ids) {
+    const o = out.get(id)!;
+    for (const v of book.byKey.get(id)?.values() ?? []) { if (starMastered(v)) o.mastered++; else if (starNeedsHelp(v)) o.needsWork++; }
   }
   return out;
 }
@@ -154,7 +162,8 @@ export async function classProgress(repo: Repo, actor: Actor, classId: string, s
 
 // ------------------------------------------------------------------ one student
 
-export interface PlanArea { area: string; rit: number | null; skills: { id: string; name: string; mastery: number | null; assigned: boolean }[] }
+/** ⭐ each skill with its star (status) and star score (mastery; null = ☆ not started); ⭐ skills are left out of the plan */
+export interface PlanArea { area: string; rit: number | null; skills: { id: string; name: string; mastery: number | null; status: StarStatus; assigned: boolean }[] }
 export interface StudentProgress {
   row: ProgressRow; classId: string; className: string; grade: number; subject: Subject;
   plan: { intensity: Intensity | null; startLevel: Level; why: string; areas: PlanArea[] };
@@ -182,15 +191,14 @@ export async function studentProgress(repo: Repo, actor: Actor, studentId: strin
   const allAreas = await gradeAreaSkills(repo, actor.schoolId!, grade);
   const subjOf = new Map((allAreas.length ? await repo.findMany("MapGoalArea", { id: { in: allAreas.map((a) => a.areaId) } }, { select: ["id", "subject"] }) : []).map((a) => [s(a.id), s(a.subject)]));
   const areas = allAreas.filter((a) => (subject === "READING" ? /read/i : /lang/i).test(subjOf.get(a.areaId) ?? ""));
-  const [mastery, open, ix] = await Promise.all([
-    repo.findMany("StudentSkillMastery", { studentId }, { select: ["skillId", "score"] }),
+  const [book, open, ix] = await Promise.all([
+    starBook(repo, [studentId], actor.schoolId),
     repo.findMany("AssignmentStudent", { studentId }, { select: ["assignmentId", "status"] }),
     cancelIndex(repo, actor.schoolId),
   ]);
   const openIds = open.filter((o) => o.status !== "COMPLETED").map((o) => s(o.assignmentId));
   // r78: a cancelled assignment is not "assigned" any more
   const openSkills = new Set(openIds.length ? (await repo.findMany("Assignment", liveAssignmentWhere({ id: { in: openIds } }), { select: ["id", "skillId", "testId", "curriculumPlanId"] })).filter((a) => ix.live(a, studentId)).map((a) => s(a.skillId)) : []);
-  const mOf = new Map(mastery.map((m) => [s(m.skillId), Math.round(Number(m.score))]));
   const goals = row.map?.goals ?? [];
   const goalAreaIds = new Set(goals.map((g) => g.areaId).filter(Boolean));
   const ranked = goals.length
@@ -198,7 +206,11 @@ export async function studentProgress(repo: Repo, actor: Actor, studentId: strin
     : areas.map((a) => ({ a, rit: null as number | null }));
   const planAreas: PlanArea[] = ranked.slice(0, goals.length ? 2 : 3).map(({ a, rit }) => ({
     area: a.area, rit,
-    skills: a.skills.map((k) => ({ id: k.id, name: k.name, mastery: mOf.get(k.id) ?? null, assigned: openSkills.has(k.id) })).sort((x, y) => (x.mastery ?? -1) - (y.mastery ?? -1) || x.name.localeCompare(y.name)).slice(0, 4),
+    // ⭐ never a skill the student already has the star on (by key); 🔄 first, then the lowest star score; copies once
+    skills: a.skills.map((k) => { const v = book.of(studentId, k.id); return { id: k.id, key: v.key, name: k.name, mastery: v.status === "NOT_STARTED" ? null : v.score, status: v.status, assigned: openSkills.has(k.id) }; })
+      .filter((x, i, all) => !starMastered(x) && all.findIndex((y) => y.key === x.key) === i)
+      .sort((x, y) => Number(y.status === "NEEDS_REVIEW") - Number(x.status === "NEEDS_REVIEW") || (x.mastery ?? -1) - (y.mastery ?? -1) || x.name.localeCompare(y.name)).slice(0, 4)
+      .map(({ key: _k, ...x }) => x),
   })).filter((x) => x.skills.length);
   const pct = row.map?.latest?.percentile ?? null;
   const startLevel: Level = row.level ?? (pct === null ? "ON" : pct < 41 ? "BELOW" : pct > 60 ? "ABOVE" : "ON");

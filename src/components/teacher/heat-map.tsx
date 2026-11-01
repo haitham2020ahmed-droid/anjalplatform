@@ -1,17 +1,19 @@
 /** @jsxRuntime automatic */
 /** @jsxImportSource react */
-/** Students × skills mastery heat map. Colour = stage; the number is the mastery score. */
+/**
+ * Students × skills grid of one unit: ⭐ the same star per student and skill as Student Skills (☆ Not started ·
+ * ◐ In progress · ⭐ Mastered · ☆⬆ Next level · 🔄 Needs review), one column per skill (copies are one skill).
+ * The small number under a started star is the star score (0–100).
+ */
 import type { MasteryGrid } from "../../server/teacher/queries";
-import type { MasteryBandName } from "../../types/domain";
+import { SkillStar, StarGlyph } from "../skills/skill-star";
 
-const CELL: Record<MasteryBandName, string> = {
-  BEGINNING: "bg-teal-50 text-teal-900",
-  DEVELOPING: "bg-teal-100 text-teal-900",
-  APPROACHING: "bg-teal-300 text-teal-950",
-  PROFICIENT: "bg-teal-600 text-white",
-  MASTERED: "bg-brand-gold text-slate-900",
+const CELL: Record<string, string> = {
+  IN_PROGRESS: "bg-sky-50",
+  MASTERED: "bg-amber-50",
+  NEXT_LEVEL: "bg-amber-50",
+  NEEDS_REVIEW: "bg-orange-50",
 };
-const LABEL: Record<MasteryBandName, string> = { BEGINNING: "Beginning", DEVELOPING: "Developing", APPROACHING: "Approaching", PROFICIENT: "Proficient", MASTERED: "Mastered" };
 
 export function HeatMap({ grid, studentHref }: { grid: MasteryGrid; studentHref: (id: string) => string }) {
   return (
@@ -22,7 +24,7 @@ export function HeatMap({ grid, studentHref }: { grid: MasteryGrid; studentHref:
             <tr>
               <th scope="col" className="sticky left-0 z-10 bg-white px-4 py-3 text-left font-semibold text-brand-navy">Student</th>
               {grid.skills.map((k) => (
-                <th key={k.skillId} scope="col" className="h-40 w-11 min-w-11 align-bottom">
+                <th key={k.key} scope="col" className="h-40 w-11 min-w-11 align-bottom">
                   <span className="mx-auto block w-6 whitespace-nowrap pb-2 text-left font-medium text-slate-600 [writing-mode:vertical-rl] rotate-180">{k.name}</span>
                 </th>
               ))}
@@ -37,9 +39,12 @@ export function HeatMap({ grid, studentHref }: { grid: MasteryGrid; studentHref:
                 {r.cells.map((c, i) => (
                   <td key={i} className="border-t border-slate-100 p-0.5">
                     {c ? (
-                      <span title={`${grid.skills[i].name}: ${LABEL[c.band]} (${c.score})`} className={["flex h-9 w-10 items-center justify-center rounded-md text-xs font-semibold tabular-nums", CELL[c.band]].join(" ")}>{c.score}</span>
+                      <span data-star-cell={c.status} className={["flex h-9 w-10 flex-col items-center justify-center rounded-md text-[10px] tabular-nums text-slate-600", CELL[c.status] ?? "bg-slate-50"].join(" ")}>
+                        <SkillStar info={c} label={grid.skills[i].name} size={16} />
+                        {c.score}
+                      </span>
                     ) : (
-                      <span title={`${grid.skills[i].name}: not started`} className="flex h-9 w-10 items-center justify-center rounded-md bg-slate-100 text-xs text-slate-400">–</span>
+                      <span title={`${grid.skills[i].name}: Not started`} className="flex h-9 w-10 items-center justify-center rounded-md bg-slate-50"><StarGlyph status="NOT_STARTED" size={14} /></span>
                     )}
                   </td>
                 ))}
@@ -49,8 +54,10 @@ export function HeatMap({ grid, studentHref }: { grid: MasteryGrid; studentHref:
         </table>
       </div>
       <ul className="mt-3 flex flex-wrap gap-4 text-sm text-slate-600" aria-label="Key">
-        <li className="flex items-center gap-2"><span className="h-4 w-4 rounded bg-slate-100" />Not started</li>
-        {(Object.keys(LABEL) as MasteryBandName[]).map((b) => <li key={b} className="flex items-center gap-2"><span className={["h-4 w-4 rounded", CELL[b].split(" ")[0]].join(" ")} />{LABEL[b]}</li>)}
+        {([["NOT_STARTED", "Not started"], ["IN_PROGRESS", "In progress"], ["MASTERED", "Mastered"], ["NEXT_LEVEL", "Next level"], ["NEEDS_REVIEW", "Needs review"]] as const).map(([st, l]) => (
+          <li key={st} className="flex items-center gap-1.5"><StarGlyph status={st} size={14} />{l}</li>
+        ))}
+        <li className="text-xs text-slate-500">The number is the star score (0–100).</li>
       </ul>
     </div>
   );

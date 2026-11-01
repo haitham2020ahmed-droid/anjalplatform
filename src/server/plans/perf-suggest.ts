@@ -11,6 +11,10 @@
  * Each suggestion says WHY ("5 students weak in Central Idea (48%)"), shows the data per student and what the plan
  * would hold ("12 questions + lesson"). The teacher opens it as a draft, edits anything, previews, then sends.
  * Reads are bounded: one class, the last 30 days of answers (newest MAX_ATTEMPTS), batched by ids.
+ *
+ * ⭐ Stars (owner, 1 Nov 2026): a skill a student has ⭐ on (any copy — by KEY, skills/star-read.ts) is never
+ * suggested as weak, missed or Diagnostic work for that student; 🔄 Needs review always counts as weak and comes
+ * first. The per-skill line shows the star word and the star score, not the engine's old mastery number.
  */
 import { createHash } from "node:crypto";
 import type { Repo, Row } from "../seeding/repo";
@@ -22,6 +26,8 @@ import { TtlCache } from "../lib/ttl-cache";
 import type { Program } from "./program";
 import type { SectionSpec, PlanSource, Txt } from "./editor";
 import { fmt, studentNames } from "./editor";
+import { starBook, starMastered, starNeedsReview } from "../skills/star-read";
+import type { StarView } from "../skills/status";
 
 const s = (v: unknown) => String(v ?? "");
 const time = (v: unknown) => new Date(v instanceof Date ? v.getTime() : s(v)).getTime() || 0;
@@ -76,6 +82,22 @@ export interface PerfData {
   diag: Map<string, Set<string>>;
   fluency: Map<string, { wcpm: number; percentile: number | null; date: string }>;
   map: Map<string, { area: string; rit: number | null }>;
+  /** ⭐ student → skill id → star (every skill id above; ☆ when none) */
+  stars?: Map<string, Map<string, StarView>>;
+  /** skill id → skill key (copies of one skill share it) */
+  keyOf?: Map<string, string>;
+}
+
+/** Has the student ⭐ on this skill (any copy)? */
+const starred = (d: PerfData, st: string, k: string) => starMastered(d.stars?.get(st)?.get(k));
+/** Is this skill 🔄 Needs review for the student? */
+const review = (d: PerfData, st: string, k: string) => starNeedsReview(d.stars?.get(st)?.get(k));
+const keyOfSkill = (d: PerfData, k: string) => d.keyOf?.get(k) ?? k;
+/** The star line of a skill: the star word and the star score. */
+function starLine(skill: string, v: StarView): Txt {
+  if (starMastered(v)) return { t: "{skill}: Mastered ({score}%)", v: { skill, score: v.score } };
+  if (starNeedsReview(v)) return { t: "{skill}: Needs review ({score}%)", v: { skill, score: v.score } };
+  return { t: "{skill}: In progress ({score}%)", v: { skill, score: v.score } };
 }
 
 /** Reads the class's performance (bounded). */
@@ -139,11 +161,22 @@ export async function classPerformance(repo: Repo, actor: Actor, classId: string
     const low = mine.filter((r) => s(r.termName) === term).sort((a, b) => Number(a.rit) - Number(b.rit))[0];
     map.set(st, { area: s(low.goalName), rit: Number(low.rit) });
   }
-  const skillIds = [...new Set([...[...stats.values()].flatMap((m) => [...m.keys()]), ...[...diagMap.values()].flatMap((x) => [...x]), ...[...missed.values()].flatMap((m) => [...m.keys()])])];
+  // ⭐ the stars of the class (one batched read): 🔄 skills join the list as weak skills
+  const book = await starBook(repo, members, s(klass.schoolId));
+  const reviewIds = new Map<string, string[]>();
+  for (const st of members) for (const v of (book.byKey.get(st) ?? new Map<string, StarView>()).values()) {
+    if (!starNeedsReview(v)) continue;
+    const id = v.skillId ?? book.ix.skillsOf.get(v.key)?.[0];
+    if (id) reviewIds.set(st, [...(reviewIds.get(st) ?? []), id]);
+  }
+  const skillIds = [...new Set([...[...stats.values()].flatMap((m) => [...m.keys()]), ...[...diagMap.values()].flatMap((x) => [...x]), ...[...missed.values()].flatMap((m) => [...m.keys()]), ...[...reviewIds.values()].flat()])];
   const skillRows: Row[] = [];
   for (let i = 0; i < skillIds.length; i += 500) skillRows.push(...(await repo.findMany("Skill", { id: { in: skillIds.slice(i, i + 500) }, deletedAt: null }, { select: ["id", "name", "code", "isActive"] })));
   const skillName = new Map(skillRows.filter((k) => k.isActive !== false && !isHiddenSkill(k.code)).map((k) => [s(k.id), s(k.name)]));
-  return { klass, grade, members, names, skillName, stats, mastery: mast, missed, diag: diagMap, fluency: flu, map };
+  const stars = new Map<string, Map<string, StarView>>();
+  for (const st of members) stars.set(st, new Map(skillIds.map((k) => [k, book.of(st, k)])));
+  const keyOf = new Map(skillIds.map((k) => [k, book.keyOf(k)]));
+  return { klass, grade, members, names, skillName, stats, mastery: mast, missed, diag: diagMap, fluency: flu, map, stars, keyOf };
 }
 
 /** What the teacher reads about one student and some skills: one line per fact, with its values. */
@@ -151,10 +184,11 @@ function lines(d: PerfData, st: string, skillIds: string[]): { lines: Txt[]; sou
   const out: Txt[] = [];
   const src = new Set<string>();
   for (const k of skillIds) {
-    const x = d.stats.get(st)?.get(k), m = d.mastery.get(st)?.get(k), miss = d.missed.get(st)?.get(k) ?? 0;
+    const x = d.stats.get(st)?.get(k), star = d.stars?.get(st)?.get(k), miss = d.missed.get(st)?.get(k) ?? 0;
     const skill = d.skillName.get(k) ?? "";
     if (x) { out.push({ t: x.recent ? "{skill}: {pct}% right ({correct}/{answers}, last 30 days)" : "{skill}: {pct}% right ({correct}/{answers})", v: { skill, pct: pct(x), correct: x.correct, answers: x.answers } }); src.add(x.recent ? "Practice" : "Mastery"); }
-    if (m) { out.push(m.last ? { t: "{skill}: mastery {score}, last practised {date}", v: { skill, score: m.score, date: m.last } } : { t: "{skill}: mastery {score}", v: { skill, score: m.score } }); src.add("Mastery"); }
+    // ⭐ the star (word + star score) — the engine's old mastery number is never shown
+    if (star && star.status !== "NOT_STARTED") { out.push(starLine(skill, star)); src.add("Mastery"); }
     if (miss) { out.push({ t: "{skill}: {n} missed question(s) waiting in Second Chance", v: { skill, n: miss } }); src.add("Second Chance"); }
     if (d.diag.get(st)?.has(k)) { out.push({ t: "{skill}: suggested by the Diagnostic", v: { skill } }); src.add("Diagnostic"); }
   }
@@ -176,9 +210,12 @@ export async function suggestPlans(repo: Repo, actor: Actor, classId: string, no
   const known = (k: string) => d.skillName.has(k);
   // weak students per skill (accuracy under WEAK_PCT), and Diagnostic support skills
   const weak = new Map<string, { st: string; acc: number }[]>();
+  // ⭐ never a skill the student has ⭐ on; 🔄 Needs review is weak whatever the accuracy
+  const isWeak = (st: string, k: string) => known(k) && !starred(d, st, k) && (review(d, st, k) || (d.stats.get(st)?.get(k) ? pct(d.stats.get(st)!.get(k)!) < WEAK_PCT : false));
   for (const st of d.members) {
-    for (const [k, x] of d.stats.get(st) ?? []) if (known(k) && pct(x) < WEAK_PCT) { const l = weak.get(k) ?? []; l.push({ st, acc: pct(x) }); weak.set(k, l); }
-    for (const k of d.diag.get(st) ?? []) if (known(k) && !(weak.get(k) ?? []).some((w) => w.st === st) && !(d.stats.get(st)?.get(k) && pct(d.stats.get(st)!.get(k)!) >= WEAK_PCT)) {
+    for (const [k, x] of d.stats.get(st) ?? []) if (isWeak(st, k)) { const l = weak.get(k) ?? []; l.push({ st, acc: pct(x) }); weak.set(k, l); }
+    for (const [k, v] of d.stars?.get(st) ?? []) if (known(k) && starNeedsReview(v) && !(weak.get(k) ?? []).some((w) => w.st === st)) { const l = weak.get(k) ?? []; l.push({ st, acc: d.stats.get(st)?.get(k) ? pct(d.stats.get(st)!.get(k)!) : -1 }); weak.set(k, l); }
+    for (const k of d.diag.get(st) ?? []) if (known(k) && !starred(d, st, k) && !(weak.get(k) ?? []).some((w) => w.st === st) && !(d.stats.get(st)?.get(k) && pct(d.stats.get(st)!.get(k)!) >= WEAK_PCT)) {
       const l = weak.get(k) ?? []; l.push({ st, acc: d.stats.get(st)?.get(k) ? pct(d.stats.get(st)!.get(k)!) : -1 }); weak.set(k, l);
     }
   }
@@ -187,9 +224,12 @@ export async function suggestPlans(repo: Repo, actor: Actor, classId: string, no
   const withLesson = async (k: string) => { if (!lessonOf.has(k)) lessonOf.set(k, await hasLesson(repo, k)); return lessonOf.get(k)!; };
   // ⚡ the lessons of every skill about to be shown, read together (not one skill after another)
   const prefetch = async (ks: string[]) => { const miss = ks.filter((k) => !lessonOf.has(k)); if (miss.length) for (const [k, v] of await hasLessons(repo, miss)) lessonOf.set(k, v); };
+  // copies of one skill: one group (the one with the most students)
+  const groupKeys = new Set<string>();
   const groups = [...weak].filter(([, l]) => l.length >= GROUP_MIN)
     .map(([k, l]) => { const scored = l.filter((x) => x.acc >= 0); return { k, l, avg: scored.length ? Math.round(scored.reduce((t, x) => t + x.acc, 0) / scored.length) : null }; })
     .sort((a, b) => b.l.length - a.l.length || (a.avg ?? 100) - (b.avg ?? 100) || (d.skillName.get(a.k) ?? "").localeCompare(d.skillName.get(b.k) ?? ""))
+    .filter((g) => { const key = keyOfSkill(d, g.k); if (groupKeys.has(key)) return false; groupKeys.add(key); return true; })
     .slice(0, opts.maxGroups ?? 4);
   const covered = new Map<string, Set<string>>();
   await prefetch(groups.map((g) => g.k));
@@ -212,10 +252,14 @@ export async function suggestPlans(repo: Repo, actor: Actor, classId: string, no
   }
   // individual plans: the students with the most weak skills (and missed questions) not already in a group for them
   const need = d.members.map((st) => {
-    const ks = [...(d.stats.get(st) ?? [])].filter(([k, x]) => known(k) && pct(x) < WEAK_PCT).sort((a, b) => pct(a[1]) - pct(b[1])).map(([k]) => k);
-    const missedSkills = [...(d.missed.get(st) ?? [])].filter(([k, n]) => known(k) && n >= 3 && !ks.includes(k)).sort((a, b) => b[1] - a[1]).map(([k]) => k);
-    const diag = [...(d.diag.get(st) ?? [])].filter((k) => known(k) && !ks.includes(k) && !missedSkills.includes(k));
-    const all = [...ks, ...missedSkills, ...diag].filter((k) => !covered.get(st)?.has(k)).slice(0, 3);
+    // 🔄 first, then the lowest accuracy; never a ⭐ skill
+    const acc = (k: string) => (d.stats.get(st)?.get(k) ? pct(d.stats.get(st)!.get(k)!) : -1);
+    const ks = [...new Set([...[...(d.stats.get(st) ?? [])].map(([k]) => k), ...[...(d.stars?.get(st) ?? [])].filter(([, v]) => starNeedsReview(v)).map(([k]) => k)])]
+      .filter((k) => isWeak(st, k)).sort((a, b) => Number(review(d, st, b)) - Number(review(d, st, a)) || acc(a) - acc(b));
+    const missedSkills = [...(d.missed.get(st) ?? [])].filter(([k, n]) => known(k) && n >= 3 && !starred(d, st, k) && !ks.includes(k)).sort((a, b) => b[1] - a[1]).map(([k]) => k);
+    const diag = [...(d.diag.get(st) ?? [])].filter((k) => known(k) && !starred(d, st, k) && !ks.includes(k) && !missedSkills.includes(k));
+    const coveredKeys = new Set([...(covered.get(st) ?? [])].map((k) => keyOfSkill(d, k)));
+    const all = [...ks, ...missedSkills, ...diag].filter((k) => { const key = keyOfSkill(d, k); if (coveredKeys.has(key)) return false; coveredKeys.add(key); return true; }).slice(0, 3);
     const weight = ks.length * 2 + missedSkills.length + diag.length + (d.fluency.get(st)?.percentile != null && d.fluency.get(st)!.percentile! < 25 ? 1 : 0);
     return { st, all, weight, ks };
   }).filter((x) => x.all.length > 0).sort((a, b) => b.weight - a.weight || (d.names.get(a.st) ?? "").localeCompare(d.names.get(b.st) ?? "")).slice(0, opts.maxStudents ?? 6);
@@ -226,7 +270,7 @@ export async function suggestPlans(repo: Repo, actor: Actor, classId: string, no
     const sections = [];
     for (const k of n.all) {
       const x = d.stats.get(n.st)?.get(k);
-      sections.push({ skillId: k, skillName: d.skillName.get(k)!, count: 8, lesson: await withLesson(k), level: (x && pct(x) < 45 ? "BELOW" : "ON") as "BELOW" | "ON", reason: x ? "Weak skill" : d.missed.get(n.st)?.get(k) ? "Missed questions" : "Suggested by the Diagnostic" });
+      sections.push({ skillId: k, skillName: d.skillName.get(k)!, count: 8, lesson: await withLesson(k), level: (x && pct(x) < 45 ? "BELOW" : "ON") as "BELOW" | "ON", reason: x || review(d, n.st, k) ? "Weak skill" : d.missed.get(n.st)?.get(k) ? "Missed questions" : "Suggested by the Diagnostic" });
     }
     const first = d.stats.get(n.st)?.get(n.all[0]);
     out.push({
@@ -301,7 +345,8 @@ export async function weakestSkillsFor(repo: Repo, actor: Actor, classId: string
   const d = await classPerformance(repo, actor, classId, now);
   const who = studentIds.length ? studentIds.filter((id) => d.members.includes(id)) : d.members;
   const count = new Map<string, { n: number; sum: number }>();
-  for (const st of who) for (const [k, x] of d.stats.get(st) ?? []) if (d.skillName.has(k) && pct(x) < WEAK_PCT) { const c = count.get(k) ?? { n: 0, sum: 0 }; c.n++; c.sum += pct(x); count.set(k, c); }
+  // ⭐ never a skill the student has ⭐ on
+  for (const st of who) for (const [k, x] of d.stats.get(st) ?? []) if (d.skillName.has(k) && !starred(d, st, k) && (pct(x) < WEAK_PCT || review(d, st, k))) { const c = count.get(k) ?? { n: 0, sum: 0 }; c.n++; c.sum += pct(x); count.set(k, c); }
   const top = [...count].sort((a, b) => b[1].n - a[1].n || a[1].sum / a[1].n - b[1].sum / b[1].n).slice(0, n);
   if (!top.length) return { sections: [], source: null };
   const sections: SuggestedPlan["sections"] = [];

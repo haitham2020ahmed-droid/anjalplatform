@@ -8,9 +8,8 @@
  * analytics:school). A report therefore always matches the screen.
  */
 import type { Period } from "../../analytics/periods";
-import { bandDistribution } from "../../analytics/stats";
 import {
-  bandLabel, domainCodeFromLabel, domainLabel, gradeName, groupLabel, periodLabel, proficiencyText, t, type Locale,
+  domainCodeFromLabel, domainLabel, gradeName, groupLabel, periodLabel, proficiencyText, t, type Locale,
 } from "../../reports/i18n";
 import type { Branding, Kpi, MetaItem, ReportDoc, ReportKind, Section, TableRow } from "../../reports/model";
 import { ForbiddenError, assertCan, type Actor } from "../auth/rbac";
@@ -30,6 +29,23 @@ export interface BuildContext {
 }
 
 const num = (v: unknown) => Number(v ?? 0);
+/** ⭐ star words and labels of the exports (the reports' own two languages; words, never icons, in PDF / Excel). */
+const tx = (L: Locale, en: string, ar: string) => (L === "ar" ? ar : en);
+const STAR_TEXT: Record<string, [string, string]> = { Mastered: ["Mastered", "مُتقَنة"], "In progress": ["In progress", "قيد التعلّم"], "Needs review": ["Needs review", "تحتاج إلى مراجعة"], "Not started": ["Not started", "لم تبدأ"] };
+const starText = (L: Locale, word: string) => tx(L, ...(STAR_TEXT[word] ?? [word, word]));
+const starTones = (L: Locale): Record<string, "good" | "info" | "bad" | "neutral"> => ({ [starText(L, "Mastered")]: "good", [starText(L, "In progress")]: "info", [starText(L, "Needs review")]: "bad", [starText(L, "Not started")]: "neutral" });
+const avgStarLabel = (L: Locale) => tx(L, "Average star score", "متوسط درجة النجوم");
+const avgStarHint = (L: Locale) => tx(L, "average star score of the skills started (0–100)", "متوسط درجة النجوم للمهارات التي بدأها (0–100)");
+const colAvgStar = (L: Locale) => tx(L, "Avg star score", "متوسط درجة النجوم");
+/** ⭐ the started student × skill pairs by star, as bars (Mastered · In progress · Needs review) */
+const starBars = (L: Locale, d: { mastered: number; inProgress: number; needsReview: number }): Section => {
+  const items = [
+    { label: starText(L, "Mastered"), value: d.mastered, band: "MASTERED" },
+    { label: starText(L, "In progress"), value: d.inProgress, band: "APPROACHING" },
+    { label: starText(L, "Needs review"), value: d.needsReview, band: "BEGINNING" },
+  ];
+  return { type: "bars", title: tx(L, "Skill stars", "نجوم المهارات"), items, max: Math.max(1, ...items.map((b) => b.value)), kind: "int" };
+};
 const day = (iso: string | null) => (iso ? iso.slice(0, 10) : null);
 /** ASCII-only, filesystem-safe piece of a file name. */
 export const slug = (s: string) => s.normalize("NFKD").replace(/[^\x20-\x7E]/g, "").replace(/[^A-Za-z0-9]+/g, "-").replace(/^-+|-+$/g, "").slice(0, 40) || "x";
@@ -90,7 +106,8 @@ export async function buildStudentReport(ctx: BuildContext, studentId: string): 
     ...(a.readingRange ? [{ label: t(L, "kpi.readingRange"), value: a.readingRange, kind: "latin" as const }] : []),
   ];
 
-  const skills: TableRow[] = d.skills.map((s) => ({ skill: s.name, band: s.band, score: s.score, questions: s.attempts, accuracy: s.accuracyPct, last: day(s.lastPracticed) }));
+  // ⭐ one row per skill KEY with its star (the Student Skills grid's skills and words)
+  const skills: TableRow[] = d.skills.map((s) => ({ skill: s.name, band: starText(L, s.band), score: s.score, questions: s.attempts, accuracy: s.accuracyPct, last: day(s.lastPracticed) }));
   const growth: TableRow[] = [...a.growth.skills].sort((x, y) => y.growth - x.growth).map((s) => ({ skill: s.name, area: domainLabel(L, s.domain), start: s.start, now: s.now, change: s.growth }));
   const domains: TableRow[] = d.domains.map((x) => ({ area: domainLabel(L, domainCodeFromLabel(x.label) ?? x.label), level: proficiencyText(L, x.level) }));
   const map: TableRow[] = a.importedMap.map((m) => ({ date: m.testDate, subject: m.subject, goal: m.goalArea, rit: m.rit, pct: m.percentile }));
@@ -104,8 +121,8 @@ export async function buildStudentReport(ctx: BuildContext, studentId: string): 
       type: "table", id: "skills", title: t(L, "sec.skills"), empty: t(L, "noData"),
       columns: [
         { key: "skill", label: t(L, "col.skill"), kind: "latin", width: 3.4 },
-        { key: "band", label: t(L, "col.level"), kind: "band", width: 1.6 },
-        { key: "score", label: t(L, "col.score"), kind: "int", width: 1 },
+        { key: "band", label: tx(L, "Star", "النجمة"), kind: "text", width: 1.6, tones: starTones(L) },
+        { key: "score", label: tx(L, "Star score", "درجة النجمة"), kind: "int", width: 1 },
         { key: "questions", label: t(L, "col.questions"), kind: "int", width: 1 },
         { key: "accuracy", label: t(L, "col.accuracy"), kind: "pct", width: 1 },
         { key: "last", label: t(L, "col.lastPractised"), kind: "date", width: 1.5 },
@@ -172,7 +189,7 @@ export async function buildClassReport(ctx: BuildContext, classId: string): Prom
     { label: t(L, "kpi.active"), value: k.activeStudents, kind: "int" },
     { label: t(L, "kpi.questions"), value: k.questions, kind: "int" },
     { label: t(L, "kpi.accuracy"), value: k.accuracyPct, kind: "pct", tone: k.accuracyPct === null ? "neutral" : k.accuracyPct >= 75 ? "good" : k.accuracyPct >= 60 ? "warn" : "bad", glance: true, hint: t(L, "hint.classAccuracy") },
-    { label: t(L, "kpi.avgMastery"), value: k.avgMastery, kind: "int", glance: true, hint: t(L, "hint.avgMastery") },
+    { label: avgStarLabel(L), value: k.avgMastery, kind: "int", glance: true, hint: avgStarHint(L) },
     { label: t(L, "kpi.minutes"), value: k.minutes, kind: "int" },
     { label: t(L, "kpi.skillsMasteredTotal"), value: k.skillsMastered, kind: "int", tone: k.skillsMastered ? "good" : "neutral" },
     { label: t(L, "kpi.studentsNeedSupport"), value: k.needSupport, kind: "int", tone: k.needSupport ? "bad" : "good", glance: true, hint: t(L, "hint.studentsNeedSupport") },
@@ -180,8 +197,9 @@ export async function buildClassReport(ctx: BuildContext, classId: string): Prom
   const cmpLabel = [t(L, "cmp.class", { name: o.className }), t(L, "cmp.grade", { level: o.grade }), t(L, "cmp.school")];
   const skillCols = [
     { key: "skill", label: t(L, "col.skill"), kind: "latin" as const, width: 4 },
-    { key: "avg", label: t(L, "col.avgMastery"), kind: "int" as const, width: 1.2 },
+    { key: "mastered", label: starText(L, "Mastered"), kind: "int" as const, width: 1.2 },
     { key: "students", label: t(L, "col.students"), kind: "int" as const, width: 1 },
+    { key: "avg", label: colAvgStar(L), kind: "int" as const, width: 1.2 },
   ];
   const sections: Section[] = [
     { type: "kpis", title: t(L, "sec.summary"), items: kpis },
@@ -192,7 +210,7 @@ export async function buildClassReport(ctx: BuildContext, classId: string): Prom
         { key: "number", label: t(L, "col.studentNumber"), kind: "latin", width: 1.3, nowrap: true },
         { key: "group", label: t(L, "col.group"), kind: "text", width: 1.4 },
         { key: "placement", label: t(L, "col.placement"), kind: "text", width: 1.5 },
-        { key: "avg", label: t(L, "col.avgMastery"), kind: "int", width: 1.2 },
+        { key: "avg", label: colAvgStar(L), kind: "int", width: 1.2 },
         { key: "mastered", label: t(L, "col.skillsMastered"), kind: "int", width: 1.3 },
         { key: "questions", label: t(L, "col.questions"), kind: "int", width: 1.25 },
         { key: "accuracy", label: t(L, "col.accuracy"), kind: "pct", width: 1.25 },
@@ -211,7 +229,7 @@ export async function buildClassReport(ctx: BuildContext, classId: string): Prom
         { key: "group", label: t(L, "col.comparisonGroup"), kind: "text", width: 2.6 },
         { key: "students", label: t(L, "col.students"), kind: "int", width: 1 },
         { key: "withData", label: t(L, "col.withData"), kind: "int", width: 1 },
-        { key: "avg", label: t(L, "col.avgMastery"), kind: "dec", width: 1.1 },
+        { key: "avg", label: colAvgStar(L), kind: "dec", width: 1.1 },
         { key: "accuracy", label: t(L, "col.accuracy"), kind: "pct", width: 1 },
         { key: "growth", label: t(L, "col.meanGrowth"), kind: "signed", width: 1.1 },
       ],
@@ -232,9 +250,9 @@ export async function buildClassReport(ctx: BuildContext, classId: string): Prom
         value: e.available ? e.value ?? null : null, source: e.available ? e.source ?? null : null,
       })),
     },
-    { type: "bars", title: t(L, "sec.distribution"), items: c.distribution.map((b) => ({ label: bandLabel(L, b.label), value: b.count, band: b.label.toUpperCase() })), max: Math.max(1, ...c.distribution.map((b) => b.count)), kind: "int" },
-    { type: "table", id: "weak", title: t(L, "sec.weak"), empty: t(L, "noData"), columns: skillCols, rows: o.weakSkills.map((x) => ({ skill: x.name, avg: x.avgMastery, students: x.students })) },
-    { type: "table", id: "strong", title: t(L, "sec.strong"), empty: t(L, "noData"), columns: skillCols, rows: o.strongSkills.map((x) => ({ skill: x.name, avg: x.avgMastery, students: x.students })) },
+    starBars(L, k.stars),
+    { type: "table", id: "weak", title: t(L, "sec.weak"), empty: t(L, "noData"), columns: skillCols, rows: o.weakSkills.map((x) => ({ skill: x.name, mastered: x.mastered, students: x.students, avg: x.avgMastery })) },
+    { type: "table", id: "strong", title: t(L, "sec.strong"), empty: t(L, "noData"), columns: skillCols, rows: o.strongSkills.map((x) => ({ skill: x.name, mastered: x.mastered, students: x.students, avg: x.avgMastery })) },
     standardsTable(L, s),
     notes(L, ["note.internal", "note.growth", "note.suppressed"]),
   ];
@@ -276,6 +294,7 @@ export async function buildSchoolReport(ctx: BuildContext): Promise<ReportDoc> {
   const rows: TableRow[] = [];
   let students = 0, active = 0, questions = 0, correctWeighted = 0, needSupport = 0, alerts = 0;
   const mastery: number[] = [];
+  const stars = { mastered: 0, inProgress: 0, needsReview: 0 };
   for (const c of classes.filter((x) => own.has(x.classId)).sort((a, b) => a.grade - b.grade || a.name.localeCompare(b.name))) {
     const o = await classOverview(repo, actor, c.classId, period);
     const k = o.kpis;
@@ -283,11 +302,11 @@ export async function buildSchoolReport(ctx: BuildContext): Promise<ReportDoc> {
     students += k.students; active += k.activeStudents; questions += k.questions; needSupport += k.needSupport; alerts += c.openAlerts;
     if (k.accuracyPct !== null) correctWeighted += (k.accuracyPct * k.questions) / 100;
     for (const st of o.students) if (st.avgMastery !== null) mastery.push(st.avgMastery);
+    stars.mastered += k.stars.mastered; stars.inProgress += k.stars.inProgress; stars.needsReview += k.stars.needsReview;
   }
   const s = await standardsReport(repo, actor, { school: true }, period);
   const accuracy = questions ? Math.round((100 * correctWeighted) / questions) : null;
   const avgMastery = mastery.length ? Math.round(mastery.reduce((a, b) => a + b, 0) / mastery.length) : null;
-  const dist = bandDistribution(mastery);
   const sections: Section[] = [
     {
       type: "kpis", title: t(L, "sec.summary"), items: [
@@ -296,7 +315,7 @@ export async function buildSchoolReport(ctx: BuildContext): Promise<ReportDoc> {
         { label: t(L, "kpi.active"), value: active, kind: "int" },
         { label: t(L, "kpi.questions"), value: questions, kind: "int" },
         { label: t(L, "kpi.accuracy"), value: accuracy, kind: "pct", glance: true, hint: t(L, "hint.schoolAccuracy") },
-        { label: t(L, "kpi.avgMastery"), value: avgMastery, kind: "int", glance: true, hint: t(L, "hint.avgMastery") },
+        { label: avgStarLabel(L), value: avgMastery, kind: "int", glance: true, hint: avgStarHint(L) },
         { label: t(L, "kpi.studentsNeedSupport"), value: needSupport, kind: "int", tone: needSupport ? "bad" : "good", glance: true, hint: t(L, "hint.studentsNeedSupport") },
         { label: t(L, "col.alerts"), value: alerts, kind: "int", tone: alerts ? "warn" : "good" },
       ],
@@ -310,13 +329,13 @@ export async function buildSchoolReport(ctx: BuildContext): Promise<ReportDoc> {
         { key: "active", label: t(L, "col.active"), kind: "int", width: 1 },
         { key: "questions", label: t(L, "col.questions"), kind: "int", width: 1 },
         { key: "accuracy", label: t(L, "col.accuracy"), kind: "pct", width: 1 },
-        { key: "avg", label: t(L, "col.avgMastery"), kind: "int", width: 1.1 },
+        { key: "avg", label: colAvgStar(L), kind: "int", width: 1.1 },
         { key: "need", label: t(L, "col.needSupport"), kind: "int", width: 1.2 },
         { key: "alerts", label: t(L, "col.alerts"), kind: "int", width: 1.1 },
       ],
       rows,
     },
-    { type: "bars", title: t(L, "sec.distribution"), items: dist.map((b) => ({ label: bandLabel(L, b.label), value: b.count, band: b.label.toUpperCase() })), max: Math.max(1, ...dist.map((b) => b.count)), kind: "int" },
+    starBars(L, stars),
     standardsTable(L, s),
     notes(L, ["note.internal"]),
   ];

@@ -9,6 +9,9 @@
  * missing the Spring goal), RAPID_GUESS (NWEA rapid guessing 30%+ → retest; or many too-fast answers here),
  * DECLINING (a sustained drop in recent answers, from the daily level check), INVALID_TEST (a Diagnostic or check with
  * 30%+ rapid guesses: not used for decisions; re-test).
+ * ⭐ Stars (owner, 1 Nov 2026): WEAK_SKILL is never raised (nor listed while open) for a skill the student has ⭐ on
+ * (any copy — by KEY, skills/star-read.ts); a 🔄 Needs review skill is weak; one alert per skill key; the text shows
+ * the star word and the star score (not the engine's band).
  */
 import { conflictsFor } from "./level-story";
 import type { Repo, Row } from "../seeding/repo";
@@ -22,6 +25,8 @@ import { isHiddenSkill } from "../skills/master";
 import { safeIfBehind } from "../db/schema-errors";
 import { cancelIndex, liveAssignmentWhere } from "../student/cancelled-work";
 import { weekStart } from "../student/weekly";
+import { starBook, starMastered, starNeedsReview, starWord } from "../skills/star-read";
+import type { StarView } from "../skills/status";
 
 const s = (v: unknown) => String(v ?? "");
 const time = (v: unknown) => new Date(v instanceof Date ? v.toISOString() : s(v)).getTime();
@@ -122,17 +127,36 @@ async function alertsFor(repo: Repo, schoolId: string, now: Date, ids: string[],
   // weak skill (readiness I-2/4): aligned with mastery, not raw accuracy — mastery under 40 (Developing or below) with
   // enough evidence (effective answers ≥ 5, and 5+ answers that were NOT rapid guesses in the last 3 weeks); a skill
   // practised in the last 3 weeks; the hidden “Unclassified (Curriculum Map)” skill is never named in an alert
-  const mastery = await repo.findMany("StudentSkillMastery", { studentId: { in: ids }, score: { lt: WEAK_MASTERY } }, { select: ["studentId", "skillId", "attempts", "score", "band", "components", "lastPracticedAt"] });
+  const [mastery, book] = await Promise.all([
+    repo.findMany("StudentSkillMastery", { studentId: { in: ids }, score: { lt: WEAK_MASTERY } }, { select: ["studentId", "skillId", "attempts", "score", "components", "lastPracticedAt"] }),
+    starBook(repo, ids, schoolId),
+  ]);
   const recentSkill = mastery.length ? await repo.findMany("QuestionAttempt", { studentId: { in: [...new Set(mastery.map((m) => s(m.studentId)))] }, createdAt: { gte: new Date(now.getTime() - 21 * DAY) }, rapidGuess: false }, { select: ["studentId", "skillId"] }) : [];
   const valid = new Map<string, number>();
   for (const a of recentSkill) valid.set(`${s(a.studentId)}|${s(a.skillId)}`, (valid.get(`${s(a.studentId)}|${s(a.skillId)}`) ?? 0) + 1);
-  const weakRows = mastery.filter((m) => isWeakSkill({ score: Number(m.score), attempts: Number(m.attempts), components: m.components, validRecent: valid.get(`${s(m.studentId)}|${s(m.skillId)}`) ?? 0 }) && time(m.lastPracticedAt) >= now.getTime() - 21 * DAY);
-  const skillRows = weakRows.length ? await repo.findMany("Skill", { id: { in: [...new Set(weakRows.map((w) => s(w.skillId)))] } }, { select: ["id", "name", "code"] }) : [];
+  // ⭐ never a ⭐ skill, and the skill's STAR score (every copy) is also under 40 — the alert shows that score (🔄 is
+  // added below)
+  const weakRows = mastery.filter((m) => !starMastered(book.of(s(m.studentId), s(m.skillId))) && book.of(s(m.studentId), s(m.skillId)).score < WEAK_MASTERY && isWeakSkill({ score: Number(m.score), attempts: Number(m.attempts), components: m.components, validRecent: valid.get(`${s(m.studentId)}|${s(m.skillId)}`) ?? 0 }) && time(m.lastPracticedAt) >= now.getTime() - 21 * DAY)
+    .map((m) => ({ studentId: s(m.studentId), skillId: s(m.skillId), v: book.of(s(m.studentId), s(m.skillId)), answers: valid.get(`${s(m.studentId)}|${s(m.skillId)}`) ?? 0 }));
+  // 🔄 Needs review is a weak skill (first)
+  const reviewRows: typeof weakRows = [];
+  for (const id of ids) for (const v of (book.byKey.get(id) ?? new Map<string, StarView>()).values()) {
+    const skillId = starNeedsReview(v) ? v.skillId ?? book.ix.skillsOf.get(v.key)?.[0] : null;
+    if (skillId) reviewRows.push({ studentId: id, skillId, v, answers: 0 });
+  }
+  const all = [...reviewRows, ...weakRows];
+  const skillRows = all.length ? await repo.findMany("Skill", { id: { in: [...new Set(all.map((w) => w.skillId))] } }, { select: ["id", "name", "code"] }) : [];
   const skillNames = new Map(skillRows.filter((k) => !isHiddenSkill(k.code)).map((k) => [s(k.id), s(k.name)]));
-  for (const w of weakRows) {
-    const name = skillNames.get(s(w.skillId));
-    if (!name) continue; // hidden skill
-    add(s(w.studentId), "WEAK_SKILL", `${s(w.skillId)}|${wk}`, `${name}: mastery ${Math.round(Number(w.score))} (${BAND_TEXT[s(w.band)] ?? "Developing"}) after ${valid.get(`${s(w.studentId)}|${s(w.skillId)}`) ?? 0} answers in 3 weeks (rapid guesses not counted).`);
+  const seenKey = new Set<string>();
+  for (const w of all) {
+    const name = skillNames.get(w.skillId);
+    if (!name || starMastered(w.v)) continue; // hidden skill / ⭐
+    const once = `${w.studentId}|${w.v.key}`;
+    if (seenKey.has(once)) continue; // copies of one skill: one alert
+    seenKey.add(once);
+    add(w.studentId, "WEAK_SKILL", `${w.skillId}|${wk}`, starNeedsReview(w.v)
+      ? `${name}: ${starWord(w.v)} (${w.v.score}%) — the review check was missed; the skill is back in the plan.`
+      : `${name}: ${starWord(w.v)} (${w.v.score}%) after ${w.answers} answers in 3 weeks (rapid guesses not counted).`);
   }
   // dropped a level twice in a row (same category), last 30 days
   const RANK: Record<string, number> = { SUPPORT: -1, BELOW: 0, ON: 1, ABOVE: 2, CHALLENGE: 3 };
@@ -167,7 +191,6 @@ const SCAN_KEY = "alerts.scan";
 export const HANDLED_QUIET_DAYS = 7;
 /** WEAK_SKILL threshold: the top of the Developing band. */
 export const WEAK_MASTERY = 40;
-const BAND_TEXT: Record<string, string> = { BEGINNING: "Beginning", DEVELOPING: "Developing", APPROACHING: "Approaching", PROFICIENT: "Proficient", MASTERED: "Mastered" };
 
 /** A weak skill for an alert: mastery < 40 with enough evidence (effective N ≥ 5) and 5+ non-rapid recent answers. */
 export function isWeakSkill(m: { score: number; attempts: number; components?: unknown; validRecent: number }): boolean {
@@ -288,6 +311,13 @@ export async function alertList(repo: Repo, actor: Actor, opts: { status?: "OPEN
   if (opts.kind) where.kind = opts.kind;
   let rows = await repo.findMany("StudentAlert", where);
   rows = rows.filter((r) => r.status !== MERGED && (isAdmin || allowed.has(s(r.classId))) && (!opts.classId || r.classId === opts.classId));
+  // ⭐ an open WEAK_SKILL alert whose skill the student has since got ⭐ on is not listed (nor exported)
+  const openWeak = rows.filter((r) => r.kind === "WEAK_SKILL" && r.status === "OPEN");
+  if (openWeak.length) {
+    const book = await starBook(repo, [...new Set(openWeak.map((r) => s(r.studentId)))], s(actor.schoolId));
+    const skillOf = (r: Row) => s(r.key).split("|")[1] ?? "";
+    rows = rows.filter((r) => !(r.kind === "WEAK_SKILL" && r.status === "OPEN" && skillOf(r) && starMastered(book.of(s(r.studentId), skillOf(r)))));
+  }
   const names = await studentNames(repo, [...new Set(rows.map((r) => s(r.studentId)))]);
   const handlers = [...new Set(rows.map((r) => s(r.handledById)).filter(Boolean))];
   const users = handlers.length ? await repo.findMany("User", { id: { in: handlers } }, { select: ["id", "displayName"] }) : [];

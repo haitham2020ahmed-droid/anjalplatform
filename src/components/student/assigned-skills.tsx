@@ -234,7 +234,7 @@ export function AssignedSkills({ view, firstName, placement, area = "ALL", extra
                   <p data-testid="work-stats" className="mt-1 flex flex-wrap gap-x-3 text-xs text-slate-600">
                     <span>Completion: <b>{i.status === "COMPLETED" ? "Done" : i.work.answered === null ? "In progress" : `${i.work.answered} of ${i.work.of}`}</b></span>
                     {i.work.accuracy !== null && <span>Accuracy: <b>{i.work.accuracy}%</b></span>}
-                    {i.work.mastery !== null && <span>Mastery: <b>{i.work.mastery}%</b></span>}
+                    {i.work.mastery !== null && <span>Mastery: <b>{i.work.mastery}%{i.work.band ? ` · ${i.work.band}` : ""}</b></span>}
                   </p>
                 )}
                 <div className="mt-2 flex items-center gap-3">

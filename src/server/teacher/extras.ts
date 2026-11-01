@@ -20,6 +20,7 @@ import { shareParentReport } from "../insights/parent-report";
 import { weekStart } from "./classroom";
 import { cycleCalendarEvents } from "../assessment-cycle/status";
 import { schemaGap, SCHEMA_FIX } from "../db/schema-errors";
+import { starBook, starMastered, starWord } from "../skills/star-read";
 
 const s = (v: unknown) => String(v ?? "");
 const time = (v: unknown) => new Date(v instanceof Date ? v.toISOString() : s(v)).getTime();
@@ -298,13 +299,14 @@ export async function backupSheets(repo: Repo, actor: Actor): Promise<{ name: st
   assertCan(actor, "reports:export");
   const students = await repo.findMany("Student", { schoolId: actor.schoolId });
   const ids = students.map((x) => s(x.id));
-  const [users, mem, classes, grades, maps, mastery, skills, asgRows, plans, alerts] = await Promise.all([
+  // ⭐ the "Skills" sheet is the stars (owner, 1 Nov 2026): one row per student × skill KEY (copies of a skill are one
+  // row), with the star word, the star score, the practice answers counted and the date of the ⭐
+  const [users, mem, classes, grades, maps, book, asgRows, plans, alerts] = await Promise.all([
     repo.findMany("User", { schoolId: actor.schoolId }, { select: ["id", "displayName", "username", "role"] }),
     ids.length ? repo.findMany("ClassMembership", { studentId: { in: ids }, leftAt: null }) : Promise.resolve([] as Row[]),
     repo.findMany("Class", { schoolId: actor.schoolId }), repo.findMany("Grade", { schoolId: actor.schoolId }),
     ids.length ? repo.findMany("MapResult", { studentId: { in: ids } }) : Promise.resolve([] as Row[]),
-    ids.length ? repo.findMany("StudentSkillMastery", { studentId: { in: ids } }) : Promise.resolve([] as Row[]),
-    repo.findMany("Skill", {}, { select: ["id", "name"] }),
+    starBook(repo, ids, s(actor.schoolId)),
     ids.length ? repo.findMany("AssignmentStudent", { studentId: { in: ids } }) : Promise.resolve([] as Row[]),
     repo.findMany("MapPlan", { schoolId: actor.schoolId }), repo.findMany("StudentAlert", { schoolId: actor.schoolId }),
   ]);
@@ -316,7 +318,9 @@ export async function backupSheets(repo: Repo, actor: Actor): Promise<{ name: st
   return [
     { name: "Students", rows: [["Student", "Student ID", "Username", "Grade", "Class"], ...students.map((x) => [nameOf.get(s(x.id))!, s(x.studentNumber), s(users.find((u) => u.id === x.userId)?.username), s(grades.find((g) => g.id === x.gradeId)?.level), classOf(s(x.id))])] },
     { name: "MAP results", rows: [["Student", "Student ID", "Term", "Subject", "Goal area", "RIT", "Percentile", "Projected growth", "Lexile", "Rapid guessing %", "Test date"], ...maps.map((m) => [nameOf.get(s(m.studentId)) ?? "", numOf.get(s(m.studentId)) ?? "", s(m.termName), s(m.subject), s(m.goalName), s(m.rit), s(m.achievementPercentile ?? ""), s(m.projectedGrowth ?? ""), s(m.lexile ?? ""), s(m.rapidGuessPct ?? ""), d(m.testDate)])] },
-    { name: "Skills", rows: [["Student", "Student ID", "Skill", "Answers", "Correct", "Mastery score", "Mastered", "Last practised"], ...mastery.map((m) => [nameOf.get(s(m.studentId)) ?? "", numOf.get(s(m.studentId)) ?? "", s(skills.find((k) => k.id === m.skillId)?.name), s(m.attempts), s(m.correct), String(Math.round(Number(m.score))), m.isMastered ? "yes" : "", d(m.lastPracticedAt)])] },
+    { name: "Skills", rows: [["Student", "Student ID", "Skill", "Status", "Star score", "Answered", "Mastered on"], ...ids.flatMap((sid) => [...(book.byKey.get(sid)?.values() ?? [])].filter((v) => v.status !== "NOT_STARTED")
+      .sort((a, b) => book.nameOf(a.key).localeCompare(book.nameOf(b.key)))
+      .map((v) => [nameOf.get(sid) ?? "", numOf.get(sid) ?? "", book.nameOf(v.key), starWord(v), String(v.score), String(v.answered), starMastered(v) ? d(v.masteredAt) : ""]))] },
     { name: "Assignments", rows: [["Student", "Student ID", "Class", "Assignment", "Due", "Status", "Progress %"], ...asgRows.map((r) => { const a = asg.find((x) => x.id === r.assignmentId); return [nameOf.get(s(r.studentId)) ?? "", numOf.get(s(r.studentId)) ?? "", s(classes.find((c) => c.id === a?.classId)?.name), s(a?.title), d(a?.dueAt), s(r.status), String(Math.round(Number(r.progress) * 100))]; })] },
     { name: "MAP plans", rows: [["Student", "Student ID", "Subject", "Term", "Status", "Sent"], ...plans.map((p) => [nameOf.get(s(p.studentId)) ?? "", numOf.get(s(p.studentId)) ?? "", s(p.subject), s(p.term), s(p.status), d(p.sentAt)])] },
     { name: "Alerts", rows: [["Date", "Student", "Reason", "Details", "Status", "What was done"], ...alerts.map((a) => [d(a.createdAt), nameOf.get(s(a.studentId)) ?? "", s(a.kind), s(a.detail), s(a.status), s(a.action)])] },

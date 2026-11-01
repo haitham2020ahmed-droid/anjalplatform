@@ -6,7 +6,7 @@
  */
 import type { Repo } from "../seeding/repo";
 import { isUniqueError } from "../db/prisma-repo";
-import { ladderSettings } from "../curriculum-map/ladder-settings";
+import { starBook } from "../skills/star-read";
 import { activeDays, streakAndPoints } from "./streak";
 
 /** "Steady Practice": distinct days of activity in the last N days (consistency, not streak — gaps are fine). */
@@ -23,9 +23,10 @@ export interface StudentBadge extends BadgeDef { earned: boolean; earnedAt: stri
 
 async function metrics(repo: Repo, studentId: string, schoolId: string | null, now: Date): Promise<Record<Metric, number>> {
   // every read in one round trip (Update 42B)
-  const [rules, mastery, tasks, logs, articles, writing, sp, correct, maps, sims, words] = await Promise.all([
-    ladderSettings(repo, schoolId),
-    repo.findMany("StudentSkillMastery", { studentId }, { select: ["skillId", "attempts", "correct"] }),
+  const [book, tasks, logs, articles, writing, sp, correct, maps, sims, words] = await Promise.all([
+    // ⭐ Skill Master / Star / Champion and Grammar Master count the student's ⭐ skills by KEY (the ONE skill status,
+    // skills/star-read.ts — every grade's copy of a skill is one skill); the old "10 answers at 80 %" rule is gone
+    starBook(repo, [studentId], schoolId),
     repo.findMany("AssignmentStudent", { studentId, status: "COMPLETED" }, { select: ["assignmentId"] }),
     repo.findMany("AuditLog", { entityType: "Student", entityId: studentId, action: "level.change" }, { select: ["before", "after"] }),
     repo.count("ReadMasterAttempt", { studentId }),
@@ -51,10 +52,12 @@ async function metrics(repo: Repo, studentId: string, schoolId: string | null, n
   const consistentDays = new Set(consistentDaysRaw).size;
   const RANK: Record<string, number> = { SUPPORT: -1, BELOW: 0, ON: 1, ABOVE: 2, CHALLENGE: 3 };
   const levelUps = logs.filter((l) => { const a = (l.after ?? {}) as Record<string, unknown>, b = (l.before ?? {}) as Record<string, unknown>; return a.outcome === "CHANGED" && a.source === "ADAPTIVE" && b.level && RANK[s(a.level)] > RANK[s(b.level)]; }).length;
-  const masteredRows = mastery.filter((m) => Number(m.attempts) >= rules.masteredMin && (Number(m.correct) / Math.max(1, Number(m.attempts))) * 100 >= rules.masteredPct);
-  const mastered = masteredRows.length;
-  // grammar skills mastered (Grammar Master): the codes of the mastered skills only
-  const grammarMastered = masteredRows.length ? (await repo.findMany("Skill", { id: { in: masteredRows.slice(0, 1000).map((m) => m.skillId) } }, { select: ["code"] })).filter((k) => isGrammarCode(k.code)).length : 0;
+  const starKeys = [...book.masteredKeys(studentId)].filter((k) => book.ix.skillsOf.has(k));
+  const mastered = starKeys.length;
+  // grammar skills mastered (Grammar Master): the ⭐ keys with a grammar skill among their copies (counted once)
+  const ofKey = new Map<string, string>();
+  for (const k of starKeys) for (const id of book.ix.skillsOf.get(k) ?? []) ofKey.set(id, k);
+  const grammarMastered = ofKey.size ? new Set((await repo.findMany("Skill", { id: { in: [...ofKey.keys()].slice(0, 2000) } }, { select: ["id", "code"] })).filter((k) => isGrammarCode(k.code)).map((k) => ofKey.get(s(k.id))!)).size : 0;
   const finishedWriting = writing.filter((w) => w.finishedAt).length;
   // MAP growth: the latest real MAP score or practice-test result minus the Fall score (best subject)
   const ms = (v: unknown) => new Date(v instanceof Date ? v.toISOString() : s(v)).getTime();

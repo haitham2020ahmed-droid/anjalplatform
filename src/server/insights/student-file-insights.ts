@@ -16,7 +16,8 @@ import { isHiddenSkill } from "../skills/master";
 import { safeIfBehind } from "../db/schema-errors";
 import { masteredSkills } from "../reports/mastered-count";
 import { buildGraph } from "../graph/knowledge-graph";
-import { buildStrands, type StrandRow } from "./language-strands";
+import { buildStrands, strandStars, type StrandRow } from "./language-strands";
+import { starBook } from "../skills/star-read";
 import { errorSentenceFor, rootCausesFrom, statesFrom, type ErrorSentence, type RootCause } from "./error-patterns";
 import { studentPeer, type PeerRow } from "./class-compare";
 import { ALERT_INFO, type AlertKind } from "./alerts";
@@ -58,15 +59,17 @@ export async function studentFileInsights(repo: Repo, actor: Actor, studentId: s
   ]);
   const skills = [...gradeSkills, ...extra].filter((k) => k.isActive !== false && k.isActive !== 0 && !isHiddenSkill(k.code))
     .map((k) => ({ id: s(k.id), name: s(k.name), code: s(k.code), category: s(k.category), domain: s(k.domain), sequence: Number(k.sequence ?? 0) }));
-  const mastered = (await masteredSkills(repo, [studentId], skills.map((k) => k.id), { rows: mastery.map((r) => ({ ...r, studentId })) })).get(studentId) ?? new Set<string>();
+  // ⭐ "skills mastered x of y" by skill KEY from the ONE star system (mastered-count.ts + the star book)
+  const [masteredMap, book] = await Promise.all([masteredSkills(repo, [studentId], skills.map((k) => k.id)), starBook(repo, [studentId], st ? s(st.schoolId) : null)]);
+  const mastered = masteredMap.get(studentId) ?? new Set<string>();
   const cut = now.getTime() - 28 * DAY;
-  const strands = buildStrands({ skills, mastery, mastered, attempts: recent.filter((a) => time(a.createdAt) >= cut), fluency, writing, now });
+  const strands = buildStrands({ skills, mastery, mastered, attempts: recent.filter((a) => time(a.createdAt) >= cut), fluency, writing, now, stars: strandStars(book, studentId) });
   const wrong = recent.filter((a) => !(a.isCorrect === true || a.isCorrect === 1) && time(a.createdAt) >= now.getTime() - 60 * DAY);
   const graph = buildGraph(gradeSkills.filter((k) => !isHiddenSkill(k.code)), edges);
   return {
     strands,
     mistake: errorSentenceFor(studentId, o.name, wrong),
-    rootCauses: rootCausesFrom(graph, statesFrom(mastery.filter((m) => graph.nodes.has(s(m.skillId))), recent), 3),
+    rootCauses: rootCausesFrom(graph, statesFrom(mastery.filter((m) => graph.nodes.has(s(m.skillId))), recent, { book, studentId, skillIds: graph.nodes.keys() }), 3),
     readRise: growth ? { placed: growth.placed, level: growth.level, startLevel: growth.startLevel, history: growth.history } : null,
     peer,
     alerts: alerts.filter((a) => s(a.status) !== "MERGED").sort((a, b) => time(b.createdAt) - time(a.createdAt)).slice(0, 12).map((a) => {

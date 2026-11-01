@@ -5,17 +5,36 @@
  */
 import { proficiencyLabel } from "../../adaptive/diagnostic";
 import { isHiddenSkill } from "../skills/master";
+import { starBook, starMastered, starNeedsHelp, starWord, type StarBook } from "../skills/star-read";
+import type { StarStatus, StarView } from "../skills/status";
 import { DOMAIN_LABEL, latestDiagnostic, type DiagnosticSummary } from "../assessment/diagnostic";
 import { canAccessStudent, ForbiddenError, type Actor } from "../auth/rbac";
-import { BAND_LABEL } from "../queries/student-curriculum";
 import type { Repo, Row } from "../seeding/repo";
 import { assertClassAccess } from "./assignments";
 import { practiceStats } from "../insights/student-data";
 import { NEXT_ACTION, type RuleCode } from "./interventions";
-import type { MasteryBandName } from "../../types/domain";
 
 const num = (v: unknown) => Number(v ?? 0);
 const ms = (v: unknown) => (v instanceof Date ? v : new Date(String(v))).getTime();
+
+/**
+ * ⭐ The keys of the hidden "Unclassified (Curriculum Map)" holder skill among the started keys of a star book (never
+ * listed or counted, I-18). One small read (only grade-bound "solo:" keys can be the holder).
+ */
+export async function hiddenStarKeys(repo: Repo, book: StarBook): Promise<Set<string>> {
+  const solo = new Set<string>();
+  for (const m of book.byKey.values()) for (const k of m.keys()) if (k.startsWith("solo:")) solo.add(k);
+  if (!solo.size) return new Set();
+  const rows = await repo.findMany("Skill", { id: { in: [...solo].map((k) => k.slice(5)) } }, { select: ["id", "code"] });
+  return new Set(rows.filter((k) => isHiddenSkill(k.code)).map((k) => `solo:${String(k.id)}`));
+}
+/** A student's started stars (one per skill KEY, the hidden holder left out). */
+export function startedStars(book: StarBook, studentId: string, hidden: ReadonlySet<string> = new Set()): StarView[] {
+  return [...(book.byKey.get(studentId)?.values() ?? [])].filter((v) => v.status !== "NOT_STARTED" && !hidden.has(v.key));
+}
+/** The star cell a teacher table shows (icon + tooltip data). */
+export interface StarCell { status: StarStatus; score: number; level: number; answered: number; needsSupport: boolean; masteredAt: string | null; reviewDueAt: string | null }
+export const starCell = (v: StarView): StarCell => ({ status: v.status, score: v.score, level: v.level, answered: v.answered, needsSupport: v.needsSupport, masteredAt: v.masteredAt, reviewDueAt: v.reviewDueAt });
 
 /**
  * The answer value of a stored attempt. Practice stores { value }; older Review-my-mistakes rows stored the raw answer
@@ -67,7 +86,9 @@ export interface StudentRow {
   name: string;
   group: GroupName | null;
   placement: string | null;
+  /** ⭐ the average star score (StarView.score, 0–100) over the skills this student started (null: none started) */
   avgMastery: number | null;
+  /** ⭐ skills mastered, counted by skill KEY (the Student Skills grid's number) */
   skillsMastered: number;
   answered: number;
   accuracyPct: number | null;
@@ -80,14 +101,20 @@ export interface ClassOverview {
   classId: string;
   className: string;
   grade: number;
-  kpis: { students: number; activeStudents: number; questions: number; accuracyPct: number | null; avgMastery: number | null; minutes: number; skillsMastered: number; needSupport: number };
+  kpis: { students: number; activeStudents: number; questions: number; accuracyPct: number | null; avgMastery: number | null; minutes: number; skillsMastered: number; needSupport: number;
+    /** ⭐ the class's started student × skill-key pairs by star (⭐ / ◐ / 🔄) */
+    stars: { mastered: number; inProgress: number; needsReview: number } };
   groups: Record<GroupName, string[]>;
   students: StudentRow[];
-  weakSkills: { skillId: string; name: string; avgMastery: number; students: number }[];
-  strongSkills: { skillId: string; name: string; avgMastery: number; students: number }[];
+  /** ⭐ by skill KEY over the students who started it: fewer than half ⭐ (reteach) / half or more ⭐ (strong).
+   *  avgMastery = the average star score; mastered = ⭐ students; needsHelp = 🔄 or ◐ needing support */
+  weakSkills: OverviewSkill[];
+  strongSkills: OverviewSkill[];
   hardQuestions: { questionId: string; ref: string; stem: string; skill: string; attempts: number; accuracyPct: number }[];
   alerts: { id: string; studentId: string; message: string; rule: string; createdAt: string; nextAction: string }[];
 }
+
+export interface OverviewSkill { skillId: string; key: string; name: string; avgMastery: number; students: number; mastered: number; needsHelp: number }
 
 async function classStudents(repo: Repo, classId: string) {
   const members = await repo.findMany("ClassMembership", { classId, leftAt: null }, { select: ["studentId"] });
@@ -103,8 +130,9 @@ export async function classOverview(repo: Repo, actor: Actor, classId: string, r
   const grade = gradeRow!;
   const ids = studs.map((s) => s.id);
   // only the columns this page uses, and only the attempts inside the range (performance)
-  const [mastery, attempts, globals, alerts, practice, studentAlerts] = await Promise.all([
-    ids.length ? repo.findMany("StudentSkillMastery", { studentId: { in: ids } }, { select: ["studentId", "skillId", "attempts", "score", "isMastered"] }) : Promise.resolve([] as Row[]),
+  // ⭐ statuses come from the ONE star system (SkillStatus by skill key), one batched read for the class
+  const [book, attempts, globals, alerts, practice, studentAlerts] = await Promise.all([
+    starBook(repo, ids, String(klass.schoolId ?? "")),
     ids.length ? repo.findMany("QuestionAttempt", { studentId: { in: ids }, createdAt: { gte: range.from, lte: range.to } }, { select: ["studentId", "questionId", "createdAt", "isCorrect", "responseMs"] }) : Promise.resolve([] as Row[]),
     ids.length ? repo.findMany("StudentAbility", { studentId: { in: ids }, scope: "GLOBAL" }, { select: ["studentId", "theta"] }) : Promise.resolve([] as Row[]),
     ids.length ? repo.findMany("InterventionAlert", { studentId: { in: ids }, resolvedAt: null }, { select: ["id", "studentId", "message", "ruleCode", "createdAt"] }) : Promise.resolve([] as Row[]),
@@ -119,34 +147,30 @@ export async function classOverview(repo: Repo, actor: Actor, classId: string, r
   for (const x of diag) { const cur = diagOf.get(String(x.studentId)); if (!cur || ms(x.completedAt) > ms(cur.completedAt)) diagOf.set(String(x.studentId), x); }
   const DIAG_LEVEL: Record<string, string> = { ABOVE: "Exceeding the standard", ON: "Meeting the standard", BELOW: "Approaching the standard" };
   const inRange = attempts.filter((a) => ms(a.createdAt) <= range.to.getTime());
-  const skillIds = [...new Set(mastery.map((m) => String(m.skillId)))];
+  const hidden = await hiddenStarKeys(repo, book);
   const byQ = new Map<string, Row[]>();
   for (const a of inRange) (byQ.get(String(a.questionId)) ?? byQ.set(String(a.questionId), []).get(String(a.questionId))!).push(a);
   const hardIds = [...byQ].filter(([, v]) => v.length >= 5).map(([id, v]) => ({ id, acc: v.filter((x) => x.isCorrect).length / v.length, n: v.length })).sort((a, b) => a.acc - b.acc).slice(0, 5);
-  const [skillRows, qrows] = await Promise.all([
-    skillIds.length ? repo.findMany("Skill", { id: { in: skillIds } }, { select: ["id", "name", "code"] }).then((l) => l.filter((k) => !isHiddenSkill(k.code))) : Promise.resolve([] as Row[]),
-    hardIds.length ? repo.findMany("Question", { id: { in: hardIds.map((h) => h.id) } }, { select: ["id", "externalRef", "stem", "skillId"] }) : Promise.resolve([] as Row[]),
-  ]);
-  const skills = new Map(skillRows.map((k) => [String(k.id), String(k.name)]));
-  const missing = [...new Set(qrows.map((q) => String(q.skillId)))].filter((id) => !skills.has(id));
-  const qSkills = new Map([...skills, ...(missing.length ? await repo.findMany("Skill", { id: { in: missing } }, { select: ["id", "name", "code"] }) : []).map((k) => [String(k.id), isHiddenSkill(k.code) ? "" : String(k.name)] as [string, string])]);
+  const qrows = hardIds.length ? await repo.findMany("Question", { id: { in: hardIds.map((h) => h.id) } }, { select: ["id", "externalRef", "stem", "skillId"] }) : [];
+  const qSkillIds = [...new Set(qrows.map((q) => String(q.skillId)))];
+  const qSkills = new Map((qSkillIds.length ? await repo.findMany("Skill", { id: { in: qSkillIds } }, { select: ["id", "name", "code"] }) : []).map((k) => [String(k.id), isHiddenSkill(k.code) ? "" : book.nameOf(book.keyOf(String(k.id)))] as [string, string]));
 
   // rows grouped by student once (Update 42B: each student used to scan every answer of the class)
   const group = (rows: Row[], keep: (r: Row) => boolean = () => true) => { const m = new Map<unknown, Row[]>(); for (const r of rows) if (keep(r)) { const k = r.studentId; const l = m.get(k); if (l) l.push(r); else m.set(k, [r]); } return m; };
-  const masteryOf = group(mastery, (x) => num(x.attempts) > 0), attemptsOf = group(inRange), alertsOf = group(studentAlerts);
+  const attemptsOf = group(inRange), alertsOf = group(studentAlerts);
   const globalOf = new Map<unknown, Row>(); for (const x of globals) if (!globalOf.has(x.studentId)) globalOf.set(x.studentId, x);
   const students: StudentRow[] = studs.map((s) => {
-    const m = masteryOf.get(s.id) ?? [];
+    const m = startedStars(book, s.id, hidden);
     const a = attemptsOf.get(s.id) ?? [];
     const g = globalOf.get(s.id);
-    const avg = m.length ? m.reduce((t, x) => t + num(x.score), 0) / m.length : null;
+    const avg = m.length ? m.reduce((t, x) => t + x.score, 0) / m.length : null;
     let last: number | null = null; for (const x of a) { const t = ms(x.createdAt); if (last === null || t > last) last = t; }
     return {
       studentId: s.id, name: s.name,
       group: groupFor(practice.get(s.id)?.recentTheta ?? (g ? num(g.theta) : null), avg),
       placement: diagOf.has(s.id) ? (DIAG_LEVEL[String(diagOf.get(s.id)!.level)] ?? null) : g ? proficiencyLabel(num(g.theta)) : null,
       avgMastery: avg === null ? null : Math.round(avg),
-      skillsMastered: m.filter((x) => x.isMastered).length,
+      skillsMastered: m.filter(starMastered).length,
       answered: a.length,
       accuracyPct: a.length ? Math.round((100 * a.filter((x) => x.isCorrect).length) / a.length) : null,
       minutes: Math.round(a.reduce((t, x) => t + num(x.responseMs), 0) / 60_000),
@@ -158,13 +182,19 @@ export async function classOverview(repo: Repo, actor: Actor, classId: string, r
   const groups: Record<GroupName, string[]> = { Intervention: [], Developing: [], Meeting: [], Advanced: [] };
   for (const s of students) if (s.group) groups[s.group].push(s.name);
 
-  const bySkill = new Map<string, number[]>();
-  for (const m of mastery.filter((x) => num(x.attempts) > 0)) (bySkill.get(String(m.skillId)) ?? bySkill.set(String(m.skillId), []).get(String(m.skillId))!).push(num(m.score));
-  // the hidden skill is left out (I-18)
-  const skillAvg = [...bySkill].filter(([id, v]) => v.length >= 3 && skills.has(id)).map(([id, v]) => ({ skillId: id, name: skills.get(id) ?? "", avgMastery: Math.round(v.reduce((a, b) => a + b, 0) / v.length), students: v.length }));
-  // weak = class average below 60, strong = 60 or above; the two lists never overlap
-  const weakSkills = skillAvg.filter((x) => x.avgMastery < 60).sort((a, b) => a.avgMastery - b.avgMastery).slice(0, 5);
-  const strongSkills = skillAvg.filter((x) => x.avgMastery >= 60).sort((a, b) => b.avgMastery - a.avgMastery).slice(0, 5);
+  // ⭐ by skill KEY (every copy of a skill is one skill), over the students who started it; the hidden skill is left out (I-18)
+  const byKey = new Map<string, StarView[]>();
+  for (const s of studs) for (const v of startedStars(book, s.id, hidden)) (byKey.get(v.key) ?? byKey.set(v.key, []).get(v.key)!).push(v);
+  const skillAvg: OverviewSkill[] = [...byKey].filter(([, v]) => v.length >= 3).map(([key, v]) => ({
+    skillId: v.find((x) => x.skillId)?.skillId ?? book.ix.skillsOf.get(key)?.[0] ?? key, key, name: book.nameOf(key),
+    avgMastery: Math.round(v.reduce((a, x) => a + x.score, 0) / v.length), students: v.length,
+    mastered: v.filter(starMastered).length, needsHelp: v.filter(starNeedsHelp).length,
+  }));
+  // reteach = fewer than half of them ⭐ (🔄 / needing support first, then the lowest star score); strong = half or
+  // more ⭐ (most ⭐ first). The two lists never overlap.
+  const weakSkills = skillAvg.filter((x) => 2 * x.mastered < x.students)
+    .sort((a, b) => b.needsHelp / b.students - a.needsHelp / a.students || a.mastered / a.students - b.mastered / b.students || a.avgMastery - b.avgMastery).slice(0, 5);
+  const strongSkills = skillAvg.filter((x) => 2 * x.mastered >= x.students).sort((a, b) => b.mastered / b.students - a.mastered / a.students || b.avgMastery - a.avgMastery).slice(0, 5);
 
   const hardQuestions = hardIds.map((h) => {
     const q = qrows.find((x) => x.id === h.id)!;
@@ -182,6 +212,11 @@ export async function classOverview(repo: Repo, actor: Actor, classId: string, r
       minutes: students.reduce((t, s) => t + s.minutes, 0),
       skillsMastered: students.reduce((t, s) => t + s.skillsMastered, 0),
       needSupport: students.filter((s) => s.group === "Intervention" || s.openAlerts > 0).length,
+      stars: {
+        mastered: [...byKey.values()].reduce((t, l) => t + l.filter(starMastered).length, 0),
+        inProgress: [...byKey.values()].reduce((t, l) => t + l.filter((v) => v.status === "IN_PROGRESS").length, 0),
+        needsReview: [...byKey.values()].reduce((t, l) => t + l.filter((v) => v.status === "NEEDS_REVIEW").length, 0),
+      },
     },
     groups, students, weakSkills, strongSkills, hardQuestions,
     alerts: alerts.sort((a, b) => ms(b.createdAt) - ms(a.createdAt)).map((a) => ({
@@ -192,11 +227,13 @@ export async function classOverview(repo: Repo, actor: Actor, classId: string, r
 }
 
 export interface MasteryGrid {
-  skills: { skillId: string; name: string }[];
-  rows: { studentId: string; name: string; cells: ({ score: number; band: MasteryBandName } | null)[] }[];
+  /** one column per skill KEY of the unit (copies of a skill are one column, the Student Skills name) */
+  skills: { skillId: string; key: string; name: string }[];
+  /** ⭐ the student's star of each column (null = ☆ not started) */
+  rows: { studentId: string; name: string; cells: (StarCell | null)[] }[];
 }
 
-/** Students × skills heat map for one unit. */
+/** Students × skills star grid for one unit (the same stars as Student Skills). */
 export async function masteryGrid(repo: Repo, actor: Actor, classId: string, unitId: string): Promise<MasteryGrid> {
   const klass = await assertClassAccess(repo, actor, classId);
   const [unit, curs, unitLinks, studs] = await Promise.all([
@@ -208,19 +245,23 @@ export async function masteryGrid(repo: Repo, actor: Actor, classId: string, uni
   const cur = curs[0];
   if (!unit || unit.curriculumId !== cur.id) throw new ForbiddenError("That unit is not in this class's book.");
   const links = unitLinks.sort((a, b) => num(a.order) - num(b.order));
-  const [skillRows, mastery] = await Promise.all([
-    links.length ? repo.findMany("Skill", { id: { in: links.map((l) => l.skillId) } }, { select: ["id", "name"] }) : Promise.resolve([] as Row[]),
-    studs.length && links.length ? repo.findMany("StudentSkillMastery", { studentId: { in: studs.map((s) => s.id) }, skillId: { in: links.map((l) => l.skillId) } }, { select: ["studentId", "skillId", "attempts", "score", "band"] }) : Promise.resolve([] as Row[]),
+  const [skillRows, book] = await Promise.all([
+    links.length ? repo.findMany("Skill", { id: { in: links.map((l) => l.skillId) } }, { select: ["id", "name", "code"] }) : Promise.resolve([] as Row[]),
+    starBook(repo, studs.map((s) => s.id), String(klass.schoolId ?? "")),
   ]);
-  const skills = links.map((l) => ({ skillId: String(l.skillId), name: String(skillRows.find((k) => k.id === l.skillId)?.name ?? "") }));
+  const hiddenIds = new Set(skillRows.filter((k) => isHiddenSkill(k.code)).map((k) => String(k.id)));
+  const skills: MasteryGrid["skills"] = [];
+  for (const l of links) {
+    const id = String(l.skillId);
+    if (hiddenIds.has(id)) continue;
+    const key = book.keyOf(id);
+    if (!skills.some((k) => k.key === key)) skills.push({ skillId: id, key, name: book.nameOf(key) || String(skillRows.find((k) => k.id === l.skillId)?.name ?? "") });
+  }
   return {
     skills,
     rows: studs.sort((a, b) => a.name.localeCompare(b.name)).map((s) => ({
       studentId: s.id, name: s.name,
-      cells: skills.map((k) => {
-        const m = mastery.find((x) => x.studentId === s.id && x.skillId === k.skillId && num(x.attempts) > 0);
-        return m ? { score: Math.round(num(m.score)), band: String(m.band) as MasteryBandName } : null;
-      }),
+      cells: skills.map((k) => { const v = book.ofKey(s.id, k.key); return v.status === "NOT_STARTED" ? null : starCell(v); }),
     })),
   };
 }
@@ -232,7 +273,9 @@ export interface StudentDetail {
   grade: number;
   className: string | null;
   placement: DiagnosticSummary | null;
-  skills: { skillId: string; name: string; score: number; band: string; attempts: number; accuracyPct: number; lastPracticed: string | null }[];
+  /** ⭐ one row per started skill KEY (the Student Skills name): score = the star score, band = the star word,
+   *  attempts / accuracy = the practice answers that count for the star */
+  skills: { skillId: string; key: string; name: string; score: number; band: string; star: StarCell; attempts: number; accuracyPct: number; lastPracticed: string | null }[];
   recent: { at: string; skill: string; ref: string; stem: string; correct: boolean; seconds: number; rapid: boolean; answer: string }[];
   decisions: { at: string; reasonCode: string; reason: string; fromTheta: number; toTheta: number; difficulty: number | null; correct: boolean | null; masteryBefore: number | null; masteryAfter: number | null }[];
   alerts: { id: string; message: string; rule: string; nextAction: string; evidence: unknown }[];
@@ -243,11 +286,11 @@ export async function studentDetail(repo: Repo, actor: Actor, studentId: string)
   const st = await repo.findUnique("Student", { id: studentId });
   if (!st || !canAccessStudent(actor, { studentId, schoolId: String(st.schoolId) })) throw new ForbiddenError("You do not have access to this student.");
   // everything independent is loaded in parallel; history is read as a bounded, newest-first page
-  const [user, grade, members, mastery, attempts, logs, alerts, domains, placement] = await Promise.all([
+  const [user, grade, members, book, attempts, logs, alerts, domains, placement] = await Promise.all([
     repo.findUnique("User", { id: st.userId }),
     repo.findUnique("Grade", { id: st.gradeId }),
     repo.findMany("ClassMembership", { studentId, leftAt: null }),
-    repo.findMany("StudentSkillMastery", { studentId }),
+    starBook(repo, [studentId], String(st.schoolId)),
     // only what the page shows: the 20 latest answers and 30 latest engine decisions (not the full history)
     repo.findMany("QuestionAttempt", { studentId }, { select: ["id", "skillId", "questionId", "createdAt", "response", "isCorrect", "responseMs", "rapidGuess"], orderBy: [{ field: "createdAt", dir: "desc" }], take: 20 }),
     repo.findMany("AdaptiveDecisionLog", { studentId }, { select: ["id", "createdAt", "reasonCode", "reason", "previousTheta", "newTheta", "questionDifficulty", "responseCorrect", "masteryBefore", "masteryAfter"], orderBy: [{ field: "createdAt", dir: "desc" }], take: 30 }),
@@ -256,12 +299,13 @@ export async function studentDetail(repo: Repo, actor: Actor, studentId: string)
     latestDiagnostic(repo, studentId),
   ]);
   const member = members[0];
-  const skillIds = [...new Set([...mastery.map((m) => String(m.skillId)), ...attempts.map((a) => String(a.skillId))])];
+  const skillIds = [...new Set(attempts.map((a) => String(a.skillId)))];
   const recentA = attempts.sort((a, b) => ms(b.createdAt) - ms(a.createdAt)).slice(0, 20);
-  const [klass, skillRows, qs] = await Promise.all([
+  const [klass, skillRows, qs, hidden] = await Promise.all([
     member ? repo.findUnique("Class", { id: member.classId }) : Promise.resolve(null),
     skillIds.length ? repo.findMany("Skill", { id: { in: skillIds } }, { select: ["id", "name", "code"] }) : Promise.resolve([] as Row[]),
     recentA.length ? repo.findMany("Question", { id: { in: recentA.map((a) => a.questionId) } }, { select: ["id", "externalRef", "stem"] }) : Promise.resolve([] as Row[]),
+    hiddenStarKeys(repo, book),
   ]);
   // the hidden “Unclassified (Curriculum Map)” skill is not listed (I-18); a name used in two grades gets “· G5” (S-13)
   const visible = skillRows.filter((k) => !isHiddenSkill(k.code));
@@ -269,10 +313,10 @@ export async function studentDetail(repo: Repo, actor: Actor, studentId: string)
   return {
     studentId, name: String(user!.displayName), studentNumber: String(st.studentNumber), grade: num(grade!.level), className: klass ? String(klass.name) : null,
     placement,
-    skills: mastery.filter((m) => num(m.attempts) > 0 && skillName.has(String(m.skillId))).sort((a, b) => num(a.score) - num(b.score)).map((m) => ({
-      skillId: String(m.skillId), name: skillName.get(String(m.skillId)) ?? "", score: Math.round(num(m.score)), band: BAND_LABEL[String(m.band) as MasteryBandName] ?? String(m.band),
-      attempts: num(m.attempts), accuracyPct: num(m.attempts) ? Math.round((100 * num(m.correct)) / num(m.attempts)) : 0,
-      lastPracticed: m.lastPracticedAt ? new Date(ms(m.lastPracticedAt)).toISOString() : null,
+    // ⭐ one row per started skill KEY, the same stars and names as Student Skills (lowest star score first)
+    skills: startedStars(book, studentId, hidden).sort((a, b) => a.score - b.score || book.nameOf(a.key).localeCompare(book.nameOf(b.key))).map((v) => ({
+      skillId: v.skillId ?? book.ix.skillsOf.get(v.key)?.[0] ?? v.key, key: v.key, name: book.nameOf(v.key), score: v.score, band: starWord(v), star: starCell(v),
+      attempts: v.answered, accuracyPct: v.answered ? Math.round((100 * v.correct) / v.answered) : 0, lastPracticed: v.updatedAt,
     })),
     recent: recentA.map((a) => {
       const q = qs.find((x) => x.id === a.questionId);

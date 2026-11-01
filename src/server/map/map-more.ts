@@ -19,6 +19,7 @@ import { classMembers, studentNames } from "../insights/student-data";
 import { masterSkills } from "../skills/master";
 import { bandSettings, estimateRit, estimateRits, groupOf, groupPools, GROUPS, mapProfiles, orderAreas, pickBand, ritBand, type AreaProfile, type GroupKey, type MapProfile, type PlanItem, type Subject } from "./map-plan";
 import { BANK_MODELS, keptWhileUnchanged } from "../cache/kept";
+import { starBook, starMastered, starNeedsReview } from "../skills/star-read";
 
 const s = (v: unknown) => String(v ?? "");
 const time = (v: unknown) => new Date(v instanceof Date ? v.toISOString() : s(v)).getTime();
@@ -120,7 +121,7 @@ export async function myMap(repo: Repo, actor: Actor, now = new Date()): Promise
   const studentId = actor.studentId;
   const st = await repo.findUnique("Student", { id: studentId });
   const grade = Number((st?.gradeId ? await repo.findUnique("Grade", { id: st.gradeId }) : null)?.level ?? 0);
-  const [pk, mastery] = await Promise.all([groupPools(repo, actor.schoolId!, grade), repo.findMany("StudentSkillMastery", { studentId }, { select: ["skillId", "attempts", "correct", "score"] })]);
+  const [pk, mastery, book] = await Promise.all([groupPools(repo, actor.schoolId!, grade), repo.findMany("StudentSkillMastery", { studentId }, { select: ["skillId", "attempts", "correct", "score"] }), starBook(repo, [studentId], actor.schoolId)]);
   // ⚡ the two subjects (and the sent plans) are read side by side, not one after another
   const one = async (subject: Subject): Promise<MySubject> => {
     const p = (await mapProfiles(repo, actor.schoolId!, [studentId], subject)).get(studentId)!;
@@ -131,9 +132,12 @@ export async function myMap(repo: Repo, actor: Actor, now = new Date()): Promise
       const m = mastery.filter((x) => skills.includes(s(x.skillId)) && Number(x.attempts) > 0);
       const a = m.reduce((t, x) => t + Number(x.attempts), 0);
       acc.set(g.key, a ? Math.round((100 * m.reduce((t, x) => t + Number(x.correct), 0)) / a) : null);
-      // next skill to practise: the weakest started one, else the first not started
+      // next skill to practise (⭐ stars, by skill key): never a ⭐ skill; a 🔄 "needs review" one first, then the
+      // weakest started one (the engine's score only orders), else the first not started
       const score = new Map(mastery.map((x) => [s(x.skillId), Number(x.score)]));
-      next.set(g.key, [...skills].sort((x, y) => (score.get(x) ?? -1) - (score.get(y) ?? -1))[0] ?? null);
+      const open = skills.filter((id) => !starMastered(book.of(studentId, id)));
+      const review = (id: string) => (starNeedsReview(book.of(studentId, id)) ? 0 : 1);
+      next.set(g.key, [...open].sort((x, y) => review(x) - review(y) || (score.get(x) ?? -1) - (score.get(y) ?? -1))[0] ?? null);
     }
     const ordered = orderAreas(p, acc).map((a) => ({ ...a, accuracy: acc.get(a.group) ?? null, next: next.get(a.group) ?? null }));
     const est = p.term ? await estimateRit(repo, actor.schoolId!, studentId, subject, now) : null;

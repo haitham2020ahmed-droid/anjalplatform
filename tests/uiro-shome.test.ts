@@ -228,7 +228,10 @@ describe("UI reorg Phase 2: Student Home", () => {
     // ≤ 45: My Work lists every assigned thing (MAP Test plan § 5b: tests, MAP / NAFS tests, ReadRise, exit tickets,
     // lessons, plans, the survey …), one bounded read per source; the My Tests / NAFS badges and the exit-ticket notice
     // are taken from those rows (no second read)
-    assert.ok(c.calls() <= 45, `student home used ${c.calls()} database calls`);
+    // ⭐ (1 Nov 2026) My Work reads the stars (one SkillStatus read, shared by the status refresh and the cards — it
+    // replaced the engine-table read); the school's skill-key index is cached per repo in the server, but this counting
+    // wrapper is a fresh repo object, so its 4 index reads (Grade, Curriculum, Skill, SkillFamily) are counted here
+    assert.ok(c.calls() <= 49, `student home used ${c.calls()} database calls`);
   });
 
   test("no clutter: no question counts or 'adaptive'; never 'Lexile' for ReadRise", () => {

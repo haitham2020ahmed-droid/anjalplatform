@@ -21,6 +21,7 @@ import { cancelIndex, liveAssignmentWhere } from "../student/cancelled-work";
 import { isReportShared } from "./parent-report";
 import { ALERT_INFO, type AlertKind } from "./alerts";
 import { matchesStudent, normalizeName } from "../../components/teacher/name-match";
+import { starBook } from "../skills/star-read";
 
 const s = (v: unknown) => String(v ?? "");
 const time = (v: unknown) => new Date(v instanceof Date ? v.toISOString() : s(v)).getTime();
@@ -132,7 +133,7 @@ export async function studentFile(repo: Repo, actor: Actor, studentId: string, n
   const tRows = links.length ? await repo.findMany("Teacher", { id: { in: links.map((l) => l.teacherId) } }, { select: ["userId"] }) : [];
   const tUsers = tRows.length ? await repo.findMany("User", { id: { in: tRows.map((t) => t.userId) } }, { select: ["displayName"] }) : [];
   const ids = [studentId];
-  const [practice, work, levels, reading, language, plans, draftPlans, sims, subs, wordsRows, review, badges, alerts, comments, notes, logins, asgRows, exitAns, mastery, shared] = await Promise.all([
+  const [practice, work, levels, reading, language, plans, draftPlans, sims, subs, wordsRows, review, badges, alerts, comments, notes, logins, asgRows, exitAns, mastery, shared, book] = await Promise.all([
     practiceStats(repo, ids, now), workStats(repo, ids, now), levelsOf(repo, ids),
     mapProfiles(repo, actor.schoolId!, ids, "READING"), mapProfiles(repo, actor.schoolId!, ids, "LANGUAGE"),
     sentPlans(repo, studentId, now), repo.count("MapPlan", { studentId, status: "DRAFT" }),
@@ -143,9 +144,12 @@ export async function studentFile(repo: Repo, actor: Actor, studentId: string, n
     commentsFor(repo, actor, studentId), notesFor(repo, actor, studentId),
     repo.findMany("AuditLog", { actorId: st.userId, action: "auth.login.success", createdAt: { gte: new Date(now.getTime() - 30 * 86_400_000) } }, { select: ["id"] }),
     repo.findMany("AssignmentStudent", { studentId }), repo.findMany("ExitTicketAnswer", { studentId }),
-    repo.findMany("StudentSkillMastery", { studentId }, { select: ["skillId", "attempts", "correct", "isMastered"] }),
+    repo.findMany("StudentSkillMastery", { studentId }, { select: ["skillId", "attempts", "correct"] }),
     isReportShared(repo, s(actor.schoolId), studentId),
+    // ⭐ "Skills mastered" = the student's ⭐ skills by KEY (copies count once), the same as My Skills
+    starBook(repo, [studentId], s(actor.schoolId)),
   ]);
+  const startedKeys = [...(book.byKey.get(studentId)?.values() ?? [])].filter((v) => v.status !== "NOT_STARTED").length;
   const profile = await repo.findUnique("StudentProfile", { studentId });
   const windows = sims.length ? await repo.findMany("MapSimWindow", { id: { in: [...new Set(sims.map((x) => s(x.windowId)).filter(Boolean))] } }, { select: ["id", "title"] }) : [];
   const tasks = subs.length ? await repo.findMany("WritingTask", { id: { in: subs.map((x) => x.taskId) } }, { select: ["id", "title", "kind", "genre", "locked", "rubric"] }) : [];
@@ -160,7 +164,7 @@ export async function studentFile(repo: Repo, actor: Actor, studentId: string, n
     id: studentId, name: s(user?.displayName), number: s(st.studentNumber), username: s(user?.username), grade: Number(grade?.level ?? 0), className: s(klass?.name), classId: klass ? s(klass.id) : null, teachers: tUsers.map((u) => s(u.displayName)),
     lastLogin: iso(user?.lastLoginAt), signIns30: logins.length, level: (profile && ["BELOW", "ON", "ABOVE"].includes(s(profile.level)) ? s(profile.level) as NonNullable<typeof lv>["level"] : null) ?? lv?.level ?? null, reportShared: shared,
     practice: practice.get(studentId)!, work: work.get(studentId)!, streakDays: 0,
-    skills: { strong: [...tried].sort((a, b) => b.pct - a.pct).filter((x) => x.pct >= 80 /* r72: the one rule — strong = 80 %+ (was 70) */).slice(0, 5), weak: [...tried].sort((a, b) => a.pct - b.pct).filter((x) => x.pct < 60).slice(0, 5), mastered: mastery.filter((m) => m.isMastered).length, started: mastery.length },
+    skills: { strong: [...tried].sort((a, b) => b.pct - a.pct).filter((x) => x.pct >= 80 /* r72: the one rule — strong = 80 %+ (was 70) */).slice(0, 5), weak: [...tried].sort((a, b) => a.pct - b.pct).filter((x) => x.pct < 60).slice(0, 5), mastered: book.masteredKeys(studentId).size, started: startedKeys },
     map: [reading.get(studentId)!, language.get(studentId)!].filter((p) => p.term), plans, draftPlans,
     tests: sims.sort((a, b) => time(b.startedAt) - time(a.startedAt)).map((x) => ({ title: s(windows.find((w) => w.id === x.windowId)?.title) || "MAP practice test", subject: s(x.subject), status: s(x.status), rit: x.resultRit === null || x.resultRit === undefined ? null : Number(x.resultRit), low: x.resultLow === null || x.resultLow === undefined ? null : Number(x.resultLow), high: x.resultHigh === null || x.resultHigh === undefined ? null : Number(x.resultHigh), answered: Number(x.answered), total: Number(x.total), rapid: Number(x.rapid), when: iso(x.finishedAt ?? x.startedAt) })),
     writing: subs.map((x) => { const t = tasks.find((y) => y.id === x.taskId); const sc = x.scores ? (typeof x.scores === "string" ? JSON.parse(x.scores) : x.scores) as Record<string, number> : null; const kind = s(t?.kind); return { taskId: s(x.taskId), title: s(t?.title), kind, status: s(x.status), total: sc ? Object.values(sc).reduce((a, b) => a + Number(b), 0) : null, max: t ? scoreMax(t) : kind === "READ_ALOUD" ? 12 : 16, pct: t ? scorePercent(t, x) : null, locked: isLocked(t), hasAudio: Boolean(x.audioType), when: iso(x.submittedAt) }; }),

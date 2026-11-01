@@ -36,6 +36,23 @@ import { SOURCE_LABEL, sourceOfPlanKind, sourceOfWork, type SourceKey, type Sour
 import type { WorkKind } from "../../lib/work-kinds";
 import type { WorkTab } from "../../lib/work-tab";
 import { needsSupportPairs } from "../skills/status-extras";
+import { starBook, starMastered, starNeedsReview, type StarBook } from "../skills/star-read";
+
+/**
+ * ⭐ Stars (owner, 1 Nov 2026): a plan never proposes a skill (any copy of it — by KEY) the student already has ⭐ on;
+ * 🔄 Needs review comes first. The engine's score (StudentSkillMastery) only orders the rest, weakest first.
+ */
+function notStarred(book: StarBook, studentId: string, skillIds: readonly string[]): string[] {
+  const seen = new Set<string>(), out: string[] = [];
+  for (const id of skillIds) {
+    const key = book.keyOf(id);
+    if (seen.has(key)) continue;
+    seen.add(key);
+    if (!starMastered(book.ofKey(studentId, key))) out.push(id);
+  }
+  // 🔄 first (stable: the rest keep their order)
+  return [...out.filter((id) => starNeedsReview(book.of(studentId, id))), ...out.filter((id) => !starNeedsReview(book.of(studentId, id)))];
+}
 
 const s = (v: unknown) => String(v ?? "");
 
@@ -263,10 +280,11 @@ export async function proposePlan(repo: Repo, actor: Actor, input: ProposeInput)
       const per = Math.max(1, Math.min(5, Math.round(input.perGroup ?? 2)));
       const profiles = await mapProfiles(repo, s(klass.schoolId), recipients, subject);
       const bands = await bandSettings(repo, s(klass.schoolId));
-      const [pk, ix, mastery] = await Promise.all([
+      const [pk, ix, mastery, book] = await Promise.all([
         groupPools(repo, s(klass.schoolId), g.level),
         continuumIndex(repo, s(klass.schoolId), g.level, subject),
         repo.findMany("StudentSkillMastery", { studentId: { in: recipients } }, { select: ["studentId", "skillId", "score"] }),
+        starBook(repo, recipients, s(klass.schoolId)),
       ]);
       const poolSkills = (grp: GroupKey) => [...new Set((pk.pools.get(grp) ?? []).map((q) => q.skillId))];
       const noScores: string[] = [];
@@ -282,7 +300,8 @@ export async function proposePlan(repo: Repo, actor: Actor, input: ProposeInput)
           const fromContinuum = [...(view.develop?.statements ?? []), ...(view.reinforce?.statements ?? [])].flatMap((st) => st.skills.map((k) => k.id));
           // then the area's skills with questions, weakest mastery first
           const fromPool = poolSkills(it.group).sort((a, b) => (m.get(a) ?? -1) - (m.get(b) ?? -1));
-          const picked = [...new Set([...fromContinuum, ...fromPool])].slice(0, per);
+          // never a ⭐ skill (by key), 🔄 first, one copy per skill
+          const picked = notStarred(book, id, [...new Set([...fromContinuum, ...fromPool])]).slice(0, per);
           for (const k of picked) want(k, [id], `MAP: ${groupName(it.group)} (RIT ${rit})`);
         }
       }
@@ -296,14 +315,21 @@ export async function proposePlan(repo: Repo, actor: Actor, input: ProposeInput)
     for (const p of support) want(p.skillId, [p.studentId], "Needs support: 50 questions without mastery");
     const out = recipients.filter((id) => !inRti.some((t) => s(t.studentId) === id) && !support.some((p) => p.studentId === id));
     if (out.length) notes.push(`Not in RTI (left out): ${out.map((id) => nameOf.get(id) ?? "Student").join(", ")}.`);
-    const noFocus = inRti.filter((t) => !t.focusSkillId).map((t) => s(t.studentId));
     const noData: string[] = [];
-    const weakest = noFocus.length ? await repo.findMany("StudentSkillMastery", { studentId: { in: noFocus } }, { select: ["studentId", "skillId", "score", "attempts"] }) : [];
+    const rtiIds = inRti.map((t) => s(t.studentId));
+    const book = rtiIds.length ? await starBook(repo, rtiIds, s(klass.schoolId)) : null;
+    // a focus skill the student has since got ⭐ on is not proposed (the fallback below picks one)
+    const focusOk = (t: Row) => Boolean(t.focusSkillId) && !(book && starMastered(book.of(s(t.studentId), s(t.focusSkillId))));
+    const fallback = inRti.filter((t) => !focusOk(t)).map((t) => s(t.studentId));
+    const weakest = fallback.length ? await repo.findMany("StudentSkillMastery", { studentId: { in: fallback } }, { select: ["studentId", "skillId", "score", "attempts"] }) : [];
     for (const t of inRti) {
       const id = s(t.studentId);
-      if (t.focusSkillId) { want(s(t.focusSkillId), [id], `RTI Tier ${t.tier}: focus skill`); continue; }
-      const w = weakest.filter((x) => s(x.studentId) === id && Number(x.attempts) > 0).sort((a, b) => Number(a.score) - Number(b.score))[0];
-      if (w) want(s(w.skillId), [id], `RTI Tier ${t.tier}: weakest skill`);
+      if (focusOk(t)) { want(s(t.focusSkillId), [id], `RTI Tier ${t.tier}: focus skill`); continue; }
+      // the weakest skill: 🔄 Needs review first, then the lowest engine score among skills without ⭐
+      const review = book ? [...(book.byKey.get(id) ?? new Map()).values()].filter((v) => starNeedsReview(v)).map((v) => v.skillId ?? book.ix.skillsOf.get(v.key)?.[0] ?? "").filter(Boolean) : [];
+      const low = weakest.filter((x) => s(x.studentId) === id && Number(x.attempts) > 0).sort((a, b) => Number(a.score) - Number(b.score)).map((x) => s(x.skillId));
+      const w = book ? notStarred(book, id, [...review, ...low])[0] : low[0];
+      if (w) want(w, [id], `RTI Tier ${t.tier}: weakest skill`);
       else noData.push(id);
     }
     if (noData.length) {

@@ -266,7 +266,7 @@ export default async function AssignedPage({ searchParams }: { searchParams: Pro
           <ul className="mt-2 grid gap-1 sm:grid-cols-2 lg:grid-cols-3">
             {open.students.map((x) => (
               <li key={x.id} className={`flex items-center justify-between gap-2 rounded-lg px-2 py-1 text-sm ring-1 ring-line ${x.removed ? "opacity-60" : ""}`}>
-                <span className="min-w-0 truncate">{x.star && <span className="me-1 inline-flex align-middle"><SkillStar info={{ status: x.star }} t={t} label={x.name} size={14} /></span>}<bdi>{x.name}</bdi> <span className={`text-xs ${x.done ? "text-emerald-700" : "text-muted"}`}>· {x.removed ? t("Removed") : x.done ? t("Done") : t("Not done")}</span></span>
+                <span className="min-w-0 truncate">{x.star && <span className="me-1 inline-flex align-middle"><SkillStar info={{ status: x.star }} t={t} label={x.name} size={14} /></span>}<bdi>{x.name}</bdi>{x.review && <span className="ms-1 rounded-full bg-sky-50 px-1.5 text-[11px] font-semibold text-sky-800 ring-1 ring-sky-200">🔄 {t("Review")}</span>} <span className={`text-xs ${x.done ? "text-emerald-700" : "text-muted"}`}>· {x.removed ? t("Removed") : x.done ? t("Done") : t("Not done")}</span></span>
                 {!open.item.cancelled && (x.removed
                   ? <ConfirmForm action={restoreAssignedAction} fields={{ kind: open.item.kind, id: open.item.id, studentId: x.id, back }} label={t("Undo")} />
                   : <ConfirmForm action={cancelAssignedAction} fields={{ kind: open.item.kind, id: open.item.id, studentId: x.id, back }} label={t("Remove")} tone="danger" ask={t("Remove this work for {name}? Their answers are kept.", { name: x.name })} />)}

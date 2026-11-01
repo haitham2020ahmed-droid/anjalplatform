@@ -35,14 +35,16 @@ describe("⭐ Assign: teacher assigns a skill", () => {
     student = await resolveActor(repo, (await repo.findUnique("User", { id: st.userId }))!);
   });
 
-  test("status rules: only work done for the assignment counts", () => {
-    const base = { mastery: 0, target: 75, dueAt: null, now: NOW };
+  // ⭐ owner (1 Nov 2026): complete = the star for the skill's key is ⭐, or 50 counted answers (never "10 + 75 %")
+  test("status rules: ⭐ or 50 counted answers complete the work; progress = the star score", () => {
+    const base = { star: null, dueAt: null, now: NOW };
     assert.equal(assignmentStatus({ ...base, answered: 0 }).status, "NOT_STARTED");
-    assert.equal(assignmentStatus({ ...base, answered: 3, mastery: 40 }).status, "IN_PROGRESS");
-    assert.equal(assignmentStatus({ ...base, answered: MIN_ANSWERS_TO_COMPLETE - 1, mastery: 95 }).status, "IN_PROGRESS", "high mastery alone is not enough");
-    assert.deepEqual(assignmentStatus({ ...base, answered: MIN_ANSWERS_TO_COMPLETE, mastery: 80 }), { status: "COMPLETED", progress: 1 });
-    assert.equal(assignmentStatus({ ...base, answered: 2, dueAt: new Date("2027-02-01"), mastery: 10 }).status, "OVERDUE");
-    assert.ok(assignmentStatus({ ...base, answered: 9, mastery: 74 }).progress < 1);
+    assert.equal(assignmentStatus({ ...base, answered: 3, star: { mastered: false, score: 40 } }).status, "IN_PROGRESS");
+    assert.equal(assignmentStatus({ ...base, answered: 10, star: { mastered: false, score: 95 } }).status, "IN_PROGRESS", "10 answers at a high score is not ⭐");
+    assert.deepEqual(assignmentStatus({ ...base, answered: MIN_ANSWERS_TO_COMPLETE, star: { mastered: true, score: 92 } }), { status: "COMPLETED", progress: 1 });
+    assert.equal(assignmentStatus({ ...base, answered: 50, star: { mastered: false, score: 60 } }).status, "COMPLETED", "the 50-answer cap");
+    assert.equal(assignmentStatus({ ...base, answered: 2, dueAt: new Date("2027-02-01"), star: { mastered: false, score: 10 } }).status, "OVERDUE");
+    assert.equal(assignmentStatus({ ...base, answered: 9, star: { mastered: false, score: 74 } }).progress, 0.74);
   });
 
   test("the teacher's view: Grade → Unit → Skill → Standard, only their own classes", async () => {
@@ -103,17 +105,19 @@ describe("⭐ Assign: teacher assigns a skill", () => {
     await assignmentUpdatesSettled();
     let row = (await repo.findMany("AssignmentStudent", { assignmentId: assignmentId!, studentId: student.studentId! }))[0];
     assert.equal(row.status, "IN_PROGRESS");
-    for (let i = 0; i < 25 && row.status !== "COMPLETED"; i++) {
+    // ⭐ rule: Done by the star (30+ answers and mastered) or at the 50th counted answer
+    for (let i = 0; i < 55 && row.status !== "COMPLETED"; i++) {
       await answerRight();
       await assignmentUpdatesSettled();
       row = (await repo.findMany("AssignmentStudent", { assignmentId: assignmentId!, studentId: student.studentId! }))[0];
     }
-    assert.equal(row.status, "COMPLETED", "enough correct answers reach the target mastery");
+    assert.equal(row.status, "COMPLETED", "the work is Done (⭐, 50 answers or the pool ran out)");
     assert.equal(Number(row.progress), 1);
     assert.ok(row.completedAt);
     const detail = await assignmentDetail(repo, teacher, assignmentId!, new Date(clock));
     const mine = detail.students.find((x) => x.studentId === student.studentId)!;
-    assert.ok(mine.answered >= MIN_ANSWERS_TO_COMPLETE && mine.accuracy === 100, JSON.stringify(mine));
+    // Done by ⭐, the 50th answer, or the skill's questions running out (the small test pool ends before 30)
+    assert.ok(mine.answered >= 10 && mine.accuracy === 100, JSON.stringify(mine));
   });
 
   test("weekly view and older views count the same statuses; overdue appears after the due date", async () => {

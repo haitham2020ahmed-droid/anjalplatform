@@ -11,7 +11,7 @@ import type { MapPdfLessonSection, MapPdfSection, MapPdfSkill, MapPdfUnit } from
 import { SourceSelect } from "@/components/assign/source-select";
 import type { AssignSource } from "@/lib/assign-source";
 import { PriorAssignedPrompt } from "@/components/assign/prior-assigned";
-import { ExcludeMasteredPrompt } from "@/components/assign/exclude-mastered";
+import { excludeQuestion } from "@/components/assign/exclude-mastered";
 
 /**
  * 🗺️ The "skill plan" look of the Curriculum Map (owner: a reference screenshot of another platform's skill-plan
@@ -463,9 +463,8 @@ function SuggestPanel({ skill, roster, quickAssign, priorAssignment, masteredCou
         <div className="mt-3"><PriorAssignedPrompt t={t} onYes={() => setConfirmed(true)} onNo={onClose} /></div>
       ) : (
         <>
-          {mastered > 0 && !msg && (exclude === null
-            ? <div className="mt-3"><ExcludeMasteredPrompt count={mastered} t={t} onYes={() => setExclude(true)} onNo={() => setExclude(false)} /></div>
-            : <p className="mt-3 text-xs text-slate-600">⭐ {exclude ? t("Students who mastered this skill are left out.") : t("Students who mastered this skill get it too.")} <button type="button" onClick={() => setExclude(null)} className="font-semibold text-brand-teal underline">{t("Change")}</button></p>)}
+          {/* owner 1 Nov 2026: nobody is left out — the students who already mastered it get a 20-question review */}
+          {mastered > 0 && !msg && <p className="mt-3 rounded-lg bg-amber-50 px-2 py-1 text-xs text-amber-950 ring-1 ring-amber-200">⭐ {excludeQuestion(mastered, t)}</p>}
           <div className="relative mt-3">
             <input value={q} onChange={(e) => setQ(e.target.value)} placeholder={t("Search students")} className="w-full rounded-lg border border-slate-300 px-3 py-1.5 pe-7 text-sm" />
             <span className="pointer-events-none absolute end-2 top-1/2 -translate-y-1/2 text-slate-400">🔎</span>

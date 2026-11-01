@@ -21,7 +21,8 @@ import { hideLevels } from "../../lib/hide-levels";
 import { translate, type Lang } from "../../i18n";
 import { homeTopicFor } from "./family-week-words";
 import { hasLevelWords } from "./family-words";
-import { masteredSkills } from "./mastered-count";
+import { starBook, starLearning, starMastered, starNeedsReview } from "../skills/star-read";
+import type { StarView } from "../skills/status";
 import { adminUsers, type FamilyContent, type ReportSection } from "./family-reports";
 
 const s = (v: unknown) => String(v ?? "");
@@ -96,25 +97,39 @@ export async function monthFacts(repo: Repo, ids: string[], span: MonthSpan): Pr
   if (!ids.length) return out;
   const inMonth = (v: unknown) => { const t = time(v); return t >= span.from.getTime() && t < span.to.getTime(); };
   const range = { gte: span.from, lt: span.to };
-  const [students, stars, attempts, sessions, runs, fluency, open] = await Promise.all([
+  const [students, book, attempts, sessions, runs, fluency] = await Promise.all([
     repo.findMany("Student", { id: { in: ids } }, { select: ["id", "userId"] }),
-    repo.findMany("StudentSkillMastery", { studentId: { in: ids }, masteredAt: range }, { select: ["studentId", "skillId", "masteredAt"] }),
+    // ⭐ the ONE skill status (skills/star-read.ts): one batched read for the class, every student's own keys (no
+    // shared row cap — the old `take: ids.length * 12` on the engine table could leave later students with nothing)
+    starBook(repo, ids),
     repo.findMany("QuestionAttempt", { studentId: { in: ids }, createdAt: range }, { select: ["studentId", "isCorrect", "createdAt", "unreliable"], take: 40000 }),
     repo.findMany("PracticeSession", { studentId: { in: ids }, startedAt: range }, { select: ["studentId", "activeMs", "startedAt"] }),
     repo.findMany("RRRun", { studentId: { in: ids }, completedAt: range }, { select: ["studentId", "articleId", "completedAt"] }).catch(() => [] as Row[]),
     repo.findMany("FluencyPractice", { studentId: { in: ids }, createdAt: range }, { select: ["studentId", "createdAt"] }).catch(() => [] as Row[]),
-    repo.findMany("StudentSkillMastery", { studentId: { in: ids }, isMastered: false }, { select: ["studentId", "skillId", "score", "attempts"], orderBy: [{ field: "score", dir: "asc" }], take: ids.length * 12 }),
   ]);
+  // per student: the keys that became ⭐ this month (masteredAt in the month — any source: practice, NAFS, ReadRise),
+  // the most recent first, and the next skills: 🔄 needs review, then ◐ in progress (never ⭐)
+  const repOf = (key: string, v: StarView) => v.skillId ?? book.ix.skillsOf.get(key)?.[0] ?? "";
+  const starsOf = new Map<string, { key: string; skillId: string }[]>(), nextOf = new Map<string, { key: string; skillId: string }[]>();
+  for (const id of ids) {
+    const mine = [...(book.byKey.get(id) ?? new Map<string, StarView>())].filter(([k, v]) => book.ix.skillsOf.has(k) && repOf(k, v));
+    starsOf.set(id, mine.filter(([, v]) => starMastered(v) && inMonth(v.masteredAt)).sort((a, b) => time(b[1].masteredAt) - time(a[1].masteredAt)).map(([k, v]) => ({ key: k, skillId: repOf(k, v) })));
+    nextOf.set(id, [
+      ...mine.filter(([, v]) => starNeedsReview(v)),
+      ...mine.filter(([, v]) => starLearning(v)).sort((a, b) => Number(b[1].needsSupport) - Number(a[1].needsSupport) || a[1].score - b[1].score),
+    ].slice(0, 8).map(([k, v]) => ({ key: k, skillId: repOf(k, v) })));
+  }
+  const named = [...starsOf.values(), ...nextOf.values()].flat();
   const [users, skills, arts] = await Promise.all([
     students.length ? repo.findMany("User", { id: { in: students.map((x) => s(x.userId)) } }, { select: ["id", "displayName"] }) : Promise.resolve([] as Row[]),
-    (stars.length || open.length) ? repo.findMany("Skill", { id: { in: [...new Set([...stars, ...open].map((r) => s(r.skillId)))] } }, { select: ["id", "name", "code"] }) : Promise.resolve([] as Row[]),
+    named.length ? repo.findMany("Skill", { id: { in: [...new Set(named.map((r) => r.skillId))] } }, { select: ["id", "name", "code"] }) : Promise.resolve([] as Row[]),
     runs.length ? repo.findMany("RRArticle", { id: { in: [...new Set(runs.map((r) => s(r.articleId)))] } }, { select: ["id", "title"] }).catch(() => [] as Row[]) : Promise.resolve([] as Row[]),
   ]);
   const userName = new Map(users.map((u) => [s(u.id), s(u.displayName)]));
-  const skillName = new Map(skills.filter((k) => !isHiddenSkill(k.code)).map((k) => [s(k.id), s(k.name)]));
+  const shownIds = new Set(skills.filter((k) => !isHiddenSkill(k.code)).map((k) => s(k.id)));
+  // a ⭐ / next skill is named by its KEY's shared name (the same name as My Skills), hidden holder skills never shown
+  const nameOfRef = (r: { key: string; skillId: string }) => (shownIds.has(r.skillId) ? book.nameOf(r.key) : "");
   const title = new Map(arts.map((a) => [s(a.id), s(a.title)]));
-  // stars counted with the reports' one "mastered" rule (mastered-count.ts) among the skills that changed this month
-  const stillMastered = await masteredSkills(repo, ids, [...new Set(stars.map((r) => s(r.skillId)))]);
   for (const st of students) {
     const id = s(st.id);
     const a = attempts.filter((x) => s(x.studentId) === id), ss = sessions.filter((x) => s(x.studentId) === id && inMonth(x.startedAt));
@@ -126,11 +141,11 @@ export async function monthFacts(repo: Repo, ids: string[], span: MonthSpan): Pr
     const ok = reliable.filter((x) => x.isCorrect === true || x.isCorrect === 1).length;
     out.set(id, {
       name: userName.get(s(st.userId)) || "Student",
-      mastered: [...new Set(stars.filter((r) => s(r.studentId) === id && stillMastered.get(id)?.has(s(r.skillId))).map((r) => skillName.get(s(r.skillId)) ?? "").filter(Boolean))],
+      mastered: [...new Set((starsOf.get(id) ?? []).map(nameOfRef).filter(Boolean))],
       days, minutes: Math.round(ss.reduce((t, x) => t + Math.min(Number(x.activeMs ?? 0), 3 * 3_600_000), 0) / 60_000), answers: a.length, accuracy: reliable.length >= 10 ? Math.round((100 * ok) / reliable.length) : null,
       articles: [...new Set(runs.filter((r) => s(r.studentId) === id).map((r) => title.get(s(r.articleId)) ?? "").filter(Boolean))],
       fluencyReadings: fluency.filter((r) => s(r.studentId) === id).length,
-      next: open.filter((r) => s(r.studentId) === id && Number(r.attempts ?? 0) > 0).map((r) => skillName.get(s(r.skillId)) ?? "").filter(Boolean).slice(0, 4),
+      next: [...new Set((nextOf.get(id) ?? []).map(nameOfRef).filter(Boolean))].slice(0, 4),
     });
   }
   return out;

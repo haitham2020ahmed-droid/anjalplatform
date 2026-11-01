@@ -25,6 +25,7 @@ import { assignLearn } from "../learn/teacher";
 import { classMembers } from "../insights/student-data";
 import { masteredAmong } from "../skills/status-extras";
 import { DATE_ORDER_ERROR, startOfDay } from "../../lib/assign-dates";
+import { EXCLUDE_MASTERED_STUDENTS } from "../skills/star-read";
 
 const s = (v: unknown) => String(v ?? "");
 export type StarKind = "SKILL" | "LESSON";
@@ -104,7 +105,7 @@ export async function starAssign(repo: Repo, actor: Actor, input: StarInput, now
   if (!all.length) throw new ValidationError("This skill has no published questions yet.");
   // ⭐ "exclude them?" → Yes: only the students who have not mastered the skill
   let studentIds: string[] | undefined;
-  if (input.excludeMastered) {
+  if (input.excludeMastered && EXCLUDE_MASTERED_STUDENTS) {
     const m = await masteredInClass(repo, actor, classId, skillId);
     const members = await classMembers(repo, classId);
     studentIds = members.filter((id) => !m.studentIds.includes(id));

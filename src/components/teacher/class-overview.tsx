@@ -37,14 +37,14 @@ export function ClassOverviewView({ o, assignments, resolveAction, heatMap, badg
         { icon: "🙋", label: "Students", value: String(k.students), meaning: `${k.activeStudents} practised`, tone: k.activeStudents < k.students ? "warn" : "good" },
         { icon: "✍️", label: "Questions answered", value: String(k.questions), meaning: `Practice time: ${fmtMin(k.minutes)}` },
         { icon: "🎯", label: "Accuracy", value: k.accuracyPct === null ? "–" : `${k.accuracyPct}%`, meaning: "of all answers were right", tone: toneOfPct(k.accuracyPct) },
-        { icon: "📈", label: "Average mastery", value: k.avgMastery === null ? "–" : String(k.avgMastery), meaning: `0–100 · ${k.skillsMastered} skills mastered` },
+        { icon: "⭐", label: "Skills mastered", value: String(k.skillsMastered), meaning: k.avgMastery === null ? "no skill started yet" : `average star score ${k.avgMastery} (0–100)` },
         { icon: "🙌", label: "Need support", value: String(k.needSupport), meaning: k.needSupport ? "students listed below" : "nobody right now", tone: k.needSupport ? "bad" : "good" },
       ]} />
 
       <div className="mb-6 grid gap-4 lg:grid-cols-2">
         <Callout kind="help" items={o.alerts.slice(0, 5).map((a) => a.message)}>{!o.alerts.length ? "No student needs extra support right now." : null}</Callout>
         <Callout kind="next" items={[
-          o.weakSkills[0] ? <>Reteach <b>{o.weakSkills[0].name}</b> ({o.weakSkills[0].avgMastery} average mastery, {o.weakSkills[0].students} students)</> : null,
+          o.weakSkills[0] ? <>Reteach <b>{o.weakSkills[0].name}</b> (⭐ {o.weakSkills[0].mastered} of {o.weakSkills[0].students} students)</> : null,
           o.alerts[0] ? <>For {o.alerts[0].message.split(" ")[0]}: {o.alerts[0].nextAction}</> : null,
           o.hardQuestions[0] ? "Go over the hardest question below with the class." : null,
         ]}>{!o.weakSkills.length && !o.alerts.length ? "Keep the daily practice going." : null}</Callout>
@@ -69,7 +69,7 @@ export function ClassOverviewView({ o, assignments, resolveAction, heatMap, badg
         </ReportSection>
       )}
 
-      <ReportSection title="Groups" icon="👥" hint="Based on the placement check, or on average mastery for students who have not taken it.">
+      <ReportSection title="Groups" icon="👥" hint="Based on the placement check, or on the average star score for students who have not taken it.">
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
           {(Object.keys(o.groups) as GroupName[]).map((g) => (
             <div key={g} className={["rounded-xl border-t-4 bg-white p-4 ring-1 ring-slate-200", GROUP_STYLE[g]].join(" ")}>
@@ -85,13 +85,13 @@ export function ClassOverviewView({ o, assignments, resolveAction, heatMap, badg
       </ReportSection>
 
       <div className="grid gap-x-6 lg:grid-cols-2">
-        <ReportSection title="Skills to Reteach" icon="🔁" hint="Average mastery (0–100) of the students who practised each skill.">
-          <SimpleBar unit="" items={o.weakSkills.map((s) => ({ label: s.name, value: s.avgMastery, display: `${s.avgMastery} avg, ${s.students} students`, band: s.avgMastery >= 80 ? "GOOD" : s.avgMastery >= 60 ? "OK" : "LOW" }))} />
-          {o.weakSkills.length === 0 && <p className="text-slate-600">No skill averages below 60. Skills appear once 3 or more students have practised them.</p>}
+        <ReportSection title="Skills to Reteach" icon="🔁" hint="Skills fewer than half of the students who started them have mastered (⭐).">
+          <SimpleBar unit="%" items={o.weakSkills.map((s) => ({ label: s.name, value: Math.round((100 * s.mastered) / s.students), display: `⭐ ${s.mastered} of ${s.students} students${s.needsHelp ? ` · ${s.needsHelp} need help` : ""}`, band: "LOW" }))} />
+          {o.weakSkills.length === 0 && <p className="text-slate-600">No skill to reteach. Skills appear once 3 or more students have started them.</p>}
         </ReportSection>
-        <ReportSection title="Class Strengths" icon="💪">
-          <SimpleBar unit="" items={o.strongSkills.map((s) => ({ label: s.name, value: s.avgMastery, display: `${s.avgMastery} avg, ${s.students} students`, band: s.avgMastery >= 80 ? "GOOD" : s.avgMastery >= 60 ? "OK" : "LOW" }))} />
-          {o.strongSkills.length === 0 && <p className="text-slate-600">No skill averages 60 or more across the class yet.</p>}
+        <ReportSection title="Class Strengths" icon="💪" hint="Skills half or more of the students who started them have mastered (⭐).">
+          <SimpleBar unit="%" items={o.strongSkills.map((s) => ({ label: s.name, value: Math.round((100 * s.mastered) / s.students), display: `⭐ ${s.mastered} of ${s.students} students`, band: s.mastered === s.students ? "GOOD" : "OK" }))} />
+          {o.strongSkills.length === 0 && <p className="text-slate-600">No skill mastered by half the class yet.</p>}
         </ReportSection>
       </div>
 
@@ -110,9 +110,9 @@ export function ClassOverviewView({ o, assignments, resolveAction, heatMap, badg
 
       <ReportSection title="Students" icon="👩‍🎓" id="students">
         <ReportTable label="Students"
-          cols={[{ key: "n", label: "Student" }, { key: "g", label: "Group" }, { key: "p", label: "Placement" }, { key: "m", label: "Avg mastery", num: true }, { key: "ms", label: "Mastered", num: true }, { key: "a", label: "Answered", num: true }, { key: "acc", label: "Accuracy", num: true }, { key: "t", label: "Time", num: true }, { key: "al", label: "Alerts", num: true }]}
+          cols={[{ key: "n", label: "Student" }, { key: "g", label: "Group" }, { key: "p", label: "Placement" }, { key: "m", label: "Avg star score", num: true }, { key: "ms", label: "⭐ Mastered", num: true }, { key: "a", label: "Answered", num: true }, { key: "acc", label: "Accuracy", num: true }, { key: "t", label: "Time", num: true }, { key: "al", label: "Alerts", num: true }]}
           rows={o.students.map((s) => ({
-            id: s.studentId, flag: s.openAlerts ? "warn" : undefined, sort: { n: s.name, m: s.avgMastery, acc: s.accuracyPct, t: s.minutes, al: s.openAlerts },
+            id: s.studentId, flag: s.openAlerts ? "warn" : undefined, sort: { n: s.name, m: s.avgMastery, ms: s.skillsMastered, acc: s.accuracyPct, t: s.minutes, al: s.openAlerts },
             cells: {
               n: <span className="inline-flex items-center gap-2">{badgeOf?.[s.studentId]}<Link href={`/teacher/students/${s.studentId}`} className="text-brand-navy hover:text-brand-teal">{s.name}</Link></span>,
               g: s.group ?? "–", p: s.placement ?? "Not taken", m: s.avgMastery ?? "–", ms: s.skillsMastered, a: s.answered,

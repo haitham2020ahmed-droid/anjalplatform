@@ -25,6 +25,8 @@ import { cancelIndexForStudents, liveAssignmentWhere } from "../student/cancelle
 import { weekStart } from "../student/weekly";
 import { hideLevels } from "../../lib/hide-levels";
 import { homeTopicFor, type HomeTopic } from "./family-week-words";
+import { starBook, starLearning, starMastered, starNeedsReview } from "../skills/star-read";
+import type { StarView } from "../skills/status";
 
 const s = (v: unknown) => String(v ?? "");
 const time = (v: unknown) => (v instanceof Date ? v.getTime() : v ? new Date(s(v)).getTime() : 0);
@@ -103,7 +105,7 @@ export async function saveFamilyWeekNote(repo: Repo, actor: Actor, input: { stud
 async function buildWeeks(repo: Repo, ids: string[], klass: { className: string; classId: string; grade: number }, now: Date): Promise<FamilyWeek[]> {
   const since = weekStart(now);
   const inWeek = (v: unknown) => { const t = time(v); return t >= since.getTime() && t <= now.getTime(); };
-  const [students, done, sessions, runs, lessonRuns, attempts, mastery, nafs, notes] = await Promise.all([
+  const [students, done, sessions, runs, lessonRuns, attempts, book, nafs, notes] = await Promise.all([
     repo.findMany("Student", { id: { in: ids } }, { select: ["id", "userId"] }),
     repo.findMany("AssignmentStudent", { studentId: { in: ids }, status: "COMPLETED", completedAt: { gte: since } }, { select: ["studentId", "assignmentId", "completedAt"] }),
     repo.findMany("PracticeSession", { studentId: { in: ids }, startedAt: { gte: since } }, { select: ["studentId", "activeMs", "startedAt", "assignmentId", "mode", "correctCount"] }),
@@ -114,7 +116,9 @@ async function buildWeeks(repo: Repo, ids: string[], klass: { className: string;
     // when one particular answer wasn't itself flagged rapidGuess — without it, that noise could pick the wrong
     // "practise at home" topic for the family.
     repo.findMany("QuestionAttempt", { studentId: { in: ids }, createdAt: { gte: since } }, { select: ["studentId", "skillId", "isCorrect", "rapidGuess", "unreliable", "createdAt"] }),
-    repo.findMany("StudentSkillMastery", { studentId: { in: ids }, isMastered: false }, { select: ["studentId", "skillId", "score"], orderBy: [{ field: "score", dir: "asc" }], take: ids.length * 8 }),
+    // ⭐ the ONE skill status of every student (one batched read, no shared row cap: every student gets their own
+    // skills — the old `take: ids.length * 8` on the engine table let a few students use up the whole class's rows)
+    starBook(repo, ids),
     repo.findMany("NafsResult", { studentId: { in: ids }, submittedAt: { gte: since } }, { select: ["studentId", "testId", "classId", "points", "maxPoints", "submittedAt"] }).catch(() => [] as Row[]),
     repo.findMany("FamilyWeekNote", { studentId: { in: ids }, week: iso(since) }, { select: ["studentId", "note"] }).catch(() => [] as Row[]), // a database without the table yet: no notes
   ]);
@@ -128,7 +132,15 @@ async function buildWeeks(repo: Repo, ids: string[], klass: { className: string;
   const liveById = new Map(assignments.map((a) => [s(a.id), a]));
   const doneNow = doneAll.filter((r) => liveById.has(s(r.assignmentId)) && ix.live(liveById.get(s(r.assignmentId))!, s(r.studentId)));
   const tests = assignments.filter((a) => a.testId);
-  const skillIds = [...new Set([...lessonRuns.map((r) => s(r.skillId)), ...attempts.map((a) => s(a.skillId)), ...mastery.map((m) => s(m.skillId))].filter(Boolean))];
+  // each student's 🔄 / ◐ skills (one per KEY), with the skill row that names it
+  const repOf = (key: string, v: StarView) => v.skillId ?? book.ix.skillsOf.get(key)?.[0] ?? "";
+  const openOf = new Map<string, { key: string; skillId: string }[]>();
+  for (const id of ids) {
+    const list = [...(book.byKey.get(id) ?? new Map<string, StarView>())].filter(([k, v]) => book.ix.skillsOf.has(k) && (starNeedsReview(v) || starLearning(v)) && repOf(k, v));
+    list.sort((a, b) => Number(starNeedsReview(b[1])) - Number(starNeedsReview(a[1])) || Number(b[1].needsSupport) - Number(a[1].needsSupport) || a[1].score - b[1].score);
+    openOf.set(id, list.slice(0, 8).map(([k, v]) => ({ key: k, skillId: repOf(k, v) })));
+  }
+  const skillIds = [...new Set([...lessonRuns.map((r) => s(r.skillId)), ...attempts.map((a) => s(a.skillId)), ...[...openOf.values()].flat().map((x) => x.skillId)].filter(Boolean))];
   const articleIds = [...new Set(runs.map((r) => s(r.articleId)))];
   const nafsLive = nafs.filter((r) => inWeek(r.submittedAt));
   const [users, skills, articles, testRows, aqs, released, nafsTests] = await Promise.all([
@@ -171,13 +183,18 @@ async function buildWeeks(repo: Repo, ids: string[], klass: { className: string;
     }
     const minutes = Math.round((mineSessions.reduce((t, x) => t + Math.min(Number(x.activeMs ?? 0), 3 * 3_600_000), 0) + mineRuns.reduce((t, r) => t + Math.min(Number(r.readSeconds ?? 0), 3600) * 1000, 0)) / 60_000);
     const days = new Set([...mineSessions.filter((x) => Number(x.activeMs) > 0).map((x) => iso(new Date(time(x.startedAt)))), ...mineAttempts.map((a) => iso(new Date(time(a.createdAt)))), ...mineRuns.map((r) => iso(new Date(time(r.completedAt))))]).size;
-    // things to practise: this week's hardest skills (3+ careful answers, under 70 %), then the skills not mastered yet
+    // things to practise: this week's hardest skills (3+ careful answers, under 70 %) that are not ⭐, then the 🔄 needs
+    // review and ◐ in progress skills (needs support / lowest score first) — never a ⭐ skill (one per key)
     const per = new Map<string, { n: number; ok: number }>();
     for (const a of mineAttempts) { if (a.rapidGuess || a.unreliable || !skillName.has(s(a.skillId))) continue; const o = per.get(s(a.skillId)) ?? { n: 0, ok: 0 }; o.n++; if (a.isCorrect) o.ok++; per.set(s(a.skillId), o); }
-    const hard = [...per].filter(([, o]) => o.n >= 3 && o.ok / o.n < 0.7).sort((a, b) => a[1].ok / a[1].n - b[1].ok / b[1].n).map(([k]) => k);
-    const open = mastery.filter((m) => s(m.studentId) === id && skillName.has(s(m.skillId))).map((m) => s(m.skillId));
+    const hard = [...per].filter(([k, o]) => o.n >= 3 && o.ok / o.n < 0.7 && !starMastered(book.of(id, k))).sort((a, b) => a[1].ok / a[1].n - b[1].ok / b[1].n).map(([k]) => k);
+    const open = (openOf.get(id) ?? []).filter((x) => skillName.has(x.skillId)).map((x) => x.skillId);
     const practise: HomeTopic[] = [];
+    const keysUsed = new Set<string>();
     for (const skillId of [...hard, ...open]) {
+      const key = book.keyOf(skillId);
+      if (keysUsed.has(key)) continue;
+      keysUsed.add(key);
       const t = homeTopicFor(skillName.get(skillId)!);
       // r79: the skill behind the topic — the printed page links it to the student's practice
       if (!practise.some((p) => p.key === t.key)) practise.push({ ...t, skillId });

@@ -79,11 +79,16 @@ describe("📈 on the demo school: never across classes, never to students or pa
     const link = (await repo.findMany("ParentStudent", { studentId: sid }))[0];
     if (link) parent = await resolveActor(repo, (await repo.findUnique("User", { id: (await repo.findUnique("Parent", { id: link.parentId }))!.userId }))!);
     const skill = (await repo.findMany("Skill", {}, { take: 1 }))[0];
-    await repo.create("StudentSkillMastery", { studentId: sid, skillId: skill.id, score: 95, attempts: 20, correct: 19, isMastered: true, masteredAt: new Date(), updatedAt: new Date() });
+    // ⭐ stars (1 Nov 2026): "new stars" are SkillStatus ⭐ rows, the same as My Skills
+    const star = (studentId: unknown, skillId: unknown, skillKey: string) => repo.create("SkillStatus", { studentId, skillKey, level: 1, status: "MASTERED", skillId, answered: 30, correct: 28, score: 95, startedAt: new Date(), masteredAt: new Date(), updatedAt: new Date() });
+    await star(sid, skill.id, `skill:${s(skill.id)}`);
+    // the engine's old isMastered alone is NOT a star
+    const other2 = (await repo.findMany("Skill", {}, { take: 2 }))[1];
+    await repo.create("StudentSkillMastery", { studentId: sid, skillId: other2.id, score: 95, attempts: 20, correct: 19, isMastered: true, masteredAt: new Date(), updatedAt: new Date() });
     // the other class does much better: it must never show up in this class's report
     for (const m of await repo.findMany("ClassMembership", { classId: otherClass })) {
       const k = (await repo.findMany("Skill", {}, { take: 3 }))[2];
-      await repo.create("StudentSkillMastery", { studentId: m.studentId, skillId: k.id, score: 99, attempts: 30, correct: 30, isMastered: true, masteredAt: new Date(), updatedAt: new Date() });
+      await star(m.studentId, k.id, `skill:${s(k.id)}`);
     }
   });
 

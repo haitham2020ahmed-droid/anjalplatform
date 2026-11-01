@@ -5,11 +5,15 @@
  *
  * Same rules as the school's reports (src/server/analytics/reports.ts): rapid guesses do not count; a standard is shown
  * from 5 answers; accuracy = correct / answered.
+ * ⭐ Stars (owner, 1 Nov 2026): "Skills mastered" = the ⭐ skills of every student counted by KEY (copies of a skill
+ * count once); "avg mastery" = the average STAR score of the skills students started (skills/star-read.ts) — the
+ * engine's StudentSkillMastery is not read.
  */
 import type { Period } from "../../analytics/periods";
 import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
 import type { Repo, Row } from "../seeding/repo";
 import { keptWhileUnchanged } from "../cache/kept";
+import { starBook } from "../skills/star-read";
 
 const s = (v: unknown) => (v === null || v === undefined ? "" : String(v));
 const ms = (v: unknown) => (v instanceof Date ? v.getTime() : new Date(s(v)).getTime());
@@ -39,7 +43,7 @@ export async function schoolDashboard(repo: Repo, actor: Actor, period: Period, 
   const schoolId = actor.schoolId;
   const day = Math.floor(now.getTime() / DAY);
   return keptWhileUnchanged(repo, `school-dash:${schoolId}:${period.name}:${period.from.toISOString()}:${day}`,
-    ["QuestionAttempt", "StudentSkillMastery", "ClassMembership", "Class", "Student", "Grade", "Question", "Standard"], 120_000,
+    ["QuestionAttempt", "SkillStatus", "ClassMembership", "Class", "Student", "Grade", "Question", "Standard"], 120_000,
     () => build(repo, schoolId, period, now));
 }
 
@@ -64,9 +68,9 @@ async function build(repo: Repo, schoolId: string, period: Period, now: Date): P
   let mastered = 0;
   for (let i = 0; i < ids.length; i += STUDENT_CHUNK) {
     const part = ids.slice(i, i + STUDENT_CHUNK);
-    const [rows, mast] = await Promise.all([
+    const [rows, book] = await Promise.all([
       repo.findMany("QuestionAttempt", { studentId: { in: part }, createdAt: { gte: period.from, lte: period.to } }, { select: ["studentId", "questionId", "isCorrect", "rapidGuess", "createdAt"] }),
-      repo.findMany("StudentSkillMastery", { studentId: { in: part } }, { select: ["studentId", "score", "isMastered"] }),
+      starBook(repo, part, schoolId),
     ]);
     for (const a of rows) {
       if (a.rapidGuess) continue;
@@ -79,10 +83,11 @@ async function build(repo: Repo, schoolId: string, period: Period, now: Date): P
       const q = byQuestion.get(s(a.questionId)) ?? byQuestion.set(s(a.questionId), { answers: 0, correct: 0, students: new Set() }).get(s(a.questionId))!;
       q.answers++; if (a.isCorrect) q.correct++; q.students.add(sid);
     }
-    for (const m of mast) {
-      const sid = s(m.studentId);
-      (masteryOf.get(sid) ?? masteryOf.set(sid, []).get(sid)!).push(Number(m.score ?? 0));
-      if (m.isMastered) mastered++;
+    // ⭐ per student: the star score of each started skill (by key) and the ⭐ keys
+    for (const sid of part) {
+      const stars = [...(book.byKey.get(sid)?.values() ?? [])].filter((v) => v.status !== "NOT_STARTED");
+      if (stars.length) masteryOf.set(sid, stars.map((v) => v.score));
+      mastered += book.masteredKeys(sid).size;
     }
   }
 

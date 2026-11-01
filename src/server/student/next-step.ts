@@ -4,10 +4,12 @@
  *   1. the Diagnostic Test, if not finished
  *   2. this week's Weekly Check, if open
  *   3. the teacher's plan: today's part
- *   4. a mastered skill whose spaced review is due
+ *   4. ⭐ stars (owner, 1 Nov 2026): a 🔄 "needs review" skill, else a ⭐ skill whose review check is due
+ *      (SkillStatus NEEDS_REVIEW / reviewDueAt — the same stars as My Skills, never the old nextReviewAt)
  *   5. the recommended skill (real ability, recent errors, misconceptions, MAP weakest area, teacher work)
  *   6. else the first open skill of My Work
  *
+ * Suggestions 5–6 never pick a skill the student has ⭐ on (any copy of it, by skill key).
  * Skill suggestions (4–6) are ONLY skills the teacher assigned to the student; with none, there is no next step
  * (href null: the section is hidden).
  *
@@ -25,6 +27,7 @@ import { misconceptionLabel } from "../../insights/misconceptions";
 import { planPath } from "../graph/learning-path";
 import { skillOfAssignment } from "../practice/completion";
 import { cancelIndexForStudents, liveAssignmentWhere } from "./cancelled-work";
+import { starBook, starMastered, starNeedsReview } from "../skills/star-read";
 
 export interface NextStep {
   kind: "DIAGNOSTIC" | "WEEKLY_CHECK" | "PLAN" | "REVIEW" | "PRACTICE" | "DONE";
@@ -83,16 +86,20 @@ export async function nextStep(repo: Repo, actor: Actor, now = new Date(), known
   const mine = await assignedSkillIds(repo, studentId, now);
   if (!mine.all.size) return { kind: "DONE", title: "", why: "", href: null, cta: "" };
   const assigned = [...mine.all];
-  // a mastered skill that is due for its spaced review
-  const due = await repo.findMany("StudentSkillMastery", { studentId, skillId: { in: assigned }, isMastered: true, nextReviewAt: { lte: now } }, { select: ["skillId"], orderBy: [{ field: "nextReviewAt", dir: "asc" }], take: 1 });
-  if (due.length) {
-    const sk = await repo.findUnique("Skill", { id: s(due[0].skillId) });
+  // ⭐ the stars of the assigned skills (one batched read): 🔄 needs review first, else a ⭐ whose review check is due
+  const book = await starBook(repo, [studentId], actor.schoolId);
+  const starred = (id: string) => starMastered(book.of(studentId, id));
+  const dueAt = (id: string) => { const v = book.of(studentId, id); return starMastered(v) && v.reviewDueAt ? new Date(v.reviewDueAt).getTime() : Infinity; };
+  const again = assigned.filter((id) => starNeedsReview(book.of(studentId, id)));
+  const dueOnes = assigned.filter((id) => dueAt(id) <= now.getTime()).sort((a, b) => dueAt(a) - dueAt(b));
+  for (const id of [...again, ...dueOnes]) {
+    const sk = await repo.findUnique("Skill", { id });
     if (sk && !sk.deletedAt) return { kind: "REVIEW", title: `Review: ${s(sk.name)}`, why: "You mastered this skill. A quick review keeps it strong.", href: `/practice/${s(sk.id)}`, cta: "Review" };
   }
 
   // 🧭 the personal learning path (knowledge graph, ability, misconceptions, MAP area, progress speed)
   const fullPath = await planPath(repo, studentId, now, 5).catch(() => null);
-  const path = fullPath ? { ...fullPath, steps: fullPath.steps.filter((x) => mine.all.has(x.skillId)) } : null;
+  const path = fullPath ? { ...fullPath, steps: fullPath.steps.filter((x) => mine.all.has(x.skillId) && !starred(x.skillId)) } : null;
   const first = path?.steps.find((x) => x.action !== "REVIEW") ?? path?.steps[0];
   if (path && first) {
     const states = new Map(path.steps.map((x) => [x.skillId, 0]));
@@ -108,8 +115,8 @@ export async function nextStep(repo: Repo, actor: Actor, now = new Date(), known
   const unit = cur.units.find((u) => u.isCurrent) ?? cur.units[0];
   if (unit) {
     const { cards } = await getUnitSkillCards(repo, studentId, unit.unitId, now);
-    const recs = cards.filter((c) => c.recommended && c.canPractice && mine.all.has(c.skillId));
-    const pick = recs[0] ?? cards.find((c) => c.canPractice && !c.isMastered && mine.all.has(c.skillId));
+    const recs = cards.filter((c) => c.recommended && c.canPractice && mine.all.has(c.skillId) && !starred(c.skillId));
+    const pick = recs[0] ?? cards.find((c) => c.canPractice && !starred(c.skillId) && mine.all.has(c.skillId));
     if (pick) {
       if (recs.length) {
         const mastery = new Map(cards.map((c) => [c.skillId, c.mastery]));
@@ -121,8 +128,9 @@ export async function nextStep(repo: Repo, actor: Actor, now = new Date(), known
     }
   }
   // the first open skill of My Work
-  if (mine.open.length) {
-    const sk = await repo.findUnique("Skill", { id: mine.open[0] });
+  const openNext = mine.open.find((id) => !starred(id));
+  if (openNext) {
+    const sk = await repo.findUnique("Skill", { id: openNext });
     if (sk && !sk.deletedAt) return { kind: "PRACTICE", title: s(sk.name), why: "Work from your teacher.", href: `/practice/${s(sk.id)}`, cta: "Start" };
   }
   return { kind: "DONE", title: "", why: "", href: null, cta: "" };

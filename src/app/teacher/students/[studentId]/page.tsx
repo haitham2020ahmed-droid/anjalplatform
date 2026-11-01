@@ -25,7 +25,8 @@ import { AtAGlance, Callout, InfoTip, ReportHeader, ReportIntro, ReportSummary, 
 import { GLOSSARY } from "@/lib/report-columns";
 import { studentFileSummary } from "@/lib/report-summaries";
 import { studentEffort } from "@/server/practice/guessing";
-import { MASTERED_AT, NEEDS_BELOW } from "@/server/teacher/student-profile";
+import { starMastered } from "@/server/skills/star-read";
+import { SkillStar } from "@/components/skills/skill-star";
 import type { MapSummary } from "@/server/insights/student-data";
 import { writingResults } from "@/server/writing/locked";
 import { studentFileInsights, type StudentFileInsights } from "@/server/insights/student-file-insights";
@@ -80,8 +81,11 @@ export default async function StudentPage({ params, searchParams }: { params: Pr
   const EMPTY_BY_SOURCE = { studentId, groups: [], summary: { totalSkills: 0, avgMastery: null, mastered: 0, developing: 0, needsSupport: 0, up: 0, down: 0, flat: 0 } };
   const bySource = await bySourceReport(repo, actor, studentId, period).catch(() => EMPTY_BY_SOURCE);
   const myWriting = writing ? writing.tasks.filter((k) => writing.rows[0]?.pct[k.id] !== undefined).map((k) => ({ ...k, pct: writing.rows[0].pct[k.id] })) : [];
-  const mastered = d.skills.filter((k) => k.score >= MASTERED_AT || /master/i.test(k.band)).sort((a, b) => b.score - a.score);
-  const needed = d.skills.filter((k) => k.score < NEEDS_BELOW && !/master/i.test(k.band)).sort((a, b) => a.score - b.score);
+  // ⭐ the same stars as Student Skills, one per skill KEY: ⭐ mastered · needs work = 🔄 Needs review first, then ◐
+  // (needing support first, then the lowest star score)
+  const mastered = d.skills.filter((k) => starMastered(k.star)).sort((a, b) => b.score - a.score || a.name.localeCompare(b.name));
+  const work = (k: (typeof d.skills)[number]) => (k.star.status === "NEEDS_REVIEW" ? 0 : k.star.needsSupport ? 1 : 2);
+  const needed = d.skills.filter((k) => !starMastered(k.star)).sort((a, b) => work(a) - work(b) || a.score - b.score);
   const avgTest = x.tests.completed.filter((c) => c.pct !== null);
   const testAvg = avgTest.length ? Math.round(avgTest.reduce((n, c) => n + (c.pct ?? 0), 0) / avgTest.length) : null;
   const noPractice = x.answers.correct + x.answers.incorrect === 0;
@@ -286,11 +290,11 @@ export default async function StudentPage({ params, searchParams }: { params: Pr
       <section id="skills" className={`${card} scroll-mt-20`} aria-labelledby="skills-h">
         <h2 id="skills-h" className={h2}><span aria-hidden="true">🧩</span> {t("Skills: mastered and needed")} <InfoTip text={GLOSSARY["Skills: mastered and needed"]} /></h2>
         <div className="mt-3 grid gap-4 md:grid-cols-2">
-          <div><h3 className="font-semibold text-emerald-800">✓ {t("Mastered")} ({mastered.length})</h3>
-            {mastered.length === 0 ? <p className="mt-1 text-sm text-slate-600">{t("Nothing to show yet")}</p> : <ul className="mt-1 space-y-1 text-sm">{mastered.slice(0, 15).map((k) => <li key={k.skillId} className="flex justify-between gap-2"><span data-content lang="en">{k.name}</span><span className="tabular-nums text-slate-500" dir="ltr">{k.score}</span></li>)}</ul>}
+          <div><h3 className="font-semibold text-emerald-800">⭐ {t("Mastered")} ({mastered.length})</h3>
+            {mastered.length === 0 ? <p className="mt-1 text-sm text-slate-600">{t("Nothing to show yet")}</p> : <ul className="mt-1 space-y-1 text-sm">{mastered.slice(0, 15).map((k) => <li key={k.key} className="flex justify-between gap-2"><span className="inline-flex items-center gap-1.5"><SkillStar info={k.star} t={t} label={k.name} /><span data-content lang="en">{k.name}</span></span><span className="tabular-nums text-slate-500" dir="ltr">{k.score}</span></li>)}</ul>}
           </div>
-          <div><h3 className="font-semibold text-amber-800">↻ {t("Needs work")} ({needed.length})</h3>
-            {needed.length === 0 ? <p className="mt-1 text-sm text-slate-600">{t("Nothing to show yet")}</p> : <ul className="mt-1 space-y-1 text-sm">{needed.slice(0, 15).map((k) => <li key={k.skillId} className="flex justify-between gap-2"><span data-content lang="en">{k.name}</span><span className="tabular-nums text-slate-500" dir="ltr">{k.score}</span></li>)}</ul>}
+          <div><h3 className="font-semibold text-amber-800">🔄 {t("Needs work")} ({needed.length})</h3>
+            {needed.length === 0 ? <p className="mt-1 text-sm text-slate-600">{t("Nothing to show yet")}</p> : <ul className="mt-1 space-y-1 text-sm">{needed.slice(0, 15).map((k) => <li key={k.key} className="flex justify-between gap-2"><span className="inline-flex items-center gap-1.5"><SkillStar info={k.star} t={t} label={k.name} /><span data-content lang="en">{k.name}</span></span><span className="tabular-nums text-slate-500" dir="ltr">{k.score}</span></li>)}</ul>}
           </div>
         </div>
       </section>

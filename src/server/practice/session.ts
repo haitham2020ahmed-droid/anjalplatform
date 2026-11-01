@@ -33,7 +33,7 @@ import type { Repo, Row } from "../seeding/repo";
 import { answerTexts, attemptMisconception, correctAnswerText, loadQuestionItems, loadSkillItems, studentAnswerText, toCandidate, toClientQuestion, whyChosenWrong, type ClientQuestion, type PracticeItem } from "./items";
 import { refreshAfterAnswer, refreshQuestionSets } from "../teacher/assign";
 import { allowedQuestions, answerState, keyed, withAnswer, type Allowed, type AnswerState, type KeyedQuestion } from "./no-repeat";
-import { ASSIGNMENT_MAX_QUESTIONS, ASSIGNMENT_MIN_QUESTIONS, assignedSkillAccess, coreCountsOf, countCoreAnswer, isFinishReason, lastPickedWorkFor, markDone, openWorkFor, workProgressOf, type DoneBy, type WorkProgress } from "./completion";
+import { ASSIGNMENT_MAX_QUESTIONS, ASSIGNMENT_MIN_QUESTIONS, assignedSkillAccess, coreCountsOf, countCoreAnswer, isFinishReason, skillStarNow, reviewKeyOf, REVIEW_WORK_QUESTIONS, lastPickedWorkFor, markDone, openWorkFor, workProgressOf, type DoneBy, type WorkProgress } from "./completion";
 import { correctOnNewText, effortFromCounts, guessResponse, isPassageSkill, newTextStar, isRapidGuess as isRapidAnswer, itemTimeStats, notifyGuessPause, seenPassages, SLOW_DOWN_MS, type GuessAction } from "./guessing";
 import { chosenQuestionIdsOfAssignment } from "../questions/skill-questions";
 import { applyPlacementResult } from "../curriculum-map/placement-result";
@@ -676,13 +676,20 @@ async function submitAnswerUnlocked(
   const countMet = !count || coreNextCorrect >= count;
   // mastered at (or after) the 30th answer, and (if the teacher set one) the required correct count also met: Done
   // with a celebration
-  const masteredDone = workOpen && !rapid && coreNext >= ASSIGNMENT_MIN_QUESTIONS && mst.isMastered && countMet;
+  // ⭐ owner 1 Nov 2026: "mastered" here = the student's STAR of this skill (every copy, ≥ 30 counted practice answers
+  // + mastery — completion.ts skillStarNow), never the engine flag alone; checked only when the engine says mastered
+  // at 30+ (this answer counted as pending: it is saved in the transaction below)
+  // (any copy of the skill may carry the engine's mastery, so the check does not wait for THIS copy's flag; it runs
+  // only from the 30th counted answer, outside the transaction, and its result is passed to countCoreAnswer)
+  const starCheck = !rapid && ((workOpen && coreNext >= ASSIGNMENT_MIN_QUESTIONS) || (!workOpen && counted >= ASSIGNMENT_MIN_QUESTIONS));
+  const starNow = starCheck ? await skillStarNow(repo, studentId, skillId, mst.isMastered, 1) : false;
+  const masteredDone = workOpen && !rapid && coreNext >= ASSIGNMENT_MIN_QUESTIONS && starNow && countMet;
   // the 50th answer without clearing both: the work is Done regardless (the student then chooses)
   const maxDone = workOpen && !rapid && coreNext >= ASSIGNMENT_MAX_QUESTIONS;
   // r67: practice WITHOUT open work (the MAP plan, Skills, a Curriculum Map lesson continued, practising again): the
   // same 30–50 rule counted in this session — mastered at 30+ ends it with the celebration; at 50 the student chooses
   const sessionRule = !workOpen;
-  const sessionMastered = sessionRule && !rapid && counted >= ASSIGNMENT_MIN_QUESTIONS && mst.isMastered;
+  const sessionMastered = sessionRule && !rapid && counted >= ASSIGNMENT_MIN_QUESTIONS && starNow;
   // r## hardening (owner: "a student answered 53 and it never stopped"): this used to fire only when `counted`
   // landed on EXACTLY 50 (every other "done" check in this file — maxDone above, workGoalOf — uses >=). `counted`
   // only ever rises by one at a time today, so this was never actually missed, but >= is the same safe invariant
@@ -710,6 +717,10 @@ async function submitAnswerUnlocked(
   // the linked work is Done by this answer (mastered at 30+, or 50 answers) or the practice is finished: every open
   // work of this skill is Done with it
   const doneWork = finished || masteredDone || maxDone ? [...new Set([...(linkedAssignment ? [linkedAssignment] : []), ...(await openWorkFor(repo, studentId, skillId, now))])] : [];
+  // 🔄 review work (the skill was ⭐ before the work was set): decided here, outside the transaction, only when this
+  // answer reaches the review's 20th counted answer; a passed review closes every open work of the skill with it
+  const reviewKey = workOpen && !rapid && workBefore && workBefore.answered < REVIEW_WORK_QUESTIONS && coreNext >= REVIEW_WORK_QUESTIONS && linkedAssignment ? await reviewKeyOf(repo, linkedAssignment, studentId) : false;
+  const reviewOthers = reviewKey ? (await openWorkFor(repo, studentId, skillId, now)).filter((id) => id !== linkedAssignment) : [];
 
   const attempt = await repo.transaction(async (tx) => {
     // guarded by the database: only one request can move the session past this question (two servers, double clicks)
@@ -729,9 +740,10 @@ async function submitAnswerUnlocked(
     // 🎯 the work's core result: a careful answer counts while the work is open (mastered at 30+, the 50th, or the
     // teacher's count makes it Done)
     const core = workBefore && !workFrozen && linkedAssignment && !rapid
-      ? await countCoreAnswer(tx, linkedAssignment, studentId, { ...workBefore, stored: workRow!.coreAnswered === null || workRow!.coreAnswered === undefined ? null : Number(workRow!.coreAnswered), done: Boolean(workRow!.completedAt) }, correct, now, mst.isMastered, count)
+      ? await countCoreAnswer(tx, linkedAssignment, studentId, { ...workBefore, stored: workRow!.coreAnswered === null || workRow!.coreAnswered === undefined ? null : Number(workRow!.coreAnswered), done: Boolean(workRow!.completedAt) }, correct, now, mst.isMastered, count, starCheck ? starNow : undefined, reviewKey)
       : null;
     if (doneWork.length) await markDone(tx, doneWork, studentId, now);
+    if (core?.justDone && reviewKey && reviewOthers.length) await markDone(tx, reviewOthers, studentId, now);
     return { row, core };
   });
   const core = attempt.core;

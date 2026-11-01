@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { StarGlyph } from "@/components/skills/skill-star";
 import { AppShell } from "@/components/app-shell";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { accessibleClasses } from "@/server/teacher/assign";
@@ -84,7 +85,7 @@ export default async function CurriculumResultsPage({ searchParams }: { searchPa
                               <ul className="mt-2 flex flex-wrap gap-2">
                                 {row.skills.map((sk) => (
                                   <li key={sk.skillId} className={`rounded-full px-3 py-1 text-xs font-semibold ring-1 ${sk.isMastered ? "bg-emerald-50 text-emerald-800 ring-emerald-200" : "bg-amber-50 text-amber-800 ring-amber-200"}`} data-content lang="en">
-                                    {sk.isMastered ? "✓ " : "↻ "}{sk.skillName}
+                                    <span className="inline-flex items-center gap-1"><StarGlyph status={sk.status} size={14} />{sk.skillName}</span>
                                   </li>
                                 ))}
                               </ul>

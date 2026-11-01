@@ -10,6 +10,7 @@ import { DATE_ORDER_ERROR, startOfDay } from "@/lib/assign-dates";
 import { getT } from "@/i18n/server";
 import { buildSendPreview, sendScope, type SendPreview, type SendScopeKind, type SendScopeResult } from "@/server/curriculum-map/send-scope";
 import { sentCodesByClass, sentOn } from "@/server/curriculum-map/sent";
+import { EXCLUDE_MASTERED_STUDENTS } from "@/server/skills/star-read";
 
 export interface PlaceAssignInput { /** r74: the required Source */ source?: string | null; classId: string; code: string; studentIds?: string[]; mode?: "ADAPTIVE" | "BY_LEVEL"; startLevels?: { studentId: string; level: "ABOVE" | "ON" | "BELOW" }[]; max?: number; dueAt?: string | null; /** r68: students see it from this day */ startAt?: string | null; note?: string | null;
   /** 🔎 r91 "I'll pick the questions": the teacher's own exact pick — when given, overrides mode/max/startLevels entirely. */
@@ -53,7 +54,7 @@ export async function quickAssignSkillAction(input: QuickAssignSkillInput): Prom
     // ⭐ r## (owner: the same "exclude mastered students" question the Find-a-skill dialog and the full Assign
     // page already ask, now asked here too): same server-side filter assignSkillToClasses's caller uses — mastered
     // students are dropped from the list BEFORE assignSkill ever sees them, not a flag it has to understand.
-    if (input.excludeMastered && actor.schoolId) {
+    if (input.excludeMastered && actor.schoolId && EXCLUDE_MASTERED_STUDENTS) {
       const m = await masteredInClasses(repo, actor.schoolId, [input.classId], input.skillId, studentIds ?? []);
       if (m.mastered.length) {
         studentIds = m.reach.filter((id) => !m.mastered.includes(id));

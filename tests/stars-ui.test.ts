@@ -97,7 +97,7 @@ describe("⭐ skill stars — on screen", () => {
     const f = "src/app/guide/skill-stars/page.tsx";
     assert.ok(existsSync(join(ROOT, f)));
     const src = read(f);
-    for (const x of ["30 answered questions", "Tests never change a star", "3 weeks after a star", "Once a month", "A new, higher MAP level", "exclude them?", "Follow 🔄"]) assert.ok(src.includes(x), x);
+    for (const x of ["30 answered questions", "Tests never change a star", "3 weeks after a star", "Once a month", "A new, higher MAP level", "a 20-question review", "Follow 🔄"]) assert.ok(src.includes(x), x);
     const strings = [...src.matchAll(/"([^"\n]{12,})",?\n/g)].map((m) => m[1]).filter((x) => /[a-z] /.test(x));
     assert.ok(strings.length >= 12);
     const known = new Set<string>(UI_STRINGS as readonly string[]);
@@ -141,17 +141,18 @@ describe("⭐ skill stars — on screen", () => {
     assert.doesNotMatch(read("src/components/map/study-plan-view.tsx"), /SkillChip|STATUS_UI/, "the old dots are gone (one status, one icon)");
   });
 
-  test("the prompt “N students already mastered this skill — exclude them?” everywhere a skill is assigned", async () => {
+  test("owner 1 Nov 2026: nobody is left out — “N students already mastered this skill: a 20-question review for them.” everywhere a skill is assigned", async () => {
     const { excludeQuestion } = await import("../src/components/assign/exclude-mastered");
     const t = (x: string, v?: Record<string, string | number>) => (v ? x.replace(/\{(\w+)\}/g, (_, k) => String(v[k])) : x);
-    assert.equal(excludeQuestion(5, t), "5 students already mastered this skill — exclude them?");
-    assert.equal(excludeQuestion(1, t), "1 student already mastered this skill — exclude them?");
+    assert.equal(excludeQuestion(5, t), "5 students already mastered this skill: a 20-question review for them.");
+    assert.equal(excludeQuestion(1, t), "1 student already mastered this skill: a 20-question review for them.");
     assert.match(read("src/components/assign/star-assign.tsx"), /ExcludeMasteredPrompt/, "☆ quick-assign");
-    assert.match(read("src/app/teacher/assign-dialog.tsx"), /ExcludeMasteredPrompt/, "the Assign window");
+    assert.match(read("src/app/teacher/assign-dialog.tsx"), /excludeQuestion\(mastered, t\)/, "the Assign window (an information line, no Yes / No)");
+    assert.match(read("src/components/curriculum-map/skill-plan.tsx"), /excludeQuestion\(mastered, t\)/, "the Curriculum Map skill plan");
     assert.match(read("src/components/plans/plan-builder.tsx"), /PlanMasteredPrompt/, "plans");
     assert.match(read("src/components/map/year-plan-board.tsx"), /ExcludeMasteredPrompt/, "the Year plan");
-    assert.equal(readPlanForm(() => null, () => []).excludeMastered, true, "plans: Yes by default");
-    assert.equal(readPlanForm((k) => (k === "xm" ? "0" : null), () => []).excludeMastered, false);
+    assert.equal(readPlanForm(() => null, () => []).excludeMastered, false, "plans never leave anyone out");
+    assert.equal(readPlanForm((k) => (k === "xm" ? "1" : null), () => []).excludeMastered, false);
   });
 
   describe("with the demo school", () => {
@@ -172,24 +173,26 @@ describe("⭐ skill stars — on screen", () => {
       inf = [...ix.keyOf].find(([, k]) => k === "fam:inference")![0];
     });
 
-    test("exclude them? → Yes: the ☆ quick-assign and plans leave out the students with ⭐", async () => {
+    test("nobody is left out: the ☆ quick-assign and plans give everyone the work (⭐ students: a review)", async () => {
       await put(ids[0], "fam:theme", "MASTERED", { masteredAt: now, skillId: theme });
       await put(ids[1], "fam:theme", "MASTERED", { masteredAt: now, skillId: theme });
       assert.deepEqual((await masteredAmong(repo, schoolId, ids, theme)).sort(), [ids[0], ids[1]].sort());
       const r = await starAssign(repo, teacher, { source: "CURRICULUM", kind: "SKILL", ref: theme, classId, excludeMastered: true }, now);
       const got = (await repo.findMany("AssignmentStudent", { assignmentId: r.id })).map((x) => s(x.studentId)).sort();
-      assert.deepEqual(got, ids.slice(2).sort(), "only the students who have not mastered it");
+      assert.deepEqual(got, [...ids].sort(), "everyone, even with excludeMastered sent");
       const p = await sendProgramPlan(repo, teacher, { source: "CURRICULUM", classId, program: "MAP", picks: ids.map((studentId) => ({ studentId, skillId: theme })), excludeMastered: true }, now);
-      assert.equal(p.students, ids.length - 2);
+      assert.equal(p.students, ids.length);
       const all = await sendProgramPlan(repo, teacher, { source: "CURRICULUM", classId, program: "MAP", picks: ids.map((studentId) => ({ studentId, skillId: theme })), excludeMastered: false }, now);
       assert.equal(all.students, ids.length, "No: everyone gets it");
     });
 
-    test("My Work never asks again for a plan skill already mastered (a teacher's own assign stays)", async () => {
+    test("My Work: a skill ⭐ before the work was set is a review (never Done by itself)", async () => {
       const summary = await studentStarsSummary(repo, ids[0], now, { celebrate: false });
-      const rows = [{ assignmentId: "a1", skillId: theme, sourceKey: "MAP", status: "Not started" }, { assignmentId: "a2", skillId: theme, sourceKey: "CURRICULUM", status: "Not started" }, { assignmentId: "a3", skillId: inf, sourceKey: "MAP", status: "Not started" }];
+      const later = new Date(now.getTime() + DAY).toISOString(), earlier = new Date(now.getTime() - DAY).toISOString();
+      const rows = [{ assignmentId: "a1", skillId: theme, sourceKey: "MAP", status: "Not started", assignedAt: later }, { assignmentId: "a2", skillId: theme, sourceKey: "CURRICULUM", status: "Not started", assignedAt: earlier }, { assignmentId: "a3", skillId: inf, sourceKey: "MAP", status: "Not started", assignedAt: later }];
       const out = await markMasteredWork(repo, ids[0], rows, summary.byKey);
-      assert.deepEqual(out.map((r) => r.status), ["Done", "Not started", "Not started"]);
+      assert.deepEqual(out.map((r) => r.status), ["Not started", "Not started", "Not started"], "nothing is marked Done");
+      assert.deepEqual(out.map((r) => Boolean((r as { review?: boolean }).review)), [true, false, false], "⭐ before the work → review; work set before the ⭐ → normal");
     });
 
     test("Needs attention: stuck at ◐ 7+ days, 50 questions without mastery, a new 🔄", async () => {

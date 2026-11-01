@@ -21,6 +21,8 @@ import { readableClasses } from "../teacher/coordinators";
 import { countGroups } from "../db/group-count";
 import { safeIfBehind } from "../db/schema-errors";
 import { isHiddenSkill } from "../skills/master";
+import { starBook, starMastered, starNeedsReview } from "../skills/star-read";
+import type { StarView } from "../skills/status";
 import { readRisePlaced } from "../readrise/engine";
 import { mapSummaries, studentNames } from "./student-data";
 import { cancelIndexForStudents, liveAssignmentWhere } from "../student/cancelled-work";
@@ -339,12 +341,26 @@ export async function earlyWarning(repo: Repo, actor: Actor, f: EwFilter = {}, n
   const keep = (id: string, x: { text: string; by: string; at: number }) => { const cur = lastBy.get(id); if (!cur || x.at > cur.at) lastBy.set(id, { ...x, date: new Date(x.at).toISOString().slice(0, 10) }); };
   for (const h of handledAny) keep(s(h.studentId), { text: s(h.action), by: who(h.handledById), at: time(h.handledAt) });
   for (const n of notes) keep(s(n.studentId), { text: `📝 ${s(n.body)}`, by: who(n.authorId), at: time(n.createdAt) });
-  // assign practice: the weakest skill practised (never the hidden "Unclassified" skill)
-  const weak = sIds.length ? await repo.findMany("StudentSkillMastery", { studentId: { in: sIds }, score: { lt: 60 }, attempts: { gte: 3 } }, { select: ["studentId", "skillId", "score"] }) : [];
-  const skillCodes = weak.length ? await repo.findMany("Skill", { id: { in: [...new Set(weak.map((w) => s(w.skillId)))] } }, { select: ["id", "code"] }) : [];
+  // assign practice: ⭐ stars (owner, 1 Nov 2026) — a 🔄 Needs review skill first, else the weakest skill practised
+  // by the engine's score; never a skill the student has ⭐ on (any copy, by key), never the hidden "Unclassified" skill
+  const [weak, book] = sIds.length ? await Promise.all([
+    repo.findMany("StudentSkillMastery", { studentId: { in: sIds }, score: { lt: 60 }, attempts: { gte: 3 } }, { select: ["studentId", "skillId", "score"] }),
+    starBook(repo, sIds, schoolId),
+  ]) : [[] as Row[], null];
+  const reviewOf = new Map<string, string[]>();
+  if (book) for (const id of sIds) for (const v of (book.byKey.get(id) ?? new Map<string, StarView>()).values()) {
+    const sk = starNeedsReview(v) ? v.skillId ?? book.ix.skillsOf.get(v.key)?.[0] : null;
+    if (sk) reviewOf.set(id, [...(reviewOf.get(id) ?? []), sk]);
+  }
+  const candIds = [...new Set([...weak.map((w) => s(w.skillId)), ...[...reviewOf.values()].flat()])];
+  const skillCodes = candIds.length ? await repo.findMany("Skill", { id: { in: candIds } }, { select: ["id", "code"] }) : [];
   const hiddenSkill = new Set(skillCodes.filter((k) => isHiddenSkill(k.code)).map((k) => s(k.id)));
   const weakest = new Map<string, { skillId: string; score: number }>();
-  for (const w of weak) { if (hiddenSkill.has(s(w.skillId))) continue; const cur = weakest.get(s(w.studentId)); if (!cur || Number(w.score) < cur.score) weakest.set(s(w.studentId), { skillId: s(w.skillId), score: Number(w.score) }); }
+  for (const [id, list] of reviewOf) { const sk = list.find((k) => !hiddenSkill.has(k)); if (sk) weakest.set(id, { skillId: sk, score: -1 }); }
+  for (const w of weak) {
+    if (hiddenSkill.has(s(w.skillId)) || (book && starMastered(book.of(s(w.studentId), s(w.skillId))))) continue;
+    const cur = weakest.get(s(w.studentId)); if (!cur || Number(w.score) < cur.score) weakest.set(s(w.studentId), { skillId: s(w.skillId), score: Number(w.score) });
+  }
 
   const out: EwRow[] = rows.filter((r) => !f.severity || r.severity === f.severity).map((r) => {
     const open = openBy.get(r.studentId);

@@ -2,14 +2,13 @@
 /** @jsxImportSource react */
 import type { BySourceReport, Trend } from "../../server/skills/skills-by-source";
 import { Sparkline } from "../nafs/charts";
+import { SkillStar } from "./skill-star";
 
 const ARROW: Record<Trend, string> = { UP: "↑", DOWN: "↓", FLAT: "→" };
 const ARROW_LABEL: Record<Trend, string> = { UP: "improving", DOWN: "declining", FLAT: "stable" };
 const ARROW_TONE: Record<Trend, string> = { UP: "text-emerald-700", DOWN: "text-red-700", FLAT: "text-slate-500" };
-const stars = (n: number) => "★".repeat(n) + "☆".repeat(5 - n);
-
 /**
- * ⭐ Skills by source: each source's star/mastery table (existing shape), a progress-direction
+ * ⭐ Skills by source: each source's skills with their star (the same stars as Student Skills, one row per skill), a progress-direction
  * table of simple arrows underneath it (↑ improving / → stable / ↓ declining, from the same
  * paired skill growth the class/student growth reports use), and a cross-source summary.
  */
@@ -22,19 +21,19 @@ export function BySourceView({ r }: { r: BySourceReport }) {
         <div key={g.source} className="rounded-3xl bg-white p-5 ring-1 ring-slate-200 print:break-inside-avoid">
           <div className="flex flex-wrap items-center justify-between gap-2">
             <h3 className="text-lg font-bold text-brand-navy">{g.label}</h3>
-            <span className="text-sm font-semibold text-amber-600" aria-label={`${g.stars} of 5 stars`}>
-              {g.avgMastery !== null ? <>{stars(g.stars)} <span className="text-slate-600">avg mastery {g.avgMastery}</span></> : <span className="text-slate-500">No data yet</span>}
+            <span className="text-sm font-semibold text-amber-700">
+              ⭐ {g.mastered} of {g.skills.length} mastered{g.avgMastery !== null ? <span className="font-normal text-slate-600"> · average star score {g.avgMastery}</span> : null}
             </span>
           </div>
           <div className="mt-3 overflow-x-auto">
             <table className="w-full text-left text-sm">
-              <thead><tr className="border-b text-slate-500"><th className="py-1 pe-2">Skill</th><th className="pe-2">Mastery</th><th className="pe-2">Band</th><th className="pe-2">Attempts</th><th>Accuracy</th></tr></thead>
+              <thead><tr className="border-b text-slate-500"><th className="py-1 pe-2">Skill</th><th className="pe-2">Star</th><th className="pe-2">Star score</th><th className="pe-2">Answers</th><th>Accuracy</th></tr></thead>
               <tbody>
                 {g.skills.map((k) => (
-                  <tr key={k.skillId} className="border-b last:border-0">
+                  <tr key={k.key} className="border-b last:border-0">
                     <td className="py-1 pe-2">{k.name}</td>
-                    <td className="pe-2 tabular-nums text-amber-600" title={`${k.score}/100`}>{stars(k.stars)} <span className="text-slate-600">{k.score}</span></td>
-                    <td className="pe-2 text-slate-600">{k.band}</td>
+                    <td className="pe-2"><span className="inline-flex items-center gap-1.5"><SkillStar info={k.star} label={k.name} /><span className="text-slate-600">{k.band}</span></span></td>
+                    <td className="pe-2 tabular-nums text-slate-600">{k.status === "NOT_STARTED" ? "—" : k.score}</td>
                     <td className="pe-2 tabular-nums">{k.attempts}</td>
                     <td className="tabular-nums">{k.accuracyPct}%</td>
                   </tr>
@@ -48,7 +47,7 @@ export function BySourceView({ r }: { r: BySourceReport }) {
               <thead><tr className="border-b text-slate-500"><th className="py-1 pe-2">Skill</th><th className="pe-2">Trend</th><th className="pe-2">Change</th><th>This period</th></tr></thead>
               <tbody>
                 {g.skills.map((k) => (
-                  <tr key={k.skillId} className="border-b last:border-0">
+                  <tr key={k.key} className="border-b last:border-0">
                     <td className="py-1 pe-2">{k.name}</td>
                     <td className={`pe-2 text-lg font-bold ${k.trend ? ARROW_TONE[k.trend] : "text-slate-400"}`} title={k.trend ? ARROW_LABEL[k.trend] : "not enough data yet"}>
                       {k.trend ? ARROW[k.trend] : "—"}
@@ -66,7 +65,7 @@ export function BySourceView({ r }: { r: BySourceReport }) {
         <h3 className="text-lg font-bold text-brand-navy">Cross-source summary</h3>
         <dl className="mt-2 grid grid-cols-2 gap-3 sm:grid-cols-4">
           {([
-            ["Skills", r.summary.totalSkills], ["Avg mastery", r.summary.avgMastery ?? "—"], ["Mastered", r.summary.mastered], ["Needs support", r.summary.needsSupport],
+            ["Skills", r.summary.totalSkills], ["Avg star score", r.summary.avgMastery ?? "—"], ["⭐ Mastered", r.summary.mastered], ["🔄 Needs support", r.summary.needsSupport],
             ["↑ Improving", r.summary.up], ["↓ Declining", r.summary.down], ["→ Stable", r.summary.flat],
           ] as const).map(([l, v]) => (
             <div key={l} className="rounded-2xl bg-white p-3 ring-1 ring-slate-200"><dt className="text-xs text-slate-500">{l}</dt><dd className="text-xl font-extrabold text-brand-navy">{v}</dd></div>
@@ -74,7 +73,7 @@ export function BySourceView({ r }: { r: BySourceReport }) {
         </dl>
         <div className="mt-4 overflow-x-auto">
           <table className="w-full text-left text-sm">
-            <thead><tr className="border-b text-slate-500"><th className="py-1 pe-2">Source</th><th className="pe-2">Avg mastery</th><th className="pe-2">Mastered</th><th className="pe-2">Developing</th><th>Needs support</th></tr></thead>
+            <thead><tr className="border-b text-slate-500"><th className="py-1 pe-2">Source</th><th className="pe-2">Avg star score</th><th className="pe-2">⭐ Mastered</th><th className="pe-2">◐ In progress</th><th>🔄 Needs support</th></tr></thead>
             <tbody>
               {r.groups.map((g) => (
                 <tr key={g.source} className="border-b last:border-0">

@@ -10,6 +10,7 @@ import { cachedContentKeys, cachedSeenIndex, freshFilter, Sitting } from "../que
 import { ASSIGNMENT_MAX_QUESTIONS, ASSIGNMENT_MIN_QUESTIONS } from "../practice/completion";
 import { questionsOfSkill } from "../questions/skill-questions";
 import { isHiddenSkill } from "../skills/master";
+import { starBook, starMastered } from "../skills/star-read";
 
 const s = (v: unknown) => String(v ?? "");
 const time = (v: unknown) => new Date(v instanceof Date ? v.toISOString() : s(v)).getTime();
@@ -133,6 +134,8 @@ export const STUCK_AFTER = ASSIGNMENT_MAX_QUESTIONS;
  * bucket (`isHiddenSkill`) is left out — it is a catch-all, not a real, gradeable skill, so it is never required.
  * Mastery itself is not computed here: every answer in this set already upserts the SAME StudentSkillMastery rows
  * practice does (session.ts#submitQuizAnswerUnlocked, "mastery: the same engine as practice") — this only reads them.
+ * ⭐ (owner, 1 Nov 2026): "mastered" = the skill's STAR (SkillStatus ⭐, by skill key — any copy of the skill counts),
+ * the same as My Skills; the engine's old isMastered no longer decides it.
  */
 async function analyzeCraftAllMastered(repo: Repo, order: string[], studentId: string): Promise<boolean> {
   if (!order.length) return true;
@@ -142,9 +145,8 @@ async function analyzeCraftAllMastered(repo: Repo, order: string[], studentId: s
   const skills = await repo.findMany("Skill", { id: { in: skillIds } }, { select: ["id", "code"] });
   const real = skills.filter((k) => !isHiddenSkill(k.code)).map((k) => s(k.id));
   if (!real.length) return true;
-  const rows = await repo.findMany("StudentSkillMastery", { studentId, skillId: { in: real } }, { select: ["skillId", "isMastered"] });
-  const mastered = new Set(rows.filter((r) => r.isMastered).map((r) => s(r.skillId)));
-  return real.every((id) => mastered.has(id));
+  const book = await starBook(repo, [studentId]);
+  return real.every((id) => starMastered(book.of(studentId, id)));
 }
 
 /** Next question of an adaptive set for this session (null = finished). */

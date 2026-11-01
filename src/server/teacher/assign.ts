@@ -6,7 +6,8 @@
  *   assign → AssignmentStudent rows (NOT_STARTED) + one notification per student
  *   student starts practice on that skill → the PracticeSession is linked to the open assignment
  *   each answer → that student's status is refreshed:
- *       NOT_STARTED → IN_PROGRESS (first answer) → COMPLETED (enough answers AND target mastery)
+ *       NOT_STARTED → IN_PROGRESS (first answer) → COMPLETED (the student's ⭐ for the skill's key, or 50 counted
+ *       answers — the owner's 30–50 rule; never "10 answers + 75 %")
  *       OVERDUE when the due date passes before completion
  *
  * Only practice done FOR the assignment counts (sessions with this assignmentId), so a skill
@@ -24,9 +25,17 @@ import { requireSource } from "../assign/source";
 import { assertClassAccess } from "./assignments";
 import { schoolSkillIndex } from "../questions/skill-questions";
 import { dedupeIds } from "../questions/fresh";
+import { ASSIGNMENT_MAX_QUESTIONS, ASSIGNMENT_MIN_QUESTIONS } from "../practice/completion";
+import { starBook, starMastered, type StarBook } from "../skills/star-read";
+import { starOfSkill, type StarView } from "../skills/status";
 
-/** Answers needed (together with the target mastery) to complete an assigned skill. */
-export const MIN_ANSWERS_TO_COMPLETE = 10;
+/**
+ * ⭐ Owner (1 Nov 2026): a SKILL assignment is COMPLETED when the student's star for the skill's KEY is ⭐ (MASTERED
+ * or NEXT_LEVEL — any copy of the skill), or at ASSIGNMENT_MAX_QUESTIONS (50) counted answers for the work (the cap of
+ * the 30–50 rule). The old "10 answers + target mastery 75 %" rule is gone. Progress = the star score.
+ * MIN_ANSWERS_TO_COMPLETE stays exported (older imports): it is the 30–50 rule's minimum (ASSIGNMENT_MIN_QUESTIONS).
+ */
+export const MIN_ANSWERS_TO_COMPLETE = 30;
 export const DEFAULT_TARGET_MASTERY = 75;
 
 type Status = "NOT_STARTED" | "IN_PROGRESS" | "COMPLETED" | "OVERDUE";
@@ -34,12 +43,22 @@ const OPEN: Status[] = ["NOT_STARTED", "IN_PROGRESS", "OVERDUE"];
 const d = (v: unknown): Date | null => (v === null || v === undefined || v === "" ? null : v instanceof Date ? v : new Date(String(v)));
 const s = (v: unknown) => String(v ?? "");
 
-/** Status and progress from the work done for the assignment (pure; tested directly). */
-export function assignmentStatus(input: { answered: number; mastery: number; target: number; dueAt: Date | null; now: Date; completedAt?: Date | null }): { status: Status; progress: number } {
-  const done = input.answered >= MIN_ANSWERS_TO_COMPLETE && input.mastery >= input.target;
+/**
+ * Status and progress from the work done for the assignment (pure; tested directly). `answered` = the answers counted
+ * for the work (the stored completion counter: no rapid guesses, at most 50); `star` = the student's star of the
+ * skill's key (⭐ = mastered; `score` = the star score shown everywhere). COMPLETED is never moved back (completedAt).
+ */
+export function assignmentStatus(input: { answered: number; star: { mastered: boolean; score: number } | null; dueAt: Date | null; now: Date; completedAt?: Date | null; correct?: number; count?: number | null }): { status: Status; progress: number } {
+  // ⭐ finishes the work the same way the answer itself does (completion.ts countCoreAnswer): at 30+ counted answers
+  // for this work and (when the teacher set one) the required correct count; 50 answers finish it regardless. A skill
+  // ⭐ BEFORE the work was set is a 20-question REVIEW, settled by the answers themselves (completion.ts) — a refresh
+  // never finishes it early
+  const countMet = !input.count || Number(input.correct ?? 0) >= input.count;
+  const starDone = Boolean(input.star?.mastered) && input.answered >= ASSIGNMENT_MIN_QUESTIONS && countMet;
+  const done = starDone || input.answered >= ASSIGNMENT_MAX_QUESTIONS;
   if (done || input.completedAt) return { status: "COMPLETED", progress: 1 };
-  // half for practising enough, half for reaching the target; never 100% until completed
-  const progress = Math.min(0.99, 0.5 * Math.min(1, input.answered / MIN_ANSWERS_TO_COMPLETE) + 0.5 * Math.min(1, input.mastery / Math.max(1, input.target)));
+  // the star score; never 100% until completed
+  const progress = Math.max(0, Math.min(0.99, Number(input.star?.score ?? 0) / 100));
   if (input.dueAt && input.now > input.dueAt) return { status: "OVERDUE", progress: Math.round(progress * 1000) / 1000 };
   return { status: input.answered > 0 ? "IN_PROGRESS" : "NOT_STARTED", progress: Math.round(progress * 1000) / 1000 };
 }
@@ -218,35 +237,61 @@ export async function openAssignmentFor(repo: Repo, studentId: string, skillId: 
  * Recomputes status/progress for MANY skill assignments at once (optionally only some students):
  * two or three queries in total, whatever the number of assignments; writes only rows that changed.
  */
-export async function refreshSkillAssignments(repo: Repo, assignments: Row[], studentIds: string[] | null, now = new Date()): Promise<void> {
+export async function refreshSkillAssignments(repo: Repo, assignments: Row[], studentIds: string[] | null, now = new Date(), opts: { book?: StarBook } = {}): Promise<void> {
   const list = assignments.filter((a) => a.skillId && !a.deletedAt);
   if (!list.length) return;
   const ids = list.map((a) => a.id);
-  const skills = [...new Set(list.map((a) => s(a.skillId)))];
   const byStudent = studentIds ? { studentId: { in: studentIds } } : {};
   const [rows, sessions, early] = await Promise.all([
     repo.findMany("AssignmentStudent", { assignmentId: { in: ids }, ...byStudent }),
     repo.findMany("PracticeSession", { assignmentId: { in: ids }, ...byStudent }, { select: ["assignmentId", "studentId", "questionCount"] }),
-    studentIds ? repo.findMany("StudentSkillMastery", { studentId: { in: studentIds }, skillId: { in: skills } }, { select: ["studentId", "skillId", "score"] }) : Promise.resolve(null),
+    // ⭐ the students' stars (one batched read): the skill's KEY decides, any copy of the skill
+    // (a page that already read them passes its book: no second read)
+    opts.book ?? (studentIds ? starBook(repo, studentIds) : Promise.resolve(null)),
   ]);
   if (!rows.length) return;
-  const mastery = early ?? await repo.findMany("StudentSkillMastery", { studentId: { in: [...new Set(rows.map((r) => s(r.studentId)))] }, skillId: { in: skills } }, { select: ["studentId", "skillId", "score"] });
-  const answered = new Map<string, number>();
-  for (const x of sessions) answered.set(`${s(x.assignmentId)}|${s(x.studentId)}`, (answered.get(`${s(x.assignmentId)}|${s(x.studentId)}`) ?? 0) + Number(x.questionCount ?? 0));
-  const score = new Map(mastery.map((m) => [`${s(m.studentId)}|${s(m.skillId)}`, Number(m.score ?? 0)]));
+  const book = early ?? await starBook(repo, [...new Set(rows.map((r) => s(r.studentId)))]);
+  const started = new Map<string, number>();
+  for (const x of sessions) started.set(`${s(x.assignmentId)}|${s(x.studentId)}`, (started.get(`${s(x.assignmentId)}|${s(x.studentId)}`) ?? 0) + Number(x.questionCount ?? 0));
   const byId = new Map(list.map((a) => [s(a.id), a]));
   const writes: Promise<unknown>[] = [];
   for (const r of rows) {
     const a = byId.get(s(r.assignmentId))!;
-    const st = assignmentStatus({ answered: answered.get(`${s(a.id)}|${s(r.studentId)}`) ?? 0, mastery: score.get(`${s(r.studentId)}|${s(a.skillId)}`) ?? 0, target: Number(a.targetMastery ?? DEFAULT_TARGET_MASTERY), dueAt: d(a.dueAt), now, completedAt: d(r.completedAt) });
+    if (s(r.status) === "COMPLETED" && !d(r.completedAt)) continue; // finished work is never moved back
+    const st = workStatusOf(r, started.get(`${s(a.id)}|${s(r.studentId)}`) ?? 0, book.of(s(r.studentId), s(a.skillId)), a, now);
     const completedAt = st.status === "COMPLETED" ? (d(r.completedAt) ?? now) : null;
     if (st.status !== r.status || Math.abs(st.progress - Number(r.progress)) > 0.0005 || (completedAt === null) !== (d(r.completedAt) === null)) {
       // never moves a row back from Done: a refresh that read the row before a finishing answer was saved must not
       // overwrite it (completedAt IS NULL guard)
-      writes.push(repo.updateMany("AssignmentStudent", { assignmentId: a.id, studentId: r.studentId, ...(completedAt ? {} : { completedAt: null }) }, { status: st.status, progress: st.progress, completedAt }));
+      writes.push(repo.updateMany("AssignmentStudent", { assignmentId: a.id, studentId: r.studentId, ...(completedAt ? {} : { completedAt: null }) }, { status: st.status, progress: st.progress, completedAt, ...frozenCount(r, st.status, started.get(`${s(a.id)}|${s(r.studentId)}`) ?? 0) }));
     }
   }
   await Promise.all(writes);
+}
+
+/**
+ * One row's status: ⭐ for the key, or 50 answers counted for the work (the stored completion counter — no rapid
+ * guesses; a row from before the stored counts: its linked practice's answers), progress = the star score.
+ */
+function workStatusOf(r: Row, sessionAnswers: number, star: StarView | null, a: Row, now: Date): { status: Status; progress: number } {
+  const counted = r.coreAnswered === null || r.coreAnswered === undefined ? sessionAnswers : Number(r.coreAnswered);
+  const count = !a.assessmentId && Number(a.questionCount) > 0 ? Math.min(ASSIGNMENT_MAX_QUESTIONS, Number(a.questionCount)) : null;
+  const st = assignmentStatus({
+    answered: counted, correct: Number(r.coreCorrect ?? 0), count, star: star ? { mastered: starMastered(star), score: star.score } : null,
+    dueAt: d(a.dueAt), now, completedAt: d(r.completedAt),
+  });
+  // started (an answer given, even a guess) but no star yet: In progress, not Not started
+  if (st.status === "NOT_STARTED" && sessionAnswers > 0) return { ...st, status: "IN_PROGRESS" };
+  return st;
+}
+
+/**
+ * Work finished by a refresh (e.g. ⭐ earned before it was set) with no stored counter: freeze the counter at the
+ * answers given (often 0) so its result is fixed and a Done-with-no-answers row earns no work coins (sync.ts).
+ */
+function frozenCount(r: Row, status: Status, sessionAnswers: number): { coreAnswered?: number; coreCorrect?: number } {
+  if (status !== "COMPLETED" || !(r.coreAnswered === null || r.coreAnswered === undefined)) return {};
+  return { coreAnswered: Math.min(ASSIGNMENT_MAX_QUESTIONS, sessionAnswers), coreCorrect: Number(r.coreCorrect ?? 0) };
 }
 
 /** One skill assignment (kept for callers that refresh a single assignment). */
@@ -264,18 +309,20 @@ export async function refreshAfterAnswer(repo: Repo, assignmentId: string, stude
     if (a && a.skillId && !a.deletedAt) await refreshSkillAssignments(repo, [a], [studentId], now);
     return;
   }
-  const [a, rows, sessions, mastery] = await Promise.all([
+  const [a, rows, sessions, star] = await Promise.all([
     repo.findUnique("Assignment", { id: assignmentId }),
     repo.findMany("AssignmentStudent", { assignmentId, studentId }),
     repo.findMany("PracticeSession", { assignmentId, studentId }, { select: ["questionCount"] }),
-    repo.findMany("StudentSkillMastery", { studentId, skillId }, { select: ["score"] }),
+    // ⭐ the student's star of the skill's key (any copy)
+    starOfSkill(repo, studentId, skillId).catch(() => null),
   ]);
   const r = rows[0];
   if (!a || !r || a.deletedAt || s(a.skillId) !== skillId) return;
-  const st = assignmentStatus({ answered: sessions.reduce((n, x) => n + Number(x.questionCount ?? 0), 0), mastery: Number(mastery[0]?.score ?? 0), target: Number(a.targetMastery ?? DEFAULT_TARGET_MASTERY), dueAt: d(a.dueAt), now, completedAt: d(r.completedAt) });
+  if (s(r.status) === "COMPLETED" && !d(r.completedAt)) return; // finished work is never moved back
+  const st = workStatusOf(r, sessions.reduce((n, x) => n + Number(x.questionCount ?? 0), 0), star, a, now);
   const completedAt = st.status === "COMPLETED" ? (d(r.completedAt) ?? now) : null;
   if (st.status !== r.status || Math.abs(st.progress - Number(r.progress)) > 0.0005 || (completedAt === null) !== (d(r.completedAt) === null)) {
-    await repo.updateMany("AssignmentStudent", { assignmentId, studentId, ...(completedAt ? {} : { completedAt: null }) }, { status: st.status, progress: st.progress, completedAt });
+    await repo.updateMany("AssignmentStudent", { assignmentId, studentId, ...(completedAt ? {} : { completedAt: null }) }, { status: st.status, progress: st.progress, completedAt, ...frozenCount(r, st.status, sessions.reduce((n, x) => n + Number(x.questionCount ?? 0), 0)) });
   }
 }
 

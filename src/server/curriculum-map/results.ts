@@ -4,6 +4,8 @@ import { assertCan, type Actor } from "../auth/rbac";
 import { assertClassAccess } from "../teacher/assignments";
 import { attachmentNodes } from "./questions";
 import { studentNames } from "../insights/student-data";
+import { starBook, starMastered } from "../skills/star-read";
+import type { StarStatus } from "../skills/status";
 
 const s = (v: unknown) => String(v ?? "");
 export interface PlaceResult { code: string; label: string; answered: number; correct: number; pct: number | null; students: number }
@@ -52,7 +54,8 @@ export async function curriculumResults(repo: Repo, actor: Actor, classId: strin
 /**
  * 🧩 "By skill" tab (Oct 2026, curriculum-results-tab request): for every assignment sent from the Curriculum Map
  * to this class, which skill(s) its question pool covers and — per student who received it — whether that skill
- * is already mastered (StudentSkillMastery.isMastered) or not yet. The class-aggregate view above answers "how is
+ * is already mastered (⭐ the ONE star system, the same stars as Student Skills, by skill KEY — copies of a skill are one
+ * cell with the Student Skills name) or not yet. The class-aggregate view above answers "how is
  * the class doing on this category"; this answers the teacher's follow-up "which of MY students, on THIS exact
  * assignment, still needs which skill" — the detail the aggregate view can't show.
  *
@@ -61,13 +64,13 @@ export async function curriculumResults(repo: Repo, actor: Actor, classId: strin
  * adaptive/by-level/placement/review sets the map builds as a question set (assessmentId → AssessmentQuestion →
  * Question.skillId). Deleted assignments and ones with no resolvable skill are left out.
  */
-export interface SkillCell { skillId: string; skillName: string; isMastered: boolean }
+export interface SkillCell { skillId: string; skillName: string; /** ⭐ (Mastered or Next level) */ isMastered: boolean; /** the star */ status: StarStatus }
 export interface CurriculumMasteryRow { studentId: string; studentName: string; assignmentId: string; assignmentTitle: string; skills: SkillCell[] }
 export interface CurriculumMasteryReport { rows: CurriculumMasteryRow[] }
 
 export async function curriculumMasteryByAssignment(repo: Repo, actor: Actor, classId: string): Promise<CurriculumMasteryReport> {
   assertCan(actor, "reports:read");
-  await assertClassAccess(repo, actor, classId);
+  const klass = await assertClassAccess(repo, actor, classId);
   const assignments = (await repo.findMany("Assignment", { classId, track: "CURRICULUM" }, { select: ["id", "title", "target", "skillId", "skillIds", "assessmentId", "deletedAt"] })).filter((a) => !a.deletedAt);
   if (!assignments.length) return { rows: [] };
 
@@ -93,18 +96,9 @@ export async function curriculumMasteryByAssignment(repo: Repo, actor: Actor, cl
   const withPool = assignments.filter((a) => poolByAssignment.get(s(a.id))!.length > 0);
   if (!withPool.length) return { rows: [] };
 
-  const allSkillIds = [...new Set(withPool.flatMap((a) => poolByAssignment.get(s(a.id))!))];
-  const skills = allSkillIds.length ? await repo.findMany("Skill", { id: { in: allSkillIds } }, { select: ["id", "name"] }) : [];
-  const skillNameOf = new Map(skills.map((k) => [s(k.id), s(k.name)]));
-
   const assignStudents = await repo.findMany("AssignmentStudent", { assignmentId: { in: withPool.map((a) => s(a.id)) } }, { select: ["assignmentId", "studentId"] });
   const studentIds = [...new Set(assignStudents.map((x) => s(x.studentId)))];
-  const names = await studentNames(repo, studentIds);
-
-  const masteries = studentIds.length && allSkillIds.length
-    ? await repo.findMany("StudentSkillMastery", { studentId: { in: studentIds }, skillId: { in: allSkillIds } }, { select: ["studentId", "skillId", "isMastered"] })
-    : [];
-  const masteryOf = new Map(masteries.map((m) => [`${s(m.studentId)}:${s(m.skillId)}`, Boolean(m.isMastered)]));
+  const [names, book] = await Promise.all([studentNames(repo, studentIds), starBook(repo, studentIds, s(klass.schoolId))]);
 
   const studentsOf = new Map<string, string[]>();
   for (const x of assignStudents) {
@@ -115,12 +109,13 @@ export async function curriculumMasteryByAssignment(repo: Repo, actor: Actor, cl
 
   const rows: CurriculumMasteryRow[] = [];
   for (const a of withPool) {
-    const pool = poolByAssignment.get(s(a.id))!;
+    // one cell per skill KEY of the pool (copies of a skill are one skill)
+    const pool = poolByAssignment.get(s(a.id))!.filter((id, i, all) => all.findIndex((x) => book.keyOf(x) === book.keyOf(id)) === i);
     for (const studentId of studentsOf.get(s(a.id)) ?? []) {
       rows.push({
         studentId, studentName: names.get(studentId)?.name ?? "Student",
         assignmentId: s(a.id), assignmentTitle: s(a.title),
-        skills: pool.map((skillId) => ({ skillId, skillName: skillNameOf.get(skillId) ?? "", isMastered: masteryOf.get(`${studentId}:${skillId}`) ?? false })),
+        skills: pool.map((skillId) => { const v = book.of(studentId, skillId); return { skillId, skillName: book.nameOf(book.keyOf(skillId)), isMastered: starMastered(v), status: v.status }; }),
       });
     }
   }

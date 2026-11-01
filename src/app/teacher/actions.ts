@@ -15,6 +15,7 @@ import { startOfDay } from "@/lib/assign-dates";
 import { studentSkillAccuracy } from "@/server/plans/perf-suggest";
 import { toggleFavoriteReport } from "@/server/teacher/favorites";
 import { toggleWatchStudent } from "@/server/teacher/watchlist";
+import { EXCLUDE_MASTERED_STUDENTS } from "@/server/skills/star-read";
 
 const id = z.string().min(1).max(191);
 
@@ -80,7 +81,7 @@ export async function assignSkillAction(_: { error?: string; message?: string; a
     }
     // ⭐ "N students already mastered this skill — exclude them?" → Yes: only the others get it
     let studentIds = mode === "class" ? [] : picked;
-    if (f.get("excludeMastered") === "1" && actor.schoolId) {
+    if (f.get("excludeMastered") === "1" && actor.schoolId && EXCLUDE_MASTERED_STUDENTS) {
       const m = await masteredInClasses(repo, actor.schoolId, classIds, String(f.get("skillId") ?? ""), studentIds);
       if (m.mastered.length) {
         studentIds = m.reach.filter((id) => !m.mastered.includes(id));

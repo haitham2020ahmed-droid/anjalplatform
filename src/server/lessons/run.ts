@@ -35,6 +35,7 @@ import { ORGANIZERS, lessonForSkill, type LessonContent, type OrganizerKind, typ
 import { itemHintStep } from "./hints";
 import { freshOrder, itemContentKeys, seenIndex, Sitting } from "../questions/fresh";
 import { isRapidGuess as isRapidAnswer } from "../practice/guessing";
+import { starBook, starLearning, starMastered, starNeedsReview } from "../skills/star-read";
 
 export type Phase = "MODEL" | "GUIDED" | "INDEPENDENT" | "CHECK" | "DONE";
 export type LessonSource = "STUDENT" | "TEACHER" | "TIER" | "ASSIGNMENT";
@@ -650,17 +651,19 @@ export async function lessonsForStudent(repo: Repo, actor: Actor): Promise<{ ope
   const seenDone = new Set<string>();
   const done = runs.filter((r) => s(r.phase) === "DONE" && !seenDone.has(s(r.skillId)) && seenDone.add(s(r.skillId))).slice(0, 10).map(item);
   const busy = new Set(open.map((o) => o.skillId));
-  const [mastery, tier] = await Promise.all([
-    repo.findMany("StudentSkillMastery", { studentId, skillId: { in: withLesson.map((k) => s(k.id)) } }, { select: ["skillId", "score", "attempts"] }),
-    repo.findUnique("StudentTier", { studentId }),
-  ]);
+  // ⭐ stars (owner, 1 Nov 2026): suggestions follow the stars of My Skills by skill key — 🔄 "needs review" first, then
+  // ◐ skills under 60 (lowest star score first); never a ⭐ skill; the % shown is the star score
+  const [tier, book] = await Promise.all([repo.findUnique("StudentTier", { studentId }), starBook(repo, [studentId], s(student.schoolId))]);
   const suggested: LessonListItem[] = [];
+  const keyTaken = (id: string) => suggested.some((x) => book.keyOf(x.skillId) === book.keyOf(id));
   const focus = tier && Number(tier.tier) >= 2 && tier.focusSkillId ? s(tier.focusSkillId) : null;
-  if (focus && !busy.has(focus) && withLesson.some((k) => s(k.id) === focus)) suggested.push({ skillId: focus, skillName: name.get(focus) ?? "Skill", runId: null, phase: null, source: null, checkPct: null, passed: null, why: "Your focus skill" });
-  for (const m of mastery.filter((x) => Number(x.attempts) >= 3 && Number(x.score) < 60).sort((a, b) => Number(a.score) - Number(b.score))) {
-    const id = s(m.skillId);
-    if (busy.has(id) || suggested.some((x) => x.skillId === id) || done.some((x) => x.skillId === id && x.passed)) continue;
-    suggested.push({ skillId: id, skillName: name.get(id) ?? "Skill", runId: null, phase: null, source: null, checkPct: null, passed: null, why: `Practice shows this skill is still growing (${Math.round(Number(m.score))}%)` });
+  if (focus && !busy.has(focus) && !starMastered(book.of(studentId, focus)) && withLesson.some((k) => s(k.id) === focus)) suggested.push({ skillId: focus, skillName: name.get(focus) ?? "Skill", runId: null, phase: null, source: null, checkPct: null, passed: null, why: "Your focus skill" });
+  const growing = withLesson.map((k) => ({ id: s(k.id), v: book.of(studentId, s(k.id)) }))
+    .filter(({ v }) => starNeedsReview(v) || (starLearning(v) && v.score < 60))
+    .sort((a, b) => Number(starNeedsReview(b.v)) - Number(starNeedsReview(a.v)) || a.v.score - b.v.score);
+  for (const { id, v } of growing) {
+    if (busy.has(id) || keyTaken(id) || done.some((x) => x.skillId === id && x.passed)) continue;
+    suggested.push({ skillId: id, skillName: name.get(id) ?? "Skill", runId: null, phase: null, source: null, checkPct: null, passed: null, why: `Practice shows this skill is still growing (${v.score}%)` });
     if (suggested.length >= 4) break;
   }
   return { open, suggested, done };

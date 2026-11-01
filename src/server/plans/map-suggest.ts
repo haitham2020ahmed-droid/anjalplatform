@@ -5,6 +5,9 @@
  *
  * A student whose MAP file had no goal areas gets the areas by lowest mastery instead (every area, weakest first);
  * a student with no score for the subject is listed apart. Access: the teacher's own class (assertClassAccess).
+ * ⭐ Stars (owner, 1 Nov 2026): a skill the student already has ⭐ on (any copy of it — by KEY) is never proposed;
+ * 🔄 Needs review comes first; the engine's score only orders the rest (weakest first). Copies of one skill in an
+ * area are proposed once.
  */
 import type { Repo, Row } from "../seeding/repo";
 import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
@@ -12,6 +15,7 @@ import { ValidationError } from "../curriculum-admin";
 import { assertClassAccess } from "../teacher/assignments";
 import { gradeAreaSkills } from "../map/recommend";
 import type { PlanSkill } from "./send";
+import { starBook, starMastered, starNeedsReview } from "../skills/star-read";
 
 const s = (v: unknown) => String(v ?? "");
 const time = (v: unknown) => new Date(v instanceof Date ? v.toISOString() : s(v)).getTime();
@@ -60,6 +64,7 @@ export async function suggestMapPlan(repo: Repo, actor: Actor, input: { classId:
     gradeAreaSkills(repo, s(klass.schoolId), grade),
     repo.findMany("MapGoalArea", {}, { select: ["id", "subject"] }),
   ]);
+  const book = await starBook(repo, recipients, s(klass.schoolId));
   const areaSubject = new Map(areaRows.map((a) => [s(a.id), s(a.subject)]));
   // only this subject's areas (READING vs LANGUAGE_USAGE)
   const subjectAreas = areaSkills.filter((a) => isSubject(subject, areaSubject.get(a.areaId) ?? ""));
@@ -85,7 +90,12 @@ export async function suggestMapPlan(repo: Repo, actor: Actor, input: { classId:
         .sort((x, y) => x.avg - y.avg || x.area.area.localeCompare(y.area.area)).slice(0, nAreas);
     rows.push({ studentId: id, name: nameOf.get(id) ?? "Student", rit: overall ? Number(overall.rit) : null, areas: picked.map((p) => ({ name: p.area.area, rit: p.rit })) });
     for (const p of picked) {
-      const skills = [...p.area.skills].sort((x, y) => (m.get(x.id) ?? -1) - (m.get(y.id) ?? -1) || x.name.localeCompare(y.name)).slice(0, perArea);
+      // never a ⭐ skill (by key); 🔄 first; then the weakest by the engine's score; one copy per key
+      const seenKeys = new Set<string>();
+      const skills = [...p.area.skills].filter((k) => !starMastered(book.of(id, k.id)))
+        .sort((x, y) => Number(starNeedsReview(book.of(id, y.id))) - Number(starNeedsReview(book.of(id, x.id))) || (m.get(x.id) ?? -1) - (m.get(y.id) ?? -1) || x.name.localeCompare(y.name))
+        .filter((k) => { const key = book.keyOf(k.id); if (seenKeys.has(key)) return false; seenKeys.add(key); return true; })
+        .slice(0, perArea);
       for (const k of skills) {
         const w = wanted.get(k.id) ?? { id: k.id, name: k.name, reason: `MAP: ${p.area.area}`, studentIds: [], grade };
         if (!w.studentIds.includes(id)) w.studentIds.push(id);

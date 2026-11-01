@@ -7,6 +7,7 @@ import { AtAGlance, Callout, ReportHeader, ReportSection, ReportTable } from "..
 
 const PERIODS: [string, string][] = [["LAST_7_DAYS", "Last 7 days"], ["LAST_30_DAYS", "Last 30 days"], ["TERM", "This term"], ["SEMESTER", "Semester"], ["SCHOOL_YEAR", "School year"]];
 const v = (x: number | null, suffix = "") => (x === null ? "–" : `${x}${suffix}`);
+const STAR_ICON: Record<string, string> = { Mastered: "⭐", "In progress": "◐", "Needs review": "🔄" };
 
 export function ClassAnalyticsView({ className, classHref, period, periodKey, c, standards, notAssessed }: {
   className: string; classHref: string; period: string; periodKey: string; c: ClassComparison; standards: StandardRow[]; notAssessed: number;
@@ -27,7 +28,7 @@ export function ClassAnalyticsView({ className, classHref, period, periodKey, c,
         { icon: "📈", label: "Average growth", value: g.meanGrowth === null ? "–" : `${g.meanGrowth > 0 ? "+" : ""}${g.meanGrowth}`, meaning: "mastery points gained this period", tone: g.meanGrowth === null ? "neutral" : g.meanGrowth > 0 ? "good" : g.meanGrowth < 0 ? "bad" : "neutral" },
         { icon: "➗", label: "Median growth", value: g.medianGrowth === null ? "–" : `${g.medianGrowth > 0 ? "+" : ""}${g.medianGrowth}`, meaning: "the middle student's growth" },
         { icon: "👩‍🎓", label: "Students with practice data", value: `${g.withData} of ${g.students}`, tone: g.withData < g.students ? "warn" : "good" },
-        { icon: "🎯", label: "Median mastery", value: v(c.masterySummary.median), meaning: `middle half ${v(c.masterySummary.p25)}–${v(c.masterySummary.p75)}` },
+        { icon: "⭐", label: "Median star score", value: v(c.masterySummary.median), meaning: `middle half ${v(c.masterySummary.p25)}–${v(c.masterySummary.p75)}` },
       ]} />
       <Callout kind="next" className="mb-5" items={[
         standards[0] ? <>Reteach the lowest standard: <b>{standards[0].short}</b> ({standards[0].accuracyPct}%)</> : null,
@@ -45,15 +46,15 @@ export function ClassAnalyticsView({ className, classHref, period, periodKey, c,
             <div><dt className="text-sm text-slate-500">Median growth</dt><dd className="text-3xl font-bold tabular-nums text-brand-navy">{g.medianGrowth === null ? "–" : `${g.medianGrowth > 0 ? "+" : ""}${g.medianGrowth}`}</dd></div>
             <div className="col-span-2"><dt className="text-sm text-slate-500">Students with practice data</dt><dd className="tabular-nums text-slate-800">{g.withData} of {g.students}</dd></div>
           </dl>
-          <h3 className="mt-5 font-semibold text-brand-navy">Spread of Mastery</h3>
-          <div className="mt-2"><BarList items={c.distribution.map((d) => ({ label: d.label, value: d.count }))} /></div>
-          <p className="mt-2 text-sm text-slate-500">Median {v(c.masterySummary.median)}, middle half {v(c.masterySummary.p25)}–{v(c.masterySummary.p75)}</p>
+          <h3 className="mt-5 font-semibold text-brand-navy">⭐ Skill stars of the class</h3>
+          <div className="mt-2"><BarList items={c.distribution.map((d) => ({ label: `${STAR_ICON[d.label] ?? ""} ${d.label}`, value: d.count }))} /></div>
+          <p className="mt-2 text-sm text-slate-500">Students' average star score: median {v(c.masterySummary.median)}, middle half {v(c.masterySummary.p25)}–{v(c.masterySummary.p75)}</p>
         </div>
       </section>
 
       <ReportSection title="How the Class Compares" icon="⚖️" className="mt-6">
         <ReportTable label="How the Class Compares"
-          cols={[{ key: "g", label: "Group" }, { key: "n", label: "Students with data", num: true }, { key: "m", label: "Average mastery", num: true }, { key: "a", label: "Accuracy", num: true }, { key: "gr", label: "Average growth", num: true }]}
+          cols={[{ key: "g", label: "Group" }, { key: "n", label: "Students with data", num: true }, { key: "m", label: "Avg star score", num: true }, { key: "a", label: "Accuracy", num: true }, { key: "gr", label: "Average growth", num: true }]}
           rows={[
             ...c.rows.map((r) => ({ id: r.label, sort: { m: r.suppressed ? null : r.avgMastery, a: r.suppressed ? null : r.accuracyPct, gr: r.suppressed ? null : r.meanGrowth },
               cells: r.suppressed ? { g: <span className="text-brand-navy">{r.label}</span>, n: r.studentsWithData, m: <span className="text-slate-500">Hidden: fewer than 5 students have data (protects privacy)</span>, a: "", gr: "" }

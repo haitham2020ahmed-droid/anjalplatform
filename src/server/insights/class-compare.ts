@@ -13,13 +13,17 @@
  *                  weakest class skill: Inference").
  *   myMonth        the student's own month ("This month you mastered 4 skills — more than last month 🎉"): their
  *                  own numbers only, no class, no rank.
- * Bounded: a fixed number of batched reads per class.
+ * ⭐ "New stars" / "mastered" (owner, 1 Nov 2026) are the SkillStatus stars of My Skills, by skill KEY (copies of a
+ * skill count once): a ⭐ earned (masteredAt) in the window and still ⭐; "need review" = students with a 🔄. The
+ * accuracy, answers, time and average-score numbers stay about answers.
+ * Bounded: a fixed number of batched reads per class (one star read for all its students).
  */
 import type { Repo, Row } from "../seeding/repo";
 import { ForbiddenError, type Actor } from "../auth/rbac";
 import { assertClassRead } from "../teacher/coordinators";
 import { accessibleClasses } from "../teacher/assign";
 import { isHiddenSkill } from "../skills/master";
+import { starBook, starMastered, starNeedsReview, type StarBook } from "../skills/star-read";
 
 const s = (v: unknown) => String(v ?? "");
 const time = (v: unknown) => (v instanceof Date ? v.getTime() : v ? new Date(s(v)).getTime() : 0);
@@ -36,6 +40,13 @@ export interface ClassMonth {
   weak: { skillId: string; name: string; accuracy: number; answers: number; stillWeak: boolean }[];
   /** plain sentences, this class against itself */
   lines: string[];
+}
+
+/** ⭐ The stars of these students as rows { studentId, skillId: key, masteredAt } — one row per ⭐ key (still ⭐) earned since `since`. */
+export function starRows(book: StarBook, ids: readonly string[], since = 0): Row[] {
+  const out: Row[] = [];
+  for (const id of ids) for (const [key, v] of book.byKey.get(id) ?? new Map()) if (starMastered(v) && v.masteredAt && time(v.masteredAt) >= since) out.push({ studentId: id, skillId: key, masteredAt: v.masteredAt });
+  return out;
 }
 
 async function members(repo: Repo, classId: string): Promise<string[]> {
@@ -93,11 +104,12 @@ export async function classMonth(repo: Repo, actor: Actor, classId: string, now 
   const klass = await assertClassRead(repo, actor, classId);
   const ids = await members(repo, classId);
   const since = new Date(now.getTime() - 60 * DAY);
-  const [attempts, stars, sessions] = ids.length ? await Promise.all([
+  const [attempts, book, sessions] = ids.length ? await Promise.all([
     repo.findMany("QuestionAttempt", { studentId: { in: ids }, createdAt: { gte: since } }, { select: ["studentId", "skillId", "isCorrect", "rapidGuess", "createdAt"], take: 30000 }),
-    repo.findMany("StudentSkillMastery", { studentId: { in: ids }, masteredAt: { gte: since } }, { select: ["studentId", "skillId", "masteredAt"] }),
+    starBook(repo, ids, s(klass.schoolId)),
     repo.findMany("PracticeSession", { studentId: { in: ids }, startedAt: { gte: since } }, { select: ["studentId", "activeMs", "startedAt"] }),
-  ]) : [[], [], []] as Row[][];
+  ]) : [[] as Row[], null, [] as Row[]];
+  const stars = book ? starRows(book, ids, since.getTime()) : [];
   const skillIds = [...new Set(attempts.map((a) => s(a.skillId)))];
   const skills = skillIds.length ? await repo.findMany("Skill", { id: { in: skillIds } }, { select: ["id", "name", "code"] }) : [];
   const skillNames = new Map(skills.filter((k) => !isHiddenSkill(k.code)).map((k) => [s(k.id), s(k.name)]));
@@ -156,15 +168,16 @@ export async function peerCompare(repo: Repo, actor: Actor, classId: string, now
   const ids = await members(repo, classId);
   if (!ids.length) return { classId, rows: [], middle: null, encourage: [], challenge: [] };
   const since = new Date(now.getTime() - 60 * DAY);
-  const [mastery, attempts, students] = await Promise.all([
-    repo.findMany("StudentSkillMastery", { studentId: { in: ids } }, { select: ["studentId", "skillId", "score", "attempts", "masteredAt"] }),
+  const [mastery, attempts, students, book] = await Promise.all([
+    repo.findMany("StudentSkillMastery", { studentId: { in: ids } }, { select: ["studentId", "skillId", "score", "attempts"] }),
     repo.findMany("QuestionAttempt", { studentId: { in: ids }, createdAt: { gte: since } }, { select: ["studentId", "isCorrect", "rapidGuess", "createdAt"], take: 30000 }),
-    repo.findMany("Student", { id: { in: ids } }, { select: ["id", "userId"] }),
+    repo.findMany("Student", { id: { in: ids } }, { select: ["id", "userId", "schoolId"] }),
+    starBook(repo, ids),
   ]);
   const users = students.length ? await repo.findMany("User", { id: { in: students.map((x) => s(x.userId)) } }, { select: ["id", "displayName"] }) : [];
   const nameOf = new Map(users.map((u) => [s(u.id), s(u.displayName)]));
   const list = students.map((x) => ({ id: s(x.id), name: nameOf.get(s(x.userId)) || "Student" }));
-  return { classId, ...peerRows({ students: list, mastery, stars: mastery.filter((r) => r.masteredAt), attempts, now }) };
+  return { classId, ...peerRows({ students: list, mastery, stars: starRows(book, ids), attempts, now }) };
 }
 
 /** One student against their classmates (the student file). Teachers and admins only. */
@@ -174,11 +187,12 @@ export async function studentPeer(repo: Repo, actor: Actor, classId: string, stu
   const ids = await members(repo, classId);
   if (!ids.includes(studentId)) return null;
   const since = new Date(now.getTime() - 60 * DAY);
-  const [mastery, attempts] = await Promise.all([
-    repo.findMany("StudentSkillMastery", { studentId: { in: ids } }, { select: ["studentId", "skillId", "score", "attempts", "masteredAt"] }),
+  const [mastery, attempts, book] = await Promise.all([
+    repo.findMany("StudentSkillMastery", { studentId: { in: ids } }, { select: ["studentId", "skillId", "score", "attempts"] }),
     repo.findMany("QuestionAttempt", { studentId: { in: ids }, createdAt: { gte: since } }, { select: ["studentId", "isCorrect", "rapidGuess", "createdAt"], take: 30000 }),
+    starBook(repo, ids),
   ]);
-  const r = peerRows({ students: ids.map((id) => ({ id, name: id === studentId ? name : "" })), mastery, stars: mastery.filter((x) => x.masteredAt), attempts, now });
+  const r = peerRows({ students: ids.map((id) => ({ id, name: id === studentId ? name : "" })), mastery, stars: starRows(book, ids), attempts, now });
   return r.rows.find((x) => x.studentId === studentId) ?? null;
 }
 
@@ -194,12 +208,13 @@ export async function weeklySummary(repo: Repo, actor: Actor, now = new Date()):
   const ids = [...new Set((await repo.findMany("ClassMembership", { classId: { in: classes.map((c) => s(c.id)) }, leftAt: null }, { select: ["studentId"] })).map((m) => s(m.studentId)))];
   if (!ids.length) return null;
   const since = new Date(now.getTime() - 7 * DAY);
-  const [stars, review, attempts, sessions] = await Promise.all([
-    repo.findMany("StudentSkillMastery", { studentId: { in: ids }, masteredAt: { gte: since } }, { select: ["studentId"] }),
-    repo.findMany("StudentSkillMastery", { studentId: { in: ids }, isMastered: true, nextReviewAt: { lte: now } }, { select: ["studentId"] }),
+  const [book, attempts, sessions] = await Promise.all([
+    starBook(repo, ids, actor.schoolId),
     repo.findMany("QuestionAttempt", { studentId: { in: ids }, createdAt: { gte: since } }, { select: ["studentId", "skillId", "isCorrect", "rapidGuess"], take: 20000 }),
     repo.findMany("PracticeSession", { studentId: { in: ids }, startedAt: { gte: since } }, { select: ["activeMs"] }),
   ]);
+  // ⭐ new stars this week (distinct keys per student) · students with a 🔄 "needs review"
+  const newStars = ids.reduce((t, id) => t + book.newStars(id, since, now), 0);
   const per = new Map<string, [number, number]>();
   for (const a of attempts) { if (yes(a.rapidGuess)) continue; const e = per.get(s(a.skillId)) ?? [0, 0]; e[0]++; if (yes(a.isCorrect)) e[1]++; per.set(s(a.skillId), e); }
   const worst = [...per].filter(([, e]) => e[0] >= 10).sort((a, b) => a[1][1] / a[1][0] - b[1][1] / b[1][0]).slice(0, 5).map(([id]) => id);
@@ -208,11 +223,11 @@ export async function weeklySummary(repo: Repo, actor: Actor, now = new Date()):
   const weakest = weakestId ? s(names.find((k) => s(k.id) === weakestId)?.name) : null;
   const minutes = Math.round(sessions.reduce((t, x) => t + Math.min(Number(x.activeMs ?? 0), 3 * 3_600_000), 0) / 60_000);
   const active = new Set(attempts.map((a) => s(a.studentId))).size;
-  const needReview = new Set(review.map((r) => s(r.studentId))).size;
+  const needReview = ids.filter((id) => [...(book.byKey.get(id)?.values() ?? [])].some((v) => starNeedsReview(v))).length;
   return {
-    newStars: stars.length, needReview, weakest, minutes, active, students: ids.length,
+    newStars, needReview, weakest, minutes, active, students: ids.length,
     lines: [
-      `This week: ${stars.length} new stars · ${needReview} students need review · weakest class skill: ${weakest ?? "—"}`,
+      `This week: ${newStars} new stars · ${needReview} students need review · weakest class skill: ${weakest ?? "—"}`,
       `Practice: ${minutes} minutes by ${active} of ${ids.length} students.`,
     ],
   };
@@ -241,8 +256,9 @@ export async function myMonth(repo: Repo, actor: Actor, now = new Date()): Promi
   if (actor.role !== "STUDENT" || !actor.studentId) throw new ForbiddenError("Only the student sees this.");
   const startThis = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), 1));
   const startLast = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth() - 1, 1));
-  const rows = await repo.findMany("StudentSkillMastery", { studentId: actor.studentId, masteredAt: { gte: startLast } }, { select: ["masteredAt"] });
-  const thisMonth = rows.filter((r) => time(r.masteredAt) >= startThis.getTime()).length;
-  const lastMonth = rows.length - thisMonth;
+  // ⭐ the student's own stars by skill key (still ⭐, earned in the month) — the same stars as My Skills
+  const book = await starBook(repo, [actor.studentId], actor.schoolId);
+  const thisMonth = book.newStars(actor.studentId, startThis, new Date(8.64e15));
+  const lastMonth = book.newStars(actor.studentId, startLast, new Date(startThis.getTime() - 1));
   return { thisMonth, lastMonth, message: myMonthMessage(thisMonth, lastMonth), ...myMonthTemplate(thisMonth, lastMonth) };
 }

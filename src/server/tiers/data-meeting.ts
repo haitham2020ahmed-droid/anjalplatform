@@ -12,6 +12,9 @@ import { studentNames } from "../insights/student-data";
 import { tierCounts, tierRows } from "./views";
 import { audit } from "../audit";
 import type { Tier } from "./rules";
+import { starBook, starMastered, starNeedsReview } from "../skills/star-read";
+import { earnedStar, improvedBy } from "../insights/interventions";
+import { hiddenStarKeys } from "../teacher/queries";
 
 const DAY = 86_400_000;
 const s = (v: unknown) => String(v ?? "");
@@ -48,7 +51,10 @@ export interface MeetingSnapshot {
   tiers: Record<Tier, number>;
   tierMoves: { name: string; from: number; to: number; source: string; date: string; reason: string }[];
   levelMoves: { name: string; from: string | null; to: string; date: string }[];
-  weakSkills: { skillId: string; name: string; avgMastery: number; studentsBelow60: number }[];
+  /** ⭐ the 3 weakest skills by skill KEY (copies are one): of the students who started it, how many are not ⭐ and how
+   *  many 🔄 need review. A key everyone has ⭐ is never listed. (Snapshots saved before the stars carry
+   *  avgMastery / studentsBelow60 instead.) */
+  weakSkills: { skillId: string; name: string; started?: number; notMastered?: number; needsReview?: number; avgMastery?: number; studentsBelow60?: number }[];
   alerts: { total: number; byKind: Record<string, number> };
   interventions: { title: string; skill: string; improved: number; total: number; avgChange: number; endedOn: string }[];
   overdueChecks: { name: string; tier: number; due: string }[];
@@ -66,20 +72,28 @@ async function buildSnapshot(repo: Repo, sc: ResolvedScope, now: Date): Promise<
   const ids = sc.studentIds;
   const empty: MeetingSnapshot = { label: sc.label, since: day(since), preparedOn: day(now), students: 0, tiers: { 1: 0, 2: 0, 3: 0 }, tierMoves: [], levelMoves: [], weakSkills: [], alerts: { total: 0, byKind: {} }, interventions: [], overdueChecks: [], refer: [] };
   if (!ids.length) return empty;
-  const [rows, names, moves, levelLogs, mastery, alerts, ivs] = await Promise.all([
+  const [rows, names, moves, levelLogs, book, alerts, ivs] = await Promise.all([
     tierRows(repo, ids, now), studentNames(repo, ids),
     repo.findMany("TierChange", { studentId: { in: ids }, source: { in: ["AUTO", "TEACHER"] }, createdAt: { gte: since } }, { select: ["studentId", "fromTier", "toTier", "source", "reason", "createdAt"] }),
     repo.findMany("AuditLog", { entityType: "Student", entityId: { in: ids }, action: "level.change", createdAt: { gte: since } }, { select: ["entityId", "before", "after", "createdAt"] }),
-    repo.findMany("StudentSkillMastery", { studentId: { in: ids }, lastPracticedAt: { gte: new Date(now.getTime() - 60 * DAY) } }, { select: ["studentId", "skillId", "score", "attempts"] }),
+    starBook(repo, ids, sc.schoolId),
     repo.findMany("StudentAlert", { studentId: { in: ids }, status: "OPEN" }, { select: ["kind"] }),
     repo.findMany("Intervention", { classId: { in: sc.classIds }, status: "DONE", evaluatedAt: { gte: since } }),
   ]);
   const name = (id: string) => names.get(id)?.name ?? "Student";
-  // the 3 weakest skills: lowest average mastery among skills 3+ students practised (3+ answers each)
-  const per = new Map<string, number[]>();
-  for (const m of mastery) if (Number(m.attempts ?? 0) >= 3) { const l = per.get(s(m.skillId)) ?? []; l.push(Number(m.score)); per.set(s(m.skillId), l); }
-  const weak = [...per.entries()].filter(([, l]) => l.length >= Math.min(3, ids.length)).map(([skillId, l]) => ({ skillId, avg: l.reduce((a, b) => a + b, 0) / l.length, below: l.filter((x) => x < 60).length })).sort((a, b) => a.avg - b.avg).slice(0, 3);
-  const skillIds = [...new Set([...weak.map((w) => w.skillId), ...ivs.map((i) => s(i.skillId))])];
+  // ⭐ the 3 weakest skills by skill KEY: of the students (3+, or the whole group when smaller) who started it, the
+  // largest share without ⭐, then the most 🔄, then the lowest star score; a key everyone has ⭐ is never listed
+  const per = new Map<string, { started: number; notMastered: number; review: number; score: number; skillId: string }>();
+  const hidden = await hiddenStarKeys(repo, book);
+  for (const id of ids) for (const v of book.byKey.get(id)?.values() ?? []) {
+    if (v.status === "NOT_STARTED" || hidden.has(v.key)) continue;
+    const e = per.get(v.key) ?? { started: 0, notMastered: 0, review: 0, score: 0, skillId: v.skillId ?? book.ix.skillsOf.get(v.key)?.[0] ?? v.key };
+    e.started++; e.score += v.score; if (!starMastered(v)) e.notMastered++; if (starNeedsReview(v)) e.review++;
+    per.set(v.key, e);
+  }
+  const weak = [...per.entries()].filter(([, e]) => e.started >= Math.min(3, ids.length) && e.notMastered > 0)
+    .sort(([, a], [, b]) => b.notMastered / b.started - a.notMastered / a.started || b.review - a.review || a.score / a.started - b.score / b.started).slice(0, 3);
+  const skillIds = [...new Set(ivs.map((i) => s(i.skillId)))];
   const skillName = skillIds.length ? new Map((await repo.findMany("Skill", { id: { in: skillIds } }, { select: ["id", "name"] })).map((k) => [s(k.id), s(k.name)])) : new Map<string, string>();
   const byKind: Record<string, number> = {};
   for (const a of alerts) byKind[s(a.kind)] = (byKind[s(a.kind)] ?? 0) + 1;
@@ -87,13 +101,16 @@ async function buildSnapshot(repo: Repo, sc: ResolvedScope, now: Date): Promise<
     label: sc.label, since: day(since), preparedOn: day(now), students: ids.length, tiers: tierCounts(rows),
     tierMoves: moves.sort((a, b) => (d(b.createdAt)?.getTime() ?? 0) - (d(a.createdAt)?.getTime() ?? 0)).slice(0, 50).map((m) => ({ name: name(s(m.studentId)), from: Number(m.fromTier), to: Number(m.toTier), source: s(m.source), date: day(m.createdAt), reason: s(m.reason).slice(0, 300) })),
     levelMoves: levelLogs.slice(0, 50).map((l) => ({ name: name(s(l.entityId)), from: (json<Record<string, unknown>>(l.before, {}).level as string | undefined) ?? null, to: s(json<Record<string, unknown>>(l.after, {}).level), date: day(l.createdAt) })),
-    weakSkills: weak.map((w) => ({ skillId: w.skillId, name: skillName.get(w.skillId) ?? "Skill", avgMastery: Math.round(w.avg), studentsBelow60: w.below })),
+    weakSkills: weak.map(([key, e]) => ({ skillId: e.skillId, name: book.nameOf(key), started: e.started, notMastered: e.notMastered, needsReview: e.review })),
     alerts: { total: alerts.length, byKind },
     interventions: ivs.map((iv) => {
       const base = json<Record<string, number>>(iv.baseline, {}), res = json<Record<string, number>>(iv.result, {});
       const sids = json<string[]>(iv.studentIds, []);
       const ch = sids.map((id) => Number(res[id] ?? base[id] ?? 0) - Number(base[id] ?? 0));
-      return { title: s(iv.title), skill: skillName.get(s(iv.skillId)) ?? "Skill", improved: ch.filter((c) => c >= 5).length, total: sids.length, avgChange: ch.length ? Math.round(ch.reduce((a, b) => a + b, 0) / ch.length) : 0, endedOn: day(iv.evaluatedAt) };
+      // improved = earned the ⭐ during the group, or the score rose 5+ (interventions.ts); stars of group members
+      // outside this scope's students read as ☆ (not earned)
+      const improved = sids.filter((id, i) => improvedBy(earnedStar(book, id, s(iv.skillId), iv.startedAt, iv.evaluatedAt ?? iv.endsAt), ch[i])).length;
+      return { title: s(iv.title), skill: skillName.get(s(iv.skillId)) ?? "Skill", improved, total: sids.length, avgChange: ch.length ? Math.round(ch.reduce((a, b) => a + b, 0) / ch.length) : 0, endedOn: day(iv.evaluatedAt) };
     }),
     overdueChecks: rows.filter((r) => r.tier >= 2 && r.overdue).map((r) => ({ name: r.name, tier: r.tier, due: r.nextCheck ?? "" })),
     refer: rows.filter((r) => r.refer).map((r) => r.name),

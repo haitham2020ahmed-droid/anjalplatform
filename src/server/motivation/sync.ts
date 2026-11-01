@@ -2,8 +2,10 @@
  * 🔄 Rewards sync (Games Part 3): brings one student's coins, badges and automatic certificates up to date from
  * their OWN learning records — READ ONLY on learning data (the adaptive engine, levels and mastery are never written).
  *
- *   My Work skill finished (AssignmentStudent COMPLETED)  → coins (once per assignment)
- *   skill mastered (the school's mastered rule)            → coins (once per skill)
+ *   My Work skill finished (AssignmentStudent COMPLETED)  → coins (once per assignment; completion follows the ⭐ /
+ *                                                            50-answers rule, teacher/assign.ts)
+ *   ⭐ skill mastered                                       → NOT here: the star's own coins (skills/status.ts
+ *                                                            onStarEarned, once per skill and level) — never paid twice
  *   moved up a level (AuditLog level.change, up)          → coins + certificate (once per change)
  *   every part of a plan finished                          → coins + certificate (once per plan)
  *   badges                                                 → re-checked (studentBadges saves new ones)
@@ -12,7 +14,6 @@
  * the daily job for students active in the last day and a half (bounded). Every read is one student's rows.
  */
 import type { Repo, Row } from "../seeding/repo";
-import { ladderSettings } from "../curriculum-map/ladder-settings";
 import { CATEGORY_NAME, type Category } from "../curriculum-map/student-level";
 import { studentSkillPlans } from "../curriculum-map/plans";
 import { COINS, insertLedger, recomputeCoins, type CoinReason } from "./coins";
@@ -55,10 +56,8 @@ export async function syncRewards(repo: Repo, studentId: string, now = new Date(
   const since = new Date(last === null ? now.getTime() - FIRST_LOOKBACK_DAYS * DAY : last - 2 * DAY);
   const certSince = last === null ? now.getTime() - FIRST_CERT_DAYS * DAY : last - 2 * DAY;
   const actor = { userId: s(st.userId), role: "STUDENT" as const, schoolId, studentId };
-  const [done, mastery, rules, audits, paid, plans] = await Promise.all([
-    repo.findMany("AssignmentStudent", { studentId, status: "COMPLETED" }, { select: ["assignmentId"], take: 3000 }),
-    repo.findMany("StudentSkillMastery", { studentId }, { select: ["skillId", "attempts", "correct"], take: 3000 }),
-    ladderSettings(repo, schoolId),
+  const [done, audits, paid, plans] = await Promise.all([
+    repo.findMany("AssignmentStudent", { studentId, status: "COMPLETED" }, { select: ["assignmentId", "coreAnswered", "progress"], take: 3000 }),
     repo.findMany("AuditLog", { entityType: "Student", entityId: studentId, action: "level.change", createdAt: { gte: since } }, { select: ["id", "before", "after", "createdAt"], take: 500 }),
     repo.findMany("CoinLedger", { studentId, reason: { in: ["work", "mastered", "levelup", "plan"] } }, { select: ["reason", "refId"], take: 8000 }),
     studentSkillPlans(repo, actor).catch(() => [] as Awaited<ReturnType<typeof studentSkillPlans>>),
@@ -66,8 +65,11 @@ export async function syncRewards(repo: Repo, studentId: string, now = new Date(
   const have = new Set(paid.map((p) => `${s(p.reason)}|${s(p.refId)}`));
   const due: { reason: CoinReason; refId: string; amount: number; note: string }[] = [];
   const add = (reason: CoinReason, refId: string, amount: number, note: string) => { if (!have.has(`${reason}|${refId}`)) { have.add(`${reason}|${refId}`); due.push({ reason, refId, amount, note }); } };
-  for (const d of done) add("work", s(d.assignmentId), COINS.work, "My Work skill finished");
-  for (const m of mastery) if (Number(m.attempts) >= rules.masteredMin && (Number(m.correct) / Math.max(1, Number(m.attempts))) * 100 >= rules.masteredPct) add("mastered", s(m.skillId), COINS.mastered, "Skill mastered");
+  // work coins only for work actually done: a skill already ⭐ before it was assigned is Done at once with no answers
+  // (the student never repeats a mastered skill) and earns no work coins (older rows without the counter still pay)
+  for (const d of done) if (d.coreAnswered === null || d.coreAnswered === undefined || Number(d.coreAnswered) > 0) add("work", s(d.assignmentId), COINS.work, "My Work skill finished");
+  // (owner, 1 Nov 2026) no "Skill mastered" coins from the old "10 answers at 80 %" rule: the ⭐ coins are paid by the
+  // star itself (skills/status.ts onStarEarned), once per skill and level
   const ups = levelUps(audits);
   for (const u of ups) add("levelup", u.id, COINS.levelup, `Moved up to ${LEVEL_NAME[u.level]}`);
   const finished = plans.filter((p) => p.places > 0 && p.done >= p.places);

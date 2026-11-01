@@ -11,6 +11,11 @@
  *   reteach        a Tier 2/3 student with a focus skill gets (once) that skill assigned and a short 8-question
  *                  re-check 7–14 days later; the re-check's result is written into the routing's TierChange row
  *                  (source RETEACH) and counts as a check for the rules.
+ *
+ * ⭐ Stars (owner, 1 Nov 2026): the focus skill (and so the reteach routing) is never a skill the student has ⭐ on
+ * (any copy — by KEY, skills/star-read.ts); 🔄 Needs review comes first, then the weakest ◐ skill by the engine's
+ * score. The tier RULES are unchanged: practice.avgMastery is still the engine's average score (an input of the
+ * rules, never shown as a status); weakSkill.mastery is the chosen skill's star score.
  */
 import type { Repo, Row } from "../seeding/repo";
 import { ForbiddenError, type Actor } from "../auth/rbac";
@@ -24,6 +29,8 @@ import { PASS_PCT } from "../progress-checks/select";
 import { decideTier, nextCheckAt, MONITOR_EVERY_DAYS, TIER_RULES, type CheckPoint, type Tier, type TierEvidenceInput } from "./rules";
 import { fluencySummary, isInvalidResult, pooledTheta } from "../curriculum-map/level-evidence";
 import { scoringParams } from "../practice/scoring-params";
+import { starBook, starMastered, starNeedsReview } from "../skills/star-read";
+import type { StarView } from "../skills/status";
 
 const DAY = 86_400_000;
 export const CHUNK = 300;
@@ -215,6 +222,8 @@ export async function computeTiers(repo: Repo, schoolId: string, now = new Date(
       repo.findMany("StudentLevelState", { studentId: { in: chunk } }),
       repo.findMany("Student", { id: { in: chunk } }, { select: ["id", "createdAt"] }),
     ]);
+    // ⭐ the stars of this chunk (one batched read): the focus skill is never ⭐, 🔄 first
+    const book = await starBook(repo, chunk, schoolId);
     const stateOf = new Map(levelStates.map((r) => [s(r.studentId), r]));
     const createdOf = new Map(studentRows.map((r) => [s(r.id), d(r.createdAt)]));
     // what each check's answers say (θ, valid items, rapid guesses): checks of the last 8 weeks
@@ -259,14 +268,25 @@ export async function computeTiers(repo: Repo, schoolId: string, now = new Date(
       const created = createdOf.get(id);
       const ms = (mastBy.get(id) ?? []);
       const canAssign = assignable.get(studentGrade.get(id) ?? "");
-      const weak = ms.filter((x) => Number(x.attempts ?? 0) >= 5 && Number(x.score) < 60 && (!canAssign || canAssign.has(s(x.skillId)))).sort((a, b) => Number(a.score) - Number(b.score))[0];
+      // the focus skill: 🔄 Needs review first (an assignable copy of it), else the weakest skill without ⭐
+      const reviewPick = (() => {
+        for (const v of (book.byKey.get(id) ?? new Map<string, StarView>()).values()) {
+          if (!starNeedsReview(v)) continue;
+          const copies = [...(v.skillId ? [v.skillId] : []), ...(book.ix.skillsOf.get(v.key) ?? [])];
+          const pick = copies.find((k) => !canAssign || canAssign.has(k));
+          if (pick) return { skillId: pick, score: v.score };
+        }
+        return null;
+      })();
+      const engineWeak = ms.filter((x) => Number(x.attempts ?? 0) >= 5 && Number(x.score) < 60 && (!canAssign || canAssign.has(s(x.skillId))) && !starMastered(book.of(id, s(x.skillId)))).sort((a, b) => Number(a.score) - Number(b.score))[0];
+      const weak = reviewPick ? { skillId: reviewPick.skillId, score: reviewPick.score } : engineWeak ? { skillId: s(engineWeak.skillId), score: book.of(id, s(engineWeak.skillId)).status === "NOT_STARTED" ? Number(engineWeak.score) : book.of(id, s(engineWeak.skillId)).score } : null;
       const input: TierEvidenceInput = {
         // the minimum time in a tier applies to tiers the rules set; after the teacher unlocks, the rules decide at once
         current: row ? { tier: asTier(row.tier), since: s(row.source) === "AUTO" ? d(row.since) ?? now : new Date(0) } : null,
         diagnostic: diag ? { pct: Number(diag.pct), level: s(diag.level) as "BELOW" | "ON" | "ABOVE", at: d(diag.completedAt) ?? now, valid: !isInvalidResult(Number(diag.rapid ?? 0), Number(diag.total ?? 0)), why: isInvalidResult(Number(diag.rapid ?? 0), Number(diag.total ?? 0)) ? `invalid: ${Number(diag.rapid)} of ${Number(diag.total)} answers were rapid guesses — re-test` : null } : null,
         map: m ? { percentile: m.percentile, at: new Date(m.date), rit: m.rit, term: m.term } : null,
         checks,
-        practice: { avgMastery: ms.length ? ms.reduce((t, x) => t + Number(x.score), 0) / ms.length : null, skills: ms.length, weakSkill: weak ? { skillId: s(weak.skillId), mastery: Number(weak.score) } : null },
+        practice: { avgMastery: ms.length ? ms.reduce((t, x) => t + Number(x.score), 0) / ms.length : null, skills: ms.length, weakSkill: weak ? { skillId: weak.skillId, mastery: Number(weak.score) } : null },
         risk: riskOf.get(id) ?? null,
         riskHistory: (riskBy.get(id) ?? []).map((r) => ({ at: d(r.takenOn) ?? now, score: Number(r.score) })),
         fluency: flu && fs ? { percentile: fluP, wcpm: fs.wcpm, at: fluAt!, comprehension: flu.comprehension === null || flu.comprehension === undefined ? null : Number(flu.comprehension), usable: fs.usable, checks: fs.checks } : null,
@@ -274,7 +294,7 @@ export async function computeTiers(repo: Repo, schoolId: string, now = new Date(
         platform: { days: created ? Math.floor((now.getTime() - created.getTime()) / DAY) : 0, answers: ls ? Number(ls.effN ?? 0) : 0 },
         level: ls ? { level: s(ls.level) as "BELOW" | "ON" | "ABOVE", source: s(ls.source), declining: Boolean(ls.declining), theta: ls.theta === null || ls.theta === undefined ? null : Number(ls.theta), recentTheta: ls.thetaRecent === null || ls.thetaRecent === undefined ? null : Number(ls.thetaRecent), priorTheta: ls.thetaPrior === null || ls.thetaPrior === undefined ? null : Number(ls.thetaPrior) } : null,
       };
-      if (weak) focusIds.add(s(weak.skillId));
+      if (weak) focusIds.add(weak.skillId);
       const valid = checks.filter((c) => !c.invalid);
       const lastCheck = valid.length ? new Date(Math.max(...valid.map((c) => c.at.getTime()))) : null;
       decisions.push({ id, dec: decideTier(input, now), row, lastCheck, suggestOnly: lockExpired });
@@ -425,7 +445,9 @@ export async function routeReteach(repo: Repo, schoolId: string, items: { studen
   const recent = await repo.findMany("TierChange", { studentId: { in: ids }, source: "RETEACH", createdAt: { gte: new Date(now.getTime() - 21 * DAY) } }, { select: ["studentId", "evidence"] });
   const busy = new Set<string>();
   for (const r of recent) { const ev = json<Record<string, unknown>>(r.evidence, {}); busy.add(s(r.studentId)); busy.add(`${s(r.studentId)}|${s(ev.skillId)}`); }
-  const todo = items.filter((x) => !busy.has(x.studentId)).slice(0, MAX_ROUTINGS_PER_RUN);
+  // ⭐ never route a skill the student already has ⭐ on (any copy)
+  const book = await starBook(repo, ids, schoolId);
+  const todo = items.filter((x) => !busy.has(x.studentId) && !starMastered(book.of(x.studentId, x.skillId))).slice(0, MAX_ROUTINGS_PER_RUN);
   if (!todo.length) return 0;
   const teachers = await teachersOf(repo, todo.map((x) => x.studentId));
   const teacherFor = new Map<string, { userId: string; classId: string }>();

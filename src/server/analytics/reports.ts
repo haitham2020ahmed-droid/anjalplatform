@@ -10,12 +10,13 @@ import { eachLimit } from "../db/parallel";
 import { DOMAIN_LABEL } from "../assessment/diagnostic";
 import { assertCan, canAccessStudent, ForbiddenError, type Actor } from "../auth/rbac";
 import { studentReadingRange } from "../../reading/prl";
-import { bandDistribution, mean, round1, streaks, summarize, type Summary } from "../../analytics/stats";
+import { mean, round1, streaks, summarize, type Summary } from "../../analytics/stats";
 import type { Period } from "../../analytics/periods";
 import { getStudentCurriculum } from "../queries/student-curriculum";
 import type { Repo, Row } from "../seeding/repo";
 import { assertClassAccess } from "../teacher/assignments";
-import { isHiddenSkill } from "../skills/master";
+import { starBook, starLearning, starMastered, starNeedsHelp, starNeedsReview } from "../skills/star-read";
+import { hiddenStarKeys, startedStars } from "../teacher/queries";
 import { groupGrowth, studentGrowth, type GroupGrowth, type StudentGrowth } from "./growth";
 
 export const MIN_GROUP_FOR_COMPARISON = 5;
@@ -37,6 +38,8 @@ export interface StudentAnalytics {
   avgSeconds: number | null;
   sessions: number;
   longestSessionMinutes: number;
+  /** ⭐ counted by skill KEY from the ONE star system (the Student Skills numbers): started (◐ ⭐ 🔄) · ⭐ mastered ·
+   *  ◐ in progress (not needing support) · 🔄 needs review or ◐ needing support */
   skillsAttempted: number;
   skillsMastered: number;
   skillsDeveloping: number;
@@ -56,13 +59,12 @@ export interface StudentAnalytics {
 export async function studentAnalytics(repo: Repo, actor: Actor, studentId: string, period: Period): Promise<StudentAnalytics> {
   const st = await repo.findUnique("Student", { id: studentId });
   if (!st || !canAccessStudent(actor, { studentId, schoolId: String(st.schoolId) })) throw new ForbiddenError("You do not have access to this student.");
-  const [grade, attemptsAll, sessionsAll, mastery, abilities, alerts, maps, cur, growth] = await Promise.all([
+  const [grade, attemptsAll, sessionsAll, book, abilities, maps, cur, growth] = await Promise.all([
     repo.findUnique("Grade", { id: st.gradeId }).then((g) => g!),
     repo.findMany("QuestionAttempt", { studentId }, { select: ["questionId", "createdAt", "isCorrect", "responseMs", "rapidGuess"] }),
     repo.findMany("PracticeSession", { studentId }, { select: ["startedAt", "mode", "endedAt", "activeMs"] }),
-    repo.findMany("StudentSkillMastery", { studentId }),
+    starBook(repo, [studentId], String(st.schoolId)),
     repo.findMany("StudentAbility", { studentId }),
-    repo.findMany("InterventionAlert", { studentId, resolvedAt: null }),
     repo.findMany("MapResult", { studentId }),
     getStudentCurriculum(repo, studentId),
     studentGrowth(repo, studentId, period),
@@ -76,11 +78,9 @@ export async function studentAnalytics(repo: Repo, actor: Actor, studentId: stri
     mapRows.some((m) => m.goalAreaId) ? repo.findMany("MapGoalArea", { id: { in: mapRows.map((m) => m.goalAreaId).filter(Boolean) } }) : Promise.resolve([] as Row[]),
   ]);
   const level = new Map(questions.map((q) => [String(q.id), num(q.difficultyLevel)]));
-  // “skills needing support” (readiness I-19): mastery-based — practised skills under 40 with 5+ answers — plus any
-  // skill with an open support flag; the hidden “Unclassified (Curriculum Map)” skill is never counted
-  const needIds = new Set([...mastery.filter((m) => num(m.attempts) >= 5 && num(m.score) < 40).map((m) => String(m.skillId)), ...alerts.map((a) => String(a.skillId)).filter((x) => x && x !== "null")]);
-  const needSkills = needIds.size ? (await repo.findMany("Skill", { id: { in: [...needIds] } }, { select: ["id", "code"] })).filter((k) => !isHiddenSkill(k.code)) : [];
-  const practised = mastery.filter((m) => num(m.attempts) > 0);
+  // ⭐ the skills by KEY from the star system; the hidden “Unclassified (Curriculum Map)” skill is never counted (I-19)
+  // “needing support” = 🔄 needs review, or ◐ with the needs-support flag (50 answers without mastery)
+  const practised = startedStars(book, studentId, await hiddenStarKeys(repo, book));
   const global = abilities.find((a) => a.scope === "GLOBAL");
   const reading = abilities.find((a) => a.scope === "DOMAIN:READING");
   const skillThetas = abilities.filter((a) => String(a.scope).startsWith("SKILL:")).map((a) => num(a.theta));
@@ -98,9 +98,9 @@ export async function studentAnalytics(repo: Repo, actor: Actor, studentId: stri
     sessions: sessions.length,
     longestSessionMinutes: Math.round(Math.max(0, ...sessions.map((s) => num(s.activeMs))) / 60_000),
     skillsAttempted: practised.length,
-    skillsMastered: practised.filter((m) => m.isMastered).length,
-    skillsDeveloping: practised.filter((m) => ["DEVELOPING", "APPROACHING"].includes(String(m.band))).length,
-    skillsNeedingIntervention: needSkills.length,
+    skillsMastered: practised.filter(starMastered).length,
+    skillsDeveloping: practised.filter((v) => starLearning(v) && !v.needsSupport).length,
+    skillsNeedingIntervention: practised.filter(starNeedsHelp).length,
     ability: ability === null ? null : Math.round(ability * 100) / 100,
     readingRange: reading ? studentReadingRange(num(grade.level), num(reading.theta), num(reading.thetaSE)).label : null,
     streakCorrect: streaks(seq, true),
@@ -124,16 +124,21 @@ interface GroupMetrics {
   label: string;
   students: number;
   studentsWithData: number;
+  /** ⭐ the average star score: each student's mean StarView.score over the skill keys they started, then averaged */
   avgMastery: number | null;
   accuracyPct: number | null;
   meanGrowth: number | null;
   suppressed: boolean; // fewer than MIN_GROUP_FOR_COMPARISON students with data
 }
 
-async function metricsFor(repo: Repo, label: string, ids: string[], period: Period, suppressSmall: boolean): Promise<GroupMetrics & { growth: GroupGrowth; masteries: number[] }> {
+/** ⭐ the star distribution: started student × skill-key pairs by star. */
+export interface StarDistribution { mastered: number; inProgress: number; needsReview: number }
+
+async function metricsFor(repo: Repo, label: string, ids: string[], period: Period, suppressSmall: boolean, schoolId: string): Promise<GroupMetrics & { growth: GroupGrowth; masteries: number[]; stars: StarDistribution }> {
   // answers COUNTED by the database (Update 42A: the whole school's answers of the year were loaded only to count them)
   let answered = 0, correct = 0;
   const masteryOf = new Map<string, number[]>();
+  const stars: StarDistribution = { mastered: 0, inProgress: 0, needsReview: 0 };
   // ⚡ Update 57: a few chunks at a time (still bounded: CHUNK_PARALLEL × STUDENT_CHUNK students in memory), and the
   // growth read beside them — before, every chunk waited for the one before it
   const chunks: string[][] = [];
@@ -141,12 +146,16 @@ async function metricsFor(repo: Repo, label: string, ids: string[], period: Peri
   const growthP = groupGrowth(repo, ids, period);
   await eachLimit(chunks, async (part) => {
     const where = { studentId: { in: part }, createdAt: { gte: period.from, lte: period.to } };
-    const [mastery, n, c] = await Promise.all([
-      repo.findMany("StudentSkillMastery", { studentId: { in: part } }, { select: ["studentId", "attempts", "score"] }),
+    const [book, n, c] = await Promise.all([
+      starBook(repo, part, schoolId),
       repo.count("QuestionAttempt", where), repo.count("QuestionAttempt", { ...where, isCorrect: true }),
     ]);
     answered += n; correct += c;
-    for (const m of mastery) if (num(m.attempts) > 0) (masteryOf.get(String(m.studentId)) ?? masteryOf.set(String(m.studentId), []).get(String(m.studentId))!).push(num(m.score));
+    const hidden = await hiddenStarKeys(repo, book);
+    for (const id of part) for (const v of startedStars(book, id, hidden)) {
+      (masteryOf.get(id) ?? masteryOf.set(id, []).get(id)!).push(v.score);
+      if (starMastered(v)) stars.mastered++; else if (starNeedsReview(v)) stars.needsReview++; else stars.inProgress++;
+    }
   }, CHUNK_PARALLEL);
   const perStudent = ids.map((id) => mean(masteryOf.get(id) ?? [])).filter((x): x is number => x !== null);
   const growth = await growthP;
@@ -156,7 +165,7 @@ async function metricsFor(repo: Repo, label: string, ids: string[], period: Peri
     avgMastery: suppressed ? null : round1(mean(perStudent)),
     accuracyPct: suppressed || !answered ? null : Math.round((100 * correct) / answered),
     meanGrowth: suppressed ? null : growth.meanGrowth,
-    growth, masteries: perStudent.map((x) => Math.round(x)),
+    growth, masteries: perStudent.map((x) => Math.round(x)), stars,
   };
 }
 
@@ -174,7 +183,9 @@ export interface ClassComparison {
   rows: GroupMetrics[];
   external: ExternalBenchmark[];
   classGrowth: GroupGrowth;
+  /** ⭐ the class's started student × skill pairs by star: "Mastered" (⭐), "In progress" (◐), "Needs review" (🔄) */
   distribution: { label: string; count: number }[];
+  /** ⭐ the spread of the students' average star scores */
   masterySummary: Summary;
 }
 
@@ -190,9 +201,9 @@ export async function classComparison(repo: Repo, actor: Actor, classId: string,
   const gradeIds = gradeRows.map((s) => String(s.id));
   const schoolIds = schoolRows.map((s) => String(s.id));
   const [c, g, s, refs] = await Promise.all([
-    metricsFor(repo, `Class ${String(klass.name)}`, classIds, period, false),
-    metricsFor(repo, `Grade ${num(grade.level)} (school)`, gradeIds, period, true),
-    metricsFor(repo, "Whole school", schoolIds, period, true),
+    metricsFor(repo, `Class ${String(klass.name)}`, classIds, period, false, String(klass.schoolId)),
+    metricsFor(repo, `Grade ${num(grade.level)} (school)`, gradeIds, period, true, String(klass.schoolId)),
+    metricsFor(repo, "Whole school", schoolIds, period, true, String(klass.schoolId)),
     repo.findMany("BenchmarkReference", { gradeLevel: num(grade.level), metric: { in: ["AVG_MASTERY", "ACCURACY_PCT"] } }),
   ]);
   const external: ExternalBenchmark[] = (["DISTRICT", "NATIONAL"] as const).map((scope) => {
@@ -207,7 +218,7 @@ export async function classComparison(repo: Repo, actor: Actor, classId: string,
     rows: [strip(c), strip(g), strip(s)],
     external,
     classGrowth: c.growth,
-    distribution: bandDistribution(c.masteries),
+    distribution: [{ label: "Mastered", count: c.stars.mastered }, { label: "In progress", count: c.stars.inProgress }, { label: "Needs review", count: c.stars.needsReview }],
     masterySummary: summarize(c.masteries),
   };
 }

@@ -1,7 +1,9 @@
 /**
  * 🚨 Needs Attention (Teacher Home): the teacher's own students who need them now, in plain words.
  *   - no practice in NO_PRACTICE_DAYS days or more (or never practised)
- *   - stuck on a skill: STUCK_QUESTIONS+ questions answered on it and its score still under STUCK_SCORE (not mastered)
+ *   - stuck on a skill: ⭐ stars only (owner, 1 Nov 2026) — the skill's star is ◐ In progress with STUCK_QUESTIONS+
+ *     practice answers and a star score still under STUCK_SCORE; one row per skill KEY, never a skill with ⭐
+ *     (and 🔄 is already in the star list). The engine table is read only for "last practised".
  * Plus the home's three small numbers: my students, work sent this week, needs attention.
  * Bounded: the teacher's classes, their students' mastery rows, the week's assignments. Own classes only.
  */
@@ -11,6 +13,8 @@ import { accessibleClasses } from "./assign";
 import { studentNames } from "../insights/student-data";
 import { isHiddenSkill } from "../skills/master";
 import { starAttention, type StarAttention } from "../skills/status-extras";
+import { starBook, starLearning } from "../skills/star-read";
+import type { StarView } from "../skills/status";
 import { safeIfBehind } from "../db/schema-errors";
 import { cancelIndex, liveAssignmentWhere } from "../student/cancelled-work";
 
@@ -50,26 +54,32 @@ export async function teacherHomeSummary(repo: Repo, actor: Actor, now = new Dat
   const week = weekRows.filter((a) => ix.live(a)).length;
   const ids = [...new Set(members.map((m) => s(m.studentId)))];
   if (!ids.length) return { students: 0, workThisWeek: week, needsAttention: 0, list: [] };
-  const [mastery, names, starList] = await Promise.all([
-    inChunks(ids, (part) => repo.findMany("StudentSkillMastery", { studentId: { in: part } }, { select: ["studentId", "skillId", "score", "attempts", "isMastered", "lastPracticedAt"] })),
+  const [mastery, names, starList, book] = await Promise.all([
+    inChunks(ids, (part) => repo.findMany("StudentSkillMastery", { studentId: { in: part }, lastPracticedAt: { not: null } }, { select: ["studentId", "lastPracticedAt"] })),
     studentNames(repo, ids),
     safeIfBehind("home.stars", () => starAttention(repo, s(actor.schoolId ?? classes[0]?.schoolId), ids, now), [] as StarAttention[]),
+    starBook(repo, ids, s(actor.schoolId ?? classes[0]?.schoolId)),
   ]);
   const starsOf = new Map<string, StarAttention[]>();
   for (const x of starList) starsOf.set(x.studentId, [...(starsOf.get(x.studentId) ?? []), x]);
   const last = new Map<string, number>();
-  const stuckRows = new Map<string, Row[]>();
+  const stuckRows = new Map<string, { skillId: string; v: StarView }[]>();
   for (const m of mastery) {
     const id = s(m.studentId);
     const t = time(m.lastPracticedAt);
     if (t > (last.get(id) ?? 0)) last.set(id, t);
-    if (Number(m.attempts ?? 0) >= STUCK_QUESTIONS && Number(m.score ?? 0) < STUCK_SCORE && !m.isMastered) stuckRows.set(id, [...(stuckRows.get(id) ?? []), m]);
   }
-  const stuckSkillIds = [...new Set([...stuckRows.values()].flat().map((m) => s(m.skillId)))];
+  // ⭐ stuck = ◐ with STUCK_QUESTIONS+ answers and a star score under STUCK_SCORE (one per key; never ⭐)
+  for (const id of ids) for (const v of (book.byKey.get(id) ?? new Map<string, StarView>()).values()) {
+    if (!starLearning(v) || v.answered < STUCK_QUESTIONS || v.score >= STUCK_SCORE) continue;
+    const skillId = v.skillId ?? book.ix.skillsOf.get(v.key)?.[0];
+    if (skillId) stuckRows.set(id, [...(stuckRows.get(id) ?? []), { skillId, v }]);
+  }
+  const stuckSkillIds = [...new Set([...stuckRows.values()].flat().map((m) => m.skillId))];
   const skills = stuckSkillIds.length ? await repo.findMany("Skill", { id: { in: stuckSkillIds } }, { select: ["id", "name", "code"] }) : [];
   // the holding skill for unsorted Curriculum Map questions is never shown as a skill
   const skillName = new Map(skills.filter((k) => !isHiddenSkill(k.code)).map((k) => [s(k.id), s(k.name)]));
-  for (const [id, list] of stuckRows) stuckRows.set(id, list.filter((m) => skillName.has(s(m.skillId))));
+  for (const [id, list] of stuckRows) stuckRows.set(id, list.filter((m) => skillName.has(m.skillId)));
   const classOf = new Map<string, Row>();
   for (const m of members) if (!classOf.has(s(m.studentId))) classOf.set(s(m.studentId), classes.find((c) => s(c.id) === s(m.classId))!);
   const limit = now.getTime() - NO_PRACTICE_DAYS * 86_400_000;
@@ -77,7 +87,7 @@ export async function teacherHomeSummary(repo: Repo, actor: Actor, now = new Dat
   for (const id of ids) {
     const t = last.get(id) ?? 0;
     const idle = t === 0 || t <= limit;
-    const stuck = (stuckRows.get(id) ?? []).map((m) => ({ skillId: s(m.skillId), skill: skillName.get(s(m.skillId)) ?? "Skill", questions: Number(m.attempts), score: Math.round(Number(m.score)) }))
+    const stuck = (stuckRows.get(id) ?? []).map((m) => ({ skillId: m.skillId, skill: book.ix.nameOf.get(m.v.key) ?? skillName.get(m.skillId) ?? "Skill", questions: m.v.answered, score: m.v.score }))
       .sort((a, b) => a.score - b.score).slice(0, 3);
     const stars = starsOf.get(id) ?? [];
     if (!idle && !stuck.length && !stars.length) continue;

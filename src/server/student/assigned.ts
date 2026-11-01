@@ -19,6 +19,8 @@ import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
 import { assertClassAccess } from "../teacher/assignments";
 import { refreshQuestionSets, refreshSkillAssignments, trackOf, type Track } from "../teacher/assign";
 import { adaptiveNext } from "../curriculum-map/leveled-run";
+import { starBook, starMastered, starNotStarted, starWord } from "../skills/star-read";
+import { starOfSkill, type StarView } from "../skills/status";
 import { accuracyOf, ASSIGNMENT_MAX_QUESTIONS, ASSIGNMENT_MIN_QUESTIONS, assignedSkillAccess, workGoalOf, backfillForStudent, coreCountsOf, skillOfAssignment } from "../practice/completion";
 
 type Status = "NOT_STARTED" | "IN_PROGRESS" | "COMPLETED" | "OVERDUE";
@@ -52,7 +54,8 @@ export interface AssignedSkill {
    *   completion → `status` above, plus answered of `of` (30, then 50: the 30–50 rule) — null for a row from before
    *                 the stored counts
    *   accuracy   → % correct of the answers counted for the work (null before any counted answer)
-   *   mastery    → the engine's mastery % and band for the skill (null before any practice)
+   *   mastery    → the student's ⭐ star score % for the skill's key and its star word (`band`: Mastered / Needs
+   *                 review / In progress / Not started — the same as My Skills); null before any practice
    */
   work?: { answered: number | null; of: number; accuracy: number | null; mastery: number | null; band: string | null };
 }
@@ -79,15 +82,15 @@ export async function assignedSkills(repo: Repo, actor: Actor, now = new Date())
   // bring statuses up to date (writes only what changed); what does not depend on the statuses is read meanwhile
   // (Update 42B: one round trip instead of five)
   const skillIds = [...new Set(assignments.map((a) => skillOf(a)!))];
-  const [, , setRows, adaptiveSets, skills, links, masteries] = await Promise.all([
+  // ⭐ the student's stars, read once for the refresh and the cards (one query; the key index is cached)
+  const masteries = await starBook(repo, skillIds.length ? [studentId] : [], actor.schoolId ?? null);
+  const [, , setRows, adaptiveSets, skills, links] = await Promise.all([
     // older rows keep their one skill in skillIds only: refreshed by that skill too
-    refreshSkillAssignments(repo, assignments.map((a) => (a.skillId ? a : { ...a, skillId: skillOf(a) })), [studentId], now), refreshQuestionSets(repo, sets, [studentId], now),
+    refreshSkillAssignments(repo, assignments.map((a) => (a.skillId ? a : { ...a, skillId: skillOf(a) })), [studentId], now, { book: masteries }), refreshQuestionSets(repo, sets, [studentId], now),
     sets.length ? repo.findMany("AssessmentQuestion", { assessmentId: { in: sets.map((a) => a.assessmentId) } }, { select: ["assessmentId"] }) : Promise.resolve([] as Row[]),
     sets.length ? repo.findMany("Assessment", { id: { in: sets.map((a) => a.assessmentId) }, isAdaptive: true }, { select: ["id", "maxQuestions", "targetCorrect"] }) : Promise.resolve([] as Row[]),
     skillIds.length ? repo.findMany("Skill", { id: { in: skillIds } }, { select: ["id", "name", "code"] }) : Promise.resolve([] as Row[]),
     skillIds.length ? repo.findMany("SkillStandard", { skillId: { in: skillIds } }) : Promise.resolve([] as Row[]),
-    // the engine's mastery of each assigned skill (shown apart from completion and accuracy)
-    skillIds.length ? repo.findMany("StudentSkillMastery", { studentId, skillId: { in: skillIds } }, { select: ["skillId", "score", "band"] }) : Promise.resolve([] as Row[]),
   ]);
   const [fresh, stds] = await Promise.all([
     all.length ? repo.findMany("AssignmentStudent", { studentId, assignmentId: { in: all.map((a) => a.id) } }) : Promise.resolve([] as Row[]),
@@ -113,7 +116,7 @@ export async function assignedSkills(repo: Repo, actor: Actor, now = new Date())
       assignedAt: d(a.createdAt)!.toISOString(), startAt: startAt?.toISOString() ?? null, dueAt: d(a.dueAt)?.toISOString() ?? null,
       status: r.status as Status, progress: Number(r.progress), note: a.note ? s(a.note) : null, startsLater: Boolean(startAt && startAt > now),
       completedAt: d(r.completedAt)?.toISOString() ?? null,
-      work: workOf(r, masteries.find((m) => s(m.skillId) === skillId) ?? null),
+      work: workOf(r, masteries.of(studentId, skillId)),
     };
   });
   for (const a of sets) {
@@ -138,14 +141,14 @@ export async function assignedSkills(repo: Repo, actor: Actor, now = new Date())
   };
 }
 
-/** A skill work's completion counts (the 30–50 rule), its accuracy and the engine's mastery — three separate values. */
-function workOf(r: Row, m: Row | null): NonNullable<AssignedSkill["work"]> {
+/** A skill work's completion counts (the 30–50 rule), its accuracy and the ⭐ star — three separate values. */
+function workOf(r: Row, m: StarView | null): NonNullable<AssignedSkill["work"]> {
   const stored = r.coreAnswered === null || r.coreAnswered === undefined ? null : Math.min(ASSIGNMENT_MAX_QUESTIONS, Number(r.coreAnswered));
   // not started yet: 0 of 30 (a row from before the stored counts shows its count once it is next answered)
   const answered = stored ?? (s(r.status) === "NOT_STARTED" ? 0 : null);
   return {
     answered, of: workGoalOf(answered ?? 0), accuracy: stored ? accuracyOf(Math.min(stored, Number(r.coreCorrect ?? 0)), stored) : null,
-    mastery: m ? Math.round(Number(m.score ?? 0)) : null, band: m ? s(m.band) || null : null,
+    mastery: m && !starNotStarted(m) ? m.score : null, band: m && !starNotStarted(m) ? starWord(m) : null,
   };
 }
 
@@ -204,7 +207,8 @@ export async function setPlacementRequired(repo: Repo, actor: Actor, required: b
  * The completion report. Three things are kept SEPARATE (they used to share one "Score" box):
  *   completion → `status` + `completion` (answered x of 30, then of 50, counted for the work: the 30–50 rule)
  *   accuracy   → `accuracy`: % correct of the work's counted answers (skill work); of all answers for question sets
- *   mastery    → `score` (= the engine's mastery %) and `masteryLevel` (its band)
+ *   mastery    → `score` (= the ⭐ star score % of the skill's key) and `masteryLevel` (its star word: Mastered /
+ *                Needs review / In progress / Not started — the same as My Skills)
  * `answered` / `correct` count every answer given for the work (practice after it was Done included).
  */
 export interface AssignmentReport {
@@ -215,7 +219,6 @@ export interface AssignmentReport {
   completion?: { answered: number; of: number; correct: number };
 }
 
-const BAND_LABEL: Record<string, string> = { NOT_STARTED: "Not started", BEGINNING: "Beginning", DEVELOPING: "Developing", APPROACHING: "Approaching", PROFICIENT: "Proficient", MASTERED: "Mastered", ADVANCED: "Advanced" };
 const TYPE_LABEL: Record<string, string> = { MULTIPLE_CHOICE: "multiple-choice questions", MULTI_SELECT: "select-all questions", TRUE_FALSE: "true/false questions", FILL_BLANK: "fill-in-the-blank questions", DROPDOWN: "drop-down questions", SENTENCE_ORDER: "ordering questions", WORD_ORDER: "word-order questions", ERROR_CORRECTION: "error-correction questions", MATCHING: "matching questions", SHORT_ANSWER: "short answers" };
 const LEVEL_GROUP = (lvl: number) => (lvl <= 2 ? "easier questions" : lvl <= 4 ? "grade-level questions" : "harder questions");
 
@@ -240,10 +243,11 @@ export async function assignmentReport(repo: Repo, actor: Actor, assignmentId: s
   if (!row) throw new ForbiddenError("This skill was not assigned to that student.");
   if (!skillOf(a)) return questionSetReport(repo, a, row, studentId);
   const skillId = skillOf(a)!;
-  const [skill, sessions, mastery, links, st] = await Promise.all([
+  const [skill, sessions, star, links, st] = await Promise.all([
     repo.findUnique("Skill", { id: skillId }),
     repo.findMany("PracticeSession", { assignmentId, studentId }, { select: ["id", "activeMs"] }),
-    repo.findMany("StudentSkillMastery", { studentId, skillId }, { select: ["score", "band"] }),
+    // ⭐ the student's star of the skill's key (any copy): the score and the word shown
+    starOfSkill(repo, studentId, skillId).catch(() => null),
     repo.findMany("SkillStandard", { skillId }),
     repo.findUnique("Student", { id: studentId }),
   ]);
@@ -277,7 +281,8 @@ export async function assignmentReport(repo: Repo, actor: Actor, assignmentId: s
   }
   const fast = attempts.filter((x) => Number(x.responseMs) < 4000).length;
   if (answered >= 5 && fast / answered > 0.3) needs.push("Slow down: many answers were given in under 4 seconds");
-  const score = Math.round(Number(mastery[0]?.score ?? 0));
+  const score = star && !starNotStarted(star) ? star.score : 0;
+  const starred = starMastered(star);
   const coreAnswered = Math.min(ASSIGNMENT_MAX_QUESTIONS, core.answered);
   const accuracy = coreAnswered ? accuracyOf(Math.min(core.correct, coreAnswered), coreAnswered) : answered ? Math.round((100 * correct) / answered) : null;
   const status = row.status as Status;
@@ -285,12 +290,12 @@ export async function assignmentReport(repo: Repo, actor: Actor, assignmentId: s
     ? coreAnswered < ASSIGNMENT_MIN_QUESTIONS
       ? `Keep practising: answer at least ${ASSIGNMENT_MIN_QUESTIONS - coreAnswered} more question(s). Master the skill to finish it.`
       : `Keep practising: master this skill to finish it (at most ${Math.max(1, ASSIGNMENT_MAX_QUESTIONS - coreAnswered)} more question(s)).`
-    : score >= 90 ? "Excellent! You have mastered this skill. Check your other assigned skills or ask your teacher for a new challenge."
+    : starred ? "Excellent! You have mastered this skill. Check your other assigned skills or ask your teacher for a new challenge."
     : needs.length ? `Well done! Review the area that needs practice (${needs[0].split(":")[0].toLowerCase()}) to make this skill even stronger.`
     : "Well done! You completed this skill. Practise it again later to keep it strong.";
   return {
     assignmentId, student: s(user?.displayName ?? "Student"), skill: s(skill?.name ?? a.title), standard: std ? s(std.code).replace(/^CCSS\.ELA-LITERACY\./, "") : null, status,
-    score, accuracy, answered, correct, timeSpentMin: Math.round(sessions.reduce((n, x) => n + Number(x.activeMs ?? 0), 0) / 60000), masteryLevel: BAND_LABEL[s(mastery[0]?.band)] ?? "Not started",
+    score, accuracy, answered, correct, timeSpentMin: Math.round(sessions.reduce((n, x) => n + Number(x.activeMs ?? 0), 0) / 60000), masteryLevel: starWord(star),
     completedAt: d(row.completedAt)?.toISOString() ?? null, strengths, needsPractice: needs, nextStep,
     completion: { answered: coreAnswered, of: workGoalOf(coreAnswered), correct: Math.min(core.correct, coreAnswered) },
   };

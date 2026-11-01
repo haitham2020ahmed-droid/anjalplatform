@@ -35,6 +35,7 @@ import { levelGaps, MIN_PER_LEVEL } from "../src/server/map/bank-gaps";
 import { READING_SCALE_NAME } from "../src/components/reading-level";
 import { chanceAtLeast, MISCONCEPTION_MAX_P } from "../src/server/insights/misconception-tags";
 import { demoDatabase } from "./helpers/db";
+import { skillKeyIndex } from "../src/server/skills/status";
 
 const DAY = 86_400_000;
 const ROOT = process.cwd();
@@ -150,6 +151,10 @@ describe("Update 39C · reports, exports and the remap (Test School)", () => {
     const d = studentsA[3];
     for (const ok of [true, true, true, false, false]) await att(d, s(g2.id), s(q2.id), ok);
     for (const [st, sk, score] of [[a, g1.id, 30], [b, g1.id, 85], [c, g2.id, 55], [d, g2.id, 30]] as const) await repo.create("StudentSkillMastery", { studentId: st, skillId: sk, score, band: score >= 80 ? "PROFICIENT" : "DEVELOPING", attempts: 1, correct: 1 });
+    // ⭐ (stars unify, 1 Nov 2026) the report reads the ONE star system: d's skill is 🔄 Needs review, the others ◐
+    const ix = await skillKeyIndex(repo, schoolId);
+    for (const [st, sk, score, status] of [[a, g1.id, 30, "IN_PROGRESS"], [b, g1.id, 85, "IN_PROGRESS"], [c, g2.id, 55, "IN_PROGRESS"], [d, g2.id, 30, "NEEDS_REVIEW"]] as const)
+      await repo.create("SkillStatus", { studentId: st, skillKey: ix.keyOf.get(s(sk))!, level: 1, status, skillId: sk, answered: 10, correct: 5, score, startedAt: NOW, createdAt: NOW, updatedAt: NOW, history: [] });
     const r = await classGrammarReport(repo, t1, classA, { days: 30, now: NOW });
     // raw recomputation
     const ids = (await repo.findMany("Skill", { id: { in: skills.map((k) => k.id) } })).map((k) => s(k.id));
@@ -160,7 +165,8 @@ describe("Update 39C · reports, exports and the remap (Test School)", () => {
     assert.equal(r.summary.accuracy, pct(careful.filter((x) => x.isCorrect).length, careful.length));
     const ra = r.students.find((x) => x.studentId === a)!;
     assert.equal(ra.answers, 7); assert.equal(ra.accuracy, 20); assert.equal(ra.reteach, 1);
-    assert.equal(r.cells[d][s(g2.id)].reteach, true, "60% while mastery is under 40");
+    assert.equal(r.cells[d][s(g2.id)].reteach, true, "60% while the star is 🔄 Needs review");
+    assert.equal(r.cells[d][s(g2.id)].status, "NEEDS_REVIEW");
     assert.equal(r.cells[a][s(g1.id)].rapid, 2);
     assert.equal(r.cells[b][s(g1.id)].reteach, false);
     assert.equal(r.cells[c][s(g2.id)].reteach, false, "2 careful answers: too few to judge");

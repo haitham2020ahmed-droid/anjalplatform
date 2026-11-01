@@ -54,6 +54,7 @@ function CompactCard({ r, t }: { r: Row; t: TFn }) {
                   ? <SourceTag source="CUSTOM" label={t("Practice")} />
                   : <SourceTag source={r.sourceKey} icon />}
           <StatusPill status={STATUS[r.status]} />
+          {(r as Row & { review?: boolean }).review && r.status !== "Done" && <span data-testid="review-work" className="rounded-full bg-sky-50 px-2 py-0.5 font-semibold text-sky-800 ring-1 ring-sky-200">🔄 {t("Review · 20 questions")}</span>}
           {meter && <MasteryMeter score={typeof star?.score === "number" ? star.score : 0} answered={star?.answered ?? 0} />}
           {r.overdue && r.status !== "Done" && <span className="rounded-full bg-red-50 px-2 py-0.5 font-semibold text-red-700 ring-1 ring-red-200">{t("Late")}</span>}
           {r.dueAt && r.status !== "Done" && !r.overdue && <span className="text-slate-600">📅 {t("Due {date}", { date: day(r.dueAt) })}</span>}

@@ -9,6 +9,7 @@ import { ForbiddenError } from "@/server/auth/rbac";
 import { studentGrammarReport } from "@/server/reports/grammar-report";
 import { windowOf } from "@/server/reports/report-access";
 import { RichInline } from "@/components/rich-inline";
+import { SkillStar } from "@/components/skills/skill-star";
 
 export const metadata = { title: "Grammar results · student" };
 
@@ -34,7 +35,7 @@ export default async function StudentGrammarPage({ params, searchParams }: { par
       <AtAGlance items={[
         { icon: "✍️", label: "Answers", value: r.summary.answers, meaning: t("{n} rapid guesses left out of accuracy", { n: r.summary.rapid }), tone: r.summary.rapid ? "warn" : "neutral" },
         { icon: "🎯", label: "Accuracy", value: fmtPct(r.summary.accuracy), meaning: "of careful answers were right", tone: toneOfPct(r.summary.accuracy) },
-        { icon: "📈", label: "Avg mastery", value: fmtNum(r.summary.avgMastery), meaning: "0–100: how well the skills are learned" },
+        { icon: "⭐", label: "Avg star score", value: fmtNum(r.summary.avgMastery), meaning: "0–100: the star score of the skills started" },
         { icon: "🔁", label: "Skills to reteach", value: r.summary.reteach, meaning: r.summary.reteach ? "skills this student needs help with" : "nothing to reteach right now", tone: r.summary.reteach ? "bad" : "good" },
       ]} />
       <div className="space-y-5">
@@ -47,16 +48,16 @@ export default async function StudentGrammarPage({ params, searchParams }: { par
             r.skills.find((k) => k.reteach) ? <>{t("Reteach")} <b>{r.skills.find((k) => k.reteach)!.name}</b>{r.errors[0]?.fix ? <> — {r.errors[0].fix}</> : null}</> : t("Keep practising: no skill needs reteaching now."),
           ]} />
         </div>
-        <ReportSection title="Skills" icon="🧩" hint="Weakest first. Reteach = 5+ careful answers and accuracy under 60% (or under 70% while mastery is still under 40).">
+        <ReportSection title="Skills" icon="🧩" hint="Weakest first. Reteach = 5+ careful answers and accuracy under 60% (or under 70% while the skill is 🔄 Needs review or needs support). A ⭐ skill is never flagged.">
           {r.skills.length ? (
             <>
               <SimpleBar items={r.skills.map((k) => ({ label: k.name, value: k.accuracy, note: t("{n} answers", { n: k.answers }) }))} className="mb-5" />
               <ReportTable label="Skills"
-                cols={[{ key: "s", label: "Skill" }, { key: "a", label: "Answers", num: true }, { key: "acc", label: "Accuracy", num: true }, { key: "r", label: "Rapid", num: true, more: true }, { key: "m", label: "Mastery", num: true, more: true }, { key: "re", label: "Reteach" }]}
+                cols={[{ key: "s", label: "Skill" }, { key: "a", label: "Answers", num: true }, { key: "acc", label: "Accuracy", num: true }, { key: "r", label: "Rapid", num: true, more: true }, { key: "m", label: "Star", num: true }, { key: "re", label: "Reteach" }]}
                 rows={r.skills.map((k) => ({
                   id: k.skillId, flag: k.reteach ? "bad" : undefined, sort: { acc: k.accuracy, r: k.rapid, m: k.mastery, re: k.reteach ? 1 : 0 },
                   cells: { s: k.name, a: k.answers, acc: <span className={`font-semibold ${pctTone(k.accuracy)}`}>{fmtPct(k.accuracy)}</span>, r: k.rapid || "—",
-                    m: <>{fmtNum(k.mastery)}{k.band ? <span className="ms-1 text-xs text-slate-500">{k.band.toLowerCase()}</span> : null}</>,
+                    m: <span className="inline-flex items-center gap-1.5"><SkillStar info={k} t={t} label={k.name} />{fmtNum(k.mastery)}</span>,
                     re: k.reteach ? <span className="rounded-full bg-red-100 px-2 py-0.5 text-xs font-bold text-red-800">! Reteach</span> : "—" },
                 }))} />
             </>

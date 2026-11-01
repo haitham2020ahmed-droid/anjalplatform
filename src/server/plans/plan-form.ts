@@ -71,7 +71,8 @@ export function readPlanForm(get: (k: string) => string | null, getAll: (k: stri
     dueAt: /^\d{4}-\d{2}-\d{2}$/.test(due) ? new Date(`${due}T23:59:59`) : null,
     startText: /^\d{4}-\d{2}-\d{2}$/.test(start) ? start : "",
     startAt: startOfDay(/^\d{4}-\d{2}-\d{2}$/.test(start) ? start : ""),
-    excludeMastered: get("xm") !== "0",
+    // owner 1 Nov 2026: nobody is left out (students who mastered a skill get a 20-question review instead)
+    excludeMastered: false,
     source: String(get("source") ?? "").slice(0, 16),
   };
 }

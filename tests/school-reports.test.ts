@@ -2,6 +2,8 @@
  * 🗒️ School Reports: Personalized Plan / Diagnostic Analysis / Final Report, each scoped to
  * one student, plus the "skills by source" aggregator they (and the student page) share.
  */
+import { readFileSync } from "node:fs";
+import { join } from "node:path";
 import { before, describe, test } from "node:test";
 import assert from "node:assert/strict";
 import type { SqliteRepo } from "../scripts/db/sqlite-repo";
@@ -15,7 +17,7 @@ import { teacherRoster } from "../src/server/teacher/assign";
 import { importMapScores, MAP_TEMPLATE_HEADERS } from "../src/server/map/student-map";
 import { bandOf, personalPlan } from "../src/server/map/personal-plan";
 import { CONTINUUM_HEADERS, importContinuum } from "../src/server/map/continuum";
-import { bySourceReport, classifySkillSources, starsFor } from "../src/server/skills/skills-by-source";
+import { bySourceReport, classifySkillSources } from "../src/server/skills/skills-by-source";
 import { diagnosticAnalysisForClass, diagnosticAnalysisForStudent, finalReportForStudent, finalReportsForClass, personalizedPlanForStudent, schoolReportsRoster, TIER_LABEL } from "../src/server/reports/school-reports";
 import { demoDatabase } from "./helpers/db";
 import { simulatePractice } from "./helpers/practice";
@@ -118,8 +120,11 @@ describe("🗒️ School Reports (per-student Personalized Plan, Diagnostic Anal
     assert.deepEqual((await diagnosticAnalysisForClass(repo, admin, classId)).notTaken.length, whole.notTaken.length);
   });
 
-  test("skills by source: classifies Grammar skills separately, and a star rating within 1-5", () => {
-    assert.equal(starsFor(0), 1); assert.equal(starsFor(100), 5); assert.equal(starsFor(45), 3);
+  test("skills by source: the star is the real skill status (no 1–5 rating from the score)", async () => {
+    // ⭐ (stars unify, 1 Nov 2026) the old score/20 "1–5 stars" is gone: each row carries its SkillStatus star
+    const src = readFileSync(join(process.cwd(), "src/server/skills/skills-by-source.ts"), "utf8");
+    assert.doesNotMatch(src, /starsFor|score \/ 20|>= 80 \?/);
+    assert.match(src, /starBook\(/);
   });
 
   test("skills by source + Final Report: practised skills are classified and summarized without re-deriving mastery", async () => {

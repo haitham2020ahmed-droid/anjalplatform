@@ -8,6 +8,7 @@ import { assignedSkills, assignmentReport, isAssignedSkill, placementRequired, s
 import { listNotifications, markAllRead, openNotification, unreadCount } from "../src/server/notifications";
 import { assignmentUpdatesSettled, startPractice, submitAnswer } from "../src/server/practice/session";
 import { loadSkillItems } from "../src/server/practice/items";
+import { afterResponseSettled } from "../src/server/lib/after-response";
 import { demoDatabase } from "./helpers/db";
 import { publishGrade4Bank } from "./helpers/practice";
 
@@ -98,6 +99,8 @@ describe("student: assigned skills only, notifications, report", () => {
     const b = home.items.find((x) => x.skillId === skillB)!;
     assert.equal(b.status, "COMPLETED", "completed skills stay visible");
     assert.equal(home.summary.completed, 1);
+    // ⭐ the report shows the star of the skill (written right after each answer's response)
+    await afterResponseSettled();
     const r = await assignmentReport(repo, student, b.assignmentId);
     assert.equal(r.status, "COMPLETED");
     // completed by the rule (≥ 10 answers and the target mastery) or by FINISHING the practice: every question of a

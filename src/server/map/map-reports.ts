@@ -31,6 +31,7 @@ import { contModels, continuumFor, continuumIndex, groupOfGoal, hasContinuum, sk
 import { buildRanges, skillPlan, type PlanRange } from "./skill-plan";
 import { GROWTH_SD, normFor } from "./norm-tables";
 import { skillKeysFor, statusesOfSkills, type StarView } from "../skills/status";
+import { starBook, starMastered, starNotStarted, type StarBook } from "../skills/star-read";
 import type { StarInfo } from "../../lib/skill-stars";
 
 const s = (v: unknown) => String(v ?? "");
@@ -72,9 +73,10 @@ export interface StudyPlanDoc { student: ReportStudent; subject: Subject; term: 
 
 const STAGE_TITLE = { REINFORCE: "Reinforce", DEVELOP: "Develop", INTRODUCE: "Introduce" } as const;
 type Mastery = Map<string, { score: number; mastered: boolean; attempts: number }>;
+/** `m` is star-based (masteryOf); the plan's star read below sets the final status of every skill. */
 const refOf = (k: { id: string; name: string }, m: Mastery): PlanSkillRef => {
   const x = m.get(k.id);
-  return { id: k.id, name: k.name, status: x?.mastered ? "MASTERED" : x && x.attempts > 0 ? "PRACTISING" : "NEW", score: x ? Math.round(x.score) : null };
+  return { id: k.id, name: k.name, status: x?.mastered ? "MASTERED" : x && x.attempts > 0 ? "PRACTISING" : "NEW", score: x && x.attempts > 0 ? Math.round(x.score) : null };
 };
 
 /** The `limit` most needed items (lowest need first), taken in turn from every topic so each one is covered;
@@ -134,10 +136,19 @@ async function anchorSkillsNow(repo: Repo, schoolId: string): Promise<Map<string
   return map;
 }
 
+/**
+ * ⭐ Each student's skills from the ONE skill status (skills/star-read.ts; one batched read): every copy of a started
+ * key → { mastered: ⭐, score: the star score, attempts: counted answers }. The old engine flag never decides "mastered".
+ */
 async function masteryOf(repo: Repo, studentIds: string[]): Promise<Map<string, Mastery>> {
-  const rows = studentIds.length ? await repo.findMany("StudentSkillMastery", { studentId: { in: studentIds } }, { select: ["studentId", "skillId", "score", "isMastered", "attempts"] }) : [];
   const out = new Map<string, Mastery>();
-  for (const r of rows) { const m = out.get(s(r.studentId)) ?? new Map(); m.set(s(r.skillId), { score: Number(r.score), mastered: Boolean(r.isMastered), attempts: Number(r.attempts) }); out.set(s(r.studentId), m); }
+  if (!studentIds.length) return out;
+  const book = await starBook(repo, studentIds);
+  for (const sid of studentIds) {
+    const m: Mastery = new Map();
+    for (const [key, v] of book.byKey.get(s(sid)) ?? new Map<string, StarView>()) for (const id of book.ix.skillsOf.get(key) ?? []) m.set(id, { score: v.score, mastered: starMastered(v), attempts: v.answered });
+    out.set(s(sid), m);
+  }
   return out;
 }
 
@@ -177,7 +188,8 @@ async function studyPlanNow(repo: Repo, student: ReportStudent, subject: Subject
   const studentId = student.id;
   const schoolId = s((await repo.findUnique("Student", { id: studentId }))?.schoolId);
   const p = opts.profile ?? (await mapProfiles(repo, schoolId, [studentId], subject)).get(studentId);
-  const m = opts.mastery ?? (await masteryOf(repo, [studentId])).get(studentId) ?? new Map();
+  // ⭐ every skill's status comes from the plan's one star read below; a group plan passes its star-based map
+  const m: Mastery = opts.mastery ?? (await masteryOf(repo, [studentId])).get(studentId) ?? new Map();
   const useContinuum = opts.index ? true : await hasContinuum(repo, subject);
   const ix = useContinuum ? opts.index ?? (await continuumIndex(repo, schoolId, student.grade, subject)) : null;
   const full = Boolean(opts.full);
@@ -227,7 +239,8 @@ async function studyPlanNow(repo: Repo, student: ReportStudent, subject: Subject
     for (const k of refs) {
       const v = stars.get(k.id);
       k.key = keys.get(k.id);
-      if (v) { k.star = { status: v.status, level: v.level, answered: v.answered, score: v.score, masteredAt: v.masteredAt, reviewDueAt: v.reviewDueAt, needsSupport: v.needsSupport }; k.status = v.status === "MASTERED" ? "MASTERED" : v.status === "NOT_STARTED" ? "NEW" : "PRACTISING"; k.score = v.answered ? v.score : k.score; }
+      // the status is the star only (⭐ MASTERED / NEXT_LEVEL → "MASTERED"; ☆ → "NEW"; ◐ / 🔄 → "PRACTISING")
+      if (v) { k.star = { status: v.status, level: v.level, answered: v.answered, score: v.score, masteredAt: v.masteredAt, reviewDueAt: v.reviewDueAt, needsSupport: v.needsSupport }; k.status = starMastered(v) ? "MASTERED" : starNotStarted(v) ? "NEW" : "PRACTISING"; k.score = v.answered ? v.score : null; }
     }
   }
   for (const area of areas) {
@@ -328,7 +341,7 @@ const yearOf = (term: string, date: unknown) => Number(term.match(/(\d{4})/)?.[1
 /** The school year a term belongs to (Fall 2025, Winter 2026 and Spring 2026 are all 2025). */
 const schoolYear = (season: Season, year: number) => (season === "FALL" ? year : year - 1);
 
-export async function familyReport(repo: Repo, actor: Actor, studentId: string, now = new Date(), opts: { student?: ReportStudent } = {}): Promise<FamilyDoc> {
+export async function familyReport(repo: Repo, actor: Actor, studentId: string, now = new Date(), opts: { student?: ReportStudent; book?: StarBook } = {}): Promise<FamilyDoc> {
   const student = opts.student ?? (await reportStudent(repo, actor, studentId));
   const results = await repo.findMany("MapResult", { studentId });
   // 🐛 fix (Oct 2026): the Aug 1 / school-year rollover must be checked in Riyadh time, not UTC — otherwise the
@@ -397,10 +410,12 @@ export async function familyReport(repo: Repo, actor: Actor, studentId: string, 
   }
   // practice on the platform, last 30 days
   const since = new Date(now.getTime() - 30 * 86_400_000);
-  const [att, mast] = await Promise.all([
+  // "Skills mastered": the student's ⭐ skills counted by KEY (every grade's copy of a skill is one skill)
+  const [att, book] = await Promise.all([
     repo.findMany("QuestionAttempt", { studentId, createdAt: { gte: since } }, { select: ["isCorrect", "responseMs", "createdAt"] }),
-    repo.count("StudentSkillMastery", { studentId, isMastered: true }),
+    opts.book ? Promise.resolve(opts.book) : starBook(repo, [studentId], schoolId),
   ]);
+  const mast = book.masteredKeys(studentId).size;
   const days = new Set(att.map((a) => new Date(time(a.createdAt)).toISOString().slice(0, 10))).size;
   const term = subjects.map((x) => x.latest?.term).filter(Boolean).sort().pop() ?? null;
   const note = await familyNote(repo, schoolId, studentId);
@@ -474,9 +489,20 @@ export async function familyNextSkills(repo: Repo, actor: Actor, studentId: stri
   const docs = await Promise.all(subjects.map((subject) => studyPlan(repo, actor, studentId, subject, { student }).catch(() => null)));
   const out: string[] = [];
   const seen = new Set<string>();
+  // never a ⭐ skill (readySkills skips "MASTERED", which is the star only); 🔄 needs review first; one name per key
+  const picks: { name: string; key: string; review: boolean }[] = [];
   for (const d of docs) {
     if (!d) continue;
-    for (const k of readySkills(d, max)) { if (!seen.has(k.name)) { seen.add(k.name); out.push(k.name); } }
+    const refs = new Map(d.areas.flatMap((a) => a.stages.flatMap((st) => st.topics.flatMap((t) => t.statements.flatMap((x) => x.skills)))).map((k) => [k.id, k]));
+    for (const k of readySkills(d, max * 4)) {
+      const r = refs.get(k.id);
+      if (r?.star && (r.star.status === "MASTERED" || r.star.status === "NEXT_LEVEL")) continue;
+      picks.push({ name: k.name, key: r?.key ?? k.id, review: r?.star?.status === "NEEDS_REVIEW" });
+    }
+  }
+  for (const p of [...picks.filter((x) => x.review), ...picks.filter((x) => !x.review)]) {
+    if (seen.has(p.key) || out.includes(p.name)) continue;
+    seen.add(p.key); out.push(p.name);
   }
   return out.slice(0, max);
 }
@@ -486,8 +512,10 @@ export async function classFamilyReports(repo: Repo, actor: Actor, classId: stri
   const klass = await assertClassRead(repo, actor, classId);
   const ids = await classMembers(repo, classId);
   const docs: FamilyDoc[] = [];
-  // ⚡ the students' reports a few at a time (was one after another: ~10 round trips per student, in a row)
-  for (const d of await mapLimit(ids, (id) => familyReport(repo, actor, id, now))) if (d.subjects.length) docs.push(d);
+  // ⚡ the students' reports a few at a time (was one after another: ~10 round trips per student, in a row); the
+  // class's stars are read ONCE for every student's "Skills mastered" (⭐ by key)
+  const book = await starBook(repo, ids, actor.schoolId ?? null);
+  for (const d of await mapLimit(ids, (id) => familyReport(repo, actor, id, now, { book }))) if (d.subjects.length) docs.push(d);
   docs.sort((a, b) => a.student.name.localeCompare(b.student.name));
   return { className: s(klass.name), docs };
 }

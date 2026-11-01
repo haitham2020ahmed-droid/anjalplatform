@@ -23,8 +23,8 @@ export function StudentAnalyticsView({ a }: { a: StudentAnalytics }) {
         <M label="Sessions completed" value={String(a.sessions)} />
         <M label="Longest session" value={`${a.longestSessionMinutes} min`} />
         <M label="Skills practised" value={String(a.skillsAttempted)} />
-        <M label="Mastered / developing" value={`${a.skillsMastered} / ${a.skillsDeveloping}`} />
-        <M label="Needing support" value={String(a.skillsNeedingIntervention)} />
+        <M label="⭐ Mastered / ◐ in progress" value={`${a.skillsMastered} / ${a.skillsDeveloping}`} />
+        <M label="🔄 Needing support" value={String(a.skillsNeedingIntervention)} />
         <M label="Ability (θ)" value={a.ability === null ? "–" : String(a.ability)} />
         <M label="Reading range" value={a.readingRange ?? "After placement"} />
         <M label="Best streak correct" value={String(a.streakCorrect.longest)} />

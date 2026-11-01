@@ -23,6 +23,7 @@ import { newRowId, pairsKey, planSource, recentTwin, sendLock, sendPartsBatch, t
 import { assertClassAccess } from "../teacher/assignments";
 import { planKindOf, programOfPlanKind, trackOfProgram, type Program } from "./program";
 import { masteredBySkill } from "../skills/status-extras";
+import { EXCLUDE_MASTERED_STUDENTS } from "../skills/star-read";
 
 const s = (v: unknown) => String(v ?? "");
 /** most skills one plan may send at once (each is one assignment) */
@@ -99,7 +100,7 @@ export async function sendProgramPlan(repo: Repo, actor: Actor, input: SendPlanI
     }
     if (!bySkill.size) throw new ValidationError("Choose at least one skill.");
     // ⭐ "N students already mastered this skill — exclude them?" → Yes: a student never repeats a mastered skill
-    if (input.excludeMastered) {
+    if (input.excludeMastered && EXCLUDE_MASTERED_STUDENTS) {
       const mastered = await masteredBySkill(repo, s(klass.schoolId), [...members], [...bySkill.keys()]);
       for (const [skillId, who] of bySkill) { for (const id of mastered.get(skillId) ?? []) who.delete(id); if (!who.size) bySkill.delete(skillId); }
       if (!bySkill.size) throw new ValidationError("Every student already mastered these skills.");

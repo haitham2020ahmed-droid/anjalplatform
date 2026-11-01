@@ -13,6 +13,8 @@
  * Every function reads in a fixed number of queries; the graph walk is in memory and cycle-safe.
  */
 import type { Repo, Row } from "../seeding/repo";
+import { starBook, starMastered, starNeedsReview, type StarBook } from "../skills/star-read";
+import type { StarStatus } from "../skills/status";
 
 const s = (v: unknown) => String(v ?? "");
 const family = (code: string) => (code.includes(".") ? code.slice(code.indexOf(".") + 1) : code);
@@ -83,7 +85,13 @@ export function descendants(g: Graph, skillId: string): string[] {
   return [...out];
 }
 
-export interface SkillState { mastery: number; attempts: number; theta: number | null; recentErrors: number; recentAnswers: number; misconception: string | null; isMastered: boolean }
+/**
+ * ⭐ (owner, 1 Nov 2026): `isMastered` is the skill's STAR (SkillStatus ⭐ MASTERED / NEXT_LEVEL, by skill key — every
+ * copy of a skill shares it), the same as My Skills; never the engine's old isMastered. `star` / `key` / `reviewDue`
+ * (🔄 NEEDS_REVIEW, or a ⭐ whose review check is due) come from the same star. `mastery` stays the engine's score
+ * (ordering and "weak" only).
+ */
+export interface SkillState { mastery: number; attempts: number; theta: number | null; recentErrors: number; recentAnswers: number; misconception: string | null; isMastered: boolean; star?: StarStatus; key?: string; reviewDue?: boolean; reviewDueAt?: string | null; starScore?: number }
 
 /** Recent answers read per skill (the last RECENT_PER_SKILL of each); per-skill queries run this many at a time. */
 const RECENT_PER_SKILL = 10;
@@ -96,9 +104,10 @@ const RECENT_BATCH = 25;
  */
 export async function skillStates(repo: Repo, studentId: string, skillIds: string[]): Promise<Map<string, SkillState>> {
   if (!skillIds.length) return new Map();
-  const [mastery, abil] = await Promise.all([
-    repo.findMany("StudentSkillMastery", { studentId, skillId: { in: skillIds } }, { select: ["skillId", "score", "attempts", "isMastered"] }),
+  const [mastery, abil, book] = await Promise.all([
+    repo.findMany("StudentSkillMastery", { studentId, skillId: { in: skillIds } }, { select: ["skillId", "score", "attempts"] }),
     repo.findMany("StudentAbility", { studentId, scope: { in: skillIds.map((id) => `SKILL:${id}`) } }, { select: ["skillId", "theta"] }),
+    starBook(repo, [studentId]),
   ]);
   const practised = [...new Set(mastery.filter((r) => Number(r.attempts ?? 0) > 0).map((r) => s(r.skillId)))];
   const recent: Row[] = [];
@@ -106,7 +115,7 @@ export async function skillStates(repo: Repo, studentId: string, skillIds: strin
     const parts = await Promise.all(practised.slice(i, i + RECENT_BATCH).map((skillId) => recentAnswers(repo, studentId, skillId)));
     for (const p of parts) recent.push(...p);
   }
-  return statesOf(skillIds, mastery, abil, recent);
+  return statesOf(skillIds, mastery, abil, recent, book, studentId);
 }
 
 const recentAnswers = (repo: Repo, studentId: string, skillId: string) => repo.findMany("QuestionAttempt", { studentId, skillId }, {
@@ -123,9 +132,10 @@ export async function skillStatesMany(repo: Repo, studentIds: string[], skillIds
   if (!studentIds.length) return out;
   if (!skillIds.length) { for (const id of studentIds) out.set(id, new Map()); return out; }
   const ids = [...new Set(studentIds)];
-  const [mastery, abil] = await Promise.all([
-    repo.findMany("StudentSkillMastery", { studentId: { in: ids }, skillId: { in: skillIds } }, { select: ["studentId", "skillId", "score", "attempts", "isMastered"] }),
+  const [mastery, abil, book] = await Promise.all([
+    repo.findMany("StudentSkillMastery", { studentId: { in: ids }, skillId: { in: skillIds } }, { select: ["studentId", "skillId", "score", "attempts"] }),
     repo.findMany("StudentAbility", { studentId: { in: ids }, scope: { in: skillIds.map((id) => `SKILL:${id}`) } }, { select: ["studentId", "skillId", "theta"] }),
+    starBook(repo, ids),
   ]);
   const group = (rows: Row[]) => { const m = new Map<string, Row[]>(); for (const r of rows) { const k = s(r.studentId); const l = m.get(k); if (l) l.push(r); else m.set(k, [r]); } return m; };
   const mBy = group(mastery), aBy = group(abil);
@@ -137,11 +147,11 @@ export async function skillStatesMany(repo: Repo, studentIds: string[], skillIds
     const got = await Promise.all(part.map(([id, k]) => recentAnswers(repo, id, k)));
     part.forEach(([id], j) => { const l = recent.get(id); if (l) l.push(...got[j]); else recent.set(id, [...got[j]]); });
   }
-  for (const id of ids) out.set(id, statesOf(skillIds, mBy.get(id) ?? [], aBy.get(id) ?? [], recent.get(id) ?? []));
+  for (const id of ids) out.set(id, statesOf(skillIds, mBy.get(id) ?? [], aBy.get(id) ?? [], recent.get(id) ?? [], book, id));
   return out;
 }
 
-function statesOf(skillIds: string[], mastery: Row[], abil: Row[], recent: Row[]): Map<string, SkillState> {
+function statesOf(skillIds: string[], mastery: Row[], abil: Row[], recent: Row[], book: StarBook, studentId: string, now = Date.now()): Map<string, SkillState> {
   const out = new Map<string, SkillState>();
   const m = new Map(mastery.map((r) => [s(r.skillId), r])), th = new Map(abil.map((r) => [s(r.skillId), Number(r.theta)]));
   const rec = new Map<string, Row[]>();
@@ -150,7 +160,10 @@ function statesOf(skillIds: string[], mastery: Row[], abil: Row[], recent: Row[]
     const l = rec.get(id) ?? [], wrong = l.filter((r) => !r.isCorrect);
     const c = new Map<string, number>(); for (const w of wrong) if (w.misconception) c.set(s(w.misconception), (c.get(s(w.misconception)) ?? 0) + 1);
     const top = [...c.entries()].sort((a, b) => b[1] - a[1])[0];
-    out.set(id, { mastery: Number(m.get(id)?.score ?? 0), attempts: Number(m.get(id)?.attempts ?? 0), theta: th.has(id) ? th.get(id)! : null, recentErrors: wrong.length, recentAnswers: l.length, misconception: top && top[1] >= 2 ? top[0] : null, isMastered: Boolean(m.get(id)?.isMastered) });
+    // ⭐ the star of the skill's KEY (copies share it); 🔄 or a ⭐ whose review check is due → reviewDue
+    const v = book.of(studentId, id);
+    const due = starNeedsReview(v) || (starMastered(v) && !!v.reviewDueAt && new Date(v.reviewDueAt).getTime() <= now);
+    out.set(id, { mastery: Number(m.get(id)?.score ?? 0), attempts: Number(m.get(id)?.attempts ?? 0), theta: th.has(id) ? th.get(id)! : null, recentErrors: wrong.length, recentAnswers: l.length, misconception: top && top[1] >= 2 ? top[0] : null, isMastered: starMastered(v), star: v.status, key: book.keyOf(id), reviewDue: due, reviewDueAt: v.reviewDueAt, starScore: v.score });
   }
   return out;
 }

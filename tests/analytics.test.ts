@@ -176,7 +176,9 @@ describe("analytics on the database", () => {
     const national = c.external.find((e) => e.scope === "NATIONAL")!;
     assert.equal(national.available, false);
     assert.equal(national.message, NO_NATIONAL);
-    assert.equal(c.distribution.reduce((t, b) => t + b.count, 0), 3);
+    // ⭐ (stars unify, 1 Nov 2026) the distribution is the class's started student × skill pairs by star
+    assert.deepEqual(c.distribution.map((b) => b.label), ["Mastered", "In progress", "Needs review"]);
+    assert.ok(c.distribution.reduce((t, b) => t + b.count, 0) >= c.rows[0].studentsWithData, "every student with data has at least one started skill");
   });
 
   test("an imported national reference is shown with its source", async () => {

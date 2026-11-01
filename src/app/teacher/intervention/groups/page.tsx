@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { StarGlyph } from "@/components/skills/skill-star";
 import { AppShell } from "@/components/app-shell";
 import { PageHeader } from "@/components/page-header";
 import { getActor, repo, requireActor } from "@/server/auth/next";
@@ -33,7 +34,7 @@ export default async function InterventionGroupsPage({ searchParams }: { searchP
   return (
     <AppShell name={String(me.displayName)}>
       <PageHeader back={{ href: "/teacher/learning-loop", label: "Learning Loop" }} icon="🎯" title="Intervention groups"
-        subtitle="Choose a small group and one skill. The platform saves each student's mastery now, shows the change while the group runs, and tells you the result at the end — so you know what works." />
+        subtitle="Choose a small group and one skill. The platform saves each student's skill score now, shows the score change and each student's star while the group runs, and tells you the result at the end — so you know what works." />
       {sp.msg && <p role="status" className="mb-4 rounded-xl bg-teal-50 p-3 text-sm text-teal-900 ring-1 ring-teal-200">{sp.msg}</p>}
       <nav aria-label="Classes" className="flex flex-wrap gap-2">{classes.map((c) => <Link key={String(c.id)} href={`/teacher/intervention/groups?class=${c.id}`} className={chip(c.id === klass?.id)}>{String(c.name)}</Link>)}</nav>
       {klass && (
@@ -58,8 +59,8 @@ export default async function InterventionGroupsPage({ searchParams }: { searchP
               <h3 className="text-lg font-bold text-brand-navy">{v.title} <span className="text-sm font-normal text-slate-500">· {v.skillName}</span></h3>
               <span className="text-sm text-slate-600">{v.startedAt} → {v.endsAt} · {v.status === "DONE" ? "✅ finished" : `${v.daysLeft} day(s) left`}</span>
             </div>
-            <p className="mt-1 text-sm"><b className={v.avgChange > 0 ? "text-emerald-700" : v.avgChange < 0 ? "text-red-700" : "text-slate-700"}>{v.avgChange > 0 ? "+" : ""}{v.avgChange} average mastery</b> · {v.improved} of {v.total} improved by 5+</p>
-            <ul className="mt-2 grid gap-1 text-sm sm:grid-cols-2">{v.students.map((x) => <li key={x.id} className="flex justify-between rounded-lg bg-white px-3 py-1 ring-1 ring-slate-100"><bdi>{x.name}</bdi><span className="tabular-nums text-slate-600">{x.before} → {x.now} <b className={x.change > 0 ? "text-emerald-700" : x.change < 0 ? "text-red-700" : ""}>({x.change > 0 ? "+" : ""}{x.change})</b></span></li>)}</ul>
+            <p className="mt-1 text-sm"><b className={v.avgChange > 0 ? "text-emerald-700" : v.avgChange < 0 ? "text-red-700" : "text-slate-700"}>{v.avgChange > 0 ? "+" : ""}{v.avgChange} average score</b> · {v.improved} of {v.total} improved (earned the ⭐ or +5 score)</p>
+            <ul className="mt-2 grid gap-1 text-sm sm:grid-cols-2">{v.students.map((x) => <li key={x.id} className="flex justify-between rounded-lg bg-white px-3 py-1 ring-1 ring-slate-100"><span className="inline-flex items-center gap-1.5"><StarGlyph status={x.star} size={14} /><bdi>{x.name}</bdi>{x.earned ? <span className="text-xs font-semibold text-amber-700">new ⭐</span> : null}</span><span className="tabular-nums text-slate-600">score {x.before} → {x.now} <b className={x.change > 0 ? "text-emerald-700" : x.change < 0 ? "text-red-700" : ""}>({x.change > 0 ? "+" : ""}{x.change})</b></span></li>)}</ul>
           </article>
         ))}
         {!list.length && <p className="text-slate-600">No intervention groups in this class yet.</p>}

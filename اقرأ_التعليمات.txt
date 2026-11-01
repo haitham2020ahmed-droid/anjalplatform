@@ -1,82 +1,80 @@
-السلام عليكم أستاذ هيثم،
+تعليمات تطبيق تحديث مكتبة ReadRise (المهام #281 + #282 + #283)
+==================================================================
 
-ده ملف التحديث النهائي اللي هينزل على المنصة من التيرمينال - فيه كل حاجة مجمعة في زيب واحد (التحديثات + الإصلاحات + حل RTI الكامل)، مش محتاج تطبق أكتر من ملف.
+ما الموجود في هذا الملف المضغوط؟
+---------------------------------
+264 ملف، كلها داخل مشروعك بنفس المسار بالضبط:
 
-===========================================
-الخطوات (كلها مجمعة في بلوك واحد):
-===========================================
+1) 250 ملف مقال جديد:
+   - data/readrise/articles/RR-201.json  إلى  RR-290.json
+     (تكملة المهمة #281: رفع كل موضوع قديم إلى 29 مقال)
+   - data/readrise/articles/RR-291.json  إلى  RR-320.json
+     (مهمة #282 الجزء الأول: 30 مقال "Arts & Culture" فنون وثقافة)
+   - data/readrise/articles/RR-321.json  إلى  RR-350.json
+     (مهمة #282 الجزء الثاني: 30 مقال "Geography" جغرافيا)
+   - data/readrise/articles/RR-351.json  إلى  RR-450.json
+     (مهمة #283: 100 مقال "Fiction" قصص خيالية - أول محتوى قصصي في المكتبة)
 
-١) افتح Terminal على الماك بتاعك.
+2) 11 ملف مقال قديم تم تصحيحه (كانت فيه ثغرة بسيطة اكتشفتها أثناء الفحص الشامل):
+   RR-021, RR-043, RR-073, RR-129, RR-132, RR-138, RR-145,
+   RR-150, RR-164, RR-181, RR-182
+   (أضفت لكل واحد جملة واحدة طبيعية في النسخة الأعلى مستوى لحل مشكلة فنية في الفحص،
+   المحتوى نفسه لم يتغير في جوهره)
 
-٢) روح لمجلد المشروع:
-cd /Users/haithamahmed/Downloads/project/alanjal-adaptive-ela
+3) 3 ملفات كود/إعدادات معدّلة من قبل (موجودة أصلاً من جلسة سابقة):
+   - data/readrise/FORMAT.md
+   - scripts/readrise/check.mts
+   - src/server/readrise/import.ts
 
-٣) تأكد إنك مجهز وعندك آخر نسخة:
-git status
-git pull origin main
+كل المحتوى تمت كتابته من الصفر (أصلي بالكامل)، وتم فحصه بالكامل ليكون
+مناسبًا لطلاب الصفوف 4-6 في السعودية، وخاليًا من أي شيء غير مناسب
+(خمور، لحم خنزير، قمار، علاقات عاطفية، أعياد غير إسلامية، إلخ).
 
-٤) فك ملفات الزيب ده فوق مجلد المشروع (استبدل أي ملف موجود بنفس الاسم).
+النتيجة النهائية: مكتبة ReadRise الآن فيها 450 مقال، كل واحد فيه 14 نسخة
+بمستويات قراءة مختلفة (300 إلى 1600)، وكل المقالات نجحت في فحص الجودة
+التلقائي (check.mts) بدون أي خطأ واحد.
 
-٥) تأكد إن كل حاجة اتحطت صح:
-git status
+خطوات التطبيق (بالترتيب):
+---------------------------
+1. افتح الـ Terminal وروح لمجلد المشروع عندك على جهازك.
 
-المفروض تشوف الملفات دي "modified":
-- src/components/skill-picker/assign-steps.tsx
-- src/components/teacher/assigned-qr-button.tsx
-- src/server/plans/start.ts
-- src/server/nafs/strengths.ts
-- src/server/nafs/adaptive-report.ts
-- src/server/nafs/dashboard.ts
-- src/server/teacher/skill-assign.ts
-- src/server/map/sim.ts
-- src/server/curriculum-map/leveled-run.ts
-- src/server/curriculum-map/plans.ts
-- src/server/readrise/teacher.ts
-- src/server/tiers/struggling.ts
-- src/server/reports/monthly-report.ts
-- src/server/practice/session.ts
-- src/server/practice/completion.ts
-- src/app/teacher/actions.ts
-- src/app/teacher/skill-assign/actions.ts
-- src/app/teacher/skill-assign/page.tsx
-- src/app/teacher/readrise/actions.ts
-- src/app/teacher/readrise/page.tsx
-- src/app/teacher/assignments/new/page.tsx
-- src/app/teacher/assignments/new/assignment-form.tsx
-- src/i18n/en.ts
-- src/i18n/ar.ts
-- tests/r70-reports-a.test.ts
-- tests/update20.test.ts
-- tests/update25.test.ts
-- tests/practice-30-pool.test.ts
-- tests/tiers.test.ts (ملف جديد)
+2. تأكد إنك على فرع (branch) نظيف وما فيه تعديلات معلقة:
+   git status
 
-٦) اعمل commit:
-git add -A
-git commit -m "feat: real-mastery assign gate + multi-class assign + QR copy-as-image + seven-expert audit fixes + RTI wired to the real support-tier rules"
+3. فك ضغط هذا الملف، وانسخ كل الملفات والمجلدات اللي بداخله
+   (ابتداءً من مجلد data و scripts و src)
+   إلى مجلد المشروع عندك، بحيث تحل محل أو تضاف بجانب الملفات
+   الموجودة بنفس المسار. (فك الضغط فوق مجلد المشروع مباشرة هو الأسهل،
+   لأن التراكيب (المسارات) متطابقة تمامًا.)
 
-٧) ارفع التحديث على GitHub:
-git push origin main
+4. تحقق من التغييرات:
+   git status
+   (المفروض تشوف ~250 ملف جديد (untracked) و 14 ملف معدّل (modified))
 
-٨) روح على Render، افتح السيرفس "anjalplatform"، واضغط Manual Deploy → Deploy latest commit.
+5. شغّل فاحص الجودة على كل المكتبة للتأكيد (اختياري لكنه مفيد):
+   npx tsx scripts/readrise/check.mts data/readrise/articles/RR-*.json
 
-٩) استنى لغاية ما يخلص الـ deploy، وبعدين جرب المنصة.
+   لو حابب تشوف بس آخر النتيجة:
+   npx tsx scripts/readrise/check.mts data/readrise/articles/RR-*.json | grep -c "✓"
+   المفروض يطلع لك 450
 
-===========================================
-اللي فيه التحديث ده (ملخص سريع — الملف التفصيلي بالعربي اتبعت ليك في ملف Word منفصل):
-===========================================
+6. شغّل الفحوصات العادية عندك (type-check / build) حسب طريقتك المعتادة:
+   npm run typecheck
+   npm run build
 
-١) الهدف المطلوب (عدد الإجابات) بقى شرط إضافي فوق الإتقان الحقيقي، مش بديل عنه (فئة تحليل البناء والأسلوب بس).
-٢) تعيين مهارة لأكتر من فصل في وقت واحد (ReadRise، Skill-Assign التلقائي، تعيين واجب جديد).
-٣) زرار "نسخ صورة" لكود QR في شاشة المُعيّن.
-٤) كل إصلاحات فحص السبع خبراء (أداء، رسائل، تقارير، معايير المتعثر والقوة/الضعف، فرق التوقيت، التخمين السريع، وإصلاح خطأ "استلاف الأسئلة" الحرج).
-٥) نظام RTI بقى بيستخدم نفس مستوى الدعم الحقيقي (Tier 1/2/3) اللي المنصة بتحسبه يوميًا، بدل معيار منفصل وأضعف.
+7. لو كل شي تمام، أضف الملفات وسجّل الـ commit وادفعها:
+   git add data/readrise/articles data/readrise/FORMAT.md scripts/readrise/check.mts src/server/readrise/import.ts
+   git commit -m "ReadRise: إضافة 250 مقال جديد (#281 إكمال + #282 فنون وجغرافيا + #283 قصص) وتصحيح 11 مقال قديم"
+   git push
 
-===========================================
-الفحص اللي تم:
-===========================================
-- اختبارات جديدة مخصصة لكل تحديث.
-- كل الاختبارات القديمة اتشغّلت تاني بنفس النتائج - مافيش حاجة اتبوّظت.
-- فحص TypeScript على كل الملفات المعدّلة - مافيش أخطاء جديدة.
+8. بعد النشر، شغّل أمر إعادة تحميل محتوى ReadRise في قاعدة البيانات
+   (نفس الطريقة التي تستخدمها عادة بعد أي تحديث لمحتوى ReadRise - عادة db:seed أو أمر مشابه حسب إعدادك).
 
-لو في أي استفسار أنا موجود.
+ملاحظة مهمة:
+-------------
+ما عدلت أي شيء في قاعدة البيانات (schema) - كل التغيير محتوى (JSON) فقط،
+بالإضافة لتعديلات صغيرة سابقة في 3 ملفات كود كانت ضرورية لإضافة
+"Arts & Culture" و"Geography" و"Fiction" كمواضيع صالحة ولإصلاح باقين بالفاحص
+(check.mts) - وهذه التعديلات كانت موجودة من جلسة سابقة ولم تتغير الآن.
+
+لو واجهت أي مشكلة أو ظهرت أي رسالة خطأ، ابعتها لي وأنا أحلها معك.

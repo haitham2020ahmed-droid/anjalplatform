@@ -2,7 +2,7 @@
 import { useActionState, useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { assignSkillAction, masteredCountAction, priorAssignmentAction, withdrawAssignmentsAction } from "./actions";
-import { ExcludeMasteredPrompt } from "@/components/assign/exclude-mastered";
+import { excludeQuestion } from "@/components/assign/exclude-mastered";
 import { PriorAssignedPrompt } from "@/components/assign/prior-assigned";
 import { useT } from "@/i18n/client";
 import { BTN_SECONDARY } from "@/components/ui-kit/tokens";
@@ -77,7 +77,7 @@ function AssignForm({ skill, classId, classes, track, close }: { skill: Skill; c
   const [withdrawn, setWithdrawn] = useState<string | null>(null);
   // ⭐ "N students already mastered this skill — exclude them?" (asked for the chosen classes; Yes / No)
   const [mastered, setMastered] = useState(0);
-  const [exclude, setExclude] = useState<boolean | null>(null);
+  const [, setExclude] = useState<boolean | null>(null);
   // ⭐ "This class already has this skill assigned — assign it again?" (same question as /teacher/skill-assign);
   // re-checked whenever the chosen classes change, reset on every change so one confirm never carries over.
   const [priorAssigned, setPriorAssigned] = useState(false);
@@ -167,10 +167,8 @@ function AssignForm({ skill, classId, classes, track, close }: { skill: Skill; c
               <label className="flex flex-col">Note to students<textarea name="note" rows={2} maxLength={1000} className={field} /></label>
             </div>
           </details>
-          {exclude && <input type="hidden" name="excludeMastered" value="1" />}
-          {mastered > 0 && !state.message && (exclude === null
-            ? <ExcludeMasteredPrompt count={mastered} t={t} onYes={() => setExclude(true)} onNo={() => setExclude(false)} />
-            : <p className="text-xs text-slate-600">⭐ {exclude ? t("Students who mastered this skill are left out.") : t("Students who mastered this skill get it too.")} <button type="button" onClick={() => setExclude(null)} className="font-semibold text-brand-teal underline">{t("Change")}</button></p>)}
+          {/* owner 1 Nov 2026: nobody is left out — the students who already mastered it get a 20-question review */}
+          {mastered > 0 && !state.message && <p className="rounded-lg bg-amber-50 px-2 py-1 text-xs text-amber-950 ring-1 ring-amber-200">⭐ {excludeQuestion(mastered, t)}</p>}
           {state.error && <p role="alert" className="rounded-lg bg-red-50 px-3 py-2 text-sm text-red-800">{state.error}</p>}
           {state.message && <p role="status" className="animate-pop rounded-lg bg-teal-50 px-3 py-2 text-sm text-teal-900">✓ {withdrawn ?? state.message}</p>}
           {state.message

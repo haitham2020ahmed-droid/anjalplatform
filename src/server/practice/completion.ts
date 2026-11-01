@@ -20,6 +20,8 @@
  */
 import type { Repo, Row } from "../seeding/repo";
 import { skillFamilyIds } from "../questions/skill-questions";
+import { countedAnswers, currentRows, decideStatus, engineMastery, historyOf, levelStart, REVIEW_AGAIN_DAYS, skillKeyIndex, studentSchool, viewOf } from "../skills/status";
+import { starMastered } from "../skills/star-read";
 
 const s = (v: unknown) => String(v ?? "");
 const d = (v: unknown): Date | null => (v === null || v === undefined || v === "" ? null : v instanceof Date ? v : new Date(String(v)));
@@ -173,17 +175,113 @@ export async function markDone(repo: Repo, assignmentIds: readonly string[], stu
 }
 
 /**
+ * ⭐ Is the student's star for the work's skill KEY ⭐ with this answer? (owner, 1 Nov 2026: the work is "mastered"
+ * only by the ONE skill status, never by the old engine flag alone.) ⭐ already (MASTERED / NEXT_LEVEL, any copy of
+ * the skill), or this answer makes it ⭐ by the star's OWN rule, computed exactly as skills/status.ts
+ * refreshSkillStatus does (decideStatus: ≥ 30 counted answers at the level — every copy, NAFS and ReadRise practice
+ * included, rapid guesses never — plus the engine's mastery; after a failed review 10 new answers). The star row itself
+ * is written right after the response; this reads the same data inside the answer's transaction (this answer
+ * included), so the work and the star agree. Used only from the 30th counted answer of the work.
+ */
+export async function workStarNow(repo: Repo, assignmentId: string, studentId: string, engineMastered: boolean, pending = 0): Promise<boolean> {
+  try {
+    const a = await repo.findUnique("Assignment", { id: assignmentId });
+    const skillId = a ? skillOfAssignment(a) : null;
+    return skillId ? await skillStarNow(repo, studentId, skillId, engineMastered, pending) : false;
+  } catch { return false; }
+}
+
+/**
+ * ⭐ Is (or becomes, with `pending` more counted answers not saved yet) the student's star of this skill's KEY
+ * Mastered? The star's own rule (status.ts decideStatus: ≥ 30 counted practice answers across every copy of the
+ * skill + the engine's mastery) — so a session or a piece of work is "mastered" exactly when the ⭐ is.
+ */
+export async function skillStarNow(repo: Repo, studentId: string, skillId: string, engineMastered: boolean, pending = 0): Promise<boolean> {
+  try {
+    const schoolId = await studentSchool(repo, studentId);
+    if (!schoolId) return false;
+    const ix = await skillKeyIndex(repo, schoolId);
+    const key = ix.keyOf.get(skillId);
+    if (!key) return false;
+    const rows = await repo.findMany("SkillStatus", { studentId, skillKey: key });
+    const cur = currentRows(rows).get(key) ?? null;
+    const v = cur ? viewOf(cur) : null;
+    if (starMastered(v)) return true;
+    const skillIds = ix.skillsOf.get(key) ?? [skillId];
+    const [cnt, eng] = await Promise.all([countedAnswers(repo, studentId, skillIds, levelStart(rows, cur)), engineMastery(repo, studentId, skillIds)]);
+    const failAt = v?.status === "NEEDS_REVIEW" ? Math.max(0, ...historyOf(cur?.history).filter((h) => s(h.status) === "NEEDS_REVIEW").map((h) => new Date(s(h.at)).getTime() || 0)) : 0;
+    const sinceFail = failAt ? cnt.at.filter((x) => x > failAt).length + pending : 0;
+    return decideStatus(v ? v.status : null, cnt.answered + pending, engineMastered || eng.mastered, { sinceFail }).status === "MASTERED";
+  } catch { return false; }
+}
+
+/**
  * One answer counted toward the work's core result (the answers given until the work is Done, at most 50), in the
  * answer's own transaction. Guarded by the stored count (a double submit or a second tab is counted once). The work
- * becomes Done (completedAt IS NULL guard: written once) when the skill is mastered at or after the 30th answer AND
- * (if the teacher set a required correct-answer count) that many of the counted answers are correct, or at the 50th
- * answer regardless. `mastered` = the engine's mastery after this answer. `count` = the teacher's own required number
- * of CORRECT answers (r91 — an extra bar on top of mastery, never a replacement for the 30–50 window). Returns the
- * new counts and, when this answer made the work Done, why ("MASTERED": mastered and (if set) the count was met, or
- * "MAX": 50 answers without clearing both — the student then chooses), else null.
+ * becomes Done (completedAt IS NULL guard: written once) when, at or after the 30th answer, the student's star for the
+ * skill's KEY is ⭐ (workStarNow) AND (if the teacher set a required correct-answer count) that many of the counted
+ * answers are correct, or at the 50th answer regardless. `mastered` = the engine's mastery after this answer (only an
+ * input of the star's own rule). `count` = the teacher's own required number of CORRECT answers (r91 — an extra bar,
+ * never a replacement for the 30–50 window). Returns the new counts and, when this answer made the work Done, why
+ * ("MASTERED": ⭐ and (if set) the count was met, or "MAX": 50 answers without clearing both — the student then
+ * chooses), else null.
  */
+/**
+ * 🔄 Review work (owner, 1 Nov 2026): a skill the student had ALREADY mastered (⭐ earned before the work was set) is
+ * not practised again from zero — the work is a REVIEW: 20 counted answers (rapid guesses never count); 16 or more
+ * right (80 %) → the work is Done and the ⭐ stays (its next review moves on); fewer → the star becomes 🔄 Needs review,
+ * the teacher is told, and the work carries on as normal practice until the skill is mastered again (or 50 answers).
+ */
+export const REVIEW_WORK_QUESTIONS = 20;
+export const REVIEW_WORK_PASS = 16;
+const ms0 = (v: unknown) => (v === null || v === undefined || v === "" ? 0 : v instanceof Date ? v.getTime() : new Date(String(v)).getTime() || 0);
+
+/** Pure: is this work a review? (⭐ now, earned on or before the day the work was set). */
+export function isReviewWork(star: { status: string; masteredAt?: unknown } | null | undefined, assignedAt: unknown): boolean {
+  if (!star || !(star.status === "MASTERED" || star.status === "NEXT_LEVEL")) return false;
+  const m = ms0(star.masteredAt), a = ms0(assignedAt);
+  return m > 0 && a > 0 && m <= a;
+}
+
+/**
+ * Is this work a REVIEW for the student? Read BEFORE the answer's transaction (the cached key index): the skill's key
+ * when the student's ⭐ on it predates the work, else false.
+ */
+export async function reviewKeyOf(repo: Repo, assignmentId: string, studentId: string): Promise<string | false> {
+  try {
+    const a = await repo.findUnique("Assignment", { id: assignmentId });
+    const skillId = a ? skillOfAssignment(a) : null;
+    if (!a || !skillId) return false;
+    const schoolId = await studentSchool(repo, studentId);
+    if (!schoolId) return false;
+    const key = (await skillKeyIndex(repo, schoolId)).keyOf.get(skillId);
+    if (!key) return false;
+    const row = currentRows(await repo.findMany("SkillStatus", { studentId, skillKey: key })).get(key) ?? null;
+    return row && isReviewWork({ status: s(row.status), masteredAt: row.masteredAt }, a.createdAt) ? key : false;
+  } catch { return false; }
+}
+
+/**
+ * At the review's 20th counted answer: settle it. Returns "PASS" (Done, ⭐ kept), "FAIL" (🔄, keep practising) or
+ * null when the work is not a review. Written in the answer's transaction (the star row, and one alert on a fail).
+ */
+async function settleReviewWork(tx: Repo, assignmentId: string, studentId: string, right: number, at: Date, key: string): Promise<"PASS" | "FAIL" | null> {
+  const a = await tx.findUnique("Assignment", { id: assignmentId });
+  if (!a) return null;
+  const row = currentRows(await tx.findMany("SkillStatus", { studentId, skillKey: key })).get(key) ?? null;
+  if (!row || !isReviewWork({ status: s(row.status), masteredAt: row.masteredAt }, a.createdAt)) return null;
+  const pass = right >= REVIEW_WORK_PASS;
+  const h = [...historyOf(row.history), { at: at.toISOString(), review: pass ? "PASS" : "FAIL", right, of: REVIEW_WORK_QUESTIONS, work: assignmentId, ...(pass ? {} : { status: "NEEDS_REVIEW" }) }].slice(-40);
+  await tx.updateMany("SkillStatus", { id: row.id }, pass ? { reviewDueAt: new Date(at.getTime() + REVIEW_AGAIN_DAYS * 86_400_000), history: h, updatedAt: at } : { status: "NEEDS_REVIEW", reviewDueAt: null, history: h, updatedAt: at });
+  if (!pass && row.skillId) {
+    const open = await tx.findMany("InterventionAlert", { studentId, skillId: row.skillId, ruleCode: "REVIEW_FAILED", resolvedAt: null }, { select: ["id"] });
+    if (!open.length) await tx.create("InterventionAlert", { studentId, skillId: row.skillId, ruleCode: "REVIEW_FAILED", message: `Review: ${right} of ${REVIEW_WORK_QUESTIONS} right on a skill mastered before — it needs review again (practising now).`, evidence: { right, of: REVIEW_WORK_QUESTIONS }, createdAt: at });
+  }
+  return pass ? "PASS" : "FAIL";
+}
+
 export type DoneBy = "MASTERED" | "MAX";
-export async function countCoreAnswer(tx: Repo, assignmentId: string, studentId: string, prev: { answered: number; correct: number; stored: number | null; done: boolean }, correct: boolean, at: Date, mastered = false, count: number | null = null): Promise<{ answered: number; correct: number; justDone: boolean; doneBy: DoneBy | null } | null> {
+export async function countCoreAnswer(tx: Repo, assignmentId: string, studentId: string, prev: { answered: number; correct: number; stored: number | null; done: boolean }, correct: boolean, at: Date, mastered = false, count: number | null = null, starKnown?: boolean, review: string | false = false): Promise<{ answered: number; correct: number; justDone: boolean; doneBy: DoneBy | null } | null> {
   // Done already (mastered, the questions ran out, …): its result is frozen
   if (prev.done && prev.stored !== null) return null;
   const max = ASSIGNMENT_MAX_QUESTIONS;
@@ -191,13 +289,25 @@ export async function countCoreAnswer(tx: Repo, assignmentId: string, studentId:
     // a row from before the stored counts that already had 50 answers: its first 50 are its result, and it is Done now
     if (prev.stored === null) await tx.updateMany("AssignmentStudent", { assignmentId, studentId, coreAnswered: null }, { coreAnswered: max, coreCorrect: Math.min(prev.correct, max) });
     const n = await markDone(tx, [assignmentId], studentId, at);
-    const met = mastered && (!count || prev.correct >= count);
+    const met = n > 0 && (!count || prev.correct >= count) && (starKnown ?? (await workStarNow(tx, assignmentId, studentId, mastered)));
     return n > 0 ? { answered: max, correct: prev.correct, justDone: true, doneBy: met ? "MASTERED" : "MAX" } : null;
   }
   const answered = prev.answered + 1, right = prev.correct + (correct ? 1 : 0);
   const n = await tx.updateMany("AssignmentStudent", { assignmentId, studentId, coreAnswered: prev.stored }, { coreAnswered: answered, coreCorrect: right });
   if (n !== 1) return null;
-  const met = mastered && (!count || right >= count);
+  // 🔄 a review (the skill was ⭐ before the work was set — decided by the caller BEFORE the transaction, so no heavy
+  // read happens here): settled when its counted answers reach 20
+  if (review && prev.answered < REVIEW_WORK_QUESTIONS && answered >= REVIEW_WORK_QUESTIONS && !prev.done) {
+    const r = await settleReviewWork(tx, assignmentId, studentId, right, at, review);
+    if (r === "PASS") {
+      const justDone = (await markDone(tx, [assignmentId], studentId, at)) > 0;
+      return { answered, correct: right, justDone, doneBy: justDone ? "MASTERED" : null };
+    }
+    // FAIL: 🔄 now — the work goes on as normal practice (Done at ⭐ again with 30+ answers, or at 50)
+    if (r === "FAIL") return { answered, correct: right, justDone: false, doneBy: null };
+  }
+  // the caller (session.ts) checks the ⭐ BEFORE the transaction and passes it: no heavy read inside the write
+  const met = answered >= ASSIGNMENT_MIN_QUESTIONS && (!count || right >= count) && (starKnown ?? (await workStarNow(tx, assignmentId, studentId, mastered)));
   const doneBy: DoneBy | null = answered >= ASSIGNMENT_MIN_QUESTIONS && met ? "MASTERED" : answered >= ASSIGNMENT_MAX_QUESTIONS ? "MAX" : null;
   // Done now (written once: a row already Done stays Done and is not "just" Done)
   const justDone = Boolean(doneBy) && !prev.done && (await markDone(tx, [assignmentId], studentId, at)) > 0;

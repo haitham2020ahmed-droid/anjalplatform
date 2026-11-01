@@ -46,6 +46,10 @@ describe("📊 School Analytics dashboard", () => {
     for (let i = 0; i < 3; i++) await add(students[1], qB[0], true, new Date(now.getTime() - DAY), true);
     await add(students[2], qB[0], true, new Date(now.getTime() - 21 * DAY));
     await repo.create("StudentSkillMastery", { studentId: students[0], skillId: qB[0].skillId, score: 80, isMastered: true, attempts: 6, correct: 5 });
+    // ⭐ stars (1 Nov 2026): "mastered" and the average are read from SkillStatus (by key), not the engine's table
+    const { skillKeysFor } = await import("../src/server/skills/status");
+    const key = (await skillKeysFor(repo, String(admin.schoolId), [String(qB[0].skillId)])).get(String(qB[0].skillId))!;
+    await repo.create("SkillStatus", { studentId: students[0], skillKey: key, level: 1, status: "MASTERED", skillId: qB[0].skillId, answered: 30, correct: 27, score: 80, startedAt: now, masteredAt: now, createdAt: now, updatedAt: now });
   });
 
   test("the cards: students, active this week, answers, accuracy, mastered — rapid guesses never count", async () => {
