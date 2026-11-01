@@ -362,6 +362,30 @@ const PRACTICE_MODES = new Set(["ADAPTIVE_PRACTICE", "TEACHER_QUIZ"]);
 /** Assignment marks of tests and checks (tests/runtime TEST_MARK, the Weekly Check) — never counted. */
 const TEST_MARKS = new Set(["TEST", "WEEKLY_CHECK"]);
 
+/**
+ * Of some practice-session ids, the ones that are SKILL PRACTICE (may count toward ⭐): a practice mode, and not a
+ * test / Weekly Check / review check / "Re-check:" assignment. The one rule shared by the stars (countedAnswers) and
+ * the Practice and time report (analytics/practice.ts), so both always agree. Batched (500 ids per query).
+ */
+export async function practiceSessionIds(repo: Repo, sessionIds: readonly string[]): Promise<Set<string>> {
+  const sids = [...new Set(sessionIds.map(s).filter(Boolean))];
+  if (!sids.length) return new Set();
+  const sessions: Row[] = [];
+  for (let i = 0; i < sids.length; i += 500) sessions.push(...(await repo.findMany("PracticeSession", { id: { in: sids.slice(i, i + 500) } }, { select: ["id", "mode", "assignmentId"] })));
+  const aids = [...new Set(sessions.map((x) => s(x.assignmentId)).filter(Boolean))];
+  const as: Row[] = [], checks: Row[] = [];
+  for (let i = 0; i < aids.length; i += 500) {
+    const part = aids.slice(i, i + 500);
+    const [a, c] = await Promise.all([
+      repo.findMany("Assignment", { id: { in: part } }, { select: ["id", "testId", "curriculumPlanId", "title"] }),
+      repo.findMany("SkillReviewCheck", { assignmentId: { in: part } }, { select: ["assignmentId"] }),
+    ]);
+    as.push(...a); checks.push(...c);
+  }
+  const bad = new Set([...as.filter((a) => a.testId || TEST_MARKS.has(s(a.curriculumPlanId)) || s(a.title).startsWith("Re-check: ")).map((a) => s(a.id)), ...checks.map((c) => s(c.assignmentId))]);
+  return new Set(sessions.filter((x) => PRACTICE_MODES.has(s(x.mode)) && !bad.has(s(x.assignmentId))).map((x) => s(x.id)));
+}
+
 export interface CountedAnswers { answered: number; correct: number; at: number[] }
 /**
  * The student's answers that count for a key: skill practice of ANY copy of the skill (practice, assigned work, MAP
@@ -381,16 +405,7 @@ export async function countedAnswers(repo: Repo, studentId: string, skillIds: re
   // r68 accuracy: answers of an Unreliable session (> 20 % rapid guesses) never count toward a star
   const mine = rows.filter((r) => !s(r.source) && !r.unreliable && (!since || ms(r.createdAt) > since));
   if (!mine.length) return nafs;
-  const sids = [...new Set(mine.map((r) => s(r.sessionId)))];
-  const sessions: Row[] = [];
-  for (let i = 0; i < sids.length; i += 500) sessions.push(...(await repo.findMany("PracticeSession", { id: { in: sids.slice(i, i + 500) } }, { select: ["id", "mode", "assignmentId"] })));
-  const aids = [...new Set(sessions.map((x) => s(x.assignmentId)).filter(Boolean))];
-  const [as, checks] = aids.length ? await Promise.all([
-    repo.findMany("Assignment", { id: { in: aids } }, { select: ["id", "testId", "curriculumPlanId", "title"] }),
-    repo.findMany("SkillReviewCheck", { assignmentId: { in: aids } }, { select: ["assignmentId"] }),
-  ]) : [[], []] as Row[][];
-  const bad = new Set([...as.filter((a) => a.testId || TEST_MARKS.has(s(a.curriculumPlanId)) || s(a.title).startsWith("Re-check: ")).map((a) => s(a.id)), ...checks.map((c) => s(c.assignmentId))]);
-  const ok = new Set(sessions.filter((x) => PRACTICE_MODES.has(s(x.mode)) && !bad.has(s(x.assignmentId))).map((x) => s(x.id)));
+  const ok = await practiceSessionIds(repo, mine.map((r) => s(r.sessionId)));
   const counted = mine.filter((r) => ok.has(s(r.sessionId)));
   return {
     answered: counted.length + nafs.answered, correct: counted.filter((r) => Boolean(r.isCorrect)).length + nafs.correct,

@@ -235,6 +235,22 @@ export const R = {
   rvSent: "{n} Review(s) sent to this class so far.",
   rvOverdue: "{n} student(s) overdue on at least one Review: {names}.",
   rvNone: "No Review has been sent to this class yet.",
+  // practice and time (31 Oct 2026: the shared skills and stars)
+  ptOverview: "{n} of {total} students practised: {q} questions in {time}, {acc}% right.",
+  ptOverviewNoAcc: "{n} of {total} students practised: {q} questions in {time}.",
+  ptNone: "No practice in this range yet.",
+  ptStars: "New stars ⭐ in this range: {n} ({names}).",
+  ptStars0: "No new star ⭐ in this range yet.",
+  ptIdle: "Did not practise: {names}.",
+  ptGuess: "Answering too fast (talk with them): {names}.",
+  ptLow: "Under 60% right: {names}.",
+  ptSchool: "{school}% of the questions were answered at school, {home}% at home.",
+  ptUnlinked: "{n} answers are on Curriculum Map questions not linked to a skill yet: they build no star until the admin links them.",
+  ptNextReteach: "Next step: re-teach {skill} ({acc}% right), then assign practice on it.",
+  ptNextIdle: "Next step: follow up with the students who did not practise.",
+  ptNextKeep: "Next step: keep the practice going; open Student Skills to see who is close to a star.",
+  openStudentSkills: "Open Student Skills",
+  openNeedsAttention: "Open Needs attention",
 } as const;
 
 // ── Reports hub ──────────────────────────────────────────────────────────────────────────────────────────────────
@@ -966,6 +982,47 @@ export function reviewReportsSummary(v: ReviewReportsIn, classId: string | null)
     overdueList.length ? line(R.rvOverdue, "help", { n: overdueList.length, names: nameList(overdueList) }) : null,
   ];
   return classSummary({ rows, skills, classId, extra });
+}
+
+// ── Practice and time (31 Oct 2026) ─────────────────────────────────────────────────────────────────────────────────
+export interface PracticeIn {
+  classId: string;
+  totals: { questions: number; accuracy: number | null; minutes: number; activeStudents: number; students: number; schoolQuestions: number };
+  students: readonly { id: string; name: string; questions: number; accuracy: number | null; unreliable: number; newStars: number }[];
+  skills: readonly { key: string; skillId: string; name: string; questions: number; accuracy: number | null }[];
+  unlinked: { questions: number };
+}
+const hm = (m: number) => (m >= 60 ? `${Math.floor(m / 60)}h ${m % 60}m` : `${m} min`);
+/** The weakest skill worth re-teaching: under 60 % right with at least 5 answers (else null). Pure. */
+export function practiceWeakSkill(skills: PracticeIn["skills"]): PracticeIn["skills"][number] | null {
+  const w = skills.filter((k) => k.accuracy !== null && k.questions >= 5).sort((a, b) => (a.accuracy ?? 0) - (b.accuracy ?? 0) || b.questions - a.questions || byName(a, b))[0];
+  return w && (w.accuracy ?? 100) < 60 ? w : null;
+}
+/** Practice and time: who practised, new stars, who did not / guessed / is under 60 %, school vs home, the next step. */
+export function practiceSummary(d: PracticeIn, o: { skillsHref: (key?: string) => string; attentionHref: string }): Summary {
+  const T = d.totals;
+  if (!T.questions) return { lines: [line(R.ptNone, "info"), line(R.ptNextIdle, "next")], actions: [act("open", R.openNeedsAttention, o.attentionHref), act("practice", A.practice, hrefs.practice(d.classId))] };
+  const idle = d.students.filter((x) => !x.questions), guess = d.students.filter((x) => x.unreliable > 0), low = d.students.filter((x) => x.questions && x.accuracy !== null && x.accuracy < 60);
+  const stars = d.students.filter((x) => x.newStars > 0).sort((a, b) => b.newStars - a.newStars || byName(a, b));
+  const weak = practiceWeakSkill(d.skills);
+  const school = Math.round((100 * T.schoolQuestions) / T.questions);
+  const lines: (Line | null)[] = [
+    T.accuracy !== null ? line(R.ptOverview, "info", { n: T.activeStudents, total: T.students, q: T.questions, time: hm(T.minutes), acc: T.accuracy }) : line(R.ptOverviewNoAcc, "info", { n: T.activeStudents, total: T.students, q: T.questions, time: hm(T.minutes) }),
+    stars.length ? line(R.ptStars, "good", { n: stars.reduce((a, x) => a + x.newStars, 0), names: nameList(stars) }) : line(R.ptStars0, "info"),
+    idle.length ? line(R.ptIdle, "help", { names: nameList(idle) }) : null,
+    guess.length ? line(R.ptGuess, "help", { names: nameList(guess) }) : null,
+    low.length ? line(R.ptLow, "help", { names: nameList(low) }) : null,
+    line(R.ptSchool, "info", { school, home: 100 - school }),
+    d.unlinked.questions ? line(R.ptUnlinked, "help", { n: d.unlinked.questions }) : null,
+  ];
+  const next = weak ? line(R.ptNextReteach, "next", { skill: weak.name, acc: weak.accuracy ?? 0 }) : idle.length ? line(R.ptNextIdle, "next") : line(R.ptNextKeep, "next");
+  const actions: PlanAction[] = [];
+  if (weak) actions.push(act("open", R.openSkill, o.skillsHref(weak.key), { skill: weak.name }), act("reteach", A.reteach, hrefs.reteach(d.classId, weak.skillId)));
+  if (idle.length) actions.push(act("open", R.openNeedsAttention, o.attentionHref));
+  actions.push(act("open", R.openStudentSkills, o.skillsHref()));
+  // the overview, the stars and the next step always show; the help lines fill the rest (at most 6 lines)
+  const body = lines.filter((x): x is Line => Boolean(x));
+  return { lines: [...body.slice(0, 5), next], actions };
 }
 
 export type { Named, Scored };
