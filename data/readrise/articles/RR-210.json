@@ -1,0 +1,327 @@
+{
+  "code": "RR-210",
+  "title": "How Touchscreens Work",
+  "topic": "Technology",
+  "summary": "How a touchscreen senses a finger using tiny electric charges, how it differs from an older pressure-based screen, and how it senses many touches at once.",
+  "poll": "Touchscreens are easier to use than buttons.",
+  "versions": [
+    {
+      "level": 300,
+      "title": "How Does the Screen Know?",
+      "text": "You tap a picture. It opens fast.\n\nHow does glass know this? The glass has a sensor. A sensor can feel touch.\n\nUnder the glass is a grid. The grid is made of wires. A charge flows through it.\n\nYour skin has a charge too. You touch the glass. The charge shifts at that spot. This sends a signal. A small chip gets the signal. The chip finds the spot. It does this fast. It checks many times each second.\n\nA bare finger works well. A dry glove often does not. Skin has a charge. Dry cloth does not.\n\nSome old screens use two layers. There is a tiny gap. You press down. The layers touch. This works with any object. Even a coin works.\n\nNew screens can feel many touches. You can pinch to zoom a photo."
+    },
+    {
+      "level": 400,
+      "title": "How Does the Screen Know?",
+      "text": "You tap a picture on a tablet, and it opens fast.\n\nHow does glass know just where you touched it? The glass is part of a touchscreen. A touchscreen has a sensor inside it. The sensor can feel touch.\n\nUnder the glass is a grid. The grid is made of thin wires. A tiny charge flows through the grid all the time.\n\nYour skin carries a small charge too. When you touch the glass, the charge shifts at that spot. This change sends a signal. A small chip picks up the signal. The chip finds the exact spot. It checks this many times each second.\n\nA bare finger works well. A plain glove often does not work. Skin carries a charge. Dry cloth usually does not.\n\nSome older screens use a different kind. They have two thin layers with a tiny gap between them. You press down, even with a coin, and the two layers touch. The screen senses the spot.\n\nNew screens can sense many touches at once. This lets you pinch to zoom a photo."
+    },
+    {
+      "level": 500,
+      "title": "How a Touchscreen Senses Your Finger",
+      "text": "You tap a picture on a tablet. It opens right away. You press two fingers together. A map zooms out.\n\nHow does glass know where you touched it? The glass is part of a touchscreen. It has a sensor built in. The sensor feels touch. The screen also shows pictures.\n\nUnder the glass sits a grid. The grid is made of many thin wires. A tiny electric charge flows through this grid all the time.\n\nHuman skin naturally carries a small charge. Your finger touches the glass. The charge changes at that exact spot. This sends a signal to a small chip. The chip works out where you touched. It does this many times every second.\n\nThis is why a bare finger works well. A plain glove often does not. Skin carries a charge. Dry cloth usually does not change the signal at all.\n\nSome older screens use a different kind. They have two thin, bendy layers. There is a tiny gap of air between them. You press down anywhere, even with a coin. The two layers touch. The screen senses the exact spot.\n\nNew screens can sense many touches at once. This is why you can pinch to zoom a photo or swipe with two fingers."
+    },
+    {
+      "level": 600,
+      "title": "How a Touchscreen Senses Your Finger",
+      "text": "You tap a picture on a tablet. It opens right away. You press two fingers together on a map. The city zooms out. How does glass know exactly where you touched it?\n\nThe glass is part of a touchscreen. It is a screen with a sensor built in. The sensor feels touch. The screen also shows pictures and words.\n\nUnder the glass sits a grid of many thin wires. A tiny electric charge flows through this grid all the time. It spreads evenly across the screen and forms a field.\n\nHuman skin naturally carries a small charge of its own. Your finger touches the glass. The charge changes at that exact spot. This sends a signal to a small chip. The chip works out exactly where you touched. It does this many times every second, which is why the screen always feels fast.\n\nThis is also why a bare finger works well. A plain winter glove often does not. Skin carries a charge that changes the signal. Dry cloth usually does not change it at all.\n\nSome older screens still use a different kind. They have two thin, bendy layers with a tiny gap of air between them. You press down anywhere, even with a coin or a fingernail. The two layers touch each other. The screen senses the exact spot that was pressed.\n\nNewer screens can sense many touches at the same time. This is why you can pinch to zoom a photo, swipe with two fingers, or turn a picture using two hands."
+    },
+    {
+      "level": 700,
+      "title": "The Science Behind a Touchscreen",
+      "text": "You tap a photo on a tablet, and it opens fast. You press two fingers together on a map, and the city zooms out. How does a flat piece of glass know where you touched it?\n\nThe glass is part of a touchscreen, a screen that combines a display with a sensor. Most phones use a kind called a capacitive touchscreen. Under the glass is a thin grid of tiny wires, called electrodes. A weak charge flows through this grid all the time, making an electric field.\n\nYour skin naturally carries a small charge. When your finger touches the glass, it disturbs the field at that spot. A controller, a small chip inside the device, senses this change. It works out the coordinates, the exact spot, of your touch. It repeats this many times each second, so the screen feels fast.\n\nThis is also why a bare finger works, but a plain glove or a plastic pen often does not. Skin and some special materials act like a conductor, carrying a charge that disturbs the field, but dry cloth and plain plastic usually do not.\n\nOlder screens use a different method. They have two thin, bendy layers with a tiny gap of air between them. Pressing anywhere, even with a coin, pushes the layers together, and the screen senses the spot. These screens take any pointer, but they are less exact and usually sense only one touch.\n\nNewer screens can sense many points at once. This lets you pinch to zoom, turn a photo with two fingers, or swipe with three fingers."
+    },
+    {
+      "level": 800,
+      "title": "The Science Behind a Touchscreen",
+      "text": "You tap a photo on a tablet, and it opens fast. You press two fingers together on a map, and the whole city zooms out. How does a flat piece of glass know exactly where you touched it?\n\nThe glass is part of a touchscreen, a screen that combines a display with a sensor. Most phones and tablets use a kind called a capacitive touchscreen. Under the glass lies a thin grid of tiny wires, called electrodes, set in rows and columns. A weak charge flows through this grid all the time, making an electric field across the screen.\n\nYour skin naturally carries a small charge. When your finger touches the glass, it disturbs the field at that exact spot. A controller, a small chip inside the device, senses this change and works out the coordinates, the exact spot, of your touch. It repeats this many times every second, so the screen always feels fast.\n\nThis is also why a capacitive screen answers a bare finger but often ignores a plain glove or a plastic pen. Skin and some special materials act like a conductor, carrying a charge that disturbs the field, but dry cloth and plain plastic usually do not.\n\nOlder screens use a different method, called resistive touch. They have two thin, bendy layers with a tiny gap of air between them. Pressing anywhere, even with a coin, pushes the layers together, and the screen senses the spot. These screens take any pointer, but they are less exact and usually sense only one touch at a time.\n\nNewer screens can sense many points at once, because the controller tracks each touch on its own. This lets you pinch to zoom, turn a photo with two fingers, or swipe with three fingers.\n\nThe first screen like this was built in 1965 by an engineer named E.A. Johnson. Touchscreens became common only after smartphones made them popular, mostly after 2007."
+    },
+    {
+      "level": 900,
+      "title": "The Science Behind a Touchscreen",
+      "text": "You tap a photo on a tablet, and it opens fast. You press two fingers together on a map, and the city zooms out. How does a flat piece of glass know exactly where you touched it? The glass is part of a touchscreen, a screen that can sense touch and also show pictures.\n\nA touchscreen combines a display with a sensor. The most common kind in phones and tablets is called a capacitive touchscreen. Under the glass lies a thin grid of tiny wires, called electrodes, set in rows and columns. A weak charge constantly flows through this grid, creating an electric field across the screen.\n\nYour skin naturally carries a small charge. When your finger touches the glass, it disturbs the field at that exact spot. A controller chip inside the device senses this change and calculates the coordinates, the exact spot, of your touch. It repeats this process many times every second, which is why the screen feels instant.\n\nThis is also why a capacitive screen answers a bare finger but often ignores a plain glove or a plastic pen. Skin and special materials act like a conductor, carrying a charge that disturbs the field, but dry cloth and plastic usually do not. That is why some gloves and styluses now have a conductive tip built in.\n\nOlder screens use a different method, called resistive touch. They have two thin, bendy layers with a tiny gap of air between them. Pressing anywhere, even with a coin, pushes the layers together, and the screen senses the exact spot. These screens take any pointer, but they are less exact and usually sense only one touch at a time.\n\nCapacitive screens, in contrast, can sense many points at once. This is called multitouch, and it lets you pinch to zoom, turn a photo with two fingers, or swipe with three fingers. The controller tracks each touch on its own.\n\nThe first capacitive screen was built in 1965 by an engineer named E.A. Johnson. Touchscreens became common only once smartphones made them popular, mostly after 2007. Today touchscreens appear on self-service kiosks and tablets across Saudi Arabia."
+    },
+    {
+      "level": 1000,
+      "title": "The Science Behind a Touchscreen",
+      "text": "When you tap a photo on a tablet, it opens instantly, and when you press two fingers together on a map, the city zooms out. How does a flat piece of glass know precisely where you touched it?\n\nThe glass is part of a touchscreen, a device that combines a display with a sensor. The most common type in phones and tablets is called a capacitive touchscreen. Under the glass lies a thin grid of tiny wires, called electrodes, arranged in rows and columns, and a weak charge constantly flows through this grid, creating an electric field across the screen.\n\nYour skin naturally carries a small charge. When your finger touches the glass, it disturbs the field at that exact spot, and a controller, a small chip inside the device, senses this change and calculates the coordinates, the exact position, of your touch. It repeats this process many times every second, which explains why the screen feels instant.\n\nThis also explains why a capacitive screen answers a bare finger but often ignores a plain glove or a plastic pen. Skin and certain special materials act as a conductor, carrying a charge that disturbs the field, while dry cloth and plastic usually do not, which is why some gloves and styluses now include a conductive tip.\n\nOlder screens rely on a different method called resistive touch. They have two thin, flexible layers separated by a tiny gap of air. Pressing anywhere, even with a coin, pushes the layers together, letting the screen sense exactly where they touched. These screens accept any pointer, but they are less exact and usually cannot sense more than one touch at a time.\n\nCapacitive screens, in contrast, can sense many points at once. This ability is called multitouch, and it lets users pinch to zoom, turn a photo with two fingers, or swipe with three fingers, because the controller tracks each touch on its own.\n\nThe first capacitive screen was built in 1965 by an engineer named E.A. Johnson, although touchscreens only became common once smartphones made them popular after 2007. Today, touchscreens appear on self-service kiosks, bank machines, and tablets throughout Saudi Arabia."
+    },
+    {
+      "level": 1100,
+      "title": "The Physics Hidden Inside a Touchscreen",
+      "text": "When someone taps a photograph on a tablet, it opens instantly. When two fingers press together on a digital map, the city zooms out smoothly. This response seems simple, yet it depends on technology hidden beneath the glass.\n\nThat glass belongs to a touchscreen, a device that merges a display with a sensing layer. The most common kind in phones and tablets is the capacitive touchscreen. Beneath the glass lies a fine grid of transparent, conductive wires, called electrodes, arranged in rows and columns. A weak charge flows continuously through this grid, producing an electrostatic field across the surface. The electrodes must stay transparent so that the display beneath them remains visible to the user.\n\nHuman skin naturally carries a small electric charge. When a finger touches the glass, it disturbs the electrostatic field at that precise spot. A controller chip embedded in the device detects this disturbance and calculates the coordinates of the touch. It repeats this process many times each second, which is why the screen feels essentially instant.\n\nThis same principle explains why a capacitive screen answers a bare finger but often ignores a glove or a plastic stylus. Skin, and some special conductive materials, act as a conductor capable of disturbing the field, while dry fabric and plastic usually cannot.\n\nOlder touchscreens rely on an entirely different method called resistive touch, in which two thin, flexible layers sit apart with a narrow gap of air between them. Pressing anywhere, even with a coin, pushes the layers together, letting the device sense precisely where contact occurred. Resistive screens accept almost any pointer, but they are less precise and usually cannot sense more than one touch at once.\n\nCapacitive screens, by contrast, can sense many points at once, a feature called multitouch. It lets users pinch to zoom or rotate a photograph with two fingers, because the controller tracks each touch separately and must calibrate its sensitivity so that scratches or temperature changes do not confuse its readings.\n\nThe first capacitive touchscreen was built in 1965 by engineer E. A. Johnson for air traffic control purposes. Touchscreens only became common once smartphones popularized them after 2007. Today they appear on self-service kiosks, bank machines, and classroom tablets across Saudi Arabia."
+    },
+    {
+      "level": 1200,
+      "title": "The Physics Hidden Inside a Touchscreen",
+      "text": "When someone taps a photo on a tablet, it opens instantly, and when two fingers press together on a map, the city zooms out smoothly, a response that seems simple but depends on technology hidden beneath the glass.\n\nThat glass belongs to a touchscreen, a device that merges a display with a sensing layer, and the most common kind in phones and tablets is the capacitive touchscreen. Beneath the glass lies a fine grid of transparent wires, called electrodes, arranged in rows and columns, and a weak charge flows through this grid, producing an electrostatic field across the surface. The electrodes stay transparent so the display beneath them remains fully visible, which limits which materials engineers can use.\n\nHuman skin naturally carries a small charge, and when a finger touches the glass, it disturbs the electrostatic field at that spot. A controller chip inside the device detects this and calculates the coordinates of the touch, repeating this process many times each second, which is why the screen feels essentially instant.\n\nThis explains why a capacitive screen answers a bare finger but often ignores a glove or a plastic stylus, since skin, and some special materials, act as a conductor, disturbing the field, while dry fabric and plastic usually cannot.\n\nOlder touchscreens rely on a different method called resistive touch, in which two thin, flexible layers sit apart with a narrow gap of air between them. Pressing anywhere, even with a coin, pushes the layers together, letting the device sense exactly where contact occurred; resistive screens accept almost any pointer, but they are less precise and usually cannot sense more than one touch at once.\n\nCapacitive screens, by contrast, can sense many points at once, a feature called multitouch that lets users pinch to zoom or rotate a photo with two fingers, because the controller tracks each touch separately and must calibrate its sensitivity so scratches or heat do not confuse its readings.\n\nThe first capacitive touchscreen was built in 1965 by engineer E. A. Johnson for air traffic control, although touchscreens only became common once smartphones popularized them after 2007. Today they appear on self-service kiosks, bank machines, and classroom tablets across Saudi Arabia."
+    },
+    {
+      "level": 1300,
+      "title": "The Physics Hidden Inside a Touchscreen",
+      "text": "When someone taps a photograph on a tablet, it opens instantly, and when two fingers press together on a digital map, the city zooms out smoothly; such a response seems simple, yet it depends entirely on technology concealed beneath the glass.\n\nThat glass belongs to a touchscreen, a device that merges a display with a sensing layer, and the variety most common in phones and tablets is the capacitive touchscreen. Beneath the glass lies a fine grid of transparent, conductive wires, termed electrodes, arranged in precise rows and columns, through which a weak charge flows continuously, producing an electrostatic field across the surface. These electrodes must remain transparent so the display beneath them stays fully visible, a requirement that limits which materials engineers may use.\n\nHuman skin naturally carries a small charge, and when a finger touches the glass, it disturbs the electrostatic field at that precise spot. A controller chip embedded in the device detects this disturbance and calculates the coordinates of the touch, repeating this process dozens of times each second, which explains the screen's seemingly instant response.\n\nThis same principle explains why a capacitive screen responds to a bare finger yet frequently ignores a glove or a plastic stylus, since skin, along with certain specialized materials, functions as a conductor capable of disturbing the field, whereas dry fabric and plastic typically cannot. Consequently, some winter gloves and styluses now include a conductive tip.\n\nOlder touchscreens rely on an entirely different method called resistive touch, wherein two thin, flexible layers are separated by a narrow gap of air. Pressing anywhere, even with a coin, forces the layers together, letting the device sense precisely where contact occurred; resistive screens accept virtually any pointer, yet remain less precise and usually cannot register more than one touch at once.\n\nCapacitive screens, by contrast, can register many contact points simultaneously, a capability called multitouch that lets users pinch to zoom or rotate a photograph with two fingers, because the controller tracks each contact point independently and must continually calibrate its sensitivity so scratches or temperature changes do not distort its readings.\n\nThe first capacitive touchscreen was built in 1965 by engineer E. A. Johnson for air traffic control purposes, although touchscreens only became embedded in daily life once smartphones popularized them after 2007. Today they appear on self-service kiosks, bank machines, and classroom tablets throughout Saudi Arabia."
+    },
+    {
+      "level": 1400,
+      "title": "The Physics Hidden Inside a Touchscreen",
+      "text": "When someone taps a photograph on a tablet, it opens instantly, and when two fingers press firmly together on a digital map, the city zooms out smoothly; such a response seems simple, yet it depends entirely on technology concealed beneath the glass, a mechanism more intricate than it first appears.\n\nThat glass belongs to a touchscreen, a device that merges a visual display with a sensing layer, and the variety most common in phones and tablets is the capacitive touchscreen. Beneath the glass lies a fine grid of transparent, conductive wires, termed electrodes, arranged in precise rows and columns, through which a weak charge flows continuously, producing an electrostatic field spanning the entire surface. These electrodes must remain transparent so the display beneath them stays fully visible, a manufacturing requirement that significantly limits which materials engineers may employ.\n\nHuman skin naturally carries a small charge, and when a finger touches the glass, it disturbs the electrostatic field at that precise location. A controller chip embedded within the device detects this disturbance and calculates the coordinates of the touch, repeating this process dozens of times each second, which largely accounts for the screen's seemingly instant response.\n\nThis same principle explains why a capacitive screen responds reliably to a bare finger yet frequently disregards an ordinary glove or a plastic stylus, since skin, together with certain specialized materials, functions as a conductor capable of disturbing the electrostatic field, whereas dry fabric and plastic typically cannot. Consequently, some winter gloves and styluses now incorporate a conductive tip designed for this purpose.\n\nOlder touchscreens rely on an entirely different method called resistive touch, wherein two thin, flexible layers are separated by a narrow gap of air. Pressing anywhere, even with a coin, forces the layers into contact, letting the device sense precisely where the pressure occurred; resistive screens accept virtually any pointer, yet remain considerably less precise and usually cannot register more than one touch simultaneously.\n\nCapacitive screens, by contrast, can register numerous contact points simultaneously, a capability known as multitouch that allows users to pinch to zoom or rotate a photograph with two fingers, because the controller tracks each contact point independently and must continuously calibrate its sensitivity so that scratches or fluctuating temperatures do not distort its readings.\n\nThe first capacitive touchscreen was engineered in 1965 by E. A. Johnson for air traffic control purposes, although touchscreens only became genuinely embedded in everyday life once smartphones popularized them after 2007. Today, touchscreens appear on self-service kiosks, bank machines, and classroom tablets throughout Saudi Arabia."
+    },
+    {
+      "level": 1500,
+      "title": "The Physics Hidden Inside a Touchscreen",
+      "text": "When a user taps a photograph on a tablet, it opens instantly, and when two fingers press firmly together on a digital map, the entire city zooms outward smoothly; such responses appear effortless, yet they depend entirely upon a layer of technology concealed beneath a sheet of seemingly ordinary glass, a mechanism considerably more intricate than it first appears to the casual observer.\n\nThat glass belongs to a touchscreen, a device that merges a visual display with a sensing layer, and the variety most commonly encountered in phones and tablets is the capacitive touchscreen. Beneath the glass lies a fine grid of transparent, electrically conductive wires, termed electrodes, arranged in precise rows and columns, through which a weak electric charge flows continuously, producing an electrostatic field that spans the entire surface uniformly. These electrodes must remain transparent so that the display beneath them stays fully visible, a stringent manufacturing requirement that significantly constrains which materials engineers may ultimately employ.\n\nHuman skin naturally carries a small electric charge of its own, and when a finger touches the glass, it disturbs the electrostatic field at that exact, localized position. A controller chip embedded within the device detects this disturbance and calculates the coordinates, the precise x and y position, of the touch, repeating this process dozens of times each second, which largely accounts for the screen's seemingly instantaneous response.\n\nThis same underlying principle explains why a capacitive screen responds reliably to a bare finger yet frequently disregards an ordinary glove or a plain plastic stylus, since skin, together with certain specialized materials, functions as a conductor capable of disturbing the electrostatic field, whereas dry fabric and plain plastic typically cannot do so. Consequently, some winter gloves and styluses now incorporate a conductive tip engineered specifically for this purpose.\n\nOlder touchscreens, still installed in certain machines such as point-of-sale terminals, rely on an entirely different sensing method called resistive touch, wherein two thin, flexible layers are separated by a narrow gap of air. Pressing anywhere, even with a fingernail or a coin, forces the layers into direct contact, letting the device sense precisely where the pressure occurred; resistive screens accordingly accept virtually any pointer, yet they remain considerably less precise and usually cannot register more than one touch simultaneously.\n\nCapacitive screens, by contrast, can register numerous contact points simultaneously, a capability known as multitouch that allows users to pinch to zoom, rotate a photograph with two fingers, or swipe with three fingers at once, because the controller tracks each contact point independently and must continuously calibrate its sensitivity so that light scratches, surface moisture, or fluctuating ambient temperatures do not meaningfully distort its readings.\n\nThe first capacitive touchscreen was engineered in 1965 by E. A. Johnson for air traffic control purposes, although touchscreens only became genuinely embedded within everyday life once smartphones popularized them after 2007. Today, touchscreens appear on self-service kiosks, bank automated teller machines, and classroom tablets throughout the Kingdom of Saudi Arabia, allowing people to retrieve information through a single, precise tap, a convenience so thoroughly ordinary that few users ever pause to consider the electrostatic field quietly and continuously operating beneath their fingertips."
+    },
+    {
+      "level": 1600,
+      "title": "The Physics Hidden Inside a Touchscreen",
+      "text": "When a user taps a photograph displayed on a tablet, it opens with near-instantaneous responsiveness, and when two fingers are pressed firmly together upon a digital map, the entire represented city zooms outward with remarkable smoothness; such responses appear entirely effortless to the casual observer, yet they depend fundamentally upon a sophisticated layer of embedded technology concealed beneath a deceptively ordinary-looking sheet of glass.\n\nThat glass constitutes an integral component of a touchscreen, a composite device that merges a visual display mechanism with an underlying sensing layer, and the variety most commonly encountered across contemporary phones and tablets is specifically termed the capacitive touchscreen. Beneath the glass surface lies an extraordinarily fine grid of transparent, electrically conductive wires, formally termed electrodes, arranged in meticulously precise rows and columns, through which a weak electric charge flows continuously and uninterrupted, thereby producing a uniform electrostatic field that spans the entirety of the screen's surface. These electrodes must remain optically transparent so that the underlying display remains fully and clearly visible to the user, a stringent manufacturing constraint that substantially limits which conductive materials engineers may ultimately select during production.\n\nHuman skin inherently and naturally carries a small residual electric charge, and when a finger makes contact with the glass, it measurably disturbs the electrostatic field at that exact, highly localized position. A dedicated controller chip embedded within the device's circuitry detects this minute disturbance and mathematically calculates the coordinates, the precise x and y position, corresponding to the touch, repeating this entire computational process dozens of times within a single second, a rate of repetition that substantially accounts for the screen's seemingly instantaneous perceived responsiveness.\n\nThis identical underlying physical principle explains why a capacitive screen responds reliably and consistently to an unadorned, bare finger yet frequently fails to register an ordinary fabric glove or an uncoated plastic stylus, since human skin, together with certain specially engineered conductive materials, functions effectively as a conductor capable of measurably disturbing the electrostatic field, whereas dry fabric and uncoated plastic typically cannot achieve this effect. Consequently, numerous winter gloves and styluses now incorporate a specially engineered conductive tip explicitly designed to resolve precisely this limitation.\n\nOlder touchscreens, still installed within certain specialized machines such as point-of-sale terminals, rely instead upon an entirely different sensing methodology termed resistive touch, wherein two exceedingly thin, flexible layers are deliberately separated by a narrow intervening gap of air. Pressing anywhere upon this surface, even with a fingernail or a coin, forcibly compresses the two layers into direct physical contact, thereby allowing the device to sense precisely where the applied pressure occurred; resistive screens consequently accept virtually any pointing implement whatsoever, yet they remain considerably less precise overall and typically cannot register more than a single discrete touch simultaneously.\n\nCapacitive screens, by meaningful contrast, can register numerous distinct contact points simultaneously, a sophisticated capability formally known as multitouch that enables users to pinch deliberately to zoom, rotate a photograph using two fingers, or swipe using three fingers at once, precisely because the embedded controller tracks each individual contact point entirely independently and must continuously and automatically calibrate its internal sensitivity so that superficial scratches, ambient surface moisture, or fluctuating environmental temperatures do not meaningfully distort its ongoing readings.\n\nThe first functioning capacitive touchscreen was engineered in 1965 by the engineer E. A. Johnson explicitly for air traffic control applications, although touchscreens only became genuinely and ubiquitously embedded within everyday global life once smartphones comprehensively popularized the technology after 2007. Today, touchscreens appear extensively on self-service kiosks, bank automated teller machines, and classroom tablets distributed throughout the Kingdom of Saudi Arabia, allowing ordinary people to retrieve desired information through a single, precise tap, a convenience so thoroughly and unremarkably ordinary that few users ever pause meaningfully to consider the invisible electrostatic field continuously and silently operating beneath their own fingertips."
+    }
+  ],
+  "bands": {
+    "LOW": {
+      "keyWords": [
+        { "word": "sensor", "partOfSpeech": "noun", "definition": "a part of a machine that can feel or detect something, like touch, light, or heat", "example": "The automatic door has a sensor that notices when someone walks close to it." },
+        { "word": "charge", "partOfSpeech": "noun", "definition": "a small amount of electricity that something carries or stores", "example": "A balloon can pick up a tiny charge of electricity when you rub it on your hair." },
+        { "word": "grid", "partOfSpeech": "noun", "definition": "a pattern of lines that cross each other like a net, often in rows and columns", "example": "The chessboard is a grid of black and white squares." },
+        { "word": "signal", "partOfSpeech": "noun", "definition": "a message sent, often as electricity or light, to tell a machine that something has happened", "example": "The remote control sends a signal that tells the television to turn on." },
+        { "word": "layer", "partOfSpeech": "noun", "definition": "one thin sheet of material that sits on top of or under another one", "example": "The cake had a layer of jam between two layers of sponge." }
+      ],
+      "questions": [
+        {
+          "stem": "What is this article mostly about?",
+          "options": ["How a touchscreen senses exactly where your finger touches it", "How to fix a phone screen that has cracked glass", "Why glass breaks when it falls on the floor", "How paper maps are printed in a factory"],
+          "answer": "A",
+          "skill": "central-idea",
+          "why": "The article explains how a touchscreen uses a sensor and tiny electric charges to find where you touched it.",
+          "wrong": { "B": "Fixing a cracked screen is not discussed in the article.", "C": "The article does not explain why glass breaks.", "D": "Printing paper maps is not part of the article." }
+        },
+        {
+          "stem": "What is under the glass of a touchscreen?",
+          "options": ["A pile of soft, dry sand", "A grid made of many thin wires", "A stack of old metal coins", "A small bag filled with water"],
+          "answer": "B",
+          "skill": "detail",
+          "why": "The article says a grid made of thin wires sits under the glass, and a charge flows through it.",
+          "wrong": { "A": "Sand is never mentioned in the article.", "C": "A coin is only used to press an older screen.", "D": "Water is not part of a touchscreen." }
+        },
+        {
+          "stem": "What does your skin carry that helps a touchscreen sense your finger?",
+          "options": ["A bright flash of light", "A loud clicking sound", "A small electric charge", "A strong, sweet smell"],
+          "answer": "C",
+          "skill": "detail",
+          "why": "The article explains that human skin naturally carries a small electric charge that changes the grid when you touch the glass.",
+          "wrong": { "A": "Light has nothing to do with sensing touch here.", "B": "Sound is not part of how the screen works.", "D": "Smell is never mentioned in the article." }
+        },
+        {
+          "stem": "In this article, what does the word signal mean?",
+          "options": ["A kind of coin used to press an old screen", "A picture that appears on the touchscreen", "A thin, curved piece of old glass", "A message sent to tell a chip something happened"],
+          "answer": "D",
+          "skill": "vocabulary",
+          "why": "The article uses signal to mean a message, sent by the changed charge, that tells the chip where you touched.",
+          "wrong": { "A": "A coin is used only to press an older screen.", "B": "A picture is what the screen shows, not a signal.", "C": "Glass is the surface, not the signal." }
+        },
+        {
+          "stem": "What happens right after your finger changes the charge on the screen?",
+          "options": ["A signal goes to a chip that finds the spot", "The screen turns itself off for the day", "The glass grows a tiny gap of air", "The grid of wires disappears completely"],
+          "answer": "A",
+          "skill": "sequence",
+          "why": "The article explains that the change sends a signal to a small chip, and the chip finds where you touched.",
+          "wrong": { "B": "The article never says the screen turns off.", "C": "An air gap belongs to an older kind of screen.", "D": "The grid stays in the screen the whole time." }
+        },
+        {
+          "stem": "Why might a plain winter glove stop a touchscreen from working?",
+          "options": ["Because the glove makes the screen too warm", "Because dry cloth does not carry a charge like skin", "Because gloves are much too heavy to lift", "Because the chip only works late at night"],
+          "answer": "B",
+          "skill": "inference",
+          "why": "The article says skin carries a charge that changes the signal, but dry cloth usually does not change it at all.",
+          "wrong": { "A": "Warmth is not given as the reason in the article.", "C": "Weight has nothing to do with it.", "D": "Touchscreens work at any time of day." }
+        },
+        {
+          "stem": "How is an older touchscreen different from a newer one?",
+          "options": ["An older screen never needs a chip inside it", "An older screen only works with a bare finger", "An older screen uses two layers that touch when pressed", "An older screen cannot be used on any phone"],
+          "answer": "C",
+          "skill": "compare",
+          "why": "The article says an older screen has two thin layers with a gap, and pressing them together with any object, even a coin, works.",
+          "wrong": { "A": "The older screen still needs a chip to sense the press.", "B": "A bare finger is mainly needed for newer screens.", "D": "The article does not say older screens cannot be on phones." }
+        },
+        {
+          "stem": "Why can new touchscreens sense a pinch with two fingers at once?",
+          "options": ["Because they are made of two thin layers", "Because they are heavier than old screens", "Because they only work outdoors in sunlight", "Because they can feel many touches at the same time"],
+          "answer": "D",
+          "skill": "cause-effect",
+          "why": "The article explains that new screens can sense many touches at once, which lets you pinch to zoom.",
+          "wrong": { "A": "Two layers describe an older kind of screen, not this one.", "B": "Weight is not mentioned in the article.", "C": "Where a screen is used is not discussed." }
+        }
+      ],
+      "prompt": "Explain how a touchscreen senses where your finger touches it. Use at least two facts from the article.",
+      "checklist": [
+        "I explained the steps the screen takes.",
+        "I used at least two facts from the article.",
+        "I wrote complete sentences with capital letters and periods."
+      ],
+      "modelAnswer": "A touchscreen has a grid of thin wires under the glass with a small charge flowing through it. When your finger touches the glass, it changes the charge, and this sends a signal to a small chip that finds exactly where you touched."
+    },
+    "MID": {
+      "keyWords": [
+        { "word": "electrode", "partOfSpeech": "noun", "definition": "a thin wire or piece of metal that carries electricity in a device", "example": "Doctors sometimes stick small electrodes on a patient's chest to check the heartbeat." },
+        { "word": "controller", "partOfSpeech": "noun", "definition": "a small chip inside a device that manages and makes sense of what the device senses", "example": "The game controller chip decided which button the player had pressed." },
+        { "word": "conductor", "partOfSpeech": "noun", "definition": "a material that lets electricity pass through it easily", "example": "Copper wire is a good conductor, which is why it is used inside electric cables." },
+        { "word": "coordinate", "partOfSpeech": "noun", "definition": "a number that helps show an exact position, often used together with another number", "example": "The map used two coordinates to show exactly where the lost hiker was standing." },
+        { "word": "capacitive", "partOfSpeech": "adjective", "definition": "describing a touchscreen that senses touch by detecting a change in electric charge", "example": "Her new tablet has a capacitive screen, so it will not respond to a plain pencil." }
+      ],
+      "questions": [
+        {
+          "stem": "Which sentence best states the main idea of the article?",
+          "options": ["Capacitive screens sense charge, but older screens sense pressure", "Touchscreens were invented only for air traffic control towers and airports", "A plain winter glove always works on every kind of touchscreen", "Glass alone is the single most important part of any smartphone"],
+          "answer": "A",
+          "skill": "central-idea",
+          "why": "The article explains how capacitive screens sense charge, how older resistive screens sense pressure, and how multitouch works.",
+          "wrong": { "B": "Air traffic control is only mentioned as the first use of the idea.", "C": "The article says plain gloves usually do not work well.", "D": "Glass matters, but the sensor beneath it is the main point." }
+        },
+        {
+          "stem": "What is an electrode, according to the article?",
+          "options": ["A kind of winter glove used in cold places", "A thin wire that carries charge under the glass", "A type of bank machine found in malls", "A picture that moves across the screen"],
+          "answer": "B",
+          "skill": "vocabulary",
+          "why": "The article describes electrodes as the thin wires arranged in rows and columns that carry the electric charge.",
+          "wrong": { "A": "Gloves are a separate topic in the article.", "C": "Bank machines are just one place touchscreens appear.", "D": "A moving picture is not an electrode." }
+        },
+        {
+          "stem": "What does the controller chip calculate when your finger touches the screen?",
+          "options": ["The weight of the finger pressing down", "The color of the glass on the screen", "The coordinates of the exact touch position", "The age of the device being used"],
+          "answer": "C",
+          "skill": "detail",
+          "why": "The article says the controller detects the disturbance and calculates the coordinates, the exact position, of the touch.",
+          "wrong": { "A": "Weight is not something a touchscreen measures.", "B": "Color of the glass is not calculated by the controller.", "D": "The device's age is not relevant here." }
+        },
+        {
+          "stem": "According to the article, why does skin work on a capacitive screen but dry plastic usually does not?",
+          "options": ["Because plastic is always far too thick to use", "Because skin is always much warmer than plastic", "Because plastic can never touch a sheet of glass", "Because skin is a conductor, but dry plastic usually is not"],
+          "answer": "D",
+          "skill": "detail",
+          "why": "The article explains that skin and special conductive materials carry a charge, while dry plastic usually does not.",
+          "wrong": { "A": "Thickness of plastic is not the reason given.", "B": "Temperature is not the reason given in the article.", "C": "Plastic can touch glass; it is just not usually sensed." }
+        },
+        {
+          "stem": "What happens after a finger disturbs the electric field on a capacitive screen?",
+          "options": ["The controller detects the change and finds the touch", "The glass automatically repairs its own small cracks", "The grid of wires underneath begins to melt", "The device switches over into resistive mode"],
+          "answer": "A",
+          "skill": "sequence",
+          "why": "The article explains that the controller detects the disturbance in the field and then calculates where the touch happened.",
+          "wrong": { "B": "Self-repairing glass is not mentioned in the article.", "C": "The wires do not melt during normal use.", "D": "Devices do not switch between the two types." }
+        },
+        {
+          "stem": "Why does the author explain the older screen right after the newer one?",
+          "options": ["To prove that newer screens are never used anymore", "To compare the two methods and their strengths", "To describe how paper maps are drawn by hand", "To explain how smartphones were first sold in stores"],
+          "answer": "B",
+          "skill": "author-purpose",
+          "why": "The author contrasts resistive touch, which senses pressure and accepts any pointer, with capacitive touch, which is more precise and supports multitouch.",
+          "wrong": { "A": "Newer screens are described as the most common kind today.", "C": "Map drawing is not discussed in the article.", "D": "Marketing of smartphones is not discussed." }
+        },
+        {
+          "stem": "Suppose someone presses a capacitive screen with a plain wooden pencil. What would likely happen?",
+          "options": ["The screen would respond perfectly every single time", "The controller chip would stop working forever", "The screen likely would not respond to the wood", "The electrodes under the glass would be destroyed"],
+          "answer": "C",
+          "skill": "inference",
+          "why": "The article says dry materials that are not good conductors usually do not disturb the field, so the screen would likely not respond.",
+          "wrong": { "A": "A capacitive screen needs a conductor, which wood is not.", "B": "The controller is not damaged by an unresponsive touch.", "D": "The electrodes are not destroyed by this." }
+        },
+        {
+          "stem": "Why can a capacitive screen support pinch-to-zoom, but a basic older screen usually cannot?",
+          "options": ["Because older screens are always much bigger in size", "Because capacitive screens do not need a controller chip", "Because older screens are made of a different kind of glass", "Because capacitive screens can sense many points at once"],
+          "answer": "D",
+          "skill": "cause-effect",
+          "why": "The article says capacitive screens can sense many points at once, called multitouch, while older screens usually sense only one touch at a time.",
+          "wrong": { "A": "Screen size is not the reason given in the article.", "B": "Capacitive screens do use a controller to track touches.", "C": "Glass type is not the reason given for this difference." }
+        }
+      ],
+      "prompt": "Explain the difference between how a capacitive touchscreen and an older touchscreen sense a touch. Use at least two details from the article.",
+      "checklist": [
+        "I described both kinds of screens.",
+        "I used at least two details from the article.",
+        "I explained the difference clearly."
+      ],
+      "modelAnswer": "A capacitive touchscreen senses touch by detecting a change in an electric charge; a finger disturbs the field created by the electrodes, and a controller calculates the coordinates of the touch. An older, resistive touchscreen works differently: it has two flexible layers with a gap of air, and pressing them together with any object, even a coin, lets the device sense where the pressure happened. Capacitive screens are more precise and support multitouch, while resistive screens accept any pointer but are usually less accurate."
+    },
+    "HIGH": {
+      "keyWords": [
+        { "word": "electrostatic", "partOfSpeech": "adjective", "definition": "relating to electric charges that are still or built up, rather than flowing as a current", "example": "Rubbing a balloon on your sweater creates an electrostatic charge that can stick the balloon to a wall." },
+        { "word": "transparent", "partOfSpeech": "adjective", "definition": "allowing light to pass through so that objects behind it can be seen clearly", "example": "The museum case was made of transparent glass so visitors could see the ancient coin inside." },
+        { "word": "calibrate", "partOfSpeech": "verb", "definition": "to adjust a device carefully so that its readings stay accurate", "example": "The scientist had to calibrate the scale before weighing the samples." },
+        { "word": "resistive", "partOfSpeech": "adjective", "definition": "describing a touchscreen that senses touch through pressure on flexible layers rather than through electric charge", "example": "The old ATM used a resistive screen, so it responded even when the customer wore gloves." },
+        { "word": "multitouch", "partOfSpeech": "noun", "definition": "the ability of a screen to sense several separate touches at the same moment", "example": "Multitouch lets you rotate a photo on the screen using two fingers at once." }
+      ],
+      "questions": [
+        {
+          "stem": "Which statement best expresses the central idea of the article?",
+          "options": ["A capacitive screen senses a change in its electric field", "Electrodes must always stay thick and hard to see clearly", "Touchscreens were invented only after smartphones became popular", "All touchscreens sense touch using pressure on flexible layers"],
+          "answer": "A",
+          "skill": "central-idea",
+          "why": "The article centers on how a capacitive touchscreen senses a change, or disturbance, in an electrostatic field, contrasting this with resistive touch and multitouch.",
+          "wrong": { "B": "The article says electrodes must stay transparent, not thick.", "C": "The first capacitive touchscreen was built in 1965, before smartphones.", "D": "Pressure-based sensing describes only the older, resistive kind." }
+        },
+        {
+          "stem": "Why must the electrodes beneath a capacitive touchscreen be transparent?",
+          "options": ["So that they conduct electricity better than metal wires", "So that the display beneath them stays fully visible", "So that they can withstand pressure from a coin", "So that the device can be calibrated more quickly"],
+          "answer": "B",
+          "skill": "detail",
+          "why": "The article explains that the electrodes must stay transparent so the display beneath them remains fully visible.",
+          "wrong": { "A": "Transparency is about visibility, not conducting power.", "C": "Withstanding pressure from a coin relates to older screens.", "D": "Calibration speed is not connected to transparency." }
+        },
+        {
+          "stem": "What must a controller chip do continuously to keep multitouch accurate?",
+          "options": ["Switch the whole screen into resistive mode", "Turn off the electrostatic field completely", "Calibrate its sensitivity so scratches do not confuse it", "Reduce the number of electrodes in the grid"],
+          "answer": "C",
+          "skill": "detail",
+          "why": "The article states that the controller must calibrate its sensitivity continuously so that scratches or temperature changes do not distort its readings.",
+          "wrong": { "A": "Devices do not switch between touch types.", "B": "The field must stay active for the screen to work.", "D": "Reducing electrodes is not mentioned in the article." }
+        },
+        {
+          "stem": "The article says a finger disturbs the electrostatic field. What does electrostatic mean here?",
+          "options": ["A loud, buzzing electrical noise", "A kind of magnetic pull between two coins", "A signal sent through the internet", "A field made by charges that mostly stay still"],
+          "answer": "D",
+          "skill": "vocabulary",
+          "why": "The article uses electrostatic to describe the field produced by the charge in the electrode grid, a field of still, built-up charge rather than a flowing current.",
+          "wrong": { "A": "Electrostatic has nothing to do with noise.", "B": "The field is electric, not a magnetic pull between coins.", "C": "Internet signals are unrelated to this term." }
+        },
+        {
+          "stem": "What can cause a capacitive screen to fail to register a touch from certain gloves?",
+          "options": ["The glove's fabric usually does not act as a conductor", "The glove makes the electrodes turn opaque", "The glove changes the coordinates permanently", "The glove damages the controller chip inside"],
+          "answer": "A",
+          "skill": "cause-effect",
+          "why": "The article explains that dry fabric typically does not act as a conductor, so it cannot disturb the electrostatic field the way skin does.",
+          "wrong": { "B": "Opacity of electrodes is not affected by gloves.", "C": "Coordinates are calculated fresh each time, not changed forever.", "D": "The controller chip is not damaged by an unresponsive glove." }
+        },
+        {
+          "stem": "Which detail best shows that resistive and capacitive screens sense touch differently?",
+          "options": ["Both appear on self-service kiosks across Saudi Arabia", "One senses pressure; the other senses a field change", "Both were invented by the very same engineer", "Both screens require some kind of controller chip"],
+          "answer": "B",
+          "skill": "compare",
+          "why": "The article contrasts resistive touch, which depends on physical pressure, with capacitive touch, which depends on disturbing an electrostatic field.",
+          "wrong": { "A": "Where they are used does not describe their sensing method.", "C": "Only the capacitive screen is credited to Johnson in the article.", "D": "Needing a controller does not show how sensing differs." }
+        },
+        {
+          "stem": "A factory requires workers to wear thick gloves at all times. Which screen type would likely work best there?",
+          "options": ["A capacitive screen with no changes at all", "A screen built with no sensing layer at all", "A resistive screen, since it senses pressure", "A screen that only works in total darkness"],
+          "answer": "C",
+          "skill": "inference",
+          "why": "The article explains that resistive screens accept virtually any pointer because they sense pressure rather than a conductive charge, making them suitable when gloves are always worn.",
+          "wrong": { "A": "A capacitive screen often fails to sense a gloved finger.", "B": "A touchscreen needs some sensing layer to work at all.", "D": "Lighting is unrelated to how the screen senses touch." }
+        },
+        {
+          "stem": "Why does the author include the history of the 1965 touchscreen and air traffic control?",
+          "options": ["To argue that touchscreens are too new to be trusted", "To explain how airplanes are steered by pilots", "To prove that smartphones invented the capacitive screen", "To show the technology existed long before everyday devices used it"],
+          "answer": "D",
+          "skill": "author-purpose",
+          "why": "The author uses the 1965 invention to show that capacitive touch technology existed long before smartphones made it common.",
+          "wrong": { "A": "The article does not question whether touchscreens can be trusted.", "B": "Steering airplanes is not explained in the article.", "C": "The article credits Johnson in 1965, well before smartphones." }
+        }
+      ],
+      "prompt": "Some people say every touchscreen should be capacitive because it supports multitouch gestures. Do you agree or disagree? Support your position with evidence from the article.",
+      "checklist": [
+        "I stated a clear position.",
+        "I supported it with at least two pieces of evidence from the article.",
+        "I explained how my evidence supports my position."
+      ],
+      "modelAnswer": "I disagree that every touchscreen should be capacitive. The article explains that capacitive screens depend on a conductive touch disturbing an electrostatic field, which means they often fail to respond to ordinary gloves or plain plastic objects. In settings such as factories where workers must wear thick protective gloves, a resistive screen, which senses pressure between two flexible layers and accepts virtually any pointer, would be far more reliable than a capacitive screen, even though it cannot easily support multitouch gestures like pinching to zoom."
+    }
+  }
+}

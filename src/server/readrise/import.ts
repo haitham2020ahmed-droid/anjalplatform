@@ -29,7 +29,10 @@ export const BANDS: readonly RRBand[] = ["LOW", "MID", "HIGH"];
 export const BAND_RANGE: Record<RRBand, string> = { LOW: "300–600", MID: "700–1000", HIGH: "1100–1600" };
 export const BAND_LEVELS: Record<RRBand, number[]> = { LOW: [300, 400, 500, 600], MID: [700, 800, 900, 1000], HIGH: [1100, 1200, 1300, 1400, 1500, 1600] };
 export const RR_SKILLS = ["central-idea", "detail", "inference", "vocabulary", "text-structure", "author-purpose", "cause-effect", "sequence", "compare"] as const;
-export const RR_TOPICS = ["Science", "Animals", "Space", "Earth", "Health", "Technology", "History", "People", "Environment", "Sports"] as const;
+// 🩹 (Oct 2026) added "Arts & Culture", "Geography" (new nonfiction topics, 30 articles each) and "Fiction" (new
+// content type, 100 articles — the library's first fiction, kept as a topic value rather than a new schema field
+// since topic is already an unconstrained string everywhere; no DB/schema change needed for either addition).
+export const RR_TOPICS = ["Science", "Animals", "Space", "Earth", "Health", "Technology", "History", "People", "Environment", "Sports", "Arts & Culture", "Geography", "Fiction"] as const;
 export const PLATFORM_PREFIX = "RR-";
 export const EXAMPLE_MARK = "[Example]";
 /** Estimated level further than this from the version's level → a warning. */

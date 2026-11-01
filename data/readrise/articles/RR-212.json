@@ -1,0 +1,618 @@
+{
+  "code": "RR-212",
+  "title": "Barcodes and QR Codes",
+  "topic": "Technology",
+  "summary": "How tiny patterns of black lines and squares let machines read prices and information in an instant, and who invented them.",
+  "poll": "Shopping would be slower and less accurate without barcodes and QR codes.",
+  "versions": [
+    {
+      "level": 300,
+      "title": "The Lines That Tell a Story",
+      "text": "Look at a box in a shop. You will see black lines. This is a barcode.\n\nA barcode is a pattern of lines. Each line is thick or thin.\n\nA cashier uses a scanner to read it. The scanner shines light on the code. The light bounces back.\n\nThe lines stand for a number. The number tells the price of the thing. This is called the product.\n\nLong ago, a cashier had to type each price by hand. That took time. It could be wrong too.\n\nSome codes are not lines. They are small black squares. We call this a QR code.\n\nA phone can scan a QR code. Then it can open a web page!\n\nCodes like this help shops work fast."
+    },
+    {
+      "level": 400,
+      "title": "The Lines That Tell a Story",
+      "text": "Look at a box in a store. You will see a pattern of black lines. This pattern is called a barcode.\n\nA barcode is made of thick and thin lines. Each product has its own barcode.\n\nA cashier uses a machine called a scanner to read it. The scanner shines light on the code. The light bounces back.\n\nThe lines stand for a number. The number tells the price. A computer looks up the price fast.\n\nLong ago, a cashier had to type each price by hand. That took a lot of time. People made mistakes too.\n\nSome codes are not lines. They are small black squares. We call this a QR code.\n\nA phone can scan a QR code. Then it can open a web page.\n\nBarcodes and QR codes help stores and hospitals work fast."
+    },
+    {
+      "level": 500,
+      "title": "Barcodes: Lines That Tell a Story",
+      "text": "Look at a box in a store. You will see a pattern of black lines printed on it. This pattern is called a barcode.\n\nA barcode is made of thick and thin lines. Each product in the store has its own barcode, almost like a short name written in lines.\n\nA cashier uses a machine called a scanner to read it. The scanner shines a beam of light onto the code. The light bounces back, and a small computer reads it.\n\nThe lines stand for a number. That number tells the price of the item. The computer looks up the correct price very fast.\n\nLong ago, a cashier had to type every price by hand. That took a lot of time, and people sometimes made mistakes.\n\nNot every code is made of lines. Some codes are small black and white squares. We call this a QR code.\n\nA smartphone's camera can scan a QR code in less than a second. Then it can open a web page or show a menu.\n\nBarcodes and QR codes now help stores, hospitals, and airports work fast and correctly."
+    },
+    {
+      "level": 600,
+      "title": "Barcodes: Lines That Tell a Story",
+      "text": "Look at a box in a store. You will see a pattern of black lines printed on it. This pattern is called a barcode.\n\nA barcode is made of thick and thin lines, almost like a short name written in lines instead of letters. Each product in the store has its own barcode.\n\nA cashier uses a machine called a scanner to read it. The scanner shines a beam of light onto the code. The light bounces back, and a small computer reads the pattern.\n\nThe lines stand for a number. That number tells the price and name of the item. The computer looks up the correct price in a fraction of a second.\n\nLong ago, a cashier had to type every single price by hand. That took a lot of time, and people sometimes made costly mistakes.\n\nTwo inventors, Norman Woodland and Bernard Silver, first thought of the barcode idea back in 1952. People say Woodland got the idea while drawing lines in beach sand.\n\nNot every code is made of lines. Some codes are small black and white squares. We call this a QR code.\n\nA smartphone's camera can scan a QR code in less than a second to open a web page or show a menu.\n\nBarcodes and QR codes now help stores, hospitals, and airports work fast and correctly every day."
+    },
+    {
+      "level": 700,
+      "title": "Barcodes and QR Codes",
+      "text": "Almost every product in a store has a pattern of black lines. This is called a barcode. It stores information: a number that tells a computer the price and the name of the item.\n\nA cashier reads a barcode with a scanner. The scanner shines a laser onto the lines. The light bounces back, and a computer turns it into a number. That number is sent to the store's database for an accurate price. This all happens in less than a second.\n\nBefore barcodes, workers had to type each price by hand. This was slow. It was not very accurate, since a tired worker could press the wrong key after a long day.\n\nThe barcode idea came from two inventors, Norman Woodland and Bernard Silver, in 1952. Woodland got the idea while drawing lines in beach sand with his fingers. He wanted a universal code that any store could use. In 1974, a pack of chewing gum became the first product ever scanned at a real store.\n\nA QR code can hold more information than a barcode. It can even hold a whole web address. A phone camera can scan it fast to open a page or show a menu.\n\nBarcodes and QR codes are used almost everywhere now. Stores, hospitals, and busy warehouses all use them to track items every single day."
+    },
+    {
+      "level": 800,
+      "title": "Barcodes and QR Codes",
+      "text": "Almost every product in a store has a pattern of black lines and white spaces. This is called a barcode. It stores information inside it: a number that tells a computer the exact item, its maker, and its price.\n\nA cashier reads a barcode with a scanner. The scanner shines a laser or a bright beam of light onto the lines. The light bounces back, and a connected computer turns the pattern into a number almost at once. That number is sent to the store's database for an accurate price and name. This all happens in less than a second.\n\nBefore barcodes existed, workers had to type every price by hand on a cash register. This method was slow. It was not very accurate, since even a careful worker could press the wrong key after a long, tiring shift.\n\nThe barcode idea came from two American inventors, Norman Woodland and Bernard Silver, who worked on it in 1952. Woodland is said to have gotten the idea while drawing lines in beach sand with his fingers, wondering how to build a universal code. In 1974, a pack of chewing gum became the very first product ever scanned at a real supermarket.\n\nA QR code can hold far more information than a barcode. It can even hold a whole web address. A smartphone camera can scan it in an instant to open a page or confirm a payment.\n\nBarcodes and QR codes are used almost everywhere now. Stores, hospitals, and busy warehouses must accurately track thousands of boxes every single day."
+    },
+    {
+      "level": 900,
+      "title": "Barcodes and QR Codes",
+      "text": "Almost every product in a modern store has a pattern of black lines and white spaces. This is called a barcode. It looks simple, but it stores important information. A number in the barcode tells a computer the exact item, its maker, and sometimes its size.\n\nA cashier reads a barcode with a scanner, a small machine that shines a laser or a bright beam of light across the lines. The light bounces back. A connected computer turns the pattern into a number almost at once. That number is sent to the store's database, which finds an accurate price in a fraction of a second.\n\nBefore barcodes existed, workers had to type every price by hand on a cash register. This method was slow, and it was not very accurate, since even a careful worker could press the wrong key after a long, tiring shift.\n\nThe barcode idea came from two American inventors, Norman Woodland and Bernard Silver, who worked on it in 1952. Woodland got the idea while drawing lines in beach sand with his fingers, wondering how to design a universal code that any store could use. Years later, in 1974, a pack of chewing gum became the very first product ever scanned at a real supermarket.\n\nA newer kind of code, called a QR code, was invented in Japan. It can hold far more information than a barcode, including a whole web address. A smartphone camera can scan it fast to open a page, show a menu, or confirm a payment.\n\nBarcodes and QR codes are now used almost everywhere, from stores and hospitals to enormous warehouses that must accurately track thousands of boxes every day."
+    },
+    {
+      "level": 1000,
+      "title": "Barcodes and QR Codes",
+      "text": "Almost every product in a modern store has a pattern of black lines and white spaces. This is called a barcode. It looks simple at first glance, but it stores important information. A number in the barcode tells a computer the exact item, its manufacturer, and sometimes its size or color.\n\nA cashier reads a barcode with a scanner, a small machine that shines a laser or a bright beam of light across the lines. The light bounces back, and a connected computer turns the pattern into a number almost at once. That number is sent to the store's database, which finds an accurate price and name within a tiny fraction of a second, saving everyone time at the checkout.\n\nBefore barcodes existed, workers had to type every single price by hand on a cash register. This method was slow, and it was not especially accurate, since even a careful worker could press the wrong key after a long, tiring shift.\n\nThe barcode idea came from two American inventors, Norman Woodland and Bernard Silver, who worked on the concept in 1952. Woodland got the idea while drawing lines in beach sand with his fingers, wondering how to design a universal code that any store across the country could use. Years later, in 1974, a pack of chewing gum became the very first product ever scanned at a real supermarket checkout in Ohio.\n\nA newer kind of code, called a QR code, was invented in Japan during the 1990s. It can hold far more information than a barcode, including a whole web address or a short message. A smartphone camera can scan one in an instant to open a page, show a menu, or confirm a payment.\n\nBarcodes and QR codes are now used almost everywhere, from stores and hospitals to enormous warehouses that must accurately track thousands of boxes moving in and out every single day."
+    },
+    {
+      "level": 1100,
+      "title": "Barcodes and QR Codes",
+      "text": "Almost every product sold in a retail store carries a pattern of black lines and white spaces known as a barcode. This pattern actually encodes important information: a number that identifies the exact item, its manufacturer, and often its size or color.\n\nA cashier reads a barcode with a scanner, a device that sweeps a laser or a bright beam of light across the lines. The reflected light lets a connected computer decode the pattern into a number almost instantly. That number is sent to the retailer's database, which finds an accurate price and description within a tiny fraction of a second, saving the cashier and the customer valuable time.\n\nBefore barcodes existed, workers had to type every price by hand on a cash register. This method was slow, and it was not especially accurate, since a tired worker could easily press the wrong key after a long shift.\n\nThe barcode idea came from two American inventors, Norman Woodland and Bernard Silver, who developed it in 1952 and were granted a patent for their invention the next year. Woodland is said to have first imagined the idea while drawing lines in beach sand, wondering how to design a universal code that any retailer around the world could use. It took more than twenty years for the technology to catch on: in 1974, a pack of chewing gum became the first product ever scanned at a real supermarket checkout in Ohio.\n\nA newer kind of code, the QR code, was invented in Japan and can encode far more information than a barcode, including a whole web address. Three large squares printed in its corners help a scanner's camera figure out the code's orientation, no matter which way it is held or turned.\n\nBarcodes and QR codes are now used almost everywhere, from stores and hospitals to enormous warehouses that must accurately track thousands of boxes every single day."
+    },
+    {
+      "level": 1200,
+      "title": "Barcodes and QR Codes",
+      "text": "Almost every product sold in a retail store carries a pattern of black lines and white spaces known as a barcode. This unassuming pattern actually encodes valuable information: a number that identifies the exact item, its manufacturer, and often its size or color.\n\nA cashier reads a barcode with a scanner, a device that sweeps a laser or a bright beam of light across the lines. The reflected light lets a connected computer decode the pattern into a number almost instantly. That number is transmitted to the retailer's database, which finds an accurate price and description within a tiny fraction of a second, saving the cashier and the customer considerable time.\n\nBefore barcodes existed, workers had to type every single price by hand on a cash register. This method was slow, and it was not especially accurate, since a tired worker could easily press the wrong key after a long shift on a busy day.\n\nThe barcode idea came from two American inventors, Norman Woodland and Bernard Silver, who developed it in 1952 and were granted a patent for their invention the following year. Woodland is said to have first imagined the idea while absentmindedly drawing lines in beach sand, wondering how to design a universal code that any retailer around the world could adopt. It took more than two decades for the technology to catch on commercially: in 1974, a pack of chewing gum became the first product ever scanned at a real supermarket checkout in Ohio.\n\nA newer kind of code, the QR code, was invented in Japan during the 1990s by an engineer named Masahiro Hara, who designed it to help factories track car parts. A QR code can encode far more information than a traditional barcode, including a whole web address. Three large squares printed in its corners help a scanner's camera figure out the code's orientation, no matter which way it is held or turned.\n\nBarcodes and QR codes are now used almost everywhere, from stores and hospitals to enormous warehouses that must accurately track thousands of boxes every single day."
+    },
+    {
+      "level": 1300,
+      "title": "Barcodes and QR Codes",
+      "text": "Almost every product sold in a retail store carries a pattern of black lines and white spaces known as a barcode. This unassuming pattern actually encodes valuable information: a numeric identifier that specifies the exact item, its manufacturer, and often its size or color.\n\nA cashier reads a barcode with a scanner, a device that sweeps a laser or a bright beam of light across the lines. The reflected light enables a connected computer to decode the pattern into a number almost instantaneously. That number is transmitted to the retailer's database, which retrieves an accurate price and description within a tiny fraction of a second, sparing the cashier and the customer considerable time at checkout.\n\nBefore barcodes existed, employees had to type every single price by hand on a cash register. This method was slow, and it was not especially accurate, since even a conscientious worker could easily strike the wrong key after a long, tiring shift on a busy day.\n\nThe concept of the barcode originated with two American inventors, Norman Woodland and Bernard Silver, who developed the idea in 1952 and were granted a patent for their invention the following year. Woodland is said to have first envisioned the idea while absentmindedly drawing lines in beach sand, wondering how he might design a universal code that any retailer around the world could eventually adopt. It took more than two decades for the technology to gain widespread use: in 1974, a pack of chewing gum became the first product ever scanned at a genuine supermarket checkout in Ohio.\n\nA newer kind of code, the QR code, was invented in Japan during the 1990s by an engineer named Masahiro Hara, who designed it to help factories track engine parts more efficiently. A QR code can encode considerably more information than a traditional barcode, including an entire web address. Three large squares printed in its corners help a scanner's camera determine the code's orientation instantly, regardless of which way the code happens to be held or rotated.\n\nBarcodes and QR codes are now used in countless settings, from stores, hospitals, and libraries to airports, where they appear on boarding passes, and enormous warehouses that must accurately track thousands of boxes every single day."
+    },
+    {
+      "level": 1400,
+      "title": "Barcodes and QR Codes",
+      "text": "Almost every product sold in a retail store carries a seemingly unassuming pattern of black lines and white spaces known as a barcode. This pattern actually encodes valuable information: a numeric identifier that specifies the exact item, its manufacturer, and frequently its size or color.\n\nA cashier reads a barcode with a scanner, a device that sweeps a laser or a bright beam of light across the lines. The reflected light enables a connected computer to decode the pattern into a number almost instantaneously. That number is transmitted to the retailer's database, which retrieves an accurate price and description within a tiny fraction of a second, sparing the cashier and the customer considerable time and reducing the chance of a costly error.\n\nBefore barcodes existed, employees had to type every single price by hand on a cash register. This method was slow, and it was not especially accurate, since even a conscientious worker could easily strike the wrong key after a long, tiring shift on a busy day.\n\nThe concept of the barcode originated with two American inventors, Norman Woodland and Bernard Silver, who developed the idea in 1952 and were granted a patent for their invention the following year. Woodland is said to have first envisioned the idea while absentmindedly drawing lines in beach sand, wondering how he might design a universal code that any retailer around the world could eventually adopt. It took more than two decades for the technology to gain widespread commercial use: in 1974, a pack of chewing gum became the first product ever scanned at a genuine supermarket checkout in Ohio.\n\nA newer kind of code, the QR code, was invented in Japan during the 1990s by an engineer named Masahiro Hara, who designed it to help factories track engine parts more efficiently than existing barcodes allowed. A QR code can encode considerably more information than a traditional barcode, including an entire web address. Three large squares printed in its corners help a scanner's camera determine the code's orientation instantly, regardless of which way the code happens to be held or rotated, which makes it remarkably easy to scan.\n\nBarcodes and QR codes are now used in countless settings, from stores, hospitals, and libraries to airports, where they appear on boarding passes, and enormous warehouses that must accurately track thousands of boxes every single day, quietly keeping modern commerce running smoothly."
+    },
+    {
+      "level": 1500,
+      "title": "Barcodes and QR Codes",
+      "text": "Almost every product sold in a retail establishment carries a seemingly unassuming pattern of black lines and white spaces known as a barcode. This pattern actually encodes valuable information: a numeric identifier that specifies the exact item, its manufacturer, and frequently its size or color.\n\nA cashier reads a barcode with a scanner, a device that sweeps a laser or a bright beam of light across the lines. The reflected light enables a connected computer to decode the pattern into a number almost instantaneously. That number is transmitted to the retailer's database, which retrieves an accurate price and description within a tiny fraction of a second, sparing the cashier and the customer considerable time while substantially reducing the chance of a costly human error.\n\nBefore barcodes existed, employees had to type every single price by hand on a cash register. This method was slow, and it was not especially accurate, since even a conscientious worker could easily strike the wrong key after a long, tiring shift on a particularly busy day.\n\nThe concept of the barcode originated with two American inventors, Norman Woodland and Bernard Silver, who developed the idea in 1952 and were granted a patent for their invention the following year, long before the necessary scanning technology had even been perfected. Woodland is said to have first envisioned the idea while absentmindedly drawing lines in beach sand, wondering how he might design a universal code that any retailer around the world could eventually adopt. It took more than two decades for the technology to gain widespread commercial use: in 1974, a pack of chewing gum became the first product ever scanned at a genuine supermarket checkout in Ohio.\n\nA newer kind of code, the QR code, was invented in Japan during the 1990s by an engineer named Masahiro Hara, who designed it to help factories track engine parts more efficiently than existing barcodes allowed. A QR code can encode considerably more information than a traditional barcode, including an entire web address. Three large squares printed in its corners help a scanner's camera determine the code's orientation instantly, regardless of which way the code happens to be held or rotated, which makes it remarkably convenient to scan on the move.\n\nBarcodes and QR codes are now used in countless settings, from stores, hospitals, and libraries to airports, where they appear on boarding passes, and enormous warehouses that must accurately track thousands of boxes every single day. Even so, a damaged or poorly printed barcode can sometimes fail to scan, forcing a retailer's staff back to the slower method of entering a number by hand."
+    },
+    {
+      "level": 1600,
+      "title": "Barcodes and QR Codes",
+      "text": "Almost every product sold in a retail establishment carries a seemingly unassuming pattern of black lines and white spaces known, somewhat prosaically, as a barcode. This pattern actually encodes genuinely valuable information: a numeric identifier that specifies the exact item, its manufacturer, and frequently its size or color.\n\nA cashier reads a barcode with a scanner, a device that sweeps a laser or a bright beam of light systematically across the lines. The reflected light enables a connected computer to decode the pattern into a number almost instantaneously. That number is subsequently transmitted to the retailer's database, which retrieves an accurate price and description within a tiny fraction of a second, sparing the cashier and the customer considerable time while substantially reducing the chance of a costly human error.\n\nBefore barcodes existed, employees were obliged to type every single price by hand on a cash register. This method was inherently slow, and it was not especially accurate, since even a conscientious worker could easily strike the wrong key after a long, tiring shift on a particularly busy day.\n\nThe concept of the barcode originated with two American inventors, Norman Woodland and Bernard Silver, who developed the idea in 1952 and were granted a patent for their invention the following year, long before the necessary scanning technology had even been adequately perfected for commercial use. Woodland is said to have first envisioned the idea while absentmindedly drawing lines in beach sand, wondering how he might design a genuinely universal code that any retailer around the world could eventually adopt regardless of language or currency. It took more than two decades for the technology to achieve widespread commercial adoption: in 1974, a pack of chewing gum became the first product ever scanned at a genuine supermarket checkout in Ohio.\n\nA considerably newer kind of code, the QR code, was invented in Japan during the 1990s by an engineer named Masahiro Hara, who designed it to help factories track engine parts far more efficiently than existing barcodes permitted. A QR code can encode considerably more information than a traditional barcode, including an entire web address. Three large squares printed in its corners help a scanner's camera determine the code's orientation instantly, regardless of which way the code happens to be held or rotated, a feature that makes it remarkably convenient to scan while on the move.\n\nBarcodes and QR codes are now employed in countless settings, from stores, hospitals, and libraries to airports, where they appear on boarding passes, and enormous warehouses that must accurately track thousands upon thousands of boxes every single day. Even so, a damaged, faded, or poorly printed barcode can occasionally fail to scan correctly, forcing a retailer's staff back to the slower, markedly less reliable method of entering a number by hand, a reminder that even remarkably reliable technology still benefits from a dependable human backup."
+    }
+  ],
+  "bands": {
+    "LOW": {
+      "keyWords": [
+        {
+          "word": "barcode",
+          "partOfSpeech": "noun",
+          "definition": "a pattern of black lines and white spaces on a package that a machine can read",
+          "example": "The cashier scanned the barcode on the juice box."
+        },
+        {
+          "word": "scanner",
+          "partOfSpeech": "noun",
+          "definition": "a machine that reads a code by shining light on it",
+          "example": "The librarian used a scanner to check out my book."
+        },
+        {
+          "word": "product",
+          "partOfSpeech": "noun",
+          "definition": "a thing that is made and sold in a store",
+          "example": "Rice is a common product sold in grocery stores."
+        },
+        {
+          "word": "pattern",
+          "partOfSpeech": "noun",
+          "definition": "a design made of shapes, lines, or colors repeated in a certain way",
+          "example": "My scarf has a pattern of red and white stripes."
+        },
+        {
+          "word": "code",
+          "partOfSpeech": "noun",
+          "definition": "a set of signs, letters, or numbers that stand for information",
+          "example": "She typed in a secret code to open the door."
+        }
+      ],
+      "questions": [
+        {
+          "stem": "What is this article mainly about?",
+          "options": [
+            "How a barcode's lines and a QR code's squares help machines read information fast",
+            "Why farms must grow new rice and cereal crops every single year",
+            "Why phones need a brand new battery every single year to work",
+            "How cashiers carefully count the money at the end of each busy day"
+          ],
+          "answer": "A",
+          "skill": "central-idea",
+          "why": "The article explains how barcodes and QR codes store information in patterns that machines can read quickly.",
+          "wrong": {
+            "B": "The article does not discuss growing food.",
+            "C": "Phone batteries are not mentioned.",
+            "D": "Counting money at the end of the day is not discussed."
+          }
+        },
+        {
+          "stem": "What does a scanner shine onto a barcode so it can be read?",
+          "options": [
+            "Water poured slowly onto the lines",
+            "A beam of light",
+            "Wind blowing across the lines",
+            "Sound made by a loud bell"
+          ],
+          "answer": "B",
+          "skill": "detail",
+          "why": "The article says the scanner shines a beam of light onto the code and the light bounces back.",
+          "wrong": {
+            "A": "Water is not used on barcodes.",
+            "C": "Wind plays no part in scanning.",
+            "D": "Sound is not mentioned."
+          }
+        },
+        {
+          "stem": "What did a cashier have to do before barcodes were used?",
+          "options": [
+            "Weigh every box",
+            "Call the factory",
+            "Type each price by hand",
+            "Draw a picture of the item"
+          ],
+          "answer": "C",
+          "skill": "detail",
+          "why": "The article says a cashier used to have to type every price by hand.",
+          "wrong": {
+            "A": "Weighing boxes is not mentioned.",
+            "B": "Calling the factory is not mentioned.",
+            "D": "Drawing a picture is not part of the article."
+          }
+        },
+        {
+          "stem": "In the article, what is a pattern?",
+          "options": [
+            "A kind of price tag found on clothing",
+            "A machine used to carefully scan items",
+            "A type of cash register inside a store",
+            "A design made of repeated lines or shapes"
+          ],
+          "answer": "D",
+          "skill": "vocabulary",
+          "why": "The article describes a pattern as the thick and thin lines arranged together to form a code.",
+          "wrong": {
+            "A": "A price tag is not called a pattern.",
+            "B": "The scanner is the machine, not the pattern.",
+            "C": "A cash register is a different thing."
+          }
+        },
+        {
+          "stem": "What happened FIRST, according to the article?",
+          "options": [
+            "Two inventors thought of the barcode idea back in 1952",
+            "QR codes were invented many years later",
+            "Chewing gum was scanned in a supermarket in 1974",
+            "Phones could later scan QR codes with their cameras"
+          ],
+          "answer": "A",
+          "skill": "sequence",
+          "why": "The article says the idea for the barcode came in 1952, before the 1974 supermarket scan and later QR codes.",
+          "wrong": {
+            "B": "QR codes came after the barcode idea.",
+            "C": "The supermarket scan happened in 1974, after 1952.",
+            "D": "Phones scanning QR codes is the most recent event."
+          }
+        },
+        {
+          "stem": "Why did typing prices by hand sometimes cause problems?",
+          "options": [
+            "The register simply ran out of its ink",
+            "People could press the wrong key and make mistakes",
+            "It was strictly against the little store's rules",
+            "It used far too much extra rolled paper"
+          ],
+          "answer": "B",
+          "skill": "cause-effect",
+          "why": "The article explains that typing by hand could lead to mistakes if the wrong key was pressed.",
+          "wrong": {
+            "A": "Ink is not mentioned.",
+            "C": "No rule against typing is mentioned.",
+            "D": "Paper is not discussed."
+          }
+        },
+        {
+          "stem": "Why might a barcode help a store more than writing a price by hand?",
+          "options": [
+            "It never, ever needs to be printed at all",
+            "It somehow makes the product taste much better",
+            "It lets a machine read the price quickly and correctly",
+            "It works without any cashier at all, at any time"
+          ],
+          "answer": "C",
+          "skill": "inference",
+          "why": "Because a scanner reads the code fast and correctly, a barcode avoids the slow, mistake-prone hand typing described in the article.",
+          "wrong": {
+            "A": "A barcode must still be printed on the package.",
+            "B": "Taste has nothing to do with barcodes.",
+            "D": "A cashier still uses the scanner in the article."
+          }
+        },
+        {
+          "stem": "Why does the article compare a QR code to a barcode?",
+          "options": [
+            "To show that only one of these two codes actually works",
+            "To tell readers which of these two codes costs more money",
+            "To explain to readers how to bake a loaf of fresh warm bread",
+            "To help readers see how codes can look different but both store information"
+          ],
+          "answer": "D",
+          "skill": "author-purpose",
+          "why": "Comparing the two codes helps readers understand that both lines and squares can store information for machines to read.",
+          "wrong": {
+            "A": "Both codes are shown working in the article.",
+            "B": "Cost is not discussed.",
+            "C": "Baking bread is unrelated to the article."
+          }
+        }
+      ],
+      "prompt": "Explain the difference between a barcode and a QR code, using at least two facts from the article.",
+      "checklist": [
+        "I clearly explained the difference between the two codes.",
+        "I used at least two facts from the article.",
+        "I wrote complete sentences with capital letters and periods."
+      ],
+      "modelAnswer": "A barcode is a pattern of black lines that a scanner reads with a beam of light to find the price. A QR code is made of small black and white squares instead of lines, and a smartphone's camera can scan it to open a website or show a menu."
+    },
+    "MID": {
+      "keyWords": [
+        {
+          "word": "information",
+          "partOfSpeech": "noun",
+          "definition": "facts or details about something",
+          "example": "The sign gave information about the train times."
+        },
+        {
+          "word": "universal",
+          "partOfSpeech": "adjective",
+          "definition": "able to be used by everyone or in every case",
+          "example": "A smile is almost a universal way to greet someone."
+        },
+        {
+          "word": "laser",
+          "partOfSpeech": "noun",
+          "definition": "a strong, narrow beam of light",
+          "example": "The science teacher used a laser to point at the chart."
+        },
+        {
+          "word": "accurate",
+          "partOfSpeech": "adjective",
+          "definition": "correct and without mistakes",
+          "example": "Our clock needs to be accurate so no one is late."
+        },
+        {
+          "word": "warehouse",
+          "partOfSpeech": "noun",
+          "definition": "a large building where goods are stored before they are sold",
+          "example": "Boxes of shoes were stacked high inside the warehouse."
+        }
+      ],
+      "questions": [
+        {
+          "stem": "Which sentence best states the central idea of the article?",
+          "options": [
+            "Only chewing gum companies have ever used barcodes to sell their products.",
+            "Barcodes and QR codes store information that machines can read quickly and accurately.",
+            "Typing every price by hand is always faster than scanning a barcode.",
+            "QR codes somehow do not work with any modern smartphone at all."
+          ],
+          "answer": "B",
+          "skill": "central-idea",
+          "why": "The article explains how both kinds of codes store information that a scanner or camera can read quickly and accurately.",
+          "wrong": {
+            "A": "Chewing gum is mentioned only as the first product ever scanned.",
+            "C": "The article says hand typing was slow, not faster.",
+            "D": "Smartphones are shown scanning QR codes in the article."
+          }
+        },
+        {
+          "stem": "What does the number encoded in a barcode usually identify?",
+          "options": [
+            "The weather outside the store that particular day",
+            "The cashier's own full name and current job title",
+            "The customer's home address and phone number",
+            "The exact item, its maker, and sometimes its size or color"
+          ],
+          "answer": "D",
+          "skill": "detail",
+          "why": "The article says the number identifies the exact item, its maker, and sometimes its size or color.",
+          "wrong": {
+            "A": "Weather is not mentioned.",
+            "B": "The cashier's name is not stored in a barcode.",
+            "C": "Customer addresses are not discussed."
+          }
+        },
+        {
+          "stem": "According to the article, what happened in 1974?",
+          "options": [
+            "A pack of chewing gum became the first product scanned at a real supermarket",
+            "QR codes were first invented in Japan many years later on",
+            "Smartphones with cameras were invented around that very same time",
+            "Woodland and Silver first thought up the barcode idea back then"
+          ],
+          "answer": "A",
+          "skill": "detail",
+          "why": "The article states that in 1974 a pack of chewing gum was the first product scanned at a real supermarket checkout.",
+          "wrong": {
+            "B": "QR codes were invented later, not in 1974.",
+            "C": "Smartphones are not dated in the article.",
+            "D": "Woodland and Silver had their idea in 1952, not 1974."
+          }
+        },
+        {
+          "stem": "In the article, what does universal mean?",
+          "options": [
+            "Something that only one single store is allowed to use",
+            "A kind of laser light used inside the scanner",
+            "Something that any store, anywhere, could use",
+            "A type of warehouse used for storing boxes"
+          ],
+          "answer": "C",
+          "skill": "vocabulary",
+          "why": "The article describes Woodland wanting a universal code that any store across the country could use.",
+          "wrong": {
+            "A": "Universal means the opposite of only one store.",
+            "B": "Laser light is a different concept.",
+            "D": "A warehouse is a building, not the meaning of universal."
+          }
+        },
+        {
+          "stem": "Why was typing prices by hand not very accurate?",
+          "options": [
+            "Even a careful worker could press the wrong key, especially after a long shift",
+            "Workers at the time could simply not read any numbers at all",
+            "The old cash register had no numbers printed on any of its keys",
+            "Prices at the store almost never changed at all, year after year"
+          ],
+          "answer": "A",
+          "skill": "inference",
+          "why": "The article explains that a tired worker could easily press the wrong key, making hand typing inaccurate.",
+          "wrong": {
+            "B": "Being unable to read numbers is not mentioned.",
+            "C": "Registers have numbers; this is not the reason given.",
+            "D": "Prices changing is not discussed as the cause."
+          }
+        },
+        {
+          "stem": "Why might a warehouse use barcodes to track boxes?",
+          "options": [
+            "Barcodes somehow make even very heavy boxes much lighter to carry around",
+            "Barcodes always stop boxes from ever getting wet or damaged in storage",
+            "Barcodes are required by a very strict law in every single far-off country",
+            "Barcodes let workers quickly and accurately know what is inside each box and where it is going"
+          ],
+          "answer": "D",
+          "skill": "inference",
+          "why": "Since barcodes encode accurate information that a scanner reads instantly, a warehouse can use them to track many boxes quickly.",
+          "wrong": {
+            "A": "Weight is not affected by a barcode.",
+            "B": "Water protection is not discussed.",
+            "C": "Legal requirements are not mentioned."
+          }
+        },
+        {
+          "stem": "How is a QR code different from a barcode, based on the article?",
+          "options": [
+            "A QR code can never, ever be scanned by any kind of phone",
+            "A QR code can hold much more information, like a full web address",
+            "A QR code is used only inside the one country of Japan",
+            "A barcode always needs a laser, but a QR code never does at all"
+          ],
+          "answer": "B",
+          "skill": "compare",
+          "why": "The article says a QR code can hold far more information than a barcode, including whole web addresses.",
+          "wrong": {
+            "A": "Phones are shown scanning QR codes with their cameras.",
+            "C": "QR codes are used in stores and other places, not only in Japan.",
+            "D": "The article does not claim this about lasers and QR codes."
+          }
+        },
+        {
+          "stem": "How does the article mainly organize information about barcodes?",
+          "options": [
+            "By carefully listing out the exact prices of many different products",
+            "By arguing strongly that QR codes should be banned everywhere",
+            "By explaining how barcodes work, their history, and how they are used today",
+            "By comparing two very different kinds of old chewing gum brands"
+          ],
+          "answer": "C",
+          "skill": "text-structure",
+          "why": "The article moves from how a barcode works, to its history, to how barcodes and QR codes are used today.",
+          "wrong": {
+            "A": "Prices of specific products are not listed.",
+            "B": "The article does not argue against QR codes.",
+            "D": "Chewing gum is mentioned only once, as an example."
+          }
+        }
+      ],
+      "prompt": "Explain how a barcode gets scanned and turned into a price, using at least three steps from the article in order.",
+      "checklist": [
+        "I explained the steps in the correct order.",
+        "I used at least three details from the article.",
+        "I wrote complete sentences with capital letters and periods."
+      ],
+      "modelAnswer": "First, a cashier uses a scanner that shines a laser across the barcode's lines. Then a connected computer translates the reflected light into a number almost instantly. Finally, that number is sent to the store's database, which looks up the accurate price and name of the product."
+    },
+    "HIGH": {
+      "keyWords": [
+        {
+          "word": "patent",
+          "partOfSpeech": "noun",
+          "definition": "an official document that gives a person the only right to make or sell their invention",
+          "example": "The young engineer applied for a patent on her new solar charger."
+        },
+        {
+          "word": "orientation",
+          "partOfSpeech": "noun",
+          "definition": "the direction something is facing or turned",
+          "example": "The arrow on the map showed the orientation of north."
+        },
+        {
+          "word": "retailer",
+          "partOfSpeech": "noun",
+          "definition": "a business that sells goods directly to shoppers",
+          "example": "The retailer added extra cashiers before the holiday rush."
+        },
+        {
+          "word": "encode",
+          "partOfSpeech": "verb",
+          "definition": "to put information into a special form, such as a code",
+          "example": "Programmers encode messages so computers can store them."
+        },
+        {
+          "word": "inventor",
+          "partOfSpeech": "noun",
+          "definition": "a person who creates something new for the first time",
+          "example": "The young inventor built a machine that waters plants automatically."
+        }
+      ],
+      "questions": [
+        {
+          "stem": "What is the central idea of this article?",
+          "options": [
+            "Barcodes and QR codes encode information, and engineers invented both to speed up and improve accuracy in buying and tracking goods over time.",
+            "QR codes somehow completely replaced every single traditional barcode everywhere in the entire world by the early year of 1952.",
+            "Only factories located inside the one single country of Japan have ever used any kind of QR codes at all, anywhere.",
+            "Supermarkets everywhere around the world today no longer need any cash registers at all, anywhere, for any reason."
+          ],
+          "answer": "A",
+          "skill": "central-idea",
+          "why": "The article traces how both codes were invented and how they encode information to make buying and tracking goods faster and more accurate.",
+          "wrong": {
+            "B": "QR codes were invented decades after 1952, and barcodes are still used.",
+            "C": "The article shows QR codes used in stores, hospitals, and airports, not only factories.",
+            "D": "Cash registers are still used with scanners in the article."
+          }
+        },
+        {
+          "stem": "Who invented the idea for the barcode, and in what year?",
+          "options": [
+            "Engineers at Denso Wave, in 1952",
+            "Masahiro Hara, in the 1990s",
+            "Norman Woodland and Bernard Silver, in 1952",
+            "A supermarket cashier, in 1974"
+          ],
+          "answer": "C",
+          "skill": "detail",
+          "why": "The article states that Norman Woodland and Bernard Silver developed the barcode idea in 1952.",
+          "wrong": {
+            "A": "Denso Wave is connected to the QR code, not the barcode.",
+            "B": "Masahiro Hara invented the QR code decades later.",
+            "D": "A cashier scanned the first product in 1974 but did not invent the idea."
+          }
+        },
+        {
+          "stem": "Why did Masahiro Hara originally develop the QR code?",
+          "options": [
+            "To replace cash registers inside every single store",
+            "To let people pay for packs of chewing gum more easily",
+            "To help factories track car or engine parts more efficiently",
+            "To design a brand new kind of scanner just for libraries"
+          ],
+          "answer": "C",
+          "skill": "detail",
+          "why": "The article says Hara designed the QR code to help factories track car or engine parts more efficiently.",
+          "wrong": {
+            "A": "Cash registers are not mentioned as his goal.",
+            "B": "Chewing gum relates to the first barcode scan, not the QR code's invention.",
+            "D": "Libraries are mentioned only as a place where codes are later used."
+          }
+        },
+        {
+          "stem": "In the article, what does orientation mean?",
+          "options": [
+            "The price of a product",
+            "A business that sells goods to shoppers",
+            "A kind of database used by a retailer",
+            "The direction something is facing or turned"
+          ],
+          "answer": "D",
+          "skill": "vocabulary",
+          "why": "The article explains that the corner squares help a camera determine the code's orientation, meaning which way it is turned.",
+          "wrong": {
+            "A": "Price is a separate idea in the article.",
+            "B": "That describes a retailer, a different term.",
+            "C": "A database stores information; it is not the meaning of orientation."
+          }
+        },
+        {
+          "stem": "Why do the three squares in a QR code's corners matter?",
+          "options": [
+            "They store the exact product's price, its full name, and its maker's details",
+            "They stop the printed code from ever being copied or faked by anyone at all",
+            "They help a scanner's camera figure out the code's orientation no matter how it is turned",
+            "They simply make the small printed code look more decorative to shoppers nearby"
+          ],
+          "answer": "C",
+          "skill": "cause-effect",
+          "why": "The article explains that the corner squares let a camera determine the code's orientation instantly, however it is held or rotated.",
+          "wrong": {
+            "A": "Price is encoded elsewhere in the code, not stored by the corner squares.",
+            "B": "Copy protection is not mentioned.",
+            "D": "The squares serve a functional purpose, not a decorative one."
+          }
+        },
+        {
+          "stem": "Why did it take more than two decades after 1952 for barcodes to be used in a real store?",
+          "options": [
+            "No one wanted to buy chewing gum before 1974",
+            "Supermarkets did not exist before 1974",
+            "Barcodes were against the law until 1974",
+            "The necessary scanning technology had not yet been fully developed"
+          ],
+          "answer": "D",
+          "skill": "inference",
+          "why": "The article notes that the patent came long before the scanning technology needed to use barcodes commercially was ready.",
+          "wrong": {
+            "A": "Demand for gum is not the reason given.",
+            "B": "Supermarkets already existed before 1974.",
+            "C": "No law against barcodes is mentioned."
+          }
+        },
+        {
+          "stem": "How does a QR code generally differ from a traditional barcode, according to the article?",
+          "options": [
+            "A QR code can encode far more information, including entire web addresses",
+            "A QR code cannot possibly be read by any kind of scanner at all, ever",
+            "A barcode can only ever be used just a single solitary time",
+            "A QR code must always be plain black and white, while a barcode can be any color"
+          ],
+          "answer": "A",
+          "skill": "compare",
+          "why": "The article states that a QR code can encode considerably more information than a traditional barcode, including whole web addresses.",
+          "wrong": {
+            "B": "Smartphone cameras are described scanning QR codes.",
+            "C": "Barcodes are read repeatedly at checkouts, not used only once.",
+            "D": "Color is not discussed as a difference between the two codes."
+          }
+        },
+        {
+          "stem": "How does the article mainly develop its explanation of these codes?",
+          "options": [
+            "By arguing firmly and repeatedly that stores should stop using scanners",
+            "By tracing each code's invention, how it works, and where it is used today",
+            "By simply comparing the price of gum in 1974 with today's current prices",
+            "By telling a long and detailed fictional story about one lost barcode"
+          ],
+          "answer": "B",
+          "skill": "text-structure",
+          "why": "The article moves through how barcodes work, their invention, the QR code's invention, and present-day uses.",
+          "wrong": {
+            "A": "The article does not argue against scanners.",
+            "C": "Prices are not compared over time.",
+            "D": "No fictional story appears in the article."
+          }
+        }
+      ],
+      "prompt": "The article describes two inventions: the barcode and the QR code. Compare why each one was first created, using evidence from the article.",
+      "checklist": [
+        "I explained why each code was first created.",
+        "I used evidence from the article for each code.",
+        "I wrote complete sentences with capital letters and periods."
+      ],
+      "modelAnswer": "Norman Woodland and Bernard Silver developed the barcode in 1952, hoping to create a universal code that any retailer could use to look up prices accurately instead of typing them by hand. Decades later, Masahiro Hara invented the QR code in Japan during the 1990s so that factories could track car or engine parts more efficiently, and because a QR code can encode far more information than a barcode, including entire web addresses, it eventually found many more uses beyond factories."
+    }
+  }
+}

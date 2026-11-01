@@ -1,0 +1,618 @@
+{
+  "code": "RR-405",
+  "title": "The Robot Soccer Team",
+  "topic": "Fiction",
+  "summary": "A school robotics team must find and fix a bug in their robot's code the night before a robot-soccer match.",
+  "poll": "Finding a small mistake is often harder than building the whole project.",
+  "versions": [
+    {
+      "level": 300,
+      "title": "The Robot Soccer Team",
+      "text": "Sara and Omar are in the robot club. They built a small robot. Its name is Spark.\n\nSpark can play soccer. Tomorrow is a big robot match. It is called the City Cup.\n\nTonight, the team tests Spark one more time. Spark must run to the ball. Then it must kick the ball. But Spark does not kick it. Spark spins and spins! It will not stop.\n\nOmar looks at the code. Code tells a robot what to do. Omar reads the code line by line. He finds a bug! The code tells Spark to turn. But it never tells Spark to stop turning.\n\nOmar fixes the bug. He adds one small line. Now the code tells Spark when to stop.\n\nThey test Spark again. Spark turns once. Then it runs to the ball. Spark kicks the ball! It goes into the goal.\n\nSara and Omar cheer. The team claps too. Spark is ready for the big match."
+    },
+    {
+      "level": 400,
+      "title": "The Robot Soccer Team",
+      "text": "Sara and Omar are in the robot club at school. They built a small robot. Its name is Spark.\n\nSpark can play soccer. Tomorrow there is a big match. It is called the City Cup. The team wants Spark to do well.\n\nTonight the team tests Spark one more time. Spark must run to the ball. Then it must kick the ball in. But Spark does not do that. Spark just spins around. It spins and spins. It will not stop.\n\nOmar looks at the code on his computer. Code is a list of steps. It tells a robot what to do. Omar reads each line slowly. Then he finds the bug. The code tells Spark to turn. It never tells Spark to stop.\n\nOmar fixes the bug. He adds one small line. Now the code tells Spark when to stop.\n\nThe team tests Spark again. Spark turns once. Then it stops. It runs to the ball. Spark kicks the ball! It goes into the goal.\n\nSara and Omar cheer. The team claps too. Spark is ready for the big match tomorrow."
+    },
+    {
+      "level": 500,
+      "title": "The Robot Soccer Team",
+      "text": "Sara and Omar are in the robot club at their school. They built a small robot. Its name is Spark. Spark was built to play soccer.\n\nTomorrow there is a big match. It is called the City Cup. The whole team wants Spark to do well in the match.\n\nTonight the team tests Spark one more time. Spark must run to the ball. Then it must kick the ball into the goal. But Spark does not do that. Spark just spins around and around in one spot. It will not stop turning.\n\nOmar looks at the code on his computer. Code is a set of steps. It tells a robot what to do, step by step. Omar reads each line slowly, looking for a mistake. Then he finds the bug. The code tells Spark to turn. It never tells Spark when to stop.\n\nOmar fixes the bug. He adds one small line that was missing. Now the code tells Spark exactly when to stop turning.\n\nThe team tests Spark once more. Spark turns only once. Then it runs straight to the ball. Spark kicks the ball! It flies into the goal.\n\nSara and Omar cheer. The rest of the team claps too. Spark is ready for tomorrow's big match."
+    },
+    {
+      "level": 600,
+      "title": "The Robot Soccer Team",
+      "text": "Sara and Omar are in the robotics club at their school. Together they built a small robot named Spark. Spark was built to play in a robot-soccer match.\n\nTomorrow is the big match. It is called the City Robotics Cup. The whole team wants Spark to do well against the other schools.\n\nTonight, the night before the match, the team tests Spark one last time. Spark is supposed to run toward the ball. Then it should kick the ball into the goal. Instead, Spark just spins around and around in one spot. No matter what the team tries, Spark will not stop turning.\n\nWorried, Omar opens his laptop and looks at Spark's code. Code is a set of exact steps. It tells a robot what to do, one step after another. Omar reads through each line slowly, looking for a mistake. At last, he finds the bug. The code tells Spark to turn. But it never tells Spark when that turning should stop.\n\nOmar fixes the bug. He types one small line that had been missing. Now the code clearly tells Spark exactly when to stop turning.\n\nThe team tests Spark once more. This time, Spark turns only once. Then it runs straight toward the ball and kicks it hard. The ball sails right into the goal!\n\nSara and Omar cheer with relief. The rest of the team claps and laughs. Spark is ready for tomorrow's important match."
+    },
+    {
+      "level": 700,
+      "title": "The Robot Soccer Team",
+      "text": "Sara and Omar lead their school's robotics club. Together they spent weeks building a small robot named Spark. Spark was built for a robot-soccer competition.\n\nTomorrow is the big match. It is called the Robotics Cup, and teams from across the city will take part. The whole team is counting on Spark to do well.\n\nTonight, the night before the match, the team gathers to test Spark one last time. Spark is supposed to run toward the ball and kick it cleanly into the goal. Instead, Spark just spins around and around in one spot. No matter how many times the team restarts it, Spark will not stop turning.\n\nWorried, Omar opens his laptop and studies Spark's code line by line. Code is a set of exact steps. It tells a robot precisely what to do, one step after another, with no room for guessing. Spark's sensor can see the ball just fine, and its motor spins the wheels just fine too, so Omar knows he must debug the program itself. After several minutes of careful reading, Omar finds the bug. The code tells Spark to turn. But it never tells Spark when that turning should stop. So Spark just keeps turning, again and again, forever.\n\nOmar quickly fixes the bug. He types one small line that had been missing from the program. Now the code clearly tells Spark exactly when to stop turning and move forward toward the ball.\n\nThe team tests Spark once more, holding their breath. This time, Spark turns only once. Then it runs straight toward the ball and kicks it hard. The ball sails past the goalkeeper and into the goal!\n\nSara and Omar cheer with relief. The rest of the team claps and laughs, glad that Spark is finally ready for tomorrow's important match."
+    },
+    {
+      "level": 800,
+      "title": "The Robot Soccer Team",
+      "text": "Sara and Omar lead their school's robotics club. Together, they spent several weeks building a small robot named Spark for a robot-soccer competition.\n\nTomorrow afternoon is the big match. It is called the Robotics Cup, and teams from schools across the city will take part. The whole team is counting on Spark to do well.\n\nTonight, the night before the match, the team gathers to test Spark one last time. Spark is supposed to roll toward the ball and kick it cleanly into the goal. Instead, to everyone's surprise, Spark just spins around and around in one spot. No matter how many times the team restarts the robot, Spark will not stop turning.\n\nWorried, Omar opens his laptop and studies Spark's code line by line, looking for whatever has gone wrong. Code is a set of exact steps. It tells a robot precisely what to do, one step after another, with no room for guessing. Spark's sensor can see the ball just fine, and its motor spins the wheels just fine too, so neither of those parts is the problem. Omar realizes he must debug the program itself. After several minutes of careful, frustrating reading, Omar finds the bug. The code correctly tells Spark to turn. But it never tells Spark when that turning should stop. So the robot just keeps turning, again and again, trapped in what some people call an endless loop.\n\nOmar quickly fixes the bug. He types one small line that had been missing from the program. Now the code clearly tells Spark exactly when to stop turning and move forward toward the ball instead.\n\nThe team tests Spark once more, holding their breath as the robot powers on. This time, Spark turns only once. Then it rolls straight toward the ball and kicks it with real force. The ball sails past the goalkeeper and lands inside the goal!\n\nSara and Omar cheer with relief. The rest of the team claps and laughs, glad that Spark is finally ready for tomorrow's important match."
+    },
+    {
+      "level": 900,
+      "title": "The Robot Soccer Team",
+      "text": "Sara and Omar lead their school's robotics club. Together, they had spent several weeks designing, building, and carefully programming a small robot named Spark for a robot-soccer competition.\n\nTomorrow afternoon is the big match. It is called the Robotics Cup, and teams from rival schools across the city will take part. The whole team is counting on Spark to perform well.\n\nTonight, the night before the match, the team gathers to test Spark one last time, before the deadline arrives. Spark is supposed to roll steadily toward the ball and kick it cleanly into the goal. Instead, to everyone's growing alarm, Spark just spins around and around in one spot. No matter how many times the team restarts the robot, it refuses to stop turning, almost as if something invisible is controlling it.\n\nWorried, Omar opens his laptop and studies Spark's code line by line, patiently looking for whatever has gone wrong inside the program. Code is a set of exact steps. It tells a robot precisely what to do, one step after another, leaving no room for guessing. Spark's sensor can see the ball just fine, and its motor spins the wheels just fine too, so Omar knows he must debug the program itself, not the robot's parts. After several minutes of careful, frustrating reading, Omar finds the bug. The code correctly tells Spark to turn. But it never tells Spark when that turning should stop. So the robot keeps repeating the same turn, trapped in what programmers call an endless loop.\n\nOmar quickly fixes the bug. He types one small, missing line into the program. Now the code clearly tells Spark exactly when to stop turning and move forward toward the ball instead.\n\nThe team tests Spark once more, holding their breath as the small robot powers on. This time, Spark turns only once. Then it rolls straight toward the ball and kicks it with real force. The ball sails past the goalkeeper and lands inside the goal!\n\nSara and Omar cheer with relief. The rest of the team claps and laughs, finally confident that Spark is ready for tomorrow's important match against the other schools."
+    },
+    {
+      "level": 1000,
+      "title": "The Robot Soccer Team",
+      "text": "Sara and Omar are the two student leaders of their school's robotics club, and together they had spent several weeks designing, building, and carefully programming a small robot named Spark for a robot-soccer competition.\n\nTomorrow afternoon is the big match, known across the region as the Robotics Cup, and teams from rival schools will take part. The whole team is counting on Spark to perform well.\n\nTonight, the night before the match, the team gathers to test Spark one last time, before the deadline arrives. Spark is supposed to roll steadily toward the ball and kick it cleanly into the goal, just as it had practiced many times before. Instead, to everyone's growing alarm, Spark just spins around and around in one spot. No matter how many times the team restarts the robot, it refuses to stop turning, almost as if something invisible has taken control of it.\n\nWorried, Omar opens his laptop and studies Spark's code line by line, patiently looking for whatever has gone wrong inside the program. Code is a set of exact steps that tells a robot precisely what to do, one step after another, leaving no room for guessing or assuming. Spark's sensor can see the ball just fine, and its motor spins the wheels just fine too, so Omar knows the problem must be hidden in the program, which means he has to debug it carefully. After several minutes of careful, frustrating reading, Omar finally finds the bug: the code correctly tells Spark to turn, but it never tells Spark when that turning should stop, so the robot keeps repeating the same turn, trapped in what programmers call an endless loop.\n\nOmar quickly fixes the bug by typing one small, missing line into the program, an instruction the earlier version had somehow left out. Now the code clearly tells Spark exactly when to stop turning and move forward toward the ball instead.\n\nThe team tests Spark once more, holding their breath as the small robot powers on. This time, Spark turns only once. Then it rolls straight toward the ball and kicks it with real, satisfying force. The ball sails past the goalkeeper and lands inside the goal!\n\nSara and Omar cheer with relief. The rest of the team claps and laughs, finally confident that Spark is ready for tomorrow's important match against the other schools."
+    },
+    {
+      "level": 1100,
+      "title": "The Robot Soccer Team",
+      "text": "Sara and Omar, the two student leaders of their school's robotics club, had spent several weeks designing, building, and carefully programming a small robot named Spark for a robot-soccer competition. They poured far more hours into the project than anyone outside the club realized.\n\nTomorrow afternoon brings the big match, known across the region as the Robotics Cup. Teams from rival schools will take part, and the whole team is counting on Spark to perform well against them.\n\nTonight, the night before the match, the team gathers one final time to test Spark, before the deadline arrives. According to the plan, Spark should roll steadily toward the ball and kick it cleanly into the goal, exactly as it had practiced many times before. Instead, to everyone's growing alarm, Spark simply spins around and around in one spot, refusing to advance at all. No matter how many times the team restarts the robot, it stubbornly keeps turning, almost as though some invisible force has taken control of its movements.\n\nWorried, Omar opens his laptop and studies Spark's algorithm line by line, patiently searching for whatever has gone wrong. An algorithm is a sequence of exact instructions. It tells a robot precisely what to do, one step after another, leaving no room for guessing or assuming. A good engineer has to calibrate every sensor and check each variable the program uses, especially in an autonomous robot like Spark that has to act on its own during the match, with no one controlling it directly. After several minutes of careful, frustrating reading, Omar finally locates the bug. The code correctly instructs Spark to turn, but it never specifies when that turning should stop. So the robot keeps repeating the identical turn, trapped in what programmers call an endless loop.\n\nOmar swiftly corrects the bug by typing one small, missing line into the program, an instruction the earlier version had somehow left out. Now the code clearly specifies exactly when Spark should stop turning and begin moving forward toward the ball instead.\n\nThe team tests Spark once more, holding their breath as the small robot powers on. This time, Spark turns only once, rolls straight toward the ball, and kicks it with real, satisfying force. The ball sails past the goalkeeper and lands inside the goal.\n\nSara and Omar cheer with relief, and the rest of the team claps and laughs, finally confident that Spark is ready for tomorrow's important match against its rivals."
+    },
+    {
+      "level": 1200,
+      "title": "The Robot Soccer Team",
+      "text": "Sara and Omar, the two student leaders of their school's robotics club, had spent several weeks designing, building, and carefully programming a small robot named Spark for a robot-soccer competition. They poured far more hours into the project than anyone outside the club ever realized.\n\nTomorrow afternoon brings the big match, known across the region as the Robotics Cup. Teams from rival schools will take part, and the whole team is depending on Spark to perform well against them.\n\nTonight, the evening before the match, the team gathers one final time to test Spark, before the approaching deadline. According to the plan, Spark should roll steadily toward the ball and kick it cleanly into the goal, exactly as it had practiced countless times before. Instead, to everyone's mounting alarm, Spark simply spins around and around in one spot, refusing to advance at all. No matter how many times the team restarts the robot, it stubbornly keeps turning, almost as though some invisible force has taken control of its movements.\n\nGenuinely worried, Omar opens his laptop and studies Spark's algorithm line by line, patiently searching for whatever has gone wrong inside the program. An algorithm is a sequence of exact instructions. It tells a robot precisely what to do, one step after another, leaving no room for guessing or assuming anything. A skilled engineer must calibrate every sensor and check each variable the program relies on, especially in an autonomous robot like Spark that has to act entirely on its own throughout the match, without anyone controlling it directly. After several minutes of careful, increasingly frustrating reading, Omar finally locates the bug. The code correctly instructs Spark to turn, yet it never specifies when that turning should stop. So the robot keeps repeating the identical turn, trapped in what programmers call an endless loop.\n\nOmar swiftly corrects the bug by typing one small, missing line into the program, an instruction the earlier version had somehow left out entirely. Now the code clearly specifies exactly when Spark should cease turning and begin moving forward toward the ball instead.\n\nThe team tests Spark once more, holding their breath as the small robot powers on. This time, Spark turns only once, rolls straight toward the ball, and kicks it with real, satisfying force. The ball sails past the goalkeeper and lands inside the goal.\n\nSara and Omar cheer with relief, and the rest of the team claps and laughs with delight, finally confident that Spark is ready for tomorrow's important match against its rivals."
+    },
+    {
+      "level": 1300,
+      "title": "The Robot Soccer Team",
+      "text": "Sara and Omar, the two student leaders of their school's robotics club, had devoted several weeks to designing, constructing, and meticulously programming a small robot named Spark for an upcoming robot-soccer competition, investing far more hours into the project than anyone outside the club ever fully appreciated.\n\nTomorrow afternoon brings the decisive match, known throughout the city as the Robotics Cup, and the entire team is depending on Spark to perform admirably against robots engineered by rival schools from across the region, each team fervently hoping its machine will ultimately outperform the rest.\n\nTonight, the evening before the match, the team convenes one final time to test Spark thoroughly before the approaching deadline. According to their meticulously rehearsed plan, Spark should roll steadily toward the ball and kick it cleanly into the goal, exactly as it had practiced countless times previously. Instead, to everyone's mounting alarm, Spark simply spins around and around in one spot, refusing to advance whatsoever! No matter how many times the team restarts the robot, it stubbornly continues turning, almost as though some invisible force has seized complete control of its movements.\n\nGenuinely alarmed, Omar opens his laptop and studies Spark's algorithm line by line, searching patiently for whatever has malfunctioned inside the program. An algorithm is simply a sequence of exact instructions that directs a robot precisely what to do, one step after another, leaving absolutely no room for guessing or assuming anything whatsoever. A competent engineer must calibrate every sensor and verify each variable the program relies upon, especially in an autonomous robot that has to act entirely on its own during the match, without anyone controlling it directly. After several minutes of careful, increasingly frustrating examination, Omar finally locates the culprit: the code correctly instructs Spark to turn, yet it never specifies a condition for when that turning should cease, so the robot simply keeps repeating the identical turn indefinitely, trapped in what programmers call an endless loop.\n\nOmar swiftly corrects the bug by typing one small, missing line into the program, a single instruction the earlier version had somehow omitted entirely. Now the code clearly specifies the precise moment Spark should cease turning and begin moving forward toward the ball instead.\n\nThe team tests Spark once more, holding their breath nervously as the small robot powers on. This time, Spark turns only once, rolls straight toward the ball, and kicks it with surprising, satisfying force. The ball sails cleanly past the goalkeeper and lands inside the goal!\n\nSara and Omar cheer with relief, and the rest of the team claps and laughs with delight, finally confident that Spark is thoroughly prepared for tomorrow's decisive match against its rivals."
+    },
+    {
+      "level": 1400,
+      "title": "The Robot Soccer Team",
+      "text": "Sara and Omar, the two student leaders of their school's robotics club, had devoted several weeks to designing, constructing, and meticulously programming a diminutive robot named Spark for an upcoming robot-soccer competition, investing considerably more hours into the project than anyone outside the club ever fully appreciated.\n\nTomorrow afternoon brings the decisive match, known throughout the city as the Robotics Cup, and the entire team is depending on Spark to perform admirably against robots engineered by rival schools from across the region, each team fervently hoping its own machine will ultimately outperform all the others.\n\nTonight, the evening before the match, the team convenes one final time to test Spark thoroughly before the rapidly approaching deadline. According to their meticulously rehearsed plan, Spark should roll steadily toward the ball and kick it cleanly into the goal, exactly as it had practiced countless times previously during training sessions. Instead, to everyone's mounting alarm, Spark simply spins around and around in one spot, refusing to advance whatsoever! No matter how many times the team restarts the robot, it stubbornly continues turning, almost as though some invisible force has seized complete control of its movements.\n\nGenuinely alarmed, Omar opens his laptop and studies Spark's algorithm line by line, searching patiently for whatever has malfunctioned inside the underlying program. An algorithm is simply a sequence of exact instructions that directs a robot precisely what to do, one step after another, leaving absolutely no room whatsoever for guessing or assuming anything. A competent engineer must calibrate every sensor and verify each variable the program relies upon, especially in an autonomous robot that has to act entirely on its own during the match, without anyone controlling it directly. After several minutes of careful, increasingly frustrating examination, Omar finally locates the culprit: the code correctly instructs Spark to turn, yet it never specifies a condition for when that turning should cease, so the robot simply keeps repeating the identical turn indefinitely, trapped in what programmers call an endless loop.\n\nOmar swiftly corrects the bug by typing one small, missing line into the program, a single instruction the earlier version had somehow omitted entirely from its logic. Now the code clearly specifies the precise moment Spark should cease turning and commence moving forward toward the ball instead.\n\nThe team tests Spark once more, holding their collective breath nervously as the small robot powers on. This time, Spark turns only once, rolls straight toward the ball, and kicks it with surprising, satisfying force. The ball sails cleanly past the goalkeeper and lands squarely inside the goal!\n\nSara and Omar cheer with relief, and the rest of the team claps and laughs with delight, finally confident that Spark is thoroughly prepared for tomorrow's decisive match against its determined rivals."
+    },
+    {
+      "level": 1500,
+      "title": "The Robot Soccer Team",
+      "text": "Sara and Omar, the two student leaders of their school's robotics club, had devoted several painstaking weeks to designing, constructing, and meticulously programming a diminutive robot named Spark for an upcoming robot-soccer competition, investing considerably more hours into the undertaking than anyone outside the club ever fully appreciated or even suspected.\n\nTomorrow afternoon brings the decisive match, known throughout the city as the Robotics Cup, and the entire team is depending on Spark to perform admirably against robots engineered by rival schools from across the region, each team fervently hoping its own machine will ultimately outperform all the others in the field.\n\nTonight, the evening before the match, the team convenes one final time to test Spark thoroughly before the rapidly approaching deadline arrives. According to their meticulously rehearsed plan, Spark should roll steadily toward the ball and kick it cleanly into the goal, exactly as it had practiced countless times previously during training sessions throughout the semester. Instead, to everyone's mounting alarm, Spark simply spins around and around in one spot, stubbornly refusing to advance whatsoever! No matter how many times the exasperated team restarts the robot, it continues turning relentlessly, almost as though some invisible force has seized complete control of its movements.\n\nGenuinely alarmed, Omar opens his laptop and studies Spark's algorithm line by line, searching patiently for whatever has malfunctioned somewhere within the underlying program. An algorithm is simply a sequence of exact, unambiguous instructions that directs a robot precisely what to do, one step after another, leaving absolutely no room whatsoever for guessing or assuming anything at all. A thoroughly competent engineer must calibrate every sensor and verify each variable the program relies upon, especially in an autonomous robot that has to act entirely on its own during the match, without anyone controlling it directly. After several minutes of careful, increasingly frustrating examination, Omar finally locates the culprit: the code correctly instructs Spark to turn, yet it never specifies a condition for when that turning should cease, so the robot simply keeps repeating the identical turn indefinitely, trapped in what programmers formally call an endless loop.\n\nOmar swiftly corrects the bug by typing one small, missing line into the program, a single instruction the earlier version had somehow omitted entirely from its underlying logic. Now the code clearly specifies the precise moment at which Spark should cease turning and commence moving forward toward the ball instead.\n\nThe team tests Spark once more, holding their collective breath nervously as the small robot powers on once again. This time, Spark turns only once, rolls straight toward the ball, and kicks it with surprising, deeply satisfying force. The ball sails cleanly past the goalkeeper and lands squarely inside the goal!\n\nSara and Omar cheer with tremendous relief, and the rest of the team claps and laughs with evident delight, finally confident that Spark is thoroughly prepared for tomorrow's decisive match against its determined rivals."
+    },
+    {
+      "level": 1600,
+      "title": "The Robot Soccer Team",
+      "text": "Sara and Omar, the two student leaders of their school's robotics club, had devoted several painstaking weeks to designing, constructing, and meticulously programming a diminutive robot named Spark for an impending robot-soccer competition, investing considerably more hours into the undertaking than anyone outside the club ever fully appreciated or even remotely suspected.\n\nTomorrow afternoon brings the decisive match, known throughout the city as the Robotics Cup, and the entire team is depending on Spark to perform admirably against robots engineered by rival schools from across the region, each competing team fervently hoping its own machine will ultimately outperform all the others in the field.\n\nTonight, the evening preceding the match, the team convenes one final time to test Spark thoroughly before the rapidly approaching deadline arrives. According to their meticulously rehearsed plan, Spark should roll steadily toward the ball and kick it cleanly into the goal, exactly as it had practiced countless times previously during training sessions throughout the semester. Instead, to everyone's mounting alarm, Spark simply spins around and around in one spot, stubbornly refusing to advance whatsoever! No matter how many times the exasperated team restarts the robot, it continues turning relentlessly, almost as though some invisible force has seized complete, inexplicable control of its movements.\n\nGenuinely alarmed, Omar opens his laptop and studies Spark's algorithm line by line, searching patiently for whatever malfunction lurks somewhere within the underlying program. An algorithm is simply a sequence of exact, unambiguous instructions that directs a robot precisely what to do, one step after another, leaving absolutely no room whatsoever for guessing or assuming anything at all. A thoroughly competent engineer must calibrate every sensor and verify each variable the program relies upon, especially in an autonomous robot that has to act entirely on its own during the match, without anyone controlling it directly. After several minutes of careful, increasingly frustrating examination, Omar finally isolates the culprit: the code correctly instructs Spark to turn, yet it never specifies a condition for when that turning should cease, so the robot simply keeps repeating the identical turn indefinitely, trapped in what programmers formally term an endless loop.\n\nOmar swiftly corrects the bug by typing one small, previously missing line into the program, a single instruction the earlier version had somehow omitted entirely from its underlying logic. Now the code clearly specifies the precise moment at which Spark should cease turning and commence moving forward toward the ball instead.\n\nThe team tests Spark once more, holding their collective breath nervously as the small robot powers on once again. This time, Spark turns only once, rolls straight toward the ball, and kicks it with surprising, deeply satisfying force. The ball sails cleanly past the goalkeeper and lands squarely inside the goal!\n\nSara and Omar cheer with tremendous relief, and the rest of the team claps and laughs with evident delight, finally confident that Spark is thoroughly prepared for tomorrow's decisive match against its determined rivals."
+    }
+  ],
+  "bands": {
+    "LOW": {
+      "keyWords": [
+        {
+          "word": "robot",
+          "partOfSpeech": "noun",
+          "definition": "a machine that can be told what to do and can move or work on its own",
+          "example": "The robot moved across the floor to pick up the box."
+        },
+        {
+          "word": "code",
+          "partOfSpeech": "noun",
+          "definition": "a list of steps that tells a computer or robot what to do",
+          "example": "She wrote code to make the toy car turn left."
+        },
+        {
+          "word": "team",
+          "partOfSpeech": "noun",
+          "definition": "a group of people who work together on the same goal",
+          "example": "Our team practiced every day before the game."
+        },
+        {
+          "word": "kick",
+          "partOfSpeech": "verb",
+          "definition": "to hit something with your foot",
+          "example": "He kicked the ball across the yard."
+        },
+        {
+          "word": "fix",
+          "partOfSpeech": "verb",
+          "definition": "to repair something or make it work correctly",
+          "example": "Dad had to fix the broken chair."
+        }
+      ],
+      "questions": [
+        {
+          "stem": "What is this story mostly about?",
+          "options": [
+            "A team that builds a brand new school",
+            "A team that fixes a robot's code before a match",
+            "A team that paints a large wall mural",
+            "A team that plants a new flower garden"
+          ],
+          "answer": "B",
+          "skill": "central-idea",
+          "why": "The story is about Sara and Omar fixing a bug in Spark's code before the robot soccer match.",
+          "wrong": {
+            "A": "The story is not about building a school.",
+            "C": "The story does not mention painting.",
+            "D": "The story does not mention planting."
+          }
+        },
+        {
+          "stem": "What does Spark do instead of kicking the ball?",
+          "options": [
+            "It stops moving suddenly",
+            "It runs away quickly",
+            "It spins in circles",
+            "It falls over sideways"
+          ],
+          "answer": "C",
+          "skill": "detail",
+          "why": "The story says Spark spins around and around instead of kicking the ball.",
+          "wrong": {
+            "A": "Spark keeps moving, it does not stop.",
+            "B": "Spark does not run away in the story.",
+            "D": "The story does not say Spark falls over."
+          }
+        },
+        {
+          "stem": "Why does Spark keep spinning?",
+          "options": [
+            "The team turned it off completely",
+            "The battery is too weak to work",
+            "The ball is too far away to reach",
+            "The code never tells it to stop"
+          ],
+          "answer": "D",
+          "skill": "cause-effect",
+          "why": "Omar finds that the code tells Spark to turn but never tells it to stop.",
+          "wrong": {
+            "A": "The team does not turn Spark off.",
+            "B": "The story does not say the battery is weak.",
+            "C": "The distance to the ball is not the problem."
+          }
+        },
+        {
+          "stem": "Who finds the bug in the code?",
+          "options": [
+            "Omar",
+            "Sara",
+            "The coach",
+            "A judge"
+          ],
+          "answer": "A",
+          "skill": "detail",
+          "why": "The story says Omar studies the code and finds the bug.",
+          "wrong": {
+            "B": "Sara watches, but Omar reads the code.",
+            "C": "No coach is named in the story.",
+            "D": "No judge is named in the story."
+          }
+        },
+        {
+          "stem": "What does Omar do to fix the bug?",
+          "options": [
+            "He buys a brand-new robot instead",
+            "He adds a small missing line to the code",
+            "He paints Spark a new color design",
+            "He asks another team for some help"
+          ],
+          "answer": "B",
+          "skill": "detail",
+          "why": "Omar types one small, missing line into the program to fix the bug.",
+          "wrong": {
+            "A": "The team keeps the same robot, Spark.",
+            "C": "The story does not mention paint.",
+            "D": "The story does not mention asking another team."
+          }
+        },
+        {
+          "stem": "What happens after Omar fixes the code?",
+          "options": [
+            "The team gives up and goes home sad",
+            "Spark stops working completely for good",
+            "Spark starts spinning even faster now",
+            "Spark turns once, then runs and kicks the ball in"
+          ],
+          "answer": "D",
+          "skill": "sequence",
+          "why": "After the fix, Spark turns once, runs to the ball, and kicks it into the goal.",
+          "wrong": {
+            "A": "The team cheers instead of giving up.",
+            "B": "Spark works well after the fix.",
+            "C": "Spark does not spin faster; it stops spinning."
+          }
+        },
+        {
+          "stem": "How do Sara and Omar most likely feel when the ball goes into the goal?",
+          "options": [
+            "Angry and confused",
+            "Happy and relieved",
+            "Bored and tired",
+            "Scared and worried"
+          ],
+          "answer": "B",
+          "skill": "inference",
+          "why": "The story says they cheer, which shows they feel happy and relieved.",
+          "wrong": {
+            "A": "The story does not describe anger at that moment.",
+            "C": "They are not described as bored.",
+            "D": "Their worry ends once the fix works."
+          }
+        },
+        {
+          "stem": "Why does the author tell about the night before the match?",
+          "options": [
+            "To describe what the team eats for dinner",
+            "To show how the team solves a problem under pressure",
+            "To explain the official rules of soccer",
+            "To describe the weather outside that night"
+          ],
+          "answer": "B",
+          "skill": "author-purpose",
+          "why": "The story focuses on the team finding and fixing the bug just before the deadline.",
+          "wrong": {
+            "A": "The story does not describe dinner.",
+            "C": "The story does not explain soccer rules.",
+            "D": "The story does not describe the weather."
+          }
+        }
+      ],
+      "prompt": "Have you ever had to fix a mistake before an important event? Write about it, or imagine how you would feel if you were Omar fixing the code.",
+      "checklist": [
+        "I clearly described a mistake and a fix.",
+        "I used at least two details from the story.",
+        "I wrote complete sentences with capital letters and periods."
+      ],
+      "modelAnswer": "If I were Omar, I would feel worried when Spark kept spinning in circles. I would read the code carefully, just like he did, to find the bug. When I found the missing line and fixed it, I would feel proud and relieved, because the team worked hard to be ready for the match."
+    },
+    "MID": {
+      "keyWords": [
+        {
+          "word": "program",
+          "partOfSpeech": "noun",
+          "definition": "a set of coded instructions that controls what a computer or robot does",
+          "example": "The program told the drone to fly in a square shape."
+        },
+        {
+          "word": "debug",
+          "partOfSpeech": "verb",
+          "definition": "to find and fix mistakes in a computer program",
+          "example": "The students had to debug their app before class ended."
+        },
+        {
+          "word": "sensor",
+          "partOfSpeech": "noun",
+          "definition": "a part of a machine that detects things like light, distance, or touch",
+          "example": "A sensor on the robot's front told it when it was close to a wall."
+        },
+        {
+          "word": "competition",
+          "partOfSpeech": "noun",
+          "definition": "an event where people or teams try to win against each other",
+          "example": "She trained for months before the swimming competition."
+        },
+        {
+          "word": "motor",
+          "partOfSpeech": "noun",
+          "definition": "a part of a machine that makes it move",
+          "example": "The toy car's motor made the wheels spin quickly."
+        }
+      ],
+      "questions": [
+        {
+          "stem": "Which sentence best states the central idea of the story?",
+          "options": [
+            "A robotics team decides to build a completely new motor",
+            "A robotics team discovers and corrects a coding error before a competition",
+            "A robotics team loses all interest in competing this year",
+            "A robotics team argues about who should lead the club"
+          ],
+          "answer": "B",
+          "skill": "central-idea",
+          "why": "The story centers on finding and fixing the bug in Spark's program the night before the match.",
+          "wrong": {
+            "A": "The team does not build a new motor in this story.",
+            "C": "The team stays very interested in the competition.",
+            "D": "The story does not describe an argument over leadership."
+          }
+        },
+        {
+          "stem": "What is the name of the competition in the story?",
+          "options": [
+            "The Science Fair",
+            "The Coding Contest",
+            "The Robotics Cup",
+            "The School Olympics"
+          ],
+          "answer": "C",
+          "skill": "detail",
+          "why": "The story names the event the Robotics Cup.",
+          "wrong": {
+            "A": "A science fair is not mentioned.",
+            "B": "No separate coding contest is named.",
+            "D": "No school olympics is named."
+          }
+        },
+        {
+          "stem": "What problem does the team discover during the final test?",
+          "options": [
+            "Spark's distance sensor is completely broken",
+            "Spark's motor will not turn on at all",
+            "Spark kicks the ball in the wrong direction",
+            "Spark will not stop spinning in one spot"
+          ],
+          "answer": "D",
+          "skill": "detail",
+          "why": "During the test, Spark spins around and around instead of moving toward the ball.",
+          "wrong": {
+            "A": "A broken sensor is not mentioned as the problem.",
+            "B": "The motor does turn on; that is why Spark keeps turning.",
+            "C": "Spark cannot kick at all until the bug is fixed."
+          }
+        },
+        {
+          "stem": "Why does Omar's search through the code take several minutes?",
+          "options": [
+            "He is waiting for Sara to arrive at practice",
+            "He must read each line carefully to find the mistake",
+            "He is also trying to repair the broken motor",
+            "He is writing a brand-new program from scratch"
+          ],
+          "answer": "B",
+          "skill": "cause-effect",
+          "why": "The story says Omar reads through each line slowly, searching for the mistake.",
+          "wrong": {
+            "A": "Sara is already present for the testing.",
+            "C": "The motor is not the issue; it works fine.",
+            "D": "Omar fixes the existing program instead of starting over."
+          }
+        },
+        {
+          "stem": "In the story, the word debug is best understood to mean —",
+          "options": [
+            "to remove a small insect from a machine",
+            "to charge up a robot's battery fully",
+            "to find and correct a mistake in a program",
+            "to test a robot outdoors in the rain"
+          ],
+          "answer": "C",
+          "skill": "vocabulary",
+          "why": "Omar is debugging the program by searching for and fixing the missing line.",
+          "wrong": {
+            "A": "The story is not about insects.",
+            "B": "Charging a battery is not discussed.",
+            "D": "Outdoor testing is not mentioned."
+          }
+        },
+        {
+          "stem": "What can you infer about why the missing line caused an endless loop?",
+          "options": [
+            "The team simply forgot to charge the battery",
+            "The robot's motor was far too strong for the code",
+            "The sensor sent the wrong signal to the program",
+            "The turning instruction had no condition that could end it"
+          ],
+          "answer": "D",
+          "skill": "inference",
+          "why": "A turn instruction with no condition for stopping repeats forever, which is why Spark kept spinning.",
+          "wrong": {
+            "A": "Battery charge is not the issue described.",
+            "B": "Motor strength is not mentioned as the cause.",
+            "C": "A sensor problem is not described in the story."
+          }
+        },
+        {
+          "stem": "How is the problem in the story mainly solved?",
+          "options": [
+            "By replacing Spark with a brand-new robot",
+            "By asking the judges for a little more time",
+            "By carefully reading the code and adding a missing line",
+            "By changing the official rules of the competition"
+          ],
+          "answer": "C",
+          "skill": "cause-effect",
+          "why": "Omar solves the problem by finding and typing in the missing line of code.",
+          "wrong": {
+            "A": "The team keeps using the same robot, Spark.",
+            "B": "Asking judges for time is not part of the story.",
+            "D": "The rules of the competition are not changed."
+          }
+        },
+        {
+          "stem": "Why does the author describe the team testing Spark again after the fix?",
+          "options": [
+            "To describe a brand-new rule for the competition",
+            "To introduce a completely new character",
+            "To explain in detail how sensors are built",
+            "To show that the fix worked and the team is ready"
+          ],
+          "answer": "D",
+          "skill": "author-purpose",
+          "why": "The final test shows Spark working correctly, proving the fix was successful.",
+          "wrong": {
+            "A": "No new rule is introduced.",
+            "B": "No new character appears at that point.",
+            "C": "Sensor construction is not explained."
+          }
+        }
+      ],
+      "prompt": "Explain the problem the robotics team faced and how Omar solved it. Use at least two details from the story.",
+      "checklist": [
+        "I explained the problem clearly.",
+        "I explained how it was solved, using at least two details.",
+        "I organized my ideas in a clear order."
+      ],
+      "modelAnswer": "The robotics team faced a serious problem the night before their competition: their robot, Spark, would not stop spinning in one spot instead of kicking the ball. Omar studied the program's code line by line and discovered that the turning instruction had no stop condition, so it kept repeating forever. He solved the problem by typing in the one small, missing line the program needed, which told Spark exactly when to stop turning and move toward the ball."
+    },
+    "HIGH": {
+      "keyWords": [
+        {
+          "word": "algorithm",
+          "partOfSpeech": "noun",
+          "definition": "a sequence of exact steps or instructions used to solve a problem or complete a task",
+          "example": "Engineers designed an algorithm to help the delivery robot choose the shortest route."
+        },
+        {
+          "word": "calibrate",
+          "partOfSpeech": "verb",
+          "definition": "to carefully adjust an instrument or machine so it works accurately",
+          "example": "Technicians had to calibrate the sensor before the robot could measure distance correctly."
+        },
+        {
+          "word": "variable",
+          "partOfSpeech": "noun",
+          "definition": "in a computer program, a named value that can change or be stored while the program runs",
+          "example": "The programmer used a variable to keep track of how many times the robot had turned."
+        },
+        {
+          "word": "autonomous",
+          "partOfSpeech": "adjective",
+          "definition": "able to operate and make decisions without a person directly controlling every action",
+          "example": "The autonomous robot navigated around the obstacle without any help from its operators."
+        },
+        {
+          "word": "engineer",
+          "partOfSpeech": "noun",
+          "definition": "a person who designs, builds, or fixes machines and technical systems",
+          "example": "The engineer adjusted the robot's motor so it would run more smoothly."
+        }
+      ],
+      "questions": [
+        {
+          "stem": "Which statement best captures the central idea of the story?",
+          "options": [
+            "A robotics team decides that robots are too unreliable for future tournaments",
+            "A determined robotics team identifies and corrects a flaw in their robot's algorithm",
+            "A robotics team spends the night redesigning Spark's entire robot body",
+            "A robotics team argues over which school should host the Cup this year"
+          ],
+          "answer": "B",
+          "skill": "central-idea",
+          "why": "The story focuses on Sara and Omar tracking down and fixing a flaw in the algorithm controlling Spark's turning behavior, just before the competition.",
+          "wrong": {
+            "A": "The team does not lose confidence in robots overall; they fix the problem and move forward.",
+            "C": "The story concerns the code, not a redesign of Spark's body.",
+            "D": "No argument over hosting the event occurs in the story."
+          }
+        },
+        {
+          "stem": "Based on the story, what is the most likely reason Spark spins endlessly instead of advancing toward the ball?",
+          "options": [
+            "The robot's motor generates too much power for its wheels",
+            "A sensor incorrectly detects the ball as being behind the robot",
+            "The team never calibrated Spark's camera before the test",
+            "The turning instruction lacks a condition specifying when it should stop"
+          ],
+          "answer": "D",
+          "skill": "cause-effect",
+          "why": "Omar discovers that the algorithm tells Spark to turn but never specifies when to stop, producing an endless loop.",
+          "wrong": {
+            "A": "Excess motor power is never mentioned as a cause.",
+            "B": "A faulty sensor reading is not described in the story.",
+            "C": "Camera calibration is not discussed in the story."
+          }
+        },
+        {
+          "stem": "In the story, the word algorithm most nearly means —",
+          "options": [
+            "a small part that senses distance or light nearby",
+            "a competition between several rival city schools",
+            "a sequence of exact instructions that tells a machine what to do",
+            "a battery that stores electrical power inside it"
+          ],
+          "answer": "C",
+          "skill": "vocabulary",
+          "why": "The story defines an algorithm as a sequence of exact instructions directing a robot's actions step by step.",
+          "wrong": {
+            "A": "That describes a sensor, not an algorithm.",
+            "B": "A competition is a separate idea from an algorithm.",
+            "D": "A battery is not defined or discussed as part of the algorithm."
+          }
+        },
+        {
+          "stem": "What can be inferred about why Omar reads through Spark's code \"line by line\" rather than skimming it quickly?",
+          "options": [
+            "He suspects the entire program needs complete rewriting",
+            "He is more interested in the program's appearance than its function",
+            "He wants to memorize the code for future competitions",
+            "A single missing instruction is easy to overlook unless checked carefully"
+          ],
+          "answer": "D",
+          "skill": "inference",
+          "why": "Since the bug is just one small, missing line, careful line-by-line reading is necessary to catch something so easy to miss.",
+          "wrong": {
+            "A": "Omar fixes one line rather than rewriting the program.",
+            "B": "The story emphasizes function, not appearance.",
+            "C": "Memorizing the code for later is not mentioned."
+          }
+        },
+        {
+          "stem": "Place these events in the order they occur in the story.",
+          "options": [
+            "Omar adds the missing line, Spark spins endlessly, Spark kicks the ball into the goal, Omar studies the algorithm",
+            "Spark spins endlessly, Omar studies the algorithm, Omar adds the missing line, Spark kicks the ball into the goal",
+            "Spark kicks the ball into the goal, Spark spins endlessly, Omar adds the missing line, Omar studies the algorithm",
+            "Omar studies the algorithm, Spark kicks the ball into the goal, Spark spins endlessly, Omar adds the missing line"
+          ],
+          "answer": "B",
+          "skill": "sequence",
+          "why": "Spark first malfunctions and spins, then Omar investigates the code, corrects the flaw, and finally Spark performs correctly.",
+          "wrong": {
+            "A": "The fix cannot happen before the problem is found.",
+            "C": "Spark cannot succeed before the bug is corrected.",
+            "D": "Studying the code must come before fixing it, not after a successful kick."
+          }
+        },
+        {
+          "stem": "Why does the author most likely emphasize that Omar's fix involved adding only \"one small, missing line\"?",
+          "options": [
+            "To suggest the entire program was poorly designed from the start",
+            "To highlight how a tiny oversight can cause a large malfunction",
+            "To show that Omar rebuilt the whole algorithm overnight",
+            "To explain how robots are generally manufactured in factories"
+          ],
+          "answer": "B",
+          "skill": "author-purpose",
+          "why": "Emphasizing the smallness of the fix underscores how a minor oversight produced a major, visible problem.",
+          "wrong": {
+            "A": "The rest of the program worked correctly; only one instruction was missing.",
+            "C": "Omar corrects one line, not the whole algorithm.",
+            "D": "Manufacturing processes are not addressed in the story."
+          }
+        },
+        {
+          "stem": "Which comparison best matches the relationship between Spark's malfunction and its cause, as described in the story?",
+          "options": [
+            "An endless loop is to a motor as a goal is to a sensor nearby",
+            "An endless loop is to Sara as a competition is to Omar himself",
+            "An endless loop is to the Robotics Cup as a team is to a school",
+            "An endless loop is to a missing stop condition as a locked door is to a missing key"
+          ],
+          "answer": "D",
+          "skill": "compare",
+          "why": "Just as a locked door cannot open without the correct key, the loop could not end without the missing stop condition.",
+          "wrong": {
+            "A": "The motor is not the cause of the loop; the missing condition is.",
+            "B": "This pairs people, not a cause-and-effect relationship.",
+            "C": "This compares unrelated nouns rather than cause and effect."
+          }
+        },
+        {
+          "stem": "What does the story suggest about why the team restarting Spark repeatedly did not solve the problem?",
+          "options": [
+            "The robot's battery simply needed more time to charge",
+            "The sensors needed to be recalibrated after each restart",
+            "The team was restarting the wrong robot entirely by mistake",
+            "Restarting the robot does not change the algorithm causing the loop"
+          ],
+          "answer": "D",
+          "skill": "inference",
+          "why": "Since the flaw lives in the code itself, restarting the robot runs the same flawed algorithm again and produces the same result.",
+          "wrong": {
+            "A": "Battery charging time is not discussed as a factor.",
+            "B": "Recalibration between restarts is not mentioned.",
+            "C": "There is no suggestion the team used the wrong robot."
+          }
+        }
+      ],
+      "prompt": "The poll says finding a small mistake is often harder than building the whole project. Do you agree or disagree? Support your argument with evidence from the story about Spark's bug.",
+      "checklist": [
+        "I stated a clear position on the poll statement.",
+        "I supported my position with specific evidence from the story.",
+        "I addressed at least one point someone might make against my view."
+      ],
+      "modelAnswer": "I agree that finding a small mistake can be harder than building the whole project in the first place. In the story, Sara and Omar had already spent weeks designing and building Spark, yet one missing line in the algorithm, impossible to see from the outside, caused the robot to spin endlessly. Omar had to read through the entire program line by line just to locate that single flaw. Someone might argue that building the robot required far more total effort than fixing one line, and that is true, but the search for the bug demanded a different kind of difficulty: patient, careful attention to detail that building alone did not require."
+    }
+  }
+}

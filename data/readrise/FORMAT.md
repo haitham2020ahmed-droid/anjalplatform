@@ -1,13 +1,14 @@
 # ReadRise content format
 
 One JSON file per article in `data/readrise/articles/<code>.json` (the platform library; loaded by the seed).
-All content is ORIGINAL (written for Al-Anjal), nonfiction, suitable for Grades 4–6 in Saudi Arabia.
+All content is ORIGINAL (written for Al-Anjal), suitable for Grades 4–6 in Saudi Arabia. Nonfiction except for
+the "Fiction" topic (added Oct 2026), which is original short fiction — same JSON shape, no new field.
 
 ```json
 {
   "code": "RR-001",
   "title": "Article title (Title Case)",
-  "topic": "Science | Animals | Space | Earth | Health | Technology | History | People | Environment | Sports",
+  "topic": "Science | Animals | Space | Earth | Health | Technology | History | People | Environment | Sports | Arts & Culture | Geography | Fiction",
   "summary": "One sentence that tells what the article is about.",
   "poll": "A statement students can agree or disagree with, before and after reading.",
   "versions": [
