@@ -18,6 +18,7 @@ import { assertClassRead } from "../teacher/coordinators";
 import { RR_SKILLS } from "./import";
 import { readRisePlaced, weekStart as engineWeekStart } from "./engine";
 import { questionKeys } from "./question-key";
+import { standardOfSkill } from "./growth-words";
 
 const s = (v: unknown) => String(v ?? "");
 const DAY = 86_400_000;
@@ -253,6 +254,57 @@ export async function skillsReport(repo: Repo, actor: Actor, classId: string): P
       const m = tally.get(id) ?? new Map();
       const tot = [...m.values()].reduce((a, [c, t]) => [a[0] + c, a[1] + t], [0, 0]);
       return { studentId: id, name: d.names.get(id) ?? "Student", bySkill: toCells(m), total: cell(tot[0], tot[1]) };
+    }).sort((a, b) => a.name.localeCompare(b.name)),
+  };
+}
+
+// ------------------------------------------------------------------ standards (CCSS Reading Anchor Standards)
+
+export interface StandardsReport {
+  standards: string[];
+  classByStandard: Record<string, SkillCell>;
+  students: { studentId: string; name: string; byStandard: Record<string, SkillCell>; total: SkillCell }[];
+}
+
+/**
+ * First-try accuracy by CCSS Reading Anchor Standard (CCRA.R.1–6), per class and per student. Each question's
+ * skill tag is mapped to the one anchor standard it measures (standardOfSkill, ./growth-words.ts) — questions
+ * are not individually tagged with a standard, so several skills (e.g. cause-effect, sequence, compare) roll
+ * up into the one standard (CCRA.R.3) they all belong to.
+ */
+export async function standardsReport(repo: Repo, actor: Actor, classId: string): Promise<StandardsReport> {
+  await assertClassRead(repo, actor, classId);
+  const ids = await classMembers(repo, classId);
+  const d = await loadData(repo, ids, { map: false });
+  const ft = firstTryDone(d.runs);
+  const articleIds = [...new Set(ft.map((r) => s(r.articleId)))];
+  const key = new Map<string, { answer: string; skill: string }>();
+  for (const [id, qs] of await questionKeys(repo, articleIds)) for (const q of qs) key.set(`${id}|${q.band}|${q.number}`, { answer: q.answer, skill: q.skill });
+  const tally = new Map<string, Map<string, [number, number]>>();
+  const classT = new Map<string, [number, number]>();
+  for (const r of ft) {
+    let answers: Record<string, string> = {};
+    const raw = typeof r.answers === "string" ? (() => { try { return JSON.parse(r.answers as string); } catch { return {}; } })() : r.answers;
+    if (raw && typeof raw === "object") answers = raw as Record<string, string>;
+    const per = tally.get(s(r.studentId)) ?? new Map<string, [number, number]>();
+    for (let n = 1; n <= 8; n++) {
+      const q = key.get(`${r.articleId}|${r.band}|${n}`);
+      if (!q) continue;
+      const code = standardOfSkill(q.skill);
+      const ok = s(answers[String(n)]).toUpperCase() === q.answer ? 1 : 0;
+      for (const m of [per, classT]) { const c = m.get(code) ?? [0, 0]; c[0] += ok; c[1]++; m.set(code, c); }
+    }
+    tally.set(s(r.studentId), per);
+  }
+  const standards = [...classT.keys()].sort();
+  const toCells = (m: Map<string, [number, number]>) => Object.fromEntries([...m].map(([k, [c, t]]) => [k, cell(c, t)]));
+  return {
+    standards,
+    classByStandard: toCells(classT),
+    students: ids.map((id) => {
+      const m = tally.get(id) ?? new Map();
+      const tot = [...m.values()].reduce((a, [c, t]) => [a[0] + c, a[1] + t], [0, 0]);
+      return { studentId: id, name: d.names.get(id) ?? "Student", byStandard: toCells(m), total: cell(tot[0], tot[1]) };
     }).sort((a, b) => a.name.localeCompare(b.name)),
   };
 }

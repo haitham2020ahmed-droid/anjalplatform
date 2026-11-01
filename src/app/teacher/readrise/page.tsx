@@ -3,7 +3,8 @@ import { AppShell } from "@/components/app-shell";
 import { Section } from "@/components/page-header";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { can } from "@/server/auth/rbac";
-import { classReport, pollReport, POLL_LABELS, skillsReport, writingQueue, type SkillCell } from "@/server/readrise/dashboards";
+import { classReport, pollReport, POLL_LABELS, skillsReport, standardsReport, writingQueue, type SkillCell } from "@/server/readrise/dashboards";
+import { standardName } from "@/server/readrise/growth-words";
 import { assignableArticles } from "@/server/readrise/library";
 import { classArticles, teacherReadRiseClasses } from "@/server/readrise/teacher";
 import { ENGINE } from "@/server/readrise/engine";
@@ -26,6 +27,7 @@ const TABS = [
   { key: "students", label: "👩‍🎓 Students" },
   { key: "growth", label: "📈 Growth" },
   { key: "skills", label: "🧠 Skills" },
+  { key: "standards", label: "📑 Standards" },
   { key: "polls", label: "🗳 Polls" },
   { key: "writing", label: "✍️ Scoring" },
   { key: "assign", label: "📌 Assign" },
@@ -63,10 +65,11 @@ export default async function ReadRiseTeacher({ searchParams }: { searchParams: 
   }
   const canWrite = klass.own;
   // ⚡ the class summary and the open tab's data load at the same time (all of them only read)
-  const [r, growth, skills, polls, writing, assigned, library] = await Promise.all([
+  const [r, growth, skills, standards, polls, writing, assigned, library] = await Promise.all([
     classReport(repo, actor, klass.id),
     tab === "growth" ? classGrowth(repo, actor, klass.id) : null,
     tab === "skills" ? skillsReport(repo, actor, klass.id) : null,
+    tab === "standards" ? standardsReport(repo, actor, klass.id) : null,
     tab === "polls" ? pollReport(repo, actor, klass.id) : null,
     tab === "writing" ? writingQueue(repo, actor, klass.id, { scored: true }) : null,
     tab === "assign" ? classArticles(repo, actor, klass.id) : null,
@@ -112,6 +115,7 @@ export default async function ReadRiseTeacher({ searchParams }: { searchParams: 
       {tab === "students" && <StudentsTab r={r} canWrite={canWrite} classId={klass.id} t={t} />}
       {growth && <ClassGrowthTab g={growth} t={t} studentHref={(id) => `/teacher/readrise?class=${klass.id}&student=${id}`} assignHref={url("assign")} />}
       {skills && <SkillsTab data={skills} />}
+      {standards && <StandardsTab data={standards} />}
       {polls && <PollsTab rows={polls} />}
       {writing && <WritingTab q={writing} classId={klass.id} canWrite={canWrite} />}
       {assigned && <AssignTab classId={klass.id} canWrite={canWrite && can(actor, "assignments:create")} assigned={assigned} library={library} classes={classes.filter((c) => c.own)} />}
@@ -226,6 +230,40 @@ function SkillsTab({ data }: { data: Awaited<ReturnType<typeof skillsReport>> })
               <tr key={x.studentId} className="border-b last:border-0">
                 <td className="p-2 text-left font-semibold text-brand-navy">{x.name}</td>
                 {data.skills.map((k) => <td key={k} className={`p-2 tabular-nums ${pctTone(x.bySkill[k])}`} title={x.bySkill[k] ? `${x.bySkill[k].correct}/${x.bySkill[k].total}` : "no questions yet"}>{fmt(x.bySkill[k]?.pct ?? null, "%")}</td>)}
+                <td className={`p-2 font-semibold tabular-nums ${pctTone(x.total)}`}>{fmt(x.total.pct, "%")}</td>
+              </tr>
+            ))}</tbody>
+          </table>
+        </div>
+      </Section>
+    </div>
+  );
+}
+
+function StandardsTab({ data }: { data: Awaited<ReturnType<typeof standardsReport>> }) {
+  if (!data.standards.length) return <p className="rounded-2xl bg-white p-6 text-slate-600 ring-1 ring-slate-200">No first-try results yet.</p>;
+  const ranked = [...data.standards].sort((a, b) => (data.classByStandard[a].pct ?? 0) - (data.classByStandard[b].pct ?? 0));
+  return (
+    <div className="space-y-6">
+      <Section title="Class by standard" icon="📑" hint="First-try accuracy by CCSS Reading Anchor Standard (CCRA.R.1–6), weakest first. Several question skills can roll up into one standard.">
+        <ul className="space-y-2">
+          {ranked.map((k) => { const c = data.classByStandard[k]; return (
+            <li key={k} className="grid grid-cols-[14rem_minmax(0,1fr)_6rem] items-center gap-3 text-sm">
+              <span className="truncate font-semibold text-slate-700">{k} · {standardName(k)}</span>
+              <span className="h-3 rounded-full bg-slate-100"><span className={`block h-3 rounded-full ${(c.pct ?? 0) >= 75 ? "bg-emerald-500" : (c.pct ?? 0) >= 50 ? "bg-amber-400" : "bg-red-400"}`} style={{ width: `${c.pct ?? 0}%` }} /></span>
+              <span className="text-right tabular-nums text-slate-700">{fmt(c.pct, "%")} <span className="text-xs text-slate-600">({c.correct}/{c.total})</span></span>
+            </li>
+          ); })}
+        </ul>
+      </Section>
+      <Section title="Each student" icon="👩‍🎓">
+        <div className="relative overflow-x-auto">
+          <table className="w-full text-center text-sm">
+            <thead><tr className="border-b text-xs text-slate-500"><th className="p-2 text-left">Student</th>{data.standards.map((k) => <th key={k} className="p-2" title={standardName(k)}>{k}</th>)}<th className="p-2">All</th></tr></thead>
+            <tbody>{data.students.map((x) => (
+              <tr key={x.studentId} className="border-b last:border-0">
+                <td className="p-2 text-left font-semibold text-brand-navy">{x.name}</td>
+                {data.standards.map((k) => <td key={k} className={`p-2 tabular-nums ${pctTone(x.byStandard[k])}`} title={x.byStandard[k] ? `${x.byStandard[k].correct}/${x.byStandard[k].total}` : "no questions yet"}>{fmt(x.byStandard[k]?.pct ?? null, "%")}</td>)}
                 <td className={`p-2 font-semibold tabular-nums ${pctTone(x.total)}`}>{fmt(x.total.pct, "%")}</td>
               </tr>
             ))}</tbody>
