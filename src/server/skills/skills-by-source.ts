@@ -4,8 +4,10 @@
  * school's NAFS-style reading-comprehension articles), or Enrichment (a plan built from the
  * Enrichment source) — each skill with its ⭐ star (the ONE star system, src/server/skills/star-read.ts: one row per
  * skill KEY, the Student Skills name, ⭐ Mastered · ◐ In progress · 🔄 Needs review · ☆ Not started, the star score),
- * a progress-direction arrow per skill (↑/→/↓, the exact PAIRED skill growth figure the student/class growth reports
- * already use — see analytics/growth.ts), and a cross-source summary counted by key.
+ * a progress-direction arrow per skill (↑/→/↓ = the STAR change in the period: the skill's star at the period start →
+ * its star at the end, skills/star-read.ts starPairs — round 2: never the engine's score change, and never ↓ on a
+ * ⭐ skill), a "practice score" sparkline (the engine's own monthly score, shown without a verdict), and a
+ * cross-source summary counted by key.
  *
  * A skill is placed in exactly one source, by priority (most specific first): Grammar
  * (Skill.domain) → Enrichment (the student was assigned it from an Enrichment plan — the one
@@ -21,7 +23,8 @@ import { gradeAreaSkills } from "../map/recommend";
 import type { Repo, Row } from "../seeding/repo";
 import { studentAssignedSkills } from "./assigned-skills";
 import { skillKeyIndex, type StarStatus } from "./status";
-import { starBook, starLearning, starMastered, starNeedsHelp, starWord } from "./star-read";
+import { starBook, starLearning, starMastered, starNeedsHelp, starPairs, starWord } from "./star-read";
+import { STAR_RANK } from "./skills-trend";
 import { hiddenStarKeys, starCell, type StarCell } from "../teacher/queries";
 
 const s = (v: unknown) => String(v ?? "");
@@ -44,10 +47,15 @@ export interface SourceSkillRow {
   skillId: string; key: string; name: string;
   /** ⭐ the star: status, star score (0–100), the star word; attempts / accuracy = the answers that count for the star */
   status: StarStatus; star: StarCell; score: number; band: string; attempts: number; accuracyPct: number;
-  trend: Trend | null; trendValue: number | null;
-  /** ⚡ this skill's own mastery by month end of the report period (same figures the trend arrow is computed
-   *  from) — for the sparkline next to it. Copied straight from SkillGrowth.series; null-filled months draw
-   *  as a gap, same as the student's own trend chart already does. */
+  /** 📈 the star change in the period: UP / FLAT / DOWN = the star level (☆ 0 · ◐/🔄 1 · ⭐ 2) at the period end
+   *  against the start; null = never started by the period end. Never DOWN on a ⭐ skill. */
+  trend: Trend | null;
+  /** the star level change (−2 … +2), null with trend null */
+  trendValue: number | null;
+  /** the star at the period start / end (null = never started) */
+  starThen: StarStatus | null; starNow: StarStatus | null;
+  /** "practice score": the engine's own mastery by month end of the period — a sparkline only, never a verdict.
+   *  Copied straight from SkillGrowth.series; null-filled months draw as a gap. */
   series: SeriesPoint[];
 }
 export interface SourceGroup {
@@ -114,23 +122,29 @@ export async function bySourceReport(repo: Repo, actor: Actor, studentId: string
   for (const m of mastery) add(book.keyOf(s(m.skillId)), s(m.skillId));
   for (const v of book.byKey.get(studentId)?.values() ?? []) if (v.status !== "NOT_STARTED") add(v.key, v.skillId ?? book.ix.skillsOf.get(v.key)?.[0] ?? null);
   const skillIds = [...new Set([...idsOfKey.values()].flatMap((l) => [...l]))];
-  const [sourceOf, growth] = await Promise.all([
+  const [sourceOf, growth, pairsOf] = await Promise.all([
     classifySkillSources(repo, s(st.schoolId), grade, studentId, skillIds),
+    // the engine's monthly score: ONLY for the "practice score" sparkline (no arrow, no verdict comes from it)
     studentGrowth(repo, studentId, period, { perSkillSeries: true }),
+    starPairs(repo, [studentId], period.from, period.to),
   ]);
   const growthOf = new Map(growth.skills.map((g) => [g.skillId, g]));
+  const pairOf = new Map((pairsOf.get(studentId) ?? []).map((p) => [p.key, p]));
   const rowsAll: (SourceSkillRow & { source: SkillSource })[] = [...idsOfKey].filter(([, ids]) => ids.size > 0).map(([key, idSet]) => {
     const ids = [...idSet];
     const v = book.ofKey(studentId, key);
     // the key's source: the most specific source of any of its copies
     const source = SOURCE_PRIORITY.find((src) => ids.some((id) => sourceOf.get(id) === src)) ?? "CURRICULUM";
     const gs = ids.map((id) => growthOf.get(id)).filter((g): g is NonNullable<typeof g> => Boolean(g));
-    const growthV = gs.length ? Math.round((10 * gs.reduce((t, g) => t + g.growth, 0)) / gs.length) / 10 : null;
-    const trend: Trend | null = growthV === null ? null : growthV > 1 ? "UP" : growthV < -1 ? "DOWN" : "FLAT";
+    // 📈 the arrow = the star then → now (a ⭐ skill is never shown going down)
+    const p = pairOf.get(key);
+    const d = p ? STAR_RANK[p.now] - STAR_RANK[p.then] : null;
+    const trend: Trend | null = d === null ? null : d > 0 ? "UP" : d < 0 && !starMastered(v) ? "DOWN" : "FLAT";
+    const growthV = d === null ? null : trend === "FLAT" ? 0 : d;
     return {
       source, skillId: v.skillId && idSet.has(v.skillId) ? v.skillId : ids[0], key, name: book.nameOf(key), status: v.status, star: starCell(v), score: v.score, band: starWord(v),
       attempts: v.answered, accuracyPct: v.answered ? Math.round((100 * v.correct) / v.answered) : 0,
-      trend, trendValue: growthV, series: gs[0]?.series ?? [],
+      trend, trendValue: growthV, starThen: p?.then ?? null, starNow: p?.now ?? null, series: gs[0]?.series ?? [],
     };
   });
   const isMastered = (r: SourceSkillRow) => starMastered(r.star);

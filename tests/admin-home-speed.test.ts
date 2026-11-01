@@ -53,7 +53,7 @@ describe("⚡ admin home and the heaviest pages", () => {
     await release(); // after the response: the pools are built (one heavy job at a time)
     const r = await timePage(S.m, "Admin › Home", home);
     rows.push({ ...r, coldMs: Math.round(first), coldCalls: firstCalls });
-    assert.ok(firstCalls <= 70, `first visit: ${firstCalls} database calls (before: 288)`);
+    assert.ok(firstCalls <= 90 /* round 2: practiceStats = the practiceTotals rules (3 answer tables, source labels, 25 students at a time) */, `first visit: ${firstCalls} database calls (before: 288)`);
     const [, shortNext, , , , connNext] = await home();
     assert.ok(Array.isArray(shortNext), "the next visit shows the MAP areas short of questions");
     assert.deepEqual(shortNext, await buildMapShortAreas(S.repo, S.admin), "the kept answer is the real one");
@@ -78,7 +78,7 @@ describe("⚡ admin home and the heaviest pages", () => {
     const { m, admin, teacher, classId } = S;
     const period = resolvePeriod("SCHOOL_YEAR", await loadCalendar(S.repo, admin.schoolId!));
     const pages: [string, () => Promise<unknown>, number][] = [
-      ["Admin › Department summary", () => departmentSummary(m, admin), 60],
+      ["Admin › Department summary", () => departmentSummary(m, admin), 90 /* round 2: practiceStats reads the answers 25 students at a time */],
       ["Admin › Grade summary", () => gradeSummary(m, admin), 50],
       ["Admin › Term report", async () => { const [, , ws] = await Promise.all([departmentSummary(m, admin), growthReport(m, admin, "READING"), windows(m, admin)]); if (ws[0]) await schoolResults(m, admin, ws[0].id, "READING"); }, 70],
       ["Admin › MAP bank gaps", () => Promise.all([bankGaps(m, admin), practiceGaps(m, admin), levelGaps(m, admin)]), 35],

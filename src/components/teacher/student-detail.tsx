@@ -3,15 +3,18 @@
 import type { StudentDetail } from "../../server/teacher/queries";
 import { RichInline } from "@/components/rich-inline";
 import { SkillStar } from "@/components/skills/skill-star";
+import { getT } from "@/i18n/server";
+import type { TFn } from "@/i18n";
 
 /** One student for the teacher: placement, skills, recent answers, and the engine's decisions (audit trail). */
-export function StudentDetailView({ d, classHref, header = true }: { d: StudentDetail; classHref: string; header?: boolean }) {
+export async function StudentDetailView({ d, classHref, header = true, t: tIn }: { d: StudentDetail; classHref: string; header?: boolean; t?: TFn }) {
+  const t = tIn ?? (await getT()).t;
   return (
     <div>
       {header && <>
-      <a href={classHref} className="text-sm font-medium text-brand-teal hover:underline">Back to class</a>
+      <a href={classHref} className="text-sm font-medium text-brand-teal hover:underline">{t("Back to class")}</a>
       <h1 className="mt-2 text-3xl font-bold tracking-tight text-brand-navy">{d.name}</h1>
-      <p className="text-slate-600">Grade {d.grade}{d.className ? `, class ${d.className}` : ""}, student number {d.studentNumber}</p>
+      <p className="text-slate-600">{t("Grade {n}", { n: d.grade })}{d.className ? `, ${t("class {name}", { name: d.className })}` : ""}, {t("student number {n}", { n: d.studentNumber })}</p>
       </>}
 
       {d.alerts.length > 0 && (
@@ -19,7 +22,7 @@ export function StudentDetailView({ d, classHref, header = true }: { d: StudentD
           {d.alerts.map((a) => (
             <div key={a.id} className="rounded-xl border-s-4 border-amber-400 bg-white p-4 ring-1 ring-slate-200">
               <p className="font-semibold text-brand-navy">{a.message}</p>
-              <p className="mt-1 text-sm text-slate-600">Next step: {a.nextAction}</p>
+              <p className="mt-1 text-sm text-slate-600">{t("Next step:")} {a.nextAction ? t(a.nextAction) : ""}</p>
             </div>
           ))}
         </section>
@@ -27,21 +30,21 @@ export function StudentDetailView({ d, classHref, header = true }: { d: StudentD
 
       <div className="mt-6 grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)]">
         <section className="rounded-2xl bg-white p-5 ring-1 ring-slate-200">
-          <h2 className="text-lg font-bold text-brand-navy">Placement</h2>
+          <h2 className="text-lg font-bold text-brand-navy">{t("Placement")}</h2>
           {d.placement ? (
             <>
-              <p className="mt-1 text-slate-700">{d.placement.proficiency}, taken {d.placement.takenAt.slice(0, 10)} ({d.placement.questions} questions)</p>
-              <ul className="mt-3 divide-y divide-slate-100">{d.placement.domains.map((x) => <li key={x.domain} className="flex justify-between py-1.5"><span>{x.label}</span><span className="text-slate-600">{x.level}</span></li>)}</ul>
+              <p className="mt-1 text-slate-700">{t(d.placement.proficiency)}, {t("taken {date}", { date: d.placement.takenAt.slice(0, 10) })} ({t("{n} questions", { n: d.placement.questions })})</p>
+              <ul className="mt-3 divide-y divide-slate-100">{d.placement.domains.map((x) => <li key={x.domain} className="flex justify-between py-1.5"><span>{t(x.label)}</span><span className="text-slate-600">{t(x.level)}</span></li>)}</ul>
             </>
-          ) : <p className="mt-1 text-slate-600">Not taken yet.</p>}
+          ) : <p className="mt-1 text-slate-600">{t("Not taken yet.")}</p>}
         </section>
         <section className="rounded-2xl bg-white p-5 ring-1 ring-slate-200">
-          <h2 className="text-lg font-bold text-brand-navy">Skills Practised</h2>
+          <h2 className="text-lg font-bold text-brand-navy">{t("Skills Practised")}</h2>
           <ul className="mt-2 divide-y divide-slate-100">
             {d.skills.map((s) => (
               <li key={s.key} className="grid grid-cols-[minmax(0,1fr)_auto] gap-2 py-1.5">
                 <span className="inline-flex items-center gap-2"><SkillStar info={s.star} label={s.name} />{s.name}</span>
-                <span className="tabular-nums text-slate-600">{s.band} · score {s.score}, {s.attempts} answers, {s.accuracyPct}%</span>
+                <span className="tabular-nums text-slate-600">{t(s.band)} · {t("score {n}", { n: s.score })}, {t("{n} answers", { n: s.attempts })}, {s.accuracyPct}%</span>
               </li>
             ))}
           </ul>
@@ -49,10 +52,10 @@ export function StudentDetailView({ d, classHref, header = true }: { d: StudentD
       </div>
 
       <section className="mt-6 rounded-2xl bg-white p-5 ring-1 ring-slate-200">
-        <h2 className="text-lg font-bold text-brand-navy">Recent Answers</h2>
+        <h2 className="text-lg font-bold text-brand-navy">{t("Recent Answers")}</h2>
         <div className="mt-2 overflow-x-auto">
           <table className="min-w-full text-sm">
-            <thead className="text-left text-slate-500"><tr>{["When", "Skill", "Question", "Answer", "Result", "Time"].map((h) => <th key={h} scope="col" className="px-2 py-2 font-medium">{h}</th>)}</tr></thead>
+            <thead className="text-left text-slate-500"><tr>{["When", "Skill", "Question", "Answer", "Result", "Time"].map((h) => <th key={h} scope="col" className="px-2 py-2 font-medium">{t(h)}</th>)}</tr></thead>
             <tbody>
               {d.recent.map((r, i) => (
                 <tr key={i} className="border-t border-slate-100 align-top">
@@ -60,8 +63,8 @@ export function StudentDetailView({ d, classHref, header = true }: { d: StudentD
                   <td className="px-2 py-2">{r.skill}</td>
                   <td className="max-w-md px-2 py-2"><RichInline text={r.stem} /></td>
                   <td className="px-2 py-2">{r.answer}</td>
-                  <td className="px-2 py-2">{r.correct ? <span className="font-semibold text-teal-700">Correct</span> : <span className="font-semibold text-amber-800">Incorrect</span>}{r.rapid ? <span className="block text-xs text-slate-500">very fast</span> : null}</td>
-                  <td className="px-2 py-2 tabular-nums">{r.seconds}s</td>
+                  <td className="px-2 py-2">{r.correct ? <span className="font-semibold text-teal-700">{t("Correct")}</span> : <span className="font-semibold text-amber-800">{t("Incorrect")}</span>}{r.rapid ? <span className="block text-xs text-slate-500">{t("very fast")}</span> : null}</td>
+                  <td className="px-2 py-2 tabular-nums">{t("{n}s", { n: r.seconds })}</td>
                 </tr>
               ))}
             </tbody>
@@ -70,14 +73,14 @@ export function StudentDetailView({ d, classHref, header = true }: { d: StudentD
       </section>
 
       <section className="mt-6 rounded-2xl bg-white p-5 ring-1 ring-slate-200">
-        <h2 className="text-lg font-bold text-brand-navy">Why the Platform Chose Each Question</h2>
-        <p className="text-sm text-slate-500">Every adaptive decision is recorded: ability before and after (θ), the question&apos;s difficulty, and the reason.</p>
+        <h2 className="text-lg font-bold text-brand-navy">{t("Why the Platform Chose Each Question")}</h2>
+        <p className="text-sm text-slate-500">{t("Every adaptive decision is recorded: ability before and after (θ), the question’s difficulty, and the reason.")}</p>
         <ol className="mt-3 space-y-2">
           {d.decisions.map((x, i) => (
             <li key={i} className="rounded-lg bg-slate-50 p-3 text-sm">
               <span className="tabular-nums text-slate-500">{x.at.slice(5, 16).replace("T", " ")}</span>{" "}
-              {x.correct === null ? null : x.correct ? <span className="font-semibold text-teal-700">correct</span> : <span className="font-semibold text-amber-800">incorrect</span>}{" "}
-              <span className="tabular-nums text-slate-600">θ {x.fromTheta} → {x.toTheta}{x.masteryAfter !== null ? `, mastery ${x.masteryBefore} → ${x.masteryAfter}` : ""}</span>
+              {x.correct === null ? null : x.correct ? <span className="font-semibold text-teal-700">{t("correct")}</span> : <span className="font-semibold text-amber-800">{t("incorrect")}</span>}{" "}
+              <span className="tabular-nums text-slate-600">θ {x.fromTheta} → {x.toTheta}{x.masteryAfter !== null ? `, ${t("mastery {from} → {to}", { from: String(x.masteryBefore), to: String(x.masteryAfter) })}` : ""}</span>
               <span className="block text-slate-800">{x.reason}</span>
             </li>
           ))}

@@ -24,6 +24,7 @@ import { assertClassRead } from "../teacher/coordinators";
 import { accessibleClasses } from "../teacher/assign";
 import { isHiddenSkill } from "../skills/master";
 import { starBook, starMastered, starNeedsReview, type StarBook } from "../skills/star-read";
+import { hiddenStarKeys } from "../teacher/queries";
 
 const s = (v: unknown) => String(v ?? "");
 const time = (v: unknown) => (v instanceof Date ? v.getTime() : v ? new Date(s(v)).getTime() : 0);
@@ -60,9 +61,11 @@ export function monthCompare(input: { ids: string[]; attempts: Row[]; stars: Row
   const inThis = (t: number) => t >= cut && t <= now.getTime(), inLast = (t: number) => t >= start && t < cut;
   const win = (inside: (t: number) => boolean): MonthWindow => {
     const a = attempts.filter((x) => inside(time(x.createdAt)));
+    // 📏 accuracy = right careful answers / careful answers (a rapid guess counts for nothing)
+    const careful = a.filter((x) => !yes(x.rapidGuess));
     return {
       newStars: stars.filter((x) => inside(time(x.masteredAt))).length,
-      answers: a.length, accuracy: pct(a.filter((x) => yes(x.isCorrect)).length, a.length),
+      answers: a.length, accuracy: pct(careful.filter((x) => yes(x.isCorrect)).length, careful.length),
       active: new Set(a.map((x) => s(x.studentId))).size,
       minutes: Math.round(sessions.filter((x) => inside(time(x.startedAt))).reduce((t, x) => t + Math.min(Number(x.activeMs ?? 0), 3 * 3_600_000), 0) / 60_000),
     };
@@ -120,7 +123,24 @@ export async function classMonth(repo: Repo, actor: Actor, classId: string, now 
 // ------------------------------------------------------------------ a student against the class
 
 export type Position = "above" | "around" | "below";
-export interface PeerRow { studentId: string; name: string; average: number | null; position: Position | null; newStars: number; accuracyChange: number | null; growth: number; fasterThan: number | null; sentence: string }
+/**
+ * `sentence` is a short line made of interface strings: "{position} · {growth}" — position is one of "Above the class
+ * middle" / "Below the class middle" / "Around the class middle" / "Not enough answers yet"; growth is
+ * "progressing faster than {n}% of classmates" + " ↑" / " ↓", or "no practice this month". `parts` carries the same
+ * pieces so a renderer translates them: `${t(parts.position)} · ${t(parts.growth, parts.vars)}${parts.arrow}`.
+ */
+export interface PeerSentenceParts { position: string; growth: string; vars: Record<string, number>; arrow: "" | " ↑" | " ↓" }
+export interface PeerRow { studentId: string; name: string; average: number | null; position: Position | null; newStars: number; accuracyChange: number | null; growth: number; fasterThan: number | null; sentence: string; parts: PeerSentenceParts }
+
+/**
+ * ⭐ The rows peerRows places students by: one per STARTED star (skill key, the hidden holder skill left out) with the
+ * STAR score (StarView.score) — the class middle is the median of each student's average star score.
+ */
+export function starScoreRows(book: StarBook, ids: readonly string[], hidden: ReadonlySet<string> = new Set()): Row[] {
+  const out: Row[] = [];
+  for (const id of ids) for (const v of book.byKey.get(id)?.values() ?? []) if (v.status !== "NOT_STARTED" && !hidden.has(v.key)) out.push({ studentId: id, skillId: v.key, score: v.score, attempts: Math.max(1, v.answered) });
+  return out;
+}
 export interface PeerCompare { classId: string; rows: PeerRow[]; middle: number | null; encourage: PeerRow[]; challenge: PeerRow[] }
 
 const median = (xs: number[]) => { if (!xs.length) return null; const a = [...xs].sort((x, y) => x - y), m = Math.floor(a.length / 2); return a.length % 2 ? a[m] : (a[m - 1] + a[m]) / 2; };
@@ -152,9 +172,14 @@ export function peerRows(input: { students: { id: string; name: string }[]; mast
   const rows: PeerRow[] = base.map((r) => {
     const others = active.filter((o) => o.studentId !== r.studentId);
     const fasterThan = r.active && others.length ? Math.round((100 * others.filter((o) => o.growth < r.growth).length) / others.length) : null;
-    const pos = r.position === "above" ? "above the class middle" : r.position === "below" ? "below the class middle" : r.position === "around" ? "around the class middle" : "not placed yet (too few answers)";
-    const sentence = fasterThan === null ? `${r.name} is ${pos}; no practice this month to compare growth.` : `${r.name} is ${pos} and progressing faster than ${fasterThan}% of classmates this month ${fasterThan >= 50 ? "↑" : "↓"}.`;
-    return { studentId: r.studentId, name: r.name, average: r.average, position: r.position, newStars: r.newStars, accuracyChange: r.accuracyChange, growth: r.growth, fasterThan, sentence };
+    const parts: PeerSentenceParts = {
+      position: r.position === "above" ? "Above the class middle" : r.position === "below" ? "Below the class middle" : r.position === "around" ? "Around the class middle" : "Not enough answers yet",
+      growth: fasterThan === null ? "no practice this month" : "progressing faster than {n}% of classmates",
+      vars: fasterThan === null ? {} : { n: fasterThan },
+      arrow: fasterThan === null ? "" : fasterThan >= 50 ? " ↑" : " ↓",
+    };
+    const sentence = `${parts.position} · ${parts.growth.replace("{n}", String(fasterThan ?? ""))}${parts.arrow}`;
+    return { studentId: r.studentId, name: r.name, average: r.average, position: r.position, newStars: r.newStars, accuracyChange: r.accuracyChange, growth: r.growth, fasterThan, sentence, parts };
   });
   const encourage = rows.filter((r) => r.position === "below" && r.fasterThan !== null && r.fasterThan >= 60).sort((a, b) => (b.fasterThan ?? 0) - (a.fasterThan ?? 0));
   const challenge = rows.filter((r) => r.position === "above" && r.newStars === 0 && (r.accuracyChange ?? 0) <= 0).sort((a, b) => (b.average ?? 0) - (a.average ?? 0));
@@ -168,12 +193,13 @@ export async function peerCompare(repo: Repo, actor: Actor, classId: string, now
   const ids = await members(repo, classId);
   if (!ids.length) return { classId, rows: [], middle: null, encourage: [], challenge: [] };
   const since = new Date(now.getTime() - 60 * DAY);
-  const [mastery, attempts, students, book] = await Promise.all([
-    repo.findMany("StudentSkillMastery", { studentId: { in: ids } }, { select: ["studentId", "skillId", "score", "attempts"] }),
+  const [attempts, students, book] = await Promise.all([
     repo.findMany("QuestionAttempt", { studentId: { in: ids }, createdAt: { gte: since } }, { select: ["studentId", "isCorrect", "rapidGuess", "createdAt"], take: 30000 }),
     repo.findMany("Student", { id: { in: ids } }, { select: ["id", "userId", "schoolId"] }),
     starBook(repo, ids),
   ]);
+  // ⭐ above / around / below the class middle = the average STAR score over the started stars (not the engine score)
+  const mastery = starScoreRows(book, ids, await hiddenStarKeys(repo, book));
   const users = students.length ? await repo.findMany("User", { id: { in: students.map((x) => s(x.userId)) } }, { select: ["id", "displayName"] }) : [];
   const nameOf = new Map(users.map((u) => [s(u.id), s(u.displayName)]));
   const list = students.map((x) => ({ id: s(x.id), name: nameOf.get(s(x.userId)) || "Student" }));
@@ -187,11 +213,11 @@ export async function studentPeer(repo: Repo, actor: Actor, classId: string, stu
   const ids = await members(repo, classId);
   if (!ids.includes(studentId)) return null;
   const since = new Date(now.getTime() - 60 * DAY);
-  const [mastery, attempts, book] = await Promise.all([
-    repo.findMany("StudentSkillMastery", { studentId: { in: ids } }, { select: ["studentId", "skillId", "score", "attempts"] }),
+  const [attempts, book] = await Promise.all([
     repo.findMany("QuestionAttempt", { studentId: { in: ids }, createdAt: { gte: since } }, { select: ["studentId", "isCorrect", "rapidGuess", "createdAt"], take: 30000 }),
     starBook(repo, ids),
   ]);
+  const mastery = starScoreRows(book, ids, await hiddenStarKeys(repo, book));
   const r = peerRows({ students: ids.map((id) => ({ id, name: id === studentId ? name : "" })), mastery, stars: starRows(book, ids), attempts, now });
   return r.rows.find((x) => x.studentId === studentId) ?? null;
 }

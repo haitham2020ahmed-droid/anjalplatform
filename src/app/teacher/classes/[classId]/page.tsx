@@ -26,10 +26,10 @@ export default async function ClassPage({ params, searchParams }: { params: Prom
     actor.schoolId ? repo.findUnique("School", { id: actor.schoolId }) : Promise.resolve(null)]);
   const badgeOf = Object.fromEntries([...marks.entries()].map(([id, m]) => [id, <span key={id} className="inline-flex items-center gap-1"><Avatar avatar={m.avatar} size={28} />{m.badge && <BadgeEmblem code={m.badge} size={18} />}</span>]));
   const picker = (
-    <nav aria-label="Choose unit" className="mb-3 flex flex-wrap gap-2">
+    <nav aria-label={t("Choose unit")} className="mb-3 flex flex-wrap gap-2">
       {units.map((u) => (
         <a key={String(u.id)} href={`?unit=${String(u.id)}`} aria-current={u.id === unitId ? "page" : undefined}
-          className={["rounded-lg px-3 py-1.5 text-sm font-medium", u.id === unitId ? "bg-brand-navy text-white" : "bg-white ring-1 ring-slate-200"].join(" ")}>Unit {String(u.number)}</a>
+          className={["rounded-lg px-3 py-1.5 text-sm font-medium", u.id === unitId ? "bg-brand-navy text-white" : "bg-white ring-1 ring-slate-200"].join(" ")}>{t("Unit {n}", { n: String(u.number) })}</a>
       ))}
     </nav>
   );
@@ -38,13 +38,13 @@ export default async function ClassPage({ params, searchParams }: { params: Prom
       {/* My Students: the class list (names open the student profile) and the class's accounts (Teacher Home Phase 3) */}
       <p className="mb-4 flex flex-wrap justify-end gap-2 print:hidden">
         {/* 🆕 r90: Quick snapshot — 4 numbers (Urgent/Needs support/On level/Excelling) for this class */}
-        <a href={`/teacher/reports/class-snapshot/${classId}`} className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-white px-4 py-2 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal"><span aria-hidden="true">🎯</span> Quick snapshot</a>
-        <a href={`/teacher/accounts?classId=${classId}`} className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-white px-4 py-2 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal"><span aria-hidden="true">⬇️</span> Download Accounts</a>
-        <a href={`/teacher/accounts/roster?classId=${classId}`} className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-white px-4 py-2 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal"><span aria-hidden="true">📤</span> Upload Roster</a>
+        <a href={`/teacher/reports/class-snapshot/${classId}`} className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-white px-4 py-2 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal"><span aria-hidden="true">🎯</span> {t("Quick snapshot")}</a>
+        <a href={`/teacher/accounts?classId=${classId}`} className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-white px-4 py-2 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal"><span aria-hidden="true">⬇️</span> {t("Download Accounts")}</a>
+        <a href={`/teacher/accounts/roster?classId=${classId}`} className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-white px-4 py-2 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal"><span aria-hidden="true">📤</span> {t("Upload Roster")}</a>
       </p>
       <ClassOverviewView o={o} assignments={assignments} resolveAction={resolveAlertAction}
-        badgeOf={badgeOf}
-        heatMap={grid ? <>{picker}<HeatMap grid={grid} studentHref={(id) => `/teacher/students/${id}`} /></> : <p className="rounded-2xl bg-amber-50 px-4 py-3 text-amber-900 ring-1 ring-amber-200">{NO_CURRICULUM_MESSAGE}. <a href={`/teacher/plans?classId=${classId}`} className="underline">Open Plans</a></p>} />
+        badgeOf={badgeOf} t={t}
+        heatMap={grid ? <>{picker}<HeatMap grid={grid} studentHref={(id) => `/teacher/students/${id}`} /></> : <p className="rounded-2xl bg-amber-50 px-4 py-3 text-amber-900 ring-1 ring-amber-200">{t(NO_CURRICULUM_MESSAGE)}. <a href={`/teacher/plans?classId=${classId}`} className="underline">{t("Open Plans")}</a></p>} />
       {/* ➕ Add students by name · ✏️ fix a name · take out of the class (owner r83) */}
       <ClassStudentsManager classId={classId} className={o.className} schoolName={String(school?.name ?? "")} canAdd={canAdd}
         students={roster.map((x) => ({ studentId: x.studentId, name: x.name, username: x.username }))} />

@@ -358,7 +358,8 @@ describe("4. correctness audit with KNOWN answers", () => {
   test("the fixes stay in the code", () => {
     assert.match(read("src/server/insights/early-warning.ts"), /unhandled\.filter\(\(u\) => u\.classId === c\.id\)/);
     assert.doesNotMatch(read("src/server/insights/early-warning.ts"), /u\.className === c\.name/);
-    assert.match(read("src/server/insights/student-file.ts"), /x\.pct >= 80/, "strong = 80 %+ (the one rule)");
+    // round 2: strong = the ⭐ skills, needs work = 🔄 then ◐ (the star book by key), never an accuracy bar
+    assert.match(read("src/server/insights/student-file.ts"), /strongSkills = startedList\.filter\(\(v\) => starMastered\(v\)\)/, "strong = ⭐ (the one rule)");
     assert.match(read("src/server/analytics/school-dashboard.ts"), /if \(!known\.has\(sid\)\) continue;/);
     assert.match(read("src/app/teacher/map-center/reports-tab.tsx"), /n: g\.measured, g: signed\(g\.avgGrowth\)/);
     assert.equal(A.parent, "Contact {name}'s parent");

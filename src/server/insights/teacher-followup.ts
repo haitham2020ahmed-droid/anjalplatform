@@ -79,7 +79,7 @@ export async function teacherFollowup(repo: Repo, actor: Actor, now = new Date()
   // r78: an assignment cancelled on Assigned does not count as the teacher's work
   const ix = await cancelIndex(repo, actor.schoolId);
   const [maps, practice, assignments, views, ewViews, asgStudents, tiers] = await Promise.all([
-    mapSummaries(repo, studentIds, "READING", gradeOf), practiceStats(repo, studentIds, now),
+    mapSummaries(repo, studentIds, "READING", gradeOf), practiceStats(repo, studentIds, now, { recentOnly: true }),
     teachers.length ? repo.findMany("Assignment", liveAssignmentWhere({ createdById: { in: teachers.map((t) => t.id) } }), { select: ["id", "createdById", "createdAt", "classId", "title", "note", "curriculumPlanId", "testId"] }).then((l) => l.filter((a) => !isSystemAssignment(a) && ix.live(a))) : Promise.resolve([] as Row[]),
     repo.findMany("AuditLog", { action: "results.view", actorId: { in: users.map((u) => u.id) } }, { select: ["actorId", "createdAt"] }),
     repo.findMany("AuditLog", { action: "early_warning.view", actorId: { in: users.map((u) => u.id) } }, { select: ["actorId", "createdAt"] }),

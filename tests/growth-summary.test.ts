@@ -51,6 +51,9 @@ describe("class growth uses paired skill growth", () => {
 
     const classId = String((await repo.findMany("ClassMembership", { studentId: ids[0] }))[0].classId);
     const c = await classComparison(repo, admin, classId, period);
-    assert.equal(c.rows[0].meanGrowth, g.meanGrowth, "comparison table (screen and class report) uses the same figure");
+    // round 2: the comparison table (screen and class report) shows the STAR change, not the engine's growth
+    assert.equal(c.rows[0].avgStarsGained, c.classStars.avgGained, "comparison table and class panel use the same star figure");
+    assert.equal(c.rows[0].starsGained, c.classStars.gained);
+    assert.ok(!("meanGrowth" in c.rows[0]), "no engine growth column left");
   });
 });

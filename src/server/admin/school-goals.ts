@@ -52,7 +52,7 @@ export async function goalProgress(repo: Repo, actor: Actor, classes: Row[], now
     const ids = (await repo.findMany("ClassMembership", { classId: c.id, leftAt: null }, { select: ["studentId"] })).map((m) => s(m.studentId));
     const n = ids.length || 1;
     const attempts = ids.length ? await repo.findMany("QuestionAttempt", { studentId: { in: ids }, createdAt: { gte: since } }, { select: ["responseMs"] }) : [];
-    const minutes = Math.round(attempts.reduce((t, a) => t + Math.min(Number(a.responseMs ?? 0), 180_000), 0) / 60_000 / n);
+    const minutes = Math.round(attempts.reduce((t, a) => t + Math.min(Number(a.responseMs ?? 0), 5 * 60_000), 0) / 60_000 / n);
     const done = ids.length ? (await repo.findMany("AssignmentStudent", { studentId: { in: ids }, status: "COMPLETED" }, { select: ["assignmentId", "completedAt"] })).filter((r) => { const t = d(r.completedAt); return t && t >= since; }) : [];
     const planAids = done.length ? new Set((await repo.findMany("Assignment", { id: { in: done.map((r) => s(r.assignmentId)) } }, { select: ["id", "curriculumPlanId"] })).filter((a) => a.curriculumPlanId && s(a.curriculumPlanId) !== "WEEKLY_CHECK").map((a) => s(a.id))) : new Set<string>();
     const parts = Math.round((10 * done.filter((r) => planAids.has(s(r.assignmentId))).length) / n) / 10;

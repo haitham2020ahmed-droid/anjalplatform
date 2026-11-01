@@ -52,7 +52,8 @@ describe("📈 the class against itself (pure)", () => {
     assert.equal(r.middle, 60);
     assert.deepEqual([row("a").position, row("c").position, row("e").position], ["below", "around", "above"]);
     assert.equal(row("a").fasterThan, 100, "the most new stars of the class");
-    assert.equal(row("a").sentence, "A is below the class middle and progressing faster than 100% of classmates this month ↑.");
+    assert.equal(row("a").sentence, "Below the class middle · progressing faster than 100% of classmates ↑");
+    assert.deepEqual(row("a").parts, { position: "Below the class middle", growth: "progressing faster than {n}% of classmates", vars: { n: 100 }, arrow: " ↑" });
     assert.deepEqual(r.encourage.map((x) => x.studentId), ["a", "b"], "weak but growing fast (most growth first)");
     assert.deepEqual(r.challenge.map((x) => x.studentId), ["e", "d"], "strong but flat (strongest first)");
   });

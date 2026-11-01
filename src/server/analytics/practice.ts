@@ -126,7 +126,7 @@ function addStar(c: StarCounts, v: StarView | undefined): void {
 }
 
 /** Every answer of these students in the range, from every table, labelled by source (batched). */
-async function loadAnswers(repo: Repo, ids: string[], fromD: Date, toD: Date): Promise<Answer[]> {
+export async function loadAnswers(repo: Repo, ids: string[], fromD: Date, toD: Date): Promise<Answer[]> {
   const out: Answer[] = [];
   const range = { gte: fromD, lte: toD };
   for (let i = 0; i < ids.length; i += CHUNK) {

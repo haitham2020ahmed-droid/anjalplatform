@@ -297,14 +297,18 @@ describe("report export service (real database)", () => {
     assert.equal(csv.trim().split("\r\n").length, o.students.length + 1);
   });
 
-  test("headline growth uses paired skill growth, consistent with the growth table", async () => {
+  test("headline growth = the stars earned in the period, consistent with the star table (round 2)", async () => {
     const f = await exportReport(deps, teacher, req({ kind: "student", studentId: s1, period: "SCHOOL_YEAR" }));
+    const cal = await loadCalendar(repo, teacher.schoolId);
+    const a = await studentAnalytics(repo, teacher, s1, resolvePeriod("SCHOOL_YEAR", cal, now));
     const kpis = f.doc.sections.find((s) => s.type === "kpis")!;
     const growth = f.doc.sections.find((s) => s.type === "table" && s.id === "growth")!;
-    const changes = growth.type === "table" ? growth.rows.map((r) => Number(r.change)) : [];
-    const card = kpis.type === "kpis" ? kpis.items.find((k) => k.label === t("en", "kpi.growth"))!.value : null;
-    if (changes.length) assert.equal(card, Math.round((10 * changes.reduce((x, y) => x + y, 0)) / changes.length) / 10);
-    else assert.equal(card, null);
+    const rows = growth.type === "table" ? growth.rows : [];
+    const card = kpis.type === "kpis" ? kpis.items.find((k) => k.label === "New stars this period")!.value : null;
+    assert.equal(card, a.starChange.gained);
+    assert.equal(rows.filter((r) => r.change === "New star").length, a.starChange.gained);
+    assert.deepEqual(rows.map((r) => r.skill), a.starSkills.map((x) => x.name));
+    assert.ok(kpis.type === "kpis" && !kpis.items.some((k) => k.label === t("en", "kpi.growth")), "no engine-score growth card");
   });
 
   test("Arabic export: Arabic labels, Arabic school name, right-to-left workbook", async () => {

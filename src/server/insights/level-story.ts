@@ -35,7 +35,7 @@ export interface Conflict { studentId: string; name: string; className: string; 
 /** What each source says about these students (not combined): the raw material of the story and the conflicts. */
 async function sourcesOf(repo: Repo, schoolId: string | null, ids: string[], gradeOf: Map<string, number>, now: Date) {
   const [levels, practice, rules, saved, reading, diag, weekly, thetas] = await Promise.all([
-    levelsOf(repo, ids), practiceStats(repo, ids, now), ladderSettings(repo, schoolId),
+    levelsOf(repo, ids), practiceStats(repo, ids, now, { recentOnly: true }), ladderSettings(repo, schoolId),
     ids.length ? repo.findMany("StudentLevel", { studentId: { in: ids } }) : Promise.resolve([] as Row[]),
     ids.length ? repo.findMany("StudentReadingLexile", { studentId: { in: ids } }) : Promise.resolve([] as Row[]),
     ids.length ? repo.findMany("DiagnosticScore", { studentId: { in: ids } }) : Promise.resolve([] as Row[]),
@@ -120,7 +120,7 @@ async function conflictSources(repo: Repo, schoolId: string | null, ids: string[
   const need = ids.filter((id) => other.get(id)!.some((r) => r.level === "ABOVE" || r.level === "BELOW"));
   const attempts = need.length ? pre.attempts ?? (await recentAnswers(repo, need, now)) : [];
   const [practice, thetas] = await Promise.all([
-    pre.practice ? Promise.resolve(pre.practice) : practiceStats(repo, need, now, { attempts }),
+    pre.practice ? Promise.resolve(pre.practice) : practiceStats(repo, need, now, { attempts, recentOnly: true }),
     levelThetas(repo, need, now, { rows: attempts, only: "theta" }),
   ]);
   for (const id of ids) {

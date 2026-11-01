@@ -5,8 +5,9 @@
  * (personalPlan, latestDiagnostic, studentAnalytics, studentDetail, studentGrowth,
  * bySourceReport), so a School Report always agrees with the screen it was built from.
  */
-import type { Period } from "../../analytics/periods";
-import { pairedGrowth, studentGrowth } from "../analytics/growth";
+import type { Period, PeriodName } from "../../analytics/periods";
+import { mapLimit } from "../db/parallel";
+import type { StarChange } from "../skills/star-read";
 import { studentAnalytics } from "../analytics/reports";
 import { latestDiagnostic } from "../assessment/diagnostic";
 import { assertCan, canAccessStudent, ForbiddenError, type Actor } from "../auth/rbac";
@@ -199,7 +200,7 @@ export async function diagnosticAnalysisForClass(repo: Repo, actor: Actor, class
   const klass = await assertClassAccess(repo, actor, classId);
   const grade = Number((await repo.findUnique("Grade", { id: s(klass.gradeId) }))?.level ?? 0);
   const ids = await classStudentIds(repo, classId);
-  const rows = await Promise.all(ids.map((id) => diagnosticAnalysisForStudent(repo, actor, id)));
+  const rows = await mapLimit(ids, (id) => diagnosticAnalysisForStudent(repo, actor, id), 4);
   const domains = [...new Set(rows.flatMap((r) => r.domains.map((x) => x.label)))];
   const TIERS: DiagnosticTier[] = ["ADVANCED", "PROFICIENT", "APPROACHING", "INTENSIVE"];
   const tiers = TIERS.map((tier) => ({
@@ -215,57 +216,125 @@ export async function diagnosticAnalysisForClass(repo: Repo, actor: Actor, class
 
 // -------------------------------------------------------------- 3. Final Report (per student)
 
+/**
+ * 🗒️ Final Report (owner, 1 Nov 2026: "everything identical, linked to the same system"):
+ *   - Questions / Accuracy / Minutes = the Practice and time numbers (analytics/practice-totals.ts through
+ *     studentAnalytics): skill practice + NAFS practice + ReadRise; rapid guesses out of accuracy; ≤ 5 min per answer.
+ *     Tests, lessons and ReadMaster answers are shown apart (`otherAnswers`), never mixed in.
+ *   - Skills mastered / developing / needs support = the SkillStatus stars, counted by skill key.
+ *   - Growth = the change of the STARS in the period (star-read.ts starChange): ⭐ earned, 🔄 to review, up / down.
+ *     The old engine-score "paired growth" and its red regression banner are gone.
+ *   - Alerts: open ones only, never on a skill the student has ⭐ on (studentDetail), each with its next step.
+ *   - MAP: one block per subject — every test's overall RIT (oldest → newest, with the change) and the latest test's
+ *     goal areas.
+ *   - The whole-class view builds the class's plans once and the students 3 at a time (512 MB server).
+ */
 export interface FinalReport {
   studentId: string; name: string; studentNumber: string; grade: number; className: string | null;
+  period: { name: PeriodName; label: string; from: string; to: string };
   kpis: {
     questions: number; accuracyPct: number | null; minutes: number; skillsMastered: number; skillsDeveloping: number;
-    skillsNeedingSupport: number; curriculumProgressPct: number | null; pairedGrowth: number | null;
+    skillsNeedingSupport: number; curriculumProgressPct: number | null; newStars: number; toReview: number;
   };
+  /** answers NOT in the numbers above (they never build a star): tests & checks, lessons / ReadMaster / reviews */
+  otherAnswers: { tests: number; other: number };
+  starChange: StarChange;
   bySource: BySourceReport;
   domains: { label: string; level: string }[];
-  map: { date: string; subject: string; goal: string | null; rit: number; percentile: number | null }[];
+  map: FinalMapSubject[];
   diagnostic: DiagnosticAnalysis | null;
   plans: { subject: "READING" | "LANGUAGE"; band: Band | null; goals: string[]; strengths: string[]; areaPercentiles: AreaQuintileRow[] }[];
-  alerts: { message: string; nextAction: string }[];
-  /** more skills declining than improving over the period (a regression / stability signal). */
-  regressionSignal: boolean;
+  /** a subject with no plan, and why (shown instead of silently leaving it out) */
+  missingPlans: { subject: "READING" | "LANGUAGE"; reason: "NO_MAP" | "NO_CLASS" }[];
+  /** rule = the alert's rule code (the page shows its next step in the reader's language) */
+  alerts: { rule: string; message: string; nextAction: string }[];
+}
+export interface FinalMapSubject {
+  subject: string;
+  /** every test's overall result, oldest first */
+  tests: { date: string; rit: number; percentile: number | null }[];
+  /** latest overall RIT − first overall RIT (null with one test) */
+  change: number | null;
+  /** the latest test's goal areas */
+  areas: { goal: string; rit: number; percentile: number | null }[];
+}
+
+/** Pure: the imported MAP rows grouped by subject (overall rows per test date; the latest test's goal areas). */
+export function groupMap(rows: readonly { testDate: string; subject: string; goalArea: string | null; rit: number; percentile: number | null }[]): FinalMapSubject[] {
+  const bySubject = new Map<string, typeof rows[number][]>();
+  for (const r of rows) { const l = bySubject.get(r.subject) ?? []; l.push(r); bySubject.set(r.subject, l); }
+  return [...bySubject].map(([subject, list]) => {
+    const overall = new Map<string, { date: string; rit: number; percentile: number | null }>();
+    for (const r of list) if (!r.goalArea) overall.set(r.testDate.slice(0, 10), { date: r.testDate.slice(0, 10), rit: r.rit, percentile: r.percentile });
+    const tests = [...overall.values()].sort((a, b) => a.date.localeCompare(b.date));
+    const latest = [...list].map((r) => r.testDate.slice(0, 10)).sort().pop() ?? "";
+    const areas = list.filter((r) => r.goalArea && r.testDate.slice(0, 10) === latest).map((r) => ({ goal: r.goalArea as string, rit: r.rit, percentile: r.percentile }))
+      .sort((a, b) => a.rit - b.rit || a.goal.localeCompare(b.goal));
+    return { subject, tests, change: tests.length > 1 ? tests[tests.length - 1].rit - tests[0].rit : null, areas };
+  }).sort((a, b) => a.subject.localeCompare(b.subject));
+}
+
+/** The class's two personalized plans and profiles, read once (the whole-class view shares them; the promise is kept
+ *  at once, so students built at the same time wait for the same read). */
+type PlanRead = { plan: PersonalPlan; profile: Awaited<ReturnType<typeof classProfile>> | null } | null;
+interface PlanContext { classId: string; byClass: Map<string, Partial<Record<"READING" | "LANGUAGE", Promise<PlanRead>>>> }
+function planOf(repo: Repo, actor: Actor, ctx: PlanContext, classId: string, subject: "READING" | "LANGUAGE"): Promise<PlanRead> {
+  const m = ctx.byClass.get(classId) ?? {};
+  ctx.byClass.set(classId, m);
+  return (m[subject] ??= personalPlan(repo, actor, classId, subject)
+    .then(async (plan) => ({ plan, profile: await classProfile(repo, actor, classId, subject).catch(() => null) }))
+    .catch(() => null));
 }
 
 /** The most complete single-student document on the platform: aggregates what the by-source, diagnostic, personalized-plan and class/student screens already compute. */
-export async function finalReportForStudent(repo: Repo, actor: Actor, studentId: string, period: Period): Promise<FinalReport> {
+export async function finalReportForStudent(repo: Repo, actor: Actor, studentId: string, period: Period, opts: { classId?: string; ctx?: PlanContext } = {}): Promise<FinalReport> {
   const st = await repo.findUnique("Student", { id: studentId });
   if (!st || !canAccessStudent(actor, { studentId, schoolId: s(st.schoolId) })) throw new ForbiddenError("You do not have access to this student.");
-  const [user, grade, member, a, d, src, diag, growth] = await Promise.all([
+  const [user, grade, members] = await Promise.all([
     repo.findUnique("User", { id: st.userId }),
     repo.findUnique("Grade", { id: st.gradeId }),
-    repo.findMany("ClassMembership", { studentId, leftAt: null }).then((m) => m[0]),
-    studentAnalytics(repo, actor, studentId, period),
-    studentDetail(repo, actor, studentId),
-    bySourceReport(repo, actor, studentId, period),
-    diagnosticAnalysisForStudent(repo, actor, studentId),
-    studentGrowth(repo, studentId, period),
+    repo.findMany("ClassMembership", { studentId, leftAt: null }, { select: ["classId"] }),
   ]);
-  const klass = member ? await repo.findUnique("Class", { id: s(member.classId) }) : null;
+  // the class of the report: the one it was opened from, else every class the student is in
+  const classIds = members.map((m) => s(m.classId));
+  const classId = opts.classId && classIds.includes(opts.classId) ? opts.classId : classIds[0] ?? "";
+  const classes = classIds.length ? await repo.findMany("Class", { id: { in: classIds } }, { select: ["id", "name"] }) : [];
+  const className = opts.classId && classIds.includes(opts.classId)
+    ? s(classes.find((k) => s(k.id) === opts.classId)?.name) || null
+    : classes.length ? classes.map((k) => s(k.name)).sort().join(" · ") : null;
+  // one after another: each is a full report of its own (memory first)
+  const a = await studentAnalytics(repo, actor, studentId, period);
+  const d = await studentDetail(repo, actor, studentId);
+  const src = await bySourceReport(repo, actor, studentId, period);
+  const diag = await diagnosticAnalysisForStudent(repo, actor, studentId);
+  const ctx: PlanContext = opts.ctx ?? { classId, byClass: new Map() };
   const plans: FinalReport["plans"] = [];
+  const missingPlans: FinalReport["missingPlans"] = [];
   for (const subject of ["READING", "LANGUAGE"] as const) {
-    try {
-      const pp = await personalizedPlanForStudent(repo, actor, studentId, subject);
-      plans.push({ subject, band: pp.band, goals: pp.goals.map((g) => g.area), strengths: pp.strengths.map((g) => g.area), areaPercentiles: pp.areaPercentiles });
-    } catch {
-      // not enrolled in a class, or no MAP data for this subject yet: this subject's plan is skipped
-    }
+    if (!classId) { missingPlans.push({ subject, reason: "NO_CLASS" }); continue; }
+    const pc = await planOf(repo, actor, ctx, classId, subject);
+    const row = pc?.plan.bands.flatMap((b) => b.students.map((x) => ({ ...x, band: b.band }))).find((x) => x.studentId === studentId);
+    if (!pc || !row) { missingPlans.push({ subject, reason: "NO_MAP" }); continue; }
+    const band = pc.plan.bands.find((b) => b.band === row.band) ?? null;
+    plans.push({
+      subject, band: band?.band ?? bandOf(row.percentile, null),
+      // the student's OWN goal areas (personal-plan studentGoals), never the band's average
+      goals: (pc.plan.studentGoals[studentId]?.goals ?? []).map((g) => g.area), strengths: (pc.plan.studentGoals[studentId]?.strengths ?? []).map((g) => g.area),
+      areaPercentiles: pc.profile ? studentAreaQuintiles(pc.profile, studentId) : [],
+    });
   }
-  const declining = growth.skills.filter((x) => x.growth < 0).length;
-  const improving = growth.skills.filter((x) => x.growth > 0).length;
   return {
-    studentId, name: s(user?.displayName), studentNumber: s(st.studentNumber), grade: num(grade?.level), className: klass ? s(klass.name) : null,
+    studentId, name: s(user?.displayName), studentNumber: s(st.studentNumber), grade: num(grade?.level), className,
+    period: { name: period.name, label: period.label, from: period.from.toISOString().slice(0, 10), to: period.to.toISOString().slice(0, 10) },
     kpis: {
       questions: a.questions, accuracyPct: a.accuracyPct, minutes: a.minutes, skillsMastered: a.skillsMastered, skillsDeveloping: a.skillsDeveloping,
-      skillsNeedingSupport: a.skillsNeedingIntervention, curriculumProgressPct: a.curriculumProgressPct, pairedGrowth: pairedGrowth(growth),
+      skillsNeedingSupport: a.skillsNeedingIntervention, curriculumProgressPct: a.curriculumProgressPct, newStars: a.starChange.gained, toReview: a.starChange.toReview,
     },
-    bySource: src, domains: d.domains, map: a.importedMap.map((m) => ({ date: m.testDate, subject: m.subject, goal: m.goalArea, rit: m.rit, percentile: m.percentile })),
-    diagnostic: diag, plans, alerts: d.alerts.map((x) => ({ message: x.message, nextAction: x.nextAction })),
-    regressionSignal: growth.skills.length > 0 && declining > improving,
+    otherAnswers: { tests: a.bySource.TESTS, other: a.bySource.OTHER },
+    starChange: a.starChange,
+    bySource: src, domains: d.domains, map: groupMap(a.importedMap),
+    diagnostic: diag, plans, missingPlans,
+    alerts: d.alerts.map((x) => ({ rule: x.rule, message: x.message, nextAction: x.nextAction })),
   };
 }
 
@@ -275,6 +344,8 @@ export async function finalReportsForClass(repo: Repo, actor: Actor, classId: st
   const klass = await assertClassAccess(repo, actor, classId);
   const grade = Number((await repo.findUnique("Grade", { id: s(klass.gradeId) }))?.level ?? 0);
   const ids = await classStudentIds(repo, classId);
-  const reports = await Promise.all(ids.map((id) => finalReportForStudent(repo, actor, id, period)));
+  // the class's plans once; 3 students at a time (never the whole class at once on a 512 MB server)
+  const ctx: PlanContext = { classId, byClass: new Map() };
+  const reports = await mapLimit(ids, (id) => finalReportForStudent(repo, actor, id, period, { classId, ctx }), 3);
   return { classId, className: s(klass.name), grade, reports };
 }

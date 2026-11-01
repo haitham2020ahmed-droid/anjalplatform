@@ -150,14 +150,12 @@ describe("analytics on the database", () => {
     assert.ok(a.streakCorrect.longest >= 1 && a.highestLevelCorrect >= 1);
     assert.equal(a.unitProgress.length, 6);
     assert.equal(a.readingRange, null, "no placement yet, so no reading range");
-    // December carries November's mastery forward (mastery persists between sessions)
-    assert.deepEqual(a.growth.series.map((p) => p.mastery !== null), [true, true, true, true]);
-    assert.equal(a.growth.series[3].mastery, a.growth.series[2].mastery);
-    // growth is claimed only for practised skills with ≥ 2 measurements (rule in growth.ts); Theme and
-    // Context Clues are practised across months, so they must appear. (Not a fixed list: the bank keeps growing.)
-    const grown = a.growth.skills.map((x) => x.name);
-    assert.ok(grown.includes("Theme") && grown.includes("Context Clues"), JSON.stringify(grown));
-    assert.ok(grown.every((n) => ["Theme", "Context Clues", "Central Idea and Relevant Details"].includes(n)), JSON.stringify(grown));
+    // round 2: growth = the change of the STARS in the period (star-read.ts), not the engine's score change —
+    // every started skill is listed with its star then → now, and the counts are starChange's
+    assert.equal(a.starSkills.length, a.skillsAttempted, JSON.stringify(a.starSkills));
+    assert.equal(a.starChange.practised, a.skillsAttempted);
+    assert.equal(a.starChange.gained, a.starSkills.filter((x) => ["MASTERED", "NEXT_LEVEL"].includes(x.now) && !["MASTERED", "NEXT_LEVEL"].includes(x.then)).length);
+    assert.equal(a.bySource.PRACTICE, a.questions, "every answer here is skill practice");
     assert.deepEqual(a.importedMap, []);
   });
 

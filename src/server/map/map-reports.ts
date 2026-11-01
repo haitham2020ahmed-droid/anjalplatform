@@ -33,6 +33,8 @@ import { GROWTH_SD, normFor } from "./norm-tables";
 import { skillKeysFor, statusesOfSkills, type StarView } from "../skills/status";
 import { starBook, starMastered, starNotStarted, type StarBook } from "../skills/star-read";
 import type { StarInfo } from "../../lib/skill-stars";
+import { practiceTotalsFor } from "../analytics/practice-totals";
+import { hiddenStarKeys } from "../teacher/queries";
 
 const s = (v: unknown) => String(v ?? "");
 const time = (v: unknown) => new Date(v instanceof Date ? v.toISOString() : s(v)).getTime();
@@ -411,15 +413,18 @@ export async function familyReport(repo: Repo, actor: Actor, studentId: string, 
   // practice on the platform, last 30 days
   const since = new Date(now.getTime() - 30 * 86_400_000);
   // "Skills mastered": the student's ⭐ skills counted by KEY (every grade's copy of a skill is one skill)
-  const [att, book] = await Promise.all([
-    repo.findMany("QuestionAttempt", { studentId, createdAt: { gte: since } }, { select: ["isCorrect", "responseMs", "createdAt"] }),
+  // 📏 answers / accuracy / minutes = practiceTotals (rapid guesses out of accuracy, ≤ 5 min per answer, holder skill out)
+  const [att, book, tot] = await Promise.all([
+    repo.findMany("QuestionAttempt", { studentId, createdAt: { gte: since } }, { select: ["createdAt"] }),
     opts.book ? Promise.resolve(opts.book) : starBook(repo, [studentId], schoolId),
+    practiceTotalsFor(repo, studentId, since, now, { schoolId }),
   ]);
-  const mast = book.masteredKeys(studentId).size;
+  const hiddenKeys = await hiddenStarKeys(repo, book);
+  const mast = [...book.masteredKeys(studentId)].filter((k) => !hiddenKeys.has(k)).length;
   const days = new Set(att.map((a) => new Date(time(a.createdAt)).toISOString().slice(0, 10))).size;
   const term = subjects.map((x) => x.latest?.term).filter(Boolean).sort().pop() ?? null;
   const note = await familyNote(repo, schoolId, studentId);
-  return { student, term, subjects, practice: { answers: att.length, accuracy: att.length ? Math.round((att.filter((a) => a.isCorrect).length / att.length) * 100) : null, minutes: Math.round(att.reduce((t, a) => t + Number(a.responseMs ?? 0), 0) / 60000), mastered: mast, days }, note };
+  return { student, term, subjects, practice: { answers: tot.questions, accuracy: tot.accuracy, minutes: tot.minutes, mastered: mast, days }, note };
 }
 
 // 🔧 fix (Oct 2026): familyReport() above only reads MapResult (official NWEA scores imported by staff). A student

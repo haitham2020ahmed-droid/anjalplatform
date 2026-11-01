@@ -29,7 +29,7 @@ export async function departmentSummary(repo: Repo, actor: Actor, now = new Date
   for (const m of members) { const k = s(m.classId); const l = membersOf.get(k); if (l) l.push(s(m.studentId)); else membersOf.set(k, [s(m.studentId)]); }
   const gradeIdsOf = grades.map((g) => [...new Set(g.classes.flatMap((c) => membersOf.get(c.classId) ?? []))]);
   const [practice, weakestByGrade] = await Promise.all([
-    practiceStats(repo, [...new Set(gradeIdsOf.flat())], now),
+    practiceStats(repo, [...new Set(gradeIdsOf.flat())], now, { recentOnly: true }),
     Promise.all(gradeIdsOf.map((ids) => weakestSkills(repo, ids, now))),
   ]);
   const classes: DeptClass[] = [];

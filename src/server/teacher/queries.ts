@@ -12,10 +12,19 @@ import { canAccessStudent, ForbiddenError, type Actor } from "../auth/rbac";
 import type { Repo, Row } from "../seeding/repo";
 import { assertClassAccess } from "./assignments";
 import { practiceStats } from "../insights/student-data";
+import { practiceTotals } from "../analytics/practice-totals";
 import { NEXT_ACTION, type RuleCode } from "./interventions";
 
 const num = (v: unknown) => Number(v ?? 0);
 const ms = (v: unknown) => (v instanceof Date ? v : new Date(String(v))).getTime();
+
+/**
+ * ⭐ Open InterventionAlerts minus the ones about a skill the student now has ⭐ on (a mastered skill never shows an
+ * open alert). Alerts without a skill stay.
+ */
+export function alertsWithoutStars<T extends Row>(alerts: T[], book: StarBook): T[] {
+  return alerts.filter((a) => !a.skillId || !starMastered(book.of(String(a.studentId), String(a.skillId))));
+}
 
 /**
  * ⭐ The keys of the hidden "Unclassified (Curriculum Map)" holder skill among the started keys of a star book (never
@@ -131,13 +140,16 @@ export async function classOverview(repo: Repo, actor: Actor, classId: string, r
   const ids = studs.map((s) => s.id);
   // only the columns this page uses, and only the attempts inside the range (performance)
   // ⭐ statuses come from the ONE star system (SkillStatus by skill key), one batched read for the class
-  const [book, attempts, globals, alerts, practice, studentAlerts] = await Promise.all([
+  // 📏 Questions / Accuracy / Minutes = practiceTotals over the page's range (the Practice and time numbers)
+  const [book, attempts, totals, globals, openAlerts, practice, studentAlerts] = await Promise.all([
     starBook(repo, ids, String(klass.schoolId ?? "")),
-    ids.length ? repo.findMany("QuestionAttempt", { studentId: { in: ids }, createdAt: { gte: range.from, lte: range.to } }, { select: ["studentId", "questionId", "createdAt", "isCorrect", "responseMs"] }) : Promise.resolve([] as Row[]),
+    // the hardest-questions list only: careful answers (rapid guesses out) inside the range
+    ids.length ? repo.findMany("QuestionAttempt", { studentId: { in: ids }, createdAt: { gte: range.from, lte: range.to } }, { select: ["questionId", "skillId", "isCorrect", "rapidGuess"] }) : Promise.resolve([] as Row[]),
+    practiceTotals(repo, ids, range.from, range.to, { schoolId: String(klass.schoolId ?? "") || null, days: true }),
     ids.length ? repo.findMany("StudentAbility", { studentId: { in: ids }, scope: "GLOBAL" }, { select: ["studentId", "theta"] }) : Promise.resolve([] as Row[]),
-    ids.length ? repo.findMany("InterventionAlert", { studentId: { in: ids }, resolvedAt: null }, { select: ["id", "studentId", "message", "ruleCode", "createdAt"] }) : Promise.resolve([] as Row[]),
+    ids.length ? repo.findMany("InterventionAlert", { studentId: { in: ids }, resolvedAt: null }, { select: ["id", "studentId", "skillId", "message", "ruleCode", "createdAt"] }) : Promise.resolve([] as Row[]),
     // current ability: θ on the skills practised in the last 30 days, weighted by answers (null under 10 answers)
-    ids.length ? practiceStats(repo, ids, range.to) : Promise.resolve(new Map<string, { recentTheta: number | null }>()),
+    ids.length ? practiceStats(repo, ids, range.to, { recentOnly: true }) : Promise.resolve(new Map<string, { recentTheta: number | null }>()),
     // open alerts = the Alerts page (StudentAlert OPEN), so the class report, dashboards and Alerts page agree (I-3)
     ids.length ? repo.findMany("StudentAlert", { studentId: { in: ids }, status: "OPEN" }, { select: ["studentId"] }) : Promise.resolve([] as Row[]),
   ]);
@@ -146,34 +158,41 @@ export async function classOverview(repo: Repo, actor: Actor, classId: string, r
   const diagOf = new Map<string, Row>();
   for (const x of diag) { const cur = diagOf.get(String(x.studentId)); if (!cur || ms(x.completedAt) > ms(cur.completedAt)) diagOf.set(String(x.studentId), x); }
   const DIAG_LEVEL: Record<string, string> = { ABOVE: "Exceeding the standard", ON: "Meeting the standard", BELOW: "Approaching the standard" };
-  const inRange = attempts.filter((a) => ms(a.createdAt) <= range.to.getTime());
+  const alerts = alertsWithoutStars(openAlerts, book);
   const hidden = await hiddenStarKeys(repo, book);
-  const byQ = new Map<string, Row[]>();
-  for (const a of inRange) (byQ.get(String(a.questionId)) ?? byQ.set(String(a.questionId), []).get(String(a.questionId))!).push(a);
-  const hardIds = [...byQ].filter(([, v]) => v.length >= 5).map(([id, v]) => ({ id, acc: v.filter((x) => x.isCorrect).length / v.length, n: v.length })).sort((a, b) => a.acc - b.acc).slice(0, 5);
+  // hardest questions: careful answers only (no rapid guess), the hidden holder skill left out; counts only are kept
+  const attSkillIds = [...new Set(attempts.map((a) => String(a.skillId ?? "")).filter(Boolean))];
+  const hiddenSkill = new Set<string>();
+  for (let i = 0; i < attSkillIds.length; i += 500) for (const k of await repo.findMany("Skill", { id: { in: attSkillIds.slice(i, i + 500) } }, { select: ["id", "code"] })) if (isHiddenSkill(k.code)) hiddenSkill.add(String(k.id));
+  const byQ = new Map<string, { n: number; c: number }>();
+  for (const a of attempts) {
+    if (a.rapidGuess || hiddenSkill.has(String(a.skillId ?? ""))) continue;
+    const q = byQ.get(String(a.questionId)) ?? { n: 0, c: 0 }; q.n++; if (a.isCorrect) q.c++; byQ.set(String(a.questionId), q);
+  }
+  const hardIds = [...byQ].filter(([, v]) => v.n >= 5).map(([id, v]) => ({ id, acc: v.c / v.n, n: v.n })).sort((a, b) => a.acc - b.acc).slice(0, 5);
   const qrows = hardIds.length ? await repo.findMany("Question", { id: { in: hardIds.map((h) => h.id) } }, { select: ["id", "externalRef", "stem", "skillId"] }) : [];
   const qSkillIds = [...new Set(qrows.map((q) => String(q.skillId)))];
   const qSkills = new Map((qSkillIds.length ? await repo.findMany("Skill", { id: { in: qSkillIds } }, { select: ["id", "name", "code"] }) : []).map((k) => [String(k.id), isHiddenSkill(k.code) ? "" : book.nameOf(book.keyOf(String(k.id)))] as [string, string]));
 
   // rows grouped by student once (Update 42B: each student used to scan every answer of the class)
   const group = (rows: Row[], keep: (r: Row) => boolean = () => true) => { const m = new Map<unknown, Row[]>(); for (const r of rows) if (keep(r)) { const k = r.studentId; const l = m.get(k); if (l) l.push(r); else m.set(k, [r]); } return m; };
-  const attemptsOf = group(inRange), alertsOf = group(studentAlerts);
+  const alertsOf = group(studentAlerts);
   const globalOf = new Map<unknown, Row>(); for (const x of globals) if (!globalOf.has(x.studentId)) globalOf.set(x.studentId, x);
   const students: StudentRow[] = studs.map((s) => {
     const m = startedStars(book, s.id, hidden);
-    const a = attemptsOf.get(s.id) ?? [];
+    const p = totals.get(s.id);
     const g = globalOf.get(s.id);
     const avg = m.length ? m.reduce((t, x) => t + x.score, 0) / m.length : null;
-    let last: number | null = null; for (const x of a) { const t = ms(x.createdAt); if (last === null || t > last) last = t; }
+    const last = p?.lastAt ?? null;
     return {
       studentId: s.id, name: s.name,
       group: groupFor(practice.get(s.id)?.recentTheta ?? (g ? num(g.theta) : null), avg),
       placement: diagOf.has(s.id) ? (DIAG_LEVEL[String(diagOf.get(s.id)!.level)] ?? null) : g ? proficiencyLabel(num(g.theta)) : null,
       avgMastery: avg === null ? null : Math.round(avg),
       skillsMastered: m.filter(starMastered).length,
-      answered: a.length,
-      accuracyPct: a.length ? Math.round((100 * a.filter((x) => x.isCorrect).length) / a.length) : null,
-      minutes: Math.round(a.reduce((t, x) => t + num(x.responseMs), 0) / 60_000),
+      answered: p?.questions ?? 0,
+      accuracyPct: p?.accuracy ?? null,
+      minutes: p?.minutes ?? 0,
       lastActive: last ? new Date(last).toISOString() : null,
       openAlerts: alertsOf.get(s.id)?.length ?? 0,
     };
@@ -201,13 +220,14 @@ export async function classOverview(repo: Repo, actor: Actor, classId: string, r
     return { questionId: h.id, ref: String(q.externalRef ?? q.id), stem: String(q.stem).slice(0, 140), skill: qSkills.get(String(q.skillId)) ?? "", attempts: h.n, accuracyPct: Math.round(h.acc * 100) };
   });
 
-  const answered = inRange.length;
+  const answered = students.reduce((t, s) => t + s.answered, 0);
+  let careful = 0, right = 0; for (const p of totals.values()) { careful += p.careful; right += p.correct; }
   const withM = students.filter((s) => s.avgMastery !== null);
   return {
     classId, className: String(klass.name), grade: num(grade.level),
     kpis: {
       students: students.length, activeStudents: students.filter((s) => s.answered > 0).length, questions: answered,
-      accuracyPct: answered ? Math.round((100 * inRange.filter((a) => a.isCorrect).length) / answered) : null,
+      accuracyPct: careful ? Math.round((100 * right) / careful) : null,
       avgMastery: withM.length ? Math.round(withM.reduce((t, s) => t + (s.avgMastery ?? 0), 0) / withM.length) : null,
       minutes: students.reduce((t, s) => t + s.minutes, 0),
       skillsMastered: students.reduce((t, s) => t + s.skillsMastered, 0),
@@ -286,7 +306,7 @@ export async function studentDetail(repo: Repo, actor: Actor, studentId: string)
   const st = await repo.findUnique("Student", { id: studentId });
   if (!st || !canAccessStudent(actor, { studentId, schoolId: String(st.schoolId) })) throw new ForbiddenError("You do not have access to this student.");
   // everything independent is loaded in parallel; history is read as a bounded, newest-first page
-  const [user, grade, members, book, attempts, logs, alerts, domains, placement] = await Promise.all([
+  const [user, grade, members, book, attempts, logs, openAlerts, domains, placement] = await Promise.all([
     repo.findUnique("User", { id: st.userId }),
     repo.findUnique("Grade", { id: st.gradeId }),
     repo.findMany("ClassMembership", { studentId, leftAt: null }),
@@ -299,6 +319,7 @@ export async function studentDetail(repo: Repo, actor: Actor, studentId: string)
     latestDiagnostic(repo, studentId),
   ]);
   const member = members[0];
+  const alerts = alertsWithoutStars(openAlerts, book);
   const skillIds = [...new Set(attempts.map((a) => String(a.skillId)))];
   const recentA = attempts.sort((a, b) => ms(b.createdAt) - ms(a.createdAt)).slice(0, 20);
   const [klass, skillRows, qs, hidden] = await Promise.all([

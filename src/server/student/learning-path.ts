@@ -50,11 +50,13 @@ export async function studentLearningPath(repo: Repo, actor: Actor, studentId: s
     journeys.push({ title: s(set.title), at: iso(x.startedAt), start: stt.start, path: stt.decision.path, end: stt.decision.level, answers: atts.length,
       correctPct: Math.round((100 * atts.filter((a) => a.isCorrect).length) / atts.length), finished: stt.done, reason: stt.decision.reason });
   }
+  const careful30 = recent.filter((a) => !a.rapidGuess);
   return {
     level: lv ? { level: s(lv.level), source: s(lv.source), at: iso(lv.updatedAt) } : null,
     categories: cats.map((c) => ({ category: s(c.category), name: CATEGORY_NAME[s(c.category) as Category] ?? s(c.category), level: s(c.level), at: iso(c.updatedAt) })).sort((a, b) => a.name.localeCompare(b.name)),
     history, journeys, answers30: recent.length,
     rapidPct30: recent.length ? Math.round((100 * recent.filter((a) => a.rapidGuess).length) / recent.length) : null,
-    accuracy30: recent.length ? Math.round((100 * recent.filter((a) => a.isCorrect).length) / recent.length) : null,
+    // 📏 accuracy = right careful answers / careful answers (a rapid guess counts for nothing — the Practice and time rule)
+    accuracy30: careful30.length ? Math.round((100 * careful30.filter((a) => a.isCorrect).length) / careful30.length) : null,
   };
 }

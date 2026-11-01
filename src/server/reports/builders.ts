@@ -13,7 +13,6 @@ import {
 } from "../../reports/i18n";
 import type { Branding, Kpi, MetaItem, ReportDoc, ReportKind, Section, TableRow } from "../../reports/model";
 import { ForbiddenError, assertCan, type Actor } from "../auth/rbac";
-import { pairedGrowth } from "../analytics/growth";
 import { classComparison, standardsReport, studentAnalytics } from "../analytics/reports";
 import type { Repo } from "../seeding/repo";
 import { classOverview, studentDetail, teacherClasses } from "../teacher/queries";
@@ -45,6 +44,15 @@ const starBars = (L: Locale, d: { mastered: number; inProgress: number; needsRev
     { label: starText(L, "Needs review"), value: d.needsReview, band: "BEGINNING" },
   ];
   return { type: "bars", title: tx(L, "Skill stars", "نجوم المهارات"), items, max: Math.max(1, ...items.map((b) => b.value)), kind: "int" };
+};
+/** ⭐ a star status as words (exports: words, never icons) */
+const STATUS_WORD: Record<string, string> = { NOT_STARTED: "Not started", IN_PROGRESS: "In progress", NEEDS_REVIEW: "Needs review", MASTERED: "Mastered", NEXT_LEVEL: "Mastered" };
+const statusText = (L: Locale, st: string) => starText(L, STATUS_WORD[st] ?? st);
+/** 📈 the star change of a skill in words: up / same / down a star (round 2: growth = the stars, never the engine score) */
+const RANK: Record<string, number> = { NOT_STARTED: 0, IN_PROGRESS: 1, NEEDS_REVIEW: 1, MASTERED: 2, NEXT_LEVEL: 2 };
+const changeText = (L: Locale, then: string, now: string) => {
+  const d = (RANK[now] ?? 0) - (RANK[then] ?? 0);
+  return d > 0 ? (RANK[now] === 2 ? tx(L, "New star", "نجمة جديدة") : tx(L, "Up", "تقدّم")) : d < 0 && RANK[now] !== 2 ? tx(L, "Down", "تراجع") : tx(L, "Same", "كما هي");
 };
 const day = (iso: string | null) => (iso ? iso.slice(0, 10) : null);
 /** ASCII-only, filesystem-safe piece of a file name. */
@@ -86,10 +94,8 @@ export async function buildStudentReport(ctx: BuildContext, studentId: string): 
   const L = ctx.locale;
   const a = await studentAnalytics(repo, actor, studentId, period); // access checked inside
   const d = await studentDetail(repo, actor, studentId);
-  // Headline growth = mean PAIRED skill growth (each skill vs itself), matching the growth table.
-  // The overall-average change (a.growth.growth) falls whenever a new skill is started, so it would
-  // show "decline" next to a table of gains.
-  const paired = pairedGrowth(a.growth);
+  // 📈 Headline growth = the STAR change of the period (⭐ earned), matching the star-change table below; the
+  // questions / accuracy / minutes are the Practice and time numbers (studentAnalytics → practiceTotals).
   const tone = (v: number | null, good: number, warn: number): Kpi["tone"] => (v === null ? "neutral" : v >= good ? "good" : v >= warn ? "warn" : "bad");
 
   const kpis: Kpi[] = [
@@ -101,21 +107,24 @@ export async function buildStudentReport(ctx: BuildContext, studentId: string): 
     { label: t(L, "kpi.developing"), value: a.skillsDeveloping, kind: "int", tone: a.skillsDeveloping ? "warn" : "neutral" },
     { label: t(L, "kpi.needSupport"), value: a.skillsNeedingIntervention, kind: "int", tone: a.skillsNeedingIntervention ? "bad" : "good", glance: true, hint: t(L, "hint.needSupport") },
     { label: t(L, "kpi.curriculum"), value: a.curriculumProgressPct, kind: "pct" },
-    { label: t(L, "kpi.growth"), value: paired, kind: "signed", tone: paired === null ? "neutral" : paired > 0 ? "good" : paired < 0 ? "bad" : "neutral", glance: true, hint: t(L, "hint.growth") },
+    { label: tx(L, "New stars this period", "نجوم جديدة في هذه الفترة"), value: a.starChange.gained, kind: "int", tone: a.starChange.gained ? "good" : "neutral", glance: true, hint: tx(L, "skills mastered (⭐) in this period", "مهارات أتقنها (⭐) في هذه الفترة") },
+    { label: tx(L, "Needs review (new)", "تحتاج إلى مراجعة (جديدة)"), value: a.starChange.toReview, kind: "int" },
     { label: t(L, "kpi.avgSeconds"), value: a.avgSeconds, kind: "dec" },
     ...(a.readingRange ? [{ label: t(L, "kpi.readingRange"), value: a.readingRange, kind: "latin" as const }] : []),
   ];
 
   // ⭐ one row per skill KEY with its star (the Student Skills grid's skills and words)
   const skills: TableRow[] = d.skills.map((s) => ({ skill: s.name, band: starText(L, s.band), score: s.score, questions: s.attempts, accuracy: s.accuracyPct, last: day(s.lastPracticed) }));
-  const growth: TableRow[] = [...a.growth.skills].sort((x, y) => y.growth - x.growth).map((s) => ({ skill: s.name, area: domainLabel(L, s.domain), start: s.start, now: s.now, change: s.growth }));
+  const growth: TableRow[] = a.starSkills.map((s) => ({ skill: s.name, start: statusText(L, s.then), now: statusText(L, s.now), change: changeText(L, s.then, s.now) }));
   const domains: TableRow[] = d.domains.map((x) => ({ area: domainLabel(L, domainCodeFromLabel(x.label) ?? x.label), level: proficiencyText(L, x.level) }));
   const map: TableRow[] = a.importedMap.map((m) => ({ date: m.testDate, subject: m.subject, goal: m.goalArea, rit: m.rit, pct: m.percentile }));
 
   const sections: Section[] = [
     { type: "kpis", title: t(L, "sec.summary"), items: kpis },
     // plain language for the student and the family (the report's readers include parents)
-    { type: "explain", tone: "info", title: t(L, "explain.title"), paragraphs: [t(L, "explain.p1", { name: d.name }), t(L, "explain.p2"), t(L, "explain.p3")] },
+    { type: "explain", tone: "info", title: t(L, "explain.title"), paragraphs: [t(L, "explain.p1", { name: d.name }), tx(L,
+      "Accuracy is the share of careful answers that were right (answers too fast to have been read are left out). A star (⭐) means a skill is mastered; new stars show the progress made in this period.",
+      "الدقة هي نسبة الإجابات الصحيحة من الإجابات المتأنية (لا تُحتسب الإجابات السريعة جدًا التي لم تُقرأ). النجمة (⭐) تعني أن المهارة مُتقَنة، والنجوم الجديدة تُظهر التقدّم في هذه الفترة."), t(L, "explain.p3")] },
     { type: "bars", title: t(L, "sec.units"), items: a.unitProgress.map((u) => ({ label: `${t(L, "unit")} ${u.unit}`, value: u.pct })), max: 100, kind: "pct" },
     {
       type: "table", id: "skills", title: t(L, "sec.skills"), empty: t(L, "noData"),
@@ -130,13 +139,13 @@ export async function buildStudentReport(ctx: BuildContext, studentId: string): 
       rows: skills,
     },
     {
-      type: "table", id: "growth", title: t(L, "sec.growth"), empty: t(L, "noData"), note: t(L, "note.growth"),
+      type: "table", id: "growth", title: tx(L, "Stars this period", "النجوم خلال الفترة"), empty: t(L, "noData"),
+      note: tx(L, "Each skill's star at the start of the period and now.", "نجمة كل مهارة في بداية الفترة والآن."),
       columns: [
         { key: "skill", label: t(L, "col.skill"), kind: "latin", width: 3.4 },
-        { key: "area", label: t(L, "col.area"), kind: "text", width: 2 },
-        { key: "start", label: t(L, "col.start"), kind: "int", width: 1 },
-        { key: "now", label: t(L, "col.now"), kind: "int", width: 1 },
-        { key: "change", label: t(L, "col.change"), kind: "signed", width: 1 },
+        { key: "start", label: t(L, "col.start"), kind: "text", width: 1.6 },
+        { key: "now", label: t(L, "col.now"), kind: "text", width: 1.6, tones: starTones(L) },
+        { key: "change", label: t(L, "col.change"), kind: "text", width: 1.2 },
       ],
       rows: growth,
     },
@@ -231,11 +240,11 @@ export async function buildClassReport(ctx: BuildContext, classId: string): Prom
         { key: "withData", label: t(L, "col.withData"), kind: "int", width: 1 },
         { key: "avg", label: colAvgStar(L), kind: "dec", width: 1.1 },
         { key: "accuracy", label: t(L, "col.accuracy"), kind: "pct", width: 1 },
-        { key: "growth", label: t(L, "col.meanGrowth"), kind: "signed", width: 1.1 },
+        { key: "growth", label: tx(L, "New stars per student", "نجوم جديدة لكل طالب"), kind: "dec", width: 1.1 },
       ],
       rows: c.rows.map((r, i) => ({
         group: r.suppressed ? `${cmpLabel[i] ?? r.label} · ${t(L, "hidden")}` : cmpLabel[i] ?? r.label,
-        students: r.students, withData: r.studentsWithData, avg: r.avgMastery, accuracy: r.accuracyPct, growth: r.meanGrowth,
+        students: r.students, withData: r.studentsWithData, avg: r.avgMastery, accuracy: r.accuracyPct, growth: r.avgStarsGained,
       })),
     },
     {
@@ -254,7 +263,7 @@ export async function buildClassReport(ctx: BuildContext, classId: string): Prom
     { type: "table", id: "weak", title: t(L, "sec.weak"), empty: t(L, "noData"), columns: skillCols, rows: o.weakSkills.map((x) => ({ skill: x.name, mastered: x.mastered, students: x.students, avg: x.avgMastery })) },
     { type: "table", id: "strong", title: t(L, "sec.strong"), empty: t(L, "noData"), columns: skillCols, rows: o.strongSkills.map((x) => ({ skill: x.name, mastered: x.mastered, students: x.students, avg: x.avgMastery })) },
     standardsTable(L, s),
-    notes(L, ["note.internal", "note.growth", "note.suppressed"]),
+    notes(L, ["note.internal", "note.suppressed"]),
   ];
   const meta: MetaItem[] = [
     { label: t(L, "meta.class"), value: o.className, isolate: "latin" },

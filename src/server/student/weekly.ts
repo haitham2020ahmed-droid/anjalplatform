@@ -52,7 +52,7 @@ export async function weekStats(repo: Repo, studentId: string, now = new Date())
   return {
     since: since.toISOString().slice(0, 10), partsGoal, partsDone, parts: [...new Set(parts)],
     answers: inWeek.length, correct: inWeek.filter((x) => x.isCorrect).length,
-    minutes: Math.round(inWeek.reduce((t, x) => t + Math.min(Number(x.responseMs ?? 0), 180_000), 0) / 60_000), days, reached: partsDone >= partsGoal,
+    minutes: Math.round(inWeek.reduce((t, x) => t + Math.min(Number(x.responseMs ?? 0), 5 * 60_000), 0) / 60_000), days, reached: partsDone >= partsGoal,
   };
 }
 

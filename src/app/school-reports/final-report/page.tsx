@@ -4,67 +4,109 @@ import { PageHeader } from "@/components/page-header";
 import { PrintButton } from "@/components/plans/print-button";
 import { BySourceView } from "@/components/skills/by-source-view";
 import { InstructionalAreaPercentiles } from "@/components/map/instructional-area-percentiles";
-import { resolvePeriod } from "@/analytics/periods";
+import { resolvePeriod, type PeriodName } from "@/analytics/periods";
 import { loadCalendar } from "@/server/analytics/calendar";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { ForbiddenError } from "@/server/auth/rbac";
 import { finalReportForStudent, finalReportsForClass, type FinalReport } from "@/server/reports/school-reports";
 import { localeFrom, t, type Locale } from "@/i18n/school-reports";
+import type { I18nKey } from "@/i18n/school-reports/en";
 
 export const metadata = { title: "Final Report" };
-const BAND_TITLE: Record<string, string> = { BELOW: "🟠 Below level", ON: "🔵 On level", ABOVE: "🟢 Above level" };
+
+/** the periods a teacher can choose (school year by default, as before) */
+const PERIODS: PeriodName[] = ["LAST_30_DAYS", "TERM", "SEMESTER", "SCHOOL_YEAR"];
+const periodOf = (v: string | undefined): PeriodName => (PERIODS.includes(v as PeriodName) ? (v as PeriodName) : "SCHOOL_YEAR");
+
+/** t() with {placeholders} */
+const tv = (L: Locale, key: I18nKey, vars: Record<string, string | number> = {}) => t(L, key).replace(/\{(\w+)\}/g, (m, k: string) => (k in vars ? String(vars[k]) : m));
+
+/** the few fixed level / domain words the services return in English (names of skills and goal areas stay as they are) */
+const AR_WORDS: Record<string, string> = {
+  "Below grade level": "دون مستوى الصف", "Approaching grade level": "يقترب من مستوى الصف", "At grade level": "في مستوى الصف", "Above grade level": "فوق مستوى الصف",
+  Strength: "نقطة قوة", Developing: "قيد التطور", "Needs support": "يحتاج إلى دعم",
+  Reading: "القراءة", Vocabulary: "المفردات", Grammar: "القواعد", "Punctuation & capitals": "الترقيم والحروف الكبيرة", "Spelling & word study": "الإملاء ودراسة الكلمات", Writing: "الكتابة",
+};
+const word = (L: Locale, w: string) => (L !== "ar" ? w : AR_WORDS[w] ?? w.replace(/^(Strength|Developing|Needs support)(?= \()/, (m) => AR_WORDS[m]));
+
+const TREND_TONE = { UP: "bg-emerald-50 text-emerald-800 ring-emerald-200", SAME: "bg-slate-50 text-slate-700 ring-slate-200", DOWN: "bg-amber-50 text-amber-900 ring-amber-200" } as const;
 
 /** One student's Final Report body — shared by the single-student view and each entry of the whole-class view. */
 function FinalReportArticle({ r, L, breakBefore }: { r: FinalReport; L: Locale; breakBefore?: boolean }) {
+  const subjectName = (sub: string) => (sub === "READING" ? t(L, "common.subject.reading") : sub === "LANGUAGE" ? t(L, "common.subject.language") : sub);
+  const nextStep = (rule: string, text: string) => {
+    const key = `finalReport.next.${rule}` as I18nKey;
+    const v = L === "ar" ? t(L, key) : undefined;
+    return v ?? text;
+  };
+  const kpis: [string, string | number][] = [
+    [t(L, "finalReport.kpi.questions"), r.kpis.questions],
+    [t(L, "finalReport.kpi.accuracy"), r.kpis.accuracyPct !== null ? `${r.kpis.accuracyPct}%` : "—"],
+    [t(L, "finalReport.kpi.minutes"), r.kpis.minutes],
+    [t(L, "finalReport.kpi.newStars"), r.kpis.newStars],
+    [t(L, "finalReport.kpi.mastered"), r.kpis.skillsMastered],
+    [t(L, "finalReport.kpi.developing"), r.kpis.skillsDeveloping],
+    [t(L, "finalReport.kpi.support"), r.kpis.skillsNeedingSupport],
+    [t(L, "finalReport.kpi.curriculum"), r.kpis.curriculumProgressPct !== null ? `${r.kpis.curriculumProgressPct}%` : "—"],
+  ];
+  const g = r.starChange;
   return (
     <article className={`space-y-6 ${breakBefore ? "print:break-before-page" : ""}`}>
       <header className="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-slate-200 print:shadow-none">
         <h1 className="text-2xl font-extrabold text-brand-navy">{t(L, "finalReport.title")} – {r.name}</h1>
         <p className="mt-1 text-slate-600">{t(L, "common.grade")} {r.grade} · {t(L, "common.class")} {r.className ?? "—"} · {t(L, "common.studentNumber")} {r.studentNumber}</p>
+        <p className="mt-1 text-sm text-slate-500">{t(L, "finalReport.period")}: {t(L, `finalReport.period.${r.period.name}` as I18nKey) ?? r.period.label} ({r.period.from} – {r.period.to})</p>
       </header>
 
       <section className="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-slate-200 print:break-inside-avoid">
         <h2 className="text-xl font-extrabold text-brand-navy">📊 {t(L, "finalReport.summary")}</h2>
         <dl className="mt-3 grid grid-cols-2 gap-3 sm:grid-cols-4">
-          {([
-            ["Questions", r.kpis.questions], ["Accuracy", r.kpis.accuracyPct !== null ? `${r.kpis.accuracyPct}%` : "—"], ["Minutes", r.kpis.minutes],
-            ["Skills mastered", r.kpis.skillsMastered], ["Developing", r.kpis.skillsDeveloping], ["Needs support", r.kpis.skillsNeedingSupport],
-            ["Curriculum progress", r.kpis.curriculumProgressPct !== null ? `${r.kpis.curriculumProgressPct}%` : "—"], ["Paired growth", r.kpis.pairedGrowth !== null ? `${r.kpis.pairedGrowth >= 0 ? "+" : ""}${r.kpis.pairedGrowth}` : "—"],
-          ] as const).map(([l, v]) => (
+          {kpis.map(([l, v]) => (
             <div key={l} className="rounded-2xl bg-slate-50 p-3 ring-1 ring-slate-200"><dt className="text-xs text-slate-500">{l}</dt><dd className="text-xl font-extrabold text-brand-navy">{v}</dd></div>
           ))}
         </dl>
-        <p className={`mt-4 rounded-xl px-4 py-3 text-sm ring-1 ${r.regressionSignal ? "bg-red-50 text-red-800 ring-red-200" : "bg-emerald-50 text-emerald-800 ring-emerald-200"}`}>
-          {r.regressionSignal ? t(L, "finalReport.regression.on") : t(L, "finalReport.regression.off")}
-        </p>
+        <p className="mt-3 text-xs text-slate-500">{t(L, "finalReport.numbersNote")}</p>
+        {(r.otherAnswers.tests > 0 || r.otherAnswers.other > 0) && <p className="mt-1 text-xs text-slate-500">{tv(L, "finalReport.otherAnswers", { tests: r.otherAnswers.tests, other: r.otherAnswers.other })}</p>}
+        <div className={`mt-4 rounded-xl px-4 py-3 text-sm ring-1 ${g.practised ? TREND_TONE[g.trend] : TREND_TONE.SAME}`}>
+          <p className="font-bold">{t(L, "finalReport.growth.title")}</p>
+          {g.practised
+            ? <><p className="mt-1">{t(L, `finalReport.growth.${g.trend}` as I18nKey)}</p><p className="mt-1">{tv(L, "finalReport.growth.line", { gained: g.gained, review: g.toReview, up: g.up, down: g.down })}</p></>
+            : <p className="mt-1">{t(L, "finalReport.growth.none")}</p>}
+        </div>
       </section>
 
       {r.alerts.length > 0 && (
         <section className="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-slate-200 print:break-inside-avoid">
           <h2 className="text-lg font-extrabold text-brand-navy">🚨 {t(L, "finalReport.alerts")}</h2>
-          <ul className="mt-2 space-y-2 text-sm">{r.alerts.map((a, i) => <li key={i} className="rounded-xl bg-amber-50 p-3 ring-1 ring-amber-200"><p className="font-semibold text-amber-900">{a.message}</p><p className="text-amber-800">{a.nextAction}</p></li>)}</ul>
+          <ul className="mt-2 space-y-2 text-sm">{r.alerts.map((a, i) => (
+            <li key={i} className="rounded-xl bg-amber-50 p-3 ring-1 ring-amber-200">
+              <p className="font-semibold text-amber-900" dir="auto">{a.message}</p>
+              {nextStep(a.rule, a.nextAction) && <p className="text-amber-800"><b>{t(L, "finalReport.nextStep")}</b> {nextStep(a.rule, a.nextAction)}</p>}
+            </li>
+          ))}</ul>
         </section>
       )}
 
       {r.domains.length > 0 && (
         <section className="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-slate-200 print:break-inside-avoid">
           <h2 className="text-lg font-extrabold text-brand-navy">🧭 {t(L, "finalReport.domains")}</h2>
-          <ul className="mt-2 divide-y divide-slate-100 text-sm">{r.domains.map((x) => <li key={x.label} className="flex justify-between py-1.5"><span>{x.label}</span><span className="font-semibold text-slate-700">{x.level}</span></li>)}</ul>
+          <ul className="mt-2 divide-y divide-slate-100 text-sm">{r.domains.map((x) => <li key={x.label} className="flex justify-between py-1.5"><span>{word(L, x.label)}</span><span className="font-semibold text-slate-700">{word(L, x.level)}</span></li>)}</ul>
         </section>
       )}
 
-      {r.plans.length > 0 && (
+      {(r.plans.length > 0 || r.missingPlans.length > 0) && (
         <section className="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-slate-200 print:break-inside-avoid">
           <h2 className="text-lg font-extrabold text-brand-navy">📋 {t(L, "finalReport.plans")}</h2>
           <div className="mt-2 grid gap-3 md:grid-cols-2">
             {r.plans.map((p) => (
               <div key={p.subject} className="rounded-2xl bg-slate-50 p-4 ring-1 ring-slate-200">
-                <p className="font-bold text-brand-navy">{p.subject === "READING" ? t(L, "common.subject.reading") : t(L, "common.subject.language")} {p.band && <span className="font-normal text-slate-500">· {BAND_TITLE[p.band]}</span>}</p>
-                {p.goals.length > 0 && <p className="mt-1 text-sm text-slate-700"><b>Goals:</b> {p.goals.join(" · ")}</p>}
-                {p.strengths.length > 0 && <p className="mt-1 text-sm text-slate-700"><b>Strengths:</b> {p.strengths.join(" · ")}</p>}
+                <p className="font-bold text-brand-navy">{subjectName(p.subject)} {p.band && <span className="font-normal text-slate-500">· {t(L, `finalReport.band.${p.band}` as I18nKey)}</span>}</p>
+                {p.goals.length > 0 && <p className="mt-1 text-sm text-slate-700"><b>{t(L, "finalReport.goals")}</b> <span dir="ltr">{p.goals.join(" · ")}</span></p>}
+                {p.strengths.length > 0 && <p className="mt-1 text-sm text-slate-700"><b>{t(L, "finalReport.strengths")}</b> <span dir="ltr">{p.strengths.join(" · ")}</span></p>}
               </div>
             ))}
           </div>
+          {r.missingPlans.length > 0 && <ul className="mt-2 space-y-1 text-sm text-slate-500">{r.missingPlans.map((m) => <li key={m.subject}>ℹ️ {tv(L, `finalReport.noPlan.${m.reason}` as I18nKey, { subject: subjectName(m.subject) })}</li>)}</ul>}
         </section>
       )}
       {r.plans.map((p) => <InstructionalAreaPercentiles key={p.subject} rows={p.areaPercentiles} L={L} scope="student" />)}
@@ -72,11 +114,25 @@ function FinalReportArticle({ r, L, breakBefore }: { r: FinalReport; L: Locale; 
       {r.map.length > 0 && (
         <section className="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-slate-200 print:break-inside-avoid">
           <h2 className="text-lg font-extrabold text-brand-navy">🗺️ {t(L, "finalReport.map")}</h2>
-          <div className="mt-2 overflow-x-auto">
-            <table className="w-full text-left text-sm">
-              <thead><tr className="border-b text-slate-500"><th className="py-1 pe-2">Date</th><th className="pe-2">Subject</th><th className="pe-2">Goal area</th><th className="pe-2">RIT</th><th>Percentile</th></tr></thead>
-              <tbody>{r.map.map((m, i) => <tr key={i} className="border-b last:border-0"><td className="py-1 pe-2">{m.date.slice(0, 10)}</td><td className="pe-2">{m.subject}</td><td className="pe-2">{m.goal ?? "—"}</td><td className="pe-2 tabular-nums">{m.rit}</td><td className="tabular-nums">{m.percentile ?? "—"}</td></tr>)}</tbody>
-            </table>
+          <div className="mt-2 grid gap-4 md:grid-cols-2">
+            {r.map.map((m) => (
+              <div key={m.subject} className="rounded-2xl bg-slate-50 p-4 ring-1 ring-slate-200">
+                <p className="font-bold text-brand-navy">{subjectName(m.subject)}</p>
+                {m.tests.length > 0 && (
+                  <table className="mt-2 w-full text-start text-sm">
+                    <thead><tr className="border-b text-slate-500"><th className="py-1 pe-2 text-start">{t(L, "finalReport.map.date")}</th><th className="pe-2 text-start">{t(L, "finalReport.map.rit")}</th><th className="text-start">{t(L, "finalReport.map.percentile")}</th></tr></thead>
+                    <tbody>{m.tests.map((x) => <tr key={x.date} className="border-b last:border-0"><td className="py-1 pe-2 tabular-nums">{x.date}</td><td className="pe-2 tabular-nums">{x.rit}</td><td className="tabular-nums">{x.percentile ?? "—"}</td></tr>)}</tbody>
+                  </table>
+                )}
+                {m.change !== null && <p className="mt-2 text-sm font-semibold text-slate-700">{tv(L, "finalReport.map.change", { n: `${m.change >= 0 ? "+" : ""}${m.change}` })}</p>}
+                {m.areas.length > 0 && (
+                  <div className="mt-2 text-sm">
+                    <p className="text-slate-500">{t(L, "finalReport.map.areas")}</p>
+                    <ul className="mt-1 divide-y divide-slate-100">{m.areas.map((x) => <li key={x.goal} className="flex justify-between py-1"><span dir="ltr">{x.goal}</span><span className="tabular-nums text-slate-700">{x.rit}{x.percentile !== null ? ` · ${x.percentile}` : ""}</span></li>)}</ul>
+                  </div>
+                )}
+              </div>
+            ))}
           </div>
         </section>
       )}
@@ -84,18 +140,18 @@ function FinalReportArticle({ r, L, breakBefore }: { r: FinalReport; L: Locale; 
       {r.diagnostic?.takenAt && (
         <section className="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-slate-200 print:break-inside-avoid">
           <h2 className="text-lg font-extrabold text-brand-navy">🩺 {t(L, "finalReport.diagnostic")}</h2>
-          <p className="mt-1 text-sm text-slate-600">{r.diagnostic.proficiency} · {r.diagnostic.takenAt.slice(0, 10)} · {r.diagnostic.questions} questions</p>
-          <ul className="mt-2 divide-y divide-slate-100 text-sm">{r.diagnostic.domains.map((x) => <li key={x.domain} className="flex justify-between py-1.5"><span>{x.label}</span><span className="font-semibold text-slate-700">{x.level}</span></li>)}</ul>
+          <p className="mt-1 text-sm text-slate-600">{r.diagnostic.proficiency ? `${word(L, r.diagnostic.proficiency)} · ` : ""}{r.diagnostic.takenAt.slice(0, 10)} · {tv(L, "finalReport.questions", { n: r.diagnostic.questions })}</p>
+          <ul className="mt-2 divide-y divide-slate-100 text-sm">{r.diagnostic.domains.map((x) => <li key={x.domain} className="flex justify-between py-1.5"><span>{word(L, x.label)}</span><span className="font-semibold text-slate-700">{word(L, x.level)}</span></li>)}</ul>
         </section>
       )}
 
-      <BySourceView r={r.bySource} />
+      <BySourceView r={r.bySource} lang={L} />
     </article>
   );
 }
 
 /** 🗒️ Final Report: the single most complete document, for one student — or every student of the class, one after another. */
-export default async function FinalReportPage({ searchParams }: { searchParams: Promise<{ studentId?: string; classId?: string; view?: string; lang?: string }> }) {
+export default async function FinalReportPage({ searchParams }: { searchParams: Promise<{ studentId?: string; classId?: string; view?: string; lang?: string; period?: string }> }) {
   const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"] });
   const me = (await getActor())!.user;
   const sp = await searchParams;
@@ -103,6 +159,7 @@ export default async function FinalReportPage({ searchParams }: { searchParams: 
   const studentId = String(sp.studentId ?? "");
   const classId = String(sp.classId ?? "");
   const view = sp.view === "class" ? "class" : "student";
+  const periodName = periodOf(sp.period);
   let r: FinalReport | null = null;
   let cls: Awaited<ReturnType<typeof finalReportsForClass>> | null = null;
   let error: string | null = null;
@@ -111,17 +168,17 @@ export default async function FinalReportPage({ searchParams }: { searchParams: 
       if (classId) {
         const klass = await repo.findUnique("Class", { id: classId });
         if (!klass) throw new ForbiddenError("Not found.");
-        const period = resolvePeriod("SCHOOL_YEAR", await loadCalendar(repo, String(klass.schoolId)));
+        const period = resolvePeriod(periodName, await loadCalendar(repo, String(klass.schoolId)));
         cls = await finalReportsForClass(repo, actor, classId, period);
       }
     } else if (studentId) {
       const st = await repo.findUnique("Student", { id: studentId });
       if (!st) throw new ForbiddenError("Not found.");
-      const period = resolvePeriod("SCHOOL_YEAR", await loadCalendar(repo, String(st.schoolId)));
-      r = await finalReportForStudent(repo, actor, studentId, period);
+      const period = resolvePeriod(periodName, await loadCalendar(repo, String(st.schoolId)));
+      r = await finalReportForStudent(repo, actor, studentId, period, { classId: classId || undefined });
     }
   } catch (e) { if (e instanceof ForbiddenError) error = e.message; else throw e; }
-  const q = (extra: Record<string, string>) => `/school-reports/final-report?${new URLSearchParams({ studentId, classId, view, lang: L, ...extra })}`;
+  const q = (extra: Record<string, string>) => `/school-reports/final-report?${new URLSearchParams({ studentId, classId, view, lang: L, period: periodName, ...extra })}`;
   const pill = (on: boolean) => `rounded-full px-4 py-1.5 text-sm font-bold ${on ? "bg-brand-navy text-white" : "bg-white text-brand-navy ring-1 ring-slate-200"}`;
   return (
     <AppShell name={String(me.displayName)}>
@@ -129,9 +186,13 @@ export default async function FinalReportPage({ searchParams }: { searchParams: 
         <PageHeader back={{ href: `/school-reports?studentId=${studentId}&classId=${classId}&lang=${L}`, label: t(L, "common.back") }} icon="🗒️" title={t(L, "finalReport.title")}>
           {(r || cls) && <PrintButton />}
         </PageHeader>
-        <nav className="mb-5 flex flex-wrap gap-2" aria-label={t(L, "finalReport.view.student")}>
+        <nav className="mb-3 flex flex-wrap gap-2" aria-label={t(L, "finalReport.view.student")}>
           <Link href={q({ view: "student" })} className={pill(view === "student")}>{t(L, "finalReport.view.student")}</Link>
           <Link href={q({ view: "class" })} className={pill(view === "class")}>{t(L, "finalReport.view.class")}</Link>
+        </nav>
+        <nav className="mb-5 flex flex-wrap items-center gap-2" aria-label={t(L, "finalReport.period")}>
+          <span className="text-sm font-semibold text-slate-600">{t(L, "finalReport.period")}:</span>
+          {PERIODS.map((p) => <Link key={p} href={q({ period: p })} className={pill(periodName === p)}>{t(L, `finalReport.period.${p}` as I18nKey)}</Link>)}
         </nav>
       </div>
       {error && <p className="rounded-2xl bg-red-50 px-4 py-3 text-red-800 ring-1 ring-red-200">{error}</p>}

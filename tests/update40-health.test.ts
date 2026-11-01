@@ -161,7 +161,9 @@ describe("Update 40 · fast Data Health on a seeded world", () => {
     // Update 42A: Data Health reads 50 students at a time (bounded memory): a fixed number of queries per 50 students,
     // never one per student
     const rounds = Math.ceil(ids.length / 50);
-    assert.ok(all <= 6 + 8 * rounds, `${all} queries for ${ids.length} students (${rounds} rounds)`);
-    assert.ok(n <= 6 + 8 * rounds, `teacher: ${n} queries`);
+    // round 2 (1 Nov 2026): lastActive / recent answers = practiceStats (the practiceTotals rules: every answer table,
+    // labelled by source, 25 students at a time) — still a fixed number of queries per round, never one per student
+    assert.ok(all <= 6 + 18 * rounds, `${all} queries for ${ids.length} students (${rounds} rounds)`);
+    assert.ok(n <= 6 + 18 * rounds, `teacher: ${n} queries`);
   });
 });

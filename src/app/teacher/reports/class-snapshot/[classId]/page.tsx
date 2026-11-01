@@ -3,12 +3,10 @@ import { AtAGlance, ReportHeader, ReportIntro, type Glance } from "@/components/
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { getT } from "@/i18n/server";
 import { teacherHomeSummary } from "@/server/teacher/needs-attention";
-import { classPerformance, STRONG_PCT, MIN_ANSWERS_STRONG } from "@/server/plans/perf-suggest";
+import { classPerformance, excellingStudents } from "@/server/plans/perf-suggest";
 import { earlyWarning } from "@/server/insights/early-warning";
 
 export const metadata = { title: "Class snapshot" };
-
-const pct = (correct: number, answers: number) => Math.round((100 * correct) / Math.max(1, answers));
 
 /**
  * 🆕 r90 (multi-expert audit follow-up, Oct 2026): "Class snapshot" — one class, 4 big numbers (Urgent · Needs
@@ -29,12 +27,8 @@ export default async function ClassSnapshotPage({ params }: { params: Promise<{ 
   const d = await classPerformance(repo, actor, classId);
   const roster = new Set(d.members);
 
-  const excelling = new Set<string>();
-  for (const st of d.members) {
-    for (const [k, x] of d.stats.get(st) ?? []) {
-      if (d.skillName.has(k) && pct(x.correct, x.answers) >= STRONG_PCT && x.answers >= MIN_ANSWERS_STRONG) { excelling.add(st); break; }
-    }
-  }
+  // ⭐ Excelling = the star rule (perf-suggest isExcelling): ⭐ on at least half of the skills started
+  const excelling = excellingStudents(d);
 
   const [attention, ew] = await Promise.all([
     teacherHomeSummary(repo, actor).catch(() => ({ list: [] as { studentId: string; classId: string }[] })),

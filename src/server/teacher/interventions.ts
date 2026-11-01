@@ -20,7 +20,11 @@ import { starBook, starMastered } from "../skills/star-read";
 
 export type RuleCode = "LOW_ACCURACY" | "REPEATED_ERRORS" | "DECLINING_MASTERY" | "SLOW_RESPONSES" | "FAILED_SESSIONS" | "PREREQ_GAP";
 
-export const NEXT_ACTION: Record<RuleCode, string> = {
+/** rules created outside the scan: 50 answers without ⭐ (skills/status.ts) and a failed 20-question review (practice/completion.ts) */
+export type StarRuleCode = "NEEDS_SUPPORT" | "REVIEW_FAILED";
+export const NEXT_ACTION: Record<RuleCode | StarRuleCode, string> = {
+  NEEDS_SUPPORT: "50 questions without a star: reteach the skill in a small group (RTI plan), then let the student practise again.",
+  REVIEW_FAILED: "The student forgot a mastered skill: go over one worked example together; the practice continues until the star is back.",
   LOW_ACCURACY: "Reteach the skill in a small group, then assign 10 minutes of practice.",
   REPEATED_ERRORS: "Check the recent wrong answers below for a shared misconception and model one example.",
   DECLINING_MASTERY: "Assign a short review; the skill may need refreshing.",

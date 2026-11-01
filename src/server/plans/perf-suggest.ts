@@ -27,13 +27,14 @@ import type { Program } from "./program";
 import type { SectionSpec, PlanSource, Txt } from "./editor";
 import { fmt, studentNames } from "./editor";
 import { starBook, starMastered, starNeedsReview } from "../skills/star-read";
+import { hiddenStarKeys } from "../teacher/queries";
 import type { StarView } from "../skills/status";
 
 const s = (v: unknown) => String(v ?? "");
 const time = (v: unknown) => new Date(v instanceof Date ? v.getTime() : s(v)).getTime() || 0;
 /** under this accuracy a skill is "weak" for a student */
 export const WEAK_PCT = 60;
-/** at or above this accuracy a skill is "excelling" for a student (Enrichment) */
+/** OLD accuracy bar (kept exported for older callers; the "Excelling" verdict is now ⭐-based: isExcelling) */
 export const STRONG_PCT = 90;
 /** answers needed before a skill is judged (weak-skill side: Diagnostic/support, group & individual plans) */
 export const MIN_ANSWERS = 5;
@@ -86,6 +87,22 @@ export interface PerfData {
   stars?: Map<string, Map<string, StarView>>;
   /** skill id → skill key (copies of one skill share it) */
   keyOf?: Map<string, string>;
+  /** ⭐ student → their started stars by KEY (the hidden holder skill left out) — the "Excelling" verdict reads these */
+  started?: Map<string, StarView[]>;
+}
+
+/**
+ * ⭐ "Excelling" (Enrichment-ready) is decided by the STARS, never by accuracy or the engine table: the student has
+ * ⭐ on at least one skill and on at least half of the skills they started (counted by skill KEY, holder skill out).
+ */
+export function isExcelling(started: readonly StarView[] | undefined): boolean {
+  const list = started ?? [];
+  const mastered = list.filter((v) => starMastered(v)).length;
+  return mastered >= 1 && 2 * mastered >= list.length;
+}
+/** ⭐ The excelling students of a class's performance data (see isExcelling). */
+export function excellingStudents(d: PerfData): Set<string> {
+  return new Set(d.members.filter((st) => isExcelling(d.started?.get(st))));
 }
 
 /** Has the student ⭐ on this skill (any copy)? */
@@ -163,20 +180,26 @@ export async function classPerformance(repo: Repo, actor: Actor, classId: string
   }
   // ⭐ the stars of the class (one batched read): 🔄 skills join the list as weak skills
   const book = await starBook(repo, members, s(klass.schoolId));
+  const hidden = await hiddenStarKeys(repo, book);
   const reviewIds = new Map<string, string[]>();
+  const started = new Map<string, StarView[]>();
+  const starIds: string[] = [];
   for (const st of members) for (const v of (book.byKey.get(st) ?? new Map<string, StarView>()).values()) {
-    if (!starNeedsReview(v)) continue;
+    if (v.status === "NOT_STARTED" || hidden.has(v.key)) continue;
+    started.set(st, [...(started.get(st) ?? []), v]);
     const id = v.skillId ?? book.ix.skillsOf.get(v.key)?.[0];
+    if (id && starMastered(v)) starIds.push(id);
+    if (!starNeedsReview(v)) continue;
     if (id) reviewIds.set(st, [...(reviewIds.get(st) ?? []), id]);
   }
-  const skillIds = [...new Set([...[...stats.values()].flatMap((m) => [...m.keys()]), ...[...diagMap.values()].flatMap((x) => [...x]), ...[...missed.values()].flatMap((m) => [...m.keys()]), ...[...reviewIds.values()].flat()])];
+  const skillIds = [...new Set([...[...stats.values()].flatMap((m) => [...m.keys()]), ...[...diagMap.values()].flatMap((x) => [...x]), ...[...missed.values()].flatMap((m) => [...m.keys()]), ...[...reviewIds.values()].flat(), ...starIds])];
   const skillRows: Row[] = [];
   for (let i = 0; i < skillIds.length; i += 500) skillRows.push(...(await repo.findMany("Skill", { id: { in: skillIds.slice(i, i + 500) }, deletedAt: null }, { select: ["id", "name", "code", "isActive"] })));
   const skillName = new Map(skillRows.filter((k) => k.isActive !== false && !isHiddenSkill(k.code)).map((k) => [s(k.id), s(k.name)]));
   const stars = new Map<string, Map<string, StarView>>();
   for (const st of members) stars.set(st, new Map(skillIds.map((k) => [k, book.of(st, k)])));
   const keyOf = new Map(skillIds.map((k) => [k, book.keyOf(k)]));
-  return { klass, grade, members, names, skillName, stats, mastery: mast, missed, diag: diagMap, fluency: flu, map, stars, keyOf };
+  return { klass, grade, members, names, skillName, stats, mastery: mast, missed, diag: diagMap, fluency: flu, map, stars, keyOf, started };
 }
 
 /** What the teacher reads about one student and some skills: one line per fact, with its values. */
@@ -288,8 +311,17 @@ export async function suggestPlans(repo: Repo, actor: Actor, classId: string, no
 export async function excellingSkillsFor(repo: Repo, actor: Actor, classId: string, studentIds: string[], n = 4, now = new Date()): Promise<{ sections: SuggestedPlan["sections"]; source: PlanSource | null }> {
   const d = await classPerformance(repo, actor, classId, now);
   const who = studentIds.length ? studentIds.filter((id) => d.members.includes(id)) : d.members;
+  // ⭐ the strongest skills = the skills these students have ⭐ on (by KEY; one skill id per key), most ⭐ students
+  // first, then the highest average star score — never accuracy or the engine table
   const count = new Map<string, { n: number; sum: number }>();
-  for (const st of who) for (const [k, x] of d.stats.get(st) ?? []) if (d.skillName.has(k) && pct(x) >= STRONG_PCT && x.answers >= MIN_ANSWERS_STRONG) { const c = count.get(k) ?? { n: 0, sum: 0 }; c.n++; c.sum += pct(x); count.set(k, c); }
+  const idOfKey = new Map<string, string>();
+  for (const st of who) for (const v of d.started?.get(st) ?? []) {
+    if (!starMastered(v)) continue;
+    const id = idOfKey.get(v.key) ?? [...(d.keyOf ?? new Map<string, string>())].find(([sk, key]) => key === v.key && d.skillName.has(sk))?.[0];
+    if (!id) continue;
+    idOfKey.set(v.key, id);
+    const c = count.get(id) ?? { n: 0, sum: 0 }; c.n++; c.sum += v.score; count.set(id, c);
+  }
   const top = [...count].sort((a, b) => b[1].n - a[1].n || b[1].sum / b[1].n - a[1].sum / a[1].n).slice(0, n);
   if (!top.length) return { sections: [], source: null };
   const sections: SuggestedPlan["sections"] = [];
@@ -318,20 +350,14 @@ export async function studentSkillAccuracy(repo: Repo, actor: Actor, classId: st
 const excellingCountCache = new TtlCache<number>(15_000, 2000);
 
 /** 🏠 Teacher Home's "Enrichment opportunities" tile: how many of the class's students have at least one skill
- * currently excelling (STRONG_PCT, MIN_ANSWERS_STRONG) — the Enrichment-ready counterpart of "Needs attention".
+ * excelling by the stars (isExcelling: ⭐ on half or more of the skills they started) — the Enrichment-ready counterpart of "Needs attention".
  * Cheap: reuses classPerformance's already-bounded reads, no plan text is built; cached 15s per class. */
 export async function excellingStudentCount(repo: Repo, actor: Actor, classId: string, now = new Date()): Promise<number> {
   // keyed by actor+class (not class alone): classPerformance's own assertClassAccess runs only inside the loader,
   // so a shared-by-class-only cache could hand a cached count to a teacher who was never checked against this class.
   return excellingCountCache.getOrLoad(`${actor.userId}:${classId}`, async () => {
     const d = await classPerformance(repo, actor, classId, now);
-    let n = 0;
-    for (const st of d.members) {
-      for (const [k, x] of d.stats.get(st) ?? []) {
-        if (d.skillName.has(k) && pct(x) >= STRONG_PCT && x.answers >= MIN_ANSWERS_STRONG) { n++; break; }
-      }
-    }
-    return n;
+    return excellingStudents(d).size;
   }, now.getTime());
 }
 

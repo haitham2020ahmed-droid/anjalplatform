@@ -88,7 +88,7 @@ async function alertsFor(repo: Repo, schoolId: string, now: Date, ids: string[],
   const out: Found[] = [];
   const add = (studentId: string, kind: AlertKind, key: string, detail: string) => out.push({ studentId, classId: classOf.get(studentId) ?? "", kind, key: `${kind}|${key}`, detail: detail.slice(0, 500) });
 
-  const [maps, practice, students] = await Promise.all([mapSummaries(repo, ids, "READING", gradeOf), practiceStats(repo, ids, now), repo.findMany("Student", { id: { in: ids } }, { select: ["id", "createdAt"] })]);
+  const [maps, practice, students] = await Promise.all([mapSummaries(repo, ids, "READING", gradeOf), practiceStats(repo, ids, now, { recentOnly: true }), repo.findMany("Student", { id: { in: ids } }, { select: ["id", "createdAt"] })]);
   // MAP risk (Low, or the Spring goal is at risk/missed)
   for (const id of ids) {
     const m = maps.get(id), st = statusOf(m, practice.get(id));

@@ -156,7 +156,7 @@ async function weekAnswers(repo: Repo, studentIds: string[], from: Date): Promis
   // WEEK boundary in Riyadh time (UTC+3) — for ~21:00–23:59 UTC (00:00–02:59 Riyadh) an attempt landed on the
   // wrong calendar day here, inflating/undercounting the weekly rhythm's distinct practice-day count.
   for (const a of at) { const k = s(a.studentId); const d = new Date(time(a.createdAt) + CLASSROOM_RIYADH).toISOString().slice(0, 10); days.set(k, (days.get(k) ?? new Set()).add(d)); }
-  return { n: at.length, ms: at.reduce((t, a) => t + Math.min(Number(a.responseMs ?? 0), 180_000), 0), days };
+  return { n: at.length, ms: at.reduce((t, a) => t + Math.min(Number(a.responseMs ?? 0), 5 * 60_000), 0), days };
 }
 
 export async function setStudentGoal(repo: Repo, actor: Actor, kind: GoalKind, target: number, now = new Date()): Promise<void> {

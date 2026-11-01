@@ -15,6 +15,7 @@ import { gradeAreaSkills } from "../map/recommend";
 import { cancelIndex, liveAssignmentWhere } from "../student/cancelled-work";
 import { intensityFor, reconcileStatus, tiersOf } from "./student-status";
 import { starBook, starMastered, starNeedsHelp } from "../skills/star-read";
+import { hiddenStarKeys } from "../teacher/queries";
 import type { StarStatus } from "../skills/status";
 import { classMembers, levelsOf, mapSummaries, practiceStats, studentNames, workStats, type Level, type MapSummary, type PracticeStats, type Subject, type WorkStats } from "./student-data";
 
@@ -66,7 +67,7 @@ async function weeklyAccuracy(repo: Repo, ids: string[], now: Date): Promise<Map
   const out = new Map<string, { weeks: (number | null)[]; last4: number | null; prev4: number | null }>();
   if (!ids.length) return out;
   const since = now.getTime() - 56 * 86_400_000;
-  const rows = (await repo.findMany("QuestionAttempt", { studentId: { in: ids }, createdAt: { gte: new Date(since) } }, { select: ["studentId", "isCorrect", "createdAt"] })).filter((a) => time(a.createdAt) >= since);
+  const rows = (await repo.findMany("QuestionAttempt", { studentId: { in: ids }, createdAt: { gte: new Date(since) } }, { select: ["studentId", "isCorrect", "rapidGuess", "createdAt"] })).filter((a) => time(a.createdAt) >= since && !a.rapidGuess); // 📏 rapid guesses out
   const pct = (list: Row[]) => (list.length >= 5 ? Math.round((100 * list.filter((a) => a.isCorrect).length) / list.length) : null);
   for (const id of ids) {
     const mine = rows.filter((a) => s(a.studentId) === id);
@@ -86,9 +87,10 @@ async function masteryCounts(repo: Repo, ids: string[], schoolId: string | null)
   const out = new Map(ids.map((id) => [id, { mastered: 0, needsWork: 0 }]));
   if (!ids.length) return out;
   const book = await starBook(repo, ids, schoolId);
+  const hidden = await hiddenStarKeys(repo, book); // the Curriculum Map holder skill is never counted
   for (const id of ids) {
     const o = out.get(id)!;
-    for (const v of book.byKey.get(id)?.values() ?? []) { if (starMastered(v)) o.mastered++; else if (starNeedsHelp(v)) o.needsWork++; }
+    for (const v of book.byKey.get(id)?.values() ?? []) { if (hidden.has(v.key)) continue; if (starMastered(v)) o.mastered++; else if (starNeedsHelp(v)) o.needsWork++; }
   }
   return out;
 }

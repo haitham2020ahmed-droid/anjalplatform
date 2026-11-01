@@ -5,6 +5,7 @@ import { classCompareSummary } from "@/lib/report-summaries";
 import { InsightActions } from "@/components/teacher/insight-actions";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { getT } from "@/i18n/server";
+import type { TFn } from "@/i18n";
 import { readableClasses } from "@/server/teacher/coordinators";
 import { classMonth, peerCompare, type MonthWindow, type PeerRow } from "@/server/insights/class-compare";
 
@@ -19,7 +20,7 @@ export const metadata = { title: "Class progress" };
 export default async function ClassProgressReport({ searchParams }: { searchParams: Promise<{ classId?: string }> }) {
   const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"], permission: "reports:read" });
   const me = (await getActor())!.user;
-  const { t } = await getT();
+  const { t, lang } = await getT();
   const sp = await searchParams;
   const classes = (await readableClasses(repo, actor)).map((c) => ({ id: String(c.id), name: String(c.name) })).sort((a, b) => a.name.localeCompare(b.name));
   const klass = classes.find((c) => c.id === sp.classId) ?? classes[0];
@@ -82,7 +83,9 @@ export default async function ClassProgressReport({ searchParams }: { searchPara
                 <li key={r.studentId} className="flex flex-wrap items-center justify-between gap-2 rounded-xl bg-white p-3 ring-1 ring-slate-200">
                   <div className="min-w-0">
                     <p><Link prefetch={false} href={`/teacher/students/${r.studentId}`} className="font-semibold text-brand-navy hover:underline"><bdi>{r.name}</bdi></Link> <span className={`ms-1 rounded-full px-2.5 py-0.5 text-xs font-bold ring-1 ${pill}`}>{t(label)}</span></p>
-                    <p className="mt-0.5 text-sm text-slate-600" data-content lang="en">{r.sentence}</p>
+                    {lang === "ar"
+                      ? <p className="mt-0.5 text-sm text-slate-600">{peerSentence(t, r)}</p>
+                      : <p className="mt-0.5 text-sm text-slate-600" data-content lang="en">{r.sentence}</p>}
                   </div>
                   {r.newStars > 0 && <span className="shrink-0 rounded-full bg-amber-50 px-2.5 py-1 text-xs font-bold text-amber-800 ring-1 ring-amber-200" dir="ltr">⭐ {r.newStars}</span>}
                 </li>
@@ -94,4 +97,12 @@ export default async function ClassProgressReport({ searchParams }: { searchPara
       )}
     </AppShell>
   );
+}
+
+/** The student's line against the class in the interface language, from the row's own fields (position, growth) —
+ *  the server's `sentence` is English prose; this is the same meaning through t(). */
+function peerSentence(t: TFn, r: PeerRow): string {
+  const pos = r.position === "above" ? t("Above the class middle") : r.position === "below" ? t("Below the class middle") : r.position === "around" ? t("Around the class middle") : t("Not enough answers yet");
+  const growth = r.fasterThan === null ? t("no practice this month") : `${t("progressing faster than {n}% of classmates", { n: r.fasterThan })} ${r.fasterThan >= 50 ? "↑" : "↓"}`;
+  return `${pos} · ${growth}`;
 }

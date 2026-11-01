@@ -546,6 +546,11 @@ async function onStarEarned(repo: Repo, studentId: string, skillId: string, leve
   const { awardCoins, COINS } = await import("../motivation/coins");
   // the same refId as the existing "skill mastered" coins: a star and that rule never pay twice for one skill
   await awardCoins(repo, studentId, "mastered", COINS.mastered, level > 1 ? `${skillId}:L${level}` : skillId, { note: "New star", now });
+  // owner (1 Nov 2026): a ⭐ closes the skill's open alerts (every copy of the skill) — no old alert stays on a mastered skill
+  const school = await studentSchool(repo, studentId);
+  const key = school ? (await skillKeyIndex(repo, school)).keyOf.get(skillId) : undefined;
+  const ids = key && school ? (await skillKeyIndex(repo, school)).skillsOf.get(key) ?? [] : [];
+  await repo.updateMany("InterventionAlert", { studentId, skillId: { in: [...new Set([skillId, ...ids])] }, resolvedAt: null }, { resolvedAt: now });
 }
 
 /** 50 answers without mastery: one alert to the class's teachers (the RTI plan then suggests the student + skill). */

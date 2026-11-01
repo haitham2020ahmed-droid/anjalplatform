@@ -14,6 +14,8 @@ import { ForbiddenError, type Actor } from "../server/auth/rbac";
 import { ValidationError } from "../server/curriculum-admin";
 import { assertClassAccess } from "../server/teacher/assignments";
 import { isHiddenSkill } from "../server/skills/master";
+import { starBook, starMastered } from "../server/skills/star-read";
+import { hiddenStarKeys } from "../server/teacher/queries";
 import { BADGES } from "../lib/badge-catalog";
 import { classTeacherNames } from "./class-teachers";
 
@@ -41,7 +43,7 @@ export interface WeeklySummary {
   minutes: number; answers: number; accuracy: number | null; activeDays: number;
   /** skills practised this week (most answers first, at most 6) */
   skills: string[];
-  /** skills completed (mastered) this week */
+  /** ⭐ skills completed this week: stars earned this week (SkillStatus masteredAt, one per skill key) */
   completed: string[];
   readrise: { done: number; avg: number | null; word: Snapshot };
   readmaster: { done: number; avg: number | null; word: Snapshot };
@@ -97,11 +99,12 @@ export async function weeklySummaries(repo: Repo, actor: Actor, input: { student
   if (!ids.length) return { ...base, items: [] };
 
   const since = new Date(now.getTime() - 7 * DAY);
-  const [students, attempts, sessions, mastered, runs, rm, practice, checks, held] = await Promise.all([
+  const [students, attempts, sessions, book, runs, rm, practice, checks, held] = await Promise.all([
     repo.findMany("Student", { id: { in: ids } }, { select: ["id", "userId"] }),
     repo.findMany("QuestionAttempt", { studentId: { in: ids }, createdAt: { gte: since } }, { select: ["studentId", "skillId", "isCorrect", "rapidGuess", "createdAt"] }),
     repo.findMany("PracticeSession", { studentId: { in: ids }, startedAt: { gte: since } }, { select: ["studentId", "activeMs", "startedAt"] }),
-    repo.findMany("StudentSkillMastery", { studentId: { in: ids }, masteredAt: { gte: since } }, { select: ["studentId", "skillId", "isMastered"] }),
+    // ⭐ "completed" = stars earned this week (the ONE star system, by skill key), not the engine's isMastered flag
+    starBook(repo, ids, s(klass.schoolId)),
     repo.findMany("RRRun", { studentId: { in: ids }, completedAt: { gte: since } }, { select: ["studentId", "score", "completedAt"] }),
     repo.findMany("ReadMasterAttempt", { studentId: { in: ids }, createdAt: { gte: since } }, { select: ["studentId", "correct", "total"] }),
     repo.findMany("FluencyPractice", { studentId: { in: ids }, createdAt: { gte: since } }, { select: ["studentId", "wcpm", "accuracy", "createdAt"] }),
@@ -110,7 +113,12 @@ export async function weeklySummaries(repo: Repo, actor: Actor, input: { student
   ]);
   const users = students.length ? await repo.findMany("User", { id: { in: students.map((x) => s(x.userId)) } }, { select: ["id", "displayName"] }) : [];
   const nameOf = new Map(students.map((x) => [s(x.id), s(users.find((u) => s(u.id) === s(x.userId))?.displayName) || "Student"]));
-  const skillIds = [...new Set([...attempts.map((a) => s(a.skillId)), ...mastered.map((m) => s(m.skillId))].filter(Boolean))];
+  const skillIds = [...new Set(attempts.map((a) => s(a.skillId)).filter(Boolean))];
+  const hiddenKeys = await hiddenStarKeys(repo, book);
+  const sinceT = since.getTime(), nowT = now.getTime();
+  const starsThisWeek = (id: string): string[] => [...(book.byKey.get(id)?.values() ?? [])]
+    .filter((v) => starMastered(v) && v.masteredAt && !hiddenKeys.has(v.key) && time(v.masteredAt) >= sinceT && time(v.masteredAt) <= nowT)
+    .map((v) => book.nameOf(v.key));
   const skills = skillIds.length ? (await repo.findMany("Skill", { id: { in: skillIds } }, { select: ["id", "name", "code"] })).filter((k) => !isHiddenSkill(k.code)) : [];
   const skillName = new Map(skills.map((k) => [s(k.id), s(k.name)]));
   const badgeRows = held.length ? await repo.findMany("Badge", { id: { in: [...new Set(held.map((b) => s(b.badgeId)))] } }, { select: ["id", "code", "name"] }) : [];
@@ -135,7 +143,7 @@ export async function weeklySummaries(repo: Repo, actor: Actor, input: { student
       minutes: Math.round(sessions.filter((x) => s(x.studentId) === id).reduce((t, x) => t + Number(x.activeMs ?? 0), 0) / 60_000),
       answers: mine.length, accuracy: counted.length ? Math.round((100 * counted.filter((a) => a.isCorrect).length) / counted.length) : null, activeDays: days.size,
       skills: [...perSkill].sort((a, b) => b[1].n - a[1].n).slice(0, 6).map(([k]) => skillName.get(k)!),
-      completed: [...new Set(mastered.filter((m) => s(m.studentId) === id && Boolean(m.isMastered) && skillName.has(s(m.skillId))).map((m) => skillName.get(s(m.skillId))!))].slice(0, 6),
+      completed: [...new Set(starsThisWeek(id))].slice(0, 6),
       readrise: { done: rr.length, avg: avg(rr), word: snapshotOf(avg(rr)) },
       readmaster: { done: rmPct.length, avg: avg(rmPct), word: snapshotOf(avg(rmPct)) },
       fluency: { wcpm: fl.length ? Math.max(...fl.map((p) => Number(p.wcpm))) : lastCheck ? Number(lastCheck.wcpm) : null, readings: fl.length, word: snapshotOf(fl.length ? flAcc : lastCheck?.accuracy !== null && lastCheck?.accuracy !== undefined ? Number(lastCheck.accuracy) : null, FLUENCY_CUT), date: fl.length ? null : lastCheck ? new Date(time(lastCheck.checkedAt)).toISOString().slice(0, 10) : null },

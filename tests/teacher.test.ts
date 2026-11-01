@@ -85,7 +85,9 @@ describe("class overview", () => {
     const attempts = await repo.findMany("QuestionAttempt", { studentId: { in: [await sid("demo.s1001"), await sid("demo.s1002"), await sid("demo.s1003")] } });
     assert.equal(o.kpis.students, 3);
     assert.equal(o.kpis.questions, attempts.length);
-    assert.equal(o.kpis.accuracyPct, Math.round((100 * attempts.filter((a) => a.isCorrect).length) / attempts.length));
+    // 📏 round 2: accuracy = right careful answers / careful answers (rapid guesses count for nothing)
+    const careful = attempts.filter((a) => !a.rapidGuess);
+    assert.equal(o.kpis.accuracyPct, Math.round((100 * careful.filter((a) => a.isCorrect).length) / careful.length));
     assert.equal(o.kpis.activeStudents, 3);
     const strong = o.students.find((s) => s.studentId === o.students.find((x) => x.name.endsWith("1001"))!.studentId)!;
     const weak = o.students.find((s) => s.name.endsWith("1002"))!;
