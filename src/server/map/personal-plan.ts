@@ -80,6 +80,49 @@ export function continuumFocusFor(ix: ContinuumIndex | null, areaName: string, r
   return out;
 }
 
+/**
+ * The candidate goal areas for ONE member set (a whole band's students, or a single student) — each area's mean
+ * RIT across just those members, its skills ordered by what the Learning Continuum is active for at that RIT, and
+ * areas of the same family with identical scores merged into one (NWEA's single combined score case). Shared by
+ * the per-band computation (`mine` = every student of that band — "group mean RIT", correct for a class/band-wide
+ * report) and the per-student computation (`mine` = one student — that student's own RIT, for a report about them
+ * alone). 🐛 fix (audit finding, Nov 2026): the one-student Personalized Plan / Final Report used to show the
+ * BAND's own goals here (every member's RIT averaged together) labelled as if they were this one student's own —
+ * visibly conflicting with the correct per-student RIT shown elsewhere on the same page under the identical area
+ * name. Extracting this so a true single-student call site exists fixes that without changing the band/class view.
+ */
+function goalCandidatesFor(mine: Set<string>, midRit: number | null, areas: Row[], goalRows: Row[], areaSkills: { areaId: string; skills: { id: string; name: string }[] }[], contIx: ContinuumIndex | null, stdOf: (skillId: string) => string[]): PlanGoal[] {
+  const scored = areas.map((a) => {
+    const vals = goalRows.filter((g) => mine.has(s(g.studentId)) && s(g.goalAreaId) === s(a.id)).map((g) => Number(g.rit));
+    const sk = areaSkills.find((x) => x.areaId === s(a.id))?.skills ?? [];
+    const meanRit = vals.length ? Math.round(vals.reduce((x, y) => x + y, 0) / vals.length) : null;
+    const ordered = continuumOrder(contIx, s(a.name), meanRit ?? midRit, sk);
+    const continuumFocus = continuumFocusFor(contIx, s(a.name), meanRit ?? midRit);
+    return { area: s(a.name), areaId: s(a.id), meanRit, skills: ordered.slice(0, 4).map((k) => ({ ...k, standards: stdOf(k.id) })), continuumFocus };
+  });
+  // NWEA's 2–5 / 6+ tests report one “Literary Text” (or “Informational Text”, “Writing”) score that was spread
+  // over the platform's finer areas: areas of one family with the very same scores become ONE goal
+  const valuesOf = (areaId: string) => goalRows.filter((g) => mine.has(s(g.studentId)) && s(g.goalAreaId) === areaId).map((g) => `${s(g.studentId)}:${g.rit}`).sort().join("|");
+  const merged: PlanGoal[] = [];
+  for (const x of scored) {
+    const fam = x.area.split(":")[0];
+    const twin = merged.find((m) => m.area.split(":")[0] === fam && m.meanRit === x.meanRit && valuesOf(m.areaId.split("+")[0]) === valuesOf(x.areaId) && x.meanRit !== null);
+    if (twin) {
+      twin.area = `${fam}: ${twin.area.slice(fam.length + 2)} · ${x.area.slice(fam.length + 2)}`; twin.areaId += `+${x.areaId}`; twin.skills = [...twin.skills, ...x.skills].slice(0, 4);
+      for (const f of x.continuumFocus) if (!twin.continuumFocus.some((y) => y.text.toLowerCase() === f.text.toLowerCase())) twin.continuumFocus.push(f);
+    } else merged.push({ ...x, skills: [...x.skills], continuumFocus: [...x.continuumFocus] });
+  }
+  return merged;
+}
+/** Picks the top-3-weakest / top-2-strongest goals from a set of merged candidates (shared rule for band and student). */
+function pickGoals(merged: PlanGoal[]): { goals: PlanGoal[]; strengths: PlanGoal[] } {
+  const withData = merged.filter((x) => x.meanRit !== null).sort((a, b) => a.meanRit! - b.meanRit!);
+  // no goal-area data yet: every area of the subject is a goal (weakest first is unknown)
+  const goals = withData.length ? withData.slice(0, 3) : merged.slice(0, 3);
+  const strengths = withData.length > 3 ? withData.slice(-2).reverse() : [];
+  return { goals, strengths };
+}
+
 /** A MAP goal area ↔ the CCSS standards that measure it (questions are linked to areas by their standard). */
 export function areaMatchesStandard(area: string, code: string): boolean {
   const c = code.replace(/^CCSS\.ELA-LITERACY\./i, "").toUpperCase();
@@ -113,6 +156,11 @@ export interface PersonalPlan {
   /** The same, per individual student (studentId → every instructional area's own RIT for that one student), for
    *  the one-student Personalized Plan view. Only students with at least one MAP score for this subject/term. */
   studentAreaBreakdown: Record<string, AreaBreakdownRow[]>;
+  /** Each student's OWN 3 weakest / 2 strongest goal areas (RIT, skills, Learning Continuum focus — all computed
+   *  from that one student's own MAP goal-area scores, never the band's), for the one-student Personalized Plan
+   *  and Final Report. 🐛 fix (Nov 2026): these two reports used to show `bands[].goals` instead — every member
+   *  of the student's Below/On/Above band averaged together — labelled as if it were the one student's own. */
+  studentGoals: Record<string, { goals: PlanGoal[]; strengths: PlanGoal[] }>;
   /** How many of this class's scored students fall in each NWEA national-percentile range (>80 / 61–80 / 41–60 /
    *  21–40 / <21), fixed order, for the whole-class "percentile distribution" chart. Recomputed from the live
    *  roster and latest MAP scores every time this plan is generated, so it tracks students/data as they change.
@@ -200,30 +248,9 @@ async function personalPlanNow(repo: Repo, actor: Actor, classId: string, subjec
     const mine = new Set(rows.map((r) => r.studentId));
     const bandRits = rows.map((r) => r.rit);
     const midRit = bandRits.length ? Math.round((Math.min(...bandRits) + Math.max(...bandRits)) / 2) : null;
-    const scored = areas.map((a) => {
-      const vals = goalRows.filter((g) => mine.has(s(g.studentId)) && s(g.goalAreaId) === s(a.id)).map((g) => Number(g.rit));
-      const sk = areaSkills.find((x) => x.areaId === s(a.id))?.skills ?? [];
-      const meanRit = vals.length ? Math.round(vals.reduce((x, y) => x + y, 0) / vals.length) : null;
-      const ordered = continuumOrder(contIx, s(a.name), meanRit ?? midRit, sk);
-      const continuumFocus = continuumFocusFor(contIx, s(a.name), meanRit ?? midRit);
-      return { area: s(a.name), areaId: s(a.id), meanRit, skills: ordered.slice(0, 4).map((k) => ({ ...k, standards: stdOf(k.id) })), continuumFocus };
-    });
-    // NWEA's 2–5 / 6+ tests report one “Literary Text” (or “Informational Text”, “Writing”) score that was spread
-    // over the platform's finer areas: areas of one family with the very same scores become ONE goal
-    const valuesOf = (areaId: string) => goalRows.filter((g) => mine.has(s(g.studentId)) && s(g.goalAreaId) === areaId).map((g) => `${s(g.studentId)}:${g.rit}`).sort().join("|");
-    const merged: PlanGoal[] = [];
-    for (const x of scored) {
-      const fam = x.area.split(":")[0];
-      const twin = merged.find((m) => m.area.split(":")[0] === fam && m.meanRit === x.meanRit && valuesOf(m.areaId.split("+")[0]) === valuesOf(x.areaId) && x.meanRit !== null);
-      if (twin) {
-        twin.area = `${fam}: ${twin.area.slice(fam.length + 2)} · ${x.area.slice(fam.length + 2)}`; twin.areaId += `+${x.areaId}`; twin.skills = [...twin.skills, ...x.skills].slice(0, 4);
-        for (const f of x.continuumFocus) if (!twin.continuumFocus.some((y) => y.text.toLowerCase() === f.text.toLowerCase())) twin.continuumFocus.push(f);
-      } else merged.push({ ...x, skills: [...x.skills], continuumFocus: [...x.continuumFocus] });
-    }
-    const withData = merged.filter((x) => x.meanRit !== null).sort((a, b) => a.meanRit! - b.meanRit!);
-    // no goal-area data yet: every area of the subject is a goal (weakest first is unknown)
-    const goals = withData.length ? withData.slice(0, 3) : merged.slice(0, 3);
-    const strengths = withData.length > 3 ? withData.slice(-2).reverse() : [];
+    // group mean RIT per area, across every member of this band — correct here (this IS the band/class view)
+    const merged = goalCandidatesFor(mine, midRit, areas, goalRows, areaSkills, contIx, stdOf);
+    const { goals, strengths } = pickGoals(merged);
     const rits = bandRits;
     for (const g of [...goals, ...strengths]) g.result = resultOf(g.area, mine);
     let up = 0, down = 0;
@@ -252,8 +279,18 @@ async function personalPlanNow(repo: Repo, actor: Actor, classId: string, subjec
   // too, not just the whole-class view) — every goal area's own RIT for that one student, "students" always 0 or 1.
   const studentAreaBreakdown: Record<string, AreaBreakdownRow[]> = {};
   for (const id of ids) studentAreaBreakdown[id] = areaBreakdownOf(areas, goalRows, new Set([id]));
+  // each student's own 3 weakest / 2 strongest goal areas — `mine` is just this one student, so `meanRit` here is
+  // their own score, never the band's (see studentGoals' doc comment for the bug this replaces).
+  const studentGoals: Record<string, { goals: PlanGoal[]; strengths: PlanGoal[] }> = {};
+  for (const id of ids) {
+    const own = v.rows.find((r) => r.studentId === id)?.rit ?? null;
+    const merged = goalCandidatesFor(new Set([id]), own, areas, goalRows, areaSkills, contIx, stdOf);
+    const { goals, strengths } = pickGoals(merged);
+    for (const g of [...goals, ...strengths]) g.result = resultOf(g.area, new Set([id]));
+    studentGoals[id] = { goals, strengths };
+  }
   const percentileDistribution = percentileDistributionOf(v.rows.map((r) => r.national?.percentile ?? null).filter((x): x is number => x !== null));
-  return { classId, className: s(klass.name), grade, teacher: s(tu?.displayName ?? ""), subject, term: v.term, bands, notTested: musers.map((u) => s(u.displayName)).sort(), classAverageRit, nationalAverageRit, areaBreakdown, studentAreaBreakdown, percentileDistribution };
+  return { classId, className: s(klass.name), grade, teacher: s(tu?.displayName ?? ""), subject, term: v.term, bands, notTested: musers.map((u) => s(u.displayName)).sort(), classAverageRit, nationalAverageRit, areaBreakdown, studentAreaBreakdown, studentGoals, percentileDistribution };
 }
 
 /** The whole-class (members: null) or one student's/group's (members: a set of studentIds) RIT per instructional

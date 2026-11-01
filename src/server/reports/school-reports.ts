@@ -71,11 +71,16 @@ export async function personalizedPlanForStudent(repo: Repo, actor: Actor, stude
   const row = p.bands.flatMap((b) => b.students.map((x) => ({ ...x, band: b.band }))).find((x) => x.studentId === studentId);
   const band = row ? p.bands.find((b) => b.band === row.band) ?? null : null;
   const profile = await classProfile(repo, actor, s(member.classId), subject).catch(() => null);
+  // 🐛 fix (Nov 2026): goals/strengths used to come from `band` — every student of the same Below/On/Above band
+  // averaged together — shown here as if they were this one student's own, conflicting with the correct
+  // student-specific RIT in `areaBreakdown` right below under the identical area name. `p.studentGoals` is this
+  // one student's own goal areas (see personal-plan.ts).
+  const own = p.studentGoals[studentId];
   return {
     studentId, name: s(user?.displayName), studentNumber: s(st.studentNumber), className: p.className, grade, teacher: p.teacher, subject, term: p.term,
     band: band?.band ?? (row ? bandOf(row.percentile, null) : null), ritRange: band?.ritRange ?? null,
     rit: row?.rit ?? null, projection: row?.projection ?? null, percentile: row?.percentile ?? null,
-    goals: band?.goals ?? [], strengths: band?.strengths ?? [], resources: band?.resources ?? [], monitoring: band?.monitoring ?? [],
+    goals: own?.goals ?? [], strengths: own?.strengths ?? [], resources: band?.resources ?? [], monitoring: band?.monitoring ?? [],
     areaBreakdown: p.studentAreaBreakdown[studentId] ?? [],
     areaPercentiles: profile ? studentAreaQuintiles(profile, studentId) : [],
   };
