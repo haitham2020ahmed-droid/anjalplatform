@@ -67,7 +67,7 @@ function FinalReportArticle({ r, L, breakBefore }: { r: FinalReport; L: Locale; 
           </div>
         </section>
       )}
-      {r.plans.map((p) => <InstructionalAreaPercentiles key={p.subject} rows={p.areaPercentiles} L={L} />)}
+      {r.plans.map((p) => <InstructionalAreaPercentiles key={p.subject} rows={p.areaPercentiles} L={L} scope="student" />)}
 
       {r.map.length > 0 && (
         <section className="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-slate-200 print:break-inside-avoid">

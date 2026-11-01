@@ -184,7 +184,7 @@ export default async function PersonalizedPlanReportPage({ searchParams }: { sea
                 {p.percentile !== null && <p className="mt-2 max-w-md text-xs text-slate-500">{t(L, "personalizedPlan.percentileNote")}</p>}
               </header>
               <InstructionalAreas rows={p.areaBreakdown} L={L} classAverageRit={null} nationalAverageRit={null} scope="student" />
-              <InstructionalAreaPercentiles rows={p.areaPercentiles} L={L} />
+              <InstructionalAreaPercentiles rows={p.areaPercentiles} L={L} scope="student" />
               <section className="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-slate-200 print:break-inside-avoid">
                 <h2 className="text-xl font-extrabold text-brand-navy">🎯 {t(L, "personalizedPlan.goals")}</h2>
                 <GoalList goals={p.goals} L={L} />
@@ -257,7 +257,7 @@ export default async function PersonalizedPlanReportPage({ searchParams }: { sea
                 </div>
               </section>
               <PercentileDistribution rows={cls.percentileDistribution} L={L} />
-              {classPercentiles && <InstructionalAreaPercentiles rows={classPercentiles.areas} L={L} />}
+              {classPercentiles && <InstructionalAreaPercentiles rows={classPercentiles.areas} L={L} scope="class" />}
               <InstructionalAreas rows={cls.areaBreakdown} L={L} classAverageRit={cls.classAverageRit} nationalAverageRit={cls.nationalAverageRit} scope="class" />
               {cls.bands.some((b) => b.students.length > 0) && <p className="-mb-2 max-w-2xl text-xs text-slate-500">ℹ️ {t(L, "personalizedPlan.percentileNote")}</p>}
               {cls.bands.map((b) => (
