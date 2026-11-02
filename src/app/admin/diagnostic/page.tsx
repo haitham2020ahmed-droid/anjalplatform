@@ -94,8 +94,9 @@ const CHIP: Record<WindowRow["status"], { label: string; cls: string; icon: stri
   CLOSED: { label: "Closed", cls: "bg-slate-200 text-slate-700", icon: "⏸️" },
 };
 /** the server's own calendar day (the dates are saved as the server's local midnight / end of day) */
-const ymd = (iso: string | null) => { if (!iso) return ""; const x = new Date(iso); return `${x.getFullYear()}-${String(x.getMonth() + 1).padStart(2, "0")}-${String(x.getDate()).padStart(2, "0")}`; };
-const nice = (iso: string | null) => (iso ? new Date(iso).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" }) : "—");
+// the window's dates are Riyadh school days (UTC+3), whatever the server's clock
+const ymd = (iso: string | null) => (iso ? new Date(new Date(iso).getTime() + 3 * 3_600_000).toISOString().slice(0, 10) : "");
+const nice = (iso: string | null) => (iso ? new Date(iso).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric", timeZone: "Asia/Riyadh" }) : "—");
 
 /** One grade: status chip, progress, the big Open / Close button (Manual) or the dates (Automatic). */
 function WindowCard({ w, t }: { w: WindowRow; t: TFn }) {

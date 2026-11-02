@@ -364,26 +364,32 @@ const TEST_MARKS = new Set(["TEST", "WEEKLY_CHECK"]);
 
 /**
  * Of some practice-session ids, the ones that are SKILL PRACTICE (may count toward ⭐): a practice mode, and not a
- * test / Weekly Check / review check / "Re-check:" assignment. The one rule shared by the stars (countedAnswers) and
+ * test / Weekly Check / review check / "Re-check:" assignment, nor the Diagnostic Test (a session or assignment whose
+ * Assessment is of type DIAGNOSTIC — read from the data, so the Diagnostic assignments made before this rule are
+ * left out too). The one rule shared by the stars (countedAnswers) and
  * the Practice and time report (analytics/practice.ts), so both always agree. Batched (500 ids per query).
  */
 export async function practiceSessionIds(repo: Repo, sessionIds: readonly string[]): Promise<Set<string>> {
   const sids = [...new Set(sessionIds.map(s).filter(Boolean))];
   if (!sids.length) return new Set();
   const sessions: Row[] = [];
-  for (let i = 0; i < sids.length; i += 500) sessions.push(...(await repo.findMany("PracticeSession", { id: { in: sids.slice(i, i + 500) } }, { select: ["id", "mode", "assignmentId"] })));
+  for (let i = 0; i < sids.length; i += 500) sessions.push(...(await repo.findMany("PracticeSession", { id: { in: sids.slice(i, i + 500) } }, { select: ["id", "mode", "assignmentId", "assessmentId"] })));
   const aids = [...new Set(sessions.map((x) => s(x.assignmentId)).filter(Boolean))];
   const as: Row[] = [], checks: Row[] = [];
   for (let i = 0; i < aids.length; i += 500) {
     const part = aids.slice(i, i + 500);
     const [a, c] = await Promise.all([
-      repo.findMany("Assignment", { id: { in: part } }, { select: ["id", "testId", "curriculumPlanId", "title"] }),
+      repo.findMany("Assignment", { id: { in: part } }, { select: ["id", "testId", "curriculumPlanId", "title", "assessmentId"] }),
       repo.findMany("SkillReviewCheck", { assignmentId: { in: part } }, { select: ["assignmentId"] }),
     ]);
     as.push(...a); checks.push(...c);
   }
-  const bad = new Set([...as.filter((a) => a.testId || TEST_MARKS.has(s(a.curriculumPlanId)) || s(a.title).startsWith("Re-check: ")).map((a) => s(a.id)), ...checks.map((c) => s(c.assignmentId))]);
-  return new Set(sessions.filter((x) => PRACTICE_MODES.has(s(x.mode)) && !bad.has(s(x.assignmentId))).map((x) => s(x.id)));
+  // 📝 the Diagnostic Test is a test: its sets (Assessment type DIAGNOSTIC) never count
+  const setIds = [...new Set([...sessions.map((x) => s(x.assessmentId)), ...as.map((a) => s(a.assessmentId))].filter(Boolean))];
+  const diagnostic = new Set<string>();
+  for (let i = 0; i < setIds.length; i += 500) for (const x of await repo.findMany("Assessment", { id: { in: setIds.slice(i, i + 500) }, type: "DIAGNOSTIC" }, { select: ["id"] })) diagnostic.add(s(x.id));
+  const bad = new Set([...as.filter((a) => a.testId || TEST_MARKS.has(s(a.curriculumPlanId)) || s(a.title).startsWith("Re-check: ") || diagnostic.has(s(a.assessmentId))).map((a) => s(a.id)), ...checks.map((c) => s(c.assignmentId))]);
+  return new Set(sessions.filter((x) => PRACTICE_MODES.has(s(x.mode)) && !bad.has(s(x.assignmentId)) && !diagnostic.has(s(x.assessmentId))).map((x) => s(x.id)));
 }
 
 export interface CountedAnswers { answered: number; correct: number; at: number[] }

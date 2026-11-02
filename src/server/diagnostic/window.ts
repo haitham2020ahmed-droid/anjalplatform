@@ -122,8 +122,23 @@ export async function setDiagnosticWindow(repo: Repo, actor: Actor, input: { gra
     else if (s(t.status) === "CLOSED") await repo.updateMany("DiagnosticTest", { id: t.id }, { status: "OPEN" });
   }
   const w = await writeWindow(repo, schoolId, grade, year, { mode, isOpen, opensAt, closesAt }, actor.userId ?? null, now);
+  if (t) await syncDiagnosticDates(repo, t, mode, isOpen, opensAt, closesAt, now);
   await audit(repo, { actorId: actor.userId ?? null, action: "diagnostic.window", entityType: "DiagnosticWindow", entityId: s(w.id), before: before ? { mode: before.mode, isOpen: before.isOpen, opensAt: before.opensAt, closesAt: before.closesAt } : null, after: { grade, year, mode, isOpen, opensAt, closesAt }, at: now });
   return { status: windowStatus(w, now) };
+}
+
+/**
+ * 🗓️ The window decides the dates: the test's class assignments (and the test's own dates, which the assignments of a
+ * class added later copy) follow it — before, the assignments kept the dates of the first opening, so a student
+ * could meet "This work has not started yet" while the window was open. AUTO: open → close; MANUAL: no start / due
+ * date (the window alone opens and closes it).
+ */
+async function syncDiagnosticDates(repo: Repo, t: Row, mode: WindowMode, isOpen: boolean, opensAt: Date | null, closesAt: Date | null, now: Date): Promise<void> {
+  const startAt = mode === "AUTO" ? opensAt : null, dueAt = mode === "AUTO" ? closesAt : null;
+  const keepFrom = d(t.opensAt) && d(t.opensAt)!.getTime() <= now.getTime() ? d(t.opensAt) : null;
+  await repo.updateMany("DiagnosticTest", { id: t.id }, mode === "AUTO" ? { opensAt, closesAt } : { opensAt: isOpen ? (keepFrom ?? now) : keepFrom, closesAt: null });
+  const aids = t.assessmentId ? (await repo.findMany("Assignment", { assessmentId: t.assessmentId, deletedAt: null }, { select: ["id"] })).map((a) => s(a.id)) : [];
+  if (aids.length) await repo.updateMany("Assignment", { id: { in: aids } }, { startAt, dueAt });
 }
 
 export type DiagnosticAccess = "OPEN" | "CLOSED" | "PAUSED" | "DONE";
@@ -144,6 +159,7 @@ export async function diagnosticAccess(repo: Repo, studentId: string, t: Row, no
   return was ? "PAUSED" : "CLOSED";
 }
 
+/** Student-facing: English here (the t() keys); the pages show them through t() (the quiz page and player). */
 export const DIAGNOSTIC_MESSAGES: Record<Exclude<DiagnosticAccess, "OPEN">, string> = {
   DONE: "You finished this year's diagnostic test 🎉",
   PAUSED: "Your teacher will reopen it soon. Your answers are saved.",

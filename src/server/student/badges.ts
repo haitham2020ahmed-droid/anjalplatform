@@ -7,6 +7,7 @@
 import type { Repo } from "../seeding/repo";
 import { isUniqueError } from "../db/prisma-repo";
 import { starBook } from "../skills/star-read";
+import { testAssignments } from "../motivation/sync";
 import { activeDays, streakAndPoints } from "./streak";
 
 /** "Steady Practice": distinct days of activity in the last N days (consistency, not streak — gaps are fine). */
@@ -23,7 +24,7 @@ export interface StudentBadge extends BadgeDef { earned: boolean; earnedAt: stri
 
 async function metrics(repo: Repo, studentId: string, schoolId: string | null, now: Date): Promise<Record<Metric, number>> {
   // every read in one round trip (Update 42B)
-  const [book, tasks, logs, articles, writing, sp, correct, maps, sims, words] = await Promise.all([
+  const [book, tasks, logs, articles, writing, sp, correctAll, maps, sims, words] = await Promise.all([
     // ⭐ Skill Master / Star / Champion and Grammar Master count the student's ⭐ skills by KEY (the ONE skill status,
     // skills/star-read.ts — every grade's copy of a skill is one skill); the old "10 answers at 80 %" rule is gone
     starBook(repo, [studentId], schoolId),
@@ -39,6 +40,13 @@ async function metrics(repo: Repo, studentId: string, schoolId: string | null, n
     repo.findMany("MapSimSession", { studentId, kind: "SIM", status: "DONE" }, { select: ["subject", "resultRit", "finishedAt"] }),
     repo.count("StudentWord", { studentId }),
   ]);
+  // tests and the Diagnostic are not "tasks" (owner rule: tests never pay badges or coins — motivation/sync.ts testAssignments)
+  const tests = await testAssignments(repo, tasks.map((x) => String(x.assignmentId)));
+  const doneTasks = tasks.filter((x) => !tests.has(String(x.assignmentId))).length;
+  // …and the Diagnostic's right answers never count toward the "correct answers" badges
+  const diagSessions = (await repo.findMany("PracticeSession", { studentId, assignmentId: { in: [...tests] } }, { select: ["id"] })).map((x) => String(x.id));
+  const correctInTests = diagSessions.length ? await repo.count("QuestionAttempt", { studentId, sessionId: { in: diagSessions }, isCorrect: true, rapidGuess: false }) : 0;
+  const correct = Math.max(0, correctAll - correctInTests);
   // Games Part 3: ReadRise articles finished, Questions of the Day, Live Challenges, plans, coins (one more round trip)
   const [rrArticles, qotdCorrect, qotdAnswered, ledger, wallet, consistentDaysRaw] = await Promise.all([
     repo.count("RRRun", { studentId, step: "DONE" }),
@@ -69,7 +77,7 @@ async function metrics(repo: Repo, studentId: string, schoolId: string | null, n
     const later = [...mine.filter((m) => m !== fall && ms(m.testDate) > ms(fall.testDate)).map((m) => Number(m.rit)), ...sims.filter((x) => x.subject === subj).map((x) => Number(x.resultRit))];
     if (later.length) growth = Math.max(growth, Math.max(...later) - Number(fall.rit));
   }
-  return { correct, mastered, tasks: tasks.length + finishedWriting, levelUps, streak: sp.streak, articles, writing: finishedWriting, growth: Math.max(0, growth), words, practiceTests: sims.length,
+  return { correct, mastered, tasks: doneTasks + finishedWriting, levelUps, streak: sp.streak, articles, writing: finishedWriting, growth: Math.max(0, growth), words, practiceTests: sims.length,
     rrArticles, grammarMastered, qotdCorrect, qotdAnswered,
     liveWins: ledger.filter((l) => l.reason === "live.win").length, liveGames: ledger.filter((l) => l.reason === "live").length, plans: ledger.filter((l) => l.reason === "plan").length,
     coinsEarned: Number(wallet?.earned ?? 0), consistentDays };

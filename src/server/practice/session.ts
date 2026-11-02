@@ -38,7 +38,7 @@ import { correctOnNewText, effortFromCounts, guessResponse, isPassageSkill, newT
 import { chosenQuestionIdsOfAssignment } from "../questions/skill-questions";
 import { applyPlacementResult } from "../curriculum-map/placement-result";
 import { adaptiveNext, STUCK_AFTER, type AdaptiveState } from "../curriculum-map/leveled-run";
-import { diagnosticNext, diagnosticOfAssessment, recordDiagnosticResult } from "../diagnostic/test";
+import { diagnosticNext, diagnosticOfAssessment, recordDiagnosticResult, recoverDiagnosticResult } from "../diagnostic/test";
 import { assertDiagnosticAccess } from "../diagnostic/window";
 import { finishWeeklyCheck, WEEKLY_CHECK_MARK } from "../student/weekly-check";
 import { withLock } from "../lib/key-lock";
@@ -796,9 +796,10 @@ async function submitAnswerUnlocked(
  * The work after an answer's response (r68): its closures see only these plain values — a queued task never keeps the
  * answer's pool, history and engine state in memory while it waits (a class rush queues thousands of them).
  */
-function queueAfterAnswer(repo: Repo, x: { studentId: string; skillId: string; now: Date; label: string; log: Row; refreshAssignment?: string | null }): void {
+function queueAfterAnswer(repo: Repo, x: { studentId: string; skillId: string; now: Date; label: string; log: Row; refreshAssignment?: string | null; noStars?: boolean }): void {
   const { studentId, skillId, now, label, log, refreshAssignment } = x;
-  runAfterResponse("skills.status", () => onSkillAnswer(repo, studentId, skillId, now), { key: `skills.status|${studentId}|${skillId}` }); // ⭐ skill stars (skills/status.ts)
+  // ⭐ skill stars (skills/status.ts) — never for the Diagnostic Test (a test never changes a star)
+  if (!x.noStars) runAfterResponse("skills.status", () => onSkillAnswer(repo, studentId, skillId, now), { key: `skills.status|${studentId}|${skillId}` });
   runAfterResponse(label, () => repo.create("AdaptiveDecisionLog", log));
   if (refreshAssignment) runAfterResponse("practice.assignment_refresh", () => refreshAfterAnswer(repo, refreshAssignment, studentId, now, skillId || undefined), { key: `assignment_refresh|${refreshAssignment}|${studentId}` });
 }
@@ -969,6 +970,9 @@ async function quizReplay(repo: Repo, a: Row, order: string[], s: Row, item: Pra
   };
 }
 
+/** The Diagnostic refuses an answer to a question it is not serving (a stale tab, a crafted request). */
+export const DIAGNOSTIC_NOT_SERVED = "This question is not the one your test is showing now. Please reload the page to continue.";
+
 /** Starts or resumes the student's question set (continues from the first unanswered question). */
 async function startQuizUnlocked(repo: Repo, actor: Actor, assignmentId: string, now = new Date()): Promise<QuizView> {
   const { a, order } = await quizContext(repo, actor, assignmentId, now);
@@ -985,7 +989,11 @@ async function startQuizUnlocked(repo: Repo, actor: Actor, assignmentId: string,
     const set = await repo.findUnique("Assessment", { id: a.assessmentId });
     if (timeIsUp(set, s, now)) s = await finishTimedOut(repo, a, s, order.length, now);
   }
-  return quizView(repo, a, order, s);
+  const view = await quizView(repo, a, order, s);
+  // 🩹 the Diagnostic: a finished sitting whose result was never saved (the scoring failed after the last answer)
+  // is scored now (idempotent: an existing result is kept)
+  if (view.ended && view.testMode && !isTestAssignment(a)) await recoverDiagnosticResult(repo, String(a.assessmentId), String(a.id), actor.studentId!, s, true, now);
+  return view;
 }
 
 /** One answer: scored, saved (one attempt per question), counted toward mastery; returns feedback and the next question. */
@@ -1030,6 +1038,12 @@ async function submitQuizAnswerUnlocked(repo: Repo, actor: Actor, input: { assig
   // r68: a repeat of an answer already saved (the player sends again after a lost reply, a double click): nothing is
   // written; that answer's saved result comes back with the current screen (marked `replayed`) — never a dead end
   if (sessionRows.some((x) => String(x.questionId) === input.questionId)) return quizReplay(repo, a, order, s, item ?? null, Boolean(diag), input.questionId);
+  // 📝 the Diagnostic: only the question the test is serving now may be answered (re-derived on the server, never
+  // trusted from the browser) — any other question of the pool is refused
+  if (diag) {
+    const served = await diagnosticNext(repo, diag, String(s.id), String(s.studentId));
+    if (served && served.nextId !== input.questionId) throw new ValidationError(DIAGNOSTIC_NOT_SERVED);
+  }
   if (!item) throw new ValidationError("This question is no longer available.");
   // a shuffled test: the student's choice letters are mapped back to the question's own before scoring
   const response = normalizeResponse(item, a.shuffle ? unshuffleResponse(item, input.response, choiceSeed(a, studentId, item.questionId)) : input.response);
@@ -1095,9 +1109,11 @@ async function submitQuizAnswerUnlocked(repo: Repo, actor: Actor, input: { assig
       misconception, unreliable: effort.unreliable,
     });
     if (effort.unreliable !== Boolean(s.unreliable)) await tx.updateMany("QuestionAttempt", { sessionId: s.id }, { unreliable: effort.unreliable });
-    if (!rapid) await tx.upsert("StudentAbility", { studentId, scope: `SKILL:${skillId}` }, { skillId, theta: step.ability.theta, thetaSE: step.ability.se, responses: history.length + 1 },
+    // 📝 the Diagnostic Test is a test: it never writes the skill's ability or mastery (both feed the ⭐ and practice);
+    // its own placement writes (level, DOMAIN priors) are made by diagnostic/test.ts when it is scored
+    if (!rapid && !diag) await tx.upsert("StudentAbility", { studentId, scope: `SKILL:${skillId}` }, { skillId, theta: step.ability.theta, thetaSE: step.ability.se, responses: history.length + 1 },
       { theta: step.ability.theta, thetaSE: step.ability.se, responses: history.length + 1 });
-    if (masteryData) await tx.upsert("StudentSkillMastery", { studentId, skillId }, masteryData, masteryData);
+    if (masteryData && !diag) await tx.upsert("StudentSkillMastery", { studentId, skillId }, masteryData, masteryData);
     const after = await nextInSet(tx, a, order, String(s.id), studentId, { set, ...(fixed ? { answeredIds } : {}) });
     const goalSet = after.goal !== null;
     const done = goalSet ? !after.nextId : answered >= order.length || !after.nextId;
@@ -1127,9 +1143,10 @@ async function submitQuizAnswerUnlocked(repo: Repo, actor: Actor, input: { assig
     log: {
       ...step.log, attemptId: attempt.id, nextQuestionId: after.nextId, nextTargetB: null, responseCorrect: correct, createdAt: now,
       masteryBefore: seenBefore, masteryAfter: mst.score,
-      reason: `${rapid ? "Rapid guess: counted for nothing. " : ""}Answer in an assigned set: ability and mastery updated; the next question follows the set.`,
+      reason: diag ? `${rapid ? "Rapid guess: counted for nothing. " : ""}Diagnostic Test answer: saved only (a test never changes ability, mastery or stars).` : `${rapid ? "Rapid guess: counted for nothing. " : ""}Answer in an assigned set: ability and mastery updated; the next question follows the set.`,
       reasonCode: "ASSIGNED_SET",
     },
+    noStars: Boolean(diag),
   });
   // stuck: many answers without reaching the goal — the class's teachers are told once (after the response)
   if (goalSet && answered === STUCK_AFTER && !after.goal!.reached) {
@@ -1173,7 +1190,9 @@ async function submitQuizAnswerUnlocked(repo: Repo, actor: Actor, input: { assig
   if (String(a.curriculumPlanId ?? "") === WEEKLY_CHECK_MARK && !feedback.next.hasQuestion) await finishWeeklyCheck(repo, String(a.id), actor.studentId!, String(sNow.id), String(actor.schoolId), now);
   // 📝 the Diagnostic Test: analysed when the last answer is in; the student sees no right/wrong while testing
   if (diag) {
-    if (!feedback.next.hasQuestion) await recordDiagnosticResult(repo, diag, String(a.id), actor.studentId!, String(sNow.id), now);
+    // the answer is saved already: a failure here must not lose the result — it is scored again (recoverDiagnosticResult)
+    // when the student opens the test or their Diagnostic state is read
+    if (!feedback.next.hasQuestion) await recordDiagnosticResult(repo, diag, String(a.id), actor.studentId!, String(sNow.id), now).catch((e) => { console.error("diagnostic.record_failed", e); return null; });
     const blank: Feedback = { ...feedback, correct: false, credit: 0, correctAnswer: "", whyCorrect: "", whyYoursIsWrong: null, tip: "", masteryBefore: 0, masteryAfter: 0, xp: 0, tutor: null };
     return { feedback: blank, view: await quizView(repo, a, order, sNow, known) };
   }

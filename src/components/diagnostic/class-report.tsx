@@ -117,7 +117,7 @@ export function ClassDiagnosticView({ r, canShare, back }: { r: ClassDiagnosticR
                   <td className={`border-b border-slate-100 px-1.5 text-center tabular-nums ${st.wcpm !== null && r.fluency.below.some((b) => b.id === st.id) ? "font-bold text-rose-700" : ""}`}>{st.wcpm ?? "—"}</td>
                   <td className="border-b border-slate-100 px-1.5 text-end print:hidden">
                     <div className="flex items-center justify-end gap-1.5">
-                      <Link href={`/diagnostic/${r.testId}/student/${st.id}`} className="whitespace-nowrap rounded-lg px-2 py-1 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">Report{st.shared ? " ✓" : ""}</Link>
+                      <Link href={`/diagnostic/${r.testId}/student/${st.id}${r.classId ? `?classId=${encodeURIComponent(r.classId)}` : ""}`} className="whitespace-nowrap rounded-lg px-2 py-1 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">Report{st.shared ? " ✓" : ""}</Link>
                       {canShare && st.total > 0 && (
                         <form action={resetDiagnosticAttemptAction}>
                           <input type="hidden" name="id" value={r.testId} /><input type="hidden" name="studentId" value={st.id} /><input type="hidden" name="back" value={back} />
@@ -211,7 +211,9 @@ export function ClassDiagnosticView({ r, canShare, back }: { r: ClassDiagnosticR
         {!r.notTaken.length ? <p className="rounded-xl bg-emerald-50 px-4 py-3 text-emerald-900">✅ Every student has taken the test.</p> : (
           <table className="w-full text-sm">
             <thead><tr className="border-b border-slate-200 text-left text-slate-500"><th className="py-2">Student</th><th>Class</th><th>Status</th><th>Required action</th></tr></thead>
-            <tbody>{r.notTaken.map((x) => <tr key={x.id} className="border-b border-slate-100"><td className="py-2 font-medium">{x.name}</td><td>{x.className}</td><td><span className={`rounded-full px-2 py-0.5 text-xs font-bold ${x.status === "In progress" ? "bg-amber-100 text-amber-900" : "bg-slate-200 text-slate-700"}`}>{x.status}{x.answered ? ` · ${x.answered} answered` : ""}</span></td><td className="text-slate-700">{x.action}</td></tr>)}</tbody>
+            <tbody>{r.notTaken.map((x) => <tr key={x.id} className="border-b border-slate-100"><td className="py-2 font-medium">{x.name}</td><td>{x.className}</td><td><span className={`rounded-full px-2 py-0.5 text-xs font-bold ${x.status === "In progress" ? "bg-amber-100 text-amber-900" : x.status === "Not valid" ? "bg-rose-100 text-rose-900" : "bg-slate-200 text-slate-700"}`}>{x.status}{x.answered ? ` · ${x.answered} answered` : ""}</span></td><td className="text-slate-700">{x.action}{x.status === "Not valid" && canShare && (
+              <form action={resetDiagnosticAttemptAction} className="mt-1 print:hidden"><input type="hidden" name="id" value={r.testId} /><input type="hidden" name="studentId" value={x.id} /><input type="hidden" name="back" value={back} /><button title="Clear this attempt so the student can retake the Diagnostic" className="whitespace-nowrap rounded-lg px-2 py-1 text-xs font-semibold text-amber-800 ring-1 ring-amber-300 hover:bg-amber-50">↻ Retake</button></form>
+            )}</td></tr>)}</tbody>
           </table>
         )}
       </section>

@@ -7,9 +7,10 @@
  */
 import type { Period, PeriodName } from "../../analytics/periods";
 import { mapLimit } from "../db/parallel";
-import type { StarChange } from "../skills/star-read";
+import { starBook, starMastered, type StarChange } from "../skills/star-read";
+import { isHiddenSkill } from "../skills/master";
 import { studentAnalytics } from "../analytics/reports";
-import { latestDiagnostic } from "../assessment/diagnostic";
+import { latestDiagnosticState, type DiagnosticSummary } from "../assessment/diagnostic";
 import { assertCan, canAccessStudent, ForbiddenError, type Actor } from "../auth/rbac";
 import { bandOf, personalPlan, type Band, type PersonalPlan } from "../map/personal-plan";
 import { classProfile, studentAreaQuintiles, type AreaQuintileRow } from "../map/nwea-reports";
@@ -109,10 +110,8 @@ export const TIER_STRATEGY: Record<DiagnosticTier, string> = {
 const TIER_OF: Record<string, DiagnosticTier> = {
   "Above grade level": "ADVANCED", "At grade level": "PROFICIENT", "Approaching grade level": "APPROACHING", "Below grade level": "INTENSIVE",
 };
-// 🐛 r91 fix: the modern Diagnostic Test (DiagnosticScore/summarizeScore) reports its overall level as
-// ABOVE/ON/BELOW (3 bands), not the legacy 4-band proficiency text above. Map it to the same tiers so the
-// Tier/Strategy box no longer disappears for any student who took the current test.
-const TIER_OF_SCORE: Record<"ABOVE" | "ON" | "BELOW", DiagnosticTier> = { ABOVE: "ADVANCED", ON: "PROFICIENT", BELOW: "APPROACHING" };
+// The modern Diagnostic Test's tier is the Diagnostic report's own band (summarizeScore → bandFor(pct, level)):
+// Above → Advanced, On → Proficient, Below → Approaching (40+) or Intensive — the same tier on every page.
 const PRESCRIPTION: Record<string, string> = {
   READING: "Practise identifying main idea, theme, and text structure across literary and informational passages.",
   VOCABULARY: "Context-clue and morphology (root/prefix/suffix) practice; build an academic word wall.",
@@ -136,6 +135,14 @@ export interface DiagnosticAnalysis {
   domains: { domain: string; label: string; level: string; theta: number; percentLike: number; items: number; prescription: string }[];
   strengths: string[]; growthAreas: string[]; notMeasured: string[];
   recommendedSkills: { skillId: string; name: string }[]; supportSkills: { skillId: string; name: string }[];
+  /** the modern test: scores 0–100 on the grade scale (no “%”) */
+  adaptive: boolean;
+  /** θ is shown only for the old placement check (the Diagnostic Test does not measure it per domain) */
+  thetaMeasured: boolean;
+  /** the result has no skill-level data to suggest skills from (the page says so in one line) */
+  noSkillData: boolean;
+  /** a newer result was not valid (too many fast answers) and is not used: its date — retake recommended */
+  invalidNewer: string | null;
 }
 
 /** An approximate 0-100 display scale from theta (internal; never presented as official MAP/RIT or % correct). */
@@ -145,17 +152,19 @@ const percentLike = (theta: number): number => Math.round(100 / (1 + Math.exp(-1
 export async function diagnosticAnalysisForStudent(repo: Repo, actor: Actor, studentId: string): Promise<DiagnosticAnalysis> {
   const st = await repo.findUnique("Student", { id: studentId });
   if (!st || !canAccessStudent(actor, { studentId, schoolId: s(st.schoolId) })) throw new ForbiddenError("You do not have access to this student.");
-  const [user, grade, member, d] = await Promise.all([
+  const [user, grade, member, state] = await Promise.all([
     repo.findUnique("User", { id: st.userId }),
     repo.findUnique("Grade", { id: st.gradeId }),
     repo.findMany("ClassMembership", { studentId, leftAt: null }).then((m) => m[0]),
-    latestDiagnostic(repo, studentId),
+    latestDiagnosticState(repo, studentId),
   ]);
+  const d = state.summary;
   const klass = member ? await repo.findUnique("Class", { id: s(member.classId) }) : null;
   // 🐛 r91 fix: the modern Diagnostic Test (d.source === "SCORE") has its own overall level (ABOVE/ON/BELOW) and
   // real per-domain percent — using the legacy proficiency-text lookup / theta-based percentLike() for it silently
   // dropped the Tier box and showed a flat 50% for every domain. Read the right fields for whichever placement this is.
-  const tier = d ? (d.source === "SCORE" ? (d.overallLevel ? TIER_OF_SCORE[d.overallLevel] : null) : TIER_OF[d.proficiency] ?? null) : null;
+  const tier = d ? (d.source === "SCORE" ? d.overallTier ?? null : TIER_OF[d.proficiency] ?? null) : null;
+  const skills = d ? await diagnosticSkills(repo, studentId, s(st.schoolId), d) : { recommended: [], support: [], noData: false };
   return {
     studentId, name: s(user?.displayName), studentNumber: s(st.studentNumber), grade: num(grade?.level), className: klass ? s(klass.name) : null,
     takenAt: d?.takenAt ?? null, questions: d?.questions ?? 0, proficiency: d?.proficiency ?? null, tier,
@@ -165,8 +174,41 @@ export async function diagnosticAnalysisForStudent(repo: Repo, actor: Actor, stu
       prescription: PRESCRIPTION[x.domain] ?? "Review the domain's recent answers with the student.",
     })),
     strengths: d?.strong ?? [], growthAreas: d?.growth ?? [], notMeasured: d?.notMeasured ?? [],
-    recommendedSkills: d?.startWith ?? [], supportSkills: d?.support ?? [],
+    recommendedSkills: skills.recommended, supportSkills: skills.support,
+    adaptive: Boolean(d?.adaptive), thetaMeasured: Boolean(d) && d!.source !== "SCORE", noSkillData: skills.noData,
+    invalidNewer: state.invalidNewer,
   };
+}
+
+/**
+ * The skills to start with / to support after a Diagnostic: the old placement's saved skills, or (Diagnostic Test) the
+ * grade's skills of the result's weakest standards (under 60 → start with; under 40 → support) — never a skill the
+ * student has ⭐ on now (SkillStatus, by skill key) and never the hidden Curriculum Map holder skill.
+ */
+async function diagnosticSkills(repo: Repo, studentId: string, schoolId: string, d: DiagnosticSummary): Promise<{ recommended: { skillId: string; name: string }[]; support: { skillId: string; name: string }[]; noData: boolean }> {
+  let rec: { skillId: string; name: string }[] = [], sup: { skillId: string; name: string }[] = [];
+  if (d.source === "SCORE") {
+    const weak = d.weakStandards ?? [];
+    if (!weak.length) return { recommended: [], support: [], noData: false }; // no weak standard: nothing to start with
+    if (!d.grade) return { recommended: [], support: [], noData: true };
+    const { skillsForAnchors } = await import("../diagnostic/report");
+    const found = await skillsForAnchors(repo, schoolId, d.grade, weak.map((x) => x.anchor));
+    if (!found.length) return { recommended: [], support: [], noData: true };
+    const low = new Set(weak.filter((x) => x.pct < 40).map((x) => x.anchor));
+    sup = found.filter((k) => low.has(k.anchor));
+    rec = found.filter((k) => !sup.some((x) => x.skillId === k.skillId));
+  } else {
+    rec = d.startWith; sup = d.support;
+    const ids = [...new Set([...rec, ...sup].map((k) => k.skillId))];
+    const hidden = new Set((ids.length ? await repo.findMany("Skill", { id: { in: ids } }, { select: ["id", "code"] }) : []).filter((k) => isHiddenSkill(k.code)).map((k) => s(k.id)));
+    rec = rec.filter((k) => !hidden.has(k.skillId)); sup = sup.filter((k) => !hidden.has(k.skillId));
+  }
+  if (rec.length || sup.length) {
+    const book = await starBook(repo, [studentId], schoolId);
+    const open = (k: { skillId: string }) => !starMastered(book.of(studentId, k.skillId));
+    rec = rec.filter(open); sup = sup.filter(open);
+  }
+  return { recommended: rec.slice(0, 3).map(({ skillId, name }) => ({ skillId, name })), support: sup.slice(0, 3).map(({ skillId, name }) => ({ skillId, name })), noData: false };
 }
 
 /** Every active student of a class, in name order (shared by the two whole-class reports below). */
@@ -183,13 +225,14 @@ export interface DiagnosticClassReport {
   classId: string; className: string; grade: number;
   /** every domain label seen in the class, in the order each first appeared (for the master table's columns) */
   domains: string[];
-  tiers: { tier: DiagnosticTier; label: string; students: { studentId: string; name: string; proficiency: string | null; domains: Record<string, string>; domainScores: Record<string, number> }[] }[];
+  tiers: { tier: DiagnosticTier; label: string; students: { studentId: string; name: string; proficiency: string | null; domains: Record<string, string>; domainScores: Record<string, number>; domainText: Record<string, string> }[] }[];
   /** owner's two reference reports (Grade 4 tracking sheet, Grade 11 assessment report) both flag who has not completed the check, with a required action — merged into this one report. */
   notTaken: { studentId: string; name: string; action: string }[];
 }
 
 /** A missing result's suggested next step: no placement data at all yet (never attempted) vs an old one gone stale. */
-const NOT_TAKEN_ACTION = "No placement/diagnostic result yet: assign the Diagnostic check, or confirm the student has completed enough practice for one to be calculated.";
+export const NOT_TAKEN_ACTION = "No placement/diagnostic result yet: assign the Diagnostic check, or confirm the student has completed enough practice for one to be calculated.";
+export const INVALID_ACTION = "Not valid (too many fast answers) — retake recommended";
 
 /**
  * The whole class's Diagnostic Analysis, grouped by tier (the school's own master-table format): every student
@@ -209,9 +252,11 @@ export async function diagnosticAnalysisForClass(repo: Repo, actor: Actor, class
       studentId: r.studentId, name: r.name, proficiency: r.proficiency,
       domains: Object.fromEntries(r.domains.map((x) => [x.label, x.level])),
       domainScores: Object.fromEntries(r.domains.map((x) => [x.label, x.percentLike])),
+      // the cell as printed: the Diagnostic Test's level already carries its number ("Strength (78%)" / "(78)" adaptive)
+      domainText: Object.fromEntries(r.domains.map((x) => [x.label, r.thetaMeasured ? `${x.level} (${x.percentLike})` : x.level])),
     })),
   }));
-  return { classId, className: s(klass.name), grade, domains, tiers, notTaken: rows.filter((r) => r.tier === null).map((r) => ({ studentId: r.studentId, name: r.name, action: NOT_TAKEN_ACTION })) };
+  return { classId, className: s(klass.name), grade, domains, tiers, notTaken: rows.filter((r) => r.tier === null).map((r) => ({ studentId: r.studentId, name: r.name, action: r.invalidNewer ? INVALID_ACTION : NOT_TAKEN_ACTION })) };
 }
 
 // -------------------------------------------------------------- 3. Final Report (per student)
@@ -240,7 +285,6 @@ export interface FinalReport {
   otherAnswers: { tests: number; other: number };
   starChange: StarChange;
   bySource: BySourceReport;
-  domains: { label: string; level: string }[];
   map: FinalMapSubject[];
   diagnostic: DiagnosticAnalysis | null;
   plans: { subject: "READING" | "LANGUAGE"; band: Band | null; goals: string[]; strengths: string[]; areaPercentiles: AreaQuintileRow[] }[];
@@ -332,7 +376,7 @@ export async function finalReportForStudent(repo: Repo, actor: Actor, studentId:
     },
     otherAnswers: { tests: a.bySource.TESTS, other: a.bySource.OTHER },
     starChange: a.starChange,
-    bySource: src, domains: d.domains, map: groupMap(a.importedMap),
+    bySource: src, map: groupMap(a.importedMap),
     diagnostic: diag, plans, missingPlans,
     alerts: d.alerts.map((x) => ({ rule: x.rule, message: x.message, nextAction: x.nextAction })),
   };

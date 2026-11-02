@@ -7,8 +7,10 @@ import { buildAllDiagnostics, buildDiagnostic, closeDiagnostic, openDiagnostic, 
 import { shareDiagnosticResults } from "@/server/diagnostic/report";
 import { draftReflection, type Reflection } from "@/server/diagnostic/reflection";
 import { aiEnv } from "@/server/ai/env";
+import { endOfDay, startOfDay } from "@/lib/assign-dates";
 
-const day = (v: FormDataEntryValue | null, end = false) => { const x = String(v ?? ""); return /^\d{4}-\d{2}-\d{2}$/.test(x) ? new Date(`${x}T${end ? "23:59:59" : "00:00:00"}`) : null; };
+// a date input is a Riyadh school day (UTC+3): open at 00:00, close at the end of the day (23:59:59) — not the server's UTC
+const day = (v: FormDataEntryValue | null, end = false) => { const x = String(v ?? ""); return /^\d{4}-\d{2}-\d{2}$/.test(x) ? (end ? endOfDay(x) : startOfDay(x)) : null; };
 const msg = (path: string, m: string) => `${path}${path.includes("?") ? "&" : "?"}msg=${encodeURIComponent(m)}`;
 async function run(back: string, fn: () => Promise<string>): Promise<never> {
   let to: string;

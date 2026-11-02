@@ -16,6 +16,10 @@ import { normalizeResponse } from "../practice/session";
 import { getStudentCurriculum } from "../queries/student-curriculum";
 import type { Repo, Row } from "../seeding/repo";
 import { freshFilter, itemContentKeys, seenIndex, Sitting, type SeenIndex } from "../questions/fresh";
+import { resolvePeriod } from "../../analytics/periods";
+import { loadCalendar } from "../analytics/calendar";
+import { isInvalidResult } from "../curriculum-map/level-evidence";
+import { bandFor, cellPct } from "../diagnostic/standards";
 
 export const DOMAIN_LABEL: Record<string, string> = {
   READING: "Reading",
@@ -51,6 +55,16 @@ export interface DiagnosticSummary {
   source?: "LEGACY" | "SCORE";
   overallPct?: number;
   overallLevel?: "ABOVE" | "ON" | "BELOW";
+  /** SCORE: the performance band of the Diagnostic report (bandFor(pct, level)) — the same tier on every page */
+  overallTier?: "ADVANCED" | "PROFICIENT" | "APPROACHING" | "INTENSIVE";
+  /** SCORE: an adaptive test — scores are 0–100 on the grade scale, never “%” */
+  adaptive?: boolean;
+  /** SCORE: the result's standards under 60, weakest first (their anchors, e.g. "RI.2") — for the skills to start with */
+  weakStandards?: { anchor: string; pct: number }[];
+  /** SCORE: the grade of the test */
+  grade?: number;
+  /** the date of a NEWER result that is not valid (30%+ rapid guesses) and was skipped — retake recommended */
+  invalidNewer?: string | null;
 }
 
 const d = (v: unknown) => (v instanceof Date ? v : new Date(String(v)));
@@ -234,41 +248,78 @@ async function summarize(repo: Repo, r: Row): Promise<DiagnosticSummary> {
   };
 }
 
-/** Latest placement result for a student (own record, or a teacher/parent with access checked by the caller). */
-export async function latestDiagnostic(repo: Repo, studentId: string): Promise<DiagnosticSummary | null> {
+/**
+ * Latest placement result for a student (own record, or a teacher/parent with access checked by the caller).
+ * Only results of the CURRENT school year (the school calendar) count, and Diagnostic Test results only for the
+ * student's current grade: last year's Grade-4 result is never shown for a Grade-5 student (→ null, “Not yet tested”).
+ * A Diagnostic Test result with 30%+ rapid guesses is not valid: the previous valid one is used (`invalidNewer` says so).
+ */
+export async function latestDiagnostic(repo: Repo, studentId: string, now = new Date()): Promise<DiagnosticSummary | null> {
+  return (await latestDiagnosticState(repo, studentId, now)).summary;
+}
+
+/** latestDiagnostic + the date of a newer result that is not valid (also when there is no valid result at all). */
+export async function latestDiagnosticState(repo: Repo, studentId: string, now = new Date()): Promise<{ summary: DiagnosticSummary | null; invalidNewer: string | null }> {
   // readiness I-17: the current Diagnostic Test writes DiagnosticScore; the older adaptive placement wrote
   // DiagnosticResult. The most recent of the two is shown, so “Placement: Not taken” never hides a finished test.
-  const [all, scores] = await Promise.all([
+  const st = await repo.findUnique("Student", { id: studentId });
+  const [all, scores, cal, gradeRow] = await Promise.all([
     repo.findMany("DiagnosticResult", { studentId }),
     repo.findMany("DiagnosticScore", { studentId }),
+    loadCalendar(repo, st ? String(st.schoolId ?? "") || null : null),
+    st?.gradeId ? repo.findUnique("Grade", { id: st.gradeId }) : Promise.resolve(null),
   ]);
-  const legacy = all.sort((a, b) => d(b.takenAt).getTime() - d(a.takenAt).getTime())[0];
-  const score = scores.sort((a, b) => d(b.completedAt).getTime() - d(a.completedAt).getTime())[0];
-  if (score && (!legacy || d(score.completedAt).getTime() >= d(legacy.takenAt).getTime())) return summarizeScore(score);
-  return legacy ? summarize(repo, legacy) : null;
+  const from = resolvePeriod("SCHOOL_YEAR", cal, now).from.getTime();
+  const grade = gradeRow ? Number(gradeRow.level) : null;
+  const inYear = (v: unknown) => { const t = d(v).getTime(); return Number.isFinite(t) && t >= from; };
+  const legacy = all.filter((r) => inYear(r.takenAt)).sort((a, b) => d(b.takenAt).getTime() - d(a.takenAt).getTime())[0];
+  const tests = scores.length ? await repo.findMany("DiagnosticTest", { id: { in: [...new Set(scores.map((x) => String(x.diagnosticId)))] } }, { select: ["id", "grade", "bands"] }) : [];
+  const testOf = new Map(tests.map((t) => [String(t.id), t]));
+  const current = scores.filter((r) => { const t = testOf.get(String(r.diagnosticId)); return inYear(r.completedAt) && (!t || grade === null || Number(t.grade) === grade); })
+    .sort((a, b) => d(b.completedAt).getTime() - d(a.completedAt).getTime());
+  const valid = (r: Row) => !isInvalidResult(Number(r.rapid ?? 0), Number(r.total ?? 0));
+  const score = current.find(valid);
+  const newerInvalid = current.find((r) => !valid(r) && (!score || d(r.completedAt).getTime() > d(score.completedAt).getTime()));
+  const invalidNewer = newerInvalid ? d(newerInvalid.completedAt).toISOString() : null;
+  if (score && (!legacy || d(score.completedAt).getTime() >= d(legacy.takenAt).getTime())) return { summary: { ...summarizeScore(score, testOf.get(String(score.diagnosticId))), invalidNewer }, invalidNewer };
+  return { summary: legacy ? { ...(await summarize(repo, legacy)), invalidNewer } : null, invalidNewer };
 }
 
 const LEVEL_TEXT: Record<string, string> = { ABOVE: "Exceeding the standard", ON: "Meeting the standard", BELOW: "Approaching the standard" };
 const STRAND_TEXT: Record<string, string> = { LIT: "Literature", INFO: "Informational Text", VOCAB: "Vocabulary", LANG: "Language", WRITE: "Writing", FOUND: "Foundational Skills" };
 
-/** A Diagnostic Test score (DiagnosticScore) as a placement summary. */
-function summarizeScore(r: Row): DiagnosticSummary {
-  let strands: { strand: string; label?: string; correct: number; total: number }[] = [];
-  try { const v = typeof r.byStrand === "string" ? JSON.parse(r.byStrand) : r.byStrand; if (Array.isArray(v)) strands = v; } catch { strands = []; }
-  const pctOf = (x: { correct: number; total: number }) => (Number(x.total) ? Math.round((100 * Number(x.correct)) / Number(x.total)) : 0);
+/**
+ * A Diagnostic Test score (DiagnosticScore) as a placement summary — with the SAME numbers as the Diagnostic report:
+ * each strand is cellPct (the adaptive score when there is one, else % correct), and the tier is bandFor(pct, level).
+ */
+function summarizeScore(r: Row, test?: Row): DiagnosticSummary {
+  const parse = <T>(v: unknown): T[] => { try { const x = typeof v === "string" ? JSON.parse(v) : v; return Array.isArray(x) ? (x as T[]) : []; } catch { return []; } };
+  const strands = parse<{ strand: string; label?: string; correct: number; total: number; score?: number }>(r.byStrand);
+  const standards = parse<{ anchor?: string; correct: number; total: number; score?: number }>(r.byStandard);
+  const adaptive = r.theta !== null && r.theta !== undefined;
+  const unit = adaptive ? "" : "%";
   const lvl = (p: number) => (p >= 75 ? "Strength" : p >= 50 ? "Developing" : "Needs support");
   const label = (x: { strand: string; label?: string }) => x.label || STRAND_TEXT[x.strand] || x.strand;
-  const measured = strands.filter((x) => Number(x.total) > 0);
+  const measured = strands.filter((x) => Number(x.total) > 0 || typeof x.score === "number");
+  const pct = Math.round(Number(r.pct ?? 0) * 10) / 10;
+  const level = (["ABOVE", "ON", "BELOW"].includes(String(r.level)) ? String(r.level) : undefined) as "ABOVE" | "ON" | "BELOW" | undefined;
+  const weak = new Map<string, number>();
+  for (const x of standards) { if (!x.anchor) continue; const p = cellPct(x); if (p < 60 && (!weak.has(x.anchor) || p < weak.get(x.anchor)!)) weak.set(x.anchor, p); }
   return {
     takenAt: d(r.completedAt).toISOString(),
     questions: Number(r.total ?? 0),
-    proficiency: `${LEVEL_TEXT[String(r.level)] ?? "Level not set"} · ${Math.round(Number(r.pct ?? 0))}% on the Diagnostic Test`,
-    domains: measured.map((x) => ({ domain: x.strand, label: label(x), level: `${lvl(pctOf(x))} (${pctOf(x)}%)`, theta: 0, se: 0, items: Number(x.total), pct: pctOf(x) })),
-    strong: measured.filter((x) => pctOf(x) >= 75).map(label),
-    growth: measured.filter((x) => pctOf(x) < 60).map(label),
+    // the Diagnostic report's wording: an adaptive score is 0–100 on the grade scale (never “%”)
+    proficiency: `${LEVEL_TEXT[String(r.level)] ?? "Level not set"} · ${adaptive ? `Diagnostic score ${pct} (0–100)` : `${pct}% correct on the Diagnostic Test`}`,
+    domains: measured.map((x) => { const p = cellPct(x); return { domain: x.strand, label: label(x), level: `${lvl(p)} (${p}${unit})`, theta: 0, se: 0, items: Number(x.total), pct: p }; }),
+    strong: measured.filter((x) => cellPct(x) >= 75).map(label),
+    growth: measured.filter((x) => cellPct(x) < 60).map(label),
     startWith: [], support: [], notMeasured: [],
     source: "SCORE",
-    overallPct: Math.round(Number(r.pct ?? 0)),
-    overallLevel: (r.level as "ABOVE" | "ON" | "BELOW" | undefined) ?? undefined,
+    overallPct: pct,
+    overallLevel: level,
+    overallTier: bandFor(Number(r.pct ?? 0), level ?? null).key,
+    adaptive,
+    weakStandards: [...weak].map(([anchor, p]) => ({ anchor, pct: p })).sort((a, b) => a.pct - b.pct),
+    grade: test ? Number(test.grade) : undefined,
   };
 }

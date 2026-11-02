@@ -1018,8 +1018,22 @@ export async function refreshQuestionSets(repo: Repo, assignments: Row[], studen
   const answered = new Map(sessions.map((x) => [`${s(x.assignmentId)}|${s(x.studentId)}`, Number(x.questionCount ?? 0)]));
   const ended = new Set(sessions.filter((x) => x.endedAt).map((x) => `${s(x.assignmentId)}|${s(x.studentId)}`));
   // adaptive sets: each student answers up to maxQuestions of a larger pool, and is done when the session ends
-  const sets = await repo.findMany("Assessment", { id: { in: [...new Set(list.map((a) => s(a.assessmentId)))] } }, { select: ["id", "isAdaptive", "maxQuestions", "targetCorrect"] });
+  const sets = await repo.findMany("Assessment", { id: { in: [...new Set(list.map((a) => s(a.assessmentId)))] } }, { select: ["id", "isAdaptive", "maxQuestions", "targetCorrect", "type"] });
   const adaptive = new Map(sets.filter((x) => x.isAdaptive).map((x) => [s(x.id), Number(x.maxQuestions) || 0]));
+  // 📝 the Diagnostic Test: the stored pool is far larger than the test a student takes — its progress is out of the
+  // real test length (the student's own blueprint: a focus form is shorter), and it is done when the sitting ends
+  const diagLength = new Map<string, number>();
+  const diagSets = sets.filter((x) => s(x.type) === "DIAGNOSTIC");
+  if (diagSets.length) {
+    const { adaptiveLength } = await import("../diagnostic/test");
+    const one = studentIds && studentIds.length <= 10;
+    for (const x of diagSets) {
+      const base = (await adaptiveLength(repo, s(x.id))) ?? (Number(x.maxQuestions) || 0);
+      diagLength.set(s(x.id), base);
+      // one student (an answer): their own length; a whole class keeps the test's length (no per-student reads)
+      if (one) for (const sid of studentIds!) diagLength.set(`${s(x.id)}|${sid}`, (await adaptiveLength(repo, s(x.id), sid)) ?? base);
+    }
+  }
   const goalOf = new Map(sets.filter((x) => x.isAdaptive && Number(x.targetCorrect) > 0).map((x) => [s(x.id), Number(x.targetCorrect)]));
   const sessionOf = new Map(sessions.map((x) => [`${s(x.assignmentId)}|${s(x.studentId)}`, x]));
   const byId = new Map(list.map((a) => [s(a.id), a]));
@@ -1028,13 +1042,16 @@ export async function refreshQuestionSets(repo: Repo, assignments: Row[], studen
     const a = byId.get(s(r.assignmentId))!;
     if (r.status === "COMPLETED" || d(r.completedAt)) continue; // C-1: finished work is never moved back
     const pool = total.get(s(a.assessmentId)) ?? 0;
-    const n = adaptive.has(s(a.assessmentId)) ? Math.min(pool, adaptive.get(s(a.assessmentId)) || pool) : pool;
+    const diag = diagLength.has(s(a.assessmentId));
+    const diagN = diagLength.get(`${s(a.assessmentId)}|${s(r.studentId)}`) ?? diagLength.get(s(a.assessmentId)) ?? 0;
+    const n = diag ? Math.min(pool, diagN || pool) : adaptive.has(s(a.assessmentId)) ? Math.min(pool, adaptive.get(s(a.assessmentId)) || pool) : pool;
     const k = answered.get(`${s(a.id)}|${s(r.studentId)}`) ?? 0;
     const goal = goalOf.get(s(a.assessmentId));
     const ses = sessionOf.get(`${s(a.id)}|${s(r.studentId)}`);
     // a goal set: done once the goal of correct answers was reached (the student may go on practising), or when the
     // set ended without it (its questions ran out: the student finished everything there was)
     const done = goal ? Boolean(ses?.goalReachedAt) || Boolean(ses?.endedAt)
+      : diag ? ended.has(`${s(a.id)}|${s(r.studentId)}`)
       : n > 0 && (k >= n || (adaptive.has(s(a.assessmentId)) && ended.has(`${s(a.id)}|${s(r.studentId)}`)));
     const due = d(a.dueAt);
     const status = done ? "COMPLETED" : due && now > due ? "OVERDUE" : k > 0 ? "IN_PROGRESS" : "NOT_STARTED";

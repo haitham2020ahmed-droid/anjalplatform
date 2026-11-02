@@ -969,6 +969,25 @@ export const UI_STRINGS = [
   "ReadMaster (NAFS-style)", "RTI / Intervention", "Reteach the skill in a small group, then assign 10 minutes of practice.", "Check the recent wrong answers below for a shared misconception and model one example.",
   "Assign a short review; the skill may need refreshing.", "Check whether reading load is the barrier: try reading the passage aloud together.", "Meet briefly with the student; consider practising the prerequisite skill first.", "Assign the building-block skill the engine pointed to before returning to this one.",
   "50 questions without a star: reteach the skill in a small group (RTI plan), then let the student practise again.", "The student forgot a mastered skill: go over one worked example together; the practice continues until the star is back.",
+  // Diagnostic Test + Diagnostic reports (2 Nov 2026)
+  "You finished the Diagnostic Test!", "Thank you for doing your best. Your teacher now knows your strengths and what to learn next. Your plans start at the right level for you.", "This is a test: read each question carefully and choose your best answer. You will not see if it is right or wrong.",
+  "The clock keeps running if you stop.", "You can stop and continue later — your answers are saved.", "Finish the test",
+  "You finished this year's diagnostic test 🎉", "Your teacher will reopen it soon. Your answers are saved.", "The Diagnostic Test is not open right now.",
+  "This question is not the one your test is showing now. Please reload the page to continue.", "Not valid (too many fast answers) — retake recommended", "Not valid",
+  "too many fast answers — retake recommended", "Score (0–100)", "Reading at {level}",
+  "Starting level", "RIT (estimated by the Diagnostic)", "words / minute · goal ~{n}",
+  "not checked yet", "From the teacher:", "{name}’s strengths",
+  "Strengths will show as the scores grow — every question practised counts.", "Try:", "No weak standard — keep going with the curriculum plan.",
+  "Strands", "class {n}", "The black mark is the class average.",
+  "MAP Goal Areas", "The same areas as the MAP Growth test, so the next MAP report reads the same way.", "What happens next",
+  "The platform now gives {name} questions that match this result; they get easier or harder with every answer.", "The platform now starts {name} at {level}; the questions get easier or harder with every answer.", "Ask {name} to open “Today’s plan” on the platform for 15 minutes a day.",
+  "The weakest standards are in the class support plan and the student’s curriculum plan.", "Read together for 15 minutes and ask: What is the main idea? How do you know?", "A Weekly Check keeps the level up to date between MAP tests.",
+  "Grade goal: {n} and more", "Levels: Exceeding ≥ {above} · Meeting {on}–{top} · Approaching < {on}", "{n} answers were very fast: this result is not valid — retake recommended.",
+  "My children", "The Diagnostic report appears here when the teacher shares it.", "Your Diagnostic report appears here when your teacher shares it.",
+  "Print this page", "Intensive Support", "Exceeding standards",
+  "Meeting standards", "Emerging", "Substantial intervention",
+  "Reading Informational Text", "Grammar & Conventions", "Foundational Skills",
+  "Strength", "Adaptive test: the same 50 skills for every student, each at their own difficulty. Score 0–100 against the grade (72.5 = meeting the grade goal).", "Adaptive test: the same 50 skills for every student, each at their own difficulty. Score 0–100 against the grade (72.5 = on grade level).",
 ] as const;
 
 export type UiString = (typeof UI_STRINGS)[number];

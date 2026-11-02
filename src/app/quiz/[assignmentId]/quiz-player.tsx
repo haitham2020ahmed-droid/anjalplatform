@@ -70,7 +70,8 @@ export function QuizPlayer({ initial, preview }: { initial: QuizView; preview?: 
     finally { setPending(false); setRetrying(false); }
     if (!sent.ok) { setFailed(true); return setError(tr(sent.message)); }
     const r = sent.data;
-    if (r.error) return setError(r.error);
+    // the server's messages are English interface strings (the Diagnostic's ones among them): shown through t()
+    if (r.error) return setError(tr(r.error));
     if (!r.view || (!view.testMode && !r.feedback)) { setFailed(true); return setError(tr(BUSY_MESSAGE)); }
     // a test: only a neutral "answer saved" tick — never right / wrong
     if (view.testMode) { answerSavedFx(); setView(r.view!); setValue(null); setShown(r.view!.question); return; }
@@ -104,9 +105,9 @@ export function QuizPlayer({ initial, preview }: { initial: QuizView; preview?: 
     return (
       <div className="rounded-3xl bg-white p-10 text-center ring-1 ring-slate-200">
         <p className="text-5xl" aria-hidden="true">🎉</p>
-        <h1 className="mt-2 text-3xl font-bold text-brand-navy">You finished the Diagnostic Test!</h1>
-        <p className="mx-auto mt-3 max-w-xl text-lg text-slate-700">Thank you for doing your best. Your teacher now knows your strengths and what to learn next. Your plans start at the right level for you.</p>
-        <Link href="/student" className="mt-6 inline-block rounded-xl bg-brand-navy px-6 py-3 font-semibold text-white">Back to My Work</Link>
+        <h1 className="mt-2 text-3xl font-bold text-brand-navy">{tr("You finished the Diagnostic Test!")}</h1>
+        <p className="mx-auto mt-3 max-w-xl text-lg text-slate-700">{tr("Thank you for doing your best. Your teacher now knows your strengths and what to learn next. Your plans start at the right level for you.")}</p>
+        <Link href="/student" className="mt-6 inline-block rounded-xl bg-brand-navy px-6 py-3 font-semibold text-white">{tr("Back to My Work")}</Link>
       </div>
     );
   }
@@ -129,7 +130,7 @@ export function QuizPlayer({ initial, preview }: { initial: QuizView; preview?: 
   return (
     <WordLookup>
       <header className="flex flex-wrap items-center justify-between gap-3">
-        <div><h1 className="text-2xl font-bold text-brand-navy">{view.title}</h1><p className="text-slate-600">{g ? <>Question {shownIndex}{g.reached ? " · ✅ done — practising more" : ""}</> : <>Question {shownIndex} of {view.total}</>}</p>
+        <div><h1 className="text-2xl font-bold text-brand-navy">{view.title}</h1><p className="text-slate-600">{g ? <>Question {shownIndex}{g.reached ? " · ✅ done — practising more" : ""}</> : view.testMode ? tr("Question {n} of {total}", { n: shownIndex, total: view.total }) : <>Question {shownIndex} of {view.total}</>}</p>
           {/* right and wrong so far (not in a test: a test never shows right or wrong) */}
           {!view.testMode && (
             <p data-testid="score-line" className="mt-1 flex flex-wrap items-center gap-2 text-sm">
@@ -152,7 +153,7 @@ export function QuizPlayer({ initial, preview }: { initial: QuizView; preview?: 
         )}
       </header>
       {left !== null && <p role="timer" aria-live="off" className={`mt-4 inline-block rounded-xl px-4 py-2 text-lg font-semibold ring-1 ${left < 60_000 ? "bg-rose-50 text-rose-800 ring-rose-200" : "bg-white text-brand-navy ring-slate-200"}`}>⏱ {left > 0 ? `Time left: ${Math.floor(left / 60_000)}:${String(Math.floor((left % 60_000) / 1000)).padStart(2, "0")}` : "Time is up"}</p>}
-      {view.testMode && <p className="mt-4 rounded-xl bg-indigo-50 px-4 py-3 text-indigo-900 ring-1 ring-indigo-200">📝 This is a test: read each question carefully and choose your best answer. You will not see if it is right or wrong. {view.endsAt ? "The clock keeps running if you stop." : "You can stop and continue later — your answers are saved."}</p>}
+      {view.testMode && <p className="mt-4 rounded-xl bg-indigo-50 px-4 py-3 text-indigo-900 ring-1 ring-indigo-200">📝 {tr("This is a test: read each question carefully and choose your best answer. You will not see if it is right or wrong.")} {view.endsAt ? tr("The clock keeps running if you stop.") : tr("You can stop and continue later — your answers are saved.")}</p>}
       {view.breakHint && !view.testMode && <p role="status" className="mt-4 rounded-xl bg-sky-50 px-4 py-3 text-sky-900 ring-1 ring-sky-200">⏸️ You have practised more than 25 minutes today. Take a short break if you like — your progress is saved and you continue from here.</p>}
       {g?.struggling && !fb && <p role="status" className="mt-4 rounded-xl bg-amber-50 px-4 py-3 text-amber-900 ring-1 ring-amber-200">💡 This one is tricky. Read the question slowly, use 🔊 Listen, and look back at the explanation of the last answer. The questions you missed will come back so you can get them right.</p>}
       {celebrate && g && (
@@ -182,7 +183,7 @@ export function QuizPlayer({ initial, preview }: { initial: QuizView; preview?: 
         {!view.testMode && <FlagButton key={q.questionId} questionId={q.questionId} />}
         <div className="mt-6">
           {paused ? <Link href="/student" data-testid="take-break" className="rounded-xl bg-brand-navy px-6 py-3 font-semibold text-white">Back to My Work</Link>
-            : !fb ? <button type="button" disabled={pending || locked > 0 || (!preview && !isAnswerReady(q, value))} onClick={() => void submit()} className="rounded-xl bg-brand-navy px-6 py-3 font-semibold text-white disabled:opacity-50">{view.testMode ? (pending ? "Saving…" : view.answered + 1 >= view.total ? "Finish the test" : "Next ▶") : pending ? "Checking…" : "Check answer"}</button>
+            : !fb ? <button type="button" disabled={pending || locked > 0 || (!preview && !isAnswerReady(q, value))} onClick={() => void submit()} className="rounded-xl bg-brand-navy px-6 py-3 font-semibold text-white disabled:opacity-50">{view.testMode ? (pending ? tr("Saving…") : view.answered + 1 >= view.total ? tr("Finish the test") : tr("Next ▶")) : pending ? "Checking…" : "Check answer"}</button>
             : <button type="button" onClick={next} className="rounded-xl bg-brand-navy px-6 py-3 font-semibold text-white">{view.question ? "Next question" : "Finish"}</button>}
         </div>
       </QuizQuestion>

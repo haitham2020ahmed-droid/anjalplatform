@@ -95,6 +95,30 @@ export const tierOf = (pct: number) => TIERS.find((t) => pct >= t.min)!;
 export const bandFor = (pct: number, level?: string | null) =>
   level === "ABOVE" ? TIERS[0] : level === "ON" ? TIERS[1] : level === "BELOW" ? (pct >= TIERS[2].min ? TIERS[2] : TIERS[3]) : tierOf(pct);
 
+/** The level bands of a Diagnostic test (its edited bands, else 85 / 65) — one reading for every report. */
+export const DIAGNOSTIC_DEFAULT_BANDS = { above: 85, on: 65 } as const;
+export function testBands(raw: unknown): { above: number; on: number } {
+  let b: { above?: unknown; on?: unknown } | null = null;
+  if (raw && typeof raw === "object") b = raw as { above?: unknown; on?: unknown };
+  else if (typeof raw === "string" && raw) { try { b = JSON.parse(raw); } catch { b = null; } }
+  return { above: Number(b?.above) || DIAGNOSTIC_DEFAULT_BANDS.above, on: Number(b?.on) || DIAGNOSTIC_DEFAULT_BANDS.on };
+}
+/**
+ * The score band of each performance band (bandFor), from the test's REAL level bands: Advanced = Above (≥ above),
+ * Proficient = On (on – above), Approaching = Below and ≥ 40, Intensive = under 40. `unit` is "%" or "" (adaptive).
+ */
+export function tierBandText(key: string, B: { above: number; on: number }, unit = "%"): string {
+  const lo = (x: number) => `${x}${unit}`, hi = (x: number) => `${Math.round((x - 0.1) * 10) / 10}${unit}`;
+  const appr = TIERS[2].min;
+  if (key === "ADVANCED") return `${lo(B.above)} – ${lo(100)}`;
+  if (key === "PROFICIENT") return `${lo(B.on)} – ${hi(B.above)}`;
+  if (key === "APPROACHING") return B.on > appr ? `${lo(appr)} – ${hi(B.on)}` : "—";
+  return `${lo(0)} – ${hi(Math.min(appr, B.on))}`;
+}
+/** a strand / standard cell's result: the adaptive score (0–100 on the grade scale) when there is one, else % correct (1 decimal) */
+export const cellPct = (x: { correct: number; total: number; score?: number | null }): number =>
+  typeof x.score === "number" ? x.score : Number(x.total) ? Math.round((1000 * Number(x.correct)) / Number(x.total)) / 10 : 0;
+
 /** Level of a standard's class average. */
 export function standardLevel(pct: number): "Strength" | "Moderate" | "Approaching" | "Priority Need" {
   return pct >= 75 ? "Strength" : pct >= 60 ? "Moderate" : pct >= 50 ? "Approaching" : "Priority Need";

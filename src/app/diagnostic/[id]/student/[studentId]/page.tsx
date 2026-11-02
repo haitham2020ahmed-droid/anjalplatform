@@ -13,21 +13,23 @@ import { shareDiagnosticAction } from "@/app/diagnostic/actions";
 export const metadata = { title: "Diagnostic Report" };
 
 /** 📄 One student's Diagnostic report (staff): preview, download, and send it to the student and family with a note. */
-export default async function StaffStudentReport({ params, searchParams }: { params: Promise<{ id: string; studentId: string }>; searchParams: Promise<{ msg?: string }> }) {
+export default async function StaffStudentReport({ params, searchParams }: { params: Promise<{ id: string; studentId: string }>; searchParams: Promise<{ msg?: string; classId?: string }> }) {
   const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"], permission: "reports:read" });
   const me = (await getActor())!.user;
   const { id, studentId } = await params;
   const sp = await searchParams;
   let r;
-  try { r = await studentDiagnosticReport(repo, actor, studentId, id); }
+  // the class the report was opened from (class analysis → Report): its average is the “class average”
+  const classId = sp.classId || null;
+  try { r = await studentDiagnosticReport(repo, actor, studentId, id, classId); }
   catch (e) { if (!(e instanceof ForbiddenError)) throw e; return <AppShell name={String(me.displayName)}><p className="text-lg text-slate-700">{e.message}</p></AppShell>; }
   if (!r) return <AppShell name={String(me.displayName)}><p className="text-lg text-slate-700">This student has not finished the Diagnostic yet.</p></AppShell>;
-  const [bench, growth] = await Promise.all([studentBenchmark(repo, actor, studentId, id), studentGrowth(repo, actor, studentId, r.year)]);
-  const back = `/diagnostic/${id}/student/${studentId}`;
+  const [bench, growth] = await Promise.all([studentBenchmark(repo, actor, studentId, id), studentGrowth(repo, actor, studentId, r.year, r.classId)]);
+  const back = `/diagnostic/${id}/student/${studentId}${r.classId ? `?classId=${encodeURIComponent(r.classId)}` : ""}`;
   return (
     <AppShell name={String(me.displayName)}>
-      <PageHeader back={{ href: `/diagnostic/${id}/report`, label: "Class analysis" }} icon="📄" title="Diagnostic Report" subtitle={r.shared ? `✅ Shared with the student and family on ${r.sharedAt}` : "Not shared yet — the student and family cannot see it."}>
-        <DownloadBar testId={id} studentId={studentId} /><PrintButton label="🖨 Print this page" />
+      <PageHeader back={{ href: `/diagnostic/${id}/report${classId && r.classId ? `?classId=${encodeURIComponent(r.classId)}` : ""}`, label: "Class analysis" }} icon="📄" title="Diagnostic Report" subtitle={r.invalid ? "⚠️ Not valid (too many fast answers) — retake recommended." : r.shared ? `✅ Shared with the student and family on ${r.sharedAt}` : "Not shared yet — the student and family cannot see it."}>
+        <DownloadBar testId={id} studentId={studentId} classId={r.classId} /><PrintButton label="🖨 Print this page" />
       </PageHeader>
       {sp.msg && <p role="status" className="mb-5 rounded-2xl bg-teal-50 px-4 py-3 text-teal-900 ring-1 ring-teal-200 print:hidden">{sp.msg}</p>}
       <form action={shareDiagnosticAction} className="mx-auto mb-5 flex max-w-4xl flex-wrap items-end gap-3 rounded-3xl bg-white p-4 ring-1 ring-slate-200 print:hidden">

@@ -9,7 +9,7 @@ import { loadCalendar } from "@/server/analytics/calendar";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { ForbiddenError } from "@/server/auth/rbac";
 import { finalReportForStudent, finalReportsForClass, type FinalReport } from "@/server/reports/school-reports";
-import { localeFrom, t, type Locale } from "@/i18n/school-reports";
+import { localeFrom, t, word, type Locale } from "@/i18n/school-reports";
 import type { I18nKey } from "@/i18n/school-reports/en";
 
 export const metadata = { title: "Final Report" };
@@ -21,13 +21,9 @@ const periodOf = (v: string | undefined): PeriodName => (PERIODS.includes(v as P
 /** t() with {placeholders} */
 const tv = (L: Locale, key: I18nKey, vars: Record<string, string | number> = {}) => t(L, key).replace(/\{(\w+)\}/g, (m, k: string) => (k in vars ? String(vars[k]) : m));
 
-/** the few fixed level / domain words the services return in English (names of skills and goal areas stay as they are) */
-const AR_WORDS: Record<string, string> = {
-  "Below grade level": "دون مستوى الصف", "Approaching grade level": "يقترب من مستوى الصف", "At grade level": "في مستوى الصف", "Above grade level": "فوق مستوى الصف",
-  Strength: "نقطة قوة", Developing: "قيد التطور", "Needs support": "يحتاج إلى دعم",
-  Reading: "القراءة", Vocabulary: "المفردات", Grammar: "القواعد", "Punctuation & capitals": "الترقيم والحروف الكبيرة", "Spelling & word study": "الإملاء ودراسة الكلمات", Writing: "الكتابة",
-};
-const word = (L: Locale, w: string) => (L !== "ar" ? w : AR_WORDS[w] ?? w.replace(/^(Strength|Developing|Needs support)(?= \()/, (m) => AR_WORDS[m]));
+// the fixed level / domain / proficiency words (Literature, Informational Text, Language, Foundational Skills, the
+// Diagnostic Test's proficiency sentence, Advanced / Proficient / Approaching / Intensive…) are translated by word()
+// in src/i18n/school-reports — the same map as the Diagnostic Analysis page.
 
 const TREND_TONE = { UP: "bg-emerald-50 text-emerald-800 ring-emerald-200", SAME: "bg-slate-50 text-slate-700 ring-slate-200", DOWN: "bg-amber-50 text-amber-900 ring-amber-200" } as const;
 
@@ -87,13 +83,6 @@ function FinalReportArticle({ r, L, breakBefore }: { r: FinalReport; L: Locale; 
         </section>
       )}
 
-      {r.domains.length > 0 && (
-        <section className="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-slate-200 print:break-inside-avoid">
-          <h2 className="text-lg font-extrabold text-brand-navy">🧭 {t(L, "finalReport.domains")}</h2>
-          <ul className="mt-2 divide-y divide-slate-100 text-sm">{r.domains.map((x) => <li key={x.label} className="flex justify-between py-1.5"><span>{word(L, x.label)}</span><span className="font-semibold text-slate-700">{word(L, x.level)}</span></li>)}</ul>
-        </section>
-      )}
-
       {(r.plans.length > 0 || r.missingPlans.length > 0) && (
         <section className="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-slate-200 print:break-inside-avoid">
           <h2 className="text-lg font-extrabold text-brand-navy">📋 {t(L, "finalReport.plans")}</h2>
@@ -137,10 +126,18 @@ function FinalReportArticle({ r, L, breakBefore }: { r: FinalReport; L: Locale; 
         </section>
       )}
 
+      {r.diagnostic && !r.diagnostic.takenAt && r.diagnostic.invalidNewer && (
+        <section className="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-slate-200 print:break-inside-avoid">
+          <h2 className="text-lg font-extrabold text-brand-navy">🩺 {t(L, "finalReport.diagnostic")}</h2>
+          <p className="mt-1 text-sm text-rose-800">{r.diagnostic.invalidNewer.slice(0, 10)} · {t(L, "diagnostic.notTaken.invalid")}</p>
+        </section>
+      )}
       {r.diagnostic?.takenAt && (
         <section className="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-slate-200 print:break-inside-avoid">
           <h2 className="text-lg font-extrabold text-brand-navy">🩺 {t(L, "finalReport.diagnostic")}</h2>
           <p className="mt-1 text-sm text-slate-600">{r.diagnostic.proficiency ? `${word(L, r.diagnostic.proficiency)} · ` : ""}{r.diagnostic.takenAt.slice(0, 10)} · {tv(L, "finalReport.questions", { n: r.diagnostic.questions })}</p>
+          {r.diagnostic.tier && <p className="mt-1 text-sm font-semibold text-brand-navy">{t(L, "diagnostic.tier")}: {t(L, `diagnostic.tier.${r.diagnostic.tier}` as I18nKey)}</p>}
+          {r.diagnostic.invalidNewer && <p className="mt-1 text-sm text-rose-800">⚠️ {tv(L, "diagnostic.invalidNewer", { date: r.diagnostic.invalidNewer.slice(0, 10) })}</p>}
           <ul className="mt-2 divide-y divide-slate-100 text-sm">{r.diagnostic.domains.map((x) => <li key={x.domain} className="flex justify-between py-1.5"><span>{word(L, x.label)}</span><span className="font-semibold text-slate-700">{word(L, x.level)}</span></li>)}</ul>
         </section>
       )}
