@@ -115,9 +115,9 @@
           "stem": "What is the main idea of the article?",
           "options": [
             "Tiny coral animals build reefs and islands in the Red Sea.",
-            "Sharks hunt fish all over the Red Sea.",
-            "The Red Sea is the biggest sea in the world.",
-            "People build new islands with sand."
+            "Sharks hunt fish all over the Red Sea at night, and they build the reefs.",
+            "The Red Sea is the biggest sea in the world, with warm and deep water.",
+            "People build new islands with sand and big trucks along the coast."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
-            "The Red Sea is the saltiest sea on Earth.",
+            "The Red Sea is the saltiest sea on Earth, and no fish can live in it.",
             "Tiny polyps build reefs that can become islands, but heat can harm them.",
-            "Parrotfish are the most important animals in the Red Sea.",
-            "The Farasan Islands were built by people long ago."
+            "Parrotfish are the most important animals in the Red Sea, because they eat the coral.",
+            "The Farasan Islands were built by people long ago, using stones from the sea."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -412,10 +412,10 @@
         {
           "stem": "How does the article explain the way a coral island forms?",
           "options": [
-            "By comparing two different islands",
-            "By listing problems and their solutions",
+            "By comparing two different islands that are far from the coast",
+            "By listing problems and their solutions for people on the island",
             "By describing steps in order, from broken coral to a new island",
-            "By telling a story about one sea turtle and its eggs"
+            "By telling a story about one sea turtle and its eggs on the beach"
           ],
           "answer": "C",
           "skill": "text-structure",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best summarizes the article?",
           "options": [
-            "Coral reefs everywhere are dying and cannot be saved.",
-            "The Farasan Islands are the largest islands in the world.",
+            "Coral reefs everywhere are dying and cannot be saved by anyone, even with help.",
+            "The Farasan Islands are the largest islands in the whole world, and they are made of sand only.",
             "Living polyps slowly build reefs that can form islands, but heat can disrupt them.",
-            "Parrotfish produce all of the sand in the Red Sea."
+            "Parrotfish produce all of the sand found in the Red Sea, and no other animal does."
           ],
           "answer": "C",
           "skill": "central-idea",

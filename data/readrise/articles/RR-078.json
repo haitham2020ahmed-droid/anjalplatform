@@ -200,9 +200,9 @@
           "stem": "Why was an alphabet easier to use than writing with lots of marks?",
           "options": [
             "With a few signs for sounds, you could write any word.",
-            "An alphabet only had pictures of birds.",
-            "An alphabet could only be written on clay.",
-            "Only kings were allowed to use an alphabet."
+            "An alphabet only had pictures of birds and other animals.",
+            "An alphabet could only be written on clay tablets.",
+            "Only kings were allowed to use an alphabet in the palace."
           ],
           "answer": "A",
           "skill": "inference",
@@ -294,9 +294,9 @@
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
             "Writing tools changed many times, helping words last and spread.",
-            "Only the Sumerians knew how to write.",
-            "The typewriter was the most important invention ever.",
-            "Paper is stronger and lasts longer than clay."
+            "Only the Sumerians knew how to write, and no other people ever learned it.",
+            "The typewriter was the most important invention ever made by humans.",
+            "Paper is stronger and lasts longer than clay, so it replaced it everywhere."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -574,10 +574,10 @@
         {
           "stem": "Why might handwritten manuscripts have multiplied after Baghdad built paper mills?",
           "options": [
-            "Paper mills printed all of the books automatically.",
-            "Paper made the reeds grow faster.",
+            "Paper mills printed all of the books automatically, without anyone writing by hand.",
+            "Paper made the reeds grow faster, so writers had more reeds to use for pens.",
             "Paper was cheaper and easier to make, so more copies were possible.",
-            "Clay tablets were banned."
+            "Clay tablets were banned, so scribes had to stop writing on them in the city."
           ],
           "answer": "C",
           "skill": "inference",

@@ -165,9 +165,9 @@
         {
           "stem": "Why does the clock stop every time it turns?",
           "options": [
-            "Someone keeps turning it off",
-            "It runs out of oil right away",
-            "The leader does not want it fixed",
+            "Someone keeps turning it off on purpose",
+            "It runs out of oil right away each day",
+            "The leader does not want it fixed yet",
             "One gear has a bent tooth that catches"
           ],
           "answer": "D",

@@ -148,9 +148,9 @@
      "stem": "What does slippery mean?",
      "options": [
       "Easy to slide on.",
-      "Very dry.",
-      "Very dirty.",
-      "Soft and warm."
+      "Very dry and rough.",
+      "Very dirty and old.",
+      "Soft and warm inside."
      ],
      "answer": 0,
      "why": "Ali **slid and almost fell**, so the floor was easy to slide on."
@@ -252,10 +252,10 @@
      "passage": "Hamad is usually talkative, but today he was silent. He did not say a single word all morning.",
      "stem": "What does silent mean?",
      "options": [
-      "Talking a lot.",
+      "Talking a lot and loudly.",
       "Not making any sound.",
-      "Feeling sick.",
-      "Very busy."
+      "Feeling sick and tired.",
+      "Very busy all day."
      ],
      "answer": 1,
      "why": "**But** shows the opposite of talkative, and he **did not say a single word**."
@@ -385,9 +385,9 @@
      "stem": "What does docile mean?",
      "options": [
       "Calm and easy to lead.",
-      "Wild and fast.",
-      "Sick and weak.",
-      "Loud and angry."
+      "Wild and fast on its feet.",
+      "Sick and weak in the bed.",
+      "Loud and angry all day."
      ],
      "answer": 0,
      "why": "**But** contrasts it with the camels that wandered off, and it **let him lead it**."
@@ -493,9 +493,9 @@
      "passage": "At first the committee's response to the complaint was tepid. Members nodded politely, but nobody offered a plan, and the topic was dropped after five minutes.",
      "stem": "What does tepid mean here?",
      "options": [
-      "Angry and loud.",
-      "Warm and welcoming.",
-      "Fast and well organised.",
+      "Angry and loud, like a storm.",
+      "Warm and welcoming to guests.",
+      "Fast and well organised, with no delay.",
       "Showing little interest or energy."
      ],
      "answer": 3,

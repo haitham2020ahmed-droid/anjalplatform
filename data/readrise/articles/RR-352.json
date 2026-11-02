@@ -88,7 +88,7 @@
       "questions": [
         {
           "stem": "What is this story mostly about?",
-          "options": ["A small, quick fox that lives near the sea and hunts for food at night", "A boy's first ship voyage, where sailors use skill and teamwork to survive a storm", "A captain who spends a whole long summer teaching a boy how to swim", "A boy who helps his uncle sell cloth and spices in the busy market"],
+          "options": ["A small, quick fox that lives near the sea and hunts for food at night, among the rocks", "A boy's first ship voyage, where sailors use skill and teamwork to survive a storm", "A captain who spends a whole long summer teaching a boy how to swim in a quiet bay", "A boy who helps his uncle sell cloth and spices in the busy market all through the day"],
           "answer": "B",
           "skill": "central-idea",
           "why": "The story follows Yousef's first voyage, where the sailors' skill and teamwork help the ship survive a storm.",
@@ -166,7 +166,7 @@
       "questions": [
         {
           "stem": "Which sentence best states the central idea of the story?",
-          "options": ["On his first voyage, Yousef learns that an experienced crew's skill and teamwork can bring a ship safely through a storm", "Yousef decides trading is too dangerous for him", "The captain refuses to let Yousef help during the storm", "The storm destroys the ship completely"],
+          "options": ["On his first voyage, Yousef learns that an experienced crew's skill and teamwork can bring a ship safely through a storm", "Yousef decides that trading by sea is too dangerous for him, so he stays at home with his family forever and ever", "The captain refuses to let Yousef help during the storm, so the old sailors save the ship without him", "The storm destroys the ship completely and the crew must swim back to a faraway shore, where no one finds them"],
           "answer": "A",
           "skill": "central-idea",
           "why": "The story shows how the crew's experience and teamwork guide the ship safely through the sudden storm.",
@@ -190,7 +190,7 @@
         },
         {
           "stem": "In the story, the word steady most nearly means —",
-          "options": ["loud and excited", "fast and rushed", "weak and shaking", "calm and not shaking"],
+          "options": ["loud and excited today", "fast and rushed, in a hurry", "weak and shaking a lot", "calm and not shaking"],
           "answer": "D",
           "skill": "vocabulary",
           "why": "Captain Nasser's voice stays steady, meaning calm and not shaking, even during the storm.",
@@ -198,7 +198,7 @@
         },
         {
           "stem": "Why does Yousef feel a 'jolt of fear' when the waves start hitting the ship?",
-          "options": ["He has never experienced a storm at sea and does not know what to expect", "He dislikes the captain", "He is afraid of the fennec fox", "He thinks the cargo will be stolen"],
+          "options": ["He has never experienced a storm at sea and does not know what to expect", "He dislikes the captain and thinks that the man will be angry with him", "He is afraid of the fennec fox that is hiding in a box on the ship", "He thinks the cargo will be stolen by sailors during the long storm"],
           "answer": "A",
           "skill": "inference",
           "why": "As a first-time sailor, Yousef has no experience with storms at sea, which makes the sudden danger especially frightening.",
@@ -206,7 +206,7 @@
         },
         {
           "stem": "Compare Yousef's reaction to the storm with the crew's reaction.",
-          "options": ["Both Yousef and the crew panic equally", "Yousef feels afraid at first, while the experienced crew stays calm and works steadily", "The crew panics, but Yousef stays perfectly calm", "Neither Yousef nor the crew notice the storm"],
+          "options": ["Both Yousef and the crew panic equally, and they shout and drop the ropes into the sea", "Yousef feels afraid at first, while the experienced crew stays calm and works steadily", "The crew panics and runs about the deck, but Yousef stays perfectly calm and quiet", "Neither Yousef nor the crew notice the storm, and they keep eating dinner on deck"],
           "answer": "B",
           "skill": "compare",
           "why": "The story contrasts Yousef's fear with the crew's calm, practiced response, showing how experience changes the way people react to danger.",
@@ -214,7 +214,7 @@
         },
         {
           "stem": "Why does the crew make the sails smaller during the storm?",
-          "options": ["To make the ship look smaller to other ships", "To give Yousef something to do", "To keep the strong wind from pushing the ship off course", "To make the ship go faster"],
+          "options": ["To make the ship look smaller to other ships at sea and so be safe", "To give Yousef something to do during the storm and keep him busy", "To keep the strong wind from pushing the ship off course", "To make the ship go faster in the water and win"],
           "answer": "C",
           "skill": "cause-effect",
           "why": "Smaller sails catch less wind, which keeps the strong storm wind from forcing the ship off its intended course.",
@@ -244,7 +244,7 @@
       "questions": [
         {
           "stem": "Which statement best expresses the central idea of the story?",
-          "options": ["Yousef learns that a veteran crew's skill and teamwork can carry a vessel safely through danger", "Yousef concludes that trading goods by sea is simply not worth the risk at all", "The storm proves that Captain Nasser is not truly an experienced sailor", "The voyage shows that the cargo is more valuable than the entire crew's safety"],
+          "options": ["Yousef learns that a veteran crew's skill and teamwork can carry a vessel safely through danger", "Yousef concludes that trading goods by sea is simply not worth the risk at all, so he stays at home", "The storm proves that Captain Nasser is not truly an experienced sailor, so the crew loses its trust", "The voyage shows that the cargo is more valuable than the entire crew's safety, so everyone guards it"],
           "answer": "A",
           "skill": "central-idea",
           "why": "The story centers on how the veteran crew's collaboration and maritime skill bring the vessel safely through the storm.",
@@ -260,7 +260,7 @@
         },
         {
           "stem": "What specific detail establishes Captain Nasser as a veteran mariner?",
-          "options": ["He owns the cargo being traded", "He is Yousef's uncle", "He has spent nearly thirty years at sea", "He built the vessel himself"],
+          "options": ["He owns the cargo being traded on the ship", "He is Yousef's uncle and lives in the port", "He has spent nearly thirty years at sea", "He built the vessel himself with his own hands"],
           "answer": "C",
           "skill": "detail",
           "why": "The story specifically states that Captain Nasser had devoted nearly thirty years to life at sea.",
@@ -276,7 +276,7 @@
         },
         {
           "stem": "Compare Yousef's apprehension during the storm with the crew's demeanor.",
-          "options": ["Yousef grows increasingly apprehensive, while the crew remains outwardly steady and focused", "Yousef remains calm throughout, while the crew panics", "Both Yousef and the crew panic equally", "Neither Yousef nor the crew show any reaction"],
+          "options": ["Yousef grows increasingly apprehensive, while the crew remains outwardly steady and focused", "Yousef remains calm throughout the storm, while the crew panics and runs around the deck shouting", "Both Yousef and the crew panic equally, shouting and dropping their tools as the waves grow", "Neither Yousef nor the crew show any reaction, and all of them sit quietly through the storm"],
           "answer": "A",
           "skill": "compare",
           "why": "The story contrasts Yousef's rising apprehension with the crew's outward steadiness and focus during the same storm.",
@@ -284,7 +284,7 @@
         },
         {
           "stem": "Why does reefing (reducing the size of) the sails help the vessel during the storm?",
-          "options": ["It makes the vessel heavier and much harder for the crew to move", "It prevents the powerful wind from forcing the vessel off its intended course", "It allows the crew to see the valuable cargo a little better", "It causes the storm itself to pass by more quickly than usual"],
+          "options": ["It makes the vessel heavier and much harder for the crew to move across the open sea", "It prevents the powerful wind from forcing the vessel off its intended course", "It allows the crew to see the valuable cargo a little better in the dark storm", "It causes the storm itself to pass by more quickly than usual over the water"],
           "answer": "B",
           "skill": "cause-effect",
           "why": "Smaller sails catch less wind, preventing the powerful storm wind from pushing the vessel off its intended course.",
@@ -292,7 +292,7 @@
         },
         {
           "stem": "Which sequence correctly reflects how the crew responds once the storm begins?",
-          "options": ["They reef the sails, then the storm begins, then they issue orders", "The storm subsides, then they reef the sails, then they issue orders", "They issue clear orders, reef the sails, and work together until the storm subsides", "They abandon the vessel, then the storm subsides"],
+          "options": ["They reef the sails first, then the storm begins, then they issue the orders to the crew", "The storm subsides, then they reef the sails, then they issue orders", "They issue clear orders, reef the sails, and work together until the storm subsides", "They abandon the vessel at once, and then the storm subsides"],
           "answer": "C",
           "skill": "sequence",
           "why": "Once the storm begins, Captain Nasser issues clear orders, the crew reefs the sails, and they work together until the storm finally subsides.",
@@ -300,7 +300,7 @@
         },
         {
           "stem": "Why does the author most likely emphasize Captain Nasser's three decades of experience?",
-          "options": ["To suggest that younger sailors should not be trusted", "To explain why the vessel was built the way it was", "To show that the merchant's cargo was unusually valuable", "To highlight how years of hard-won experience, not luck, kept everyone safe"],
+          "options": ["To suggest that younger sailors should not be trusted on the ship", "To explain why the vessel was built the way it was by the old shipbuilders", "To show that the merchant's cargo was unusually valuable to the owner", "To highlight how years of hard-won experience, not luck, kept everyone safe"],
           "answer": "D",
           "skill": "author-purpose",
           "why": "Emphasizing the captain's decades of experience underscores that skill and practice, rather than chance, were what kept the crew and ship safe.",

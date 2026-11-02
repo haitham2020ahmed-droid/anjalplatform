@@ -157,10 +157,10 @@
       "type": "MCQ",
       "stem": "Which is another suitable title for the whole text?",
       "options": [
-        "The Bicycle Shop in Dayton",
-        "Otto Lilienthal's Final Flight",
+        "The Bicycle Shop in Dayton, Ohio",
+        "Otto Lilienthal's Final Flight in Berlin",
         "Control, Patience and the First Flight",
-        "How Modern Jet Engines Work"
+        "How Modern Jet Engines Work in the Air"
       ],
       "answer": "C",
       "why": "The text explains how patience and a focus on control led to the first powered flight; the other titles cover only one detail or a topic not in the text."
@@ -221,10 +221,10 @@
       "type": "MCQ",
       "stem": "Which type of text is this?",
       "options": [
-        "a personal narrative told by Orville Wright",
+        "a personal narrative told by Orville Wright himself",
         "an informational text about real events in history",
-        "an imaginary adventure story",
-        "a letter written to a newspaper"
+        "an imaginary adventure story about flying cars",
+        "a letter written to a newspaper editor in 1903"
       ],
       "answer": "B",
       "why": "It presents true facts, dates and people from history in the third person; it is not invented, not told by Orville and not a letter."
@@ -509,10 +509,10 @@
       "type": "MCQ",
       "stem": "Which of the following events could really happen?",
       "options": [
-        "A cloth glider without an engine flies across an ocean in still air.",
+        "A cloth glider without an engine flies across an ocean in still air, in a day.",
         "An engineer tests model wings in a wind tunnel before building a real aircraft.",
-        "A bird teaches an inventor to fly by speaking to him.",
-        "A bicycle grows wings and lifts its rider into the sky."
+        "A bird teaches an inventor to fly by speaking to him at night, in a tower.",
+        "A bicycle grows wings and lifts its rider into the sky above a field."
       ],
       "answer": "B",
       "why": "Engineers still test models in wind tunnels, just as the Wrights did; the other events are impossible."

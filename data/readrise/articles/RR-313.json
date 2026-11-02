@@ -131,9 +131,9 @@
         {
           "stem": "What is a flipbook?",
           "options": [
-            "A kind of computer program for games.",
-            "A kind of soft and gentle music.",
-            "A camera used for making movies.",
+            "A kind of computer program for games",
+            "A kind of soft and gentle music for sleep",
+            "A camera used for making movies and films",
             "A small stack of paper pages with drawings."
           ],
           "answer": "D",
@@ -165,10 +165,10 @@
         {
           "stem": "In the article, movement means…",
           "options": [
-            "a kind of paper used for printing.",
+            "a kind of paper used for printing the news.",
             "a change in someone's or something's place.",
-            "a piece of calm and quiet music.",
-            "a type of pencil used for drawing."
+            "a piece of calm and quiet music for the night.",
+            "a type of pencil used for drawing pictures."
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
-            "Animation studios today refuse to use any computers when making modern animated films.",
+            "Animation studios today refuse to use any computers when making modern animated films, and draw all by hand.",
             "Storyboards became completely unnecessary the moment studios started owning computers.",
             "Animation relies on a carefully built illusion of motion created by many skilled specialists working together.",
-            "A single still frame by itself can create the entire illusion of smooth movement."
+            "A single still frame by itself can create the entire illusion of smooth movement on a screen, without any other frames."
           ],
           "answer": "C",
           "skill": "central-idea",

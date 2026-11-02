@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How to draw clouds in art class",
+            "How to draw clouds in art class with chalk",
             "How clouds form and how people forecast the weather",
-            "Why it never rains in Saudi Arabia",
-            "How to fly a plane through a storm"
+            "Why it never rains in Saudi Arabia in any season",
+            "How to fly a plane through a storm at night"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -200,9 +200,9 @@
           "stem": "Why would a family in Saudi Arabia check the forecast before a trip to a dry valley?",
           "options": [
             "A storm could fill the valley with water fast.",
-            "Valleys are always too hot to visit.",
-            "Satellites only work in valleys.",
-            "Clouds never form over the desert."
+            "Valleys are always too hot to visit in the day",
+            "Satellites only work in valleys, not on hills",
+            "Clouds never form over the desert at all"
           ],
           "answer": "A",
           "skill": "inference",
@@ -233,10 +233,10 @@
         {
           "stem": "Why did the author write this article?",
           "options": [
-            "To sell weather tools",
+            "To sell weather tools, such as rain gauges, to farmers",
             "To teach how clouds form and how forecasts help us",
-            "To tell a made-up story about a storm",
-            "To show that clouds are dangerous"
+            "To tell a made-up story about a storm that hits a city",
+            "To show that clouds are dangerous to planes and to ships"
           ],
           "answer": "B",
           "skill": "author-purpose",
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the main idea of the article?",
           "options": [
-            "Cumulus clouds are the most beautiful clouds in the sky.",
+            "Cumulus clouds are the most beautiful clouds in the sky, and people like to paint them.",
             "Clouds form from water vapor, and scientists study them to forecast the weather.",
-            "Satellites were invented to take pictures of Saudi Arabia.",
-            "Rain is more common in Saudi Arabia than in other countries."
+            "Satellites were invented to take pictures of Saudi Arabia from far above the Earth.",
+            "Rain is more common in Saudi Arabia than in other countries, so farmers grow rice there."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -395,10 +395,10 @@
         {
           "stem": "Why are forecasts for several weeks ahead less reliable than forecasts for the next few days?",
           "options": [
-            "Meteorologists stop working after a few days.",
-            "Computers cannot store data for more than a week.",
+            "Meteorologists stop working after a few days, so nobody can check the weather.",
+            "Computers cannot store data for more than a week, so old facts are erased.",
             "Weather changes in many ways over time, so it is harder to predict far ahead.",
-            "Satellites can only see clouds that will appear tomorrow."
+            "Satellites can only see clouds that will appear tomorrow, not later."
           ],
           "answer": "C",
           "skill": "inference",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
-            "Cirrus clouds are the most important clouds for forecasting.",
+            "Cirrus clouds are the most important clouds for forecasting, because they form at the highest levels of the sky, far above all the others.",
             "Clouds form through evaporation and condensation, and meteorologists combine many measurements to forecast weather.",
-            "Computers have replaced meteorologists in forecasting the weather.",
-            "Saudi Arabia receives more rain than most countries."
+            "Computers have replaced meteorologists in forecasting the weather, so humans no longer read the data",
+            "Saudi Arabia receives more rain than most countries, so its forecasts are the easiest in the world"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -575,9 +575,9 @@
           "stem": "Why does the article mention that forecasts for several weeks ahead are less dependable?",
           "options": [
             "To show that forecasting has limits even with modern technology",
-            "To argue that meteorologists should stop forecasting",
-            "To prove that satellites are broken",
-            "To suggest that only Saudi forecasts are reliable"
+            "To argue that meteorologists should stop forecasting the weather",
+            "To prove that weather satellites are broken and cannot be used",
+            "To suggest that only Saudi forecasts are reliable for the region"
           ],
           "answer": "A",
           "skill": "inference",
@@ -591,10 +591,10 @@
         {
           "stem": "Why does the author end the article with the example of Saudi Arabia?",
           "options": [
-            "To show that clouds never form over deserts",
+            "To show that clouds never form over deserts, because the air is too dry",
             "To connect the science to a real danger that forecasts help people prepare for",
-            "To explain how cirrus clouds are made of ice",
-            "To describe the history of weather satellites"
+            "To explain how cirrus clouds are made of ice, high above the ground",
+            "To describe the history of weather satellites, from the first one to today's"
           ],
           "answer": "B",
           "skill": "author-purpose",

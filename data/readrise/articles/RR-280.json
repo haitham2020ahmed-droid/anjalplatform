@@ -165,10 +165,10 @@
         {
           "stem": "Why does a shuttlecock slow down so quickly after it is hit?",
           "options": [
-            "Because it is heavier than a tennis ball",
+            "Because it is heavier than a tennis ball and falls fast",
             "Its feathers catch a lot of air, which pushes back on it",
-            "Because the court floor pulls it down fast",
-            "Because players are told to hit it very softly"
+            "Because the court floor pulls it down fast toward the ground",
+            "Because players are told to hit it very softly by the judge"
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -216,10 +216,10 @@
         {
           "stem": "In the article, a rally means -",
           "options": [
-            "A loud cheer that the crowd gives after a goal",
+            "A loud cheer that the crowd gives after a goal is scored",
             "A set of hits traded back and forth before a point ends",
-            "A special type of racket used only by beginners",
-            "The official name given to the badminton court"
+            "A special type of racket used only by beginners and children",
+            "The official name given to the badminton court at the club"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -344,10 +344,10 @@
         {
           "stem": "What causes the shuttlecock to lose speed so quickly?",
           "options": [
-            "The net pulling down on the shuttlecock itself",
-            "The cork base slowly cracking apart in flight",
+            "The net pulling down on the shuttlecock itself as it passes",
+            "The cork base slowly cracking apart in flight over the court",
             "Its feathers creating drag by catching a large amount of air",
-            "Another player reaching out and touching it midair"
+            "Another player reaching out and touching it midair near the net"
           ],
           "answer": "C",
           "skill": "cause-effect",
@@ -361,9 +361,9 @@
         {
           "stem": "Why do rallies in badminton often last only a few seconds?",
           "options": [
-            "Because players are never allowed to move quickly",
-            "Because the badminton court is extremely small",
-            "Because only a single hit is allowed in each rally",
+            "Because players are never allowed to move quickly on the court",
+            "Because the badminton court is extremely small for the players",
+            "Because only a single hit is allowed in each rally by the rules",
             "Because the shuttlecock slows and falls fast, ending points"
           ],
           "answer": "D",
@@ -379,9 +379,9 @@
           "stem": "Read this: \"its feathers create a lot of drag.\" What does drag mean here?",
           "options": [
             "The push air gives against something moving through it",
-            "A heavy weight that pulls a shuttlecock down",
-            "A fancy name for a particular racket swing",
-            "A loud sound a shuttlecock makes when struck"
+            "A heavy weight that pulls a shuttlecock down toward the floor",
+            "A fancy name for a particular racket swing used by experts",
+            "A loud sound a shuttlecock makes when it is struck hard"
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -395,10 +395,10 @@
         {
           "stem": "Why does the author compare a shuttlecock to a tennis ball or football?",
           "options": [
-            "To show that every type of ball behaves the same way",
-            "To carefully explain the full official rules of tennis",
+            "To show that every type of ball behaves the same way when it is hit through the air",
+            "To carefully explain the full official rules of tennis, as they are played in a match",
             "To help readers see how unusual the shuttlecock's slowing motion is",
-            "To argue that football is always the faster sport"
+            "To argue that football is always the faster sport, since it is bigger than a shuttlecock"
           ],
           "answer": "C",
           "skill": "author-purpose",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best captures the central idea of the article?",
           "options": [
-            "Badminton courts are built exactly the same size as tennis courts everywhere",
+            "Badminton courts are built exactly the same size as tennis courts everywhere in the world, and their nets are alike",
             "A shuttlecock's asymmetrical shape creates drag, forcing fast deceleration and sharp reflexes",
-            "Shuttlecocks are generally far heavier in weight than most tennis balls",
-            "Scoring in badminton never truly depends on an even or an odd score"
+            "Shuttlecocks are generally far heavier in weight than most tennis balls and rackets",
+            "Scoring in badminton never truly depends on an even or an odd score in a game"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -591,10 +591,10 @@
         {
           "stem": "Based on the article, how does serving in badminton differ depending on the score?",
           "options": [
-            "Players always serve from one same side, no matter the score",
+            "Players always serve from one same side, no matter the score of the game",
             "Players serve from alternating sides depending on an even or odd score",
-            "Only the side with an even score is ever allowed to serve",
-            "Serving position has nothing at all to do with scoring"
+            "Only the side with an even score is ever allowed to serve the shuttlecock",
+            "Serving position has nothing at all to do with scoring in the match"
           ],
           "answer": "B",
           "skill": "compare",

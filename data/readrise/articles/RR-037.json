@@ -234,9 +234,9 @@
           "stem": "Why does the author tell about the octopus's ink?",
           "options": [
             "To show one way an octopus gets away from danger",
-            "To explain how octopuses write",
-            "To tell what octopuses eat",
-            "To show how the eggs hatch"
+            "To explain how octopuses write messages with it",
+            "To tell what octopuses eat in the sea",
+            "To show how the eggs hatch in the sand"
           ],
           "answer": "A",
           "skill": "author-purpose",
@@ -591,9 +591,9 @@
         {
           "stem": "Why does the author mention snails, clams and oysters?",
           "options": [
-            "To list the foods an octopus prefers",
-            "To compare how fast different sea animals move",
-            "To describe the animals of the Red Sea",
+            "To list the foods an octopus prefers to eat in the sea",
+            "To compare how fast different sea animals move around",
+            "To describe the animals of the Red Sea coast",
             "To show which group of animals the octopus belongs to"
           ],
           "answer": "D",

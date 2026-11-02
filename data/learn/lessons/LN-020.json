@@ -107,9 +107,9 @@
      "stem": "Which is the best reason?",
      "options": [
       "It helps you relax before sleep.",
-      "Books have covers.",
-      "The moon is out at night.",
-      "My lamp is yellow."
+      "Books have covers and pages.",
+      "The moon is out at night time.",
+      "My lamp is yellow and old."
      ],
      "answer": 0,
      "why": "Relaxing before sleep tells why reading at night is good."
@@ -118,10 +118,10 @@
      "passage": "Opinion: Our school needs more trees.",
      "stem": "Which is the best reason?",
      "options": [
-      "Trees can be very old.",
-      "Some trees are tall.",
+      "Trees can be very old and very big.",
+      "Some trees are tall and wide.",
       "Trees give us shade on hot days.",
-      "I saw a tree."
+      "I saw a tree in the park."
      ],
      "answer": 2,
      "why": "Shade on hot days tells why the school needs trees."
@@ -177,10 +177,10 @@
     "passage": "Our town should open a skate park for young people. Right now, many teenagers skate in car parks, where it is not safe. A skate park would give them a safe place to practise. It would also bring friends together and keep young people active. The town already has two shopping centres.",
     "stem": "A student wants to add one more detail to support the position. Which is best?",
     "options": [
-     "Skateboards were first made many years ago.",
-     "Some people enjoy football more than skating.",
+     "Skateboards were first made many years ago in California by a small group of young surfers.",
+     "Some people enjoy football more than skating, and they play it on Saturdays.",
      "Towns that built skate parks found that fewer young people skated in busy streets.",
-     "Car parks are usually painted grey."
+     "Car parks are usually painted grey, and they have lines for each car."
     ],
     "answer": 2,
     "hint": "Does that detail make the position stronger? Or is it just true and off topic?",
@@ -208,9 +208,9 @@
      "stem": "Which detail supports it best?",
      "options": [
       "Students who eat slowly often cannot finish their lunch in twenty minutes.",
-      "Lunch is the meal that most people eat in the middle of the day.",
-      "Some students bring rice for lunch.",
-      "The canteen has blue chairs and tables."
+      "Lunch is the meal that most people eat in the middle of the day at school.",
+      "Some students bring rice for lunch, and others bring sandwiches from home.",
+      "The canteen has blue chairs and tables, and a big clock on the wall."
      ],
      "answer": 0,
      "why": "It gives a fact that shows why a longer break is needed."
@@ -219,9 +219,9 @@
      "passage": "Position: Families should visit museums together.",
      "stem": "Which detail supports it best?",
      "options": [
-      "Museums are buildings that have doors and windows.",
-      "Some museums close on Fridays.",
-      "Some families live far away from cities.",
+      "Museums are buildings that have doors, windows and many large rooms.",
+      "Some museums close on Fridays and on public holidays.",
+      "Some families live far away from cities and big towns.",
       "Museums let children ask questions and learn with their parents."
      ],
      "answer": 3,
@@ -286,7 +286,7 @@
     "passage": "Our school should replace plastic cups in the canteen with reusable ones. Plastic cups are used once and then thrown away. Most of them end up in landfills, where they can take hundreds of years to break down. Reusable cups, on the other hand, can be washed and used again for years. Some students might forget to bring their cup, but the canteen could keep extra cups for them. Cups come in many sizes.",
     "stem": "Which piece of evidence would best support the claim?",
     "options": [
-     "Some students prefer orange juice to water at lunch.",
+     "Some students prefer orange juice to water at lunch and at break.",
      "Last term, our canteen threw away more than 3,000 plastic cups.",
      "Plastic was invented more than a hundred years ago.",
      "Many people like to drink tea from small glass cups."
@@ -329,9 +329,9 @@
      "passage": "Claim: The city should build more bus stops. Reason: Many people have no easy way to travel.",
      "stem": "Which kind of evidence would prove this reason best?",
      "options": [
-      "A poem about buses",
-      "A list of bus colours",
-      "A story about a fast car",
+      "A poem about buses written by a famous poet",
+      "A list of bus colours and the names of all the drivers",
+      "A story about a fast car that wins a race",
       "A survey of how many residents live far from a bus stop"
      ],
      "answer": 3,
@@ -401,9 +401,9 @@
     "stem": "The writer wants to add evidence that answers the critics' worry. Which is the strongest?",
     "options": [
      "In a pilot class where tablets were locked to learning apps, teachers reported that students stayed on task as well as with paper books.",
-     "Tablets were first sold to the public many years ago and are now very popular.",
-     "My cousin loves playing games on his tablet every evening.",
-     "Some tablets have larger screens than others, which makes reading easier for students with weak eyesight."
+     "Tablets were first sold to the public many years ago and are now very popular with children, parents, and teachers around the world.",
+     "My cousin loves playing games on his tablet every evening after dinner, and he plays until he falls asleep.",
+     "Some tablets have larger screens than others, which makes reading easier for students with weak eyesight or tired eyes after a long day."
     ],
     "answer": 0,
     "hint": "Which choice directly answers the worry about games? Is it credible and specific, or off topic?",
@@ -431,9 +431,9 @@
      "passage": "Claim: Our school should add a daily ten-minute reading time. Reason: Reading every day improves vocabulary.",
      "stem": "Which evidence is most relevant and credible?",
      "options": [
-      "Many students say they enjoy picture books.",
-      "The library is next to the gym.",
-      "Some students read faster than others.",
+      "Many students say they enjoy picture books, especially the ones with funny stories and bright colors.",
+      "The library is next to the gym, so students can walk there after sports practice.",
+      "Some students read faster than others, and a few of them finish a book in a day.",
       "Research on young readers shows that daily reading time is linked to stronger vocabulary growth."
      ],
      "answer": 3,
@@ -443,10 +443,10 @@
      "passage": "Claim: The school should buy solar panels. Reason: They will save money over time.",
      "stem": "Which type of evidence best fits this reason?",
      "options": [
-      "A drawing of the sun",
+      "A drawing of the sun and some clouds in the sky",
       "Electricity bills compared with the cost of the panels",
-      "A student's favourite colour",
-      "A story about a sunny day at the beach"
+      "A student's favourite colour and favourite food",
+      "A story about a sunny day at the beach with friends"
      ],
      "answer": 1,
      "why": "A reason about saving money needs cost evidence, such as bills and prices."

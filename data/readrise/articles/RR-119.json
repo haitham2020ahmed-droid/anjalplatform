@@ -114,9 +114,9 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How to build a robot car at home",
+            "How to build a robot car at home from some parts",
             "How scientists look for life beyond Earth",
-            "Why the sky is dark at night",
+            "Why the sky is dark at night time in the desert",
             "How people can travel to the stars"
           ],
           "answer": "B",
@@ -165,9 +165,9 @@
         {
           "stem": "The article says a rover is a robot car. What does the rover do on Mars?",
           "options": [
-            "It carries people across the dust.",
-            "It looks at stars far away.",
-            "It melts the ice on Mars.",
+            "It carries people across the dust and rocks.",
+            "It looks at stars far away in the night sky.",
+            "It melts the ice on Mars to make water.",
             "It picks up rocks that may hold signs of life."
           ],
           "answer": "D",
@@ -182,10 +182,10 @@
         {
           "stem": "Why might tiny living things be able to live on Europa?",
           "options": [
-            "It is very hot like the Sun.",
+            "It is very hot like the Sun itself.",
             "It has a big ocean of water under its ice.",
-            "It is very close to Earth.",
-            "It has lots of trees and grass."
+            "It is very close to Earth in space.",
+            "It has lots of trees and grass on its surface."
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
-            "Life has already been found on Mars and Europa.",
+            "Life has already been found on Mars and Europa, and scientists have seen it with their rovers.",
             "Scientists search for life beyond Earth by looking for water and signs that living things leave.",
-            "Telescopes are better than rovers.",
-            "Only animals like camels could live on other worlds."
+            "Telescopes are better than rovers for finding life on other worlds, so rovers should be left on Earth.",
+            "Only animals like camels could live on other worlds, so scientists look for them on the planets."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -361,10 +361,10 @@
         {
           "stem": "Why do scientists think life on other worlds would most likely be microbes?",
           "options": [
-            "Because large animals cannot live on Earth",
-            "Because microbes live only in space",
+            "Because large animals cannot live on Earth, so only microbes are left to look for in space",
+            "Because microbes live only in space, and never on our own planet's land or in its oceans",
             "Because the places they study are harsh, and tiny life on Earth can survive harsh places",
-            "Because microbes are easy to see with a telescope"
+            "Because microbes are easy to see with a telescope, so scientists can spot them from far away"
           ],
           "answer": "C",
           "skill": "inference",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
-            "Life beyond Earth has been proven by radio signals.",
-            "Astrobiologists study Mars only, because it is closest.",
+            "Life beyond Earth has been proven by radio signals, so scientists no longer need to look for more clues.",
+            "Astrobiologists study Mars only, because it is the closest planet and the only place that could ever have life.",
             "Although no life has been found beyond Earth, scientists pursue several clues and places that make the search promising.",
-            "The search for life is finished because exoplanets are too far away."
+            "The search for life is finished because exoplanets are too far away for anyone to ever study them with a telescope."
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -523,9 +523,9 @@
         {
           "stem": "How do radio-telescope searches differ from the other methods in the article?",
           "options": [
-            "They look only at Mars rocks.",
-            "They study ice on Saturn's moons.",
-            "They are the only method that has already found living things.",
+            "They look only at Mars rocks, not at the sky or at other worlds.",
+            "They study ice on Saturn's moons, rather than looking for any signals at all.",
+            "They are the only method that has already found living things on other planets.",
             "They look for signals from intelligent beings rather than signs of simple life."
           ],
           "answer": "D",

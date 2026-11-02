@@ -184,7 +184,7 @@
           "options": [
             "To help it run faster than birds",
             "To keep its feet safe from the hot sand",
-            "To help it hold its food",
+            "To help it hold its food in its paws",
             "To make its tracks easy to see"
           ],
           "answer": "B",
@@ -199,10 +199,10 @@
         {
           "stem": "Why can the fennec fox live in a place with very little water to drink?",
           "options": [
-            "It drinks from the sea each day.",
-            "It does not need any water at all.",
+            "It drinks from the sea each day, near the shore.",
+            "It does not need any water at all, even in summer.",
             "It gets most of its water from its food.",
-            "It stores water in its big ears."
+            "It stores water in its big ears for the dry days."
           ],
           "answer": "C",
           "skill": "inference",
@@ -311,9 +311,9 @@
           "stem": "According to the article, how do the fox's ears help it stay cool?",
           "options": [
             "Heat from its blood escapes through the thin skin of the ears.",
-            "The ears fan cool air onto the fox's back and tail.",
-            "The ears hold sweat that cools the fox down.",
-            "The ears cover the fox's eyes from the sun."
+            "The ears fan cool air onto the fox's back and tail as it runs.",
+            "The ears hold sweat that cools the fox down in the hot sun.",
+            "The ears cover the fox's eyes from the sun like a hat."
           ],
           "answer": "A",
           "skill": "detail",

@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How to build a power plant",
+            "How to build a power plant with wind and sun, on a hill or by the sea of a faraway land",
             "How power reaches and works in our homes, and how to be safe and save it",
-            "Why phones need to be charged every night",
-            "How copper is dug out of the ground"
+            "Why phones need to be charged every night, and how long the battery will last for a student",
+            "How copper is dug out of the ground by miners, and then carried by trucks to a factory"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -182,10 +182,10 @@
         {
           "stem": "Read this: \"Never poke things in an outlet.\" What is an outlet?",
           "options": [
-            "A big power plant far from the city",
+            "A big power plant far from the city and the farms",
             "A place in the wall where you plug things in",
-            "A metal part inside a long wire",
-            "A box that cools the air in the house"
+            "A metal part inside a long wire that carries power",
+            "A box that cools the air in the house in summer"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -218,7 +218,7 @@
           "options": [
             "Set the AC (air conditioner) a little warmer",
             "Leave all the lights on all night long",
-            "Plug more things into one outlet",
+            "Plug more things into one outlet at the same time",
             "Open the fridge door again and again"
           ],
           "answer": "A",
@@ -233,9 +233,9 @@
         {
           "stem": "How does the author organize the article?",
           "options": [
-            "As a story about one family's day",
-            "As a list of questions with no answers",
-            "From the newest light bulbs to the oldest",
+            "As a story about one family's day at home, from breakfast to the evening meal",
+            "As a list of questions with no answers, one after another, about electricity",
+            "From the newest light bulbs to the oldest ones, with a date for each",
             "From where power is made, to how it moves, to safety and saving"
           ],
           "answer": "D",
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
-            "Copper is the most valuable metal in the world.",
+            "Copper is the most valuable metal in the whole world, and it is used in every home.",
             "Electricity travels a long way to our homes, flows in circuits, and must be used safely and wisely.",
-            "Air conditioners are the only appliances that use electricity.",
-            "Saudi Arabia will stop using power plants soon."
+            "Air conditioners are the only appliances that use electricity in the home, the school, or the shop.",
+            "Saudi Arabia will stop using power plants soon, because it will not need electricity."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -412,9 +412,9 @@
         {
           "stem": "Why does the author end the article with ways to save electricity?",
           "options": [
-            "To explain how power lines are built",
-            "To prove that conductors are dangerous",
-            "To describe the history of electricity",
+            "To explain how power lines are built across the desert",
+            "To prove that conductors are dangerous in every home",
+            "To describe the history of electricity from the old days",
             "To show readers how they can use what they learned at home"
           ],
           "answer": "D",
@@ -472,10 +472,10 @@
         {
           "stem": "What is the main purpose of the article?",
           "options": [
-            "To persuade readers to become electricians",
-            "To compare electricity in different countries",
+            "To persuade readers to become electricians when they grow up and work in big cities",
+            "To compare electricity in different countries and tell which one has the most power",
             "To explain how electricity is produced, delivered, and used safely and wisely at home",
-            "To tell the life story of a famous inventor"
+            "To tell the life story of a famous inventor and the machines he made in his town"
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -506,10 +506,10 @@
         {
           "stem": "What can happen if too many devices are plugged into one outlet?",
           "options": [
-            "The power plant makes more solar energy",
+            "The power plant makes more solar energy for the whole town",
             "The circuit can overload and the wires can get dangerously hot",
-            "The plastic insulation turns into a conductor",
-            "The electrons stop moving forever"
+            "The plastic insulation around the wires turns into a conductor",
+            "The electrons stop moving in the wires and stay still forever"
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -591,10 +591,10 @@
         {
           "stem": "How is the article mainly organized?",
           "options": [
-            "As an argument with two opposing sides",
+            "As an argument with two opposing sides and a conclusion at the end that picks one side and gives the reasons for it",
             "By following electricity's journey from the power plant to the home, then giving safety and saving advice",
-            "As a series of interviews with engineers",
-            "By comparing electricity today with electricity long ago"
+            "As a series of interviews with engineers who work at the power plants in many countries of the world and talk about their jobs",
+            "By comparing electricity today with electricity long ago, one paragraph after another"
           ],
           "answer": "B",
           "skill": "text-structure",

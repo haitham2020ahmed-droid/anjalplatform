@@ -112,7 +112,7 @@
         },
         {
           "stem": "In the story, float means —",
-          "options": ["to sink down quickly", "to run very fast", "to stay up in the air without falling", "to sleep deeply"],
+          "options": ["to sink down quickly to the bottom of a pool", "to run very fast across the field", "to stay up in the air without falling", "to sleep deeply through the night"],
           "answer": "C",
           "skill": "vocabulary",
           "why": "The story shows things floating in the air on the space station instead of falling.",
@@ -128,7 +128,7 @@
         },
         {
           "stem": "Why does Dr. Huda study plants in space?",
-          "options": ["To decorate the station", "To have snacks to eat", "To make the station smell nice", "To learn things that can help people someday"],
+          "options": ["To decorate the station for the visiting guests", "To have snacks to eat during long days in space", "To make the station smell nice for the crew", "To learn things that can help people someday"],
           "answer": "D",
           "skill": "inference",
           "why": "The story says this research might help people on Earth someday, so Dr. Huda is studying plants to learn useful things.",
@@ -136,7 +136,7 @@
         },
         {
           "stem": "Why did Lama's class watch a big screen?",
-          "options": ["To see Dr. Huda, who was far away in space", "To watch a movie about animals", "To play a video game", "To read the morning news"],
+          "options": ["To see Dr. Huda, who was far away in space", "To watch a movie about animals in the sea", "To play a video game together as a class", "To read the morning news from their country"],
           "answer": "A",
           "skill": "cause-effect",
           "why": "The class watched the screen because that is how they could see and talk with Dr. Huda in space.",
@@ -166,7 +166,7 @@
       "questions": [
         {
           "stem": "Which sentence best states what this story is mainly about?",
-          "options": ["Dr. Huda explains why Earth's gravity is stronger than the Moon's", "Lama's class takes a trip to a farm to learn about plants", "A persistent student earns a conversation with an astronaut and learns how microgravity affects daily life and research aboard the space station", "Lama decides that becoming a scientist is too difficult for her"],
+          "options": ["Dr. Huda explains why Earth's gravity is stronger than the Moon's, and the class learns how heavy rockets are built", "Lama's class takes a trip to a farm to learn about plants, and they spend the whole day feeding the sheep and the goats", "A persistent student earns a conversation with an astronaut and learns how microgravity affects daily life and research aboard the space station", "Lama decides that becoming a scientist is too difficult for her, so she stops asking questions and stops studying science after the call ends"],
           "answer": "C",
           "skill": "central-idea",
           "why": "The story follows Lama winning a contest and then learning from Dr. Huda about sleeping, eating, and research in microgravity.",
@@ -190,7 +190,7 @@
         },
         {
           "stem": "In the story, the word microgravity means —",
-          "options": ["a kind of space food", "a tool used to study plants", "a condition where there is very little gravity", "the speed of the space station"],
+          "options": ["a kind of space food in a tube for them", "a tool used to study plants in a lab at school", "a condition where there is very little gravity", "the speed of the space station in orbit"],
           "answer": "C",
           "skill": "vocabulary",
           "why": "The story defines microgravity as the condition that makes almost everything float on the station.",
@@ -198,7 +198,7 @@
         },
         {
           "stem": "Why does Dr. Huda strap her sleeping bag to the wall?",
-          "options": ["So dust does not collect on it", "So it stays warm during the night", "So other astronauts cannot use it", "So it does not float away while she sleeps"],
+          "options": ["So dust does not collect on it all day", "So it stays warm during the whole night", "So other astronauts cannot use it by mistake", "So it does not float away while she sleeps"],
           "answer": "D",
           "skill": "inference",
           "why": "Since almost everything floats in microgravity, strapping the sleeping bag down keeps it from drifting away.",
@@ -214,7 +214,7 @@
         },
         {
           "stem": "What did Dr. Huda do before she could fly to the space station?",
-          "options": ["She wrote an essay about the stars", "She watched other astronauts on a screen", "She trained for years and learned to fly spacecraft", "She built her own rocket at home"],
+          "options": ["She wrote an essay about the stars for her class", "She watched other astronauts on a screen for a few days", "She trained for years and learned to fly spacecraft", "She built her own rocket at home with her father"],
           "answer": "C",
           "skill": "sequence",
           "why": "The story says Dr. Huda studied engineering and then trained for years before being chosen to fly to the station.",
@@ -244,7 +244,7 @@
       "questions": [
         {
           "stem": "Which statement best captures the central idea of the story?",
-          "options": ["Lama discovers that only astronauts study the Moon and Mars", "Dr. Huda explains why Earth's gravity is stronger than the Moon's", "A persistent student earns a conversation with an astronaut and learns how microgravity affects daily life and research aboard the space station", "Lama decides that becoming a scientist is too difficult for her"],
+          "options": ["Lama discovers that only astronauts study the Moon and Mars, so she gives up her science project at school and goes home", "Dr. Huda explains why Earth's gravity is stronger than the Moon's, using a long lesson with many numbers and pictures", "A persistent student earns a conversation with an astronaut and learns how microgravity affects daily life and research aboard the space station", "Lama decides that becoming a scientist is too difficult for her, so she stops asking questions and stops studying science after the call ends"],
           "answer": "C",
           "skill": "central-idea",
           "why": "The story centers on Lama's prize conversation, where she learns about sleeping, eating, and scientific experiments in microgravity.",
@@ -252,7 +252,7 @@
         },
         {
           "stem": "What two kinds of experiments does Dr. Huda describe conducting aboard the station?",
-          "options": ["Building robots and testing real rockets", "Painting beautiful pictures and writing poems", "Measuring the ocean and collecting rocks", "Growing plants and studying effects on the human body"],
+          "options": ["Building robots and testing real rockets in space", "Painting beautiful pictures and writing poems about Earth", "Measuring the ocean and collecting rocks from the Moon", "Growing plants and studying effects on the human body"],
           "answer": "D",
           "skill": "detail",
           "why": "Dr. Huda describes one experiment about plant growth and another about how space affects astronauts' muscles and bones.",
@@ -276,7 +276,7 @@
         },
         {
           "stem": "Based on the story, why do scientists study muscle atrophy and bone density in astronauts?",
-          "options": ["To design better spacesuits", "To decide who gets to be an astronaut", "To compare astronauts with Olympic athletes", "To help future astronauts stay healthy on long missions to the Moon and Mars"],
+          "options": ["To design better spacesuits that are lighter and cheaper to make", "To decide who gets to be an astronaut and who must stay home", "To compare astronauts with Olympic athletes and find out which group is stronger", "To help future astronauts stay healthy on long missions to the Moon and Mars"],
           "answer": "D",
           "skill": "inference",
           "why": "The story says scientists hope these experiments will help future astronauts sustain their health on long missions.",
@@ -284,7 +284,7 @@
         },
         {
           "stem": "What can you infer about the selection process for astronauts from the story?",
-          "options": ["It is open to anyone who wants to apply", "It depends mostly on luck", "It is highly competitive and values teamwork as well as skill", "It only considers how fast a person can run"],
+          "options": ["It is open to anyone who wants to apply to be one", "It depends mostly on luck and on being in the right place", "It is highly competitive and values teamwork as well as skill", "It only considers how fast a person can run in a race"],
           "answer": "C",
           "skill": "inference",
           "why": "The story says only a small number of applicants are chosen, and the process considers both technical skill and the ability to work calmly as part of a team.",
@@ -300,7 +300,7 @@
         },
         {
           "stem": "Why does the author include the detail about the floating water droplet?",
-          "options": ["To explain how astronauts clean the station", "To show that water is scarce in space", "To compare space travel with scuba diving", "To provide a memorable, concrete demonstration of what microgravity does to ordinary objects"],
+          "options": ["To explain how astronauts clean the station with water and cloth every morning", "To show that water is scarce in space, so each drop must be saved with great care", "To compare space travel with scuba diving, since both feel like floating in a deep sea", "To provide a memorable, concrete demonstration of what microgravity does to ordinary objects"],
           "answer": "D",
           "skill": "author-purpose",
           "why": "The floating water droplet gives readers a vivid, concrete image of how microgravity affects everyday objects.",

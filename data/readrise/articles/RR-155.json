@@ -216,10 +216,10 @@
         {
           "stem": "Why does the moon shine at night even though it makes no light?",
           "options": [
-            "It is on fire",
-            "It is opaque",
+            "It is on fire like a small star",
+            "It is opaque, like a large black stone",
             "It bounces back light from the sun",
-            "It is a big lamp"
+            "It is a big lamp that someone switches on"
           ],
           "answer": "C",
           "skill": "inference",
@@ -233,9 +233,9 @@
         {
           "stem": "Why does the author tell about people putting a stick in the ground long ago?",
           "options": [
-            "To show how to plant a tree",
-            "To explain why the sun is hot",
-            "To tell how to build a lamp",
+            "To show how to plant a tree in the ground and water it",
+            "To explain why the sun is hot at midday and cold at night",
+            "To tell how to build a lamp with a stick and some oil",
             "To show that shadows were used to tell the time"
           ],
           "answer": "D",
@@ -293,10 +293,10 @@
         {
           "stem": "What is the central idea of the article?",
           "options": [
-            "Light comes only from the sun.",
+            "Light comes only from the sun, and from no other thing at all in the sky or on the Earth",
             "Shadows form when objects block light, and their size and length can change.",
-            "Glass is the most useful material in the world.",
-            "People today still use sundials to tell the time."
+            "Glass is the most useful material in the world for making shadows and for blocking light",
+            "People today still use sundials to tell the time of day in the town and at home"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -379,9 +379,9 @@
           "stem": "Why is the moon NOT a light source?",
           "options": [
             "It only reflects sunlight and does not make light.",
-            "It is too far away from Earth.",
-            "It only shines at night.",
-            "It is made of glass."
+            "It is too far away from Earth to give light to us.",
+            "It only shines at night, and not by day at all.",
+            "It is made of glass, so the Sun can pass through."
           ],
           "answer": "A",
           "skill": "inference",
@@ -412,10 +412,10 @@
         {
           "stem": "How does the article compare transparent and translucent materials?",
           "options": [
-            "Both block all light.",
+            "Both of them block all light that comes to them, so nothing can be seen through either of them.",
             "Transparent ones let nearly all light through, while translucent ones let some through and scatter it.",
-            "Translucent ones let more light through than transparent ones.",
-            "They are two names for the same thing."
+            "Translucent ones let more light through than transparent ones do, and they show a clear picture.",
+            "They are two names for the same thing, and both let all of the light pass through them."
           ],
           "answer": "B",
           "skill": "compare",
@@ -523,9 +523,9 @@
         {
           "stem": "In the sentence about sunlight arriving at a shallow angle, what does angle refer to?",
           "options": [
-            "The color of the light",
-            "The speed of the light",
-            "The size of the sun",
+            "The color of the light in the morning sky",
+            "The speed of the light as it moves",
+            "The size of the sun in the sky",
             "The direction from which the light comes"
           ],
           "answer": "D",
@@ -557,10 +557,10 @@
         {
           "stem": "A bathroom window is made of frosted glass. What is the most likely reason?",
           "options": [
-            "It blocks all light so the room stays dark.",
-            "It makes the room hotter.",
+            "It blocks all light, so the room stays dark all through the day.",
+            "It makes the room hotter by trapping the heat of the sun.",
             "It lets light in while making shapes blurry, which gives privacy.",
-            "It reflects all sunlight away from the house."
+            "It reflects all sunlight away from the house to save power."
           ],
           "answer": "C",
           "skill": "inference",
@@ -591,9 +591,9 @@
         {
           "stem": "Why does the author end the article with shade in Saudi Arabia?",
           "options": [
-            "To argue that palm trees are better than umbrellas",
-            "To explain how sundials were invented",
-            "To prove that the moon is not a light source",
+            "To argue that palm trees are better than umbrellas for shade",
+            "To explain how sundials were first invented in Egypt",
+            "To prove that the moon is not a real light source",
             "To connect the science of shadows to readers' everyday lives"
           ],
           "answer": "D",

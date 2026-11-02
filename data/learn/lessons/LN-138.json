@@ -62,8 +62,8 @@
     "passage": "Every child should learn to swim. Swimming keeps you safe near water. It makes your body strong. It is also great fun.",
     "stem": "What is the author's claim?",
     "options": [
-     "Swimming is fun.",
-     "Water is deep.",
+     "Swimming is fun for all the children.",
+     "Water is deep in the sea.",
      "Every child should learn to swim.",
      "Bodies need to be strong."
     ],
@@ -173,10 +173,10 @@
     "passage": "Some people think video calls are just as good as meeting in person. But when we visit someone, we notice small things a screen hides, like a tired face or a happy smile that lasts. We can share a meal, help with a task, or simply sit together. Visiting grandparents and older relatives takes more time than calling, but it builds closer bonds. Families should make in-person visits a regular habit, not something saved for holidays.",
     "stem": "What is the author's main claim?",
     "options": [
-     "Video calls show tired faces.",
+     "Video calls show tired faces most of the time.",
      "Families should visit each other in person regularly.",
-     "Grandparents like video calls.",
-     "Holidays are the best time to visit."
+     "Grandparents like video calls more than visits.",
+     "Holidays are the best time to visit family members."
     ],
     "answer": 1,
     "hint": "Which sentence uses 'should'? Do the other sentences give reasons for it?",
@@ -215,9 +215,9 @@
      "stem": "Which sentence states the claim?",
      "options": [
       "It is time for restaurants to stop handing out plastic straws.",
-      "Paper and metal straws work just as well.",
-      "Plastic straws last for years.",
-      "Straws are used for a few minutes."
+      "Paper and metal straws work just as well as plastic ones do.",
+      "Plastic straws last for years and years in the ground.",
+      "Straws are used for a few minutes and then thrown away."
      ],
      "answer": 0,
      "why": "'It is time' shows the author's position. The other sentences are reasons."
@@ -285,10 +285,10 @@
     "passage": "Each spring, our class runs a small market where students sell crafts they have made. Last year, Rakan priced his woven baskets, kept a record of his costs and learned that he had spent more on materials than he earned. This year he changed his prices and made a profit. Other students learned to speak politely to customers, work in teams and solve problems when change ran out. No textbook chapter taught these skills as well as a single afternoon behind a table. Every school would benefit from giving students real business projects like this one.",
     "stem": "Which statement best expresses the author's main claim?",
     "options": [
-     "Rakan made a profit this year.",
+     "Rakan made a profit this year from his shop.",
      "Schools should give students real business projects.",
-     "Students should not use textbooks.",
-     "Baskets are expensive to make."
+     "Students should not use textbooks in any lesson.",
+     "Baskets are expensive to make by hand in the market."
     ],
     "answer": 1,
     "hint": "The text starts with an example. What do the examples of Rakan and the other students all support?",
@@ -316,9 +316,9 @@
      "passage": "Imagine a city where the streets are quiet, the air is clean and children can walk safely to school. This is possible. When some city centres closed their main streets to cars, shops reported more visitors, not fewer. Air pollution dropped. Our city should create car-free zones in its centre.",
      "stem": "Why does the author begin with 'Imagine a city…'?",
      "options": [
-      "To state the main claim directly",
-      "To give evidence with numbers",
-      "To present the other side's view",
+      "To state the main claim directly to the reader",
+      "To give evidence with numbers and facts",
+      "To present the other side's view first",
       "To draw readers in before stating the claim"
      ],
      "answer": 3,
@@ -329,9 +329,9 @@
      "stem": "What is the main claim?",
      "options": [
       "Hard work matters more than talent for becoming excellent.",
-      "Top performers practise.",
-      "Talent decides who succeeds.",
-      "Music is harder than sport."
+      "Top performers practise for many hours every single week.",
+      "Talent decides who succeeds in music and in sport.",
+      "Music is harder than sport for most young people."
      ],
      "answer": 0,
      "why": "After 'Yet', the author argues against the talent view. The last sentence states the claim."
@@ -399,10 +399,10 @@
     "passage": "Online learning was once seen as a temporary fix, something to use only when schools had to close. It is true that a screen cannot replace a teacher who notices a confused face, or the friendships formed in a classroom. Yet for some students, online courses offer what their local school cannot: advanced subjects, flexible hours for those who work or care for family, and lessons that can be replayed as often as needed. A student in a small town can now study a subject that no teacher nearby is able to offer. The question, then, is not whether online learning should replace schools, but how it can widen the choices schools provide.",
     "stem": "Which statement best expresses the author's main claim?",
     "options": [
-     "Online learning should replace schools entirely.",
-     "Online learning was only a temporary fix.",
+     "Online learning should replace schools entirely, as it is much cheaper.",
+     "Online learning was only a temporary fix that schools used during the crisis.",
      "Online learning should be used to add options to schools, not to replace them.",
-     "Teachers notice when students are confused."
+     "Teachers notice when students are confused, which a screen cannot do."
     ],
     "answer": 2,
     "hint": "The author admits limits of online learning, then turns with 'Yet'. Read the final sentence closely: replace, or widen?",

@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How to keep bees away from a picnic",
+            "How to keep bees away from a picnic on a hot day",
             "How honeybees live, work, and help plants and people",
-            "Why honey is the only food bees eat",
-            "How bees sleep in their hive at night"
+            "Why honey is the only food bees eat all year",
+            "How bees sleep in their hive at night and in winter"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -311,9 +311,9 @@
           "stem": "According to the article, how do a worker bee's jobs change as it gets older?",
           "options": [
             "It starts with jobs inside the hive and later flies out to find food.",
-            "It begins as a forager and later becomes a queen.",
-            "It guards the entrance for its whole life.",
-            "It turns into a drone when it is old."
+            "It begins as a forager and later becomes a queen who rules the hive.",
+            "It guards the entrance for its whole life and never leaves the hive.",
+            "It turns into a drone when it is old and then leaves the hive."
           ],
           "answer": "A",
           "skill": "detail",
@@ -344,10 +344,10 @@
         {
           "stem": "The bees fan the nectar with their wings until water evaporates. What does evaporates mean?",
           "options": [
-            "Freezes into ice",
+            "Freezes into ice and stays",
             "Turns into a gas and leaves",
-            "Mixes with pollen",
-            "Drips out of the cell"
+            "Mixes with pollen and sinks",
+            "Drips out of the cell below"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -412,10 +412,10 @@
         {
           "stem": "How does the author organize the article?",
           "options": [
-            "As a story told by one bee, from morning to night",
+            "As a story told by one bee, from morning to night, as it flies from flower to flower",
             "By describing the colony, then how bees make honey and pollinate, then why they matter",
-            "By comparing honeybees with other insects",
-            "By listing problems with bees and then solutions"
+            "By comparing honeybees with other insects, such as wasps, ants, and butterflies",
+            "By listing problems with bees and then giving solutions, such as new hives"
           ],
           "answer": "B",
           "skill": "text-structure",
@@ -524,9 +524,9 @@
           "stem": "The article says Karl von Frisch deciphered the bees' dance. What does deciphered mean?",
           "options": [
             "Figured out the meaning of",
-            "Invented a new form of",
-            "Copied and performed",
-            "Prevented or stopped"
+            "Invented a new form of music",
+            "Copied and performed again",
+            "Prevented or stopped forever"
           ],
           "answer": "A",
           "skill": "vocabulary",

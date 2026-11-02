@@ -146,10 +146,10 @@
      "passage": "Owls can see well at night. They hunt mice in the dark. They have big eyes. Owls have feathers.",
      "stem": "Which detail shows owls can see at night?",
      "options": [
-      "Owls have feathers.",
-      "Owls sleep in trees.",
+      "Owls have soft grey feathers.",
+      "Owls sleep in trees by day.",
       "They hunt mice in the dark.",
-      "Owls are birds."
+      "Owls are birds of the sky."
      ],
      "answer": 2,
      "why": "Hunting in the dark shows owls can see well at night."
@@ -262,8 +262,8 @@
      "options": [
       "Older shopkeepers tell stories about how trade used to work.",
       "The market sells spices, cloth and many other goods.",
-      "The market is busy on weekends.",
-      "Shops are open in the evening."
+      "The market is busy on weekends and holidays, with many shoppers.",
+      "Shops are open in the evening, when the lights come on."
      ],
      "answer": 0,
      "why": "Stories about how trade used to work teach visitors about history."
@@ -320,9 +320,9 @@
     "stem": "Which detail best supports the idea that Noor grew more confident?",
     "options": [
      "She answered surprise questions from the judges without notes.",
-     "She joined the school debate team.",
-     "Her team reached the final round.",
-     "She asked her coach for help."
+     "She joined the school debate team at the start of the year.",
+     "Her team reached the final round of the contest.",
+     "She asked her coach for help with her speech notes."
     ],
     "answer": 0,
     "hint": "The idea is about CHANGE and CONFIDENCE. Which detail shows her acting confident later on?",
@@ -467,9 +467,9 @@
      "stem": "Which detail best supports the idea that the students became more willing to talk?",
      "options": [
       "Students asked to stay late to finish their discussions.",
-      "The writer taught in a mountain village.",
-      "The quietest boy's grandfather kept goats.",
-      "She began each lesson with a question."
+      "The writer taught in a mountain village for two years.",
+      "The quietest boy's grandfather kept goats and sheep.",
+      "She began each lesson with a question on the board."
      ],
      "answer": 0,
      "why": "Asking to stay late to keep discussing shows a clear change from rarely speaking to wanting to talk."

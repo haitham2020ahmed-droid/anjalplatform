@@ -216,9 +216,9 @@
         {
           "stem": "How does the author explain the steps of making bread?",
           "options": [
-            "By comparing bread from many lands",
-            "By telling a story about one baker",
-            "By listing facts about wheat farms",
+            "By comparing bread from many lands and their flavors",
+            "By telling a story about one baker and his family",
+            "By listing facts about wheat farms in different places",
             "By telling the steps in order, from mixing to baking"
           ],
           "answer": "D",
@@ -233,10 +233,10 @@
         {
           "stem": "Why does the author tell about tamees at the end?",
           "options": [
-            "To warn us not to eat it",
+            "To warn us not to eat it too often or it is bad for us",
             "To link bread science to a bread we know in Saudi Arabia",
-            "To show that tamees has no flour",
-            "To explain how to build an oven"
+            "To show that tamees has no flour in it, only water",
+            "To explain how to build an oven in a house or a shop"
           ],
           "answer": "B",
           "skill": "author-purpose",
@@ -361,10 +361,10 @@
         {
           "stem": "What happens right after yeast gives off carbon dioxide?",
           "options": [
-            "The yeast turns into flour",
+            "The yeast turns into flour and the dough turns hard",
             "The gluten traps the gas bubbles and the dough rises",
-            "The dough turns brown",
-            "The salt melts"
+            "The dough turns brown and gets very crisp now",
+            "The salt melts and mixes with the water in it"
           ],
           "answer": "B",
           "skill": "sequence",
@@ -378,9 +378,9 @@
         {
           "stem": "A baker puts her dough in a very hot spot before it has risen. What will MOST likely happen?",
           "options": [
-            "The dough will rise twice as fast as usual",
-            "The gluten will turn into sugar",
-            "The salt in the dough will stop working",
+            "The dough will rise twice as fast as usual and become very light",
+            "The gluten will turn into sugar and make the bread sweet",
+            "The salt in the dough will stop working and the loaf will taste plain",
             "The yeast may die, so the dough will not rise well"
           ],
           "answer": "D",
@@ -396,7 +396,7 @@
           "stem": "Why did bakers in ancient Egypt see their dough puff up even though they did not know about yeast?",
           "options": [
             "Wild yeast from the air was already working in the dough",
-            "They added carbon dioxide to the dough",
+            "They added carbon dioxide to the dough on purpose in a bowl",
             "They kneaded the dough until it grew much taller",
             "Their ovens were made of a special kind of clay"
           ],
@@ -492,7 +492,7 @@
             "Salt that dissolves slowly in the warm water",
             "Enzymes in the flour that break starch into simple sugars",
             "Steam that is produced inside the hot oven",
-            "Carbon dioxide trapped by gluten"
+            "Carbon dioxide gas trapped by the gluten in the dough"
           ],
           "answer": "B",
           "skill": "detail",
@@ -540,10 +540,10 @@
         {
           "stem": "Why does the loaf swell even more once it is inside the hot oven?",
           "options": [
-            "Salt stops controlling the yeast",
-            "The gluten slowly turns back into soft flour",
+            "Salt stops controlling the yeast, so the dough grows",
+            "The gluten slowly turns back into soft flour inside the oven",
             "Heat makes the trapped gas expand while water becomes steam",
-            "The hardening crust pulls the soft dough upward"
+            "The hardening crust pulls the soft dough upward like a rope"
           ],
           "answer": "C",
           "skill": "cause-effect",

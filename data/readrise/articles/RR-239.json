@@ -233,10 +233,10 @@
         {
           "stem": "Why does the author tell readers to wash their hands and sleep well?",
           "options": [
-            "To show how to grow new skin quickly",
+            "To show how to grow new skin quickly after a cut or a burn",
             "To help readers keep their team of guards strong",
-            "To explain where blood cells are made",
-            "To tell readers never to get a fever"
+            "To explain where blood cells are made in the body",
+            "To tell readers never to get a fever or a cold"
           ],
           "answer": "B",
           "skill": "author-purpose",
@@ -489,10 +489,10 @@
         {
           "stem": "According to the article, what is a phagocyte?",
           "options": [
-            "A chemical that raises body temperature",
-            "A kind of pathogen found in sea creatures",
+            "A chemical that raises body temperature when you are sick",
+            "A kind of pathogen found in sea creatures and in the sand",
             "A white blood cell that surrounds and swallows invaders",
-            "A scientist who studies the immune system"
+            "A scientist who studies the immune system in a laboratory"
           ],
           "answer": "C",
           "skill": "detail",
@@ -507,9 +507,9 @@
           "stem": "What did Ilya Mechnikov observe while studying sea creatures under a microscope?",
           "options": [
             "Certain cells surrounding and swallowing foreign particles",
-            "A fever rising inside a sea creature's body",
-            "Skin forming a barrier around a sea creature",
-            "Inflammation spreading across an entire ocean"
+            "A fever rising inside a sea creature's body in the water",
+            "Skin forming a barrier around a sea creature's body",
+            "Inflammation spreading across an entire ocean floor"
           ],
           "answer": "A",
           "skill": "detail",
@@ -591,10 +591,10 @@
         {
           "stem": "Why does the author include the paragraph about Ilya Mechnikov and the Nobel Prize?",
           "options": [
-            "To argue that modern scientists know less than Mechnikov did",
-            "To describe how fevers were first discovered and named",
+            "To argue that modern scientists know less than Mechnikov did about the body",
+            "To describe how fevers were first discovered and named by old doctors",
             "To show that the understanding of phagocytes has a real scientific history",
-            "To explain why sea creatures should be studied more often"
+            "To explain why sea creatures should be studied more often by scientists"
           ],
           "answer": "C",
           "skill": "author-purpose",

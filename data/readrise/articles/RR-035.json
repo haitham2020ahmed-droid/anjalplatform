@@ -165,10 +165,10 @@
         {
           "stem": "Pads by the gills filter the food out. What does filter mean here?",
           "options": [
-            "To chew food into small bits",
+            "To chew food into small bits with the teeth",
             "To keep food back while water goes through",
-            "To push food out of the mouth",
-            "To hide food in the sand"
+            "To push food out of the mouth with the tongue",
+            "To hide food in the sand under the stones"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -182,9 +182,9 @@
         {
           "stem": "Why is the whale shark called a fish and not a whale?",
           "options": [
-            "It lives only in the Red Sea.",
-            "It has white spots on its back.",
-            "It is bigger than every whale.",
+            "It lives only in the Red Sea, far from the others.",
+            "It has white spots on its back like a leopard.",
+            "It is bigger than every whale in the deep sea.",
             "It takes air from the water with gills."
           ],
           "answer": "D",
@@ -233,10 +233,10 @@
         {
           "stem": "Why does the author end the article with what people should do?",
           "options": [
-            "To show how to take a good photo",
-            "To tell readers where to buy a boat",
+            "To show how to take a good photo of the sharks",
+            "To tell readers where to buy a boat for the trip",
             "To show how readers can help keep whale sharks safe",
-            "To explain how plankton grows"
+            "To explain how plankton grows in the warm water"
           ],
           "answer": "C",
           "skill": "author-purpose",
@@ -344,10 +344,10 @@
         {
           "stem": "The article calls the whale shark a filter feeder. Which detail best explains this term?",
           "options": [
-            "It has thousands of tiny teeth.",
-            "It swims slowly near divers.",
+            "It has thousands of tiny teeth in its mouth",
+            "It swims slowly near divers who come to see it",
             "Pads near its gills trap food as water flows out.",
-            "It has white spots and pale stripes."
+            "It has white spots and pale stripes on its back"
           ],
           "answer": "C",
           "skill": "vocabulary",
@@ -378,9 +378,9 @@
         {
           "stem": "Why does the article say snorkelers should keep a safe distance?",
           "options": [
-            "Because the sharks bite people who come close",
-            "Because the water near the sharks is too cold",
-            "Because snorkelers scare away the plankton",
+            "Because the sharks bite people who come close to them",
+            "Because the water near the sharks is too cold for people",
+            "Because snorkelers scare away the plankton that the sharks eat",
             "Because the sharks are endangered and need to be protected"
           ],
           "answer": "D",
@@ -412,10 +412,10 @@
         {
           "stem": "How is the article mainly organized?",
           "options": [
-            "As a story told by a diver from beginning to end",
-            "As a list of steps for catching a shark",
+            "As a story told by a diver from beginning to end, in time order, at sea",
+            "As a list of steps for catching a shark with a boat, a rope and a net",
             "As sections that each describe one part of the whale shark's life and protection",
-            "As a comparison of every kind of shark"
+            "As a comparison of every kind of shark in the world, one by one, from the smallest to the biggest"
           ],
           "answer": "C",
           "skill": "text-structure",
@@ -523,10 +523,10 @@
         {
           "stem": "The writer says the shark 'gulps water like a powerful vacuum.' What does this comparison suggest?",
           "options": [
-            "The shark makes a loud noise when it eats.",
+            "The shark makes a loud noise when it eats, like a vacuum.",
             "The shark pulls in water and food with great force.",
-            "The shark cleans the seafloor of trash.",
-            "The shark swallows divers by accident."
+            "The shark cleans the seafloor of trash with its mouth.",
+            "The shark swallows divers by accident when it gulps."
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -540,10 +540,10 @@
         {
           "stem": "Why might satellite tags be more useful than photographs for studying these sharks?",
           "options": [
-            "Tags change the color of the shark's spots.",
-            "Photos cannot show which shark is which.",
+            "Tags change the color of the shark's spots when it swims fast.",
+            "Photos cannot show which shark is which, even when they are clear.",
             "Tags can follow where a shark travels after it leaves the reef.",
-            "Photos can only be taken at night."
+            "Photos can only be taken at night, when the sharks swim near the reef."
           ],
           "answer": "C",
           "skill": "inference",
@@ -591,10 +591,10 @@
         {
           "stem": "Why does the author open the article with divers watching a shadow approach?",
           "options": [
-            "To prove that diving is dangerous",
+            "To prove that diving is dangerous for beginners",
             "To create curiosity before revealing the whale shark",
-            "To explain how divers breathe underwater",
-            "To compare the Red Sea with other oceans"
+            "To explain how divers breathe underwater with tanks",
+            "To compare the Red Sea with other oceans of the world"
           ],
           "answer": "B",
           "skill": "author-purpose",

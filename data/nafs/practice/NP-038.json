@@ -30,9 +30,9 @@
       "stem": "Which sentence uses the word \"practical\" correctly?",
       "options": [
         "The practical example helped us solve a real problem.",
-        "She practical every morning before school.",
-        "The practical flew over the mountains.",
-        "We practical our lessons in the library."
+        "She practical every morning before school started.",
+        "The practical flew over the mountains in the west.",
+        "We practical our lessons in the library after lunch."
       ],
       "answer": "A",
       "why": "Practical is an adjective meaning useful in real life, so it correctly describes the noun example."
@@ -77,9 +77,9 @@
       "difficulty": 2,
       "stem": "What was one effect of translating his book on numerals into Latin?",
       "options": [
-        "Roman numerals became more popular.",
-        "The House of Wisdom was closed.",
-        "Baghdad stopped teaching mathematics.",
+        "Roman numerals became more popular in Europe at once.",
+        "The House of Wisdom was closed by the caliph soon after.",
+        "Baghdad stopped teaching mathematics in its schools.",
         "Hindu-Arabic numerals spread across Europe."
       ],
       "answer": "D",

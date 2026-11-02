@@ -114,10 +114,10 @@
         {
           "stem": "What is this story mostly about?",
           "options": [
-            "A boy who buys a new chess set for his birthday",
+            "A boy who buys a new chess set for his birthday and plays it with his friends",
             "A boy who keeps losing at chess but learns to play better",
-            "A girl who teaches her whole class to play chess",
-            "A family that goes on a trip together"
+            "A girl who teaches her whole class to play chess in a week",
+            "A family that goes on a trip together to the beach"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -148,9 +148,9 @@
         {
           "stem": "What does Khaled do after each loss to Sara?",
           "options": [
-            "He stops playing chess for good",
-            "He asks Sara to let him win",
-            "He tells Sara the game was not fair",
+            "He stops playing chess for good and goes home",
+            "He asks Sara to let him win the next game",
+            "He tells Sara the game was not fair and walks away",
             "He looks at the board and thinks about his moves"
           ],
           "answer": "D",
@@ -165,10 +165,10 @@
         {
           "stem": "In the story, a move is —",
           "options": [
-            "a type of chess piece",
+            "a type of chess piece that is shaped like a horse",
             "one turn when a player moves a piece",
-            "the name of a chess club",
-            "a square on the board"
+            "the name of a chess club in a school",
+            "a square on the board where a king sits"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -182,10 +182,10 @@
         {
           "stem": "Why does Khaled keep practicing even though he loses to Sara every time?",
           "options": [
-            "He wants to make Sara feel bad",
-            "His teacher makes him practice",
+            "He wants to make Sara feel bad about winning",
+            "His teacher makes him practice every single day",
             "He wants to learn from his mistakes and get better",
-            "He has nothing else to do at home"
+            "He has nothing else to do at home after school"
           ],
           "answer": "C",
           "skill": "inference",
@@ -234,9 +234,9 @@
           "stem": "Why does the author tell us that Khaled's hands feel cold before the tournament match?",
           "options": [
             "To show that Khaled feels nervous before playing",
-            "To show that the room has no heating",
-            "To explain that Khaled is sick that day",
-            "To show that Khaled does not want to play"
+            "To show that the room has no heating, so the hands are cold",
+            "To explain that Khaled is sick that day and cannot play",
+            "To show that Khaled does not want to play the match"
           ],
           "answer": "A",
           "skill": "author-purpose",
@@ -362,9 +362,9 @@
           "stem": "Why does Khaled's confidence likely grow in the weeks before the tournament?",
           "options": [
             "His games against Sara keep becoming closer",
-            "Sara stops playing chess with him",
-            "His school cancels the chess club",
-            "He buys an expensive new chess set"
+            "Sara stops playing chess with him for weeks",
+            "His school cancels the chess club this year",
+            "He buys an expensive new chess set for the room"
           ],
           "answer": "A",
           "skill": "inference",
@@ -379,9 +379,9 @@
           "stem": "Why does Khaled feel nervous about competing in the tournament?",
           "options": [
             "He will be playing against unfamiliar students he does not know",
-            "He has never seen a chessboard before",
-            "He is certain that he will win every match easily",
-            "He does not understand how the pieces move"
+            "He has never seen a chessboard before and does not know the pieces",
+            "He is certain that he will win every match easily and feels proud",
+            "He does not understand how the pieces move on the board"
           ],
           "answer": "A",
           "skill": "inference",
@@ -395,10 +395,10 @@
         {
           "stem": "What mainly causes Khaled to finally win his tournament match?",
           "options": [
-            "His opponent decides to quit early",
+            "His opponent decides to quit early and goes home",
             "He notices a clever move that his opponent missed",
-            "Sara secretly helps him from the sidelines",
-            "The match is stopped before it finishes"
+            "Sara secretly helps him from the sidelines with signs",
+            "The match is stopped before it finishes by the teacher"
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -413,9 +413,9 @@
           "stem": "How does the author mainly organize the events in this story?",
           "options": [
             "By telling events in the order they happened, from Khaled's losses to his tournament win",
-            "By comparing chess rules in different countries",
-            "By explaining, step by step, how to set up a chessboard",
-            "By listing reasons why chess is better than other games"
+            "By comparing chess rules in different countries around the world and over many years",
+            "By explaining, step by step, how to set up a chessboard for a new game",
+            "By listing reasons why chess is better than other games for children"
           ],
           "answer": "A",
           "skill": "text-structure",
@@ -490,9 +490,9 @@
           "stem": "What does Khaled specifically do after every disappointing loss to his opponent, Sara?",
           "options": [
             "He reflects on the board to identify his costly mistake",
-            "He immediately challenges her to another match",
-            "He asks their parents to intervene",
-            "He decides the chess pieces are unfair"
+            "He immediately challenges her to another match to win back",
+            "He asks their parents to intervene in the game next time",
+            "He decides the chess pieces are unfair and complains loudly"
           ],
           "answer": "A",
           "skill": "detail",
@@ -523,10 +523,10 @@
         {
           "stem": "In the story, the word resilient most nearly means —",
           "options": [
-            "unable to continue after facing a setback",
-            "quick to give up after a single failure",
+            "unable to continue after facing a setback or a mistake",
+            "quick to give up after a single failure in a game",
             "able to recover and keep trying despite difficulty",
-            "uninterested in improving at all"
+            "uninterested in improving at all, even with a teacher"
           ],
           "answer": "C",
           "skill": "vocabulary",
@@ -541,9 +541,9 @@
           "stem": "Why does competing against an unfamiliar opponent at the tournament provoke such nervousness in Khaled specifically?",
           "options": [
             "Because he has never faced an opponent whose strategy he does not already know",
-            "Because he has forgotten the rules of chess entirely",
-            "Because he dislikes everyone in the chess club",
-            "Because the tournament is held somewhere unfamiliar to him"
+            "Because he has forgotten the rules of chess entirely since last year",
+            "Because he dislikes everyone in the chess club and wants to leave",
+            "Because the tournament is held somewhere unfamiliar to him, far from his home town"
           ],
           "answer": "A",
           "skill": "inference",

@@ -53,10 +53,10 @@
     "passage": "Ali has a small brown dog. One day, the dog runs out of the gate. Ali looks everywhere. At last, he finds the dog at his grandmother's house.",
     "stem": "What is the problem in the story?",
     "options": [
-     "Ali has a dog.",
-     "Ali has a grandmother.",
+     "Ali has a dog in his house.",
+     "Ali has a grandmother in town.",
      "The dog runs out of the gate.",
-     "The dog is brown."
+     "The dog is brown with white feet."
     ],
     "answer": 2,
     "hint": "What goes wrong?",
@@ -82,10 +82,10 @@
      "passage": "Nora is at the beach. She builds a big sand castle. A wave comes and knocks it down.",
      "stem": "What is the problem?",
      "options": [
-      "Nora is at the beach.",
+      "Nora is at the beach with her mom.",
       "A wave knocks the castle down.",
-      "Nora builds a castle.",
-      "The sand is wet."
+      "Nora builds a castle of sand.",
+      "The sand is wet and cold."
      ],
      "answer": 1,
      "why": "Something goes wrong when the wave knocks the castle down."
@@ -95,9 +95,9 @@
      "stem": "Which is the best ending?",
      "options": [
       "He finds the bag in the car.",
-      "He has a pencil.",
-      "It is Monday.",
-      "He likes school."
+      "He has a pencil in his bag.",
+      "It is Monday morning again.",
+      "He likes school very much."
      ],
      "answer": 0,
      "why": "Finding the bag solves the problem."
@@ -161,9 +161,9 @@
     "passage": "On the morning of the school trip, Faisal woke up late. His alarm clock had stopped in the night. He jumped out of bed, dressed quickly and ran downstairs. \"The bus leaves in ten minutes!\" his mother said. Faisal grabbed his bag and raced to the corner. ___",
     "stem": "Which ending best solves the problem in the story?",
     "options": [
-     "Faisal's favorite food is rice.",
-     "Faisal has two sisters.",
-     "It was a sunny day in the city.",
+     "Faisal's favorite food is rice, and he eats it for lunch every day with his family at home.",
+     "Faisal has two sisters, and they both go to the same school as he does every day.",
+     "It was a sunny day in the city, and the sky was blue with only a few white clouds.",
      "The bus was just closing its doors, and the driver waited as Faisal climbed on, out of breath."
     ],
     "answer": 3,
@@ -204,10 +204,10 @@
      "passage": "Lina was nervous before the race.",
      "stem": "Which sentence best uses dialogue to show this?",
      "options": [
-      "Lina was very nervous before the race.",
-      "There was a race at school that day.",
+      "Lina was very nervous before the race started.",
+      "There was a race at school that day for all grades.",
       "\"What if I fall?\" Lina whispered, her hands shaking.",
-      "Lina had new shoes for the race."
+      "Lina had new shoes for the race on Friday."
      ],
      "answer": 2,
      "why": "Her words and shaking hands show she is nervous."
@@ -271,10 +271,10 @@
     "passage": "For weeks, Rana had practised her Quran recitation for the school competition. Every evening after dinner, she recited the verses to her grandmother, who corrected her gently. On the morning of the competition, she woke before her alarm. ___ When her name was finally called, she took a deep breath and walked to the front.",
     "stem": "Which sentence best SHOWS how Rana feels on the morning of the competition?",
     "options": [
-     "Rana felt very nervous and excited.",
+     "Rana felt very nervous and excited as she got ready for the big poetry competition that morning.",
      "Her hands trembled as she buttoned her uniform, and she whispered the first verse again and again.",
-     "It was Thursday morning.",
-     "Rana was nervous, and she was also excited and happy."
+     "It was Thursday morning, and the sun was already shining over the quiet street.",
+     "Rana was nervous, and she was also excited and happy about the competition that day."
     ],
     "answer": 1,
     "hint": "Which option lets the reader figure out her feelings from her actions?",
@@ -301,10 +301,10 @@
      "passage": "I opened the door slowly. The room was dark. Then he heard a strange noise.",
      "stem": "What is the problem in this story?",
      "options": [
-      "The pacing is too slow.",
-      "There is no dialogue.",
+      "The pacing is too slow in the middle.",
+      "There is no dialogue in the story.",
       "The point of view changes from I to he.",
-      "The setting is not described."
+      "The setting is not described at all."
      ],
      "answer": 2,
      "why": "The narrator is I, so the last sentence should say Then I heard."
@@ -381,9 +381,9 @@
     "stem": "Which ending best shows how Dana has changed?",
     "options": [
      "That evening, Dana told her family that the best part of the race was not winning, and the next morning she sat beside Maha at lunch.",
-     "Dana went home and decided to buy faster shoes for next year.",
-     "Dana won the next race easily and laughed at everyone again.",
-     "The race organizers moved the loose stone."
+     "Dana went home and decided to buy faster shoes for next year, so she could win every single race and beat Maha again and again.",
+     "Dana won the next race easily and laughed at everyone again, and she told them all that she was the best.",
+     "The race organizers moved the loose stone and put a new sign near the start of the track so people could see it."
     ],
     "answer": 0,
     "hint": "How did Dana treat Maha at the start? What would show she now thinks differently?",
@@ -438,10 +438,10 @@
      "passage": "The lights went out. Silence. Then footsteps. Slow. Closer.",
      "stem": "What is the main effect of the very short sentences?",
      "options": [
-      "They explain the setting in detail.",
+      "They explain the setting in detail for the reader.",
       "They build tension and make the reader feel each moment.",
-      "They introduce a new character's name.",
-      "They slow the story down to give background."
+      "They introduce a new character's name and age.",
+      "They slow the story down to give background on the past."
      ],
      "answer": 1,
      "why": "Short, broken sentences create suspense and a quick, nervous rhythm."

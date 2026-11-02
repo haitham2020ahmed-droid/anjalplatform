@@ -173,9 +173,9 @@
       "type": "MCQ",
       "stem": "What is the main purpose of the text?",
       "options": [
-        "to persuade readers to buy fresh food every day",
-        "to explain how scientists study bacteria",
-        "to describe the dangers of eating in restaurants",
+        "to persuade readers to buy fresh food every day from shops",
+        "to explain how scientists study bacteria in a laboratory",
+        "to describe the dangers of eating in restaurants in the city",
         "to inform readers how to store food so that it stays safe"
       ],
       "answer": "D",
@@ -190,9 +190,9 @@
       "stem": "Which sentence best states the main idea of paragraph 1?",
       "options": [
         "Some bacteria can make food dangerous, but simple rules can prevent illness.",
-        "Most bacteria are harmless, so stored food rarely causes illness.",
-        "A strange smell in the fridge always means the food is unsafe.",
-        "Stomach pain and fever are the most common illnesses in families."
+        "Most bacteria are harmless, so stored food rarely causes illness in homes.",
+        "A strange smell in the fridge always means the food is unsafe to eat.",
+        "Stomach pain and fever are the most common illnesses in families today."
       ],
       "answer": "A",
       "why": "Paragraph 1 warns that certain bacteria cause illness and then says that a few practical rules can keep it away."
@@ -301,10 +301,10 @@
       "type": "MCQ",
       "stem": "According to paragraph 3, why must cutting boards that touched raw meat be washed in hot, soapy water?",
       "options": [
-        "to remove the smell of the meat",
+        "to remove the smell of the meat from the board",
         "to stop bacteria from spreading to other food",
-        "to keep the boards cool and dry",
-        "to make the boards last longer"
+        "to keep the boards cool and dry on the shelf",
+        "to make the boards last longer in the kitchen"
       ],
       "answer": "B",
       "why": "Paragraph 3 explains that keeping raw food apart and washing boards prevents harmful bacteria from spreading."
@@ -318,9 +318,9 @@
       "stem": "In your opinion, why does the writer begin the text with a question about a strange smell in the fridge?",
       "options": [
         "to connect the topic to something many readers have experienced",
-        "to prove that every smell in a fridge is dangerous",
-        "to explain exactly how bacteria produce smells",
-        "to begin a story about the writer's own family"
+        "to prove that every smell in a fridge is dangerous to eat",
+        "to explain exactly how bacteria produce smells in food",
+        "to begin a story about the writer's own family and kitchen"
       ],
       "answer": "A",
       "why": "A familiar experience draws readers in before the writer gives the rules."
@@ -365,9 +365,9 @@
       "type": "MCQ",
       "stem": "Based on paragraph 3, what could happen if raw chicken were stored on the top shelf above an uncovered salad?",
       "options": [
-        "The salad would freeze and lose its flavour.",
-        "The chicken would be safe to eat without cooking.",
-        "The salad would go stale more quickly.",
+        "The salad would freeze and lose its flavour in the cold.",
+        "The chicken would be safe to eat without cooking it first.",
+        "The salad would go stale more quickly in the fridge.",
         "Its juices could drip down and spread bacteria to the salad."
       ],
       "answer": "D",
@@ -493,9 +493,9 @@
       "type": "MCQ",
       "stem": "In your opinion, which information is the LEAST clear in the text?",
       "options": [
-        "the temperatures of the danger zone",
-        "why raw meat goes on the lowest shelf",
-        "what a “use by” date means",
+        "the temperatures of the danger zone in a hot kitchen",
+        "why raw meat goes on the lowest shelf in the fridge at home",
+        "what a “use by” date means on a pack of food in a shop",
         "how a family can check that its fridge is at 4°C or below"
       ],
       "answer": "D",
@@ -510,9 +510,9 @@
       "stem": "Which of the following events could really happen?",
       "options": [
         "A girl gets stomach pain after eating rice left out all afternoon in summer.",
-        "A swollen can repairs itself and becomes safe to eat again.",
-        "Bacteria in a freezer at minus 18°C multiply faster than ever.",
-        "A jar of lentils grows legs and walks away from the insects."
+        "A swollen can repairs itself and becomes safe to eat again in an hour.",
+        "Bacteria in a freezer at minus 18°C multiply faster than ever before.",
+        "A jar of lentils grows legs and walks away from the insects at night."
       ],
       "answer": "A",
       "why": "Rice left in the danger zone lets harmful bacteria grow, which can cause stomach pain, as the text explains."

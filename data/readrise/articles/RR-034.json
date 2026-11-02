@@ -199,10 +199,10 @@
         {
           "stem": "What would most likely happen if an ant found food but left no scent?",
           "options": [
-            "The food would grow bigger",
-            "The queen would go get it",
+            "The food would grow bigger by itself in the sun",
+            "The queen would go and get the food herself",
             "Other ants would have a hard time finding the food",
-            "The ant would forget the way home"
+            "The ant would forget the way home to the nest"
           ],
           "answer": "C",
           "skill": "inference",
@@ -233,9 +233,9 @@
         {
           "stem": "Why does the author tell about ants that run on hot sand in Saudi Arabia?",
           "options": [
-            "To tell readers to stay out of the desert",
-            "To explain how the queen lays eggs",
-            "To show that sand is good food for ants",
+            "To tell readers to stay out of the desert because it is unsafe",
+            "To explain how the queen lays eggs deep inside the nest",
+            "To show that sand is good food for ants all year long",
             "To show that ants can live in hard places and find their way"
           ],
           "answer": "D",
@@ -378,10 +378,10 @@
         {
           "stem": "The article says no ant gives orders, yet the colony works as one team. What does this suggest?",
           "options": [
-            "The colony needs a leader to survive",
-            "Ants work alone most of the time",
+            "The colony needs a leader to survive and give the orders",
+            "Ants work alone most of the time and rarely help one another",
             "Each ant does its part for the group without being told",
-            "Ants never finish their jobs"
+            "Ants never finish their jobs, and the nest is always a mess"
           ],
           "answer": "C",
           "skill": "inference",
@@ -412,9 +412,9 @@
         {
           "stem": "Why does the author begin with a line of ants crossing a sidewalk?",
           "options": [
-            "To warn readers about ant bites",
-            "To explain how sidewalks are built",
-            "To compare ants to bees",
+            "To warn readers about ant bites on the sidewalk and in the grass",
+            "To explain how sidewalks are built from stone, sand and cement",
+            "To compare ants to bees and to other small insects in the garden or the park",
             "To start with something familiar before showing how organized ants are"
           ],
           "answer": "D",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
-            "Ant colonies depend completely on the queen's commands.",
+            "Ant colonies depend completely on the queen's commands, so the workers never act on their own.",
             "Through cooperation and simple rules, tiny ants form a colony that acts like one organism.",
-            "Ants are mainly harmful because they eat dead insects.",
-            "Desert ants are stronger than every other kind of ant."
+            "Ants are mainly harmful because they eat dead insects, and people should keep them far away.",
+            "Desert ants are stronger than every other kind of ant, so they win every fight and rule the sand."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -489,9 +489,9 @@
         {
           "stem": "According to the article, how do worker ants' jobs change over time?",
           "options": [
-            "Older workers become queens",
-            "Workers keep the same job for their whole lives",
-            "Only male ants change jobs",
+            "Older workers become queens and then lay eggs in the nest",
+            "Workers keep the same job for their whole lives, from the day they hatch until the day they die",
+            "Only male ants change jobs as they get older, said the article",
             "Younger workers care for the young, and older workers dig, defend, or gather food"
           ],
           "answer": "D",

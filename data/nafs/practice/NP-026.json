@@ -125,10 +125,10 @@
       "difficulty": 3,
       "stem": "Which information in the passage is the LEAST complete?",
       "options": [
-        "What an emergency kit should contain",
+        "What an emergency kit should contain for a family",
         "How much stronger magnitude 7 is than magnitude 5",
-        "What the point above the focus is called",
-        "What instruments measure earthquakes"
+        "What the point above the focus is called on the map",
+        "What instruments measure earthquakes in each country"
       ],
       "answer": "B",
       "why": "The passage only says each step is \"a much larger release of energy\" without saying how much larger."

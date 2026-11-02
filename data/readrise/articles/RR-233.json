@@ -165,9 +165,9 @@
         {
           "stem": "Why does the helmet have a visor?",
           "options": [
-            "To make the astronaut look taller",
-            "To hold the oxygen tank",
-            "To keep the helmet cool",
+            "To make the astronaut look taller than before, like a crown",
+            "To hold the oxygen tank in place on the back of the suit",
+            "To keep the helmet cool inside the hot bright sun",
             "To let the astronaut see while blocking the Sun's bright light"
           ],
           "answer": "D",
@@ -216,10 +216,10 @@
         {
           "stem": "What can you tell about space from the article?",
           "options": [
-            "It is always warm and comfortable",
-            "It is full of breathable air",
+            "It is always warm and comfortable for a person who goes there",
+            "It is full of breathable air all around, just like on Earth",
             "It is too dangerous for a person to enter without a suit",
-            "It has no temperature at all"
+            "It has no temperature at all, so nothing there is hot or cold"
           ],
           "answer": "C",
           "skill": "inference",
@@ -233,9 +233,9 @@
         {
           "stem": "Why might an astronaut's suit be described as \"a tiny home\" or \"a tiny spacecraft\"?",
           "options": [
-            "Because it is shaped like a house",
-            "Because astronauts sleep inside it every night",
-            "Because it has furniture inside it",
+            "Because it is shaped like a house, with a roof, a door, and windows on every side of it",
+            "Because astronauts sleep inside it every night, in a small bed that is made of soft cloth",
+            "Because it has furniture inside it, such as a table, a chair, and a shelf for their food",
             "Because it gives the astronaut air, safety, and a steady temperature just like a spacecraft does"
           ],
           "answer": "D",
@@ -294,9 +294,9 @@
           "stem": "Which sentence best states the central idea?",
           "options": [
             "A spacesuit is built in layers that supply oxygen, control pressure and temperature, and protect an astronaut from radiation during a spacewalk.",
-            "Astronauts only need gloves to survive in space.",
-            "Spacesuits are mainly designed to look impressive.",
-            "The Sun never produces harmful radiation."
+            "Astronauts only need gloves to survive in space, because the air outside is safe to breathe and the Sun is gentle on the skin, so they need nothing more.",
+            "Spacesuits are mainly designed to look impressive in photographs, and the layers inside them are only there for show and for color.",
+            "The Sun never produces harmful radiation, so astronauts can float outside the station without any spacesuit on at all."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -344,9 +344,9 @@
         {
           "stem": "Why does the suit need a layer of insulation?",
           "options": [
-            "To make the suit lighter",
-            "To help the astronaut float more easily",
-            "To add extra storage space",
+            "To make the suit lighter for the astronaut to carry in space",
+            "To help the astronaut float more easily in space, outside the ship",
+            "To add extra storage space for the tools and the food of the crew",
             "To protect the astronaut from extreme temperature swings in space"
           ],
           "answer": "D",
@@ -395,10 +395,10 @@
         {
           "stem": "Why does the suit's visor have a gold coating?",
           "options": [
-            "To make the suit look more valuable",
+            "To make the suit look more valuable to people who see it",
             "To block the Sun's radiation and glare from reaching the astronaut's eyes",
-            "To help the suit absorb more heat",
-            "To make the astronaut easier to see from Earth"
+            "To help the suit absorb more heat from the Sun and keep the astronaut warm",
+            "To make the astronaut easier to see from Earth by cameras"
           ],
           "answer": "B",
           "skill": "inference",
@@ -412,9 +412,9 @@
         {
           "stem": "How does the author mainly organize the explanation of the spacesuit?",
           "options": [
-            "By arguing that spacesuits are too complicated to build",
-            "By comparing spacesuits used on different planets",
-            "By listing famous astronauts in time order",
+            "By arguing that spacesuits are too complicated to build and cost too much",
+            "By comparing spacesuits used on different planets and in different decades",
+            "By listing famous astronauts in time order, from the first one to the last",
             "By describing the suit layer by layer, from the skin outward to the backpack"
           ],
           "answer": "D",
@@ -472,10 +472,10 @@
         {
           "stem": "What is the central idea of the article?",
           "options": [
-            "Engineers have never successfully tested a spacesuit.",
+            "Engineers have never successfully tested a spacesuit, so astronauts must work outside with only simple clothing and no air.",
             "A spacesuit combines cooling, pressure, insulation, and radiation shielding into one system engineered to let an astronaut survive extravehicular activity.",
-            "Micrometeoroids are not a real danger in space.",
-            "The ventilation garment is the only part of a spacesuit that matters."
+            "Micrometeoroids are not a real danger in space, so a spacesuit needs no outer layers and can be made as thin as a shirt.",
+            "The ventilation garment is the only part of a spacesuit that matters, because the other layers, the helmet and the gloves, are never used by astronauts."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -523,9 +523,9 @@
         {
           "stem": "Why must the pressure layer regulate internal pressure so carefully?",
           "options": [
-            "To make the suit lighter for the astronaut to carry",
-            "To help the visor block more sunlight",
-            "To let the backpack supply more oxygen",
+            "To make the suit lighter for the astronaut to carry during a long walk outside",
+            "To help the visor block more sunlight and glare from the Sun on the dusty ground",
+            "To let the backpack supply more oxygen to the astronaut's helmet for a longer time",
             "Because the unprotected human body cannot survive direct exposure to the vacuum of space"
           ],
           "answer": "D",
@@ -557,10 +557,10 @@
         {
           "stem": "Based on the article, how is the outer thermal and micrometeoroid garment different from the inner cooling and ventilation garment?",
           "options": [
-            "The outer garment supplies oxygen, while the inner garment does not",
-            "The inner garment blocks radiation, while the outer garment carries water",
+            "The outer garment supplies oxygen to the astronaut, while the inner garment does not",
+            "The inner garment blocks radiation, while the outer garment carries water to the body",
             "The outer garment resists temperature swings and debris; the inner one removes body heat",
-            "The two garments perform exactly the same identical job in the suit"
+            "The two garments perform exactly the same identical job in the suit, with no difference"
           ],
           "answer": "C",
           "skill": "compare",
@@ -574,9 +574,9 @@
         {
           "stem": "What can be inferred about why engineers test each spacesuit many times before it protects an astronaut?",
           "options": [
-            "Testing is required mostly for appearance",
-            "Spacesuits rarely function correctly on the first attempt",
-            "Testing is unrelated to astronaut safety",
+            "Testing is required mostly for appearance, so that the spacesuit looks bright and clean in photos and videos on Earth",
+            "Spacesuits rarely function correctly on the first attempt, so engineers must try again and again",
+            "Testing is unrelated to astronaut safety, because the suits are already made by machines",
             "Because every layer must work correctly at once, a single failure could expose the astronaut to a fatal environment"
           ],
           "answer": "D",
@@ -591,10 +591,10 @@
         {
           "stem": "Why does the author describe the suit from the innermost layer outward to the backpack?",
           "options": [
-            "To argue that outer layers matter more than inner ones",
+            "To argue that outer layers matter more than inner ones, because they meet the cold and dust first",
             "To help readers understand how each layer builds on the one before it to protect the astronaut",
-            "To compare the suit with ordinary clothing",
-            "To list every astronaut who has worn a spacesuit"
+            "To compare the suit with ordinary clothing that children wear in school or at home",
+            "To list every astronaut who has worn a spacesuit, from the first to the most recent"
           ],
           "answer": "B",
           "skill": "author-purpose",

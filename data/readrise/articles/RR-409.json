@@ -88,7 +88,7 @@
       "questions": [
         {
           "stem": "What is this story mostly about?",
-          "options": ["A robot that runs a race against a toy car", "A family who gives their helper robot a real name because of its fun quirks", "A boy who builds his own telescope", "A robot that gets lost in a big city"],
+          "options": ["A robot that runs a race against a toy car in the street with all of the children", "A family who gives their helper robot a real name because of its fun quirks", "A boy who builds his own telescope in the garden to look at the stars at night", "A robot that gets lost in a big city at night and cannot find its way home"],
           "answer": "B",
           "skill": "central-idea",
           "why": "The story follows Unit 7 doing chores, Lama noticing its quirks, and the family naming it Breezy.",
@@ -96,7 +96,7 @@
         },
         {
           "stem": "Which job did Unit 7 NOT do?",
-          "options": ["Washing the dishes", "Sweeping the floor", "Folding the clothes", "Cooking the family's dinner"],
+          "options": ["Washing the dishes after dinner", "Sweeping the floor each morning", "Folding the clothes in the bedroom", "Cooking the family's dinner"],
           "answer": "D",
           "skill": "detail",
           "why": "The story lists dishes, sweeping, and folding clothes as Unit 7's chores; cooking is never mentioned.",
@@ -120,7 +120,7 @@
         },
         {
           "stem": "Why did Lama say Unit 7 was not a real name?",
-          "options": ["Because it was too hard to say", "Because it was just a number, not a name", "Because robots cannot have names", "Because Dad did not like it"],
+          "options": ["Because it was too hard to say out loud", "Because it was just a number, not a name", "Because robots cannot have names of any kind", "Because Dad did not like it very much"],
           "answer": "B",
           "skill": "cause-effect",
           "why": "Lama says Unit 7 is just a number, and everyone in the family has a real name.",
@@ -128,7 +128,7 @@
         },
         {
           "stem": "In the story, the word job means —",
-          "options": ["a kind of helper robot", "a type of walking shoe", "a cheerful little song", "a task that needs to be done"],
+          "options": ["a kind of helper robot at home", "a type of walking shoe", "a cheerful little song", "a task that needs to be done"],
           "answer": "D",
           "skill": "vocabulary",
           "why": "The story uses job to mean a task, like washing dishes, that Unit 7 does at home.",
@@ -144,7 +144,7 @@
         },
         {
           "stem": "Why does the story tell us about Unit 7's hum and neat shoes before the family picks a name?",
-          "options": ["To explain how robots are built in factories", "To teach readers how to do chores at home", "To show the little quirks that make Unit 7 feel special", "To compare Unit 7 with a real person's job"],
+          "options": ["To explain how robots are built in big factories around the world", "To teach readers how to do their chores at home each day", "To show the little quirks that make Unit 7 feel special", "To compare Unit 7 with a real person's job in a shop"],
           "answer": "C",
           "skill": "author-purpose",
           "why": "These quirks are the reason the family wants to give Unit 7 a real name, so the story shows them first.",
@@ -166,7 +166,7 @@
       "questions": [
         {
           "stem": "Which sentence best states the central idea of the article?",
-          "options": ["A family who gives their helper robot a real name because of its fun quirks", "Unit 7 breaks down and the family must repair it", "The family decides robots should never be given names", "Faisal teaches Unit 7 how to do new chores"],
+          "options": ["A family who gives their helper robot a real name because of its fun quirks", "Unit 7 breaks down and the family must repair it with the help of a robot doctor and a neighbor", "The family decides robots should never be given names, so they keep calling the robot Unit 7", "Faisal teaches Unit 7 how to do new chores, such as washing the dishes and cleaning the floor"],
           "answer": "A",
           "skill": "central-idea",
           "why": "The article follows Unit 7's chores and quirks, Lama's idea, and the family naming it Breezy.",
@@ -182,7 +182,7 @@
         },
         {
           "stem": "What is unusual about the way Unit 7 arranges the shoes by the door?",
-          "options": ["It sorts them neatly by size without anyone asking", "It hides them in a closet every night", "It arranges them by color, not size", "It only lines up its own metal feet"],
+          "options": ["It sorts them neatly by size without anyone asking", "It hides them in a closet every night before bed", "It arranges them by color, not by size, along the wall", "It only lines up its own metal feet by the door"],
           "answer": "A",
           "skill": "detail",
           "why": "The article says Unit 7 lines up the shoes neatly by size without being instructed to do so.",
@@ -190,7 +190,7 @@
         },
         {
           "stem": "What caused Faisal to finally notice Unit 7's quirks?",
-          "options": ["Dad ordered him to pay attention", "He read about robots in a book", "Unit 7 stopped working and needed fixing", "He finally paused to notice the traits Lama had already pointed out"],
+          "options": ["Dad ordered him to pay attention to the robot at once", "He read about robots in a book that he found at the library", "Unit 7 stopped working completely and needed fixing right away", "He finally paused to notice the traits Lama had already pointed out"],
           "answer": "D",
           "skill": "cause-effect",
           "why": "The article says Faisal glanced up with interest once he noticed the traits his sister had already recognized.",
@@ -206,7 +206,7 @@
         },
         {
           "stem": "Why did the house feel 'more complete' after the robot was named Breezy?",
-          "options": ["Because Breezy stopped doing chores", "Because the family bought a second robot", "Because naming Breezy made it feel like a true member of the family", "Because the house became bigger"],
+          "options": ["Because Breezy stopped doing chores and just sat in the corner of the room", "Because the family bought a second robot that was named Gust", "Because naming Breezy made it feel like a true member of the family", "Because the house became bigger after the robot was named"],
           "answer": "C",
           "skill": "inference",
           "why": "Giving the robot a real name made the family feel like Breezy truly belonged, like a fifth family member.",
@@ -252,7 +252,7 @@
         },
         {
           "stem": "According to the article, what convinced Lama that 'Unit 7' could not adequately describe the robot?",
-          "options": ["The robot refused to do its chores", "The robot asked to be renamed", "Her parents insisted on a new name", "A designation of a letter and a digit could not capture its personality"],
+          "options": ["The robot refused to do its chores around the house and then hid in the garage", "The robot asked to be renamed after it heard a name in a song on the radio", "Her parents insisted on a new name because they did not like the old one", "A designation of a letter and a digit could not capture its personality"],
           "answer": "D",
           "skill": "detail",
           "why": "Lama insists that a mere letter and number cannot capture the robot's evident personality.",
@@ -260,7 +260,7 @@
         },
         {
           "stem": "What specific traits of Unit 7 are described as endearing?",
-          "options": ["Its ability to speak several languages", "Its humming after each task and its careful sorting of shoes by size", "Its habit of cooking elaborate meals", "Its tendency to break down frequently"],
+          "options": ["Its ability to speak several different languages at home", "Its humming after each task and its careful sorting of shoes by size", "Its habit of cooking elaborate meals for the whole family", "Its tendency to break down frequently in the middle of the working day"],
           "answer": "B",
           "skill": "detail",
           "why": "The article highlights Unit 7's cheerful hum and its meticulous shoe-sorting as its endearing traits.",
@@ -276,7 +276,7 @@
         },
         {
           "stem": "Why did Faisal's view of the robot change over the course of the evening?",
-          "options": ["Dad ordered him to agree with Lama", "The robot stopped working correctly", "He had never actually disagreed with Lama", "He noticed the same traits his sister had already pointed out"],
+          "options": ["Dad ordered him to agree with Lama about the robot", "The robot stopped working correctly during the evening", "He had never actually disagreed with Lama about it at all", "He noticed the same traits his sister had already pointed out"],
           "answer": "D",
           "skill": "cause-effect",
           "why": "Faisal reconsiders the robot's identity once he pauses to notice the traits Lama had already recognized.",
@@ -284,7 +284,7 @@
         },
         {
           "stem": "What can readers infer about why the family felt the house was 'more complete' after naming the robot?",
-          "options": ["A name gave the robot a place of belonging within the family", "The robot became physically larger after being named", "The family planned to buy a second robot", "The chores were suddenly finished much faster"],
+          "options": ["A name gave the robot a place of belonging within the family", "The robot became physically larger after being named by the whole family", "The family planned to buy a second robot for the kitchen soon", "The chores were suddenly finished much faster once it had a name"],
           "answer": "A",
           "skill": "inference",
           "why": "Giving Unit 7 a genuine name made it feel like a true, included member of the household rather than an appliance.",
@@ -300,7 +300,7 @@
         },
         {
           "stem": "Why does the author describe Faisal's early skepticism before he changes his mind?",
-          "options": ["To show that not everyone agrees at first, which makes the final unanimous choice feel earned", "To argue that older siblings should never be trusted with family decisions", "To explain in detail why Faisal secretly dislikes robots in general", "To criticize Lama's idea as being completely unreasonable and quite unfair"],
+          "options": ["To show that not everyone agrees at first, which makes the final unanimous choice feel earned", "To argue that older siblings should never be trusted with family decisions of any kind", "To explain in detail why Faisal secretly dislikes robots in general and does not want one", "To criticize Lama's idea as being completely unreasonable and also quite unfair to the others"],
           "answer": "A",
           "skill": "author-purpose",
           "why": "Showing Faisal's initial doubt, followed by his change of heart, makes the family's eventual unanimous choice feel earned rather than automatic.",

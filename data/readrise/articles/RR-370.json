@@ -412,10 +412,10 @@
         {
           "stem": "How does the author organize the events in the story?",
           "options": [
-            "By comparing two different villages during the exact same storm",
-            "By explaining bridge-building steps in a numbered how-to list",
+            "By comparing two different villages during the exact same storm and flood",
+            "By explaining bridge-building steps in a numbered how-to list for readers",
             "By telling events in the order they happened, from the flood to the finished crossing",
-            "By switching back and forth between two completely unrelated storms"
+            "By switching back and forth between two completely unrelated storms in the story"
           ],
           "answer": "C",
           "skill": "text-structure",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best captures the central idea of the story?",
           "options": [
-            "A farmer spends an entire season planting crops near a riverbank",
+            "A farmer spends an entire season planting crops near a riverbank, then sells them at the market",
             "A flash flood destroys part of a village's bridge, so villagers act quickly to build a safe crossing",
-            "A village decides to relocate permanently after a minor storm",
-            "A fishing trip is cancelled because of unexpected weather"
+            "A village decides to relocate permanently to another valley after only a minor storm",
+            "A fishing trip is cancelled because of unexpected weather, so the family stays home all week"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -489,10 +489,10 @@
         {
           "stem": "According to Amal's father, why shouldn't the village simply wait for outside assistance?",
           "options": [
-            "Because outside help is forbidden by law in that region",
+            "Because outside help is forbidden by law in that region, and no one may ask for it",
             "Because the village must solve urgent problems itself rather than waiting helplessly",
-            "Because no road connects the village to the main road at all",
-            "Because the villagers do not trust anyone outside their village"
+            "Because no road connects the village to the main road at all, so nobody could ever arrive",
+            "Because the villagers do not trust anyone outside their village, even the nearby towns"
           ],
           "answer": "B",
           "skill": "detail",
@@ -557,10 +557,10 @@
         {
           "stem": "Put these events in the order they happen.",
           "options": [
-            "Amal's father gathers neighbors → the children cross → the bridge breaks",
+            "Amal's father gathers neighbors → the children cross → the bridge breaks → the crowd builds the crossing",
             "The bridge breaks → Amal's father gathers neighbors → the crowd builds the crossing → the children cross",
-            "The crowd builds the crossing → the bridge breaks → the storm begins",
-            "The children cross the new bridge → the storm begins → the bridge breaks"
+            "The crowd builds the crossing → the bridge breaks → the storm begins → Amal's father gathers neighbors",
+            "The children cross the new bridge → the storm begins → the bridge breaks → the crowd builds a bridge"
           ],
           "answer": "B",
           "skill": "sequence",
@@ -574,10 +574,10 @@
         {
           "stem": "How does Amal's role in the story differ from her father's?",
           "options": [
-            "Amal refuses to help at all, while her father does every bit of the work alone",
+            "Amal refuses to help at all, while her father does every bit of the work alone, with the rope and the boat",
             "Amal contributes direct physical help with the rope, while her father organizes the broader effort",
-            "Amal leads the entire project while her father merely watches from a distance",
-            "Amal and her father have identical responsibilities with no distinction at all"
+            "Amal leads the entire project while her father merely watches from a distance, and says nothing at all",
+            "Amal and her father have identical responsibilities with no distinction at all, and do the same job on the rope"
           ],
           "answer": "B",
           "skill": "compare",
@@ -591,9 +591,9 @@
         {
           "stem": "Why does the author end the story by describing what Amal remembers years later about the bridge?",
           "options": [
-            "To describe in detail a completely different bridge in another village",
-            "To criticize Amal's father for acting too quickly during the crisis",
-            "To explain why bridges in general are built from wood rather than stone",
+            "To describe in detail a completely different bridge in another village far away, with its builders",
+            "To criticize Amal's father for acting too quickly during the crisis in the storm, and for his anger",
+            "To explain why bridges in general are built from wood rather than from stone, in most old villages",
             "To emphasize a lasting lesson about facing hardship together rather than waiting passively"
           ],
           "answer": "D",

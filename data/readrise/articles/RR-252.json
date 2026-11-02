@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "The history of Missouri",
+            "The history of Missouri and its farms",
             "A scientist who helped farmers",
-            "How to grow cotton plants",
-            "A long trip to Alabama"
+            "How to grow cotton plants on a farm",
+            "A long trip to Alabama by train"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -182,10 +182,10 @@
         {
           "stem": "What did Carver do after many farmers started growing peanuts?",
           "options": [
-            "He stopped studying plants",
+            "He stopped studying plants and sold his land",
             "He found many new uses for peanuts",
-            "He moved back to Missouri",
-            "He became a farmer himself"
+            "He moved back to Missouri to teach art",
+            "He became a farmer himself and grew peanuts"
           ],
           "answer": "B",
           "skill": "sequence",
@@ -199,10 +199,10 @@
         {
           "stem": "Why did Carver tell farmers to grow peanuts along with cotton?",
           "options": [
-            "Peanuts tasted better than cotton",
-            "Peanuts grew faster than cotton",
+            "Peanuts tasted better than cotton, so people liked them",
+            "Peanuts grew faster than cotton in the same field",
             "Peanuts put good things back into the soil",
-            "Peanuts were much easier to sell"
+            "Peanuts were much easier to sell at the market in town"
           ],
           "answer": "C",
           "skill": "inference",
@@ -295,7 +295,7 @@
           "options": [
             "Carver mainly studied the history of cotton farming.",
             "Carver was a scientist who restored soil and found peanut uses.",
-            "Carver is remembered mostly for building a wagon.",
+            "Carver is remembered mostly for building a wagon and a house.",
             "Carver's research only affected farmers in Missouri."
           ],
           "answer": "B",
@@ -311,9 +311,9 @@
           "stem": "What method did Carver recommend to restore nutrients to tired soil?",
           "options": [
             "Crop rotation using peanuts and sweet potatoes",
-            "Watering the crops twice a day instead",
-            "Burning all of the old crops completely",
-            "Importing new soil from other states"
+            "Watering the crops twice a day instead of letting them dry",
+            "Burning all of the old crops completely and starting over",
+            "Importing new soil from other states by truck and train"
           ],
           "answer": "A",
           "skill": "detail",
@@ -558,9 +558,9 @@
           "stem": "Why most likely did national organizations recognize Carver's scientific contributions?",
           "options": [
             "His research had a lasting, practical impact on farming and soil health",
-            "He was closely related to important government officials",
-            "He was the only agricultural scientist in the country",
-            "His work was limited to just a single Alabama county"
+            "He was closely related to important government officials in Alabama",
+            "He was the only agricultural scientist in the whole country",
+            "His work was limited to just a single small Alabama county"
           ],
           "answer": "A",
           "skill": "inference",

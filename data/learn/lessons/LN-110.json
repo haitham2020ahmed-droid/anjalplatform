@@ -110,9 +110,9 @@
      "passage": "Sign on a gate: DANGER. Big dog. Do not open the gate.",
      "stem": "What is the job of this sign?",
      "options": [
-      "To sell a dog",
-      "To say hello",
-      "To show a game",
+      "To sell a dog to a family",
+      "To say hello to every visitor",
+      "To show a game to children",
       "To warn people to stay out"
      ],
      "answer": 3,
@@ -199,10 +199,10 @@
      "passage": "SCHOOL SPORTS DAY.\nSaturday, 8:00 in the morning.\nWear your sports uniform and bring a hat and water.\nFamilies are welcome to watch!",
      "stem": "What is one purpose of this poster?",
      "options": [
-      "To sell sports uniforms",
+      "To sell sports uniforms to families",
       "To tell students what to wear and bring",
       "To show the results of the races",
-      "To ask families to stay home"
+      "To ask families to stay home that day"
      ],
      "answer": 1,
      "why": "The poster says Wear your sports uniform and bring a hat and water."
@@ -211,8 +211,8 @@
      "passage": "HELP OUR BIRDS.\nIn summer, birds need water.\nPut a bowl of clean water in a shady place on your balcony.\nChange the water every day.",
      "stem": "What does this poster want people to do?",
      "options": [
-      "Keep birds as pets",
-      "Buy bird food",
+      "Keep birds as pets at home",
+      "Buy bird food and seeds",
       "Give birds water in summer",
       "Stay inside in summer"
      ],
@@ -283,8 +283,8 @@
     "stem": "What is the specific purpose of this advertisement?",
     "options": [
      "To get families to sign up children for swimming classes",
-     "To explain why swimming is good exercise",
-     "To describe the coaches at the center",
+     "To explain why swimming is good exercise for young children",
+     "To describe the coaches at the swimming center",
      "To tell families about water safety at the beach"
     ],
     "answer": 0,
@@ -324,10 +324,10 @@
      "passage": "Is your bike old and slow? At Fast Wheel Repairs, we fix brakes, chains and tires in one hour. Bring your bike this week and we will check the tires for free!",
      "stem": "What is the purpose of this ad?",
      "options": [
-      "To sell new bikes",
+      "To sell new bikes at a very low price",
       "To get readers to bring their bikes for repair",
-      "To teach readers to fix their own bikes",
-      "To warn about old bikes"
+      "To teach readers to fix their own bikes at home",
+      "To warn about old bikes on the road"
      ],
      "answer": 1,
      "why": "The ad offers repairs and says Bring your bike this week."
@@ -395,10 +395,10 @@
     "passage": "Did you know that many children in our region do not wear a seatbelt on short trips? Many car crashes happen close to home, often only a few minutes from the front door. A seatbelt can greatly reduce the risk of serious injury in a crash. It takes only two seconds to click it. Parents, before you start the car, check that every child is buckled in, even for a quick trip to the shop. Click it, every trip.",
     "stem": "What is the specific purpose of this public message?",
     "options": [
-     "To explain how seatbelts are made",
-     "To tell children where most crashes happen",
+     "To explain how seatbelts are made and sold in shops",
+     "To tell children where most crashes happen in the city streets",
      "To get parents to make sure children wear seatbelts on every trip",
-     "To warn drivers about busy shopping areas"
+     "To warn drivers about busy shopping areas near schools"
     ],
     "answer": 2,
     "hint": "Find who the message speaks to and the exact action it asks for.",
@@ -427,9 +427,9 @@
      "stem": "What is the specific purpose of this message?",
      "options": [
       "To get people to bring old devices for recycling",
-      "To sell new phones at the town hall",
-      "To explain how metals are mined",
-      "To ask people to repair their phones"
+      "To sell new phones at the town hall today",
+      "To explain how metals are mined from the ground",
+      "To ask people to repair their old phones"
      ],
      "answer": 0,
      "why": "The call to action is bring unwanted phones, chargers and tablets to the town hall, so they can be recycled."
@@ -438,9 +438,9 @@
      "passage": "Thousands of young people already give two hours a week to help in their community. They read to younger children, plant trees and visit older neighbors. Be one of them. Visit the youth center to choose your project. Together, we make our city stronger.",
      "stem": "Why does the ad say Thousands of young people already give two hours a week?",
      "options": [
-      "To show the city is too small",
-      "To report the results of a survey",
-      "To ask older neighbors for help",
+      "To show the city is too small for so many people",
+      "To report the results of a survey of the city",
+      "To ask older neighbors for help with their gardens and shopping",
       "To make readers feel they should join others like them"
      ],
      "answer": 3,
@@ -450,10 +450,10 @@
      "passage": "Running out of energy in the afternoon? You do not need sugary drinks. A glass of cold water and a handful of nuts can keep you going. Choose smart snacks, and feel the difference.",
      "stem": "What is the specific purpose of this ad?",
      "options": [
-      "To sell nuts from one company",
+      "To sell nuts from one company to shoppers in every supermarket",
       "To persuade readers to choose healthier snacks than sugary drinks",
-      "To explain why people get tired",
-      "To ask readers to drink only juice"
+      "To explain why people get tired in the afternoon at school",
+      "To ask readers to drink only juice with every meal and snack"
      ],
      "answer": 1,
      "why": "The message tells readers to choose water and nuts over sugary drinks: Choose smart snacks."

@@ -165,9 +165,9 @@
         {
           "stem": "Why does the heavy block help the motor?",
           "options": [
-            "It makes the doors open and close much faster",
-            "It keeps the lights on in the lift",
-            "It pushes the button for you",
+            "It makes the doors open and close much faster at each floor",
+            "It keeps the lights on in the lift when the power is off",
+            "It pushes the button for you when someone is waiting",
             "It helps lift the car, so the motor does not work so hard"
           ],
           "answer": "D",
@@ -200,9 +200,9 @@
           "stem": "What would most likely happen if there were no lifts in very tall towers?",
           "options": [
             "People would need to use the stairs and might not want to go up",
-            "The towers would be much taller",
-            "The towers would fall down",
-            "People would live only on the top floor"
+            "The towers would be much taller, with more floors at the top",
+            "The towers would fall down because they would be too heavy",
+            "People would live only on the top floor, with a view of the city"
           ],
           "answer": "A",
           "skill": "inference",
@@ -233,10 +233,10 @@
         {
           "stem": "Why might people in a tall tower trust the lift?",
           "options": [
-            "The lift has no cables at all",
-            "The box is made of glass",
+            "The lift has no cables at all, so it floats on air",
+            "The box is made of glass, so people can see out",
             "A brake would stop the box from falling",
-            "The lift moves very slowly"
+            "The lift moves very slowly, so it is safe"
           ],
           "answer": "C",
           "skill": "inference",
@@ -294,9 +294,9 @@
           "stem": "What is the central idea of the article?",
           "options": [
             "Elevators use clever machines and safety parts to carry people up tall buildings",
-            "Elisha Otis built the first skyscraper",
-            "Hydraulic elevators are always faster than cable elevators",
-            "The Kingdom Centre is the tallest tower in the world"
+            "Elisha Otis built the first skyscraper in New York, and the article is about that tower",
+            "Hydraulic elevators are always faster than cable elevators in every building",
+            "The Kingdom Centre is the tallest tower in the world today"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -395,10 +395,10 @@
         {
           "stem": "How is a cable elevator different from a hydraulic elevator?",
           "options": [
-            "One has a car and the other does not",
+            "One has a car for passengers and the other does not have one at all",
             "One is pulled from above by cables, the other is pushed from below",
-            "Only hydraulic elevators have brakes",
-            "Only cable elevators move people"
+            "Only hydraulic elevators have brakes, and the cable ones can stop without them",
+            "Only cable elevators move people, while the hydraulic ones carry only goods"
           ],
           "answer": "B",
           "skill": "compare",
@@ -473,9 +473,9 @@
           "stem": "Which statement best expresses the central idea?",
           "options": [
             "Elevators combine physics ideas such as traction, balance, and safety systems to make tall buildings usable",
-            "The Kingdom Centre has the fastest elevators in the world",
-            "Hydraulic elevators have replaced cable elevators",
-            "Computers have made elevator cables unnecessary"
+            "The Kingdom Centre has the fastest elevators in the world, and they travel more than a mile every minute",
+            "Hydraulic elevators have replaced cable elevators in nearly all tall buildings because they are quieter",
+            "Computers have made elevator cables unnecessary, so new towers are built without any strong ropes at all"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -558,9 +558,9 @@
           "stem": "Why would Otis have his rope cut during a demonstration?",
           "options": [
             "To prove the mechanism would stop the car in front of an audience",
-            "To test how fast the car could fall",
-            "To show that cables were not needed",
-            "To make the elevator lighter"
+            "To test how fast the car could fall to the ground below",
+            "To show that cables were not needed at all in elevators",
+            "To make the elevator lighter for the people riding inside it"
           ],
           "answer": "A",
           "skill": "inference",
@@ -591,10 +591,10 @@
         {
           "stem": "How does the author organize most of the article?",
           "options": [
-            "As a timeline from 1850 to today",
+            "As a timeline from the year 1850 up to today",
             "By explaining each part or system of an elevator and its job",
-            "As a debate about stairs versus elevators",
-            "As a story about a ride in Riyadh"
+            "As a debate about stairs versus elevators in tall buildings",
+            "As a story about a ride in an elevator in Riyadh"
           ],
           "answer": "B",
           "skill": "text-structure",

@@ -148,10 +148,10 @@
         {
           "stem": "Why does a rubbed balloon stick to a wall?",
           "options": [
-            "The balloon is wet",
+            "The balloon is wet, so water holds it on the wall",
             "Things with charges that are not the same pull close",
-            "The wall has glue on it",
-            "Things with the same charge push apart"
+            "The wall has glue on it, so the balloon is stuck there",
+            "Things with the same charge push apart from each other"
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
-            "Balloons are the best way to study science.",
+            "Balloons are the best way to study science in a classroom, since they show every law of physics.",
             "Static electricity happens when electrons move between objects, causing pulls, pushes, and sparks.",
-            "Lightning is more dangerous than a door handle.",
-            "Carpets should not be used in dry cities."
+            "Lightning is more dangerous than a door handle shock, so the article warns about storms only.",
+            "Carpets should not be used in dry cities and homes, because they make static electricity."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -361,10 +361,10 @@
         {
           "stem": "What happens right after a balloon is rubbed on hair?",
           "options": [
-            "The balloon loses all its atoms",
+            "The balloon loses all its atoms in the air",
             "The balloon and the hair both become charged",
-            "The hair becomes humid",
-            "The balloon becomes neutral"
+            "The hair becomes humid and wet at once",
+            "The balloon becomes neutral and stops sticking"
           ],
           "answer": "B",
           "skill": "sequence",
@@ -412,9 +412,9 @@
         {
           "stem": "How does the author organize the article?",
           "options": [
-            "As a list of rules for staying safe",
-            "By telling the life story of a scientist",
-            "By comparing two cities",
+            "As a list of rules for staying safe near lightning and storms at home",
+            "By telling the life story of a scientist who studied static for many years",
+            "By comparing two cities that have many storms every year in the summer months",
             "By starting with a familiar shock, then explaining its cause and other examples"
           ],
           "answer": "D",
@@ -472,10 +472,10 @@
         {
           "stem": "What is the central idea of the article?",
           "options": [
-            "Ancient Greeks invented electricity using amber.",
-            "Static shocks happen only in Riyadh.",
+            "Ancient Greeks invented electricity using amber, which they rubbed with cloth to make light for their homes and temples every night.",
+            "Static shocks happen only in Riyadh, where the air is dry, and they never happen in other cities.",
             "Static electricity results when electrons transfer between materials, creating charges that attract, repel, and discharge as sparks.",
-            "Protons move easily from one object to another."
+            "Protons move easily from one object to another, which is why a balloon can stick to a wall or a sleeve."
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -574,10 +574,10 @@
         {
           "stem": "Why does the author include the history of amber at the end?",
           "options": [
-            "To argue that the Greeks understood atoms",
+            "To argue that the Greeks understood atoms and had already built the first electric machines",
             "To show that people noticed static long ago and to explain where the word electricity comes from",
-            "To give instructions for an experiment with fur",
-            "To prove amber is a kind of metal"
+            "To give instructions for an experiment with fur and amber that readers can try at home",
+            "To prove amber is a kind of metal that can carry electricity through wires and cables"
           ],
           "answer": "B",
           "skill": "author-purpose",
@@ -591,9 +591,9 @@
         {
           "stem": "How is the balloon on the wall different from the hair standing on end?",
           "options": [
-            "Only the balloon has a charge",
-            "The hair is neutral but the balloon is not",
-            "The balloon is pushed away, but the hairs pull together",
+            "Only the balloon has a charge, and the hair has none at all, so they are not alike in any way, except that both move",
+            "The hair is neutral but the balloon is not charged, so only one of them is pulled by the opposite thing, while the other stays still",
+            "The balloon is pushed away, but the hairs pull together, so the balloon shows repulsion and the hair shows attraction between unlike things",
             "The balloon shows attraction between opposite charges, while the hair shows repulsion between like charges"
           ],
           "answer": "D",

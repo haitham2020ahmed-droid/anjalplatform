@@ -233,10 +233,10 @@
         {
           "stem": "Which list shows the right order of what the article tells about a piece of jewelry?",
           "options": [
-            "Museum, wedding, craftsman, grandmother, in reverse order",
+            "Museum, wedding, craftsman, grandmother, told in reverse order, so the museum comes first and the craftsman last",
             "A craftsman makes it, a family wears it, a grandmother gives it to her daughter, a museum later shows old pieces",
-            "Daughter, craftsman, museum, wedding, told backward",
-            "Museum, craftsman, wedding, grandmother, all mixed up"
+            "A daughter wears it, a museum shows it, a wedding happens, and a craftsman makes it, told backward",
+            "Museum, craftsman, wedding, grandmother, all mixed up, with the family and the shop story in no order at all"
           ],
           "answer": "B",
           "skill": "sequence",
@@ -293,9 +293,9 @@
         {
           "stem": "Which sentence best states the main idea of the article?",
           "options": [
-            "Gold jewelry has always been more popular than silver in Saudi Arabia",
+            "Gold jewelry has always been more popular than silver in Saudi Arabia, in every region",
             "Silver jewelry making is a skilled tradition that differs by region in Saudi Arabia",
-            "Silversmiths only ever work in large modern cities today",
+            "Silversmiths only ever work in large modern cities today, with new tools",
             "Filigree is the only decorating technique used in Saudi jewelry"
           ],
           "answer": "B",
@@ -311,9 +311,9 @@
           "stem": "What is filigree?",
           "options": [
             "A technique of twisting thin silver wire into shapes",
-            "A kind of ancient gold coin",
-            "A tool used to carve wood",
-            "A type of wedding dress worn only by brides"
+            "A kind of ancient gold coin used in old markets",
+            "A tool used to carve wood into small shapes",
+            "A type of wedding dress worn only by brides in the north"
           ],
           "answer": "A",
           "skill": "detail",
@@ -381,7 +381,7 @@
             "Because silver has recently become costlier than gold",
             "Because the slow, careful craftsmanship keeps a tradition alive",
             "Because modern machines cannot make any jewelry at all",
-            "Because museums only pay for brand-new jewelry"
+            "Because museums only pay for brand-new jewelry and not old"
           ],
           "answer": "B",
           "skill": "inference",
@@ -412,10 +412,10 @@
         {
           "stem": "How is the article organized?",
           "options": [
-            "As a comparison between two completely different countries",
+            "As a comparison between two completely different countries and their ways of life",
             "By describing jewelry's history, how it is made, and why its patterns differ by region",
-            "As a list of silversmith complaints about customers",
-            "As a single silversmith's daily work schedule"
+            "As a list of silversmith complaints about customers and their prices",
+            "As a single silversmith's daily work schedule from early morning to night"
           ],
           "answer": "B",
           "skill": "text-structure",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best summarizes the central idea of the article?",
           "options": [
-            "Gold jewelry is more valuable than silver in every market",
+            "Gold jewelry is more valuable than silver in every market, so silver is rarely made now.",
             "Saudi silver jewelry reflects a regional heritage built through skilled, patient craftsmanship",
-            "Filigree was invented quite recently, in modern times",
-            "Only museums are legally allowed to display silver jewelry"
+            "Filigree was invented quite recently, in modern times, and old silver was always plain.",
+            "Only museums are legally allowed to display silver jewelry, and shops must keep it hidden."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -489,10 +489,10 @@
         {
           "stem": "According to the article, what role does an apprentice play?",
           "options": [
-            "Selling finished jewelry in a shop",
+            "Selling finished jewelry in a shop to visiting customers",
             "Learning the trade by working beside an experienced silversmith",
-            "Designing museum displays for old jewelry",
-            "Mining silver ore from deep underground mines"
+            "Designing museum displays for old jewelry and ancient coins",
+            "Mining silver ore from deep underground mines in the mountains"
           ],
           "answer": "B",
           "skill": "detail",
@@ -524,9 +524,9 @@
           "stem": "What happens when a silversmith spends years training as an apprentice?",
           "options": [
             "They slowly gain the craftsmanship needed to shape silver well",
-            "They immediately become wealthy from jewelry sales",
-            "They stop needing any tools at all after a year",
-            "They forget the region's traditional patterns"
+            "They immediately become wealthy from jewelry sales to rich visitors",
+            "They stop needing any tools at all after the first year",
+            "They forget the region's traditional patterns and designs"
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -540,9 +540,9 @@
         {
           "stem": "What would most likely happen if silversmiths stopped passing their skills to apprentices?",
           "options": [
-            "Museums would stop collecting any old jewelry at all",
-            "Silver would instantly become more valuable",
-            "Regional patterns would become more detailed",
+            "Museums would stop collecting any old jewelry at all in the world",
+            "Silver would instantly become more valuable than gold in the market",
+            "Regional patterns would become more detailed and harder to copy",
             "The traditional craftsmanship could slowly disappear over time"
           ],
           "answer": "D",
@@ -558,9 +558,9 @@
           "stem": "What do filigree and engraving have in common?",
           "options": [
             "Both are ways silversmiths decorate jewelry with intricate patterns",
-            "Both use only gold instead of silver wire",
-            "Both were invented in the very same decade",
-            "Both require no training at all to learn"
+            "Both use only gold instead of silver wire to make thin shapes",
+            "Both were invented in the very same decade by one craftsman",
+            "Both require no training at all to learn, so anyone can do them"
           ],
           "answer": "A",
           "skill": "compare",

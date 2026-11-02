@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How to make mud bricks at home",
+            "How to make mud bricks at home with sand and water",
             "The history of Diriyah and why it matters to Saudi Arabia",
-            "Why palm trees need a lot of water to grow",
-            "How to plan a trip to the city of Riyadh"
+            "Why palm trees need a lot of water to grow in the desert",
+            "How to plan a trip to the city of Riyadh for a week"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -131,10 +131,10 @@
         {
           "stem": "What did Muhammad bin Saud do in 1727?",
           "options": [
-            "He built the first mud house",
-            "He moved the capital to Riyadh",
+            "He built the first mud house in the valley",
+            "He moved the capital to Riyadh from the old city",
             "He made Diriyah the capital of the first Saudi state",
-            "He planted the first palm trees in the valley"
+            "He planted the first palm trees in the valley by the river"
           ],
           "answer": "C",
           "skill": "detail",
@@ -216,9 +216,9 @@
         {
           "stem": "In the article, the old town \"has been fixed.\" What does fixed mean here?",
           "options": [
-            "Made smaller",
-            "Sold to new owners",
-            "Moved to another place",
+            "Made smaller than it was before",
+            "Sold to new owners for a lot of money",
+            "Moved to another place far away",
             "Repaired so it is in good shape again"
           ],
           "answer": "D",
@@ -234,9 +234,9 @@
           "stem": "Why does Saudi Arabia have Founding Day each year on 22 February?",
           "options": [
             "To remember 1727, when Diriyah became the capital of the first Saudi state",
-            "To celebrate the end of the hot summer season",
-            "To mark the day the first palm tree was planted",
-            "To remember when the army came in 1818"
+            "To celebrate the end of the hot summer season and the start of the rains",
+            "To mark the day the first palm tree was planted in the royal garden",
+            "To remember when the army came in 1818 and the city fell, many years later"
           ],
           "answer": "A",
           "skill": "inference",
@@ -294,8 +294,8 @@
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
             "Diriyah is important because it was the first Saudi capital, and its history is still protected and remembered.",
-            "Mud brick is the best building material in the world.",
-            "Wadi Hanifah is the longest valley in Saudi Arabia.",
+            "Mud brick is the best building material in the world, and so every city should use it for all of its houses.",
+            "Wadi Hanifah is the longest valley in Saudi Arabia, and it is the main subject of the whole article.",
             "Riyadh has always been the capital of every Saudi state, from the very beginning until today."
           ],
           "answer": "A",
@@ -344,10 +344,10 @@
         {
           "stem": "What was one effect of the attack in 1818?",
           "options": [
-            "Diriyah became richer than before",
+            "Diriyah became richer than before, because the traders brought more gold",
             "Much of the town was destroyed, and later Riyadh became the capital",
-            "The walls became thicker and stronger",
-            "More traders came to Diriyah"
+            "The walls became thicker and stronger, so the town was safe again",
+            "More traders came to Diriyah to buy goods from the people there"
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -378,10 +378,10 @@
         {
           "stem": "The article says At-Turaif is important to the \"heritage of the whole world.\" What does heritage mean here?",
           "options": [
-            "The weather of a place",
-            "New buildings and roads",
+            "The weather of a place in each season of the year",
+            "New buildings and roads that are built in the city",
             "History and traditions passed down from the past",
-            "Money earned from trade"
+            "Money earned from trade in the markets of the town"
           ],
           "answer": "C",
           "skill": "vocabulary",
@@ -506,10 +506,10 @@
         {
           "stem": "How did Diriyah's architecture respond to the desert climate?",
           "options": [
-            "Large glass windows let in sunlight",
-            "Buildings were raised on wooden stilts",
+            "Large glass windows let in sunlight and warmed the rooms",
+            "Buildings were raised on wooden stilts above the sand",
             "Thick walls kept rooms cool; small openings let air move",
-            "Houses were painted white to reflect the sun"
+            "Houses were painted white to reflect the sun's heat away"
           ],
           "answer": "C",
           "skill": "detail",
@@ -557,10 +557,10 @@
         {
           "stem": "The article says the forces \"placed the town under siege.\" What does this mean?",
           "options": [
-            "They visited the town to trade",
+            "They visited the town to trade with its people",
             "They surrounded the town to force it to surrender",
-            "They helped restore the town",
-            "They built new palaces in the town"
+            "They helped restore the town after the war",
+            "They built new palaces in the town square"
           ],
           "answer": "B",
           "skill": "vocabulary",

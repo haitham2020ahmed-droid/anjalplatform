@@ -80,7 +80,7 @@
         "The teacher thanked him and accepted the work later.",
         "He received a long lecture from the teacher.",
         "He had to redo the homework during break.",
-        "Omar was punished instead of him."
+        "Omar was punished instead of him by the teacher in the class."
       ],
       "answer": "A",
       "why": "Mr Kareem thanked him for his honesty and told him to bring the homework tomorrow because he would still mark it."
@@ -125,9 +125,9 @@
       "difficulty": 3,
       "stem": "In your opinion, which information in the story is the LEAST clear or complete?",
       "options": [
-        "which subject the homework was for",
-        "what Faisal wrote on his checklist",
-        "what the teacher said to Faisal",
+        "which subject the homework was for on that day",
+        "what Faisal wrote on his checklist before school",
+        "what the teacher said to Faisal at the start",
         "how Omar reacted when Faisal told the truth"
       ],
       "answer": "D",

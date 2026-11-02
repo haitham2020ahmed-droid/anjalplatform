@@ -199,9 +199,9 @@
         {
           "stem": "Why would a roof garden help when there is a big rain?",
           "options": [
-            "The plants stop the rain from falling.",
-            "The roof gets wet and shiny.",
-            "The rain makes the bees fly away.",
+            "The plants stop the rain from falling on the roof.",
+            "The roof gets wet and shiny when the rain hits it.",
+            "The rain makes the bees fly away from the garden.",
             "The soil soaks up water, so less floods the streets."
           ],
           "answer": "D",
@@ -294,9 +294,9 @@
           "stem": "Which sentence best states the main idea of the article?",
           "options": [
             "Rooftop gardens cool buildings and help nature, but they must be planned carefully.",
-            "Every roof in the world should have a pool.",
-            "Concrete is the best material for cities.",
-            "Only farmers can grow food."
+            "Every roof in the world should have a pool, so that buildings stay cool all summer.",
+            "Concrete is the best material for cities, so gardens should never be built on roofs.",
+            "Only farmers can grow food, so cities should leave all the planting to the villages."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -344,9 +344,9 @@
         {
           "stem": "Why do builders add a layer that lets extra water drain away?",
           "options": [
-            "To make the plants grow taller",
-            "So bees can drink from it",
-            "To keep the roof shiny",
+            "To make the plants grow taller and greener in the summer sun",
+            "So bees can drink from it when the weather is hot",
+            "To keep the roof shiny and bright for the visitors",
             "So water does not collect and make the roof heavy or leak"
           ],
           "answer": "D",
@@ -412,10 +412,10 @@
         {
           "stem": "How does the author organize most of the article?",
           "options": [
-            "By telling a story about one family",
+            "By telling a story about one family who grows plants on a roof",
             "By listing the benefits of rooftop gardens and then the challenges",
-            "By comparing roofs in different countries",
-            "By giving steps for cooking vegetables"
+            "By comparing roofs in different countries around the world",
+            "By giving steps for cooking vegetables in a kitchen"
           ],
           "answer": "B",
           "skill": "text-structure",
@@ -473,9 +473,9 @@
           "stem": "What is the central idea of the article?",
           "options": [
             "Rooftop gardens offer many environmental benefits but require careful engineering.",
-            "Air conditioning is the only way to cool a city.",
-            "The urban heat island effect cannot be changed.",
-            "Tomatoes grow best on rooftops."
+            "Air conditioning is the only way to cool a city, and plants cannot help at all.",
+            "The urban heat island effect cannot be changed by any plan or design.",
+            "Tomatoes grow best on rooftops, and that is why most cities build gardens."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -541,9 +541,9 @@
           "stem": "Why might drip irrigation be especially useful in Saudi Arabia?",
           "options": [
             "It delivers water directly to the roots, reducing waste in a dry climate.",
-            "It makes it rain more often.",
-            "It cools the building without plants.",
-            "It removes the need for soil."
+            "It makes it rain more often in the desert, so the farm needs less water.",
+            "It cools the building without plants, and so it lowers the cost of air conditioning.",
+            "It removes the need for soil, and so plants can grow in the air with only pipes."
           ],
           "answer": "A",
           "skill": "inference",
@@ -574,10 +574,10 @@
         {
           "stem": "How does the soil's job differ from the plants' job in cooling a building?",
           "options": [
-            "The soil gives shade, while plants block leaks.",
-            "The soil and plants both make electricity.",
+            "The soil gives shade to the walls, while the plants block leaks in the roof.",
+            "The soil and plants both make electricity for the building, day and night.",
             "The soil provides insulation, while the plants provide shade and evaporation.",
-            "The soil attracts birds, while plants absorb rain."
+            "The soil attracts birds to the roof, while the plants absorb rain from the sky."
           ],
           "answer": "C",
           "skill": "compare",

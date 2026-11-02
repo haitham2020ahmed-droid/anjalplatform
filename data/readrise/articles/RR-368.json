@@ -88,7 +88,7 @@
       "questions": [
         {
           "stem": "What is this story mostly about?",
-          "options": ["Children and their Grandpa find an old spring after the village spring dries up", "A family learns to fish in a nearby mountain river", "A village decides to move far away to a new mountain", "A boy teaches his Grandpa how to read books"],
+          "options": ["Children and their Grandpa find an old spring after the village spring dries up", "A family learns to fish in a nearby mountain river after their old well dries up", "A village decides to move far away to a new mountain when the rain stops", "A boy teaches his Grandpa how to read books and write letters in school"],
           "answer": "A",
           "skill": "central-idea",
           "why": "The story follows Noor and Hamza hiking with their Grandpa to find an old spring after their village spring stops flowing.",
@@ -144,7 +144,7 @@
         },
         {
           "stem": "Why does the author tell about Grandpa teaching the children about rain and rock?",
-          "options": ["To explain the steps for building a new village", "To describe how to climb a tall mountain safely", "To show that rain can be dangerous for hikers", "To help readers understand where spring water comes from"],
+          "options": ["To explain the steps for building a new village by the hills", "To describe how to climb a tall mountain safely with a guide", "To show that rain can be dangerous for hikers on rocky paths", "To help readers understand where spring water comes from"],
           "answer": "D",
           "skill": "author-purpose",
           "why": "Grandpa's explanation about rain soaking into rock helps readers understand how spring water forms.",
@@ -166,7 +166,7 @@
       "questions": [
         {
           "stem": "Which sentence best states the central idea of the story?",
-          "options": ["After their village spring dries up, children and their Grandpa follow an old trail to find a hidden source their family once relied on.", "A Grandpa teaches his grandchildren how to build a brand-new well.", "A village argues loudly about who should fetch the water each morning.", "A family decides that finding water is not worth worrying about."],
+          "options": ["After their village spring dries up, children and their Grandpa follow an old trail to find a hidden source their family once relied on.", "A Grandpa teaches his grandchildren how to build a brand-new well in the village yard, with bricks and ropes, and they find water there, too.", "A village argues loudly about who should fetch the water each morning from the spring, and the elders choose a plan that is fair for all of the families.", "A family decides that finding water is not worth worrying about, so they move to the city, and the children never visit the old trail or the spring again."],
           "answer": "A",
           "skill": "central-idea",
           "why": "The story centers on the children and their Grandpa hiking an old trail to find a hidden water source after the village spring fails.",
@@ -222,7 +222,7 @@
         },
         {
           "stem": "How does the author mainly organize this story?",
-          "options": ["By comparing two different villages that never actually meet", "By listing several rules for saving water during a drought", "By describing each nearby mountain peak one at a time", "By following events in order, from the dry spring to finding the old one"],
+          "options": ["By comparing two different villages that never actually meet each other", "By listing several rules for saving water during a long drought in the village", "By describing each nearby mountain peak one at a time there", "By following events in order, from the dry spring to finding the old one"],
           "answer": "D",
           "skill": "text-structure",
           "why": "The story moves in time order: the spring slows and stops, Grandpa remembers an old spring, and the family hikes to find it.",
@@ -244,7 +244,7 @@
       "questions": [
         {
           "stem": "Which statement best expresses the central idea of the story?",
-          "options": ["After a trusted spring runs dry, a Grandpa's legacy of knowledge leads his grandchildren across difficult terrain to a forgotten, sustainable source.", "The story argues that villages should never depend on a single spring for water.", "The story mainly explains how to measure the depth of an underground aquifer.", "A village abandons the mountains entirely after a single dry season."],
+          "options": ["After a trusted spring runs dry, a Grandpa's legacy of knowledge leads his grandchildren across difficult terrain to a forgotten, sustainable source.", "The story argues that villages should never depend on a single spring for their water, because springs dry up every summer.", "The story mainly explains how to measure the depth of an underground aquifer with a long rope and a stone.", "A village abandons the mountains entirely after a single dry season and moves to the city by the sea, and never returns, because its people are tired."],
           "answer": "A",
           "skill": "central-idea",
           "why": "The story centers on the Grandpa drawing on his own childhood knowledge to lead the children across the terrain to a sustainable old spring once the village's spring fails.",
@@ -260,7 +260,7 @@
         },
         {
           "stem": "What evidence shows Grandpa's personal connection to the old spring?",
-          "options": ["He had personally built the old trail as a young man", "He had relied on that spring's aquifer as a child, guided by his own grandparents", "He had read about the old spring in a recent newspaper", "He had discovered the old spring for the very first time that day"],
+          "options": ["He had personally built the old trail as a young man with his friends", "He had relied on that spring's aquifer as a child, guided by his own grandparents", "He had read about the old spring in a recent newspaper article last year", "He had discovered the old spring for the very first time that day in the hills"],
           "answer": "B",
           "skill": "detail",
           "why": "The story explains that his own grandparents relied on that spring long ago, which is why he remembers the trail.",
@@ -276,7 +276,7 @@
         },
         {
           "stem": "What can readers infer about why the village never considered where its water came from before the spring dried up?",
-          "options": ["The spring's steady flow across many generations had made its source seem permanent and unremarkable", "No one in the village had ever been curious about nature at all", "The village had no elders who remembered anything useful", "The spring had only existed for a single year before this story"],
+          "options": ["The spring's steady flow across many generations had made its source seem permanent and unremarkable", "No one in the village had ever been curious about nature at all, so they never asked questions", "The village had no elders who remembered anything useful about the land, the rain or the spring", "The spring had only existed for a single year before this story, so nobody had time to wonder"],
           "answer": "A",
           "skill": "inference",
           "why": "Because the spring had flowed steadily for generations, villagers had no reason to question where it came from until it failed.",
@@ -292,7 +292,7 @@
         },
         {
           "stem": "Why does the author explain in detail how rain filters through rock to form a spring?",
-          "options": ["To argue that mountain springs are more reliable than rivers", "To help readers understand the natural process behind the family's solution", "To criticize the village for building pipes in the first place", "To suggest that rock formations are more interesting than water"],
+          "options": ["To argue that mountain springs are more reliable than rivers in the dry season", "To help readers understand the natural process behind the family's solution", "To criticize the village for building pipes in the first place, years ago", "To suggest that rock formations are more interesting than water to scientists"],
           "answer": "B",
           "skill": "author-purpose",
           "why": "Grandpa's explanation of how rain filters through rock helps readers understand why a second spring could exist and still be flowing.",
@@ -300,7 +300,7 @@
         },
         {
           "stem": "How are Grandpa's and the children's roles in the story different?",
-          "options": ["Grandpa refuses to walk, while the children do all the hiking alone", "Grandpa forgets the trail entirely, while the children lead the way instead", "Grandpa cares only about the new spring, while the children care only about the old one", "Grandpa provides the legacy of knowledge and memory, while the children provide energy and willingness to learn"],
+          "options": ["Grandpa refuses to walk, while the children do all the hiking alone, far ahead of him and without any map", "Grandpa forgets the trail entirely, while the children lead the way instead of him, because they know the hills", "Grandpa cares only about the new spring, while the children care only about the old one that dried up long ago", "Grandpa provides the legacy of knowledge and memory, while the children provide energy and willingness to learn"],
           "answer": "D",
           "skill": "compare",
           "why": "Grandpa supplies the memory and knowledge of the old trail and spring, while Noor and Hamza contribute energy and eagerness to learn along the way.",

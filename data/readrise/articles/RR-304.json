@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How to build a stone house in a city",
+            "How to build a stone house in a big city with workers",
             "How a tent made of hair let desert families move easily",
-            "Why camels can go without water for days",
-            "How to weave a colorful rug for a floor"
+            "Why camels can go without water for many days in the heat",
+            "How to weave a colorful rug for a floor with wool"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -165,10 +165,10 @@
         {
           "stem": "The article says families had to move often. What does move mean?",
           "options": [
-            "To stay in the same spot",
+            "To stay in the same spot all year",
             "To go from one place to another",
-            "To build a house of stone",
-            "To weave cloth from hair"
+            "To build a house of stone and mud",
+            "To weave cloth from hair and wool"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -328,9 +328,9 @@
           "stem": "According to the article, what keeps the tent steady during a sandstorm?",
           "options": [
             "Its low, wide shape and heavy panels",
-            "A frame made of steel bars",
-            "Deep holes dug around the tent",
-            "A roof made of glass panels"
+            "A frame made of steel bars and bolts",
+            "Deep holes dug in the sand all around the tent",
+            "A roof made of glass panels and wood"
           ],
           "answer": "A",
           "skill": "detail",
@@ -523,10 +523,10 @@
         {
           "stem": "The article describes the tent as remarkably resilient. What does resilient mean?",
           "options": [
-            "Likely to break under light pressure",
+            "Likely to break under light pressure from wind",
             "Able to hold up under difficult conditions",
-            "Covered completely in bright colors",
-            "Built only for a single season"
+            "Covered completely in bright colors and patterns",
+            "Built only for a single season of the year"
           ],
           "answer": "B",
           "skill": "vocabulary",

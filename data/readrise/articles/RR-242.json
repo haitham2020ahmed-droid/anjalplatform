@@ -112,7 +112,7 @@
         },
         {
           "stem": "In the article, the word diaphragm means —",
-          "options": ["a tiny bone in your ear", "a muscle under your lungs that helps you breathe", "a kind of loud yawn", "a drink that causes hiccups"],
+          "options": ["a tiny bone in your ear that helps you hear sounds", "a muscle under your lungs that helps you breathe", "a kind of loud yawn that you make at night", "a drink that causes the hiccups in your throat"],
           "answer": "B",
           "skill": "vocabulary",
           "why": "The article explains that the diaphragm is a muscle under your lungs that helps you breathe.",
@@ -120,7 +120,7 @@
         },
         {
           "stem": "Why might you yawn after seeing a friend yawn?",
-          "options": ["Because yawning is contagious and can spread between people", "Because your friend made you angry", "Because the room suddenly got darker", "Because you are not allowed to yawn first"],
+          "options": ["Because yawning is contagious and can spread between people", "Because your friend made you angry and tired at the same time", "Because the room suddenly got darker and you felt sleepy", "Because you are not allowed to yawn first in front of others"],
           "answer": "A",
           "skill": "inference",
           "why": "The article explains that yawning can spread from person to person.",

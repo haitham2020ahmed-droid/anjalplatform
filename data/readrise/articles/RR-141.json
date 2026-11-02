@@ -182,10 +182,10 @@
         {
           "stem": "How were Zaha's buildings different from most buildings?",
           "options": [
-            "They were all very small.",
+            "They were all very small, like houses made for toys and dolls",
             "They had bending walls and roofs instead of flat, square sides.",
-            "They were made only of sand.",
-            "They had no doors or windows."
+            "They were made only of sand and were rebuilt after every storm",
+            "They had no doors or windows, so people entered from the roof"
           ],
           "answer": "B",
           "skill": "compare",
@@ -199,10 +199,10 @@
         {
           "stem": "What happened after people said her plans were too hard to make?",
           "options": [
-            "She stopped making plans.",
-            "She moved back home to Baghdad for good.",
+            "She stopped making plans and went to live in a quiet town",
+            "She moved back home to Baghdad for good and never returned",
             "She kept going, and later her plans came to life.",
-            "She became a math teacher."
+            "She became a math teacher at a school for girls"
           ],
           "answer": "C",
           "skill": "sequence",
@@ -217,9 +217,9 @@
           "stem": "What does winning the top prize in 2004 tell you about Zaha?",
           "options": [
             "Her work was seen as some of the best in the world.",
-            "She was the youngest architect ever.",
-            "She had built more buildings than anyone.",
-            "She stopped working after that."
+            "She was the youngest architect ever to win the top prize.",
+            "She had built more buildings than anyone else.",
+            "She stopped working after that and went home."
           ],
           "answer": "A",
           "skill": "inference",
@@ -233,10 +233,10 @@
         {
           "stem": "Why does the author tell us that many of her plans were not built at first?",
           "options": [
-            "To show that her ideas were bad",
-            "To explain the steps for how to build a pool",
+            "To show that her ideas were bad and nobody liked them",
+            "To explain the steps for how to build a swimming pool",
             "To show that she did not give up when things were hard",
-            "To prove that London had no builders"
+            "To prove that London had no builders at all in that time"
           ],
           "answer": "C",
           "skill": "author-purpose",
@@ -294,9 +294,9 @@
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
             "Zaha Hadid's new ideas about curved buildings were doubted at first but later changed architecture around the world.",
-            "Zaha Hadid designed only buildings in London.",
-            "Architects should always use square corners.",
-            "The Pritzker Prize is given every year to a woman."
+            "Zaha Hadid designed only buildings in London, where she lived and worked for most of her life.",
+            "Architects should always use square corners, because curved buildings are weaker, cost more and look strange to people.",
+            "The Pritzker Prize is given every year to a woman who designs the most unusual building."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -361,10 +361,10 @@
         {
           "stem": "Why were few of Zaha's plans built in her early years?",
           "options": [
-            "She did not want her plans built.",
-            "She only drew plans for buildings in Iraq.",
+            "She did not want her plans built, so she hid them in a drawer for years.",
+            "She only drew plans for buildings in Iraq, so nobody else asked her.",
             "Some people thought her ideas were too strange or too hard to build.",
-            "She had not yet learned to draw."
+            "She had not yet learned to draw, so she could not show her ideas."
           ],
           "answer": "C",
           "skill": "cause-effect",
@@ -378,10 +378,10 @@
         {
           "stem": "Why might Zaha be called the \"Queen of the Curve\"?",
           "options": [
-            "She was born into a royal family.",
-            "She won a prize for drawing circles.",
+            "She was born into a royal family in Iraq",
+            "She won a prize for drawing circles in school",
             "Her buildings use bending walls and roofs.",
-            "She designed roads with many turns."
+            "She designed roads with many turns and bends"
           ],
           "answer": "C",
           "skill": "inference",
@@ -396,9 +396,9 @@
           "stem": "What can you infer about Zaha from her winning the Hong Kong competition even though the building was never made?",
           "options": [
             "Experts liked her ideas early on, even before she had built much.",
-            "She lost interest in architecture.",
-            "Hong Kong did not allow new buildings.",
-            "She was not a skilled designer."
+            "She lost interest in architecture after that and left her studies.",
+            "Hong Kong did not allow any new buildings to be built there.",
+            "She was not a skilled designer, so the judges felt sorry for her."
           ],
           "answer": "A",
           "skill": "inference",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
-            "Zaha Hadid succeeded mainly because her buildings were easy and cheap to build.",
+            "Zaha Hadid succeeded mainly because her buildings were easy and cheap to build for every client.",
             "Through persistence and bold ideas, Zaha Hadid changed what architecture could look like and left a lasting legacy.",
-            "Zaha Hadid preferred painting to designing buildings.",
-            "Zaha Hadid's work was admired only after her death."
+            "Zaha Hadid preferred painting to designing buildings, and she only drew for fun in her later years, far from any city or building site.",
+            "Zaha Hadid's work was admired only after her death, and no one praised it while she lived."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -575,9 +575,9 @@
           "stem": "What can you infer from the fact that the Hong Kong competition win never became a building?",
           "options": [
             "Winning a design competition does not always mean a project will be built.",
-            "Hong Kong did not like modern architecture.",
-            "Zaha withdrew because she disliked the plan.",
-            "The competition was for painting, not building."
+            "Hong Kong did not like modern architecture, so it chose a plain building instead.",
+            "Zaha withdrew because she disliked the plan, and she asked for a new one.",
+            "The competition was for painting, not building, so no house could be made."
           ],
           "answer": "A",
           "skill": "inference",

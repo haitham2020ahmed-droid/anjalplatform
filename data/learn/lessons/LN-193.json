@@ -90,10 +90,10 @@
     "passage": "Mr. Ali held up two apples. \"Let's compare them,\" he said. One apple was big and red. The other apple was small and green. \"But they are both round!\" said Sami.",
     "stem": "What does compare mean?",
     "options": [
-     "Eat both apples at lunch.",
+     "Eat both apples at lunch time today.",
      "See how things are the same and different.",
-     "Cut each apple in half.",
-     "Count the apples one by one."
+     "Cut each apple in half with a knife.",
+     "Count the apples one by one on the table."
     ],
     "answer": 1,
     "hint": "Look at what the class does after Mr. Ali says the word.",
@@ -121,10 +121,10 @@
      "passage": "The teacher said, \"Please describe your pet.\" Omar said, \"My cat is white. She has blue eyes and a long tail.\"",
      "stem": "What does describe mean?",
      "options": [
-      "Draw a picture.",
+      "Draw a picture of your pet.",
       "Tell what something is like.",
-      "Feed a pet.",
-      "Ask a question."
+      "Feed a pet some food and water.",
+      "Ask a question to your friend."
      ],
      "answer": 1,
      "why": "Omar told **what his cat is like**: white, blue eyes, long tail."
@@ -133,9 +133,9 @@
      "passage": "Mom said, \"Please sort the socks.\" I put the white socks in one pile. I put the black socks in another pile.",
      "stem": "What does sort mean?",
      "options": [
-      "Wash the socks.",
-      "Lose the socks.",
-      "Wear the socks.",
+      "Wash the socks in water.",
+      "Lose the socks at school.",
+      "Wear the socks every day.",
       "Put things into groups."
      ],
      "answer": 3,
@@ -146,9 +146,9 @@
      "stem": "What does predict mean?",
      "options": [
       "Say what you think will happen next.",
-      "Look at the sky.",
-      "Run inside fast.",
-      "Draw a cloud."
+      "Look at the sky to see the clouds.",
+      "Run inside fast when it rains.",
+      "Draw a cloud in your notebook now."
      ],
      "answer": 0,
      "why": "Sara said what she thinks **will happen**: it will rain soon."
@@ -200,7 +200,7 @@
     "passage": "Before counting, our teacher asked us to estimate how many dates were in the bowl. I looked at the size of the bowl and the size of one date. Then I guessed about fifty. Sara thought there were about forty. When we finally counted them, there were forty-six. We were both close!",
     "stem": "What does estimate mean?",
     "options": [
-     "Count each thing exactly.",
+     "Count each thing exactly, one by one.",
      "Share the dates with the class.",
      "Make a careful guess about an amount.",
      "Write the number in a notebook."
@@ -233,9 +233,9 @@
      "stem": "What does explain mean?",
      "options": [
       "Tell how or why, so others understand.",
-      "Write the answer down quickly.",
-      "Say that the answer is wrong.",
-      "Ask the teacher to help her."
+      "Write the answer down quickly on paper.",
+      "Say that the answer is wrong and give no reason.",
+      "Ask the teacher to help her with the work."
      ],
      "answer": 0,
      "why": "Nouf told **how** she solved it and **why** each step worked."
@@ -244,9 +244,9 @@
      "passage": "\"Draw a plant and label its parts,\" said Ms. Rana. We wrote root, stem and leaf next to the right parts of our drawings.",
      "stem": "What does label mean?",
      "options": [
-      "Colour a picture.",
-      "Cut out a picture.",
-      "Count the parts.",
+      "Colour a picture with bright pens.",
+      "Cut out a picture with scissors.",
+      "Count the parts of a picture.",
       "Write names on parts of a picture."
      ],
      "answer": 3,
@@ -256,10 +256,10 @@
      "passage": "Our class wanted to know which ball bounces highest. We dropped three balls and measured each bounce. The results showed that the rubber ball bounced highest.",
      "stem": "What are results?",
      "options": [
-      "The balls the class used.",
+      "The balls the class used in the test.",
       "What was found at the end of a test.",
-      "The questions the class asked.",
-      "The rules of a game."
+      "The questions the class asked at the start.",
+      "The rules of a game the class played."
      ],
      "answer": 1,
      "why": "The results **showed** which ball bounced highest: what they found out."
@@ -311,9 +311,9 @@
     "passage": "Our class planted two bean seeds in identical pots. We placed one pot on a sunny windowsill and the other in a dark cupboard. We watered both the same amount every day. After two weeks, the plant on the windowsill was tall and green. The plant in the cupboard was pale and thin. Based on this evidence, we concluded that plants need light to grow well.",
     "stem": "What does evidence mean in this passage?",
     "options": [
-     "A guess made before the test.",
-     "The pots the plants grew in.",
-     "A plan for the next experiment.",
+     "A guess made before the test, about what would happen.",
+     "The pots the plants grew in, which the class kept clean.",
+     "A plan for the next experiment that the class will do.",
      "The facts the class saw that show something is true."
     ],
     "answer": 3,
@@ -366,10 +366,10 @@
      "passage": "After reading all the reports, the scientists concluded that the lake was becoming saltier each year.",
      "stem": "What does concluded mean?",
      "options": [
-      "Started a new report.",
-      "Wrote the reports quickly.",
+      "Started a new report for the class.",
+      "Wrote the reports quickly and neatly last week.",
       "Decided something after studying the facts.",
-      "Asked a question."
+      "Asked a question to the whole class."
      ],
      "answer": 2,
      "why": "They read **all the reports** first, then decided what was true."
@@ -422,9 +422,9 @@
     "stem": "What does significant mean in this passage?",
     "options": [
      "Large enough to be important and worth acting on.",
-     "Surprising but not very important.",
-     "Based on a mistake in the survey.",
-     "About walking and exercise."
+     "Surprising but not very important to most people.",
+     "Based on a mistake made in the survey results.",
+     "About walking and doing exercise in the park."
     ],
     "answer": 0,
     "hint": "Look at the numbers, what the principal did, and the tiny difference the writer compares it with.",
@@ -465,10 +465,10 @@
      "passage": "The story of the match is told from the goalkeeper's perspective. Readers learn only what he sees, hears and feels as the ball flies toward him.",
      "stem": "What does perspective mean here?",
      "options": [
-      "The final score of a match.",
+      "The final score of a match at the stadium.",
       "A way of seeing events: a point of view.",
       "A long description of a stadium.",
-      "A rule of the game."
+      "A rule of the game that players must obey."
      ],
      "answer": 1,
      "why": "Readers learn **only what he sees and feels**: the story is seen through his eyes."
@@ -478,8 +478,8 @@
      "stem": "What does emphasise mean?",
      "options": [
       "Hide something from readers.",
-      "Explain something slowly.",
-      "Make something shorter.",
+      "Explain something slowly and carefully.",
+      "Make something shorter and smaller.",
       "Give something special importance."
      ],
      "answer": 3,

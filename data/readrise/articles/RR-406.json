@@ -234,7 +234,7 @@
           "stem": "Why does the author have Dalia, a visiting kid, find the bug instead of an adult?",
           "options": [
             "To show that careful eyes can spot small mistakes, no matter who is looking",
-            "To show that children know more about machines than grown adults",
+            "To show that children know more about machines than grown adults do in the factory",
             "To explain in detail how big toy factories are usually built",
             "To describe exactly what Dalia had for breakfast that morning"
           ],
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the central idea of the story?",
           "options": [
-            "A factory decides to stop using every single robot after they misbehave",
+            "A factory decides to stop using every single robot after they misbehave in one week",
             "A visiting girl helps engineers trace a strange robot problem to one small coding bug",
-            "A factory builds a brand-new kind of helper robot from scratch",
-            "An engineer argues loudly with a worker about the brand-new update"
+            "A factory builds a brand-new kind of helper robot from scratch with no help from anyone",
+            "An engineer argues loudly with a worker about the brand-new update to the factory system"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -327,9 +327,9 @@
         {
           "stem": "What two strange behaviors do the robots show?",
           "options": [
-            "One sings a happy song; another dances around in circles",
-            "One turns off completely; another suddenly catches on fire",
-            "One leaves the factory; another calls loudly for help",
+            "One sings a happy song; another dances around in circles for the crowd",
+            "One turns off completely; another suddenly catches on fire in the hall",
+            "One leaves the factory; another calls loudly for help from the street",
             "One repeats a word; another puts a toy back down instead of packing it"
           ],
           "answer": "D",
@@ -344,10 +344,10 @@
         {
           "stem": "Why does the engineer's joke about a \"strike\" turn out not to be literally true?",
           "options": [
-            "The robots were actually asking for a well-deserved day off",
-            "The robots were simply far too tired to keep on working all day",
+            "The robots were actually asking for a well-deserved day off from their work",
+            "The robots were simply far too tired to keep on working all day long",
             "Robots cannot feel anger and choose to stop working; they only follow their code",
-            "The robots were protesting the brand-new update on purpose"
+            "The robots were protesting the brand-new update on purpose, to show anger"
           ],
           "answer": "C",
           "skill": "cause-effect",
@@ -413,9 +413,9 @@
           "stem": "Why does the author include Dalia, a child, as the one who spots the bug?",
           "options": [
             "To show that a fresh, careful look can catch a mistake experienced adults might overlook",
-            "To prove that children should run the entire factory instead of engineers",
-            "To explain why toy factories usually hire many extra young workers",
-            "To describe exactly how Dalia first learned to read code in school"
+            "To prove that children should run the entire factory instead of engineers, who are too slow",
+            "To explain why toy factories usually hire many extra young workers in the summer",
+            "To describe exactly how Dalia first learned to read code in school, step by step"
           ],
           "answer": "A",
           "skill": "author-purpose",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best captures the central idea of the story?",
           "options": [
-            "A factory abandons every single one of its robots after they repeatedly malfunction without explanation",
+            "A factory abandons every single one of its robots after they repeatedly malfunction without explanation, and sends the workers home for good",
             "A visiting child's careful observation helps engineers diagnose a confusing factory-wide malfunction down to one tiny coding error",
-            "A factory redesigns its entire robotic workforce completely overnight without any warning at all",
-            "An engineer and a technician publicly and quite loudly disagree about how best to run the factory"
+            "A factory redesigns its entire robotic workforce completely overnight without any warning at all to the people who work there",
+            "An engineer and a technician publicly and quite loudly disagree about how best to run the factory, and nobody solves the problem"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -523,9 +523,9 @@
         {
           "stem": "What can be inferred about why Ms. Huda studies the update \"line by line\" rather than guessing at a fix?",
           "options": [
-            "She actually suspects the robots' hardware, not their software, is at fault",
-            "She genuinely wants to memorize the entire software update for later personal use",
-            "She is simply following strict factory rules that require a slow, careful review",
+            "She actually suspects the robots' hardware, not their software, is at fault, so she checks the machines",
+            "She genuinely wants to memorize the entire software update for later personal use at home",
+            "She is simply following strict factory rules that require a slow, careful review of all work",
             "A single misplaced character can be nearly invisible unless each line is checked systematically"
           ],
           "answer": "D",
@@ -575,9 +575,9 @@
           "stem": "Which comparison best matches the relationship between the robots' malfunction and its cause, as described in the story?",
           "options": [
             "A malfunction is to a missing space as a locked door is to a missing key",
-            "A malfunction is to an entire factory as a toy is to a box",
-            "A malfunction is to Dalia as an update is to Ms. Huda",
-            "A malfunction is to a technician as a joke is to a robot"
+            "A malfunction is to an entire factory as a toy is to a box in a shop",
+            "A malfunction is to Dalia as an update is to Ms. Huda and the class",
+            "A malfunction is to a technician as a joke is to a robot or a machine"
           ],
           "answer": "A",
           "skill": "compare",
@@ -591,10 +591,10 @@
         {
           "stem": "What does the story suggest would happen if Ms. Huda tried to override the frozen robots' behavior without first finding the bug?",
           "options": [
-            "The robots would immediately and completely start working perfectly again on their own",
-            "The robots would gradually develop a permanent personality change over time",
+            "The robots would immediately and completely start working perfectly again on their own without help",
+            "The robots would gradually develop a permanent personality change over time, like new people",
             "The robots would likely keep malfunctioning, since the underlying syntax error would still be unresolved",
-            "The robots would flatly and permanently refuse to ever receive another software update"
+            "The robots would flatly and permanently refuse to ever receive another software update from anyone"
           ],
           "answer": "C",
           "skill": "inference",

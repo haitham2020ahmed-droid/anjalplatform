@@ -361,10 +361,10 @@
         {
           "stem": "Why is the Moon almost invisible at the new Moon?",
           "options": [
-            "Clouds always cover it then.",
+            "Clouds always cover it then, all night.",
             "Its sunlit side faces away from us.",
-            "It stops reflecting light.",
-            "Earth's shadow hides it."
+            "It stops reflecting light for a few days.",
+            "Earth's shadow hides it from the Sun."
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -412,10 +412,10 @@
         {
           "stem": "What can you infer from the fact that the Moon always shows us the same side?",
           "options": [
-            "The Moon does not move at all.",
+            "The Moon does not move at all, so it stays in one place.",
             "People on Earth never see some parts of the Moon.",
-            "The Moon has no dark side.",
-            "The far side is Earth's shadow."
+            "The Moon has no dark side, so it is always lit.",
+            "The far side is Earth's shadow, so it is always dark."
           ],
           "answer": "B",
           "skill": "inference",
@@ -523,10 +523,10 @@
         {
           "stem": "The author writes that the lunar glow is \"essentially borrowed sunshine.\" What does this phrase suggest?",
           "options": [
-            "The Moon will give the light back later.",
-            "The Moon steals light from the stars.",
+            "The Moon will give the light back later, in the morning",
+            "The Moon steals light from the stars, and so it glows",
             "The light we see from the Moon really belongs to the Sun.",
-            "Sunshine is weaker on the Moon."
+            "Sunshine is weaker on the Moon, so it looks dim at night"
           ],
           "answer": "C",
           "skill": "vocabulary",

@@ -109,9 +109,9 @@
       "difficulty": 3,
       "stem": "Which opinion is BEST supported by the passage?",
       "options": [
-        "Wolves are a danger that should be removed",
-        "More roads will help wolves find more food",
-        "The wolf will surely vanish within ten years",
+        "Wolves are a danger that should be removed from the land",
+        "More roads will help wolves find more food in the desert",
+        "The wolf will surely vanish within ten years from the land",
         "Protected reserves are vital for the wolf's survival"
       ],
       "answer": "D",

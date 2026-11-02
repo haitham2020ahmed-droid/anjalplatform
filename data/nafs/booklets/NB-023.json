@@ -301,10 +301,10 @@
       "type": "MCQ",
       "stem": "What causes a solar eclipse?",
       "options": [
-        "The Earth passes between the Sun and the Moon.",
+        "The Earth passes between the Sun and the Moon in space.",
         "The Moon passes directly between the Sun and the Earth.",
-        "The Sun moves behind a large cloud of dust.",
-        "The Moon grows larger and hotter."
+        "The Sun moves behind a large cloud of dust in the sky.",
+        "The Moon grows larger and hotter than it was before."
       ],
       "answer": "B",
       "why": "Paragraph 2: a solar eclipse happens “when the Moon passes directly between the Sun and the Earth.”"
@@ -429,9 +429,9 @@
       "type": "MCQ",
       "stem": "Which sentence from the text expresses the writer's OPINION?",
       "options": [
-        "The Moon's orbit is not a perfect circle.",
-        "A total eclipse never lasts long.",
-        "Observers must use special eclipse glasses.",
+        "The Moon's orbit is not a perfect circle in space.",
+        "A total eclipse never lasts long on the Earth.",
+        "Observers must use special eclipse glasses in the sun.",
         "It is one of the most spectacular sights in nature."
       ],
       "answer": "D",
@@ -445,10 +445,10 @@
       "type": "MCQ",
       "stem": "In your opinion, which piece of advice in the text is the MOST important for someone watching an eclipse?",
       "options": [
-        "Travel to the Eastern Province to watch it.",
-        "Watch only during the two minutes of totality.",
+        "Travel to the Eastern Province to watch it with friends.",
+        "Watch only during the two minutes of totality, never at other times.",
         "Use eclipse glasses or a pinhole to protect the eyes.",
-        "Look at the Sun when most of it is covered."
+        "Look at the Sun when most of it is covered by the Moon."
       ],
       "answer": "C",
       "why": "Eye damage can be permanent, so protecting the eyes is most important; the last option is exactly what the text warns against."
@@ -509,10 +509,10 @@
       "type": "MCQ",
       "stem": "Which of the following events could really happen?",
       "options": [
-        "The Moon covers the Sun completely for an entire day and night.",
-        "A total eclipse is seen at night under the stars.",
+        "The Moon covers the Sun completely for an entire day and night long, in a row.",
+        "A total eclipse is seen at night under the stars and the Moon in the sky.",
         "A family in Saudi Arabia watches the 2027 eclipse through eclipse glasses.",
-        "The Sun shrinks until it is smaller than the Moon."
+        "The Sun shrinks until it is smaller than the Moon in the sky, every year."
       ],
       "answer": "C",
       "why": "The text says a total eclipse will cross parts of Saudi Arabia in 2027; the other events are impossible."
@@ -526,9 +526,9 @@
       "stem": "Which title best describes the ideas in the text?",
       "options": [
         "Two Signs in the Sky: Understanding Eclipses",
-        "The Day the Sun Disappeared Forever",
-        "The Moon's Long Holiday",
-        "How to Build a Telescope"
+        "The Day the Sun Disappeared Forever from Earth",
+        "The Moon's Long Holiday in the Sky",
+        "How to Build a Telescope at Home"
       ],
       "answer": "A",
       "why": "The title reflects both the science of eclipses and the teaching that the Sun and Moon are two signs."

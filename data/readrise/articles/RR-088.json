@@ -182,10 +182,10 @@
         {
           "stem": "Why did Abbas hurt his back?",
           "options": [
-            "He fell off his horse on the way up the hill.",
+            "He fell off his horse on the way up the high hill.",
             "He came down too fast because his wings had no tail.",
             "A big bird flew right into him in the air.",
-            "He carried too many heavy rocks up the hill."
+            "He carried too many heavy rocks up the steep hill."
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -200,9 +200,9 @@
           "stem": "Why did Abbas watch birds so closely?",
           "options": [
             "He wanted to learn how to fly.",
-            "He wanted to sell them.",
-            "He was afraid of them.",
-            "He wanted to count them."
+            "He wanted to sell them at the market.",
+            "He was afraid of them and wanted to hide.",
+            "He wanted to count them every day."
           ],
           "answer": "A",
           "skill": "inference",
@@ -396,9 +396,9 @@
           "stem": "What lesson might later inventors learn from Abbas's flight?",
           "options": [
             "Flying machines need a way to control and slow down.",
-            "People should never try to fly.",
-            "Feathers are better than wood.",
-            "Hills are too dangerous to climb."
+            "People should never try to fly, because it is too dangerous.",
+            "Feathers are better than wood for making wings.",
+            "Hills are too dangerous to climb in the morning."
           ],
           "answer": "A",
           "skill": "inference",
@@ -412,10 +412,10 @@
         {
           "stem": "How does the author organize the article?",
           "options": [
-            "By comparing Abbas with the modern pilots who fly airplanes today",
-            "By listing problems in Cordoba and their solutions",
+            "By comparing Abbas with the modern pilots who fly airplanes today, one by one, in a table",
+            "By listing problems in Cordoba and their solutions, as a city leader would, one at a time",
             "By describing Abbas's life and inventions, then his flight, then how he is remembered",
-            "By explaining how birds fly, step by step, from takeoff to landing"
+            "By explaining how birds fly, step by step, from takeoff to landing in the air, with a diagram"
           ],
           "answer": "C",
           "skill": "text-structure",
@@ -524,9 +524,9 @@
           "stem": "The article says some details 'may not be completely accurate.' Why does the author include this statement?",
           "options": [
             "To show that the account was written long after the event",
-            "To prove that Abbas never really existed at all",
-            "To criticize the people who watched the flight",
-            "To explain the method for cutting crystal"
+            "To prove that Abbas never really existed at all in history",
+            "To criticize the people who watched the flight from the ground",
+            "To explain the method for cutting crystal into small pieces"
           ],
           "answer": "A",
           "skill": "author-purpose",
@@ -540,10 +540,10 @@
         {
           "stem": "What does the word legacy mean in the final paragraph?",
           "options": [
-            "A type of flying machine",
+            "A type of flying machine used by old sailors",
             "Something for which a person is remembered",
-            "A building where scholars study",
-            "A sudden, dangerous fall"
+            "A building where scholars study the stars at night",
+            "A sudden, dangerous fall from a high place"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -575,9 +575,9 @@
           "stem": "Based on the article, why might birds' tails be important for flight?",
           "options": [
             "Tails help birds reduce their speed and control their landing.",
-            "Tails make birds much lighter so they can rise.",
-            "Tails let birds see what is happening behind them.",
-            "Tails keep birds warm on cold nights in winter."
+            "Tails make birds much lighter so they can rise easily from the ground.",
+            "Tails let birds see what is happening behind them while they fly.",
+            "Tails keep birds warm on cold nights in winter, when the wind blows."
           ],
           "answer": "A",
           "skill": "inference",

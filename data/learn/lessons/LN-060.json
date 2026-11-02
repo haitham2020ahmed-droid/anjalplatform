@@ -104,9 +104,9 @@
      "stem": "Which is a compound sentence?",
      "options": [
       "Sami ran, and Omar walked.",
-      "Sami ran.",
-      "Sami and Omar ran.",
-      "Omar and Sami."
+      "Sami ran to the shop.",
+      "Sami and Omar ran to school.",
+      "Omar and Sami at the park."
      ],
      "answer": 0,
      "why": "Sami ran and Omar walked can each stand alone. They are joined with a comma and and."

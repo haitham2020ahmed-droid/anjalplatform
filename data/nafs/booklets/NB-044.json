@@ -46,9 +46,9 @@
       "type": "MCQ",
       "stem": "Read this sentence from paragraph 9: “Up close, he could see how precisely every line had been engraved.” What does “engraved” mean?",
       "options": [
-        "painted with bright colours",
-        "printed on paper",
-        "glued onto the surface",
+        "painted with bright colours and gold",
+        "printed on paper with black ink",
+        "glued onto the surface with paste",
         "cut carefully into a hard surface"
       ],
       "answer": "D",
@@ -157,10 +157,10 @@
       "type": "MCQ",
       "stem": "Which is another suitable title for the story?",
       "options": [
-        "A Boring Day at the Museum",
-        "Faris Loses His Phone",
+        "A Boring Day at the Old Museum",
+        "Faris Loses His Phone at School",
         "From Phone Screen to Brass Stars",
-        "Reem's Birthday Present"
+        "Reem's Birthday Present from Dad"
       ],
       "answer": "C",
       "why": "Faris moves from staring at his phone to discovering and using the brass astrolabe."
@@ -189,9 +189,9 @@
       "type": "MCQ",
       "stem": "What is the main idea of paragraph 10?",
       "options": [
-        "Phones work better than astrolabes.",
-        "Satellites were invented by Mariam al-Ijliya.",
-        "Faris should put his phone away in museums.",
+        "Phones work better than astrolabes for finding directions.",
+        "Satellites were invented by Mariam al-Ijliya long ago.",
+        "Faris should put his phone away in museums and libraries.",
         "Modern technology is built on knowledge from the past."
       ],
       "answer": "D",
@@ -237,10 +237,10 @@
       "type": "MCQ",
       "stem": "Why did the ruler of Aleppo employ Mariam al-Ijliya?",
       "options": [
-        "She was his daughter.",
+        "She was his daughter and a young princess.",
         "She was very skilled at making instruments.",
-        "She could read the labels in museums.",
-        "She had travelled across the desert."
+        "She could read the labels in museums and shops.",
+        "She had travelled across the desert by camel."
       ],
       "answer": "B",
       "why": "Paragraph 8: “She was so skilled … that the ruler of Aleppo employed her to make instruments for his court.”"
@@ -269,10 +269,10 @@
       "type": "MCQ",
       "stem": "From whose point of view is the story told?",
       "options": [
-        "Faris's, using “I”",
-        "Reem's, using “I”",
+        "Faris's, using “I” and “my”",
+        "Reem's, using “I” and “we”",
         "a narrator outside the story",
-        "Uncle Majed's, using “I”"
+        "Uncle Majed's, using “I” and “me”"
       ],
       "answer": "C",
       "why": "The narrator calls the characters “he” and “she” and is not one of them."
@@ -285,10 +285,10 @@
       "type": "MCQ",
       "stem": "Which detail must Faris consider BEFORE he could calculate the flagpole's height?",
       "options": [
-        "the colour of the flagpole",
+        "the colour of the flagpole at the school",
         "his distance from the flagpole",
-        "the time of prayer",
-        "the name of the asteroid"
+        "the time of prayer in the town",
+        "the name of the asteroid in the sky"
       ],
       "answer": "B",
       "why": "He “paced out his distance from the flagpole” and measured the angle; both are needed to calculate the height."
@@ -350,9 +350,9 @@
       "stem": "How is Faris at the END of the story DIFFERENT from Faris at the beginning?",
       "options": [
         "He has become interested in the astrolabe and proud of it.",
-        "He has become bored with science and history.",
-        "He has decided to throw away his phone for ever.",
-        "He has become annoyed with Reem's advice."
+        "He has become bored with science and history lessons.",
+        "He has decided to throw away his phone for ever and ever.",
+        "He has become annoyed with Reem's advice and her jokes."
       ],
       "answer": "A",
       "why": "At first he groans on a bench; at the end he builds an astrolabe with care and grins with satisfaction."
@@ -365,9 +365,9 @@
       "type": "MCQ",
       "stem": "What do the astrolabe and Faris's phone have in common, according to Uncle Majed?",
       "options": [
-        "Both run on batteries.",
-        "Both were made in Aleppo.",
-        "Both use satellites.",
+        "Both run on batteries and need power.",
+        "Both were made in Aleppo by old craftsmen.",
+        "Both use satellites to send signals.",
         "Both can help people find their position."
       ],
       "answer": "D",
@@ -526,9 +526,9 @@
       "stem": "Which title best describes the events of the story?",
       "options": [
         "The Boy Who Measured the Flagpole",
-        "Lost in the Desert at Night",
-        "Reem's New Phone",
-        "The Closed Museum"
+        "Lost in the Desert at Night Alone",
+        "Reem's New Phone and Its Camera",
+        "The Closed Museum in the Old Town"
       ],
       "answer": "A",
       "why": "The story ends with Faris using his astrolabe to measure the flagpole, the result of his change of mind."

@@ -174,9 +174,9 @@
       "stem": "What is the main purpose of the text?",
       "options": [
         "to teach readers how to give first aid for burns and prevent them",
-        "to describe the long history of the Red Crescent",
-        "to persuade readers to stop cooking meals at home",
-        "to compare different kinds of modern kitchen equipment"
+        "to describe the long history of the Red Crescent and its work",
+        "to persuade readers to stop cooking meals at home and eat out",
+        "to compare different kinds of modern kitchen equipment and their prices"
       ],
       "answer": "A",
       "why": "Most paragraphs give first-aid steps, warnings about wrong remedies and prevention tips."

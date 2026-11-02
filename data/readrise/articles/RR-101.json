@@ -116,8 +116,8 @@
           "options": [
             "How to stay safe near a volcano on land",
             "Volcanoes hidden under the sea and the things they make",
-            "Why fish like to swim near warm water",
-            "How people build islands with rocks"
+            "Why fish like to swim near warm water in the sea",
+            "How people build islands with rocks and sand in the sea"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -165,9 +165,9 @@
         {
           "stem": "How were the islands of Hawaii made?",
           "options": [
-            "Sand piled up on a beach",
-            "A big wave pushed up rocks",
-            "People dug them out of the sea",
+            "Sand piled up on a beach for many years and years",
+            "A big wave pushed up rocks from the sea floor",
+            "People dug them out of the sea with big machines",
             "Sea volcanoes grew until they came out of the water"
           ],
           "answer": "D",
@@ -233,10 +233,10 @@
         {
           "stem": "Why does the author tell about the Red Sea at the end?",
           "options": [
-            "To explain how to swim in the Red Sea",
+            "To explain how to swim in the Red Sea without getting tired",
             "To show that the sea floor is splitting near Saudi Arabia, too",
-            "To say that the Red Sea has the most islands",
-            "To show that the Red Sea has no volcanoes"
+            "To say that the Red Sea has the most islands of any sea",
+            "To show that the Red Sea has no volcanoes under its water"
           ],
           "answer": "B",
           "skill": "author-purpose",
@@ -293,10 +293,10 @@
         {
           "stem": "What is the main idea of the article?",
           "options": [
-            "Volcanoes on land are more dangerous than volcanoes in the sea.",
+            "Volcanoes on land are more dangerous than volcanoes in the sea, because people live near them.",
             "Most volcanoes are hidden under the ocean, where they build new seafloor, mountains, and islands.",
-            "Scientists have stopped studying the deep ocean.",
-            "The Red Sea is the deepest sea in the world."
+            "Scientists have stopped studying the deep ocean because it is too dark and too far to reach.",
+            "The Red Sea is the deepest sea in the world, and all of its volcanoes sit in its middle."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -361,10 +361,10 @@
         {
           "stem": "The author says the ridge winds around the planet like the seam on a baseball. What does this comparison help readers picture?",
           "options": [
-            "A ridge that is round and very small",
-            "A ridge made of thread",
+            "A ridge that is round and very small, like a ball",
+            "A ridge made of thread, sewn into the planet",
             "A long line that curves all the way around Earth",
-            "A ridge that spins quickly like a ball"
+            "A ridge that spins quickly like a ball in the sky"
           ],
           "answer": "C",
           "skill": "inference",
@@ -379,9 +379,9 @@
           "stem": "In the article, the water above deep volcanoes creates enormous pressure. What does pressure mean here?",
           "options": [
             "A pushing force from the weight of the water",
-            "A cold feeling in the deep, dark water",
-            "A loud rumbling sound under the sea",
-            "A kind of mineral found in the water"
+            "A cold feeling in the deep, dark water below",
+            "A loud rumbling sound under the sea at night",
+            "A kind of mineral found in the deep water"
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -412,9 +412,9 @@
         {
           "stem": "Why does the author begin with the picture of a tall mountain with smoke on top?",
           "options": [
-            "To teach readers how to climb a volcano",
-            "To prove that all volcanoes look the same",
-            "To describe the volcanoes of Hawaii in detail",
+            "To teach readers how to climb a volcano with ropes, boots, and a guide",
+            "To prove that all volcanoes look the same from far away or close up",
+            "To describe the volcanoes of Hawaii in detail, one after another, with their names and sizes",
             "To contrast a common idea about volcanoes with the surprising fact that most are underwater"
           ],
           "answer": "D",
@@ -472,10 +472,10 @@
         {
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
-            "Underwater volcanoes are rare and have little effect on the planet.",
+            "Underwater volcanoes are rare and have little effect on the planet, the seas, or the life in the deep, so most eruptions happen on land.",
             "Most of Earth's volcanic activity happens beneath the ocean, where it builds seafloor and islands and supports unusual life.",
-            "The Hunga Tonga eruption was the most important event in Earth's history.",
-            "Scientists prefer to study volcanoes on land because they are easier to reach."
+            "The Hunga Tonga eruption was the most important event in Earth's history, and nothing else compares to it in any ocean or on any land.",
+            "Scientists prefer to study volcanoes on land because they are easier to reach, so ocean volcanoes matter little to the planet or to its islands."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -524,9 +524,9 @@
           "stem": "How do deep underwater eruptions compare with some shallow ones?",
           "options": [
             "Deep eruptions are usually gentle, while shallow ones can be extremely violent.",
-            "Deep eruptions are more explosive because the water is colder.",
-            "Both kinds are always silent and harmless.",
-            "Shallow eruptions only produce pillow lava."
+            "Deep eruptions are more explosive because the water is colder and thicker.",
+            "Both kinds are always silent and harmless to everything around them.",
+            "Shallow eruptions only produce pillow lava and never make any ash."
           ],
           "answer": "A",
           "skill": "compare",
@@ -540,9 +540,9 @@
         {
           "stem": "What does the Hunga Tonga eruption suggest about shallow underwater volcanoes?",
           "options": [
-            "They are always too small to notice.",
-            "They only affect the deep seafloor.",
-            "They build islands without any danger.",
+            "They are always too small to notice from far away.",
+            "They only affect the deep seafloor and its fish.",
+            "They build islands without any danger to the coast.",
             "They can endanger coasts far across the ocean."
           ],
           "answer": "D",
@@ -592,9 +592,9 @@
           "stem": "Why does the author end the article with the Red Sea?",
           "options": [
             "To show that the process of plates spreading apart is happening today, close to Saudi Arabia",
-            "To argue that the Red Sea is more important than the Pacific",
-            "To warn readers that a tsunami will soon hit the Red Sea",
-            "To explain how tube worms reached the Red Sea"
+            "To argue that the Red Sea is more important than the Pacific Ocean and all other seas in the world",
+            "To warn readers that a huge tsunami will soon hit the Red Sea and its coasts",
+            "To explain how tube worms reached the Red Sea from the deep ocean floor"
           ],
           "answer": "A",
           "skill": "author-purpose",

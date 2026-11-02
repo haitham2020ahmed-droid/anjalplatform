@@ -378,10 +378,10 @@
         {
           "stem": "Compare how the judges likely feel when the gadget first floods the plant with how they feel after Maya fixes it.",
           "options": [
-            "They feel impressed in both moments equally",
+            "They feel impressed in both moments equally, with no change at all",
             "They may feel doubtful at first, then impressed once she fixes it",
-            "They feel bored throughout both moments",
-            "They feel annoyed in both moments equally"
+            "They feel bored throughout both moments and want to leave the fair early",
+            "They feel annoyed in both moments equally and give her a very low score"
           ],
           "answer": "B",
           "skill": "compare",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best captures the central idea of this story?",
           "options": [
-            "A fair is cancelled after several student gadgets fail to work",
+            "A fair is cancelled after several student gadgets fail to work on stage",
             "A young inventor calmly diagnoses and fixes her gadget's failure in public",
-            "A student wins a prize for building the fastest robot that year",
-            "A workshop is cleaned out to make space for new tools"
+            "A student wins a prize for building the fastest robot that year at the fair",
+            "A workshop is cleaned out to make space for new tools and benches"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -489,10 +489,10 @@
         {
           "stem": "In the story, diagnose most nearly means —",
           "options": [
-            "to repaint something a new color",
+            "to repaint something with a new color",
             "to figure out the exact cause of a problem",
-            "to replace an entire device",
-            "to announce a contest winner"
+            "to replace an entire device with a new one",
+            "to announce a contest winner to the crowd"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -506,10 +506,10 @@
         {
           "stem": "What detail from the story shows that Maya approaches the problem with an engineer's mindset?",
           "options": [
-            "She asks a judge to fix the gadget instead",
+            "She asks a judge to fix the gadget instead of her",
             "She inspects the tube piece by piece to find the cause",
-            "She immediately builds a brand new gadget",
-            "She decides to skip testing it again"
+            "She immediately builds a brand new gadget from scratch",
+            "She decides to skip testing it again and goes home"
           ],
           "answer": "B",
           "skill": "detail",
@@ -540,10 +540,10 @@
         {
           "stem": "Compare the judges' likely confidence in Maya's gadget right after it floods with their confidence after she fixes it.",
           "options": [
-            "Their confidence stays low throughout both moments",
+            "Their confidence stays low throughout both moments, before and after the repair",
             "Their confidence likely drops at first, then rises once she succeeds",
-            "Their confidence is high in both moments equally",
-            "Their confidence drops permanently and never returns"
+            "Their confidence is high in both moments equally, before and after the flood",
+            "Their confidence drops permanently and never returns, even after she fixes it"
           ],
           "answer": "B",
           "skill": "compare",
@@ -558,9 +558,9 @@
           "stem": "Why does narrowing the tube's opening solve the flooding problem?",
           "options": [
             "It allows only a controlled, steady amount of water through",
-            "It stops all water from moving through the tube",
-            "It changes the timer's schedule completely",
-            "It makes the gadget louder when it runs"
+            "It stops all water from moving through the tube, so the gadget never works",
+            "It changes the timer's schedule completely, so the water runs at night",
+            "It makes the gadget louder when it runs, which scares the flood away"
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -574,10 +574,10 @@
         {
           "stem": "Which sequence correctly traces the gadget's journey from its design to the judges' admiration?",
           "options": [
-            "Judges arrive, gadget floods, tube narrowed, gadget assembled",
+            "Judges arrive, gadget floods, tube narrowed, gadget assembled, tested at home",
             "Gadget assembled, tested at home, floods at fair, tube narrowed, judges admire it",
-            "Tube narrowed, gadget assembled, judges admire it, gadget floods",
-            "Gadget floods, judges admire it, gadget assembled, tube narrowed"
+            "Tube narrowed, gadget assembled, judges admire it, gadget floods at the fair",
+            "Gadget floods, judges admire it, gadget assembled, tube narrowed, tested at home"
           ],
           "answer": "B",
           "skill": "sequence",
@@ -591,10 +591,10 @@
         {
           "stem": "Why does the author most likely choose to have the gadget fail in front of the judges, rather than succeed immediately?",
           "options": [
-            "To suggest that Maya's invention was never any good",
-            "To show that the judges are too harsh on young inventors",
+            "To suggest that Maya's invention was never any good and could not be fixed",
+            "To show that the judges are too harsh on young inventors at the science fair",
             "To highlight Maya's composure and problem-solving under real pressure",
-            "To make the story longer without adding any real meaning"
+            "To make the story longer without adding any real meaning for the reader"
           ],
           "answer": "C",
           "skill": "author-purpose",

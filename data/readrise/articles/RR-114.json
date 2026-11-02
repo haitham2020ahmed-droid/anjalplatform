@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How to catch fish in the Red Sea",
+            "How to catch fish in the Red Sea with a net",
             "How the dugong lives and why it needs help",
-            "Why cows like to eat grass on farms",
-            "How boats are built"
+            "Why cows like to eat grass on farms in spring",
+            "How boats are built from wood and rope"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -165,9 +165,9 @@
         {
           "stem": "Why do people call dugongs sea cows?",
           "options": [
-            "They make milk for people to drink.",
-            "They say moo under the water.",
-            "They have horns like a cow.",
+            "They make milk for people to drink, as cows do.",
+            "They say moo under the water, like a cow does.",
+            "They have horns like a cow on their heads.",
             "They munch on seagrass the way a cow eats grass."
           ],
           "answer": "D",
@@ -233,10 +233,10 @@
         {
           "stem": "Why did the author write this article?",
           "options": [
-            "To tell a funny story about a cow",
-            "To sell trips on a boat",
+            "To tell a funny story about a cow that lives on a farm",
+            "To sell trips on a boat to tourists who visit the coast",
             "To teach about dugongs and why we should protect them",
-            "To explain how to grow seagrass at home"
+            "To explain how to grow seagrass at home in a small tank"
           ],
           "answer": "C",
           "skill": "author-purpose",
@@ -379,9 +379,9 @@
           "stem": "What can you infer about why many dugongs live in the Arabian Gulf?",
           "options": [
             "The Gulf has warm, shallow water where seagrass can grow.",
-            "The Gulf has no boats at all.",
-            "The water in the Gulf is very cold.",
-            "There are no other animals in the Gulf."
+            "The Gulf has no boats at all, so the dugongs are safe there.",
+            "The water in the Gulf is very cold, so the dugongs like it.",
+            "There are no other animals in the Gulf, so dugongs live alone."
           ],
           "answer": "A",
           "skill": "inference",
@@ -412,10 +412,10 @@
         {
           "stem": "How is the last paragraph of the article organized?",
           "options": [
-            "It compares dugongs and manatees.",
-            "It tells the steps for feeding a calf.",
+            "It compares dugongs and manatees and their size in the sea.",
+            "It tells the steps for feeding a calf with a bottle of milk.",
             "It describes problems dugongs face and how people respond.",
-            "It lists the places dugongs live."
+            "It lists the places dugongs live, from Asia to Africa."
           ],
           "answer": "C",
           "skill": "text-structure",
@@ -473,9 +473,9 @@
           "stem": "Which statement best summarizes the article?",
           "options": [
             "The dugong, a slow-breeding herbivore that depends on seagrass, is vulnerable and needs legal protection.",
-            "The dugong is closely related to fish and sharks, not to land animals.",
-            "The dugong is the fastest swimmer in the Arabian Gulf.",
-            "The dugong has no natural enemies and is not in danger."
+            "The dugong is closely related to fish and sharks, not to land animals, and it lives only in cold water.",
+            "The dugong is the fastest swimmer in the Arabian Gulf, so it can escape from every danger.",
+            "The dugong has no natural enemies and is not in danger, so it needs no help from people."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -574,10 +574,10 @@
         {
           "stem": "Why does the author compare the way a dugong feeds to cattle grazing in a pasture?",
           "options": [
-            "To prove that dugongs and cows are close relatives",
+            "To prove that dugongs and cows are close relatives that share a common ancestor",
             "To help readers picture its slow, steady feeding and explain the name sea cow",
-            "To show that dugongs leave the water to eat grass",
-            "To warn that cows eat too much seagrass"
+            "To show that dugongs leave the water to eat grass on the shore at night",
+            "To warn that cows eat too much seagrass when they go near the sea"
           ],
           "answer": "B",
           "skill": "author-purpose",
@@ -591,10 +591,10 @@
         {
           "stem": "What can be inferred about protecting seagrass habitats?",
           "options": [
-            "It helps only fish, not dugongs.",
-            "It matters little, since dugongs can eat many foods.",
+            "It helps only fish, not dugongs, so it is not a priority for anyone.",
+            "It matters little, since dugongs can eat many other foods besides seagrass.",
             "It is necessary for saving dugongs, since they eat almost nothing else.",
-            "It is the reason dugongs breed slowly."
+            "It is the reason dugongs breed slowly, so it is not needed for saving them."
           ],
           "answer": "C",
           "skill": "inference",

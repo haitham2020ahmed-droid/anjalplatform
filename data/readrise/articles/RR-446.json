@@ -114,10 +114,10 @@
         {
           "stem": "What is this story mostly about?",
           "options": [
-            "A boy who builds a new house on a hill",
+            "A boy who builds a new house on a hill with his uncle",
             "A boy who plants trees that grow into a forest",
-            "A boy who finds water deep under a hill",
-            "A boy who moves far away from his home"
+            "A boy who finds water deep under a hill and digs a well",
+            "A boy who moves far away from his home to a city"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -131,10 +131,10 @@
         {
           "stem": "Why does Saeed want to plant a tree on the hill?",
           "options": [
-            "He wants wood to build a small boat",
-            "He is told to do it by the neighbors",
+            "He wants wood to build a small boat for fishing trips",
+            "He is told to do it by the neighbors who live next door to him",
             "His teacher talks about how trees help the land and animals",
-            "He wants a place to hide from his family"
+            "He wants a place to hide from his family and the noisy town"
           ],
           "answer": "C",
           "skill": "detail",
@@ -166,9 +166,9 @@
           "stem": "In the story, a forest is —",
           "options": [
             "a large area with many trees",
-            "a hole dug in the ground",
-            "a kind of water can",
-            "one single tall tree"
+            "a hole dug in the ground by workers",
+            "a kind of water can for plants",
+            "one single tall tree in a field"
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -216,9 +216,9 @@
         {
           "stem": "Why does the hill end up full of trees at the end of the story?",
           "options": [
-            "A strong wind blows many seeds onto the hill",
-            "A big storm washes new trees onto the hill",
-            "The city sends workers to plant a whole forest",
+            "A strong wind blows many seeds onto the hill every single year",
+            "A big storm washes new trees onto the hill from the sea",
+            "The city sends workers to plant a whole forest there",
             "Saeed and many neighbors plant trees together over the years"
           ],
           "answer": "D",
@@ -310,10 +310,10 @@
         {
           "stem": "Why did Saeed first want to plant a seedling on the barren hill?",
           "options": [
-            "His father insisted that he plant one",
-            "He wanted to win a contest at school",
+            "His father insisted that he plant one, so he took a seedling from home",
+            "He wanted to win a contest at school and get a prize for it",
             "His teacher's lesson about trees inspired him to help the land",
-            "He wanted shade so he could nap outside"
+            "He wanted shade so he could nap outside on the hot afternoons"
           ],
           "answer": "C",
           "skill": "detail",
@@ -362,9 +362,9 @@
           "stem": "Why do you think more neighbors kept joining in to help over the months?",
           "options": [
             "Seeing the growing trees likely inspired them to want to help too",
-            "The city paid each neighbor money to join in",
-            "They were afraid Saeed would be upset if they refused",
-            "A new law required every neighbor to plant a tree"
+            "The city paid each neighbor money to join in the work and plant",
+            "They were afraid Saeed would be upset if they refused to help",
+            "A new law required every neighbor to plant a tree each month"
           ],
           "answer": "A",
           "skill": "inference",
@@ -378,10 +378,10 @@
         {
           "stem": "Compare the hill at the start of the story with the hill at the end of the story.",
           "options": [
-            "It stays exactly the same the whole time",
-            "It starts with water, and ends covered in sand",
+            "It stays exactly the same the whole time, with no plants and no birds",
+            "It starts with water, and ends covered in sand with no life left on it",
             "It starts barren with no plants, and ends full of healthy trees and birds",
-            "It starts full of trees, and ends completely empty"
+            "It starts full of trees, and ends completely empty of plants and birds"
           ],
           "answer": "C",
           "skill": "compare",
@@ -395,9 +395,9 @@
         {
           "stem": "Why did Saeed choose a native species when planting his second tree?",
           "options": [
-            "Because it was the cheapest tree at the market",
-            "Because his teacher told him it was the only legal choice",
-            "Because it grew the fastest of all the trees available",
+            "Because it was the cheapest tree at the market and he had very little money",
+            "Because his teacher told him it was the only legal choice for planting on that hill",
+            "Because it grew the fastest of all the trees available in the nursery that year",
             "Because it had belonged there naturally for generations and would suit the land"
           ],
           "answer": "D",
@@ -473,8 +473,8 @@
           "stem": "Which statement best captures the central idea of this story?",
           "options": [
             "A boy's persistent, modest effort to restore a barren hill eventually inspires an entire community",
-            "A teacher argues that trees are far less important than most people believe",
-            "A boy quietly regrets ever having started his small tree-planting project",
+            "A teacher argues that trees are far less important than most people believe, and a boy proves it wrong",
+            "A boy quietly regrets ever having started his small tree-planting project, and he stops it",
             "A whole community firmly rejects a boy's idea to plant trees on the hillside"
           ],
           "answer": "A",
@@ -506,7 +506,7 @@
         {
           "stem": "What detail from the story shows the lasting impact of Saeed's project on other communities?",
           "options": [
-            "It caused other communities to argue over who owned the hill",
+            "It caused other communities to argue over who owned the hill they could all see",
             "It led the other communities to stop planting any trees altogether",
             "It made the other communities ask Saeed to move far away from the hill",
             "It inspired other communities to consider similar restoration projects of their own"
@@ -523,10 +523,10 @@
         {
           "stem": "What in the story suggests that Saeed's teacher's lesson connected directly to real environmental concepts rather than being a casual remark?",
           "options": [
-            "The teacher simply told students to go outside and play",
+            "The teacher simply told students to go outside and play, and she did not mention any plants",
             "The lesson specifically linked trees to preventing soil erosion and supporting biodiversity",
-            "The teacher only mentioned trees once in passing",
-            "The lesson was about a completely unrelated science topic"
+            "The teacher only mentioned trees once in passing, while she was handing back the papers",
+            "The lesson was about a completely unrelated science topic, such as the stars and the Moon"
           ],
           "answer": "B",
           "skill": "inference",
@@ -541,9 +541,9 @@
           "stem": "Compare Saeed's approach in the early years of the project with the approach taken once the community became involved.",
           "options": [
             "Early on he worked mostly alone, while later many neighbors shared the effort together",
-            "Early on many people helped, while later Saeed worked entirely alone",
-            "His approach never changed at any point in the story",
-            "Early on he avoided trees, while later he avoided the hill entirely"
+            "Early on many people helped him, while later Saeed worked entirely alone on the hill",
+            "His approach never changed at any point in the story, from the first year to the last",
+            "Early on he avoided trees, while later he avoided the hill entirely and stayed home"
           ],
           "answer": "A",
           "skill": "compare",
@@ -557,10 +557,10 @@
         {
           "stem": "Why does planting a native species matter for restoring the hillside, based on the story?",
           "options": [
-            "Because native trees require no water at all to survive",
-            "Because native trees grow instantly within a single day",
+            "Because native trees require no water at all to survive, even in the hottest summer months",
+            "Because native trees grow instantly within a single day, so the hillside turns green fast",
             "Because it had belonged there naturally for generations, making it well suited to the land",
-            "Because native trees are always the cheapest option available"
+            "Because native trees are always the cheapest option available, and the town has very little money"
           ],
           "answer": "C",
           "skill": "cause-effect",
@@ -591,10 +591,10 @@
         {
           "stem": "Why does the author most likely end the story by mentioning that other communities considered similar restoration projects?",
           "options": [
-            "To imply that other communities were jealous of Saeed's hill",
+            "To imply that other communities were jealous of Saeed's hill and wanted to take it away",
             "To emphasize how one small, persistent effort can inspire change far beyond its original setting",
-            "To suggest that Saeed's project ultimately failed to achieve anything meaningful",
-            "To argue that only large organizations can successfully restore barren land"
+            "To suggest that Saeed's project ultimately failed to achieve anything meaningful for the area",
+            "To argue that only large organizations can successfully restore barren land in dry places"
           ],
           "answer": "B",
           "skill": "author-purpose",

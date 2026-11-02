@@ -120,7 +120,7 @@
         },
         {
           "stem": "Which step comes first when you bathe?",
-          "options": ["Dry off with a towel", "Put on clean clothes", "Trim your fingernails", "Get your skin wet with water"],
+          "options": ["Dry off with a clean towel", "Put on clean clothes again", "Trim your fingernails and toes", "Get your skin wet with water"],
           "answer": "D",
           "skill": "sequence",
           "why": "Bathing begins with water and soap on your skin, before drying off or getting dressed.",
@@ -128,7 +128,7 @@
         },
         {
           "stem": "Why might someone who wears the same dirty clothes every day start to smell bad?",
-          "options": ["The clothes become heavier each day", "Sweat and oil build up and bacteria grow in the cloth", "The sun fades the color of the clothes", "The clothes shrink after many days"],
+          "options": ["The clothes become heavier each day, so the smell is from the weight", "Sweat and oil build up and bacteria grow in the cloth", "The sun fades the color of the clothes, so the dye starts to smell", "The clothes shrink after many days, so they trap more air inside"],
           "answer": "B",
           "skill": "inference",
           "why": "The article explains that bacteria can grow in unwashed clothes and cause a bad smell.",
@@ -136,7 +136,7 @@
         },
         {
           "stem": "Why is it a good idea to keep your nails short?",
-          "options": ["Short nails help you run faster", "Short nails make your hands look bigger", "Dirt and germs cannot hide under them as easily", "Short nails never need to be cleaned"],
+          "options": ["Short nails help you run faster in the games at school", "Short nails make your hands look bigger than they are", "Dirt and germs cannot hide under them as easily", "Short nails never need to be cleaned, even after you play"],
           "answer": "C",
           "skill": "inference",
           "why": "The article says dirt and germs can hide under long nails, so keeping them short and clean stops germs from spreading.",
@@ -144,7 +144,7 @@
         },
         {
           "stem": "Why does the author describe several habits, like bathing, clean clothes, and trimmed nails, together in one article?",
-          "options": ["To show that good hygiene is made of many small habits", "To list chores in order of importance", "To compare different countries' habits", "To tell a funny story about clothes"],
+          "options": ["To show that good hygiene is made of many small habits", "To list chores in order of importance for each day of the week", "To compare different countries' habits in a table", "To tell a funny story about clothes and laundry"],
           "answer": "A",
           "skill": "author-purpose",
           "why": "The article groups several habits together to show that hygiene is not just one action but a set of habits that work together.",
@@ -166,7 +166,7 @@
       "questions": [
         {
           "stem": "Which sentence best states the central idea of the article?",
-          "options": ["A daily hygiene routine of bathing, clean clothes, and trimmed nails helps keep you healthy", "Ancient Babylonians invented soap", "Bacteria are always harmful", "Only doctors need good hygiene"],
+          "options": ["A daily hygiene routine of bathing, clean clothes, and trimmed nails helps keep you healthy", "Ancient Babylonians invented soap, so people today do not need to wash or clean themselves much", "Bacteria are always harmful, so every person should try to kill all of them every day", "Only doctors need good hygiene, because nurses and other people do not touch any patients"],
           "answer": "A",
           "skill": "central-idea",
           "why": "The article explains several hygiene habits and how, together, they protect your health.",
@@ -174,7 +174,7 @@
         },
         {
           "stem": "According to the article, what helps soap remove sweat, oil, and dirt from skin?",
-          "options": ["Soap makes your skin dry out quickly", "Soap molecules loosen sweat, oil, and dirt so water can rinse them away", "Soap turns bacteria into water", "Soap changes the temperature of your skin"],
+          "options": ["Soap makes your skin dry out quickly, so the dirt falls off by itself, as it cracks", "Soap molecules loosen sweat, oil, and dirt so water can rinse them away", "Soap turns bacteria into water, which then runs off the skin", "Soap changes the temperature of your skin so the oil melts"],
           "answer": "B",
           "skill": "detail",
           "why": "The article explains that soap molecules loosen these substances so running water can carry them away.",
@@ -182,7 +182,7 @@
         },
         {
           "stem": "What can happen if you wear the same unwashed clothes again and again?",
-          "options": ["The fabric becomes stronger", "The clothes become waterproof", "Bacteria can multiply and cause odor or itchy skin", "Nothing changes at all"],
+          "options": ["The fabric becomes stronger and softer over time", "The clothes become waterproof and very clean", "Bacteria can multiply and cause odor or itchy skin", "Nothing changes at all in the clothes or in you"],
           "answer": "C",
           "skill": "detail",
           "why": "The article says bacteria can multiply in unwashed fabric, causing odor or irritated skin.",
@@ -190,7 +190,7 @@
         },
         {
           "stem": "Read: \"soap molecules loosen sweat, oil, and dirt... allowing running water to carry the loosened residue away.\" What does residue mean here?",
-          "options": ["A kind of soap used for cleaning things", "A type of tiny bacteria found on skin", "A small piece of clothing you wear", "What is left behind after something is removed"],
+          "options": ["A kind of soap used for cleaning things in the home", "A type of tiny bacteria that is found on the skin", "A small piece of clothing that you wear in the summer", "What is left behind after something is removed"],
           "answer": "D",
           "skill": "vocabulary",
           "why": "Residue refers to the loosened sweat, oil, and dirt left on the skin before water rinses it away.",
@@ -198,7 +198,7 @@
         },
         {
           "stem": "Why can dirt and bacteria under long nails be a problem?",
-          "options": ["They can spread to your mouth, eyes, or face", "Long nails make your hands feel cold", "They make your nails grow much faster", "They turn your nails a different color"],
+          "options": ["They can spread to your mouth, eyes, or face", "Long nails make your hands feel cold in winter", "They make your nails grow much faster", "They turn your nails a different color"],
           "answer": "A",
           "skill": "cause-effect",
           "why": "The article explains that trimming nails reduces the chance of spreading germs to your mouth, eyes, or face.",
@@ -206,7 +206,7 @@
         },
         {
           "stem": "What can you infer about ancient people from the fact that they made soap from ash and animal fat?",
-          "options": ["They had no interest in staying clean", "They only used soap for cooking", "They cared about cleanliness long before modern science explained germs", "They never bathed at all"],
+          "options": ["They had no interest in staying clean, and they bathed only on feast days", "They only used soap for cooking, never for washing hands or clothes", "They cared about cleanliness long before modern science explained germs", "They never bathed at all, because soap had not been made yet in their land"],
           "answer": "C",
           "skill": "inference",
           "why": "Making soap shows ancient people valued cleanliness, even though they did not yet understand bacteria.",
@@ -244,7 +244,7 @@
       "questions": [
         {
           "stem": "Which statement best expresses the central idea of the article?",
-          "options": ["Meticulous hygiene habits such as bathing, clean clothing, and trimmed nails help prevent chronic skin problems and illness", "The epidermis is the only organ that produces sebum", "Ancient Babylonian soap is still used in hospitals today", "Pathogens cannot survive on clean skin at all"],
+          "options": ["Meticulous hygiene habits such as bathing, clean clothing, and trimmed nails help prevent chronic skin problems and illness", "The epidermis is the only organ that produces sebum, and clean habits play almost no part in skin health at all, even for children.", "Ancient Babylonian soap is still used in hospitals today, because modern soaps do not clean the skin as well.", "Pathogens cannot survive on clean skin at all, so a person who washes once will never get ill."],
           "answer": "A",
           "skill": "central-idea",
           "why": "The article explains how sebum, bacteria, and pathogens build up on skin and clothing, and how consistent hygiene habits prevent chronic problems.",
@@ -284,7 +284,7 @@
         },
         {
           "stem": "What can you infer from the fact that Babylonians made soap long before anyone understood how pathogens caused infection?",
-          "options": ["People can develop useful habits before fully understanding the science behind them", "Ancient Babylonians understood bacteria better than modern scientists", "Soap had no real effect until pathogens were actually discovered", "Hygiene habits only became useful in very recent modern times"],
+          "options": ["People can develop useful habits before fully understanding the science behind them", "Ancient Babylonians understood bacteria better than modern scientists do today", "Soap had no real effect until pathogens were actually discovered by scientists", "Hygiene habits only became useful in very recent modern times, not in the past"],
           "answer": "A",
           "skill": "inference",
           "why": "Ancient people found soap useful through practical experience, long before science explained why it worked.",
@@ -292,7 +292,7 @@
         },
         {
           "stem": "Why does the article describe the epidermis producing sebum as part of a normal, daily process?",
-          "options": ["To suggest that oil production is a rare medical condition", "To show that the body's natural functions require ongoing care, not a one-time fix", "To argue that bathing is unnecessary", "To prove that sebum is harmful to the skin"],
+          "options": ["To suggest that oil production is a rare medical condition that only a few people have", "To show that the body's natural functions require ongoing care, not a one-time fix", "To argue that bathing is unnecessary, since the skin cleans itself without any help", "To prove that sebum is harmful to the skin and must be washed away at once"],
           "answer": "B",
           "skill": "inference",
           "why": "Describing sebum as a daily, ongoing process explains why hygiene must be a routine rather than a single action.",
@@ -300,7 +300,7 @@
         },
         {
           "stem": "Why does the author end the article with the history of Babylonian soap?",
-          "options": ["To prove that modern soap is less effective than ancient soap", "To explain exactly how pathogens multiply", "To show that humans have valued cleanliness for a very long time, even before science explained why it matters", "To describe how the epidermis forms over time"],
+          "options": ["To prove that modern soap is less effective than ancient soap was, even though science has since improved", "To explain exactly how pathogens multiply inside the body and how doctors can stop each one", "To show that humans have valued cleanliness for a very long time, even before science explained why it matters", "To describe how the epidermis forms over time and how it changes from childhood to old age"],
           "answer": "C",
           "skill": "author-purpose",
           "why": "The historical example shows that cleanliness has mattered to people for thousands of years, supporting the article's main point.",

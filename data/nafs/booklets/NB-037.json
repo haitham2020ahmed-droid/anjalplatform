@@ -46,9 +46,9 @@
       "type": "MCQ",
       "stem": "Read this sentence from paragraph 1: “It seeped from the bark of small, twisted trees.” What does “seeped” mean?",
       "options": [
-        "burst out with great force",
-        "dried up and fell away",
-        "was cut away with a knife",
+        "burst out with great force from the tree",
+        "dried up and fell away from the bark",
+        "was cut away with a knife by a man",
         "flowed out slowly in small amounts"
       ],
       "answer": "D",
@@ -317,10 +317,10 @@
       "type": "MCQ",
       "stem": "Why did many merchants stop using the long desert route?",
       "options": [
-        "The wells along the route dried up.",
-        "The towns refused to let caravans stop.",
+        "The wells along the route dried up in the heat.",
+        "The towns refused to let caravans stop in the markets.",
         "Ships could carry heavier loads more cheaply.",
-        "People no longer wanted frankincense."
+        "People no longer wanted frankincense from the south."
       ],
       "answer": "C",
       "why": "Paragraph 5: “Because ships could carry heavier loads more cheaply than camels, many merchants abandoned the long desert route.”"
@@ -462,9 +462,9 @@
       "stem": "What most likely motivated the writer to write this passage?",
       "options": [
         "to help readers appreciate how trade shaped Arabia's history",
-        "to complain about the high price of perfume today",
-        "to encourage readers to travel by camel",
-        "to show that archaeology is a waste of time"
+        "to complain about the high price of perfume today in shops",
+        "to encourage readers to travel by camel in the desert",
+        "to show that archaeology is a waste of time and money"
       ],
       "answer": "A",
       "why": "The passage ends by praising the road's lasting effects, showing the writer wants readers to value this part of Arabia's history."
@@ -526,9 +526,9 @@
       "stem": "Which title best describes the information in the passage?",
       "options": [
         "From Southern Hills to Mediterranean Ports",
-        "The Day the Camels Refused to Walk",
-        "Life Under the Red Sea",
-        "Building Modern Highways"
+        "The Day the Camels Refused to Walk Home",
+        "Life Under the Red Sea and Its Reefs",
+        "Building Modern Highways Across the Desert"
       ],
       "answer": "A",
       "why": "The passage traces frankincense from the southern hills to the Mediterranean ports and explains what happened along the way."

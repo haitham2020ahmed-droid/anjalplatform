@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How to build a boat out of wood",
+            "How to build a boat out of wood and rope for a lake",
             "Why some things float and some things sink",
-            "Why the Dead Sea is far away",
-            "How fish breathe under the water"
+            "Why the Dead Sea is far away from the main city",
+            "How fish breathe under the water with their gills"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -131,10 +131,10 @@
         {
           "stem": "Why does a small rock sink?",
           "options": [
-            "It is cold.",
-            "It is round.",
+            "It is cold and wet.",
+            "It is round and smooth.",
             "It is heavy for its size.",
-            "It is wet."
+            "It is wet and old."
           ],
           "answer": "C",
           "skill": "detail",
@@ -149,9 +149,9 @@
           "stem": "How does a submarine sink?",
           "options": [
             "It fills its tanks with water.",
-            "It turns off its lights.",
-            "It blows air into the sea.",
-            "It drops a heavy rock."
+            "It turns off its lights and goes down",
+            "It blows air into the sea with a pump",
+            "It drops a heavy rock onto the sea floor"
           ],
           "answer": "A",
           "skill": "detail",
@@ -234,9 +234,9 @@
           "stem": "What can you tell about ice from the article?",
           "options": [
             "It is light for its size compared with water.",
-            "It is heavier than a rock.",
-            "It sinks in a cold drink.",
-            "It only floats in salty water."
+            "It is heavier than a rock of the same size.",
+            "It sinks in a cold drink at the bottom.",
+            "It only floats in salty water, not in fresh."
           ],
           "answer": "A",
           "skill": "inference",
@@ -344,9 +344,9 @@
         {
           "stem": "In the article, an object in water \"displaces\" some water. What does displaces mean here?",
           "options": [
-            "Freezes",
-            "Drinks",
-            "Heats up",
+            "Freezes it into solid ice",
+            "Drinks it all up fast",
+            "Heats it up slowly",
             "Pushes out of the way"
           ],
           "answer": "D",
@@ -395,10 +395,10 @@
         {
           "stem": "Why do fish in a lake survive the winter when the top freezes?",
           "options": [
-            "Fish can live inside the ice.",
+            "Fish can live inside the ice all winter long.",
             "The ice floats, so liquid water stays below it.",
-            "Fish swim to the Dead Sea.",
-            "The lake turns salty in winter."
+            "Fish swim to the Dead Sea for the whole winter.",
+            "The lake turns salty in the winter months."
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -591,10 +591,10 @@
         {
           "stem": "How are a steel ship and a submarine alike, according to the article?",
           "options": [
-            "Both stay at the surface all the time.",
-            "Both use a swim bladder.",
+            "Both stay at the surface all the time, in calm water and in storms.",
+            "Both use a swim bladder, like a fish, to float up and down in the sea.",
             "Both control floating by changing their average density with air or water.",
-            "Both are made of materials less dense than water."
+            "Both are made of materials less dense than water, so they never sink at all."
           ],
           "answer": "C",
           "skill": "compare",

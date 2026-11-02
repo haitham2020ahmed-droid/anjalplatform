@@ -104,10 +104,10 @@
      "passage": "Bike Safety: Always wear a helmet. Stop at every corner. Watch out for cars.",
      "stem": "What is the job of this section?",
      "options": [
-      "To tell how bikes are made.",
-      "To tell a story.",
+      "To tell how bikes are made in factories.",
+      "To tell a story about a boy.",
       "To tell how to be safe on a bike.",
-      "To sell bikes."
+      "To sell bikes in the shop."
      ],
      "answer": 2,
      "why": "Helmet, stopping and watching for cars are all ways to stay safe."
@@ -187,10 +187,10 @@
     "passage": "The Arabian Horse: The Arabian horse is one of the oldest horse breeds in the world. It is known for its curved head and high tail.\n\nBuilt for the Desert: Arabian horses have large nostrils that help them breathe deeply. Their strong bones let them travel long distances. They can carry riders for hours in the heat.\n\nHorses Today: Today, Arabian horses take part in races and shows around the world.",
     "stem": "What is the purpose of the section Built for the Desert?",
     "options": [
-     "To describe Arabian horse races and shows today",
+     "To describe Arabian horse races and shows held today in many countries",
      "To explain how the horse's body helps it survive in the desert",
-     "To introduce the topic of the Arabian horse",
-     "To tell the long history of the Arabian breed"
+     "To introduce the topic of the Arabian horse to new readers",
+     "To tell the long history of the Arabian breed over many years"
     ],
     "answer": 1,
     "hint": "Read the sentences in that section. Are they about the past, today, or the horse's body?",
@@ -220,8 +220,8 @@
      "stem": "What is the purpose of the second section?",
      "options": [
       "To give a real example of a volcanic area in Saudi Arabia",
-      "To warn people that they should leave Madinah",
-      "To explain how rock melts into magma underground",
+      "To warn people that they should leave Madinah soon",
+      "To explain how rock melts into magma deep underground",
       "To explain what pressure is and how it builds"
      ],
      "answer": 0,
@@ -231,8 +231,8 @@
      "passage": "The Problem: Many students forget their water bottles and feel tired by noon.\n\nOur Idea: We will put a water station in each hallway so students can fill cups during breaks.",
      "stem": "What is the purpose of the section Our Idea?",
      "options": [
-      "To describe the problem",
-      "To list students' names",
+      "To describe the problem in the school",
+      "To list students' names and their classes",
       "To offer a solution to the problem",
       "To explain why water is wet"
      ],
@@ -243,9 +243,9 @@
      "passage": "Getting Started: You need flour, water, salt and yeast.\n\nStep by Step: Mix the ingredients. Knead the dough. Let it rise for an hour. Bake it.\n\nTips: Keep the dough in a warm place so it rises well.",
      "stem": "What is the purpose of the section Tips?",
      "options": [
-      "To list the ingredients",
+      "To list the ingredients you need",
       "To give the main steps in order",
-      "To tell the history of bread",
+      "To tell the history of bread and flour",
       "To give extra advice for better results"
      ],
      "answer": 3,
@@ -304,8 +304,8 @@
     "options": [
      "To describe the village where Sultan grew up",
      "To show how Sultan passes on the help he once received",
-     "To explain how the grandmother learned to read",
-     "To list the books Sultan read as a boy"
+     "To explain how the grandmother learned to read at night",
+     "To list the books Sultan read as a boy at school"
     ],
     "answer": 1,
     "hint": "Look at what Sultan does in the last section. Who does it remind you of?",
@@ -347,9 +347,9 @@
      "passage": "My grandfather was a pearl diver in his youth. He dived from a wooden boat with only a nose clip and a rope.\n\nHe once told me that the sea taught him patience: you could dive a hundred times and find nothing, then one oyster could change everything.",
      "stem": "What is the purpose of the second section?",
      "options": [
-      "To describe the wooden boat he dived from",
-      "To explain how pearls form inside oysters",
-      "To give the grandfather's age when he dived",
+      "To describe the wooden boat he dived from each day",
+      "To explain how pearls form inside oysters over time",
+      "To give the grandfather's age when he dived for pearls",
       "To share the lesson the grandfather learned from his work"
      ],
      "answer": 3,
@@ -360,9 +360,9 @@
      "stem": "What is the purpose of the first section?",
      "options": [
       "To show the old belief that his work would challenge",
-      "To describe his experiments with light",
-      "To explain how the human eye works",
-      "To tell where Ibn al-Haytham was born"
+      "To describe his early experiments with light on mirrors",
+      "To explain how the human eye works in detail",
+      "To tell where and when Ibn al-Haytham was born"
      ],
      "answer": 0,
      "why": "The first section sets up the old idea; the second shows how he tested and corrected it."
@@ -420,7 +420,7 @@
     "options": [
      "It gives background on the city's early history and its single old well.",
      "It describes how the aqueduct was built, step by step, over six years.",
-     "It celebrates the aqueduct as a complete and final solution to shortages.",
+     "It celebrates the aqueduct as a complete and final solution to all shortages in the city.",
      "It complicates the success story by showing the aqueduct's growth led to new shortages."
     ],
     "answer": 3,
@@ -455,7 +455,7 @@
       "It shows how the writer's past shapes how she helps others.",
       "It explains the basic rules of swimming safely.",
       "It introduces the patient coach who taught her.",
-      "It describes the writer's first fear of water."
+      "It describes the writer's first fear of water as a child."
      ],
      "answer": 0,
      "why": "The third section connects her past fear to her present kindness, deepening the meaning of the story."
@@ -464,10 +464,10 @@
      "passage": "An article argues that cities should plant more trees. After two sections of benefits, a section begins: \"Critics point out that trees need water, which is scarce in dry cities. However, native desert trees need very little water once established.\"",
      "stem": "What is the specific role of this section?",
      "options": [
-      "To introduce the topic of trees",
-      "To give more benefits of trees",
+      "To introduce the topic of trees in the city",
+      "To give more benefits of planting trees",
       "To answer an objection to the author's argument",
-      "To describe the history of the city"
+      "To describe the history of the city and its streets"
      ],
      "answer": 2,
      "why": "The section raises a concern from critics and responds to it, strengthening the argument."

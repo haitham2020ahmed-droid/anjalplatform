@@ -150,8 +150,8 @@
           "options": [
             "Bits of ice and rain that bump and rub",
             "Birds that fly through the cloud",
-            "Heat from the ground",
-            "Light from the moon"
+            "Heat from the ground below the cloud",
+            "Light from the moon at night in the sky"
           ],
           "answer": "A",
           "skill": "detail",
@@ -344,10 +344,10 @@
         {
           "stem": "Read: \"You can use this to estimate how far away a storm is.\" What does estimate mean here?",
           "options": [
-            "To stop something",
+            "To stop something from moving",
             "To make a careful guess",
-            "To hear a sound",
-            "To draw a picture"
+            "To hear a loud sound",
+            "To draw a nice picture"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -379,9 +379,9 @@
           "stem": "Why does the author compare lightning to the shock from a metal door handle?",
           "options": [
             "To explain lightning using something readers may have felt",
-            "To warn readers never to touch door handles",
-            "To prove that door handles cause storms",
-            "To show that lightning is very small"
+            "To warn readers never to touch door handles in winter",
+            "To prove that metal door handles cause storms in the sky",
+            "To show that lightning is very small and not at all strong"
           ],
           "answer": "A",
           "skill": "author-purpose",
@@ -558,9 +558,9 @@
           "stem": "The article says the spark jumps when the imbalance is \"too great for the surrounding air to resist.\" What can you infer about air?",
           "options": [
             "Air usually blocks electricity until the charge becomes very strong.",
-            "Air is a perfect conductor of electricity.",
-            "Air has no effect on lightning at all.",
-            "Air makes the charge inside clouds."
+            "Air is a perfect conductor of electricity, so sparks jump through it easily.",
+            "Air has no effect on lightning at all, and lightning forms in empty space.",
+            "Air makes the charge inside clouds, so the clouds are charged by wind alone."
           ],
           "answer": "A",
           "skill": "inference",

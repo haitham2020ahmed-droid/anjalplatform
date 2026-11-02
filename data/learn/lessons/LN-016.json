@@ -103,9 +103,9 @@
      "stem": "Which sentence should we take out?",
      "options": [
       "We sat in a round circle.",
-      "We read a book.",
-      "We sat in a circle.",
-      "None of them."
+      "We read a book to the class.",
+      "We sat in a circle on the mat.",
+      "None of them need to go."
      ],
      "answer": 0,
      "why": "It repeats the first sentence. A circle is always round."

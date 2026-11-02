@@ -115,9 +115,9 @@
           "stem": "What is this article mostly about?",
           "options": [
             "How a camera catches light to make a picture",
-            "How to take care of a pet cat",
-            "Why phones need batteries",
-            "How to draw a picture of your family"
+            "How to take care of a pet cat at home",
+            "Why phones need batteries to work all day",
+            "How to draw a picture of your family and friends"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -216,10 +216,10 @@
         {
           "stem": "Why does the author say your eye works a lot like a camera?",
           "options": [
-            "To tell readers to rest their eyes",
-            "To show that eyes can take photos you can print",
+            "To tell readers to rest their eyes after a long time of reading",
+            "To show that eyes can take photos you can print later",
             "To help readers connect cameras to something they already know",
-            "To explain why cats have big eyes"
+            "To explain why cats have big eyes that shine at night"
           ],
           "answer": "C",
           "skill": "author-purpose",
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
-            "Phones take better pictures than old cameras.",
+            "Phones take better pictures than old cameras, so people no longer need big camera parts.",
             "A camera's parts work together to catch reflected light and record it as a picture.",
-            "Ibn al-Haytham invented the phone camera.",
-            "Pixels are made of film."
+            "Ibn al-Haytham invented the phone camera, and he used it to photograph the night sky.",
+            "Pixels are made of film, which is why digital cameras need to be loaded with rolls."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -344,10 +344,10 @@
         {
           "stem": "How did old cameras record a picture differently from phones?",
           "options": [
-            "Old cameras had no lens",
+            "Old cameras had no lens at all, only a tiny hole in a dark box",
             "Old cameras used film with chemicals, while phones use a sensor with pixels",
-            "Old cameras needed no light at all",
-            "Phones use film and old cameras used pixels"
+            "Old cameras needed no light at all to take a picture of anything",
+            "Phones use film and old cameras used pixels to record the picture in them"
           ],
           "answer": "B",
           "skill": "compare",
@@ -473,9 +473,9 @@
           "stem": "Which statement best summarizes the article?",
           "options": [
             "A camera controls and focuses reflected light, then records it on film or as digital numbers.",
-            "Ibn al-Haytham built the first smartphone.",
-            "Every photo forms right side up.",
-            "Cameras work only in bright sunlight."
+            "Ibn al-Haytham built the first smartphone, and it took pictures with a large lens and a battery.",
+            "Every photo forms right side up, because the lens in a camera turns the picture around once.",
+            "Cameras work only in bright sunlight, and they cannot take any pictures indoors or at night."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -541,9 +541,9 @@
           "stem": "How does a digital sensor record a picture differently from film?",
           "options": [
             "Its pixels turn the amount of light into numbers, while film uses chemicals that change in light",
-            "It needs no light, while film needs a lot",
-            "It uses the retina, while film uses a lens",
-            "It records sound instead of light"
+            "It needs no light to take a picture, while film needs a lot of bright light and a flash to work",
+            "It uses the retina like a human eye does, while film uses only a lens and a mirror",
+            "It records sound instead of light, so it stores music in the same way as a radio"
           ],
           "answer": "A",
           "skill": "compare",
@@ -574,10 +574,10 @@
         {
           "stem": "Why does the author end with Ibn al-Haytham?",
           "options": [
-            "To give step-by-step directions for using a camera",
+            "To give step-by-step directions for using a camera on a bright and sunny day outside",
             "To show that the science behind cameras is very old and came partly from Arab scholarship",
-            "To argue that phones are harmful",
-            "To describe each part of the human eye and how the retina senses light"
+            "To argue that phones are harmful to young people and should be kept away from school",
+            "To describe each part of the human eye and how the retina senses light and colour in the dark"
           ],
           "answer": "B",
           "skill": "author-purpose",

@@ -115,9 +115,9 @@
         {
           "stem": "What does Fahd show Lina how to do?",
           "options": [
-            "Paint a colorful picture of the small park",
-            "Ride a bike quickly all the way to school",
-            "Build a small model house out of cardboard",
+            "Paint a colorful picture of the small park nearby",
+            "Ride a bike quickly all the way to school and back",
+            "Build a small model house out of paper and cardboard",
             "Count her steps carefully to measure the real distance"
           ],
           "answer": "D",
@@ -302,7 +302,7 @@
         {
           "stem": "How does the author organize the events in this story?",
           "options": [
-            "By comparing Lina's club to a similar club in another country",
+            "By comparing Lina's club to a similar club in another country and its members",
             "By listing every single member of the geography club in order",
             "By describing how to build a whole mosque from start to finish",
             "By showing Lina's first flawed map, her new method, then her improved result"
@@ -372,9 +372,9 @@
         {
           "stem": "In the story, the word proportional describes a map in which —",
           "options": [
-            "every landmark on the map is exactly the same physical size",
-            "only landmarks that face north are included on the map",
-            "the map always uses the same colors as the real landmarks",
+            "every landmark on the map is exactly the same physical size as the real one",
+            "only landmarks that face north are included on the map, and the rest are left out",
+            "the map always uses the same colors as the real landmarks do in the desert",
             "distances on the map correctly reflect the real distances between places"
           ],
           "answer": "D",
@@ -399,9 +399,9 @@
           "stem": "Put these events from the story in the order they happened.",
           "options": [
             "Lina sketches her first map, she notices the park looks too close to the mosque, she counts her steps, she revises the map using a scale",
-            "Lina counts her steps, she sketches her first map, she revises the map using a scale, she notices the mistake",
-            "Lina revises the map using a scale, she notices the mistake, she counts her steps, she sketches her first map",
-            "Lina notices the mistake, she revises the map using a scale, she sketches her first map, she counts her steps"
+            "Lina counts her steps, she sketches her first map, she revises the map using a scale, she notices the mistake, and then she shows it",
+            "Lina revises the map using a scale, she notices the mistake, she counts her steps, she sketches her first map, and then she rests",
+            "Lina notices the mistake, she revises the map using a scale, she sketches her first map, she counts her steps, and then she stops"
           ],
           "answer": "A",
           "skill": "sequence",
@@ -424,10 +424,10 @@
         {
           "stem": "Why does the author include the detail that Fahd adds a compass symbol and a legend to the final map?",
           "options": [
-            "To suggest that Lina's careful measuring work was ultimately unnecessary",
+            "To suggest that Lina's careful measuring work was ultimately unnecessary for the final map",
             "To show that a complete map needs more than distance, including orientation and symbols",
-            "To prove the club leader required these additions before accepting any map",
-            "To imply that the mosque and shop were removed from the map entirely"
+            "To prove the club leader required these additions before accepting any map from the members",
+            "To imply that the mosque and shop were removed from the map entirely by the club"
           ],
           "answer": "B",
           "skill": "author-purpose",

@@ -132,9 +132,9 @@
           "stem": "What happened first in the story?",
           "options": [
             "Layla and Omar tested the volcano at home the night before",
-            "Layla showed her volcano at the fair",
-            "The judges praised Layla's work",
-            "Layla wrote down the new mixture"
+            "Layla showed her volcano at the fair in front of the judges",
+            "The judges praised Layla's work and gave her a gold medal",
+            "Layla wrote down the new mixture in her notebook that night"
           ],
           "answer": "A",
           "skill": "sequence",
@@ -182,10 +182,10 @@
         {
           "stem": "Why did Layla and Omar do a rehearsal the night before the fair?",
           "options": [
-            "To have fun with vinegar and soda",
+            "To have fun with vinegar and soda in the kitchen sink",
             "To make sure the volcano would work before the real fair",
-            "To clean the kitchen table",
-            "To find a brand new science topic"
+            "To clean the kitchen table and put away the cups",
+            "To find a brand new science topic for the fair"
           ],
           "answer": "B",
           "skill": "inference",
@@ -199,10 +199,10 @@
         {
           "stem": "In the story, the word mixture means —",
           "options": [
-            "A loud, rumbling sound made deep inside a volcano",
-            "A careful drawing of a volcano made on plain paper",
+            "A loud, rumbling sound made deep inside a volcano, just before it erupts",
+            "A careful drawing of a volcano made on plain paper with a pencil",
             "Different things, like baking soda and vinegar, combined together",
-            "A kind of shiny trophy given out at a school fair"
+            "A kind of shiny trophy given out at a school fair to the winners"
           ],
           "answer": "C",
           "skill": "vocabulary",
@@ -233,9 +233,9 @@
         {
           "stem": "Why did the author include the part where Layla and Omar test the volcano the night before the fair?",
           "options": [
-            "To show that the volcano never worked at all",
-            "To explain exactly how to build a cardboard volcano",
-            "To describe what Omar's bedroom looked like",
+            "To show that the volcano never worked at all, even after hard work",
+            "To explain exactly how to build a cardboard volcano with paper",
+            "To describe what Omar's bedroom looked like at night",
             "To show how Layla found a problem and fixed it just in time"
           ],
           "answer": "D",
@@ -327,9 +327,9 @@
         {
           "stem": "What did Layla and Omar do before changing the mixture?",
           "options": [
-            "They asked their teacher for a brand-new topic",
-            "They bought a brand-new volcano kit from the store",
-            "They simply gave up and went straight to sleep",
+            "They asked their teacher for a brand-new topic and chose another experiment",
+            "They bought a brand-new volcano kit from the store near the school",
+            "They simply gave up and went straight to sleep without any dinner",
             "They reviewed the recipe card together, ingredient by ingredient"
           ],
           "answer": "D",
@@ -362,9 +362,9 @@
           "stem": "Why do you think Layla and Omar held a rehearsal the night before the fair instead of waiting until the actual day?",
           "options": [
             "They wanted extra time to find and fix any problems before it was too late",
-            "They needed practice talking in front of people",
-            "Their teacher required every student to rehearse",
-            "They had nothing else planned for that evening"
+            "They needed practice talking in front of people so they would not feel shy",
+            "Their teacher required every student to rehearse the night before the fair",
+            "They had nothing else planned for that evening and wanted to stay busy"
           ],
           "answer": "A",
           "skill": "inference",
@@ -395,10 +395,10 @@
         {
           "stem": "How does the story mostly organize events?",
           "options": [
-            "It carefully compares two different volcano projects side by side",
+            "It carefully compares two different volcano projects side by side, one after the other",
             "It follows the order events happened: the rehearsal, the problem, the fix, and the fair",
-            "It simply lists facts about volcanoes with no real story at all",
-            "It describes the kitchen in great detail before describing Layla"
+            "It simply lists facts about volcanoes with no real story at all, and then it stops",
+            "It describes the kitchen in great detail before describing Layla and the fair"
           ],
           "answer": "B",
           "skill": "text-structure",
@@ -412,9 +412,9 @@
         {
           "stem": "What can you tell about Omar from how he acted when the first test failed?",
           "options": [
-            "He was angry at Layla for failing the first test",
-            "He refused to help and left the kitchen upset",
-            "He laughed at Layla's mistake instead of helping",
+            "He was angry at Layla for failing the first test and stopped talking to her",
+            "He refused to help and left the kitchen upset, slamming the door",
+            "He laughed at Layla's mistake instead of helping her with the test",
             "He stayed calm and tried to help his sister solve the problem"
           ],
           "answer": "D",
@@ -473,9 +473,9 @@
           "stem": "Which statement best captures the central idea of the story?",
           "options": [
             "Careful testing and persistence helped Layla turn a failed rehearsal into a success",
-            "Science fairs are too stressful for any student to actually enjoy",
-            "Mistakes always end a young scientist's work for good, with no way back",
-            "Omar built the entire volcano project without his sister's help at all"
+            "Science fairs are too stressful for any student to actually enjoy, even when they win.",
+            "Mistakes always end a young scientist's work for good, with no way back, so it is better to quit.",
+            "Omar built the entire volcano project without his sister's help at all, and Layla did nothing."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -489,10 +489,10 @@
         {
           "stem": "What specific variable had Layla changed without realizing it?",
           "options": [
-            "The amount of red food coloring she used",
+            "The amount of red food coloring she used in the mixture",
             "The ratio of baking soda to vinegar in her mixture",
-            "The size of the cardboard volcano itself",
-            "The temperature of the kitchen that evening"
+            "The size of the cardboard volcano itself on the table",
+            "The temperature of the kitchen that evening at home"
           ],
           "answer": "B",
           "skill": "detail",
@@ -523,9 +523,9 @@
         {
           "stem": "What can be inferred about why Omar suggested analyzing the notes rather than giving up?",
           "options": [
-            "He wanted to take over the project completely himself",
-            "He thought the science fair would surely be canceled",
-            "He did not actually care whether the project worked at all",
+            "He wanted to take over the project completely himself and not share it with Layla and the others",
+            "He thought the science fair would surely be canceled by the teacher, so there was no reason to try",
+            "He did not actually care whether the project worked at all or not, and so he wished to give up early",
             "He believed the problem could likely be identified and corrected with careful thought"
           ],
           "answer": "D",
@@ -541,9 +541,9 @@
           "stem": "Based on the judge's question at the end, what does the judge seem to value most?",
           "options": [
             "Understanding how Layla learned from testing, failing, and adjusting her experiment",
-            "Winning first place above every other student",
-            "Having a perfectly flawless volcano with no problems at all",
-            "The exact brand of baking soda that Layla happened to use"
+            "Winning first place above every other student in the school science fair",
+            "Having a perfectly flawless volcano with no problems at all, from start to finish",
+            "The exact brand of baking soda that Layla happened to use for her volcano model"
           ],
           "answer": "A",
           "skill": "inference",
@@ -591,9 +591,9 @@
         {
           "stem": "Why does the author include the judge's question near the end of the story?",
           "options": [
-            "To suggest that eruptions matter more than understanding science",
-            "To show that judges always ask difficult, unrelated questions",
-            "To explain exactly how real volcanoes form in nature",
+            "To suggest that eruptions matter more than understanding science, which is why the judge asked",
+            "To show that judges always ask difficult, unrelated questions at the end of every fair",
+            "To explain exactly how real volcanoes form in nature, using a model made of paper and clay",
             "To highlight that the process of testing and adjusting is as important as the final result"
           ],
           "answer": "D",

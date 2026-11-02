@@ -165,9 +165,9 @@
         {
           "stem": "Why did people everywhere celebrate after the mission?",
           "options": [
-            "Because the Saturn V rocket was very large",
-            "Because the astronauts planted a colorful flag",
-            "Because the ocean splashdown went smoothly",
+            "Because the Saturn V rocket was very large and very loud",
+            "Because the astronauts planted a colorful flag on the ground",
+            "Because the ocean splashdown went smoothly in the morning",
             "Because humans had walked on another world for the first time"
           ],
           "answer": "D",
@@ -199,9 +199,9 @@
         {
           "stem": "How does the author mainly organize the article?",
           "options": [
-            "By comparing two different planets",
+            "By comparing two different planets, one after another",
             "By telling the events in the order they happened",
-            "By listing facts about football",
+            "By listing facts about football and famous players",
             "By arguing about which astronaut was best"
           ],
           "answer": "B",
@@ -216,10 +216,10 @@
         {
           "stem": "What can you tell about the capsule Eagle from the article?",
           "options": [
-            "It stayed on Earth the whole time",
-            "It was used only to carry food",
+            "It stayed on Earth the whole time of the long trip",
+            "It was used only to carry food and water for the crew",
             "It was built to fly down and land on the Moon's surface",
-            "It never separated from the main ship"
+            "It never separated from the main ship in space at all"
           ],
           "answer": "C",
           "skill": "inference",
@@ -233,9 +233,9 @@
         {
           "stem": "Based on the article, why did the astronauts need a small capsule instead of landing the whole rocket on the Moon?",
           "options": [
-            "The big rocket had already run out of fuel",
-            "The capsule could travel faster than light",
-            "The big rocket stayed behind in the ocean",
+            "The big rocket had already run out of fuel on the way",
+            "The capsule could travel faster than light across space",
+            "The big rocket stayed behind in the ocean near the coast",
             "The big rocket was too large and heavy to land on the Moon"
           ],
           "answer": "D",
@@ -344,9 +344,9 @@
         {
           "stem": "Why could the astronauts bounce and leap more easily on the Moon than on Earth?",
           "options": [
-            "The Moon has thicker air than Earth",
-            "Their boots were made of rubber",
-            "The Moon spins faster than Earth",
+            "The Moon has thicker air than Earth does, so it pushes up",
+            "Their boots were made of rubber that bounces back",
+            "The Moon spins faster than Earth does each day",
             "The Moon's gravity is weaker than Earth's gravity"
           ],
           "answer": "D",
@@ -412,8 +412,8 @@
         {
           "stem": "How does the author mainly organize the article?",
           "options": [
-            "By comparing many different rockets used throughout all of history",
-            "By arguing strongly that space travel is simply too dangerous",
+            "By comparing many different rockets used throughout all of history and in many countries",
+            "By arguing strongly that space travel is simply too dangerous for people",
             "By listing many detailed facts about the Moon's craters and valleys",
             "By following the mission in the order the events happened, from launch to splashdown"
           ],
@@ -472,10 +472,10 @@
         {
           "stem": "What is the central idea of the article?",
           "options": [
-            "Mission controllers on Earth deserve all the credit for this mission's success.",
+            "Mission controllers on Earth deserve all the credit for this mission's success, and the astronauts did little.",
             "Reaching orbit depended on a planned trajectory, a controlled descent, and quarantine precautions to land humans on the Moon safely.",
-            "The Moon's gravity pulls exactly as strongly as Earth's own gravity does.",
-            "Telemetry technology was invented specifically just for the Apollo 11 mission."
+            "The Moon's gravity pulls exactly as strongly as Earth's own gravity does, so walking there feels the same.",
+            "Telemetry technology was invented specifically just for the Apollo 11 mission, and nobody has used it since that single flight into space."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -490,9 +490,9 @@
           "stem": "What is telemetry, according to the article?",
           "options": [
             "Data automatically transmitted from a spacecraft's instruments",
-            "A particular type of fuel used only in rocket engines",
-            "A special kind of material used to make spacesuits",
-            "A tool astronauts used only to collect Moon rocks"
+            "A particular type of fuel used only in rocket engines on the ground",
+            "A special kind of material used to make spacesuits and helmets",
+            "A tool astronauts used only to collect Moon rocks and dust"
           ],
           "answer": "A",
           "skill": "detail",
@@ -523,9 +523,9 @@
         {
           "stem": "Why did mission controllers closely monitor telemetry during the lunar module's descent?",
           "options": [
-            "To entertain people watching on television",
-            "To calculate the Moon's exact age",
-            "To choose the next astronaut to walk on the Moon",
+            "To entertain people watching on television at home during the night",
+            "To calculate the Moon's exact age in years and months for a report",
+            "To choose the next astronaut to walk on the Moon after the first one",
             "To confirm that fuel, velocity, and altitude stayed within safe limits"
           ],
           "answer": "D",
@@ -541,9 +541,9 @@
           "stem": "In the article, the word trajectory most nearly means",
           "options": [
             "The planned path an object follows through space",
-            "A type of fuel tank",
-            "A kind of spacesuit",
-            "The sound a rocket makes"
+            "A type of fuel tank on the side of the rocket",
+            "A kind of spacesuit that an astronaut wears",
+            "The loud sound a rocket makes at launch"
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -557,10 +557,10 @@
         {
           "stem": "Based on the article, how was Collins's role during the Moon landing different from Armstrong's and Aldrin's?",
           "options": [
-            "Collins walked on the Moon alone while the others stayed in orbit",
-            "Collins remained on Earth the entire mission",
+            "Collins walked on the Moon alone while the others stayed in orbit around it, and the two men later joined him there",
+            "Collins remained on Earth the entire mission, with the control team, and spoke to the others by radio from the room",
             "Collins stayed in orbit aboard the command module while the other two descended to the lunar surface",
-            "Collins collected the lunar samples while the others piloted the rocket"
+            "Collins collected the lunar samples while the others piloted the rocket back, and left the Moon before they did"
           ],
           "answer": "C",
           "skill": "compare",

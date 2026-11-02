@@ -55,9 +55,9 @@
     "stem": "What does the story hint will happen?",
     "options": [
      "Mona will get wet in the rain.",
-     "Mona will buy a new bike.",
-     "Dad will go to sleep.",
-     "The sun will come out."
+     "Mona will buy a new bike soon.",
+     "Dad will go to sleep early.",
+     "The sun will come out soon."
     ],
     "answer": 0,
     "hint": "Look at the clues: what did Dad say about the clouds? What did Mona leave at home?",
@@ -107,10 +107,10 @@
      "passage": "Faris packed his school bag. He forgot to put in his homework. He ran to the bus.",
      "stem": "Which sentence is a hint that a problem is coming?",
      "options": [
-      "Faris packed his school bag.",
+      "Faris packed his school bag early.",
       "He forgot to put in his homework.",
-      "He ran to the bus.",
-      "Faris went to school."
+      "He ran to the bus in time.",
+      "Faris went to school by bus."
      ],
      "answer": 1,
      "why": "Forgetting his homework is a hint. Faris may get into trouble at school."
@@ -280,9 +280,9 @@
     "passage": "The first time Yara saw the old well behind her grandmother's farmhouse, its wooden cover was cracked down the middle. 'Never play near it,' her grandmother said, more sharply than Yara had ever heard her speak. All summer, Yara obeyed. She played in the orchard, fed the chickens and chased the goats. Then, on the last afternoon, her little cousin Badr ran past her, kicking a football toward the back of the house. Yara heard the ball bounce once, twice, and then a hollow wooden thud. Everything went silent.",
     "stem": "Which earlier detail foreshadows the danger in the final scene?",
     "options": [
-     "Yara fed the chickens and chased the goats.",
-     "Badr ran past her, kicking a football.",
-     "Yara played in the orchard all summer long.",
+     "Yara fed the chickens and chased the goats around the yard.",
+     "Badr ran past her, kicking a football across the yard.",
+     "Yara played in the orchard all summer long with her cousins and Badr.",
      "The well's cover was cracked, and Grandmother warned her sharply."
     ],
     "answer": 3,
@@ -398,7 +398,7 @@
      "By having the guide promise that the robot will make many mistakes",
      "By contrasting the guide's boast with a blinking red light that few people notice",
      "By telling readers in the first sentence that the robot is broken",
-     "By describing the uniforms of the visiting schoolchildren in detail"
+     "By describing the colourful uniforms of the visiting schoolchildren in detail"
     ],
     "answer": 1,
     "hint": "Did the guide or the narrator say that? Look for the small detail that keeps returning, and who notices it.",
@@ -458,9 +458,9 @@
      "stem": "What is the effect of this foreshadowing?",
      "options": [
       "It creates irony as his confident words come back to him.",
-      "It proves that Majed has become a good cook.",
-      "It shows that Majed's flat is full of food.",
-      "It hides the ending of the story from readers."
+      "It proves that Majed has become a very good cook at last.",
+      "It shows that Majed's flat is full of food and guests.",
+      "It hides the ending of the story from the readers for now."
      ],
      "answer": 0,
      "why": "Majed's early boast foreshadows the opposite situation. When it comes true in reverse, the effect is ironic and a little funny."

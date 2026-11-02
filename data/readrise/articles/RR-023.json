@@ -165,10 +165,10 @@
         {
           "stem": "What do microbes in the soil do?",
           "options": [
-            "They eat the seeds",
-            "They make the soil dry",
+            "They eat the seeds in the ground",
+            "They make the soil dry and hard",
             "They break down dead leaves",
-            "They keep rain away"
+            "They keep rain away from the field"
           ],
           "answer": "C",
           "skill": "detail",
@@ -233,9 +233,9 @@
         {
           "stem": "Why does the article still tell us to wash our hands?",
           "options": [
-            "Because all microbes are bad",
-            "Because soap feeds good microbes",
-            "Because water makes bread rise",
+            "Because all microbes are bad for people",
+            "Because soap feeds good microbes in the hands",
+            "Because water makes bread rise in the oven",
             "Because some microbes can make us sick"
           ],
           "answer": "D",
@@ -378,10 +378,10 @@
         {
           "stem": "How is the article mainly organized?",
           "options": [
-            "As a story told in time order about one scientist",
-            "As a list of steps for an experiment",
+            "As a story told in time order about one scientist and her lab",
+            "As a list of steps for an experiment that students can try",
             "By describing different ways microbes help, one in each paragraph",
-            "As a comparison of two kinds of bread"
+            "As a comparison of two kinds of bread baked in a village"
           ],
           "answer": "C",
           "skill": "text-structure",
@@ -490,9 +490,9 @@
           "stem": "According to the article, how do certain bacteria help beans and peas?",
           "options": [
             "They capture nitrogen from the air and change it into a form plants can use",
-            "They keep insects from eating the leaves",
-            "They release carbon dioxide that makes the beans swell",
-            "They turn the roots into sugar"
+            "They keep insects from eating the leaves and stems of the plants in the field",
+            "They release carbon dioxide that makes the beans swell and grow bigger and bigger",
+            "They turn the roots into sugar that the farmer can sell in the market"
           ],
           "answer": "A",
           "skill": "detail",
@@ -523,9 +523,9 @@
         {
           "stem": "In the phrase \"bacteria become resistant to these essential medicines,\" what does resistant mean?",
           "options": [
-            "Easily killed by",
-            "Hidden inside",
-            "Made from",
+            "Easily killed by the medicine doctors give",
+            "Hidden inside the bodies of sick people",
+            "Made from the same drugs, mixed in a lab",
             "Able to survive and not be harmed by"
           ],
           "answer": "D",
@@ -574,9 +574,9 @@
         {
           "stem": "Why does the author open the article by describing van Leeuwenhoek's lenses?",
           "options": [
-            "To show that microbes were only recently invented",
-            "To argue that lenses are more important than microbes",
-            "To explain how bread was first made",
+            "To show that microbes were only recently invented by scientists",
+            "To argue that lenses are more important than microbes themselves",
+            "To explain how bread was first made with yeast and flour",
             "To show that microbes became known only once tools could reveal them"
           ],
           "answer": "D",

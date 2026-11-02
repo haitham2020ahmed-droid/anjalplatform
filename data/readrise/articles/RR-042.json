@@ -216,10 +216,10 @@
         {
           "stem": "What happened because food and water were hard to find in the desert?",
           "options": [
-            "The horses grew too big to run fast",
-            "The Bedouin moved their horses to farms",
+            "The horses grew too big to run fast in the sand",
+            "The Bedouin moved their horses to farms by the sea",
             "Only tough horses lived, so the breed grew tough",
-            "The horses stopped running long races"
+            "The horses stopped running long races in the sun"
           ],
           "answer": "C",
           "skill": "cause-effect",
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
-            "Arabian horses are the fastest animals on Earth.",
-            "The Bedouin traveled only with camels and goats.",
+            "Arabian horses are the fastest animals on Earth, faster than any car.",
+            "The Bedouin traveled only with camels and goats across the sand.",
             "Hard desert life shaped a tough, gentle breed that people still value.",
-            "Thoroughbreds have replaced Arabian horses in every race."
+            "Thoroughbreds have replaced Arabian horses in every race in the world."
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -361,10 +361,10 @@
         {
           "stem": "Why would endurance matter to people who traveled across the desert?",
           "options": [
-            "Desert trips were always short and easy to finish",
-            "Horses had to race through busy city streets",
+            "Desert trips were always short and easy to finish in a day",
+            "Horses had to race through busy city streets and markets",
             "Long trips between water spots needed horses that kept going",
-            "Horses had to swim across wide rivers"
+            "Horses had to swim across wide rivers to the other side"
           ],
           "answer": "C",
           "skill": "inference",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
-            "Horse racing is the oldest sport in the Arabian Peninsula.",
+            "Horse racing is the oldest sport in the Arabian Peninsula, and kings watched it every week.",
             "Shaped by desert life and careful families, the Arabian horse is still valued today.",
-            "The Bedouin preferred camels to horses for long trips.",
-            "Modern breeds are stronger than Arabian horses."
+            "The Bedouin preferred camels to horses for long trips, so they seldom kept any horses.",
+            "Modern breeds are stronger than Arabian horses, which is why farmers choose them today."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -540,10 +540,10 @@
         {
           "stem": "Why might Bedouin families have tracked each mare's lineage so carefully?",
           "options": [
-            "To decide which horse could sleep outside",
+            "To decide which horse could sleep outside the tent",
             "To know which horses came from strong, proven lines",
-            "To sell their horses quickly in Europe",
-            "To name each horse after a place"
+            "To sell their horses quickly in Europe for money",
+            "To name each horse after a place in the desert"
           ],
           "answer": "B",
           "skill": "inference",
@@ -574,10 +574,10 @@
         {
           "stem": "According to the article, why did the breed become so resilient?",
           "options": [
-            "The Bedouin fed it special grain",
+            "The Bedouin fed it special grain every day of the year",
             "Faster horses were brought in from Europe",
             "Only the hardiest animals survived harsh conditions",
-            "The horses rested inside tents every day"
+            "The horses rested inside tents every day in the shade"
           ],
           "answer": "C",
           "skill": "cause-effect",

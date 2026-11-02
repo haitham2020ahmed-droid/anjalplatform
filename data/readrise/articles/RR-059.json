@@ -395,10 +395,10 @@
         {
           "stem": "Why is a fossil more likely to be found in sedimentary rock than in igneous rock?",
           "options": [
-            "Animals only lived near volcanoes, not in the sea.",
+            "Animals only lived near volcanoes, not in the sea or on the land.",
             "Shells can be buried in layers, but melted rock would destroy them.",
-            "Igneous rock is always too soft to hold anything.",
-            "Fossils turn into lava when they get old."
+            "Igneous rock is always too soft to hold anything inside it.",
+            "Fossils turn into lava when they get very old and hot."
           ],
           "answer": "B",
           "skill": "inference",
@@ -506,10 +506,10 @@
         {
           "stem": "According to the article, what are the two sources of energy that power the rock cycle?",
           "options": [
-            "Wind and rivers",
-            "Volcanoes and earthquakes",
+            "Wind and rivers flowing to sea",
+            "Volcanoes and earthquakes together",
             "Earth's internal heat and the sun",
-            "Pressure and ancient fossils"
+            "Pressure and ancient fossils only"
           ],
           "answer": "C",
           "skill": "detail",
@@ -575,9 +575,9 @@
           "stem": "Why will the rock cycle most likely continue for as long as Earth exists?",
           "options": [
             "Earth's heat and the sun keep supplying energy that changes rocks.",
-            "Geologists keep moving rocks from one place to another.",
-            "New rocks fall from space every day.",
-            "Rocks melt into magma every time it rains."
+            "Geologists keep moving rocks from one place to another all year.",
+            "New rocks fall from space every day and replace the old ones.",
+            "Rocks melt into magma every time it rains on the mountains."
           ],
           "answer": "A",
           "skill": "inference",

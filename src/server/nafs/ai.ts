@@ -6,6 +6,7 @@
  * PRIVACY: the request holds curriculum data only (skills, stems, the blueprint) — never student data
  * (callJson's assertNoStudentData guards it); AI settings come from aiEnv() and the school's AI settings and limits.
  */
+import { LENGTH_PROMPT_RULE, LENGTH_REJECT_REASON, lengthCue } from "../../lib/length-cue";
 import type { Repo } from "../seeding/repo";
 import { ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
@@ -42,6 +43,7 @@ export function nafsPrompt(input: { codes: string[]; count: number; topic: strin
     "expository text), in paragraphs separated by a blank line, and base every question on it (refer to paragraphs by number).",
     "Each question also measures ONE of the 13 Ministry of Education NAFS reading standards (S01–S13, given below with the guide's sample question types);",
     "give its code (MOE.S01 … MOE.S13). The official option styles 'All of the above', 'A and B' and 'None of the above' may be used rarely (at most one question in six).",
+    LENGTH_PROMPT_RULE,
     "Return ONLY JSON in exactly this shape:",
     '{"passage":{"title":"…","text":"…","type":"LIT"}|null,"questions":[{"skill":"NAFS.RC.MAIN","process":"P3","standard":"MOE.S04","stem":"…","options":["…","…","…","…"],"correct":0,"explanation":"…"}]}',
   ].join(" ");
@@ -75,6 +77,7 @@ export function nafsValidator(codes: string[], count: number, withPassage: boole
       passage = { title: s(p.title).slice(0, 150), text: s(p.text).slice(0, 8000), type: s(p.type) === "LIT" ? "LIT" : "INFO" };
     }
     const out: AiReply["questions"] = [];
+    let lengthDropped = 0;
     for (const [i, raw] of qs.slice(0, count).entries()) {
       const q = (raw ?? {}) as Record<string, unknown>;
       const opts = Array.isArray(q.options) ? q.options.map((x) => s(x).trim()) : [];
@@ -82,9 +85,12 @@ export function nafsValidator(codes: string[], count: number, withPassage: boole
       if (!s(q.stem).trim()) return { ok: false, error: `question ${i + 1}: no stem` };
       if (opts.length !== 4 || opts.some((x) => !x) || new Set(opts.map((x) => x.toLowerCase())).size !== 4) return { ok: false, error: `question ${i + 1}: exactly four different options` };
       if (!Number.isInteger(correct) || correct < 0 || correct > 3) return { ok: false, error: `question ${i + 1}: correct must be 0–3` };
+      // 🎯 the correct answer clearly the longest choice (students could guess it): this question is left out
+      if (lengthCue(opts, correct).flagged) { lengthDropped++; continue; }
       const skill = codes.includes(s(q.skill)) ? s(q.skill) : codes[i % codes.length];
       out.push({ skill, process: isProcess(q.process) ? (s(q.process) as NafsProcess) : SKILL_BY_CODE.get(skill)!.process, standard: isMoeCode(q.standard) ? s(q.standard) : standardFor(null, skill, s(q.stem)), stem: s(q.stem).trim().slice(0, 1000), options: opts.map((x) => x.slice(0, 300)), correct, explanation: s(q.explanation).trim().slice(0, 1000) });
     }
+    if (!out.length && lengthDropped) return { ok: false, error: `every question: ${LENGTH_REJECT_REASON}` };
     return { ok: true, value: { passage, questions: out } };
   };
 }

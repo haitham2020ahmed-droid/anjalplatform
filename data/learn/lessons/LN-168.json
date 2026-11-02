@@ -106,9 +106,9 @@
      "passage": "\"I can do it myself!\" shouted Bilal. He grabbed the box. \"I don't need help!\"",
      "stem": "What kind of boy is Bilal?",
      "options": [
-      "He is shy.",
-      "He is sleepy.",
-      "He wants help.",
+      "He is shy and very quiet.",
+      "He is sleepy and slow.",
+      "He wants help from a friend.",
       "He wants to do it alone."
      ],
      "answer": 3,
@@ -219,10 +219,10 @@
      "passage": "Omar was about to throw away the old radio. \"Wait!\" said Grandpa. \"That radio belonged to my father. I can fix it.\" Omar put it down, and the two of them spent the afternoon repairing it together.",
      "stem": "What happens because of Grandpa's words?",
      "options": [
-      "Omar throws away the radio.",
-      "Omar buys a new radio.",
+      "Omar throws away the old radio in the bin.",
+      "Omar buys a new radio from the market.",
       "Omar and Grandpa repair the radio together.",
-      "Grandpa gets angry with Omar."
+      "Grandpa gets angry with Omar and shouts."
      ],
      "answer": 2,
      "why": "Because Grandpa says the radio was his father's and he can fix it, they spend the afternoon repairing it."
@@ -329,10 +329,10 @@
      "passage": "\"I—I think the answer might be ... um ... maybe the moon?\" said Ziad quietly, staring at his desk. When the teacher said he was right, he looked up in surprise.",
      "stem": "What does Ziad's way of speaking reveal?",
      "options": [
-      "He is bored by the lesson.",
-      "He is sure of the answer.",
+      "He is bored by the whole lesson.",
+      "He is sure of the answer he gave.",
       "He is unsure and lacks confidence.",
-      "He is rude to the teacher."
+      "He is rude to the teacher in class."
      ],
      "answer": 2,
      "why": "He stutters, says \"um\" and \"maybe\", speaks quietly and stares at his desk. He lacks confidence."
@@ -341,9 +341,9 @@
      "passage": "\"You took my seat,\" said Dalal coldly. \"I always sit here.\" Sara moved without a word. The next day, Dalal arrived to find Sara had saved the seat for her, with a note that said, \"Good morning!\"",
      "stem": "How does the dialogue help show the relationship between the girls at first?",
      "options": [
-      "It shows that they are best friends.",
+      "It shows that they are best friends at school.",
       "It shows that Sara is angry with Dalal.",
-      "It shows that they are sisters.",
+      "It shows that they are sisters who live together.",
       "It shows that Dalal is unfriendly toward Sara."
      ],
      "answer": 3,
@@ -432,10 +432,10 @@
      "passage": "\"Congratulations on winning,\" said Hana, with a bright smile that did not reach her eyes. \"I'm sure the judges had their reasons.\" Then she turned and walked quickly toward the door.",
      "stem": "What does Hana's dialogue suggest?",
      "options": [
-      "She is truly happy for the winner.",
-      "She agrees completely with the judges.",
+      "She is truly happy for the winner and wants to cheer.",
+      "She agrees completely with the judges and their choice.",
       "She is disappointed and thinks the result was unfair.",
-      "She did not enter the contest."
+      "She did not enter the contest at all this year."
      ],
      "answer": 2,
      "why": "Her smile does not reach her eyes, she hints the judges were wrong, and she leaves quickly. She is disappointed."
@@ -456,10 +456,10 @@
      "passage": "The old shopkeeper spoke slowly and formally: \"Young man, a fair price is a promise between two people.\" The boy answered quickly, \"Yeah, but online it's cheaper, and it comes in a day.\" The shopkeeper only smiled and wrapped the book in brown paper.",
      "stem": "Why does the author give the two characters such different ways of speaking?",
      "options": [
-      "To show that both of them work in the shop",
+      "To show that both of them work in the same shop all week",
       "To contrast traditional values with modern convenience",
-      "To show that the boy is rude and unkind",
-      "To explain how books are wrapped"
+      "To show that the boy is rude and unkind to the old man",
+      "To explain how books are wrapped for the customers"
      ],
      "answer": 1,
      "why": "The shopkeeper's formal words about promises contrast with the boy's quick words about price and speed. This shows two sets of values."

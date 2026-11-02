@@ -166,9 +166,9 @@
           "stem": "Why do players need quick eyes and quick hands in table tennis?",
           "options": [
             "Because the ball moves very fast after a hit",
-            "Because the table is very large",
-            "Because the net is very tall",
-            "Because the game lasts a long time"
+            "Because the table is very large and long too",
+            "Because the net is very tall and thick",
+            "Because the game lasts a long time today"
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -199,10 +199,10 @@
         {
           "stem": "Why did early players use books as a net?",
           "options": [
-            "Books made the game harder to play",
-            "Books made the ball bounce higher",
+            "Books made the game much harder to play for everyone in the room",
+            "Books made the ball bounce higher than it did before on the floor",
             "They did not have a real net yet, so they used what they had at home",
-            "Books were required by the official rules"
+            "Books were required by the official rules of the game"
           ],
           "answer": "C",
           "skill": "inference",
@@ -233,10 +233,10 @@
         {
           "stem": "Why does the author begin the article with \"Tap! Tap! Smash!\"?",
           "options": [
-            "To list every rule of table tennis",
+            "To list every rule of table tennis for the new players",
             "To help readers hear and picture the fast game",
-            "To name famous table tennis players",
-            "To give the final score of a match"
+            "To name famous table tennis players from around the world",
+            "To give the final score of a match that was played"
           ],
           "answer": "B",
           "skill": "author-purpose",
@@ -294,7 +294,7 @@
           "stem": "What is the central idea of the article?",
           "options": [
             "Table tennis combines fast reaction time, scoring rules, and the science of spin",
-            "Table tennis has only ever been played competitively in England",
+            "Table tennis has only ever been played competitively in England and in no other country",
             "Rubber paddles always cost much more money than old wooden ones",
             "Every single rally in table tennis lasts exactly one full minute"
           ],
@@ -346,7 +346,7 @@
           "options": [
             "It decides how many points a player scores automatically",
             "It completely determines the overall color of the ball",
-            "It changes the official size of the entire table",
+            "It changes the official size of the entire table and the net",
             "It decides whether the spin curves the ball up, down, or sideways"
           ],
           "answer": "D",
@@ -361,10 +361,10 @@
         {
           "stem": "Read this: \"leaving players only a tiny fraction of a second of reaction time.\" What does reaction time mean here?",
           "options": [
-            "The total length of the match",
+            "The total length of the match, from start to finish",
             "How quickly a player responds to the fast-moving ball",
-            "The number of points in a game",
-            "The size of the paddle"
+            "The number of points in a game that a player wins",
+            "The size of the paddle that the player holds"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -379,9 +379,9 @@
           "stem": "What can you infer about why players must let the ball bounce once on each side before returning it?",
           "options": [
             "It gives both players a fair, equal chance to react to the serve",
-            "It makes the ball spin faster automatically",
-            "It allows the net to be removed during play",
-            "It doubles the number of points scored"
+            "It makes the ball spin faster automatically after the bounce, so it is harder to hit",
+            "It allows the net to be removed during play so players can run freely",
+            "It doubles the number of points scored by each player in a game"
           ],
           "answer": "A",
           "skill": "inference",
@@ -396,9 +396,9 @@
           "stem": "What would most likely happen during a rally if a player reacted too slowly?",
           "options": [
             "The player would likely miss returning the ball",
-            "The net would automatically lower",
-            "The score would reset to zero",
-            "The ball would spin less"
+            "The net would automatically lower for the player",
+            "The score would reset to zero for both teams",
+            "The ball would spin less and fly slowly"
           ],
           "answer": "A",
           "skill": "inference",
@@ -412,10 +412,10 @@
         {
           "stem": "How is the article mainly organized?",
           "options": [
-            "As a comparison between table tennis and basketball",
+            "As a comparison between table tennis and basketball, rule by rule and ball by ball",
             "By explaining the science and rules behind the sport, one idea at a time",
-            "As a story about one historic match",
-            "As a list of champion players"
+            "As a story about one historic match between two champions",
+            "As a list of champion players and the medals they won"
           ],
           "answer": "B",
           "skill": "text-structure",
@@ -473,9 +473,9 @@
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
             "Table tennis combines reflex speed, trajectory, spin, and friction into one fast sport",
-            "Table tennis was invented only for highly trained professional athletes",
-            "Rubber paddles are always more expensive than wooden ones",
-            "Every table tennis match lasts exactly the same length of time"
+            "Table tennis was invented only for highly trained professional athletes, not for families",
+            "Rubber paddles are always more expensive than wooden ones, so most players use wood",
+            "Every table tennis match lasts exactly the same length of time, whoever is playing"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -506,10 +506,10 @@
         {
           "stem": "Read this: \"this rotation, commonly known as spin, bends the ball's trajectory.\" What does trajectory mean here?",
           "options": [
-            "The final score of the match being played",
+            "The final score of the match being played at the end",
             "The curved path the ball follows through the air",
-            "The material used to make the paddle",
-            "The number of rallies in a game"
+            "The material used to make the paddle and its handle",
+            "The number of rallies in a game of table tennis"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -557,9 +557,9 @@
         {
           "stem": "How does a smoother paddle compare with a textured rubber paddle, according to the article?",
           "options": [
-            "Both grip the ball exactly the same amount",
-            "A smoother paddle always makes the ball travel slower",
-            "A textured paddle cannot be used to serve",
+            "Both grip the ball exactly the same amount, so there is no difference between them at all",
+            "A smoother paddle always makes the ball travel slower, no matter how the player hits it",
+            "A textured paddle cannot be used to serve the ball in a match, so players avoid it",
             "A smoother paddle grips the ball less and produces weaker rotation than a textured rubber paddle"
           ],
           "answer": "D",
@@ -575,9 +575,9 @@
           "stem": "Why do players need very fast reflexes in table tennis, based on the article?",
           "options": [
             "Because the ball reaches high velocity after a hard hit, leaving little time to react",
-            "Because the table is unusually large",
-            "Because the net is taller than in other sports",
-            "Because games last for several hours"
+            "Because the table is unusually large and the players stand far away from it",
+            "Because the net is taller than in other sports, so players must jump up to reach it",
+            "Because games last for several hours, so players must stay ready all the time"
           ],
           "answer": "A",
           "skill": "inference",

@@ -132,8 +132,8 @@
           "stem": "What is magma?",
           "options": [
             "Lava after it cools and turns hard",
-            "Ash that shoots up into the sky",
-            "Gas that scientists test",
+            "Ash that shoots up into the sky during an eruption",
+            "Gas that scientists test with their special tools",
             "Melted rock that is still under the ground"
           ],
           "answer": "D",
@@ -165,10 +165,10 @@
         {
           "stem": "Scientists check if the ground near a volcano swells. What does swell mean here?",
           "options": [
-            "To crack open",
-            "To shake hard",
+            "To crack open with a loud sound",
+            "To shake hard and fall down",
             "To get bigger and rise up",
-            "To cool down"
+            "To cool down and turn to ice"
           ],
           "answer": "C",
           "skill": "vocabulary",
@@ -233,10 +233,10 @@
         {
           "stem": "Why does the author end the article with the harrat?",
           "options": [
-            "To tell readers to stay away from Madinah",
-            "To explain how plates move each year",
+            "To tell readers to stay away from the city of Madinah and its hills",
+            "To explain how the plates of the Earth move each year",
             "To show that volcanoes are part of Saudi Arabia's land, too",
-            "To prove that every volcano erupts with a bang"
+            "To prove that every volcano erupts with a loud bang"
           ],
           "answer": "C",
           "skill": "author-purpose",
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
-            "Volcanoes are only dangerous near the Pacific Ocean.",
-            "The lava fields of Saudi Arabia are the largest on Earth.",
+            "Volcanoes are only dangerous near the Pacific Ocean, and nowhere else on Earth.",
+            "The lava fields of Saudi Arabia are the largest on Earth, bigger than any other fields.",
             "Volcanoes form in certain places, erupt in different ways, and are closely watched.",
-            "Tectonic plates move a few centimeters every year."
+            "Tectonic plates move a few centimeters every year, and this is why volcanoes sleep."
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -311,9 +311,9 @@
           "stem": "According to the article, what is the Ring of Fire?",
           "options": [
             "A chain of volcanoes around the Pacific Ocean",
-            "A hot spot under the Hawaiian Islands",
-            "The glowing edge of a lava flow",
-            "A circle of lava fields around Madinah"
+            "A hot spot under the Hawaiian Islands in the sea",
+            "The glowing edge of a lava flow down a hill",
+            "A circle of lava fields around Madinah in Saudi Arabia"
           ],
           "answer": "A",
           "skill": "detail",
@@ -378,10 +378,10 @@
         {
           "stem": "Why do scientists most likely keep watching the harrat today?",
           "options": [
-            "Lava is flowing into Madinah right now",
-            "They want to collect the black rock to sell",
+            "Lava is flowing into Madinah right now, so people must leave",
+            "They want to collect the black rock to sell to other countries",
             "The area erupted before and could become active again",
-            "The harrat are part of the Ring of Fire"
+            "The harrat are part of the Ring of Fire there"
           ],
           "answer": "C",
           "skill": "inference",

@@ -108,7 +108,7 @@
      "stem": "Does “crowded” feel good or bad here?",
      "options": [
       "bad: the room is too full",
-      "good: the room is fun",
+      "good: the room is fun to be in",
       "good: the room is big",
       "bad: the room is cold"
      ],
@@ -186,10 +186,10 @@
     "passage": "Nawaf asks questions about everything. In science class, he wants to know why the sky is blue and how planes stay in the air. He reads extra books at home and shares what he learns with us. Our teacher says Nawaf is curious, and she is glad to have him in her class.",
     "stem": "Why did the teacher call Nawaf “curious” and not “nosy”?",
     "options": [
-     "Nawaf asks about other people's secrets.",
+     "Nawaf asks about other people's secrets all the time.",
      "His questions are about learning, and she likes them.",
-     "Nawaf never asks any questions.",
-     "Nawaf talks too much in class."
+     "Nawaf never asks any questions in her lessons.",
+     "Nawaf talks too much in class and disturbs others."
     ],
     "answer": 1,
     "hint": "Nosy is a negative word. Does the text show Nawaf doing anything bad? What are his questions about?",
@@ -241,9 +241,9 @@
      "stem": "What does “childish” suggest?",
      "options": [
       "acting young in a silly way",
-      "being kind like a child",
-      "being small",
-      "being happy"
+      "being very kind like a child",
+      "being small and short",
+      "being happy all the time"
      ],
      "answer": 0,
      "why": "Childish is negative. Saleh is annoyed that his brother is acting in a silly way."
@@ -295,10 +295,10 @@
     "passage": "The market opened at dawn. Within minutes, shoppers flooded the narrow lanes, pushing past each other to reach the fruit stalls. Sellers shouted prices over the noise, and carts squeezed between people's legs. Kareem's grandmother held his hand tightly so they would not be separated. By the time they reached the vegetable stall, the best tomatoes were already gone, and Kareem's feet were sore from being stepped on.",
     "stem": "What does the word “flooded” suggest about the shoppers?",
     "options": [
-     "They were calm and moved slowly.",
+     "They were calm and moved slowly through the lanes of the market.",
      "They came in great numbers and filled the lanes uncomfortably.",
-     "They were wet from the morning rain.",
-     "They were happy to help each other."
+     "They were wet from the morning rain and the mud.",
+     "They were happy to help each other find things."
     ],
     "answer": 1,
     "hint": "The passage never mentions rain or calm shoppers. What do the other details make the market feel like?",
@@ -338,10 +338,10 @@
      "passage": "The new manager called the old staff room “cramped”. The workers who had used it for years called it “snug”.",
      "stem": "What do the two words show?",
      "options": [
-      "The room had grown smaller.",
-      "The manager liked the room more than the workers did.",
+      "The room had grown smaller over the years, so nobody could fit.",
+      "The manager liked the room more than the workers did, and told them so.",
       "The manager saw the small room negatively; the workers saw it positively.",
-      "Both groups thought the room was too big."
+      "Both groups thought the room was too big for the work they did."
      ],
      "answer": 2,
      "why": "Both words mean small. Cramped is negative (too tight). Snug is positive (small and comfortable)."
@@ -450,9 +450,9 @@
      "passage": "Report A: “The coach trusted his young players.”\nReport B: “The coach risked the match on his inexperienced players.”",
      "stem": "How do the two reports differ?",
      "options": [
-      "Report A is about a different match.",
-      "Both reports praise the coach equally.",
-      "Report B says the players were older.",
+      "Report A is about a different match from Report B.",
+      "Both reports praise the coach equally well.",
+      "Report B says the players were older than in A.",
       "Report A sounds approving; Report B sounds critical."
      ],
      "answer": 3,

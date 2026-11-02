@@ -157,10 +157,10 @@
       "type": "MCQ",
       "stem": "Which is another suitable title for the whole text?",
       "options": [
-        "Alessandro Volta's Childhood",
+        "Alessandro Volta's Childhood in Italy",
         "From Volta's Stack to Solar Storage",
-        "How to Build a Solar Farm",
-        "Why Phones Need Wall Sockets"
+        "How to Build a Solar Farm in the Desert",
+        "Why Phones Need Wall Sockets at Home"
       ],
       "answer": "B",
       "why": "The text moves from Volta's 1800 invention to modern batteries and solar storage. Volta's childhood and building solar farms are not discussed."
@@ -174,9 +174,9 @@
       "stem": "What is the main purpose of the text?",
       "options": [
         "to explain how batteries work and why they matter",
-        "to persuade readers to buy electric cars",
-        "to tell the life story of Alessandro Volta",
-        "to warn readers never to use batteries"
+        "to persuade readers to buy electric cars for their families",
+        "to tell the life story of Alessandro Volta in Italy",
+        "to warn readers never to use batteries in any device"
       ],
       "answer": "A",
       "why": "The text explains a battery's history, how it works, its uses and how to handle it safely; Volta is only part of paragraph 2."
@@ -269,10 +269,10 @@
       "type": "MCQ",
       "stem": "Which three parts does EVERY battery have, according to the text?",
       "options": [
-        "a wire, a device and a socket",
+        "a wire, a device and a socket for the power",
         "a negative end, a positive end and an electrolyte",
-        "zinc, copper and salt water",
-        "lithium, solar panels and a charger"
+        "zinc, copper and salt water in a small jar",
+        "lithium, solar panels and a charger cable for phones"
       ],
       "answer": "B",
       "why": "Paragraph 3: “Every battery has three essential parts: a negative end, a positive end and a substance between them called the electrolyte.”"
@@ -301,10 +301,10 @@
       "type": "MCQ",
       "stem": "According to paragraph 3, what causes a battery to go flat?",
       "options": [
-        "The wire becomes too hot.",
+        "The wire becomes too hot and melts.",
         "The chemicals are used up, so the reaction stops.",
-        "Electrons pass through the electrolyte.",
-        "The positive end becomes negative."
+        "Electrons pass through the electrolyte too fast.",
+        "The positive end becomes negative after some time."
       ],
       "answer": "B",
       "why": "“When the chemicals are used up, the reaction stops and the battery is flat.”"
@@ -317,9 +317,9 @@
       "type": "MCQ",
       "stem": "Why is Saudi Arabia building large battery projects beside its solar farms?",
       "options": [
-        "Solar panels work better when they are cool.",
-        "Batteries make solar panels cheaper to build.",
-        "The batteries protect the panels from sandstorms.",
+        "Solar panels work better when they are cool at night.",
+        "Batteries make solar panels cheaper to build and ship.",
+        "The batteries protect the panels from sandstorms and from dust.",
         "Batteries can save daytime solar energy for use at night."
       ],
       "answer": "D",
@@ -334,7 +334,7 @@
       "stem": "In your opinion, why does the writer begin by listing a phone, a remote control, a smartwatch and an electric car?",
       "options": [
         "to show readers how often they already depend on batteries",
-        "to advertise the newest kinds of smartwatches",
+        "to advertise the newest kinds of smartwatches in shops",
         "to prove that electric cars are better than phones",
         "to begin a story about the writer's own family"
       ],
@@ -365,9 +365,9 @@
       "type": "MCQ",
       "stem": "What do solar panels and wind turbines have in common, according to paragraph 5?",
       "options": [
-        "Both store electricity for use at night.",
-        "Both are powered by lithium-ion batteries.",
-        "Both work best when the air is still.",
+        "Both store electricity for use at night in big batteries.",
+        "Both are powered by lithium-ion batteries inside them.",
+        "Both work best when the air is still and the sun is low.",
         "Both stop producing electricity at certain times."
       ],
       "answer": "D",
@@ -413,10 +413,10 @@
       "type": "MCQ",
       "stem": "In your opinion, why does the writer explain the path of the electrons as “the long way around”?",
       "options": [
-        "to suggest that electrons are lazy and slow",
-        "to complain that batteries waste time",
+        "to suggest that electrons are lazy and slow in a wire, like old men",
+        "to complain that batteries waste time in a device and are not good",
         "to help readers picture why the current must flow through the device",
-        "to show that wires should always be very long"
+        "to show that wires should always be very long and thin in every device"
       ],
       "answer": "C",
       "why": "The everyday phrase helps readers imagine electrons being forced through the wire and device, which is exactly what makes the device work."
@@ -462,9 +462,9 @@
       "stem": "What most likely motivated the writer to write this text?",
       "options": [
         "a wish to help readers understand and safely use batteries",
-        "a plan to sell lithium-ion batteries",
-        "a belief that solar farms are a waste of money",
-        "anger at the scientists who won the Nobel Prize"
+        "a plan to sell lithium-ion batteries in a new shop",
+        "a belief that solar farms are a waste of money and land",
+        "anger at the scientists who won the Nobel Prize last year"
       ],
       "answer": "A",
       "why": "The writer explains how batteries work, why they matter for clean energy and how to handle them safely."
@@ -493,10 +493,10 @@
       "type": "MCQ",
       "stem": "In your opinion, which information is the LEAST clear in the text?",
       "options": [
-        "what Volta used to build his pile",
-        "where used batteries should be taken",
+        "what Volta used to build his pile of metal discs and cloth",
+        "where used batteries should be taken in the city to be recycled",
         "what an electrolyte is actually made of in a modern battery",
-        "why batteries help solar energy"
+        "why batteries help solar energy to be used at night, in homes"
       ],
       "answer": "C",
       "why": "The writer names the electrolyte and says what it does, but never says what it is made of in modern batteries; the other points are explained."

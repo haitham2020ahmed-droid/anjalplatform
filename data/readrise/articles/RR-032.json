@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How to catch fish with a net",
+            "How to catch fish with a net from a boat",
             "How dolphins live, breathe, and find food",
-            "Why dolphins are a kind of fish",
-            "Where to buy a pet dolphin"
+            "Why dolphins are a kind of fish in the sea",
+            "Where to buy a pet dolphin for the home"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -217,9 +217,9 @@
           "stem": "Why might a dolphin's whistle help its pod?",
           "options": [
             "It helps the others know which dolphin is calling.",
-            "It scares all the fish away.",
-            "It lets the dolphin breathe under water.",
-            "It makes the sea clean."
+            "It scares all the fish away from the pod for good.",
+            "It lets the dolphin breathe under water for a long time.",
+            "It makes the sea clean and clear for the others."
           ],
           "answer": "A",
           "skill": "inference",
@@ -395,10 +395,10 @@
         {
           "stem": "Why is echolocation especially useful for dolphins?",
           "options": [
-            "It lets them breathe underwater.",
+            "It lets them breathe underwater for a very long time.",
             "It helps them find food when they cannot see well.",
-            "It helps them jump higher.",
-            "It keeps the water warm."
+            "It helps them jump higher out of the waves.",
+            "It keeps the water warm around the whole pod."
           ],
           "answer": "B",
           "skill": "inference",
@@ -412,9 +412,9 @@
         {
           "stem": "How does the author organize most of the article?",
           "options": [
-            "As a story told by a dolphin",
-            "As a list of steps for training dolphins",
-            "In time order from morning to night",
+            "As a story told by a dolphin to its calf in the sea",
+            "As a list of steps for training dolphins to jump through hoops",
+            "In time order from the morning of one day to its night",
             "By describing one feature of dolphin life in each paragraph"
           ],
           "answer": "D",
@@ -574,10 +574,10 @@
         {
           "stem": "Based on the article, why might a pod find more food than a dolphin hunting alone?",
           "options": [
-            "Dolphins in pods have louder whistles.",
-            "Single dolphins cannot use echolocation.",
+            "Dolphins in pods have louder whistles than dolphins that hunt alone.",
+            "Single dolphins cannot use echolocation, so they cannot find any food.",
             "By cooperating, the dolphins can herd fish into a tight ball.",
-            "Pods only hunt in clear water."
+            "Pods only hunt in clear water, where the fish are easy to see."
           ],
           "answer": "C",
           "skill": "inference",
@@ -591,9 +591,9 @@
         {
           "stem": "Why does the author compare a dolphin's tail movement with a fish's?",
           "options": [
-            "To prove that dolphins swim slower than fish",
-            "To argue that fish are more intelligent",
-            "To explain how fish breathe",
+            "To prove that dolphins swim slower than fish in the sea and the ocean",
+            "To argue that fish are more intelligent than dolphins and whales",
+            "To explain how fish breathe underwater with their gills and fins",
             "To give another piece of evidence that dolphins are mammals, not fish"
           ],
           "answer": "D",

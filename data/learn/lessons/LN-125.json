@@ -193,10 +193,10 @@
     "passage": "Text 1: Falconry has been part of life on the Arabian Peninsula for thousands of years. In the past, Bedouins trained falcons to hunt birds and hares in the desert. This helped families find food.\n\nText 2: Today, falcon owners bring their birds to festivals and races. Judges score the falcons on speed and beauty. Some falcons even travel with passports.",
     "stem": "How is the focus of Text 1 different from the focus of Text 2?",
     "options": [
-     "Text 1 tells how to buy a falcon; Text 2 tells how to feed one.",
+     "Text 1 tells how to buy a falcon; Text 2 tells how to feed one at home.",
      "Text 1 focuses on falconry in the past; Text 2 focuses on falconry today.",
-     "Text 1 is about hares; Text 2 is about passports.",
-     "Both texts focus only on falcon races."
+     "Text 1 is about hares in the desert; Text 2 is about passports.",
+     "Both texts focus only on falcon races and the prizes won."
     ],
     "answer": 1,
     "hint": "Look at time words: for thousands of years, in the past, today.",
@@ -250,9 +250,9 @@
      "stem": "How do the details in the two texts differ?",
      "options": [
       "Text 1 is about carrying people; Text 2 is about carrying goods.",
-      "Text 1 is about planes; Text 2 is about ships at sea.",
+      "Text 1 is about planes; Text 2 is about ships at sea and ports.",
       "Both texts say that trains are slow and carry little.",
-      "Both texts are only about traffic in big cities."
+      "Both texts are only about traffic in big cities at night."
      ],
      "answer": 0,
      "why": "Text 1 focuses on passengers, while Text 2 focuses on heavy goods."
@@ -340,7 +340,7 @@
      "stem": "How do the main ideas of the two texts differ?",
      "options": [
       "Text 1 says paper helps memory; Text 2 says e-readers are convenient.",
-      "Both texts say e-readers are better than paper for memory.",
+      "Both texts say e-readers are better than paper for memory and reading.",
       "Text 1 is about libraries; Text 2 is about school lessons.",
       "Both texts argue that students should read less each day."
      ],
@@ -351,9 +351,9 @@
      "passage": "Text 1: Bees pollinate many of the crops people eat, from apples to almonds.\n\nText 2: Without pollinators like bees, farmers would harvest far less fruit and many foods would cost more.",
      "stem": "How does Text 2 relate to Text 1?",
      "options": [
-      "It disagrees with Text 1 about what bees do.",
-      "It is about a different topic from Text 1.",
-      "It gives the history of farming apples and almonds.",
+      "It disagrees with Text 1 about what bees do in the fields.",
+      "It is about a different topic from Text 1, such as birds.",
+      "It gives the history of farming apples and almonds in orchards.",
       "It explains what would happen if the role in Text 1 were lost."
      ],
      "answer": 3,
@@ -422,9 +422,9 @@
     "passage": "Text 1: Homework helps students practise what they learn in class. When students review at home, they remember more and build habits of responsibility that will help them later in life. Teachers can also use homework to see who needs extra help. Of course, assignments should be short and meaningful.\n\nText 2: Many students already spend six or seven hours a day at school. Large amounts of homework can cut into sleep, family time and exercise, all of which matter for learning too. Some studies suggest that for younger students, homework adds little to test scores. Short reading at home may be useful, but long worksheets often are not.",
     "stem": "Which statement best compares the two authors' viewpoints?",
     "options": [
-     "Both authors want to ban homework completely for students of all ages.",
-     "Text 1 says homework should be long; Text 2 says it should be even longer.",
-     "Text 2 agrees with Text 1 that homework always improves test scores.",
+     "Both authors want to ban homework completely for students of all ages in every school in the country.",
+     "Text 1 says homework should be long each night; Text 2 says it should be even longer.",
+     "Text 2 agrees with Text 1 that homework always improves test scores for every student.",
      "Text 1 supports homework but wants it short; Text 2 doubts its value but accepts short reading."
     ],
     "answer": 3,
@@ -459,8 +459,8 @@
      "stem": "Which statement best describes the difference in viewpoint?",
      "options": [
       "Text 1 sees zoos as helpful; Text 2 doubts they are the best way to protect animals.",
-      "Both authors say all zoos should close as soon as possible.",
-      "Text 2 says zoos protect animals better than wild habitats do.",
+      "Both authors say all zoos should close as soon as possible, for the animals' sake.",
+      "Text 2 says zoos protect animals better than wild habitats do in every country.",
       "Text 1 argues against programs that help endangered animals breed."
      ],
      "answer": 0,
@@ -470,10 +470,10 @@
      "passage": "Text 1: Uniforms make students equal and save families money on clothes.\n\nText 2: Uniforms limit how students express themselves, though they can reduce competition over clothing.",
      "stem": "What common ground do the two authors share?",
      "options": [
-      "Both say uniforms are too expensive for most families.",
-      "Both think students should choose all the clothes they wear.",
+      "Both say uniforms are too expensive for most families to buy.",
+      "Both think students should choose all the clothes they wear to school.",
       "Both admit uniforms can reduce differences in clothing among students.",
-      "Both say uniforms help students express who they are."
+      "Both say uniforms help students express who they are inside."
      ],
      "answer": 2,
      "why": "Text 1 says uniforms make students equal; Text 2 admits they reduce competition over clothing. Both see this benefit."

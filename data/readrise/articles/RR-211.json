@@ -88,7 +88,7 @@
       "questions": [
         {
           "stem": "What is this article mostly about?",
-          "options": ["How a plant removes salt from sea water to make it safe to drink", "How farmers grow crops using salty water from the sea", "Why Saudi Arabia has many large rivers and lakes", "How old pipes are replaced with new plastic ones"],
+          "options": ["How a plant removes salt from sea water to make it safe to drink", "How farmers grow crops using salty water from the sea", "Why Saudi Arabia has many large rivers and lakes all over it", "How old pipes are replaced with new plastic ones in many houses"],
           "answer": "A",
           "skill": "central-idea",
           "why": "The article explains how a desalination plant removes salt from sea water, using heat or a filter, to make fresh drinking water.",
@@ -104,7 +104,7 @@
         },
         {
           "stem": "What happens to salty water in the heat method?",
-          "options": ["It freezes solid and the salt falls out", "It turns into ice before it is used", "It turns into steam, and the salt stays behind", "It changes color from clear to blue"],
+          "options": ["It freezes solid and the salt falls out of the water.", "It turns into ice before it is used by people.", "It turns into steam, and the salt stays behind", "It changes color from clear to blue in the heat."],
           "answer": "C",
           "skill": "detail",
           "why": "The article explains that the plant heats the salty water until it turns to steam, while the salt stays behind.",
@@ -128,7 +128,7 @@
         },
         {
           "stem": "Why does Saudi Arabia need desalination plants?",
-          "options": ["Because it has too many rivers to manage", "Because it is dry and has very few rivers or lakes", "Because the sea near it has no salt at all", "Because its pipes are too old to use"],
+          "options": ["Because it has too many rivers to manage", "Because it is dry and has very few rivers or lakes", "Because the sea near it has no salt at all", "Because its pipes are too old to use any more in cities"],
           "answer": "B",
           "skill": "inference",
           "why": "The article says Saudi Arabia is a dry country with very few rivers or lakes, so it needs another way to get water.",
@@ -178,7 +178,7 @@
         },
         {
           "stem": "What is distillation, according to the article?",
-          "options": ["A kind of pipeline that carries fresh water", "A method using heat to evaporate, then condense, water", "A type of pump used only at night", "A membrane with extremely tiny holes"],
+          "options": ["A kind of pipeline that carries fresh water to homes", "A method using heat to evaporate, then condense, water", "A type of pump used only at night to move the water", "A membrane with extremely tiny holes that traps the salt"],
           "answer": "B",
           "skill": "vocabulary",
           "why": "The article defines distillation as a method that heats water until it evaporates, then cools the steam so it condenses back into water.",
@@ -194,7 +194,7 @@
         },
         {
           "stem": "What do powerful pumps do in the reverse osmosis method?",
-          "options": ["They freeze the seawater before it is used", "They heat the seawater until it becomes steam", "They carry fresh water to nearby schools", "They force seawater through the membrane at pressure"],
+          "options": ["They freeze the seawater before it is used by the town", "They heat the seawater until it becomes steam in a pot", "They carry fresh water to nearby schools and farms", "They force seawater through the membrane at pressure"],
           "answer": "D",
           "skill": "detail",
           "why": "The article says powerful pumps push the salty water through the membrane at very high pressure.",
@@ -202,7 +202,7 @@
         },
         {
           "stem": "What happens right after salty water evaporates into steam?",
-          "options": ["The steam cools and condenses back into fresh water", "The steam is pumped straight to nearby farms", "The steam turns directly into solid salt", "The steam passes through a thin membrane"],
+          "options": ["The steam cools and condenses back into fresh water", "The steam is pumped straight to nearby farms and fields", "The steam turns directly into solid salt on the pipes", "The steam passes through a thin membrane under pressure"],
           "answer": "A",
           "skill": "sequence",
           "why": "The article explains that after the water evaporates into steam, the steam cools and condenses back into liquid water with no salt.",
@@ -260,7 +260,7 @@
         },
         {
           "stem": "What can pass through the pores of a reverse osmosis membrane?",
-          "options": ["Dissolved salt ions, but not water", "Water molecules, but not dissolved salt ions", "Both salt ions and water equally", "Neither salt ions nor water molecules"],
+          "options": ["Dissolved salt ions only, with no water at all", "Water molecules, but not dissolved salt ions", "Both salt ions and water equally, with no filtering", "Neither salt ions nor water molecules can pass"],
           "answer": "B",
           "skill": "detail",
           "why": "The article explains that the membrane's microscopic pores let water molecules through while blocking the larger dissolved salt ions.",
@@ -276,7 +276,7 @@
         },
         {
           "stem": "The article mentions dissolved salt ions. What does ion mean in this context?",
-          "options": ["A large chunk of solid salt", "A type of underwater machine", "A kind of membrane used in pumps", "A tiny charged particle in dissolved salt"],
+          "options": ["A large chunk of solid salt in a bowl", "A type of underwater machine for divers", "A kind of membrane that is used in pumps", "A tiny charged particle in dissolved salt"],
           "answer": "D",
           "skill": "vocabulary",
           "why": "The article uses ion to describe the tiny charged particles that salt breaks into once it dissolves in water, which are too large to pass through the membrane.",
@@ -284,7 +284,7 @@
         },
         {
           "stem": "Why has reverse osmosis become the preferred method at many newer plants?",
-          "options": ["It requires considerably less energy than boiling water", "It requires no pumps or pressure at all", "It produces no leftover brine whatsoever", "It works only in extremely cold climates"],
+          "options": ["It requires considerably less energy than boiling water", "It requires no pumps or pressure at all in the plant", "It produces no leftover brine whatsoever from the water", "It works only in extremely cold climates and in winter"],
           "answer": "A",
           "skill": "cause-effect",
           "why": "The article explains that reverse osmosis requires considerably less energy than boiling the water outright, which is why it has become preferred at newer plants.",

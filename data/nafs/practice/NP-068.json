@@ -125,10 +125,10 @@
       "difficulty": 3,
       "stem": "Which information is the LEAST clear in the story?",
       "options": [
-        "Where Salim worked — Hofuf's market is named.",
+        "Where Salim worked — Hofuf's market is named in the story.",
         "Which city the merchant came from — it is not named.",
-        "What the riddle was — it is quoted exactly.",
-        "What prize was offered — ten coins are named."
+        "What the riddle was — it is quoted exactly in the story.",
+        "What prize was offered — ten coins are named in the story."
       ],
       "answer": "B",
       "why": "The story only says 'a distant city' and never names it."

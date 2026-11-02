@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How to become a football player",
+            "How to become a football player in a big club",
             "How tools help make football games fair",
-            "Why fans do not like football",
-            "How to build a football stadium"
+            "Why fans do not like football on television",
+            "How to build a football stadium in the city"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -165,10 +165,10 @@
         {
           "stem": "Why does football need help from tech?",
           "options": [
-            "Because the pitch is too small",
+            "Because the pitch is too small for the players",
             "Because the referee cannot see everything",
-            "Because players do not like rules",
-            "Because the ball is too heavy"
+            "Because players do not like rules and break them",
+            "Because the ball is too heavy for the goalkeeper"
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -199,10 +199,10 @@
         {
           "stem": "Why do coaches look at how far players run?",
           "options": [
-            "To pick the fastest fans",
+            "To pick the fastest fans for the stadium crowd",
             "To help keep players from getting hurt",
-            "To change the size of the ball",
-            "To choose the referee"
+            "To change the size of the ball for each game",
+            "To choose the referee for the next big match"
           ],
           "answer": "B",
           "skill": "inference",
@@ -216,10 +216,10 @@
         {
           "stem": "What can you tell about the job of a referee?",
           "options": [
-            "It is easy and slow",
-            "Anyone can do it without help",
+            "It is easy and slow, with little to do",
+            "Anyone can do it without help from others",
             "It is hard because the game moves fast",
-            "It only happens at night"
+            "It only happens at night, under the lamps"
           ],
           "answer": "C",
           "skill": "inference",
@@ -344,10 +344,10 @@
         {
           "stem": "At the 2022 World Cup, what was inside the ball?",
           "options": [
-            "A small light",
-            "A tiny camera",
+            "A small light for night games",
+            "A tiny camera inside the ball",
             "A sensor that sent data",
-            "Extra air for speed"
+            "Extra air for more speed"
           ],
           "answer": "C",
           "skill": "detail",
@@ -378,10 +378,10 @@
         {
           "stem": "Why might a referee walk to the screen beside the pitch?",
           "options": [
-            "To rest during the match",
+            "To rest during the match for a short time",
             "To watch a replay of a possible mistake",
-            "To talk to the fans",
-            "To check the score"
+            "To talk to the fans who sit near the screen",
+            "To check the score of the match on the board"
           ],
           "answer": "B",
           "skill": "inference",
@@ -523,10 +523,10 @@
         {
           "stem": "Which detail best explains why goal-line technology is needed?",
           "options": [
-            "Players often run about ten kilometers.",
+            "Players often run about ten kilometers during a single match",
             "The ball can travel faster than a car on a highway.",
-            "Spectators cheer for their favorite teams.",
-            "VAR officials sit in a room with screens."
+            "Spectators cheer for their favorite teams in the stands",
+            "VAR officials sit in a room with screens near the pitch"
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -558,9 +558,9 @@
           "stem": "Why does the author mention the Saudi Pro League?",
           "options": [
             "To show that the technology is used in local football as well",
-            "To argue that Saudi teams are the best in the world",
-            "To explain the history of the league",
-            "To compare it with the Olympic Games"
+            "To argue that Saudi teams are the best in the world and always win",
+            "To explain the history of the league and its first few seasons",
+            "To compare it with the Olympic Games and the World Cup final"
           ],
           "answer": "A",
           "skill": "author-purpose",
@@ -574,10 +574,10 @@
         {
           "stem": "What can you infer about why the 2022 system showed three-dimensional animations?",
           "options": [
-            "To replace the need for referees",
+            "To replace the need for referees on the field",
             "To help spectators understand offside decisions",
-            "To advertise new footballs",
-            "To measure how loud the crowd was"
+            "To advertise new footballs to the fans",
+            "To measure how loud the crowd was in the stadium"
           ],
           "answer": "B",
           "skill": "inference",

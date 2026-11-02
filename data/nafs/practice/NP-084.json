@@ -77,9 +77,9 @@
       "difficulty": 2,
       "stem": "How did the narrator's feelings at the start differ from his feelings by midmorning?",
       "options": [
-        "Scared at first but bored later on",
-        "Tired at first but rested later on",
-        "Cold at first but angry later on",
+        "Scared at first but bored later on in the day",
+        "Tired at first but rested later on in the day",
+        "Cold at first but angry later on in the day",
         "Confident at first but ready to quit later"
       ],
       "answer": "D",
@@ -158,9 +158,9 @@
       "stem": "Which alternative ending would BEST fit the story's message?",
       "options": [
         "They turn back but plan to return with more water",
-        "They fly to the summit by helicopter",
-        "The narrator never visits Abha again",
-        "The fog stays and the hike is forgotten"
+        "They fly to the summit by helicopter in the morning",
+        "The narrator never visits Abha again after the trip",
+        "The fog stays and the hike is forgotten by all"
       ],
       "answer": "A",
       "why": "Planning patiently to try again still teaches that patience matters more than speed."

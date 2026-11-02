@@ -107,9 +107,9 @@
           "stem": "Why does Amal fall behind the other camels at first in the story?",
           "options": [
             "She is still small and cannot walk as fast as the big camels",
-            "She does not like walking in the desert heat",
-            "She is carrying too many heavy bags",
-            "She wants to stay close to the rocks"
+            "She does not like walking in the desert heat and often stops for shade",
+            "She is carrying too many heavy bags on her back this morning",
+            "She wants to stay close to the rocks where the grass is green"
           ],
           "answer": "A",
           "skill": "detail",
@@ -140,9 +140,9 @@
         {
           "stem": "What happens right after Amal refuses to walk forward?",
           "options": [
-            "The herders feed her first",
-            "Amal runs far away from the group",
-            "The caravan turns back toward home",
+            "The herders feed her first and let her rest",
+            "Amal runs far away from the group alone",
+            "The caravan turns back toward home at once",
             "The herders look up and see a sandstorm rising"
           ],
           "answer": "D",
@@ -157,10 +157,10 @@
         {
           "stem": "Why does Amal refuse to move forward?",
           "options": [
-            "She is thirsty and wants to find water",
+            "She is thirsty and wants to find water nearby",
             "She senses danger before anyone else notices",
-            "She wants to rest in the shade",
-            "She is angry at her mother"
+            "She wants to rest in the shade of a rock",
+            "She is angry at her mother for the long walk"
           ],
           "answer": "B",
           "skill": "inference",
@@ -191,9 +191,9 @@
         {
           "stem": "In the story, a sandstorm is —",
           "options": [
-            "a cold rain that falls in winter",
-            "a deep well full of clean water",
-            "a kind of large desert animal",
+            "a cold rain that falls in the winter",
+            "a deep well that is full of clean water",
+            "a kind of large animal that lives in the desert",
             "a strong wind that blows a lot of sand into the air"
           ],
           "answer": "D",
@@ -244,9 +244,9 @@
           "stem": "Which sentence best states the central idea of the story?",
           "options": [
             "Amal, a young camel exhausted by the journey, senses a sandstorm through instinct and earns the herders' respect by saving the caravan",
-            "A caravan loses its way in the desert and must turn back",
-            "Jaber teaches young camels how to find hidden wells",
-            "A camel race decides which caravan reaches the oasis first"
+            "A caravan loses its way in the desert and must turn back to the village after a long walk without water or food, and the herders are sad",
+            "Jaber teaches young camels how to find hidden wells in the sand, and the herders thank him for his help and give him a gift for it",
+            "A camel race decides which caravan reaches the oasis first, and the winners receive a prize from the elders and a place at the well"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -260,10 +260,10 @@
         {
           "stem": "Why does Jaber doubt that Amal can finish the journey?",
           "options": [
-            "He thinks she is afraid of the dark desert nights",
-            "He believes she dislikes traveling with the other camels",
+            "He thinks she is afraid of the dark desert nights and will turn back",
+            "He believes she dislikes traveling with the other camels in the line",
             "He believes such a small camel lacks the strength for this journey",
-            "He thinks she is simply too stubborn to listen to anyone"
+            "He thinks she is simply too stubborn to listen to anyone in the group"
           ],
           "answer": "C",
           "skill": "detail",
@@ -277,7 +277,7 @@
         {
           "stem": "What warns Amal that the sandstorm is coming, according to the story?",
           "options": [
-            "A loud warning shouted by Jaber",
+            "A loud warning shouted by her friend Jaber",
             "A sudden, unnatural stillness in the air",
             "Thunder rumbling in the distance",
             "A message passed from her mother"
@@ -294,9 +294,9 @@
         {
           "stem": "Why does Amal press her body against her mother and refuse to move?",
           "options": [
-            "She wants to be carried the rest of the way",
-            "She is too exhausted to stand on her own",
-            "She is playing a game with her mother",
+            "She wants to be carried the rest of the way home by her mother",
+            "She is too exhausted to stand on her own four legs any more, so she leans on her mother",
+            "She is playing a game with her mother in the sand for fun",
             "She is trying, by instinct, to warn her mother that something is wrong"
           ],
           "answer": "D",
@@ -312,9 +312,9 @@
           "stem": "What does Amal's behavior before the storm suggest about camels?",
           "options": [
             "Camels may sense danger through instinct before humans notice any sign of it",
-            "Camels cannot sense weather changes at all",
-            "Camels only react to loud, sudden noises",
-            "Camels are always stubborn for no clear reason"
+            "Camels cannot sense weather changes at all, so they just follow people.",
+            "Camels only react to loud, sudden noises and to nothing else.",
+            "Camels are always stubborn for no clear reason, even when they are well."
           ],
           "answer": "A",
           "skill": "inference",
@@ -362,9 +362,9 @@
         {
           "stem": "How does Jaber's attitude toward Amal change from the beginning of the story to the end?",
           "options": [
-            "He dislikes her for the whole story",
-            "He never changes his mind about her",
-            "He begins respectful and ends doubtful",
+            "He dislikes her for the whole long story",
+            "He never changes his mind about her, even at the end",
+            "He begins respectful and ends doubtful about her skill",
             "He begins doubtful but ends with real respect for her"
           ],
           "answer": "D",
@@ -397,10 +397,10 @@
         {
           "stem": "Which statement best captures the central idea of the story?",
           "options": [
-            "A Bedouin caravan is destroyed by an unavoidable sandstorm",
-            "Jaber teaches every young camel in the caravan to sense danger",
+            "A Bedouin caravan is destroyed by an unavoidable sandstorm, and nobody survives to tell the story of the journey.",
+            "Jaber teaches every young camel in the caravan to sense danger, and they all learn it in a single week of training.",
             "A young camel's instinct for danger, dismissed at first, ultimately earns her the caravan's genuine respect and reveals that endurance is not only physical",
-            "Camels are naturally better at crossing deserts than humans"
+            "Camels are naturally better at crossing deserts than humans, which is why the merchants let the camels lead the caravan across the sand without any help."
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -415,9 +415,9 @@
           "stem": "According to the story, why does Jaber doubt Amal at the start of the journey?",
           "options": [
             "He questions whether such a small, young camel has the endurance for so demanding a journey",
-            "He believes she dislikes traveling alongside the experienced Bedouin herders",
+            "He believes she dislikes traveling alongside the experienced Bedouin herders on long trips",
             "He thinks she is secretly afraid of her own mother and the rest of the herd",
-            "He believes she has already injured her leg earlier in the journey"
+            "He believes she has already injured her leg earlier in the long journey"
           ],
           "answer": "A",
           "skill": "detail",
@@ -448,9 +448,9 @@
         {
           "stem": "Why do the herders ultimately take shelter behind the dune?",
           "options": [
-            "Jaber orders a rest stop for the exhausted camels",
-            "Amal leads them toward a hidden well",
-            "The caravan always stops at that dune each year",
+            "Jaber orders a rest stop for the exhausted camels and the herders, who have walked for hours",
+            "Amal leads them toward a hidden well in the dunes where there is water and shade for all",
+            "The caravan always stops at that dune each year to eat, pray, and feed the animals for the night",
             "They notice the wall of sand rising and gauge that a sandstorm is about to strike"
           ],
           "answer": "D",
@@ -466,9 +466,9 @@
           "stem": "What can readers infer about camels in general from Amal's behavior before the storm?",
           "options": [
             "Some camels may rely on instinct to sense approaching danger before humans do",
-            "All camels refuse to walk whenever they are tired",
-            "Camels cannot be trained by Bedouin herders",
-            "Camels are only useful for carrying heavy loads"
+            "All camels refuse to walk whenever they are tired or thirsty in the desert",
+            "Camels cannot be trained by Bedouin herders to carry people",
+            "Camels are only useful for carrying heavy loads across the sand"
           ],
           "answer": "A",
           "skill": "inference",
@@ -482,8 +482,8 @@
         {
           "stem": "Why does Jaber's view of Amal change so completely by the end of the story?",
           "options": [
-            "Amal grows larger and stronger than the adult camels",
-            "Amal finds water for the entire caravan",
+            "Amal grows larger and stronger than all of the adult camels in the caravan",
+            "Amal finds water for the entire caravan in the desert after the storm",
             "Amal's admirable instinct protected the caravan when experience alone could not",
             "Jaber realizes he misjudged every young camel he has ever met"
           ],

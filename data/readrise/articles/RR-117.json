@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How the Moon was made",
+            "How the Moon was first made from a piece of the Earth",
             "Solar and lunar eclipses and how to watch them safely",
-            "Why the Sun is hot",
-            "How to build a telescope"
+            "Why the Sun is so hot and how long it will keep burning",
+            "How to build a telescope from a tube and two lenses"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -182,9 +182,9 @@
         {
           "stem": "Read this: \"The Moon can block the Sun.\" What does block mean here?",
           "options": [
-            "To shine on",
-            "To cool down",
-            "To spin around",
+            "To shine light on the Earth",
+            "To cool the Earth",
+            "To spin around the Sun again",
             "To get in the way of"
           ],
           "answer": "D",
@@ -293,9 +293,9 @@
         {
           "stem": "Which sentence best tells the central idea of the article?",
           "options": [
-            "Eclipses are dangerous, so nobody should ever try to watch one.",
+            "Eclipses are dangerous, so nobody should ever try to watch one, not even with eye protection.",
             "The Sun, Earth, and Moon sometimes line up, making eclipses we must watch safely.",
-            "The Moon is larger than the Sun, so it can easily hide it.",
+            "The Moon is larger than the Sun, so it can easily hide it, and that causes every eclipse.",
             "Eclipses happen every week, so they are not really special at all."
           ],
           "answer": "B",
@@ -379,9 +379,9 @@
           "stem": "Why can people on the whole night side of Earth see a lunar eclipse, but only a few places see a total solar eclipse?",
           "options": [
             "The Moon's small shadow touches only a narrow strip of Earth",
-            "Lunar eclipses last only one second",
-            "People sleep during solar eclipses",
-            "The Sun shines on only one country"
+            "Lunar eclipses last only one second, so people have to look up fast",
+            "People sleep during solar eclipses and miss them in the day",
+            "The Sun shines on only one country at a time during eclipses"
           ],
           "answer": "A",
           "skill": "inference",
@@ -412,9 +412,9 @@
         {
           "stem": "Why does the author include the safety tips about eclipse glasses?",
           "options": [
-            "To sell glasses to readers",
-            "To show that eclipses are boring",
-            "To explain how the corona is formed",
+            "To sell glasses to readers at a low price",
+            "To show that eclipses are boring and not worth watching",
+            "To explain how the corona is formed around the Sun",
             "To protect readers' eyes when they watch the Sun"
           ],
           "answer": "D",
@@ -473,7 +473,7 @@
           "stem": "Which statement best summarizes the article?",
           "options": [
             "Eclipses are rare alignments of the Sun, Earth, and Moon that must be watched safely.",
-            "Lunar eclipses are far more dangerous to watch than solar eclipses are.",
+            "Lunar eclipses are far more dangerous to watch than solar eclipses are, so no one goes outside.",
             "The Moon produces its own light, which disappears during an eclipse.",
             "Eclipses were only important to people who lived a very long time ago."
           ],
@@ -489,10 +489,10 @@
         {
           "stem": "What is the coincidence that makes total solar eclipses possible?",
           "options": [
-            "The Moon and Sun are made of the same material",
+            "The Moon and Sun are made of the same hot material",
             "The Sun is about 400 times wider and 400 times farther away",
-            "The Moon orbits Earth only once each year",
-            "The Earth and Moon are exactly the same size"
+            "The Moon orbits Earth only once each year, in the same time as the Sun",
+            "The Earth and Moon are exactly the same size, as seen from space"
           ],
           "answer": "B",
           "skill": "detail",
@@ -540,10 +540,10 @@
         {
           "stem": "Why does an annular eclipse leave a bright ring around the Moon?",
           "options": [
-            "The Sun is much closer to Earth than it usually is",
+            "The Sun is much closer to Earth than it usually is at this time",
             "The Moon is farther away, so it looks smaller than the Sun",
-            "Earth's shadow covers the center of the Moon",
-            "The corona shines brighter than the Sun itself"
+            "Earth's shadow covers the center of the Moon in the sky",
+            "The corona shines brighter than the Sun itself does here"
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -575,9 +575,9 @@
           "stem": "What can the reader infer about why the 2027 eclipse may attract many visitors to the region?",
           "options": [
             "Totality will be visible only along a narrow path, so people must travel to that path",
-            "Lunar eclipses are visible only in Saudi Arabia",
-            "The eclipse will last for several days",
-            "Eclipse glasses are sold only in that region"
+            "Lunar eclipses are visible only in Saudi Arabia, and nowhere else in the world",
+            "The eclipse will last for several days, so visitors will have time to travel",
+            "Eclipse glasses are sold only in that region, so people must go there to buy them"
           ],
           "answer": "A",
           "skill": "inference",
@@ -591,10 +591,10 @@
         {
           "stem": "How does the author structure the explanation of eclipses?",
           "options": [
-            "As a timeline of every eclipse in history",
-            "As an argument against watching eclipses",
+            "As a timeline of every eclipse in history, from the oldest one to the newest one ever seen",
+            "As an argument against watching eclipses, because they can hurt the eyes of children and adults",
             "By explaining solar eclipses, then lunar eclipses, then why both are rare and how to observe them",
-            "By comparing eclipses on different planets"
+            "By comparing eclipses on different planets, such as Mars, Jupiter, and Venus, one by one"
           ],
           "answer": "C",
           "skill": "text-structure",

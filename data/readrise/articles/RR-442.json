@@ -131,9 +131,9 @@
         {
           "stem": "What is this story mostly about?",
           "options": [
-            "A girl who plants a garden with her mother",
-            "A family that moves to a big city",
-            "A boy who learns to swim in a lake",
+            "A girl who plants a garden with her mother in spring",
+            "A family that moves to a big city by the sea",
+            "A boy who learns to swim in a cold lake",
             "A boy who helps fix his village's broken water pump"
           ],
           "answer": "D",
@@ -148,10 +148,10 @@
         {
           "stem": "What did Omar do first after the pump broke?",
           "options": [
-            "He dug a brand new well nearby",
+            "He dug a brand new well in a place nearby",
             "He asked his uncle if he could look at the pump",
-            "He told the whole village to move away",
-            "He went and bought a brand new pump"
+            "He told the whole village to move away from the well",
+            "He went and bought a brand new pump from the shop"
           ],
           "answer": "B",
           "skill": "sequence",
@@ -199,10 +199,10 @@
         {
           "stem": "Why did Omar's uncle let him try looking at the pump?",
           "options": [
-            "The uncle was far too busy to look himself",
-            "Omar had already paid his uncle some money",
+            "The uncle was far too busy to look at the pump himself",
+            "Omar had already paid his uncle some money for the work",
             "Omar had shown he knew something about tools and parts",
-            "The uncle did not care about the broken pump"
+            "The uncle did not care about the broken pump at all"
           ],
           "answer": "C",
           "skill": "inference",
@@ -216,9 +216,9 @@
         {
           "stem": "Why did the author probably write this story?",
           "options": [
-            "To describe a scary storm that hits the village",
-            "To teach readers how to swim safely",
-            "To explain the steps for digging a brand new well",
+            "To describe a scary storm that hits the village at night and breaks the roofs",
+            "To teach readers how to swim safely in a river or in the sea",
+            "To explain the steps for digging a brand new well in the desert",
             "To show how watching and learning a skill can help solve a real problem"
           ],
           "answer": "D",
@@ -233,9 +233,9 @@
         {
           "stem": "What can you tell about Omar from how the village treated him at the end?",
           "options": [
-            "The village asked him to quietly leave",
-            "The village did not notice what he had done",
-            "The village was upset that he had tried to help",
+            "The village asked him to quietly leave the town at night",
+            "The village did not notice what he had done at all",
+            "The village was upset that he had tried to help them at all",
             "The village thanked him because his work truly helped everyone"
           ],
           "answer": "D",
@@ -293,10 +293,10 @@
         {
           "stem": "In the story, the word inspect means —",
           "options": [
-            "to buy something brand new instead",
+            "to buy something brand new instead of the old one",
             "to look at something closely and carefully",
-            "to throw something away completely",
-            "to ignore a problem entirely"
+            "to throw something away completely, with no thought",
+            "to ignore a problem entirely and walk away"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -327,10 +327,10 @@
         {
           "stem": "What happened immediately after Omar and his uncle found the stuck valve?",
           "options": [
-            "They asked the whole village to vote on a plan",
+            "They asked the whole village to vote on a plan for the pump",
             "They determined which replacement part was needed and found one",
-            "They gave up and simply ordered a brand new pump",
-            "They decided the old pump could not be fixed at all"
+            "They gave up and simply ordered a brand new pump from the city",
+            "They decided the old pump could not be fixed at all and left it"
           ],
           "answer": "B",
           "skill": "sequence",
@@ -344,10 +344,10 @@
         {
           "stem": "Which sentence best states the central idea of the story?",
           "options": [
-            "A village decides to build a second well instead of fixing the pump",
-            "A mechanic refuses to let his own nephew near any tools",
+            "A village decides to build a second well instead of fixing the pump, and the boy waits for it",
+            "A mechanic refuses to let his own nephew near any tools in the shop, so the boy learns nothing",
             "A boy who has learned mechanical skills from his uncle helps repair the village's broken water pump",
-            "A boy accidentally breaks his uncle's tools while playing nearby"
+            "A boy accidentally breaks his uncle's tools while playing nearby in the yard, and the pump stays broken"
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -361,9 +361,9 @@
         {
           "stem": "Why did Saleh agree to let Omar examine the pump?",
           "options": [
-            "He needed Omar to pay him back for the repair",
-            "He had already decided to retire from his job entirely",
-            "He wanted Omar to break the pump completely",
+            "He needed Omar to pay him back for the repair of the pump, which cost him a lot",
+            "He had already decided to retire from his job entirely, so he let Omar do as he liked",
+            "He wanted Omar to break the pump completely and be done with the old machine for good",
             "He was curious to see what Omar had actually learned from watching him"
           ],
           "answer": "D",
@@ -378,10 +378,10 @@
         {
           "stem": "Why did the village face a serious problem when the pump broke?",
           "options": [
-            "No one in the village actually liked drinking water",
+            "No one in the village actually liked drinking clean water",
             "The nearest other water source was far away across the hills",
-            "The whole village had already decided to move away",
-            "The well itself had completely dried up on its own"
+            "The whole village had already decided to move away to the coast",
+            "The well itself had completely dried up on its own after years"
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -490,9 +490,9 @@
           "stem": "What skill did Omar need to improvise during the repair?",
           "options": [
             "A substitute approach for one step, since the ideal tool was unavailable",
-            "A new design for an entirely different pump",
-            "A way to dig an additional well nearby instead",
-            "A method for convincing the village to move elsewhere"
+            "A new design for an entirely different pump, made by a famous builder",
+            "A way to dig an additional well nearby instead of fixing the pump",
+            "A method for convincing the village to move elsewhere for good"
           ],
           "answer": "A",
           "skill": "detail",
@@ -506,9 +506,9 @@
         {
           "stem": "Based on the story, why was Saleh described as resourceful?",
           "options": [
-            "He avoided difficult repairs whenever that was possible",
-            "He refused to ever help anyone outside his own family",
-            "He owned the only repair shop in the entire region",
+            "He avoided difficult repairs whenever that was possible for him, and he asked others to do them",
+            "He refused to ever help anyone outside his own family or tribe",
+            "He owned the only repair shop in the entire region of the town",
             "He found practical, skillful solutions to mechanical problems in his work"
           ],
           "answer": "D",
@@ -523,10 +523,10 @@
         {
           "stem": "Which statement best expresses the central idea of the story?",
           "options": [
-            "A mechanic decides that teaching his own nephew is far too dangerous",
-            "The story argues that villages should always hire outside experts",
+            "A mechanic decides that teaching his own nephew is far too dangerous, so he sends the boy away to the city",
+            "The story argues that villages should always hire outside experts, since local children cannot learn machines",
             "A resourceful boy's patiently gained mechanical knowledge proves essential when the village's water supply fails",
-            "A boy abandons an attempt to repair a pump halfway through"
+            "A boy abandons an attempt to repair a pump halfway through, and the village must wait for the rain"
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -574,10 +574,10 @@
         {
           "stem": "Why does the author describe Omar watching his uncle for years before the pump breaks?",
           "options": [
-            "To show that mechanical skill can only ever be taught in a classroom",
+            "To show that mechanical skill can only ever be taught in a classroom, and not at home or in a shop",
             "To establish that his later success came from patient, accumulated learning rather than luck",
-            "To imply that his uncle discouraged him from learning anything useful",
-            "To suggest that Omar secretly disliked spending time with his uncle"
+            "To imply that his uncle discouraged him from learning anything useful, and did not let him help",
+            "To suggest that Omar secretly disliked spending time with his uncle, and was bored in the workshop"
           ],
           "answer": "B",
           "skill": "author-purpose",

@@ -46,9 +46,9 @@
       "type": "MCQ",
       "stem": "Read this sentence from paragraph 1: “The water was so transparent that Faisal could see the coral reef far below.” What does “transparent” mean?",
       "options": [
-        "deep and dark",
-        "warm and still",
-        "full of salt",
+        "deep and dark, like the night",
+        "warm and still, like a bath",
+        "full of salt, like the sea",
         "clear enough to see through"
       ],
       "answer": "D",
@@ -173,9 +173,9 @@
       "type": "MCQ",
       "stem": "What is the main purpose of the story?",
       "options": [
-        "to explain how coral reefs are formed",
-        "to give instructions for catching hamour",
-        "to describe the history of Yanbu",
+        "to explain how coral reefs are formed in the sea",
+        "to give instructions for catching hamour with a net",
+        "to describe the history of Yanbu in Saudi Arabia",
         "to entertain while teaching the value of patience"
       ],
       "answer": "D",
@@ -190,9 +190,9 @@
       "stem": "What is the main idea of paragraph 3?",
       "options": [
         "Faisal grows restless while Grandfather waits calmly and catches fish.",
-        "Faisal finally catches his first fish of the day.",
-        "The sun becomes too hot, so they decide to return home.",
-        "Grandfather teaches Faisal how to tie a fishing hook."
+        "Faisal finally catches his first fish of the day, and Grandfather smiles at him.",
+        "The sun becomes too hot, so they decide to return home and go to bed early.",
+        "Grandfather teaches Faisal how to tie a fishing hook and how to put the bait on."
       ],
       "answer": "A",
       "why": "Paragraph 3 contrasts Faisal's restlessness with Grandfather's calm success."
@@ -237,10 +237,10 @@
       "type": "MCQ",
       "stem": "Why did Faisal protest that the competition was unfair?",
       "options": [
-        "Grandfather had taken his bait.",
-        "The sun was shining in his eyes.",
+        "Grandfather had taken his bait while he was away.",
+        "The sun was shining in his eyes all the morning.",
         "He believed Grandfather's rod was better than his.",
-        "A seagull had stolen his fish."
+        "A seagull had stolen his fish from the bucket."
       ],
       "answer": "C",
       "why": "Paragraph 4: he protested “because Grandfather's rod must obviously be better than his own.”"
@@ -253,9 +253,9 @@
       "type": "MCQ",
       "stem": "What happened right after Faisal and Grandfather swapped rods?",
       "options": [
-        "Faisal caught the spotted hamour.",
-        "Grandfather caught a fat fish.",
-        "The boat slipped out of the harbour.",
+        "Faisal caught the spotted hamour at once.",
+        "Grandfather caught a fat fish on the new line.",
+        "The boat slipped out of the harbour into the sea.",
         "Faisal pulled up his line again out of habit."
       ],
       "answer": "D",
@@ -270,9 +270,9 @@
       "stem": "Who tells the story?",
       "options": [
         "a narrator outside the story",
-        "Faisal",
-        "Grandfather",
-        "the seagull"
+        "Faisal, the boy, in the boat",
+        "Grandfather, an old man who fishes",
+        "the seagull, a bird of the sea"
       ],
       "answer": "A",
       "why": "The narrator uses “he” for Faisal and names both characters, so the narrator is not one of them."
@@ -285,10 +285,10 @@
       "type": "MCQ",
       "stem": "According to paragraph 6, why did Grandfather tell Faisal not to fight the fish?",
       "options": [
-        "The fish would escape if Faisal waited too long.",
+        "The fish would escape if Faisal waited too long to pull it in.",
         "A tired fish is far easier to land than a frightened one.",
-        "The rod might break if Faisal pulled too hard.",
-        "Hamour are too heavy for a boy to lift."
+        "The rod might break if Faisal pulled too hard on the line.",
+        "Hamour are too heavy for a boy to lift into the boat by himself."
       ],
       "answer": "B",
       "why": "Grandfather explained “that a tired fish is far easier to land than a frightened one.”"
@@ -301,10 +301,10 @@
       "type": "MCQ",
       "stem": "Why did Faisal's cheeks burn in paragraph 4?",
       "options": [
-        "The midday sun was burning his face.",
-        "He was angry that Grandfather laughed at him.",
+        "The midday sun was burning his face and his neck, and he felt hot and dizzy.",
+        "He was angry that Grandfather laughed at him in the boat, so he turned away.",
         "He felt embarrassed when he realised the rod was not the problem.",
-        "He was excited because a fish was pulling."
+        "He was excited because a fish was pulling at the line, and he held the rod hard."
       ],
       "answer": "C",
       "why": "The writer says “this time the sun was not responsible” and links the burning cheeks to his understanding that the rod was never the problem."
@@ -317,9 +317,9 @@
       "type": "MCQ",
       "stem": "In your opinion, what makes the reader want to keep reading after Faisal's announcement in paragraph 1?",
       "options": [
-        "wanting to know the colour of the boat",
-        "wanting to learn Grandfather's age",
-        "wanting to find out what is for dinner",
+        "wanting to know the colour of the boat he will buy",
+        "wanting to learn Grandfather's age and birthday",
+        "wanting to find out what is for dinner tonight",
         "wanting to know whether he will keep his bold promise"
       ],
       "answer": "D",
@@ -397,10 +397,10 @@
       "type": "MCQ",
       "stem": "In your opinion, how does the writer show that Faisal is impatient?",
       "options": [
-        "by telling the reader his exact age",
+        "by telling the reader his exact age and birthday",
         "through his actions, such as tapping the boat",
-        "by listing the fish of the Red Sea",
-        "by describing the clothes he wears"
+        "by listing the fish of the Red Sea one by one",
+        "by describing the clothes he wears each day"
       ],
       "answer": "B",
       "why": "The writer shows impatience through what Faisal does, not just by saying it."

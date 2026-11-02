@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "A boy who secretly has a magic power over birds",
+            "A boy who secretly has a magic power over birds and trees in the forest",
             "A boy who listens to birds and warns his village of a storm",
-            "A village that gets destroyed by a terrible storm",
-            "A single bird that teaches people how to fly away"
+            "A village that gets destroyed by a terrible storm and has to move away",
+            "A single bird that teaches people how to fly away from danger"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -183,9 +183,9 @@
           "stem": "Why did the village get ready for the storm in time?",
           "options": [
             "Hamza warned his family after hearing the birds",
-            "The sky had stayed dark for many days",
-            "A radio had announced the coming storm",
-            "The birds built shelters for the people"
+            "The sky had stayed dark for many days before",
+            "A radio had announced the coming storm in the village",
+            "The birds built shelters for the people of the village"
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -199,10 +199,10 @@
         {
           "stem": "In the article, the word storm means —",
           "options": [
-            "a quiet, sunny day with no clouds",
-            "a special kind of loud bird call",
+            "a quiet, sunny day with no clouds at all",
+            "a special kind of loud bird call in the trees",
             "a strong weather event with wind and rain",
-            "a soft type of nest made of grass"
+            "a soft type of nest made of grass and twigs"
           ],
           "answer": "C",
           "skill": "vocabulary",
@@ -216,9 +216,9 @@
         {
           "stem": "Why did Hamza say he could not really talk to birds?",
           "options": [
-            "Because he was too shy to admit his power",
-            "Because the birds could not understand him",
-            "Because he was secretly afraid of birds",
+            "Because he was too shy to admit his power to them",
+            "Because the birds could not understand him at all",
+            "Because he was secretly afraid of birds and their noise",
             "Because he had only listened and learned, not used magic"
           ],
           "answer": "D",
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
-            "Hamza used a secret magical power to control birds",
+            "Hamza used a secret magical power to control the birds of the village",
             "By observing bird calls, Hamza learned a pattern that warned of a storm",
-            "Birds in the village only ate food that Hamza gave them",
-            "The storm destroyed every single house in the village"
+            "Birds in the village only ate food that Hamza gave them each day",
+            "The storm destroyed every single house in the village by the sea"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -379,9 +379,9 @@
           "stem": "Why was Hamza able to recognize the danger before anyone else in the village?",
           "options": [
             "He had studied the birds' patterns closely enough to notice something",
-            "He owned a very special weather radio",
-            "An elder had told him about it in advance",
-            "He simply guessed randomly and got lucky"
+            "He owned a very special weather radio that told him about every storm",
+            "An elder had told him about it in advance, in a story at night",
+            "He simply guessed randomly and got lucky, as he did every day"
           ],
           "answer": "A",
           "skill": "inference",

@@ -361,9 +361,9 @@
         {
           "stem": "Why does the author mention that sleep, nutrition, and genes work together as a team?",
           "options": [
-            "To show that only one of the three really matters",
-            "To suggest that genes can replace the need for sleep",
-            "To argue that nutrition is more important than sleep",
+            "To show that only one of the three really matters for growth",
+            "To suggest that genes can replace the need for sleep and food",
+            "To argue that nutrition is more important than sleep or genes",
             "To show that all three factors are needed for healthy growth"
           ],
           "answer": "D",
@@ -540,10 +540,10 @@
         {
           "stem": "How does the article organize its explanation after describing the growth plate?",
           "options": [
-            "By comparing children in different countries",
+            "By comparing the heights of children in different countries",
             "By explaining the hormone, then sleep, nutrition, and heredity",
-            "By listing the dates of famous height records",
-            "By telling a long story about one tall athlete"
+            "By listing the dates of famous height records in the world",
+            "By telling a long story about one tall athlete and his team"
           ],
           "answer": "B",
           "skill": "text-structure",

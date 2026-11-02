@@ -148,10 +148,10 @@
         {
           "stem": "What was silk made from?",
           "options": [
-            "Sand from the desert",
+            "Sand from the desert dunes",
             "Threads from a small worm",
-            "Camel hair",
-            "Paper"
+            "Camel hair from the herd",
+            "Paper made from reeds"
           ],
           "answer": "B",
           "skill": "detail",
@@ -234,9 +234,9 @@
           "stem": "Why does the author tell about paper near the end?",
           "options": [
             "To show that ideas, not just goods, moved on the Silk Road",
-            "To teach how to make paper",
-            "To show that paper was worth more than silk",
-            "To explain why camels eat paper"
+            "To teach how to make paper by hand from rags and water",
+            "To show that paper was worth more than silk in the market",
+            "To explain why camels eat paper in the desert"
           ],
           "answer": "A",
           "skill": "author-purpose",
@@ -345,9 +345,9 @@
           "stem": "The Silk Road was a \"network of routes.\" What does network mean here?",
           "options": [
             "Many paths connected to one another",
-            "A single straight road",
-            "A fishing net",
-            "A group of camels"
+            "A single straight road across the sand",
+            "A fishing net used by sailors at sea",
+            "A group of camels walking in a line"
           ],
           "answer": "A",
           "skill": "vocabulary",

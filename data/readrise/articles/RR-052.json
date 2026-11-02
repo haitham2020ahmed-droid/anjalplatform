@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How to build a house out of rocks",
+            "How to build a house out of rocks and clay",
             "Why earthquakes happen and how to stay safe",
-            "Why the sea has big waves every day",
-            "How people make maps of the Earth"
+            "Why the sea has big waves every day of the year",
+            "How people make maps of the Earth with satellites"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -165,9 +165,9 @@
         {
           "stem": "Why does the Red Sea get a little wider each year?",
           "options": [
-            "Because it rains more each year",
-            "Because people dig at its edges",
-            "Because big waves wash the sand away",
+            "Because it rains more each year in the mountains nearby",
+            "Because people dig at its edges with big machines",
+            "Because big waves wash the sand away every winter",
             "Because Saudi Arabia's plate is moving away from Africa"
           ],
           "answer": "D",
@@ -200,9 +200,9 @@
           "stem": "Read: \"The top of the Earth is a hard layer. It is the crust.\" What does crust mean here?",
           "options": [
             "The hard outside part of the Earth",
-            "A slice of bread",
-            "A deep hole in the sea",
-            "A kind of hot rock in the sky"
+            "A slice of bread for lunch",
+            "A deep hole in the floor of the sea",
+            "A kind of hot rock that floats in the sky"
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the main idea of the article?",
           "options": [
-            "Earthquakes only happen near the Red Sea.",
-            "Tsunamis are the most common kind of earthquake.",
+            "Earthquakes only happen near the Red Sea, and nowhere else in the world.",
+            "Tsunamis are the most common kind of earthquake, and they happen every day.",
             "Earthquakes happen when stuck plates suddenly slip, and people measure and prepare for them.",
-            "Scientists can now tell the exact day of every earthquake."
+            "Scientists can now tell the exact day of every earthquake, so people never need to prepare."
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -378,10 +378,10 @@
         {
           "stem": "How does the author help readers understand why rocks suddenly slip?",
           "options": [
-            "By listing the dates of famous earthquakes",
-            "By giving the steps of a science experiment",
+            "By listing the dates of famous earthquakes and their sizes",
+            "By giving the steps of a science experiment with rocks",
             "By comparing the stuck plates to a spring being squeezed",
-            "By telling a story about one family"
+            "By telling a story about one family in an earthquake"
           ],
           "answer": "C",
           "skill": "text-structure",
@@ -472,9 +472,9 @@
         {
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
-            "Earthquakes are rare events that only scientists can feel.",
-            "The Red Sea is the most dangerous place on Earth.",
-            "Tsunamis cause more damage than any other natural event.",
+            "Earthquakes are rare events that only scientists can feel, using special tools, and most people never notice them at all.",
+            "The Red Sea is the most dangerous place on Earth, because earthquakes happen there every single day of the year.",
+            "Tsunamis cause more damage than any other natural event, so people mostly prepare for tsunamis, not for earthquakes.",
             "Earthquakes result from moving plates releasing stored energy, so people measure them and prepare."
           ],
           "answer": "D",
@@ -557,9 +557,9 @@
         {
           "stem": "Why does the author include information about Saudi Arabia and the Red Sea?",
           "options": [
-            "To argue that people should move away from the coast",
-            "To compare the Red Sea with other oceans",
-            "To explain how ships cross the Red Sea",
+            "To argue that people should move away from the coast to stay safe from big waves",
+            "To compare the Red Sea with other oceans, and to say which one is the deepest",
+            "To explain how ships cross the Red Sea, and which ports they use on their way",
             "To show that plate movement affects the region where readers live"
           ],
           "answer": "D",

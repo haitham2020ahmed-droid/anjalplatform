@@ -63,8 +63,8 @@
     "stem": "Which detail best supports the topic?",
     "options": [
      "It helps you sleep well.",
-     "My shoes are blue.",
-     "TV shows are fun.",
+     "My shoes are blue and new.",
+     "TV shows are fun to watch.",
      "Some days are cold."
     ],
     "answer": 0,
@@ -90,10 +90,10 @@
      "passage": "Dogs can be good helpers. Some dogs help people who cannot see. ___",
      "stem": "Which detail best supports the topic?",
      "options": [
-      "Cats like to sleep.",
-      "Dogs have long tails.",
+      "Cats like to sleep all day long.",
+      "Dogs have long tails and soft fur.",
       "Some dogs help find lost people.",
-      "I like hot milk."
+      "I like hot milk in the morning."
      ],
      "answer": 2,
      "why": "Finding lost people is another way dogs help."
@@ -102,8 +102,8 @@
      "passage": "Our town park is a fun place. ___",
      "stem": "Which detail best supports the topic?",
      "options": [
-      "The bus is red.",
-      "My aunt cooks rice.",
+      "The bus is red and big.",
+      "My aunt cooks rice at home.",
       "It has slides and swings.",
       "The park has a gate."
      ],
@@ -214,7 +214,7 @@
      "options": [
       "Succulents are sold in many plant shops.",
       "Omar likes to grow green plants at home.",
-      "Some deserts are very large and dry.",
+      "Some deserts are very large and dry in the summer.",
       "A succulent stores water in thick leaves or stems."
      ],
      "answer": 3,
@@ -224,10 +224,10 @@
      "passage": "Recycling can turn old things into useful new things.",
      "stem": "Which detail is the best example?",
      "options": [
-      "Recycling bins are often painted blue.",
+      "Recycling bins are often painted blue or green.",
       "Old plastic bottles can be made into jackets.",
       "Some people forget to recycle at home.",
-      "Rubbish trucks come every Monday."
+      "Rubbish trucks come every Monday morning."
      ],
      "answer": 1,
      "why": "It is an **example** of an old thing becoming a useful new thing."
@@ -421,7 +421,7 @@
      "passage": "Claim: Using social media late at night can make it harder for teenagers to sleep.",
      "stem": "Which detail best supports this claim?",
      "options": [
-      "Many teenagers use social media to talk to friends.",
+      "Many teenagers use social media to talk to friends and family.",
       "Social media companies earn money from adverts.",
       "Some teenagers post photos of their meals online.",
       "Bright screens at night can delay the body's sleep hormone."
@@ -433,7 +433,7 @@
      "passage": "Claim: Saudi Arabia's ancient sites attract visitors from around the world. Draft detail: \"Lots of people go to old places.\"",
      "stem": "Which revision makes the detail more specific and relevant?",
      "options": [
-      "Old places are very interesting to see and to learn about.",
+      "Old places are very interesting to see and to learn about for many people.",
       "Visitors from many countries come to see the tombs of Hegra in AlUla.",
       "Many people like to travel during the school holidays.",
       "AlUla has very hot summers and cool, pleasant winters."

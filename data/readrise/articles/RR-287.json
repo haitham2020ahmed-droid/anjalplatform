@@ -89,10 +89,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "The history of the very first surfboards",
+            "The history of the very first surfboards and who made them",
             "How ocean waves form and how surfers ride them using balance",
-            "Why swimming is more fun than surfing",
-            "The official rules of a surfing contest"
+            "Why swimming is more fun than surfing for most children",
+            "The official rules of a surfing contest and how judges score"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -128,10 +128,10 @@
         {
           "stem": "Why does a wave grow tall and then break near the shore?",
           "options": [
-            "The top of the wave suddenly stops moving",
-            "The wind suddenly stops blowing over the ocean",
+            "The top of the wave suddenly stops moving in the air",
+            "The wind suddenly stops blowing over the ocean at once",
             "The bottom of the wave slows while the top stays fast",
-            "The surfer paddles too close to the shore"
+            "The surfer paddles too close to the shore of the beach"
           ],
           "answer": "C",
           "skill": "cause-effect",
@@ -225,9 +225,9 @@
           "stem": "According to the article, what is a swell?",
           "options": [
             "A group of waves moving together across deep water",
-            "A sudden storm forming near the coast",
-            "The exact spot where a wave finally breaks",
-            "A current that pulls a surfboard sideways"
+            "A sudden storm forming near the coast with strong winds",
+            "The exact spot where a wave finally breaks on the sand",
+            "A current that pulls a surfboard sideways along the beach"
           ],
           "answer": "A",
           "skill": "detail",
@@ -250,9 +250,9 @@
         {
           "stem": "Why does a wave's crest curl over and break near the shore?",
           "options": [
-            "The current suddenly reverses near the shore",
-            "The surfer's weight pushes the crest down",
-            "The wind stops once the wave nears the beach",
+            "The current suddenly reverses near the shore, so the wave folds",
+            "The surfer's weight pushes the crest down into the water",
+            "The wind stops once the wave nears the beach, so it falls",
             "The wave's base slows down while the top stays fast"
           ],
           "answer": "D",
@@ -263,10 +263,10 @@
         {
           "stem": "A surfer paddles out but a strong current keeps pulling her board sideways. Based on the article, what is most likely happening?",
           "options": [
-            "The wave she is near will disappear soon",
-            "Her board has lost all of its buoyancy",
+            "The wave she is near will disappear soon, and the sea will go flat",
+            "Her board has lost all of its buoyancy, and so it sinks",
             "The current is pulling her from the wave's best part",
-            "She is too close to the shallow seafloor"
+            "She is too close to the shallow seafloor, where the rocks are"
           ],
           "answer": "C",
           "skill": "inference",
@@ -398,10 +398,10 @@
         {
           "stem": "Based on the article, how does gravity's role in surfing differ from friction's role?",
           "options": [
-            "Gravity and friction both speed up the board equally",
+            "Gravity and friction both speed up the board equally on every wave",
             "Gravity pulls the board forward; friction slows the wave's base",
-            "Gravity only matters near shore, friction far from it",
-            "Neither gravity nor friction affects a surfer's ride"
+            "Gravity only matters near shore, and friction only matters far from it",
+            "Neither gravity nor friction affects a surfer's ride on the water"
           ],
           "answer": "B",
           "skill": "compare",

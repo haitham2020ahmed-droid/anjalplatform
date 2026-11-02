@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How to build a telescope at home",
+            "How to build a telescope at home with wood",
             "How comets and their dust make shooting stars",
-            "Why stars fall from the sky",
-            "How the Sun makes its own light"
+            "Why stars fall from the sky each night",
+            "How the Sun makes its own light and heat"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -131,10 +131,10 @@
         {
           "stem": "What is a comet made of?",
           "options": [
-            "Hot gas and fire",
-            "Sand and water",
+            "Hot gas and fire in space",
+            "Sand and water on land",
             "Ice, dust, and rock",
-            "Metal and glass"
+            "Metal and glass pieces"
           ],
           "answer": "C",
           "skill": "detail",
@@ -165,10 +165,10 @@
         {
           "stem": "What makes a comet grow a tail?",
           "options": [
-            "It hits another comet.",
+            "It hits another comet in space and breaks into pieces.",
             "It gets warm near the Sun, and some ice turns to gas.",
-            "Earth pulls dust off it.",
-            "It goes far out into the dark."
+            "Earth pulls dust off it as it passes close by.",
+            "It goes far out into the dark, cold space."
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -216,10 +216,10 @@
         {
           "stem": "Why is the desert a good place to watch meteors?",
           "options": [
-            "The desert is closer to space.",
-            "Meteors only fall on sand.",
+            "The desert is closer to space than cities",
+            "Meteors only fall on sand and not on grass",
             "The desert is dark, with no city lights.",
-            "It is always cold in the desert."
+            "It is always cold in the desert at night"
           ],
           "answer": "C",
           "skill": "inference",
@@ -233,10 +233,10 @@
         {
           "stem": "Why does the author start the article with a question about a streak of light?",
           "options": [
-            "To show that the article is a story",
+            "To show that the article is a story about a boy",
             "To get the reader curious about shooting stars",
-            "To warn the reader about falling rocks",
-            "To teach the reader how to count stars"
+            "To warn the reader about falling rocks from the sky",
+            "To teach the reader how to count stars at night"
           ],
           "answer": "B",
           "skill": "author-purpose",
@@ -345,8 +345,8 @@
           "stem": "What causes a meteor to glow?",
           "options": [
             "It reflects light from the Moon.",
-            "It carries fire from the Sun.",
-            "It is lit up by city lights.",
+            "It carries fire from the Sun down to Earth.",
+            "It is lit up by the lights of the city below.",
             "It moves so fast that the air heats it."
           ],
           "answer": "D",
@@ -395,10 +395,10 @@
         {
           "stem": "What can you infer about a comet when it is far from the Sun?",
           "options": [
-            "It has its longest tail.",
-            "It makes many meteors.",
+            "It has its longest tail and shines in the sky.",
+            "It makes many meteors that fall on the Earth.",
             "It is frozen and has little or no tail.",
-            "It glows brighter than ever."
+            "It glows brighter than ever before in the dark."
           ],
           "answer": "C",
           "skill": "inference",
@@ -540,10 +540,10 @@
         {
           "stem": "Why does a comet's tail point away from the Sun no matter which way the comet travels?",
           "options": [
-            "The comet always moves toward the Sun.",
-            "Gravity pulls the tail toward Earth.",
+            "The comet always moves toward the Sun, so its tail trails behind it as it goes.",
+            "Gravity pulls the tail toward Earth, because Earth is the biggest planet nearby.",
             "Sunlight and the solar wind push the gas and dust outward.",
-            "The tail is frozen in one position."
+            "The tail is frozen in one position, so it cannot turn when the comet moves."
           ],
           "answer": "C",
           "skill": "cause-effect",
@@ -575,9 +575,9 @@
           "stem": "Why do so few meteors become meteorites?",
           "options": [
             "Most particles are too small to survive the heat of entry.",
-            "Meteorites can only land in deserts.",
-            "Comets stop shedding debris near Earth.",
-            "The solar wind pushes them back into space."
+            "Meteorites can only land in deserts, where there is no water.",
+            "Comets stop shedding debris near Earth, so few rocks fall down.",
+            "The solar wind pushes them back into space before they land."
           ],
           "answer": "A",
           "skill": "inference",

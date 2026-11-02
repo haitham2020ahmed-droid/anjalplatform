@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How to tie different kinds of knots",
+            "How to tie different kinds of knots for a ship's rope",
             "How ancient sailors built wooden ships and sailed them",
-            "Why modern ships use big engines",
-            "How to grow coconut trees in Arabia"
+            "Why modern ships use big engines to cross the ocean",
+            "How to grow coconut trees in Arabia, near the sea"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -165,10 +165,10 @@
         {
           "stem": "The article says the dhow had a sail shaped like a triangle. What is a sail?",
           "options": [
-            "A long wooden beam under the ship",
-            "Rope used to tie the boards together",
+            "A long wooden beam under the bottom of the ship",
+            "Rope used to tie the boards together on the deck",
             "A piece of cloth that catches wind to move the ship",
-            "The hard wood used to build the hull"
+            "The hard wood used to build the hull of a boat"
           ],
           "answer": "C",
           "skill": "vocabulary",
@@ -200,9 +200,9 @@
           "stem": "Why do you think builders chose strong wood to build a ship?",
           "options": [
             "So the ship could handle the sea without falling apart.",
-            "So the ship would be lighter than a paper boat.",
-            "So sailors would not need any rope at all.",
-            "So the ship could float without any wind."
+            "So the ship would be lighter than a paper boat on the water.",
+            "So sailors would not need any rope at all on the ship.",
+            "So the ship could float without any wind in the sea."
           ],
           "answer": "A",
           "skill": "inference",
@@ -233,10 +233,10 @@
         {
           "stem": "How does the author organize the ideas in this article?",
           "options": [
-            "By listing every port a dhow ever visited",
+            "By listing every port a dhow ever visited, from the first to the last",
             "By describing the ship's parts, then how it sailed and traded",
-            "By comparing prices of spices in different markets",
-            "By telling the article in the order of the alphabet"
+            "By comparing prices of spices in different markets and their weights",
+            "By telling the article in the order of the alphabet, letter by letter"
           ],
           "answer": "B",
           "skill": "text-structure",
@@ -294,9 +294,9 @@
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
             "Builders made strong wooden ships, like the dhow, and sailors used the wind to carry goods far across the sea.",
-            "Only Arab sailors living near the Arabian Gulf ever used triangular sails on their ships.",
-            "Modern engines work better than wind ever did.",
-            "Coconut trees happened to only grow near the southern coast of Arabia."
+            "Only Arab sailors living near the Arabian Gulf ever used triangular sails on their ships, the article says.",
+            "Modern engines work better than wind ever did, so sailors no longer use sails and the dhow.",
+            "Coconut trees happened to only grow near the southern coast of Arabia, and the boats were built from them."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -344,9 +344,9 @@
         {
           "stem": "The article describes a lateen sail. What does lateen describe?",
           "options": [
-            "A square shape that only catches wind from behind",
+            "A square shape that only catches wind from behind the ship",
             "A triangular shape that can catch wind from many directions",
-            "A kind of rope used to tie the sail down",
+            "A kind of rope used to tie the sail down to the deck",
             "A wooden beam along the bottom of the ship"
           ],
           "answer": "B",
@@ -396,9 +396,9 @@
           "stem": "What can you infer about why sailors timed their voyages around the monsoons?",
           "options": [
             "Predictable winds made it easier to sail out and later sail back home.",
-            "The monsoons made the sea completely calm all year.",
-            "Monsoons only blew near the coast of Arabia.",
-            "Sailors wanted to avoid carrying any cargo at all."
+            "The monsoons made the sea completely calm all year, so ships could go anywhere.",
+            "Monsoons only blew near the coast of Arabia, so ships stayed close to the shore.",
+            "Sailors wanted to avoid carrying any cargo at all, so they sailed with empty ships."
           ],
           "answer": "A",
           "skill": "inference",
@@ -473,9 +473,9 @@
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
             "Skilled shipwrights constructed sturdy wooden vessels, like the dhow, that used sails and seasonal winds to carry merchants and their cargo across long distances.",
-            "The dhow was invented after the first engine was built.",
-            "Monsoon winds made ocean travel impossible before engines existed.",
-            "Square sails always worked better than triangular lateen sails."
+            "The dhow was invented after the first engine was built, and it replaced older boats that used only oars and no wind at all.",
+            "Monsoon winds made ocean travel impossible before engines existed, so merchants stayed near the shore until steam ships were made.",
+            "Square sails always worked better than triangular lateen sails, which is why every sailor in the region chose them for long trips across the open sea and the ocean."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -592,9 +592,9 @@
           "stem": "Why does the author likely mention that merchants loaded dhows with cargo like spices and pearls?",
           "options": [
             "To show that these sturdy, well-built ships served a real economic purpose, carrying valuable trade goods across the seas.",
-            "To argue that spices were more valuable than the ships themselves.",
-            "To prove that dhows could never carry passengers.",
-            "To explain exactly how spices are grown and harvested."
+            "To show that spices were more valuable than the ships themselves, so sailors cared little about their sturdy boats.",
+            "To prove that dhows could never carry passengers across the sea, because they were built only for large cargo of goods.",
+            "To explain exactly how spices are grown and harvested on farms, and how pearls are found by divers under the waves."
           ],
           "answer": "A",
           "skill": "author-purpose",

@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How plants find sunlight to grow taller",
+            "How plants find sunlight to grow taller in the forest",
             "How carbon moves between air, plants, and soil",
-            "How animals search for food in a forest",
-            "How campfires are built and lit safely"
+            "How animals search for food in a forest at night",
+            "How campfires are built and lit safely by scouts"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -200,8 +200,8 @@
           "stem": "Why do plants matter in the carbon cycle?",
           "options": [
             "They take in carbon and help keep its amount balanced",
-            "They change the color of soil after rain",
-            "They stop animals from being able to breathe",
+            "They change the color of the soil after the heavy rain",
+            "They stop animals from being able to breathe air",
             "They turn stored carbon directly into water"
           ],
           "answer": "A",
@@ -328,9 +328,9 @@
           "stem": "According to the article, what happens during respiration?",
           "options": [
             "Animals release carbon dioxide as they breathe",
-            "Plants are said to release oxygen only",
-            "Soil is said to absorb carbon from rain",
-            "Oceans release stored carbon into space"
+            "Plants are said to release oxygen only at night",
+            "Soil is said to absorb carbon from rain only",
+            "Oceans release stored carbon into space like a gas"
           ],
           "answer": "A",
           "skill": "detail",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
-            "Phytoplankton are said to be the only users of carbon",
-            "Fossil fuels are said to form within a few years",
+            "Phytoplankton are said to be the only users of carbon, and all other living things avoid it completely, even in the sea",
+            "Fossil fuels are said to form within a few years, so they will never run out in the future",
             "Carbon circulates in a long-stable cycle, though human combustion now adds carbon faster than it can be absorbed",
-            "Oceans are said to release more carbon than they absorb"
+            "Oceans are said to release more carbon than they absorb, which is why the air is getting warmer"
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -489,9 +489,9 @@
         {
           "stem": "According to the article, what role do phytoplankton play?",
           "options": [
-            "They burn fossil fuels for their energy",
-            "They decompose dead animals on land",
-            "They store carbon only within deep rock",
+            "They burn fossil fuels for their energy, like tiny engines",
+            "They decompose dead animals on land, like tiny cleaners",
+            "They store carbon only within deep rock, like tiny stones",
             "They turn sunlight into food, like tiny plants"
           ],
           "answer": "D",
@@ -506,10 +506,10 @@
         {
           "stem": "According to the article, how do fossil fuels form?",
           "options": [
-            "Plants release them right after photosynthesis",
+            "Plants release them right after photosynthesis in the morning",
             "Carbon is buried and compressed over vast spans of time",
-            "Oceans are said to manufacture them from salt",
-            "Animals produce them through respiration alone"
+            "Oceans are said to manufacture them from salt and sunlight",
+            "Animals produce them through respiration alone, in their lungs"
           ],
           "answer": "B",
           "skill": "detail",

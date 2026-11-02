@@ -99,10 +99,10 @@
      "passage": "Junk food is bad for you. It has too much sugar and salt. Eat fruit instead!",
      "stem": "How does the author feel about junk food?",
      "options": [
-      "The author likes junk food.",
+      "The author likes junk food a lot.",
       "The author does not like junk food.",
-      "The author wants more salt.",
-      "The author has no feeling."
+      "The author wants more salt in food.",
+      "The author has no feeling about it."
      ],
      "answer": 1,
      "why": "Bad for you and eat fruit instead show the author does not like junk food."
@@ -330,9 +330,9 @@
      "stem": "What is the author's attitude toward the tablet program?",
      "options": [
       "Disappointed with how it was carried out",
-      "Proud of its success",
-      "Pleased with the teachers",
-      "Uninterested in schools"
+      "Proud of its great success so far",
+      "Pleased with the teachers and the staff",
+      "Uninterested in schools and in tablets"
      ],
      "answer": 0,
      "why": "Great fanfare contrasts with tablets unused in drawers. The author is disappointed in how the program was carried out."
@@ -430,9 +430,9 @@
      "stem": "Based on the author's attitude, what would the author most likely recommend?",
      "options": [
       "Hands-on activities to make the exhibit more engaging",
-      "Removing the pottery from the museum",
-      "Smaller labels on the glass cases",
-      "Closing the other museum"
+      "Removing the old pottery from the museum for good",
+      "Smaller labels on the glass cases, so people read less",
+      "Closing the other museum in the next big city"
      ],
      "answer": 0,
      "why": "Merely and visitors walk past quickly show disappointment, while the full halls of the other museum show approval of hands-on learning."
@@ -453,9 +453,9 @@
      "passage": "Admittedly, standardized tests give schools useful numbers to compare. But a single score cannot show a student's curiosity, teamwork or creativity. When test preparation fills the school year, these qualities are the first to be squeezed out.",
      "stem": "Which statement best explains the author's attitude?",
      "options": [
-      "The author fully supports more testing.",
-      "The author thinks tests should be harder.",
-      "The author does not care about schools.",
+      "The author fully supports more testing in every school and every year.",
+      "The author thinks tests should be harder and much longer than now.",
+      "The author does not care about schools or about the students.",
       "The author accepts tests have value but worries about relying on them."
      ],
      "answer": 3,

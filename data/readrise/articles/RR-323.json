@@ -90,9 +90,9 @@
           "stem": "What is this article mostly about?",
           "options": [
             "A tour of famous mountain ranges and how they shape the world",
-            "How to grow potatoes on a small farm",
-            "A trip to ski in the country of Austria",
-            "Why llamas live only in zoos around the world"
+            "How to grow potatoes on a small farm in the north",
+            "A trip to ski in the country of Austria with some friends and family",
+            "Why llamas live only in zoos around the world today"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -157,10 +157,10 @@
         {
           "stem": "Many different plants and animals can live on one mountain range. What can you tell from this?",
           "options": [
-            "Every slope on a range has the exact same weather.",
+            "Every slope on a range has the exact same weather all year.",
             "Different slopes and valleys have different small climates.",
-            "Animals only live at the very top of a range.",
-            "Plants cannot grow above a certain height at all."
+            "Animals only live at the very top of a range, near the snow.",
+            "Plants cannot grow above a certain height at all, even in summer."
           ],
           "answer": "B",
           "skill": "inference",
@@ -243,10 +243,10 @@
         {
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
-            "Skiing is the most popular sport in the Alps every winter.",
+            "Skiing is the most popular sport in the Alps every winter, and it is the reason people visit mountains.",
             "Mountain ranges around the world differ in location but all shape climate, borders, and life nearby.",
-            "The Rocky Mountains are taller than the Himalayas.",
-            "Llamas can only survive on the slopes of the Andes."
+            "The Rocky Mountains are taller than the Himalayas, and they are the highest range in the world.",
+            "Llamas can only survive on the slopes of the Andes, and no other mountain range has animals."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -295,9 +295,9 @@
           "stem": "Why might a dry desert form on one side of a mountain range?",
           "options": [
             "The wet wind drops most of its rain on the near slope first.",
-            "People built dams that stop all the rainwater.",
-            "The far side of the range gets no sunlight at all.",
-            "Mountains always stop wind from moving at all."
+            "People built dams that stop all the rainwater from reaching the far side.",
+            "The far side of the range gets no sunlight at all during the year.",
+            "Mountains always stop wind from moving at all across the land."
           ],
           "answer": "A",
           "skill": "inference",
@@ -312,9 +312,9 @@
           "stem": "The Andes form a border between Chile and Argentina, and the Alps form borders between several European countries. What does this suggest about mountain ranges?",
           "options": [
             "They often naturally separate neighboring countries.",
-            "They always belong to only one country.",
-            "They are too small to matter to any border.",
-            "They are found only in South America."
+            "They always belong to only one country and cannot be shared.",
+            "They are too small to matter to any border or map.",
+            "They are found only in South America and Europe."
           ],
           "answer": "A",
           "skill": "inference",
@@ -397,10 +397,10 @@
         {
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
-            "Every mountain range on Earth formed in exactly the same way.",
+            "Every mountain range on Earth formed in exactly the same way, from the same kind of pushing plates.",
             "Mountain ranges differ in origin and location but consistently shape regional climate, borders, and biodiversity.",
-            "The Himalayas are more important than any other range on Earth.",
-            "Subduction only happens along the coast of South America."
+            "The Himalayas are more important than any other range on Earth, and the others do not matter at all to people or to science.",
+            "Subduction only happens along the coast of South America, and nowhere else on the planet at all."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -415,9 +415,9 @@
           "stem": "According to the article, what forms when a tectonic plate slides beneath another one?",
           "options": [
             "A process called subduction, which can lift mountains higher.",
-            "A new ocean that quickly fills with water.",
-            "A desert that forms only in Europe.",
-            "A permanent border between two oceans."
+            "A new ocean that quickly fills with water and then dries up again.",
+            "A desert that forms only in Europe, near the old cities.",
+            "A permanent border between two oceans, which can never move."
           ],
           "answer": "A",
           "skill": "detail",
@@ -431,10 +431,10 @@
         {
           "stem": "What does the article say about the rain shadow on the dry side of a range?",
           "options": [
-            "It is always covered in thick, green forests.",
-            "It receives more rain than the wet side of the range.",
+            "It is always covered in thick, green forests and rivers.",
+            "It receives more rain than the wet side of the range does.",
             "It supports only hardy desert plants adapted to scarce water.",
-            "It disappears completely after a few decades."
+            "It disappears completely after a few decades of dry weather."
           ],
           "answer": "C",
           "skill": "detail",
@@ -448,9 +448,9 @@
         {
           "stem": "Why might scientists expect many unique species to evolve across a single mountain range?",
           "options": [
-            "Every elevation on a range has identical weather and soil.",
-            "Mountains prevent any living thing from surviving above sea level.",
-            "All mountain animals migrate to the same single valley each year.",
+            "Every elevation on a range has identical weather and soil, so every place has the same species.",
+            "Mountains prevent any living thing from surviving above the level of the sea, so no species lives there.",
+            "All mountain animals migrate to the same single valley each year, so they all mix together and stay alike.",
             "Different elevations create separate small climates that can isolate species from one another."
           ],
           "answer": "D",
@@ -466,9 +466,9 @@
           "stem": "What can be inferred about why the Andes continue to rise in elevation almost every year?",
           "options": [
             "Ongoing subduction along the coast keeps pushing and lifting the rock upward.",
-            "Farmers add new soil to the mountainside each planting season.",
-            "Melting glaciers make the mountain rock expand and swell.",
-            "Tourists visiting the slopes gradually pack the rock down tighter."
+            "Farmers add new soil to the mountainside each planting season to make it taller.",
+            "Melting glaciers make the mountain rock expand and swell like a sponge each year.",
+            "Tourists visiting the slopes gradually pack the rock down tighter every summer."
           ],
           "answer": "A",
           "skill": "inference",
@@ -499,9 +499,9 @@
         {
           "stem": "Why does the author move from describing individual ranges to explaining how ranges form and reshape climate and life?",
           "options": [
-            "To prove that the Andes are the only range worth studying closely.",
-            "To argue that mountain tourism should be banned worldwide.",
-            "To contradict the earlier descriptions of each named range.",
+            "To prove that the Andes are the only range worth studying closely at school.",
+            "To argue that mountain tourism should be banned worldwide for many years.",
+            "To contradict the earlier descriptions of each named range in the article.",
             "To shift from specific examples toward the shared forces and effects behind them."
           ],
           "answer": "D",
@@ -516,10 +516,10 @@
         {
           "stem": "How do the Andes and the Alps compare as examples of mountain ranges forming borders?",
           "options": [
-            "Only the Andes form a border; the Alps do not touch any country lines.",
+            "Only the Andes form a border; the Alps do not touch any country lines or neighbors.",
             "Both ranges separate neighboring countries, despite sitting on different continents.",
-            "Only the Alps involve any volcanic activity at all.",
-            "Neither range is ever associated with any national border."
+            "Only the Alps involve any volcanic activity at all, while the Andes have none.",
+            "Neither range is ever associated with any national border between two lands."
           ],
           "answer": "B",
           "skill": "compare",

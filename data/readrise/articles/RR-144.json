@@ -183,9 +183,9 @@
           "stem": "In the article, a leak is…",
           "options": [
             "a small hole that lets water drip out",
-            "a kind of big plant",
-            "a long shower",
-            "a full washing machine"
+            "a kind of big plant that grows near water",
+            "a long shower that lasts all morning",
+            "a full washing machine that makes a lot of noise"
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -234,9 +234,9 @@
           "stem": "Why does the author end with \"Each drop counts\"?",
           "options": [
             "To show that small steps by many people matter",
-            "To count the drops in a tap",
-            "To tell a joke about rain",
-            "To say that water is free"
+            "To count the drops in a tap in the kitchen",
+            "To tell a joke about rain and the clouds",
+            "To say that water is free for everyone in town"
           ],
           "answer": "A",
           "skill": "author-purpose",
@@ -344,10 +344,10 @@
         {
           "stem": "Why could Saudi Arabia's groundwater run out?",
           "options": [
-            "It is too salty to use.",
+            "It is too salty to use for drinking.",
             "It refills very slowly after it is used.",
-            "People pour it into the sea.",
-            "It is used only for desalination."
+            "People pour it into the sea every day.",
+            "It is used only for desalination plants."
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -379,9 +379,9 @@
           "stem": "How is the article organized?",
           "options": [
             "It explains the water problem first, then gives solutions.",
-            "It tells a story about one family's trip.",
-            "It compares Saudi Arabia with Europe.",
-            "It lists the history of water in order of dates."
+            "It tells a story about one family's trip to the well",
+            "It compares Saudi Arabia with Europe in every chapter",
+            "It lists the history of water in order of dates and years"
           ],
           "answer": "A",
           "skill": "text-structure",
@@ -395,9 +395,9 @@
         {
           "stem": "What can you infer about saving water and saving energy?",
           "options": [
-            "They are not connected at all.",
-            "Energy is only used for washing machines.",
-            "Saving water uses more energy.",
+            "They are not connected at all in any way that we know.",
+            "Energy is only used for washing machines and dishwashers at home",
+            "Saving water uses more energy than it saves, so it is a waste",
             "Using less water also saves the energy needed to make it."
           ],
           "answer": "D",
@@ -489,10 +489,10 @@
         {
           "stem": "According to the article, why is the groundwater not truly renewable?",
           "options": [
-            "It is polluted by factories.",
+            "It is polluted by factories, so nobody can use it.",
             "It is replenished far more slowly than it is used.",
-            "It is too deep to reach.",
-            "It turns into salt water."
+            "It is too deep to reach with any pump or well.",
+            "It turns into salt water when it is used too much."
           ],
           "answer": "B",
           "skill": "detail",
@@ -558,9 +558,9 @@
           "stem": "What is the effect of using drip irrigation in a garden?",
           "options": [
             "Plants receive water at their roots, and less is wasted.",
-            "Plants receive salt water from the sea.",
-            "The garden needs more water than before.",
-            "The hose runs continuously."
+            "Plants receive salt water from the sea by the pipe.",
+            "The garden needs more water than before to grow.",
+            "The hose runs continuously all day and all night in the garden."
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -591,10 +591,10 @@
         {
           "stem": "What can you infer about the purpose of the Qatrah program?",
           "options": [
-            "To build new rivers across the country",
-            "To sell more washing machines",
+            "To build new rivers across the country for the farms in the north",
+            "To sell more washing machines to families",
             "To persuade people to reduce water consumption at home",
-            "To stop desalination completely"
+            "To stop desalination completely in all towns"
           ],
           "answer": "C",
           "skill": "inference",

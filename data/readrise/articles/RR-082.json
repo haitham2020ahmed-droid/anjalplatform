@@ -182,9 +182,9 @@
         {
           "stem": "Why did guards send signals from tower to tower?",
           "options": [
-            "To tell people what time it was",
-            "To cook food for the soldiers",
-            "To light the way for visitors",
+            "To tell people what time it was in the morning",
+            "To cook food for the soldiers in the tower",
+            "To light the way for visitors at night",
             "To warn others that danger was coming"
           ],
           "answer": "D",
@@ -199,10 +199,10 @@
         {
           "stem": "Why do you think the first emperor had workers join many walls together?",
           "options": [
-            "To make a road for horse races",
+            "To make a road for horse races across the country",
             "To make it harder for riders to get in",
-            "To give people a place to sleep",
-            "To mark where the Moon rises"
+            "To give people a place to sleep when it was cold",
+            "To mark where the Moon rises over the hills"
           ],
           "answer": "B",
           "skill": "inference",
@@ -294,9 +294,9 @@
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
             "The Great Wall is a set of walls built over centuries to protect China.",
-            "The Great Wall was built in one year by one emperor.",
-            "Nomadic groups built the Great Wall to keep China out.",
-            "The Great Wall is the only thing visible from the Moon."
+            "The Great Wall was built in one year by one emperor, who ordered every worker to finish it fast.",
+            "Nomadic groups built the Great Wall to keep China out of the northern lands for many years.",
+            "The Great Wall is the only thing visible from the Moon, and nothing else on Earth can be seen."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -395,10 +395,10 @@
         {
           "stem": "What happened when soldiers in a watchtower spotted an enemy?",
           "options": [
-            "They left the tower to hide",
+            "They left the tower to hide in the hills",
             "They sent a signal from tower to tower",
-            "They began to build a new wall",
-            "They opened the gates to traders"
+            "They began to build a new wall around it",
+            "They opened the gates to traders and guests"
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -412,9 +412,9 @@
         {
           "stem": "How does the author organize the paragraph about the Moon?",
           "options": [
-            "As steps in a building process",
-            "By comparing two different walls",
-            "In time order from past to present",
+            "As steps in a building process, one after another",
+            "By comparing two different walls on the Moon and on Earth",
+            "In time order from the distant past to the present day",
             "By stating a common belief, then showing why it is wrong"
           ],
           "answer": "D",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
-            "The Ming dynasty was the only dynasty that cared about defense.",
-            "The Great Wall failed, so it should never have been built.",
+            "The Ming dynasty was the only dynasty that cared about defense, and it built every wall.",
+            "The Great Wall failed, so it should never have been built in the first place.",
             "Built over two thousand years, the wall was a vast defense system and is now a world treasure.",
-            "Nomadic peoples designed and built the Great Wall."
+            "Nomadic peoples designed and built the Great Wall to keep out other tribes."
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -540,10 +540,10 @@
         {
           "stem": "Why was sending signals from tower to tower useful?",
           "options": [
-            "It let soldiers trade goods with riders",
-            "It helped tourists find their way",
+            "It let soldiers trade goods with riders on the road",
+            "It helped tourists find their way to the old towers",
             "It spread warnings quickly so defenders could prepare",
-            "It kept the mortar from drying out"
+            "It kept the mortar from drying out on the stones"
           ],
           "answer": "C",
           "skill": "inference",
@@ -558,9 +558,9 @@
           "stem": "What can you infer from the fact that many dynasties added to the wall?",
           "options": [
             "Defending the northern border stayed important for centuries",
-            "Every ruler disliked the earlier walls",
-            "The wall was finished in one generation",
-            "The raids ended after Qin Shi Huang"
+            "Every ruler disliked the earlier walls and wanted to knock them down",
+            "The wall was finished in one generation, so no one needed to add more",
+            "The raids ended after Qin Shi Huang, so the wall was no longer needed"
           ],
           "answer": "A",
           "skill": "inference",
@@ -574,10 +574,10 @@
         {
           "stem": "How did the Ming walls differ from the earliest walls?",
           "options": [
-            "Ming walls used packed earth and timber",
+            "Ming walls used packed earth and timber for the walls",
             "Ming walls used bricks and stone with rice mortar",
-            "Ming walls were built by nomadic peoples",
-            "Ming walls were made mostly of wood"
+            "Ming walls were built by nomadic peoples of the north",
+            "Ming walls were made mostly of wood and of reeds"
           ],
           "answer": "B",
           "skill": "compare",

@@ -294,9 +294,9 @@
           "stem": "Which sentence best states the central idea?",
           "options": [
             "Rockets reach space by making enough thrust to beat gravity and then going fast enough to stay in orbit.",
-            "Rockets are too expensive to build.",
-            "Balloons and rockets are the same size.",
-            "Only Saudi astronauts can visit the space station."
+            "Rockets are too expensive to build, so only a few rich countries can ever send one up into space.",
+            "Balloons and rockets are the same size, and they both rise because they are lighter than air.",
+            "Only Saudi astronauts can visit the space station, and they go there on a special rocket every year."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -472,10 +472,10 @@
         {
           "stem": "What is the central idea of the article?",
           "options": [
-            "Rockets are dangerous and should be replaced by airplanes.",
+            "Rockets are dangerous and should be replaced by airplanes, which are safer and cheaper to fly.",
             "Reaching orbit depends on Newton's third law, carrying an oxidizer, shedding stages, and gaining enough sideways speed.",
-            "Newton invented the first rocket.",
-            "Space begins exactly 100 kilometers above the ground."
+            "Newton invented the first rocket, and every rocket since has copied his design exactly.",
+            "Space begins exactly 100 kilometers above the ground, so a rocket only needs to reach that height and then it can stop its engines for good."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -523,9 +523,9 @@
         {
           "stem": "Why do many launch sites sit near the equator?",
           "options": [
-            "The air there contains more oxygen.",
-            "Gravity is turned off near the equator.",
-            "Rockets can avoid bad weather there.",
+            "The air there contains more oxygen for the engines",
+            "Gravity is turned off near the equator for a short time",
+            "Rockets can avoid bad weather there all year round",
             "Earth's rotation gives rockets extra speed there."
           ],
           "answer": "D",
@@ -575,9 +575,9 @@
           "stem": "How is a rocket in space different from a fire on Earth?",
           "options": [
             "A rocket must bring its own oxidizer, while a fire on Earth uses oxygen from the air.",
-            "A fire on Earth needs no fuel at all.",
-            "A rocket uses no fuel in space.",
-            "A fire on Earth burns better in a vacuum."
+            "A fire on Earth needs no fuel at all, only air and a little heat from the Sun.",
+            "A rocket uses no fuel in space, because the stars push it along its path forever.",
+            "A fire on Earth burns better in a vacuum than it does in air."
           ],
           "answer": "A",
           "skill": "compare",

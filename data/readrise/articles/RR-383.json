@@ -182,9 +182,9 @@
         {
           "stem": "Why did the fish get away from Yusuf's net?",
           "options": [
-            "The net had a hole in it",
-            "The water was too deep",
-            "Saleh warned the fish away",
+            "The net had a hole in it, and so the fish swam out of it",
+            "The water was too deep for the net to reach the fish",
+            "Saleh warned the fish away by shouting from the boat",
             "Yusuf threw his net before waiting for the right moment"
           ],
           "answer": "D",
@@ -216,10 +216,10 @@
         {
           "stem": "Why could Saleh catch a fish when Yusuf could not?",
           "options": [
-            "Saleh had a bigger net than Yusuf",
+            "Saleh had a bigger net than Yusuf had that day",
             "Saleh waited and watched the water carefully",
-            "Saleh was younger and faster",
-            "Saleh used a secret magic net"
+            "Saleh was younger and faster than Yusuf was",
+            "Saleh used a secret magic net from his uncle"
           ],
           "answer": "B",
           "skill": "inference",
@@ -233,9 +233,9 @@
         {
           "stem": "What can you tell about Yusuf by the end of the story?",
           "options": [
-            "He still thinks a big net is all that matters",
-            "He gives his new net away forever",
-            "He decides never to go fishing again",
+            "He still thinks a big net is all that matters for catching fish",
+            "He gives his new net away forever to a boy in the village",
+            "He decides never to go fishing again after the long hot day",
             "He wants to learn to watch and wait like his grandfather"
           ],
           "answer": "D",

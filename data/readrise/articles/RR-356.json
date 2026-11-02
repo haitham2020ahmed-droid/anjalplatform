@@ -114,10 +114,10 @@
         {
           "stem": "What is this story mostly about?",
           "options": [
-            "A boy who buys a brand new whistle at the store downtown",
+            "A boy who buys a brand new whistle at the store downtown and loses it on the bus",
             "Two friends who get lost on a mountain trail and find their way back",
-            "A class that visits a museum",
-            "A boy who plants a garden"
+            "A class that visits a museum on a school trip in the spring and sees old coins",
+            "A boy who plants a garden behind his house with his dad and waters it every day"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -131,10 +131,10 @@
         {
           "stem": "Why do Yusuf and Khalid fall behind the group?",
           "options": [
-            "They stop to eat lunch",
-            "They climb a tree",
+            "They stop to eat lunch on a rock",
+            "They climb a tree to look around",
             "They stop to tie a shoelace",
-            "They fall asleep"
+            "They fall asleep under a shady tree"
           ],
           "answer": "C",
           "skill": "detail",
@@ -216,8 +216,8 @@
         {
           "stem": "What can you tell about Yusuf because he says, \"Stop. Let's think,\" when he is scared?",
           "options": [
-            "He wants to give up right away",
-            "He wants to blame Khalid",
+            "He wants to give up right away and go home",
+            "He wants to blame Khalid for the trouble",
             "He does not care about getting back",
             "He tries to stay calm and solve the problem"
           ],
@@ -233,9 +233,9 @@
         {
           "stem": "Why does the author describe the teacher's whistle and the boys' whistle answering it?",
           "options": [
-            "To teach readers how whistles are made",
-            "To show that the teacher is angry",
-            "To describe a music class",
+            "To teach readers how whistles are made by hand",
+            "To show that the teacher is angry at the boys",
+            "To describe a music class in a school hall, with many whistles",
             "To show how the group used sound to find each other"
           ],
           "answer": "D",
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the central idea of the story?",
           "options": [
-            "Khalid is afraid of mountains and never wants to hike.",
-            "Their teacher refuses to let the class go on any more hikes ever again after this trip",
+            "Khalid is afraid of mountains and never wants to hike again, even with his friends and class, and so he stays home all year.",
+            "Their teacher refuses to let the class go on any more hikes ever again after this trip, since the mountain is too far away.",
             "When Yusuf and Khalid get separated from their group, they use calm thinking and hiking skills to find their way back safely.",
-            "Yusuf and Khalid plan to go hiking again next year."
+            "Yusuf and Khalid plan to go hiking again next year with their families and with all their friends from school and the town."
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -361,9 +361,9 @@
         {
           "stem": "What can you infer about why Yusuf tells Khalid not to run into the trees?",
           "options": [
-            "He thinks there are animals in the trees",
-            "He wants to race Khalid",
-            "He wants Khalid to rest because he is tired",
+            "He thinks there are animals in the trees that might hurt them",
+            "He wants to race Khalid back to the road before sunset",
+            "He wants Khalid to rest because he is tired and thirsty",
             "Running could make them even more lost and harder to find"
           ],
           "answer": "D",
@@ -378,9 +378,9 @@
         {
           "stem": "What does the boys' choice to use a whistle instead of shouting suggest about their training?",
           "options": [
-            "They forgot how to speak from fear",
-            "They wanted to surprise their teacher",
-            "They had never been taught any safety steps",
+            "They forgot how to speak out loud from fear in the dark",
+            "They wanted to surprise their teacher with a funny game",
+            "They had never been taught any safety steps in school or at home",
             "They had clearly been taught a specific safety signal to use if lost"
           ],
           "answer": "D",
@@ -412,9 +412,9 @@
         {
           "stem": "How does the author organize the events of the story?",
           "options": [
-            "By describing the whole hike from the teacher's point of view only",
-            "By listing facts about mountain weather",
-            "By comparing two different mountains in detail",
+            "By describing the whole hike from the teacher's point of view only, from start to end",
+            "By listing facts about mountain weather and the clouds that form on the peaks, one after another",
+            "By comparing two different mountains in detail, one tall and the other low, with a map",
             "In the order that the boys get separated, get lost, solve the problem, and reunite with the group"
           ],
           "answer": "D",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best expresses the central idea of the story?",
           "options": [
-            "A teacher decides the class should never hike again.",
-            "A mountain hike is canceled because of dangerous weather.",
+            "A teacher decides the class should never hike again, because two of the students got lost for a day on the mountain.",
+            "A mountain hike is canceled because of dangerous weather, and the class goes back to school by bus.",
             "Two friends, briefly separated from their hiking group, use composure and methodical skills to navigate back and reunite with their class.",
-            "Two disoriented hikers completely abandon their training and simply hope for someone to rescue them without trying"
+            "Two disoriented hikers completely abandon their training and simply hope for someone to rescue them without trying to move or to think"
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -523,10 +523,10 @@
         {
           "stem": "In the story, the word navigate most nearly means —",
           "options": [
-            "to plant a flag at the summit",
+            "to plant a flag at the summit of the hill",
             "to find one's way from one place to another",
-            "to measure the height of a mountain",
-            "to shout loudly across a valley"
+            "to measure the height of a mountain with a rope",
+            "to shout loudly across a valley to a friend"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -557,9 +557,9 @@
         {
           "stem": "In what sequence did the key events of the story occur?",
           "options": [
-            "They signal with a whistle, they fall behind, they reunite, they get lost",
-            "They follow trail marks, they reunite, they fall behind, they hear the whistle",
-            "The boys reunite with the group, they hear the whistle, they get lost",
+            "They signal with a whistle, they fall behind, they reunite, they get lost, they follow trail marks",
+            "They follow trail marks, they reunite, they fall behind, they hear the whistle, they realize they are lost",
+            "The boys reunite with the group, they hear the whistle, they get lost, they follow trail marks, they fall behind at the split",
             "They fall behind at the split, they realize they are lost, they follow trail marks, they signal with a whistle, they reunite"
           ],
           "answer": "D",
@@ -574,9 +574,9 @@
         {
           "stem": "What can readers infer from the fact that both the boys and the teacher used whistles to communicate?",
           "options": [
-            "The boys invented the three-blast signal on the spot",
-            "The whistle was a toy the boys had brought for fun",
-            "The teacher just happened to be carrying a whistle by coincidence",
+            "The boys invented the three-blast signal on the spot, without any plan",
+            "The whistle was a toy the boys had brought for fun on the trip",
+            "The teacher just happened to be carrying a whistle by coincidence that day",
             "Whistle signals were a planned safety method the class had practiced together"
           ],
           "answer": "D",
@@ -591,9 +591,9 @@
         {
           "stem": "Why does the author end the story with the boys explaining their methodical actions to the group?",
           "options": [
-            "To suggest the whole hike should be canceled in the future",
-            "To describe the geography of the mountain in more detail",
-            "To suggest the teacher should be blamed for the incident",
+            "To suggest the whole hike should be canceled in the future for all students",
+            "To describe the geography of the mountain in more detail for the readers",
+            "To suggest the teacher should be blamed for the incident on the hill",
             "To emphasize that calm, trained responses, not luck, led to their safe return"
           ],
           "answer": "D",

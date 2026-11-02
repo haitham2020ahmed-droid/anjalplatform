@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How to build a campfire",
-            "Why the sun is hot",
+            "How to build a campfire in the woods at night with friends",
+            "Why the sun is so hot and so bright in the sky",
             "How solar ovens cook with sunlight and why they help people",
-            "How to bake a cake"
+            "How to bake a cake in a normal oven for a party"
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -182,10 +182,10 @@
         {
           "stem": "Why can smoke from cooking fires make people sick?",
           "options": [
-            "It makes the food much too hot to eat.",
+            "It makes the food much too hot to eat at dinner.",
             "People breathe it in, and it hurts their lungs.",
-            "It makes the sun go away.",
-            "It uses up all the water."
+            "It makes the sun go away for most of the day.",
+            "It uses up all the water in the houses nearby."
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -217,9 +217,9 @@
           "stem": "Why does the author tell about smoky wood fires?",
           "options": [
             "To show why a cooking tool with no smoke is helpful",
-            "To teach how to cut wood",
-            "To say that fires are fun",
-            "To tell a story about a family trip"
+            "To teach how to cut wood for a fire in the cold",
+            "To say that fires are fun to watch at night in camp",
+            "To tell a story about a family trip to the mountains"
           ],
           "answer": "A",
           "skill": "author-purpose",
@@ -293,10 +293,10 @@
         {
           "stem": "What is the central idea of the article?",
           "options": [
-            "Solar ovens are too slow to be useful anywhere.",
+            "Solar ovens are too slow to be useful anywhere in the world, and nobody uses them.",
             "Solar ovens use sunlight to cook and can replace smoky fires that harm health.",
-            "Wood is the best fuel for cooking.",
-            "Cars get hot when they are parked in the sun."
+            "Wood is the best fuel for cooking, and smoky fires keep people healthy in their homes.",
+            "Cars get hot when they are parked in the sun, and this is the main idea of the article."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -413,9 +413,9 @@
           "stem": "Why does the author end with the limits of solar ovens?",
           "options": [
             "To give a fair picture that includes problems as well as benefits",
-            "To convince readers never to use them",
-            "To explain how to fix a broken oven",
-            "To describe the history of ovens"
+            "To convince readers never to use them for any reason at all, even in sunny places",
+            "To explain how to fix a broken oven with a few simple tools",
+            "To describe the history of ovens from the oldest to today's"
           ],
           "answer": "A",
           "skill": "author-purpose",
@@ -473,9 +473,9 @@
           "stem": "Which statement best expresses the central idea?",
           "options": [
             "Solar cookers turn sunlight into heat in different ways and offer a cleaner choice than smoky fires.",
-            "Parabolic cookers are always better than box ovens.",
-            "De Saussure invented cooking.",
-            "Forests are disappearing only because of cooking fires."
+            "Parabolic cookers are always better than box ovens because they cook food much faster in all weather.",
+            "De Saussure invented cooking long ago, and he was the first person to heat food over a fire.",
+            "Forests are disappearing only because of cooking fires, so we should stop cooking with wood."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -506,10 +506,10 @@
         {
           "stem": "What did Horace-Bénédict de Saussure show in the 1760s?",
           "options": [
-            "That glass melts in sunlight",
+            "That glass melts when it is in the sunlight for a long time",
             "That an insulated, glass-covered box could get hot enough to cook fruit",
-            "That smoke harms the lungs",
-            "That mirrors can focus enough light to start fires"
+            "That smoke harms the lungs of the people who breathe it in a closed room",
+            "That mirrors can focus enough light to start a fire on dry wood or paper"
           ],
           "answer": "B",
           "skill": "detail",
@@ -575,9 +575,9 @@
           "stem": "How does the author organize the article?",
           "options": [
             "By describing how solar cookers work, giving their history, and then explaining why clean cooking matters",
-            "By listing recipes from easiest to hardest",
-            "By telling events from one family's day in time order",
-            "By comparing ovens in different countries"
+            "By listing recipes from easiest to hardest, with a picture of every dish and a note on the cook and how long each recipe takes",
+            "By telling events from one family's day in time order, from breakfast to the evening meal",
+            "By comparing ovens in different countries, from the smallest to the largest one in the world"
           ],
           "answer": "A",
           "skill": "text-structure",

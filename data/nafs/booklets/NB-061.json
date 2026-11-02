@@ -173,9 +173,9 @@
       "type": "MCQ",
       "stem": "What is the writer's main purpose in this text?",
       "options": [
-        "to persuade readers to visit the forests of Mexico",
-        "to tell the story of one butterfly's adventure",
-        "to explain how farmers grow milkweed for profit",
+        "to persuade readers to visit the forests of Mexico in winter time",
+        "to tell the story of one butterfly's adventure in the sky and sea",
+        "to explain how farmers grow milkweed for profit and for sale in shops",
         "to inform readers about the monarch migration and the dangers it faces"
       ],
       "answer": "D",
@@ -190,9 +190,9 @@
       "stem": "What is the main idea of paragraph 2?",
       "options": [
         "Several generations share the journey, and the last generation lives much longer than the others.",
-        "Monarchs that emerge in early summer live longer than those that emerge later.",
-        "Each monarch completes the round trip to Mexico twice in its life.",
-        "Monarchs store fat so that they can survive the cold Canadian winter."
+        "Monarchs that emerge in early summer live longer than those that emerge later, but only a little.",
+        "Each monarch completes the round trip to Mexico twice in its life, in the spring and in the fall.",
+        "Monarchs store fat so that they can survive the cold Canadian winter in the forests near the lakes."
       ],
       "answer": "A",
       "why": "Paragraph 2 explains that no single butterfly makes the round trip: short-lived summer generations are followed by a long-lived final generation."
@@ -222,9 +222,9 @@
       "stem": "What type of text is this?",
       "options": [
         "an informational (expository) text",
-        "a personal narrative",
-        "a poem",
-        "a dialogue story"
+        "a personal narrative about a trip",
+        "a poem about a farm and trees",
+        "a dialogue story between two boys"
       ],
       "answer": "A",
       "why": "It gives facts, explanations and research findings about a real insect, organised by topic."
@@ -237,10 +237,10 @@
       "type": "MCQ",
       "stem": "Why do most birds avoid eating monarch butterflies?",
       "options": [
-        "Monarchs fly too high for birds to reach them.",
-        "Monarchs hide in fir trees all year round.",
+        "Monarchs fly too high for birds to reach them in the air.",
+        "Monarchs hide in fir trees all year round in the forest.",
         "Chemicals from milkweed make monarchs taste unpleasant.",
-        "Monarchs are too small to be worth catching."
+        "Monarchs are too small to be worth catching for the birds."
       ],
       "answer": "C",
       "why": "Paragraph 5 says milkweed's bitter chemicals make caterpillars and adults taste unpleasant to birds."
@@ -253,10 +253,10 @@
       "type": "MCQ",
       "stem": "According to the text, what does the final generation do AFTER it reaches the Mexican forests?",
       "options": [
-        "It lays its eggs on milkweed at once.",
-        "It continues flying south to warmer countries.",
+        "It lays its eggs on milkweed at once, in the forest.",
+        "It continues flying south to warmer countries, far away.",
         "It rests through the winter and starts back north in spring.",
-        "It returns to Canada a few days later."
+        "It returns to Canada a few days later, in the same week."
       ],
       "answer": "C",
       "why": "Paragraph 2 says this generation can “fly south, rest through the winter, and begin the return journey in spring.”"
@@ -285,10 +285,10 @@
       "type": "MCQ",
       "stem": "Which list shows the order in which the writer presents the ideas?",
       "options": [
-        "threats → navigation → milkweed → generations",
+        "threats → navigation → winter forests → milkweed → generations",
         "generations → navigation → winter forests → milkweed → threats",
-        "winter forests → generations → threats → navigation",
-        "navigation → threats → generations → milkweed"
+        "winter forests → generations → threats → milkweed → navigation",
+        "navigation → threats → winter forests → generations → milkweed"
       ],
       "answer": "B",
       "why": "Paragraphs 2–6 move from the generations, to navigation, to the winter forests, to milkweed, and finally to the threats."
@@ -301,10 +301,10 @@
       "type": "MCQ",
       "stem": "What causes the monarchs in the Mexican forests to stay still for the winter?",
       "options": [
-        "The thick forest blocks all sunlight.",
-        "They are too hungry to move.",
+        "The thick forest blocks all sunlight from the ground.",
+        "They are too hungry to move or to fly away.",
         "The cold of the high mountains keeps them inactive.",
-        "Birds frighten them into hiding."
+        "Birds frighten them into hiding for the winter."
       ],
       "answer": "C",
       "why": "Paragraph 4: “The high altitude keeps the butterflies cold enough to stay still and conserve energy.”"
@@ -333,9 +333,9 @@
       "type": "MCQ",
       "stem": "Why does the final generation most likely store energy as fat?",
       "options": [
-        "to make its body taste bitter to birds",
-        "to keep warm during the Canadian summer",
-        "to lay more eggs during the summer months",
+        "to make its body taste bitter to birds that hunt it",
+        "to keep warm during the Canadian summer months",
+        "to lay more eggs during the summer months of the year",
         "to power a long flight and a winter with little food"
       ],
       "answer": "D",
@@ -366,9 +366,9 @@
       "stem": "What do the Mexican fir forests and the “butterfly stations” have in common?",
       "options": [
         "Both provide places that help monarchs survive part of their journey.",
-        "Both are found only in southern Canada.",
-        "Both were planted by schools and families.",
-        "Both are damaged by illegal logging."
+        "Both are found only in southern Canada, far from the Mexican forests.",
+        "Both were planted by schools and families to help the monarchs.",
+        "Both are damaged by illegal logging in the mountain forests."
       ],
       "answer": "A",
       "why": "The forests shelter the butterflies in winter, and the stations let travellers feed and lay eggs; both support the journey."
@@ -381,10 +381,10 @@
       "type": "MCQ",
       "stem": "According to paragraph 3, how does the sun compass differ from the monarch's magnetic sense?",
       "options": [
-        "The sun compass works only at night, while the magnetic sense works by day.",
-        "The magnetic sense needs an internal clock, but the sun compass does not.",
+        "The sun compass works only at night, while the magnetic sense works by day, in clear skies and in cloud.",
+        "The magnetic sense needs an internal clock to guide the butterflies, but the sun compass does not need any clock.",
         "The sun compass needs the sun to be visible, while the magnetic sense may guide them on cloudy days.",
-        "The magnetic sense is in the wings, while the sun compass is in the legs."
+        "The magnetic sense is in the wings of the monarch, while the sun compass is in the legs of the monarch."
       ],
       "answer": "C",
       "why": "The magnetic field “may guide them on cloudy days when the sun is hidden”; it is the sun compass that needs the clock."
@@ -397,10 +397,10 @@
       "type": "MCQ",
       "stem": "What does the writer mean by saying the forest shelters the butterflies “like a gigantic blanket”?",
       "options": [
-        "The trees are covered in soft cloth.",
+        "The trees are covered in soft cloth like a big bed.",
         "The forest protects the butterflies from cold and wet weather.",
-        "The butterflies sleep on the forest floor.",
-        "The forest is too thick for the butterflies to enter."
+        "The butterflies sleep on the forest floor at night in rows.",
+        "The forest is too thick for the butterflies to enter it at all."
       ],
       "answer": "B",
       "why": "A blanket covers and protects; the simile shows that the thick forest protects the monarchs from freezing rain and wind."
@@ -429,10 +429,10 @@
       "type": "MCQ",
       "stem": "In your opinion, why does the writer begin paragraph 3 with a question?",
       "options": [
-        "to show that scientists have no idea how monarchs travel",
+        "to show that scientists have no idea at all how monarchs travel",
         "to make readers curious about a mystery before explaining the answer",
-        "to ask readers to send their answers to the writer",
-        "to change the topic from butterflies to birds"
+        "to ask readers to send their answers to the writer by mail",
+        "to change the topic from butterflies to birds in this part"
       ],
       "answer": "B",
       "why": "The question invites readers to wonder, and the rest of the paragraph then gives what researchers have discovered."
@@ -477,10 +477,10 @@
       "type": "MCQ",
       "stem": "Which feeling is most present in the text as a whole?",
       "options": [
-        "anger at farmers",
-        "fear of insects",
+        "anger at farmers and villagers",
+        "fear of insects and spiders",
         "amazement mixed with concern",
-        "boredom with science"
+        "boredom with science lessons"
       ],
       "answer": "C",
       "why": "The writer admires the “remarkable” journey but is worried about the falling numbers."
@@ -493,9 +493,9 @@
       "type": "MCQ",
       "stem": "In your opinion, which information in the text is the LEAST clear?",
       "options": [
-        "what monarch caterpillars eat",
-        "where the winter forests are",
-        "how long early-summer monarchs live",
+        "what monarch caterpillars eat before they become butterflies",
+        "where the winter forests are in the mountains",
+        "how long early-summer monarchs live in the north",
         "exactly how monarchs sense the Earth's magnetic field"
       ],
       "answer": "D",

@@ -93,10 +93,10 @@
       "difficulty": 3,
       "stem": "The writer says the desert is 'far from empty.' What does this phrase suggest?",
       "options": [
-        "It is very far away from every city.",
-        "Nobody has ever travelled into it.",
+        "It is very far away from every city and town in the land.",
+        "Nobody has ever travelled into it, and no one knows what is there.",
         "It holds more life and riches than its name suggests.",
-        "It is becoming emptier every year."
+        "It is becoming emptier every year, as the sand grows."
       ],
       "answer": "C",
       "why": "'Far from empty' means 'not empty at all': the passage goes on to describe animals, ancient lakes and oil."
@@ -109,9 +109,9 @@
       "difficulty": 3,
       "stem": "Which opinion is best supported by the passage?",
       "options": [
-        "The Empty Quarter has no value for people.",
-        "Only scientists should be allowed to visit.",
-        "No animal could ever live in such a desert.",
+        "The Empty Quarter has no value for any people.",
+        "Only scientists should be allowed to visit it.",
+        "No animal could ever live in such a hot desert.",
         "The desert is both a natural wonder and a resource."
       ],
       "answer": "D",
@@ -125,9 +125,9 @@
       "difficulty": 2,
       "stem": "Which information is the LEAST clear in the passage?",
       "options": [
-        "How high some of the dunes rise",
-        "How hot summer days can become",
-        "Which countries the desert covers",
+        "How high some of the dunes rise in the middle",
+        "How hot summer days can become in the desert",
+        "Which countries the desert covers on the map",
         "How the beetles actually collect moisture"
       ],
       "answer": "D",
@@ -157,9 +157,9 @@
       "difficulty": 3,
       "stem": "Which title would best fit this passage?",
       "options": [
-        "How Oil Is Made Underground",
+        "How Oil Is Made Underground in Arabia",
         "Surprises in the Sands of Arabia",
-        "Camels of the World",
+        "Camels of the World and Their Homes",
         "Hippos in Ancient Lakes"
       ],
       "answer": "B",

@@ -131,9 +131,9 @@
         {
           "stem": "Where do llamas and alpacas live?",
           "options": [
-            "In the deserts of Saudi Arabia",
-            "In the forests of North America",
-            "On small islands in the sea",
+            "In the deserts of Saudi Arabia and Egypt",
+            "In the forests of North America and Canada",
+            "On small islands in the sea near Asia",
             "In the Andes mountains of South America"
           ],
           "answer": "D",
@@ -183,9 +183,9 @@
           "stem": "Why does the article call llamas and alpacas the camel's cousins?",
           "options": [
             "They came from the same family that lived in North America long ago.",
-            "They live in the same desert as camels.",
-            "They have the same humps as camels.",
-            "Scientists in Dubai made both of them from camels in 1998."
+            "They live in the same desert as camels, so they are related.",
+            "They have the same humps as camels, but the humps are smaller.",
+            "Scientists in Dubai made both of them from camels in 1998, in a lab."
           ],
           "answer": "A",
           "skill": "inference",
@@ -395,10 +395,10 @@
         {
           "stem": "Why does the author begin by mentioning that people in Saudi Arabia know the camel well?",
           "options": [
-            "To prove that camels are better than llamas",
-            "To explain how to care for camels",
+            "To prove that camels are better than llamas in every way",
+            "To explain how to care for camels in the desert",
             "To connect a familiar animal to new, unfamiliar ones",
-            "To show that llamas also live in Saudi Arabia"
+            "To show that llamas also live in Saudi Arabia today"
           ],
           "answer": "C",
           "skill": "author-purpose",
@@ -523,10 +523,10 @@
         {
           "stem": "Why were llamas so important to the Inca before modern roads?",
           "options": [
-            "Their fleece was the only cloth available.",
+            "Their fleece was the only cloth available in the mountains.",
             "They could carry goods along steep mountain trails.",
-            "They could breathe underwater.",
-            "They protected cities from enemies."
+            "They could breathe underwater and cross the deep lakes.",
+            "They protected cities from enemies who came over the hills."
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -574,10 +574,10 @@
         {
           "stem": "In the article, the word hybrid most nearly means —",
           "options": [
-            "a very old fossil",
+            "a very old fossil found deep inside the rocks",
             "an animal with parents of two different kinds",
-            "a wild animal that has been tamed",
-            "a baby that is larger than its parents"
+            "a wild animal that has been tamed by people",
+            "a baby animal that is larger than its parents"
           ],
           "answer": "B",
           "skill": "vocabulary",

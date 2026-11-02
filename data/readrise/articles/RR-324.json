@@ -90,9 +90,9 @@
           "stem": "What is this article mostly about?",
           "options": [
             "Earth's seven continents and how they differ from each other",
-            "How to build a boat to cross the ocean",
-            "The weather in Saudi Arabia every summer",
-            "A made-up story about a trip to Antarctica"
+            "How to build a strong boat to cross the ocean in a storm",
+            "The weather in Saudi Arabia every summer and winter season",
+            "A made-up story about a trip to Antarctica by ship"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -140,9 +140,9 @@
         {
           "stem": "Why do you think Australia's animals are so different from animals on other continents?",
           "options": [
-            "Australia is the coldest continent on Earth.",
-            "Australia has no oceans anywhere nearby.",
-            "Australia is connected to Africa by a bridge of land.",
+            "Australia is the coldest continent on Earth, covered in ice all year.",
+            "Australia has no oceans anywhere nearby, only dry land on every side.",
+            "Australia is connected to Africa by a bridge of land across the sea.",
             "Australia sits alone in the ocean, far from other continents."
           ],
           "answer": "D",
@@ -157,10 +157,10 @@
         {
           "stem": "The article says Saudi Arabia is a country in Asia. What can you tell from this?",
           "options": [
-            "Saudi Arabia must be the biggest country in Asia.",
+            "Saudi Arabia must be the biggest country in Asia and in the world.",
             "Saudi Arabia is one of many countries that make up a large continent.",
-            "Saudi Arabia has no neighboring countries at all.",
-            "Saudi Arabia sits on its own separate continent."
+            "Saudi Arabia has no neighboring countries at all around it.",
+            "Saudi Arabia sits on its own separate continent in the sea."
           ],
           "answer": "B",
           "skill": "inference",
@@ -243,10 +243,10 @@
         {
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
-            "Antarctica is the most important continent for scientists.",
+            "Antarctica is the most important continent for scientists, because it holds the oldest ice on Earth.",
             "Earth's seven continents differ in size and location but share a common origin in shifting plates.",
-            "Saudi Arabia is the largest country on the continent of Asia.",
-            "Every continent on Earth has roughly the same climate."
+            "Saudi Arabia is the largest country on the continent of Asia, and it has the most people.",
+            "Every continent on Earth has roughly the same climate, with warm summers and cold winters in each one."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -295,9 +295,9 @@
           "stem": "Why might the boundary between Europe and Asia be considered more of a convention than a true physical divide?",
           "options": [
             "No ocean truly separates them, since they share one landmass marked mainly by mountains.",
-            "A deep ocean clearly and completely separates the two.",
-            "Europe and Asia are actually on completely different landmasses.",
-            "Scientists have never agreed where Europe begins or ends."
+            "A deep ocean clearly and completely separates the two continents from each other on the map",
+            "Europe and Asia are actually on completely different landmasses, far apart",
+            "Scientists have never agreed where Europe begins or ends on the map"
           ],
           "answer": "A",
           "skill": "inference",
@@ -345,9 +345,9 @@
         {
           "stem": "How does the author organize most of the article?",
           "options": [
-            "By telling a single story about one scientist's journey",
-            "By ranking every country in the world from richest to poorest",
-            "By comparing only the sports played on each continent",
+            "By telling a single story about one scientist's journey from her home to the poles and back",
+            "By ranking every country in the world from richest to poorest, one place after the other",
+            "By comparing only the sports played on each continent, such as football and cricket",
             "By describing each continent one at a time, then explaining their shared origin"
           ],
           "answer": "D",
@@ -397,10 +397,10 @@
         {
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
-            "Antarctica will likely become a permanently populated continent soon.",
+            "Antarctica will likely become a permanently populated continent soon, because many families are moving there from the other continents.",
             "Earth's seven continents, though different in size and location, all trace back to one ancient supercontinent that broke apart.",
-            "Plate tectonics affects only the continents of Asia and Africa.",
-            "Eurasia is actually a single country rather than two continents."
+            "Plate tectonics affects only the continents of Asia and Africa, and the others never move or change at all.",
+            "Eurasia is actually a single country rather than two continents, and it is ruled by one government."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -465,10 +465,10 @@
         {
           "stem": "What can be inferred about why Australia's wildlife differs so strikingly from wildlife on other continents?",
           "options": [
-            "Its climate is identical to every other continent on Earth.",
+            "Its climate is identical to every other continent on Earth, so the animals are the same.",
             "Its long-term isolation by ocean limited contact with species from other landmasses.",
-            "Its location directly on the equator causes all the difference.",
-            "Its connection to Asia allowed constant mixing of species."
+            "Its location directly on the equator causes all the difference, since the sun is hotter there.",
+            "Its connection to Asia allowed constant mixing of species, which made its animals very common."
           ],
           "answer": "B",
           "skill": "inference",
@@ -499,9 +499,9 @@
         {
           "stem": "Why does the author end the article by explaining plate tectonics and Pangaea after describing each continent individually?",
           "options": [
-            "To argue that only Pangaea truly matters, not today's continents",
-            "To contradict the earlier facts given about each continent's size and location",
-            "To suggest that continents will reunite into one landmass within a few years",
+            "To argue that only Pangaea truly matters, not today's continents, and that maps should be redrawn",
+            "To contradict the earlier facts given about each continent's size and location in the text",
+            "To suggest that continents will reunite into one landmass within a few years from now",
             "To shift from describing individual continents to explaining the shared process behind all of them"
           ],
           "answer": "D",

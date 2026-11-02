@@ -165,10 +165,10 @@
         {
           "stem": "The article says penguins huddle in a storm. What does huddle mean?",
           "options": [
-            "Swim far out into the sea",
+            "Swim far out into the sea at night",
             "Stand very close together in a group",
-            "Hide alone under the snow",
-            "Sleep with their eyes open"
+            "Hide alone under the snow all day",
+            "Sleep with their eyes wide open"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -199,10 +199,10 @@
         {
           "stem": "Why does the father penguin not eat for two months?",
           "options": [
-            "He does not like fish or krill.",
-            "There is no food left in the sea.",
+            "He does not like fish or krill, so he stays away from them",
+            "There is no food left in the sea near the ice",
             "He must stay with the egg and keep it warm.",
-            "He is too small to catch anything."
+            "He is too small to catch anything in the cold water"
           ],
           "answer": "C",
           "skill": "inference",
@@ -293,9 +293,9 @@
         {
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
-            "Antarctica is too cold for any animal to live in.",
-            "Penguins are the fastest birds that live on Earth.",
-            "Scientists want to move penguins to warmer places.",
+            "Antarctica is too cold for any animal to live in, so the whole land is empty.",
+            "Penguins are the fastest birds that live on Earth, and they race across the ice.",
+            "Scientists want to move penguins to warmer places to keep them safe from the cold.",
             "Penguins have special ways to survive and raise young in Antarctica."
           ],
           "answer": "D",
@@ -361,10 +361,10 @@
         {
           "stem": "What is one result of a penguin's black back and white front?",
           "options": [
-            "It stays warmer in the water.",
+            "It stays warmer in the water when it swims.",
             "Predators have a harder time spotting it.",
-            "It can fly short distances.",
-            "Its chick hatches more quickly."
+            "It can fly short distances over the ice.",
+            "Its chick hatches more quickly in the nest."
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -378,7 +378,7 @@
         {
           "stem": "Why do emperor penguin parents take turns caring for the egg and chick?",
           "options": [
-            "The father does not know how to find food.",
+            "The father does not know how to find food in the sea for the baby.",
             "The mother is too small to hold the egg.",
             "Chicks need a different parent each day.",
             "One must keep the egg warm while the other feeds."
@@ -473,7 +473,7 @@
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
             "Penguins survive a harsh environment through special adaptations, but warming now threatens their sea ice.",
-            "Antarctica is so cold that most penguins migrate to warmer continents every winter.",
+            "Antarctica is so cold that most penguins migrate to warmer continents every winter to find food and shelter.",
             "Emperor penguins are the only species of bird capable of diving deep beneath the ice.",
             "Scientists have discovered that blubber is unnecessary for animals in polar regions."
           ],
@@ -540,10 +540,10 @@
         {
           "stem": "Why does every penguin in a huddle eventually spend time in the sheltered center?",
           "options": [
-            "The strongest birds push the weaker ones inside.",
-            "The center moves toward the ocean each day.",
+            "The strongest birds push the weaker ones inside, then stay at the edge.",
+            "The center moves toward the ocean each day as the ice drifts.",
             "The birds keep rotating between the center and the edge.",
-            "Predators force the penguins to change places."
+            "Predators force the penguins to change places every hour."
           ],
           "answer": "C",
           "skill": "cause-effect",
@@ -591,10 +591,10 @@
         {
           "stem": "Why does the author end the article with information about satellite images?",
           "options": [
-            "To argue that penguins should be moved into zoos",
+            "To argue that penguins should be moved into zoos for safety",
             "To show how scientists track penguins as their habitat changes",
-            "To explain how satellites are built and launched",
-            "To prove that penguin droppings harm the ice"
+            "To explain how satellites are built and launched into space",
+            "To prove that penguin droppings harm the ice they stand on"
           ],
           "answer": "B",
           "skill": "author-purpose",

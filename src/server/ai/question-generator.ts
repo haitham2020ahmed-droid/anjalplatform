@@ -66,6 +66,8 @@ export function buildPrompt(ctx: GenerationContext): { system: string; user: str
     '"options":[{"text":"…","correct":true,"rationale":null},{"text":"…","correct":false,"rationale":"…"}],',
     '"explanation":"…","tip":"…"}]}',
     `cognitiveLevel must be one of: ${COGNITIVE_LEVELS.join(", ")}.`,
+    // 🎯 the same rule as LENGTH_PROMPT_RULE in src/lib/length-cue.ts (this module imports nothing: see the header)
+    "Answer-choice length: all options within ±20% of each other's length; the correct option must not be the longest more often than the others (vary which option is longest, and make the wrong options as detailed as the correct one).",
   ].join(" ");
   const user = JSON.stringify(
     {

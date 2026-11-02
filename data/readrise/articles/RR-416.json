@@ -114,10 +114,10 @@
         {
           "stem": "What is this story mostly about?",
           "options": [
-            "A boy who learns to copy letters for the first time",
-            "A merchant who sells scrolls in the market",
+            "A boy who learns to copy letters for the first time in a school by the river",
+            "A merchant who sells scrolls in the market of a big city",
             "An apprentice who finds a missing scroll before an important deadline",
-            "A library that moves to a new building"
+            "A library that moves to a new building across the river"
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -131,9 +131,9 @@
         {
           "stem": "Where does Yusuf work?",
           "options": [
-            "At a school in Damascus",
-            "At a merchant's house",
-            "At a shop that sells paper",
+            "At a school in Damascus for boys",
+            "At a merchant's house in Cairo",
+            "At a shop that sells paper in town",
             "At the House of Wisdom in Baghdad"
           ],
           "answer": "D",
@@ -199,9 +199,9 @@
         {
           "stem": "What can you tell about why Yusuf could find the scroll quickly?",
           "options": [
-            "He used a map that Scholar Nasir gave him",
-            "He asked the traveling merchant where it was",
-            "He guessed randomly and got lucky",
+            "He used a map that Scholar Nasir gave him at the door of the library",
+            "He asked the traveling merchant where it was in the hall",
+            "He guessed randomly and he got very lucky that day",
             "He already knew exactly how the library's shelves were sorted"
           ],
           "answer": "D",
@@ -233,10 +233,10 @@
         {
           "stem": "Why does the author show Yusuf thinking calmly instead of panicking?",
           "options": [
-            "To show that Yusuf does not care about the scroll",
+            "To show that Yusuf does not care about the scroll or the library",
             "To show that staying calm and thinking helps solve problems",
-            "To show that Scholar Nasir cannot be trusted",
-            "To show that libraries are not useful places"
+            "To show that Scholar Nasir cannot be trusted by anyone",
+            "To show that libraries are not useful places for students"
           ],
           "answer": "B",
           "skill": "author-purpose",
@@ -345,9 +345,9 @@
           "stem": "In the article, the word catalog means —",
           "options": [
             "a system that organizes items so people can find them",
-            "a single old scroll from Greece",
-            "a merchant who lends items to a library",
-            "a mistake made while reshelving books"
+            "a single old scroll from Greece kept in a library box",
+            "a merchant who lends books and items to a library",
+            "a mistake made by a worker while reshelving books"
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -378,10 +378,10 @@
         {
           "stem": "Why does the author mention that another apprentice set the scroll down 'by mistake' while reshelving?",
           "options": [
-            "To explain that the merchant stole the scroll",
-            "To suggest that apprentices should not be trusted with scrolls",
+            "To explain that the merchant stole the scroll from the shelf",
+            "To suggest that apprentices should not be trusted with scrolls at all",
             "To show that the mix-up was an honest error, not something done on purpose",
-            "To show that Scholar Nasir broke the library's rules"
+            "To show that Scholar Nasir broke the library's rules on purpose"
           ],
           "answer": "C",
           "skill": "inference",
@@ -395,9 +395,9 @@
         {
           "stem": "Because the ledger showed the scroll had already been returned, what did Scholar Nasir need to do next?",
           "options": [
-            "Add a new rule banning apprentices from the shelves",
-            "Ask the merchant to send a brand-new scroll",
-            "Cancel the translation project completely",
+            "Add a new rule banning apprentices from the shelves of the library",
+            "Ask the merchant to send a brand-new scroll from his shop in town",
+            "Cancel the translation project completely and send all the workers home",
             "Search the library physically instead of assuming it was still out on loan"
           ],
           "answer": "D",
@@ -413,9 +413,9 @@
           "stem": "How does the author structure the article?",
           "options": [
             "By describing the problem, then the investigation, then the resolution",
-            "By comparing two different libraries in two different cities",
-            "By listing every subject kept in the House of Wisdom",
-            "By explaining the life story of the traveling merchant"
+            "By comparing two different libraries in two different cities, one old and one new",
+            "By listing every subject kept in the House of Wisdom, one after another",
+            "By explaining the life story of the traveling merchant, from birth to old age"
           ],
           "answer": "A",
           "skill": "text-structure",
@@ -506,10 +506,10 @@
         {
           "stem": "In the article, the word invaluable means —",
           "options": [
-            "worth nothing at all",
+            "worth nothing at all to anyone in the world, now or in the future",
             "so useful or important that its value cannot really be measured",
-            "borrowed for exactly three days",
-            "written only in Greek"
+            "borrowed for exactly three days from the library",
+            "written only in Greek by the old scholars of Athens"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -540,10 +540,10 @@
         {
           "stem": "Why was the similarity between the astronomy and medicine shelf tags especially risky for the archive?",
           "options": [
-            "It meant scholars could no longer read Greek at all",
-            "It meant the merchant could easily steal manuscripts",
+            "It meant scholars could no longer read Greek at all, and many books were burned",
+            "It meant the merchant could easily steal manuscripts, and nobody would notice",
             "It meant rare, hard-to-replace manuscripts could seem lost even while physically present",
-            "It meant the library had to close for repairs"
+            "It meant the library had to close for repairs, and the apprentices lost their jobs"
           ],
           "answer": "C",
           "skill": "inference",
@@ -575,9 +575,9 @@
           "stem": "What does Scholar Nasir's comment to Yusuf at the end suggest about the broader purpose of the House of Wisdom's work?",
           "options": [
             "That meticulous organization, not just translation itself, helped ancient science reach later generations",
-            "That translation work is unimportant compared to simply owning old manuscripts",
-            "That only merchants deserve credit for preserving knowledge",
-            "That apprentices should avoid handling valuable manuscripts"
+            "That translation work is unimportant compared to simply owning old manuscripts in a large library",
+            "That only merchants deserve credit for preserving knowledge, since they brought books from far lands",
+            "That apprentices should avoid handling valuable manuscripts, because they are too young and careless"
           ],
           "answer": "A",
           "skill": "inference",
@@ -591,10 +591,10 @@
         {
           "stem": "Why does the author emphasize that the manuscript 'had already been returned' according to the ledger?",
           "options": [
-            "To prove that the ledger was completely useless",
+            "To prove that the ledger was completely useless to the library and its keepers",
             "To show that careful records alone cannot guarantee an item ends up in the right place",
-            "To suggest that the merchant lied about returning it",
-            "To explain why paper is better than clay tablets"
+            "To suggest that the merchant lied about returning it, though no one could prove it",
+            "To explain why paper is better than clay tablets for keeping a record of loans"
           ],
           "answer": "B",
           "skill": "author-purpose",

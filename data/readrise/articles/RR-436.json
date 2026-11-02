@@ -199,10 +199,10 @@
         {
           "stem": "What can you tell about the Hawks from how they play in the last game?",
           "options": [
-            "They give up when the other team scores",
+            "They give up when the other team scores in the last game",
             "They can play much better when they work together",
-            "They do not care if they win or lose",
-            "They play worse than earlier in the season"
+            "They do not care if they win or lose the match",
+            "They play worse than earlier in the season, with fewer goals"
           ],
           "answer": "B",
           "skill": "inference",

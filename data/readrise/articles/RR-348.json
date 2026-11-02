@@ -199,9 +199,9 @@
         {
           "stem": "Why do places far from the ocean often stay dry?",
           "options": [
-            "The sun never shines in those places.",
-            "Those places are always covered in snow.",
-            "The ground there is made only of rock.",
+            "The sun never shines in those places during the year.",
+            "Those places are always covered in snow and ice.",
+            "The ground there is made only of rock and hard stone.",
             "The wind loses its water before it reaches them."
           ],
           "answer": "D",
@@ -378,9 +378,9 @@
         {
           "stem": "Why does the article say ocean currents matter for rainfall near a coastline?",
           "options": [
-            "Ocean currents always push mountains closer to the coast.",
-            "Cold currents make wind blow backward across the land.",
-            "Ocean currents replace the need for any wind at all.",
+            "Ocean currents always push mountains closer to the coast, which makes the rain fall.",
+            "Cold currents make wind blow backward across the land and bring dry sand.",
+            "Ocean currents replace the need for any wind at all, because they carry rain alone.",
             "Warm ocean water lets wind absorb more moisture than cold water does."
           ],
           "answer": "D",
@@ -574,10 +574,10 @@
         {
           "stem": "Why does the author explain multiple causes of dryness, such as rain shadows, continentality, and ocean currents, rather than just one?",
           "options": [
-            "To argue that only one true cause of dryness actually exists",
+            "To argue that only one true cause of dryness actually exists, and it is the Sun",
             "To show that rainfall patterns result from several interacting factors",
-            "To prove that rainfall cannot be explained scientifically",
-            "To list the record rainfall totals of several famous cities"
+            "To prove that rainfall cannot be explained scientifically by anyone",
+            "To list the record rainfall totals of several famous cities in the world"
           ],
           "answer": "B",
           "skill": "author-purpose",

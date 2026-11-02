@@ -52,10 +52,10 @@
     "passage": "Owls hunt at night. Their big eyes help them see in the dark. Some owls are white.",
     "stem": "Which sentence tells the first two sentences in new words?",
     "options": [
-     "Owls hunt at night.",
-     "Owls sleep all night long.",
+     "Owls hunt at night and sleep inside old barns all day.",
+     "Owls sleep all night long and wake up when the sun is out.",
      "Owls look for food after dark, and large eyes help them see.",
-     "White owls are very pretty."
+     "White owls are very pretty and have soft white feathers."
     ],
     "answer": 2,
     "hint": "Is it the same words, or new words with the same meaning?",
@@ -93,9 +93,9 @@
      "stem": "Which is the best paraphrase?",
      "options": [
       "Earth gets light and warmth from the sun.",
-      "The sun is far away.",
-      "The sun gives Earth light and heat.",
-      "Earth is cold at night."
+      "The sun is far away from the Earth.",
+      "The sun gives Earth light and heat each day.",
+      "Earth is cold at night in the desert."
      ],
      "answer": 0,
      "why": "Light and warmth from the sun means the same thing in new words."
@@ -155,10 +155,10 @@
     "passage": "Source: Sea turtles return to the beach where they were born to lay their eggs. The mother digs a hole in the sand at night and lays about one hundred eggs. After about two months, the baby turtles hatch and crawl toward the sea. Many dangers wait for them along the way.",
     "stem": "Which is the best paraphrase of the second sentence?",
     "options": [
-     "The mother digs a hole in the sand at night and lays one hundred eggs.",
+     "The mother digs a hole in the sand at night and lays one hundred eggs in it.",
      "At night, the female turtle makes a nest in the sand and leaves around a hundred eggs in it.",
-     "The baby turtles crawl into the sea at night.",
-     "Turtles are the most amazing animals in the ocean."
+     "The baby turtles crawl into the sea at night, and then they swim away from the beach.",
+     "Turtles are the most amazing animals in the ocean, and they live longer than most."
     ],
     "answer": 1,
     "hint": "Which choice uses new words but keeps the same facts? Watch out for copying.",
@@ -183,10 +183,10 @@
      "passage": "Source: Plants need sunlight, water and air to make their own food. Without sunlight, leaves turn yellow, and the plant becomes weak. Gardeners place plants near windows or outside so they get enough light.",
      "stem": "Which is the best summary of the source?",
      "options": [
-      "Plants need sunlight, water and air to make their own food.",
-      "Gardeners like windows.",
+      "Plants need sunlight, water and air to make their own food, but gardeners do not need to help.",
+      "Gardeners like windows because they can watch the rain from inside the house.",
       "Plants need light to make food and stay healthy, so gardeners give them plenty of sun.",
-      "Yellow is a nice color for leaves."
+      "Yellow is a nice color for leaves, and many gardeners paint their pots yellow."
      ],
      "answer": 2,
      "why": "It is short and covers the main points of the whole source. The first choice copies one sentence."
@@ -263,9 +263,9 @@
     "stem": "Which is the best paraphrase of the third sentence?",
     "options": [
      "The work was dangerous and exhausting, yet one fine pearl could bring a family a good income.",
-     "Pearl diving was the most dangerous job in the world, and divers became very rich.",
+     "Pearl diving was the most dangerous job in the world, and divers became very rich after only one trip.",
      "Although diving for pearls was risky and hard, finding just one good pearl could earn a family a lot of money.",
-     "Divers searched the sea floor for oysters while holding their breath."
+     "Divers searched the sea floor for oysters while holding their breath for many minutes."
     ],
     "answer": 2,
     "hint": "One choice only swaps a word. One changes the facts. One retells another sentence. Which rebuilds the third sentence with the same facts?",
@@ -314,9 +314,9 @@
      "passage": "A student is writing a report on recycling and has a long article about plastic waste.",
      "stem": "Which note is the best summary for the report?",
      "options": [
-      "The article has many interesting facts about bottles.",
+      "The article has many interesting facts about bottles, cans and bags, and it also shows pictures of each one.",
       "Plastic takes hundreds of years to break down, so recycling it reduces waste in landfills and the sea.",
-      "Plastic is bad.",
+      "Plastic is bad, and people should stop using it because it looks ugly in the shops.",
       "The article was written by a scientist in 2020 and has six pages and three charts."
      ],
      "answer": 1,
@@ -398,10 +398,10 @@
      "passage": "Source: Desert locusts usually live alone, but after heavy rains, food becomes plentiful and their numbers grow. When they become crowded, they change color and behavior and form huge swarms that can travel long distances and destroy crops in a single day.",
      "stem": "Which summary is objective and accurate?",
      "options": [
-      "Locusts are the worst insects on Earth and should be wiped out.",
+      "Locusts are the worst insects on Earth and should be wiped out by everyone as soon as possible.",
       "After heavy rains, crowded desert locusts can form swarms that travel far and quickly ruin crops.",
       "Desert locusts usually live alone, but after heavy rains, food becomes plentiful.",
-      "Locusts change color, which is very interesting to scientists."
+      "Locusts change color, which is very interesting to scientists and makes them look beautiful."
      ],
      "answer": 1,
      "why": "It covers the central idea in new words without opinion. The others add opinion, copy, or focus on a detail."
@@ -422,9 +422,9 @@
      "passage": "Student paragraph: Coral reefs protect coasts by breaking the force of waves. They are also home to about a quarter of all ocean species. (The student read both facts in an online science article.)",
      "stem": "What is the main problem with the student's paragraph?",
      "options": [
-      "It uses too many quotation marks.",
-      "The facts are not about coral reefs.",
-      "It is written in the wrong tense.",
+      "It uses too many quotation marks and commas.",
+      "The facts are not about coral reefs but about sharks.",
+      "It is written in the wrong tense throughout.",
       "It does not credit the article the ideas came from."
      ],
      "answer": 3,

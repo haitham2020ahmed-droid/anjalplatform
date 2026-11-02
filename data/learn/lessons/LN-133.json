@@ -100,10 +100,10 @@
      "passage": "Mona ran all the way to school. Her face was red. She could not stop breathing hard.",
      "stem": "Why was Mona breathing hard?",
      "options": [
-      "She was sick.",
-      "She was sad.",
+      "She was sick today.",
+      "She was sad and quiet.",
       "She had run fast.",
-      "She was cold."
+      "She was very cold."
      ],
      "answer": 2,
      "why": "She ran all the way, so she was out of breath."
@@ -113,8 +113,8 @@
      "stem": "Why did the car slide?",
      "options": [
       "The wet road and its speed.",
-      "The car was new.",
-      "The road was dry.",
+      "The car was new and clean.",
+      "The road was dry and hot.",
       "The car was very small."
      ],
      "answer": 0,
@@ -184,9 +184,9 @@
     "stem": "Why do almond farmers most likely bring bees to their fields?",
     "options": [
      "Bees carry pollen that helps flowers make fruit.",
-     "Bees make the fields look nicer.",
+     "Bees make the fields look nicer to all visitors.",
      "Bees eat insects that harm the trees.",
-     "Bees keep the flowers warm at night."
+     "Bees keep the flowers warm on cold nights."
     ],
     "answer": 0,
     "hint": "The last sentence does not say why. Go back: what do bees carry, and what does it help flowers do?",
@@ -238,10 +238,10 @@
      "passage": "Long ago, before coins, people traded goods directly. A fisherman who wanted bread had to find a baker who wanted fish. Coins solved this. A baker could accept coins and later spend them on anything.",
      "stem": "Why were coins easier than trading goods?",
      "options": [
-      "Coins were made of fish.",
+      "Coins were made of fish bones and shells.",
       "Coins could be used to buy anything later.",
-      "Bakers did not like fish.",
-      "Paper money came before coins."
+      "Bakers did not like fish for their bread.",
+      "Paper money came before coins were made."
      ],
      "answer": 1,
      "why": "With coins, the baker did not need to want fish; he could spend the coins on anything."
@@ -297,10 +297,10 @@
     "passage": "In the 1800s, most families in the region lit their homes with oil lamps. Lamp oil was made from whale fat, and as demand grew, ships sailed farther and farther to find whales. The voyages became longer, more dangerous and more costly. Around the same time, a cheaper fuel called kerosene began to be made from petroleum. Within a few decades, many whaling ships stayed in port, and some whaling towns lost much of their business.",
     "stem": "Which idea best explains the link between kerosene and the whaling towns?",
     "options": [
-     "Kerosene was made from whale fat.",
-     "Whaling ships carried kerosene to other countries.",
+     "Kerosene was made from whale fat that sailors collected at sea.",
+     "Whaling ships carried kerosene to other countries and sold it in the big ports.",
      "Cheaper kerosene replaced costly whale oil, so fewer whaling ships were needed.",
-     "The whaling towns started making kerosene."
+     "The whaling towns started making kerosene in their own factories."
     ],
     "answer": 2,
     "hint": "The text does not say 'because of kerosene'. Compare the cost of whale oil and kerosene. What would buyers choose?",
@@ -340,9 +340,9 @@
      "passage": "In the first month, Khalid's small juice stand sold only a few cups a day. He moved the stand from a quiet side street to the gate of the football stadium. On match days, he now runs out of juice by halftime.",
      "stem": "Why do Khalid's sales most likely go up on match days?",
      "options": [
-      "He changed the taste of the juice.",
+      "He changed the taste of the juice a little.",
       "Football players buy all his juice.",
-      "The juice is free on match days.",
+      "The juice is free on match days for fans.",
       "Crowds of thirsty fans pass by the new spot."
      ],
      "answer": 3,
@@ -352,10 +352,10 @@
      "passage": "Polar bears hunt seals from the edge of sea ice. Scientists report that the ice now forms later in autumn and melts earlier in spring. Many bears are thinner than bears measured thirty years ago.",
      "stem": "What hidden link does the text suggest?",
      "options": [
-      "Seals are hunting the bears.",
+      "Seals are hunting the bears in the sea.",
       "Shorter ice seasons give bears less time to hunt.",
       "Thin bears make the sea ice melt faster.",
-      "Scientists feed the bears too little."
+      "Scientists feed the bears too little food in summer."
      ],
      "answer": 1,
      "why": "Bears hunt from the ice; shorter ice seasons mean fewer chances to catch seals, so the bears are thinner."
@@ -411,10 +411,10 @@
     "passage": "In the early twentieth century, a small coastal town depended almost entirely on pearl diving. Divers spent the summer months at sea, and nearly every family had a father, son or cousin on the boats. Meanwhile, in a distant country, scientists had perfected a method of growing pearls on farms, producing them in large numbers. Merchants who once paid high prices for natural pearls began offering far less. The diving boats returned with the same hard-won harvest, yet families found they could no longer live on it. Within a generation, the town's young people were training as engineers, clerks and teachers, and the old boats were pulled onto the sand.",
     "stem": "What implied chain of events best explains why the town's young people chose new careers?",
     "options": [
-     "Pearl diving became illegal, so the boats were pulled onto the sand.",
+     "Pearl diving became illegal, so the boats were pulled onto the sand and left there to rot.",
      "Farmed pearls lowered prices, diving no longer paid enough, so young people sought other work.",
-     "The divers found fewer pearls each year, so they stopped diving.",
-     "Engineers and teachers earned more because the town grew larger."
+     "The divers found fewer pearls each year, so they stopped diving and moved away.",
+     "Engineers and teachers earned more because the town grew larger and richer."
     ],
     "answer": 1,
     "hint": "The text says the harvest stayed 'the same'. So the problem was not fewer pearls. What changed instead?",
@@ -455,9 +455,9 @@
      "passage": "After the factory upstream closed, fishermen downstream noticed clearer water. Two years later, a species of small fish that had vanished from the river was seen again. Birds that feed on the fish began nesting along the banks.",
      "stem": "Which chain does the passage imply?",
      "options": [
-      "Birds cleaned the river, so the fish returned.",
+      "Birds cleaned the river, so the fish returned to the water.",
       "Fishermen caught all the birds, so fish increased.",
-      "The fish made the water clearer, so the factory closed.",
+      "The fish made the water clearer, so the factory closed down.",
       "Cleaner water after the factory closed brought fish, then birds."
      ],
      "answer": 3,

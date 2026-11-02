@@ -167,7 +167,7 @@
           "options": [
             "He did not like his teacher very much at all",
             "He was afraid of the dark classroom corner",
-            "He wanted to talk to his close friends",
+            "He wanted to talk to his close friends in the room",
             "He thought the silence would make his reading worse"
           ],
           "answer": "D",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best captures the central idea of the passage?",
           "options": [
-            "A silent classroom is always more enjoyable than a noisy one for absolutely every student",
+            "A silent classroom is always more enjoyable than a noisy one for absolutely every student in the school",
             "A student's apparent struggle may stem from his surroundings rather than his ability, and discovering this benefits the whole class",
-            "Teachers should never allow any talking in their classrooms under any circumstances",
-            "Omar's loud complaints are ultimately proven completely correct by the end of the passage"
+            "Teachers should never allow any talking in their classrooms under any circumstances, even when students need to ask a question",
+            "Omar's loud complaints are ultimately proven completely correct by the end of the passage, and the teacher admits her mistake"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -524,9 +524,9 @@
           "stem": "What does Faisal's surprise at his own performance suggest about how he previously viewed his reading difficulties?",
           "options": [
             "He likely believed his difficulty was simply part of who he was, rather than caused by noise around him",
-            "He had never once tried to read any book before that particular morning",
-            "He secretly already suspected silence would help him all along",
-            "He believed his classmates were deliberately distracting him on purpose"
+            "He had never once tried to read any book before that particular morning in his life, so he was surprised",
+            "He secretly already suspected silence would help him all along, but he was too shy to tell anyone",
+            "He believed his classmates were deliberately distracting him on purpose to make him fail the test"
           ],
           "answer": "A",
           "skill": "inference",
@@ -591,9 +591,9 @@
         {
           "stem": "How does Faisal's assumption before the silent exercise compare with Omar's expectation of it?",
           "options": [
-            "Omar and Faisal both expected the exercise to help their reading in exactly the same way",
-            "Omar secretly agreed with Faisal from the very beginning of the story",
-            "Faisal expected the exercise to be boring, exactly like Omar did",
+            "Omar and Faisal both expected the exercise to help their reading in exactly the same way, and both were right",
+            "Omar secretly agreed with Faisal from the very beginning of the story, and so they never argued about the exercise",
+            "Faisal expected the exercise to be boring, exactly like Omar did, but both of them enjoyed it greatly in the end",
             "Omar expected the exercise to be dull, while Faisal feared it would hurt his reading, and both turned out to be mistaken"
           ],
           "answer": "D",

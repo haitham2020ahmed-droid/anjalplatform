@@ -205,8 +205,8 @@
       "type": "MCQ",
       "stem": "Why may an elephant spray dust or mud over its back?",
       "options": [
-        "to clean the dirt from its tusks",
-        "to cool the water stored in its trunk",
+        "to clean the dirt from its tusks and big ears",
+        "to cool the water stored in its trunk for drinking",
         "to send a silent message to the herd",
         "to protect its skin from the sun and insects"
       ],
@@ -269,10 +269,10 @@
       "type": "MCQ",
       "stem": "Who leads an elephant herd?",
       "options": [
-        "the largest and strongest male",
-        "the youngest healthy female",
+        "the largest and strongest male in the herd",
+        "the youngest healthy female in the herd",
         "the oldest and most experienced female",
-        "a group of teenage males"
+        "a group of teenage males in the herd"
       ],
       "answer": "C",
       "why": "Paragraph 3: the herd “is led by the oldest and most experienced female, known as the matriarch.”"
@@ -365,10 +365,10 @@
       "type": "MCQ",
       "stem": "What is the effect of elephants digging into dry riverbeds?",
       "options": [
-        "The rivers stop flowing for many years.",
+        "The rivers stop flowing for many years in a row.",
         "Waterholes are created that other animals share.",
-        "Trees grow faster along the river banks.",
-        "Their tusks become stronger and longer."
+        "Trees grow faster along the river banks nearby.",
+        "Their tusks become stronger and longer each year."
       ],
       "answer": "B",
       "why": "Paragraph 5: they create “waterholes that other animals share.”"
@@ -477,9 +477,9 @@
       "type": "MCQ",
       "stem": "Which feeling is most present in the text as a whole?",
       "options": [
-        "fear of these dangerous animals",
-        "anger towards all farmers",
-        "amusement at their strange habits",
+        "fear of these dangerous animals at night",
+        "anger towards all farmers in the area",
+        "amusement at their strange habits in the field",
         "admiration with concern for their future"
       ],
       "answer": "D",

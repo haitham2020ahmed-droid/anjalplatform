@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How to take better photos with a phone",
+            "How to take better photos with a phone in low light",
             "Why old phones have useful metal and should be recycled",
-            "How gold is made inside the Earth",
-            "Why new phones cost so much money"
+            "How gold is made inside the Earth over millions of years",
+            "Why new phones cost so much money in the big shops"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -182,10 +182,10 @@
         {
           "stem": "Why is it better to get metal from old phones than from new mines?",
           "options": [
-            "Because mines are always closed",
-            "Because phones are bigger than mines",
+            "Because mines are always closed by the government and no one digs there",
+            "Because phones are bigger than mines and hold more rocks in them",
             "Because mines hurt the land, and old phones already hold metal",
-            "Because metal from mines cannot be melted"
+            "Because metal from mines cannot be melted in a factory or reused"
           ],
           "answer": "C",
           "skill": "inference",
@@ -200,9 +200,9 @@
           "stem": "Read: \"We can recycle old phones.\" What does recycle mean?",
           "options": [
             "To turn old things into material for new things",
-            "To ride a bike again",
-            "To hide something in a drawer",
-            "To buy a new phone"
+            "To ride a bike again and again on the same road",
+            "To hide something in a drawer so no one finds it",
+            "To buy a new phone every year from the same shop"
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the main idea of the article?",
           "options": [
-            "Phones should be kept in drawers forever.",
-            "Mining is the only way to get gold.",
+            "Phones should be kept in drawers forever and never be thrown away or sold.",
+            "Mining is the only way to get gold, and recycling can never give any metal.",
             "Old electronics contain valuable metals, so recycling them helps people and nature.",
-            "Batteries are the most valuable part of a phone."
+            "Batteries are the most valuable part of a phone, and the other parts are not worth keeping."
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -344,10 +344,10 @@
         {
           "stem": "Why can a battery thrown in the trash be dangerous?",
           "options": [
-            "It can make the trash heavier",
+            "It can make the trash heavier for the workers",
             "It can catch fire inside a garbage truck",
-            "It can turn the trash into metal",
-            "It can stop the truck's engine"
+            "It can turn the trash into metal in the truck",
+            "It can stop the truck's engine on the road"
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -378,10 +378,10 @@
         {
           "stem": "How does the author explain the recycling process?",
           "options": [
-            "By telling a story about one phone's owner",
-            "By comparing recycling in two countries",
+            "By telling a story about one phone's owner and what he did with it",
+            "By comparing recycling in two countries and their rules",
             "By listing the steps in order with words like first, next, and then",
-            "By giving a list of reasons not to recycle"
+            "By giving a list of reasons not to recycle anything"
           ],
           "answer": "C",
           "skill": "text-structure",
@@ -395,10 +395,10 @@
         {
           "stem": "How is recycling metal different from mining new metal?",
           "options": [
-            "Mining uses less energy than recycling",
+            "Mining uses less energy than recycling, and it does not harm the land around it",
             "Recycling reuses metal, while mining digs up land and uses lots of energy",
-            "Both damage the land in the same way",
-            "Recycling can only make gold"
+            "Both damage the land in the same way, and both use the same amount of energy",
+            "Recycling can only make gold, while mining can make every other kind of metal"
           ],
           "answer": "B",
           "skill": "compare",
@@ -472,9 +472,9 @@
         {
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
-            "Phones should be replaced every year.",
-            "Gold mines will soon run out of gold.",
-            "Landfills are the safest place for electronics.",
+            "Phones should be replaced every year, because old phones always work slowly and badly.",
+            "Gold mines will soon run out of gold, so shops are raising the price of jewelry.",
+            "Landfills are the safest place for electronics, since the ground keeps the metals safe for years.",
             "Electronics hold precious metals, so recycling them saves resources and protects the environment."
           ],
           "answer": "D",
@@ -540,10 +540,10 @@
         {
           "stem": "Why does the author describe each metal in a phone as a precious resource?",
           "options": [
-            "Because each phone is made mostly of gold",
+            "Because each phone is made mostly of gold and silver inside the case",
             "Because the metals are rare and hard to extract, so wasting them is costly",
-            "Because metals never wear out",
-            "Because only Saudi Arabia has these metals"
+            "Because metals never wear out and can be used again forever and ever",
+            "Because only Saudi Arabia has these metals anywhere in the whole world, so they are very rare"
           ],
           "answer": "B",
           "skill": "inference",
@@ -557,9 +557,9 @@
         {
           "stem": "Why does the author compare a ton of discarded phones with a ton of rock from a gold mine?",
           "options": [
-            "To explain how gold mines are built",
-            "To argue that mining should be banned",
-            "To describe what rocks are made of",
+            "To explain how gold mines are built under the ground",
+            "To argue that mining should be banned in all countries",
+            "To describe what rocks are made of and where they come from in the Earth",
             "To show that old phones can be a richer source of gold than mines"
           ],
           "answer": "D",
@@ -575,9 +575,9 @@
           "stem": "Which statement would the author most likely agree with?",
           "options": [
             "Throwing away electronics wastes valuable materials and can harm nature.",
-            "Recycling uses more energy than digging brand-new mines does.",
-            "People should never repair a broken phone, only replace it.",
-            "Electronic waste is not a serious problem for the world."
+            "Recycling uses more energy than digging brand-new mines does, so it should stop.",
+            "People should never repair a broken phone, only replace it with a new one.",
+            "Electronic waste is not a serious problem for the world or for nature."
           ],
           "answer": "A",
           "skill": "inference",
@@ -591,10 +591,10 @@
         {
           "stem": "Which piece of advice does the article give readers?",
           "options": [
-            "Store old phones safely in a drawer at home",
-            "Throw old batteries into the household trash",
+            "Store old phones safely in a drawer at home for years and years",
+            "Throw old batteries into the household trash can every week",
             "Repair a phone when it malfunctions instead of replacing it",
-            "Buy a new phone every few months to stay modern"
+            "Buy a new phone every few months to stay modern and quick"
           ],
           "answer": "C",
           "skill": "detail",

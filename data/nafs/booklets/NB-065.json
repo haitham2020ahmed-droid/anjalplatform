@@ -46,10 +46,10 @@
       "type": "MCQ",
       "stem": "In paragraph 1, the afternoon heat is described as “merciless”. What does “merciless” mean here?",
       "options": [
-        "pleasant and gentle",
+        "pleasant and gentle, like a breeze",
         "harsh and showing no kindness",
-        "sudden and short",
-        "cool and refreshing"
+        "sudden and short, like a flash",
+        "cool and refreshing, like a drink"
       ],
       "answer": "B",
       "why": "Heat that “seems to silence every living creature” is cruel and harsh, as if it shows no mercy."
@@ -173,10 +173,10 @@
       "type": "MCQ",
       "stem": "What is the main purpose of the text?",
       "options": [
-        "to warn readers never to visit a wadi",
-        "to tell a story about a family trip after rain",
+        "to warn readers never to visit a wadi because it is dangerous in the rain",
+        "to tell a story about a family trip to a wadi after the rain",
         "to explain how a wadi ecosystem survives dry periods and responds to rain",
-        "to persuade readers to plant succulents at home"
+        "to persuade readers to plant succulents at home and in school gardens"
       ],
       "answer": "C",
       "why": "The text explains plant and animal survival strategies, the food web and the need to protect it."
@@ -253,10 +253,10 @@
       "type": "MCQ",
       "stem": "According to paragraph 2, what happens AFTER the desert plants flower?",
       "options": [
-        "The seeds lie in the soil for years before the first rain.",
-        "Green shoots appear within days.",
+        "The seeds lie in the soil for years before the first rain falls.",
+        "Green shoots appear within days after the flowers are gone.",
         "They produce a fresh supply of seeds that rest until the next rain.",
-        "Their chemicals are washed away."
+        "Their chemicals are washed away by the rain and wind."
       ],
       "answer": "C",
       "why": "“Within a few weeks the plants have flowered and produced a fresh supply of seeds that will rest until the next rain.”"
@@ -285,10 +285,10 @@
       "type": "MCQ",
       "stem": "Which living things act as decomposers in the wadi?",
       "options": [
-        "foxes and owls",
+        "foxes and owls that hunt at night",
         "fungi, bacteria and beetles",
-        "acacia and succulents",
-        "lizards and scorpions"
+        "acacia and succulents with deep roots",
+        "lizards and scorpions in the sand"
       ],
       "answer": "B",
       "why": "Paragraph 6 names fungi, bacteria and beetles as decomposers."
@@ -318,9 +318,9 @@
       "stem": "According to the final paragraph, why can damage to one part of the food web harm the whole system?",
       "options": [
         "Because each member of the food web depends on others.",
-        "Because rain only falls once in many years.",
-        "Because visitors bring too much water.",
-        "Because decomposers stop working in summer."
+        "Because rain only falls once in many years in the wadi.",
+        "Because visitors bring too much water to the animals.",
+        "Because decomposers stop working in the hot summer months."
       ],
       "answer": "A",
       "why": "“Because each member of the food web depends on others, damage to one part can harm the whole system.”"
@@ -365,9 +365,9 @@
       "type": "MCQ",
       "stem": "What do the desert annuals' seeds and the shrimp's eggs have in common?",
       "options": [
-        "Both are eaten by owls and foxes after rain.",
-        "Both need decomposers to break them open.",
-        "Both float on the surface of shallow rain pools.",
+        "Both are eaten by owls and foxes soon after the rain falls.",
+        "Both need decomposers to break them open in the soil.",
+        "Both float on the surface of shallow rain pools in the wadi.",
         "Both can wait in dry ground for years until water arrives."
       ],
       "answer": "D",
@@ -381,10 +381,10 @@
       "type": "MCQ",
       "stem": "What is the effect of decomposers breaking down dead plants and animals?",
       "options": [
-        "The wadi stays dry all year.",
+        "The wadi stays dry all year, even after the rain",
         "Nutrients return to the soil to feed new plants.",
-        "Predators have less food.",
-        "The soil becomes more fragile."
+        "Predators have less food to hunt in the valley",
+        "The soil becomes more fragile and blows away"
       ],
       "answer": "B",
       "why": "Paragraph 6: the process “returns nutrients to the soil, where they will feed the next generation of plants.”"
@@ -429,10 +429,10 @@
       "type": "MCQ",
       "stem": "In your opinion, why does the writer begin the text by saying the wadi “appears completely lifeless”?",
       "options": [
-        "to prove that nothing lives in the desert",
+        "to prove that nothing lives in the desert, not even after rain falls",
         "to set up a surprising contrast with the life that appears after rain",
-        "to persuade readers not to visit deserts",
-        "to describe the weather forecast"
+        "to persuade readers not to visit the desert wadis in any season of the year",
+        "to describe the weather forecast for the week that is coming, with all its details"
       ],
       "answer": "B",
       "why": "The word “appears” hints that this first impression is wrong, which the rest of the text shows."
@@ -461,9 +461,9 @@
       "type": "MCQ",
       "stem": "Which statement best expresses the writer's viewpoint?",
       "options": [
-        "Deserts are empty places with little value.",
-        "Rain is harmful to desert animals.",
-        "Only scientists should be allowed into wadis.",
+        "Deserts are empty places with little value for any people.",
+        "Rain is harmful to desert animals and their young.",
+        "Only scientists should be allowed into wadis and caves.",
         "Even a dry wadi is a living community that deserves respect."
       ],
       "answer": "D",
@@ -493,10 +493,10 @@
       "type": "MCQ",
       "stem": "In your opinion, which information in the text is the LEAST clear?",
       "options": [
-        "what producers do",
-        "what decomposers do",
+        "what producers do in the wadi food web and in the sand, such as acacia",
+        "what decomposers do in the wadi food web and in the sand, such as fungi",
         "exactly which deserts the tiny shrimp-like animals live in",
-        "why careless driving harms the wadi"
+        "why careless driving harms the wadi and its life, and the plants and animals"
       ],
       "answer": "C",
       "why": "The writer only says “in some deserts” and does not name them; the other ideas are explained."

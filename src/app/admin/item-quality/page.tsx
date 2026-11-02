@@ -20,6 +20,7 @@ const FLAG: Record<ItemFlag, [string, string, string]> = {
   TOO_HARD: ["Too hard for its level", "bg-red-50 text-red-800 ring-red-200", "Check the answer key, or move it up a level"],
   GUESSED: ["Often guessed", "bg-orange-50 text-orange-900 ring-orange-200", "Shorten or clarify the question or its passage"],
   UNUSED_OPTION: ["Option never chosen", "bg-violet-50 text-violet-900 ring-violet-200", "Replace it with a more believable wrong answer"],
+  LONGEST_ANSWER: ["Correct answer is the longest", "bg-amber-50 text-amber-900 ring-amber-200", "Make the wrong choices about as long as the correct one"],
 };
 const ALERT: Record<string, [string, string]> = {
   KEY_SUSPECT: ["Key may be wrong", "bg-red-50 text-red-800 ring-red-200"],
@@ -182,6 +183,7 @@ export default async function ItemQualityPage({ searchParams }: { searchParams: 
     <AppShell name={String(me.displayName)}>
       <PageHeader back={{ href: tab === "question" ? "/admin/item-quality?tab=alerts" : "/admin/questions", label: tab === "question" ? "Question Quality" : "Question Bank" }} icon="search" title="Question Quality" subtitle={subtitle}>
         <Link href="/admin/bank-gaps" className="rounded-xl bg-white px-4 py-2 font-semibold text-brand-navy ring-1 ring-slate-300"><LineIcon name="grid" className="me-1 inline-block h-4 w-4 align-[-3px]" />Bank gaps</Link>
+        {isAdmin && <Link href="/admin/questions/answer-length" prefetch={false} className="rounded-xl bg-white px-4 py-2 font-semibold text-brand-navy ring-1 ring-slate-300" data-testid="answer-length-link"><LineIcon name="search" className="me-1 inline-block h-4 w-4 align-[-3px]" />Answer-length check</Link>}
       </PageHeader>
       {actor.role !== "TEACHER" && <BankTabs />}
       {sp.msg && <p role="status" className="mb-4 rounded-xl bg-teal-50 px-4 py-3 text-teal-900 ring-1 ring-teal-200">{sp.msg}</p>}

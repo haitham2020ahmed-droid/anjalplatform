@@ -92,7 +92,7 @@
             "A team that quits handball to play a different sport",
             "A team that loses many games, keeps practicing, and finally wins",
             "A coach who only lets his best players play in games",
-            "A team that wins every single game all season long"
+            "A team that wins every single game all season long without trying"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -174,10 +174,10 @@
         {
           "stem": "In the story, practice means —",
           "options": [
-            "a game played against another school",
+            "a game played against another school's team on Friday",
             "doing something again and again to get better at it",
-            "a prize given to the winning team",
-            "a rule used in handball games"
+            "a prize given to the winning team at the end",
+            "a rule used in handball games and in other sports"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -191,10 +191,10 @@
         {
           "stem": "How did the team most likely feel right after they won the game against the Hawks?",
           "options": [
-            "Confused about what had happened",
+            "Confused about what had happened in the whole game",
             "Bored, since the game did not matter much",
             "Thrilled and proud after all their hard practice",
-            "Angry that the game was so close"
+            "Angry that the game was so close at the end of it"
           ],
           "answer": "C",
           "skill": "inference",
@@ -208,10 +208,10 @@
         {
           "stem": "Why does the story first tell us that the Falcons lost every game?",
           "options": [
-            "To explain the rules of handball",
-            "To describe what the gym looked like",
+            "To explain the rules of handball to people who are new to it",
+            "To describe what the gym looked like before the first game",
             "To show how big a change the final win really was",
-            "To explain why the Hawks were a new team"
+            "To explain why the Hawks were a new team in the league"
           ],
           "answer": "C",
           "skill": "author-purpose",
@@ -244,9 +244,9 @@
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
             "A struggling team improves through teamwork and persistence, and finally earns a surprising win",
-            "A talented team wins every game without ever needing to practice",
-            "A coach replaces his whole team partway through the season",
-            "A team decides handball is too difficult and switches sports"
+            "A talented team wins every game without ever needing to practice at all, so the coach has nothing to do",
+            "A coach replaces his whole team partway through the season and tries to win a big cup alone",
+            "A team decides handball is too difficult and switches to a new sport"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -294,10 +294,10 @@
         {
           "stem": "Why did the Falcons' teamwork grow stronger during the losing streak?",
           "options": [
-            "Because they stopped playing together as a team",
+            "Because they stopped playing together as a team in all of the games",
             "Because teammates encouraged each other instead of blaming one another",
-            "Because the Hawks gave them helpful advice",
-            "Because Coach Faisal replaced most of the players"
+            "Because the Hawks gave them helpful advice before each of the matches",
+            "Because Coach Faisal replaced most of the players on the team at once"
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -345,10 +345,10 @@
         {
           "stem": "How did the Falcons' skill at the start of the season compare with their skill by the final game?",
           "options": [
-            "Their skill stayed exactly the same the entire season",
-            "They were skilled at the start, but grew clumsy by the end",
+            "Their skill stayed exactly the same the entire season, from the first game to the last",
+            "They were skilled at the start, but grew clumsy by the end of the season",
             "They were weak at the start, and grew steadily stronger through practice",
-            "They were strong only against teams other than the Hawks"
+            "They were strong only against teams other than the Hawks, and weak against the Hawks"
           ],
           "answer": "C",
           "skill": "compare",
@@ -363,9 +363,9 @@
           "stem": "Why does the author describe the Falcons' effort continuing for many weeks before any success came?",
           "options": [
             "To show that real improvement often takes sustained effort, not a quick fix",
-            "To explain the official rules of school handball",
-            "To describe what the weather was like that season",
-            "To suggest that practice does not really help a team"
+            "To explain the official rules of school handball in detail and the score of each game",
+            "To describe what the weather was like that season on the court, with rain and wind",
+            "To suggest that practice does not really help a team, and luck decides who wins"
           ],
           "answer": "A",
           "skill": "author-purpose",
@@ -398,9 +398,9 @@
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
             "An underdog team's perseverance and camaraderie allow it to triumph despite a long losing streak",
-            "A team gives up on handball after a long and disappointing losing streak",
-            "A single talented player wins every game for his team without any help",
-            "A coach decides winning does not matter at all to his players"
+            "A team gives up on handball after a long and disappointing losing streak, and the players go home sad.",
+            "A single talented player wins every game for his team without any help from his friends or coach.",
+            "A coach decides winning does not matter at all to his players, so he stops the training for the season."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -431,9 +431,9 @@
         {
           "stem": "What specifically allowed the underdog Falcons to triumph over the previously undefeated Hawks?",
           "options": [
-            "A lucky bounce of the ball that nobody could control",
-            "The Hawks' sudden decision not to compete seriously",
-            "A rule change that favored weaker teams that season",
+            "A lucky bounce of the ball that nobody could control or plan",
+            "The Hawks' sudden decision not to compete seriously in the last game",
+            "A rule change that favored weaker teams that season in the league",
             "Weeks of accumulated resilience, teamwork, and persistent effort"
           ],
           "answer": "D",
@@ -449,9 +449,9 @@
           "stem": "In the article, the word resilience most nearly means —",
           "options": [
             "the ability to recover quickly and keep going despite difficulty",
-            "a sudden burst of speed late in a game",
-            "a formal rule used in handball competitions",
-            "a type of equipment used during practice"
+            "a sudden burst of speed late in a game when the team is tired",
+            "a formal rule used in handball competitions and school leagues",
+            "a type of equipment used during practice by the whole team"
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -466,9 +466,9 @@
           "stem": "What can readers infer about why Coach Faisal refused to let the team's confidence collapse?",
           "options": [
             "He believed that recovering from losses required steady, patient support, not pressure",
-            "He had no real interest in whether the team ever improved",
-            "He was required by school rules to stay positive in public",
-            "He secretly expected the team to lose every remaining game"
+            "He had no real interest in whether the team ever improved, only in the final score",
+            "He was required by school rules to stay positive in public, whatever happened",
+            "He secretly expected the team to lose every remaining game, but hid it from them"
           ],
           "answer": "A",
           "skill": "inference",
@@ -482,10 +482,10 @@
         {
           "stem": "Which correctly orders these events from the article?",
           "options": [
-            "The Falcons defeat the Hawks, then begin losing repeatedly",
-            "The Falcons' teamwork improves, then they begin losing repeatedly",
+            "The Falcons defeat the Hawks, then begin losing repeatedly at every game",
+            "The Falcons' teamwork improves, then they begin losing repeatedly in many games",
             "The Falcons lose repeatedly, their teamwork improves, they defeat the Hawks",
-            "The Falcons defeat the Hawks, then their teamwork improves"
+            "The Falcons defeat the Hawks, then their teamwork improves a lot"
           ],
           "answer": "C",
           "skill": "sequence",
@@ -517,9 +517,9 @@
           "stem": "The article suggests that camaraderie mattered as much as skill in the Falcons' turnaround. Which detail best supports this idea?",
           "options": [
             "Teammates encouraged whoever made a mistake instead of blaming each other",
-            "The Hawks had won every game earlier that season",
-            "The match took place during an afternoon practice session",
-            "Omar was the player who scored the winning goal"
+            "The Hawks had won every game earlier that season, so the Falcons felt sure they would lose",
+            "The match took place during an afternoon practice session, and nobody watched",
+            "Omar was the player who scored the winning goal, and the others cheered him"
           ],
           "answer": "A",
           "skill": "inference",

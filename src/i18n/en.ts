@@ -988,6 +988,19 @@ export const UI_STRINGS = [
   "Meeting standards", "Emerging", "Substantial intervention",
   "Reading Informational Text", "Grammar & Conventions", "Foundational Skills",
   "Strength", "Adaptive test: the same 50 skills for every student, each at their own difficulty. Score 0–100 against the grade (72.5 = meeting the grade goal).", "Adaptive test: the same 50 skills for every student, each at their own difficulty. Score 0–100 against the grade (72.5 = on grade level).",
+  // Answer-length check (2 Nov 2026)
+  "Answer-length check", "Answer length", "When the correct answer is usually the longest choice, students can guess it without reading. With 4 choices, the correct one should be the longest only about 25% of the time.",
+  "Export flagged (JSON)", "Correct answer is the longest", "Correct answer has {w}+ words and is more than {r}× the next longest",
+  "Chance level", "Checked {n} multiple-choice questions", "By skill (worst first)",
+  "The {n} worst skills are shown.", "No question is flagged.", "No multiple-choice questions.",
+  "ratio", "The figures could not be worked out. Open the page again in a minute.", "Update answer choices from files",
+  "Reads the rewrite files (data/questions/option-rewrites) and changes only the WRONG answer choices of the matching questions. The correct answer, the order, statistics and students' answers are never changed. Preview first; running it twice changes nothing the second time.", "The rewrite files could not be read.", "No rewrite files yet: the folder data/questions/option-rewrites is missing or has no .json files.",
+  "{n} files · {m} questions to rewrite", "Preview first", "Continue the stopped update",
+  "Changed: {n} answer choices", "Preview — nothing has been changed yet", "To change",
+  "Already up to date", "Not found", "Questions in the files not found in the database: {n}",
+  "This part could not be done. Press the button again to go on from here.", "⚠️ The correct answer is clearly longer than the other choices — students can guess it. Make the wrong choices about as long.", "Picks the longest answer — ask the student to read every choice and explain why the others are wrong.",
+  "🎯 = in the last 60 days the student was right much more often when the correct answer was the longest choice (at least 35 points more, from 12+ answers of each kind).",
+  "Page {x} of {y}",
 ] as const;
 
 export type UiString = (typeof UI_STRINGS)[number];

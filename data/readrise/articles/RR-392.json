@@ -199,10 +199,10 @@
         {
           "stem": "Why do you think Yousef and Khalid asked Ms. Reem for help?",
           "options": [
-            "Because she owns a small kite shop nearby",
+            "Because she owns a small kite shop nearby and sells them new string",
             "Because they could not solve the problem with their kites alone",
-            "Because she told them firmly to stop trying",
-            "Because kites of any kind are not allowed at school"
+            "Because she told them firmly to stop trying and to go home",
+            "Because kites of any kind are not allowed at school or in the yard"
           ],
           "answer": "B",
           "skill": "inference",
@@ -309,10 +309,10 @@
         {
           "stem": "According to Ms. Reem, what four things does a good kite need?",
           "options": [
-            "speed, color, size, and total weight",
+            "speed, color, size, and the total weight of the whole kite",
             "the right material, a stable frame, good balance, and wind direction",
-            "a small motor, wheels, lights, and a remote control",
-            "glue, paint, extra string, and a name tag"
+            "a small motor, wheels, lights, and a remote control for the kite",
+            "glue, paint, extra string, and a name tag for the owner"
           ],
           "answer": "B",
           "skill": "detail",
@@ -394,10 +394,10 @@
         {
           "stem": "What can you infer about why the boys tested the kite's materials and frame before flying it again?",
           "options": [
-            "They wanted to waste a whole afternoon",
-            "They did not trust Ms. Reem's careful advice",
+            "They wanted to waste a whole afternoon because they had nothing else to do",
+            "They did not trust Ms. Reem's careful advice about the wind and string",
             "They wanted to understand their mistakes so the next kite would not fail",
-            "They were simply told to do so by classmates"
+            "They were simply told to do so by classmates who watched them fail"
           ],
           "answer": "C",
           "skill": "inference",
@@ -411,9 +411,9 @@
         {
           "stem": "How is the boys' first kite different from their final kite?",
           "options": [
-            "The first kite was much bigger and heavier than the final one",
-            "The first kite flew much higher than the final kite did",
-            "The first kite had a tail, but the final kite did not have one",
+            "The first kite was much bigger and heavier than the final one, and had a longer string",
+            "The first kite flew much higher than the final kite did on both of the days",
+            "The first kite had a tail, but the final kite did not have one at all",
             "The first kite used weak paper, while the final kite used strong plastic"
           ],
           "answer": "D",
@@ -471,9 +471,9 @@
           "stem": "Which statement best captures the central idea of the article?",
           "options": [
             "Through failure and problem-solving, the boys come to understand aerodynamics.",
-            "Kites are far too dangerous and should never be flown at school.",
-            "Only very expensive kites made of solid metal can ever fly.",
-            "Ms. Reem secretly built the winning kite for the two boys."
+            "Kites are far too dangerous and should never be flown at school, even on calm days.",
+            "Only very expensive kites made of solid metal can ever fly in the open air.",
+            "Ms. Reem secretly built the winning kite for the two boys the night before."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -487,10 +487,10 @@
         {
           "stem": "Why did the boys' second kite generate too much drag and too little lift?",
           "options": [
-            "Because it was painted an unusual bright color",
+            "Because it was painted an unusual bright color by the boys at home",
             "Because something about its shape and design was still not right",
-            "Because there was no wind at all on Kite Day",
-            "Because it was flown indoors inside the gym"
+            "Because there was no wind at all on Kite Day at the park",
+            "Because it was flown indoors inside the gym of the school"
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -504,10 +504,10 @@
         {
           "stem": "According to Ms. Reem, what does the string provide to keep the kite steady?",
           "options": [
-            "extra weight for the frame",
-            "a bright color for the string",
+            "extra weight for the frame of the kite",
+            "a bright color so the string can be seen",
             "tension against the pull of the wind",
-            "a small source of light"
+            "a small source of light for the night"
           ],
           "answer": "C",
           "skill": "detail",
@@ -521,9 +521,9 @@
         {
           "stem": "In the article, the word persistence means \u2014",
           "options": [
-            "giving up quickly after one failure",
-            "the shape of a kite's frame",
-            "a strong gust of wind",
+            "giving up quickly after one failure at a task",
+            "the shape of a kite's frame and its tail",
+            "a strong gust of wind that lifts a kite",
             "continuing to try despite repeated failure"
           ],
           "answer": "D",
@@ -539,9 +539,9 @@
           "stem": "What can be inferred about why Ms. Reem explained the science behind kites rather than simply building one for the boys?",
           "options": [
             "She wanted them to understand their failures and solve it themselves",
-            "She did not know how to build a kite herself at all",
-            "She secretly wanted the boys to fail a third time",
-            "She firmly believed that only adults should ever fly kites"
+            "She did not know how to build a kite herself at all, so she gave a lecture",
+            "She secretly wanted the boys to fail a third time so they would give up",
+            "She firmly believed that only adults should ever fly kites in the open fields"
           ],
           "answer": "A",
           "skill": "inference",
@@ -555,10 +555,10 @@
         {
           "stem": "Which best describes the order of events in the article?",
           "options": [
-            "The final kite flies; the first kite breaks; Ms. Reem gives advice",
+            "The final kite flies; the first kite breaks; Ms. Reem gives advice; the second kite crashes",
             "The first kite breaks; the second kite crashes; Ms. Reem gives advice; the final kite flies",
-            "Ms. Reem gives advice; the final kite flies; the first kite breaks",
-            "The second kite crashes; the final kite flies; the first kite breaks"
+            "Ms. Reem gives advice; the final kite flies; the first kite breaks; the second kite crashes",
+            "The second kite crashes; the final kite flies; the first kite breaks; Ms. Reem gives advice"
           ],
           "answer": "B",
           "skill": "sequence",

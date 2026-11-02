@@ -88,7 +88,7 @@
       "questions": [
         {
           "stem": "What is this article mostly about?",
-          "options": ["How to build a modern guitar", "Several traditional instruments played in Arabia and their roles", "Why weddings are important events", "How loud sounds travel through air"],
+          "options": ["How to build a modern guitar from wood and metal strings", "Several traditional instruments played in Arabia and their roles", "Why weddings are important events for families in the desert", "How loud sounds travel through air and bounce off the walls"],
           "answer": "B",
           "skill": "central-idea",
           "why": "The article describes drums, the rebaba, and the mizmar, and explains how each is used.",
@@ -120,7 +120,7 @@
         },
         {
           "stem": "Why do people often choose the mizmar for big outdoor gatherings?",
-          "options": ["Because it is very quiet", "Because it is small and easy to carry", "Because it makes a loud sound that can be heard far away", "Because it has strings that shine in sunlight"],
+          "options": ["Because it is very quiet and gentle, so it is best for small rooms", "Because it is small and easy to carry in a pocket or a bag", "Because it makes a loud sound that can be heard far away", "Because it has strings that shine in sunlight, so crowds can see it"],
           "answer": "C",
           "skill": "cause-effect",
           "why": "The article says the mizmar makes a loud, bright sound that people can hear outdoors at big gatherings.",
@@ -128,7 +128,7 @@
         },
         {
           "stem": "Why do you think drums are often used to help dancers?",
-          "options": ["Because drums keep a beat that dancers can follow", "Because drums are the quietest instrument", "Because drums have strings like the rebaba", "Because dancers also blow into drums"],
+          "options": ["Because drums keep a beat that dancers can follow", "Because drums are the quietest instrument in the whole band", "Because drums have strings like the rebaba and the oud", "Because dancers also blow into drums to make them louder"],
           "answer": "A",
           "skill": "inference",
           "why": "The article says drums often keep the beat for dancers, which helps explain why dancers can move along with them.",
@@ -136,7 +136,7 @@
         },
         {
           "stem": "Why might the rebaba be a good instrument for 'telling a story through its sound'?",
-          "options": ["Because it is the loudest of all the instruments", "Because its long, singing sound can carry feeling, even without words", "Because it is always played alone, never with others", "Because it is shaped like a cup"],
+          "options": ["Because it is the loudest of all the instruments in the band", "Because its long, singing sound can carry feeling, even without words", "Because it is always played alone, never with others, in a quiet room", "Because it is shaped like a cup, which holds the sounds in"],
           "answer": "B",
           "skill": "inference",
           "why": "The article describes the rebaba's long, singing sound as something that can feel like it is telling a story.",
@@ -167,7 +167,7 @@
       "questions": [
         {
           "stem": "Which sentence best states the main idea of the article?",
-          "options": ["The mizmar is the only instrument used at Arabian weddings.", "Traditional Arabian instruments, including drums, the rebaba, and the mizmar, each fill a different role in music and gatherings.", "All traditional instruments are louder than modern instruments.", "The rebaba replaced drums in most performances."],
+          "options": ["The mizmar is the only instrument used at Arabian weddings, and no drums or other instruments are ever played there at all, anywhere.", "Traditional Arabian instruments, including drums, the rebaba, and the mizmar, each fill a different role in music and gatherings.", "All traditional instruments are louder than modern instruments, so the article says people should stop making the new kinds of music and play them.", "The rebaba replaced drums in most performances, and today drums are almost never heard at any party, gathering, or show in Arabia."],
           "answer": "B",
           "skill": "central-idea",
           "why": "The article introduces several instruments and explains the distinct role each one plays in different settings.",
@@ -199,7 +199,7 @@
         },
         {
           "stem": "Why are these instruments often played together rather than alone, based on the article?",
-          "options": ["Because each instrument fills a different role that complements the others", "Because playing alone is against the law", "Because only one musician in the region knows how to play music", "Because instruments cannot be carried separately"],
+          "options": ["Because each instrument fills a different role that complements the others", "Because playing alone is against the law, and musicians must always be in groups", "Because only one musician in the region knows how to play music, so he leads the rest", "Because instruments cannot be carried separately, so they are tied together"],
           "answer": "A",
           "skill": "inference",
           "why": "The article explains that each instrument has its own job, such as keeping a beat or carrying melody, which works best combined.",
@@ -207,7 +207,7 @@
         },
         {
           "stem": "What effect does the daf's shape have on how it is played?",
-          "options": ["Its round, flat shape lets it be held upright and struck with the hands.", "Its narrow shape lets a bow glide smoothly across it.", "Its shape forces it to be blown like a simple flute.", "Its shape means it must always be played underwater."],
+          "options": ["Its round, flat shape lets it be held upright and struck with the hands.", "Its narrow shape lets a bow glide smoothly across it, like a violin.", "Its shape forces it to be blown like a simple flute.", "Its shape means it must always be played underwater."],
           "answer": "A",
           "skill": "cause-effect",
           "why": "The article describes the daf as flat and round, held upright against the body, which suits striking it with the hands.",
@@ -215,7 +215,7 @@
         },
         {
           "stem": "Why might the rebaba be chosen to accompany sung poetry rather than the mizmar?",
-          "options": ["Because its long, flowing tone can feel like it is telling a story, unlike the mizmar's piercing volume", "Because the rebaba is the loudest instrument described", "Because the mizmar cannot be played outdoors", "Because poetry can only be sung without any instruments"],
+          "options": ["Because its long, flowing tone can feel like it is telling a story, unlike the mizmar's piercing volume", "Because the rebaba is the loudest instrument described, so it can be heard by every listener in a large crowd", "Because the mizmar cannot be played outdoors, since the wind would stop the sound completely", "Because poetry can only be sung without any instruments, as the singer needs to be heard"],
           "answer": "A",
           "skill": "inference",
           "why": "The article links the rebaba's storytelling quality to accompanying poetry, while the mizmar's loud, piercing sound suits large outdoor gatherings instead.",
@@ -223,7 +223,7 @@
         },
         {
           "stem": "Why does the author describe each instrument's typical setting, such as weddings or outdoor gatherings?",
-          "options": ["To argue that only weddings feature music", "To help readers understand how an instrument's sound matches the event where it is used", "To compare wedding customs across many countries", "To explain the price of each instrument"],
+          "options": ["To argue that only weddings feature music, and that no other event or place does", "To help readers understand how an instrument's sound matches the event where it is used", "To compare wedding customs across many countries, from Asia to Africa and Europe and beyond", "To explain the price of each instrument and where it can be bought in the market"],
           "answer": "B",
           "skill": "author-purpose",
           "why": "By connecting each instrument's sound to its typical setting, the author shows why certain instruments suit certain gatherings.",
@@ -245,7 +245,7 @@
       "questions": [
         {
           "stem": "Which statement best expresses the central idea of the article?",
-          "options": ["Modern instruments have entirely replaced traditional Arabian instruments.", "Traditional Arabian instruments, from percussion to bowed and wind instruments, each developed a distinct sound and social role that still shapes gatherings today.", "The mizmar is considered more important than any other traditional instrument.", "All traditional instruments in the region are played only by professional musicians."],
+          "options": ["Modern instruments have entirely replaced traditional Arabian instruments, so nobody plays the old ones in any gathering, wedding or festival today.", "Traditional Arabian instruments, from percussion to bowed and wind instruments, each developed a distinct sound and social role that still shapes gatherings today.", "The mizmar is considered more important than any other traditional instrument, and people say it is the only one that matters at festivals.", "All traditional instruments in the region are played only by professional musicians, and ordinary people are not allowed to touch them at any celebration."],
           "answer": "B",
           "skill": "central-idea",
           "why": "The article surveys several categories of instruments and consistently ties each one's sound to a specific social role and setting, both historically and today.",
@@ -253,7 +253,7 @@
         },
         {
           "stem": "According to the article, what role does a reed play inside an instrument like the mizmar?",
-          "options": ["It stretches tightly across a wooden frame to be bowed.", "It vibrates as air passes over it, producing the instrument's sound.", "It is struck sharply with the hand to create a beat.", "It is used only to decorate the outside of the instrument."],
+          "options": ["It stretches tightly across a wooden frame to be bowed with a stick.", "It vibrates as air passes over it, producing the instrument's sound.", "It is struck sharply with the hand to create a beat.", "It is used only to decorate the outside of the instrument."],
           "answer": "B",
           "skill": "detail",
           "why": "The article explains that a player blows air through a reed inside the mizmar, and the reed's vibration is what produces its piercing sound.",
@@ -261,7 +261,7 @@
         },
         {
           "stem": "Why does the article describe the mizmar's tone as more 'piercing and insistent' than similar Western wind instruments?",
-          "options": ["To suggest the mizmar is an inferior instrument", "To highlight a specific quality that explains why the mizmar suits loud, crowded, outdoor celebrations", "To argue that Western instruments cannot be played outdoors", "To claim the mizmar has no reed at all"],
+          "options": ["To suggest the mizmar is an inferior instrument that people do not like to hear", "To highlight a specific quality that explains why the mizmar suits loud, crowded, outdoor celebrations", "To argue that Western instruments cannot be played outdoors, because they are too quiet to be heard by a crowd", "To claim the mizmar has no reed at all, which is why its sound is so sharp and loud"],
           "answer": "B",
           "skill": "vocabulary",
           "why": "The piercing, insistent tone is directly connected elsewhere in the article to why the mizmar carries well at large outdoor gatherings.",
@@ -269,7 +269,7 @@
         },
         {
           "stem": "What can be inferred about why the rebaba is linked to oral storytelling and sung poetry?",
-          "options": ["Its continuous, flowing tone can mirror the rise and fall of spoken or sung lines in a way a sharp, plucked note cannot.", "It is louder than every other instrument mentioned in the article.", "It is always played by the same person who recites the poetry.", "It has no connection to storytelling at all."],
+          "options": ["Its continuous, flowing tone can mirror the rise and fall of spoken or sung lines in a way a sharp, plucked note cannot.", "It is louder than every other instrument mentioned in the article, so it can be heard over the poet's voice at the gatherings.", "It is always played by the same person who recites the poetry, and no one else may ever play it.", "It has no connection to storytelling at all, and it is used only for dancing and for marching."],
           "answer": "A",
           "skill": "inference",
           "why": "The article describes the rebaba's long, singing tone as feeling like it narrates a story, which fits naturally with the flow of recited or sung poetry.",
@@ -301,7 +301,7 @@
         },
         {
           "stem": "Why does the author conclude by noting that these instruments are 'often performed alongside newer instruments introduced from elsewhere'?",
-          "options": ["To argue that traditional instruments have disappeared entirely", "To show that this musical tradition has adapted over time while still remaining actively practiced today", "To claim that newer instruments are always louder", "To suggest that traditional instruments are now illegal to play"],
+          "options": ["To argue that traditional instruments have disappeared entirely, because nobody plays them today in any country", "To show that this musical tradition has adapted over time while still remaining actively practiced today", "To claim that newer instruments are always louder than the old ones, so they win every contest", "To suggest that traditional instruments are now illegal to play in public, even at weddings"],
           "answer": "B",
           "skill": "author-purpose",
           "why": "This closing detail connects the tradition's long history to its continued, evolving presence in music today, rather than treating it as something lost.",

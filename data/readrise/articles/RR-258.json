@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How to build a safe tent for camping deep in a forest",
-            "Why birds build their nests high up in tall trees",
+            "How to build a safe tent for camping deep in a forest far from town",
+            "Why birds build their nests high up in tall trees near the water",
             "How Jane Goodall patiently studied wild chimps and found they use tools",
-            "The steps needed to travel from London to Africa today"
+            "The steps needed to travel from London to Africa today by plane"
           ],
           "answer": "C",
           "skill": "central-idea",

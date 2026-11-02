@@ -53,10 +53,10 @@
     "passage": "In 1961, a new American president gave a speech. He said, 'Ask not what your country can do for you; ask what you can do for your country.' He used the same words twice, but in a new order. People still repeat this line today.",
     "stem": "Why do people remember this line?",
     "options": [
-     "It is very long.",
-     "It has a lot of numbers.",
+     "It is very long and has many words.",
+     "It has a lot of numbers in it.",
      "It uses the same words in a new order.",
-     "It talks about the weather."
+     "It talks about the weather outside."
     ],
     "answer": 2,
     "hint": "Look at the words 'your country' and 'you'. What did the speaker do with them?",
@@ -95,9 +95,9 @@
      "stem": "Which trick is this?",
      "options": [
       "A group of three words",
-      "A question",
-      "A number fact",
-      "A story"
+      "A question to the reader",
+      "A number fact about school",
+      "A story about a dog"
      ],
      "answer": 0,
      "why": "Kind, honest and brave are three words in a row."
@@ -106,10 +106,10 @@
      "passage": "The coach did not say 'you'. She said, 'Let us do our best. We are one team.'",
      "stem": "Why did the coach say 'us' and 'we'?",
      "options": [
-      "To ask a question",
+      "To ask a question about the next game",
       "To make everyone feel part of the team",
-      "To talk about another team",
-      "To sound angry"
+      "To talk about another team in the league",
+      "To sound angry with the players"
      ],
      "answer": 1,
      "why": "We and us include everyone, so the team feels together."
@@ -270,10 +270,10 @@
     "passage": "The Declaration of Independence follows a clear plan. It opens with general beliefs: that all men are created equal and have rights to life, liberty and the pursuit of happiness. It then argues that when a government destroys these rights, the people may change it. Next comes a long list of the king's actions, presented as facts 'submitted to a candid world'. Only at the end do the writers declare the colonies free and independent states. By the time readers reach this decision, it seems to follow naturally from everything before it.",
     "stem": "How does the order of the Declaration help persuade readers?",
     "options": [
-     "It begins with the decision, then tells a story.",
-     "It lists the colonies in order of size.",
+     "It begins with the decision, then tells a story about the colonies.",
+     "It lists the colonies in order of size, from the biggest to the smallest.",
      "It moves from beliefs to evidence to a decision, so the decision seems logical.",
-     "It hides its main decision from readers."
+     "It hides its main decision from readers until the very last line."
     ],
     "answer": 2,
     "hint": "What comes first, what comes next, and what comes last? Read the final sentence.",
@@ -303,9 +303,9 @@
      "passage": "In his 1961 inaugural address, President John F. Kennedy said, 'Ask not what your country can do for you; ask what you can do for your country.'",
      "stem": "Which device does this sentence use?",
      "options": [
-      "A list of facts",
+      "A list of facts about the topic and its history",
       "Antithesis: two opposite ideas placed side by side",
-      "A story about the past",
+      "A story about the past told in time order",
       "A question the audience must answer aloud"
      ],
      "answer": 1,
@@ -328,8 +328,8 @@
      "stem": "What is the effect of this repetition?",
      "options": [
       "It shows that only some people have rights.",
-      "It makes the document harder to read.",
-      "It names a single country.",
+      "It makes the document harder to read and understand.",
+      "It names a single country and the people in it.",
       "It stresses that these rights belong to every person."
      ],
      "answer": 3,
@@ -387,8 +387,8 @@
     "stem": "Which statement best analyses how Lincoln's rhetoric served his purpose?",
     "options": [
      "He described the battle in detail so listeners would understand the military victory.",
-     "He used mainly statistics about the soldiers to prove the war was going well.",
-     "He spoke humbly about his own words to show the speech was unimportant.",
+     "He used mainly statistics about the soldiers to prove the war was going well for the army.",
+     "He spoke humbly about his own words to show that the speech was unimportant and would soon be forgotten.",
      "He tied the soldiers' sacrifice to the nation's founding ideals, turning grief into a reason to keep going."
     ],
     "answer": 3,
@@ -419,9 +419,9 @@
      "stem": "Why might Churchill's honest warning have made his later promise more persuasive?",
      "options": [
       "It built trust, so the promise sounded believable.",
-      "It made listeners forget about the losses.",
+      "It made listeners forget about the losses for a while.",
       "It showed that Britain had already won.",
-      "It replaced emotion with humour."
+      "It replaced emotion with humour and jokes for fun."
      ],
      "answer": 0,
      "why": "By admitting the hard truth first (ethos), Churchill made his determined promise more believable."
@@ -430,10 +430,10 @@
      "passage": "The Declaration of Independence states that its long list of complaints is 'submitted to a candid world.' The writers were addressing not only the king and the colonists, but other nations whose support they hoped to win.",
      "stem": "How does knowing this audience help explain the list of complaints?",
      "options": [
-      "The list was written to make the king laugh.",
+      "The list was written to make the king laugh at them.",
       "The list was meant to entertain the colonists.",
       "It gave evidence to show other nations the break was fair.",
-      "The list hid the colonists' real reasons."
+      "The list hid the colonists' real reasons from the world."
      ],
      "answer": 2,
      "why": "Addressing 'a candid world', the writers used the list as evidence (logos) to win outside support."

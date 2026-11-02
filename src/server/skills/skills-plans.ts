@@ -41,7 +41,7 @@ export interface PlanCard {
   /** the newest practice on the plan's skills (ISO), null = nobody started */
   lastActivity: string | null;
 }
-export interface PlanStudentRow { id: string; name: string; mastered: number; of: number; pct: number; state: PlanStudentState; trend: Trend | null; guessing: boolean }
+export interface PlanStudentRow { id: string; name: string; mastered: number; of: number; pct: number; state: PlanStudentState; trend: Trend | null; guessing: boolean; longest?: boolean }
 export interface PlanGridView {
   card: PlanCard;
   /** the plan's skills (in the class's column order), each counted over the plan's students it went to */
@@ -115,7 +115,7 @@ export function planGrid(d: ClassSkills, id: string): PlanGridView | null {
   const rows: PlanStudentRow[] = students.map((st) => {
     const vs = Object.values(cells[st.id]);
     const mastered = vs.filter(isMasteredStar).length;
-    return { id: st.id, name: st.name, mastered, of: vs.length, pct: masteredPct(mastered, vs.length), state: stateOf(vs), trend: studentTrend(view, st.id)?.trend ?? null, guessing: isGuessing(studentGuess(view, st.id)) };
+    return { id: st.id, name: st.name, mastered, of: vs.length, pct: masteredPct(mastered, vs.length), state: stateOf(vs), trend: studentTrend(view, st.id)?.trend ?? null, guessing: isGuessing(studentGuess(view, st.id)), ...(view.longest?.[st.id] ? { longest: true } : {}) };
   });
   return { card, skills, rows, cells, assigned };
 }

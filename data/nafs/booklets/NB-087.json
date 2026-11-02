@@ -173,9 +173,9 @@
       "type": "MCQ",
       "stem": "What is the main purpose of the passage?",
       "options": [
-        "to teach readers how to use a laser safely at home",
-        "to compare universities in Egypt and America",
-        "to describe how hummingbirds move their wings",
+        "to teach readers how to use a laser safely at home or at school",
+        "to compare universities in Egypt and America and their courses",
+        "to describe how hummingbirds move their wings in the air and sun",
         "to tell how a scientist's curiosity led to a great discovery"
       ],
       "answer": "D",
@@ -206,9 +206,9 @@
       "stem": "According to paragraph 1, why could nobody watch a chemical reaction happen?",
       "options": [
         "Atoms change their bonds in a tiny fraction of a second.",
-        "Chemists did not own any cameras at that time.",
-        "Molecules can only be seen in total darkness.",
-        "Reactions only take place inside living birds."
+        "Chemists did not own any cameras at that time of year.",
+        "Molecules can only be seen in total darkness at night.",
+        "Reactions only take place inside living birds and fish."
       ],
       "answer": "A",
       "why": "“Their atoms break old bonds and form new ones in a tiny fraction of a second. As a result, nobody could actually watch…”"
@@ -237,10 +237,10 @@
       "type": "MCQ",
       "stem": "Which best describes the type of this text?",
       "options": [
-        "a diary written by Zewail himself",
+        "a diary written by Zewail himself as a young man",
         "a biography that includes scientific explanation",
-        "an invented adventure story",
-        "an advertisement for a university"
+        "an invented adventure story about a boy in space",
+        "an advertisement for a university in Egypt"
       ],
       "answer": "B",
       "why": "It tells the true story of Zewail's life (biography) and explains the science of his discovery."
@@ -301,10 +301,10 @@
       "type": "MCQ",
       "stem": "What led to Zewail receiving the Nobel Prize in Chemistry?",
       "options": [
-        "building a camera that could photograph hummingbirds",
+        "building a camera that could photograph hummingbirds in flight",
         "finding a way to observe reactions with very short laser flashes",
-        "founding a university for talented students in Egypt",
-        "being the first Egyptian to study at Pennsylvania"
+        "founding a university for talented students in Egypt and Africa",
+        "being the first Egyptian to study at Pennsylvania in the 1970s"
       ],
       "answer": "B",
       "why": "Paragraph 4 describes femtochemistry, and paragraph 5 follows with the Nobel Prize for this work; Zewail City came after."
@@ -317,9 +317,9 @@
       "type": "MCQ",
       "stem": "Why did Zewail work to establish Zewail City of Science and Technology?",
       "options": [
-        "He wanted to move his laboratory away from Caltech.",
-        "The Nobel Prize committee asked him to build it.",
-        "He wished to study hummingbirds in Egypt.",
+        "He wanted to move his laboratory away from Caltech to Cairo.",
+        "The Nobel Prize committee asked him to build it for them.",
+        "He wished to study hummingbirds in Egypt and in Sinai.",
         "He believed young Arabs deserved excellent chances in science."
       ],
       "answer": "D",
@@ -381,10 +381,10 @@
       "type": "MCQ",
       "stem": "The passage says Zewail was the first Arab to win a Nobel Prize “in a scientific field”. What does this suggest?",
       "options": [
-        "No Arab had ever won any kind of Nobel Prize.",
+        "No Arab had ever won any kind of Nobel Prize before that.",
         "Other Arabs had already won Nobel Prizes in other fields.",
-        "Zewail also won a second prize in literature.",
-        "Zewail shared his prize with an Egyptian chemist."
+        "Zewail also won a second prize in literature at a later date.",
+        "Zewail shared his prize with an Egyptian chemist in London."
       ],
       "answer": "B",
       "why": "The words “in a scientific field” limit the claim, suggesting Arab winners existed in non-scientific fields."
@@ -398,9 +398,9 @@
       "stem": "What does the comparison “almost like the frames of a film” in paragraph 4 suggest?",
       "options": [
         "Each flash captured one moment, like one picture in a film.",
-        "The scientists made a film to entertain students.",
-        "The reaction lasted as long as a full film.",
-        "The lasers were borrowed from a cinema."
+        "The scientists made a film to entertain students in the lab.",
+        "The reaction lasted as long as a full film does.",
+        "The lasers were borrowed from a cinema in the city."
       ],
       "answer": "A",
       "why": "A film is made of many still frames; each flash recorded one still moment of the reaction."
@@ -494,9 +494,9 @@
       "stem": "In your opinion, which information in the passage is the LEAST clear?",
       "options": [
         "which reactions Zewail's team actually studied",
-        "the year Zewail won the Nobel Prize",
-        "the city where Zewail was born",
-        "how long a femtosecond lasts"
+        "the year Zewail won the Nobel Prize in Chemistry",
+        "the city where Zewail was born and grew up",
+        "how long a femtosecond lasts in a second"
       ],
       "answer": "A",
       "why": "The passage explains the method but never names a specific reaction; the other facts are stated clearly."
@@ -509,10 +509,10 @@
       "type": "MCQ",
       "stem": "Which of the following events could really happen?",
       "options": [
-        "A scientist slows down time so that atoms move slowly.",
-        "A molecule explains to a chemist how it reacted.",
+        "A scientist slows down time so that all atoms in the room move slowly.",
+        "A molecule explains to a chemist how it reacted in the test.",
         "A scientist uses laser flashes to record the stages of a reaction.",
-        "A camera photographs a reaction before it has started."
+        "A camera photographs a reaction before it has started in the lab."
       ],
       "answer": "C",
       "why": "Recording reactions with laser flashes is what femtochemistry really does; the other events are impossible."

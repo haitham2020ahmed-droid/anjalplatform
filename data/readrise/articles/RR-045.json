@@ -165,10 +165,10 @@
         {
           "stem": "Galileo used a telescope to look at Saturn. What is a telescope?",
           "options": [
-            "A map of the stars",
+            "A map of the stars that shows planets",
             "A tool that makes far things look closer",
-            "A kind of space ship",
-            "A book about planets"
+            "A kind of space ship that flies to the stars",
+            "A book about planets and the Sun"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -199,10 +199,10 @@
         {
           "stem": "Why did Galileo most likely think Saturn had ears?",
           "options": [
-            "He saw a drawing of Saturn with ears.",
-            "He heard sounds coming from Saturn.",
+            "He saw a drawing of Saturn with ears on it.",
+            "He heard sounds coming from Saturn in the night.",
             "His telescope could not show the rings clearly.",
-            "He was looking at the wrong planet."
+            "He was looking at the wrong planet in the sky."
           ],
           "answer": "C",
           "skill": "inference",
@@ -378,9 +378,9 @@
         {
           "stem": "What does the story of Galileo and the \"ears\" suggest?",
           "options": [
-            "Saturn's rings have grown larger over time.",
-            "Early astronomers did not care about Saturn.",
-            "Galileo did not own a telescope.",
+            "Saturn's rings have grown larger over time as it got older",
+            "Early astronomers did not care about Saturn or its rings",
+            "Galileo did not own a telescope, so he could not look",
             "Better tools help scientists understand what they see."
           ],
           "answer": "D",
@@ -412,10 +412,10 @@
         {
           "stem": "Why does the author mention a bathtub big enough to hold Saturn?",
           "options": [
-            "To explain how astronauts take baths in space",
+            "To explain how astronauts take baths in space with little water",
             "To help readers picture how light Saturn is in a fun way",
-            "To show that scientists tested Saturn in water",
-            "To compare Saturn's rings to a bathtub"
+            "To show that scientists tested Saturn in water in a big tank",
+            "To compare Saturn's rings to a bathtub with a round edge"
           ],
           "answer": "B",
           "skill": "author-purpose",
@@ -591,10 +591,10 @@
         {
           "stem": "How is the paragraph about Galileo organized?",
           "options": [
-            "As a list of Saturn's moons",
+            "As a list of Saturn's moons and their sizes in order from the biggest",
             "In time order, from Galileo's first view to a later discovery",
             "As a problem followed by several unrelated solutions",
-            "As a comparison of Saturn and Jupiter"
+            "As a comparison of Saturn and Jupiter and their rings, side by side"
           ],
           "answer": "B",
           "skill": "text-structure",

@@ -200,9 +200,9 @@
           "stem": "Why does the article say mountains grow AND shrink?",
           "options": [
             "Because plates and lava build them up while rain, wind, and ice wear them down",
-            "Because mountains melt every summer",
-            "Because people dig them away",
-            "Because they sink back into the sea each night"
+            "Because mountains melt every summer in the sun and in the heat, and then they freeze again in winter",
+            "Because people dig them away with tools and trucks, to build roads and houses in the towns",
+            "Because they sink back into the sea each night and rise again in the morning, with the tide"
           ],
           "answer": "A",
           "skill": "inference",
@@ -233,9 +233,9 @@
         {
           "stem": "How does the article explain the two ways mountains grow?",
           "options": [
-            "It tells a story about one climber",
-            "It lists the tallest mountains in order",
-            "It gives facts against volcanoes",
+            "It tells a story about one climber who walks up a tall mountain",
+            "It lists the tallest mountains in order, from the highest to the lowest",
+            "It gives facts against volcanoes and says they cannot build mountains",
             "It describes one way (folding) and then a different way (lava)"
           ],
           "answer": "D",
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the central idea?",
           "options": [
-            "Everest is the hardest mountain to climb.",
+            "Everest is the hardest mountain to climb, and many people try it every single year.",
             "Moving plates and volcanoes build mountains, while erosion slowly wears them down.",
-            "Fossils can be found anywhere on Earth.",
-            "Lava is hotter than magma."
+            "Fossils can be found anywhere on Earth, in every kind of rock, soil and sand.",
+            "Lava is hotter than magma, because it comes out of the ground into the open air."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -328,9 +328,9 @@
           "stem": "What is the difference between magma and lava?",
           "options": [
             "Magma is under the ground; lava is the same melted rock once it pours out at the surface",
-            "Magma is cold and lava is hot",
-            "Magma is a kind of ice",
-            "There is no difference at all between them"
+            "Magma is cold and lava is hot, so lava burns the ground and magma turns to ice",
+            "Magma is a kind of ice that melts when it reaches the surface of the Earth",
+            "There is no difference at all between them, because both words mean the same melted rock"
           ],
           "answer": "A",
           "skill": "compare",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best summarizes the article?",
           "options": [
-            "Mountains form only from volcanoes.",
+            "Mountains form only from volcanoes, and the wearing away of rock plays no part in their story at all.",
             "Mountains are shaped by tectonic forces and volcanoes that build them up and by erosion that wears them down.",
-            "Saudi Arabia has the highest mountains in the world.",
-            "Erosion stops mountains from forming."
+            "Saudi Arabia has the highest mountains in the world, and so the article describes only its ranges.",
+            "Erosion stops mountains from forming, and so volcanoes and plates are not needed for any range."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -523,9 +523,9 @@
         {
           "stem": "Why do sea fossils near the top of Everest show that the rock began as sediment under an ocean?",
           "options": [
-            "Because sea creatures can live high on mountains",
-            "Because the fossils were carried up by climbers",
-            "Because rain brings fossils down from the sky",
+            "Because sea creatures can live high on mountains, where they climb up from the ocean shore",
+            "Because the fossils were carried up by climbers and left near the top of the mountain",
+            "Because rain brings fossils down from the sky and they settle on the high rocks of Everest",
             "Because sea animals were buried in sediment on the sea floor, and uplift later raised that rock"
           ],
           "answer": "D",
@@ -541,9 +541,9 @@
           "stem": "How is the growth of a volcano different from the growth of Everest?",
           "options": [
             "A volcano grows as layers of lava pile up, while Everest grows as colliding plates fold rock upward",
-            "A volcano grows by erosion, while Everest grows by rain",
-            "Both grow only when climbers reach the summit",
-            "A volcano grows faster because it is made of ice"
+            "A volcano grows by erosion, while Everest grows by rain and snow that fall on its sides every year",
+            "Both grow only when climbers reach the summit and leave stones there to make it taller",
+            "A volcano grows faster because it is made of ice that freezes in thick layers every year"
           ],
           "answer": "A",
           "skill": "compare",

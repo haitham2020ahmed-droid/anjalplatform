@@ -233,9 +233,9 @@
         {
           "stem": "Why does the author tell about a bay in Canada and the Red Sea?",
           "options": [
-            "To show where the best beaches are",
-            "To explain how the Moon was made",
-            "To tell readers where to go fishing",
+            "To show where the best beaches are in the world for swimming",
+            "To explain how the Moon was made a long time ago",
+            "To tell readers where to go fishing at high tide with a net",
             "To show that tides are different sizes in different places"
           ],
           "answer": "D",
@@ -327,10 +327,10 @@
         {
           "stem": "What do sailors use tide tables for?",
           "options": [
-            "To measure the depth of the open ocean",
+            "To measure the depth of the open ocean for the captain",
             "To decide when a ship can safely enter a harbor",
-            "To find out where the Moon will rise",
-            "To count how many fish live near shore"
+            "To find out where the Moon will rise tonight",
+            "To count how many fish live near the shore"
           ],
           "answer": "B",
           "skill": "detail",
@@ -412,10 +412,10 @@
         {
           "stem": "How does the author mainly organize the article?",
           "options": [
-            "By listing tides from smallest to largest",
+            "By listing tides from smallest to largest, one after another",
             "By explaining causes of tides and then their effects on people",
-            "By telling the life story of a sailor",
-            "By comparing the Moon with other planets"
+            "By telling the life story of a sailor who lived near the sea",
+            "By comparing the Moon with other planets in the sky"
           ],
           "answer": "B",
           "skill": "text-structure",
@@ -507,8 +507,8 @@
           "stem": "Why does a second bulge form on the side of Earth facing away from the Moon?",
           "options": [
             "The Moon pulls that far ocean more weakly than the solid Earth, so the water is left behind.",
-            "The Sun pushes the water to that side.",
-            "Winds pile the water there each night.",
+            "The Sun pushes the water to that side with its light and heat, and so a bulge forms there each day.",
+            "Winds pile the water there each night, and the strong waves rise up and stay in that place until dawn.",
             "Earth's fast spin flings all of the ocean water out to one side of the planet."
           ],
           "answer": "A",
@@ -591,10 +591,10 @@
         {
           "stem": "Why does the author compare the Bay of Fundy with Saudi Arabia's Red Sea coast?",
           "options": [
-            "To argue that Canada has better beaches",
-            "To explain why the Red Sea is salty",
+            "To argue that Canada has better beaches than other places",
+            "To explain why the Red Sea is so salty in summer",
             "To show how greatly tidal range varies from place to place",
-            "To describe two good places for tidal power"
+            "To describe two good places for tidal power in the world"
           ],
           "answer": "C",
           "skill": "author-purpose",

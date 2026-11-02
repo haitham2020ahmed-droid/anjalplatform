@@ -114,10 +114,10 @@
         {
           "stem": "What is the article mostly about?",
           "options": [
-            "How to swim safely in the ocean",
+            "How to swim safely in the ocean during the hot summer",
             "The Great Barrier Reef, a giant coral reef near Australia",
-            "Every fish that lives in the sea",
-            "How astronauts travel into outer space"
+            "Every kind of fish that lives in the sea near the coast",
+            "How astronauts travel into outer space and back"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -131,10 +131,10 @@
         {
           "stem": "According to the article, what is the Great Barrier Reef made of?",
           "options": [
-            "One single long reef with no other parts",
+            "One single long reef with no other parts or islands",
             "Almost 3,000 smaller reefs and hundreds of islands",
-            "A row of exactly ten large islands",
-            "Rocks that fell from a nearby mountain"
+            "A row of exactly ten large islands in the sea",
+            "Rocks that fell from a nearby mountain long ago"
           ],
           "answer": "B",
           "skill": "detail",
@@ -165,10 +165,10 @@
         {
           "stem": "Read the sentence: \"The reef is so big you can see it from space!\" What does space mean here?",
           "options": [
-            "An empty room with nothing in it",
+            "An empty room with nothing in it at all, like a classroom at night",
             "The area far above Earth, where astronauts travel",
-            "A parking spot for cars",
-            "The deep, dark part of the ocean"
+            "A parking spot for cars near the shop in town",
+            "The deep, dark part of the ocean far below the waves"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -217,9 +217,9 @@
           "stem": "Why did it take so long for coral to build the whole reef?",
           "options": [
             "Because each piece of coral is tiny and builds very slowly",
-            "Because storms destroy the reef every single year",
-            "Because people kept stopping the building work",
-            "Because the water was too cold for building"
+            "Because storms destroy the reef every single year in the sea",
+            "Because people kept stopping the building work on the reef",
+            "Because the water was too cold for building any coral at all"
           ],
           "answer": "A",
           "skill": "inference",
@@ -234,9 +234,9 @@
           "stem": "How does the article end?",
           "options": [
             "With a warning about danger and a hope to protect the reef",
-            "With a story about a diver's vacation",
-            "With directions for sailing to Australia",
-            "With a list of island names"
+            "With a story about a diver's vacation on a faraway island",
+            "With directions for sailing to Australia through the sea",
+            "With a long list of island names and their sizes"
           ],
           "answer": "A",
           "skill": "text-structure",
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
-            "Only sharks and turtles live anywhere near Australia.",
+            "Only sharks and turtles live anywhere near the coast of Australia, and no other animals do.",
             "The Great Barrier Reef is an enormous, biodiverse marine ecosystem now facing serious threats.",
-            "Astronauts spend most of their time studying coral.",
-            "Queensland has no coastline at all."
+            "Astronauts spend most of their time studying coral from the space station every day.",
+            "Queensland has no coastline at all, so the reef is far from the sea."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -327,10 +327,10 @@
         {
           "stem": "Why is the Great Barrier Reef visible from outer space?",
           "options": [
-            "Because it glows with bright lights at night",
+            "Because it glows with bright lights at night, like a big city",
             "Because its enormous scale makes it stand out against the ocean",
-            "Because satellites paint the reef a special color",
-            "Because it floats above the surface of the water"
+            "Because satellites paint the reef a special color from space",
+            "Because it floats above the surface of the water like a cloud"
           ],
           "answer": "B",
           "skill": "detail",
@@ -344,10 +344,10 @@
         {
           "stem": "Read the sentence: \"An astonishing variety of animals make their homes within this ecosystem.\" What does ecosystem mean here?",
           "options": [
-            "A single type of fish found on the reef",
+            "A single type of fish found on the reef near the coast",
             "A community of living things and their environment",
-            "A kind of ocean current",
-            "A tool used by marine scientists"
+            "A kind of ocean current that flows along the shore",
+            "A tool used by marine scientists to count the fish"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -412,10 +412,10 @@
         {
           "stem": "Why does the author mention that the reef can be seen from space?",
           "options": [
-            "To explain how astronauts are trained",
+            "To explain how astronauts are trained for their trips",
             "To emphasize just how enormous the reef truly is",
-            "To describe the colors of outer space",
-            "To compare the reef to the moon"
+            "To describe the colors of outer space and the stars",
+            "To compare the reef to the moon in size"
           ],
           "answer": "B",
           "skill": "author-purpose",

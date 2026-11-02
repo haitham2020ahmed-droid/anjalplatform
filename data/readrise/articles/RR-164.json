@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How to build a telescope",
-            "Why the Sun is hot",
+            "How to build a telescope in a school lab",
+            "Why the Sun is so hot and so bright",
             "The Milky Way, the galaxy we live in",
-            "How stars are born"
+            "How stars are born and how they die"
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -132,8 +132,8 @@
           "stem": "What is a galaxy?",
           "options": [
             "A huge group of stars, gas, and dust",
-            "One very bright star",
-            "A planet with many moons",
+            "One very bright star in the night sky",
+            "A planet with many moons around it",
             "A cloud of rain in the sky"
           ],
           "answer": "A",
@@ -234,9 +234,9 @@
           "stem": "Why does the author tell the Arabic name, Darb al-Tabbana?",
           "options": [
             "To show that people here have watched and named the band for a long time",
-            "To prove the band is made of straw",
-            "To teach how to spell space words",
-            "To show the band is only in Arabia"
+            "To prove the band is made of straw, as the old name means in Arabic",
+            "To teach readers how to spell space words in the Arabic language",
+            "To show the band can only be seen from Arabia and from no other place"
           ],
           "answer": "A",
           "skill": "author-purpose",
@@ -395,9 +395,9 @@
         {
           "stem": "How does the article organize its information?",
           "options": [
-            "It tells a story about one astronomer's whole life.",
+            "It tells a story about one astronomer's whole life, from birth to death.",
             "It explains what a galaxy is, then its shape, history, and viewing tips.",
-            "It lists the steps for building a telescope at home.",
+            "It lists the steps for building a telescope at home with tubes and glass.",
             "It compares the Milky Way with ten other galaxies, one by one."
           ],
           "answer": "B",

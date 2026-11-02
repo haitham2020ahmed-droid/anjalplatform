@@ -166,9 +166,9 @@
           "stem": "The article explains that a crystal is a solid with tiny parts set in neat rows. What does crystal mean here?",
           "options": [
             "A solid made of tiny parts arranged in order",
-            "A kind of twisted ladder shape",
-            "A picture made using X-rays",
-            "A famous photograph of DNA"
+            "A kind of twisted ladder shape made of wires and string",
+            "A picture made using X-rays and a camera on a long tube",
+            "A famous photograph of DNA taken in a laboratory"
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -199,10 +199,10 @@
         {
           "stem": "Why most likely did other scientists want to use Rosalind's photograph of DNA?",
           "options": [
-            "It was the only photograph that existed in the world",
-            "It was a nice picture of the city of Paris",
+            "It was the only photograph that existed in the world at the time",
+            "It was a nice picture of the city of Paris and its famous bridges at night",
             "It showed something important that no one had seen so clearly before",
-            "It was taken completely by accident"
+            "It was taken completely by accident by a student in her room"
           ],
           "answer": "C",
           "skill": "inference",
@@ -216,9 +216,9 @@
         {
           "stem": "Why did Rosalind study ordinary crystals with X-rays before she studied DNA?",
           "options": [
-            "Because crystals glow brightly in the dark",
-            "Because she wanted to build a twisted ladder",
-            "Because her university in Paris required it",
+            "Because crystals glow brightly in the dark and make the room very easy to see",
+            "Because she wanted to build a twisted ladder out of wire, so she needed to practice",
+            "Because her university in Paris required it for every student who wanted to study",
             "Because shining X-rays on crystals taught her how to find shapes hidden inside tiny things"
           ],
           "answer": "D",
@@ -234,9 +234,9 @@
           "stem": "Why does the article end by saying her careful work helped the world understand DNA?",
           "options": [
             "To show readers a lesson about the value of careful, patient work",
-            "To explain exactly how old photographs were printed",
-            "To describe in detail what a crystal looks like",
-            "To tell readers exactly where Rosalind was born"
+            "To explain exactly how old photographs were printed in labs long ago",
+            "To describe in detail what a crystal looks like under light",
+            "To tell readers exactly where Rosalind was born and raised"
           ],
           "answer": "A",
           "skill": "author-purpose",
@@ -294,9 +294,9 @@
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
             "Rosalind Franklin's precise crystallography work was essential to discovering DNA's shape.",
-            "Coal is one of the most useful materials scientists have ever studied.",
-            "X-ray machines are too complicated for most scientists to use.",
-            "Scientists in Paris are generally more careful than scientists elsewhere."
+            "Coal is one of the most useful materials scientists have ever studied, and Franklin used it to find a cure.",
+            "X-ray machines are too complicated for most scientists to use, so Franklin's work in the lab was rare.",
+            "Scientists in Paris are generally more careful than scientists elsewhere, and so Franklin moved to France."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -345,9 +345,9 @@
           "stem": "The article says X-rays scatter into a diffraction pattern. What does diffraction mean here?",
           "options": [
             "The way waves spread out or scatter when passing through something",
-            "A type of photograph taken with a camera",
-            "A disease that affects plants and animals",
-            "A prize given to scientists for good research"
+            "A type of photograph taken with a camera in a studio",
+            "A disease that affects plants and animals in the fields and gardens",
+            "A prize given to scientists for good research in the lab"
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -378,9 +378,9 @@
         {
           "stem": "What happened because Rosalind's measurements of DNA were so precise?",
           "options": [
-            "She lost interest in studying viruses.",
-            "She decided to stop working with X-rays.",
-            "Her photograph was thrown away.",
+            "She lost interest in studying viruses and left the lab for good.",
+            "She decided to stop working with X-rays after that day for a long time.",
+            "Her photograph was thrown away by a clerk at the university.",
             "Other scientists could use her data to build an accurate model of DNA."
           ],
           "answer": "D",
@@ -395,10 +395,10 @@
         {
           "stem": "Why most likely did Rosalind continue studying coal and viruses with the same careful methods?",
           "options": [
-            "She did not like studying DNA at all.",
+            "She did not like studying DNA at all, so she turned to other kinds of science instead.",
             "She trusted that precise, careful research could reveal useful shapes in many kinds of matter.",
-            "She wanted to avoid working with other researchers.",
-            "She thought crystallography only worked on coal."
+            "She wanted to avoid working with other researchers, so she chose small and quiet projects.",
+            "She thought crystallography only worked on coal, so she never tried it on anything else at all."
           ],
           "answer": "B",
           "skill": "inference",
@@ -473,9 +473,9 @@
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
             "Rosalind Franklin's meticulous research made an essential contribution to science, even though it was overlooked for years.",
-            "Nobel Prizes should always be shared equally among every scientist involved.",
-            "X-ray crystallography is too dangerous to be used safely.",
-            "Coal research is more important than DNA research."
+            "Nobel Prizes should always be shared equally among every scientist involved, even if they never met each other or worked together at all.",
+            "X-ray crystallography is too dangerous to be used safely in any laboratory, so scientists have stopped using it for their work.",
+            "Coal research is more important than DNA research, and so most scientists chose to study coal in the laboratory for many years."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -489,10 +489,10 @@
         {
           "stem": "According to the article, why could Rosalind not share in the Nobel Prize for DNA's structure?",
           "options": [
-            "She never actually worked on DNA research.",
+            "She never actually worked on DNA research at all",
             "Nobel Prizes are never awarded after a scientist has died.",
-            "She asked not to be considered for the prize.",
-            "Her photograph was considered too blurry."
+            "She asked not to be considered for the prize at all",
+            "Her photograph was considered too blurry by the judges"
           ],
           "answer": "B",
           "skill": "detail",
@@ -541,9 +541,9 @@
           "stem": "How does Rosalind's meticulous work on coal compare with her later work on DNA?",
           "options": [
             "Both used the same careful X-ray crystallography methods to study different materials.",
-            "The coal research used X-rays, but the DNA research did not.",
-            "She was careful with DNA but careless with coal.",
-            "She never used crystallography for coal at all."
+            "The coal research used X-rays, but the DNA research did not use them at all.",
+            "She was careful with DNA but careless with the coal work, and she hurried it.",
+            "She never used crystallography for coal at all in her whole career as a scientist."
           ],
           "answer": "A",
           "skill": "compare",
@@ -574,10 +574,10 @@
         {
           "stem": "What does the article suggest about why Rosalind's contribution to the DNA discovery was overlooked for so long?",
           "options": [
-            "Because she refused to let anyone see her results.",
+            "Because she refused to let anyone see her results at the lab, so no one could use them in any work.",
             "Because the two scientists who built the final model received most of the public credit instead.",
-            "Because she had not actually finished her research before she died.",
-            "Because her photograph was eventually lost."
+            "Because she had not actually finished her research before she died, and her notes were thrown out.",
+            "Because her photograph was eventually lost in a university, and nobody could find the picture any more."
           ],
           "answer": "B",
           "skill": "inference",

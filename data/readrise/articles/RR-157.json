@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "Where to buy a pet bird",
+            "Where to buy a pet bird in the market",
             "How a tiny bird flies, eats, and lives",
-            "Why birds sing in the morning",
-            "How to build a nest for birds"
+            "Why birds sing in the morning light",
+            "How to build a nest for birds at home"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -199,10 +199,10 @@
         {
           "stem": "Why must a hummingbird eat all day long?",
           "options": [
-            "It is cold all the time.",
-            "Its nest is far from flowers.",
+            "It is cold all the time, and its body shivers.",
+            "Its nest is far from flowers and the water.",
             "Its busy body uses up lots of energy.",
-            "It eats only one bug a day."
+            "It eats only one bug a day, but it is full."
           ],
           "answer": "C",
           "skill": "inference",
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
-            "Hummingbirds are the fastest birds in the world.",
-            "Hummingbirds are tiny birds that live in Saudi Arabia.",
+            "Hummingbirds are the fastest birds in the world, flying quicker than falcons and eagles.",
+            "Hummingbirds are tiny birds that live in Saudi Arabia and rarely leave the desert.",
             "Hummingbirds have special bodies and habits that help them feed and survive.",
-            "Hummingbirds eat only insects and spiders."
+            "Hummingbirds eat only insects and spiders, and they never drink anything sweet."
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -327,9 +327,9 @@
         {
           "stem": "Why do hummingbirds catch small insects and spiders?",
           "options": [
-            "To feed them to sunbirds",
-            "To use them in their nests",
-            "To keep the flowers clean",
+            "To feed them to sunbirds in the garden",
+            "To use them in their nests for warmth",
+            "To keep the flowers clean of dust",
             "To get protein their bodies need"
           ],
           "answer": "D",
@@ -344,10 +344,10 @@
         {
           "stem": "The article says some hummingbirds migrate. What does migrate mean?",
           "options": [
-            "To build a nest with silk",
+            "To build a nest with silk and moss",
             "To travel a long way to another area",
-            "To beat the wings very fast",
-            "To sip nectar with the tongue"
+            "To beat the wings very fast in the air",
+            "To sip nectar with the tongue from flowers"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -412,10 +412,10 @@
         {
           "stem": "How is most of the article organized?",
           "options": [
-            "As a story about one bird's day",
-            "In time order from egg to adult",
+            "As a story about one bird's day, from morning to night",
+            "In time order from egg to adult, with one date for each year",
             "By topic, with each paragraph on one part of the bird's life",
-            "As a list of steps for feeding birds"
+            "As a list of steps for feeding birds in a garden at home"
           ],
           "answer": "C",
           "skill": "text-structure",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
-            "Hummingbirds are in danger because their migrations are too long.",
+            "Hummingbirds are in danger because their migrations are too long and the birds get tired and thin.",
             "Hummingbirds' small size, fast metabolism, and unusual flight shape how they feed, rest, and travel.",
-            "Hummingbirds are found on every continent, including Asia.",
-            "Hummingbirds are mainly hunters of insects and spiders."
+            "Hummingbirds are found on every continent, including Asia, Africa, and Antarctica.",
+            "Hummingbirds are mainly hunters of insects and spiders, and rarely visit flowers."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -523,10 +523,10 @@
         {
           "stem": "Why does the ruby-throated hummingbird store extra fat before crossing the Gulf of Mexico?",
           "options": [
-            "To stay warm if it lands in the water",
-            "To look larger to enemies",
+            "To stay warm if it lands in the water at night or in the rain",
+            "To look larger to enemies in the sky above",
             "It cannot stop to feed on the 800-kilometer flight.",
-            "Mexico has no flowers with nectar."
+            "Mexico has no flowers with nectar in the spring."
           ],
           "answer": "C",
           "skill": "inference",
@@ -540,10 +540,10 @@
         {
           "stem": "Which conclusion is best supported by the description of torpor?",
           "options": [
-            "Hummingbirds sleep more than any other bird.",
-            "Torpor makes hummingbirds fly faster the next day.",
+            "Hummingbirds sleep more than any other bird, even owls and parrots.",
+            "Torpor makes hummingbirds fly faster the next day than all other birds.",
             "Without torpor, a hummingbird might run out of energy before sunrise.",
-            "Torpor happens only during long migrations."
+            "Torpor happens only during long migrations, and never in the garden."
           ],
           "answer": "C",
           "skill": "inference",

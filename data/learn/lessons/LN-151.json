@@ -89,10 +89,10 @@
     "passage": "Fahad planted a seed in a pot. Next, he gave it water every day. After a week, a small green leaf came up. At last, it grew into a tall plant.",
     "stem": "What happened right after Fahad planted the seed?",
     "options": [
-     "A green leaf came up.",
-     "It grew tall.",
+     "A green leaf came up soon.",
+     "It grew tall in a week.",
      "He gave it water every day.",
-     "He bought a pot."
+     "He bought a pot for it."
     ],
     "answer": 2,
     "hint": "Find the sentence about planting. What does the NEXT sentence say?",
@@ -143,9 +143,9 @@
      "stem": "What did Mom do before she put in the tea leaves?",
      "options": [
       "She boiled the water.",
-      "She added milk.",
-      "She drank the tea.",
-      "She added sugar."
+      "She added milk first.",
+      "She drank the hot tea.",
+      "She added sugar and mint."
      ],
      "answer": 0,
      "why": "She boiled the water, then put in the leaves."
@@ -319,7 +319,7 @@
     "passage": "Samira and her cousin Huda both entered the school's bread-baking contest. Samira followed her grandmother's recipe exactly, measuring every spoonful. Meanwhile, Huda decided to try something new and added dates and cardamom without testing the recipe first. On contest day, Samira's loaf came out soft and golden. Huda's loaf looked lovely but had sunk in the middle because the dough was too wet. The judges praised Samira's careful work. Still, they told Huda her flavour idea was the most original they had tasted. Huda smiled and said that next year she would test her recipe first.",
     "stem": "How is Huda's baking different from Samira's?",
     "options": [
-     "Huda followed an old recipe exactly, while Samira tried new flavours.",
+     "Huda followed an old recipe exactly, while Samira tried new flavours and spices.",
      "Both girls tested their recipes many times before the contest.",
      "Huda tried new flavours without testing, while Samira followed a recipe exactly.",
      "Samira's loaf sank in the middle, but Huda's came out perfectly."
@@ -353,10 +353,10 @@
      "passage": "Meanwhile, at the other end of the village, Waleed was also looking for the lost goat. He had searched the riverbank while his sister checked the hills. By the time they met at the old well, the sun had set.",
      "stem": "Which is true about the order of events?",
      "options": [
-      "Waleed searched the hills after the sun set.",
+      "Waleed searched the hills after the sun set, then went home alone.",
       "Waleed and his sister searched at the same time, then met at the well.",
-      "His sister searched after they met at the well.",
-      "They met at the well before they started searching."
+      "His sister searched after they met at the well, and then she walked home.",
+      "They met at the well before they started searching, and Waleed went first."
      ],
      "answer": 1,
      "why": "\"While\" shows they searched at the same time; then they met at the well at sunset."
@@ -365,9 +365,9 @@
      "passage": "Long ago, a merchant lost his way in a sandstorm. He followed the stars to an oasis and rested there. He told the people about the town he came from, and they agreed to trade dates for his cloth. Soon, caravans travelled between the two towns every month.",
      "stem": "Which is the best summary?",
      "options": [
-      "A merchant found his way to an oasis.",
-      "A sandstorm blew for many days.",
-      "The merchant loved his cloth.",
+      "A merchant found his way to an oasis and then went home.",
+      "A sandstorm blew for many days and nights over the desert.",
+      "The merchant loved his cloth more than anything else he owned.",
       "A lost merchant found an oasis and started trade between two towns."
      ],
      "answer": 3,
@@ -484,9 +484,9 @@
      "stem": "Which is the best summary of the major events?",
      "options": [
       "Reem broke a vase, hid it, confessed, and repaired it with her grandmother.",
-      "Reem played indoors and could not sleep.",
-      "Reem's grandmother once broke a vase when she was a girl.",
-      "Reem and her grandmother enjoy gluing things together."
+      "Reem played indoors and could not sleep, so she got up and went outside.",
+      "Reem's grandmother once broke a vase when she was a girl at school.",
+      "Reem and her grandmother enjoy gluing things together on rainy days."
      ],
      "answer": 0,
      "why": "This keeps the major events in order and shows how they connect."

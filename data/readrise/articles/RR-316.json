@@ -165,9 +165,9 @@
         {
           "stem": "Why did storytellers repeat tales again and again?",
           "options": [
-            "Because grandparents forgot the ending",
-            "Because children never wanted to listen",
-            "Because books were too heavy to carry",
+            "Because grandparents forgot the ending of the tale",
+            "Because children never wanted to listen to them",
+            "Because books were too heavy to carry far away",
             "So the story could be shared across many years"
           ],
           "answer": "D",
@@ -199,9 +199,9 @@
         {
           "stem": "What can you tell about the lesson at the end of a folk tale?",
           "options": [
-            "It was never an important part of the tale",
-            "It only taught children how to cook food",
-            "It changed the story's ending randomly",
+            "It was never an important part of the tale for children",
+            "It only taught children how to cook food for their families",
+            "It changed the story's ending randomly each time it was told",
             "It helped children learn to be kind, honest, or hardworking"
           ],
           "answer": "D",
@@ -216,10 +216,10 @@
         {
           "stem": "Read: \"The clever person could think fast.\" What does clever mean?",
           "options": [
-            "Very tall and strong in height",
+            "Very tall and strong in height and size",
             "Able to think quickly and solve problems",
-            "Very loud when speaking",
-            "Unable to speak at all"
+            "Very loud when speaking in the classroom",
+            "Unable to speak at all in front of people"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -233,10 +233,10 @@
         {
           "stem": "Which shows the right order for how a folk tale was shared?",
           "options": [
-            "Written in a book first, then told aloud, then forgotten",
-            "Children write it down first, then tell their grandparent",
+            "Written in a book first, then told aloud, then forgotten by every family",
+            "Children write it down first, then tell their grandparent what they wrote",
             "A grandparent tells it, children listen, children may tell it later themselves",
-            "The tale is sold in a shop, then read once aloud"
+            "The tale is sold in a shop, then read once aloud, then thrown away"
           ],
           "answer": "C",
           "skill": "sequence",
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the main idea of the article?",
           "options": [
-            "Folk tales were always written in books first, long ago",
+            "Folk tales were always written in books first, long ago, and then read aloud in school",
             "Folk tales were passed down by voice and carried lessons across generations",
-            "Only grandparents are allowed to tell folk tales",
-            "Folk tales never included any make-believe parts"
+            "Only grandparents are allowed to tell folk tales, and children may never repeat them",
+            "Folk tales never included any make-believe parts, because they were all true stories"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -329,8 +329,8 @@
           "options": [
             "Writing each word down carefully beforehand",
             "Familiar patterns, like repeated phrases and rhythm",
-            "Reading the tale from a hidden card",
-            "Recording the tale with a machine"
+            "Reading the tale from a hidden card in the hand",
+            "Recording the tale with a machine on a tape"
           ],
           "answer": "B",
           "skill": "detail",
@@ -344,10 +344,10 @@
         {
           "stem": "Why could small details of a tale change each time it was told?",
           "options": [
-            "Because every tale was printed in a different way",
-            "Because listeners changed the words out loud themselves",
+            "Because every tale was printed in a different way by a different press",
+            "Because listeners changed the words out loud themselves during the story",
             "Because each storyteller's memory and telling were slightly different",
-            "Because tales were translated into new languages each night"
+            "Because tales were translated into new languages each night by the teller"
           ],
           "answer": "C",
           "skill": "cause-effect",
@@ -361,9 +361,9 @@
         {
           "stem": "Why might two regions tell different versions of a similar tale?",
           "options": [
-            "Only one region was allowed to tell tales",
-            "Tales could not travel between regions at all",
-            "Each region used a different moral by law",
+            "Only one region was allowed to tell tales to children",
+            "Tales could not travel between regions at all in old times",
+            "Each region used a different moral by law, so tales changed",
             "Each region's own generation passed down its own version"
           ],
           "answer": "D",
@@ -412,10 +412,10 @@
         {
           "stem": "How does the article mainly organize its information about folk tales?",
           "options": [
-            "By comparing tales from two very different countries",
+            "By comparing tales from two very different countries and the heroes found in each one",
             "By describing how tales were told, what patterns they followed, and what lessons they taught",
-            "As a single long made-up story about one family",
-            "As a list of every grandparent's full name"
+            "As a single long made-up story about one family and their old house on a hill",
+            "As a list of every grandparent's full name, and where each grandparent lived long ago"
           ],
           "answer": "B",
           "skill": "text-structure",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best summarizes the central idea of the article?",
           "options": [
-            "Folk tales were only ever written, and never spoken aloud",
+            "Folk tales were only ever written down, and never spoken aloud by anyone",
             "Folk tales carried cultural wisdom through oral memory across generations",
             "Folk tales always described only real historical events",
-            "Only one single region ever told any such folk tales"
+            "Only one single region ever told any such folk tales to people"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -489,10 +489,10 @@
         {
           "stem": "According to the article, what is folklore?",
           "options": [
-            "A single modern book of science facts",
-            "A written law passed down about storytelling rules",
+            "A single modern book of science facts and numbers",
+            "A written law passed down about storytelling rules for the village",
             "Traditional stories, customs, and beliefs passed down by a group",
-            "A type of musical instrument played at festivals"
+            "A type of musical instrument played at festivals and weddings"
           ],
           "answer": "C",
           "skill": "detail",
@@ -523,9 +523,9 @@
         {
           "stem": "What effect did repeated phrases and steady rhythm have on a folk tale?",
           "options": [
-            "They made the tale much harder to remember well",
-            "They stopped the tale from having any moral",
-            "They removed the clever character from the story",
+            "They made the tale much harder to remember well, even for old storytellers",
+            "They stopped the tale from having any moral or lesson for children",
+            "They removed the clever character from the story in later versions",
             "They made the tale easier to remember and retell accurately"
           ],
           "answer": "D",
@@ -557,9 +557,9 @@
         {
           "stem": "What do repeated phrases and a steady rhythm have in common in folk tales?",
           "options": [
-            "Both were invented only in modern times",
-            "Both remove any real need for a clear moral",
-            "Both appear only in written books",
+            "Both were invented only in modern times, with the telephone",
+            "Both remove any real need for a clear moral in a tale",
+            "Both appear only in written books and never in spoken tales",
             "Both are patterns that help a storyteller's memory"
           ],
           "answer": "D",
@@ -592,9 +592,9 @@
           "stem": "Why does the author explain that listeners knew the make-believe parts of a tale were not real?",
           "options": [
             "To show that folk tales use imagination without presenting fantasy as real belief",
-            "To prove that folk tales are completely and literally true",
-            "To convince readers that talking animals are real",
-            "To argue that folk tales teach no useful lessons"
+            "To prove that folk tales are completely and literally true in every detail they tell",
+            "To convince readers that talking animals are real and can be found in the forests",
+            "To argue that folk tales teach no useful lessons to children, only silly jokes"
           ],
           "answer": "A",
           "skill": "author-purpose",

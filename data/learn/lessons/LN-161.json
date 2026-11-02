@@ -93,10 +93,10 @@
      "passage": "Hind made a cake. She dropped it on the floor. Mom helped her make a new one.",
      "stem": "What happens at the end?",
      "options": [
-      "Hind drops the cake.",
-      "Hind eats the cake.",
+      "Hind drops the cake by mistake.",
+      "Hind eats the cake at the table.",
       "Mom helps make a new cake.",
-      "Mom buys a cake."
+      "Mom buys a cake from the shop."
      ],
      "answer": 2,
      "why": "At the end, Mom helps Hind make a new cake. That fixes the problem."
@@ -105,10 +105,10 @@
      "passage": "The boys play ball. The ball goes over the wall. A kind man throws it back.",
      "stem": "What is the problem?",
      "options": [
-      "The boys are tired.",
+      "The boys are tired and hot.",
       "The ball goes over the wall.",
-      "The man is kind.",
-      "The wall is new."
+      "The man is kind and old.",
+      "The wall is new and tall."
      ],
      "answer": 1,
      "why": "The problem is that the ball goes over the wall."
@@ -176,9 +176,9 @@
     "passage": "The family drove into the desert for a picnic. On the way home, the car got stuck in soft sand, and night was falling. Mona climbed the highest dune to look around. From the top, she suddenly saw the lights of a village not far away. Soon, two men from the village came with a truck and pulled the car free.",
     "stem": "Which event is the climax of the story?",
     "options": [
-     "The family drives to the desert.",
-     "The family sets up the tent.",
-     "Dad says they will reach the road by morning.",
+     "The family drives to the desert on a warm morning.",
+     "The family sets up the tent near a big dune.",
+     "Dad says they will reach the road by morning if they walk.",
      "Mona spots the lights of the village from the top of the dune."
     ],
     "answer": 3,
@@ -229,10 +229,10 @@
      "passage": "Nawaf was nervous about the swimming race. When the whistle blew, he dived in. Halfway across, he was in last place. Then he remembered his coach's words, kicked harder, and passed two swimmers just before the wall. He finished second and smiled all the way home.",
      "stem": "Which part is the climax?",
      "options": [
-      "Nawaf is nervous before the race.",
+      "Nawaf is nervous before the big race starts.",
       "Nawaf kicks harder and passes two swimmers.",
-      "Nawaf smiles all the way home.",
-      "The whistle blows."
+      "Nawaf smiles all the way home with his medal.",
+      "The whistle blows to start the race."
      ],
      "answer": 1,
      "why": "The most exciting moment is when Nawaf kicks harder and passes two swimmers. After that, the story ends."
@@ -409,10 +409,10 @@
     "passage": "Dalal had joined the debate team to prove she could win, and she had won every round so far. In the final, while the other team was speaking, she realised that one of her key facts was wrong. No one else seemed to have noticed, and admitting it would almost certainly cost her the trophy. When her turn came, she stood, took a breath, and told the judges she had made an error. The judges awarded the trophy to the other team but gave Dalal a special prize for honesty. On the bus home, she was surprised to find she felt prouder than if she had won.",
     "stem": "Which event is the climax of the story?",
     "options": [
-     "Dalal joins the debate team.",
+     "Dalal joins the debate team at the start of the year.",
      "Dalal chooses to admit the mistake in her own argument.",
-     "The other team presents its argument.",
-     "The judges announce the winners."
+     "The other team presents its argument first.",
+     "The judges announce the winners at the end."
     ],
     "answer": 1,
     "hint": "The main conflict is Dalal's struggle between winning and being honest. Where is that decided?",

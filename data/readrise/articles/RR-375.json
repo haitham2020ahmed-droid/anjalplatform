@@ -244,9 +244,9 @@
           "stem": "Which sentence best states the central idea of the story?",
           "options": [
             "A shepherd's false alarms cost him the village's trust, until honesty earns it back",
-            "A village gradually decides that wolves are not dangerous creatures",
-            "A bored shepherd boy becomes the village's most popular storyteller",
-            "A loyal sheepdog slowly teaches the villagers new farming skills"
+            "A village gradually decides that wolves are not dangerous creatures, so it stops guarding",
+            "A bored shepherd boy becomes the village's most popular storyteller and is loved by all",
+            "A loyal sheepdog slowly teaches the villagers new farming skills over many seasons"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -398,9 +398,9 @@
           "stem": "Which statement best captures the central idea of the story?",
           "options": [
             "Repeated false alarms destroy credibility, which only honesty can slowly restore",
-            "Wolves pose no genuine danger to a village's flock of sheep",
-            "A sheepdog proves more capable than any shepherd in the village",
-            "Village life stays calm and uneventful until a new shepherd arrives"
+            "Wolves pose no genuine danger to a village's flock of sheep, even at night in winter",
+            "A sheepdog proves more capable than any shepherd in the village, so the sheep follow him",
+            "Village life stays calm and uneventful until a new shepherd arrives to take over the hills"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -466,9 +466,9 @@
           "stem": "In the story, what does it mean that Samir's actions had 'misled' the village?",
           "options": [
             "His actions had given the village false, incorrect information",
-            "His actions had calmed the entire village's worries",
-            "His actions had warned the village about real danger",
-            "His actions had protected the flock from genuine harm"
+            "His actions had calmed the entire village's worries for the night",
+            "His actions had warned the village about a real danger nearby",
+            "His actions had protected the flock from genuine harm in the hills"
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -516,9 +516,9 @@
         {
           "stem": "Why does the author have the sheepdog—not Samir—convince the villagers that real danger has arrived?",
           "options": [
-            "To show that dogs are naturally smarter than every shepherd",
-            "To explain exactly how sheepdogs are trained from birth",
-            "To prove that Samir's warnings were always correct before",
+            "To show that dogs are naturally smarter than every shepherd in the village",
+            "To explain exactly how sheepdogs are trained from birth to guard flocks",
+            "To prove that Samir's warnings were always correct before this day",
             "To suggest that steady honesty earns trust that careless words cannot"
           ],
           "answer": "D",

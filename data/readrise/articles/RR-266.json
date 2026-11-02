@@ -114,9 +114,9 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How deserts are formed",
-            "How to build a bird nest",
-            "Why birds cannot fly in winter",
+            "How deserts are formed in hot places far away",
+            "How to build a bird nest in a tall tree",
+            "Why birds cannot fly in the cold winter months",
             "Why some birds fly far away and then fly back"
           ],
           "answer": "D",
@@ -148,10 +148,10 @@
         {
           "stem": "What do birds do when they fly back home in warm weather?",
           "options": [
-            "They never fly again",
-            "They stop eating completely",
+            "They never fly again after they come home",
+            "They stop eating completely for the whole season",
             "They build a nest and raise their young",
-            "They swim across the sea instead"
+            "They swim across the sea instead of flying"
           ],
           "answer": "C",
           "skill": "detail",
@@ -182,10 +182,10 @@
         {
           "stem": "In the article, migration means…",
           "options": [
-            "a type of desert sand",
-            "a kind of nest made of twigs",
+            "a type of desert sand that moves across the dunes in the wind",
+            "a kind of nest made of twigs and grass high in the trees",
             "a long trip birds make and then return from, often with the seasons",
-            "a bird that cannot fly"
+            "a bird that cannot fly and lives only on the ground near water"
           ],
           "answer": "C",
           "skill": "vocabulary",
@@ -216,10 +216,10 @@
         {
           "stem": "Why do many birds fly over the Arabian Peninsula?",
           "options": [
-            "It never gets hot there",
-            "It is the only place on Earth with food",
+            "It never gets hot there, so the birds like to rest on it and sleep",
+            "It is the only place on Earth with food and water for birds to eat",
             "It sits between Africa, Asia, and Europe, making it a useful path",
-            "Birds are not allowed to fly anywhere else"
+            "Birds are not allowed to fly anywhere else in the world, by law"
           ],
           "answer": "C",
           "skill": "inference",
@@ -293,9 +293,9 @@
         {
           "stem": "What is the main idea of this article?",
           "options": [
-            "The Arabian Peninsula has absolutely no birds living there at all.",
+            "The Arabian Peninsula has no birds living there, because the land is too dry and hot for them.",
             "All birds always stay in exactly the same one place for their whole lives.",
-            "Birds cannot survive any cold weather at all under any circumstances.",
+            "Birds cannot survive any cold weather at all, so they die when winter begins in any place.",
             "Some bird species migrate long distances each year to find food and safe places to breed."
           ],
           "answer": "D",
@@ -344,10 +344,10 @@
         {
           "stem": "Why does the Arabian Peninsula matter to many migrating bird species?",
           "options": [
-            "It has no deserts at all",
+            "It has no deserts at all, so birds can rest on green grass",
             "It is located between Africa, Asia, and Europe, forming a natural path",
-            "It is the only place birds can find water",
-            "Birds are forbidden from flying elsewhere"
+            "It is the only place that birds can find water in the whole world",
+            "Birds are forbidden by law from flying anywhere else in the region"
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -362,9 +362,9 @@
           "stem": "What happens to a migrating bird's breeding territory while it is away?",
           "options": [
             "The bird returns to it with remarkable accuracy when the weather warms",
-            "It disappears completely and is never used again",
-            "It becomes a desert",
-            "Another species takes it over permanently"
+            "It disappears completely and is never used again by any bird or animal",
+            "It becomes a dry desert in the heat and the wind of the summer",
+            "Another species takes it over permanently and keeps it"
           ],
           "answer": "A",
           "skill": "detail",
@@ -378,10 +378,10 @@
         {
           "stem": "How is this article organized?",
           "options": [
-            "It compares birds to fish species by species.",
-            "It tells the life story of a single famous bird.",
+            "It compares birds to fish species by species, and then it ends with their sounds.",
+            "It tells the life story of a single famous bird from its birth to its old age.",
             "It explains why birds migrate, then how they navigate, then why one region matters.",
-            "It lists every bird species in alphabetical order."
+            "It lists every bird species in alphabetical order, with a short note about each one."
           ],
           "answer": "C",
           "skill": "text-structure",
@@ -413,9 +413,9 @@
           "stem": "Why might several continents share some of the same migratory bird species?",
           "options": [
             "Because migration routes naturally connect regions across continents",
-            "Because all birds are born on a single continent",
-            "Because birds cannot cross any ocean",
-            "Because every species stays within one country"
+            "Because all birds are born on a single continent and never leave it",
+            "Because birds cannot cross any ocean, so they stay on the same land",
+            "Because every species stays within one country and never moves away"
           ],
           "answer": "A",
           "skill": "inference",
@@ -472,7 +472,7 @@
         {
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
-            "The Arabian Peninsula has absolutely no connection to any bird's migratory route whatsoever, scientists now say.",
+            "The Arabian Peninsula has absolutely no connection to any bird's migratory route whatsoever, scientists now say after many years of counting birds.",
             "Birds can only ever navigate by using man-made landmarks such as roads, tall buildings, and bridges.",
             "Migration is an extremely rare behavior found in only one or two bird species anywhere on the entire planet.",
             "Migratory birds use multiple natural cues to travel vast seasonal distances, often along flyways like the one over the Arabian Peninsula."
@@ -490,9 +490,9 @@
           "stem": "According to the article, what is a flyway?",
           "options": [
             "A regular, repeated migration route used by the same species generation after generation",
-            "A type of nest that birds build only very high up in tall trees",
-            "A single flight made by just one bird only once during its whole life",
-            "A long man-made runway that is built only for large airplanes to use"
+            "A type of nest that birds build only very high up in tall trees near the sea",
+            "A single flight made by just one bird only once during its whole life in the sky",
+            "A long man-made runway that is built only for large airplanes to use at the airport"
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -524,9 +524,9 @@
           "stem": "What role do staging areas play during a bird's migration?",
           "options": [
             "They give birds a place to feed intensively and recover strength before continuing",
-            "They are the bird's final, permanent home",
-            "They prevent birds from flying over deserts",
-            "They are used only by birds that do not migrate"
+            "They are the bird's final, permanent home where it stays for the whole year",
+            "They prevent birds from flying over deserts by blocking the wind and the sky",
+            "They are used only by birds that do not migrate and live near the same lake"
           ],
           "answer": "A",
           "skill": "detail",
@@ -540,10 +540,10 @@
         {
           "stem": "How does a young bird's first migration compare to an older bird's later migrations?",
           "options": [
-            "The young bird is physically unable to fly at all",
-            "The young bird always travels a much shorter route than any adult",
+            "The young bird is physically unable to fly at all, so it waits for older birds to carry it",
+            "The young bird always travels a much shorter route than any adult, and stops at every pond",
             "The young bird must rely on instinct without the guidance older birds may draw on from experience",
-            "There is no meaningful difference described in the article"
+            "There is no meaningful difference described in the article between young birds and older birds"
           ],
           "answer": "C",
           "skill": "compare",
@@ -558,9 +558,9 @@
           "stem": "What is the effect of shortening daylight hours in autumn on many bird species?",
           "options": [
             "It reduces feeding time and contributes to triggering migration toward warmer regions",
-            "It causes birds to stop building nests permanently",
-            "It makes Earth's magnetic field disappear",
-            "It eliminates the need for staging areas"
+            "It causes birds to stop building nests permanently in their old homes and stay there",
+            "It makes Earth's magnetic field disappear for a few weeks each year",
+            "It eliminates the need for staging areas where birds rest before the long flight"
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -574,10 +574,10 @@
         {
           "stem": "Why does the author describe migration as occurring on \"nearly every continent on Earth\"?",
           "options": [
-            "To argue that migration happens only in Antarctica",
+            "To argue that migration happens only in Antarctica, where the birds live and nest in the ice",
             "To emphasize how widespread and significant this natural behavior truly is",
-            "To suggest that migration is a rare, isolated event",
-            "To focus the article only on a single bird species"
+            "To suggest that migration is a rare, isolated event that few animals ever take part in at all",
+            "To focus the article only on a single bird species, the swallow, and its yearly flight"
           ],
           "answer": "B",
           "skill": "author-purpose",

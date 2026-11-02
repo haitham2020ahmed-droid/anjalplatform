@@ -114,10 +114,10 @@
         {
           "stem": "What is this story mostly about?",
           "options": [
-            "A lion cub that quickly runs away from a busy rescue center",
+            "A lion cub that quickly runs away from a busy rescue center into the bush at night",
             "A visiting student who helps care for an orphaned lion cub until it grows strong",
-            "A large group of wild lions hunting together out in nature",
-            "A small petting zoo that only ever keeps and cares for birds"
+            "A large group of wild lions hunting together out in nature all night long",
+            "A small petting zoo that only ever keeps and cares for birds and rabbits"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -148,10 +148,10 @@
         {
           "stem": "What job did Lina have to do several times a day?",
           "options": [
-            "Clean the lion enclosure",
+            "Clean the lion enclosure after lunch",
             "Feed the cub warm milk from a bottle",
-            "Take photos of the cub",
-            "Teach the cub to roar"
+            "Take photos of the cub for the zoo",
+            "Teach the cub to roar at visitors"
           ],
           "answer": "B",
           "skill": "detail",
@@ -183,9 +183,9 @@
           "stem": "Why did Lina have to stay calm and patient at first?",
           "options": [
             "The cub was too weak to drink much milk",
-            "The cub tried to bite her",
-            "The other lions were dangerous",
-            "The center had no food"
+            "The cub tried to bite her when she came close",
+            "The other lions were dangerous near the fence",
+            "The center had no food left this week"
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -200,9 +200,9 @@
           "stem": "Why did the workers let the cub meet the other lions through a fence at first?",
           "options": [
             "To keep the cub and the other lions safe while they got used to each other",
-            "Because the fence was broken",
-            "Because the cub did not like other lions",
-            "To stop the cub from eating"
+            "Because the fence was broken, and the workers needed time to fix it, so they kept the cub apart",
+            "Because the cub did not like other lions or want to play, so the workers kept them apart",
+            "To stop the cub from eating all the food at the center, because the other lions were hungry"
           ],
           "answer": "A",
           "skill": "inference",
@@ -293,9 +293,9 @@
         {
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
-            "Lion cubs in this story never need any help or care at all from humans.",
-            "Veterinary students in this story only ever study paperwork, never real animals.",
-            "The rescue center in this story only cares for birds and reptiles, nothing else.",
+            "Lion cubs in this story never need any help or care at all from humans, even when they are sick.",
+            "Veterinary students in this story only ever study paperwork, never real animals, in a small office.",
+            "The rescue center in this story only cares for birds and reptiles, nothing else, and has no lions.",
             "A veterinary student learns patience and responsibility while helping an orphaned lion cub recover."
           ],
           "answer": "D",
@@ -328,9 +328,9 @@
           "stem": "According to the article, why is a strict feeding schedule important for the cub?",
           "options": [
             "It helps the cub safely regain its strength one small step at a time",
-            "It keeps the enclosure looking clean and tidy for visitors",
+            "It keeps the enclosure looking clean and tidy for visitors, who come each day",
             "It teaches the cub how to hunt for its own food in the wild",
-            "It makes the cub sleep for most of the entire day"
+            "It makes the cub sleep for most of the entire day and night"
           ],
           "answer": "A",
           "skill": "detail",
@@ -344,10 +344,10 @@
         {
           "stem": "In the article, the word responsibility means —",
           "options": [
-            "a fun game to play",
+            "a fun game to play with friends",
             "a duty to take care of something",
-            "a kind of medicine",
-            "a type of enclosure"
+            "a kind of medicine for the sick",
+            "a type of enclosure for animals"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -362,9 +362,9 @@
           "stem": "Why did Lina have to learn patience early on?",
           "options": [
             "Rushing or forcing the weak cub to eat would cause more harm than good",
-            "The cub was too strong to hold",
-            "The center had too many visitors",
-            "The other lions were aggressive"
+            "The cub was too strong to hold, so she needed to wait until it grew tired",
+            "The center had too many visitors, so she had to be quiet and slow all day",
+            "The other lions were aggressive, so she needed to move slowly around the cages"
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -379,9 +379,9 @@
           "stem": "Why do you think the staff introduced the cub to the other lions slowly, through a fence, instead of all at once?",
           "options": [
             "To let the cub safely get used to the other lions without danger to anyone",
-            "Because the fence needed to be fixed first",
-            "Because the other lions were asleep",
-            "To hide the cub from visitors"
+            "Because the fence needed to be fixed first, before the cub could meet them, and the workers were busy",
+            "Because the other lions were asleep all day, so the cub had to wait until they woke up",
+            "To hide the cub from visitors who came to the center, so that nobody could take photos of it"
           ],
           "answer": "A",
           "skill": "inference",
@@ -413,9 +413,9 @@
           "stem": "How is Dr. Amal's role different from Lina's role in caring for the cub?",
           "options": [
             "Dr. Amal guided and taught Lina, while Lina carried out the daily feeding and care",
-            "Dr. Amal only visited once, while Lina ran the whole center",
-            "They had identical jobs with no difference",
-            "Dr. Amal fed the cub while Lina studied in a classroom"
+            "Dr. Amal only visited once, while Lina ran the whole center alone and gave all the orders every day",
+            "They had identical jobs with no difference at all, and both of them fed the cub each morning and night",
+            "Dr. Amal fed the cub while Lina studied in a classroom far away from the center and the lions"
           ],
           "answer": "A",
           "skill": "compare",
@@ -472,7 +472,7 @@
         {
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
-            "Wildlife rescue centers like this one exist only to display rescued animals to curious paying tourists every day.",
+            "Wildlife rescue centers like this one exist only to display rescued animals to curious paying tourists every day of the year, and not to care for them.",
             "Lion cubs instinctively know exactly how to feed and fully care for themselves without any human help at all.",
             "Veterinarians who work at centers exactly like this one only ever treat domestic pets, never any wild animals.",
             "A veterinary student develops patience and responsibility while nursing an orphaned lion cub back to health and helping it rejoin other rescued lions."
@@ -541,9 +541,9 @@
           "stem": "Why does the article mention that the cub's wild instincts began to emerge as it pounced on toys?",
           "options": [
             "To show that natural lion behaviors can resurface even in an animal raised partly by humans",
-            "To prove that the cub was still afraid of people",
-            "To show that toys are dangerous for cubs",
-            "To suggest the cub would never behave like a wild lion"
+            "To prove that the cub was still afraid of people and would never trust them again",
+            "To show that toys are dangerous for cubs, so rescue centers should never give them any",
+            "To suggest the cub would never behave like a wild lion, even when it grew up"
           ],
           "answer": "A",
           "skill": "inference",
@@ -575,9 +575,9 @@
           "stem": "How does Lina's veterinary-school learning compare with what she gained from caring for the cub, according to the article?",
           "options": [
             "The hands-on experience taught her things no classroom lecture could fully prepare her for",
-            "Veterinary school taught her everything; the cub taught her nothing new",
-            "The two experiences were identical in every way",
-            "Caring for the cub replaced her need for veterinary school entirely"
+            "Veterinary school taught her everything; the cub taught her nothing new at all, and she was bored with the work",
+            "The two experiences were identical in every way, so she learned the same things in a lecture and in the center",
+            "Caring for the cub replaced her need for veterinary school entirely, so she left her classes and never went back"
           ],
           "answer": "A",
           "skill": "compare",
@@ -592,9 +592,9 @@
           "stem": "Why does the author end the article by noting that the center used Lina's records to train future veterinary volunteers?",
           "options": [
             "To emphasize how disciplined observation and patience from one case can benefit future wildlife rescues",
-            "To suggest that record-keeping is unnecessary busywork",
-            "To argue that only experienced veterinarians should ever help animals",
-            "To criticize the center's training program"
+            "To suggest that record-keeping is unnecessary busywork for volunteers and doctors alike and should be stopped",
+            "To argue that only experienced veterinarians should ever help animals, and volunteers should be sent away",
+            "To criticize the center's training program for being too slow and for using too many new volunteers"
           ],
           "answer": "A",
           "skill": "author-purpose",

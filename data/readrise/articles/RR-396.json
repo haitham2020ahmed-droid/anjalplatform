@@ -114,10 +114,10 @@
         {
           "stem": "What is this story mostly about?",
           "options": [
-            "Two students studying for a difficult science test",
+            "Two students studying for a difficult science test in the library",
             "Two classmates who don't get along learning to work together",
-            "A boy who loses his favorite pet at school",
-            "A class building a small house out of wood"
+            "A boy who loses his favorite pet at school and looks for it",
+            "A class building a small house out of wood in the yard"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -148,7 +148,7 @@
         {
           "stem": "How do Layla and Yousef divide the work on their project?",
           "options": [
-            "They both only draw pictures and nothing else",
+            "They both only draw pictures and nothing else all day",
             "They both only write facts and nothing else",
             "They do not do any work on the project at all",
             "Layla writes the facts, and Yousef draws the pictures"
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the central idea of the story?",
           "options": [
-            "The teacher decides that class projects are no longer necessary for anyone",
+            "The teacher decides that class projects are no longer necessary for anyone in the whole school this year",
             "Two classmates with opposite working styles learn to compromise and discover they make a strong team",
-            "Yousef realizes that drawing pictures is more important than writing facts",
-            "Layla and Yousef are best friends from the very first day of school"
+            "Yousef realizes that drawing pictures is more important than writing facts for a report",
+            "Layla and Yousef are best friends from the very first day of school, and they never argue"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -344,10 +344,10 @@
         {
           "stem": "What happens right after Layla and Yousef argue endlessly about the assignment?",
           "options": [
-            "The teacher separates them into two different groups",
+            "The teacher separates them into two different groups, and each one works alone",
             "After a tense silence, the two finally sit down and talk things through",
-            "Yousef quits the project and refuses to continue",
-            "Layla finishes the whole project by herself that same day"
+            "Yousef quits the project and refuses to continue, so Layla must do all of it",
+            "Layla finishes the whole project by herself that same day, and Yousef just watches"
           ],
           "answer": "B",
           "skill": "sequence",
@@ -361,10 +361,10 @@
         {
           "stem": "Why does Yousef's frustration grow before the two classmates finally talk?",
           "options": [
-            "Because Layla refuses to speak to him at all during that time",
+            "Because Layla refuses to speak to him at all during that time, and walks away",
             "Because the deadline is getting closer while neither is willing to compromise",
-            "Because the teacher keeps changing the project's topic",
-            "Because Yousef realizes he dislikes drawing pictures"
+            "Because the teacher keeps changing the project's topic every week",
+            "Because Yousef realizes he dislikes drawing pictures for the class"
           ],
           "answer": "B",
           "skill": "inference",
@@ -379,9 +379,9 @@
           "stem": "What does the teacher's praise suggest about how Layla and Yousef's different approaches worked together?",
           "options": [
             "Their different strengths combined to produce better results than either could alone",
-            "Only Layla's careful planning truly mattered to the finished project",
-            "Only Yousef's quick drawing truly mattered to the finished project",
-            "Their different approaches canceled each other out and achieved nothing"
+            "Only Layla's careful planning truly mattered to the finished project, and Yousef's drawing was never used",
+            "Only Yousef's quick drawing truly mattered to the finished project, and Layla's planning was never used",
+            "Their different approaches canceled each other out and achieved nothing, so the teacher was unhappy"
           ],
           "answer": "A",
           "skill": "inference",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best captures the central idea of the passage?",
           "options": [
-            "The teacher's assigned groups always turn out to be a disaster for everyone involved",
+            "The teacher's assigned groups always turn out to be a disaster for everyone involved, so students should always pick their own partners",
             "Two students with conflicting approaches to work discover that their differences, once reconciled, can complement rather than undermine each other",
-            "Careful planning is always a better approach to any project than quick, spontaneous action",
-            "Yousef eventually abandons his own natural working style in order to satisfy Layla completely"
+            "Careful planning is always a better approach to any project than quick, spontaneous action, and students should never change a plan once it is made",
+            "Yousef eventually abandons his own natural working style in order to satisfy Layla completely, and he never works that way again"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -506,10 +506,10 @@
         {
           "stem": "What realization does Yousef come to, according to the passage's final paragraph?",
           "options": [
-            "That Layla's facts were ultimately unnecessary for the poster",
-            "That drawing quickly is always inferior to drawing slowly",
+            "That Layla's facts were ultimately unnecessary for the poster in the end",
+            "That drawing quickly is always inferior to drawing slowly and with care",
             "That careful planning could sharpen, rather than slow down, a good idea",
-            "That he should never attempt another class project again"
+            "That he should never attempt another class project again, even with a friend"
           ],
           "answer": "C",
           "skill": "detail",
@@ -540,9 +540,9 @@
         {
           "stem": "What does the passage suggest by noting that neither of them 'abandoned their own natural way of working'?",
           "options": [
-            "Their final project failed because neither one would adapt at all",
-            "Layla eventually started working exactly the way Yousef always had",
-            "Yousef eventually started working exactly the way Layla always had",
+            "Their final project failed because neither one of them would adapt or change at all, and they argued all week long",
+            "Layla eventually started working exactly the way Yousef always had, and she gave up her own way",
+            "Yousef eventually started working exactly the way Layla always had, and he gave up his own way",
             "Successful collaboration did not require either person to change who they were, only how they worked together"
           ],
           "answer": "D",
@@ -574,10 +574,10 @@
         {
           "stem": "Why does the author end the passage by explaining what each character personally learned?",
           "options": [
-            "To argue that the teacher deserves all of the credit for their success",
+            "To argue that the teacher deserves all of the credit for their success in the whole project",
             "To suggest that only Layla actually learned anything meaningful from the experience",
             "To show that the resolution changed both characters' understanding, not just their project's outcome",
-            "To prove that group projects should always be assigned randomly from now on"
+            "To prove that group projects should always be assigned randomly from now on in every single class and school"
           ],
           "answer": "C",
           "skill": "author-purpose",
@@ -591,9 +591,9 @@
         {
           "stem": "How does Layla's approach to the project compare with Yousef's throughout the passage?",
           "options": [
-            "Layla cared only about drawing, while Yousef cared only about writing facts",
-            "Layla and Yousef approached the project in exactly the same careful, planned way",
-            "Layla and Yousef approached the project in exactly the same quick, spontaneous way",
+            "Layla cared only about drawing, while Yousef cared only about writing facts, and they never worked together on the poster",
+            "Layla and Yousef approached the project in exactly the same careful, planned way, and so they never argued about it at all",
+            "Layla and Yousef approached the project in exactly the same quick, spontaneous way, and so they never made a plan for it",
             "Layla favored careful planning, while Yousef favored quick action, and both approaches proved valuable once combined"
           ],
           "answer": "D",

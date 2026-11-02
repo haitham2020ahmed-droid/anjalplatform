@@ -185,9 +185,9 @@
      "stem": "Which clause best shows WHY the match was moved?",
      "options": [
       "Because heavy rain flooded the field",
-      "Although the sun was shining",
-      "Before the players arrived",
-      "While the fans were cheering"
+      "Although the sun was shining brightly",
+      "Before the players arrived at the field",
+      "While the fans were cheering loudly"
      ],
      "answer": 0,
      "why": "A flooded field is a reason to move a match. **Because** shows the cause."
@@ -197,9 +197,9 @@
      "stem": "Which sentence best fills the gap?",
      "options": [
       "The beach is very popular in winter.",
-      "However, the beach stayed clean.",
+      "However, the beach stayed clean and empty.",
       "As a result, the sand was covered with plastic.",
-      "Next year, there will be a race."
+      "Next year, there will be a race on the beach."
      ],
      "answer": 2,
      "why": "Leaving rubbish caused the plastic on the sand, which is why volunteers cleaned it."

@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How to crush olives to make oil",
+            "How to crush olives to make oil in a press",
             "A new way to print books that made them cheaper",
-            "How clay is used to build houses",
-            "The daily life of monks in Korea"
+            "How clay is used to build houses in a village",
+            "The daily life of monks in Korea long ago"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -200,9 +200,9 @@
           "stem": "Why do you think only a few people could own a book before the printing press?",
           "options": [
             "Copying a book by hand took a very long time.",
-            "People did not like to read back then.",
-            "Paper had not been invented yet.",
-            "No one had written any books yet."
+            "People did not like to read back then, so few books were made",
+            "Paper had not been invented yet, so books were hard to make",
+            "No one had written any books yet, so there was nothing to own"
           ],
           "answer": "A",
           "skill": "inference",
@@ -216,10 +216,10 @@
         {
           "stem": "Why could metal printing blocks be used again and again?",
           "options": [
-            "They were thrown away after each page.",
+            "They were thrown away after each page was printed.",
             "Metal does not wear out as fast as soft clay.",
-            "They melted after every use.",
-            "They were only used one single time."
+            "They melted after every use in the hot sun.",
+            "They were only used one single time by a printer."
           ],
           "answer": "B",
           "skill": "inference",
@@ -362,9 +362,9 @@
           "stem": "Why did printed books cost much less than books copied by scribes?",
           "options": [
             "A press could print many pages quickly, while a scribe worked slowly by hand.",
-            "Scribes refused to copy any more books.",
-            "Printed books used less paper than handwritten ones.",
-            "Clay blocks were cheaper than metal ones."
+            "Scribes refused to copy any more books, so printers took over",
+            "Printed books used less paper than handwritten ones, so they cost less to buy",
+            "Clay blocks were cheaper than metal ones, so printing was cheap"
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -412,10 +412,10 @@
         {
           "stem": "How does the author mainly organize the article?",
           "options": [
-            "By comparing prices of paper in different countries",
-            "By listing famous scribes from each country",
+            "By comparing the prices of paper in different countries and cities",
+            "By listing famous scribes from each country and city in the world",
             "In time order, following movable type from China to Korea to Europe",
-            "By describing how to build an olive press"
+            "By describing how to build an olive press at home from wood"
           ],
           "answer": "C",
           "skill": "text-structure",
@@ -473,9 +473,9 @@
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
             "Movable type was discovered independently in more than one place and transformed how quickly ideas could spread.",
-            "Gutenberg was the only person in history to ever think of movable type.",
-            "Clay was always a better material for printing than metal.",
-            "Olive presses were more important than books in European history."
+            "Gutenberg was the only person in history to ever think of movable type, and nobody before him tried.",
+            "Clay was always a better material for printing than metal, and it is still used in printing today.",
+            "Olive presses were more important than books in European history, because they made oil for the lamps that people used to read by night."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -506,9 +506,9 @@
         {
           "stem": "What does the article say happened in Istanbul in 1727?",
           "options": [
-            "Bi Sheng invented the first clay printing blocks there.",
-            "Johannes Gutenberg built his wooden press there.",
-            "Buddhist monks printed the book Jikji there.",
+            "Bi Sheng invented the first clay printing blocks there long ago.",
+            "Johannes Gutenberg built his wooden press there in his workshop.",
+            "Buddhist monks printed the book Jikji there for their temple.",
             "Ibrahim Muteferrika established an early press using Arabic script."
           ],
           "answer": "D",
@@ -574,10 +574,10 @@
         {
           "stem": "Why might it matter that movable type was invented independently in China, Korea, and Europe?",
           "options": [
-            "It shows the idea traveled instantly between all three regions at once.",
+            "It shows the idea traveled instantly between all three regions at once, with no delay at all.",
             "It shows that this innovation was so useful, different people solved a similar problem on their own.",
-            "It proves that only Europeans ever truly understood printing.",
-            "It means the three regions used the exact same materials every time."
+            "It proves that only Europeans ever truly understood printing, and the others copied them.",
+            "It means the three regions used the exact same materials every time, in every workshop."
           ],
           "answer": "B",
           "skill": "inference",
@@ -591,7 +591,7 @@
         {
           "stem": "Why does the author likely include the detail about Ibrahim Muteferrika's press in Istanbul in 1727?",
           "options": [
-            "To argue that printing should have stayed only in Europe",
+            "To argue that printing should have stayed only in Europe for all time",
             "To show this innovation kept reaching new parts of the world over time",
             "To prove that Arabic script could never be printed at all",
             "To list every single language ever printed with movable type"

@@ -363,9 +363,9 @@
         "good": "Right! Fox and heron are specific, narrow members of the broad categories animal and bird, which makes the scene far more vivid.",
         "options": [
           "Fox and heron are much narrower, more specific words from the same categories, so they help readers picture an exact scene instead of a vague one.",
-          "The second draft describes a completely different, unrelated event.",
-          "Fox and heron are broader words than animal and bird.",
-          "The change makes no real difference to how readers picture the scene."
+          "The second draft describes a completely different, unrelated event that happened on another day, in another place, to other people entirely.",
+          "Fox and heron are broader words than animal and bird, so they give readers a much less exact picture of the whole scene.",
+          "The change makes no real difference to how readers picture the scene, because the new words mean exactly the same thing as the old ones."
         ],
         "answer": 0
       },
@@ -390,10 +390,10 @@
           "stem": "Why is 'roasted asparagus' more effective than 'a vegetable side'?",
           "why": "Asparagus names one specific vegetable, which is far more informative than the broad word vegetable.",
           "options": [
-            "Asparagus is a broader category than vegetable.",
+            "Asparagus is a broader category than vegetable, because it includes many more kinds of food.",
             "Asparagus is a specific, narrow example within the broad category vegetable, giving customers exact information.",
-            "The change describes a completely different dish.",
-            "There is no real difference between the two phrases."
+            "The change describes a completely different dish, so customers would be confused about it.",
+            "There is no real difference between the two phrases, because both of them give customers the same information."
           ],
           "answer": 1
         },
@@ -402,10 +402,10 @@
           "stem": "What makes the revised sentence more effective?",
           "why": "Specific food names are narrower and more vivid than the broad phrase local food.",
           "options": [
-            "Mangoes and corn are broader words than local food.",
-            "The revised sentence describes an entirely different market.",
+            "Mangoes and corn are broader words than local food, so they give readers a much less exact picture.",
+            "The revised sentence describes an entirely different market, with new stalls, new sellers and some new kinds of food.",
             "Mangoes and grilled corn are specific, narrow examples within the broad category local food, creating a clearer picture.",
-            "Both versions give readers exactly the same amount of detail."
+            "Both versions give readers exactly the same amount of detail, so there is no real difference between them."
           ],
           "answer": 2
         },
@@ -414,9 +414,9 @@
           "stem": "Why is the later version more precise?",
           "why": "Naming the specific vehicle types is far more precise than the broad word vehicles.",
           "options": [
-            "Delivery trucks and sedan are broader than vehicles.",
-            "The later version describes a different accident.",
-            "Both versions are equally precise.",
+            "Delivery trucks and sedan are broader than vehicles, so they give readers less exact information.",
+            "The later version describes a completely different accident, with other cars and another street at night.",
+            "Both versions are equally precise, because they tell readers the same thing about the cars and the road in different words.",
             "Delivery trucks and sedan are specific, narrower words within the broad category vehicles, giving readers an exact picture."
           ],
           "answer": 3

@@ -250,10 +250,10 @@
         {
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
-            "Monsoons occur only rarely, once every several decades",
+            "Monsoons occur only rarely, once every several decades, and no one expects them",
             "Differential heating drives seasonal winds that meteorologists now forecast",
-            "Precipitation forecasts have made monsoons perfectly predictable",
-            "Monsoon winds blow the same direction all year, never changing"
+            "Precipitation forecasts have made monsoons perfectly predictable, so no one is ever surprised",
+            "Monsoon winds blow the same direction all year, never changing from season to season"
           ],
           "answer": "B",
           "skill": "central-idea",

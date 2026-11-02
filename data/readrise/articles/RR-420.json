@@ -114,10 +114,10 @@
         {
           "stem": "What is this story mostly about?",
           "options": [
-            "A girl who gets lost in the desert",
+            "A girl who gets lost in the desert and finds her way home at night with a lamp",
             "A girl who learns from an archaeologist about pyramids and old signs",
-            "A girl who builds her own pyramid",
-            "A girl who finds gold in the sand"
+            "A girl who builds her own pyramid with sand and stone blocks",
+            "A girl who finds gold in the sand of the desert one day"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -149,9 +149,9 @@
           "stem": "What did Dr. Hana show Mona?",
           "options": [
             "A flat stone with signs on it",
-            "A map of Egypt",
-            "A photo of a pyramid",
-            "A bag of sand"
+            "A map of Egypt and the Nile",
+            "A photo of a pyramid at night",
+            "A bag of sand from the desert"
           ],
           "answer": "A",
           "skill": "detail",
@@ -165,10 +165,10 @@
         {
           "stem": "In the story, a sign is —",
           "options": [
-            "a kind of building stone",
-            "a tool that workers carry",
+            "a kind of building stone in a wall",
+            "a tool that workers carry to the site",
             "a mark that stands for something",
-            "a type of stone pyramid"
+            "a type of stone pyramid in the desert"
           ],
           "answer": "C",
           "skill": "vocabulary",
@@ -233,10 +233,10 @@
         {
           "stem": "Why does the author have Dr. Hana explain her work to Mona?",
           "options": [
-            "To show Mona is a poor listener",
+            "To show that Mona is a poor listener in the class",
             "To help readers learn facts about Egypt the way Mona does",
-            "To make the story longer",
-            "To show that archaeologists are always right"
+            "To make the story longer for the readers to enjoy",
+            "To show that archaeologists are always right about the past"
           ],
           "answer": "B",
           "skill": "author-purpose",
@@ -293,9 +293,9 @@
           "stem": "Which sentence best states the central idea of the story?",
           "options": [
             "Mona learns how archaeologists use hieroglyphs, construction methods, and historical beliefs to understand ancient Egypt, as part of real scientific study.",
-            "Mona discovers hidden treasure buried beneath the pyramid.",
-            "Mona becomes an expert at building pyramids herself.",
-            "Mona proves that ancient Egyptian gods still exist today."
+            "Mona discovers hidden treasure buried beneath the pyramid, and she keeps the gold and jewels for herself and her family.",
+            "Mona becomes an expert at building pyramids herself, and the story ends when she finishes her own tall tomb of stone.",
+            "Mona proves that ancient Egyptian gods still exist today, and she speaks with them inside the temple during the night, to the surprise of her class."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -309,10 +309,10 @@
         {
           "stem": "What is a hieroglyph, according to Dr. Hana?",
           "options": [
-            "A tool used to cut stone blocks",
+            "A tool used to cut stone blocks in the quarry",
             "A picture-sign ancient Egyptians used to write words",
-            "A type of ramp used to move heavy stones",
-            "A kind of pyramid found only in Egypt"
+            "A type of ramp used to move heavy stones up the side",
+            "A kind of pyramid found only in Egypt and nowhere else"
           ],
           "answer": "B",
           "skill": "detail",
@@ -343,9 +343,9 @@
         {
           "stem": "In the story, the word archaeologist means —",
           "options": [
-            "a person who builds new buildings",
-            "a person who guides tourists around a city",
-            "a person who writes modern books",
+            "a person who builds new buildings with bricks and glass",
+            "a person who guides tourists around a city and tells jokes",
+            "a person who writes modern books for children and adults",
             "a person who studies old things and places from the past"
           ],
           "answer": "D",
@@ -378,9 +378,9 @@
           "stem": "What can you infer about why building the pyramid took so many years?",
           "options": [
             "The work required an enormous number of workers moving stones one at a time",
-            "The workers took long breaks every single day",
-            "The pyramid was rebuilt many times after collapsing",
-            "Only one worker was allowed to build at a time"
+            "The workers took long breaks every single day, so the building was slow and the king grew tired",
+            "The pyramid was rebuilt many times after collapsing, so it took many years to finish the blocks",
+            "Only one worker was allowed to build at a time, so each stone had to wait in a long line"
           ],
           "answer": "A",
           "skill": "inference",
@@ -394,7 +394,7 @@
         {
           "stem": "What allows scholars today to understand what some hieroglyphs mean?",
           "options": [
-            "Guessing randomly until something sounds right",
+            "Guessing randomly until something sounds right to the scholars",
             "Comparing signs that repeat across many different carvings",
             "Asking modern Egyptians to translate them directly",
             "Reading a dictionary written by ancient Egyptians"
@@ -471,9 +471,9 @@
           "stem": "Which statement best captures the central idea of the story?",
           "options": [
             "Archaeological study of inscriptions, construction techniques, and ancient beliefs allows scholars to reconstruct history without endorsing beliefs they themselves do not hold.",
-            "Ancient Egyptian gods directly intervened to help build the pyramids.",
-            "Mona proves that modern engineers could never match ancient building methods.",
-            "Dr. Hana secretly believes that the gods described in the inscriptions are real and still active today."
+            "Ancient Egyptian gods directly intervened to help build the pyramids, as the inscriptions say, and so Dr. Hana teaches that they are real and active.",
+            "Mona proves that modern engineers could never match ancient building methods, and Dr. Hana agrees that no one today can ever build such pyramids at all.",
+            "Dr. Hana secretly believes that the gods described in the inscriptions are real and still active today, and she tells the class that she prays to them every night."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -487,10 +487,10 @@
         {
           "stem": "According to Dr. Hana, how do scholars decode the meaning of unfamiliar hieroglyphs?",
           "options": [
-            "By translating them instantly using a modern dictionary",
-            "By asking current religious leaders what the symbols mean",
+            "By translating them instantly using a modern dictionary of the old words",
+            "By asking current religious leaders what the symbols mean to them",
             "By comparing symbols that recur across numerous inscriptions and monuments",
-            "By guessing based on how the symbols look"
+            "By guessing based on how the symbols look to the eye"
           ],
           "answer": "C",
           "skill": "detail",
@@ -556,9 +556,9 @@
           "stem": "What can readers infer about the reliability of a single, uncompared guess at a hieroglyph's meaning?",
           "options": [
             "A single guess could be mistaken and mislead other scholars for years",
-            "A single guess is always completely accurate",
-            "A single guess is official once an archaeologist states it",
-            "A single guess requires no further checking"
+            "A single guess is always completely accurate, so nobody needs to check it later",
+            "A single guess is official once an archaeologist states it in public",
+            "A single guess requires no further checking by other scholars"
           ],
           "answer": "A",
           "skill": "inference",
@@ -572,10 +572,10 @@
         {
           "stem": "What was the ultimate cause of the pyramid's immense scale, according to Dr. Hana's explanation?",
           "options": [
-            "A single wealthy ruler personally lifting each stone",
-            "Supernatural forces moving the stones overnight",
+            "A single wealthy ruler personally lifting each stone by himself",
+            "Supernatural forces moving the stones overnight while workers slept",
             "Many thousands of coordinated workers laboring together for years",
-            "Modern machinery secretly used in ancient times"
+            "Modern machinery secretly used in ancient times by the builders"
           ],
           "answer": "C",
           "skill": "cause-effect",
@@ -589,10 +589,10 @@
         {
           "stem": "Why does the author have Mona ask how scholars can be certain about a hieroglyph's meaning?",
           "options": [
-            "To suggest that archaeology is really just random guessing",
+            "To suggest that archaeology is really just random guessing by scholars with old books",
             "To show that careful, evidence-based methods, not guesswork, are behind historical knowledge",
-            "To prove that ancient Egyptian writing cannot be understood at all",
-            "To criticize Dr. Hana for her teaching methods"
+            "To prove that ancient Egyptian writing cannot be understood by anyone at all",
+            "To criticize Dr. Hana for her weak and boring teaching methods in the lab"
           ],
           "answer": "B",
           "skill": "author-purpose",

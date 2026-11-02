@@ -183,9 +183,9 @@
           "stem": "How are asteroids different from comets?",
           "options": [
             "Asteroids are rock and metal, but comets are mostly ice.",
-            "Asteroids are mostly ice, but comets are rock.",
-            "Asteroids always grow long, bright tails.",
-            "Comets never move around the sun."
+            "Asteroids are mostly ice, but comets are made of rock.",
+            "Asteroids always grow long, bright tails near the Sun.",
+            "Comets never move around the sun in space."
           ],
           "answer": "A",
           "skill": "compare",
@@ -199,10 +199,10 @@
         {
           "stem": "Why do comets grow long, bright tails but asteroids usually do not?",
           "options": [
-            "Comets move faster than asteroids.",
-            "Comets are closer to Earth than asteroids.",
+            "Comets move faster than asteroids do, and the speed makes a tail of bright dust.",
+            "Comets are closer to Earth than asteroids are, so the Sun lights their tails brightly.",
             "Comets have ice that can heat up near the sun, but asteroids do not have much ice.",
-            "Asteroids are too big to grow tails."
+            "Asteroids are too big to grow tails, because only small, light objects can grow them."
           ],
           "answer": "C",
           "skill": "inference",
@@ -216,10 +216,10 @@
         {
           "stem": "Why do scientists want to know if an asteroid is coming close to Earth?",
           "options": [
-            "So they can paint pictures of it",
+            "So they can paint pictures of it for their books",
             "So they can warn people and understand any danger",
-            "So they can turn it into a new planet",
-            "So they can race it with a spaceship"
+            "So they can turn it into a new planet in the sky",
+            "So they can race it with a spaceship around the Sun"
           ],
           "answer": "B",
           "skill": "inference",
@@ -233,10 +233,10 @@
         {
           "stem": "How does the author organize the information in this article?",
           "options": [
-            "By telling a made-up story about a trip through space",
+            "By telling a made-up story about a trip through space on a rocket ship",
             "By explaining what asteroids are, where they are, and how they are tracked",
-            "By listing steps to build a telescope",
-            "By comparing every planet in the solar system"
+            "By listing steps to build a telescope, from the lens to the stand",
+            "By comparing every planet in the solar system, one by one, from the Sun"
           ],
           "answer": "B",
           "skill": "text-structure",
@@ -310,10 +310,10 @@
         {
           "stem": "According to the article, why did asteroids never grow into full planets?",
           "options": [
-            "They are too far from the sun to grow.",
+            "They are too far from the sun to grow, because the cold keeps all the dust frozen.",
             "Fragments of rock and metal never grew large enough, partly because of Jupiter's gravity.",
-            "They are made of ice, which cannot form a planet.",
-            "They formed after all the planets were already complete."
+            "They are made of ice, which cannot form a planet, so they melt when they come near.",
+            "They formed after all the planets were already complete, so nothing was left to join them."
           ],
           "answer": "B",
           "skill": "detail",
@@ -378,10 +378,10 @@
         {
           "stem": "What can you infer about why scientists created the term \"near-Earth object\"?",
           "options": [
-            "To describe only objects that have already hit Earth",
+            "To describe only objects that have already hit Earth in the past, and nothing that flies near it",
             "To identify asteroids whose orbits bring them close enough to Earth to need tracking",
-            "To describe comets that never leave the asteroid belt",
-            "To name asteroids that are bigger than planets"
+            "To describe comets that never leave the asteroid belt of the sun",
+            "To name asteroids that are bigger than planets in the solar system"
           ],
           "answer": "B",
           "skill": "inference",
@@ -396,9 +396,9 @@
           "stem": "What can you infer from the fact that asteroid material has remained largely unchanged for billions of years?",
           "options": [
             "Asteroids can give scientists clues about what the early solar system was like.",
-            "Asteroids are the youngest objects in the solar system.",
-            "Asteroids change their composition every year.",
-            "Scientists cannot learn anything new from asteroids."
+            "Asteroids are the youngest objects in the solar system, formed only a few years ago.",
+            "Asteroids change their composition every year, so scientists must study them again.",
+            "Scientists cannot learn anything new from asteroids because they are far too old."
           ],
           "answer": "A",
           "skill": "inference",
@@ -523,10 +523,10 @@
         {
           "stem": "Read: \"countless small fragments of rock and metal attempted to coalesce.\" What does coalesce mean here?",
           "options": [
-            "Break apart into smaller pieces",
+            "Break apart into smaller pieces and fly away from each other",
             "Come together and combine into a larger mass",
-            "Melt completely into liquid",
-            "Disappear into empty space"
+            "Melt completely into liquid in the heat of space",
+            "Disappear into empty space and leave no trace"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -575,9 +575,9 @@
           "stem": "Why might ongoing survey programs that catalog near-Earth objects years in advance be considered valuable?",
           "options": [
             "They allow scientists and officials time to study and prepare for any potential close approach.",
-            "They guarantee that no asteroid will ever approach Earth again.",
-            "They are only useful for naming new comets.",
-            "They replace the need for any telescopes."
+            "They guarantee that no asteroid will ever approach Earth again, so people can stop watching the sky.",
+            "They are only useful for naming new comets, so they do not help to keep anyone safe.",
+            "They replace the need for any telescopes, because the surveys use only maps and old books."
           ],
           "answer": "A",
           "skill": "inference",

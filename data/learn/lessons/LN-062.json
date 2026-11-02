@@ -189,9 +189,9 @@
      "passage": "The children were laughing loudly.",
      "stem": "Is laughing a gerund?",
      "options": [
-      "Yes, it is the subject.",
-      "Yes, because it ends in -ing.",
-      "No, it is an infinitive.",
+      "Yes, it is the subject of the sentence.",
+      "Yes, because it ends in -ing like many words.",
+      "No, it is an infinitive that follows the verb.",
       "No, it is part of the verb were laughing."
      ],
      "answer": 3,
@@ -302,8 +302,8 @@
      "options": [
       "as a gerund, naming an activity",
       "as a participle, describing the kettle",
-      "as the main verb",
-      "as an infinitive"
+      "as the main verb, naming the action",
+      "as an infinitive, starting with to"
      ],
      "answer": 1,
      "why": "Whistling tells what kind of kettle, so it is a participle used as an adjective."
@@ -312,9 +312,9 @@
      "passage": "She saved her money to buy a bike.",
      "stem": "What does the infinitive to buy tell?",
      "options": [
-      "what she saved",
-      "when she saved",
-      "who saved",
+      "what she saved in a box",
+      "when she saved each week",
+      "who saved the money",
       "why she saved her money"
      ],
      "answer": 3,
@@ -410,10 +410,10 @@
      "passage": "Hoping to win the prize, the poster was decorated with gold paint.",
      "stem": "Which revision fixes the dangling participle?",
      "options": [
-      "Hoping to win the prize, the poster had gold paint.",
-      "The poster, hoping to win the prize, was decorated.",
+      "Hoping to win the prize, the poster had gold paint all over it.",
+      "The poster, hoping to win the prize, was decorated by Mona.",
       "Hoping to win the prize, Mona decorated the poster with gold paint.",
-      "Hoping to win, gold paint decorated the poster."
+      "Hoping to win the prize, gold paint decorated the poster."
      ],
      "answer": 2,
      "why": "Mona is the one hoping to win, so she must be the subject right after the comma."
@@ -422,10 +422,10 @@
      "passage": "Learning to swim in the sea takes courage.",
      "stem": "What job does the phrase Learning to swim in the sea do?",
      "options": [
-      "It is a participial phrase describing courage.",
+      "It is a participial phrase that is describing courage.",
       "It is a gerund phrase that is the subject of the sentence.",
-      "It is an infinitive phrase that tells why.",
-      "It is the main verb of the sentence."
+      "It is an infinitive phrase that tells why it happens.",
+      "It is the main verb of the first sentence in the text."
      ],
      "answer": 1,
      "why": "The phrase names an activity and is the subject of takes, so it is a gerund phrase."

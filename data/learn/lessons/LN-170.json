@@ -88,9 +88,9 @@
     "passage": "Story 1: Ali's friend fell off his bike. Ali helped him up and shared his snack. Story 2: A bird saw a lost chick. The bird led the chick back to its nest.",
     "stem": "What is the theme of both stories?",
     "options": [
-     "Bikes are fun.",
-     "Birds can fly.",
-     "Snacks are tasty.",
+     "Bikes are fun to ride.",
+     "Birds can fly very high.",
+     "Snacks are tasty and cheap.",
      "It is good to help others."
     ],
     "answer": 3,
@@ -117,10 +117,10 @@
      "passage": "Hala was new at school. Nobody played with her. Then Mona asked her to play. Now they are best friends.",
      "stem": "What is the theme?",
      "options": [
-      "School is big.",
+      "School is big and very busy.",
       "A little kindness can make a friend.",
-      "Games are hard.",
-      "New things are bad."
+      "Games are hard for little kids.",
+      "New things are bad for most children."
      ],
      "answer": 1,
      "why": "Mona was kind to Hala, and they became best friends."
@@ -130,9 +130,9 @@
      "stem": "What is the theme?",
      "options": [
       "Telling the truth is best.",
-      "Cups break easily.",
-      "Moms like hugs.",
-      "Night is dark."
+      "Cups break easily if dropped.",
+      "Moms like hugs and kisses.",
+      "Night is dark and quiet."
      ],
      "answer": 0,
      "why": "Badr felt bad after lying and better after telling the truth."
@@ -141,10 +141,10 @@
      "passage": "Story 1: Ant saved food all summer. In winter, she had enough to eat. Story 2: Huda saved her coins all year. She bought a gift for her mom.",
      "stem": "What theme do both stories share?",
      "options": [
-      "Ants are small.",
-      "Winter is cold.",
+      "Ants are small but strong.",
+      "Winter is cold and snowy.",
       "Saving now helps you later.",
-      "Gifts are for moms."
+      "Gifts are for moms and dads."
      ],
      "answer": 2,
      "why": "Ant and Huda both saved, and it helped them later."
@@ -200,10 +200,10 @@
     "passage": "Reem wanted to build a kite for the family picnic. She tried by herself, but the frame broke twice. Her cousin Fahd cut the sticks, her sister Lama tied the string, and Reem glued the paper. When the wind lifted the kite high above the beach, all three cousins cheered. \"We did it together,\" Reem said.",
     "stem": "Which sentence best states the theme of the story?",
     "options": [
-     "Kites are hard to make.",
+     "Kites are hard to make, so children should always buy them.",
      "Working together can solve problems that one person cannot.",
-     "Older brothers are always right.",
-     "Wind is strong in winter."
+     "Older brothers are always right about how to fly kites.",
+     "Wind is strong in winter, so kites fly high on cold days."
     ],
     "answer": 1,
     "hint": "Look at what happened when Reem tried alone and what happened when the cousins worked together.",
@@ -232,7 +232,7 @@
      "passage": "Majed loved to boast that he was the fastest runner in school. He laughed at the slower boys. On sports day, he stopped to wave at the crowd, tripped, and finished last. A quiet boy he had laughed at won the race.",
      "stem": "What is the theme of the story?",
      "options": [
-      "Sports day is fun.",
+      "Sports day is fun for all.",
       "Running fast is easy.",
       "Pride can lead to a fall.",
       "Crowds like to wave."
@@ -258,8 +258,8 @@
      "options": [
       "Facing fear can lead to success.",
       "Mothers sit in front rows.",
-      "School shows are long.",
-      "Teachers like singing."
+      "School shows are long and loud.",
+      "Teachers like singing in class."
      ],
      "answer": 0,
      "why": "Nada was afraid, but she faced her fear and sang. The whole hall clapped."
@@ -316,9 +316,9 @@
     "stem": "Which theme is best developed in the story?",
     "options": [
      "True courage means doing what is right even when it is hard.",
-     "Exams are the most important part of school.",
-     "Teachers always notice everything.",
-     "Friends should always share their answers."
+     "Exams are the most important part of school for every student.",
+     "Teachers always notice everything that the students do.",
+     "Friends should always share their answers in the exams."
     ],
     "answer": 0,
     "hint": "Look at the hard choice Abdullah makes and why. What does it teach?",
@@ -370,10 +370,10 @@
      "passage": "The new girl in class spoke little English, and the others ignored her. Tala began sitting with her at lunch, teaching her words with pictures. By the end of term, the new girl was helping Tala with maths, and the two were inseparable.",
      "stem": "Which theme does the story develop?",
      "options": [
-      "Lunch is the best part of school.",
+      "Lunch is the best part of the school day for pupils.",
       "Reaching out to others can enrich both sides.",
-      "Maths is harder than English.",
-      "Pictures are better than words."
+      "Maths is harder than English for most pupils.",
+      "Pictures are better than words in every story."
      ],
      "answer": 1,
      "why": "Tala helps the new girl, and later the new girl helps Tala. Reaching out benefited both."
@@ -429,10 +429,10 @@
     "passage": "Yasir's grandfather often sang the old songs that pearl divers once sang on their long voyages. Yasir thought they were outdated; his phone was full of newer music. One evening, his grandfather explained that the songs had kept the divers' spirits up during months away from home, and that each verse held the name of a lost friend. Yasir listened in silence and asked him to sing one more time. The next week, he recorded his grandfather singing every song he could remember and played them for his class.",
     "stem": "Which statement best expresses a theme developed in the passage?",
     "options": [
-     "Technology always makes life worse.",
-     "Young people do not respect older people.",
+     "Technology always makes life worse for most people.",
+     "Young people do not respect older people in the old town.",
      "Even in a changing world, some traditions are worth keeping.",
-     "Pearl diving was a dangerous job."
+     "Pearl diving was a dangerous job for many men at sea."
     ],
     "answer": 2,
     "hint": "Track how Yasir's view of the songs changes, and look at what he does at the end.",
@@ -472,10 +472,10 @@
      "passage": "The old lighthouse keeper refused to leave when the new automatic light was installed. \"A machine can turn a lamp,\" he said, \"but it cannot watch the sea.\" Months later, on a night of heavy fog, the automatic light failed. It was the keeper, still watching from his window, who rang the warning bell and saved a fishing boat.",
      "stem": "Which theme does the story's ending most strongly support?",
      "options": [
-      "Machines are always better than people.",
+      "Machines are always better than people at every job.",
       "Human care and attention cannot be fully replaced.",
-      "Lighthouses are no longer needed.",
-      "Fishing boats should not sail in fog."
+      "Lighthouses are no longer needed by ships at sea.",
+      "Fishing boats should not sail in fog or at night."
      ],
      "answer": 1,
      "why": "When the machine failed, the keeper's watchfulness saved the boat. The ending supports the value of human care."

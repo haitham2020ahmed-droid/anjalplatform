@@ -115,9 +115,9 @@
           "stem": "What is this story mostly about?",
           "options": [
             "A class that gets caught in a sandstorm and stays calm to find shelter together",
-            "A class trip to the beach that gets rained on",
-            "A bus that breaks down somewhere in the desert",
-            "A teacher who forgets the way back home"
+            "A class trip to the beach that gets rained on, so the children go home early",
+            "A bus that breaks down somewhere in the desert, and the driver must call for help",
+            "A teacher who forgets the way back home, so the class walks in circles all day"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -216,10 +216,10 @@
         {
           "stem": "How did Omar feel when he remembered his safety drill?",
           "options": [
-            "Confused and too sleepy to move",
-            "Angry at all of his classmates",
+            "Confused and too sleepy to move or speak",
+            "Angry at all of his classmates in the bus",
             "Focused and ready to help his classmates",
-            "Bored with the whole class trip"
+            "Bored with the whole class trip to the park"
           ],
           "answer": "C",
           "skill": "inference",
@@ -233,9 +233,9 @@
         {
           "stem": "Why does the story end with Ms. Huda saying the training kept them safe?",
           "options": [
-            "To show that teachers are always right",
-            "To explain how to drive a rescue truck",
-            "To show that sandstorms are never dangerous",
+            "To show that teachers are always right about everything they say",
+            "To explain how to drive a rescue truck in a sandstorm",
+            "To show that sandstorms are never dangerous for children outdoors",
             "To show that practicing safety steps really helps in an emergency"
           ],
           "answer": "D",
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the central idea of the story?",
           "options": [
-            "A group of students get lost forever in the desert.",
+            "A group of students get lost forever in the desert and are never found by any rescue team or by their families.",
             "A class caught in a sudden sandstorm works together, remembers safety training, and finds shelter until help arrives.",
-            "A teacher argues with her students about where to go.",
-            "A bus breaks down and nobody knows what to do."
+            "A teacher argues with her students about where to go during a long field trip, and they split into two groups.",
+            "A bus breaks down on a lonely road and nobody knows what to do, so they all wait in the hot sun for a day."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -362,9 +362,9 @@
           "stem": "Why did panic spread through the group when the sandstorm began?",
           "options": [
             "The students could barely see and did not know where to go",
-            "The bus had already left without them",
-            "Ms. Huda had disappeared",
-            "The lizards they saw earlier scared them"
+            "The bus had already left without them, and they were far from home",
+            "Ms. Huda had disappeared, and nobody could find her",
+            "The lizards they saw earlier scared them, so they ran in all directions"
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -395,10 +395,10 @@
         {
           "stem": "Why did Ms. Huda project her voice with composure despite her own concern?",
           "options": [
-            "She was not actually worried at all",
+            "She was not actually worried at all, and she wanted to joke with them",
             "She wanted to calm the students and help them think clearly",
-            "She wanted the class to stop singing",
-            "She wanted to scold the students for running"
+            "She wanted the class to stop singing so the room would be quiet",
+            "She wanted to scold the students for running in the hallway"
           ],
           "answer": "B",
           "skill": "inference",
@@ -412,10 +412,10 @@
         {
           "stem": "How does the author organize the events of the story?",
           "options": [
-            "By comparing two different storms",
-            "By describing Ms. Huda's entire teaching career",
+            "By comparing two different storms that hit the coast in two different years of the past",
+            "By describing Ms. Huda's entire teaching career, from her first class to her retirement day",
             "By following the class from the calm start of the trip through the emergency to final safety",
-            "By listing facts about desert lizards"
+            "By listing facts about desert lizards and the places where each kind of lizard lives"
           ],
           "answer": "C",
           "skill": "text-structure",
@@ -473,9 +473,9 @@
           "stem": "Which statement best captures the central idea of the story?",
           "options": [
             "A field trip turns into a genuine emergency, and the students' composure and rehearsed precautions, rather than luck, determine their safe outcome.",
-            "A field trip ends early because of bad weather reports.",
-            "A class learns which desert plants are best to eat during emergencies.",
-            "A teacher punishes students for running during the storm."
+            "A field trip ends early because of bad weather reports, and the bus drives home before lunch time, with all students tired and sad.",
+            "A class learns which desert plants are best to eat during emergencies and gathers them all day, when the teacher is not looking.",
+            "A teacher punishes students for running during the storm, so they feel afraid of the whole trip and refuse to go on any more field trips."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -506,10 +506,10 @@
         {
           "stem": "What specific action did the rescue crew take once they learned of the storm?",
           "options": [
-            "They waited at the school until the storm passed",
-            "They ignored the reports entirely",
+            "They waited at the school until the storm passed over the town",
+            "They ignored the reports entirely and stayed home",
             "They coordinated quickly and arrived once the storm subsided",
-            "They sent a helicopter instead of a truck"
+            "They sent a helicopter instead of a truck to the village"
           ],
           "answer": "C",
           "skill": "detail",
@@ -541,9 +541,9 @@
           "stem": "What was the main effect of Omar's clear thinking during the emergency?",
           "options": [
             "The students took protective action together instead of scattering",
-            "The storm ended more quickly than expected",
-            "The class panicked even more than before",
-            "Ms. Huda no longer needed to give instructions"
+            "The storm ended more quickly than anyone expected, so the class went home",
+            "The class panicked even more than they did before, and ran away",
+            "Ms. Huda no longer needed to give any instructions to the class at all"
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -574,10 +574,10 @@
         {
           "stem": "How does Omar's response to the crisis differ from the panicked students' initial reactions?",
           "options": [
-            "Omar also runs blindly, just in a different direction",
-            "Omar relies entirely on Ms. Huda and takes no independent action",
+            "Omar also runs blindly, just in a different direction, and he gets lost in the smoke",
+            "Omar relies entirely on Ms. Huda and takes no independent action, even when she is far away",
             "Omar draws on rehearsed precautions to act deliberately, while the panicked students react impulsively",
-            "Omar and the panicked students behave in exactly the same way"
+            "Omar and the panicked students behave in exactly the same way, shouting and pushing at the door"
           ],
           "answer": "C",
           "skill": "inference",

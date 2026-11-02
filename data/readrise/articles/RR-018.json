@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How to build a drum at home",
+            "How to build a drum at home from a tin can and string",
             "How sound is made, how it moves, and how we hear it",
-            "Why storms are dangerous",
-            "How bats catch bugs"
+            "Why storms are dangerous for small boats at sea",
+            "How bats catch bugs at night in the dark"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -165,9 +165,9 @@
         {
           "stem": "Through which of these does sound move the fastest?",
           "options": [
-            "Air",
-            "Water in a lake",
-            "Empty outer space",
+            "Air that is warm and still",
+            "Water in a lake or a pool",
+            "Empty outer space, no air",
             "Hard things like steel"
           ],
           "answer": "D",
@@ -233,10 +233,10 @@
         {
           "stem": "Why does the author begin the article with someone hitting a drum?",
           "options": [
-            "To show that drums are the loudest sound",
+            "To show that drums are the loudest sound in the world",
             "To give an easy example of something that vibrates",
-            "To tell the history of drums",
-            "To explain how bats find food"
+            "To tell the history of drums from long ago",
+            "To explain how bats find food in the dark night sky"
           ],
           "answer": "B",
           "skill": "author-purpose",
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
-            "Bats and dolphins are the best listeners in nature.",
-            "Thunder is louder than any other sound.",
+            "Bats and dolphins are the best listeners in nature, hearing sounds that people cannot.",
+            "Thunder is louder than any other sound, because lightning makes the air shake.",
             "Sound is a wave of vibrations that needs a medium to travel and is heard by our ears.",
-            "Steel is the best material for carrying sound."
+            "Steel is the best material for carrying sound, since it is hard and very smooth."
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -412,9 +412,9 @@
         {
           "stem": "How does the author explain the way sound passes from particle to particle?",
           "options": [
-            "By listing the speeds of sound in many cities",
-            "By telling a story about a famous scientist",
-            "By giving a step-by-step experiment",
+            "By listing the speeds of sound in many cities around the world and in the sea",
+            "By telling a story about a famous scientist who listened to the sea",
+            "By giving a step-by-step experiment with a drum and some rice",
             "By comparing it to a line of people passing along a message"
           ],
           "answer": "D",
@@ -473,9 +473,9 @@
           "stem": "Which statement best summarizes the article?",
           "options": [
             "Sound waves are vibrations passed through a medium, and their frequency and amplitude shape what our ears and brain detect.",
-            "Thunderstorms are dangerous because light is faster than sound.",
-            "Animals hear better than people because they use echolocation.",
-            "Steel is the most useful material in the world."
+            "Thunderstorms are dangerous because light is faster than sound, so people always see lightning before they hear the thunder.",
+            "Animals hear better than people because they use echolocation to find food in the dark and in the sea.",
+            "Steel is the most useful material in the world because it is strong and can be made into many things."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -506,10 +506,10 @@
         {
           "stem": "Why does sound travel faster in water and steel than in air?",
           "options": [
-            "Water and steel are colder than air.",
+            "Water and steel are colder than air, so sound moves through them with more speed.",
             "Their particles are packed more closely, so they pass vibrations along faster.",
-            "Water and steel make the sound louder.",
-            "Light helps sound move through them."
+            "Water and steel make the sound louder, and so it reaches faraway places sooner.",
+            "Light helps sound move through them, because light travels very fast in the water."
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -540,10 +540,10 @@
         {
           "stem": "Which sequence shows how you hear a sound after it reaches your ear?",
           "options": [
-            "Brain, cochlea, eardrum, bones",
-            "Cochlea, eardrum, brain, bones",
+            "Brain, cochlea, eardrum, bones, in that order",
+            "Cochlea, eardrum, brain, bones, in that order",
             "Eardrum, three tiny bones, cochlea, brain",
-            "Bones, brain, eardrum, cochlea"
+            "Bones, brain, eardrum, cochlea, in that order"
           ],
           "answer": "C",
           "skill": "sequence",
@@ -574,10 +574,10 @@
         {
           "stem": "A science fiction film shows a spaceship explosion with a huge roar. Based on the article, what is wrong with this scene?",
           "options": [
-            "The roar should have a higher pitch.",
+            "The roar should have a higher pitch in space, as the sound travels fast.",
             "The explosion should be silent because space has almost no particles to transmit sound.",
-            "The roar should reach the audience before the flash of light.",
-            "Explosions do not cause vibrations."
+            "The roar should reach the audience before the flash of light, as sound is quick and bright.",
+            "Explosions do not cause vibrations in the air or in the ship at all."
           ],
           "answer": "B",
           "skill": "inference",

@@ -221,7 +221,7 @@
      "passage": "\"I can carry it,\" said Maha. She lifted the heavy box and walked slowly to the car. Her mother smiled.",
      "stem": "What is the point of view?",
      "options": [
-      "First person, because Maha says I",
+      "First person, because Maha says I and me",
       "First person, told by Maha's mother",
       "First person, told by the heavy box",
       "Third person, because the narrator uses she"
@@ -319,8 +319,8 @@
      "passage": "Hassan smiled at his little brother and said the test was easy. Inside, he was worried that he had failed. His brother, Ali, believed him and felt proud. Neither boy knew that their teacher was already writing a kind note about Hassan's hard work.",
      "stem": "What can this third-person narrator do that a first-person narrator could not?",
      "options": [
-      "Use the word I to tell the story",
-      "Tell only what Ali sees and hears",
+      "Use the word I to tell the story of the day",
+      "Tell only what Ali sees and hears in the room",
       "Share several characters' thoughts and secrets",
       "Tell the story only through dialogue"
      ],
@@ -343,9 +343,9 @@
      "passage": "Version A: I opened the box and gasped. It was the camera I had wanted for a year!\nVersion B: Laila opened the box and gasped. It was the camera she had wanted for a year.",
      "stem": "How are the two versions different?",
      "options": [
-      "Version A is about a different gift.",
+      "Version A is about a different gift, not the one in B.",
       "Version B shows Laila's thoughts more closely.",
-      "Both versions are told in third person.",
+      "Both versions are told in third person, by an outside narrator.",
       "Version A is first person, and Version B is third person."
      ],
      "answer": 3,
@@ -435,7 +435,7 @@
      "options": [
       "It shows the fish coming, which the characters cannot see.",
       "It hides everything important from the reader.",
-      "It shows only the granddaughter's thoughts.",
+      "It shows only the granddaughter's thoughts and feelings.",
       "It lets the fisherman tell his own story as I."
      ],
      "answer": 0,
@@ -445,10 +445,10 @@
      "passage": "Suha read the letter twice. Her hands felt cold. Was it bad news, or was she reading it wrong? She could hear her father in the next room, talking on the phone, but she could not make out the words.",
      "stem": "Which detail best shows that this is third-person limited?",
      "options": [
-      "Suha read the letter twice.",
-      "Her father was in the next room.",
+      "Suha read the letter twice at her desk.",
+      "Her father was in the next room, reading.",
       "She could not make out her father's words.",
-      "The letter was written on paper."
+      "The letter was written on thick white paper."
      ],
      "answer": 2,
      "why": "We only know what Suha knows. Like her, we cannot hear her father's words, so we stay inside her view."

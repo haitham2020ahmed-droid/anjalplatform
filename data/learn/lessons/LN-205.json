@@ -58,10 +58,10 @@
     "passage": "It was a cold morning. The sun peeked over the hill. At first, only a little light came out. Then the sky slowly got bright.",
     "stem": "What does \"the sun peeked over the hill\" mean?",
     "options": [
-     "The sun was hiding.",
-     "The sun went down.",
+     "The sun was hiding in the sky.",
+     "The sun went down at night.",
      "The sun began to come up.",
-     "The sun was very hot."
+     "The sun was very hot that day."
     ],
     "answer": 2,
     "hint": "People peek when they look out a little. What did the sun do? Read the next sentences.",
@@ -168,7 +168,7 @@
     "options": [
      "The car has a radio that talks.",
      "The car makes noise and is hard to start.",
-     "Dad is angry at the car.",
+     "Dad is angry at the car every single morning.",
      "The car starts easily every time."
     ],
     "answer": 1,
@@ -209,8 +209,8 @@
      "stem": "What does \"the camera loves my sister\" mean?",
      "options": [
       "She always looks good in photos.",
-      "She owns many cameras.",
-      "The camera is her friend.",
+      "She owns many cameras at home.",
+      "The camera is her best friend.",
       "She never smiles in photos."
      ],
      "answer": 0,
@@ -220,10 +220,10 @@
      "passage": "The tall palm trees waved to us as we drove into the oasis. Their long leaves swayed in the breeze.",
      "stem": "What were the palm trees really doing?",
      "options": [
-      "Saying hello",
-      "Falling down",
+      "Saying hello to us",
+      "Falling down slowly",
       "Moving in the wind",
-      "Growing taller"
+      "Growing taller each day"
      ],
      "answer": 2,
      "why": "Trees cannot wave hello. The next sentence shows their leaves swayed in the breeze."
@@ -306,9 +306,9 @@
      "stem": "What is the effect of the word attacked?",
      "options": [
       "It makes the storm seem gentle and kind.",
-      "It shows that the storm was short.",
+      "It shows that the storm was short and not strong.",
       "It makes the storm seem violent, like an enemy.",
-      "It shows the storm was far away."
+      "It shows the storm was far away from town."
      ],
      "answer": 2,
      "why": "Attacked, hurled and tore are violent human actions. They show the storm was fierce and dangerous."
@@ -318,9 +318,9 @@
      "stem": "What does the personification suggest?",
      "options": [
       "The garden looks neglected and sad without Grandpa.",
-      "The garden is growing better than before.",
-      "Grandpa planted new roses.",
-      "The lemon tree is too young to grow fruit."
+      "The garden is growing better than before, with bright flowers.",
+      "Grandpa planted new roses along the wall last week.",
+      "The lemon tree is too young to grow fruit this year."
      ],
      "answer": 0,
      "why": "Sulking, hanging heads and not bothering show a sad, neglected garden, as if it misses Grandpa."
@@ -329,8 +329,8 @@
      "passage": "Huda's alarm clock shrieked at five o'clock. She groaned, pulled the blanket over her head, and wished it would leave her alone.",
      "stem": "What does the word shrieked add to the scene?",
      "options": [
-      "It shows the clock was broken.",
-      "It shows Huda loves her alarm clock.",
+      "It shows the clock was broken and silent.",
+      "It shows Huda loves her alarm clock very much.",
       "It shows the clock was quiet and calm.",
       "It makes the sound seem harsh and unwelcome."
      ],
@@ -388,9 +388,9 @@
     "passage": "The old well at the edge of the village had served the people for three hundred years. In the author's memory, it was a generous host: it greeted every traveller with cool water and listened patiently to the women's stories as they filled their jars. Then pipes brought water directly into each house. Year by year, fewer people visited the well. Today it sits alone behind a fence, forgotten, its stone lips dry and cracked, waiting for visitors who no longer come. The author ends by asking whether progress must always leave something behind.",
     "stem": "What does the personification of the well suggest about the author's view?",
     "options": [
-     "The author is glad the old well is no longer used.",
+     "The author is glad the old well is no longer used by the village.",
      "The author feels the well was part of community life, and its loss is sad.",
-     "The author believes the well's water was unsafe to drink.",
+     "The author believes the well's water was unsafe to drink for children.",
      "The author thinks travellers should stop visiting the village."
     ],
     "answer": 1,
@@ -421,9 +421,9 @@
      "stem": "What does the personification of the sun suggest?",
      "options": [
       "The summer heat was harsh and controlled everyone's lives.",
-      "The farmers enjoyed the long, sunny summer.",
-      "The sun helped the crops to grow well.",
-      "The rivers were full all year."
+      "The farmers enjoyed the long, sunny summer very much.",
+      "The sun helped the crops to grow well in the fields.",
+      "The rivers were full all year and the fields were green."
      ],
      "answer": 0,
      "why": "Ruled like a cruel king, punished and drank the rivers dry show the heat was harsh and controlling."
@@ -432,8 +432,8 @@
      "passage": "At first, the city seemed to welcome Nasser: its bright signs winked at him and its wide streets invited him to explore. But after months without friends, the same streets turned their backs, and the signs only flashed coldly as he walked home alone.",
      "stem": "What does the change in personification show?",
      "options": [
-      "The city's buildings were changed.",
-      "The signs were broken.",
+      "The city's buildings were changed by workers.",
+      "The signs were broken in the street.",
       "Nasser moved to a different city.",
       "Nasser's excitement turned to loneliness."
      ],
@@ -444,10 +444,10 @@
      "passage": "The ancient forest did not hurry. It let the seasons pass slowly, remembered every storm in the rings of its trunks, and quietly outlived the kings who had tried to cut it down.",
      "stem": "What idea does the personification suggest?",
      "options": [
-      "Forests grow very quickly.",
-      "Kings protected the forest.",
+      "Forests grow very quickly after the rain.",
+      "Kings protected the forest from all harm.",
       "Nature is patient and outlasts human power.",
-      "Storms always destroy forests."
+      "Storms always destroy forests and trees."
      ],
      "answer": 2,
      "why": "Not hurrying, remembering and outliving kings show nature as patient and longer-lasting than human power."

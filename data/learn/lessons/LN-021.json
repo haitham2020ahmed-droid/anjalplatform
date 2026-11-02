@@ -57,9 +57,9 @@
     "stem": "The writer wants to add hyperbole to show how hungry he was. Which sentence fits best?",
     "options": [
      "I was so hungry I could eat a hundred sandwiches!",
-     "I ate one apple.",
-     "The yard was big.",
-     "My shoes were new."
+     "I ate one apple and an orange for lunch.",
+     "The yard was big, green, and full of lovely flowers.",
+     "My shoes were new and a bit too tight for me."
     ],
     "answer": 0,
     "hint": "Is that sentence a big, funny way to show hunger? Read the text again.",
@@ -100,8 +100,8 @@
      "options": [
       "The writer went to space.",
       "The writer was very, very happy.",
-      "The writer is sad.",
-      "The moon was out."
+      "The writer is sad about the moon.",
+      "The moon was out last night."
      ],
      "answer": 1,
      "why": "Jumping to the moon is impossible. It shows a very big feeling of joy."
@@ -165,10 +165,10 @@
     "passage": "It was a calm spring morning in the garden. Bees moved slowly from flower to flower. A soft breeze rocked the branches. Everything felt peaceful. Grandpa sat on a bench and read the newspaper.",
     "stem": "The writer wants to add personification that fits this scene. Which sentence is best?",
     "options": [
-     "The angry thunder shouted at the town.",
-     "The car honked three times.",
+     "The angry thunder shouted at the sleeping town.",
+     "The car honked three times at the light.",
      "The sleepy flowers stretched toward the sun.",
-     "The garden had six trees."
+     "The garden had six trees and a small pond."
     ],
     "answer": 2,
     "hint": "Is that sentence calm, and does it give a thing a human action? Read the scene again.",
@@ -197,9 +197,9 @@
      "stem": "Choose one.",
      "options": [
       "The leaves danced in the wind.",
-      "The leaves were green.",
-      "There are many leaves.",
-      "I raked the leaves."
+      "The leaves were green and wet.",
+      "There are many leaves outside.",
+      "I raked the leaves in the yard."
      ],
      "answer": 0,
      "why": "Leaves cannot dance. The writer gives them a human action."
@@ -220,7 +220,7 @@
      "passage": "A student is writing a happy story about a sunny day.",
      "stem": "Which personification fits best?",
      "options": [
-      "The dark clouds frowned.",
+      "The dark clouds frowned at us all.",
       "The cold wind bit my face.",
       "The thunder roared in anger.",
       "The sun waved hello from the sky."
@@ -275,10 +275,10 @@
     "passage": "The bus to the museum was very late. We waited at the stop for almost an hour. My little brother kept asking, \"When will it come?\" By the time it arrived, the sky had turned orange. We finally got on and found seats. The driver smiled and said sorry.",
     "stem": "The writer wants to add hyperbole to show how long the wait felt. Which sentence is best?",
     "options": [
-     "The bus was painted white and green.",
+     "The bus was painted white and green last year.",
      "We waited so long that I grew a long white beard.",
-     "The bus stop had a small roof.",
-     "My brother was wearing his blue cap."
+     "The bus stop had a small roof over the bench.",
+     "My brother was wearing his blue cap and a coat."
     ],
     "answer": 1,
     "hint": "Is that a big exaggeration about the long wait? Read what the text says about time.",
@@ -330,9 +330,9 @@
      "passage": "A student is writing a serious science report about desert rain.",
      "stem": "Should the writer use hyperbole such as \"It rained a billion litres in one second\"?",
      "options": [
-      "Yes, because it makes the report funny.",
-      "Yes, because every report needs hyperbole.",
-      "No, because the report should not have any facts.",
+      "Yes, because it makes the report funny and fun to read.",
+      "Yes, because every report needs hyperbole to be good.",
+      "No, because the report should not have any facts or numbers.",
       "No, because a science report needs exact facts, not exaggeration."
      ],
      "answer": 3,
@@ -385,9 +385,9 @@
     "passage": "Every summer, my family drives from Riyadh to my grandparents' village in the mountains near Abha. The trip takes most of the day, and my brother and I have always counted the hours. This year, the car's air conditioner broke an hour after we left. Dad opened every window, but the hot wind only blew sand into our faces. My brother announced that he was being cooked like a loaf of bread. When the road finally began to climb, the air turned cool and green hills appeared. Even the tired old car seemed to sigh with relief.",
     "stem": "Which sentence best combines hyperbole with the comic tone of this paragraph?",
     "options": [
-     "The temperature in the car was approximately forty degrees.",
-     "The heat made the drive quite uncomfortable for all of us.",
-     "The desert stretched out on both sides of the road.",
+     "The temperature in the car was approximately forty degrees by the middle of the day.",
+     "The heat made the drive quite uncomfortable for all of us, and we were glad to stop.",
+     "The desert stretched out on both sides of the road for many miles, flat and empty.",
      "By noon, the car was so hot that the seats could have fried eggs for the whole village."
     ],
     "answer": 3,
@@ -417,10 +417,10 @@
      "passage": "Draft from a tense story: \"The forest was dark.\"",
      "stem": "Which revision uses personification to increase tension?",
      "options": [
-      "The forest was very, very dark that night.",
+      "The forest was very, very dark that night and quite cold.",
       "The trees closed their branches around the path as if to trap us.",
-      "The forest was a happy place full of singing birds.",
-      "The forest had about three hundred trees."
+      "The forest was a happy place full of singing birds and sunshine.",
+      "The forest had about three hundred trees along the path."
      ],
      "answer": 1,
      "why": "Trees closing around the path as if to trap the characters makes the setting threatening."
@@ -432,7 +432,7 @@
       "Add more figures of speech to make it stronger.",
       "Remove all the description from the paragraph.",
       "Keep one or two of the strongest images and cut the rest.",
-      "Change every image into hyperbole."
+      "Change every image into hyperbole so that it sounds bigger."
      ],
      "answer": 2,
      "why": "Piling up images distracts the reader. One or two precise images are stronger."

@@ -114,9 +114,9 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "Why desert winds blow in different directions",
-            "How to build a ship that can sail the Indian Ocean",
-            "Why camels can travel long distances without water",
+            "Why desert winds blow in different directions in the sand and dust",
+            "How to build a ship that can sail the Indian Ocean with big sails and strong ropes",
+            "Why camels can travel long distances without water in the hot desert sand",
             "How Arabic poetry used rhyme and rhythm to help people remember stories"
           ],
           "answer": "D",
@@ -132,9 +132,9 @@
           "stem": "What is rhyme?",
           "options": [
             "Words that end with the same sound",
-            "A beat you can feel in words",
-            "A person who writes poems",
-            "A story told only in writing"
+            "A beat you can feel in words and lines",
+            "A person who writes poems in a book",
+            "A story told only in writing, not by voice"
           ],
           "answer": "A",
           "skill": "detail",
@@ -182,9 +182,9 @@
         {
           "stem": "Why did rhyme and rhythm make poems easier to remember?",
           "options": [
-            "They made the poems much shorter",
-            "They were only used by famous poets",
-            "They made the poems harder to say aloud",
+            "They made the poems much shorter and simpler",
+            "They were only used by famous poets in books",
+            "They made the poems harder to say aloud for children",
             "They gave the words a musical, memorable quality"
           ],
           "answer": "D",
@@ -216,10 +216,10 @@
         {
           "stem": "Why did poems often tell about brave deeds and family?",
           "options": [
-            "Because poets were only allowed to write about weather",
-            "Because these were the only words that rhymed",
+            "Because poets were only allowed to write about weather and the sky",
+            "Because these were the only words that rhymed in the language",
             "Because these were things communities valued and wanted remembered",
-            "Because poems could not be about daily desert life"
+            "Because poems could not be about daily desert life or its people"
           ],
           "answer": "C",
           "skill": "inference",
@@ -235,7 +235,7 @@
           "options": [
             "To show that people no longer tell old poems",
             "To show that this tradition has lasted into the present",
-            "To explain how to write a brand-new poem",
+            "To explain how to write a brand-new poem for school",
             "To compare poems with other kinds of writing"
           ],
           "answer": "B",
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the main idea of this part of the article?",
           "options": [
-            "The qasida was only recited at weddings and funerals",
-            "Souq Okaz was mainly a market for buying cloth",
+            "The qasida was only recited at weddings and funerals in the cities",
+            "Souq Okaz was mainly a market for buying cloth and spices",
             "Meter, rhyme, and memory let poets preserve stories without writing",
-            "Reciters never memorized more than a few lines at once"
+            "Reciters never memorized more than a few lines at once, so poems stayed short"
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -310,9 +310,9 @@
         {
           "stem": "What is a qasida?",
           "options": [
-            "A short joke told at gatherings",
-            "A tool used to measure rhythm",
-            "A written record kept by a scribe",
+            "A short joke told at gatherings by the poet",
+            "A tool used to measure rhythm in a song",
+            "A written record kept by a scribe in the court",
             "A long poem built on one meter and one rhyme"
           ],
           "answer": "D",
@@ -396,9 +396,9 @@
           "stem": "Why was oral tradition especially important before writing was widespread?",
           "options": [
             "It was the main way communities passed on stories",
-            "It replaced the need for meter and rhyme",
-            "It made poems shorter and simpler",
-            "It was only used during competitions"
+            "It replaced the need for meter and rhyme in poems",
+            "It made poems shorter and simpler for the listeners",
+            "It was only used during competitions at the market"
           ],
           "answer": "A",
           "skill": "inference",
@@ -523,10 +523,10 @@
         {
           "stem": "In the article, the word eloquence means —",
           "options": [
-            "a regular pattern of beats in a poem",
+            "a regular pattern of beats in a poem, like the sound of a drum",
             "the skill of expressing ideas gracefully and persuasively",
-            "a long traditional poem with one rhyme",
-            "the act of learning something by heart"
+            "a long traditional poem with one rhyme and a hero",
+            "the act of learning something by heart from a book"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -540,10 +540,10 @@
         {
           "stem": "How are a qasida and an ordinary short poem different, based on the article?",
           "options": [
-            "A qasida has no rhyme at all",
-            "A qasida cannot be memorized by a reciter",
+            "A qasida has no rhyme at all, only a steady beat of drums",
+            "A qasida cannot be memorized by a reciter, even with practice",
             "A qasida sustains one meter and rhyme across many more lines",
-            "A qasida is always written, never spoken"
+            "A qasida is always written down, never spoken aloud to a crowd"
           ],
           "answer": "C",
           "skill": "compare",

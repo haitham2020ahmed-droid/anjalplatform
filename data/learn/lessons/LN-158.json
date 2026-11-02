@@ -119,10 +119,10 @@
      "passage": "Fahad yawned. His eyes closed slowly. His head dropped onto his book.",
      "stem": "What can you tell about Fahad?",
      "options": [
-      "He is angry.",
-      "He is hungry.",
+      "He is angry now.",
+      "He is very hungry.",
       "He is very tired.",
-      "He is late."
+      "He is late again."
      ],
      "answer": 2,
      "why": "Yawning and closing his eyes are clues that Fahad is tired."
@@ -217,9 +217,9 @@
      "passage": "Grandma opened the oven, and a sweet smell filled the house. She placed a tray on the table and covered it with a cloth. \"Not yet,\" she smiled, when Yousef reached for it. \"Wait until your cousins arrive.\"",
      "stem": "What can you infer?",
      "options": [
-      "Grandma is angry with Yousef.",
-      "Yousef's cousins are not coming.",
-      "Grandma burned the food.",
+      "Grandma is angry with Yousef today.",
+      "Yousef's cousins are not coming to visit.",
+      "Grandma burned the food in the oven.",
       "Grandma baked something for a family visit."
      ],
      "answer": 3,
@@ -301,7 +301,7 @@
     "stem": "What can you infer about why Nora walks slowly to school?",
     "options": [
      "She is worried about the science test.",
-     "She is sick and has a fever.",
+     "She is sick and has a high fever now.",
      "She wants to see the new teacher.",
      "Her bag is too heavy to carry."
     ],
@@ -344,8 +344,8 @@
      "stem": "Which detail best shows that Ahmed is impatient?",
      "options": [
       "The new kitten would arrive at four.",
-      "He set out a bowl of water.",
-      "He sat by the window.",
+      "He set out a bowl of water on the floor.",
+      "He sat by the window in the sitting room.",
       "He looked at the clock for the fifth time."
      ],
      "answer": 3,
@@ -414,9 +414,9 @@
     "passage": "The telescope had a scratch on its side and a lens that needed cleaning, but Tariq would not hear of buying a new one. On clear nights he carried it to the roof, just as his grandfather had done when Tariq was small. As he pointed it at Saturn, he could almost hear the old man's voice: \"Patience. The sky rewards those who wait.\" His sister laughed that the new models could find planets by themselves. Tariq said nothing; he simply wiped the lens with the soft cloth his grandfather had always kept in his pocket.",
     "stem": "What can the reader infer about Tariq's feelings toward his grandfather's old telescope?",
     "options": [
-     "He thinks it is too old to be useful.",
-     "He wants to sell it to buy a new one.",
-     "He is afraid he will break it.",
+     "He thinks it is too old to be useful for looking at stars.",
+     "He wants to sell it to buy a new one from the shop.",
+     "He is afraid he will break it if he touches it.",
      "It reminds him of the time he shared with his grandfather."
     ],
     "answer": 3,
@@ -458,9 +458,9 @@
      "stem": "Which detail best supports the idea that Rashid is careful?",
      "options": [
       "He kept the ship in port when the weather looked uncertain.",
-      "Two other ships were damaged in the storm.",
-      "He was the captain of a ship.",
-      "Others sailed out of the port."
+      "Two other ships were damaged in the storm that came that night.",
+      "He was the captain of a ship that carried goods.",
+      "Others sailed out of the port early in the morning."
      ],
      "answer": 0,
      "why": "Staying in port when the weather was uncertain shows his care. The other details are about other ships or just facts."
@@ -469,8 +469,8 @@
      "passage": "I know the path by heart: the bent palm,\nthe blue gate, the well with its stone lid.\nToday the gate is painted white,\nthe well is gone, a road runs where it was,\nand I stand still, a stranger on my own street.",
      "stem": "What can the reader infer about the speaker?",
      "options": [
-      "The speaker has just moved to this street.",
-      "The speaker likes the new white gate.",
+      "The speaker has just moved to this street from far away.",
+      "The speaker likes the new white gate by the road.",
       "The speaker has come back after a long time and feels lost.",
       "The speaker is lost because the path is dark."
      ],

@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How to build a nest for a pet bird",
+            "How to build a nest for a pet bird at home",
             "How falcons hunt and how people train them",
-            "Why falcons only live in cold places",
-            "How birds sing to each other"
+            "Why falcons only live in cold places far away",
+            "How birds sing to each other in the morning"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -216,10 +216,10 @@
         {
           "stem": "What does a falcon do just before it drops down in a dive?",
           "options": [
-            "It lands on a tree",
+            "It lands on a tree to rest and sleep",
             "It flies up high and folds its wings",
-            "It calls to other falcons",
-            "It eats its prey"
+            "It calls to other falcons on the ground nearby",
+            "It eats its prey on the sand before it dives"
           ],
           "answer": "B",
           "skill": "sequence",
@@ -233,10 +233,10 @@
         {
           "stem": "Why does the author compare a diving falcon to a jet and a car?",
           "options": [
-            "To show that falcons are made of metal",
-            "To tell readers how to drive safely",
+            "To show that falcons are made of metal like a jet",
+            "To tell readers how to drive safely on a road",
             "To help readers picture how fast a falcon goes",
-            "To explain how jets were invented"
+            "To explain how jets were invented long ago"
           ],
           "answer": "C",
           "skill": "author-purpose",
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
-            "Falcons are slow birds that eat seeds and fruit.",
-            "Peregrine falcons live only in Saudi Arabia.",
+            "Falcons are slow birds that eat seeds and fruit, and they live in cold lands far away from the desert.",
+            "Peregrine falcons live only in Saudi Arabia, and no other country has them or trains them to hunt.",
             "Falcons are skillful, fast hunters, and training them is an old tradition in Saudi Arabia.",
-            "Falconers use gloves to keep their hands clean."
+            "Falconers use gloves to keep their hands clean, and they never train the birds to hunt or fly fast at all."
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -395,10 +395,10 @@
         {
           "stem": "How is the article organized?",
           "options": [
-            "As a story told by a falcon about its life",
-            "As a list of steps for building a cage",
+            "As a story told by a falcon about its life in the desert and its master",
+            "As a list of steps for building a cage, feeding a bird and training it",
             "It describes a hunting falcon, explains its body and speed, then tells about falconry",
-            "It compares falcons with fish, then with insects"
+            "It compares falcons with fish, then with insects, then with small desert animals"
           ],
           "answer": "C",
           "skill": "text-structure",
@@ -473,9 +473,9 @@
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
             "Falcons have special body features that make them expert hunters, and people value and protect them.",
-            "Falcons are dangerous birds that should be kept away from cities.",
-            "DDT was the most useful chemical of the twentieth century.",
-            "Falconry is a new sport that began in 2010."
+            "Falcons are dangerous birds that should be kept away from cities and towns, and few people value them.",
+            "DDT was the most useful chemical of the twentieth century, and it helped falcons to hunt and to nest.",
+            "Falconry is a new sport that began in 2010, and falcons are trained only for racing."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -592,9 +592,9 @@
           "stem": "How does the author mainly support the claim that the peregrine is a master of speed?",
           "options": [
             "By giving its diving speed and describing body features that help it handle that speed",
-            "By telling a personal story about owning a falcon",
-            "By listing the prices of falcons at the festival",
-            "By comparing the peregrine with slow birds such as chickens"
+            "By telling a personal story about owning a falcon at home with his family and friends, as a boy",
+            "By listing the prices of falcons at the festival in the city and the cost of the food they eat",
+            "By comparing the peregrine with slow birds such as chickens and ducks, and by telling how they walk"
           ],
           "answer": "A",
           "skill": "text-structure",

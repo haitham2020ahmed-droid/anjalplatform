@@ -104,9 +104,9 @@
      "stem": "What are the birds doing?",
      "options": [
       "Making music with their voices.",
-      "Flying away fast.",
-      "Eating seeds.",
-      "Building a nest."
+      "Flying away fast from the cat.",
+      "Eating seeds from the ground.",
+      "Building a nest in a tree."
      ],
      "answer": 0,
      "why": "The base word is **sing**. Singing birds make music you can **hear**."
@@ -170,10 +170,10 @@
     "passage": "My big brother Khalid is very helpful. When Mom carries heavy bags, he takes them from her. He helps me with my maths homework every night. He even waters our old neighbour's plants when she is sick. Khalid is also the tallest boy in our family.",
     "stem": "What does helpful mean?",
     "options": [
-     "Very tall and strong.",
+     "Very tall and strong for his age.",
      "Always ready to help others.",
-     "Full of homework.",
-     "Sick and tired."
+     "Full of homework and tests.",
+     "Sick and tired of school."
     ],
     "answer": 1,
     "hint": "Find the base word and the ending. What does -ful mean?",
@@ -225,9 +225,9 @@
      "passage": "The old radio is useless. It makes no sound at all, even with new batteries.",
      "stem": "What does useless mean?",
      "options": [
-      "Very loud.",
-      "Brand new.",
-      "Easy to carry.",
+      "Very loud and noisy.",
+      "Brand new and shiny.",
+      "Easy to carry around town.",
       "Not working; of no use."
      ],
      "answer": 3,
@@ -322,9 +322,9 @@
      "passage": "The fearless firefighter ran straight into the smoke to carry out a little cat.",
      "stem": "What does fearless mean?",
      "options": [
-      "Full of fear.",
-      "Very tired.",
-      "Not able to see.",
+      "Full of fear and worry.",
+      "Very tired after a long day.",
+      "Not able to see in the dark.",
       "Without fear; very brave."
      ],
      "answer": 3,
@@ -389,8 +389,8 @@
     "passage": "The Al-Harbi family reached the camping area late on Thursday afternoon. Father wanted to set up the tent in the wadi, where acacia trees gave cool shade. Mother thought the high ground was safer, because rain could turn a dry wadi into a river very quickly. The children took sides, and soon everyone was talking at once. In the end, Grandmother settled the disagreement by choosing a spot halfway up the hill, close to the trees but safely above the wadi.",
     "stem": "What does disagreement mean?",
     "options": [
-     "A plan for a family trip.",
-     "A safe place to put a tent.",
+     "A plan for a family trip to the beach next month.",
+     "A safe place to put a tent for the night.",
      "A feeling of being tired after a drive.",
      "A situation where people have different opinions."
     ],
@@ -433,9 +433,9 @@
      "stem": "What does uncomfortable mean?",
      "options": [
       "Not pleasant to sit on; causing discomfort.",
-      "Soft and relaxing.",
-      "Very old and valuable.",
-      "Easy to carry."
+      "Soft and relaxing, like a warm bed at night.",
+      "Very old and valuable to a museum.",
+      "Easy to carry in one hand or a bag."
      ],
      "answer": 0,
      "why": "**un** + **comfort** + **able** = not able to give comfort. Moving and rubbing his back prove it."
@@ -444,10 +444,10 @@
      "passage": "Our neighbour is very dependable. Whenever we travel, he feeds our cat and waters our plants. In five years, he has never forgotten once.",
      "stem": "What does dependable mean?",
      "options": [
-      "Hard to find.",
-      "Always busy.",
+      "Hard to find, even in a big store.",
+      "Always busy with his own work.",
       "Able to be trusted to do what he says.",
-      "Living very close by."
+      "Living very close by in the same town."
      ],
      "answer": 2,
      "why": "**depend** + **-able** = can be depended on. He has **never forgotten once**."

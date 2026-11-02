@@ -5350,14 +5350,14 @@
    "options": [
     {
      "label": "A",
-     "text": "a message sent from far away",
+     "text": "a message sent from far away by a bird",
      "correct": false,
      "rationale": "That describes a telegram (gram = written).",
      "misconception": "WORD_PARTS"
     },
     {
      "label": "B",
-     "text": "a sound heard from far away",
+     "text": "a sound heard from far away at night",
      "correct": false,
      "rationale": "That describes a telephone (phone = sound).",
      "misconception": "WORD_PARTS"
@@ -5370,7 +5370,7 @@
     },
     {
      "label": "D",
-     "text": "a small picture of something near",
+     "text": "a small picture of something near the eye",
      "correct": false,
      "rationale": "tele means far, not near.",
      "misconception": "WORD_PARTS"

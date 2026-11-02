@@ -47,9 +47,9 @@
       "stem": "Read this sentence from paragraph 5: “If the challenge never changes, the muscles have no reason to adapt.” What does “adapt” mean?",
       "options": [
         "change in order to cope with new demands",
-        "become tired and painful",
-        "stay exactly the same as before",
-        "stop working for a short time"
+        "become tired and painful for a short time",
+        "stay exactly the same as they were before",
+        "stop working for a short time at night"
       ],
       "answer": "A",
       "why": "The muscles adapt by becoming stronger so that they can cope with a bigger challenge."
@@ -205,9 +205,9 @@
       "type": "MCQ",
       "stem": "According to paragraph 2, why do coaches train both muscles in a pair?",
       "options": [
-        "Muscles can push as well as pull.",
-        "Training one muscle makes its partner smaller.",
-        "The biceps is always weaker than the triceps.",
+        "Muscles can push as well as pull on the bones.",
+        "Training one muscle makes its partner smaller and weak.",
+        "The biceps is always weaker than the triceps in the arm.",
         "A strong muscle with a weak partner may cause injury."
       ],
       "answer": "D",
@@ -301,10 +301,10 @@
       "type": "MCQ",
       "stem": "According to paragraph 3, what partly causes the stiffness people feel a day or two after an unfamiliar activity?",
       "options": [
-        "a lack of protein in their meals",
+        "a lack of protein in their meals each day",
         "the body repairing tiny tears in the fibres",
-        "a muscle that has stopped working",
-        "too much rest after the activity"
+        "a muscle that has stopped working for good",
+        "too much rest after the activity is over"
       ],
       "answer": "B",
       "why": "The stiffness “is partly a sign of this repair work”."
@@ -365,10 +365,10 @@
       "type": "MCQ",
       "stem": "According to paragraph 5, what is the effect of increasing the challenge too quickly?",
       "options": [
-        "The muscles stop adapting.",
+        "The muscles stop adapting to the work.",
         "The risk of injury rises sharply.",
-        "The muscles become lighter.",
-        "Stiffness disappears faster."
+        "The muscles become lighter and smaller.",
+        "Stiffness disappears faster than before."
       ],
       "answer": "B",
       "why": "“If it increases too quickly, however, the risk of injury rises sharply.” Choice A happens when the challenge never changes."

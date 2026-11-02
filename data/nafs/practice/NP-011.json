@@ -93,9 +93,9 @@
       "difficulty": 2,
       "stem": "The writer calls the camel \"a trusted partner for desert travelers.\" What does this phrase suggest?",
       "options": [
-        "Camels made business deals with travelers.",
-        "Travelers were afraid of their camels.",
-        "Camels chose the routes for the travelers.",
+        "Camels made business deals with the travelers.",
+        "Travelers were afraid of their camels in the dark.",
+        "Camels chose the routes for the travelers each day.",
         "Travelers could depend on camels like a loyal friend."
       ],
       "answer": "D",
@@ -142,9 +142,9 @@
       "stem": "Which information in the passage is the LEAST clear or complete?",
       "options": [
         "How the camel's body actually turns fat into energy",
-        "Where the camel stores its fat",
-        "What protects the camel's eyes from sand",
-        "Why the camel does not sink in sand"
+        "Where the camel stores its fat and its water",
+        "What protects the camel's eyes from sand and wind",
+        "Why the camel does not sink in soft sand or mud"
       ],
       "answer": "A",
       "why": "The writer says the fat can be broken down for energy but never explains how; the other points are clearly explained."
@@ -157,10 +157,10 @@
       "difficulty": 3,
       "stem": "Which is the BEST alternative title for the passage?",
       "options": [
-        "The History of Camel Races",
+        "The History of Camel Races in Arabia",
         "Built for the Desert: How Camels Survive",
-        "Why Camels Are Afraid of Water",
-        "A Journey to a Desert Well"
+        "Why Camels Are Afraid of Water and Rain",
+        "A Journey to a Desert Well by Night"
       ],
       "answer": "B",
       "why": "The passage mainly explains the camel's adaptations for desert life, which this title covers."

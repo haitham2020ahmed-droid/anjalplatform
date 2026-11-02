@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How doctors fix broken bones",
-            "Why all germs are good for you",
+            "How doctors fix broken bones with metal",
+            "Why all germs are good for your health",
             "How vaccines help the body fight germs",
-            "Where to buy medicine for a cold"
+            "Where to buy medicine for a cold or fever"
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -217,9 +217,9 @@
           "stem": "Some people cannot get a vaccine. How can other people help keep them safe?",
           "options": [
             "By getting vaccines so germs spread less",
-            "By giving them lots of sweet food",
-            "By keeping all the windows open",
-            "By staying away from all doctors"
+            "By giving them lots of sweet food and fruit",
+            "By keeping all the windows open at night",
+            "By staying away from all doctors and clinics"
           ],
           "answer": "A",
           "skill": "inference",
@@ -414,7 +414,7 @@
           "options": [
             "By telling the events of one doctor's life in order",
             "By explaining how the body fights germs, then how vaccines help",
-            "By comparing two different diseases from long ago",
+            "By comparing two different diseases from long ago and their cures",
             "By listing the problems with modern medicines today"
           ],
           "answer": "B",

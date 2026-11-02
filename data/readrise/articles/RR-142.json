@@ -148,9 +148,9 @@
         {
           "stem": "What did Al-Biruni do FIRST to find the size of the Earth?",
           "options": [
-            "He did the math to find the answer.",
-            "He climbed to the top of the mountain.",
-            "He looked up at the moon at night.",
+            "He did the math to find the answer first.",
+            "He climbed to the top of the mountain first.",
+            "He looked up at the moon at night first.",
             "He measured the angle up to the mountain top."
           ],
           "answer": "D",
@@ -184,8 +184,8 @@
           "options": [
             "It used many people and lots of time.",
             "It needed just one person and one mountain.",
-            "It did not use any math.",
-            "It was done on flat land only."
+            "It did not use any math at all.",
+            "It was done on flat land only, not on hills."
           ],
           "answer": "B",
           "skill": "compare",
@@ -199,10 +199,10 @@
         {
           "stem": "What can you tell about Al-Biruni from this article?",
           "options": [
-            "He did not like to read or study.",
-            "He gave up when things were hard.",
+            "He did not like to read or study at all.",
+            "He gave up when things were hard for him.",
             "He was curious and liked hard problems.",
-            "He only cared about the moon."
+            "He only cared about the moon, not the Earth."
           ],
           "answer": "C",
           "skill": "inference",
@@ -233,10 +233,10 @@
         {
           "stem": "Read this sentence: \"That line is the horizon.\" What is the horizon?",
           "options": [
-            "The very top of a tall mountain",
+            "The very top of a tall mountain peak",
             "Where the land seems to meet the sky",
-            "A tool used to measure angles",
-            "A long path across flat land"
+            "A tool used to measure angles at sea",
+            "A long path across flat land and sand"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -294,9 +294,9 @@
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
             "Al-Biruni used a mountain, angles, and math to measure the Earth accurately.",
-            "Al-Biruni was the first person to climb a mountain in Pakistan.",
-            "Earlier scholars had already measured the Earth perfectly.",
-            "The moon has a crater that is about 6,340 kilometers wide."
+            "Al-Biruni was the first person to climb a mountain in Pakistan and write about it.",
+            "Earlier scholars had already measured the Earth perfectly, so no one needed new methods.",
+            "The moon has a crater that is about 6,340 kilometers wide and very deep."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -361,10 +361,10 @@
         {
           "stem": "Why did Al-Biruni need to be extremely careful when measuring the angle to the horizon?",
           "options": [
-            "The angle was very large and hard to see.",
-            "The mountain was dangerous to climb.",
+            "The angle was very large and hard to see clearly.",
+            "The mountain was dangerous to climb, and he could fall",
             "The angle was so small that tiny mistakes mattered.",
-            "He was in a hurry to finish before dark."
+            "He was in a hurry to finish before dark that day."
           ],
           "answer": "C",
           "skill": "inference",
@@ -523,9 +523,9 @@
         {
           "stem": "Why would even a slight error in the horizon angle have changed Al-Biruni's result considerably?",
           "options": [
-            "Because his final calculation did not use the angle at all",
-            "Because the mountain was much taller than he had thought",
-            "Because the horizon kept moving during the day and night",
+            "Because his final calculation did not use the angle at all, only the shadow",
+            "Because the mountain was much taller than he had thought, and the angle was big",
+            "Because the horizon kept moving during the day and night, and so the angle changed",
             "Because the angle was so tiny that small mistakes were large by comparison"
           ],
           "answer": "D",

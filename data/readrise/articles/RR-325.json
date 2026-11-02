@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How to sail a ship across the sea",
-            "Why fish live in coral reefs",
+            "How to sail a ship across the sea with the wind and a big sail, and a map",
+            "Why fish live in coral reefs near the shore, where the water is warm",
             "How much of Earth is covered by ocean and why oceans matter",
-            "The life story of a famous sailor"
+            "The life story of a famous sailor who crossed every ocean in the world"
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -166,9 +166,9 @@
           "stem": "Why does rain fall on land, according to the article?",
           "options": [
             "The Sun warms the sea, water rises into the air, and clouds form and bring rain.",
-            "Ships carry rain from one country to another.",
-            "Whales push water up onto the land.",
-            "Cold air from the Arctic Ocean melts into rain."
+            "Ships carry rain from one country to another across the sea in big tanks.",
+            "Whales push water up onto the land when they swim near the coast and jump.",
+            "Cold air from the Arctic Ocean melts into rain and then drifts over the land."
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -182,10 +182,10 @@
         {
           "stem": "If there were no oceans at all, what would most likely happen to trade between countries?",
           "options": [
-            "Trade would become much easier.",
+            "Trade would become much easier, since there would be no storms at sea.",
             "Trade would become much harder, since ships could not sail.",
-            "Trade would stay exactly the same.",
-            "Trade would only happen by air instead."
+            "Trade would stay exactly the same, because ships would use rivers.",
+            "Trade would only happen by air instead, because airplanes would carry all goods."
           ],
           "answer": "B",
           "skill": "inference",
@@ -200,9 +200,9 @@
           "stem": "Why do people far from the coast still need healthy oceans, based on the article?",
           "options": [
             "Because oceans shape weather and carry the goods people buy",
-            "Because everyone must learn to swim in the ocean",
-            "Because oceans are only useful to people who fish",
-            "Because land animals all live in the ocean"
+            "Because everyone must learn to swim in the ocean to stay healthy",
+            "Because oceans are only useful to people who fish for a living",
+            "Because land animals all live in the ocean for part of the year"
           ],
           "answer": "A",
           "skill": "inference",
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
-            "The Arctic Ocean is colder than every other ocean on Earth.",
+            "The Arctic Ocean is colder than every other ocean on Earth, and no ships cross it.",
             "Oceans cover most of Earth's surface and strongly shape climate and trade.",
-            "Coral reefs contain more fish than any other ocean habitat.",
-            "Cargo ships are the fastest way to move goods between countries."
+            "Coral reefs contain more fish than any other ocean habitat on Earth, so they are most vital.",
+            "Cargo ships are the fastest way to move goods between countries, faster than planes."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -327,9 +327,9 @@
         {
           "stem": "What does the article say shapes the climate of lands around the Indian Ocean?",
           "options": [
-            "Its cold temperatures all year",
-            "Its icy surface near the south pole",
-            "Its small, shallow size",
+            "Its cold temperatures all year, even in summer",
+            "Its icy surface near the south pole and the ice",
+            "Its small, shallow size, with little water in it",
             "Its warm temperatures for most of the year"
           ],
           "answer": "D",
@@ -378,10 +378,10 @@
         {
           "stem": "A country has no coastline and is far from any ocean. Based on the article, how would it most likely be affected by changes in the ocean?",
           "options": [
-            "It would not be affected at all, since it has no coast.",
+            "It would not be affected at all, since it has no coast, and the sea is far from its land.",
             "It could still be affected through changes in rainfall and the cost of imported goods.",
-            "It would only be affected if it bordered the Arctic Ocean.",
-            "It would be affected only during the winter season."
+            "It would only be affected if it bordered the Arctic Ocean, and no other ocean could change it.",
+            "It would be affected only during the winter season, when the cold ocean winds blow."
           ],
           "answer": "B",
           "skill": "inference",
@@ -395,10 +395,10 @@
         {
           "stem": "Why are most goods in stores likely to have traveled by cargo ship rather than by airplane?",
           "options": [
-            "Airplanes cannot carry heavy cargo of any kind.",
+            "Airplanes cannot carry heavy cargo of any kind over the ocean.",
             "Moving goods by sea usually costs far less than moving them by air.",
-            "Ships can travel faster than airplanes across oceans.",
-            "Most countries do not allow airplanes to carry cargo."
+            "Ships can travel faster than airplanes across oceans and seas.",
+            "Most countries do not allow airplanes to carry cargo into ports."
           ],
           "answer": "B",
           "skill": "inference",
@@ -412,10 +412,10 @@
         {
           "stem": "How does the author mainly organize the information in this article?",
           "options": [
-            "By comparing two different planets",
+            "By comparing two different planets, such as Mars and Venus, one with the other, over and over",
             "By describing the five oceans and then explaining their effects on climate and trade",
-            "By listing oceans from coldest to warmest only",
-            "By telling a story about a sea voyage"
+            "By listing oceans from coldest to warmest only, without telling anything about climate or trade",
+            "By telling a story about a sea voyage, with a captain, a crew, and many days of travel"
           ],
           "answer": "B",
           "skill": "text-structure",
@@ -507,9 +507,9 @@
           "stem": "Why do massive ocean currents move heat away from the equator toward the poles?",
           "options": [
             "Because warm water near the equator is carried by currents toward colder regions.",
-            "Because the poles produce their own heat independently.",
-            "Because cargo ships push warm water toward the poles.",
-            "Because the equator has no sunlight at all."
+            "Because the poles produce their own heat independently, using hot rocks below the ice.",
+            "Because cargo ships push warm water toward the poles as they sail across the oceans.",
+            "Because the equator has no sunlight at all, so the water there is always very cold."
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -558,9 +558,9 @@
           "stem": "If ocean circulation suddenly stopped moving heat from the equator to the poles, what would most likely happen?",
           "options": [
             "Coastal climates would probably become more extreme, with hotter tropics and colder poles.",
-            "World trade would immediately stop completely.",
-            "The five oceans would merge into a single ocean.",
-            "Rainfall patterns would stay exactly the same everywhere."
+            "World trade would immediately stop completely, because ships could not sail anywhere on the sea.",
+            "The five oceans would merge into a single ocean, and all the islands would sink beneath it.",
+            "Rainfall patterns would stay exactly the same everywhere, and nothing would change on Earth at all."
           ],
           "answer": "A",
           "skill": "inference",
@@ -575,9 +575,9 @@
           "stem": "Based on the article, why might a landlocked country's economy still be affected by maritime shipping costs?",
           "options": [
             "Because most imported goods still travel a large share of their journey by sea before reaching that country.",
-            "Because landlocked countries are required to build their own ports.",
-            "Because maritime shipping routes only exist near the equator.",
-            "Because cargo ships cannot carry goods meant for landlocked countries."
+            "Because landlocked countries are required to build their own ports on the sea, and this costs money.",
+            "Because maritime shipping routes only exist near the equator, and ships never sail anywhere else.",
+            "Because cargo ships cannot carry goods meant for landlocked countries, so they use trucks only."
           ],
           "answer": "A",
           "skill": "inference",

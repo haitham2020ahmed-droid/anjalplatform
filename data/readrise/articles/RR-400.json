@@ -88,7 +88,7 @@
       "questions": [
         {
           "stem": "What is this story mostly about?",
-          "options": ["Four friends learn how to swim together", "Four friends plan a class trip to the beach", "Four friends almost fail a project because they never planned, then fix it together", "Four friends compete to get the best grade alone"],
+          "options": ["Four friends learn how to swim together at the school pool, then win a prize", "Four friends plan a class trip to the beach, then forget to bring any food", "Four friends almost fail a project because they never planned, then fix it together", "Four friends compete to get the best grade alone, then lose the contest and quit"],
           "answer": "C",
           "skill": "central-idea",
           "why": "The story follows Omar, Huda, Yusuf, and Noor as they almost fail their project from not planning, then come together to finish it in time.",
@@ -120,7 +120,7 @@
         },
         {
           "stem": "Why does Huda tell everyone to stay calm?",
-          "options": ["So they do not waste time panicking and can make a plan instead", "Because the teacher told her to say it", "Because she wants to go home early", "Because the project is already finished"],
+          "options": ["So they do not waste time panicking and can make a plan instead", "Because the teacher told her to say it before the class began", "Because she wants to go home early and finish the work later", "Because the project is already finished and nothing more is needed"],
           "answer": "A",
           "skill": "cause-effect",
           "why": "Huda wants the group to stop panicking so they can use the time left to plan and finish the work.",
@@ -136,7 +136,7 @@
         },
         {
           "stem": "In the story, the word calm means —",
-          "options": ["fast and full of energy", "angry and loud", "quiet and not worried or upset", "tired and ready for bed"],
+          "options": ["fast and full of energy and fun", "angry and loud and upset", "quiet and not worried or upset", "tired and ready for bed"],
           "answer": "C",
           "skill": "vocabulary",
           "why": "Huda asks everyone to stay calm, meaning quiet and not worried, instead of panicking.",
@@ -144,7 +144,7 @@
         },
         {
           "stem": "Why does the author show that nothing is finished the night before it is due?",
-          "options": ["To explain how posters are made", "To describe the water cycle in detail", "To show that Huda is the smartest student", "To show why it is bad to wait and not plan early"],
+          "options": ["To explain how posters are made by students", "To describe the water cycle in detail, with rain", "To show that Huda is the smartest student here", "To show why it is bad to wait and not plan early"],
           "answer": "D",
           "skill": "author-purpose",
           "why": "Showing the group's panic the night before the deadline teaches the lesson that waiting too long to plan causes problems.",
@@ -190,7 +190,7 @@
         },
         {
           "stem": "Why had none of the friends started their part of the project earlier?",
-          "options": ["The teacher never explained the assignment", "The school was closed for two weeks", "Each one assumed someone else would handle the job", "They did not have the right materials"],
+          "options": ["The teacher never explained the assignment to the class", "The school was closed for two weeks because of rain", "Each one assumed someone else would handle the job", "They did not have the right materials at home"],
           "answer": "C",
           "skill": "cause-effect",
           "why": "The story explains that each friend simply assumed someone else would take care of the work, so nobody started.",
@@ -198,7 +198,7 @@
         },
         {
           "stem": "Why does everyone begin to panic when they meet online?",
-          "options": ["They realize how little time is left to finish an unstarted project", "They forgot the name of their project", "Their teacher cancels the project", "They cannot find the water cycle poster board"],
+          "options": ["They realize how little time is left to finish an unstarted project", "They forgot the name of their project and cannot find their notes", "Their teacher cancels the project, so they have no work to do", "They cannot find the water cycle poster board in the class"],
           "answer": "A",
           "skill": "inference",
           "why": "Discovering that almost nothing is done the night before the deadline naturally causes panic about the little time remaining.",
@@ -206,7 +206,7 @@
         },
         {
           "stem": "Why does Huda's calm response help the group?",
-          "options": ["It gives the others someone to blame", "It makes the project due later", "It finishes the poster for everyone", "It stops the panic and gets everyone focused on a plan"],
+          "options": ["It gives the others someone to blame for the mess", "It makes the project due later than the teacher said", "It finishes the poster for everyone in the class", "It stops the panic and gets everyone focused on a plan"],
           "answer": "D",
           "skill": "inference",
           "why": "By staying calm, Huda helps the group stop panicking and start making a clear plan to finish the work.",
@@ -268,7 +268,7 @@
         },
         {
           "stem": "Why does Huda's suggestion to communicate clearly help solve the group's problem?",
-          "options": ["It convinces the teacher to extend the deadline", "It finishes the research for them automatically", "It makes the project due the following week instead", "It allows them to divide the remaining work and avoid wasting time on panic"],
+          "options": ["It convinces the teacher to extend the deadline for the whole class", "It finishes the research for them automatically, without any more work", "It makes the project due the following week instead of that day", "It allows them to divide the remaining work and avoid wasting time on panic"],
           "answer": "D",
           "skill": "cause-effect",
           "why": "Clear communication lets the group quickly agree on who does what, so they can use the limited remaining time efficiently instead of panicking.",
@@ -276,7 +276,7 @@
         },
         {
           "stem": "Based on the story, why might delegating tasks according to each person's strengths have helped the group finish on time?",
-          "options": ["Each person could work faster and better on a task suited to their skill", "It meant only one person had to do any work at all", "It guaranteed the teacher would give them a perfect grade", "It allowed them to skip checking their facts"],
+          "options": ["Each person could work faster and better on a task suited to their skill", "It meant only one person had to do any work at all, so the others rested", "It guaranteed the teacher would give them a perfect grade on the project", "It allowed them to skip checking their facts, so they saved time"],
           "answer": "A",
           "skill": "inference",
           "why": "Assigning Omar to drawing, Yusuf to writing, and Noor to checking facts let each person work efficiently on what they were best at, saving precious time.",
@@ -284,7 +284,7 @@
         },
         {
           "stem": "In the story, the word accountability means —",
-          "options": ["a drawing tool used for posters", "being responsible for your own actions or tasks", "a kind of school deadline", "the number of people in a group"],
+          "options": ["a drawing tool used for posters and for school projects", "being responsible for your own actions or tasks", "a kind of school deadline for a group's work", "the number of people in a group at the school"],
           "answer": "B",
           "skill": "vocabulary",
           "why": "The friends realize nobody had taken accountability, meaning nobody had taken responsibility for a clearly defined task.",
@@ -300,7 +300,7 @@
         },
         {
           "stem": "Why does the author end the story with the friends reflecting on what went wrong?",
-          "options": ["To suggest that group projects should be banned", "To show that Omar's drawing was the real problem", "To explain exactly how the water cycle works", "To emphasize the lesson that early communication prevents last-minute crises"],
+          "options": ["To suggest that group projects should be banned from school, since they cause arguments", "To show that Omar's drawing was the real problem, because it was poor and late", "To explain exactly how the water cycle works, with rain, rivers and the sea", "To emphasize the lesson that early communication prevents last-minute crises"],
           "answer": "D",
           "skill": "author-purpose",
           "why": "The closing reflection highlights that the real issue was a lack of early communication, driving home the story's lesson for readers.",

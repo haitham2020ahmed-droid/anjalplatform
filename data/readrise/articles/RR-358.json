@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the central idea of the story?",
           "options": [
-            "A fishing family decides to argue loudly about whether they should ever visit the new island",
+            "A fishing family decides to argue loudly about whether they should ever visit the new island, and they never go",
             "A fishing family discovers a new sand island after a storm and investigates how shifting currents formed it.",
-            "A fishing family decides to stop fishing near the rocky points forever after the storm",
-            "A fishing family builds an entire new island out of wood, rope, and old fishing nets"
+            "A fishing family decides to stop fishing near the rocky points forever after the big storm",
+            "A fishing family builds an entire new island out of wood, rope, and old fishing nets by hand"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best expresses the central idea of the story?",
           "options": [
-            "A fishing family competes with scientists to name the new island first.",
-            "A fishing family worries that the new island will destroy their village.",
+            "A fishing family competes with scientists to name the new island first, and the family wins a big prize from the king.",
+            "A fishing family worries that the new island will destroy their village, so the whole family moves away to a new town.",
             "A fishing family observes and investigates a temporary sandy island formed when a storm shifted sediment-carrying currents.",
-            "A fishing family decides that studying the sea is too difficult for children to understand."
+            "A fishing family decides that studying the sea is too difficult for children to understand at all."
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -492,7 +492,7 @@
             "The village built a wall that redirected the current on purpose",
             "The storm altered the usual direction of the current that converges there",
             "The current always flows the same way regardless of weather",
-            "The fish changed the current by swimming in large groups"
+            "The fish changed the current by swimming together in very large groups"
           ],
           "answer": "B",
           "skill": "detail",
@@ -506,9 +506,9 @@
         {
           "stem": "Why does sediment stop traveling and begin to accumulate at this particular shallow area?",
           "options": [
-            "Because the seabirds physically block the sediment from moving",
-            "Because the sediment becomes magnetically attracted to that one spot",
-            "Because fishing boats constantly stir the water there, trapping sediment",
+            "Because the seabirds physically block the sediment from moving, by standing in rows in the shallow water",
+            "Because the sediment becomes magnetically attracted to that one spot in the sea",
+            "Because fishing boats constantly stir the water there, trapping sediment in the mud",
             "Because the water there is already too shallow for the sediment to travel any farther"
           ],
           "answer": "D",
@@ -523,8 +523,8 @@
         {
           "stem": "In the story, the word phenomenon most nearly refers to —",
           "options": [
-            "a type of boat used only by scientists",
-            "a kind of fish found only near new islands",
+            "a type of boat used only by scientists on research trips",
+            "a kind of fish found only near new islands in the sea",
             "a dangerous storm that destroys everything nearby",
             "a notable natural occurrence worth observing and studying"
           ],
@@ -574,10 +574,10 @@
         {
           "stem": "What can readers infer about Lina and Omar's curiosity from how the story is told?",
           "options": [
-            "Their fear of the island shows they would rather avoid it entirely",
-            "Their argument over who found it first shows they mainly care about credit",
+            "Their fear of the island shows they would rather avoid it entirely, and they never return to it.",
+            "Their argument over who found it first shows they mainly care about credit and prizes.",
             "Their repeated, careful observation over several visits reflects genuine scientific curiosity",
-            "Their quick loss of interest in the island shows they are easily bored"
+            "Their quick loss of interest in the island shows they are easily bored by science."
           ],
           "answer": "C",
           "skill": "inference",
@@ -591,10 +591,10 @@
         {
           "stem": "Why does the author include the teacher's classroom explanation near the end of the story?",
           "options": [
-            "To criticize the family for not understanding the island sooner",
+            "To criticize the family for not understanding the island sooner than they did",
             "To connect the family's personal discovery to a broader geological process that explains it",
-            "To suggest that the children's earlier observations were completely wrong",
-            "To shift the story's focus away from the family and onto the teacher"
+            "To suggest that the children's earlier observations were completely wrong from the start",
+            "To shift the story's focus away from the family and onto the teacher and her class"
           ],
           "answer": "B",
           "skill": "author-purpose",

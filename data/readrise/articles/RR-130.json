@@ -199,10 +199,10 @@
         {
           "stem": "Why is a robot with a screen useful?",
           "options": [
-            "It can cook meals for the sick.",
+            "It can cook meals for the sick and bring them to the room.",
             "It lets a doctor who is far away talk with a patient.",
-            "It cleans the floors in the halls.",
-            "It gives the patient a new heart."
+            "It cleans the floors in the halls and the rooms at night.",
+            "It gives the patient a new heart when the old one is tired."
           ],
           "answer": "B",
           "skill": "inference",
@@ -216,10 +216,10 @@
         {
           "stem": "Why does the author tell about the team in Riyadh?",
           "options": [
-            "To tell how far Riyadh is from the sea",
-            "To show that robots never make mistakes",
+            "To tell how far Riyadh is from the sea and the port",
+            "To show that robots never make mistakes in a hospital",
             "To share a surprising first that a robot helped with",
-            "To explain how to fix a broken heart"
+            "To explain how to fix a broken heart with a robot"
           ],
           "answer": "C",
           "skill": "author-purpose",
@@ -294,9 +294,9 @@
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
             "Robots help hospitals in many ways, but people still make decisions and give care.",
-            "Robots now run hospitals without doctors.",
-            "Surgery is always done by robots today.",
-            "Hospitals should not use robots."
+            "Robots now run hospitals without doctors, and no nurse is needed in the building at all.",
+            "Surgery is always done by robots today, and no person ever helps them in the room.",
+            "Hospitals should not use robots, since they cannot help sick people in any way."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -412,9 +412,9 @@
         {
           "stem": "How is the article organized?",
           "options": [
-            "It tells the history of robots from oldest to newest.",
-            "It compares hospitals in two countries.",
-            "It describes a problem and then one solution.",
+            "It tells the history of robots from oldest to newest in the world.",
+            "It compares hospitals in two countries and the robots that work in them.",
+            "It describes a problem in hospitals and then gives one solution.",
             "It describes different kinds of hospital robots, one after another."
           ],
           "answer": "D",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
-            "Robots now make the key medical decisions in hospitals.",
+            "Robots now make the key medical decisions in hospitals, and doctors and nurses no longer need to judge anything.",
             "Robots extend what hospital staff can do, but human judgment and compassion remain essential.",
-            "Robots are useful only for cleaning.",
-            "Robots are too expensive for most hospitals."
+            "Robots are useful only for cleaning, so they should not be used in rooms with patients or doctors.",
+            "Robots are too expensive for most hospitals, so very few of them will ever buy or use a robot."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -540,10 +540,10 @@
         {
           "stem": "How is a surgical robot different from a delivery robot, according to the article?",
           "options": [
-            "The surgical robot moves on its own, but the delivery robot is steered.",
+            "The surgical robot moves on its own, but the delivery robot is steered by a person with a remote.",
             "The surgical robot copies a person's movements, while the delivery robot moves on its own.",
-            "Both robots need a surgeon to work.",
-            "Both robots shine ultraviolet light."
+            "Both robots need a surgeon to work, and both are controlled by hand all day.",
+            "Both robots shine ultraviolet light to clean rooms and kill germs in hospitals."
           ],
           "answer": "B",
           "skill": "compare",

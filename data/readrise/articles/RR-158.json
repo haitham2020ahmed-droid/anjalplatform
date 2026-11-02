@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How to build a toy car",
+            "How to build a toy car out of wood and small wheels",
             "How a battery holds energy and makes things work",
-            "Why phones break when they get wet",
-            "How the sun makes light"
+            "Why phones break when they get wet in the rain",
+            "How the sun makes light and heat for the whole Earth"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -199,10 +199,10 @@
         {
           "stem": "What would most likely happen if only ONE end of a battery were hooked to a lamp?",
           "options": [
-            "The lamp would get brighter",
-            "The battery would recharge",
+            "The lamp would get brighter, because the battery would push out more power",
+            "The battery would recharge itself, because the lamp sends power back to it",
             "The lamp would not light, because there is no full loop",
-            "The battery would last forever"
+            "The battery would last forever, because nothing would use up its energy"
           ],
           "answer": "C",
           "skill": "inference",
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
-            "Batteries were invented in Italy.",
+            "Batteries were invented in Italy, and they were first used to light the streets of big cities.",
             "A battery stores energy in chemicals and releases it as an electric current through a circuit.",
-            "Flashlights need more power than phones.",
-            "Every battery can be recharged many times."
+            "Flashlights need more power than phones, so they use the biggest batteries of all.",
+            "Every battery can be recharged many times, so no one ever needs to buy a new one."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -395,10 +395,10 @@
         {
           "stem": "Why does the article compare a battery to a bottle of water?",
           "options": [
-            "To show that batteries leak",
-            "To show that batteries are heavy",
+            "To show that batteries leak water onto the table when they get old",
+            "To show that batteries are heavy because they are full of water inside",
             "To show that a battery does not simply hold electricity, but stores it as chemical energy",
-            "To show that batteries need water to work"
+            "To show that batteries need water to work, just as a plant needs a drink every day"
           ],
           "answer": "C",
           "skill": "text-structure",
@@ -473,9 +473,9 @@
           "stem": "Which statement best summarizes the article?",
           "options": [
             "A battery converts stored chemical energy into an electric current, and some batteries can reverse the process to be recharged.",
-            "Lithium is the only material that can store energy.",
-            "Saudi Arabia invented the modern battery.",
-            "Ions travel through wires to light a lamp."
+            "Lithium is the only material that can store energy, so every other kind of battery has been given up.",
+            "Saudi Arabia invented the modern battery, and it was first used in the desert to power lamps, radios and the first cars.",
+            "Ions travel through wires to light a lamp, while electrons stay inside the battery and never move at all."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -557,10 +557,10 @@
         {
           "stem": "How does the article organize its explanation of how a battery works?",
           "options": [
-            "As a list of famous inventors",
-            "As an argument for and against batteries",
+            "As a list of famous inventors of the battery, from the first to the last, with their dates and their names",
+            "As an argument for and against batteries, with both sides given in turn, and a vote at the end by the author",
             "In sequence, from the battery's parts, to the flow of electrons, to what happens when it runs out or is recharged",
-            "As a story told by a battery"
+            "As a story told by a battery, which talks about its life from the first day in a shop to the last day in a bin"
           ],
           "answer": "C",
           "skill": "text-structure",
@@ -591,9 +591,9 @@
         {
           "stem": "Why might the author end the article with Saudi Arabia's battery systems?",
           "options": [
-            "To prove that phones use too much power",
-            "To explain how Volta's battery worked",
-            "To show that batteries are only for small devices",
+            "To prove that phones use too much power, so people should buy fewer of them each year",
+            "To explain how Volta's battery worked, using stacks of metal and wet cloth",
+            "To show that batteries are only for small devices, such as watches and toys",
             "To show that the same idea is now used on a huge scale to save solar energy for nighttime"
           ],
           "answer": "D",

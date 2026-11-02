@@ -115,9 +115,9 @@
           "stem": "What is this article mostly about?",
           "options": [
             "How robots help sort trash at a recycling center",
-            "How large trucks are built in a factory",
-            "Why glass breaks easily when dropped",
-            "How to build a strong magnet at home"
+            "How large trucks are built in a factory by workers",
+            "Why glass breaks so easily when it is dropped",
+            "How to build a strong magnet at home with a coil"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -165,10 +165,10 @@
         {
           "stem": "The article says a magnet pulls out metal cans. What does a magnet do?",
           "options": [
-            "It cuts cans into small pieces.",
+            "It cuts cans into small pieces with a sharp blade.",
             "It can pull certain metals toward it.",
-            "It melts metal into liquid.",
-            "It paints cans a new color."
+            "It melts metal into liquid when it gets near.",
+            "It paints cans a new color with a bright brush."
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -182,10 +182,10 @@
         {
           "stem": "Why is it good that robots never get tired at the recycling center?",
           "options": [
-            "They can eat lunch faster than workers.",
+            "They can eat lunch faster than workers and so they save time.",
             "They can work all day and all night without stopping.",
-            "They can grow taller over time.",
-            "They can drive the trucks home."
+            "They can grow taller over time and then reach the high belts.",
+            "They can drive the trucks home when the day is done."
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -200,9 +200,9 @@
           "stem": "Why does sorting trash the right way help the environment?",
           "options": [
             "Clean, sorted material can be made into new things, so less trash is buried.",
-            "Sorted trash makes the trucks drive faster.",
-            "Sorted trash never needs to be picked up.",
-            "Sorted trash turns into clean water."
+            "Sorted trash makes the garbage trucks drive faster through the busy city streets.",
+            "Sorted trash never needs to be picked up by the workers or the trucks.",
+            "Sorted trash turns into clean water that people can drink at home."
           ],
           "answer": "A",
           "skill": "inference",
@@ -216,10 +216,10 @@
         {
           "stem": "What might happen if trash was never sorted at all?",
           "options": [
-            "Robots would work even faster than before.",
-            "All of it would turn into new bottles automatically.",
+            "Robots would work even faster than before at the center.",
+            "All of it would turn into new bottles automatically in the center.",
             "More of it would end up buried in the ground instead of being reused.",
-            "Trucks would stop bringing trash to the center."
+            "Trucks would stop bringing trash to the center in the city."
           ],
           "answer": "C",
           "skill": "inference",
@@ -233,9 +233,9 @@
         {
           "stem": "Why does the author describe the robot arm, the camera, and the magnet one by one?",
           "options": [
-            "To compare two different recycling centers",
-            "To explain how to repair a broken robot",
-            "To tell a story about one worker's day",
+            "To compare two different recycling centers in the same city",
+            "To explain how to repair a broken robot with simple tools",
+            "To tell a story about one worker's day at the plant",
             "To show the different ways robots sort different kinds of trash"
           ],
           "answer": "D",
@@ -294,9 +294,9 @@
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
             "Robots and cameras sort trash at a recycling center faster and more accurately than people alone.",
-            "A magnet can pull steel cans off a conveyor belt.",
-            "Workers at a recycling center never need any machines.",
-            "Plastic bottles are the only material recycling centers sort."
+            "A magnet can pull steel cans off a conveyor belt, and that is the only job a recycling center does.",
+            "Workers at a recycling center never need any machines because hand sorting is always the best way.",
+            "Plastic bottles are the only material recycling centers sort, and they send all other trash away."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -310,10 +310,10 @@
         {
           "stem": "How does a camera help a robot identify an item on the belt?",
           "options": [
-            "It carefully weighs the item before it is sorted.",
-            "It sprays clean water on the item to wash it.",
+            "It carefully weighs the item before it is sorted into the bins.",
+            "It sprays clean water on the item to wash it for the workers.",
             "It sends images to a computer that identifies the material.",
-            "It plays a loud sound to warn nearby workers."
+            "It plays a loud sound to warn the nearby workers of the item."
           ],
           "answer": "C",
           "skill": "detail",
@@ -361,10 +361,10 @@
         {
           "stem": "Why might mixed-up or contaminated trash be harder to recycle?",
           "options": [
-            "It becomes heavier than clean trash.",
+            "It becomes heavier than clean trash, so trucks cannot carry it far.",
             "Different materials are difficult to separate once they are mixed together.",
-            "It cannot be placed on a conveyor belt at all.",
-            "It must be driven to a different city."
+            "It cannot be placed on a conveyor belt at all, because it is too wet.",
+            "It must be driven to a different city, which costs a great deal of money."
           ],
           "answer": "B",
           "skill": "inference",
@@ -379,9 +379,9 @@
           "stem": "What can you infer about why engineers must regularly retrain a robot's computer?",
           "options": [
             "New or unusual items can confuse the computer's recognition skills.",
-            "The computer forgets how to move its arm.",
-            "The conveyor belt changes speed every day.",
-            "The magnet loses its pulling power over time."
+            "The computer forgets how to move its arm over a long time.",
+            "The conveyor belt changes its speed every single day of the week.",
+            "The magnet loses its pulling power slowly over a long period of time."
           ],
           "answer": "A",
           "skill": "inference",
@@ -412,9 +412,9 @@
         {
           "stem": "How does the article mostly organize its information?",
           "options": [
-            "It lists instructions for building your own robot arm.",
-            "It compares recycling centers in different countries.",
-            "It tells the life story of one famous engineer.",
+            "It lists instructions for building your own robot arm, with tools and parts for each step.",
+            "It compares recycling centers in different countries and shows which of them recycles the most.",
+            "It tells the life story of one famous engineer from his childhood to his old age.",
             "It describes the sorting process step by step, then explains the system's benefits and limits."
           ],
           "answer": "D",
@@ -473,9 +473,9 @@
           "stem": "Which statement best summarizes the article?",
           "options": [
             "Robots guided by cameras and artificial intelligence sort trash efficiently, though the system still has real limits.",
-            "Magnets are the only tool used in a materials recovery facility.",
-            "Eddy current separators have completely replaced human workers.",
-            "Aluminum cans are more valuable than steel cans."
+            "Magnets are the only tool used in a materials recovery facility, and they sort all kinds of trash by themselves.",
+            "Eddy current separators have completely replaced human workers, so no person works in a recycling plant any more.",
+            "Aluminum cans are more valuable than steel cans, so factories collect only aluminum and throw away the other things."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -489,10 +489,10 @@
         {
           "stem": "According to the article, what do infrared sensors paired with cameras help a facility do?",
           "options": [
-            "Charge the robotic arms fully overnight",
-            "Clean broken glass off the conveyor belt",
+            "Charge the robotic arms fully overnight in the main hall",
+            "Clean broken glass off the conveyor belt each day",
             "Scan each item to help identify its exact material",
-            "Weigh each heavy truck before it unloads"
+            "Weigh each heavy truck before it unloads at the gate"
           ],
           "answer": "C",
           "skill": "detail",
@@ -506,9 +506,9 @@
         {
           "stem": "How does an eddy current separator remove aluminum from the belt?",
           "options": [
-            "It uses a regular magnet, just like for steel.",
-            "It slowly melts the aluminum into a liquid pool.",
-            "It sprays the aluminum with bright colored paint.",
+            "It uses a regular magnet, just like for steel, to lift the aluminum away.",
+            "It slowly melts the aluminum into a liquid pool under strong heat.",
+            "It sprays the aluminum with bright colored paint so workers can see it.",
             "It uses electric current to push non-magnetic aluminum away."
           ],
           "answer": "D",
@@ -523,10 +523,10 @@
         {
           "stem": "The article uses the word algorithm to describe how software identifies materials. What does algorithm mean?",
           "options": [
-            "a kind of camera used only at night",
+            "a kind of camera used only at night, to take photos of animals",
             "a precise set of steps a computer follows to reach a decision",
-            "a magnet strong enough to lift a truck",
-            "a type of plastic found in bottles"
+            "a magnet strong enough to lift a truck or a train",
+            "a type of plastic found in bottles and in toys"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -540,7 +540,7 @@
         {
           "stem": "Why would retraining an algorithm with fresh images likely improve a robot's sorting accuracy?",
           "options": [
-            "The robot's whole arm becomes physically stronger.",
+            "The robot's whole arm becomes physically stronger and lifts more.",
             "The software learns to recognize more kinds of items correctly.",
             "The conveyor belt moves at a slower, safer speed.",
             "The facility needs fewer human workers immediately."
@@ -558,9 +558,9 @@
           "stem": "Based on the article, why might broken glass be especially dangerous at a recycling facility?",
           "options": [
             "It can seriously injure a careless worker on or near the belt.",
-            "It confuses infrared sensors permanently.",
-            "It damages every robot's camera instantly.",
-            "It makes aluminum harder to identify."
+            "It confuses infrared sensors permanently, so they stop working for days.",
+            "It damages every robot's camera instantly, even from far away.",
+            "It makes aluminum harder to identify on the moving belt."
           ],
           "answer": "A",
           "skill": "inference",
@@ -574,10 +574,10 @@
         {
           "stem": "How does sorting trash efficiently connect to building a more sustainable future, according to the article?",
           "options": [
-            "Efficient sorting makes trucks deliver trash less often.",
-            "Sustainable trash never needs to be sorted at all.",
+            "Efficient sorting makes trucks deliver trash less often to the town and the farms.",
+            "Sustainable trash never needs to be sorted at all by people.",
             "Correctly sorted items can be reused, which reduces landfill waste over time.",
-            "Sustainability depends only on how fast trucks drive."
+            "Sustainability depends only on how fast the trucks drive in town."
           ],
           "answer": "C",
           "skill": "cause-effect",

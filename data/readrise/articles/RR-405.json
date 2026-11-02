@@ -114,9 +114,9 @@
         {
           "stem": "What is this story mostly about?",
           "options": [
-            "A team that builds a brand new school",
+            "A team that builds a brand new school building",
             "A team that fixes a robot's code before a match",
-            "A team that paints a large wall mural",
+            "A team that paints a large wall mural downtown",
             "A team that plants a new flower garden"
           ],
           "answer": "B",
@@ -182,10 +182,10 @@
         {
           "stem": "What does Omar do to fix the bug?",
           "options": [
-            "He buys a brand-new robot instead",
+            "He buys a brand-new robot instead of the old one",
             "He adds a small missing line to the code",
-            "He paints Spark a new color design",
-            "He asks another team for some help"
+            "He paints Spark a new color design on its back",
+            "He asks another team for some help with the code"
           ],
           "answer": "B",
           "skill": "detail",
@@ -200,8 +200,8 @@
           "stem": "What happens after Omar fixes the code?",
           "options": [
             "The team gives up and goes home sad",
-            "Spark stops working completely for good",
-            "Spark starts spinning even faster now",
+            "Spark stops working completely for good, today",
+            "Spark starts spinning even faster now, and nonstop",
             "Spark turns once, then runs and kicks the ball in"
           ],
           "answer": "D",
@@ -233,10 +233,10 @@
         {
           "stem": "Why does the author tell about the night before the match?",
           "options": [
-            "To describe what the team eats for dinner",
+            "To describe what the team eats for dinner before the game",
             "To show how the team solves a problem under pressure",
-            "To explain the official rules of soccer",
-            "To describe the weather outside that night"
+            "To explain the official rules of soccer to new readers",
+            "To describe the weather outside that night and the dark sky"
           ],
           "answer": "B",
           "skill": "author-purpose",
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the central idea of the story?",
           "options": [
-            "A robotics team decides to build a completely new motor",
+            "A robotics team decides to build a completely new motor for the contest",
             "A robotics team discovers and corrects a coding error before a competition",
-            "A robotics team loses all interest in competing this year",
-            "A robotics team argues about who should lead the club"
+            "A robotics team loses all interest in competing this year at the fair",
+            "A robotics team argues about who should lead the club for the year"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -378,9 +378,9 @@
         {
           "stem": "What can you infer about why the missing line caused an endless loop?",
           "options": [
-            "The team simply forgot to charge the battery",
-            "The robot's motor was far too strong for the code",
-            "The sensor sent the wrong signal to the program",
+            "The team simply forgot to charge the battery before the test began",
+            "The robot's motor was far too strong for the code to control it",
+            "The sensor sent the wrong signal to the program every few seconds",
             "The turning instruction had no condition that could end it"
           ],
           "answer": "D",
@@ -506,10 +506,10 @@
         {
           "stem": "In the story, the word algorithm most nearly means —",
           "options": [
-            "a small part that senses distance or light nearby",
-            "a competition between several rival city schools",
+            "a small part that senses distance or light nearby, such as a camera",
+            "a competition between several rival city schools in a robot contest",
             "a sequence of exact instructions that tells a machine what to do",
-            "a battery that stores electrical power inside it"
+            "a battery that stores electrical power inside the robot's body"
           ],
           "answer": "C",
           "skill": "vocabulary",
@@ -574,9 +574,9 @@
         {
           "stem": "Which comparison best matches the relationship between Spark's malfunction and its cause, as described in the story?",
           "options": [
-            "An endless loop is to a motor as a goal is to a sensor nearby",
-            "An endless loop is to Sara as a competition is to Omar himself",
-            "An endless loop is to the Robotics Cup as a team is to a school",
+            "An endless loop is to a motor as a goal is to a sensor on a small robot arm",
+            "An endless loop is to Sara as a competition is to Omar and his friends at school",
+            "An endless loop is to the Robotics Cup as a team is to a school club",
             "An endless loop is to a missing stop condition as a locked door is to a missing key"
           ],
           "answer": "D",

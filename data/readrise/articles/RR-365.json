@@ -182,10 +182,10 @@
         {
           "stem": "Why does Dr. Huda want to see the ridge for herself?",
           "options": [
-            "She wants to swim for fun",
+            "She wants to swim for fun in the cool water",
             "She thinks it might be a rare and important find",
-            "She needs new photos for her phone",
-            "She wants to meet Uncle Faisal's friends"
+            "She needs new photos for her phone and her friends",
+            "She wants to meet Uncle Faisal's friends at the reef"
           ],
           "answer": "B",
           "skill": "inference",
@@ -199,10 +199,10 @@
         {
           "stem": "In the article, a ridge is —",
           "options": [
-            "a kind of fish",
-            "a type of boat",
+            "a kind of fish that lives in a lake",
+            "a type of boat used by fishermen",
             "a raised line or row, like a small hill",
-            "a deep hole in the sand"
+            "a deep hole in the sand of the desert"
           ],
           "answer": "C",
           "skill": "vocabulary",
@@ -217,9 +217,9 @@
           "stem": "Why does the author begin the article by describing Reem's training with Uncle Faisal?",
           "options": [
             "To show that Reem is a careful, well-trained diver before she makes her discovery",
-            "To explain how to build a boat",
-            "To teach readers about fish",
-            "To show that diving is not allowed"
+            "To explain how to build a boat for fishing in the sea and to sail it on the waves",
+            "To teach readers about fish and sea animals that live on the reef and in the deep",
+            "To show that diving is not allowed in the Red Sea and that it is a crime for children"
           ],
           "answer": "A",
           "skill": "author-purpose",
@@ -294,8 +294,8 @@
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
             "A young free-diver notices an unusual formation on a reef and helps a marine scientist examine it.",
-            "Reem is afraid of deep water.",
-            "A diver loses her camera in the sea.",
+            "Reem is afraid of deep water and she never goes to the beach or the sea with her family.",
+            "A diver loses her camera in the sea and spends a whole week looking for it with her friends.",
             "Dr. Huda spends her time teaching free-diving lessons to young students every week."
           ],
           "answer": "A",
@@ -378,9 +378,9 @@
         {
           "stem": "Why does Dr. Huda decide to visit the reef herself instead of just looking at photographs?",
           "options": [
-            "She wants a vacation",
-            "She does not trust Uncle Faisal's camera",
-            "She lives near the reef",
+            "She wants a vacation at the sea and thinks the trip will be a fun holiday",
+            "She does not trust Uncle Faisal's camera and thinks the photographs are fake",
+            "She lives near the reef and can walk there in a few minutes each day",
             "The formation seems unusual enough that she needs to examine it directly"
           ],
           "answer": "D",
@@ -395,10 +395,10 @@
         {
           "stem": "What is the result of the team's close examination of the ridge?",
           "options": [
-            "They decide it is ordinary coral",
-            "They decide to remove it",
+            "They decide it is ordinary coral after all",
+            "They decide to remove it from the reef and sell it",
             "They confirm it is a rare and valuable formation",
-            "They lose interest in it"
+            "They lose interest in it and go home"
           ],
           "answer": "C",
           "skill": "cause-effect",
@@ -412,10 +412,10 @@
         {
           "stem": "How does the author organize the article?",
           "options": [
-            "By comparing two different reefs",
+            "By comparing two different reefs near the coast and what lives on each one",
             "By following events in order, from training, to discovery, to the scientist's visit",
-            "By explaining the steps to repair a boat",
-            "By listing facts about every sea animal"
+            "By explaining the steps to repair a boat on the shore, from the first nail to the last",
+            "By listing facts about every sea animal in the ocean, from the smallest to the biggest"
           ],
           "answer": "B",
           "skill": "text-structure",
@@ -558,9 +558,9 @@
           "stem": "Why does Dr. Huda invite Reem to join future surveys of the ecosystem?",
           "options": [
             "Reem showed sharp observation and respect for the reef, qualities useful to a researcher",
-            "Dr. Huda needs someone to carry equipment",
-            "Reem's uncle paid for a spot on the team",
-            "It is required by law"
+            "Dr. Huda needs someone to carry equipment and boxes on the boat every day of the survey",
+            "Reem's uncle paid for a spot on the team, so Dr. Huda had to say yes",
+            "It is required by law for all students to join the surveys in the area"
           ],
           "answer": "A",
           "skill": "inference",
@@ -575,9 +575,9 @@
           "stem": "How are Reem and Dr. Huda alike, based on the article?",
           "options": [
             "Both are careful, curious people who want to understand and protect the reef",
-            "Both are afraid of the open sea",
-            "Both dislike free-diving",
-            "Both discovered the ridge at the same moment"
+            "Both are afraid of the open sea and will not swim in it, not even near the shore",
+            "Both dislike free-diving and try to avoid the reef, so they stay on the boat",
+            "Both discovered the ridge at the same moment in the sea"
           ],
           "answer": "A",
           "skill": "compare",
@@ -591,10 +591,10 @@
         {
           "stem": "Why does the author describe the step-by-step process of photographing, sending images, and later confirming the fossil, rather than skipping straight to the discovery?",
           "options": [
-            "To show that it is random luck",
-            "To make the story longer",
+            "To show that it is random luck, and not careful work, that finds fossils in the sand",
+            "To make the story longer and more exciting for the readers of the article",
             "To show how careful observation and scientific verification lead to real discoveries",
-            "To confuse the reader"
+            "To confuse the reader about the fossil and hide how it was really found"
           ],
           "answer": "C",
           "skill": "author-purpose",

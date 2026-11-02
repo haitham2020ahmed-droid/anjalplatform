@@ -61,9 +61,9 @@
       "difficulty": 2,
       "stem": "Why did Grandfather take the radio down from the shelf?",
       "options": [
-        "He wanted to sell it to a collector.",
-        "The narrator asked him to repair it.",
-        "Its brass knobs needed to be polished.",
+        "He wanted to sell it to a collector in the city.",
+        "The narrator asked him to repair it for school.",
+        "Its brass knobs needed to be polished by hand.",
         "The electricity in the neighborhood had failed."
       ],
       "answer": "D",
@@ -125,10 +125,10 @@
       "difficulty": 3,
       "stem": "Which feeling is MOST present in the story?",
       "options": [
-        "fear of storms and darkness",
+        "fear of storms and darkness at night, and the unknown",
         "warm affection between a grandchild and a grandparent",
-        "jealousy about an expensive gift",
-        "anger at a broken machine"
+        "jealousy about an expensive gift that a friend received",
+        "anger at a broken machine that nobody in the house can fix"
       ],
       "answer": "B",
       "why": "The shared memories, Grandfather's warm smile and the offer to help all show affection between them."

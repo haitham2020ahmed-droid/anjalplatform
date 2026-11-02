@@ -311,9 +311,9 @@
           "stem": "What are \"browns\" in a compost pile?",
           "options": [
             "Dry materials such as dead leaves and cardboard",
-            "Wet scraps such as fruit peels",
-            "Worms and insects that chew scraps",
-            "Meat and oily food"
+            "Wet scraps such as fruit peels and vegetable ends",
+            "Worms and insects that chew the scraps into small bits",
+            "Meat and oily food left over from big family dinners"
           ],
           "answer": "A",
           "skill": "detail",
@@ -412,9 +412,9 @@
         {
           "stem": "How does the author organize the article?",
           "options": [
-            "By telling the history of farming in order",
-            "By comparing two kinds of worms",
-            "As a list of problems with gardens",
+            "By telling the history of farming in order from long ago until today, in a long timeline",
+            "By comparing two kinds of worms found in the garden, and showing how they are different",
+            "As a list of problems with gardens and how bugs, weeds, and dry weather can spoil them",
             "By explaining how to make compost, how it works, and why it helps"
           ],
           "answer": "D",
@@ -540,10 +540,10 @@
         {
           "stem": "Why do the high temperatures inside a compost pile matter?",
           "options": [
-            "They attract pests that help the pile.",
-            "They turn the compost into methane.",
+            "They attract pests that help the pile break down.",
+            "They turn the compost into methane gas and smoke.",
             "They destroy many weed seeds and harmful germs.",
-            "They dry out the pile completely."
+            "They dry out the pile completely, so it cracks."
           ],
           "answer": "C",
           "skill": "cause-effect",

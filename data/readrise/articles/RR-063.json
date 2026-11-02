@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How to cook healthy meals at home",
+            "How to cook healthy meals at home with fruit",
             "How the heart works and how exercise helps it",
-            "Why kids should sleep more at night",
-            "How to win a football match"
+            "Why kids should sleep more at night for school",
+            "How to win a football match with a team"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -182,10 +182,10 @@
         {
           "stem": "In the article, the word pulse means —",
           "options": [
-            "a kind of game you play outside",
+            "a kind of game you play outside with friends",
             "the beat you feel when your heart pumps",
-            "a tube that carries water",
-            "a muscle in your leg"
+            "a tube that carries water around the body",
+            "a muscle in your leg that helps you run"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -200,9 +200,9 @@
           "stem": "Why does a strong heart not need to beat as often when you rest?",
           "options": [
             "It pumps more blood with each beat.",
-            "It is tired from exercise.",
-            "It stops working at night.",
-            "It has less blood to move."
+            "It is tired from exercise, so it rests",
+            "It stops working at night, when you sleep",
+            "It has less blood to move around"
           ],
           "answer": "A",
           "skill": "inference",
@@ -216,10 +216,10 @@
         {
           "stem": "Sara wants to play outside in Riyadh in July. What would the article tell her to do?",
           "options": [
-            "Play at noon and skip water.",
+            "Play at noon and skip water, as the sun is high",
             "Play in the cool part of the day and drink water.",
-            "Sit inside and never move.",
-            "Run as fast as she can in the hot sun."
+            "Sit inside and never move, even at night",
+            "Run as fast as she can in the hot sun, at noon"
           ],
           "answer": "B",
           "skill": "inference",
@@ -361,10 +361,10 @@
         {
           "stem": "Which activity is the best example of aerobic exercise?",
           "options": [
-            "Reading a book on the sofa",
-            "Playing a video game",
+            "Reading a book on the sofa for an hour",
+            "Playing a video game for a long time",
             "Jumping rope for twenty minutes",
-            "Taking a short nap"
+            "Taking a short nap in the afternoon"
           ],
           "answer": "C",
           "skill": "vocabulary",
@@ -396,9 +396,9 @@
           "stem": "Why does the author compare exercising the heart to lifting heavy objects?",
           "options": [
             "To show that the heart is a muscle that gets stronger with use",
-            "To suggest that children should lift weights all day",
-            "To explain where the heart is in the chest",
-            "To prove that arms are more important than the heart"
+            "To suggest that children should lift weights all day long",
+            "To explain where the heart is in the chest of a person",
+            "To prove that arms are more important than the heart for life"
           ],
           "answer": "A",
           "skill": "text-structure",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
-            "Children's hearts beat faster than adults' hearts in every situation.",
+            "Children's hearts beat faster than adults' hearts in every situation, so children should exercise less than adults do.",
             "The cardiovascular system supplies the body constantly, and regular aerobic exercise strengthens it while inactivity weakens it.",
-            "Measuring your heart rate is the only way to check your health.",
-            "Exercise is dangerous in hot climates and should be avoided."
+            "Measuring your heart rate is the only way to check your health, and doctors never need to look at anything else.",
+            "Exercise is dangerous in hot climates and should be avoided, because the heart cannot work well when the weather is warm."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -557,10 +557,10 @@
         {
           "stem": "How does the effect of aerobic exercise on the heart compare with the effect of a sedentary lifestyle?",
           "options": [
-            "Both make the heart stronger and healthier over time.",
+            "Both make the heart stronger and healthier over time, so people need not choose between them.",
             "Exercise strengthens the heart, while a sedentary lifestyle can gradually weaken it.",
-            "Neither one has any real effect on how the heart works.",
-            "A sedentary lifestyle builds endurance faster than exercise."
+            "Neither one has any real effect on how the heart works, so doctors ignore both of them.",
+            "A sedentary lifestyle builds endurance faster than exercise does, and it makes the heart grow bigger."
           ],
           "answer": "B",
           "skill": "compare",

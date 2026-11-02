@@ -132,9 +132,9 @@
           "stem": "How does trash on land get to the sea?",
           "options": [
             "Wind and rain move it into rivers, and rivers carry it to the sea",
-            "Fish carry it in their mouths",
-            "Birds drop it from the sky on purpose",
-            "It falls from big ships only"
+            "Fish carry it in their mouths to the beach and leave it there",
+            "Birds drop it from the sky on purpose over the open sea",
+            "It falls from big ships only, never from the land or the shore"
           ],
           "answer": "A",
           "skill": "detail",
@@ -182,10 +182,10 @@
         {
           "stem": "In the article, to recycle means to —",
           "options": [
-            "throw things into the sea",
+            "throw things into the sea and let the waves carry them away",
             "collect used things so they can be made into new things",
-            "buy a lot of bottles",
-            "burn old trash"
+            "buy a lot of bottles from the shop at the corner",
+            "burn old trash in a big fire outside the town"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -217,9 +217,9 @@
           "stem": "Why do some spots in the sea have huge piles of trash?",
           "options": [
             "Big loops of water pull trash to the same spots",
-            "People dump trash there each day",
-            "Whales bring the trash there",
-            "The sea is not deep in those spots"
+            "People dump trash there each day from big ships",
+            "Whales bring the trash there when they swim",
+            "The sea is not deep in those spots of the world"
           ],
           "answer": "A",
           "skill": "inference",
@@ -294,9 +294,9 @@
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
             "Plastic trash is harming the ocean, and people can help by cleaning it and keeping trash out.",
-            "Coral reefs live only in the Red Sea.",
-            "Fishing nets are the only cause of ocean trash.",
-            "Ocean currents are too strong to study."
+            "Coral reefs live only in the Red Sea, so plastic can never hurt them in other places.",
+            "Fishing nets are the only cause of ocean trash, and plastic bags come from nowhere else.",
+            "Ocean currents are too strong to study, so no one can say where the trash goes."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -345,9 +345,9 @@
           "stem": "In the article, the word source means —",
           "options": [
             "a place where something comes from",
-            "a type of large fishing boat",
-            "a kind of sea animal",
-            "a way to clean a beach"
+            "a type of large fishing boat at sea",
+            "a kind of sea animal in the water",
+            "a way to clean a beach or a river"
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -395,9 +395,9 @@
         {
           "stem": "Why does the author say the best solution is to keep trash out of the ocean in the first place?",
           "options": [
-            "Because cleaning beaches is against the rules",
-            "Because currents carry all trash back to land",
-            "Because volunteers do not want to help",
+            "Because cleaning beaches is against the rules in most places, so nobody is allowed to do it",
+            "Because currents carry all trash back to land within a week",
+            "Because volunteers do not want to help clean the water or sand",
             "Because once trash spreads and breaks apart, it is very hard to remove"
           ],
           "answer": "D",
@@ -413,9 +413,9 @@
           "stem": "How is the article mainly organized?",
           "options": [
             "It describes a problem, its causes and effects, and then solutions",
-            "It tells a story about one sea turtle",
-            "It lists steps to build a barrier",
-            "It compares the Red Sea with the Pacific Ocean"
+            "It tells a story about one sea turtle and her family",
+            "It lists the steps to build a barrier on a beach",
+            "It compares the Red Sea with the Pacific Ocean in many different ways"
           ],
           "answer": "A",
           "skill": "text-structure",
@@ -473,9 +473,9 @@
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
             "Marine debris, mostly plastic from land, harms ocean life, and prevention is the most effective response.",
-            "Microplastics are easy to remove from seawater.",
-            "Garbage patches are solid floating islands.",
-            "Coral reefs produce most ocean plastic."
+            "Microplastics are easy to remove from seawater with a net, so the ocean is already clean again.",
+            "Garbage patches are solid floating islands that people can walk on and even build whole houses on.",
+            "Coral reefs produce most ocean plastic, and they are the main reason for the pollution at sea."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -557,10 +557,10 @@
         {
           "stem": "Why does the author explain that garbage patches are mostly scattered fragments rather than solid islands?",
           "options": [
-            "To show that the patches are harmless",
+            "To show that the patches are harmless to fish, to birds, and to people",
             "To suggest that people could someday walk across them",
             "To correct a common misunderstanding and show why cleanup is hard",
-            "To prove that currents do not move trash"
+            "To prove that ocean currents do not move any trash at all in the sea"
           ],
           "answer": "C",
           "skill": "author-purpose",
@@ -574,9 +574,9 @@
         {
           "stem": "Which conclusion is best supported by the article?",
           "options": [
-            "Beach cleanups are useless and should stop",
-            "Plastic will rot away if we wait long enough",
-            "Only governments can solve this problem",
+            "Beach cleanups are useless and should stop right away",
+            "Plastic will rot away if we wait long enough on the beach",
+            "Only governments can solve this problem for the whole sea",
             "Everyday choices on land can reduce ocean pollution"
           ],
           "answer": "D",
@@ -591,10 +591,10 @@
         {
           "stem": "How does cleaning up debris compare with prevention, according to the article?",
           "options": [
-            "Cleaning up is easier because currents gather trash in one place",
-            "They are equally difficult",
+            "Cleaning up is easier because currents gather trash in one place, so a single boat can collect it all",
+            "They are equally difficult, because plastic spreads in all seas",
             "Prevention is more effective because removing plastic from the vast ocean is much harder",
-            "Prevention is impossible because plastic is needed"
+            "Prevention is impossible because plastic is needed in daily life"
           ],
           "answer": "C",
           "skill": "compare",

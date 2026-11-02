@@ -148,9 +148,9 @@
         {
           "stem": "What happened when Yousef got his first clear chance to score?",
           "options": [
-            "He scored a goal easily",
-            "He passed the ball to Khalid",
-            "The referee stopped the match",
+            "He scored a goal easily from the center",
+            "He passed the ball to Khalid on the side",
+            "The referee stopped the match for a break",
             "He kicked the ball, and it went wide"
           ],
           "answer": "D",
@@ -183,9 +183,9 @@
           "stem": "Why did Yousef start making small mistakes after he missed the goal?",
           "options": [
             "He felt sad, and he stopped trying as hard",
-            "The referee gave him a penalty",
-            "He hurt his leg during the match",
-            "The other team scored right away"
+            "The referee gave him a penalty, and he was angry",
+            "He hurt his leg during the match and was in pain",
+            "The other team scored right away after his miss"
           ],
           "answer": "A",
           "skill": "inference",
@@ -216,10 +216,10 @@
         {
           "stem": "Why did the Falcons win the match?",
           "options": [
-            "The other team did not try",
+            "The other team did not try very hard in the second half",
             "Yousef and his teammates worked together after halftime",
-            "The referee helped the Falcons",
-            "Khalid played the whole match alone"
+            "The referee helped the Falcons by giving them extra points",
+            "Khalid played the whole match alone and scored every goal"
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -234,9 +234,9 @@
           "stem": "Why does the author tell us what Coach Nasser said at halftime?",
           "options": [
             "To show how the coach and teammates helped Yousef refocus",
-            "To explain the rules of football",
-            "To describe what the crowd ate during the game",
-            "To tell us how old Coach Nasser is"
+            "To explain the rules of football to readers who have never played",
+            "To describe what the crowd ate during the game and who sat near the goal",
+            "To tell us how old Coach Nasser is and where he was born"
           ],
           "answer": "A",
           "skill": "author-purpose",
@@ -294,9 +294,9 @@
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
             "Yousef loses focus after a missed shot, but his team's support helps him recover.",
-            "Yousef's team wins the match without any practice beforehand.",
-            "The article mainly explains the official rules of football matches.",
-            "Khalid is the star of the team and never makes any mistakes."
+            "Yousef's team wins the match without any practice beforehand, so he never needs to try again.",
+            "The article mainly explains the official rules of football matches, such as fouls and kicks.",
+            "Khalid is the star of the team and never makes any mistakes, so he is the one who helps."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -472,9 +472,9 @@
         {
           "stem": "Which statement best captures the central idea of the article?",
           "options": [
-            "A football match result only reflects the final score.",
+            "A football match result only reflects the final score of the game.",
             "Yousef's resilience and his teammates' support help him succeed.",
-            "Khalid alone is responsible for the team's victory.",
+            "Khalid alone is responsible for the team's victory in the match.",
             "Coach Nasser refuses to speak to the team at halftime."
           ],
           "answer": "B",
@@ -575,9 +575,9 @@
           "stem": "Why does the author suggest that perseverance mattered more than individual talent in this match?",
           "options": [
             "Because the team's recovery depended on everyone's continued effort",
-            "Because Yousef alone scored every goal in the match",
-            "Because the coach alone made every decision for the team",
-            "Because the crowd alone decided who would win the game"
+            "Because Yousef alone scored every goal in the match, with no help from the team",
+            "Because the coach alone made every decision for the team during the game",
+            "Because the crowd alone decided who would win the game with their noise"
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -591,10 +591,10 @@
         {
           "stem": "Why does the author end the article by describing what Yousef realized about teamwork?",
           "options": [
-            "To explain the history of the tournament",
-            "To describe the weather during the match",
+            "To explain the history of the tournament and its first teams",
+            "To describe the weather during the match, with its sun and wind",
             "To highlight the lesson about resilience and teamwork",
-            "To list the names of every player on the team"
+            "To list the names of every player on the team and her number"
           ],
           "answer": "C",
           "skill": "author-purpose",

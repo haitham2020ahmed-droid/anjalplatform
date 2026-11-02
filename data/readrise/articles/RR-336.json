@@ -131,9 +131,9 @@
         {
           "stem": "According to the article, what is a border?",
           "options": [
-            "A kind of tall mountain",
-            "A paper that lets you travel",
-            "A type of checkpoint",
+            "A kind of tall mountain with snow on top",
+            "A paper that lets you travel to other lands and cities",
+            "A type of checkpoint that is built on a road or a bridge",
             "The edge where one country ends and another begins"
           ],
           "answer": "D",
@@ -235,8 +235,8 @@
           "options": [
             "To explain how to build a mountain range",
             "To show how checkpoints help keep countries safe",
-            "To list the rivers of the world",
-            "To explain how maps are printed"
+            "To list the rivers of the world and their lengths",
+            "To explain how maps are printed in big factories"
           ],
           "answer": "B",
           "skill": "author-purpose",
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
-            "Borders are always made of walls and fences.",
-            "Rivers can never serve as a natural border between any two neighboring countries",
+            "Borders are always made of walls and fences, and nature plays no part in them at all, so checkpoints are never needed, say the writers of the article.",
+            "Rivers can never serve as a natural border between any two neighboring countries in the world, and mountains cannot do so, either, say the experts.",
             "Borders mark where countries' territory ends, and they are set by nature or by agreement, with checkpoints to manage crossing.",
-            "Checkpoints exist only to collect maps from travelers."
+            "Checkpoints exist only to collect maps from travelers and tourists who come from far away, and have no use in managing how people cross the border."
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -361,10 +361,10 @@
         {
           "stem": "What is the result when two countries sign a formal treaty about a border?",
           "options": [
-            "The river between them dries up",
-            "The checkpoint along the border is removed",
+            "The river between them dries up and the border moves",
+            "The checkpoint along the border is removed at once",
             "The line in the treaty's map becomes the official border",
-            "The two countries merge into one territory"
+            "The two countries merge into one territory with one flag"
           ],
           "answer": "C",
           "skill": "cause-effect",
@@ -396,9 +396,9 @@
           "stem": "A border runs across flat land with no river or mountain nearby. What can you infer about how it was likely set?",
           "options": [
             "It was probably agreed upon through negotiation between the countries",
-            "It was probably discovered by accident",
-            "It was probably created without any official agreement",
-            "It was probably based on a nearby ocean current"
+            "It was probably discovered by accident when a farmer drew a line",
+            "It was probably created without any official agreement between the countries",
+            "It was probably based on a nearby ocean current that flows along the coast"
           ],
           "answer": "A",
           "skill": "inference",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best summarizes the article?",
           "options": [
-            "Checkpoints exist mainly to collect treaties from travelers.",
-            "Every border in the world follows a river.",
+            "Checkpoints exist mainly to collect old treaties from travelers who cross, and to send them back to their own countries for study.",
+            "Every border in the world follows a river, and no border has ever been drawn across land, mountains, or the sea by anyone.",
             "Borders are set by nature or diplomatic agreement, and checkpoints help each sovereign country manage who and what crosses.",
-            "Diplomatic negotiation is never actually used to help decide any border's exact location"
+            "Diplomatic negotiation is never used to help decide any border's exact location, because countries only follow natural lines and never talk."
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -507,9 +507,9 @@
           "stem": "What does the article say happens before a negotiated straight-line border becomes official?",
           "options": [
             "Officials meet, discuss details, and sign a formal treaty",
-            "A river must first be found nearby",
-            "A checkpoint must operate for several years first",
-            "A mountain range must be built along the line"
+            "A river must first be found nearby, running through the land",
+            "A checkpoint must operate for several years first on the line",
+            "A mountain range must be built along the line by the workers"
           ],
           "answer": "A",
           "skill": "detail",
@@ -557,9 +557,9 @@
         {
           "stem": "A new country forms between two existing ones, with a wide river separating it from one neighbor and flat, featureless land separating it from the other. What can you infer?",
           "options": [
-            "Both borders will likely be decided the exact same way",
-            "The flat land will automatically become a mountain range",
-            "Neither border will ever need a checkpoint",
+            "Both borders will likely be decided the exact same way, by drawing a straight line",
+            "The flat land will automatically become a mountain range as the new country grows",
+            "Neither border will ever need a checkpoint, because the country has no neighbors",
             "The river border may form naturally, while the other may require negotiation"
           ],
           "answer": "D",
@@ -591,10 +591,10 @@
         {
           "stem": "Why does the author explain both the natural and negotiated methods of setting a border within the same article?",
           "options": [
-            "To argue that natural borders are illegal",
+            "To argue that natural borders are illegal and countries should only use straight lines",
             "To show that countries use more than one method depending on the geography available",
-            "To prove that negotiated borders never last",
-            "To argue that checkpoints are unnecessary once a treaty is signed"
+            "To prove that negotiated borders never last, so countries must always use rivers",
+            "To argue that checkpoints are unnecessary once a treaty is signed and the line is drawn"
           ],
           "answer": "B",
           "skill": "author-purpose",

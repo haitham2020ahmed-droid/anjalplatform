@@ -90,9 +90,9 @@
           "stem": "What is this story mostly about?",
           "options": [
             "A parrot who learns that listening matters more than talking the most",
-            "A flock of birds that moves to a new forest every year",
-            "A river full of fish that the parrots like to eat",
-            "A young parrot who teaches the whole flock how to fly"
+            "A flock of birds that moves to a new forest every single year to find warm weather",
+            "A river full of fish that the parrots like to eat for dinner every evening",
+            "A young parrot who teaches the whole flock how to fly south before the winter"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -174,7 +174,7 @@
         {
           "stem": "Why did Kanz ask Tala to finish what she had tried to say earlier?",
           "options": [
-            "Kanz did not trust anything that Rami had said",
+            "Kanz did not trust anything that Rami had said that day",
             "Kanz wanted Tala to apologize to the whole flock",
             "Kanz wanted to hear the information Rami had interrupted",
             "Kanz had forgotten where the old fruit tree was"
@@ -208,10 +208,10 @@
         {
           "stem": "Why does the story end by saying Rami learned that listening matters more than talking?",
           "options": [
-            "To show that parrots cannot ever learn new things",
+            "To show that parrots cannot ever learn new things from others",
             "To teach that paying attention is more valuable than boasting",
-            "To explain exactly how fig trees grow fruit each year",
-            "To show that Kanz was the fastest flyer in the flock"
+            "To explain exactly how fig trees grow fruit each year in the oasis",
+            "To show that Kanz was the fastest flyer in the flock of parrots"
           ],
           "answer": "B",
           "skill": "author-purpose",
@@ -398,9 +398,9 @@
           "stem": "Which statement best captures the central idea of the story?",
           "options": [
             "Overconfidence and constant interrupting lead to mistakes that attentive listening prevents",
-            "Forests always recover quickly whenever a tree runs out of fruit",
-            "Older parrots always make far better decisions than younger ones",
-            "Rivers are the only genuinely reliable food source in any forest"
+            "Forests always recover quickly whenever a tree runs out of fruit, so parrots never worry",
+            "Older parrots always make far better decisions than younger ones, so the young must obey",
+            "Rivers are the only genuinely reliable food source in any forest, so parrots stay by the water"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -516,9 +516,9 @@
         {
           "stem": "Why does the author have Rami, rather than Tala, undergo the clearest change by the story's end?",
           "options": [
-            "To prove that older parrots never need to change their habits",
-            "To show that Tala was never truly capable of leading the flock",
-            "To explain in detail how parrots build their nests near rivers",
+            "To prove that older parrots never need to change their habits, no matter what happens to them",
+            "To show that Tala was never truly capable of leading the flock over the mountains",
+            "To explain in detail how parrots build their nests near the rivers in the hot season",
             "To highlight the wisdom gained when overconfidence gives way to attentive listening"
           ],
           "answer": "D",

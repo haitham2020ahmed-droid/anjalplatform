@@ -91,8 +91,8 @@
      "options": [
       "The first word needs a capital.",
       "It needs a question mark.",
-      "It needs a comma.",
-      "Nothing."
+      "It needs a comma after the first word.",
+      "Nothing; it is all correct."
      ],
      "answer": 0,
      "why": "Every sentence starts with a capital letter: The cat is asleep."
@@ -156,10 +156,10 @@
     "passage": "Our class planted a small tree in the schoolyard. Each of us took turns watering it every day. After a month, our teacher looked at the tree. How tall do you think it is now. We measured it and cheered because it had grown ten centimeters!",
     "stem": "How should the fourth sentence end?",
     "options": [
-     "with a period",
+     "with a period or dot",
      "with a question mark",
-     "with a comma",
-     "with no mark"
+     "with a comma at the end",
+     "with no mark at all"
     ],
     "answer": 1,
     "hint": "Look at the first word of the fourth sentence. Is the sentence telling or asking?",
@@ -417,9 +417,9 @@
      "passage": "The meeting will start at 10 a.m..",
      "stem": "What is wrong?",
      "options": [
-      "It needs a question mark.",
+      "It needs a question mark at the end.",
       "a.m. needs capital letters.",
-      "Nothing is wrong.",
+      "Nothing is wrong with it at all.",
       "There are two periods at the end."
      ],
      "answer": 3,

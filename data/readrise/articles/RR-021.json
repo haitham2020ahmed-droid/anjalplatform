@@ -233,10 +233,10 @@
         {
           "stem": "How does the author explain each simple machine?",
           "options": [
-            "By telling a story about one farmer",
+            "By telling a story about one farmer and his tools",
             "By giving each machine and an everyday example of it",
             "By listing the machines from newest to oldest",
-            "By comparing machines in a chart"
+            "By comparing all the machines in a chart of numbers"
           ],
           "answer": "B",
           "skill": "text-structure",
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
-            "Simple machines are too old to be useful today.",
-            "Only machines with engines can do real work.",
+            "Simple machines are too old to be useful today in modern factories",
+            "Only machines with engines can do real work in the world today",
             "The six simple machines make work easier by changing how we use force.",
-            "A seesaw is the most important machine ever made."
+            "A seesaw is the most important machine ever made by people"
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -396,9 +396,9 @@
           "stem": "Why does the author mention buckets being raised from wells in old villages?",
           "options": [
             "To show that pulleys have helped people for a long time",
-            "To explain how wells are dug",
-            "To prove that ramps are better than pulleys",
-            "To describe what villages looked like"
+            "To explain how wells are dug in the ground",
+            "To prove that ramps are always better than pulleys for people",
+            "To describe what villages looked like long ago"
           ],
           "answer": "A",
           "skill": "author-purpose",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
-            "Machines eliminate the need for work entirely.",
-            "Engines are the only reliable source of mechanical advantage.",
+            "Machines eliminate the need for work entirely, so people can sit and let them do everything.",
+            "Engines are the only reliable source of mechanical advantage, since levers and ramps do not help at all.",
             "Simple machines make work easier by trading force for distance, though they never reduce the total work.",
-            "Screws are more important than levers or pulleys."
+            "Screws are more important than levers or pulleys, because they hold every building together."
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -490,9 +490,9 @@
           "stem": "According to the article, what does mechanical advantage measure?",
           "options": [
             "How much a machine multiplies the force you apply",
-            "How fast a machine can move",
-            "How much a machine weighs",
-            "How many parts a machine has"
+            "How fast a machine can move across the floor",
+            "How much a machine weighs when it is on a scale",
+            "How many different parts a machine has inside it"
           ],
           "answer": "A",
           "skill": "detail",
@@ -574,9 +574,9 @@
         {
           "stem": "How is the middle of the article mainly organized?",
           "options": [
-            "As a timeline of when each machine was invented",
-            "As a problem followed by one solution",
-            "As an argument against using machines",
+            "As a timeline of when each machine was invented and by whom",
+            "As a problem followed by one solution that works for all of them",
+            "As an argument against using machines at home or at school",
             "As a description of each simple machine with familiar examples"
           ],
           "answer": "D",

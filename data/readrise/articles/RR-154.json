@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How to bake the best cake",
+            "How to bake the best cake in a home oven or kitchen",
             "How cooking shows that things can change in different ways",
-            "Why coffee is grown in Saudi Arabia",
-            "How to clean a kitchen after cooking"
+            "Why coffee is grown in Saudi Arabia, in the hills and in the valleys",
+            "How to clean a kitchen after cooking a big family meal"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -131,9 +131,9 @@
         {
           "stem": "What happens when sugar dissolves in hot tea?",
           "options": [
-            "The sugar burns and turns black.",
-            "The sugar floats on top.",
-            "The sugar is gone forever.",
+            "The sugar burns and turns black in the cup.",
+            "The sugar floats on top of the tea.",
+            "The sugar is gone forever, and the tea is bitter.",
             "You cannot see it, but the tea tastes sweet."
           ],
           "answer": "D",
@@ -182,10 +182,10 @@
         {
           "stem": "In the article, the word \"fizzes\" means —",
           "options": [
-            "gets cold and hard",
+            "gets cold and hard like ice",
             "makes lots of tiny bubbles",
-            "turns a dark brown",
-            "goes away"
+            "turns a dark brown color",
+            "goes away slowly and quietly"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -234,9 +234,9 @@
           "stem": "Why does the author call the kitchen a lab?",
           "options": [
             "Because people do science there when they cook",
-            "Because only scientists may cook",
-            "Because kitchens have no food",
-            "Because labs make the best bread"
+            "Because only scientists may cook in the kitchen",
+            "Because kitchens have no food in them at all",
+            "Because labs make the best bread in the world"
           ],
           "answer": "A",
           "skill": "author-purpose",
@@ -294,9 +294,9 @@
           "stem": "Which sentence best states the main idea of the article?",
           "options": [
             "Cooking includes physical changes and chemical changes that make new substances.",
-            "Vinegar is the most important food in the kitchen.",
-            "Chemical changes are always easy to undo.",
-            "Ice and butter are the only things that change."
+            "Vinegar is the most important food in the kitchen at home, because every meal needs it.",
+            "Chemical changes are always easy to undo in any kitchen.",
+            "Ice and butter are the only things that ever change when we cook."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -344,9 +344,9 @@
         {
           "stem": "Why is dissolving sugar called a physical change?",
           "options": [
-            "Because it makes a new smell",
-            "Because it gives off heat",
-            "Because the sugar burns",
+            "Because it makes a new smell that tells us a new substance formed",
+            "Because it gives off heat and light as the sugar changes into something new",
+            "Because the sugar burns and turns black as it goes into the water",
             "Because no new substance forms and the sugar can be left behind again"
           ],
           "answer": "D",
@@ -395,10 +395,10 @@
         {
           "stem": "How is the article mainly organized?",
           "options": [
-            "As a story about one cook's day",
-            "As a list of steps for one recipe",
+            "As a story about one cook's day in a big busy kitchen",
+            "As a list of steps for making one recipe in a kitchen",
             "By comparing two kinds of change and giving examples of each",
-            "By telling events in order from long ago to today"
+            "By telling events in order from long ago up to the present day"
           ],
           "answer": "C",
           "skill": "text-structure",
@@ -490,9 +490,9 @@
           "stem": "According to the article, what happens to the egg white when it is cooked?",
           "options": [
             "Heat rearranges its protein, so it turns white and firm.",
-            "It slowly dissolves into the hot oil in the pan.",
-            "It releases carbon dioxide and rises.",
-            "It melts and later becomes clear again."
+            "It slowly dissolves into the hot oil in the pan, so it turns clear and thin.",
+            "It releases carbon dioxide and rises like a balloon above the pan.",
+            "It melts and later becomes clear again, once it has cooled down."
           ],
           "answer": "A",
           "skill": "detail",
@@ -541,9 +541,9 @@
           "stem": "In the article, \"distributed evenly\" most nearly means —",
           "options": [
             "spread out the same everywhere",
-            "lost completely",
-            "packed into one corner",
-            "burned away"
+            "lost completely and never found",
+            "packed into one corner of the room",
+            "burned away by the hot sun"
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -574,10 +574,10 @@
         {
           "stem": "Why does the author include the example of Arabic coffee?",
           "options": [
-            "To teach readers how to brew coffee",
-            "To argue that coffee is healthier than tea",
+            "To teach readers how to brew coffee at home with a pot",
+            "To argue that coffee is healthier than tea for the heart",
             "To connect chemical changes to a familiar Saudi tradition",
-            "To show that physical changes can be undone"
+            "To show that physical changes can be undone in the kitchen"
           ],
           "answer": "C",
           "skill": "author-purpose",

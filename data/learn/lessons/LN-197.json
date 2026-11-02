@@ -86,10 +86,10 @@
      "passage": "A broom is a long stick with stiff hairs at the end. We use it to sweep the floor.",
      "stem": "Which picture shows a broom?",
      "options": [
-      "A girl holding a cup of milk",
+      "A girl holding a cup of milk and a plate",
       "A long stick with a brush at the bottom",
-      "A bucket full of water",
-      "A round rug on the floor"
+      "A bucket full of water and soap",
+      "A round rug on the floor of a room"
      ],
      "answer": 1,
      "why": "A broom is a long stick with stiff hairs at the end. Only that picture shows both."
@@ -280,8 +280,8 @@
     "options": [
      "A large metal ship stacked with containers",
      "A wooden boat with a curved hull and triangular sails",
-     "A small rowing boat with two oars",
-     "A wooden ship with three rows of square sails"
+     "A small rowing boat with two oars and one seat",
+     "A wooden ship with three rows of square sails and many oars"
     ],
     "answer": 1,
     "hint": "Check every detail: material, shape of the sails, and shape of the hull. Which picture has all three?",
@@ -430,7 +430,7 @@
      "passage": "A silhouette is the dark shape of someone or something seen against a brighter background, so that no details inside the shape can be seen.",
      "stem": "Which picture shows a silhouette?",
      "options": [
-      "A colourful photo of a camel's face",
+      "A colourful photo of a camel's face and its saddle",
       "A pencil drawing of a tree with every leaf",
       "A black outline of a camel against an orange sunset",
       "A white camel standing in bright sunlight"

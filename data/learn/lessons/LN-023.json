@@ -56,10 +56,10 @@
     "passage": "Every morning, Sami fed his hens. One day, a hen was missing. Sami looked behind the shed. There she was, with five new chicks!",
     "stem": "Which sentence is the best start for this story?",
     "options": [
-     "The shed was old.",
-     "Chicks are small.",
+     "The shed was old, and the roof had a hole in it.",
+     "Chicks are small, yellow and very soft to touch.",
      "Sami was a boy who lived on a farm with his hens.",
-     "It was a day."
+     "It was a day like any other day in the week."
     ],
     "answer": 2,
     "hint": "Who is the story about? Find the name in the other sentences.",
@@ -85,10 +85,10 @@
      "passage": "____ She wanted to be a doctor. She read books about the body every night.",
      "stem": "Which sentence is the best start?",
      "options": [
-      "The books were heavy.",
+      "The books were heavy to carry.",
       "Lina was a girl who dreamed big.",
-      "Doctors work hard.",
-      "The night was dark."
+      "Doctors work hard all day long.",
+      "The night was dark and cold."
      ],
      "answer": 1,
      "why": "It names the character and tells one thing about her before the details."
@@ -97,9 +97,9 @@
      "passage": "____ He was slow, but he never stopped trying. One day, he won a race!",
      "stem": "Which sentence is the best start?",
      "options": [
-      "Races are fun.",
-      "He won.",
-      "The day was sunny.",
+      "Races are fun for kids.",
+      "He won the race, so he smiled.",
+      "The day was sunny and hot.",
       "Tom was a little turtle."
      ],
      "answer": 3,
@@ -207,10 +207,10 @@
      "passage": "I opened the box slowly. Inside was a tiny grey kitten.",
      "stem": "Which sentence would best introduce the narrator at the start?",
      "options": [
-      "The box was brown.",
-      "Kittens like milk.",
+      "The box was brown and very big, with a lid on top.",
+      "Kittens like milk and sleeping in warm places.",
       "I am Khalid, and I had always wanted a pet of my own.",
-      "Khalid's sister had a cat."
+      "Khalid's sister had a cat and a small white dog."
      ],
      "answer": 2,
      "why": "It uses \"I\" like the story and tells what the narrator wants, a pet."
@@ -219,10 +219,10 @@
      "passage": "A story is told by an outside narrator about a boy named Fahad.",
      "stem": "Which opening fits?",
      "options": [
-      "I am Fahad, and I like football.",
+      "I am Fahad, and I like to play football.",
       "Fahad was the fastest runner in his village.",
-      "We ran fast.",
-      "My friends and I ran."
+      "We ran fast, and we ran very far today.",
+      "My friends and I ran to the park after school."
      ],
      "answer": 1,
      "why": "An outside narrator uses the character's name, not \"I\"."
@@ -274,10 +274,10 @@
     "passage": "Ibrahim stepped off the plane, pulled his jacket tight and looked around the busy airport. Signs in a language he could not read hung above every gate. He held his ticket and tried to remember which way his uncle had told him to go. Then he heard someone call his name. He turned and smiled.",
     "stem": "Which sentence would best come first to introduce the situation?",
     "options": [
-     "Ibrahim liked to eat dates.",
+     "Ibrahim liked to eat dates, and he ate them every day after school with his grandfather.",
      "It was Ibrahim's first trip alone, and he had just arrived in a country he had never visited.",
-     "The plane was large and white.",
-     "Airports have many shops."
+     "The plane was large and white, and it had blue stripes on both of its wings.",
+     "Airports have many shops, and some of them sell food, books and small gifts."
     ],
     "answer": 1,
     "hint": "What must the reader understand before Ibrahim looks around the airport?",
@@ -328,9 +328,9 @@
      "passage": "Draft opening: \"It happened.\"",
      "stem": "Which revision best introduces the situation?",
      "options": [
-      "It happened again.",
-      "Something happened somewhere.",
-      "It happened one day.",
+      "It happened again, but nobody remembers what it was.",
+      "Something happened somewhere, and it was not very clear.",
+      "It happened one day, but I cannot remember the time or the place.",
       "On the morning of the school trip, our bus broke down on the highway."
      ],
      "answer": 3,
@@ -383,9 +383,9 @@
     "passage": "Ahmad pressed his face to the window as the old fishing boat pulled away from the harbour. He had promised his mother he would stay close to his uncle and never go out on deck when the waves grew high. For the first hour, the sea was calm, and gulls followed the boat like a noisy escort. Then the sky darkened in the west, and his uncle began to tie down the nets. Ahmad remembered his promise and stayed inside, watching through the glass. Later, his uncle would say that this choice kept everyone calm.",
     "stem": "The writer wants to add a short context sentence after the first sentence, explaining why this trip mattered to Ahmad. Which is best?",
     "options": [
-     "Ahmad's favourite colour was blue, like the sea.",
-     "Boats are made of wood or metal and can float.",
-     "The harbour was crowded with tourists buying fish.",
+     "Ahmad's favourite colour was blue, like the sea, and he liked to wear it to school every day.",
+     "Boats are made of wood or metal and can float on the water for many years.",
+     "The harbour was crowded with tourists buying fish, shells and old coins.",
      "It was his first time at sea, and he had begged for months to join his uncle's crew."
     ],
     "answer": 3,
@@ -438,10 +438,10 @@
      "passage": "Draft opening: \"There was a girl. She lived in a city. She played basketball. She had a big game.\"",
      "stem": "Which revision orients the reader most effectively?",
      "options": [
-      "There was a girl who lived in a city and liked basketball very much.",
+      "There was a girl who lived in a big city and liked basketball very much, so she played every day.",
       "With ten seconds left in the championship game, Jana held the ball and heard the whole gym go silent.",
-      "Basketball is played with two baskets and a ball.",
-      "She played basketball in a city."
+      "Basketball is played with two baskets and a ball, and each team has five players on the court.",
+      "She played basketball in a city, and she did it with her friends at school after class."
      ],
      "answer": 1,
      "why": "It introduces the character, setting and tension in one vivid moment."

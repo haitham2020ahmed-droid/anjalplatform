@@ -88,7 +88,7 @@
       "questions": [
         {
           "stem": "What is this article mostly about?",
-          "options": ["How to plan a visit to a museum for free", "How roads are usually built in busy cities", "Art that stands outside where everyone can see it", "How artists learn to paint pictures"],
+          "options": ["How to plan a visit to a museum for free on a weekend", "How roads are usually built in busy cities with many cars", "Art that stands outside where everyone can see it", "How artists learn to paint pictures with a brush"],
           "answer": "C",
           "skill": "central-idea",
           "why": "The article explains what public art is, why cities build it, and what it can show in Saudi cities.",
@@ -96,7 +96,7 @@
         },
         {
           "stem": "Where might a piece of public art stand, according to the article?",
-          "options": ["In the middle of a roundabout", "Inside a locked closet", "Under a small school desk", "Inside a kitchen cupboard"],
+          "options": ["In the middle of a roundabout", "Inside a locked closet at the school", "Under a small desk in the classroom", "Inside a kitchen cupboard at home"],
           "answer": "A",
           "skill": "detail",
           "why": "The article says some public art pieces stand in the middle of a roundabout, with cars circling around them.",
@@ -104,7 +104,7 @@
         },
         {
           "stem": "What materials does the article say a sculpture can be made from?",
-          "options": ["Only soft paper and sticky glue", "Stone, metal, or other strong materials", "Only frozen ice and cold snow", "Only thin, light plastic bags"],
+          "options": ["Only soft paper and sticky glue and water", "Stone, metal, or other strong materials", "Only frozen ice and cold snow from mountains", "Only thin, light plastic bags and soft cloth"],
           "answer": "B",
           "skill": "detail",
           "why": "The article says a sculpture is a shape made from stone, metal, or other strong materials.",
@@ -136,7 +136,7 @@
         },
         {
           "stem": "How does the author mostly organize this article?",
-          "options": ["By explaining what public art is, where it stands, and why cities build it", "By comparing two very different famous museums", "By telling the whole life story of one single artist", "By listing the full price of each and every sculpture"],
+          "options": ["By explaining what public art is, where it stands, and why cities build it", "By comparing two very different famous museums in two different countries", "By telling the whole life story of one single artist from birth to death", "By listing the full price of each and every sculpture in the city park"],
           "answer": "A",
           "skill": "text-structure",
           "why": "The article first explains public art and sculpture, then describes where it stands, and finally why cities build it.",
@@ -144,7 +144,7 @@
         },
         {
           "stem": "How is a sculpture in a museum different from a sculpture that is public art, based on the article?",
-          "options": ["A museum sculpture usually costs money to see; public art is free to see outside", "They are exactly the same as each other in every single way", "Public art is always much smaller in overall size than museum art", "Museum art is always far older in age than any public art"],
+          "options": ["A museum sculpture usually costs money to see; public art is free to see outside", "They are exactly the same as each other in every single way, according to the article", "Public art is always much smaller in overall size than museum art in every town", "Museum art is always far older in age than any public art found in a city"],
           "answer": "A",
           "skill": "compare",
           "why": "The article explains that public art stands outside for free, which is different from art kept inside a museum.",
@@ -210,7 +210,7 @@
         },
         {
           "stem": "The article says a sculpture can \"represent\" the city. What does represent mean here?",
-          "options": ["To destroy something else on purpose", "To completely replace something else", "To hide something away from view", "To stand for or show an idea about something"],
+          "options": ["To destroy something else on purpose in the city", "To completely replace something else with a new thing", "To hide something away from view of the people", "To stand for or show an idea about something"],
           "answer": "D",
           "skill": "vocabulary",
           "why": "To represent means to stand for or express an idea, such as a sculpture standing for a city's identity.",
@@ -218,7 +218,7 @@
         },
         {
           "stem": "How does the author mostly organize the article?",
-          "options": ["By explaining what public art is, why cities commission it, and how it connects to local identity", "By ranking every single city from the most artistic to the least", "By arguing strongly that all public art should be banned entirely everywhere", "By describing very detailed, step-by-step instructions for welding metal"],
+          "options": ["By explaining what public art is, why cities commission it, and how it connects to local identity", "By ranking every single city from the most artistic to the least artistic one in the world", "By arguing strongly that all public art should be banned entirely everywhere in the world", "By describing very detailed, step-by-step instructions for welding metal into a statue"],
           "answer": "A",
           "skill": "text-structure",
           "why": "The article moves from defining public art, to explaining why cities commission it, to showing how it reflects local identity.",
@@ -252,7 +252,7 @@
       "questions": [
         {
           "stem": "Which statement best expresses the central idea of the article?",
-          "options": ["Public art gives cities a lasting emblem that can narrate history and shape identity, free for anyone to see.", "Public art should always be a lot more expensive than art kept inside museums.", "Roundabouts were originally built only so that sculptures could be displayed inside them.", "Saudi cities are the only places in the whole wide world with public art."],
+          "options": ["Public art gives cities a lasting emblem that can narrate history and shape identity, free for anyone to see.", "Public art should always be a lot more expensive than art kept inside museums, in every city and town.", "Roundabouts were originally built only so that sculptures could be displayed inside them for visitors.", "Saudi cities are the only places in the whole wide world with public art on the streets and squares."],
           "answer": "A",
           "skill": "central-idea",
           "why": "The article explains the civic purposes of public art, from symbolizing identity to narrating history, and emphasizes that it remains free and accessible.",
@@ -260,7 +260,7 @@
         },
         {
           "stem": "According to the article, what materials are typically chosen for outdoor sculptures, and why?",
-          "options": ["Soft materials like cloth, because they are so very inexpensive", "Durable materials like stone or metal, because they withstand sun, wind, and rain", "Materials that dissolve away in water, so the art changes its shape", "Materials that must be fully replaced every single passing week"],
+          "options": ["Soft materials like cloth, because they are so very inexpensive and easy to find", "Durable materials like stone or metal, because they withstand sun, wind, and rain", "Materials that dissolve away in water, so the art changes its shape every day", "Materials that must be fully replaced every single week because they break so fast"],
           "answer": "B",
           "skill": "detail",
           "why": "The article explains that durable materials are chosen specifically because they withstand years of sun, wind, and rain without deteriorating.",
@@ -268,7 +268,7 @@
         },
         {
           "stem": "What does the article say happens to some roundabout sculptures over time?",
-          "options": ["They are quickly and permanently removed once nearby traffic increases", "They are carefully moved indoors to protect them from weather", "They gradually become landmarks that drivers recognize and rely on for directions", "They simply stop being visible to anyone once the sun sets"],
+          "options": ["They are quickly and permanently removed once nearby traffic increases, to make more room", "They are carefully moved indoors to protect them from weather and are kept in museums", "They gradually become landmarks that drivers recognize and rely on for directions", "They simply stop being visible to anyone once the sun sets, because the light is too low"],
           "answer": "C",
           "skill": "detail",
           "why": "The article states that such sculptures gradually form landmarks that drivers come to recognize and even rely on for directions.",
@@ -276,7 +276,7 @@
         },
         {
           "stem": "What can be inferred from the article's statement that commissioning civic art often involves \"considerable expense and lengthy public debate\"?",
-          "options": ["Cities treat public art as a decision of very little consequence at all", "Cities generally consider public art an important, carefully weighed civic investment", "Public art proposals are always rejected outright by city officials", "Artists never charge cities any fee at all for their own work"],
+          "options": ["Cities treat public art as a decision of very little consequence at all, and spend no time on it", "Cities generally consider public art an important, carefully weighed civic investment", "Public art proposals are always rejected outright by city officials after a short meeting", "Artists never charge cities any fee at all for their own work, since they enjoy making it"],
           "answer": "B",
           "skill": "inference",
           "why": "Spending considerable money and holding lengthy debate suggests officials take the decision seriously, treating it as an important civic investment.",
@@ -284,7 +284,7 @@
         },
         {
           "stem": "Which sequence best reflects how the article presents its explanation?",
-          "options": ["It first defines public art, explains sculpture materials, explains why cities commission it, then gives Saudi examples", "It first gives several Saudi examples, then defines public art, then explains materials", "It first argues strongly against public art, then only reluctantly describes a few examples", "It first lists artist biographies, then defines sculpture, then gives a short conclusion"],
+          "options": ["It first defines public art, explains sculpture materials, explains why cities commission it, then gives Saudi examples", "It first gives several Saudi examples, then defines public art, then explains materials, then tells why cities pay for sculptures, then ends", "It first argues strongly against public art, then only reluctantly describes a few examples, then explains why people dislike sculptures in cities", "It first lists artist biographies, then defines sculpture, then gives a short conclusion about cities and the money they spend on art"],
           "answer": "A",
           "skill": "sequence",
           "why": "The article moves in this order: defining public art, describing sculpture and its materials, explaining why cities commission it, and then giving Saudi examples.",
@@ -292,7 +292,7 @@
         },
         {
           "stem": "The article says a sculpture can function as an \"emblem\" that residents recognize. What does emblem mean here?",
-          "options": ["A type of weather condition seen in the desert", "A kind of expensive building material", "A rule that artists must follow", "A design or object that represents a group, place, or idea"],
+          "options": ["A type of weather condition that is seen in the desert", "A kind of expensive building material for towers", "A rule that artists must follow in a studio", "A design or object that represents a group, place, or idea"],
           "answer": "D",
           "skill": "vocabulary",
           "why": "An emblem is a design or object chosen to represent something, matching how a sculpture can stand for a city.",
@@ -308,7 +308,7 @@
         },
         {
           "stem": "How does public art, as described in the article, compare with art kept inside a private gallery?",
-          "options": ["Public art requires scheduled visiting hours, just like a gallery does", "Public art is exposed to weather and free, while gallery art is protected and often paid", "Both are exactly identical in how people are able to access them", "Gallery art is always kept outdoors, while public art is always kept indoors"],
+          "options": ["Public art requires scheduled visiting hours and a ticket, just like a gallery does", "Public art is exposed to weather and free, while gallery art is protected and often paid", "Both are exactly identical in how people are able to access them and see them", "Gallery art is always kept outdoors, while public art is always kept indoors"],
           "answer": "B",
           "skill": "compare",
           "why": "The article contrasts public art, which is outdoors and always free, with gallery-bound work, which is protected indoors and viewed during fixed opening hours, sometimes for a fee.",

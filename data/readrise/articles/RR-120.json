@@ -216,9 +216,9 @@
         {
           "stem": "Read this sentence: \"Listen for a warning on the news.\" What is a warning?",
           "options": [
-            "A funny story about a trip",
-            "A list of school rules",
-            "A song about the weather",
+            "A funny story about a trip to the zoo",
+            "A list of school rules for the new year",
+            "A song about the weather in the winter",
             "A message that tells you about danger"
           ],
           "answer": "D",
@@ -591,10 +591,10 @@
         {
           "stem": "Why does the author begin with a description of the sky turning orange and brown?",
           "options": [
-            "To prove that sandstorms happen every day",
+            "To prove that sandstorms happen every day in Arabia",
             "To help readers picture a sandstorm before learning about it",
-            "To explain how satellites measure color",
-            "To compare Arabian sandstorms with rainstorms"
+            "To explain how satellites measure color from space",
+            "To compare Arabian sandstorms with rainstorms in the sea"
           ],
           "answer": "B",
           "skill": "author-purpose",

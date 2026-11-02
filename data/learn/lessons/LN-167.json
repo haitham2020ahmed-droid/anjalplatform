@@ -62,10 +62,10 @@
     "passage": "Story 1: Fahd lives in a big city. Cars honk, and people hurry on the streets. Story 2: Noor lives on a small farm. It is quiet, and she hears only the birds.",
     "stem": "How are the two settings different?",
     "options": [
-     "Both are in a city.",
+     "Both are in a city, on a busy street.",
      "The first is busy and loud; the second is quiet.",
      "The first is quiet; the second is busy.",
-     "Both are at night."
+     "Both are at night, under the moon and the stars."
     ],
     "answer": 1,
     "hint": "Look at the words that tell about each place. Which one has lots of cars and people?",
@@ -104,9 +104,9 @@
      "stem": "How are the settings different?",
      "options": [
       "One is hot, and one is cold.",
-      "Both are hot.",
-      "Both have snow.",
-      "Both are in a house."
+      "Both are hot, with sun and sand.",
+      "Both have snow on the ground.",
+      "Both are in a house with a garden."
      ],
      "answer": 0,
      "why": "The desert is hot. The mountain is cold with snow."
@@ -174,10 +174,10 @@
     "passage": "On Thursday, Grandma took Reem to the old souq. Sellers shouted prices, and the air smelled of cinnamon and incense. On Saturday, her mother took her to the new mall. Inside, the air was cool, and soft music played over the shiny floors. Reem liked both, but she remembered the souq's smells for days.",
     "stem": "How is the souq different from the mall in the story?",
     "options": [
-     "The souq is cool and quiet, while the mall is noisy.",
-     "Both places are new and shiny.",
+     "The souq is cool and quiet, while the mall is noisy and very crowded.",
+     "Both places are new and shiny, with clean floors and bright lights.",
      "The souq is loud and full of smells, while the mall is cool and calm.",
-     "The mall sells spices, but the souq does not."
+     "The mall sells spices and perfumes, but the souq does not sell them."
     ],
     "answer": 2,
     "hint": "Find the describing words for each place. Which one has shouting and spice smells?",
@@ -205,8 +205,8 @@
      "stem": "How does the setting change?",
      "options": [
       "It changes from dark and empty to bright and lively.",
-      "It changes from bright to dark.",
-      "It stays the same.",
+      "It changes from bright and lively to dark and empty.",
+      "It stays the same from start to finish in the story.",
       "It changes from a classroom to a park."
      ],
      "answer": 0,
@@ -216,10 +216,10 @@
      "passage": "Story 1: Faisal's family camps in the desert. At night, the air turns cold, and the stars fill the sky. Story 2: Tala's family camps by a lake in the mountains. At night, it is cold, and the stars shine on the water.",
      "stem": "How are the two settings alike?",
      "options": [
-      "Both are by a lake.",
+      "Both are by a lake with tall palm trees.",
       "Both are cold at night with bright stars.",
-      "Both are in the desert.",
-      "Both are hot at night."
+      "Both are in the desert near a small town.",
+      "Both are hot at night with no wind."
      ],
      "answer": 1,
      "why": "In both stories, the night is cold and the stars are bright."
@@ -230,7 +230,7 @@
      "options": [
       "It is colder and darker.",
       "It has no people at all.",
-      "It is quieter.",
+      "It is quieter and more still.",
       "It is busier, with many people."
      ],
      "answer": 3,
@@ -309,8 +309,8 @@
      "passage": "Text A: The harbour at sunrise was busy and cheerful: fishermen called to each other, and gulls circled the boats. Text B: The same harbour at midnight was silent, except for the slap of water against empty boats and the creak of a rope.",
      "stem": "How is the mood different in the two texts?",
      "options": [
-      "Both are cheerful and noisy.",
-      "Both are silent and lonely.",
+      "Both are cheerful, noisy, and full of people.",
+      "Both are silent, lonely, and very still.",
       "Text A is cheerful; Text B is lonely and still.",
       "Text A is frightening; Text B is joyful."
      ],
@@ -333,9 +333,9 @@
      "passage": "Story 1: A storm traps a family in their mountain cabin, and they spend the night telling stories by the fire. Story 2: A sandstorm traps a group of travellers in an old fort, and they share their food and sing until morning.",
      "stem": "How are the two settings used in a similar way?",
      "options": [
-      "Both settings are hot and dry.",
+      "Both settings are hot and dry in the summer months.",
       "In both, a storm traps people and brings them closer.",
-      "Both stories take place in a city.",
+      "Both stories take place in a city by the sea.",
       "In both, the characters escape right away."
      ],
      "answer": 1,
@@ -419,10 +419,10 @@
      "passage": "Text A describes a fishing village in 1960: wooden boats, nets dried on the sand, and families who all knew one another. Text B describes the same coast today: tall hotels, speedboats, and visitors from many countries. In both texts, an old fisherman sits on the same rock every evening, watching the sun set over the water.",
      "stem": "What does the detail of the old fisherman in both texts suggest?",
      "options": [
-      "The coast has not changed at all since 1960.",
+      "The coast has not changed at all since 1960 or before.",
       "Some connections to the past remain even as the setting changes.",
-      "The fisherman has moved to a new village.",
-      "Tourists have taken the fisherman's rock."
+      "The fisherman has moved to a new village by the sea.",
+      "Tourists have taken the fisherman's rock to use for their photos."
      ],
      "answer": 1,
      "why": "Everything around him changes, but the fisherman still sits on the same rock, showing a link to the past remains."
@@ -431,9 +431,9 @@
      "passage": "Inside the palace, the young prince lived among golden halls, silent servants and locked gates. Outside, in the market, children ran barefoot, sellers argued and laughed, and music played on every corner. When he finally slipped out through a side door, the prince stood frozen for a long time, then began to laugh along with the crowd.",
      "stem": "Why does the author contrast the palace and the market?",
      "options": [
-      "To show that the market is dangerous",
-      "To show that the prince is afraid of people",
-      "To describe how palaces are built",
+      "To show that the market is dangerous and full of thieves at night",
+      "To show that the prince is afraid of people and wants to hide",
+      "To describe how palaces are built with stone and wood by workers",
       "To show that the prince finds life and joy outside his closed world"
      ],
      "answer": 3,
@@ -443,10 +443,10 @@
      "passage": "Story 1 is set in a crowded refugee camp where a girl studies by torchlight, determined to become a doctor. Story 2 is set in a comfortable home where a boy has every book he needs but cannot find a reason to study. By the end, the boy reads a newspaper article about the girl and begins to work harder.",
      "stem": "How does comparing the two settings develop the story's meaning?",
      "options": [
-      "It shows that the camp is better than the home.",
-      "It explains how torches work.",
+      "It shows that the camp is better than the home in every way.",
+      "It explains how torches work and how long they last.",
       "It shows that determination can matter more than comfort.",
-      "It proves that books are not important."
+      "It proves that books are not important for success."
      ],
      "answer": 2,
      "why": "The girl succeeds with little; the boy has everything but no drive. The contrast shows determination matters more than comfort."

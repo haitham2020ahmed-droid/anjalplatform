@@ -157,10 +157,10 @@
       "type": "MCQ",
       "stem": "Which is another suitable title for the whole text?",
       "options": [
-        "The Life of Edward Jenner",
+        "The Life of Edward Jenner the Doctor and His Cows",
         "How Vaccines Train the Body to Fight Disease",
-        "Why Babies Cannot Be Vaccinated",
-        "The History of Smallpox"
+        "Why Babies Cannot Be Vaccinated Against Any Disease",
+        "The History of Smallpox in Europe and Asia"
       ],
       "answer": "B",
       "why": "The text explains how vaccines work and why they matter; the other titles fit only one paragraph."
@@ -175,8 +175,8 @@
       "options": [
         "to explain how vaccines work and why they matter",
         "to tell the life story of a famous doctor",
-        "to sell a new kind of medicine",
-        "to describe how hospitals are run"
+        "to sell a new kind of medicine to people in shops",
+        "to describe how hospitals are run in big cities"
       ],
       "answer": "A",
       "why": "The text gives facts about the immune system, vaccines, their history and their safety."
@@ -221,10 +221,10 @@
       "type": "MCQ",
       "stem": "What type of text is this, and which feature shows it?",
       "options": [
-        "a story, because it has a main character",
-        "a poem, because it uses rhyme",
+        "a story, because it has a main character in it",
+        "a poem, because it uses rhyme at the end of lines",
         "informational, because it explains facts about a real topic",
-        "a letter, because it begins with a greeting"
+        "a letter, because it begins with a greeting to a friend"
       ],
       "answer": "C",
       "why": "It explains scientific facts with dates and examples, so it is an informational (expository) text."
@@ -238,9 +238,9 @@
       "stem": "According to paragraph 3, why can a vaccine not give you the real disease?",
       "options": [
         "It has only a weakened or dead germ, or a harmless piece",
-        "It contains no germ material at all",
-        "It is given only to healthy adults",
-        "It destroys the body's white blood cells"
+        "It contains no germ material at all, not even a piece",
+        "It is given only to healthy adults, never to children",
+        "It destroys the body's white blood cells before they act"
       ],
       "answer": "A",
       "why": "Paragraph 3 says a vaccine contains a weakened or dead germ, or simply a harmless piece of one."
@@ -253,10 +253,10 @@
       "type": "MCQ",
       "stem": "According to paragraph 4, which of these events happened first?",
       "options": [
-        "Jenner developed the first vaccine",
-        "Smallpox was eliminated from the world",
+        "Jenner developed the first vaccine against smallpox",
+        "Smallpox was eliminated from the world in 1980",
         "Jenner noticed milkmaids who had caught cowpox",
-        "Polio became far less common"
+        "Polio became far less common after vaccines"
       ],
       "answer": "C",
       "why": "Jenner first observed the milkmaids, then tested his idea and developed the vaccine; smallpox was eliminated much later, in 1980."
@@ -301,10 +301,10 @@
       "type": "MCQ",
       "stem": "What led Edward Jenner to his idea?",
       "options": [
-        "He caught smallpox himself",
+        "He caught smallpox himself as a young boy",
         "Milkmaids with cowpox did not catch smallpox",
-        "He studied white blood cells",
-        "Cows never became ill"
+        "He studied white blood cells in his lab",
+        "Cows never became ill in his village then"
       ],
       "answer": "B",
       "why": "He observed that milkmaids who had caught cowpox did not catch smallpox."
@@ -318,9 +318,9 @@
       "stem": "In your opinion, what most makes the reader want to keep reading?",
       "options": [
         "comparisons such as an army and a practice drill",
-        "long lists of hospital names",
-        "a funny story about a doctor",
-        "a mystery about a missing vaccine"
+        "long lists of hospital names and their doctors",
+        "a funny story about a doctor and a child",
+        "a mystery about a missing vaccine in a lab"
       ],
       "answer": "A",
       "why": "Comparing the immune system to an army and a vaccine to a practice drill makes a difficult topic interesting and easy to picture."
@@ -349,10 +349,10 @@
       "type": "MCQ",
       "stem": "How is the body's response to a germ different after a vaccine?",
       "options": [
-        "It needs more days to react",
+        "It needs more days to react to the germ again",
         "It recognises the germ and fights it much faster",
-        "It makes no antibodies at all",
-        "It can no longer fight the germ"
+        "It makes no antibodies at all for the germ in the blood",
+        "It can no longer fight the germ at all, even a small one"
       ],
       "answer": "B",
       "why": "Paragraphs 2 and 3 contrast the several days needed the first time with the immediate response that memory cells make possible."
@@ -365,9 +365,9 @@
       "type": "MCQ",
       "stem": "According to paragraph 5, what happens when most people in a community are vaccinated?",
       "options": [
-        "Everyone develops a slight fever",
-        "Germs become stronger and more dangerous",
-        "Babies need more injections",
+        "Everyone develops a slight fever and a cough, and the germs go away",
+        "Germs become stronger and more dangerous every year, and spread fast",
+        "Babies need more injections than other people do, but not adults",
         "Germs find too few people to infect and cannot spread easily"
       ],
       "answer": "D",
@@ -430,9 +430,9 @@
       "stem": "What does the writer mean by “a vaccine works like a practice drill for the immune system”?",
       "options": [
         "It lets the body prepare before a real attack",
-        "It makes the body tired and weak",
-        "It is a tool used to make holes",
-        "It is a lesson taught at school"
+        "It makes the body tired and weak for days",
+        "It is a tool used to make holes in the wall",
+        "It is a lesson taught at school in the morning"
       ],
       "answer": "A",
       "why": "Like a fire drill, a vaccine lets the body practise so that it is ready for the real germ."
@@ -445,10 +445,10 @@
       "type": "MCQ",
       "stem": "In your opinion, which is the most beneficial action for a family, based on the text?",
       "options": [
-        "avoiding all doctors",
+        "avoiding all doctors and nurses",
         "keeping vaccinations up to date",
-        "refusing all injections",
-        "staying at home all year"
+        "refusing all injections and tests",
+        "staying at home all year long"
       ],
       "answer": "B",
       "why": "The text says keeping vaccinations up to date protects us, our families and our community."
@@ -461,9 +461,9 @@
       "type": "MCQ",
       "stem": "What do you think motivated the writer to write this text?",
       "options": [
-        "to frighten readers about germs",
-        "to advertise a hospital",
-        "to tell the life story of a milkmaid",
+        "to frighten readers about germs and sickness",
+        "to advertise a hospital in the city to new patients and nurses",
+        "to tell the life story of a milkmaid and her cows in a village",
         "to help readers understand vaccines and feel less worried"
       ],
       "answer": "D",
@@ -493,10 +493,10 @@
       "type": "MCQ",
       "stem": "In your opinion, which information is the least clear in the text?",
       "options": [
-        "what antibodies are",
-        "who made the first vaccine",
+        "what antibodies are and where they live",
+        "who made the first vaccine in the world",
         "how memory cells remember germs for years",
-        "what side effects can happen"
+        "what side effects can happen after a shot"
       ],
       "answer": "C",
       "why": "The text says memory cells remember germs for years but does not explain how; the others are explained."
@@ -525,10 +525,10 @@
       "type": "MCQ",
       "stem": "Which title best describes the ideas of the whole text?",
       "options": [
-        "Edward Jenner's Farm",
+        "Edward Jenner's Farm and Cows",
         "Practice for the Body's Army",
-        "The End of Measles",
-        "Germs That Never Harm Us"
+        "The End of Measles in the World",
+        "Germs That Never Harm Us at All"
       ],
       "answer": "B",
       "why": "The text explains how vaccines train the immune system, which it calls an army."

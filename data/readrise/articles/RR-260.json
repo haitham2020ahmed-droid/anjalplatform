@@ -183,9 +183,9 @@
           "stem": "Why was flying the kite into a storm a clever way to test his idea?",
           "options": [
             "It let him see if electricity was really inside the storm clouds.",
-            "It helped him find out how fast the wind was blowing.",
-            "It showed him how to make a bigger kite.",
-            "It let him count how many clouds were in the sky."
+            "It helped him find out how fast the wind was blowing during the storm.",
+            "It showed him how to make a bigger kite for the next day.",
+            "It let him count how many clouds were in the sky above the town."
           ],
           "answer": "A",
           "skill": "inference",
@@ -217,9 +217,9 @@
           "stem": "Why do people still use the lightning rod and bifocal glasses today?",
           "options": [
             "Because they are both still useful inventions that solve real problems.",
-            "Because no one has ever thought of anything better.",
-            "Because laws require every building to have them.",
-            "Because they are very cheap to make."
+            "Because no one has ever thought of anything better than these two.",
+            "Because laws require every building and every person to have them.",
+            "Because they are very cheap to make and easy to sell in shops."
           ],
           "answer": "A",
           "skill": "inference",
@@ -294,9 +294,9 @@
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
             "Franklin tested his hypothesis about lightning and then used what he learned to invent practical tools.",
-            "Franklin was the first person to ever see lightning during a storm.",
-            "Scientists in Franklin's time already understood electricity completely.",
-            "Bifocal glasses were invented before the lightning rod."
+            "Franklin was the first person to ever see lightning during a storm, and he drew it on paper.",
+            "Scientists in Franklin's time already understood electricity completely, so he had nothing to learn.",
+            "Bifocal glasses were invented before the lightning rod, and they were Franklin's first important idea."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -345,9 +345,9 @@
           "stem": "Why did the string need to get damp during the storm for the experiment to work?",
           "options": [
             "A damp string became a better conductor for the electrical charge.",
-            "A damp string made the kite fly higher in the wind.",
+            "A damp string made the kite fly higher in the wind and in the storm.",
             "A damp string was easier for Franklin to see in the dark.",
-            "A damp string stopped the storm from getting worse."
+            "A damp string stopped the storm from getting worse in the night."
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -395,10 +395,10 @@
         {
           "stem": "In the article, practical most nearly means —",
           "options": [
-            "useless and silly",
+            "useless and silly to most people",
             "useful for solving a real problem",
-            "extremely expensive to build",
-            "impossible to actually make"
+            "extremely expensive to build and keep",
+            "impossible to actually make at home"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -412,10 +412,10 @@
         {
           "stem": "How does the author organize the explanation of Franklin's work?",
           "options": [
-            "By listing every invention ever created in history",
+            "By listing every invention ever created in history, from the wheel to the telephone",
             "By describing his experiment first, then the inventions that followed from it",
-            "By comparing several different storms he observed",
-            "By explaining how glasses are manufactured in factories"
+            "By comparing several different storms he observed over many years",
+            "By explaining how glasses are manufactured in factories and sold in shops"
           ],
           "answer": "B",
           "skill": "text-structure",
@@ -473,9 +473,9 @@
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
             "Franklin's empirical kite experiment confirmed his hypothesis about lightning and inspired two lasting, practical inventions.",
-            "Franklin discovered electricity itself for the very first time in human history.",
-            "The lightning rod was invented by accident during an unrelated experiment.",
-            "Natural philosophers of Franklin's era had already proven lightning was electricity."
+            "Franklin discovered electricity itself for the very first time in human history, with his kite and key.",
+            "The lightning rod was invented by accident during an unrelated experiment with a stove and a pipe.",
+            "Natural philosophers of Franklin's era had already proven lightning was electricity, and he only copied them in his kite experiment."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -524,9 +524,9 @@
           "stem": "Why did the spark jumping to the key provide such strong empirical evidence for Franklin's hypothesis?",
           "options": [
             "Because it directly showed, through observation, that the storm clouds carried an electrical charge",
-            "Because it proved that kites could fly higher during storms than on calm days",
-            "Because it demonstrated that metal keys always attract lightning everywhere",
-            "Because it showed that silk string is a poor material for building kites"
+            "Because it proved that kites could fly higher during storms than on calm days with no wind at all",
+            "Because it demonstrated that metal keys always attract lightning everywhere in the world",
+            "Because it showed that silk string is a poor material for building strong kites at home"
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -541,9 +541,9 @@
           "stem": "What can be inferred about why Franklin deliberately used simple, ordinary household materials for his experiment?",
           "options": [
             "He wanted to show that meaningful scientific discovery did not require costly, specialized equipment.",
-            "He could not afford any other type of equipment at all.",
-            "He believed expensive equipment would have been more accurate.",
-            "He was forbidden from using scientific instruments of any kind."
+            "He could not afford any other type of equipment at all, so he used only what he found in his own house.",
+            "He believed expensive equipment would have been more accurate, but he did not own any.",
+            "He was forbidden from using scientific instruments of any kind by the king and by the law."
           ],
           "answer": "A",
           "skill": "inference",
@@ -558,9 +558,9 @@
           "stem": "Why does the author emphasize the practical inventions that followed Franklin's kite experiment?",
           "options": [
             "To show how a single scientific discovery can lead to lasting, useful applications",
-            "To argue that the kite experiment itself was not really important",
-            "To suggest that Franklin never cared about helping ordinary people",
-            "To prove that bifocal glasses were invented before the kite experiment"
+            "To argue that the kite experiment itself was not really important to anyone",
+            "To suggest that Franklin never cared about helping ordinary people in his town",
+            "To prove that bifocal glasses were invented before the kite experiment took place"
           ],
           "answer": "A",
           "skill": "author-purpose",
@@ -591,10 +591,10 @@
         {
           "stem": "How does Franklin's approach to understanding lightning differ from the approach of most people in his era?",
           "options": [
-            "Both groups relied solely on ancient religious texts for their explanation.",
+            "Both groups relied solely on ancient religious texts for their explanation, and neither one tested any idea.",
             "Franklin tested a hypothesis through direct observation, while most others simply accepted supernatural explanations.",
-            "Franklin ignored lightning entirely, while others studied it carefully.",
-            "Most people performed careful experiments, while Franklin only guessed."
+            "Franklin ignored lightning entirely, while others studied it carefully with instruments and notes for many years.",
+            "Most people performed careful experiments, while Franklin only guessed and never tested a single idea in his life."
           ],
           "answer": "B",
           "skill": "compare",

@@ -52,9 +52,9 @@
     "stem": "What does Ali really mean?",
     "options": [
      "He is upset that he lost his ice cream.",
-     "He is having the best day ever.",
-     "He wants to clean the floor.",
-     "He does not like ice cream."
+     "He is having the best day ever at school.",
+     "He wants to clean the floor now.",
+     "He does not like ice cream at all."
     ],
     "answer": 0,
     "hint": "Look at what happened to the ice cream. Is that a good thing?",
@@ -92,7 +92,7 @@
      "passage": "It was very hot outside. Omar came in red and wet with sweat. \"It is so cool out there,\" he said.",
      "stem": "Why are Omar's words not true?",
      "options": [
-      "It was cold and windy.",
+      "It was cold and windy outside.",
       "It was very hot, not cool.",
       "Omar was not outside.",
       "Omar likes cool water."
@@ -159,9 +159,9 @@
     "passage": "The sandstorm lasted three whole days. Sand covered the cars, the doorsteps and even the inside of the cupboards. When it finally ended, Grandpa opened the door and looked at the yard. \"Well,\" he said with a smile, \"it seems we had a little dust.\"",
     "stem": "Why does Grandpa say \"a little dust\"?",
     "options": [
-     "He thinks the storm was very small.",
-     "He cannot see the yard from the door.",
-     "He wants to buy more sand for the yard.",
+     "He thinks the storm was very small and short.",
+     "He cannot see the yard from the door at all.",
+     "He wants to buy more sand for the yard and the roof.",
      "He is making a huge mess sound small, as a calm joke."
     ],
     "answer": 3,
@@ -200,9 +200,9 @@
      "passage": "Rana ran the whole ten-kilometre race on a hot morning. At the finish line, she fell onto the grass, breathing hard. \"I might be a tiny bit tired,\" she said.",
      "stem": "What is true about Rana's words?",
      "options": [
-      "She is not tired at all.",
+      "She is not tired at all after the race.",
       "She is extremely tired but says it lightly.",
-      "She wants to run the race again.",
+      "She wants to run the race again right now.",
       "She is upset with the other runners."
      ],
      "answer": 1,
@@ -267,7 +267,7 @@
     "passage": "Good news for busy families! Scientists in our town have found that families who look at their phones during dinner never argue. In fact, they never say anything at all. To help, the town will now sell dinner tables with a phone stand at every seat, so that no one has to look up from a screen. \"Last night my son and I shared a wonderful meal,\" said one father. \"I think he was there.\"",
     "stem": "What is the writer really making fun of?",
     "options": [
-     "Scientists who study family dinners.",
+     "Scientists who study family dinners every day.",
      "Families who look at phones instead of talking.",
      "Fathers who cook dinner for their sons.",
      "Tables that are too small for families."
@@ -311,10 +311,10 @@
      "passage": "To stop litter, the city has removed every rubbish bin from the park. \"If there are no bins, there will be no rubbish,\" an official explained proudly. The park has never been messier.",
      "stem": "What does the writer suggest about the plan?",
      "options": [
-      "It solved the problem quickly.",
-      "The official was right.",
+      "It solved the problem quickly and made everyone happy.",
+      "The official was right, and the plan worked well.",
       "It was a foolish idea that made things worse.",
-      "People should not visit the park."
+      "People should not visit the park after the plan."
      ],
      "answer": 2,
      "why": "The writer repeats the official's proud words, then shows the park is **messier**. The plan was foolish."
@@ -323,9 +323,9 @@
      "passage": "Hessa's brother took a forty-minute shower. When he finally came out, she said, \"Thanks so much for leaving me all that hot water.\"",
      "stem": "Why does Hessa use sarcasm?",
      "options": [
-      "To thank him kindly.",
-      "To ask for a towel.",
-      "To show she is happy.",
+      "To thank him kindly for using the towel so well.",
+      "To ask for a towel to dry her hands.",
+      "To show she is happy about what he did.",
       "To show she is annoyed that he used it all."
      ],
      "answer": 3,
@@ -411,10 +411,10 @@
      "passage": "The new bridge cracked on its opening day and had to be closed for a year. No one was hurt. The mayor called it \"a minor delay in an otherwise excellent project.\"",
      "stem": "How does the writer use the mayor's words?",
      "options": [
-      "To show the mayor's plan was excellent.",
-      "To show the bridge needed only small repairs.",
+      "To show that the mayor's plan was excellent and very well made.",
+      "To show the bridge needed only small repairs and fresh paint.",
       "To make the mayor seem out of touch through understatement.",
-      "To praise the builders for their speed."
+      "To praise the builders for their speed and hard work."
      ],
      "answer": 2,
      "why": "A year-long closure is not \"minor\". Quoting the understatement exposes the mayor's attitude."
@@ -424,9 +424,9 @@
      "stem": "What is the target of this satire?",
      "options": [
       "People who judge worth by showing off expensive things.",
-      "Families who do not own a car.",
-      "Builders who make living rooms too large.",
-      "Drivers who park in the wrong places."
+      "Families who do not own a car or a big house.",
+      "Builders who make living rooms too large for people.",
+      "Drivers who park in the wrong places on the street."
      ],
      "answer": 0,
      "why": "Exaggerations like parking in living rooms mock the idea that a big car shows good character."

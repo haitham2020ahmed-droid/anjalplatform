@@ -115,9 +115,9 @@
           "stem": "What is this story mostly about?",
           "options": [
             "A camel that stops walking until the children find and fix the problem",
-            "A family that gets lost in the desert",
-            "A race between two camels",
-            "A boy who builds a tent in the sand"
+            "A family that gets lost in the desert and walks for many days in the heat",
+            "A race between two camels across the sand, which the children watch and cheer",
+            "A boy who builds a tent in the sand with his father at night"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -166,9 +166,9 @@
           "stem": "In the story, a thorn is —",
           "options": [
             "a sharp, pointed part of a plant",
-            "a soft piece of cloth",
-            "a kind of desert animal",
-            "a tool used for walking"
+            "a soft piece of cloth for a bed",
+            "a kind of desert animal with spikes",
+            "a tool used for walking on rough ground"
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -344,10 +344,10 @@
         {
           "stem": "In the story, the word discomfort means —",
           "options": [
-            "a kind of sweet food",
+            "a kind of sweet food made with dates",
             "a feeling of being a little hurt",
-            "a happy, excited feeling",
-            "a tool used to examine feet"
+            "a happy, excited feeling before a trip",
+            "a tool used to examine feet at the clinic"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -361,10 +361,10 @@
         {
           "stem": "Why did Saqr happily eat the dates but still refuse to walk?",
           "options": [
-            "He was not actually hungry at all",
-            "He preferred a different kind of food",
+            "He was not actually hungry at all, even for dates",
+            "He preferred a different kind of food to eat",
             "Eating did not fix the thorn stuck in his foot",
-            "He was waiting for more water first"
+            "He was waiting for more water to drink first"
           ],
           "answer": "C",
           "skill": "inference",
@@ -396,9 +396,9 @@
           "stem": "What was the effect of Yousef pulling out the thorn?",
           "options": [
             "Saqr lifted his foot and walked confidently again",
-            "Saqr immediately lay down to rest",
-            "Saqr became frightened of the children",
-            "Saqr refused to carry bags anymore"
+            "Saqr immediately lay down to rest in the sand",
+            "Saqr became frightened of the children and ran off",
+            "Saqr refused to carry bags anymore for the trip"
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best captures the central idea of the story?",
           "options": [
-            "Camels should never be used for desert travel",
-            "Yousef's father is an expert in camel medicine",
+            "Camels should never be used for desert travel, because they are too slow and often get sick",
+            "Yousef's father is an expert in camel medicine and teaches the other villagers how to heal animals",
             "Lama's quiet perseverance and empathy let her solve a problem a less careful person might have missed",
-            "The desert trip was ruined because the camel was difficult"
+            "The desert trip was ruined because the camel was difficult and nobody in the group knew what to do"
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -523,10 +523,10 @@
         {
           "stem": "Why does it matter, according to the story, that camels rarely show obvious signs of pain?",
           "options": [
-            "It means camels never actually feel any pain",
+            "It means camels never actually feel any pain in their bodies at all, even when they are hurt badly",
             "It means a hidden problem can be easy to miss unless someone is observant",
-            "It means veterinarians cannot treat camels at all",
-            "It means camels are not useful for desert travel"
+            "It means veterinarians cannot treat camels at all in the desert",
+            "It means camels are not useful for long travel across the desert"
           ],
           "answer": "B",
           "skill": "inference",
@@ -540,10 +540,10 @@
         {
           "stem": "What can you infer about why Lama kept examining Saqr instead of accepting that he was simply stubborn?",
           "options": [
-            "She had nothing better to do that afternoon",
+            "She had nothing better to do that afternoon, so she looked at his feet",
             "She sensed something real might be wrong and wanted to understand it",
-            "She disliked camels and wanted an excuse to stop",
-            "Her father ordered her to check his feet"
+            "She disliked camels and wanted an excuse to stop riding him",
+            "Her father ordered her to check his feet before the long trip began"
           ],
           "answer": "B",
           "skill": "inference",
@@ -574,10 +574,10 @@
         {
           "stem": "Why does the author most likely include the detail about how long camels have carried desert travelers?",
           "options": [
-            "To argue that modern vehicles are always better",
+            "To argue that modern vehicles are always better than camels in the desert",
             "To show why families like Lama's still trust and rely on camels today",
-            "To explain how engines work in trucks",
-            "To describe the history of the family's tent"
+            "To explain how engines work in trucks and cars on the road",
+            "To describe the history of the family's tent in the desert"
           ],
           "answer": "B",
           "skill": "author-purpose",

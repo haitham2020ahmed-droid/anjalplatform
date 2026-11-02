@@ -46,10 +46,10 @@
       "type": "MCQ",
       "stem": "Melatonin is described as “a natural chemical that makes us feel drowsy” (paragraph 3). What does “drowsy” mean?",
       "options": [
-        "anxious and restless",
+        "anxious and restless at night",
         "sleepy and ready to rest",
-        "hungry and thirsty",
-        "cheerful and lively"
+        "hungry and thirsty all day",
+        "cheerful and lively today"
       ],
       "answer": "B",
       "why": "Melatonin helps us fall asleep, so “drowsy” means sleepy and ready to rest."
@@ -302,9 +302,9 @@
       "stem": "Using paragraphs 3 and 4, why might reading a paper book be a better bedtime activity than playing on a tablet?",
       "options": [
         "A book gives off no blue light, so melatonin is not delayed.",
-        "A book makes the bedroom darker and cooler.",
-        "A book helps the brain release growth hormone.",
-        "A book sets the body's internal clock each morning."
+        "A book makes the bedroom darker and cooler at night, so sleep comes faster.",
+        "A book helps the brain release growth hormone while we sleep.",
+        "A book sets the body's internal clock each morning, as the sun does."
       ],
       "answer": "A",
       "why": "Paragraph 3 explains that screens give off blue light that delays melatonin, and paragraph 4 suggests reading a book instead."

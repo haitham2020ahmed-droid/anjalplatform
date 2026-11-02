@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How to build an ice rink at home",
+            "How to build an ice rink at home in a garden",
             "Why thin blades help skaters glide on ice",
-            "Why winter is colder than summer",
-            "How to make skates from bones"
+            "Why winter is colder than summer in many places",
+            "How to make skates from bones and leather"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -148,9 +148,9 @@
         {
           "stem": "What does a skater use the edge of the blade for?",
           "options": [
-            "To clean the ice",
-            "To measure the ice",
-            "To cut the boot in half",
+            "To clean the ice and the boot",
+            "To measure the ice with a ruler",
+            "To cut the boot in half for fun",
             "To turn, stop, and push off"
           ],
           "answer": "D",
@@ -165,10 +165,10 @@
         {
           "stem": "Read this: \"To stay up, a skater needs good balance.\" What does balance mean here?",
           "options": [
-            "Moving very fast",
+            "Moving very fast on the ice",
             "Staying steady without falling",
-            "Wearing warm clothes",
-            "Watching other skaters"
+            "Wearing warm clothes in winter",
+            "Watching other skaters at the rink"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -378,10 +378,10 @@
         {
           "stem": "How are speed skaters different from figure skaters, based on the article?",
           "options": [
-            "Speed skaters use curved blades for jumps and spins",
-            "Speed skaters never wear boots that have blades",
+            "Speed skaters use curved blades for jumps and spins, while figure skaters use flat blades to race",
+            "Speed skaters never wear boots that have blades, and they race in their socks on the ice",
             "Speed skaters use flatter blades to race; figure skaters use curved blades to jump",
-            "Figure skaters only ever compete indoors in summer"
+            "Figure skaters only ever compete indoors in summer, and speed skaters compete only outdoors in winter"
           ],
           "answer": "C",
           "skill": "compare",
@@ -412,9 +412,9 @@
         {
           "stem": "Why does the author describe the blade pressing on a \"tiny strip of ice\" before explaining friction?",
           "options": [
-            "To list the full names of several famous skaters",
-            "To compare the sport of skating with swimming races",
-            "To explain in detail exactly how a rink is built",
+            "To list the full names of several famous skaters and their coaches",
+            "To compare the sport of skating with swimming races in a pool",
+            "To explain in detail exactly how a rink is built and cooled",
             "To help readers see why pressure builds before ice melts a little"
           ],
           "answer": "D",
@@ -540,10 +540,10 @@
         {
           "stem": "Which detail best supports the idea that ice skating has become a highly precise modern sport?",
           "options": [
-            "Skates were once carved from animal bones",
-            "Ice is simply made of frozen water",
+            "Skates were once carved from animal bones and tied to boots",
+            "Ice is simply made of frozen water that is very cold",
             "Judges score precisely, and elite skaters train for years",
-            "A skating rink is shaped like an oval"
+            "A skating rink is shaped like an oval with smooth ice"
           ],
           "answer": "C",
           "skill": "inference",
@@ -575,9 +575,9 @@
           "stem": "What can be inferred from the fact that scientists \"still study and debate\" why ice is slippery?",
           "options": [
             "The real explanation is more complex than one simple cause",
-            "No one has ever studied this question before today",
-            "Ice is not actually slippery at all, in truth",
-            "Skating blades do not really reduce friction much"
+            "No one has ever studied this question before today, in any lab",
+            "Ice is not actually slippery at all, in truth, to skaters",
+            "Skating blades do not really reduce friction much on the ice"
           ],
           "answer": "A",
           "skill": "inference",
@@ -591,10 +591,10 @@
         {
           "stem": "How is the article organized?",
           "options": [
-            "As step-by-step instructions for forging a metal blade",
+            "As step-by-step instructions for forging a metal blade at home with a hammer",
             "From blade physics, to technique, to the two events, to history and training",
-            "As a single long argument against speed skating",
-            "As a timeline listing past Olympic medal winners"
+            "As a single long argument against the sport of speed skating in the Olympics",
+            "As a timeline that lists past Olympic medal winners by year and country"
           ],
           "answer": "B",
           "skill": "text-structure",

@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How to grow fruit on a farm",
-            "Why birds fight forest fires",
+            "How to grow fruit on a farm near a river in the hills",
+            "Why birds help to fight forest fires in the dry season",
             "How Wangari Maathai helped her land by planting trees",
-            "How schools in the USA work"
+            "How schools in the USA work and who runs them"
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -199,9 +199,9 @@
         {
           "stem": "Why did women have to walk far to find wood?",
           "options": [
-            "They liked to take long walks.",
-            "Wood was sold only in the USA.",
-            "The streams were full of wood.",
+            "They liked to take long walks outside.",
+            "Wood was sold only in the USA by ship.",
+            "The streams were full of wood in spring.",
             "Few trees were left near their homes."
           ],
           "answer": "D",
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
-            "Wangari Maathai studied biology because she wanted to teach.",
+            "Wangari Maathai studied biology because she wanted to teach at a school in Nairobi.",
             "Wangari Maathai showed that planting trees could heal land and help people.",
-            "Hummingbirds are the bravest animals in Africa.",
-            "Kenya has more trees than any other country."
+            "Hummingbirds are the bravest animals in all of Africa.",
+            "Kenya has more trees than any other country in the world."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -379,9 +379,9 @@
           "stem": "Why was paying women for each surviving tree a smart idea?",
           "options": [
             "It gave them a reason to care for the trees.",
-            "It made the trees grow much faster.",
-            "It meant they did not need firewood.",
-            "It helped them win the Nobel Prize."
+            "It made the trees grow much faster and taller.",
+            "It meant they did not need firewood from the forest.",
+            "It helped them win the Nobel Prize in the end."
           ],
           "answer": "A",
           "skill": "inference",

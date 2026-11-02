@@ -112,7 +112,7 @@
         },
         {
           "stem": "In the story, the word future means —",
-          "options": ["a kind of letter", "a box for keeping things", "the time long ago", "the time that has not happened yet"],
+          "options": ["a kind of letter that you send in the mail", "a box for keeping things in a room", "the time long ago, before we were born", "the time that has not happened yet"],
           "answer": "D",
           "skill": "vocabulary",
           "why": "The story talks about the future as the time twenty years from now, which has not happened yet.",
@@ -120,7 +120,7 @@
         },
         {
           "stem": "Why does Omar want to build a water system?",
-          "options": ["To make his teacher happy", "To help people who do not have enough clean water", "To win a school prize", "To make his toys work better"],
+          "options": ["To make his teacher happy with his science project", "To help people who do not have enough clean water", "To win a school prize at the end of the year", "To make his toys work better in the bath"],
           "answer": "B",
           "skill": "inference",
           "why": "Omar pictures himself designing a system that brings clean water to villages that need it, because he wants to help people.",
@@ -128,7 +128,7 @@
         },
         {
           "stem": "Why does Mr. Khalid say the letter writing is \"just for fun\"?",
-          "options": ["Because the letters are silly", "Because no one will read them", "Because it is not a real school lesson", "Because it is a game of imagining the future, not something real happening"],
+          "options": ["Because the letters are silly and nobody takes them seriously at all in class", "Because no one will ever read them once they are put away in a box", "Because it is not a real school lesson, so there are no marks", "Because it is a game of imagining the future, not something real happening"],
           "answer": "D",
           "skill": "inference",
           "why": "Mr. Khalid wants students to know this is about imagining their future, not an actual way to send something through time.",
@@ -144,7 +144,7 @@
         },
         {
           "stem": "Why does the author tell us that Omar sat and thought hard before writing?",
-          "options": ["To show that Omar did not like writing", "To explain how letters are mailed", "To show that writing about his dreams took careful thinking", "To describe Omar's classroom"],
+          "options": ["To show that Omar did not like writing and wanted to stop", "To explain how letters are mailed to people in other cities", "To show that writing about his dreams took careful thinking", "To describe Omar's classroom and the desks in it"],
           "answer": "C",
           "skill": "author-purpose",
           "why": "Showing Omar thinking hard helps readers see that writing honestly about dreams takes real effort.",
@@ -174,7 +174,7 @@
         },
         {
           "stem": "What assignment does Mr. Khalid give the class?",
-          "options": ["Write a letter to their future selves, twenty years ahead", "Build a model bridge for science class", "Interview an engineer about their job", "Draw a timeline of their life"],
+          "options": ["Write a letter to their future selves, twenty years ahead", "Build a model bridge for the science class and test it", "Interview an engineer about their job at a company", "Draw a timeline of their life with photos and dates"],
           "answer": "A",
           "skill": "detail",
           "why": "Mr. Khalid asks every student to write a letter to their future self, meant to be read twenty years from now.",
@@ -182,7 +182,7 @@
         },
         {
           "stem": "What dream job does Omar imagine for himself?",
-          "options": ["A teacher who writes letters for younger students", "A pilot who flies passengers to many new countries", "A doctor who works long hours in a big hospital", "An engineer who designs a system to bring clean water to villages"],
+          "options": ["A teacher who writes letters for younger students at a school in the town", "A pilot who flies passengers to many new countries on big planes", "A doctor who works long hours in a big hospital in the city", "An engineer who designs a system to bring clean water to villages"],
           "answer": "D",
           "skill": "detail",
           "why": "Omar imagines becoming an engineer who designs systems that bring clean water to villages that need it.",
@@ -198,7 +198,7 @@
         },
         {
           "stem": "Why does Omar think carefully about his character, not just his job?",
-          "options": ["Because his teacher will grade his character", "Because character is easier to write about than jobs", "Because Mr. Khalid told him exactly what to say", "Because he wants to become a good person, not only a successful one"],
+          "options": ["Because his teacher will grade his character on the final report", "Because character is easier to write about than jobs, he thinks", "Because Mr. Khalid told him exactly what to say in the letter", "Because he wants to become a good person, not only a successful one"],
           "answer": "D",
           "skill": "inference",
           "why": "Omar writes about being patient and kind because he cares about who he becomes as a person, not only his career.",
@@ -222,7 +222,7 @@
         },
         {
           "stem": "Why does the author include Mr. Khalid's words, \"This is just for fun\"?",
-          "options": ["To show that Mr. Khalid does not take the assignment seriously", "To explain how letters are mailed to faraway places", "To make clear that the letter is an imagination exercise, not a real way to reach the future", "To tell readers that the letters will be thrown away"],
+          "options": ["To show that Mr. Khalid does not take the assignment seriously and wants the class to hurry", "To explain how letters are mailed to faraway places, and how long the post takes to arrive", "To make clear that the letter is an imagination exercise, not a real way to reach the future", "To tell readers that the letters will be thrown away at the end of the school year"],
           "answer": "C",
           "skill": "author-purpose",
           "why": "These words remind readers that writing the letter is a thoughtful, imaginative activity, not a literal trip through time.",
@@ -244,7 +244,7 @@
       "questions": [
         {
           "stem": "Which statement best captures the central idea of the story?",
-          "options": ["Omar discovers that engineers never think about kindness", "Mr. Khalid explains how real time travel works", "Omar decides that writing letters is a waste of time", "A reflective student envisions his future self, weighing the career he aspires to and the character he hopes to build through perseverance"],
+          "options": ["Omar discovers that engineers never think about kindness or hard work when they plan their lives and careers in school and at home", "Mr. Khalid explains how real time travel works and how a machine can take a boy like Omar to see his future life in a city", "Omar decides that writing letters is a waste of time, so he stops writing to his future self and plays outside with his friends instead", "A reflective student envisions his future self, weighing the career he aspires to and the character he hopes to build through perseverance"],
           "answer": "D",
           "skill": "central-idea",
           "why": "The story centers on Omar's thoughtful reflection about both his future career and the kind of person he wants to become.",
@@ -252,7 +252,7 @@
         },
         {
           "stem": "What two things does Omar focus on in his letter?",
-          "options": ["The career he aspires to and the character he hopes to build", "The grades he wants and the sports he will play", "The house he will live in and the car he will drive", "The friends he will have and the games he will enjoy"],
+          "options": ["The career he aspires to and the character he hopes to build", "The grades he wants and the sports he will play in school", "The house he will live in and the car he will drive one day", "The friends he will have and the games he will enjoy at home"],
           "answer": "A",
           "skill": "detail",
           "why": "Omar's letter focuses on his future career as an engineer and on becoming a patient, kind person.",
@@ -276,7 +276,7 @@
         },
         {
           "stem": "What can you infer about why Mr. Khalid repeatedly frames the letter as imaginative rather than literal?",
-          "options": ["He thinks the students will be frightened otherwise", "He does not want anyone to take the assignment seriously", "He is unsure whether time travel is possible", "He wants students to treat it as a thoughtful exercise about goals, not a real method of time travel"],
+          "options": ["He thinks the students will be frightened otherwise, so he says it is only a story for fun and not for real", "He does not want anyone to take the assignment seriously, so he tells them it is a game and not a grade", "He is unsure whether time travel is possible, so he avoids talking about the letter as a real thing or not", "He wants students to treat it as a thoughtful exercise about goals, not a real method of time travel"],
           "answer": "D",
           "skill": "inference",
           "why": "By calling it \"just for fun,\" Mr. Khalid keeps the focus on honest reflection about hopes, not on any literal journey through time.",
@@ -284,7 +284,7 @@
         },
         {
           "stem": "Based on the story, why might Omar's reflection on his own character matter as much as his career plans?",
-          "options": ["Because character is not actually important to engineers", "Because Mr. Khalid only grades character, not career plans", "Because who a person becomes shapes how they use their skills to help others", "Because his classmates only wrote about careers"],
+          "options": ["Because character is not actually important to engineers, only skill and speed matter", "Because Mr. Khalid only grades character, not career plans, and he never reads the letters", "Because who a person becomes shapes how they use their skills to help others", "Because his classmates only wrote about careers and not about who they wanted to be"],
           "answer": "C",
           "skill": "inference",
           "why": "Omar's letter suggests that being patient and kind matters because it shapes how he will use his engineering skills to help people.",
@@ -300,7 +300,7 @@
         },
         {
           "stem": "Why does the author end the story by emphasizing that today's effort shapes who Omar becomes?",
-          "options": ["To suggest that the future cannot be changed", "To connect the imaginative exercise to a real, practical lesson about working hard now", "To hint that Omar will forget about his letter", "To explain how engineers are paid"],
+          "options": ["To suggest that the future cannot be changed by anything that people do today or later", "To connect the imaginative exercise to a real, practical lesson about working hard now", "To hint that Omar will forget about his letter when he is grown up", "To explain how engineers are paid for their work in the big companies"],
           "answer": "B",
           "skill": "author-purpose",
           "why": "This ending ties the imaginative letter-writing activity to a concrete, real lesson: effort today shapes the future.",

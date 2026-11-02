@@ -93,7 +93,7 @@
      "stem": "Which note fits best?",
      "options": [
       "Bees help flowers grow.",
-      "I have a blue bag.",
+      "I have a blue school bag.",
       "Dogs bark at night.",
       "My school is big."
      ],
@@ -116,10 +116,10 @@
      "passage": "Topic: Our school. Which note fits best?",
      "stem": "Choose one.",
      "options": [
-      "The sea is blue.",
+      "The sea is blue and very deep.",
       "Our school has 300 students.",
-      "Lions eat meat.",
-      "I went to the zoo."
+      "Lions eat meat and live in groups.",
+      "I went to the zoo last week."
      ],
      "answer": 1,
      "why": "Only this note tells about our school."
@@ -320,10 +320,10 @@
      "passage": "Subtopic: Dangers to sea turtles",
      "stem": "Which note fits best?",
      "options": [
-      "Sea turtles can live for many years.",
+      "Sea turtles can live for many years in the ocean.",
       "Plastic bags in the sea can be mistaken for food.",
-      "Turtles have hard shells.",
-      "Baby turtles hatch on beaches."
+      "Turtles have hard shells that protect their bodies.",
+      "Baby turtles hatch on warm beaches at night."
      ],
      "answer": 1,
      "why": "Only this note names a danger to sea turtles."
@@ -333,9 +333,9 @@
      "stem": "Which note is more useful, and why?",
      "options": [
       "B, because it gives a specific amount",
-      "A, because it is shorter",
-      "A, because it has no numbers",
-      "Both are useless"
+      "A, because it is shorter and easy to read",
+      "A, because it has no numbers in it",
+      "Both are useless, so neither is helpful"
      ],
      "answer": 0,
      "why": "B gives an exact, checkable detail, which makes the writing stronger."
@@ -403,10 +403,10 @@
     "passage": "Claim: The city should create car-free streets in the old market area on weekends. Reason 1, cleaner air: A city report found that air pollution near the market is highest on weekend afternoons. Reason 2, safety: Shop owners interviewed said children often run between moving cars. Reason 3, more visitors and sales: No notes yet. Counterclaim: Some shop owners fear customers will not come without parking. Response to counterclaim: No notes yet.",
     "stem": "Which is the best plan for the student's next research?",
     "options": [
-     "Find more notes about air pollution near the market.",
+     "Find more notes about air pollution near the market, at different times of the day.",
      "Look for evidence of how car-free streets affected visitors and sales in other markets.",
-     "Interview children about their favourite games.",
-     "Stop researching, because the notes are complete."
+     "Interview children about their favourite games and their favourite sweets.",
+     "Stop researching, because the notes are complete and nothing else is needed."
     ],
     "answer": 1,
     "hint": "Which reasons already have notes, and which do not? Research should fill a gap.",
@@ -435,9 +435,9 @@
      "passage": "Claim: Students should have a weekly class on managing money. A student's notes support only one reason, and all three notes are her own opinions.",
      "stem": "What should she do next?",
      "options": [
-      "Begin drafting immediately",
-      "Delete the claim",
-      "Add more of her own opinions",
+      "Begin drafting immediately without more research",
+      "Delete the claim and start the essay again",
+      "Add more of her own opinions and feelings",
       "Find facts or expert views to support each reason"
      ],
      "answer": 3,
@@ -460,9 +460,9 @@
      "stem": "Which research question best fills the gap?",
      "options": [
       "How much would it cost to keep the library open on Saturdays?",
-      "What is the oldest library in the world?",
-      "What colour are the library chairs?",
-      "How many books does the student own?"
+      "What is the oldest library in the whole world, and who built it?",
+      "What colour are the library chairs and the tables?",
+      "How many books does the student own at his home?"
      ],
      "answer": 0,
      "why": "Cost is the missing piece, and a reader deciding on the plan would ask about it."

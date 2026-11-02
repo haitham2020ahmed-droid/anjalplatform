@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
-            "Astronauts enjoy jumping and bouncing on the Moon because it is fun.",
-            "Isaac Newton was the first person to see an apple fall.",
+            "Astronauts enjoy jumping and bouncing on the Moon because it is fun, and gravity is a kind of play.",
+            "Isaac Newton was the first person to see an apple fall, and that is how gravity was found.",
             "Gravity is a pull between objects with mass that explains weight, orbits, tides, and falling.",
-            "The Moon has no air, so feathers and hammers cannot be used there by astronauts."
+            "The Moon has no air, so feathers and hammers cannot be used there by astronauts, who must leave them."
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -472,9 +472,9 @@
         {
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
-            "Newton's apple story proves that fruit falls faster than feathers.",
-            "Space stations have no gravity, which is why astronauts float.",
-            "The tides are the most important result of gravity on Earth.",
+            "Newton's apple story proves that fruit falls much faster than feathers do in the open air.",
+            "Space stations have no gravity, which is why the astronauts float inside them.",
+            "The tides are the most important result of gravity on Earth, the Moon, and the Sun.",
             "Gravity, the attraction between objects with mass, explains both falling objects and orbits."
           ],
           "answer": "D",

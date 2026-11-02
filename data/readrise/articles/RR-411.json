@@ -211,9 +211,9 @@
           "stem": "Which sentence best states the central idea of this story?",
           "options": [
             "A new robot named Bo struggles to understand a student's own speech, until classmates help it learn.",
-            "A new robot quietly takes over every one of the teacher's daily jobs.",
-            "A student named Fahd gets punished harshly for talking in his own way.",
-            "A brand-new robot refuses to work at all until it receives a reward."
+            "A new robot quietly takes over every one of the teacher's daily jobs in the school, then the teacher leaves.",
+            "A student named Fahd gets punished harshly for talking in his own way in class, so he stops talking.",
+            "A brand-new robot refuses to work at all until it receives a reward from the whole class."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -423,7 +423,7 @@
           "stem": "Why does the author end the story by mentioning that engineers use this experience to improve training data for robots across the country?",
           "options": [
             "To strongly suggest that Bo's whole story has no lasting importance",
-            "To sharply criticize the engineers for not testing Bo properly",
+            "To sharply criticize the engineers for not testing Bo properly before the school year",
             "To imply that Fahd's own dialect should change to match the robot",
             "To show a single classroom problem can lead to wider improvements for many others"
           ],

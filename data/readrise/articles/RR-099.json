@@ -149,9 +149,9 @@
           "stem": "What is the filter made of?",
           "options": [
             "Sand and small stones",
-            "Paper and cloth",
-            "Salt and sugar",
-            "Metal and glass"
+            "Paper and cloth in layers",
+            "Salt and sugar mixed up",
+            "Metal and glass bottles"
           ],
           "answer": "A",
           "skill": "detail",
@@ -216,10 +216,10 @@
         {
           "stem": "Why does the author end by saying we should not waste water?",
           "options": [
-            "Because water is easy to get and costs nothing",
+            "Because water is easy to get and costs nothing, so there is no need to save it",
             "Because making water clean and bringing it to us takes a lot of work",
-            "Because tap water is not safe",
-            "Because pipes break when too many people use water"
+            "Because tap water is not safe to drink, so we must buy water in bottles instead",
+            "Because pipes break when too many people use water at the same time in the city"
           ],
           "answer": "B",
           "skill": "author-purpose",
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
-            "Desalination plants are the only way any country can get water.",
+            "Desalination plants are the only way any country can get water, and rain is never used.",
             "Tap water goes through many steps of collecting, cleaning, and moving before it reaches us.",
-            "Chlorine is the most important part of tap water.",
-            "Riyadh gets all its water from wells."
+            "Chlorine is the most important part of tap water, because it makes the water taste sweet.",
+            "Riyadh gets all its water from wells, and none of it from the sea or from rivers."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -378,9 +378,9 @@
         {
           "stem": "How does the author mostly organize the information?",
           "options": [
-            "By comparing two countries",
-            "By telling a story about one family",
-            "By listing problems and their solutions",
+            "By comparing two countries and their rivers",
+            "By telling a story about one family and its farm",
+            "By listing problems and their solutions in a long table",
             "By following the steps of the water's journey in order"
           ],
           "answer": "D",
@@ -507,9 +507,9 @@
           "stem": "According to the article, what is an aquifer?",
           "options": [
             "A layer of porous rock that holds water underground",
-            "A tower that stores water above a city",
-            "A pipe that carries seawater inland",
-            "A basin where mud settles"
+            "A tall tower that stores clean water above a big city",
+            "A pipe that carries seawater inland to the farms",
+            "A basin where mud settles at the bottom of a lake"
           ],
           "answer": "A",
           "skill": "detail",

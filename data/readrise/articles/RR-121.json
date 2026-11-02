@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How to build a park in a city",
+            "How to build a park in a city for children",
             "Dry desert valleys that can fill with floods",
-            "Why camels can live without water",
-            "How rivers flow into the sea"
+            "Why camels can live without water for long",
+            "How rivers flow into the sea after the rain"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -233,10 +233,10 @@
         {
           "stem": "Why does the author say wadis bring life to the desert?",
           "options": [
-            "Because people live inside them all year",
+            "Because people live inside them all year with their animals",
             "Because their water helps plants, trees, wells, and farms",
-            "Because they are always full of fish",
-            "Because they are cooler than the beach"
+            "Because they are always full of fish and big waves",
+            "Because they are cooler than the beach and have shade"
           ],
           "answer": "B",
           "skill": "author-purpose",
@@ -310,10 +310,10 @@
         {
           "stem": "What is a flash flood?",
           "options": [
-            "A slow rise of water over many weeks",
-            "A flood that only happens in cities",
+            "A slow rise of water over many weeks in a lake",
+            "A flood that only happens in cities near the coast",
             "A wadi quickly becoming a fast, muddy river",
-            "Water that comes from melting snow"
+            "Water that comes from melting snow in the mountains"
           ],
           "answer": "C",
           "skill": "detail",
@@ -362,9 +362,9 @@
           "stem": "In the article, the word sudden describes something that —",
           "options": [
             "happens quickly and without warning",
-            "moves slowly and quietly",
-            "happens every day",
-            "stays the same for years"
+            "moves slowly and quietly over a long time",
+            "happens every day at the same hour",
+            "stays the same for years and years"
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -507,9 +507,9 @@
           "stem": "How do floods make the soil in wadis more fertile?",
           "options": [
             "They leave behind sediment, a layer of fine mud and sand.",
-            "They wash away all the soil.",
-            "They add salt to the ground.",
-            "They bring snow from the mountains."
+            "They wash away all the soil from the valley and the hills.",
+            "They add salt to the ground and make plants die.",
+            "They bring snow from the mountains to cover the fields."
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -557,10 +557,10 @@
         {
           "stem": "How does the author organize most of the article?",
           "options": [
-            "By comparing wadis in many countries",
+            "By comparing wadis in many countries around the world",
             "By describing a wadi before, during, and after a flood",
-            "By telling the life story of a farmer",
-            "By listing arguments for and against dams"
+            "By telling the life story of a farmer who lived near one",
+            "By listing arguments for and against dams on rivers"
           ],
           "answer": "B",
           "skill": "text-structure",

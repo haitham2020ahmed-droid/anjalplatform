@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "Why the Sun is hot",
+            "Why the Sun is hot and bright all day",
             "How to stay safe from the Sun's rays and heat",
-            "How plants use sunlight",
-            "Why clouds make rain"
+            "How plants use sunlight to make their food",
+            "Why clouds make rain in the sky above"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -165,10 +165,10 @@
         {
           "stem": "The article says, 'Play in the shade.' What is shade?",
           "options": [
-            "A kind of sunscreen",
+            "A kind of sunscreen for your skin",
             "A cool place out of the sunlight",
-            "A very hot spot on the sand",
-            "A type of hat"
+            "A very hot spot on the sand dunes",
+            "A type of hat with a wide edge"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -216,10 +216,10 @@
         {
           "stem": "Why should you still be careful on a cloudy day at the beach?",
           "options": [
-            "Clouds make the Sun hotter.",
-            "Water makes you thirsty.",
+            "Clouds make the Sun hotter, so you burn faster than usual",
+            "Water makes you thirsty, so you must drink all day long",
             "Rays can get through clouds and bounce off water and sand.",
-            "Sunscreen does not work near water."
+            "Sunscreen does not work near water, so it is not useful"
           ],
           "answer": "C",
           "skill": "inference",
@@ -234,9 +234,9 @@
           "stem": "Why does the author begin by telling good things the Sun does?",
           "options": [
             "To show that the Sun is helpful but also needs care",
-            "To tell readers to stay inside all day",
-            "To explain how to make sunscreen",
-            "To prove that the Sun is not hot"
+            "To tell readers to stay inside all day long every day",
+            "To explain how to make sunscreen at home with oil",
+            "To prove that the Sun is not very hot at all"
           ],
           "answer": "A",
           "skill": "author-purpose",
@@ -294,9 +294,9 @@
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
             "The Sun is helpful, but its UV rays and heat can harm us, so we must protect ourselves.",
-            "Vitamin D is the most important part of sunlight.",
-            "People should never go outside in summer.",
-            "Clouds block all of the Sun's rays."
+            "Vitamin D is the most important part of sunlight, and people should lie in the Sun all day.",
+            "People should never go outside in summer, because the Sun is too hot for everyone.",
+            "Clouds block all of the Sun's rays, so we never need protection on a cloudy day."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -378,10 +378,10 @@
         {
           "stem": "Why does the article suggest drinking water 'even before you feel thirsty'?",
           "options": [
-            "Thirsty people get sunburned faster.",
+            "Thirsty people get sunburned faster in the hot sun of the desert.",
             "Your body may already be losing too much water before you notice.",
-            "Water blocks UV rays.",
-            "Cold water helps you see the Sun."
+            "Water blocks UV rays from the Sun when you drink it.",
+            "Cold water helps you see the Sun better outdoors."
           ],
           "answer": "B",
           "skill": "inference",
@@ -395,10 +395,10 @@
         {
           "stem": "Which person is best protected from the Sun?",
           "options": [
-            "Ali, swimming at noon with no hat",
-            "Huda, sitting on bright sand at 1 p.m.",
+            "Ali, swimming in the sea at noon with no hat at all",
+            "Huda, sitting on the bright sand at 1 p.m. with no shade or hat",
             "Omar, wearing a wide hat, sunglasses, and sunscreen in the shade",
-            "Laila, playing on a cloudy beach without sunscreen"
+            "Laila, playing on a cloudy beach without any sunscreen on her skin"
           ],
           "answer": "C",
           "skill": "inference",
@@ -473,9 +473,9 @@
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
             "Sunlight is both beneficial and potentially harmful, so people should take sensible precautions.",
-            "Sunscreen is the only protection anyone needs.",
-            "UV rays are visible on cloudy days.",
-            "Vitamin D causes sunburn."
+            "Sunscreen is the only protection anyone needs, so hats and shade are never useful.",
+            "UV rays are visible on cloudy days, so people can always see when they are in danger from the sun.",
+            "Vitamin D causes sunburn, so children should stay away from sunlight at all times."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -592,9 +592,9 @@
           "stem": "Which conclusion can be drawn from the shadow trick?",
           "options": [
             "The higher the Sun is in the sky, the stronger the UV rays tend to be.",
-            "Shadows protect people from UV rays.",
-            "Tall people need less sunscreen.",
-            "UV rays are strongest at sunrise."
+            "Shadows protect people from UV rays, so staying in the shade is not needed.",
+            "Tall people need less sunscreen than short people because they stand higher.",
+            "UV rays are strongest at sunrise, when the Sun is lowest in the sky."
           ],
           "answer": "A",
           "skill": "inference",

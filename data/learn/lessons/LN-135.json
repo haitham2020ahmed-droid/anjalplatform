@@ -99,10 +99,10 @@
      "passage": "Trees are good for a city. They give shade. They make the air clean. Birds live in them.",
      "stem": "What does 'They give shade' add to the big idea?",
      "options": [
-      "A reason trees are bad",
+      "A reason trees are bad for a city",
       "A way trees are good for a city",
-      "The name of a tree",
-      "Where birds live"
+      "The name of a tree in the park",
+      "Where birds live in the city"
      ],
      "answer": 1,
      "why": "Shade is one good thing trees give a city."
@@ -183,8 +183,8 @@
     "stem": "How do sentences 3 and 4 help develop the central idea?",
     "options": [
      "They give examples of living things that survive in the desert.",
-     "They explain why deserts are hot.",
-     "They show that deserts have no water at all.",
+     "They explain why deserts are hot during the day and cold at night.",
+     "They show that deserts have no water at all, so nothing can live.",
      "They describe how people travel across the desert."
     ],
     "answer": 0,
@@ -295,9 +295,9 @@
     "passage": "When Omar joined the school robotics club, he wanted to build everything himself. He ignored suggestions and worked alone late into the evenings. His robot arm kept failing, and he grew frustrated. One afternoon, a younger member quietly pointed out that one gear was turning the wrong way. Omar fixed it in minutes, and the arm lifted its first block. From then on, he began each project by asking the team what they thought. By the end of the year, the club's robot won second place at the regional fair, and Omar was the one who thanked his teammates on stage.",
     "stem": "Which theme develops across this true story?",
     "options": [
-     "Robots are difficult to build.",
-     "Younger students know more than older ones.",
-     "Working alone late at night is the best way to succeed.",
+     "Robots are difficult to build without good tools or enough time.",
+     "Younger students know more than older ones about many things.",
+     "Working alone late at night is the best way to succeed in a contest.",
      "Listening to others can lead to greater success than working alone."
     ],
     "answer": 3,
@@ -330,8 +330,8 @@
      "stem": "How does the central idea change across the passage?",
      "options": [
       "From a wonder material to a lasting problem",
-      "From toys to bottles",
-      "From scientists to factories",
+      "From toys to bottles to plastic bags in the sea",
+      "From scientists to factories and shops",
       "From weak plastic to strong plastic"
      ],
      "answer": 0,
@@ -342,9 +342,9 @@
      "stem": "What theme develops in this account?",
      "options": [
       "Grandmothers are always right about food.",
-      "Bread should be baked at a set time.",
+      "Bread should be baked at a set time each day.",
       "Skill comes from careful attention and practice.",
-      "Baking is too hard for young people."
+      "Baking is too hard for young people to learn."
      ],
      "answer": 2,
      "why": "The writer improves by learning to observe carefully over time, not by following a rule."
@@ -353,10 +353,10 @@
      "passage": "Cities used to build wider roads to fix traffic jams. At first, traffic improved. But within a few years, the wider roads filled up again, because easier driving encouraged more people to drive. Now, some planners argue that better buses and trains are a longer-lasting answer.",
      "stem": "What does the third sentence contribute to the central idea?",
      "options": [
-      "It shows that wider roads solved traffic forever.",
+      "It shows that wider roads solved traffic forever in the city.",
       "It explains why wider roads did not fix the problem for long.",
-      "It gives the cost of building trains.",
-      "It describes how roads are built."
+      "It gives the cost of building trains and new stations.",
+      "It describes how roads are built and repaired by workers."
      ],
      "answer": 1,
      "why": "It adds a twist: wider roads attracted more drivers, so the jams returned. This refines the idea."
@@ -413,9 +413,9 @@
     "stem": "How does the central idea develop over the course of the passage?",
     "options": [
      "It shifts from seeing the market as worthless to recognising the wisdom built into it.",
-     "It explains step by step how to fix a leaking roof.",
-     "It argues that every old building should be torn down.",
-     "It describes the students' exhibition as the main topic."
+     "It explains step by step how to fix a leaking roof on an old building in the city.",
+     "It argues that every old building should be torn down to make space.",
+     "It describes the students' exhibition as the main topic of the passage."
     ],
     "answer": 0,
     "hint": "Compare how residents see the market in the first sentence and how the last sentence describes it. What part in the middle causes the change?",

@@ -310,10 +310,10 @@
         {
           "stem": "According to the article, how do hackers guess passwords so quickly?",
           "options": [
-            "They secretly read people's diaries.",
-            "They ask the website to help them.",
+            "They secretly read people's diaries at night.",
+            "They ask the website to help them get in.",
             "Programs try millions of guesses a second.",
-            "They stand behind people and watch."
+            "They stand behind people and watch them type."
           ],
           "answer": "C",
           "skill": "detail",

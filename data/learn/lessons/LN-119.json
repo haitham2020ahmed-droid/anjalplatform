@@ -67,10 +67,10 @@
     "passage": "Text 1: Ahmed has a cat. The cat drinks milk every morning.\n\nText 2: Ahmed's cat is very hungry today. The milk is all gone.",
     "stem": "Put both texts together. What will Ahmed need to do?",
     "options": [
-     "Get a new cat.",
+     "Get a new cat from the shop.",
      "Buy more milk for the cat.",
-     "Give the cat a bath.",
-     "Go to school."
+     "Give the cat a bath at home.",
+     "Go to school early today."
     ],
     "answer": 1,
     "hint": "Text 1 tells what the cat drinks. Text 2 tells what is missing. Put them together.",
@@ -121,8 +121,8 @@
      "stem": "What do both texts show together?",
      "options": [
       "Camels like cold weather.",
-      "Camels drink a lot.",
-      "Camels are small.",
+      "Camels drink a lot of water.",
+      "Camels are small and light.",
       "Camels can live in the desert."
      ],
      "answer": 3,
@@ -214,8 +214,8 @@
      "options": [
       "Oryx can never live in the wild, even when protected.",
       "Protection helped the oryx come back after it almost disappeared.",
-      "Hunting oryx is still common in nature reserves today.",
-      "The oryx lives only in zoos."
+      "Hunting oryx is still common in nature reserves today, even though it is illegal.",
+      "The oryx lives only in zoos and never in the wild."
      ],
      "answer": 1,
      "why": "Text 1 tells how the oryx nearly vanished. Text 2 tells how protection brought it back."
@@ -238,8 +238,8 @@
      "options": [
       "Some birds come to Saudi Arabia to escape the cold.",
       "Birds leave Saudi Arabia when winter comes.",
-      "Birdwatching is only possible in the summer.",
-      "All birds stay in one place."
+      "Birdwatching is only possible in the summer months.",
+      "All birds stay in one place all year long."
      ],
      "answer": 0,
      "why": "Birds fly south from the cold (Text 1), and new birds appear here in winter (Text 2). So some birds come here to escape the cold."
@@ -295,10 +295,10 @@
     "passage": "Text 1: Long ago, sailors in the Arabian Gulf dived for pearls. Divers held their breath and went down again and again to collect oysters. The work was dangerous, but pearls were very valuable.\n\nText 2: In the 1930s, cultured pearls from Japan began to fill world markets. These pearls were grown on farms and were much cheaper. At about the same time, oil was discovered in the Gulf region, and many people found new jobs.",
     "stem": "Using both texts, which statement best explains why pearl diving in the Gulf became much less common?",
     "options": [
-     "Divers could no longer hold their breath for long.",
+     "Divers could no longer hold their breath for long after years of hard work.",
      "Cheaper farmed pearls and new jobs in oil made diving less needed.",
-     "Oysters disappeared from the Gulf in the 1930s.",
-     "Sailors decided that pearls were not beautiful."
+     "Oysters disappeared from the Gulf in the 1930s after a long warm summer.",
+     "Sailors decided that pearls were not beautiful and stopped looking for them."
     ],
     "answer": 1,
     "hint": "Text 1 tells what pearl diving was like. Text 2 gives two changes. Which answer uses those changes?",
@@ -326,10 +326,10 @@
      "passage": "Text 1: Smartphone screens give off blue light. Blue light can tell the brain that it is still daytime.\n\nText 2: Students who use phones in bed often take longer to fall asleep. They may feel tired in class the next day.",
      "stem": "What conclusion do the two texts support together?",
      "options": [
-      "Phones should never be used in class, even for learning.",
-      "Blue light helps students fall asleep faster at night.",
+      "Phones should never be used in class, even for learning new things.",
+      "Blue light helps students fall asleep faster at night, so they feel rested.",
       "Using phones in bed may harm sleep because the light keeps the brain awake.",
-      "Students should study at night."
+      "Students should study at night when the house is quiet and calm."
      ],
      "answer": 2,
      "why": "Text 1 explains how blue light tricks the brain. Text 2 shows the effect on students' sleep. Together they explain the cause and the effect."
@@ -409,10 +409,10 @@
     "passage": "Source A: For centuries, the coffee bean travelled with traders and pilgrims. It spread from Yemen and the Arabian Peninsula across the Islamic world, and coffeehouses appeared in cities such as Cairo and Istanbul. In these coffeehouses, people met to talk, read and share news.\n\nSource B: Today, coffee is grown mainly in tropical countries in South America, Africa and Asia. Brazil is now the largest producer. Farmers there export beans around the world.\n\nSource C: In many Saudi homes, a host still welcomes guests with Arabic coffee and dates. Serving coffee is seen as a sign of generosity and respect.",
     "stem": "Which conclusion is best supported by all three sources?",
     "options": [
-     "Coffee is now grown mostly in Saudi Arabia.",
-     "Coffee began as a drink only for traders on long journeys.",
+     "Coffee is now grown mostly in Saudi Arabia, and it is sold to every country in the world.",
+     "Coffee began as a drink only for traders on long journeys through the desert and across the sea in ancient times.",
      "Coffee spread from Arabia around the world, yet it is still an important part of welcoming guests here.",
-     "Coffeehouses were places where people met only to drink coffee."
+     "Coffeehouses were places where people met only to drink coffee and never to talk."
     ],
     "answer": 2,
     "hint": "One source tells where coffee came from, one tells where it grows now, and one tells what it means today. Which choice uses all three?",
@@ -469,9 +469,9 @@
      "passage": "Source A: A survey found that most students at one school walk less than 2,000 steps on school days.\n\nSource B: Doctors advise that children be active for at least one hour every day.\n\nSource C: A school that added a 15-minute walking break each morning found that students were more alert in lessons.",
      "stem": "Which statement is the best synthesis of the sources?",
      "options": [
-      "Students already get more than enough exercise.",
-      "Walking breaks make students less focused in lessons.",
-      "Doctors advise students to rest and sit more during the day.",
+      "Students already get more than enough exercise, so short breaks are not needed.",
+      "Walking breaks make students less focused in lessons and tired at the end of the day.",
+      "Doctors advise students to rest and sit more during the school day, not to walk.",
       "Students at the school may need more activity, and short breaks could help."
      ],
      "answer": 3,

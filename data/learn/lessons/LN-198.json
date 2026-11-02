@@ -229,9 +229,9 @@
      "stem": "What does playful mean?",
      "options": [
       "Full of fun and play",
-      "Without play",
-      "Tired of play",
-      "Playing alone"
+      "Without fun or play",
+      "Tired of play and games",
+      "Playing alone in a room"
      ],
      "answer": 0,
      "why": "-ful means full of. Chasing the ball shows the kitten is full of play."
@@ -283,10 +283,10 @@
     "passage": "Our school is collecting gifts for children in a hospital. The Latin root port means carry, and the suffix -able means can be. We wanted every gift to be portable, so the children could take it from room to room. Some students made small puzzle boxes, and others packed light story books. Nobody sent anything heavy, like a big desk or a large television.",
     "stem": "What does portable mean?",
     "options": [
-     "Very expensive",
-     "Made by hand",
+     "Very expensive to buy",
+     "Made by hand at home",
      "Able to be carried easily",
-     "Fixed in one place"
+     "Fixed in one place only"
     ],
     "answer": 2,
     "hint": "Join the two meanings from sentence 2: carry + can be. Then check the gifts the students chose.",
@@ -326,10 +326,10 @@
      "passage": "The root aqua means water. The new aquarium has a tunnel where visitors walk while sharks and rays swim above their heads.",
      "stem": "What is an aquarium?",
      "options": [
-      "A park with tall trees",
+      "A park with tall trees and a lake",
       "A place where water animals are kept",
       "A shop that sells cold drinks",
-      "A pool for swimming races"
+      "A pool for swimming races at school"
      ],
      "answer": 1,
      "why": "aqua means water, and the sharks and rays swimming above show that it is a place for water animals."
@@ -393,8 +393,8 @@
     "passage": "Engineers sometimes travel to remote places with no power lines. To help them, a team designed a lamp that runs on a renewable source: sunlight. The prefix re- means again, and the base new means fresh. With the suffix -able, which means can be, renewable describes something that can be made fresh again. Unlike coal or oil, which take millions of years to form, sunlight returns each morning. The lamp charges during the day and shines all night.",
     "stem": "Based on the word parts and the passage, what is a renewable source?",
     "options": [
-     "A source of power that is very cheap to buy",
-     "A source of power that is found deep underground",
+     "A source of power that is very cheap to buy for a family",
+     "A source of power that is found deep underground in rocks",
      "A source of power that keeps coming back and will not run out",
      "A source of power that took millions of years to form"
     ],
@@ -425,9 +425,9 @@
      "stem": "What does transport mean in this passage?",
      "options": [
       "To carry across from one place to another",
-      "To store in a safe place",
-      "To repair after damage",
-      "To sell at a market"
+      "To store in a safe place for a long time",
+      "To repair something after damage from rain",
+      "To sell goods at a market to many people"
      ],
      "answer": 0,
      "why": "trans (across) + port (carry): the boats carried supplies across the water to the island."

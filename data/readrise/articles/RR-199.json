@@ -234,8 +234,8 @@
           "stem": "Why does the author begin with a man in a wheelchair, a girl on a blade, and a blind runner?",
           "options": [
             "To show the kinds of athletes at the Games",
-            "To explain how to make a blade",
-            "To compare race cars and wheelchairs",
+            "To explain how to make a blade for running",
+            "To compare race cars and wheelchairs in speed",
             "To tell a funny story about a race"
           ],
           "answer": "A",
@@ -294,9 +294,9 @@
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
             "The Paralympics let elite athletes with disabilities compete in many sports.",
-            "Ludwig Guttmann invented the game of basketball in England.",
-            "Goalball is the most popular sport in the whole world.",
-            "Guides are always faster than the runners they help."
+            "Ludwig Guttmann invented the game of basketball in England, and the Paralympics grew from it.",
+            "Goalball is the most popular sport in the whole world, and the Paralympics were made for it.",
+            "Guides are always faster than the runners they help, and so the Paralympics rule them out."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -395,10 +395,10 @@
         {
           "stem": "Why does the guide receive a medal when the pair wins?",
           "options": [
-            "Guides are also the judges.",
+            "Guides are also the judges of the race.",
             "The guide's help is part of the win.",
             "The guide ran a separate race.",
-            "Guides are paid in medals."
+            "Guides are paid in medals every year."
           ],
           "answer": "B",
           "skill": "inference",
@@ -412,10 +412,10 @@
         {
           "stem": "How does the author organize the article?",
           "options": [
-            "As a list of medal winners",
-            "As step-by-step running lessons",
+            "As a list of medal winners from each country and year",
+            "As step-by-step running lessons for beginners in the park",
             "By describing the athletes, then the history, then the sports",
-            "By comparing summer and winter games"
+            "By comparing summer and winter games in each country"
           ],
           "answer": "C",
           "skill": "text-structure",
@@ -541,9 +541,9 @@
           "stem": "Why did Guttmann's patients compete in archery from their wheelchairs?",
           "options": [
             "Spinal injuries made walking difficult for many.",
-            "Archery was required in the army.",
-            "Wheelchairs helped them aim higher.",
-            "The Olympics banned standing archers."
+            "Archery was required in the army for all patients",
+            "Wheelchairs helped them aim higher at the targets",
+            "The Olympics banned standing archers from the games"
           ],
           "answer": "A",
           "skill": "cause-effect",

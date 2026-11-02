@@ -233,9 +233,9 @@
         {
           "stem": "Why does the author give a list of tips at the end of the article?",
           "options": [
-            "To tell a funny story",
-            "To compare a back with a tower",
-            "To explain what bones are made of",
+            "To tell a funny story about a boy and his bag",
+            "To compare a back with a tower made of blocks",
+            "To explain what bones are made of inside the body",
             "To show readers how to care for their backs"
           ],
           "answer": "D",
@@ -311,9 +311,9 @@
           "stem": "What is the spinal cord?",
           "options": [
             "A bundle of nerves that carries messages",
-            "A soft disc between two bones",
-            "A strong muscle in the stomach",
-            "A strap on a backpack"
+            "A soft disc between two bones in the back",
+            "A strong muscle in the stomach that moves food",
+            "A strap on a backpack that holds books"
           ],
           "answer": "A",
           "skill": "detail",

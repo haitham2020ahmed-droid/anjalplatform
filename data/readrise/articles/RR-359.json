@@ -115,9 +115,9 @@
           "stem": "What is this story mostly about?",
           "options": [
             "Two girls walking home after their bus breaks down",
-            "Two girls building a bus",
-            "A farmer who sells water in the city",
-            "A race between two buses"
+            "Two girls building a bus out of wood and cloth for the school fair",
+            "A farmer who sells water in the city to buy a new bus",
+            "A race between two buses on a long road to the town"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -131,10 +131,10 @@
         {
           "stem": "Why do the girls get off the bus?",
           "options": [
-            "The bus is too crowded",
+            "The bus is too crowded for them to stay",
             "The bus stops and will not start again",
-            "The driver sends them to school",
-            "They want to see the farmer"
+            "The driver sends them to school on foot",
+            "They want to see the farmer's field"
           ],
           "answer": "B",
           "skill": "detail",
@@ -148,10 +148,10 @@
         {
           "stem": "Why does Hind think they can walk home?",
           "options": [
-            "She has a map of the desert",
-            "She wants to pick dates",
+            "She has a map of the desert, which shows the way home",
+            "She wants to pick dates on the way home from school",
             "She knows the road well and it is not far",
-            "The driver tells her to walk"
+            "The driver tells her to walk, since the bus has stopped"
           ],
           "answer": "C",
           "skill": "cause-effect",
@@ -216,10 +216,10 @@
         {
           "stem": "What can you tell about the farmer from how he treats the girls?",
           "options": [
-            "He does not like visitors",
-            "He is too busy to help",
+            "He does not like visitors on his farm",
+            "He is too busy to help the girls",
             "He is kind to strangers in need",
-            "He wants the girls to work"
+            "He wants the girls to work for him"
           ],
           "answer": "C",
           "skill": "inference",
@@ -395,10 +395,10 @@
         {
           "stem": "What causes Sara to need a rest during the walk?",
           "options": [
-            "She trips and hurts her foot",
-            "She is frightened by an animal",
+            "She trips and hurts her foot on a big rock in the sand",
+            "She is frightened by an animal that runs across the path",
             "The heat and the long walk make her exhausted and thirsty",
-            "She forgets which way to go"
+            "She forgets which way to go and stops to think about the road"
           ],
           "answer": "C",
           "skill": "cause-effect",
@@ -412,9 +412,9 @@
         {
           "stem": "How does the author organize the events of the story?",
           "options": [
-            "By comparing two villages, paragraph by paragraph",
-            "By listing facts about desert farming",
-            "By describing the driver's whole life",
+            "By comparing two villages, paragraph by paragraph, and their farms and roads",
+            "By listing facts about desert farming and the crops that grow in the sand",
+            "By describing the driver's whole life, from his childhood to the day of the trip",
             "In the order events happen: the breakdown, the walk, the farmer, and arriving home"
           ],
           "answer": "D",
@@ -473,9 +473,9 @@
           "stem": "Which statement best expresses the central idea of the story?",
           "options": [
             "Two friends rely on perseverance, kindness, and hospitality to get home safely.",
-            "A bus driver is blamed for an accident on a dangerous road.",
-            "A farmer refuses to help two tired travelers passing his land.",
-            "Two girls compete to see who can walk home fastest."
+            "A bus driver is blamed for an accident on a dangerous road in the mountains",
+            "A farmer refuses to help two tired travelers passing his land at night",
+            "Two girls compete to see who can walk home the fastest along the road"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -506,10 +506,10 @@
         {
           "stem": "How does Abu Khalid's hospitality affect the girls' journey?",
           "options": [
-            "It delays them so much that they never reach the village",
-            "It convinces them to stay on the farm permanently",
+            "It delays them so much that they never reach the village at all",
+            "It convinces them to stay on the farm permanently with him",
             "It gives them rest, water, and renewed strength to finish the walk",
-            "It causes them to take a completely different road"
+            "It causes them to take a completely different road to the village"
           ],
           "answer": "C",
           "skill": "cause-effect",
@@ -541,9 +541,9 @@
           "stem": "What can readers infer about Hind from her decision to suggest walking home?",
           "options": [
             "She is confident and willing to take responsibility for a plan",
-            "She is reckless and does not think about safety",
-            "She is afraid of the bus driver",
-            "She dislikes her classmates"
+            "She is reckless and does not think about safety at all, so she makes a bad plan",
+            "She is afraid of the bus driver, and so she wants to walk home alone",
+            "She dislikes her classmates and wants to be alone on the long road"
           ],
           "answer": "A",
           "skill": "inference",
@@ -557,10 +557,10 @@
         {
           "stem": "In what order do these events occur in the story?",
           "options": [
-            "The girls reach the village, the bus stops, they meet the farmer",
+            "The girls reach the village, the bus stops, they meet the farmer, the girls decide to walk",
             "The bus stops, the girls decide to walk, they meet the farmer, they reach the village",
-            "They meet the farmer, the bus stops, the girls decide to walk",
-            "The girls reach the village, they meet the farmer, the bus stops"
+            "They meet the farmer, the bus stops, the girls decide to walk, they reach the village",
+            "The girls reach the village, they meet the farmer, the bus stops, the girls decide to walk"
           ],
           "answer": "B",
           "skill": "sequence",
@@ -574,10 +574,10 @@
         {
           "stem": "Why does the author include the detail that the mothers scold the girls gently before hugging them again?",
           "options": [
-            "To show the mothers do not trust the girls",
-            "To suggest the girls will be punished",
+            "To show the mothers do not trust the girls and are very angry",
+            "To suggest the girls will be punished for a whole week at home",
             "To show that worry and relief can exist together in a loving family",
-            "To explain how far the village is from school"
+            "To explain how far the village is from the school and the market in the town"
           ],
           "answer": "C",
           "skill": "author-purpose",
@@ -591,9 +591,9 @@
         {
           "stem": "Based on the story, what is the most likely reason Hind and Sara overcome the challenge of the broken bus?",
           "options": [
-            "They happen to find a working phone along the road",
+            "They happen to find a working phone along the road and call their parents",
             "The driver secretly fixes the engine and drives them the rest of the way",
-            "They decide to wait at the bus for the rest of the afternoon",
+            "They decide to wait at the bus for the rest of the afternoon until the sun goes down",
             "Their teamwork, calm thinking, and the farmer's hospitality together help them succeed"
           ],
           "answer": "D",

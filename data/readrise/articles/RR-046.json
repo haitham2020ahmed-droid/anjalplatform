@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How to find stars with your eyes",
+            "How to find stars with your eyes alone",
             "What black holes are and how we find them",
-            "Why the Sun is the biggest star",
-            "How rockets fly into space"
+            "Why the Sun is the biggest star we see",
+            "How rockets fly into space from the ground"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -148,9 +148,9 @@
         {
           "stem": "How does a black hole form?",
           "options": [
-            "Two small planets crash into each other.",
-            "The Sun gets too hot and melts.",
-            "A cloud of gas turns very cold.",
+            "Two small planets crash into each other in space.",
+            "The Sun gets too hot and slowly melts away.",
+            "A cloud of gas turns very cold and still.",
             "A huge star runs out of fuel and falls in on itself."
           ],
           "answer": "D",
@@ -217,7 +217,7 @@
           "stem": "What can you tell about black holes and people on Earth?",
           "options": [
             "We are safe because black holes are very far away.",
-            "A black hole will soon pull in the Earth.",
+            "A black hole will soon pull in the Earth and the Sun.",
             "Our Sun will become a black hole next year.",
             "People can see black holes with their eyes."
           ],
@@ -395,10 +395,10 @@
         {
           "stem": "How is our Sun different from the stars that become black holes?",
           "options": [
-            "It is much hotter than they are.",
-            "It has no gravity at all.",
+            "It is much hotter than they are, and it has more matter.",
+            "It has no gravity at all, so planets float away from it.",
             "It is much smaller and has far less matter.",
-            "It is in a different galaxy."
+            "It is in a different galaxy, far away from our own."
           ],
           "answer": "C",
           "skill": "compare",
@@ -523,9 +523,9 @@
         {
           "stem": "The article says the collapsed matter becomes so dense that its gravity is intense. What does dense mean here?",
           "options": [
-            "Moving at a very high speed",
-            "Glowing with a bright light",
-            "Spread thinly across space",
+            "Moving at a very high speed in space",
+            "Glowing with a bright white light",
+            "Spread thinly across all of space",
             "Packed tightly into a small space"
           ],
           "answer": "D",
@@ -541,9 +541,9 @@
           "stem": "Why are astronomers able to detect black holes even though black holes give off no light?",
           "options": [
             "Black holes affect the stars and gas around them in ways that can be observed.",
-            "Black holes reflect sunlight back toward Earth.",
-            "Black holes make a sound that radio telescopes hear.",
-            "Black holes are always found next to bright planets."
+            "Black holes reflect sunlight back toward Earth, so astronomers can see the glow.",
+            "Black holes make a sound that radio telescopes hear from very far away.",
+            "Black holes are always found next to bright planets that light them up."
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -574,9 +574,9 @@
         {
           "stem": "What can the reader infer about the 2019 and 2022 images?",
           "options": [
-            "They show the inside of the black holes clearly.",
-            "They prove the Sun will become a black hole.",
-            "They were taken by astronauts close to the black holes.",
+            "They show the inside of the black holes clearly, with no dark parts at all, as a photo does.",
+            "They prove the Sun will become a black hole in a few years, so the images are a warning.",
+            "They were taken by astronauts close to the black holes in space, with a small camera.",
             "They show dark shadows outlined by glowing gas, not light from the black holes themselves."
           ],
           "answer": "D",

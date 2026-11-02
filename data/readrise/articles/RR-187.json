@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How to make gold at home",
-            "A trip to see the roses in Taif",
+            "How to make gold at home with simple tools and fire",
+            "A trip to see the roses in Taif in the spring with a family",
             "A man long ago who tested ideas and helped start chemistry",
-            "How salt is made from the sea"
+            "How salt is made from the sea in large flat pools"
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -294,9 +294,9 @@
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
             "Jabir's careful experiments and methods helped lead to chemistry.",
-            "Jabir found a way to turn plain metals into gold.",
-            "Jabir built the first rose water factory in Taif.",
-            "Alchemy and chemistry are exactly the same thing."
+            "Jabir found a way to turn plain metals into gold for the caliph and his palace.",
+            "Jabir built the first rose water factory in Taif and sold perfume across the land.",
+            "Alchemy and chemistry are exactly the same thing, with no difference at all."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -361,9 +361,9 @@
         {
           "stem": "How do some large plants in Saudi Arabia use distillation?",
           "options": [
-            "To turn metal into gold",
-            "To make salt crystals for food",
-            "To grow roses in the desert",
+            "To turn metal into gold for the king",
+            "To make salt crystals for food and sell them",
+            "To grow roses in the desert near the plant",
             "To turn seawater into drinking water"
           ],
           "answer": "D",
@@ -379,9 +379,9 @@
           "stem": "Some books with Jabir's name may have been written later by his followers. What does this suggest?",
           "options": [
             "His ideas were respected, so others carried on his work.",
-            "Jabir was not a real person at all.",
-            "Nobody ever read the books.",
-            "His followers did not agree with him."
+            "Jabir was not a real person at all, so the books came later",
+            "Nobody ever read the books, so they were soon forgotten",
+            "His followers did not agree with him, so they wrote new books"
           ],
           "answer": "A",
           "skill": "inference",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best summarizes the article?",
           "options": [
-            "Jabir proved that alchemists could make gold from ordinary metals.",
+            "Jabir proved that alchemists could make gold from ordinary metals in his workshop.",
             "Jabir's focus on experiments and careful methods helped turn alchemy toward chemistry.",
-            "Historians know every detail of Jabir's life and work.",
-            "Distillation was first invented in modern Saudi Arabia."
+            "Historians know every detail of Jabir's life and work from old records.",
+            "Distillation was first invented in modern Saudi Arabia in the last century."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -524,9 +524,9 @@
           "stem": "What does the article suggest about what we know of Jabir?",
           "options": [
             "Some facts are unclear, partly because followers wrote books under his name.",
-            "Everything we know comes from a single short letter.",
-            "Historians have proved he never did experiments.",
-            "He wrote every book that carries his name."
+            "Everything we know comes from a single short letter that he wrote to a king.",
+            "Historians have proved he never did experiments, and he only copied old books.",
+            "He wrote every book that carries his name, and nobody else has added to them."
           ],
           "answer": "A",
           "skill": "inference",
@@ -557,10 +557,10 @@
         {
           "stem": "What can you conclude from the fact that words like alembic and alkali come from Arabic?",
           "options": [
-            "English was first written in Arabic.",
+            "English was first written in Arabic, and the old kings of England spoke it.",
             "European scholars learned a great deal from Arabic scientific writing.",
-            "Arabic had no words of its own for any kind of science.",
-            "Jabir invented the English language."
+            "Arabic had no words of its own for any kind of science or medicine.",
+            "Jabir invented the English language and taught it to the people of Europe."
           ],
           "answer": "B",
           "skill": "inference",
@@ -574,9 +574,9 @@
         {
           "stem": "Why does the author end with rose water in Taif and drinking water in Saudi Arabia?",
           "options": [
-            "To argue that more factories should be built",
-            "To describe the flowers of Taif in detail",
-            "To compare the prices of two kinds of water",
+            "To argue that more factories should be built in the city",
+            "To describe the flowers of Taif in great detail",
+            "To compare the prices of two kinds of bottled water",
             "To show that a method Jabir described is still useful"
           ],
           "answer": "D",

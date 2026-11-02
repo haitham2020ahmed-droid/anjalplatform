@@ -115,9 +115,9 @@
           "stem": "What is this article mostly about?",
           "options": [
             "The science behind shooting, bouncing, and moving in basketball",
-            "How to buy the best basketball shoes in a shop",
-            "The life of the basketball teacher",
-            "Why football is more fun than basketball"
+            "How to buy the best basketball shoes in a shop in the mall",
+            "The life of the basketball teacher at the school in town",
+            "Why football is more fun than basketball for most children"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -165,10 +165,10 @@
         {
           "stem": "Why does a ball bounce?",
           "options": [
-            "It is very heavy and hard",
-            "The floor pushes it with a spring",
+            "It is very heavy and hard, so it jumps back up",
+            "The floor pushes it with a spring hidden inside it",
             "It squeezes flat and then springs back into shape",
-            "Players throw it very hard every time"
+            "Players throw it very hard every single time it lands"
           ],
           "answer": "C",
           "skill": "cause-effect",
@@ -233,10 +233,10 @@
         {
           "stem": "Why does the author start with \"Bounce, bounce, bounce. Swish!\"?",
           "options": [
-            "To list the rules of the game",
+            "To list the rules of the game for the readers",
             "To help you hear and picture the game",
-            "To tell the score of a game",
-            "To name the players on a team"
+            "To tell the final score of a game that was played",
+            "To name the players on a team in a match"
           ],
           "answer": "B",
           "skill": "author-purpose",
@@ -361,10 +361,10 @@
         {
           "stem": "In what order does a bounce happen?",
           "options": [
-            "The ball springs back, then hits the floor, then flattens",
-            "The ball flattens, then hits the floor, then loses air",
+            "The ball springs back first, then hits the floor, then flattens",
+            "The ball flattens, then hits the floor, then loses air and stops moving",
             "The ball hits the floor, flattens and stores energy, then springs back",
-            "The ball releases energy, then flattens, then stops"
+            "The ball releases energy, then flattens, then stops and waits on the floor"
           ],
           "answer": "C",
           "skill": "sequence",
@@ -473,9 +473,9 @@
           "stem": "Which statement best expresses the central idea?",
           "options": [
             "Basketball skills rely on physics such as trajectory, spin, elasticity, and friction",
-            "Basketball was invented to keep students busy in winter",
-            "Officials should check every ball before a game begins",
-            "Practice matters more than talent in all sports"
+            "Basketball was invented to keep students busy in winter, and has nothing to do with physics.",
+            "Officials should check every ball before a game begins, so that the players never get hurt.",
+            "Practice matters more than talent in all sports, and so physics is not needed at all."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -591,9 +591,9 @@
         {
           "stem": "Why does the author include the history of James Naismith's fruit baskets?",
           "options": [
-            "To prove that fruit baskets work better than hoops",
-            "To explain how backspin was discovered",
-            "To compare winter sports around the world",
+            "To prove that fruit baskets work better than hoops for every kind of game",
+            "To explain how backspin was discovered and who first used it in a match",
+            "To compare winter sports around the world and show which one is the oldest",
             "To give background on how the game began before explaining its science"
           ],
           "answer": "D",

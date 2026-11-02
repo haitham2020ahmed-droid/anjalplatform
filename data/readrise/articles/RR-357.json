@@ -540,9 +540,9 @@
         {
           "stem": "Based on the story, why is Salem able to anticipate roughly where the current will carry his boat?",
           "options": [
-            "He follows another fishing boat that is traveling the same route",
+            "He follows another fishing boat that is traveling the same route as his own boat and crew",
             "He uses the fixed position of a particular star to track his direction over time",
-            "He receives updates about the current from a radio on the boat",
+            "He receives updates about the current from a radio on the boat each hour",
             "He simply guesses based on which way the wind is blowing that day"
           ],
           "answer": "B",

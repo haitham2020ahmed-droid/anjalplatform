@@ -200,9 +200,9 @@
           "stem": "Why are trees like the ghaf and sidr good to plant in the desert?",
           "options": [
             "They need little water and have deep roots.",
-            "They grow best in cold, snowy places.",
-            "They do not need any roots at all.",
-            "They must be given water every hour."
+            "They grow best in cold, snowy places in the north.",
+            "They do not need any roots at all to stand up.",
+            "They must be given water every hour of the day."
           ],
           "answer": "A",
           "skill": "inference",
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
-            "The ghaf tree has very deep roots.",
-            "Goats and camels eat young trees.",
+            "The ghaf tree has very deep roots, which let it find water far below the hot desert sand, and so it survives long droughts.",
+            "Goats and camels eat young trees, so people must keep all animals away from the desert and its small plants forever.",
             "People plant native trees in the desert because trees bring many benefits, and they care for them until they can survive.",
-            "Saudi Arabia launched a plan in 2021."
+            "Saudi Arabia launched a plan in 2021 to make its cities greener, and the plan has already finished all its work."
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -312,8 +312,8 @@
           "options": [
             "Fruit trees brought from rainy countries",
             "Native trees such as the ghaf, acacia, and sidr",
-            "Palm trees that need water every day",
-            "Pine trees that grow in the mountains"
+            "Palm trees that need water every single day",
+            "Pine trees that grow high in the cold mountains"
           ],
           "answer": "B",
           "skill": "detail",
@@ -345,9 +345,9 @@
           "stem": "The article says tree roots hold the soil, which prevents erosion. What does erosion mean?",
           "options": [
             "the wearing away of soil by wind or water",
-            "a kind of bird that nests in trees",
-            "a pipe that drips water on roots",
-            "a fence that keeps out animals"
+            "a kind of bird that nests in tall trees",
+            "a pipe that drips water on the roots",
+            "a fence that keeps out wild animals"
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -396,9 +396,9 @@
           "stem": "According to the article, what is one effect of trees on the air near the ground?",
           "options": [
             "The air beneath them is cooler.",
-            "The air becomes dustier.",
-            "The air becomes saltier.",
-            "The air turns into rain."
+            "The air above them is dustier.",
+            "The air becomes saltier and drier.",
+            "The air turns into rain overhead."
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -472,9 +472,9 @@
         {
           "stem": "Which statement best summarizes the article?",
           "options": [
-            "The ghaf tree's roots may reach thirty meters.",
-            "Africa is building the Great Green Wall.",
-            "Recycled water is wastewater that has been cleaned.",
+            "The ghaf tree's roots may reach thirty meters, so it is the tallest tree in every desert.",
+            "Africa is building the Great Green Wall, a long line of stone walls that stops all sandstorms.",
+            "Recycled water is wastewater that has been cleaned, and it is mostly used for drinking in big cities.",
             "Desert tree planting brings real benefits but needs careful choices of species, water, and protection."
           ],
           "answer": "D",
@@ -557,10 +557,10 @@
         {
           "stem": "Why would planting native trees likely succeed more often than planting trees from rainy regions?",
           "options": [
-            "Trees from rainy regions grow too tall.",
-            "Native trees do not need any care at all.",
+            "Trees from rainy regions grow too tall for the hot desert wind.",
+            "Native trees do not need any care at all, not even a little water.",
             "Native trees are already suited to drought and heat.",
-            "Rainy-region trees attract too many birds."
+            "Rainy-region trees attract too many birds to the dry land."
           ],
           "answer": "C",
           "skill": "inference",
@@ -591,10 +591,10 @@
         {
           "stem": "Why does the author mention the Great Green Wall in Africa?",
           "options": [
-            "To prove Africa has more trees than Arabia",
+            "To prove Africa has more trees than Arabia does, so Arabia needs none",
             "To show that other countries face the same challenge",
-            "To explain how ghaf roots grow so deep",
-            "To describe how to build a stone wall"
+            "To explain how ghaf roots grow so deep down in the soil",
+            "To describe how to build a stone wall in the desert"
           ],
           "answer": "B",
           "skill": "author-purpose",

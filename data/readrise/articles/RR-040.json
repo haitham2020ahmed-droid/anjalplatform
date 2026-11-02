@@ -148,9 +148,9 @@
         {
           "stem": "Which things can an elephant do with its trunk?",
           "options": [
-            "See in the dark",
-            "Store water for weeks",
-            "Chew hard food",
+            "See in the dark like an owl",
+            "Store water for weeks in it",
+            "Chew hard food with the tip",
             "Smell, drink, and grab food"
           ],
           "answer": "D",
@@ -182,10 +182,10 @@
         {
           "stem": "The whole herd helps keep a calf safe. What does this tell you about elephants?",
           "options": [
-            "Calves can take care of themselves.",
+            "Calves can take care of themselves after birth.",
             "Elephants in a herd care for each other's young.",
-            "Only the mother cares about the calf.",
-            "Elephants do not like baby elephants."
+            "Only the mother cares about the calf and no one else does.",
+            "Elephants do not like baby elephants and push them away."
           ],
           "answer": "B",
           "skill": "inference",
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
-            "Elephants eat more food than any other animal in Africa.",
+            "Elephants eat more food than any other animal in Africa, so they live near farms and fields.",
             "Elephants survive by living in close family herds led by an experienced female.",
-            "Elephant tusks are the most important part of an elephant's body.",
-            "Young male elephants are the strongest members of the herd."
+            "Elephant tusks are the most important part of an elephant's body, and the herd follows the biggest tusks.",
+            "Young male elephants are the strongest members of the herd, and so they are the ones who lead it."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -328,9 +328,9 @@
           "stem": "According to the article, what is an elephant's trunk?",
           "options": [
             "Its nose and upper lip joined together",
-            "A very long tooth made of ivory",
-            "A tube that only carries water",
-            "Its lower jaw stretched out"
+            "A very long tooth made of ivory and bone",
+            "A tube that only carries water to the mouth",
+            "Its lower jaw stretched out like a long arm"
           ],
           "answer": "A",
           "skill": "detail",
@@ -344,9 +344,9 @@
         {
           "stem": "Why is the matriarch's memory especially important during a drought?",
           "options": [
-            "She remembers which lions are the most dangerous.",
-            "She can teach the calves to dig their own wells.",
-            "She knows which young males to send away.",
+            "She remembers which lions are the most dangerous ones near the water hole",
+            "She can teach the calves to dig their own wells in the dry sand",
+            "She knows which young males to send away from the herd",
             "She can lead the family to far-off places that still have water."
           ],
           "answer": "D",
@@ -473,9 +473,9 @@
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
             "Elephants depend on cooperation and the knowledge of older females, yet they face serious human threats.",
-            "Elephants are mainly dangerous animals that people should avoid.",
-            "African elephants are more intelligent than Asian elephants.",
-            "The trunk is the only reason elephants have survived."
+            "Elephants are mainly dangerous animals that people should avoid, because they attack villages.",
+            "African elephants are more intelligent than Asian elephants, and they live in much larger groups on the plains.",
+            "The trunk is the only reason elephants have survived for so many years on the earth."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -540,10 +540,10 @@
         {
           "stem": "Why does an elephant spend most of its waking hours feeding?",
           "options": [
-            "It must chew each leaf for a long time with its tusks.",
-            "It feeds only at night when it is cool.",
+            "It must chew each leaf for a very long time with its big tusks.",
+            "It feeds only at night when it is cool outside and dark",
             "It needs a huge amount of vegetation, about 150 kilograms a day.",
-            "Its trunk can lift only one nut at a time."
+            "Its trunk can lift only one nut at a time from the ground"
           ],
           "answer": "C",
           "skill": "inference",
@@ -557,9 +557,9 @@
         {
           "stem": "\"Many have lost their habitat as farms and towns expand.\" What does habitat mean here?",
           "options": [
-            "A herd's family members",
-            "The food an animal stores",
-            "A law that protects wildlife",
+            "A herd's family members and friends",
+            "The food an animal stores for winter",
+            "A law that protects wildlife in parks",
             "The natural home where an animal lives"
           ],
           "answer": "D",
@@ -592,9 +592,9 @@
           "stem": "Which two human causes threaten elephants, according to the article?",
           "options": [
             "Poaching for ivory and the loss of habitat",
-            "Hunting by lions and long droughts",
-            "Zoos and noisy cities",
-            "Lack of food and cold weather"
+            "Hunting by lions and very long droughts",
+            "Zoos and noisy cities with many cars",
+            "Lack of food and very cold weather in winter"
           ],
           "answer": "A",
           "skill": "cause-effect",

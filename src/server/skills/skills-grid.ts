@@ -27,6 +27,7 @@ import { classMembers, studentNames } from "../insights/student-data";
 import { currentRows, historyOf, ms, NOT_STARTED_VIEW, skillKeyIndex, viewOf, type StarStatus, type StarView } from "./status";
 import { MISMATCH_TEXT, selfCheckMismatch } from "./status-extras";
 import { countAnswers, countedSessions, engineOf, engineRows, fallbackFrom, readAnswers, starsMigrated, type Counted } from "./grid-fallback";
+import { longestPickers } from "./longest-pick";
 import { isGuessing, rangeBounds, STAR_RANK, starFromAnswers, starFromHistory, TREND_BACK_DAYS, TREND_MID_DAYS, trendOf, type DateRange, type GuessCount, type StudentTrend, type Trend } from "./skills-trend";
 import { STRAND_LABEL, STRANDS, strandOf, type Strand } from "./my-skills";
 import { classAssignedSkills, type PlanType } from "./assigned-skills";
@@ -99,6 +100,8 @@ export interface GridStudent {
   id: string; name: string; practised?: number; mastered?: number; assigned?: number;
   /** r75: ⬆️ ➖ ⬇️ against 2 weeks before (null: nothing assigned) and ⚡ answering too fast */
   trend?: Trend | null; guessing?: boolean;
+  /** 🎯 picks the longest answer (only present when true) */
+  longest?: boolean;
   /** r94 (audit): the same trend as a short history (14d ago → 7d ago → now), for teachers who want more than the badge */
   trendPoints?: TrendPoint[] | null;
 }
@@ -143,6 +146,8 @@ export interface ClassSkills {
   before7?: Record<string, Record<string, StarStatus>>;
   /** r75: student → key → answers / rapid guesses in the last 2 weeks (or the chosen dates) — the ⚡ flag */
   guesses?: Record<string, Record<string, GuessCount>>;
+  /** 🎯 the students flagged "Picks the longest answer" (src/server/skills/longest-pick.ts; last 60 days to the end date) */
+  longest?: Record<string, true>;
   /** r75: the date filter (empty = the whole year) and the day the trend compares with */
   range?: DateRange; trendSince?: string;
   /** r84: student → key → its column sources, for the pairs that are Skills Grid COLUMNS (absent = every pair is a column) */
@@ -231,6 +236,9 @@ export async function classSkills(repo: Repo, actor: Actor, opts: { classId?: st
     c.answers++; if (a.rapidGuess === true || a.rapidGuess === 1) c.rapid++;
     guess.set(k, c);
   }
+  // 🎯 picks the longest answer: careful bank answers of the last 60 days (to the end date); never breaks the page
+  const longest: Record<string, true> = {};
+  try { for (const [id, p] of await longestPickers(repo, ids, new Date(b.end))) if (p.flagged) longest[id] = true; } catch { /* the signal is left out */ }
   const stars: ClassSkills["stars"] = {}, pairs: ClassSkills["pairs"] = {}, before: NonNullable<ClassSkills["before"]> = {}, before7: NonNullable<ClassSkills["before7"]> = {}, guesses: NonNullable<ClassSkills["guesses"]> = {};
   let estimated = 0;
   for (const id of ids) {
@@ -279,7 +287,7 @@ export async function classSkills(repo: Repo, actor: Actor, opts: { classId?: st
     id: p.id, title: p.title, type: p.type, sentAt: new Date(p.sentAt || 0).toISOString(), createdById: p.createdById, closed: Boolean(closed[p.id]),
     students: Object.fromEntries([...p.byStudent].map(([st, ks]) => [st, [...ks].filter((k) => stars[st]?.[k])] as const).filter(([, ks]) => ks.length)),
   })).filter((p) => Object.keys(p.students).length);
-  return { classes, classId, className: s(klass.name), migrated, estimated, students, skills, stars, pairs, before, before7, guesses, range, trendSince: empty.trendSince, cols, plans };
+  return { classes, classId, className: s(klass.name), migrated, estimated, students, skills, stars, pairs, before, before7, guesses, ...(Object.keys(longest).length ? { longest } : {}), range, trendSince: empty.trendSince, cols, plans };
 }
 
 /** r84: the SchoolSetting row that keeps a class's closed plans (the teacher's "Close plan"): plan id → when */
@@ -377,6 +385,7 @@ export function gridOf(d: ClassSkills, opts: { plan?: GridPlan; weakOnly?: boole
   const everyone: GridStudent[] = v.students.map((st) => ({
     id: st.id, name: st.name, assigned: mine(st.id).length, practised: mine(st.id).filter((k) => isPractised(v.stars[st.id][k])).length, mastered: mine(st.id).filter((k) => isMasteredStar(v.stars[st.id][k])).length,
     trend: studentTrend(v, st.id)?.trend ?? null, guessing: isGuessing(studentGuess(v, st.id)), trendPoints: studentTrendPoints(v, st.id),
+    ...(v.longest?.[st.id] ? { longest: true } : {}),
   }));
   // r68: paginated (GRID_PAGE students a page); the column counts stay for the whole class
   const pages = Math.max(1, Math.ceil(everyone.length / GRID_PAGE));

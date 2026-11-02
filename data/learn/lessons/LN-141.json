@@ -160,10 +160,10 @@
     "passage": "Every autumn, millions of birds fly south. They leave because the cold weather makes it hard to find food. Many birds use the sun and stars to find their way. Some travel thousands of kilometres before they stop to rest. In spring, they return to the same places to build nests.",
     "stem": "Why do the birds fly south in autumn?",
     "options": [
-     "To build nests",
+     "To build new nests for their young in spring",
      "Because food is hard to find in cold weather",
-     "To look at the stars",
-     "Because they are tired"
+     "To look at the stars that shine in the south",
+     "Because they are tired of the long days of summer"
     ],
     "answer": 1,
     "hint": "A why question wants a reason. Look for the word 'because'.",
@@ -213,9 +213,9 @@
      "passage": "To make mint tea, Grandma boils water first. Then she adds tea leaves and fresh mint. She lets it sit for three minutes and pours it into small glasses.",
      "stem": "How does Grandma make mint tea?",
      "options": [
-      "She mixes cold water and sugar.",
-      "She buys it from a shop.",
-      "She grows the mint in a pot.",
+      "She mixes cold water and sugar in a jug.",
+      "She buys it from a shop near the house.",
+      "She grows the mint in a pot on the sunny balcony.",
       "She boils water, adds tea and mint, then waits."
      ],
      "answer": 3,
@@ -272,10 +272,10 @@
     "passage": "The Rub' al Khali, or Empty Quarter, is one of the largest sand deserts in the world. In summer, temperatures there can rise above 50°C. Rain is very rare, and some areas may go years without any. Despite these conditions, some plants and animals survive. Animals such as the sand gazelle get most of the water they need from the plants they eat. Some plants have roots that reach deep under the sand to find water.",
     "stem": "How do living things in the Empty Quarter get water?",
     "options": [
-     "They drink from rivers and lakes.",
-     "They wait for rain every week.",
+     "They drink from rivers and lakes in the sand.",
+     "They wait for rain that falls every single week.",
      "Animals eat watery plants; plants grow deep roots.",
-     "People bring water to them."
+     "People bring water to them on trucks and camels."
     ],
     "answer": 2,
     "hint": "The answer is in more than one place. Find what the animals do and what the plants do.",
@@ -303,10 +303,10 @@
      "passage": "Before the 1930s, most people in the region earned a living from pearl diving, fishing and trade. After oil was discovered, new jobs appeared in drilling, building and transport. Cities grew quickly, and many families moved from villages to them.",
      "stem": "How did work in the region change after oil was found?",
      "options": [
-      "People stopped working, and the cities emptied.",
+      "People stopped working, and the big cities slowly emptied.",
       "New kinds of jobs appeared, and people moved to cities.",
       "Pearl diving and fishing became the main jobs.",
-      "Everyone moved back to the villages."
+      "Everyone moved back to the villages by the sea."
      ],
      "answer": 1,
      "why": "You need both parts: new kinds of jobs and families moving to growing cities."
@@ -316,9 +316,9 @@
      "stem": "How are lions and cheetahs different?",
      "options": [
       "Lions hunt in groups and are stronger; cheetahs are faster loners.",
-      "They are both big cats that hunt.",
-      "Lions are faster, and they live and hunt alone.",
-      "Cheetahs live in prides and are the stronger cat."
+      "They are both big cats that hunt, so they are the same in every way.",
+      "Lions are faster, and they live and hunt alone in the open plains.",
+      "Cheetahs live in prides and are the stronger cat of the two."
      ],
      "answer": 0,
      "why": "The text gives two differences in different sentences: how they hunt and speed versus strength."
@@ -327,9 +327,9 @@
      "passage": "Salma wanted to join the school science fair. She chose to test which kind of soil helps beans grow best. For three weeks, she watered three pots the same amount and measured the plants every day. The beans in the pot with compost grew tallest.",
      "stem": "Which question can be answered using this text?",
      "options": [
-      "What is Salma's favourite food?",
-      "Who won the science fair?",
-      "How tall was Salma?",
+      "What is Salma's favourite food at home?",
+      "Who won the science fair at school?",
+      "How tall was Salma at the time of the fair?",
       "What did Salma test for the science fair?"
      ],
      "answer": 3,
@@ -411,9 +411,9 @@
      "passage": "The village elders noticed that the old well had begun to taste salty. The following year, a new well was dug farther from the coast, and the families who had moved away during the dry years began returning.",
      "stem": "Which question can be answered only by inference, not directly?",
      "options": [
-      "Where was the new well dug?",
-      "What did the elders notice?",
-      "When was the new well dug?",
+      "Where was the new well dug in the village?",
+      "What did the elders notice about the water?",
+      "When was the new well dug by the workers?",
       "Why did the families most likely return?"
      ],
      "answer": 3,
@@ -423,10 +423,10 @@
      "passage": "A team of students tested whether plants grow faster with music. Plants in a room playing calm music grew 2 cm more in a month than plants in a silent room. The rooms had different windows.",
      "stem": "Which question should a careful reader ask about this experiment?",
      "options": [
-      "How many more centimetres did the plants grow?",
+      "How many more centimetres did the plants grow in a month?",
       "Was it the music or the windows that made the difference?",
-      "What did the students test?",
-      "Which room played music?"
+      "What did the students test in the first week?",
+      "Which room played music for the plants each day?"
      ],
      "answer": 1,
      "why": "The rooms differed in light as well as music, so a careful reader questions what caused the growth."

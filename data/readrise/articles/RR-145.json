@@ -199,10 +199,10 @@
         {
           "stem": "Why do people build wind farms where the wind is strong?",
           "options": [
-            "Strong wind is quiet.",
+            "Strong wind is quiet, so people living nearby will not hear it.",
             "Strong wind spins the blades more, so they make more power.",
-            "Strong wind keeps birds away.",
-            "Strong wind makes the towers taller."
+            "Strong wind keeps birds away, so the farm is safe for them.",
+            "Strong wind makes the towers taller, so they can reach the clouds."
           ],
           "answer": "B",
           "skill": "inference",
@@ -293,7 +293,7 @@
         {
           "stem": "What is the main idea of the article?",
           "options": [
-            "Old windmills are no longer useful for anything in the modern world.",
+            "Old windmills are no longer useful for anything in the modern world of today.",
             "Turbines turn moving air into clean electricity, but wind is not always steady.",
             "Wind farms create a large amount of air pollution near cities.",
             "Electricity can only be made by burning fuel in big power plants."
@@ -311,9 +311,9 @@
           "stem": "What does the generator inside a turbine do?",
           "options": [
             "It changes spinning motion into electricity.",
-            "It makes the wind blow harder.",
-            "It stores water for farms.",
-            "It cools the blades down."
+            "It makes the wind blow harder over the hill.",
+            "It stores water for the farms of the area.",
+            "It cools the blades down on a hot day."
           ],
           "answer": "A",
           "skill": "detail",
@@ -344,10 +344,10 @@
         {
           "stem": "Wind is called a renewable source of energy. What does renewable mean?",
           "options": [
-            "Very expensive",
+            "Very expensive to buy",
             "It will never run out",
-            "Made in a factory",
-            "Only found at sea"
+            "Made in a big factory",
+            "Only found at the sea"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -378,10 +378,10 @@
         {
           "stem": "Why would a windy coastline be a good place for a wind farm?",
           "options": [
-            "Turbines work better when they are wet.",
+            "Turbines work better when they are wet and cold",
             "Strong, steady wind keeps the blades turning.",
-            "Coasts have no need for electricity.",
-            "Wind on the coast never stops at all."
+            "Coasts have no need for electricity at all",
+            "Wind on the coast never stops at all, even for a minute"
           ],
           "answer": "B",
           "skill": "inference",
@@ -489,10 +489,10 @@
         {
           "stem": "According to the article, what causes wind?",
           "options": [
-            "The fast spinning of turbine blades",
-            "Ocean waves pushing the air upward",
+            "The fast spinning of turbine blades on a wind farm",
+            "Ocean waves pushing the air upward from the sea",
             "The sun heating parts of the Earth unevenly",
-            "Electricity flowing through the grid"
+            "Electricity flowing through the grid to the cities"
           ],
           "answer": "C",
           "skill": "detail",
@@ -591,7 +591,7 @@
         {
           "stem": "How does the author organize the article?",
           "options": [
-            "As a debate between two scientists who disagree",
+            "As a debate between two scientists who disagree about wind",
             "From old windmills to modern turbines and their challenges",
             "As a list of the world's wind farms ranked by size",
             "As a set of instructions for building a turbine"

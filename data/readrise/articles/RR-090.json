@@ -182,10 +182,10 @@
         {
           "stem": "Why did Fatima have enough money to build the mosque?",
           "options": [
-            "She sold many books.",
+            "She sold many books and cloth in the market to raise the money",
             "She and her sister got their dad's wealth after he died.",
-            "The students paid her.",
-            "She found a box of gold hidden in the new city."
+            "The students paid her for the lessons she gave to them all year",
+            "She found a box of gold hidden in the new city, near the wall"
           ],
           "answer": "B",
           "skill": "cause-effect",

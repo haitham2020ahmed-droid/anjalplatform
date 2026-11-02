@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How camels are used to carry goods across the desert",
+            "How camels are used to carry goods across the desert sand for the traders",
             "A girl who learns that patience and good care make a true champion",
-            "The history of camel racing in Saudi Arabia",
-            "How to build a camel racetrack"
+            "The history of camel racing in Saudi Arabia and its kings",
+            "How to build a camel racetrack in the desert for a big race"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -165,10 +165,10 @@
         {
           "stem": "In the article, the word patient means —",
           "options": [
-            "able to run very fast",
-            "a kind of camel race",
+            "able to run very fast over a long way",
+            "a kind of camel race held in the desert",
             "able to wait calmly without getting upset",
-            "a prize given to a winner"
+            "a prize given to a winner at the end"
           ],
           "answer": "C",
           "skill": "vocabulary",
@@ -182,10 +182,10 @@
         {
           "stem": "Why did Najma stop wanting to run?",
           "options": [
-            "She was too old to race",
+            "She was too old to race any more",
             "She was tired from too much hard training",
-            "She did not like Lama anymore",
-            "The weather was too cold"
+            "She did not like her friend Lama anymore",
+            "The weather was too cold for her to run"
           ],
           "answer": "B",
           "skill": "inference",
@@ -234,9 +234,9 @@
           "stem": "Why does the author tell us that Najma got tired before telling us about the race?",
           "options": [
             "To show how speed alone is not enough without good care",
-            "To explain how camels are bred",
-            "To describe the geography of the desert",
-            "To list the rules of camel racing"
+            "To explain how camels are bred and trained in the desert",
+            "To describe the geography of the desert and its dunes",
+            "To list the rules of camel racing for the new riders"
           ],
           "answer": "A",
           "skill": "author-purpose",
@@ -361,10 +361,10 @@
         {
           "stem": "Why does Najma begin to trust Lama more after her training changes?",
           "options": [
-            "Lama stops spending any time with Najma at all",
+            "Lama stops spending any time with Najma at all, even in the morning",
             "Lama forces Najma to train even harder than before",
             "Lama treats Najma more gently and takes better care of her",
-            "Najma is given away to a different trainer"
+            "Najma is given away to a different trainer in another city"
           ],
           "answer": "C",
           "skill": "inference",

@@ -182,10 +182,10 @@
         {
           "stem": "In the article, prey means…",
           "options": [
-            "a place where an owl sleeps",
+            "a place where an owl sleeps by day",
             "an animal that is caught for food",
-            "a sound that an owl makes",
-            "a kind of tall tree"
+            "a sound that an owl makes at night",
+            "a kind of tall tree in the forest"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -379,9 +379,9 @@
           "stem": "Why does the owl's neck need to be so flexible?",
           "options": [
             "Because the owl's eyes cannot move in their sockets",
-            "Because the owl needs to dig in the ground",
-            "Because the owl carries food on its back",
-            "Because the owl sleeps upside down"
+            "Because the owl needs to dig in the ground for food",
+            "Because the owl carries food on its back to its nest",
+            "Because the owl sleeps upside down like a bat in a cave"
           ],
           "answer": "A",
           "skill": "inference",
@@ -395,10 +395,10 @@
         {
           "stem": "What would most likely happen on a farm if the barn owls left?",
           "options": [
-            "The farmers would hear more owl calls.",
-            "The crops would grow faster than before.",
+            "The farmers would hear more owl calls at night.",
+            "The crops would grow faster than before, with no mice.",
             "There would be more mice and rats eating the crops.",
-            "The palm trees would lose their leaves."
+            "The palm trees would lose their leaves in the sun."
           ],
           "answer": "C",
           "skill": "inference",
@@ -473,9 +473,9 @@
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
             "Owls are successful nocturnal predators because of several special adaptations.",
-            "Owls are rare birds found only near farms.",
-            "Owls hunt mainly by sight during daylight hours.",
-            "Owls are pests that farmers try to remove."
+            "Owls are rare birds found only near farms, and almost no one has ever seen one.",
+            "Owls hunt mainly by sight during daylight hours, like most other birds.",
+            "Owls are pests that farmers try to remove from their land every year."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -557,10 +557,10 @@
         {
           "stem": "Why does the author compare the facial disc to a satellite dish?",
           "options": [
-            "To show that owls can receive television signals",
+            "To show that owls can receive television signals at night in the dark",
             "To help readers picture how the face gathers and directs sound",
-            "To explain why owls rest in trees during the day",
-            "To show that owls are made of metal"
+            "To explain why owls rest in trees during the whole day",
+            "To show that owls are made of metal and glass parts"
           ],
           "answer": "B",
           "skill": "author-purpose",
@@ -575,9 +575,9 @@
           "stem": "What can you infer about why biologists study owl pellets?",
           "options": [
             "Pellets reveal which animals live in an area and are being eaten.",
-            "Pellets show how fast an owl can fly.",
-            "Pellets are used to make medicine.",
-            "Pellets help owls build nests."
+            "Pellets show how fast an owl can fly at night and how far it can see.",
+            "Pellets are used to make medicine for sick animals and for people.",
+            "Pellets help owls build their nests in the tall trees of the forest."
           ],
           "answer": "A",
           "skill": "inference",
@@ -591,10 +591,10 @@
         {
           "stem": "How is an owl's way of looking around different from a human's?",
           "options": [
-            "Humans turn their heads, while owls only move their eyes.",
+            "Humans turn their heads, while owls only move their eyes from side to side to see behind them.",
             "An owl turns its whole head because its tubular eyes cannot move in their sockets.",
-            "Humans and owls both have fourteen neck vertebrae.",
-            "Owls cannot look behind them at all."
+            "Humans and owls both have fourteen neck vertebrae, so they turn their heads the same way.",
+            "Owls cannot look behind them at all, and they must fly around to see what is there."
           ],
           "answer": "B",
           "skill": "compare",

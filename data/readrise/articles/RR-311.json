@@ -216,10 +216,10 @@
         {
           "stem": "What can you infer about why a city might choose a mural instead of leaving a wall blank and gray?",
           "options": [
-            "A blank gray wall is cheaper to paint than any mural",
-            "Blank walls are more popular with tourists than murals",
+            "A blank gray wall is cheaper to paint than any mural, and so cities leave it plain and bare for years and years",
+            "Blank walls are more popular with tourists than murals, and so cities keep them plain to bring in more visitors",
             "A colorful mural likely makes the area feel more lively and gives the community something to enjoy",
-            "Murals are required by law in every city"
+            "Murals are required by law in every city, and so the city must paint one on each wall, whether it wants to or not"
           ],
           "answer": "C",
           "skill": "inference",
@@ -344,10 +344,10 @@
         {
           "stem": "The article says artists need 'a reliable method for scaling the design.' What does scaling mean here?",
           "options": [
-            "Weighing the paint carefully",
-            "Removing the design from the wall",
+            "Weighing the paint carefully on a kitchen scale",
+            "Removing the design from the wall and starting again",
             "Making the design much bigger while keeping its shape",
-            "Painting the design very quickly"
+            "Painting the design very quickly with a large brush"
           ],
           "answer": "C",
           "skill": "vocabulary",
@@ -362,9 +362,9 @@
           "stem": "Why do artists draw a grid over their small design?",
           "options": [
             "So they can copy each square onto the wall at the correct, larger scale",
-            "To decide what colors to use",
-            "To count how many days the mural will take",
-            "To get permission from the city"
+            "To decide which colors to use for the painting on the big wall outside",
+            "To count how many days the mural will take to finish",
+            "To get permission from the city to paint on the wall"
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -378,9 +378,9 @@
         {
           "stem": "What can you infer about why a city offers a 'blank wall' to an artist?",
           "options": [
-            "Blank walls are too expensive to repair",
-            "Blank walls are illegal in most cities",
-            "Artists refuse to paint on walls that already have color",
+            "Blank walls are too expensive to repair, so the city gives them away to artists for free",
+            "Blank walls are illegal in most cities, so the city must cover them with paintings quickly",
+            "Artists refuse to paint on walls that already have color, so a plain white wall is the only choice",
             "A blank wall gives the artist space to create something new without covering old art"
           ],
           "answer": "D",
@@ -412,10 +412,10 @@
         {
           "stem": "How does the article mostly organize information about murals?",
           "options": [
-            "By comparing two different cities' weather",
+            "By comparing two different cities' weather and their walls, as shown on a map of both cities",
             "By explaining what a mural is, then how one is planned, painted, and why it matters to a community",
-            "By arguing that murals should be banned",
-            "By listing every mural ever painted"
+            "By arguing that murals should be banned from every street, wall, and building in the city",
+            "By listing every mural ever painted in the world, one after another, from the oldest one"
           ],
           "answer": "B",
           "skill": "text-structure",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best captures the central idea of the article?",
           "options": [
-            "Murals require no planning, only enthusiasm.",
-            "Street art is illegal in every country.",
+            "Murals require no planning, only enthusiasm, and so they are always painted in a day by anyone.",
+            "Street art is illegal in every country, so murals are never allowed on any wall in the city or town.",
             "Carefully commissioned, collaboratively painted murals transform blank city walls into vibrant public landmarks.",
-            "Only professional muralists are allowed to view murals."
+            "Only professional muralists are allowed to view murals, and the public cannot see them at all or enjoy them."
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -507,9 +507,9 @@
           "stem": "What technique do some artists now use at night instead of a grid?",
           "options": [
             "A digital projector to trace the design onto the wall",
-            "A drone to spray paint automatically",
-            "A satellite photograph of the wall",
-            "A laser cutter"
+            "A drone to spray paint automatically over the wall",
+            "A satellite photograph of the wall to copy the design",
+            "A laser cutter to carve the design into the wall"
           ],
           "answer": "A",
           "skill": "detail",
@@ -523,9 +523,9 @@
         {
           "stem": "In the article, murals 'transform' blank walls. What does transform mean here?",
           "options": [
-            "To measure something exactly",
-            "To photograph something from far away",
-            "To remove something entirely",
+            "To measure something exactly with a ruler or a tape",
+            "To photograph something from far away with a camera",
+            "To remove something entirely from the place it is in",
             "To change something completely into something different"
           ],
           "answer": "D",
@@ -558,9 +558,9 @@
           "stem": "What can you infer about why some cities now host mural festivals and invite artists from abroad?",
           "options": [
             "To encourage collaboration and the exchange of artistic techniques between cultures",
-            "To make it harder for local artists to collaborate",
-            "To replace all other forms of public art",
-            "To avoid giving artists any official permission"
+            "To make it harder for local artists to collaborate, so only visitors can paint the walls",
+            "To replace all other forms of public art in the city with painted walls only",
+            "To avoid giving artists any official permission, so they paint without asking"
           ],
           "answer": "A",
           "skill": "inference",

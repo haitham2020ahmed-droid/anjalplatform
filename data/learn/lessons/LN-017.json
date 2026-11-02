@@ -104,10 +104,10 @@
      "passage": "Then the bird flew away. First, a bird landed on the tree. It sang a song.",
      "stem": "Which sentence should come first?",
      "options": [
-      "Then the bird flew away.",
-      "It sang a song.",
+      "Then the bird flew away from the tree.",
+      "It sang a song for a while.",
       "First, a bird landed on the tree.",
-      "The tree is green."
+      "The tree is green and tall."
      ],
      "answer": 2,
      "why": "\"First\" shows the start. The bird must land before it sings and flies away."
@@ -116,10 +116,10 @@
      "passage": "1. First, I get a bowl. 2. ____ 3. Last, I eat the cereal.",
      "stem": "Which sentence fits in the middle?",
      "options": [
-      "Last, I wash the bowl.",
+      "Last, I wash the bowl and the spoon.",
       "Next, I pour in milk and cereal.",
-      "First, I wake up.",
-      "Then I go to sleep."
+      "First, I wake up and get out of bed.",
+      "Then I go to sleep in my room."
      ],
      "answer": 1,
      "why": "You need the bowl first, then you fill it, then you eat."
@@ -187,10 +187,10 @@
     "passage": "First, pour the soil into a small pot. Next, push a seed gently into the soil with your finger. Then water it a little every morning. After about a week, a tiny green shoot will appear. Keep the pot near a sunny window.",
     "stem": "Which sentence would be the best first sentence for this paragraph?",
     "options": [
-     "Next, water the plant again.",
-     "My friend likes red flowers.",
+     "Next, water the plant again every morning.",
+     "My friend likes red flowers more than blue ones.",
      "You can grow a plant from a seed in a few easy steps.",
-     "Soil is brown."
+     "Soil is brown and sits in the ground in many places."
     ],
     "answer": 2,
     "hint": "Is that the topic of ALL the steps? Read what the steps are about.",
@@ -219,9 +219,9 @@
      "stem": "Which is the best first sentence?",
      "options": [
       "Last Friday, our family spent a fun day at the beach.",
-      "We drove to the beach.",
-      "Sand is soft.",
-      "My cousin is eight."
+      "We drove to the beach in our big blue car on Friday.",
+      "Sand is soft and warm to walk on at the beach.",
+      "My cousin is eight years old and likes to swim."
      ],
      "answer": 0,
      "why": "It introduces the topic. The other sentences tell what happened, in order."
@@ -242,10 +242,10 @@
      "passage": "Washing your hands well is simple. ____ Then rub them with soap for twenty seconds. Last, rinse and dry them.",
      "stem": "Which sentence belongs in the blank?",
      "options": [
-      "Last, dry your hands.",
+      "Last, dry your hands with a clean towel.",
       "First, wet your hands with clean water.",
-      "Soap smells nice.",
-      "Then rinse your hands."
+      "Soap smells nice and looks pretty.",
+      "Then rinse your hands under the tap."
      ],
      "answer": 1,
      "why": "Wetting your hands comes first, before the soap."
@@ -440,10 +440,10 @@
      "passage": "A writer is comparing life in a desert town and a mountain village, looking at weather, homes and food.",
      "stem": "Which plan keeps the comparison clearest?",
      "options": [
-      "List every desert fact, then a few village facts at random",
+      "List every desert fact first, then add a few village facts at random",
       "Compare the two places point by point: weather, then homes, then food",
-      "Put the facts in alphabetical order",
-      "Write only about the desert"
+      "Put all the facts about both places in alphabetical order",
+      "Write only about the desert and leave out the village"
      ],
      "answer": 1,
      "why": "Point-by-point order lets the reader compare each feature directly."
@@ -465,9 +465,9 @@
      "stem": "Which sentence would be the best last sentence?",
      "options": [
       "By the end of the day, we all wanted to become scientists.",
-      "We took the bus to the museum.",
-      "Magnets attract some metals.",
-      "Our class has twenty-four students."
+      "We took the bus to the museum on Monday morning.",
+      "Magnets attract some metals, like iron, but not wood or glass.",
+      "Our class has twenty-four students and one teacher."
      ],
      "answer": 0,
      "why": "It closes the paragraph by reflecting on the whole trip, linking back to the first sentence."

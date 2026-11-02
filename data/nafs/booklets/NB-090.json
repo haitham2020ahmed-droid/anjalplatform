@@ -174,9 +174,9 @@
       "stem": "What is the main purpose of the passage?",
       "options": [
         "to show how careful preparation helped an explorer succeed",
-        "to explain how ponies are trained to pull sledges",
-        "to describe the history of Norway's sea captains",
-        "to persuade readers to sleep with windows open"
+        "to explain how ponies are trained to pull sledges over the ice",
+        "to describe the history of Norway's sea captains and their ships",
+        "to persuade readers to sleep with their windows open at night"
       ],
       "answer": "A",
       "why": "The passage stresses Amundsen's belief that “careful preparation mattered more than bravery alone.”"
@@ -221,9 +221,9 @@
       "type": "MCQ",
       "stem": "According to paragraph 3, why did Amundsen choose loose fur clothing?",
       "options": [
-        "It was lighter to carry than wool or cotton.",
-        "It was the only clothing sold in Norway.",
-        "It helped the dogs recognise their driver.",
+        "It was lighter to carry than wool or cotton on the sled.",
+        "It was the only clothing sold in the shops of Norway.",
+        "It helped the dogs recognise their driver in the snow.",
         "It kept the body warm without causing heavy sweating."
       ],
       "answer": "D",
@@ -237,10 +237,10 @@
       "type": "MCQ",
       "stem": "Why did Amundsen leave a tent and a letter at the South Pole?",
       "options": [
-        "as a gift for the Netsilik Inuit",
+        "as a gift for the Netsilik Inuit who had helped him",
         "in case his team did not survive the journey home",
-        "to mark a place to camp on his next visit",
-        "because the tent was too heavy to carry"
+        "to mark a place to camp on his next visit to the Pole",
+        "because the tent was too heavy to carry back to the ship"
       ],
       "answer": "B",
       "why": "Paragraph 5: he left them “in case his own team did not survive the journey home.”"
@@ -350,9 +350,9 @@
       "stem": "How were Amundsen's methods DIFFERENT from Scott's?",
       "options": [
         "He relied on skiers and dogs instead of ponies and motor sledges.",
-        "He travelled by ship instead of walking on the ice.",
-        "He carried no food supplies on his journey.",
-        "He travelled alone instead of leading a team."
+        "He travelled by ship instead of walking on the ice and snow.",
+        "He carried no food supplies on his journey to the Pole.",
+        "He travelled alone instead of leading a team of men and dogs."
       ],
       "answer": "A",
       "why": "Paragraph 4: “Amundsen, by contrast, depended on skilled skiers and strong dogs.”"
@@ -365,9 +365,9 @@
       "type": "MCQ",
       "stem": "What was one result of Amundsen's careful methods?",
       "options": [
-        "His team became lost in a storm for weeks.",
-        "His dogs refused to cross the ice.",
-        "His ship was trapped in the Northwest Passage.",
+        "His team became lost in a storm for many weeks.",
+        "His dogs refused to cross the ice and ran home.",
+        "His ship was trapped in the Northwest Passage for a year.",
         "His team reached the Pole over a month before Scott's."
       ],
       "answer": "D",
@@ -381,9 +381,9 @@
       "type": "MCQ",
       "stem": "What do Amundsen's Northwest Passage voyage and his South Pole journey have in common?",
       "options": [
-        "Both journeys were made in an airship.",
-        "Both ended in tragedy for his own team.",
-        "Both took place close to northern Canada.",
+        "Both journeys were made in an airship over the ice and sea.",
+        "Both ended in tragedy for his own team and his ship's crew.",
+        "Both took place close to northern Canada and the coast of Alaska.",
         "In both, he was the first person to complete the journey."
       ],
       "answer": "D",
@@ -397,10 +397,10 @@
       "type": "MCQ",
       "stem": "In your opinion, why does the writer begin with the moment the men reached the South Pole?",
       "options": [
-        "to explain the instruments used by explorers",
+        "to explain the instruments used by explorers in the cold",
         "to grab attention with the high point of Amundsen's life",
-        "to suggest the story is told in time order",
-        "to describe the dogs before the people"
+        "to suggest the story is told in time order from the start",
+        "to describe the dogs before the people and the ship"
       ],
       "answer": "B",
       "why": "Starting with the dramatic arrival makes readers want to know how Amundsen got there."
@@ -445,10 +445,10 @@
       "type": "MCQ",
       "stem": "According to the passage, which factor contributed MOST to Amundsen's success?",
       "options": [
-        "having the fastest ship in Norway",
+        "having the fastest ship in all of Norway",
         "learning from others and preparing carefully",
-        "enjoying good luck with the weather",
-        "receiving help from Scott's team"
+        "enjoying good luck with the weather all season",
+        "receiving help from Scott's team on the ice"
       ],
       "answer": "B",
       "why": "The passage repeatedly links his success to preparation and to what he learned from the Inuit."
@@ -493,10 +493,10 @@
       "type": "MCQ",
       "stem": "In your opinion, which information in the passage is the LEAST clear?",
       "options": [
-        "the date Amundsen reached the South Pole",
-        "the country where Amundsen was born",
+        "the date Amundsen reached the South Pole with his men",
+        "the country where Amundsen was born as a young child",
         "what kind of instruments showed they had reached the Pole",
-        "who led the British expedition"
+        "who led the British expedition to the South Pole, in the end"
       ],
       "answer": "C",
       "why": "Paragraph 1 says “Their instruments told them” but never explains what they were; the other facts are given clearly."

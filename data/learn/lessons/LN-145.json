@@ -55,8 +55,8 @@
     "options": [
      "To learn where the beach is.",
      "To show that a beach day is great.",
-     "To ask you to swim.",
-     "To find out what you eat."
+     "To ask you to swim in the sea.",
+     "To find out what you eat at the beach."
     ],
     "answer": 1,
     "hint": "The writer does not want you to tell them anything. What do the other sentences say about the beach?",
@@ -84,9 +84,9 @@
      "stem": "What does the writer mean by the question?",
      "options": [
       "Nobody likes long lines.",
-      "Lines are fun.",
-      "The shop is big.",
-      "I like to wait."
+      "Lines are fun to stand in.",
+      "The shop is big and busy.",
+      "I like to wait in a line."
      ],
      "answer": 0,
      "why": "The writer answers right away: Not me! The question means nobody likes long lines."
@@ -95,10 +95,10 @@
      "passage": "Do you want a clean class? Then put your trash in the bin.",
      "stem": "Why does the writer ask the question?",
      "options": [
-      "To find a bin.",
-      "To count the trash.",
+      "To find a bin for the trash.",
+      "To count all the trash in the room.",
       "To get you to keep the class clean.",
-      "To ask your name."
+      "To ask your name and your age."
      ],
      "answer": 2,
      "why": "The writer wants you to say yes in your head and then put trash in the bin."
@@ -162,10 +162,10 @@
     "passage": "Why should you read before bed? Reading helps your mind slow down after a busy day. A good story can make you forget your worries. Many people find that they fall asleep more easily after reading. So tonight, why not pick up a book instead of a screen?",
     "stem": "What is the main purpose of the questions in this paragraph?",
     "options": [
-     "To ask the reader which book to buy.",
-     "To find out when the reader sleeps.",
+     "To ask the reader which book to buy for a friend.",
+     "To find out when the reader sleeps each night.",
      "To get the reader to think about reading at night.",
-     "To show that screens are broken."
+     "To show that screens are broken and need fixing."
     ],
     "answer": 2,
     "hint": "The writer is not asking for information. What do the questions make you think about?",
@@ -193,9 +193,9 @@
      "passage": "What is better than fresh bread from the oven? It is warm, soft and smells wonderful. Our bakery opens at six every morning.",
      "stem": "Why does the writer ask the question?",
      "options": [
-      "To ask what to bake.",
-      "To find out the time.",
-      "To learn about ovens.",
+      "To ask what to bake for dinner.",
+      "To find out the time of day.",
+      "To learn about ovens and how they work.",
       "To make the reader want fresh bread."
      ],
      "answer": 3,
@@ -219,8 +219,8 @@
      "options": [
       "Who doesn't love a good story?",
       "What time does the hall open on Friday?",
-      "Who wants to read a book?",
-      "Isn't the book fair fun?"
+      "Who wants to read a book with me?",
+      "Isn't the book fair fun for everyone?"
      ],
      "answer": 1,
      "why": "Sara needed to know the time, and the teacher answered: nine. The poster question was asked for effect."
@@ -306,9 +306,9 @@
      "passage": "Do we really need another car park in the middle of our neighbourhood? The only green space left is the small park where children play after school. Without it, where would they go?",
      "stem": "What point does the writer make with the questions?",
      "options": [
-      "The neighbourhood needs more car parks.",
+      "The neighbourhood needs more car parks nearby.",
       "The park should not be replaced with a car park.",
-      "Children do not play outside.",
+      "Children do not play outside in the park.",
       "The writer is asking where the park is."
      ],
      "answer": 1,
@@ -331,9 +331,9 @@
      "stem": "What is the purpose of the question?",
      "options": [
       "To show reading can be done with others.",
-      "To ask who is lonely.",
-      "To find the club's leader.",
-      "To list the club's books."
+      "To ask who is lonely at the school.",
+      "To find the club's leader and the date.",
+      "To list the club's books for this term."
      ],
      "answer": 0,
      "why": "The question means reading does not have to be lonely, which the club proves."
@@ -421,9 +421,9 @@
      "passage": "Why do people sleep? Scientists have studied this question for more than a century. Experiments show that during sleep the brain clears away waste and strengthens new memories. Researchers are still testing other explanations.",
      "stem": "Is the opening question rhetorical? Why or why not?",
      "options": [
-      "Yes, because it has an obvious answer.",
-      "Yes, because the writer wants the reader to agree.",
-      "No, because the passage asks the reader to reply.",
+      "Yes, because it has an obvious answer that every reader already knows.",
+      "Yes, because the writer wants the reader to agree with the main idea.",
+      "No, because the passage asks the reader to reply in writing.",
       "No, because the passage investigates and answers it with research."
      ],
      "answer": 3,
@@ -434,9 +434,9 @@
      "stem": "What does the final question suggest?",
      "options": [
       "Cleaning alone will not fix the problem; habits must change.",
-      "Volunteers should clean more often.",
-      "The writer wants to know how long cleaning takes.",
-      "Beaches in other cities are cleaner."
+      "Volunteers should clean more often and for longer.",
+      "The writer wants to know how long cleaning takes each time.",
+      "Beaches in other cities are cleaner than this one."
      ],
      "answer": 0,
      "why": "The question implies that cleaning cannot go on forever: people need to change their habits."

@@ -76,6 +76,8 @@ export interface ReportRow {
   id: string; name: string; group: StudentGroup; mastered: number; of: number; accuracy: number | null; notStarted: boolean; started: number;
   /** r75: ⬆️ ➖ ⬇️ against 2 weeks before · ⚡ answering too fast */
   trend: Trend | null; guessing: boolean;
+  /** 🎯 picks the longest answer (only present when true) */
+  longest?: boolean;
 }
 export interface ActionPoint { kind: "RETEACH" | "GUESSING" | "SMALL_GROUP" | "STALLED" | "NEXT_LEVEL" | "FOLLOW_UP" | "SOURCE"; text: string; vars: Record<string, string | number>; href: string; button: string }
 export interface ClassReport {
@@ -122,7 +124,7 @@ export function classReport(d: ClassSkills, links: ReportLinks, now = new Date()
     newStars += mine.filter((v) => isMasteredStar(v) && v.masteredAt && Date.parse(v.masteredAt) >= since).length;
     const tr = studentTrend(d, st.id);
     gained += tr?.gained ?? 0;
-    rows.push({ id: st.id, name: st.name, group: groupOf(mine)!, mastered, of: mine.length, accuracy: pctOf(correct, answered), notStarted: started === 0, started, trend: tr?.trend ?? null, guessing: isGuessing(studentGuess(d, st.id)) });
+    rows.push({ id: st.id, name: st.name, group: groupOf(mine)!, mastered, of: mine.length, accuracy: pctOf(correct, answered), notStarted: started === 0, started, trend: tr?.trend ?? null, guessing: isGuessing(studentGuess(d, st.id)), ...(d.longest?.[st.id] ? { longest: true } : {}) });
   }
   const groups: ClassReport["groups"] = { SUPPORT: [], ON_TRACK: [], NEXT_LEVEL: [] };
   for (const r of rows) groups[r.group].push({ id: r.id, name: r.name, notStarted: r.notStarted });

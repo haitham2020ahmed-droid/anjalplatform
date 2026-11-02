@@ -216,9 +216,9 @@
         {
           "stem": "Gypsum is soft and used to make chalk. What can you infer about chalk?",
           "options": [
-            "Chalk must be as hard as a diamond",
-            "Chalk cannot be made from minerals",
-            "Chalk is only found in Saudi Arabia",
+            "Chalk must be as hard as a diamond, said the article",
+            "Chalk cannot be made from minerals found in the ground",
+            "Chalk is only found in Saudi Arabia, in the desert",
             "Chalk is probably made from a soft material"
           ],
           "answer": "D",
@@ -327,9 +327,9 @@
         {
           "stem": "According to the article, what is streak?",
           "options": [
-            "The shiny surface of a freshly polished mineral",
-            "A crack that forms when a mineral is heated",
-            "The weight of a mineral compared to water",
+            "The shiny surface of a freshly polished mineral under a lamp",
+            "A crack that forms when a mineral is heated in a fire",
+            "The weight of a mineral compared to water in a cup",
             "The color of the powder a mineral leaves on a rough plate"
           ],
           "answer": "D",

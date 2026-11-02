@@ -148,10 +148,10 @@
         {
           "stem": "What is Tariq's main job at the observatory?",
           "options": [
-            "To sell books in the city",
+            "To sell books in the city market",
             "To measure stars and write down the numbers",
-            "To cook food for the men",
-            "To clean the stairs every morning"
+            "To cook food for the men who work there",
+            "To clean the stairs every morning before work"
           ],
           "answer": "B",
           "skill": "detail",
@@ -199,10 +199,10 @@
         {
           "stem": "Why does Tariq decide to tell the head man about the two numbers?",
           "options": [
-            "Because the head man asked him to come",
-            "Because he wants a new job",
+            "Because the head man asked him to come and explain the problem",
+            "Because he wants a new job in the factory office next month",
             "Because he thinks the mistake matters, even though he is scared",
-            "Because he wants to stop working"
+            "Because he wants to stop working at the yard and go home"
           ],
           "answer": "C",
           "skill": "inference",
@@ -233,9 +233,9 @@
         {
           "stem": "Why does the story end with the men fixing the star book?",
           "options": [
-            "To show that stars do not matter",
-            "To show that the star book was never used again",
-            "To show that the king was angry at Tariq",
+            "To show that stars do not matter to anyone at all",
+            "To show that the star book was never used again by the men",
+            "To show that the king was angry at Tariq for his work",
             "To show that Tariq's careful work made a real difference"
           ],
           "answer": "D",
@@ -310,9 +310,9 @@
         {
           "stem": "What instrument does Tariq use to measure a star's position?",
           "options": [
-            "A pair of ordinary reading glasses",
-            "A simple wooden ruler",
-            "A small handheld mirror",
+            "A pair of ordinary reading glasses from a shop in town",
+            "A simple wooden ruler from a school desk",
+            "A small handheld mirror from a kitchen",
             "A huge curved instrument fixed to the observatory wall"
           ],
           "answer": "D",
@@ -361,10 +361,10 @@
         {
           "stem": "In the story, the word calculation most nearly means —",
           "options": [
-            "a story told by an astronomer",
-            "a type of star catalog cover",
+            "a story told by an astronomer at night",
+            "a type of star catalog cover made of leather",
             "a math answer worked out from numbers",
-            "a tool used to see distant stars"
+            "a tool used to see distant stars in the sky"
           ],
           "answer": "C",
           "skill": "vocabulary",
@@ -378,9 +378,9 @@
         {
           "stem": "Why does Tariq feel nervous before telling the head astronomer about the mismatched numbers?",
           "options": [
-            "He does not understand how to use the instrument",
-            "He is afraid of climbing the tall stairs at night",
-            "He thinks the head astronomer will fire him immediately",
+            "He does not understand how to use the instrument on the roof at night and fears he will break it",
+            "He is afraid of climbing the tall stairs at night, because they are steep, dark, and very slippery",
+            "He thinks the head astronomer will fire him immediately and send him back home to his village",
             "He worries that questioning an experienced astronomer is a big step for a young apprentice"
           ],
           "answer": "D",
@@ -395,10 +395,10 @@
         {
           "stem": "How does the author organize the events in this story?",
           "options": [
-            "By comparing two different observatories in two cities",
-            "By listing facts about every star in the sky",
+            "By comparing two different observatories in two cities of the country",
+            "By listing facts about every star in the night sky, one by one",
             "By following Tariq's nightly work, then the mismatched numbers, then the fix",
-            "By jumping back and forth between many different apprentices"
+            "By jumping back and forth between many different apprentices and their friends"
           ],
           "answer": "C",
           "skill": "text-structure",
@@ -489,9 +489,9 @@
         {
           "stem": "What was the ultimate purpose of the star catalog the astronomers were compiling?",
           "options": [
-            "To record only the names of past astronomers",
-            "To impress foreign rulers with decorative drawings",
-            "To replace the observatory's instruments entirely",
+            "To record only the names of past astronomers and their families in a big book",
+            "To impress foreign rulers with decorative drawings of the stars and the planets",
+            "To replace the observatory's instruments entirely with brand new tools from abroad",
             "To allow scholars elsewhere to navigate and study the movements of the heavens"
           ],
           "answer": "D",
@@ -540,9 +540,9 @@
         {
           "stem": "Based on the story, why did Tariq hesitate before approaching the head astronomer?",
           "options": [
-            "He had not yet finished measuring any stars that night",
-            "He disliked the head astronomer personally",
-            "He planned to keep the error secret from everyone",
+            "He had not yet finished measuring any stars that night, so he thought his work was not ready",
+            "He disliked the head astronomer personally and did not want to speak with him at all",
+            "He planned to keep the error secret from everyone in the observatory, even his friends",
             "He recognized the risk of a junior apprentice questioning a senior scholar's respected calculation"
           ],
           "answer": "D",
@@ -591,9 +591,9 @@
         {
           "stem": "Why does the author end the story by noting that the catalog became more accurate for future scholars?",
           "options": [
-            "To suggest that the catalog will soon be thrown away",
-            "To show that Ulugh Beg regretted building the observatory",
-            "To imply that future scholars will never need the catalog again",
+            "To suggest that the catalog will soon be thrown away by the scholars",
+            "To show that Ulugh Beg regretted building the observatory and wanted to close it",
+            "To imply that future scholars will never need the catalog again, because stars never move",
             "To emphasize that one apprentice's careful observation had a lasting, wider impact"
           ],
           "answer": "D",

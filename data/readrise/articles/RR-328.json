@@ -88,7 +88,7 @@
       "questions": [
         {
           "stem": "What is this article mostly about?",
-          "options": ["How Earth is divided into climate zones and why they differ", "Why volcanoes form near the equator", "How ships navigate across the ocean", "Why coral reefs grow near warm water"],
+          "options": ["How Earth is divided into climate zones and why they differ", "Why volcanoes form near the equator and nowhere else on the Earth", "How ships navigate across the ocean using stars and maps", "Why coral reefs grow near warm water in the sea"],
           "answer": "A",
           "skill": "central-idea",
           "why": "The article explains tropical, temperate, polar, and desert zones and what causes them.",
@@ -96,7 +96,7 @@
         },
         {
           "stem": "According to the article, why is the tropical zone hot all year?",
-          "options": ["Because strong winds blow across it constantly", "Because sunlight hits the ground near the equator very directly", "Because mountains near the equator trap heat", "Because ocean currents warm the land each summer"],
+          "options": ["Because strong winds blow across the land constantly", "Because sunlight hits the ground near the equator very directly", "Because mountains near the equator trap heat in the air", "Because ocean currents bring warm water to the land each summer"],
           "answer": "B",
           "skill": "detail",
           "why": "The article says sunlight is very strong near the equator, keeping the tropical zone hot.",
@@ -112,7 +112,7 @@
         },
         {
           "stem": "In the article, what does desert mean?",
-          "options": ["Land that gets very little rain", "A region with four seasons", "The coldest place on Earth", "A thick, green rainforest"],
+          "options": ["Land that gets very little rain", "A region with four seasons", "The coldest place on Earth, covered in ice", "A thick, green rainforest"],
           "answer": "A",
           "skill": "vocabulary",
           "why": "The article describes a desert as land that receives very little rain.",
@@ -136,7 +136,7 @@
         },
         {
           "stem": "What happens in cold climate zones because of the cold weather?",
-          "options": ["Deserts quickly form across the land", "Rain clouds never form overhead", "People wear warm coats to stay comfortable", "People stop growing any crops at all"],
+          "options": ["Deserts quickly form across the land when it is cold", "Rain clouds never form overhead in cold places", "People wear warm coats to stay comfortable", "People stop growing any crops at all, even in summer"],
           "answer": "C",
           "skill": "cause-effect",
           "why": "The article says people in cold places wear warm coats.",
@@ -144,7 +144,7 @@
         },
         {
           "stem": "Why does the author mention that climate shapes how people live?",
-          "options": ["To show that climate zones affect daily life, not just weather", "To prove that everyone should move to a warm climate", "To explain how mountains are formed", "To describe how ships are built for cold seas"],
+          "options": ["To show that climate zones affect daily life, not just weather", "To prove that everyone should move to a warm climate", "To explain how mountains are formed in the hills and valleys", "To describe how ships are built for cold seas and ice"],
           "answer": "A",
           "skill": "author-purpose",
           "why": "The ending connects climate zones to real choices people make, like clothing and water use.",
@@ -166,7 +166,7 @@
       "questions": [
         {
           "stem": "Which sentence best states the central idea of the article?",
-          "options": ["Latitude mainly shapes Earth's climate zones, though other factors matter too.", "Every single region on Earth shares exactly the same climate.", "Deserts can only ever exist near the North and South Poles.", "Temperate zones never experience more than just one season."],
+          "options": ["Latitude mainly shapes Earth's climate zones, though other factors matter too.", "Every single region on Earth shares exactly the same climate, in every season.", "Deserts can only ever exist near the North and South Poles, and nowhere else.", "Temperate zones never experience more than just one season in the year."],
           "answer": "A",
           "skill": "central-idea",
           "why": "The article explains how latitude generally sets climate zones, with altitude and arid conditions as added factors.",
@@ -174,7 +174,7 @@
         },
         {
           "stem": "According to the article, what is latitude?",
-          "options": ["The height of a place above sea level", "The amount of rain a desert receives", "How far north or south a place is from the equator", "The number of seasons a region experiences"],
+          "options": ["The height of a place above sea level or the ground", "The amount of rain a desert receives each year", "How far north or south a place is from the equator", "The number of seasons a region experiences in a year"],
           "answer": "C",
           "skill": "detail",
           "why": "The article defines latitude this way when explaining climate zones.",
@@ -182,7 +182,7 @@
         },
         {
           "stem": "Why does Saudi Arabia lie mostly within an arid climate zone, according to the article?",
-          "options": ["It sits beneath a steady band of dry, descending air.", "It sits directly on top of the equator.", "It is covered mostly by very tall mountains.", "It receives heavy rainfall during most months."],
+          "options": ["It sits beneath a steady band of dry, descending air.", "It sits directly on top of the equator line.", "It is covered mostly by very tall mountains and snow.", "It receives heavy rainfall during most months of the year."],
           "answer": "A",
           "skill": "detail",
           "why": "The article explains that dry, descending air discourages rain clouds from forming over Saudi Arabia.",
@@ -198,7 +198,7 @@
         },
         {
           "stem": "Why might people in an arid climate zone build desalination plants?",
-          "options": ["To create more rain clouds overhead", "To cool down the hot desert air", "To turn seawater into fresh water they can use", "To grow crops without any water at all"],
+          "options": ["To create more rain clouds overhead in the sky", "To cool down the hot desert air with big fans", "To turn seawater into fresh water they can use", "To grow crops without any water at all in the sand"],
           "answer": "C",
           "skill": "inference",
           "why": "The article mentions desalination as a way dry places like Saudi Arabia manage limited water.",
@@ -222,7 +222,7 @@
         },
         {
           "stem": "How does the article organize its explanation of climate zones?",
-          "options": ["By telling a single story about one traveler's journey", "By describing each climate zone in turn, from the equator to the poles, then adding other factors", "By comparing two countries in great detail", "By listing problems with climate and their solutions only"],
+          "options": ["By telling a single story about one traveler's journey across several lands and seas, from one place to the next", "By describing each climate zone in turn, from the equator to the poles, then adding other factors", "By comparing two countries in great detail, one paragraph after another, without any other zones", "By listing problems with the climate and their solutions only, with no talk about any climate zone at all"],
           "answer": "B",
           "skill": "text-structure",
           "why": "The article moves from the tropical zone, to the polar zone, to the temperate zone, then discusses arid zones, altitude, and human life.",
@@ -276,7 +276,7 @@
         },
         {
           "stem": "Why does the article suggest climate shapes 'entire national economies'?",
-          "options": ["Because climate has no real effect on how countries develop", "Because water scarcity and growing conditions influence what a country can produce and how it must adapt", "Because every country shares the exact same climate zone", "Because elevation always determines a country's currency"],
+          "options": ["Because climate has no real effect on how countries develop, so every country grows in the same way", "Because water scarcity and growing conditions influence what a country can produce and how it must adapt", "Because every country shares the exact same climate zone, so all of them have the same crops and work", "Because elevation always determines a country's currency, and the money changes when the land gets higher"],
           "answer": "B",
           "skill": "inference",
           "why": "The article connects arid conditions to irrigation, desalination, and economic adaptation.",
@@ -300,7 +300,7 @@
         },
         {
           "stem": "Why does the author most likely include Saudi Arabia as a specific example of an arid, subtropical zone?",
-          "options": ["To argue that deserts are the most important climate zone", "To ground the abstract idea of subtropical aridity in a real, specific place and its adaptations", "To prove that Saudi Arabia has no climate zone at all", "To show that elevation has no effect anywhere in the world"],
+          "options": ["To argue that deserts are the most important climate zone on Earth, above all the rest, in every part of the world", "To ground the abstract idea of subtropical aridity in a real, specific place and its adaptations", "To prove that Saudi Arabia has no climate zone at all, since it is only sand", "To show that elevation has no effect anywhere in the world on the weather of any zone"],
           "answer": "B",
           "skill": "author-purpose",
           "why": "Using Saudi Arabia as a concrete, real example helps explain how subtropical aridity and human adaptation actually play out.",

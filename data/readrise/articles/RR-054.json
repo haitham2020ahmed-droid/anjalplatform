@@ -165,9 +165,9 @@
         {
           "stem": "Why does a glacier move?",
           "options": [
-            "Strong winds push it across the land.",
-            "Camels and other animals drag it along.",
-            "Heavy rain washes it down into the sea.",
+            "Strong winds push it across the land all year long.",
+            "Camels and other animals drag it along the ground slowly.",
+            "Heavy rain washes it down into the sea every spring.",
             "It is so heavy that its weight pulls it downhill."
           ],
           "answer": "D",
@@ -216,9 +216,9 @@
         {
           "stem": "Read this: \"As it moves, it scrapes the land.\" What does scrapes mean here?",
           "options": [
-            "Paints in bright colors",
-            "Jumps up and over the top",
-            "Waters gently",
+            "Paints in bright colors on a wall",
+            "Jumps up and over the top of it",
+            "Waters gently with a can",
             "Rubs hard against and wears away"
           ],
           "answer": "D",

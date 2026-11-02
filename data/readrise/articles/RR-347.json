@@ -412,10 +412,10 @@
         {
           "stem": "Which resource does the article connect most directly to people living longer?",
           "options": [
-            "Large amounts of oil and gas",
-            "Gold and other valuable metals",
+            "Large amounts of oil and gas from the ground",
+            "Gold and other valuable metals from the mines",
             "Clean drinking water and better food",
-            "Tall buildings in big cities"
+            "Tall buildings in big cities and towns"
           ],
           "answer": "C",
           "skill": "detail",
@@ -559,7 +559,7 @@
           "options": [
             "Its population will likely grow extremely fast forever.",
             "Its mortality rate must be rising sharply every year.",
-            "Its healthcare system has completely collapsed.",
+            "Its healthcare system has completely collapsed and no hospitals are left.",
             "Its population may eventually shrink unless other factors change."
           ],
           "answer": "D",

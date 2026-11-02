@@ -102,10 +102,10 @@
      "passage": "The storm was coming. Thunder roared. Wind howled through the trees.",
      "stem": "Why does the author use the words roared and howled?",
      "options": [
-      "To show the storm was quiet.",
+      "To show the storm was quiet and calm.",
       "To make the storm sound loud and scary.",
-      "To tell the time.",
-      "To give a fact about trees."
+      "To tell the time of the storm.",
+      "To give a fact about trees in the wind."
      ],
      "answer": 1,
      "why": "Roared and howled are strong sound words that make the storm seem loud and scary."
@@ -114,10 +114,10 @@
      "passage": "Turn off the light. Turn off the fan. Turn off the TV. Save energy every day!",
      "stem": "Why does the author say Turn off again and again?",
      "options": [
-      "To tell a story about a family.",
-      "To ask the reader a question.",
+      "To tell a story about a family at home.",
+      "To ask the reader a question about lights.",
       "To make the message strong and easy to remember.",
-      "To describe the things in a room."
+      "To describe the things in a room at night and in the day."
      ],
      "answer": 2,
      "why": "Saying it again makes the message stick in your mind."
@@ -181,10 +181,10 @@
     "passage": "Imagine a world without bees. No buzzing in the gardens. No fruit on the trees. No honey on your bread. Bees pollinate many of the crops we eat. Protecting them means protecting our food. Plant flowers, avoid harmful sprays, and give bees a chance.",
     "stem": "How does the repetition of No in the second, third and fourth sentences help the author's purpose?",
     "options": [
-     "It explains, step by step, how bees make honey.",
+     "It explains, step by step, how bees make honey in their hives.",
      "It makes the loss of bees feel real, to persuade readers to protect them.",
-     "It lists the names of the different kinds of bees.",
-     "It tells a funny story about bees in a garden."
+     "It lists the names of the different kinds of bees found in the world.",
+     "It tells a funny story about bees in a garden one summer day."
     ],
     "answer": 1,
     "hint": "Read the sentences that begin with No. What picture do they create?",
@@ -216,7 +216,7 @@
      "options": [
       "Repeating Every to stress the harm of each piece of rubbish",
       "Telling a long story about a fisherman and his boat",
-      "Giving the history of beaches in our country",
+      "Giving the history of beaches in our country and many others",
       "Asking the reader many questions about the sea"
      ],
      "answer": 0,
@@ -226,10 +226,10 @@
      "passage": "Why do we yawn? Scientists are still not sure. One idea is that yawning helps cool the brain.",
      "stem": "Why does the author begin with a question?",
      "options": [
-      "To persuade readers to stop yawning",
+      "To persuade readers to stop yawning in class",
       "To introduce the topic and make readers curious",
-      "To show the author is angry",
-      "To give the answer right away"
+      "To show the author is angry at the readers",
+      "To give the answer right away to the reader"
      ],
      "answer": 1,
      "why": "The question sets up the topic and makes readers want to find out the answer."
@@ -293,10 +293,10 @@
     "passage": "In one day, a single dripping tap can waste more than ten litres of water. That may not sound like much. But picture a bathtub slowly filling, drop by drop, over a few weeks, and all of that water simply going down the drain. In a dry country like ours, every drop is precious. Fixing a leaking tap takes only a few minutes and a small washer.",
     "stem": "Why does the author ask readers to picture a bathtub filling?",
     "options": [
-     "To explain how to fix a tap",
-     "To describe the author's bathroom",
+     "To explain how to fix a tap that is leaking",
+     "To describe the author's bathroom and its colour and size",
      "To illustrate how small drips add up to a large waste",
-     "To show that baths use too much water"
+     "To show that baths use too much water at home"
     ],
     "answer": 2,
     "hint": "The author says it may not sound like much. What does the bathtub picture help you see?",
@@ -323,10 +323,10 @@
      "passage": "Last year, a 12-year-old girl in our city noticed that her school threw away hundreds of plastic cups each week. She asked her classmates to bring their own bottles. Within a month, the school had cut its plastic waste in half. Small actions can lead to big change.",
      "stem": "What technique does the author use to support the idea that small actions can lead to big change?",
      "options": [
-      "A rhetorical question",
+      "A rhetorical question to the reader",
       "A short true story about one person",
-      "An analogy to a machine",
-      "A list of definitions"
+      "An analogy to a machine with parts",
+      "A list of definitions and word meanings"
      ],
      "answer": 1,
      "why": "The story of one girl's action is an anecdote that shows the idea in action."
@@ -402,8 +402,8 @@
     "passage": "A city's trees are often treated as decoration, something to plant if there is money left over. That view is a mistake. Trees are the city's air conditioners, cooling streets by several degrees in summer. They are its sponges, soaking up rainwater that would otherwise flood roads. They are its lungs, filtering dust from the air we breathe. When a city cuts down a tree to widen a road, it is not removing an ornament; it is switching off a machine it cannot easily replace.",
     "stem": "How does the author's use of metaphor and parallel structure serve the purpose of the passage?",
     "options": [
-     "It describes the different kinds of trees found in city streets and parks.",
-     "It explains how air conditioners and other city machines are manufactured.",
+     "It describes the different kinds of trees found in city streets and parks and gardens.",
+     "It explains how air conditioners and other city machines are manufactured in big factories.",
      "It agrees that trees are mainly useful as decoration when money is left over.",
      "It presents trees as essential city systems, challenging the view that they are only decoration."
     ],
@@ -435,7 +435,7 @@
      "stem": "What is the effect of the final sentence's repeated no?",
      "options": [
       "It praises the centre for being modern and full of shops.",
-      "It lists the centre's best features for families to enjoy.",
+      "It lists the centre's best features for families to enjoy together.",
       "It explains how shopping centres are planned and built.",
       "It ironically shows the centre does not really bring people together."
      ],

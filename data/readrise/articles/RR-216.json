@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How farmers grow wheat in dry soil",
+            "How farmers grow wheat in dry soil with very little rain each year",
             "How ancient people dug underground tunnels to bring water to dry lands",
-            "How ships carried water across the sea",
-            "How rain clouds form over mountains"
+            "How ships carried water across the sea to the cities on the coast",
+            "How rain clouds form over mountains and drop water on the hills"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -131,10 +131,10 @@
         {
           "stem": "What is a qanat?",
           "options": [
-            "A kind of desert plant",
+            "A kind of desert plant with deep roots",
             "An underground tunnel that carries water",
-            "A boat used on rivers",
-            "A tall tower built of stone"
+            "A boat used on rivers to carry goods",
+            "A tall tower built of stone to watch the sky"
           ],
           "answer": "B",
           "skill": "detail",
@@ -165,10 +165,10 @@
         {
           "stem": "The article says a qanat is underground. What does underground mean here?",
           "options": [
-            "High up in the sky",
-            "On top of a hill",
+            "High up in the sky above the clouds",
+            "On top of a hill near the village",
             "Below the surface of the ground",
-            "Inside a boat"
+            "Inside a boat on the open sea"
           ],
           "answer": "C",
           "skill": "vocabulary",
@@ -200,9 +200,9 @@
           "stem": "Why did people decide to build the water channel underground instead of above the ground?",
           "options": [
             "To keep the hot sun from drying up the water",
-            "To make the tunnel easier to see",
-            "To let more rain fall into it",
-            "To make the water taste sweeter"
+            "To make the tunnel easier to see from the road above it",
+            "To let more rain fall into it from the clouds above",
+            "To make the water taste sweeter than water from wells"
           ],
           "answer": "A",
           "skill": "inference",
@@ -234,9 +234,9 @@
           "stem": "Why does the author end the article by saying some qanats still carry water today?",
           "options": [
             "To show that this ancient idea still works",
-            "To explain how pumps were invented",
-            "To list all the farms in Persia",
-            "To describe how wells are cleaned"
+            "To explain how pumps were invented and where they are used",
+            "To list all the farms in Persia and the crops they grow",
+            "To describe how wells are cleaned each year by workers"
           ],
           "answer": "A",
           "skill": "author-purpose",
@@ -293,9 +293,9 @@
         {
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
-            "Persia was the richest and most powerful country in the whole ancient world.",
+            "Persia was the richest and most powerful country in the whole ancient world, and it built the qanats.",
             "Ancient builders dug underground qanats so gravity could carry water to dry farms and towns.",
-            "Modern pumps completely replaced every single old qanat many centuries ago.",
+            "Modern pumps completely replaced every single old qanat many centuries ago, so no qanat remained.",
             "Heavy rain falls almost every day in most of the deserts across the world."
           ],
           "answer": "B",
@@ -472,9 +472,9 @@
         {
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
-            "Only the land of ancient Persia ever used underground water channels.",
-            "Deserts generally receive far more rainfall than most other regions on Earth.",
-            "Mechanical pumps were actually invented long before qanats ever existed.",
+            "Only the land of ancient Persia ever used underground water channels, and no other country used them.",
+            "Deserts generally receive far more rainfall than most other regions on Earth, so they need no water systems.",
+            "Mechanical pumps were actually invented long before qanats ever existed, so nobody dug the old channels.",
             "Ancient engineers devised an ingenious underground system that still sustainably distributes water in arid regions."
           ],
           "answer": "D",

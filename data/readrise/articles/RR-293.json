@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "Why water is heavy to carry",
+            "Why water is heavy to carry from the well to the village",
             "How potters shape, dry, and fire clay to make pottery",
-            "How to build a hot oven",
-            "Why Egypt has a big river"
+            "How to build a hot oven out of bricks and stones",
+            "Why Egypt has a big river that floods in the summer"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -165,10 +165,10 @@
         {
           "stem": "In the article, what does the word glaze mean?",
           "options": [
-            "A kind of clay dug from the ground",
+            "A kind of clay dug from the ground by hand",
             "A thin, glassy coating that makes a pot shiny",
-            "The hot oven used to bake pottery",
-            "A tool used to carve lines into clay"
+            "The hot oven used to bake pottery in the shop",
+            "A tool used to carve lines into clay or stone"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -216,10 +216,10 @@
         {
           "stem": "How does the author mostly organize the information in this article?",
           "options": [
-            "By listing problems with pottery",
+            "By listing problems with pottery, such as cracks and leaks in the clay, from first to last",
             "By describing each step of making pottery, from shaping to firing to decorating",
-            "By comparing two different inventors",
-            "By telling a made-up story about a king"
+            "By comparing two different inventors who lived in two far countries long ago",
+            "By telling a made-up story about a king who loved old clay pots and ancient vases"
           ],
           "answer": "B",
           "skill": "text-structure",
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the main idea of this article?",
           "options": [
-            "Only farmers ever needed clay pots",
-            "Kilns are more important than potter's wheels",
+            "Only farmers ever needed clay pots, so potters made them just for fields and gardens, and for no one else in towns.",
+            "Kilns are more important than potter's wheels, so the article says a potter can skip kneading, shaping, and decorating.",
             "Potters use skills like kneading, shaping, firing, and decorating to turn clay into useful and beautiful objects",
-            "Only people in China ever made pottery"
+            "Only people in China ever made pottery, and no other country has ever used clay to make bowls, jugs, or plates."
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -379,9 +379,9 @@
           "stem": "What can you infer about why Egypt, Iraq, China, and Arabia developed different pottery styles?",
           "options": [
             "Because clay suitable for pottery only exists in one of those places",
-            "Because pottery was completely banned across most of those regions",
+            "Because pottery was completely banned across most of those regions for a long time",
             "Because each region had its own history, beliefs, and daily life that shaped its art",
-            "Because only one of those regions ever learned how to use a kiln"
+            "Because only one of those regions ever learned how to use a kiln to bake clay"
           ],
           "answer": "C",
           "skill": "inference",
@@ -472,9 +472,9 @@
         {
           "stem": "Which statement best captures the central idea of the article?",
           "options": [
-            "Pottery is only truly valuable to archaeologists working today",
-            "Only Chinese porcelain really matters in the entire history of pottery",
-            "Kneading alone is the single most important part of making pottery",
+            "Pottery is only truly valuable to archaeologists working today, because ordinary people never used clay pots in their homes, markets, or kitchens",
+            "Only Chinese porcelain really matters in the entire history of pottery, and other places made nothing important, useful, or beautiful at all",
+            "Kneading alone is the single most important part of making pottery, and firing, glazing, or decoration do not matter at all in any country or in any age",
             "Through careful craftsmanship, firing, and decoration, potters across civilizations turned clay into objects that were both useful and artistically significant"
           ],
           "answer": "D",
@@ -490,9 +490,9 @@
           "stem": "According to the article, why must clay be kneaded thoroughly before it is shaped?",
           "options": [
             "To remove trapped air bubbles that could crack or shatter a piece in the kiln",
-            "To give the clay a specific, carefully chosen color before shaping",
-            "To gently soften the intense heat that waits inside the kiln",
-            "To help a freshly applied glaze dry much faster than usual"
+            "To give the clay a specific, carefully chosen color before shaping it into a bowl",
+            "To gently soften the intense heat that waits inside the kiln when the pot is fired",
+            "To help a freshly applied glaze dry much faster than usual on the surface of the pot"
           ],
           "answer": "A",
           "skill": "detail",
@@ -574,9 +574,9 @@
         {
           "stem": "Why does the author compare pottery traditions in China and the Islamic world?",
           "options": [
-            "To argue that Chinese porcelain is superior to all other pottery",
-            "To prove that pottery began in China before anywhere else",
-            "To explain in detail how a kiln is constructed",
+            "To argue that Chinese porcelain is superior to all other pottery made anywhere in the world",
+            "To prove that pottery began in China before anywhere else in the world",
+            "To explain in detail how a kiln is constructed and how it is heated",
             "To show how different civilizations developed their own distinct artistic traditions"
           ],
           "answer": "D",

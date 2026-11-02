@@ -131,9 +131,9 @@
         {
           "stem": "About how many Earths could fit inside Jupiter?",
           "options": [
-            "Ten",
-            "Twelve",
-            "Four",
+            "Only about ten of them",
+            "Exactly twelve of them",
+            "Fewer than four of them",
             "More than one thousand"
           ],
           "answer": "D",
@@ -182,10 +182,10 @@
         {
           "stem": "A day on Jupiter is about ten hours, but a year is about twelve Earth years. What does this tell you?",
           "options": [
-            "Jupiter does not move at all",
+            "Jupiter does not move at all in the sky or in space",
             "Jupiter spins fast but takes a long time to go around the Sun",
-            "Jupiter is closer to the Sun than Earth",
-            "A day on Jupiter is longer than a year"
+            "Jupiter is closer to the Sun than Earth is, so it is very hot",
+            "A day on Jupiter is much longer than a whole year there"
           ],
           "answer": "B",
           "skill": "inference",
@@ -294,9 +294,9 @@
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
             "Jupiter is a huge gas planet with a giant storm, a fast spin, and many interesting moons.",
-            "Galileo was the most important scientist who ever lived.",
-            "Jupiter's moons are more interesting than the planet itself.",
-            "People should build telescopes to see Jupiter at night."
+            "Galileo was the most important scientist who ever lived, and he found Jupiter's moons.",
+            "Jupiter's moons are more interesting than the planet itself, so the article describes them.",
+            "People should build telescopes to see Jupiter at night, from their homes and schools."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -362,9 +362,9 @@
           "stem": "The Great Red Spot has been shrinking. What can you infer from this?",
           "options": [
             "The storm is not exactly the same as it was in the past",
-            "The storm will disappear by next week",
-            "Jupiter is getting smaller too",
-            "The storm is moving toward Earth"
+            "The storm will disappear by next week, as it gets smaller",
+            "Jupiter is getting smaller too, like its big storm",
+            "The storm is moving toward Earth, fast, in a year"
           ],
           "answer": "A",
           "skill": "inference",
@@ -412,9 +412,9 @@
         {
           "stem": "How does the author mostly organize the information in the article?",
           "options": [
-            "By telling events in the order they happened",
-            "By comparing Jupiter with every other planet",
-            "By giving a problem and then its solution",
+            "By telling events in the order they happened on Jupiter, year by year",
+            "By comparing Jupiter with every other planet in the solar system",
+            "By giving a problem with Jupiter and then its solution at the end",
             "By describing different features of Jupiter one at a time"
           ],
           "answer": "D",
@@ -473,9 +473,9 @@
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
             "Jupiter's size, gases, storms, magnetic field, and moons make it the most remarkable planet in the solar system, and spacecraft continue to study it.",
-            "Jupiter will soon become a star because it is made of hydrogen.",
+            "Jupiter will soon become a star because it is made of hydrogen, and it is already very hot and bright, so the Sun will have a twin.",
             "Galileo's discovery with a telescope proved that Jupiter is larger than the Sun and all the other planets put together.",
-            "Io is the only moon of Jupiter worth studying."
+            "Io is the only moon of Jupiter worth studying, because it is the one closest to the planet and no other moon matters at all, so spacecraft ignore the rest."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -506,10 +506,10 @@
         {
           "stem": "Which comparison about Jupiter's mass is stated in the article?",
           "options": [
-            "It equals the mass of the Sun",
+            "It equals the mass of the Sun and all of its moons",
             "It is more than twice that of all the other planets combined",
-            "It is twelve times the mass of Earth",
-            "It is smaller than the mass of Ganymede"
+            "It is twelve times the mass of Earth and no more",
+            "It is smaller than the mass of Ganymede, its biggest moon"
           ],
           "answer": "B",
           "skill": "compare",
@@ -541,9 +541,9 @@
           "stem": "Why was Galileo's discovery of four moons important beyond astronomy facts?",
           "options": [
             "It suggested not everything in the sky circles Earth",
-            "It showed that Jupiter has a solid surface",
-            "It proved that Europa has an ocean",
-            "It allowed people to travel to Jupiter"
+            "It showed that Jupiter has a solid surface under its clouds",
+            "It proved that Europa has an ocean under its ice shell",
+            "It allowed people to travel to Jupiter in a short time"
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -574,10 +574,10 @@
         {
           "stem": "The article calls Jupiter a \"gas giant.\" What does this term suggest?",
           "options": [
-            "A small planet covered in rock",
-            "A storm made only of gas",
+            "A small planet covered in rock, with a thin layer of dust and ice",
+            "A storm made only of gas, which spins around the planet",
             "A very large planet made mostly of gas without a solid surface",
-            "A spacecraft that collects gases"
+            "A spacecraft that collects gases from the planets in space"
           ],
           "answer": "C",
           "skill": "vocabulary",

@@ -252,7 +252,7 @@
       "questions": [
         {
           "stem": "Which statement best expresses the central idea of the article?",
-          "options": ["The cardiovascular system functions only during vigorous exercise", "Veins and arteries are identical in structure and function", "Capillaries are the body's largest blood vessels", "The cardiovascular system continuously circulates blood through vessels, delivering oxygen and nutrients and removing waste, including a pulmonary circuit to the lungs"],
+          "options": ["The cardiovascular system functions only during vigorous exercise, and it rests when a person sits or sleeps, so the heart stops for hours at a time", "Veins and arteries are identical in structure and function, and blood travels in only one kind of vessel, which has no valves, from the heart back to the heart", "Capillaries are the body's largest blood vessels, and they carry most of the blood away from the heart and the lungs to the arms and legs of a person", "The cardiovascular system continuously circulates blood through vessels, delivering oxygen and nutrients and removing waste, including a pulmonary circuit to the lungs"],
           "answer": "D",
           "skill": "central-idea",
           "why": "The article describes how the cardiovascular system constantly moves blood through arteries, veins, and capillaries, including a route to the lungs.",
@@ -284,7 +284,7 @@
         },
         {
           "stem": "Why do arteries need strong, elastic walls?",
-          "options": ["Because they are the thinnest vessels in the body", "Because they carry the least amount of blood", "Because they only work during sleep", "Because blood is forced through them under high pressure each time the heart contracts"],
+          "options": ["Because they are the thinnest vessels in the body, so the blood needs a strong cover", "Because they carry the least amount of blood, so they must be strong and stiff", "Because they only work during sleep, when the body needs the most blood at once", "Because blood is forced through them under high pressure each time the heart contracts"],
           "answer": "D",
           "skill": "cause-effect",
           "why": "The article explains that arteries need strong walls because blood pushes through them with pressure every time the heart contracts.",
@@ -300,7 +300,7 @@
         },
         {
           "stem": "How do veins compare with arteries, according to the article?",
-          "options": ["Veins carry only carbon dioxide, never oxygen", "Veins have thinner walls and carry blood at a lower pressure than arteries", "Veins are located only inside the lungs", "Veins pump blood by contracting like the heart"],
+          "options": ["Veins carry only carbon dioxide, never oxygen, from the body to the heart", "Veins have thinner walls and carry blood at a lower pressure than arteries", "Veins are located only inside the lungs, where they meet the air", "Veins pump blood by contracting like the heart, with thick walls"],
           "answer": "B",
           "skill": "inference",
           "why": "The article contrasts veins and arteries, explaining that veins have thinner walls and lower blood pressure.",
@@ -308,7 +308,7 @@
         },
         {
           "stem": "Why does the author explain the pulmonary route separately from the rest of circulation?",
-          "options": ["To argue that the lungs are not part of the body", "To prove that the heart does not pump blood to the lungs", "To show that blood takes a shorter, separate trip to the lungs to exchange gases before continuing around the body", "To compare the lungs in children and adults"],
+          "options": ["To argue that the lungs are not part of the body, because they only help with breathing and have no link to blood", "To prove that the heart does not pump blood to the lungs, since the lungs make their own blood supply", "To show that blood takes a shorter, separate trip to the lungs to exchange gases before continuing around the body", "To compare the lungs in children and adults, showing that a child's lungs are much smaller in size"],
           "answer": "C",
           "skill": "text-structure",
           "why": "The article sets apart the pulmonary route to show it is a shorter side trip for gas exchange within the larger circulation.",

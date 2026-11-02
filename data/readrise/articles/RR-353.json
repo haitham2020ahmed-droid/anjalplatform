@@ -114,10 +114,10 @@
         {
           "stem": "What is this story mostly about?",
           "options": [
-            "A boy who gets lost in the desert alone",
+            "A boy who gets lost in the desert alone and cannot find the way back home",
             "Two children who find a hidden spring and share it wisely with their village",
-            "A camel that finds water in the sand",
-            "A grandfather who builds a new village"
+            "A camel that finds water in the sand and shows the way to the caravan",
+            "A grandfather who builds a new village and teaches the children to farm"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -148,9 +148,9 @@
         {
           "stem": "What did the children see at the oasis?",
           "options": [
-            "Only sand and stone",
-            "A market and shops",
-            "A big city",
+            "Only sand and stone for many miles",
+            "A market and shops full of people",
+            "A big city with tall towers",
             "Water, green plants, and palm trees"
           ],
           "answer": "D",
@@ -182,9 +182,9 @@
         {
           "stem": "What did the children do right after they found the spring?",
           "options": [
-            "They went straight to the king",
-            "They dug a new well",
-            "They planted new palm trees",
+            "They went straight to the king to tell him about it",
+            "They dug a new well beside the spring before dark",
+            "They planted new palm trees around the spring in the sand",
             "Noura wanted to tell her friends, but Faisal stopped her"
           ],
           "answer": "D",
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the central idea of the story?",
           "options": [
-            "A boy named Faisal travels alone across the desert to find oil.",
+            "A boy named Faisal travels alone across the desert to find oil, and he sells it to the village for lots of money.",
             "Two children discover a hidden oasis and choose to share it responsibly through the village elders rather than rushing to tell their friends.",
-            "Grandfather builds a new path through the village using only rocks.",
-            "Noura and Faisal decide the oasis should belong only to themselves."
+            "Grandfather builds a new path through the village using only rocks, and the children carry the stones for him.",
+            "Noura and Faisal decide the oasis should belong only to themselves, so they hide it from everyone, even the elders and their friends."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -327,9 +327,9 @@
         {
           "stem": "What did the children discover growing around the spring?",
           "options": [
-            "Only sand and stone",
-            "Wheat and corn",
-            "Cactus and thorns",
+            "Only sand and stone, with no green plants at all",
+            "Wheat and corn growing in neat rows",
+            "Cactus and thorns in the dry sand",
             "Green plants, soft grass, and palm trees"
           ],
           "answer": "D",
@@ -361,10 +361,10 @@
         {
           "stem": "Why did Faisal stop Noura from running home to tell her friends?",
           "options": [
-            "He was jealous of her excitement",
+            "He was jealous of her excitement about the water and wanted it for himself",
             "He worried that crowds could damage the plants and frighten the animals",
-            "He wanted to find more water first",
-            "He did not want to share the water with anyone"
+            "He wanted to find more water first, before they told anyone at all",
+            "He did not want to share the water with anyone, so he kept it secret"
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -396,9 +396,9 @@
           "stem": "What does Faisal's choice to stop Noura reveal about his character?",
           "options": [
             "He is thoughtful and considers how his actions affect others",
-            "He is impulsive and does not think ahead",
-            "He is selfish and wants the water for himself",
-            "He is afraid of his grandfather"
+            "He is impulsive and does not think ahead about what might happen",
+            "He is selfish and wants the water for himself and his own family",
+            "He is afraid of his grandfather and does not want to be scolded"
           ],
           "answer": "A",
           "skill": "inference",
@@ -412,7 +412,7 @@
         {
           "stem": "How does the author organize the story?",
           "options": [
-            "By comparing two completely different deserts found in separate faraway countries",
+            "By comparing two completely different deserts found in separate faraway countries of the world",
             "By describing grandfather's entire life story from his childhood until his old age",
             "By following the children from discovering the spring to making a responsible plan with the elders",
             "By listing facts about palm trees without ever mentioning Faisal or Noura at all"
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best captures the central idea of the story?",
           "options": [
-            "Two siblings fight constantly over who found the spring first.",
-            "The story mainly explains how iron oxide colors desert sand.",
+            "Two siblings fight constantly over who found the spring first, and they stop speaking to each other and their friends for a whole year.",
+            "The story mainly explains how iron oxide colors desert sand, and it follows a scientist who studies red dunes for many years.",
             "A hidden desert spring tests two children's judgment, and their choice to consult the elders turns a personal discovery into a sustainably shared resource.",
-            "Grandfather forbids the children from ever mentioning the oasis to anyone."
+            "Grandfather forbids the children from ever mentioning the oasis to anyone, and he sends them away from the village for good, far away across the open sand and the dunes."
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -506,9 +506,9 @@
         {
           "stem": "What specific role did the village elders play once Faisal and Noura told them about the spring?",
           "options": [
-            "They ignored the children completely",
-            "They sold the land to outsiders",
-            "They forbade anyone from ever visiting the spring",
+            "They ignored the children completely and told them to go home",
+            "They sold the land to outsiders who wanted to build a hotel",
+            "They forbade anyone from ever visiting the spring, even the elders themselves",
             "They designed a sustainable plan limiting visits and protecting the plants"
           ],
           "answer": "D",
@@ -540,10 +540,10 @@
         {
           "stem": "What was the main effect of Faisal's decision to stop Noura from telling her friends?",
           "options": [
-            "The spring was destroyed by crowds",
-            "The village lost interest in the spring entirely",
+            "The spring was destroyed by big crowds who came to see it and splash in it",
+            "The village lost interest in the spring entirely after about a week or two",
             "The discovery was protected until a careful, sustainable plan could be made",
-            "Noura never spoke to Faisal again"
+            "Noura never spoke to Faisal again after that day, and she was sad"
           ],
           "answer": "C",
           "skill": "cause-effect",
@@ -575,9 +575,9 @@
           "stem": "Which best describes the difference between Faisal's and Noura's immediate reactions to the discovery?",
           "options": [
             "Noura's instinct was to celebrate openly, while Faisal immediately weighed the discovery's risks",
-            "Faisal wanted to keep the spring secret forever, while Noura wanted to destroy it",
-            "Both children reacted with identical caution",
-            "Noura distrusted the elders, while Faisal trusted them completely"
+            "Faisal wanted to keep the spring secret forever, while Noura wanted to destroy it with stones",
+            "Both children reacted with identical caution, and both wanted to wait before telling anyone",
+            "Noura distrusted the elders, while Faisal trusted them completely and wanted to tell them first"
           ],
           "answer": "A",
           "skill": "inference",

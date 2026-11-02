@@ -116,8 +116,8 @@
           "options": [
             "The food Sherpa families cook at home",
             "The Himalayas, the tallest mountains on Earth",
-            "Every animal that lives in Asia",
-            "A guide for planning a trip to China"
+            "Every animal that lives in Asia and Europe",
+            "A guide for planning a long trip to China"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -199,10 +199,10 @@
         {
           "stem": "Why do people say the Himalayas are still growing?",
           "options": [
-            "Because new mountains are built by hand",
+            "Because new mountains are built by hand every year by workers",
             "Because the plates that formed them still push together",
-            "Because glaciers add new ice every year",
-            "Because snow leopards dig new peaks"
+            "Because glaciers add new layers of ice every year",
+            "Because snow leopards dig new peaks in the snow"
           ],
           "answer": "B",
           "skill": "inference",
@@ -216,10 +216,10 @@
         {
           "stem": "Why are Sherpa people so important for climbers?",
           "options": [
-            "They sell food at the bottom of the mountain",
+            "They sell food at the bottom of the mountain to visitors",
             "They know the mountain trails and help on hard trips",
-            "They own all of the mountains",
-            "They keep snow leopards as pets"
+            "They own all of the mountains in the region",
+            "They keep snow leopards as pets in their villages"
           ],
           "answer": "B",
           "skill": "inference",
@@ -234,9 +234,9 @@
           "stem": "How does the article end?",
           "options": [
             "With a warning about melting ice and a sense of wonder",
-            "With a joke about yaks",
-            "With directions for climbing Everest",
-            "With a list of Sherpa names"
+            "With a joke about yaks and their funny sounds",
+            "With directions for climbing Everest in the spring season",
+            "With a list of Sherpa names and their villages"
           ],
           "answer": "A",
           "skill": "text-structure",
@@ -473,9 +473,9 @@
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
             "The Himalayas formed from tectonic collision and remain an immense, dynamic range vital to the region's water supply.",
-            "Mount Everest is the only Himalayan peak worth studying.",
-            "Sherpa communities have abandoned mountain life entirely.",
-            "The Tibetan Plateau is colder than the Himalayas themselves."
+            "Mount Everest is the only Himalayan peak worth studying, and the rest of the range is of no use to science or to the people who live below.",
+            "Sherpa communities have abandoned mountain life entirely, and no one lives in the Himalayas now.",
+            "The Tibetan Plateau is colder than the Himalayas themselves, so rivers there never flow to the sea."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -574,10 +574,10 @@
         {
           "stem": "Why does the author describe the Tibetan Plateau as the \"Third Pole\"?",
           "options": [
-            "Because it is located at the exact North Pole",
+            "Because it is located at the exact North Pole of the Earth",
             "Because it stores an enormous amount of the world's ice outside the polar regions",
-            "Because it is always covered in total darkness",
-            "Because no rivers begin anywhere near it"
+            "Because it is always covered in total darkness all year long, with no light",
+            "Because no rivers begin anywhere near it in the whole of Asia or in other places"
           ],
           "answer": "B",
           "skill": "author-purpose",
@@ -591,10 +591,10 @@
         {
           "stem": "Why do scientists consider melting Himalayan glaciers a serious concern, based on the article?",
           "options": [
-            "Because melting ice makes Mount Everest impossible to climb",
+            "Because melting ice makes Mount Everest impossible to climb for any person in the world",
             "Because faster melting could disrupt rivers that hundreds of millions of people depend on",
-            "Because Sherpa villages will need to relocate to the Tibetan Plateau",
-            "Because erosion will stop completely once the glaciers disappear"
+            "Because Sherpa villages will need to relocate to the Tibetan Plateau next year",
+            "Because erosion will stop completely once the glaciers disappear from the hills"
           ],
           "answer": "B",
           "skill": "inference",

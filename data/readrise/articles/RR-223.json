@@ -131,10 +131,10 @@
         {
           "stem": "Why are a fort's walls built thick?",
           "options": [
-            "To make the fort look pretty",
-            "To make them easy to climb",
+            "To make the fort look pretty from afar",
+            "To make them easy to climb for guards",
             "To make them hard to break through",
-            "To make them light to carry"
+            "To make them light to carry by horses"
           ],
           "answer": "C",
           "skill": "detail",

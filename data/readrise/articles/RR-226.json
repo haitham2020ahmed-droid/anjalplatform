@@ -131,10 +131,10 @@
         {
           "stem": "What is Venus's thick air mostly made of?",
           "options": [
-            "Water and sand",
+            "Water and sand mixed with some clouds",
             "A gas called carbon dioxide",
-            "Pure oxygen",
-            "Melted metal"
+            "Pure oxygen that people can breathe",
+            "Melted metal that flows in rivers"
           ],
           "answer": "B",
           "skill": "detail",
@@ -378,10 +378,10 @@
         {
           "stem": "What can you infer from the fact that Venus spins backward compared to most planets?",
           "options": [
-            "Venus is not a real planet.",
+            "Venus is not a real planet, but only a bright star that moves across the sky.",
             "Something about Venus's history or formation may have been unusual.",
-            "Venus does not actually orbit the sun.",
-            "Venus's backward spin makes it colder than other planets."
+            "Venus does not actually orbit the sun, but circles around Earth every day.",
+            "Venus's backward spin makes it colder than other planets, and so it is covered with ice."
           ],
           "answer": "B",
           "skill": "inference",
@@ -395,10 +395,10 @@
         {
           "stem": "What can you infer about why a day on Venus is longer than its year?",
           "options": [
-            "Venus moves around the sun extremely slowly.",
+            "Venus moves around the sun extremely slowly, taking far longer than the other planets to go around.",
             "Venus spins on its own axis extremely slowly, even though it moves around the sun fairly quickly.",
-            "Venus has no axis at all.",
-            "Venus takes breaks from spinning."
+            "Venus has no axis at all, so it cannot spin and the day is the same as the night.",
+            "Venus takes breaks from spinning, so it stops for long periods before it starts again."
           ],
           "answer": "B",
           "skill": "inference",
@@ -506,10 +506,10 @@
         {
           "stem": "What happens to spacecraft that land on the surface of Venus, according to the article?",
           "options": [
-            "They operate successfully for many years.",
+            "They operate successfully for many years, sending back pictures every day.",
             "They are destroyed within a brief interval, generally under two hours.",
-            "They immediately sink into a liquid ocean.",
-            "They are melted by the planet's retrograde rotation."
+            "They immediately sink into a liquid ocean of hot water below the clouds.",
+            "They are melted by the planet's retrograde rotation, which turns them to dust."
           ],
           "answer": "B",
           "skill": "detail",
@@ -523,10 +523,10 @@
         {
           "stem": "Read: \"Venus's clouds consist of this harsh, corrosive acid.\" What does corrosive mean here?",
           "options": [
-            "Able to produce bright light",
+            "Able to produce very bright light in the dark",
             "Able to gradually damage or dissolve materials",
-            "Extremely cold and icy",
-            "Completely harmless to touch"
+            "Extremely cold and icy, like a frozen lake",
+            "Completely harmless to touch for most people"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -591,10 +591,10 @@
         {
           "stem": "How is the paragraph about Venus's rotation and day length organized?",
           "options": [
-            "As an unrelated list of Venus's moons",
+            "As an unrelated list of Venus's moons, each one with its own name, size and orbit",
             "By first stating an unusual fact, then explaining what it means in comparison to a Venusian year",
-            "As a step-by-step guide to measuring a planet's rotation",
-            "As a comparison between Venus and the asteroid belt"
+            "As a step-by-step guide to measuring a planet's rotation, using a small telescope and a clock on Earth",
+            "As a comparison between Venus and the asteroid belt, and their different rocks"
           ],
           "answer": "B",
           "skill": "text-structure",

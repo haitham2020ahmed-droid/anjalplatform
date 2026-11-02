@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How to build a flat roof on a house",
+            "How to build a flat roof on a house, with wood and stone",
             "A kind of high, flat land and how it forms and differs from mountains",
-            "Animals that live only on mountain peaks",
-            "A list of every valley in the world"
+            "Animals that live only on mountain peaks, high above the clouds and the snow",
+            "A list of every valley in the world and how long each one is"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -233,10 +233,10 @@
         {
           "stem": "How is the article mostly organized?",
           "options": [
-            "As a set of directions for climbing a mountain",
-            "As a story about a girl who lives on a plateau",
+            "As a set of directions for climbing a mountain step by step, with tips for hikers",
+            "As a story about a girl who lives on a high plateau and herds her family's goats",
             "From what a plateau is, to how it forms, to how it compares with other land",
-            "As a list of questions with no answers given"
+            "As a list of questions with no answers given at the end of the article or the page"
           ],
           "answer": "C",
           "skill": "text-structure",
@@ -327,10 +327,10 @@
         {
           "stem": "What causes a tableland to build up from lava?",
           "options": [
-            "One single huge eruption that only ever happens once",
-            "Strong wind slowly piling loose sand into tall mounds",
+            "One single huge eruption that only ever happens once in a long time",
+            "Strong wind slowly piling loose sand into tall mounds on the land",
             "Many layers of lava spreading out and cooling, one after another",
-            "A river slowly filling a nearby valley with soft mud"
+            "A river slowly filling a nearby valley with soft mud and stones"
           ],
           "answer": "C",
           "skill": "cause-effect",
@@ -412,10 +412,10 @@
         {
           "stem": "How is the article mostly organized?",
           "options": [
-            "As simple, step-by-step directions for visiting the Grand Canyon",
+            "As simple, step-by-step directions for visiting the Grand Canyon by car",
             "From defining a plateau, to how it forms, to real examples found worldwide",
-            "As a heated debate between two scientists who strongly disagree",
-            "As a timeline following one single explorer's entire life story"
+            "As a heated debate between two scientists who strongly disagree about rocks",
+            "As a timeline following one single explorer's entire life story and travels"
           ],
           "answer": "B",
           "skill": "text-structure",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
-            "Every plateau on Earth formed through the exact same geologic process.",
+            "Every plateau on Earth formed through the exact same geologic process, and none was reshaped by erosion.",
             "Plateaus form through distinct geologic processes, then are reshaped by erosion and climate.",
-            "The Colorado Plateau is the only plateau ever shaped by any river at all.",
-            "Mountains and plateaus are really just two names for one single landform."
+            "The Colorado Plateau is the only plateau ever shaped by any river at all, and others are not.",
+            "Mountains and plateaus are really just two names for one single landform, and they look alike."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -574,10 +574,10 @@
         {
           "stem": "Why does the author describe the Tibetan, Deccan, and Colorado Plateaus in the article's final section?",
           "options": [
-            "To prove that tectonic uplift is the only real way a plateau can form",
+            "To prove that tectonic uplift is the only real way a plateau can ever form on Earth",
             "To give real, concrete examples of the different processes described earlier in the article",
-            "To argue that the Colorado Plateau is not actually a true plateau",
-            "To show that every famous plateau on Earth sits on the continent of Asia"
+            "To argue that the Colorado Plateau is not actually a true plateau at all, but a very tall mountain",
+            "To show that every famous plateau on Earth sits on the continent of Asia only"
           ],
           "answer": "B",
           "skill": "author-purpose",

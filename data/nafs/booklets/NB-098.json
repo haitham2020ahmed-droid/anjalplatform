@@ -157,9 +157,9 @@
       "type": "MCQ",
       "stem": "Which is another suitable title for the whole text?",
       "options": [
-        "How to Build a Glass Furnace",
-        "The Dangers of Desert Picnics",
-        "Why Paper Is Better Than Glass",
+        "How to Build a Glass Furnace at Home",
+        "The Dangers of Desert Picnics in Summer",
+        "Why Paper Is Better Than Glass for Us",
         "A Material That Can Be Reborn Forever"
       ],
       "answer": "D",
@@ -173,10 +173,10 @@
       "type": "MCQ",
       "stem": "What is the main purpose of the text?",
       "options": [
-        "to describe the history of the first glass bottles",
+        "to describe the history of the first glass bottles made long ago",
         "to explain how glass is made and why and how it should be recycled",
-        "to persuade readers to stop using glass completely",
-        "to compare the prices of glass, paper and plastic"
+        "to persuade readers to stop using glass completely in their homes",
+        "to compare the prices of glass, paper and plastic in many shops"
       ],
       "answer": "B",
       "why": "The text explains glass-making, the benefits of cullet, sorting rules, the harm of not recycling and what readers can do."
@@ -205,10 +205,10 @@
       "type": "MCQ",
       "stem": "According to paragraph 4, why are clear, green and brown glass usually separated?",
       "options": [
-        "Brown glass melts at a much lower temperature.",
-        "Clear glass is more valuable than coloured glass.",
+        "Brown glass melts at a much lower temperature than clear glass does.",
+        "Clear glass is more valuable than coloured glass in the shops.",
         "Their colours cannot easily be removed once melted together.",
-        "Green glass contains pieces of ceramic."
+        "Green glass contains pieces of ceramic that must be taken out."
       ],
       "answer": "C",
       "why": "The writer says they are separated “because their colours cannot easily be removed once they have been melted together.”"
@@ -269,10 +269,10 @@
       "type": "MCQ",
       "stem": "Based on the text, which item CAN be placed in a glass recycling bin?",
       "options": [
-        "a broken mirror from a bathroom",
-        "an old light bulb from a lamp",
+        "a broken mirror from a bathroom wall",
+        "an old light bulb from a table lamp",
         "a rinsed jam jar with its lid removed",
-        "a cracked ceramic coffee cup"
+        "a cracked ceramic coffee cup from the shelf"
       ],
       "answer": "C",
       "why": "Paragraph 6 says to rinse jars and remove lids; mirrors, light bulbs and ceramic cups are on the “never” list."
@@ -317,10 +317,10 @@
       "type": "MCQ",
       "stem": "In your opinion, why does the writer begin by saying that families throw away jars “without a second thought”?",
       "options": [
-        "to blame families for every kind of pollution",
+        "to blame families for every kind of pollution in towns",
         "to contrast a careless habit with glass's real value",
-        "to explain how jars are made in factories",
-        "to describe the writer's own family"
+        "to explain how jars are made in factories in the city",
+        "to describe the writer's own family and its kitchen"
       ],
       "answer": "B",
       "why": "The next sentence calls glass “remarkable,” so the opening makes readers rethink a careless habit."
@@ -477,9 +477,9 @@
       "type": "MCQ",
       "stem": "Which feeling is most present in the final paragraph?",
       "options": [
-        "anger at households that waste glass",
-        "sadness about glass in landfills",
-        "fear of broken glass in parks",
+        "anger at households that waste glass every day",
+        "sadness about glass in landfills and rivers",
+        "fear of broken glass in parks and streets",
         "hopeful encouragement that small habits can help"
       ],
       "answer": "D",
@@ -493,10 +493,10 @@
       "type": "MCQ",
       "stem": "In your opinion, which information is the LEAST clear in the text?",
       "options": [
-        "what cullet is",
+        "what cullet is and where it comes from",
         "what to do with the lids after removing them",
-        "why glass colours are separated",
-        "how hot a glass furnace must be"
+        "why glass colours are separated in the factory",
+        "how hot a glass furnace must be to melt the sand"
       ],
       "answer": "B",
       "why": "The writer says to remove lids but never explains what to do with them; the other points are explained."

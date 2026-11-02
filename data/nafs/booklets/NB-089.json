@@ -174,9 +174,9 @@
       "stem": "What is the main purpose of the passage?",
       "options": [
         "to show that Owens was great as an athlete and as a person",
-        "to teach readers the rules of the long jump",
-        "to compare American and German athletes",
-        "to describe the city of Berlin in 1936"
+        "to teach readers the rules of the long jump and how to win",
+        "to compare American and German athletes at the Games",
+        "to describe the city of Berlin in the year 1936"
       ],
       "answer": "A",
       "why": "It describes his sporting records and his friendship, courage and fairness."
@@ -189,10 +189,10 @@
       "type": "MCQ",
       "stem": "What is the main idea of paragraph 2?",
       "options": [
-        "Owens's teacher had a strong Southern accent.",
+        "Owens's teacher had a strong Southern accent and a loud voice.",
         "Owens had a difficult childhood and received a new name.",
-        "Cleveland had the best schools in America.",
-        "Owens was the oldest of ten children."
+        "Cleveland had the best schools in America for young athletes.",
+        "Owens was the oldest of ten children in his family."
       ],
       "answer": "B",
       "why": "Paragraph 2 covers his poor, sickly childhood, the move north and how he became “Jesse”. It was Owens, not the teacher, who had the accent."
@@ -222,9 +222,9 @@
       "stem": "According to paragraph 3, why was Owens not allowed to live on campus at Ohio State?",
       "options": [
         "Unfair laws and customs separated people by skin colour.",
-        "He had not yet won any important races.",
-        "He preferred to live with his coach.",
-        "The university had no rooms for athletes."
+        "He had not yet won any important races in his life.",
+        "He preferred to live with his coach and his family.",
+        "The university had no rooms for athletes at that time."
       ],
       "answer": "A",
       "why": "The passage says he was not allowed to live with white students “because unfair laws and customs separated people by the colour of their skin.”"
@@ -350,9 +350,9 @@
       "stem": "How was Luz Long's behaviour DIFFERENT from what people might expect from a defeated rival?",
       "options": [
         "He celebrated Owens's success instead of resenting it.",
-        "He refused to compete in the long jump.",
-        "He left the stadium before the event ended.",
-        "He complained to the judges about the result."
+        "He refused to compete in the long jump after the first round.",
+        "He left the stadium before the event ended, with his coach.",
+        "He complained to the judges about the result of the final."
       ],
       "answer": "A",
       "why": "Although he lost, Long was the first to congratulate Owens and walked around the stadium with him."
@@ -365,10 +365,10 @@
       "type": "MCQ",
       "stem": "What was the effect of the teacher's mistake on Owens's first day at school?",
       "options": [
-        "He was moved to a different school.",
+        "He was moved to a different school in the town.",
         "He was called “Jesse” for the rest of his life.",
-        "He decided to become an athlete.",
-        "He changed his Southern accent."
+        "He decided to become an athlete after that day.",
+        "He changed his Southern accent for his new school."
       ],
       "answer": "B",
       "why": "The teacher wrote “Jesse” instead of “J.C.”, and “The new name stayed with him for the rest of his life.”"
@@ -381,10 +381,10 @@
       "type": "MCQ",
       "stem": "What do Charles Riley and Luz Long have in common in the passage?",
       "options": [
-        "Both were German athletes.",
+        "Both were German athletes in the Games.",
         "Both treated Owens with kindness and respect.",
-        "Both competed in the long jump.",
-        "Both taught at a school in Cleveland."
+        "Both competed in the long jump at Berlin.",
+        "Both taught at a school in Cleveland, Ohio."
       ],
       "answer": "B",
       "why": "Riley gave up his early mornings to train Owens, and Long congratulated him and became his friend."
@@ -462,9 +462,9 @@
       "stem": "Which statement best expresses the writer's point of view?",
       "options": [
         "Champions should be judged by their character as well as their medals.",
-        "Medals are the only true measure of a champion.",
-        "Athletes should not make friends with their rivals.",
-        "Sport is less important than any school subject."
+        "Medals are the only true measure of a champion in sport and life.",
+        "Athletes should not make friends with their rivals at the games.",
+        "Sport is less important than any other subject taught at school."
       ],
       "answer": "A",
       "why": "The final sentence says true champions are measured “not only by their medals but also by the way they treat others.”"
@@ -493,10 +493,10 @@
       "type": "MCQ",
       "stem": "In your opinion, which information in the passage is the LEAST clear?",
       "options": [
-        "the year of the Berlin Olympics",
-        "how many gold medals Owens won",
+        "the year of the Berlin Olympics, which was 1936 in the city",
+        "how many gold medals Owens won at those Games in Berlin",
         "how Owens injured his back before the 1935 races",
-        "the name of Owens's junior high coach"
+        "the name of Owens's junior high coach at the school"
       ],
       "answer": "C",
       "why": "The passage says he injured his back but never explains how; the other facts are stated clearly."
@@ -526,9 +526,9 @@
       "stem": "Which title best describes the events of the passage?",
       "options": [
         "Four Gold Medals and a Lasting Friendship",
-        "The German Who Won the Long Jump",
-        "A Teacher's Spelling Mistake",
-        "The Fastest Farmer in Alabama"
+        "The German Who Won the Long Jump in Berlin",
+        "A Teacher's Spelling Mistake in Class",
+        "The Fastest Farmer in All of Alabama"
       ],
       "answer": "A",
       "why": "It covers Owens's Olympic victories and his lasting friendship with Luz Long."

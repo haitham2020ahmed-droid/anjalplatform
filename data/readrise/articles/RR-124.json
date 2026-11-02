@@ -395,10 +395,10 @@
         {
           "stem": "A family adds compost to their garden every spring. What can you infer will happen?",
           "options": [
-            "The soil will become harder and drier.",
+            "The soil will become harder and drier over the year.",
             "Their plants will get more nutrients from the soil.",
-            "The garden will lose its earthworms.",
-            "The topsoil will turn into subsoil."
+            "The garden will lose its earthworms and other small life.",
+            "The topsoil will turn into subsoil by the summer."
           ],
           "answer": "B",
           "skill": "inference",
@@ -489,10 +489,10 @@
         {
           "stem": "What does the article say about loam?",
           "options": [
-            "It has the largest grains of any soil.",
+            "It has the largest grains of any soil, like rocks and sand.",
             "It is a balanced mixture of sand, silt, and clay.",
-            "It is the layer just below the subsoil.",
-            "It cannot hold any water."
+            "It is the layer just below the subsoil, near the bedrock.",
+            "It cannot hold any water, so plants cannot use it for roots."
           ],
           "answer": "B",
           "skill": "detail",

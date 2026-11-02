@@ -233,10 +233,10 @@
         {
           "stem": "Why did the author write this article?",
           "options": [
-            "To sell phones to farmers",
-            "To tell a funny story about a farmer",
+            "To sell phones to farmers in the desert",
+            "To tell a funny story about a farmer and his goat",
             "To explain how new tools help desert farms",
-            "To teach how to cook tomatoes"
+            "To teach how to cook tomatoes and peppers"
           ],
           "answer": "C",
           "skill": "author-purpose",
@@ -344,10 +344,10 @@
         {
           "stem": "Read this: \"Fans, shade cloth, and wet pads cool the air as water evaporates from them.\" What does evaporates mean?",
           "options": [
-            "Freezes into hard ice",
+            "Freezes into hard ice and snow",
             "Turns from liquid into a gas",
-            "Spills onto the floor",
-            "Turns into plant food"
+            "Spills onto the floor and stains",
+            "Turns into plant food in the soil"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -412,10 +412,10 @@
         {
           "stem": "How does the author organize most of the article?",
           "options": [
-            "By telling the life story of one farmer",
+            "By telling the life story of one farmer from the village",
             "By describing one technology at a time and how it helps",
-            "By listing the steps to cook a meal",
-            "By comparing two countries' weather"
+            "By listing the steps to cook a meal with new machines",
+            "By comparing two countries' weather and how they grow crops"
           ],
           "answer": "B",
           "skill": "text-structure",
@@ -507,9 +507,9 @@
           "stem": "How do damp pads help cool a greenhouse?",
           "options": [
             "Water absorbs heat as it evaporates from the pads",
-            "The pads block all of the sunlight",
-            "The pads produce electricity",
-            "The pads add nutrients to the air"
+            "The pads block all of the sunlight from the glass roof",
+            "The pads produce electricity for the fans inside",
+            "The pads add nutrients to the air for the plants"
           ],
           "answer": "A",
           "skill": "detail",
@@ -540,10 +540,10 @@
         {
           "stem": "How is the water in a hydroponic system handled compared with water in an ordinary field?",
           "options": [
-            "It is used once and thrown away",
+            "It is used only once and then thrown away",
             "It is collected, filtered, and recycled",
-            "It is mixed with sand before use",
-            "It is heated until it boils"
+            "It is mixed with sand before use in the tank",
+            "It is heated until it boils inside the pipes"
           ],
           "answer": "B",
           "skill": "compare",
@@ -557,10 +557,10 @@
         {
           "stem": "What can you infer about why desert farms need nutrients added to the water in hydroponics?",
           "options": [
-            "Plants do not need nutrients in a desert",
+            "Plants do not need nutrients in a desert, since the sun feeds them",
             "Without soil, the plants must get nutrients from the water",
-            "Nutrients make the water cooler",
-            "Nutrients keep insects away from the roots"
+            "Nutrients make the water cooler for the roots",
+            "Nutrients keep insects away from the roots of the plants"
           ],
           "answer": "B",
           "skill": "inference",
@@ -574,9 +574,9 @@
         {
           "stem": "Which detail best supports the idea that smart farms can be managed from a distance?",
           "options": [
-            "Farmers in Saudi Arabia grow millions of date palms",
-            "Rainfall is exceptionally rare in the hot desert",
-            "Fans and damp pads cool the air inside a greenhouse",
+            "Farmers in Saudi Arabia grow millions of date palms in the desert",
+            "Rainfall is exceptionally rare in the hot desert and in the hills",
+            "Fans and damp pads cool the air inside a greenhouse for plants",
             "The farmer can supervise the process remotely on a smartphone"
           ],
           "answer": "D",

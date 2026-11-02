@@ -125,10 +125,10 @@
       "difficulty": 3,
       "stem": "Which information is the LEAST clear in the passage?",
       "options": [
-        "What the gearbox does to the rotation",
+        "What the gearbox does to the rotation of the blades",
         "How much electricity one turbine can produce",
-        "Why turbines are placed in open areas",
-        "What happens to turbines on calm days"
+        "Why turbines are placed in open areas, far from towns",
+        "What happens to turbines on calm days with no wind"
       ],
       "answer": "B",
       "why": "The passage never gives the amount of electricity a turbine makes; the other points are explained."

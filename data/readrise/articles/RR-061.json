@@ -344,10 +344,10 @@
         {
           "stem": "Which is NOT a way your body loses water, according to the article?",
           "options": [
-            "Sweating on a hot day",
-            "Making urine",
+            "Sweating a lot on a hot day",
+            "Making urine in the toilet",
             "Eating a slice of watermelon",
-            "Breathing out"
+            "Breathing out air from the lungs"
           ],
           "answer": "C",
           "skill": "detail",
@@ -412,10 +412,10 @@
         {
           "stem": "How is most of the article organized?",
           "options": [
-            "As a story about one child's day",
-            "In time order from morning to night",
+            "As a story about one child's day at school and at home, with a lunch break",
+            "In time order from morning to night, hour after hour, using the clock",
             "By describing water's jobs, how we lose it, and how to get enough",
-            "By comparing water with milk and juice"
+            "By comparing water with milk and juice in a long table of drinks"
           ],
           "answer": "C",
           "skill": "text-structure",
@@ -523,10 +523,10 @@
         {
           "stem": "Which job of water does the article describe with the word cushion?",
           "options": [
-            "Carrying oxygen to cells",
+            "Carrying oxygen to cells all over the body",
             "Protecting joints like the knees and elbows",
-            "Turning sweat into a gas",
-            "Removing waste from the blood"
+            "Turning sweat into a gas in the hot air",
+            "Removing waste from the blood every day"
           ],
           "answer": "B",
           "skill": "detail",
@@ -574,10 +574,10 @@
         {
           "stem": "How does going without water compare with going without food, according to the article?",
           "options": [
-            "Both can be survived for many months.",
-            "People last longer without water than without food.",
+            "Both can be survived for many months at a time without any problem.",
+            "People last longer without water than without food, usually for weeks and weeks.",
             "People can survive weeks without food but usually only a few days without water.",
-            "There is no difference between the two."
+            "There is no difference between the two, and people need neither for long."
           ],
           "answer": "C",
           "skill": "compare",

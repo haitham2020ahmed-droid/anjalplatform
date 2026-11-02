@@ -114,10 +114,10 @@
         {
           "stem": "What is this story mostly about?",
           "options": [
-            "A boy who learns to swim very well at the pool",
-            "A boy who moves far away to a brand-new city",
+            "A boy who learns to swim very well at the pool with his friends",
+            "A boy who moves far away to a brand-new city with his family",
             "A boy who makes a special metal lantern for his grandfather",
-            "A boy who buys a gift for his grandpa at a store"
+            "A boy who buys a gift for his grandpa at a store in town"
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -148,9 +148,9 @@
         {
           "stem": "What shapes did Omar put in his design?",
           "options": [
-            "A boat, a fish, and a wave",
-            "A sun, a moon, and a cloud",
-            "A tree, a bird, and a flower",
+            "A boat, a fish, and a big wave",
+            "A sun, a moon, and a red cloud",
+            "A tree, a bird, and a small flower",
             "A hammer, a flame, and small stars"
           ],
           "answer": "D",
@@ -165,10 +165,10 @@
         {
           "stem": "In the story, the word craft means —",
           "options": [
-            "a kind of metal",
+            "a kind of metal for rings",
             "a skill made with the hands",
-            "a type of lantern",
-            "a loud noise"
+            "a type of lantern for a tent",
+            "a loud noise in the market"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -199,10 +199,10 @@
         {
           "stem": "Why did Omar keep trying every night instead of giving up?",
           "options": [
-            "He had nothing else to do",
-            "Khalid told him he had to",
+            "He had nothing else to do at night",
+            "Khalid told him that he had to do it",
             "He wanted to make a good gift for Grandpa",
-            "He wanted to open his own shop"
+            "He wanted to open his own shop one day"
           ],
           "answer": "C",
           "skill": "inference",
@@ -216,10 +216,10 @@
         {
           "stem": "What happened when Grandpa lit the finished lantern?",
           "options": [
-            "The lantern broke apart",
+            "The lantern broke apart in Grandpa's hands",
             "Light shone through the holes onto the wall",
-            "The room filled with smoke",
-            "Omar had to fix it again"
+            "The room filled with smoke from the flame",
+            "Omar had to fix it again that same night"
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -294,9 +294,9 @@
           "stem": "Which sentence best states the central idea of the story?",
           "options": [
             "Omar learns his family's lantern-making craft and, through patient practice and his father's guidance, creates a meaningful birthday gift for his grandfather.",
-            "Omar decides lantern-making is too hard and quits.",
-            "Khalid takes over the family shop from Omar.",
-            "Grandpa Saeed opens a brand-new workshop for his birthday."
+            "Omar decides lantern-making is too hard and quits, so his father sells the shop and moves the family to a faraway city for good.",
+            "Khalid takes over the family shop from Omar, and Omar goes to school to learn another job and never makes a lantern again, even for fun.",
+            "Grandpa Saeed opens a brand-new workshop for his birthday, and the whole family moves into it, so Omar has no gift to make for him at all, and the lantern is never made."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -327,10 +327,10 @@
         {
           "stem": "What three symbols did Omar engrave into his design?",
           "options": [
-            "A sun, a moon, and a river",
+            "A sun, a moon, and a river of gold",
             "A hammer, a flame, and a few stars",
-            "A boat, a flag, and a bird",
-            "A key, a door, and a clock"
+            "A boat, a flag, and a bird in flight",
+            "A key, a door, and a clock on a wall"
           ],
           "answer": "B",
           "skill": "detail",
@@ -344,9 +344,9 @@
         {
           "stem": "In the story, the word generation means —",
           "options": [
-            "a tool used to cut metal",
-            "a kind of lantern",
-            "a family celebration",
+            "a tool used to cut metal in a big workshop",
+            "a kind of lantern that hangs from a tent pole",
+            "a family celebration held each year, with a big meal and gifts",
             "a group of family members living at about the same time"
           ],
           "answer": "D",
@@ -362,9 +362,9 @@
           "stem": "Why did Khalid show Omar how to angle the tool correctly?",
           "options": [
             "Because cutting the pattern needed a steady, careful hand",
-            "Because Omar was cutting wood instead of metal",
-            "Because Grandpa asked him to hurry Omar along",
-            "Because the workshop was too dark to see well"
+            "Because Omar was cutting wood instead of metal, which needs a different tool",
+            "Because Grandpa asked him to hurry Omar along with the work",
+            "Because the workshop was too dark to see well at night"
           ],
           "answer": "A",
           "skill": "inference",
@@ -378,10 +378,10 @@
         {
           "stem": "Why did the pattern finally come out clean and precise?",
           "options": [
-            "Omar bought a better tool",
-            "Khalid finished the pattern for him",
+            "Omar bought a better tool from the market",
+            "Khalid finished the pattern for him in a day",
             "Omar kept practicing patiently every evening",
-            "Grandpa gave Omar more time to rest"
+            "Grandpa gave Omar more time to rest at night"
           ],
           "answer": "C",
           "skill": "inference",
@@ -412,9 +412,9 @@
         {
           "stem": "How does the author organize the events of the story?",
           "options": [
-            "By comparing lanterns from many different countries",
-            "By listing steps for starting a new business",
-            "By describing a trip the family took together",
+            "By comparing lanterns from many different countries, and showing which one is the oldest",
+            "By listing steps for starting a new business, from the first idea to the first sale",
+            "By describing a trip the family took together, from the morning until they came home late",
             "By following Omar's practice and progress in order, from his first idea to the finished gift"
           ],
           "answer": "D",
@@ -506,10 +506,10 @@
         {
           "stem": "What did each symbol in Omar's design specifically represent?",
           "options": [
-            "A different country his family had visited",
+            "A different country his family had visited long ago",
             "A different era of the family's ancestral history with the craft",
-            "A different tool used in the workshop",
-            "A different customer the family had served"
+            "A different tool used in the workshop every day",
+            "A different customer the family had served over many long years"
           ],
           "answer": "B",
           "skill": "detail",
@@ -541,9 +541,9 @@
           "stem": "Based on the story, why did cutting the intricate pattern require years of dedicated practice to master?",
           "options": [
             "Because engraving unforgiving metal demanded a remarkably steady, controlled hand",
-            "Because the brass needed to be imported from far away",
-            "Because Khalid refused to explain the technique clearly",
-            "Because the workshop lacked proper tools for most of the story"
+            "Because the brass needed to be imported from far away, which took many months each time",
+            "Because Khalid refused to explain the technique clearly to anyone who came to ask him",
+            "Because the workshop lacked proper tools for most of the story, so every cut was rough"
           ],
           "answer": "A",
           "skill": "inference",
@@ -557,9 +557,9 @@
         {
           "stem": "What can you infer about Khalid's character from how he responded to Omar's frequent mistakes?",
           "options": [
-            "He grew impatient and eventually took over the work himself",
-            "He believed Omar lacked the talent needed to continue",
-            "He thought mistakes should simply be ignored",
+            "He grew impatient and eventually took over the work himself, and sent Omar home",
+            "He believed Omar lacked the talent needed to continue, so he stopped teaching him",
+            "He thought mistakes should simply be ignored, and he never talked to Omar about them",
             "He remained patient and understanding, valuing steady guidance over criticism"
           ],
           "answer": "D",

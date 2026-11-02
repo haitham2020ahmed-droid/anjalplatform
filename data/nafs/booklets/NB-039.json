@@ -157,10 +157,10 @@
       "type": "MCQ",
       "stem": "Which is another suitable title for the passage?",
       "options": [
-        "How Camels Are Sheared",
+        "How Camels Are Sheared in Spring and Summer",
         "Threads of Heritage: The Art of Al Sadu",
-        "Factory Fabrics in Modern Towns",
-        "The Life of the Gazelle"
+        "Factory Fabrics in Modern Towns and Cities",
+        "The Life of the Gazelle in the Desert"
       ],
       "answer": "B",
       "why": "The passage describes the whole craft of Al Sadu and its value as heritage; the other titles are minor details or not in the text."
@@ -270,9 +270,9 @@
       "stem": "According to paragraph 3, what tool did weavers traditionally use to press each row into place?",
       "options": [
         "a pointed tool made from a gazelle's horn",
-        "a hand spindle",
-        "a wooden pole fastened in the sand",
-        "a metal needle"
+        "a hand spindle made of wood and stone",
+        "a wooden pole fastened in the sand and tied",
+        "a metal needle with a sharp tip"
       ],
       "answer": "A",
       "why": "“She presses every new row tightly into place with a pointed tool that was traditionally made from a gazelle's horn.” The spindle was for spinning."
@@ -461,9 +461,9 @@
       "type": "MCQ",
       "stem": "What most likely motivated the writer to write this passage?",
       "options": [
-        "to complain about Bedouin life",
-        "to advertise factory-made fabrics",
-        "to explain how to care for goats",
+        "to complain about Bedouin life in the hot and dry desert",
+        "to advertise factory-made fabrics in new shops",
+        "to explain how to care for goats during the winter",
         "to raise awareness of a craft that could be forgotten"
       ],
       "answer": "D",
@@ -493,10 +493,10 @@
       "type": "MCQ",
       "stem": "In your opinion, which information in the passage is the LEAST clear?",
       "options": [
-        "which animals provided the fibres",
-        "why the cloth is so strong",
+        "which animals provided the fibres for the cloth",
+        "why the cloth is so strong and so soft",
         "which plants were used to make the dyes",
-        "where the loom is placed"
+        "where the loom is placed in the village house"
       ],
       "answer": "C",
       "why": "The passage only says the colours were “obtained from plants” without naming them; the other points are clearly stated."
@@ -526,9 +526,9 @@
       "stem": "Which title best describes the content of the passage?",
       "options": [
         "From Fleece to Tent: A Desert Craft",
-        "The Lost Gazelle",
-        "Shopping for Fabric",
-        "A Day at the Factory"
+        "The Lost Gazelle of the Desert",
+        "Shopping for Fabric in the Market",
+        "A Day at the Factory in Town"
       ],
       "answer": "A",
       "why": "The passage follows the craft from the animals' fleece to tents, rugs and saddlebags."
@@ -556,10 +556,10 @@
       "type": "MCQ",
       "stem": "Based on the passage, which action would help to keep Al Sadu alive?",
       "options": [
-        "Buying only factory-made rugs.",
-        "Throwing away old Sadu cushions.",
+        "Buying only factory-made rugs from shops.",
+        "Throwing away old Sadu cushions and mats.",
         "Joining a workshop to learn the craft.",
-        "None of the above"
+        "Choosing none of the old crafts, only machines."
       ],
       "answer": "C",
       "why": "Learning the skill in a workshop passes it on; the other actions make the craft more likely to disappear."

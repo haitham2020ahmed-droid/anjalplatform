@@ -129,9 +129,9 @@
      "stem": "What does \"cost an arm and a leg\" mean?",
      "options": [
       "Cost a lot of money",
-      "Hurt your arm",
-      "Cost very little",
-      "Fit your legs"
+      "Hurt your arm badly",
+      "Cost very little money",
+      "Fit your legs well"
      ],
      "answer": 0,
      "why": "The next sentence says Mom paid a lot of money. That is the meaning."
@@ -348,9 +348,9 @@
      "stem": "What does \"rock the boat\" mean?",
      "options": [
       "Cause trouble by disagreeing",
-      "Go sailing",
-      "Make a loud noise",
-      "Change his seat"
+      "Go sailing in a small boat",
+      "Make a loud noise on the boat",
+      "Change his seat on the boat"
      ],
      "answer": 0,
      "why": "Bilal kept quiet and agreed so there would be no conflict. Rocking the boat means upsetting a calm situation."

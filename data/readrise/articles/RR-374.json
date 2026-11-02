@@ -114,10 +114,10 @@
         {
           "stem": "What is this story mostly about?",
           "options": [
-            "A grasshopper that quickly moves to a new field",
+            "A grasshopper that quickly moves to a new field to find greener grass to eat",
             "An ant who stores food, and a grasshopper who learns a lesson",
-            "A farmer who plants fresh corn every single spring",
-            "Two ants that build a nest together underground"
+            "A farmer who plants fresh corn every single spring and waits for the rain",
+            "Two ants that build a nest together underground, then dig long tunnels"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -200,9 +200,9 @@
           "stem": "What does the grasshopper's laughing at the ant show about him?",
           "options": [
             "He does not think ahead about what winter will bring",
-            "He is the smartest animal in the whole field",
-            "He already has food saved for the winter",
-            "He plans to help the ant with her work"
+            "He is the smartest animal in the whole field, and he knows best",
+            "He already has food saved for the winter in his house",
+            "He plans to help the ant with her work in the field"
           ],
           "answer": "A",
           "skill": "inference",
@@ -233,7 +233,7 @@
         {
           "stem": "Why does the author show the ant inviting the grasshopper to prepare, and the grasshopper refusing?",
           "options": [
-            "To show that singing is more useful than working",
+            "To show that singing is more useful than working in the summer",
             "To explain how ants build their underground homes",
             "To set up the difference that leads to the story's lesson",
             "To describe what the field looks like in summer"
@@ -296,7 +296,7 @@
             "A grasshopper and an ant compete in a running race every season",
             "An ant's habit of storing food contrasts sharply with a grasshopper's choices",
             "A kind farmer teaches the field's insects how to harvest crops",
-            "Two clever insects build a shared home for the whole winter"
+            "Two clever insects build a shared home together for the whole long winter"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -412,10 +412,10 @@
         {
           "stem": "How does the author organize the events of the story?",
           "options": [
-            "By comparing two separate harvest festivals",
+            "By comparing two separate harvest festivals in the town",
             "By showing summer choices, then their winter results",
-            "By listing facts about insects in general",
-            "By telling the ending before the beginning"
+            "By listing facts about insects in general and their homes",
+            "By telling the ending before the beginning of the tale"
           ],
           "answer": "B",
           "skill": "text-structure",
@@ -558,9 +558,9 @@
           "stem": "How does the grasshopper's attitude toward preparation compare with the ant's?",
           "options": [
             "The ant values preparation, while the grasshopper dismisses it entirely",
-            "Both insects equally value careful preparation all season",
-            "The grasshopper actually prepares more carefully than the ant",
-            "Neither insect ever thinks preparation matters at all"
+            "Both insects equally value careful preparation all season long",
+            "The grasshopper actually prepares more carefully than the ant does",
+            "Neither insect ever thinks preparation matters at all, they say"
           ],
           "answer": "A",
           "skill": "compare",

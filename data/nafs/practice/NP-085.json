@@ -157,10 +157,10 @@
       "difficulty": 3,
       "stem": "Which title would BEST fit this passage?",
       "options": [
-        "How to Grow Tea in the Desert",
+        "How to Grow Tea in the Desert Sand",
         "A Cup of History: Coffee in Arabia",
-        "The Ships of the Red Sea",
-        "Famous Poets of Istanbul"
+        "The Ships of the Red Sea and Gulf",
+        "Famous Poets of Istanbul and Cairo"
       ],
       "answer": "B",
       "why": "The passage traces the history and traditions of coffee in Arabia."

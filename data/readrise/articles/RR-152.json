@@ -165,9 +165,9 @@
         {
           "stem": "In the article, what does the word melt mean?",
           "options": [
-            "To get very cold",
-            "To keep the same shape",
-            "To float on top of water",
+            "To get very cold and hard like ice",
+            "To keep the same shape in the heat",
+            "To float on top of water like oil",
             "To change from a solid to a liquid"
           ],
           "answer": "D",
@@ -234,9 +234,9 @@
           "stem": "Why does the author tell about snow in the north of Saudi Arabia?",
           "options": [
             "To show that melting happens in nature close to home",
-            "To tell readers to visit in summer",
-            "To explain how to build a snowman",
-            "To show that it is always cold there"
+            "To tell readers to visit the north in summer",
+            "To explain how to build a snowman with a friend",
+            "To show that it is always cold there in the north"
           ],
           "answer": "A",
           "skill": "author-purpose",
@@ -293,8 +293,8 @@
         {
           "stem": "Which sentence best states the main idea of the article?",
           "options": [
-            "Ice cubes are the best way to cool a drink.",
-            "Fish need lakes that never freeze.",
+            "Ice cubes are the best way to cool a drink, because they melt very slowly and never warm up.",
+            "Fish need lakes that never freeze, or else they cannot find food in the winter at all.",
             "Heat changes water between solid and liquid, and water behaves in some unusual ways.",
             "Iron and chocolate are made of exactly the same kind of tiny particles."
           ],
@@ -311,9 +311,9 @@
           "stem": "How are the particles in a solid arranged?",
           "options": [
             "They are packed tightly and shake in place.",
-            "They slide past one another freely.",
-            "They float far apart from each other.",
-            "They do not move at all, ever."
+            "They slide past one another freely and quickly",
+            "They float far apart from each other in the air",
+            "They do not move at all, ever, even when heated"
           ],
           "answer": "A",
           "skill": "detail",
@@ -378,9 +378,9 @@
         {
           "stem": "Why does ice float on water?",
           "options": [
-            "It is colder than the water.",
-            "It has air bubbles from the freezer.",
-            "Its particles move faster than water's.",
+            "It is colder than the water, so it rises to the top of the cup.",
+            "It has air bubbles from the freezer that make it light and full.",
+            "Its particles move faster than water's, so it is pushed up by them.",
             "It takes up more space, so it is lighter than the same amount of water."
           ],
           "answer": "D",
@@ -472,10 +472,10 @@
         {
           "stem": "What is the central idea of the article?",
           "options": [
-            "Ice is dangerous because it cracks bottles.",
+            "Ice is dangerous because it cracks bottles, so people should never put any drinks in a freezer.",
             "Freezing and melting are reversible changes caused by heat, and water's unusual expansion has important effects.",
-            "Chocolate and iron melt at the same temperature.",
-            "Snow in Tabuk proves that Saudi Arabia is a cold country."
+            "Chocolate and iron melt at the same temperature, which is why both are used in the same factories.",
+            "Snow in Tabuk proves that Saudi Arabia is a cold country, and so people there never feel any heat in the whole year."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -540,10 +540,10 @@
         {
           "stem": "A glass of ice water stays near zero degrees until the ice is gone. What best explains this?",
           "options": [
-            "The glass blocks all heat from entering.",
+            "The glass blocks all heat from entering the water inside it.",
             "The heat being absorbed is used to break the ice crystals apart.",
-            "Water cannot ever be warmer than zero degrees.",
-            "The ice releases heat into the water."
+            "Water cannot ever be warmer than zero degrees in a glass cup.",
+            "The ice releases heat into the water as it melts."
           ],
           "answer": "B",
           "skill": "inference",
@@ -557,9 +557,9 @@
         {
           "stem": "Chocolate stays firm in a cool room but melts in your mouth. What can you infer?",
           "options": [
-            "Chocolate has no melting point.",
-            "Your mouth is colder than the room.",
-            "Chocolate is denser than iron.",
+            "Chocolate has no melting point, so it never melts at all, even in a hot room",
+            "Your mouth is colder than the room, so chocolate melts there and not outside",
+            "Chocolate is denser than iron, and so it melts in your mouth but stays firm in the room",
             "Its melting point is between room temperature and body temperature."
           ],
           "answer": "D",

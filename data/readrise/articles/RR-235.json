@@ -88,7 +88,7 @@
       "questions": [
         {
           "stem": "What is this article mostly about?",
-          "options": ["The eight planets that orbit the Sun and how they are grouped", "How the Sun gives off its light and heat to Earth", "How small asteroids are formed in deep space", "Why the Earth has just one moon circling it"],
+          "options": ["The eight planets that orbit the Sun and how they are grouped", "How the Sun gives off its light and heat to Earth each day", "How small asteroids are formed in deep space from dust", "Why the Earth has just one moon circling it in the sky"],
           "answer": "A",
           "skill": "central-idea",
           "why": "The article describes the Sun, the eight planets, the two main groups, and the asteroid belt between them.",
@@ -112,7 +112,7 @@
         },
         {
           "stem": "Read: \"This path is called an orbit.\" What does orbit mean?",
-          "options": ["A bright light that shines in the night sky", "A kind of hard rock found out in space", "A giant swirling ball made of gas", "The curved path an object follows around something else"],
+          "options": ["A bright light that shines in the night sky above", "A kind of hard rock that is found out in deep space", "A giant swirling ball that is made of hot gas", "The curved path an object follows around something else"],
           "answer": "D",
           "skill": "vocabulary",
           "why": "The sentence explains that the path a planet follows around the Sun is called its orbit.",
@@ -128,7 +128,7 @@
         },
         {
           "stem": "Why is the asteroid belt a good way to divide the solar system into two groups?",
-          "options": ["Because it is made of gas like the giant planets", "Because it sits between the rocky planets and the giant planets", "Because it holds the Sun at its very center", "Because it lies much closer to Earth than Mars"],
+          "options": ["Because it is made of gas like the giant planets are, and it is very large", "Because it sits between the rocky planets and the giant planets", "Because it holds the Sun at its very center of space", "Because it lies much closer to Earth than Mars does"],
           "answer": "B",
           "skill": "inference",
           "why": "The asteroid belt lies right between the small rocky planets and the much bigger giant planets.",
@@ -166,7 +166,7 @@
       "questions": [
         {
           "stem": "Which sentence best states the central idea of the article?",
-          "options": ["The solar system is made up of the Sun, eight planets in two main groups, and the asteroid belt between them.", "Mercury is the planet closest to the Sun, and that fact is all that really matters here.", "Light from the Sun always takes exactly the same amount of time to reach every single planet.", "Only the four terrestrial planets truly count as part of the solar system at all."],
+          "options": ["The solar system is made up of the Sun, eight planets in two main groups, and the asteroid belt between them.", "Mercury is the planet closest to the Sun, and that fact is all that really matters here for the study of space and stars.", "Light from the Sun always takes exactly the same amount of time to reach every single planet in the system.", "Only the four terrestrial planets truly count as part of the solar system at all, and the rest are not planets."],
           "answer": "A",
           "skill": "central-idea",
           "why": "The article covers the Sun, the terrestrial planets, the asteroid belt, and the giant planets as parts of one system.",
@@ -182,7 +182,7 @@
         },
         {
           "stem": "About how long does sunlight take to reach Neptune, compared with Earth?",
-          "options": ["About the same amount of time, roughly eight minutes", "Less time than it takes sunlight to reach Earth", "More than four hours, much longer than the eight minutes to Earth", "Exactly one full day, according to the article"],
+          "options": ["About the same amount of time, roughly eight minutes", "Less time than it takes sunlight to reach Earth, which is much closer", "More than four hours, much longer than the eight minutes to Earth", "Exactly one full day, according to the article, because Neptune is far"],
           "answer": "C",
           "skill": "detail",
           "why": "The article says sunlight takes about eight minutes to reach Earth but more than four hours to reach Neptune.",
@@ -198,7 +198,7 @@
         },
         {
           "stem": "Why does the asteroid belt contain so many leftover chunks of rock and metal?",
-          "options": ["Because astronauts left behind spacecraft trash there", "Because material from the solar system's early formation never joined into a planet", "Because a whole planet exploded there very recently", "Because the Sun's gravity pushed rocks there from Earth"],
+          "options": ["Because astronauts left behind spacecraft trash there during their missions to Mars", "Because material from the solar system's early formation never joined into a planet", "Because a whole planet exploded there very recently, only a few years ago", "Because the Sun's gravity pushed rocks there from Earth long ago in a huge storm"],
           "answer": "B",
           "skill": "inference",
           "why": "The article explains the rocks are left over from when the solar system first formed.",
@@ -214,7 +214,7 @@
         },
         {
           "stem": "How does the author mainly organize the article?",
-          "options": ["By describing the solar system's parts in order, moving outward from the Sun", "By comparing Earth closely to a planet in another solar system", "By listing problems that astronauts face while living in space", "By telling the life story of one single famous astronomer"],
+          "options": ["By describing the solar system's parts in order, moving outward from the Sun", "By comparing Earth closely to a planet in another solar system, one fact at a time", "By listing problems that astronauts face while living in space, one problem at a time", "By telling the life story of one single famous astronomer, from birth until old age"],
           "answer": "A",
           "skill": "text-structure",
           "why": "The article moves from the Sun, to the terrestrial planets, to the asteroid belt, to the giant planets.",
@@ -244,7 +244,7 @@
       "questions": [
         {
           "stem": "Which statement best expresses the central idea of the article?",
-          "options": ["The solar system is a vast system dominated by the Sun, with planets whose composition and location sort them into two major groups.", "Every single planet in the solar system has roughly the same composition as Earth does.", "The asteroid belt is actually the largest single object in the whole solar system.", "Elliptical orbits are found only in other distant solar systems, never in our own."],
+          "options": ["The solar system is a vast system dominated by the Sun, with planets whose composition and location sort them into two major groups.", "Every single planet in the solar system has roughly the same composition as Earth does, with rock and water.", "The asteroid belt is actually the largest single object in the whole solar system, bigger than the Sun itself.", "Elliptical orbits are found only in other distant solar systems, never in our own, where all the planets move in perfect circles."],
           "answer": "A",
           "skill": "central-idea",
           "why": "The article explains the Sun's dominance, the elliptical orbits, and the two groups of planets sorted by composition.",
@@ -260,7 +260,7 @@
         },
         {
           "stem": "What shape are the planets' orbits around the Sun, according to the article?",
-          "options": ["Perfectly circular and round", "Elliptical, like a slightly stretched circle", "Shaped roughly like a straight line", "Shaped like a perfect square"],
+          "options": ["Perfectly circular and round, like a coin or a plate", "Elliptical, like a slightly stretched circle", "Shaped roughly like a straight line from the Sun to Pluto", "Shaped like a perfect square with four sharp corners"],
           "answer": "B",
           "skill": "detail",
           "why": "The article explains that each orbit is elliptical, meaning a slightly stretched circle.",

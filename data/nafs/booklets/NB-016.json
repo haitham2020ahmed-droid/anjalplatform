@@ -175,8 +175,8 @@
       "options": [
         "to give an exact recipe for bread",
         "to show the value of patience and sharing",
-        "to describe life in a big city",
-        "to explain how ovens work"
+        "to describe life in a big busy city",
+        "to explain how clay ovens work in homes"
       ],
       "answer": "B",
       "why": "Through Sami's lesson, the story teaches patience and sharing; it does not give exact amounts, so it is not a recipe."
@@ -205,9 +205,9 @@
       "type": "MCQ",
       "stem": "According to paragraph 3, why must the water never be hot?",
       "options": [
-        "It burns the bowl",
-        "It makes the bread too salty",
-        "It dries out the flour",
+        "It burns the bowl of the baker in the hot oven",
+        "It makes the bread too salty to eat at lunch",
+        "It dries out the flour in the bag on the shelf",
         "It kills the yeast, so the dough will not rise"
       ],
       "answer": "D",
@@ -221,10 +221,10 @@
       "type": "MCQ",
       "stem": "Which features show that this text is a narrative story?",
       "options": [
-        "facts, headings and diagrams",
+        "facts, headings and diagrams with labels",
         "characters, events, dialogue and a lesson",
-        "rhyming lines and verses",
-        "a list of numbered steps"
+        "rhyming lines and verses in groups",
+        "a list of numbered steps and tools"
       ],
       "answer": "B",
       "why": "It tells events with characters, dialogue and a lesson, so it is a narrative story, even though it includes some baking steps."
@@ -269,9 +269,9 @@
       "type": "MCQ",
       "stem": "Who tells this story?",
       "options": [
-        "Sami",
-        "Grandma Noura",
-        "Umm Fahad",
+        "Sami, the boy in the story",
+        "Grandma Noura, an old woman",
+        "Umm Fahad, a neighbour",
         "a narrator outside the story"
       ],
       "answer": "D",
@@ -285,10 +285,10 @@
       "type": "MCQ",
       "stem": "How did Grandma know the dough was ready?",
       "options": [
-        "It turned golden brown",
-        "It became very sticky",
+        "It turned golden brown on the top",
+        "It became very sticky in the bowl",
         "It sprang back when she pressed it",
-        "It doubled in size"
+        "It doubled in size by the morning"
       ],
       "answer": "C",
       "why": "Paragraph 5 says she pressed it with her finger and it gently sprang back; it doubled in size later, after resting."
@@ -302,9 +302,9 @@
       "stem": "What caused the dough to double in size?",
       "options": [
         "It rested in a warm place while the yeast worked",
-        "Sami added more flour to it",
-        "Grandma poured in hot water",
-        "It was put straight into the oven"
+        "Sami added more flour to it before putting it in a bowl",
+        "Grandma poured in hot water and then covered the pan",
+        "It was put straight into the oven without any waiting"
       ],
       "answer": "A",
       "why": "Paragraph 3 explains that the yeast makes the dough rise, and paragraph 5 shows it resting for an hour in a warm corner."
@@ -317,10 +317,10 @@
       "type": "MCQ",
       "stem": "In your opinion, what most makes the reader want to keep reading the story?",
       "options": [
-        "a long list of kitchen tools",
+        "a long list of kitchen tools and pots",
         "wanting to know if Sami will be patient",
-        "the exact weight of the flour",
-        "the history of the clay oven"
+        "the exact weight of the flour in the bowl",
+        "the history of the clay oven in the town"
       ],
       "answer": "B",
       "why": "The reader wonders whether impatient Sami will wait and succeed."
@@ -349,10 +349,10 @@
       "type": "MCQ",
       "stem": "How was baking in Grandma's childhood different from baking in her kitchen today?",
       "options": [
-        "Children were not allowed to bake",
-        "Bread was bought from shops",
+        "Children were not allowed to bake in the kitchen",
+        "Bread was bought from shops in the town square",
         "Neighbouring families baked together in a clay oven",
-        "Nobody shared their bread"
+        "Nobody shared their bread with anyone"
       ],
       "answer": "C",
       "why": "Paragraph 7 says families in the village baked bread together in an enormous clay oven."
@@ -397,9 +397,9 @@
       "type": "MCQ",
       "stem": "What does “her eyes shone like two bright lanterns” tell us about Grandma?",
       "options": [
-        "She was very tired",
-        "She could not see well",
-        "She was angry with Sami",
+        "She was very tired and sleepy",
+        "She could not see well in the dark",
+        "She was angry with Sami again",
         "She was happy and warm-hearted"
       ],
       "answer": "D",
@@ -413,10 +413,10 @@
       "type": "MCQ",
       "stem": "Why does the writer end the first sentence of paragraph 8 with an exclamation mark?",
       "options": [
-        "to show that Grandma is angry",
-        "to ask the reader a question",
+        "to show that Grandma is angry with him",
+        "to ask the reader a question about Sami",
         "to show Sami's surprise and excitement",
-        "to give Sami an order"
+        "to give Sami an order to be quiet"
       ],
       "answer": "C",
       "why": "The exclamatory sentence expresses Sami's amazement that the dough had doubled in size."
@@ -430,9 +430,9 @@
       "stem": "What is your opinion of the way the writer describes the kitchen?",
       "options": [
         "Smells, textures and comparisons make it come alive",
-        "It gives no details about the kitchen",
-        "It uses only numbers and measurements",
-        "It describes a place we never see"
+        "It gives no details about the kitchen at all in the story",
+        "It uses only numbers and measurements to tell the story",
+        "It describes a place we never see in the story at all"
       ],
       "answer": "A",
       "why": "Details such as the comforting aroma, the golden fragrance and dough smooth like a baby's cheek help readers imagine the scene."
@@ -461,10 +461,10 @@
       "type": "MCQ",
       "stem": "What do you think motivated the writer to write this story?",
       "options": [
-        "to complain about cooking",
+        "to complain about cooking every day in the family kitchen",
         "to celebrate traditions passed between generations",
-        "to advertise a bakery",
-        "to warn children about ovens"
+        "to advertise a bakery that opened in town",
+        "to warn children about ovens and hot trays"
       ],
       "answer": "B",
       "why": "The story celebrates a recipe passed from Grandma's mother to Grandma and now to Sami."

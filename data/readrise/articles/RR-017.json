@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How to make ice in a freezer",
+            "How to make ice in a freezer at home with water",
             "The three forms of matter and how they change",
-            "Why rocks are harder than wood",
-            "How to drink more water on hot days"
+            "Why rocks are harder than wood and softer than steel",
+            "How to drink more water on hot days at school"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -131,10 +131,10 @@
         {
           "stem": "What does a liquid do when you pour it into a cup?",
           "options": [
-            "It keeps its own shape.",
-            "It turns into a gas.",
+            "It keeps its own shape like a block.",
+            "It turns into a gas in the cup.",
             "It takes the shape of the cup.",
-            "It gets hard like a rock."
+            "It gets hard like a rock in the cup."
           ],
           "answer": "C",
           "skill": "detail",
@@ -165,9 +165,9 @@
         {
           "stem": "The article says heat makes ice melt. What does melt mean?",
           "options": [
-            "To get colder and harder",
-            "To break into small pieces",
-            "To float to the top of water",
+            "To get colder and harder in the freezer",
+            "To break into small pieces on the ground",
+            "To float to the top of water in a cup",
             "To change from a solid to a liquid"
           ],
           "answer": "D",
@@ -233,10 +233,10 @@
         {
           "stem": "How does the author explain each form of matter?",
           "options": [
-            "By telling a story about one family",
+            "By telling a story about one family who finds a rock, milk, and air",
             "By giving an example for each form, like a rock, milk, and air",
-            "By listing the forms from oldest to newest",
-            "By asking the reader many questions with no answers"
+            "By listing the forms from oldest to newest in time",
+            "By asking the reader many questions with no answers at all"
           ],
           "answer": "B",
           "skill": "text-structure",
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
-            "Water is the only kind of matter that can change.",
+            "Water is the only kind of matter that can change, while all other matter stays fixed.",
             "Matter comes in three states that behave differently and can change with heating or cooling.",
-            "Gases are more useful than solids and liquids.",
-            "Saudi Arabia has more water than any other country."
+            "Gases are more useful than solids and liquids, because they fill every space around us.",
+            "Saudi Arabia has more water than any other country, in its seas, rivers and lakes."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -344,9 +344,9 @@
         {
           "stem": "In a solid, particles can only vibrate in place. What does vibrate mean here?",
           "options": [
-            "Grow bigger and bigger",
+            "Grow bigger and bigger in size every day",
             "Shake back and forth in a small space",
-            "Float slowly upward",
+            "Float slowly upward in the air",
             "Join together into one piece"
           ],
           "answer": "B",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
-            "Desalination is the only way to produce drinking water.",
+            "Desalination is the only way to produce drinking water for all the people on Earth.",
             "The movement of particles explains how the three states of matter behave and change.",
-            "Gases are dangerous because they can be compressed.",
-            "Ice is the most important solid on Earth."
+            "Gases are dangerous because they can be compressed into small metal tanks.",
+            "Ice is the most important solid on Earth because it covers the poles."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -507,9 +507,9 @@
           "stem": "Why can a single pressurized tank fill dozens of balloons?",
           "options": [
             "Because a gas can be compressed into a smaller space",
-            "Because the tank makes new air",
-            "Because balloons turn liquid into gas",
-            "Because air becomes a solid inside the tank"
+            "Because the tank makes new air each time it is opened",
+            "Because balloons turn liquid into gas as they get bigger",
+            "Because air becomes a solid inside the tank and then melts"
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -540,10 +540,10 @@
         {
           "stem": "Which detail best supports the idea that a liquid has a definite volume?",
           "options": [
-            "Juice flows and can be poured.",
-            "Steam rises from a pot of rice.",
+            "Juice flows and can be poured from a bottle into a cup, so it takes any shape.",
+            "Steam rises from a pot of rice on the stove, and it spreads out in the room.",
             "A cup of juice in a tall bottle is still one cup of juice.",
-            "Most gases are invisible."
+            "Most gases are invisible and have no color, so we cannot see them at all."
           ],
           "answer": "C",
           "skill": "detail",
@@ -574,9 +574,9 @@
         {
           "stem": "What can be inferred about the particles in a puddle that evaporates on a sunny afternoon?",
           "options": [
-            "They lose all their energy and stop moving.",
-            "They become packed more tightly together.",
-            "They turn into salt and stay on the ground.",
+            "They lose all their energy and stop moving completely.",
+            "They become packed more tightly together in the puddle.",
+            "They turn into salt and stay on the ground as dust.",
             "Some gain enough energy to escape into the air as a gas."
           ],
           "answer": "D",

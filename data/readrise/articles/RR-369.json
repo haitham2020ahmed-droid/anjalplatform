@@ -115,9 +115,9 @@
           "stem": "What is this story mostly about?",
           "options": [
             "Two brothers who drift from their boat and swim safely back using a landmark",
-            "How to build a sandcastle",
-            "A boy who learns to fish with his uncle",
-            "A race between two swimmers"
+            "How to build a sandcastle on the beach with wet sand and buckets, then add a flag on top",
+            "A boy who learns to fish with his uncle on a quiet lake early in the morning before school",
+            "A race between two swimmers at the school pool in the summer that ends in a tie at last"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -166,9 +166,9 @@
           "stem": "What happens right after Yousef notices the boat is gone?",
           "options": [
             "Faisal tells him not to panic and to find the flag",
-            "He panics and cries",
-            "Uncle Khalid jumps in the water",
-            "The boys swim straight out to sea"
+            "He panics and cries for help from Uncle Khalid",
+            "Uncle Khalid jumps in the water to look for it",
+            "The boys swim straight out to sea to find the boat"
           ],
           "answer": "A",
           "skill": "sequence",
@@ -182,10 +182,10 @@
         {
           "stem": "Why do the boys swim to the side instead of straight ahead?",
           "options": [
-            "It is faster to swim to the side",
+            "It is faster to swim to the side than to swim straight ahead",
             "This helps them move with the current instead of against it",
-            "They want to see more fish",
-            "Faisal cannot swim straight"
+            "They want to see more fish near the coral reef",
+            "Faisal cannot swim straight, so he turns sideways"
           ],
           "answer": "B",
           "skill": "inference",
@@ -216,10 +216,10 @@
         {
           "stem": "In the story, a current is —",
           "options": [
-            "a kind of fish",
-            "a red flag on the beach",
+            "a kind of fish that lives in the deep sea",
+            "a red flag on the beach that warns swimmers",
             "water that moves steadily in one direction",
-            "a rubber shoe for swimming"
+            "a rubber shoe for swimming in cold water"
           ],
           "answer": "C",
           "skill": "vocabulary",
@@ -294,9 +294,9 @@
           "stem": "Which sentence best states the central idea of the story?",
           "options": [
             "Two brothers accidentally drift away from their boat while snorkeling, but they use a landmark and swim smartly to reach shore safely",
-            "Fishing boats in the Red Sea are dangerous to ride in",
-            "Clownfish and parrotfish are the most colorful fish in the sea",
-            "Uncle Khalid teaches his nephews how to build a boat"
+            "Fishing boats in the Red Sea are dangerous to ride in, so the brothers stay on the shore and the uncle goes out alone to fish for the day",
+            "Clownfish and parrotfish are the most colorful fish in the sea, and the brothers spend the whole day looking at them and drawing them in the sand",
+            "Uncle Khalid teaches his nephews how to build a boat, and they sail it across the Red Sea to a faraway island, where they find a treasure and come home"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -310,10 +310,10 @@
         {
           "stem": "What does Uncle Khalid tell the boys before they get in the water?",
           "options": [
-            "To swim as far as they can from the boat",
-            "To never go snorkeling again",
+            "To swim as far as they can from the boat to find more fish",
+            "To never go snorkeling again after they see the fish",
             "To stay close to the boat and watch for the red flag if separated",
-            "To catch as many fish as possible"
+            "To catch as many fish as possible and bring them to the boat"
           ],
           "answer": "C",
           "skill": "detail",
@@ -345,9 +345,9 @@
           "stem": "What causes the boys to drift far from the boat?",
           "options": [
             "A current carries them sideways while they are busy watching the fish",
-            "Uncle Khalid tells them to swim farther",
-            "A storm pushes their boat away",
-            "The boys fall asleep in the water"
+            "Uncle Khalid tells them to swim farther away from the boat",
+            "A storm pushes their boat away from the shore and into the sea",
+            "The boys fall asleep in the water while they float on their backs"
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -361,10 +361,10 @@
         {
           "stem": "Why does Faisal tell Yousef not to panic?",
           "options": [
-            "Because panicking would make Yousef swim faster",
+            "Because panicking would make Yousef swim faster than the waves",
             "Because staying calm helps them think clearly and find the landmark",
-            "Because Uncle Khalid told Faisal to say that",
-            "Because Yousef was not really scared"
+            "Because Uncle Khalid told Faisal to say that to Yousef",
+            "Because Yousef was not really scared of the dark water"
           ],
           "answer": "B",
           "skill": "inference",
@@ -489,10 +489,10 @@
         {
           "stem": "According to Uncle Khalid's explanation, what should a swimmer do if caught in a current?",
           "options": [
-            "Swim as fast as possible straight out to sea",
-            "Dive underwater until the current passes",
+            "Swim as fast as possible straight out to sea, away from the shore",
+            "Dive underwater until the current passes and then come up again",
             "Swim diagonally, cutting across the current toward shore",
-            "Call loudly for help and wait without moving"
+            "Call loudly for help and wait without moving in the water"
           ],
           "answer": "C",
           "skill": "detail",
@@ -506,9 +506,9 @@
         {
           "stem": "In the passage, the word disoriented most nearly means —",
           "options": [
-            "excited and eager",
-            "completely exhausted",
-            "deeply relieved",
+            "excited and eager to start the trip",
+            "completely exhausted after a long day",
+            "deeply relieved to be home again",
             "confused about direction or location"
           ],
           "answer": "D",
@@ -524,9 +524,9 @@
           "stem": "Why does the current pull the boys sideways rather than straight out to sea?",
           "options": [
             "Because a longshore current moves water parallel to the shoreline, often caused by water funneling through gaps in the reef",
-            "Because the boys deliberately swim sideways",
-            "Because the boat's engine creates waves",
-            "Because the tide table printed in the newspaper was wrong"
+            "Because the boys deliberately swim sideways, since they want to look for a safer place to come back to the beach near the old pier",
+            "Because the boat's engine creates waves that push the swimmers along the shore, away from the wide open sea",
+            "Because the tide table printed in the newspaper was wrong about the time of the high tide that morning"
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -540,10 +540,10 @@
         {
           "stem": "What can be inferred about Faisal's character from his reaction when the boat disappears from view?",
           "options": [
-            "He is more afraid than Yousef and cannot think",
-            "He blames Yousef for swimming too far",
+            "He is more afraid than Yousef and cannot think, so he waits for someone else to help them",
+            "He blames Yousef for swimming too far and tells him that the whole trouble is his fault",
             "He manages to stay outwardly calm to help his brother, even while his own heart is pounding",
-            "He decides to swim back to the boat alone, leaving Yousef behind"
+            "He decides to swim back to the boat alone, leaving Yousef behind in the dark"
           ],
           "answer": "C",
           "skill": "inference",
@@ -574,10 +574,10 @@
         {
           "stem": "How is Faisal's role in the story different from Yousef's?",
           "options": [
-            "Faisal refuses to swim and waits for rescue, while Yousef swims alone",
+            "Faisal refuses to swim and waits for rescue, while Yousef swims alone to the shore, calling for help from the others and crying",
             "Faisal mostly offers steadying words and models composure, while Yousef struggles more visibly with fear before calming down",
-            "Faisal is the one who panics, while Yousef stays calm and leads the swim",
-            "Faisal and Yousef have identical reactions with absolutely no differences between them at all"
+            "Faisal is the one who panics, while Yousef stays calm and leads the swim, with kind words and a steady hand for his friend",
+            "Faisal and Yousef have identical reactions with absolutely no differences between them at all, and both feel the same way"
           ],
           "answer": "B",
           "skill": "compare",

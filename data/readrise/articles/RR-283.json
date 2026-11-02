@@ -131,10 +131,10 @@
         {
           "stem": "Why does a student bow before stepping onto the mat?",
           "options": [
-            "To warm up the body before class",
-            "To ask the coach for a new belt",
+            "To warm up the body before class begins at the school",
+            "To ask the coach for a new belt after the lesson",
             "To show respect for the coach and partner",
-            "To end the practice early that day"
+            "To end the practice early that day and go home"
           ],
           "answer": "C",
           "skill": "detail",
@@ -293,9 +293,9 @@
         {
           "stem": "What is the central idea of the article?",
           "options": [
-            "Martial arts have no rules at all about safety or contact",
-            "Martial arts exist only for people who want to fight others",
-            "Belts are really the only important part of any martial art",
+            "Martial arts have no rules at all about safety or contact, so injuries are common",
+            "Martial arts exist only for people who want to fight others in the street",
+            "Belts are really the only important part of any martial art, not the training",
             "Martial arts build discipline and respect, and some are Olympic sports"
           ],
           "answer": "D",
@@ -327,10 +327,10 @@
         {
           "stem": "Why do students repeat the same movement hundreds of times?",
           "options": [
-            "So students can skip their next belt test",
-            "So the coach ends up with less to teach",
+            "So students can skip their next belt test next week",
+            "So the coach ends up with less to teach each year",
             "So it becomes smooth, balanced, and precise technique",
-            "So the whole match ends a bit sooner"
+            "So the whole match ends a bit sooner than planned"
           ],
           "answer": "C",
           "skill": "cause-effect",
@@ -473,9 +473,9 @@
           "stem": "Which statement best summarizes the article?",
           "options": [
             "Martial arts combine discipline, respect, and sportsmanship as a modern sport",
-            "Martial arts are dangerous activities that follow no real rules",
-            "Belts are simply awarded at random, without any testing",
-            "Only trained Olympic athletes are allowed to practice at all"
+            "Martial arts are dangerous activities that follow no real rules or safety at all",
+            "Belts are simply awarded at random, without any testing or any skill from students",
+            "Only trained Olympic athletes are allowed to practice at all in the martial arts clubs"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -524,9 +524,9 @@
           "stem": "Why do coaches closely supervise students during training?",
           "options": [
             "So controlled technique stays smooth, balanced, and safe",
-            "So that students are able to skip the warm-up",
-            "So that matches can end much more quickly",
-            "So that belts change color on their own somehow"
+            "So that students are able to skip the warm-up before each class",
+            "So that matches can end much more quickly for the coach",
+            "So that belts change color on their own somehow after a lesson"
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -591,10 +591,10 @@
         {
           "stem": "How is the article organized?",
           "options": [
-            "As a simple list of rules for one tournament",
+            "As a simple list of rules for one tournament held every year",
             "From respect, to belts and training, to history and modern sport",
-            "As a long argument against competitive sports",
-            "As a biography of one single famous athlete"
+            "As a long argument against competitive sports and big prizes",
+            "As a biography of one single famous athlete and his coaches"
           ],
           "answer": "B",
           "skill": "text-structure",

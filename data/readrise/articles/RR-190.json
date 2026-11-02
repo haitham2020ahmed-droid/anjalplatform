@@ -115,9 +115,9 @@
           "stem": "What is this article mostly about?",
           "options": [
             "How Nikola Tesla helped bring electric power to homes",
-            "How to build a toy car with a small motor",
+            "How to build a toy car with a small motor and batteries",
             "Why Thomas Edison was the best inventor of all",
-            "How people sailed to New York long ago"
+            "How people sailed to New York a long time ago on big ships"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -166,7 +166,7 @@
           "stem": "Read this: \"He made a motor that ran on it.\" What is a motor?",
           "options": [
             "A kind of money to pay with",
-            "A big waterfall",
+            "A big waterfall in the mountains",
             "A machine that makes things move",
             "A city far away from home"
           ],
@@ -378,10 +378,10 @@
         {
           "stem": "What was built at Niagara Falls?",
           "options": [
-            "A school where Tesla studied",
+            "A school where Tesla studied when he was a young man",
             "A power plant that used alternating current",
-            "Edison's first workshop",
-            "A factory that made light switches"
+            "Edison's first workshop, where he built his early lamps",
+            "A factory that made light switches for people's homes"
           ],
           "answer": "B",
           "skill": "detail",
@@ -506,10 +506,10 @@
         {
           "stem": "Why did direct current require numerous power stations along the route?",
           "options": [
-            "It traveled too quickly",
+            "It traveled too quickly by wire",
             "It changed direction too often",
             "It lost energy rapidly over distance",
-            "It was too expensive to patent"
+            "It was too expensive to patent then"
           ],
           "answer": "C",
           "skill": "cause-effect",
@@ -557,10 +557,10 @@
         {
           "stem": "What can you infer from the fact that Westinghouse bought Tesla's patents?",
           "options": [
-            "He thought direct current was better",
+            "He thought direct current was a safer choice for homes",
             "He believed alternating current would succeed",
-            "He wanted to stop Tesla from working",
-            "He planned to move to Croatia"
+            "He wanted to stop Tesla from working on new ideas",
+            "He planned to move to Croatia and build a factory"
           ],
           "answer": "B",
           "skill": "inference",
@@ -591,8 +591,8 @@
         {
           "stem": "Which event happened last?",
           "options": [
-            "Tesla emigrated to New York",
-            "Tesla worked for Edison",
+            "Tesla emigrated to New York and worked there",
+            "Tesla worked for Edison in his lab",
             "The Niagara Falls plant began operating",
             "Tesla was born in a small village"
           ],

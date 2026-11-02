@@ -216,10 +216,10 @@
         {
           "stem": "Why was finding the cistern good news for the village?",
           "options": [
-            "It meant that nobody needed buckets ever again",
+            "It meant that nobody needed buckets ever again in the village",
             "It meant the truck would never need to come at all",
             "It gave them a second place to find water while they waited",
-            "It let the council remove the ration right away"
+            "It let the council remove the ration right away that same day"
           ],
           "answer": "C",
           "skill": "inference",
@@ -233,9 +233,9 @@
         {
           "stem": "What lesson does the story mainly teach?",
           "options": [
-            "Trucks always travel faster than people expect them to",
-            "Sand is far more useful to a desert village than clean water",
-            "Villages should stop using water tanks completely forever",
+            "Trucks always travel faster than people expect them to on roads",
+            "Sand is far more useful to a desert village than clean water, the story says",
+            "Villages should stop using water tanks completely forever and trust the rain",
             "Sharing fairly and working together can help people through hard times"
           ],
           "answer": "D",
@@ -294,8 +294,8 @@
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
             "A village survives a drought through fair rationing and an old cistern",
-            "Zahra built a brand-new water tank during the drought",
-            "The whole village moved far away because of the drought",
+            "Zahra built a brand-new water tank during the drought for the village",
+            "The whole village moved far away because of the drought in Zahra",
             "The council banned all children from helping with water work"
           ],
           "answer": "A",
@@ -361,9 +361,9 @@
         {
           "stem": "In the article, the word scarce means —",
           "options": [
-            "easy to find almost anywhere you look",
-            "completely gone forever with none left",
-            "stored safely underground for later use",
+            "easy to find almost anywhere you look around",
+            "completely gone forever with none left at all",
+            "stored safely underground for later use by people",
             "very hard to find because there is little of it"
           ],
           "answer": "D",
@@ -379,9 +379,9 @@
           "stem": "Why was finding the old cistern important for the village?",
           "options": [
             "It gave the village a second water source while everyone waited",
-            "It replaced the need for the water truck forever",
-            "It proved that rain would fall again very soon",
-            "It let the council cancel the ration completely"
+            "It replaced the need for the water truck forever, so the truck was sent away",
+            "It proved that rain would fall again very soon, so the people could relax",
+            "It let the council cancel the ration completely, so everyone drank freely"
           ],
           "answer": "A",
           "skill": "inference",
@@ -395,10 +395,10 @@
         {
           "stem": "What can you tell about Lama's grandfather from the story?",
           "options": [
-            "He had never visited the old mosque before",
-            "He did not care about the water shortage at all",
+            "He had never visited the old mosque before that day in his life",
+            "He did not care about the water shortage at all, so he stayed home",
             "He remembered important information from the village's past",
-            "He built the stone cistern himself that same week"
+            "He built the stone cistern himself that same week for the village"
           ],
           "answer": "C",
           "skill": "inference",
@@ -412,7 +412,7 @@
         {
           "stem": "Why does the author describe both the ration and the cistern in detail?",
           "options": [
-            "To explain exactly how to build a new mosque",
+            "To explain exactly how to build a new mosque in the village",
             "To compare the village of Zahra with a much larger city",
             "To argue that water trucks are completely unnecessary",
             "To show two ways the village coped with a serious water shortage"
@@ -473,9 +473,9 @@
           "stem": "Which statement best captures the central idea of the article?",
           "options": [
             "A village overcomes a drought through fair allocation and collaboration",
-            "A village abandons its old mosque during a difficult drought",
+            "A village abandons its old mosque during a very difficult drought, then moves away",
             "A single family solves the whole drought entirely on its own",
-            "The article mainly describes how to construct a modern tank"
+            "The article mainly describes how to construct a modern water tank"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -592,9 +592,9 @@
           "stem": "Why does the author end the article by emphasizing the village's 'resilience' rather than simply saying the tank was refilled?",
           "options": [
             "To suggest the lasting outcome was a strengthened community, ready to face future hardship together",
-            "To sharply criticize the decisions the council made during the drought",
-            "To argue that the water truck had never really been necessary",
-            "To focus the entire ending on the history of the old mosque"
+            "To sharply criticize the decisions the council made during the drought and the long dry months",
+            "To argue that the water truck had never really been necessary, since the tank was nearly full",
+            "To focus the entire ending on the history of the old mosque and the first families in the village"
           ],
           "answer": "A",
           "skill": "author-purpose",

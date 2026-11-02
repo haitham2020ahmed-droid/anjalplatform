@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How to write a good letter to a friend",
+            "How to write a good letter to a friend far away",
             "How the telephone was invented and how it changed",
-            "Why phones are bad for children",
-            "How wires are made in a factory"
+            "Why phones are bad for children at night and at school",
+            "How wires are made in a factory by many workers"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -165,10 +165,10 @@
         {
           "stem": "What were the first words Bell said on the phone?",
           "options": [
-            "Hello, can you hear me?",
+            "Hello, can you hear me now? It is I.",
             "Mr. Watson, come here. I want to see you.",
-            "This is a great day!",
-            "Please send me a letter."
+            "This is a great day for us all!",
+            "Please send me a letter soon, my friend."
           ],
           "answer": "B",
           "skill": "detail",
@@ -233,10 +233,10 @@
         {
           "stem": "Why do you think Mr. Watson was surprised?",
           "options": [
-            "He had never seen Bell before.",
+            "He had never seen Bell before and did not know who he was.",
             "He heard Bell's voice from another room through the phone.",
-            "He got a letter from Bell.",
-            "He saw a photo on his phone."
+            "He got a letter from Bell that told him to come and see.",
+            "He saw a photo on his phone of Bell and his wife."
           ],
           "answer": "B",
           "skill": "inference",
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the central idea?",
           "options": [
-            "The telegraph was better than the telephone.",
+            "The telegraph was better than the telephone, so people kept sending messages by wire.",
             "The telephone began with Bell's 1876 invention and grew into today's mobile phones.",
-            "Operators still connect most phone calls.",
-            "Bell invented the letter."
+            "Operators still connect most phone calls, and mobile phones are used only by the army.",
+            "Bell invented the letter, and the telephone came much later from a different inventor."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -310,10 +310,10 @@
         {
           "stem": "What could the telephone do that the telegraph could not?",
           "options": [
-            "Send messages along wires",
+            "Send messages along wires for miles",
             "Carry the sound of a human voice",
-            "Send clicks for each letter",
-            "Work without electricity"
+            "Send clicks for each letter of a word",
+            "Work without any electricity at all"
           ],
           "answer": "B",
           "skill": "compare",
@@ -327,10 +327,10 @@
         {
           "stem": "What is a patent?",
           "options": [
-            "A kind of telephone wire",
-            "A letter to a friend",
+            "A kind of telephone wire that carries the sound of voices",
+            "A letter to a friend about a new invention in a shop",
             "An official paper that says an invention belongs to its creator",
-            "A machine that connects calls"
+            "A machine that connects calls between two houses in a town"
           ],
           "answer": "C",
           "skill": "vocabulary",
@@ -362,9 +362,9 @@
           "stem": "Why were operators needed for early telephones?",
           "options": [
             "Early phones could not dial each other directly.",
-            "Operators fixed broken wires.",
-            "Operators wrote down every message.",
-            "Phones needed someone to hold them."
+            "Operators fixed broken wires on the poles outside the town.",
+            "Operators wrote down every message for the callers.",
+            "Phones needed someone to hold them for the callers."
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -412,10 +412,10 @@
         {
           "stem": "What can you infer about how mobile phones changed after 1973?",
           "options": [
-            "They became heavier.",
+            "They became heavier and bigger than before.",
             "They became smaller and able to do much more.",
-            "They stopped being used.",
-            "They needed operators again."
+            "They stopped being used by people all over.",
+            "They needed operators again, as in the past."
           ],
           "answer": "B",
           "skill": "inference",
@@ -541,9 +541,9 @@
           "stem": "How does a mobile phone send signals differently from an early telephone?",
           "options": [
             "It sends signals through the air, not along a wire.",
-            "It sends letters by mail.",
-            "It needs an operator for every call.",
-            "It uses clicks for each letter."
+            "It sends letters by mail through the post office.",
+            "It needs an operator for every call, who connects the lines by hand.",
+            "It uses clicks for each letter, like a telegraph."
           ],
           "answer": "A",
           "skill": "compare",

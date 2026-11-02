@@ -88,7 +88,7 @@
       "questions": [
         {
           "stem": "What is this article mostly about?",
-          "options": ["How a touchscreen senses exactly where your finger touches it", "How to fix a phone screen that has cracked glass", "Why glass breaks when it falls on the floor", "How paper maps are printed in a factory"],
+          "options": ["How a touchscreen senses exactly where your finger touches it", "How to fix a phone screen that has cracked glass at home or at school", "Why glass breaks when it falls on the floor of a room", "How paper maps are printed in a factory in the city"],
           "answer": "A",
           "skill": "central-idea",
           "why": "The article explains how a touchscreen uses a sensor and tiny electric charges to find where you touched it.",
@@ -128,7 +128,7 @@
         },
         {
           "stem": "Why might a plain winter glove stop a touchscreen from working?",
-          "options": ["Because the glove makes the screen too warm", "Because dry cloth does not carry a charge like skin", "Because gloves are much too heavy to lift", "Because the chip only works late at night"],
+          "options": ["Because the glove makes the screen too warm to touch", "Because dry cloth does not carry a charge like skin", "Because gloves are much too heavy to lift near the glass", "Because the chip only works late at night when it is dark"],
           "answer": "B",
           "skill": "inference",
           "why": "The article says skin carries a charge that changes the signal, but dry cloth usually does not change it at all.",
@@ -136,7 +136,7 @@
         },
         {
           "stem": "How is an older touchscreen different from a newer one?",
-          "options": ["An older screen never needs a chip inside it", "An older screen only works with a bare finger", "An older screen uses two layers that touch when pressed", "An older screen cannot be used on any phone"],
+          "options": ["An older screen never needs a chip inside it to work", "An older screen only works with a bare finger or a hand", "An older screen uses two layers that touch when pressed", "An older screen cannot be used on any kind of phone"],
           "answer": "C",
           "skill": "compare",
           "why": "The article says an older screen has two thin layers with a gap, and pressing them together with any object, even a coin, works.",
@@ -144,7 +144,7 @@
         },
         {
           "stem": "Why can new touchscreens sense a pinch with two fingers at once?",
-          "options": ["Because they are made of two thin layers", "Because they are heavier than old screens", "Because they only work outdoors in sunlight", "Because they can feel many touches at the same time"],
+          "options": ["Because they are made of two thin layers of glass", "Because they are heavier than old screens, so they sense more", "Because they only work outdoors in sunlight, and not inside", "Because they can feel many touches at the same time"],
           "answer": "D",
           "skill": "cause-effect",
           "why": "The article explains that new screens can sense many touches at once, which lets you pinch to zoom.",
@@ -194,7 +194,7 @@
         },
         {
           "stem": "According to the article, why does skin work on a capacitive screen but dry plastic usually does not?",
-          "options": ["Because plastic is always far too thick to use", "Because skin is always much warmer than plastic", "Because plastic can never touch a sheet of glass", "Because skin is a conductor, but dry plastic usually is not"],
+          "options": ["Because plastic is always far too thick to use on a phone", "Because skin is always much warmer than plastic, so it heats the glass", "Because plastic can never touch a sheet of glass on a screen", "Because skin is a conductor, but dry plastic usually is not"],
           "answer": "D",
           "skill": "detail",
           "why": "The article explains that skin and special conductive materials carry a charge, while dry plastic usually does not.",
@@ -268,7 +268,7 @@
         },
         {
           "stem": "What must a controller chip do continuously to keep multitouch accurate?",
-          "options": ["Switch the whole screen into resistive mode", "Turn off the electrostatic field completely", "Calibrate its sensitivity so scratches do not confuse it", "Reduce the number of electrodes in the grid"],
+          "options": ["Switch the whole screen into resistive mode every few seconds", "Turn off the electrostatic field completely to save some battery", "Calibrate its sensitivity so scratches do not confuse it", "Reduce the number of electrodes in the grid to save space"],
           "answer": "C",
           "skill": "detail",
           "why": "The article states that the controller must calibrate its sensitivity continuously so that scratches or temperature changes do not distort its readings.",
@@ -284,7 +284,7 @@
         },
         {
           "stem": "What can cause a capacitive screen to fail to register a touch from certain gloves?",
-          "options": ["The glove's fabric usually does not act as a conductor", "The glove makes the electrodes turn opaque", "The glove changes the coordinates permanently", "The glove damages the controller chip inside"],
+          "options": ["The glove's fabric usually does not act as a conductor", "The glove makes the electrodes turn opaque and dark when touched", "The glove changes the coordinates permanently", "The glove damages the controller chip inside"],
           "answer": "A",
           "skill": "cause-effect",
           "why": "The article explains that dry fabric typically does not act as a conductor, so it cannot disturb the electrostatic field the way skin does.",
@@ -308,7 +308,7 @@
         },
         {
           "stem": "Why does the author include the history of the 1965 touchscreen and air traffic control?",
-          "options": ["To argue that touchscreens are too new to be trusted", "To explain how airplanes are steered by pilots", "To prove that smartphones invented the capacitive screen", "To show the technology existed long before everyday devices used it"],
+          "options": ["To argue that touchscreens are too new to be trusted by pilots", "To explain how airplanes are steered by pilots in the air", "To prove that smartphones invented the capacitive screen", "To show the technology existed long before everyday devices used it"],
           "answer": "D",
           "skill": "author-purpose",
           "why": "The author uses the 1965 invention to show that capacitive touch technology existed long before smartphones made it common.",

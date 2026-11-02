@@ -132,9 +132,9 @@
           "stem": "The article says al-Idrisi was a scholar. What is a scholar?",
           "options": [
             "A person who loves to study and learn",
-            "A person who builds ships",
-            "A king who rules an island",
-            "A sailor who fishes at sea"
+            "A person who builds ships for a king",
+            "A king who rules an island in the sea",
+            "A sailor who fishes at sea every morning"
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -235,7 +235,7 @@
           "options": [
             "To teach how to draw a map at home",
             "To tell about a scholar and his famous map",
-            "To get readers to visit Sicily",
+            "To get readers to visit Sicily this year",
             "To list the best ships of long ago"
           ],
           "answer": "B",
@@ -327,10 +327,10 @@
         {
           "stem": "What information did his book give about towns?",
           "options": [
-            "How many people lived in each house",
+            "How many people lived in each house along the road",
             "How many days it took to travel between them",
-            "What the weather was like each day",
-            "Which towns had the best schools"
+            "What the weather was like each day of the trip",
+            "Which towns had the best schools for young children"
           ],
           "answer": "B",
           "skill": "detail",
@@ -541,9 +541,9 @@
           "stem": "Why would information about days of travel between towns have been valuable to merchants and pilgrims?",
           "options": [
             "It helped them plan journeys and supplies.",
-            "It told them which towns had silver.",
-            "It showed them which kings to obey.",
-            "It replaced the need for roads."
+            "It told them which towns had silver mines.",
+            "It showed them which kings they must obey.",
+            "It replaced the need for roads and maps."
           ],
           "answer": "A",
           "skill": "inference",
@@ -557,10 +557,10 @@
         {
           "stem": "How does the orientation of al-Idrisi's map differ from most modern maps?",
           "options": [
-            "It places east at the top.",
-            "It shows only the countries of Europe.",
+            "It places east at the top of the page.",
+            "It shows only the countries of Europe and nothing else.",
             "It places south at the top instead of north.",
-            "It has no directions at all."
+            "It has no directions at all, only pictures."
           ],
           "answer": "C",
           "skill": "compare",

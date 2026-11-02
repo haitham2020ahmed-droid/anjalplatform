@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How to build a drum from wood",
+            "How to build a drum from wood and animal skin",
             "How tellers used voice and rhythm to tell stories",
-            "Why books are better than spoken stories",
-            "How grandparents raise their children"
+            "Why books are better than spoken stories for children",
+            "How grandparents raise their children in the village"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -216,10 +216,10 @@
         {
           "stem": "Why do grandparents telling stories to kids help a story live on?",
           "options": [
-            "Because kids write the stories down right away",
-            "Because the kids forget the story fast",
+            "Because kids write the stories down right away in a book",
+            "Because the kids forget the story very fast",
             "Because the kids grow up and tell it to their own kids",
-            "Because grandparents only tell a story once"
+            "Because grandparents only tell a story one time"
           ],
           "answer": "C",
           "skill": "inference",
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
-            "Only grandparents are allowed to tell stories.",
+            "Only grandparents are allowed to tell stories to children, and no one else can tell them at all, so the tales end.",
             "Storytellers used voice, rhythm, and repetition to hold an audience and pass tales down through generations.",
-            "Radio stories are better than stories told by family.",
-            "Every storyteller must use a drum while speaking."
+            "Radio stories are better than stories told by family, because the voices are clearer and louder.",
+            "Every storyteller must use a drum while speaking, and the story stops when the drum is quiet."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -395,9 +395,9 @@
         {
           "stem": "What can you infer about communities where no one could read or write?",
           "options": [
-            "They had no way to pass down lessons or history.",
-            "They stopped telling stories completely.",
-            "They only used stories to count sheep.",
+            "They had no way to pass down lessons or history to children.",
+            "They stopped telling stories completely after that time.",
+            "They only used stories to count sheep and cows on the farm.",
             "They relied on oral storytelling to keep knowledge alive."
           ],
           "answer": "D",
@@ -413,9 +413,9 @@
           "stem": "How does the author mainly organize the article?",
           "options": [
             "By describing storytelling tools, then how tales were passed down, then today",
-            "By comparing two different countries",
-            "By ranking the funniest stories first",
-            "By listing every character a teller might use"
+            "By comparing two different countries and their story tellers, from far away",
+            "By ranking the funniest stories first and the saddest stories last in a list",
+            "By listing every character a teller might use, from kings to clever foxes"
           ],
           "answer": "A",
           "skill": "text-structure",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
-            "Rhythm is the only technique that matters in storytelling.",
-            "Written books made oral storytelling disappear entirely.",
+            "Rhythm is the only technique that matters in storytelling, and nothing else is used.",
+            "Written books made oral storytelling disappear entirely, in every land and village.",
             "Storytellers used techniques to engage and preserve shared culture.",
-            "Only communities in Arabia ever told stories out loud."
+            "Only communities in Arabia ever told stories out loud, and no other people did."
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -524,9 +524,9 @@
           "stem": "In the article, a storyteller's shift between voices is called a technique. What does technique mean as used here?",
           "options": [
             "A deliberate, skilled method used to achieve an effect",
-            "A random accident with no purpose",
-            "A written record of a performance",
-            "A type of audience reaction"
+            "A random accident with no purpose or plan behind it",
+            "A written record of a performance kept in a library",
+            "A type of audience reaction to a long performance"
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -540,9 +540,9 @@
         {
           "stem": "How did watching the audience's reactions affect a storyteller's performance?",
           "options": [
-            "It caused the teller to end the story immediately.",
-            "It had no real effect on how the story was told.",
-            "It caused the teller to switch to a written script.",
+            "It caused the teller to end the story immediately and go home.",
+            "It had no real effect on how the story was told at all.",
+            "It caused the teller to switch to a written script and read it out loud.",
             "It led the teller to adjust pace, volume, or humor to regain attention."
           ],
           "answer": "D",
@@ -575,9 +575,9 @@
           "stem": "Why might a storyteller's use of changing character voices matter for an audience unfamiliar with the tale?",
           "options": [
             "It would let listeners track who was speaking without explicit narration.",
-            "It would make the story impossible to follow.",
-            "It would force the audience to read along silently.",
-            "It would remove the need for any lesson in the story."
+            "It would make the story impossible to follow for the whole audience.",
+            "It would force the audience to read along silently from a book.",
+            "It would remove the need for any lesson in the story at all."
           ],
           "answer": "A",
           "skill": "inference",

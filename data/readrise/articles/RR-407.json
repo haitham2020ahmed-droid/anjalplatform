@@ -114,10 +114,10 @@
         {
           "stem": "What is this diary mostly about?",
           "options": [
-            "How to build a space station",
+            "How to build a space station in orbit around Earth with a few workers and a big rocket",
             "An astronaut's days in space, a small problem, and what she misses",
-            "How to grow food in space",
-            "A trip to the moon"
+            "How to grow food in space with lamps and with water on a small shelf",
+            "A trip to the moon and back with the crew of six and a pilot"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -166,9 +166,9 @@
           "stem": "Why do you think the astronaut felt so relieved after Day 2?",
           "options": [
             "Because she and her crewmate solved the problem together",
-            "Because she found a new filter in a bag",
-            "Because the station landed on Earth",
-            "Because the sun stopped rising"
+            "Because she found a new filter in a bag that was on the shelf",
+            "Because the station landed on Earth that day near the sea",
+            "Because the sun stopped rising on the second day"
           ],
           "answer": "A",
           "skill": "inference",
@@ -182,10 +182,10 @@
         {
           "stem": "Why does the astronaut's food come sealed in bags instead of on an open plate?",
           "options": [
-            "Bagged food tastes better in space",
+            "Bagged food tastes much better in space",
             "Loose food would float away without gravity",
-            "There are no plates on the station",
-            "The crew is not allowed to cook"
+            "There are no plates on the space station",
+            "The crew is not allowed to cook at all"
           ],
           "answer": "B",
           "skill": "inference",
@@ -200,9 +200,9 @@
           "stem": "How is life on the space station different from life on Earth?",
           "options": [
             "On the station there is almost no gravity, but on Earth gravity holds things down",
-            "On the station it rains every day, but Earth is always dry",
-            "On the station people walk everywhere, but on Earth people float",
-            "On the station the sun never rises, but on Earth it rises once a day"
+            "On the station it rains every day, but Earth is always dry, said the astronaut",
+            "On the station people walk everywhere, but on Earth people float in the air",
+            "On the station the sun never rises, but on Earth it rises once a day and sets"
           ],
           "answer": "A",
           "skill": "compare",
@@ -294,9 +294,9 @@
           "stem": "Which sentence best states the central idea of this diary?",
           "options": [
             "An astronaut describes her daily routine, a filter problem she and her crewmate solve, and what she misses about Earth.",
-            "An astronaut explains in detail how large rockets are designed, built, and launched into space.",
-            "An astronaut frequently complains that the whole space mission was simply not worth all the trouble.",
-            "An astronaut describes an exciting trip to a brand-new planet that no one has ever visited before."
+            "An astronaut explains in detail how large rockets are designed, built, and launched into space, and what each part does.",
+            "An astronaut frequently complains that the whole space mission was simply not worth all the trouble and the pain.",
+            "An astronaut describes an exciting trip to a brand-new planet that no one has ever visited before, with new friends."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -344,10 +344,10 @@
         {
           "stem": "Why does the astronaut's daily routine include about an hour of exercise?",
           "options": [
-            "To pass the time because there is nothing else to do",
+            "To pass the time because there is nothing else to do all day",
             "To help keep her muscles and bones strong without much gravity",
-            "To prepare for a spacewalk later that day",
-            "Because mission control requires it as a punishment"
+            "To prepare for a spacewalk later that day outside the station",
+            "Because mission control requires it as a punishment for her"
           ],
           "answer": "B",
           "skill": "inference",
@@ -361,10 +361,10 @@
         {
           "stem": "In the diary, the word routine means —",
           "options": [
-            "a sudden, unexpected problem",
-            "a type of space food",
+            "a sudden, unexpected problem in the middle of the day",
+            "a type of space food that comes in a small bag",
             "a set of actions done the same way each day",
-            "a part of the air filter"
+            "a part of the air filter that cleans the cabin"
           ],
           "answer": "C",
           "skill": "vocabulary",
@@ -395,8 +395,8 @@
         {
           "stem": "Why do solar panels matter to life on the space station?",
           "options": [
-            "They help the filter remove dust from the air",
-            "They allow astronauts to walk normally despite low gravity",
+            "They help the filter remove dust from the air inside the station",
+            "They allow astronauts to walk normally despite low gravity in space",
             "They are used only to decorate the outside of the station",
             "They collect sunlight and convert it into electricity for the station"
           ],
@@ -412,10 +412,10 @@
         {
           "stem": "Why does the astronaut most likely describe both the filter problem and what she misses about home?",
           "options": [
-            "To warn readers never to become astronauts",
+            "To warn readers never to become astronauts because the work is too hard and unsafe",
             "To give readers a full picture of both the challenges and feelings of life in space",
-            "To prove that space stations never break down",
-            "To explain how to repair any machine"
+            "To prove that space stations never break down, and that a filter can always be fixed",
+            "To explain how to repair any machine, from a small filter to a large engine on Earth"
           ],
           "answer": "B",
           "skill": "author-purpose",
@@ -508,7 +508,7 @@
           "options": [
             "Because mission control requires everything to be labeled",
             "Because loose tools could damage the solar panels outside",
-            "Because tethered objects charge the station's batteries",
+            "Because tethered objects charge the station's batteries when they touch it",
             "Because microgravity would otherwise let them drift away and disappear"
           ],
           "answer": "D",
@@ -523,10 +523,10 @@
         {
           "stem": "In the diary, the word malfunction means —",
           "options": [
-            "a scheduled daily routine",
+            "a scheduled daily routine for the whole crew",
             "a failure of a machine or part to work correctly",
-            "a kind of food eaten in space",
-            "a tool used to repair solar panels"
+            "a kind of food eaten in space by the crew",
+            "a tool used to repair solar panels on the ship"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -557,10 +557,10 @@
         {
           "stem": "In what order did these events occur in the diary?",
           "options": [
-            "The filter malfunction is fixed, exercise begins, the warning light turns red",
+            "The filter malfunction is fixed, exercise begins, the warning light turns red at the end",
             "The warning light turns red, the crewmate helps diagnose the issue, the filter is cleaned and reinstalled",
-            "The filter is cleaned and reinstalled, the warning light turns red, the crewmate arrives",
-            "The crewmate arrives, the filter is cleaned, the warning light turns red"
+            "The filter is cleaned and reinstalled, the warning light turns red, the crewmate arrives soon afterward",
+            "The crewmate arrives, the filter is cleaned, the warning light turns red, and the exercise ends"
           ],
           "answer": "B",
           "skill": "sequence",
@@ -574,10 +574,10 @@
         {
           "stem": "What can readers infer about teamwork in space from the filter malfunction?",
           "options": [
-            "Mission control always fixes problems remotely without crew help",
-            "Astronauts prefer to solve every problem alone",
+            "Mission control always fixes problems remotely without crew help, using computers on the ground",
+            "Astronauts prefer to solve every problem alone, because teamwork wastes time in space",
             "Astronauts must depend heavily on each other, since no outside repair help is available",
-            "Filter problems are too dangerous for any crew to attempt fixing"
+            "Filter problems are too dangerous for any crew to attempt fixing, so they wait for rescue"
           ],
           "answer": "C",
           "skill": "inference",
@@ -591,9 +591,9 @@
         {
           "stem": "Why does the author likely include so many specific details about microgravity, circadian disruption, and recycled water?",
           "options": [
-            "To discourage anyone from ever wanting to become an astronaut",
-            "To argue that space stations should be abandoned",
-            "To prove that life in space is identical to life on Earth",
+            "To discourage anyone from ever wanting to become an astronaut and travel into space",
+            "To argue that space stations should be abandoned because they cost too much money",
+            "To prove that life in space is identical to life on Earth in every important way",
             "To help readers understand the real scientific challenges of living in space"
           ],
           "answer": "D",

@@ -149,9 +149,9 @@
           "stem": "How do a camel's long eyelashes help it?",
           "options": [
             "They keep sand out of its eyes.",
-            "They help it see at night.",
-            "They keep its face cool.",
-            "They help it find water."
+            "They help it see at night on the dunes.",
+            "They keep its face cool in the sun.",
+            "They help it find water far away."
           ],
           "answer": "A",
           "skill": "detail",
@@ -395,9 +395,9 @@
         {
           "stem": "A sandstorm begins. Which features would help a camel MOST?",
           "options": [
-            "Its wide, padded feet",
-            "Its ability to drink quickly",
-            "Its fat-filled hump",
+            "Its wide, padded feet that walk on soft sand",
+            "Its ability to drink quickly after a long trip",
+            "Its fat-filled hump that stores energy for days",
             "Its long eyelashes and closing nostrils"
           ],
           "answer": "D",
@@ -508,7 +508,7 @@
           "options": [
             "It sweats less, so it saves water.",
             "It can digest thorny plants.",
-            "Its hump grows larger.",
+            "Its hump grows larger in the heat.",
             "Sand cannot stick to its fur."
           ],
           "answer": "A",
@@ -523,10 +523,10 @@
         {
           "stem": "\"A widespread misconception holds that a camel's hump is filled with water.\" What does misconception mean?",
           "options": [
-            "A scientific discovery",
-            "An old poem",
+            "A scientific discovery that people made",
+            "An old poem that people read",
             "A mistaken idea that many people believe",
-            "A rule about animals"
+            "A rule about animals in a zoo"
           ],
           "answer": "C",
           "skill": "vocabulary",

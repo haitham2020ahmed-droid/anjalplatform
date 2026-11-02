@@ -182,10 +182,10 @@
         {
           "stem": "Read this: \"Pups are born in a den.\" What is a den?",
           "options": [
-            "A kind of food",
+            "A kind of food for pups",
             "A safe hole or cave",
-            "A group of birds",
-            "A hot sand hill"
+            "A group of birds at sea",
+            "A big hot sand hill"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -199,10 +199,10 @@
         {
           "stem": "Why might the wolf's pale fur help it when it hunts?",
           "options": [
-            "It makes the wolf run faster",
-            "It keeps the wolf wet",
+            "It makes the wolf run faster on sand",
+            "It keeps the wolf wet in the heat",
             "It helps the wolf hide in the sand",
-            "It scares other animals away"
+            "It scares other animals away at night"
           ],
           "answer": "C",
           "skill": "inference",
@@ -217,9 +217,9 @@
           "stem": "Why do some farmers hunt Arabian wolves?",
           "options": [
             "To keep their sheep and goats safe",
-            "To get water from the wolves",
-            "To find new land for houses",
-            "To make the wolves sleep"
+            "To get water from the wolves each day",
+            "To find new land for houses and farms",
+            "To make the wolves sleep at night"
           ],
           "answer": "A",
           "skill": "inference",
@@ -233,10 +233,10 @@
         {
           "stem": "Why does the author end with safe parks?",
           "options": [
-            "To tell how to get to a park",
+            "To tell how to get to a park from the town or the city",
             "To show that people are now helping the wolves",
-            "To say that wolves love to play",
-            "To list all the animals in a park"
+            "To say that wolves love to play with each other all day",
+            "To list all the animals in a park, from big to small"
           ],
           "answer": "B",
           "skill": "author-purpose",
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the central idea?",
           "options": [
-            "Arabian wolves are dangerous animals that people should fear.",
+            "Arabian wolves are dangerous animals that people should fear, so hunters have to kill them.",
             "The Arabian wolf has special features that help it survive the desert, but it is now rare.",
-            "Wolves in cold places are bigger than wolves in deserts.",
-            "Sheep and goats are the main food of all wolves."
+            "Wolves in cold places are bigger than wolves in deserts, and they live in larger packs.",
+            "Sheep and goats are the main food of all wolves, and wolves never eat any other animal."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -395,10 +395,10 @@
         {
           "stem": "How is the article mainly organized?",
           "options": [
-            "As a story told by a wolf",
-            "As steps for building a den",
+            "As a story told by a wolf about its life in the forest",
+            "As steps for building a den out of sticks and mud",
             "In topics: home, body, habits, food, family, and danger",
-            "As a list of dates in order"
+            "As a list of dates in order, from the oldest to the newest"
           ],
           "answer": "C",
           "skill": "text-structure",
@@ -523,9 +523,9 @@
         {
           "stem": "The article says the wolf eats carrion. What does carrion tell us about its diet?",
           "options": [
-            "It eats only plants",
-            "It eats only live insects",
-            "It hunts only large animals",
+            "It eats only plants and fruit from the trees",
+            "It eats only live insects and worms in the ground",
+            "It hunts only large animals in a big group",
             "It also eats animals that are already dead"
           ],
           "answer": "D",
@@ -591,10 +591,10 @@
         {
           "stem": "Why does the author open with a scene of the wolf trotting at night?",
           "options": [
-            "To show that wolves are scary",
-            "To give exact facts about the wolf's weight",
+            "To show that wolves are scary and dangerous at night, even for people in the camp",
+            "To give exact facts about the wolf's weight and size, as a scientist would do",
             "To catch the reader's interest and hint at the wolf's nocturnal life",
-            "To compare the wolf with other predators"
+            "To compare the wolf with other predators in the forest, such as the bear"
           ],
           "answer": "C",
           "skill": "author-purpose",

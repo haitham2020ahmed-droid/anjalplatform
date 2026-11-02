@@ -115,9 +115,9 @@
           "stem": "What is this story mostly about?",
           "options": [
             "A boy who struggles with spelling, practices daily, and does his best at the bee",
-            "A boy who wins a big soccer trophy for his entire school team",
-            "A girl who teaches her whole class how to spell new words correctly",
-            "A boy who completely forgets about the spelling bee this year"
+            "A boy who wins a big soccer trophy for his entire school team last spring",
+            "A girl who teaches her whole class how to spell new words correctly in school",
+            "A boy who completely forgets about the spelling bee this year and goes home"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -148,10 +148,10 @@
         {
           "stem": "Why did Yousef's spelling slowly improve?",
           "options": [
-            "His sister spelled the words for him during the bee",
-            "The words in the bee were much easier than his tests",
+            "His sister spelled the words for him during the bee, whispering each letter",
+            "The words in the bee were much easier than his tests at school",
             "He practiced a little every day using flashcards and syllables",
-            "Ms. Huda gave him the answers ahead of time"
+            "Ms. Huda gave him the answers ahead of time, in a secret note"
           ],
           "answer": "C",
           "skill": "cause-effect",
@@ -183,9 +183,9 @@
           "stem": "Why did Yousef feel nervous when he first heard about the spelling bee?",
           "options": [
             "He did not feel confident about spelling and was afraid of doing poorly in front of others",
-            "He did not like his teacher, Ms. Huda",
-            "He wanted to skip school that day",
-            "He had never heard of a spelling bee before"
+            "He did not like his teacher, Ms. Huda, and wanted to leave the classroom early",
+            "He wanted to skip school that day, so he pretended to be sick and stayed in bed",
+            "He had never heard of a spelling bee before and did not know what it was or how it works"
           ],
           "answer": "A",
           "skill": "inference",
@@ -199,10 +199,10 @@
         {
           "stem": "In the story, the word nervous means —",
           "options": [
-            "Excited and very happy about something fun",
+            "Excited and very happy about something fun that is going to happen",
             "Worried or afraid about something that is about to happen",
-            "Feeling very angry at a close, good friend",
-            "Feeling quite tired after a very long day"
+            "Feeling very angry at a close, good friend of yours",
+            "Feeling quite tired after a very long day of work"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -216,10 +216,10 @@
         {
           "stem": "How did Yousef feel at the start of the story compared to after he practiced for weeks?",
           "options": [
-            "Confident at first, then nervous later",
-            "Angry at first, then happy later",
+            "Confident at first, then nervous later on in the contest",
+            "Angry at first, then happy later when he won a prize",
             "Nervous and unsure at first, then more confident later",
-            "Bored at first, then excited later"
+            "Bored at first, then excited later about the competition"
           ],
           "answer": "C",
           "skill": "compare",
@@ -233,9 +233,9 @@
         {
           "stem": "Why did the author include the part where Yousef misses a hard word and does not win first place?",
           "options": [
-            "To show that Yousef did not practice nearly enough",
-            "To make the whole story funny and a bit silly",
-            "To explain all the official rules of a spelling bee",
+            "To show that Yousef did not practice nearly enough for the contest",
+            "To make the whole story funny and a bit silly for readers",
+            "To explain all the official rules of a spelling bee at school",
             "To show that doing your personal best matters more than winning"
           ],
           "answer": "D",
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the central idea of this story?",
           "options": [
-            "Yousef easily wins the entire spelling bee without any real practice",
+            "Yousef easily wins the entire spelling bee without any real practice or help",
             "With encouragement, Yousef practices daily and grows more confident, even without winning",
-            "Ms. Huda flatly refuses to ever help Yousef improve his spelling",
-            "Yousef's older sister competes in the spelling bee instead of him"
+            "Ms. Huda flatly refuses to ever help Yousef improve his spelling at school or at home",
+            "Yousef's older sister competes in the spelling bee instead of him this year"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -327,9 +327,9 @@
         {
           "stem": "What did Yousef's daily practice routine include?",
           "options": [
-            "Watching videos about spelling bees",
-            "Asking his classmates to quiz him at recess",
-            "Reading the dictionary from start to finish",
+            "Watching videos about spelling bees every night after dinner",
+            "Asking his classmates to quiz him at recess every single day",
+            "Reading the dictionary from start to finish in just one week",
             "Writing words down, saying them aloud, and using flashcards"
           ],
           "answer": "D",
@@ -361,10 +361,10 @@
         {
           "stem": "Why do you think Ms. Huda told Yousef that doing his best mattered more than winning?",
           "options": [
-            "She did not think Yousef could ever improve",
+            "She did not think Yousef could ever improve at spelling at all",
             "She wanted to encourage him to try without being afraid of failing",
-            "She did not care about the spelling bee at all",
-            "She wanted him to quit before the competition"
+            "She did not care about the spelling bee at all, and she was bored",
+            "She wanted him to quit before the competition began, so he could rest"
           ],
           "answer": "B",
           "skill": "inference",
@@ -380,8 +380,8 @@
           "options": [
             "Something difficult that takes effort to overcome",
             "A prize given to the winner of a contest",
-            "A short list of easy words",
-            "A mistake made by accident"
+            "A short list of easy words to read aloud in class",
+            "A mistake that is made by accident in the morning"
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -490,9 +490,9 @@
           "stem": "What specific technique helped Yousef manage unfamiliar, difficult words?",
           "options": [
             "Dividing each word into smaller syllables to make it easier to pronounce",
-            "Memorizing the dictionary definition of every word",
-            "Asking the judges for extra clues during the competition",
-            "Avoiding any word with more than two syllables"
+            "Memorizing the dictionary definition of every word on the list",
+            "Asking the judges for extra clues during every round of the competition",
+            "Avoiding any word with more than two syllables in the contest"
           ],
           "answer": "A",
           "skill": "detail",
@@ -506,10 +506,10 @@
         {
           "stem": "What was the most direct cause of Yousef's growing confidence in the weeks leading up to the bee?",
           "options": [
-            "Ms. Huda guaranteed that he would win the competition",
+            "Ms. Huda guaranteed that he would win the competition in the end",
             "His consistent daily practice led to real, noticeable improvement",
-            "The other students decided not to compete that year",
-            "His sister took the test for him beforehand"
+            "The other students decided not to compete in the bee that year at all",
+            "His sister took the test for him a few days beforehand"
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -540,9 +540,9 @@
         {
           "stem": "Based on the sister's comment at the end, what does she seem to believe about the bee's past winners?",
           "options": [
-            "They never struggled with spelling at all",
-            "They were allowed extra practice time that Yousef did not get",
-            "They did not actually deserve to win",
+            "They never struggled with spelling at all in their lives, because spelling was easy for them",
+            "They were allowed extra practice time that Yousef did not get from the teacher",
+            "They did not actually deserve to win, and the judges made a mistake",
             "They once struggled with spelling too, before persistent practice helped them improve"
           ],
           "answer": "D",
@@ -558,9 +558,9 @@
           "stem": "In the story, resilience most nearly means —",
           "options": [
             "The ability to keep trying despite difficulty or setbacks",
-            "A formal reward given after a competition",
-            "A method for sounding out unfamiliar words",
-            "A feeling of fear before speaking in public"
+            "A formal reward given to the winner after a competition",
+            "A method for sounding out unfamiliar words in a book",
+            "A feeling of fear before speaking in public to a crowd"
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -591,10 +591,10 @@
         {
           "stem": "Why does the author include Yousef's sister's comment at the very end of the story?",
           "options": [
-            "To suggest that Yousef should have simply asked the judges for help",
-            "To criticize the other students who won the spelling bee that year",
+            "To suggest that Yousef should have simply asked the judges for help during the contest",
+            "To criticize the other students who won the spelling bee that year and their families",
             "To reinforce the idea that effort and perseverance matter more than the final outcome",
-            "To explain exactly how all spelling bees are organized and judged"
+            "To explain exactly how all spelling bees are organized and judged in every school"
           ],
           "answer": "C",
           "skill": "author-purpose",

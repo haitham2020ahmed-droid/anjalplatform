@@ -237,10 +237,10 @@
       "type": "MCQ",
       "stem": "Which feature shows that this is an informational text?",
       "options": [
-        "It is told by a sailor who uses the word “I”.",
+        "It is told by a sailor who uses the word “I” in the story.",
         "It explains facts about a real invention in a logical order.",
-        "It is written in lines that rhyme.",
-        "It is a conversation between two travellers."
+        "It is written in lines that rhyme at the end of each one.",
+        "It is a conversation between two travellers on the road."
       ],
       "answer": "B",
       "why": "Informational texts explain real facts about a topic, as this text does about the compass."
@@ -285,10 +285,10 @@
       "type": "MCQ",
       "stem": "Which detail must skilled navigators consider when using a compass?",
       "options": [
-        "The bowl must always be full of salt water.",
+        "The bowl must always be full of salt water to work.",
         "Magnetic north is not exactly at the geographic North Pole.",
-        "The needle must always be made of straw or cork.",
-        "The compass works only in the daytime."
+        "The needle must always be made of straw or cork to float.",
+        "The compass works only in the daytime, when the sun is out."
       ],
       "answer": "B",
       "why": "Paragraph 5 says they must make small corrections for this difference."
@@ -301,10 +301,10 @@
       "type": "MCQ",
       "stem": "What can cause a compass needle to point in the wrong direction?",
       "options": [
-        "being used on a cloudy, stormy day",
-        "being carried by desert travellers",
+        "being used on a cloudy, stormy day at sea",
+        "being carried by desert travellers on camels",
         "being placed near iron, steel or another magnet",
-        "being kept inside a small box"
+        "being kept inside a small box in a bag"
       ],
       "answer": "C",
       "why": "Paragraph 6 explains that metal and magnets can pull the needle the wrong way; clouds affect the stars, not the compass."
@@ -541,10 +541,10 @@
       "type": "MCQ",
       "stem": "How can a traveller keep a compass working correctly?",
       "options": [
-        "use it only on sunny days",
-        "take its needle out after each trip",
+        "use it only on sunny days and in the open",
+        "take its needle out after each trip, and put it back",
         "keep it away from metal objects and magnets",
-        "keep it in a bowl of hot water"
+        "keep it in a bowl of hot water at night"
       ],
       "answer": "C",
       "why": "Paragraph 6 explains that metal and magnets disturb the needle."

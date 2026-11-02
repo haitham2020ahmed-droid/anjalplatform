@@ -96,7 +96,7 @@
         },
         {
           "stem": "How fast do Earth's plates move, according to the article?",
-          "options": ["As fast as a car on a highway", "They never move at all", "About as fast as your fingernails grow", "As fast as a person walking"],
+          "options": ["As fast as a car on a highway", "They never move at all, not even a bit", "About as fast as your fingernails grow", "As fast as a person walking"],
           "answer": "C",
           "skill": "detail",
           "why": "The article says the plates move about as fast as your fingernails grow.",
@@ -128,7 +128,7 @@
         },
         {
           "stem": "Read: \"Each part is a plate.\" What does plate mean here?",
-          "options": ["A dish you eat food from", "One of Earth's huge moving pieces", "A metal sign fixed to a door", "A flat rock used for roofs"],
+          "options": ["A dish you eat food from at home", "One of Earth's huge moving pieces", "A metal sign fixed to a door or gate", "A flat rock used for roofs in villages"],
           "answer": "B",
           "skill": "vocabulary",
           "why": "The sentence explains that the Earth's crust is cut into big parts, and each part is called a plate.",
@@ -136,7 +136,7 @@
         },
         {
           "stem": "Why does the author compare the plates' speed to how fast your fingernails grow?",
-          "options": ["To tell readers to trim their nails", "To prove nails are made of rock", "To help readers picture how slow plates move", "To explain exactly why volcanoes form"],
+          "options": ["To tell readers to trim their nails every week", "To prove nails are made of rock and stone", "To help readers picture how slow plates move", "To explain exactly why volcanoes form"],
           "answer": "C",
           "skill": "author-purpose",
           "why": "Comparing the plates' speed to something familiar helps readers picture just how slowly the plates move.",
@@ -166,7 +166,7 @@
       "questions": [
         {
           "stem": "Which sentence best states the main idea of the article?",
-          "options": ["Volcanoes are the only landform found in East Africa.", "Tectonic plates pulled apart, forming the valley, its lakes, and volcanoes.", "Lakes in Africa are always deeper than lakes anywhere else.", "Scientists cannot study the Great Rift Valley from space."],
+          "options": ["Volcanoes are the only landform found in East Africa, and no lakes or valleys exist there.", "Tectonic plates pulled apart, forming the valley, its lakes, and volcanoes.", "Lakes in Africa are always deeper than lakes anywhere else, and they are all very wide.", "Scientists cannot study the Great Rift Valley from space, as satellites never see it."],
           "answer": "B",
           "skill": "central-idea",
           "why": "The article explains how tectonic plates pulling apart created the rift valley, along with its lakes and volcanoes.",
@@ -244,7 +244,7 @@
       "questions": [
         {
           "stem": "Which statement best expresses the central idea of the article?",
-          "options": ["Volcanoes never form near divergent plate boundaries.", "Continental rifting stretched and dropped the crust between divergent plates.", "Lakes only form in deserts, never in rift valleys.", "Geologists have proven the rift valley will close within a decade."],
+          "options": ["Volcanoes never form near divergent plate boundaries, anywhere on Earth.", "Continental rifting stretched and dropped the crust between divergent plates.", "Lakes only form in deserts, never in rift valleys, in the whole world.", "Geologists have proven the rift valley will close within a decade or so."],
           "answer": "B",
           "skill": "central-idea",
           "why": "The article explains that divergent plates slowly stretched and dropped the crust between them, forming the rift valley along with its lakes and volcanoes.",

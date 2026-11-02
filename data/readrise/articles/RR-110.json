@@ -114,10 +114,10 @@
         {
           "stem": "What is the main idea of the article?",
           "options": [
-            "Sharks are mean monsters that hunt people.",
+            "Sharks are mean monsters that hunt people, and they should be kept away.",
             "Sharks are fish that hunt to live, and they need our help.",
-            "All sharks are about the size of a big school bus.",
-            "Sharks live only in rivers and lakes."
+            "All sharks are about the size of a big school bus and weigh tons.",
+            "Sharks live only in rivers and lakes, and never go into the sea."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -327,10 +327,10 @@
         {
           "stem": "Which detail shows that the biggest shark is not a fierce hunter of large animals?",
           "options": [
-            "It can grow longer than a school bus.",
+            "It can grow longer than a school bus in the sea.",
             "It feeds on plankton that drift in the water.",
-            "It has rows of sharp teeth.",
-            "It lives in the ocean."
+            "It has rows of sharp teeth in its mouth.",
+            "It lives in the ocean and swims far."
           ],
           "answer": "B",
           "skill": "detail",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best expresses the central idea?",
           "options": [
-            "Sharks deserve their frightening reputation.",
+            "Sharks deserve their frightening reputation, because they attack swimmers and boats all over the ocean each year.",
             "Sharks are ancient, misunderstood predators that the ocean needs and that people now endanger.",
-            "Sharks have changed completely since the time of the dinosaurs.",
-            "Sharks survive mainly by eating plankton."
+            "Sharks have changed completely since the time of the dinosaurs, and they now look nothing like their old kin.",
+            "Sharks survive mainly by eating plankton from the sea water, and they never hunt any fish or seals at all."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -575,9 +575,9 @@
           "stem": "What would most likely happen to an ocean ecosystem if its apex predators disappeared?",
           "options": [
             "Sick and weak fish might spread and fish populations could become less healthy.",
-            "Plankton would stop drifting.",
-            "The sea water would become fresh.",
-            "Nothing would change, because sharks have no real role in the ocean."
+            "Plankton would stop drifting in the sea and sink to the bottom of the ocean.",
+            "The sea water would become fresh and the fish would move to rivers.",
+            "Nothing would change in the ocean, because sharks have no real role in the food chain."
           ],
           "answer": "A",
           "skill": "inference",

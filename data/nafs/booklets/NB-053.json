@@ -47,9 +47,9 @@
       "stem": "Read this sentence from paragraph 6: “bones respond to pressure by becoming denser.” What does “denser” mean?",
       "options": [
         "more tightly packed and solid",
-        "longer and thinner",
-        "softer and more flexible",
-        "lighter and more hollow"
+        "longer and thinner than before",
+        "softer and more flexible, like rubber",
+        "lighter and more hollow inside"
       ],
       "answer": "A",
       "why": "Bones that respond to pressure grow stronger, so “denser” means more tightly packed with material."
@@ -237,9 +237,9 @@
       "type": "MCQ",
       "stem": "According to paragraph 6, why is swimming less helpful for building bones than running?",
       "options": [
-        "It is harmful to the heart.",
-        "It makes the bones too dense.",
-        "It does not use any muscles.",
+        "It is harmful to the heart of the swimmer.",
+        "It makes the bones too dense and heavy.",
+        "It does not use any muscles in the body.",
         "It puts far less load on the skeleton."
       ],
       "answer": "D",
@@ -429,9 +429,9 @@
       "type": "MCQ",
       "stem": "Which sentence from the text is exclamatory?",
       "options": [
-        "Imagine a building that quietly repairs its own walls …",
-        "Surprisingly, a newborn baby has nearly 300 bones …",
-        "Swimming, though excellent for the heart, puts far less load on the skeleton.",
+        "Imagine a building that quietly repairs its own walls and floors in the night, with no one to help it, and no workers at all …",
+        "Surprisingly, a newborn baby has nearly 300 bones, but an adult has fewer, because some bones join together as they grow older …",
+        "Swimming, though excellent for the heart, puts far less load on the skeleton than running does, and so it is a weaker exercise for the bones.",
         "How amazing it is that a few minutes of skipping each day can make this living framework stronger for life!"
       ],
       "answer": "D",
@@ -462,9 +462,9 @@
       "stem": "What most likely motivated the writer to write this text?",
       "options": [
         "a wish to encourage young people to build strong bones early",
-        "a warning that broken bones can never heal properly",
-        "a plan to advertise one particular brand of milk",
-        "a belief that swimming is a waste of time"
+        "a warning that broken bones can never heal properly again",
+        "a plan to advertise one particular brand of milk for sale",
+        "a belief that swimming is a waste of time for the young"
       ],
       "answer": "A",
       "why": "The writer stresses that childhood habits largely determine bone strength and ends by encouraging daily skipping."
@@ -525,10 +525,10 @@
       "type": "MCQ",
       "stem": "Which title best sums up the ideas in the text?",
       "options": [
-        "The Lifeless Frame Inside Us",
-        "Swimming for Stronger Bones",
+        "The Lifeless Frame Inside Us All",
+        "Swimming for Stronger Bones and Joints",
         "The Skeleton That Never Stops Working",
-        "A Baby's Soft Skull"
+        "A Baby's Soft Skull and Its Parts"
       ],
       "answer": "C",
       "why": "The text shows that the skeleton is alive and always working: supporting, protecting, storing, rebuilding and growing stronger."

@@ -47,9 +47,9 @@
       "stem": "Read this sentence from paragraph 5: “For this reason, the Saudi Geological Survey carefully monitors the harrats.” What does “monitors” mean?",
       "options": [
         "watches and checks regularly",
-        "digs up and removes",
+        "digs up and removes with a machine",
         "paints and decorates",
-        "sells to visitors"
+        "sells to visitors at a stand"
       ],
       "answer": "A",
       "why": "The next sentence describes instruments that detect earthquakes, ground changes and gases, so “monitors” means watches and checks regularly."
@@ -189,10 +189,10 @@
       "type": "MCQ",
       "stem": "Which sentence best states the main idea of paragraph 2?",
       "options": [
-        "The Red Sea is the deepest sea in the world.",
+        "The Red Sea is the deepest sea in the world, and ships cross it.",
         "Harrats formed when magma rose as Arabia split from Africa.",
-        "Basalt is a light-coloured rock made of sand.",
-        "Africa is moving faster than Arabia."
+        "Basalt is a light-coloured rock made of sand and small shells.",
+        "Africa is moving faster than Arabia, and the sea grows wider."
       ],
       "answer": "B",
       "why": "Paragraph 2 explains that the stretching crust let magma reach the surface and harden into layers of basalt."
@@ -237,9 +237,9 @@
       "type": "MCQ",
       "stem": "According to scientists, how was Al Wahbah crater formed?",
       "options": [
-        "A meteorite struck the ground.",
-        "Wind carved it out of sand.",
-        "Water from the Red Sea filled it.",
+        "A meteorite struck the ground and left a hole",
+        "Wind carved it out of sand over many years",
+        "Water from the Red Sea filled it long ago",
         "Magma met water and caused a steam blast."
       ],
       "answer": "D",
@@ -286,9 +286,9 @@
       "stem": "According to paragraph 4, where did the lava from the 1256 eruption finally stop?",
       "options": [
         "about four kilometres from Madinah",
-        "in the centre of Madinah",
-        "at the edge of the Red Sea",
-        "inside Al Wahbah crater"
+        "in the centre of Madinah city",
+        "at the edge of the Red Sea coast",
+        "inside the Al Wahbah crater"
       ],
       "answer": "A",
       "why": "The lava “finally stopped, only about four kilometres from the city.”"
@@ -333,10 +333,10 @@
       "type": "MCQ",
       "stem": "Why does the Saudi Geological Survey watch the harrats so carefully?",
       "options": [
-        "to find new places to build roads",
-        "to count how many tourists visit",
+        "to find new places to build roads in the desert",
+        "to count how many tourists visit the craters",
         "because some volcanoes are not completely inactive",
-        "because the black rock is valuable to sell"
+        "because the black rock is valuable to sell abroad"
       ],
       "answer": "C",
       "why": "Paragraph 4 shows that some volcanoes “are not entirely asleep,” and paragraph 5 says warnings could give communities time to prepare."
@@ -381,10 +381,10 @@
       "type": "MCQ",
       "stem": "What do the eruption of 1256 and the earthquakes of 2009 have in common?",
       "options": [
-        "Both happened in Harrat Kishb.",
+        "Both happened in Harrat Kishb, near the town.",
         "Both show that some harrats are not completely asleep.",
-        "Both destroyed the city of Madinah.",
-        "Both were caused by meteorites."
+        "Both destroyed the city of Madinah and its old walls.",
+        "Both were caused by meteorites that fell from the sky."
       ],
       "answer": "B",
       "why": "The writer uses both events to support the idea that some volcanoes in the harrats “are not entirely asleep.”"
@@ -397,10 +397,10 @@
       "type": "MCQ",
       "stem": "What does the writer mean by “a river of lava flowing north”?",
       "options": [
-        "a river of water heated by the sun",
-        "a road built of black rock",
+        "a river of water heated by the sun and the wind",
+        "a road built of black rock across the desert",
         "melted rock moving across the land like a river",
-        "a valley where lava once stood still"
+        "a valley where lava once stood still for years"
       ],
       "answer": "C",
       "why": "The lava moved in a long stream, as a river does, though it was melted rock, not water."
@@ -414,9 +414,9 @@
       "stem": "What does the writer mean by saying “the ground beneath our feet is not as still as it appears”?",
       "options": [
         "The earth slowly changes, though we may not notice.",
-        "People should not walk on black rock.",
-        "The ground in Saudi Arabia shakes every day.",
-        "Sand moves when the wind blows."
+        "People should not walk on black rock in the desert.",
+        "The ground in Saudi Arabia shakes every day of the week.",
+        "Sand moves when the wind blows hard in the desert."
       ],
       "answer": "A",
       "why": "The text explains that Arabia is “slowly moving” and that some volcanoes are still active, though we rarely feel it."
@@ -445,10 +445,10 @@
       "type": "MCQ",
       "stem": "In your opinion, what is the MOST useful result of monitoring the harrats for people who live nearby?",
       "options": [
-        "more visitors to the craters",
+        "more visitors to the craters and the lava fields",
         "early warning so that communities can prepare",
-        "more black rock for building",
-        "new roads across the lava fields"
+        "more black rock for building houses and roads",
+        "new roads across the lava fields to the town"
       ],
       "answer": "B",
       "why": "Paragraph 5 says warnings “could give communities valuable time to prepare,” which protects lives."
@@ -461,10 +461,10 @@
       "type": "MCQ",
       "stem": "What most likely made the writer write this text?",
       "options": [
-        "a plan to sell basalt to builders",
-        "a fear that Madinah will soon be destroyed",
+        "a plan to sell basalt to builders in the city",
+        "a fear that Madinah will soon be destroyed by lava",
         "a wish to show harrats as wonders and possible dangers",
-        "a wish to describe a holiday in Africa"
+        "a wish to describe a holiday in Africa with friends"
       ],
       "answer": "C",
       "why": "The writer explains how harrats formed, describes their wonders and explains why they are watched."
@@ -525,10 +525,10 @@
       "type": "MCQ",
       "stem": "Which title best sums up the ideas in the text?",
       "options": [
-        "A Visit to the Seaside",
+        "A Visit to the Seaside in Summer",
         "Arabia's Lava Fields: Past and Present",
-        "The Meteorite That Hit Taif",
-        "Farming in the Desert"
+        "The Meteorite That Hit Taif Long Ago",
+        "Farming in the Desert Near Riyadh"
       ],
       "answer": "B",
       "why": "The text covers how harrats formed long ago and why they are still watched today."

@@ -489,9 +489,9 @@
         {
           "stem": "According to the article, what three household items did this traditional craft typically produce?",
           "options": [
-            "Swords, shields, and armor",
-            "Bridges, boats, and wagons",
-            "Pottery, baskets, and rugs",
+            "Swords, shields, and armor for the soldiers",
+            "Bridges, boats, and wagons for the travelers",
+            "Pottery, baskets, and rugs for the village",
             "Doors, window shutters, and furniture"
           ],
           "answer": "D",
@@ -541,9 +541,9 @@
           "stem": "Which sequence correctly reflects the steps described for carving a wooden door?",
           "options": [
             "Select a solid piece of wood; carve decorative patterns with a chisel and mallet; finish after many days of patient work",
-            "Finish the door; select the wood; carve the patterns afterward",
-            "Carve the patterns first; then select which piece of wood to use",
-            "Sell the door; carve the patterns; select the wood"
+            "Finish the door; select the wood; carve the patterns afterward, and stop when the first day is over",
+            "Carve the patterns first; then select which piece of wood to use for the door, and finish it with a coat of paint",
+            "Sell the door; carve the patterns; select the wood, and then sell the door once more at the market after that"
           ],
           "answer": "A",
           "skill": "sequence",
@@ -557,9 +557,9 @@
         {
           "stem": "The article describes the carved patterns as often being intricate. What does intricate mean in this context?",
           "options": [
-            "Extremely plain and simple",
-            "Made without any tools at all",
-            "Completely invisible to the eye",
+            "Extremely plain and simple, with no decoration",
+            "Made without any tools at all, only by hand",
+            "Completely invisible to the eye of a person",
             "Having many small, carefully arranged details"
           ],
           "answer": "D",

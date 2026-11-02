@@ -200,9 +200,9 @@
           "stem": "Why do people call the Amazon the \"lungs of the Earth\"?",
           "options": [
             "It makes a lot of fresh air for us to breathe",
-            "It is shaped like human lungs",
-            "It is full of hospitals",
-            "It helps people run faster"
+            "It is shaped like a pair of human lungs",
+            "It is full of hospitals and doctors",
+            "It helps people run faster and breathe better"
           ],
           "answer": "A",
           "skill": "inference",
@@ -217,9 +217,9 @@
           "stem": "Why might so many different animals be able to live in the Amazon?",
           "options": [
             "It has thick plants and food in many different spots, like trees, ground, and air",
-            "It never rains there, so animals stay dry",
-            "It is covered in sand and rock",
-            "It is too cold for most animals"
+            "It never rains there, so animals stay dry and warm all year long, said the article",
+            "It is covered in sand and rock, so many animals can hide in the dunes",
+            "It is too cold for most animals to live there, so only a few kinds stay"
           ],
           "answer": "A",
           "skill": "inference",
@@ -234,9 +234,9 @@
           "stem": "Why does the author explain what trees do for the air before saying the Amazon helps the whole world?",
           "options": [
             "To show the reader exactly why the Amazon matters to everyone, not just South America",
-            "To describe how to plant a tree at home",
-            "To explain how birds fly",
-            "To list different kinds of rain"
+            "To describe how to plant a small tree in a garden at home, step by step, with water",
+            "To explain how birds fly high above the tall trees of the forest and across the sea",
+            "To list different kinds of rain that fall on the forest in every season of the year"
           ],
           "answer": "A",
           "skill": "author-purpose",
@@ -345,9 +345,9 @@
           "stem": "Why do scientists sometimes question calling the Amazon the \"lungs of the Earth\"?",
           "options": [
             "Because much of the oxygen the trees release is reused by the forest's own decomposing organisms",
-            "Because the Amazon produces no oxygen at all",
-            "Because the Amazon has no trees left",
-            "Because lungs cannot be found in nature"
+            "Because the Amazon produces no oxygen at all, so the nickname is wrong from the start, say the experts",
+            "Because the Amazon has no trees left, since people have cut them all down and sold them for money",
+            "Because lungs cannot be found in nature, only in living animals, and so the name makes no sense"
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -362,9 +362,9 @@
           "stem": "In the article, the word canopy refers to —",
           "options": [
             "the thick roof of leaves formed by the tallest trees",
-            "a kind of boat used on the Amazon River",
-            "a tent used by forest explorers",
-            "the root system beneath the forest floor"
+            "a kind of boat used on the Amazon River by fishermen",
+            "a tent used by forest explorers when they sleep at night",
+            "the root system beneath the forest floor and the soil"
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -412,9 +412,9 @@
         {
           "stem": "How does the author organize the article?",
           "options": [
-            "By telling a story about one explorer's journey",
-            "By listing the steps to plant a tree",
-            "By comparing the Amazon to a desert in every paragraph",
+            "By telling a story about one explorer's journey down a river in a canoe and all the animals he met on the way",
+            "By listing the steps to plant a tree, from digging a hole in the soil to watering the small plant every single day",
+            "By comparing the Amazon to a desert in every paragraph, showing how the two places are different",
             "By describing the forest's size and layers, then its biodiversity, its role in the air, and its importance to the planet"
           ],
           "answer": "D",
@@ -473,9 +473,9 @@
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
             "The Amazon Rainforest is an unmatched reservoir of global biodiversity whose scale and processes influence climate conditions well beyond South America.",
-            "The Amazon Rainforest has already had every one of its species fully identified and documented.",
-            "The Amazon River is more significant to the planet than the forest ecosystem surrounding it.",
-            "The Amazon Rainforest's climate has remained completely unaffected by human activity."
+            "The Amazon Rainforest has already had every one of its species fully identified and documented by scientists from around the world.",
+            "The Amazon River is more significant to the planet than the forest ecosystem surrounding it, since rivers hold more life than trees do.",
+            "The Amazon Rainforest's climate has remained completely unaffected by human activity, and it will stay the same in every future century, according to all of the scientists."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -541,9 +541,9 @@
           "stem": "Based on the article, why do researchers believe countless Amazon species remain unidentified?",
           "options": [
             "The forest is one of the most complex ecosystems humans have ever attempted to study, with vast, remote areas still unexplored",
-            "No scientific expeditions have ever entered the Amazon",
-            "All Amazon species were identified by indigenous communities centuries ago",
-            "The forest is too small for many species to exist"
+            "No scientific expeditions have ever entered the Amazon, since the river is too dangerous for boats and for planes, and so the forest has never been studied by anyone, ever",
+            "All Amazon species were identified by indigenous communities centuries ago, and written down in books, so scientists believe that nothing is left to find in the forest",
+            "The forest is too small for many species to exist, so most animals have already left for other places, and researchers think few kinds of life remain in the Amazon today"
           ],
           "answer": "A",
           "skill": "inference",
@@ -575,9 +575,9 @@
           "stem": "What can readers infer from the fact that the Amazon helps regulate rainfall and temperature far beyond South America?",
           "options": [
             "Events and changes within the Amazon can affect climate conditions in distant parts of the world",
-            "The Amazon has no measurable effect outside its own basin",
-            "Only countries bordering the Amazon experience any climate effects from it",
-            "The Amazon's climate influence is purely a local legend with no scientific basis"
+            "The Amazon has no measurable effect outside its own basin, so far-off places need not worry",
+            "Only countries bordering the Amazon experience any climate effects from it, and no others",
+            "The Amazon's climate influence is purely a local legend told by villagers, with no scientific basis"
           ],
           "answer": "A",
           "skill": "inference",
@@ -592,9 +592,9 @@
           "stem": "Why does the author likely mention the Amazon's drainage basin near the discussion of the river?",
           "options": [
             "To help readers imagine the immense scale of land that feeds and depends on the river system",
-            "To argue that the river should be renamed",
-            "To explain exactly how canoes are built",
-            "To describe the diet of Amazonian fish in detail"
+            "To argue that the river should be renamed after the people who first lived nearby",
+            "To explain exactly how canoes are built by the people who live beside the river",
+            "To describe the diet of Amazonian fish in great detail, from the smallest to the largest ones"
           ],
           "answer": "A",
           "skill": "author-purpose",

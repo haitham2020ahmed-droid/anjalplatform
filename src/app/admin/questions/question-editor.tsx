@@ -17,6 +17,7 @@ import { Combo } from "@/components/ui/combo";
 import { LineIcon } from "@/components/ui/line-icon";
 import { RichInline } from "@/components/rich-inline";
 import { stripMarks } from "@/lib/inline-marks";
+import { LENGTH_WARNING, lengthCueOf } from "@/lib/length-cue";
 
 type Skill = { id: string; grade: number; name: string };
 const TYPES: [string, string][] = [
@@ -57,7 +58,7 @@ export function QuestionEditor({ questionId, initial, skills: skillsIn, standard
     skillId: initialPlace ? "" : skillsIn[0]?.id ?? "", type: "MULTIPLE_CHOICE", stem: "", level: 4, whyCorrect: "", tip: "",
     options: [{ label: "A", text: "", correct: true, rationale: null }, { label: "B", text: "", correct: false, rationale: "" }, { label: "C", text: "", correct: false, rationale: "" }],
   });
-  const [msg, setMsg] = useState<{ ok?: string; error?: string; duplicateId?: string }>({});
+  const [msg, setMsg] = useState<{ ok?: string; error?: string; duplicateId?: string; warn?: boolean }>({});
   const t = useT();
   const [pending, start] = useTransition();
   const set = (patch: Partial<EditorInput>) => setQ({ ...q, ...patch });
@@ -95,16 +96,20 @@ export function QuestionEditor({ questionId, initial, skills: skillsIn, standard
     if (q.type === "DICTATION") payload.dictation = { word: q.dictation?.word ?? "", sentence: q.dictation?.sentence || null };
     if (q.type === "SENTENCE_COMBINE") payload.combine = { sentences: q.combine?.sentences ?? [], connector: q.combine?.connector || null, hint: q.combine?.hint || null, accepted: q.combine?.accepted ?? [] };
     if (q.type === "HOT_TEXT") payload.hotText = { segments: q.hotText?.segments ?? [], correct: q.hotText?.correct ?? [], maxSelect: q.hotText?.maxSelect || (q.hotText?.correct.length ?? 1) || 1 };
+    // 🎯 non-blocking: the correct answer clearly the longest choice (students can guess it) — saved anyway, with a warning
+    const warn = (payload.options && q.type !== "MULTI_SELECT" && lengthCueOf(payload.options).flagged)
+      || (payload.twoPart ? lengthCueOf(payload.twoPart.partA.options).flagged || (!payload.twoPart.partB.multiple && lengthCueOf(payload.twoPart.partB.options).flagged) : false);
     start(async () => {
       if (onSave) {
         const o = await onSave(payload);
-        return setMsg(o.error ? { error: o.error } : { ok: o.message ?? "Saved." });
+        return setMsg(o.error ? { error: o.error } : { ok: o.message ?? "Saved.", warn });
       }
       const r = await saveQuestionWithTypesAction(questionId, payload);
       if (r.error) return setMsg({ error: r.error, duplicateId: r.duplicateId });
-      setMsg({ ok: r.message });
+      setMsg({ ok: r.message, warn });
       // a new question, or a change saved as a new version (an admin's Edit anyway): open that question
-      if (r.id && r.id !== questionId) router.push(questionId ? `/admin/questions/${r.id}?msg=${encodeURIComponent(r.message ?? "")}` : `/admin/questions/${r.id}`);
+      const say = [r.message ?? "", warn ? t(LENGTH_WARNING) : ""].filter(Boolean).join(" ");
+      if (r.id && r.id !== questionId) router.push(questionId || warn ? `/admin/questions/${r.id}?msg=${encodeURIComponent(say)}` : `/admin/questions/${r.id}`);
       else router.refresh();
     });
   }
@@ -283,6 +288,7 @@ export function QuestionEditor({ questionId, initial, skills: skillsIn, standard
         <div className="flex flex-wrap items-center gap-3">
           <button type="button" onClick={save} className="rounded-xl bg-brand-navy px-5 py-2.5 font-semibold text-white hover:bg-brand-purple">{pending ? "Saving…" : saveLabel ?? (questionId ? "Save changes" : "Create draft")}</button>
           {msg.ok && <span role="status" className="text-sm text-brand-teal">{msg.ok}</span>}
+          {msg.warn && <span role="note" className="rounded-lg bg-amber-50 px-3 py-1.5 text-sm text-amber-900 ring-1 ring-amber-200" data-testid="length-warning">{t(LENGTH_WARNING)}</span>}
           {msg.error && <span role="alert" className="rounded-lg bg-red-50 px-3 py-1.5 text-sm text-red-700">{t(msg.error)}{msg.duplicateId && <> <Link href={`/admin/questions/${msg.duplicateId}`} className="font-semibold underline">{t("Open the existing question")}</Link></>}</span>}
         </div>
       )}

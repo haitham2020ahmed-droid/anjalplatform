@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How to plant a garden at home",
+            "How to plant a small garden at your home",
             "How trees and forests help clean the air",
-            "Why some animals live inside trees",
-            "How paper is made from wood"
+            "Why some animals live inside old trees",
+            "How paper is made from wood in a factory"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -165,10 +165,10 @@
         {
           "stem": "In the article, what does it mean when dust \"sticks to\" leaves and bark?",
           "options": [
-            "The dust floats far away from the tree",
+            "The dust floats far away from the tree and into the sky",
             "The dust stays stuck on the tree instead of in the air",
-            "The dust turns into a new leaf",
-            "The dust melts into water"
+            "The dust turns into a new leaf in the spring",
+            "The dust melts into water when the sun comes out"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -199,10 +199,10 @@
         {
           "stem": "Layla plants three new trees in her backyard this spring. Based on the article, how does this likely help the air?",
           "options": [
-            "It will make the air warmer right away",
+            "It will make the air warmer right away in her yard",
             "It adds more leaves that can help clean the air over time",
-            "It will stop all cars from making smoke",
-            "It removes oxygen from the yard"
+            "It will stop all cars from making smoke on her street",
+            "It removes oxygen from the yard and from the nearby air"
           ],
           "answer": "B",
           "skill": "inference",
@@ -217,9 +217,9 @@
           "stem": "Why do forests catch more dust and smoke than a single small plant?",
           "options": [
             "Because forests have many more leaves and bark to trap dirt",
-            "Because forests grow only in dusty places",
-            "Because forests do not need any sunlight",
-            "Because small plants push dust back into the air"
+            "Because forests grow only in dusty places, so they catch more",
+            "Because forests do not need any sunlight to grow leaves",
+            "Because small plants push dust back into the air, not forests"
           ],
           "answer": "A",
           "skill": "inference",
@@ -233,10 +233,10 @@
         {
           "stem": "Why did the author end the article by telling readers what they can do to help forests?",
           "options": [
-            "To describe exactly how a leaf is shaped",
+            "To describe exactly how a leaf is shaped and how it grows",
             "To give readers simple actions they can take to help",
-            "To explain how dust travels through the sky",
-            "To list every country that has forests"
+            "To explain how dust travels through the sky in a storm",
+            "To list every country that has forests and their sizes"
           ],
           "answer": "B",
           "skill": "author-purpose",
@@ -294,9 +294,9 @@
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
             "Forests help clean the air through photosynthesis and by trapping pollutants.",
-            "Oxygen is the only gas found in the atmosphere.",
-            "All trees grow at exactly the same speed everywhere.",
-            "Deforestation only happens in places without any animals."
+            "Oxygen is the only gas found in the atmosphere of the Earth.",
+            "All trees grow at exactly the same speed everywhere in the world.",
+            "Deforestation only happens in places without any animals living in the area."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -310,10 +310,10 @@
         {
           "stem": "Based on the article, what happens inside a leaf during photosynthesis?",
           "options": [
-            "The leaf changes color from green to brown",
-            "The leaf releases dust back into the atmosphere",
+            "The leaf changes color from green to brown in the sun",
+            "The leaf releases dust back into the atmosphere around it",
             "The leaf uses sunlight and water to turn carbon dioxide into food",
-            "The leaf grows a new branch"
+            "The leaf grows a new branch from its stem in the dark of night"
           ],
           "answer": "C",
           "skill": "detail",
@@ -378,10 +378,10 @@
         {
           "stem": "A city plants a long row of trees along a busy road full of car traffic. Based on the article, what is the most likely reason?",
           "options": [
-            "To give drivers a place to park",
-            "To stop the road from ever flooding",
+            "To give drivers a place to park their cars along the road",
+            "To stop the road from ever flooding after the heavy winter rain",
             "To help trap pollutants from car exhaust before people breathe them",
-            "To make the road more difficult to see"
+            "To make the road more difficult to see from far away, for safety"
           ],
           "answer": "C",
           "skill": "inference",
@@ -395,9 +395,9 @@
         {
           "stem": "How is most of the article organized?",
           "options": [
-            "As a set of directions for building a treehouse",
-            "As a comparison between forests and deserts",
-            "As a timeline of one tree's entire life",
+            "As a set of directions for building a treehouse in a big forest",
+            "As a comparison between forests and deserts in many lands",
+            "As a timeline of one tree's entire life from the seed to the log, over many years",
             "As an explanation of how trees clean the air, followed by what harms that process"
           ],
           "answer": "D",
@@ -473,9 +473,9 @@
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
             "Forests filter the air through photosynthesis and by trapping pollutants, and deforestation removes that benefit.",
-            "Oxygen is produced only inside large forests and nowhere else on Earth.",
-            "Every ecosystem on Earth depends entirely on a single kind of tree.",
-            "Emissions from factories have no real effect on the atmosphere."
+            "Oxygen is produced only inside large forests and nowhere else on Earth, so the oceans make none at all in the whole world.",
+            "Every ecosystem on Earth depends entirely on a single kind of tree, which grows in all lands.",
+            "Emissions from factories have no real effect on the atmosphere, so forests do not need to clean it."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -506,10 +506,10 @@
         {
           "stem": "What does the article identify as the main reason trees can only offset emissions while they remain standing?",
           "options": [
-            "Because fallen trees instantly release twice as much oxygen",
-            "Because only young trees are capable of photosynthesis",
+            "Because fallen trees instantly release twice as much oxygen as standing trees do",
+            "Because only young trees are capable of photosynthesis, and old trees stop at once",
             "Because a cut tree can no longer absorb carbon dioxide from the atmosphere",
-            "Because cut trees immediately become a new source of pollutants"
+            "Because cut trees immediately become a new source of pollutants in the air and water"
           ],
           "answer": "C",
           "skill": "detail",
@@ -523,10 +523,10 @@
         {
           "stem": "The article says a forest's \"canopy\" covers wide stretches of land. What does canopy mean in this context?",
           "options": [
-            "The roots of trees spreading underground",
-            "The soil that trees grow in",
+            "The roots of trees spreading underground like a net",
+            "The soil that the trees grow in on the ground",
             "The layer of leaves and branches at the top of trees",
-            "The trucks used to clear a forest"
+            "The trucks that are used to clear a forest"
           ],
           "answer": "C",
           "skill": "vocabulary",
@@ -558,9 +558,9 @@
           "stem": "What can the reader infer about why scientists describe the relationship between trees and the atmosphere as part of an \"ecosystem\"?",
           "options": [
             "Because trees, gases, and living things are all connected and affect one another",
-            "Because ecosystems only include plants and never any gases",
-            "Because the atmosphere is located outside of any ecosystem",
-            "Because trees and the atmosphere never interact with each other"
+            "Because ecosystems only include plants and never any gases, animals or people",
+            "Because the atmosphere is located outside of any ecosystem on the planet Earth",
+            "Because trees and the atmosphere never interact with each other in any way"
           ],
           "answer": "A",
           "skill": "inference",
@@ -574,10 +574,10 @@
         {
           "stem": "Why does the author describe the exchange of gases inside a leaf as \"remarkable\"?",
           "options": [
-            "To suggest that the process is actually quite ordinary and unimportant",
+            "To suggest that the process is actually quite ordinary and unimportant to trees and plants.",
             "To emphasize how extraordinary it is that a leaf can transform air into food using only light",
-            "To argue that photosynthesis happens only once in a tree's lifetime",
-            "To compare photosynthesis unfavorably to other natural processes"
+            "To argue that photosynthesis happens only once in a tree's lifetime, in its first spring.",
+            "To compare photosynthesis unfavorably to other natural processes, like the growth of roots."
           ],
           "answer": "B",
           "skill": "author-purpose",
@@ -591,9 +591,9 @@
         {
           "stem": "How does the article's structure support its overall argument about forests and the atmosphere?",
           "options": [
-            "It lists unrelated facts about different ecosystems in no particular order",
-            "It compares the price of wood from different types of forests",
-            "It tells a fictional story about a single talking tree",
+            "It lists unrelated facts about different ecosystems in no particular order at all, one after another",
+            "It compares the price of wood from different types of forests in many countries",
+            "It tells a fictional story about a single talking tree that lives in a faraway land",
             "It explains how forests benefit the atmosphere, then shows what is lost when forests are cleared"
           ],
           "answer": "D",

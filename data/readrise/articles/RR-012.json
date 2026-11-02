@@ -149,9 +149,9 @@
           "stem": "What does your brain do with new facts while you sleep?",
           "options": [
             "It sorts them and keeps the ones you need.",
-            "It throws all of them away.",
-            "It turns them into bright light.",
-            "It sends them to your muscles."
+            "It throws all of them away before you wake up.",
+            "It turns them into bright light in your head.",
+            "It sends them to your muscles, so you can run."
           ],
           "answer": "A",
           "skill": "detail",
@@ -182,10 +182,10 @@
         {
           "stem": "Why can a screen at bedtime make it hard to fall asleep?",
           "options": [
-            "The screen makes the room too cold.",
-            "The screen uses up the body's memory.",
+            "The screen makes the room too cold at night.",
+            "The screen uses up the body's memory while you sleep.",
             "Its bright light tells your brain it is day.",
-            "Its sound makes your legs feel sore."
+            "Its sound makes your legs feel sore and tired."
           ],
           "answer": "C",
           "skill": "cause-effect",
@@ -327,9 +327,9 @@
         {
           "stem": "How long does one sleep cycle last, according to the article?",
           "options": [
-            "About ten minutes",
-            "About three hours",
-            "About twelve hours",
+            "About ten minutes or so",
+            "About three hours or more",
+            "About twelve hours a night",
             "About an hour and a half"
           ],
           "answer": "D",
@@ -344,10 +344,10 @@
         {
           "stem": "Read the sentence: \"Students who sleep well usually find it easier to concentrate.\" What does concentrate mean?",
           "options": [
-            "To fall asleep quickly",
+            "To fall asleep quickly in the evening",
             "To give full attention to something",
-            "To feel cranky and tired",
-            "To repeat something many times"
+            "To feel cranky and tired in class",
+            "To repeat something many times aloud"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -378,10 +378,10 @@
         {
           "stem": "Why does the article mention that growth hormone is released during deep sleep?",
           "options": [
-            "To prove that children should sleep less",
+            "To prove that children should sleep less at night",
             "To show that sleep helps children's bodies develop",
-            "To explain why people dream at night",
-            "To show that hormones come from screens"
+            "To explain why people dream at night in bed",
+            "To show that hormones come from screens and phones"
           ],
           "answer": "B",
           "skill": "inference",
@@ -541,9 +541,9 @@
           "stem": "According to the article, why do specialists advise switching off devices before bedtime?",
           "options": [
             "Screen light can postpone melatonin and disrupt the body clock.",
-            "Devices use energy that the body needs for growth.",
-            "Screens erase memories formed during the school day.",
-            "Devices lower body temperature during deep sleep."
+            "Devices use energy that the body needs for growth at night.",
+            "Screens erase memories formed during the school day, so lessons are forgotten.",
+            "Devices lower body temperature during deep sleep and wake the heart."
           ],
           "answer": "A",
           "skill": "cause-effect",

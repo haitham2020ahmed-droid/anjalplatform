@@ -117,7 +117,7 @@
             "Why sea stars are a kind of fish",
             "How sea stars live, move, eat, and stay safe",
             "How to catch sea stars to keep at home",
-            "How the tide makes big waves"
+            "How the tide makes big waves on the beach"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -233,10 +233,10 @@
         {
           "stem": "Why does the author end by telling readers to look at a sea star but leave it in its home?",
           "options": [
-            "To tell readers how to cook sea stars",
+            "To tell readers how to cook sea stars at home",
             "To ask readers to leave sea stars in their home",
-            "To explain how sea stars see",
-            "To show that sea stars are fish"
+            "To explain how sea stars see in the dark water",
+            "To show that sea stars are fish that swim fast"
           ],
           "answer": "B",
           "skill": "author-purpose",
@@ -294,9 +294,9 @@
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
             "Sea stars are unusual animals with special ways of moving, eating, and healing.",
-            "Sea stars are dangerous fish that live only in the Red Sea.",
-            "Tide pools are the best places to find seaweed.",
-            "Sea urchins and sand dollars are the same as sea stars."
+            "Sea stars are dangerous fish that live only in the Red Sea and bite swimmers.",
+            "Tide pools are the best places to find seaweed and sea snails.",
+            "Sea urchins and sand dollars are the same as sea stars in every way."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -412,10 +412,10 @@
         {
           "stem": "How is the article organized?",
           "options": [
-            "As the story of one sea star from egg to adult",
-            "As steps for keeping a sea star as a pet",
+            "As the story of one sea star from egg to adult, told in time order from the beach",
+            "As steps for keeping a sea star as a pet in a large tank at home",
             "By describing the body, then eating and healing, then where sea stars live",
-            "By comparing sea stars with fish, point by point"
+            "By comparing sea stars with fish, point by point, from body to food"
           ],
           "answer": "C",
           "skill": "text-structure",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
-            "Sea stars are fish that have adapted to life in tide pools.",
-            "The crown-of-thorns is the most dangerous animal in the Red Sea.",
+            "Sea stars are fish that have adapted to life in tide pools along the coast.",
+            "The crown-of-thorns is the most dangerous animal in the Red Sea, and it attacks swimmers.",
             "Sea stars are invertebrates whose unusual bodies let them move, hunt, and heal.",
-            "Tide pools disappear twice a day because of the tide."
+            "Tide pools disappear twice a day because of the tide, and then fill again with fish."
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -574,9 +574,9 @@
         {
           "stem": "Why would a sea star be at risk if a visitor kept it out of the water for a long time?",
           "options": [
-            "It would quickly grow too many new arms.",
-            "It would turn into a fish.",
-            "It would lose its eye spots.",
+            "It would quickly grow too many new arms, and then it",
+            "It would turn into a fish if the sun shone on it",
+            "It would lose its eye spots and could not see",
             "It depends on seawater moving through its body."
           ],
           "answer": "D",

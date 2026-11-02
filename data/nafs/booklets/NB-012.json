@@ -46,10 +46,10 @@
       "type": "MCQ",
       "stem": "What does “absorbed” mean in “completely absorbed in the adventure” (paragraph 4)?",
       "options": [
-        "soaked with water",
+        "soaked with water and mud",
         "deeply interested and focused",
-        "confused and lost",
-        "tired and bored"
+        "confused and lost in the dark",
+        "tired and bored with the story"
       ],
       "answer": "B",
       "why": "Reem kept reading under her blanket, so she was so interested that she could not stop. Here “absorbed” does not mean soaking up water."
@@ -317,8 +317,8 @@
       "type": "MCQ",
       "stem": "How did Reem feel when she read aloud to the Grade 2 class?",
       "options": [
-        "sad and tired",
-        "angry with the children",
+        "sad and tired after the long day",
+        "angry with the noisy children",
         "nervous at first, then proud",
         "bored from start to end"
       ],
@@ -381,10 +381,10 @@
       "type": "MCQ",
       "stem": "What do Reem and the girl in the book Ms Huda gave her have in common?",
       "options": [
-        "Both are afraid of the desert.",
-        "Both work as teachers.",
+        "Both are afraid of the desert at night.",
+        "Both work as teachers in a village school.",
         "Both have a connection with camels.",
-        "Both live in a big city."
+        "Both live in a big city by the sea."
       ],
       "answer": "C",
       "why": "Reem's grandfather keeps camels, and the girl in the book rode her camel across the desert."
@@ -397,9 +397,9 @@
       "type": "MCQ",
       "stem": "What does Reem mean by “Books felt like heavy doors that would never open”?",
       "options": [
-        "Books in the library were locked.",
-        "Her school had very heavy doors.",
-        "She kept her books behind a door.",
+        "Books in the library were locked behind big doors.",
+        "Her school had very heavy doors on every room.",
+        "She kept her books behind a door in her bedroom.",
         "Reading seemed difficult and closed to her."
       ],
       "answer": "D",
@@ -430,9 +430,9 @@
       "stem": "In “you were the person who gave me the key” (paragraph 7), what does “the key” stand for?",
       "options": [
         "Ms Huda's help in finding books Reem enjoyed",
-        "a key that opens Reem's pencil case",
-        "a key to her grandfather's farm",
-        "a real key to the library door"
+        "a key that opens Reem's pencil case at school",
+        "a key to her grandfather's farm in the hills",
+        "a real key to the library door in the school"
       ],
       "answer": "A",
       "why": "Reading was a door Reem could not open; Ms Huda's help, such as choosing a camel book, was the “key”."
@@ -556,10 +556,10 @@
       "type": "MCQ",
       "stem": "How can schools help students who find reading hard?",
       "options": [
-        "Make them read only very long books.",
-        "Stop them from visiting the library.",
+        "Make them read only very long books each day.",
+        "Stop them from visiting the library after class.",
         "Let them choose books about things they love.",
-        "Laugh when they make mistakes aloud."
+        "Laugh when they make mistakes aloud in front."
       ],
       "answer": "C",
       "why": "Ms Huda helped Reem by letting her choose books and linking reading to what she loved."

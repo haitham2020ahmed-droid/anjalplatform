@@ -115,9 +115,9 @@
           "stem": "What is this article mostly about?",
           "options": [
             "A quiet boy notices rising water and helps save his elderly neighbor",
-            "A boy builds a brand-new house for his elderly neighbor",
-            "A family moves far away to a brand-new village",
-            "A boy learns how to swim safely during a big storm"
+            "A boy builds a brand-new house for his elderly neighbor after a flood",
+            "A family moves far away to a brand-new village in the mountains",
+            "A boy learns how to swim safely during a big storm at the beach"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -216,7 +216,7 @@
         {
           "stem": "Why did Hamad trust Rami's family so quickly that night?",
           "options": [
-            "Because the village council told him to trust them",
+            "Because the village council told him to trust them that night",
             "Because they showed him a detailed map of the flood",
             "Because he had already heard about it on the radio",
             "Because they were his close neighbors and he knew them well"
@@ -361,10 +361,10 @@
         {
           "stem": "In the article, the word observant means —",
           "options": [
-            "unable to notice small details at all",
+            "unable to notice small details at all in a picture",
             "quick to notice things that other people often miss",
-            "loud and eager to speak in a crowd",
-            "afraid of dangerous weather and storms"
+            "loud and eager to speak in a crowd of people",
+            "afraid of dangerous weather and storms at sea"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -413,9 +413,9 @@
           "stem": "Why does the author include the detail that Hamad thanked Rami quietly, without a fuss?",
           "options": [
             "To show that meaningful recognition does not always need to be loud or public",
-            "To suggest that Hamad was actually not very grateful",
-            "To explain the detailed official rules for thanking a rescuer",
-            "To compare Hamad's house with the busy village council building"
+            "To suggest that Hamad was actually not very grateful to Rami, and wished to say nothing",
+            "To explain the detailed official rules for thanking a rescuer in a village",
+            "To compare Hamad's house with the busy village council building near the well"
           ],
           "answer": "A",
           "skill": "author-purpose",
@@ -591,10 +591,10 @@
         {
           "stem": "Why does the author end the article by emphasizing Hamad's discreet commendation rather than a public celebration?",
           "options": [
-            "To imply that Hamad was secretly embarrassed by what happened",
-            "To criticize the village for not holding a public celebration",
+            "To imply that Hamad was secretly embarrassed by what happened in the village",
+            "To criticize the village for not holding a public celebration for the boy",
             "To suggest that quiet recognition can be just as meaningful as public praise",
-            "To shift the whole story's focus away from Rami entirely"
+            "To shift the whole story's focus away from Rami entirely and onto the elder"
           ],
           "answer": "C",
           "skill": "author-purpose",

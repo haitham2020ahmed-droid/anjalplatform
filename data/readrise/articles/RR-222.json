@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How Roman soldiers conquered Europe",
+            "How Roman soldiers conquered all of Europe long ago",
             "How different ways of writing numbers changed over time",
-            "How sheep are counted on farms today",
-            "How to build a calendar"
+            "How sheep are counted on farms and in fields today",
+            "How to build a calendar for the year at home"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -182,10 +182,10 @@
         {
           "stem": "Read: \"One sign was zero. It meant nothing at all.\" What does nothing mean here?",
           "options": [
-            "Full of marks",
-            "Very heavy",
+            "Full of marks and lines",
+            "Very heavy to hold",
             "Having no value at all",
-            "Very old"
+            "Very old and worn"
           ],
           "answer": "C",
           "skill": "vocabulary",
@@ -233,10 +233,10 @@
         {
           "stem": "How does the article mostly organize its ideas?",
           "options": [
-            "By comparing two kinds of sheep",
+            "By comparing two kinds of sheep and their wool on a farm in the hills",
             "By telling about ways to write numbers, in the order they were used",
-            "By listing rules for a math game",
-            "By describing one city's weather"
+            "By listing rules for a math game that children play at school after class",
+            "By describing one city's weather in each of the seasons, one after the other"
           ],
           "answer": "B",
           "skill": "text-structure",
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the central idea of this article?",
           "options": [
-            "Egypt and Babylon were the two richest ancient civilizations.",
+            "Egypt and Babylon were the two richest ancient civilizations, and every number came from them alone.",
             "Different peoples each played a part in creating and spreading the numbers we use today.",
-            "Rome was the first civilization to use any numbers at all.",
-            "Computers could not exist without Arabic numerals."
+            "Rome was the first civilization to use any numbers at all, and the others copied the Roman ones.",
+            "Computers could not exist without Arabic numerals, so the article is mostly about machines today."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -345,9 +345,9 @@
           "stem": "Read: \"the exact position of a symbol inside a number also showed its worth.\" In this sentence, what does position mean?",
           "options": [
             "The place where a symbol sits",
-            "The color of a symbol",
-            "The sound a symbol makes",
-            "The size of a symbol"
+            "The color of a symbol on the page",
+            "The sound a symbol makes when said",
+            "The size of a symbol in the line"
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -361,10 +361,10 @@
         {
           "stem": "What was one result of the Indian system having a symbol for zero?",
           "options": [
-            "Rome stopped using letters for numbers right away.",
-            "Merchants stopped needing to count at all.",
+            "Rome stopped using letters for numbers right away in all its markets.",
+            "Merchants stopped needing to count at all after the zero came.",
             "The system became more useful and efficient for figuring things out.",
-            "Tally marks were used again."
+            "Tally marks were used again by traders for large sums of money."
           ],
           "answer": "C",
           "skill": "cause-effect",
@@ -378,9 +378,9 @@
         {
           "stem": "Why do you think wise men in Baghdad wrote detailed books explaining the Indian plan?",
           "options": [
-            "So tally marks would be forgotten forever",
-            "So Rome could keep using its old letters",
-            "So merchants would stop traveling",
+            "So tally marks would be forgotten forever by everyone",
+            "So Rome could keep using its old letters for numbers",
+            "So merchants would stop traveling to faraway markets",
             "So the new plan could be understood and used by others"
           ],
           "answer": "D",
@@ -473,9 +473,9 @@
           "stem": "Which statement best captures the central idea of this article?",
           "options": [
             "A sequence of innovations, spanning several civilizations, produced the numeral system used worldwide today.",
-            "Rome invented the most efficient numeral system in history.",
-            "Zero was discovered by European merchants in the thirteenth century.",
-            "Brahmi numerals are identical to Roman numerals."
+            "Rome invented the most efficient numeral system in history, and it is still used today in schools and banks around the world.",
+            "Zero was discovered by European merchants in the thirteenth century, long before any other number was ever written down.",
+            "Brahmi numerals are identical to Roman numerals, so they have never changed over time, and no one ever improved them at all."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -540,9 +540,9 @@
         {
           "stem": "What effect did the lack of a zero symbol have on Roman numerals?",
           "options": [
-            "It had no effect at all.",
+            "It had no effect at all on how Romans counted.",
             "It made Roman numerals spread faster.",
-            "It allowed Romans to invent algebra.",
+            "It allowed Romans to invent algebra very early.",
             "It made Roman arithmetic remarkably difficult."
           ],
           "answer": "D",
@@ -592,9 +592,9 @@
           "stem": "How does the article mostly structure its explanation of this history?",
           "options": [
             "It follows the numeral system's development across civilizations in roughly chronological order.",
-            "It compares two unrelated modern inventions.",
-            "It describes a single building in great detail.",
-            "It lists rules for playing a number game."
+            "It compares two unrelated modern inventions, one in a home and one in a school, and tells which one is better.",
+            "It describes a single building in great detail, from its doors to its roof.",
+            "It lists rules for playing a number game, one rule after another, for the children."
           ],
           "answer": "A",
           "skill": "text-structure",

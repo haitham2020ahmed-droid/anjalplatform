@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How to build a rocket at home",
+            "How to build a rocket at home with a few tools",
             "Two Saudis who went to a space station",
-            "Why the Moon shines at night",
-            "How pilots learn to fly jets"
+            "Why the Moon shines at night in the sky",
+            "How pilots learn to fly jets in the air force"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -165,9 +165,9 @@
         {
           "stem": "In space, a pen can float. What does float mean here?",
           "options": [
-            "To fall down fast",
-            "To break into many small parts",
-            "To get very hot",
+            "To fall down fast to the ground",
+            "To break into many small parts and pieces",
+            "To get very hot in the sunlight",
             "To stay up in the air without falling"
           ],
           "answer": "D",
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
-            "Rockets are the fastest machines ever built by people.",
-            "The space station is the only lab in the world.",
+            "Rockets are the fastest machines ever built by people on Earth.",
+            "The space station is the only lab in the world that studies science.",
             "Two Saudi astronauts lived and worked on the space station in 2023.",
-            "Fighter pilots are better at science than other people."
+            "Fighter pilots are better at science than other people in the country."
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -361,10 +361,10 @@
         {
           "stem": "Why do astronauts sleep in bags that are attached to the wall?",
           "options": [
-            "The bags keep out loud noise from the rocket.",
+            "The bags keep out loud noise from the rocket engines.",
             "Without them, they would float around while sleeping.",
-            "The floor is too cold to sleep on.",
-            "The station has no room for beds."
+            "The floor is too cold to sleep on in space.",
+            "The station has no room for any beds at all."
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -507,9 +507,9 @@
           "stem": "What kind of research had Rayyanah Barnawi done before the mission?",
           "options": [
             "Research on human cells, including cells linked to breast cancer",
-            "Research on how big rockets burn their fuel",
-            "Research on desert plants",
-            "Research on fighter jets"
+            "Research on how big rockets burn their fuel in space and in the air",
+            "Research on desert plants and their roots in dry sand and in rocks",
+            "Research on fighter jets and their wings in the sky and at high speeds"
           ],
           "answer": "A",
           "skill": "detail",
@@ -524,9 +524,9 @@
           "stem": "The article calls the journey a historic milestone for the Kingdom. What does milestone mean?",
           "options": [
             "A heavy rock used to build roads",
-            "A long delay before an event",
+            "A long delay before an important event",
             "An important event that marks progress",
-            "A small mistake in a plan"
+            "A small mistake in a plan that is soon fixed"
           ],
           "answer": "C",
           "skill": "vocabulary",

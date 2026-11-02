@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How people grow food on Mars",
+            "How people grow food on Mars in big greenhouses",
             "How robot rovers explore Mars and what they have found",
-            "Why Mars is the closest planet to the Sun",
-            "How to build a helicopter at home"
+            "Why Mars is the closest planet to the Sun in our system",
+            "How to build a helicopter at home from simple parts"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -165,10 +165,10 @@
         {
           "stem": "Why must a rover make some choices on its own?",
           "options": [
-            "It does not like people.",
+            "It does not like people and wants to be alone.",
             "The signal from Earth is slow to get there.",
-            "It has no wheels.",
-            "There is no dust on Mars."
+            "It has no wheels, so it must think for itself.",
+            "There is no dust on Mars to slow it down."
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -182,9 +182,9 @@
         {
           "stem": "In the article, a signal is —",
           "options": [
-            "a rock from Mars",
-            "a tool on the rover's arm",
-            "a red dot in the sky",
+            "a rock from Mars that fell to the ground",
+            "a tool on the rover's arm that picks rocks",
+            "a red dot in the night sky above Earth",
             "a message sent from Earth to the rover"
           ],
           "answer": "D",
@@ -199,10 +199,10 @@
         {
           "stem": "Rovers found rocks that were made in water. What can you tell from this?",
           "options": [
-            "Mars is full of water now.",
+            "Mars is full of water now and has many seas.",
             "Mars was once wetter than it is today.",
-            "Rovers bring water from Earth.",
-            "People once swam on Mars."
+            "Rovers bring water from Earth in their tanks.",
+            "People once swam on Mars in its lakes."
           ],
           "answer": "B",
           "skill": "inference",
@@ -345,9 +345,9 @@
           "stem": "The rover's arm can collect a sample. What is a sample?",
           "options": [
             "A small piece taken to study",
-            "A message from Earth",
-            "A picture from a camera",
-            "A kind of wheel"
+            "A message sent from Earth",
+            "A picture taken from a camera",
+            "A kind of wheel on the rover"
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -592,9 +592,9 @@
           "stem": "What can be inferred from the fact that Opportunity worked for almost 15 years?",
           "options": [
             "Its engineers built it to be much tougher than its basic plan required.",
-            "Mars has no wind or dust storms.",
-            "Rovers do not need any power at all.",
-            "The rover was repaired by astronauts."
+            "Mars has no wind or dust storms, so it was easy to keep going for years",
+            "Rovers do not need any power at all, so they can run for ages.",
+            "The rover was repaired by astronauts who traveled to Mars."
           ],
           "answer": "A",
           "skill": "inference",

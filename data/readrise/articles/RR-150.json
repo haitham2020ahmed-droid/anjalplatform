@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How to make a chess board and pieces from wood",
+            "How to make a chess board and pieces from wood and paint",
             "How chess is played and why it is a sport for the mind",
-            "Why football is a better sport than chess is",
-            "How real kings and queens lived long ago"
+            "Why football is a better sport than chess is for children",
+            "How real kings and queens lived long ago in old castles"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -166,9 +166,9 @@
           "stem": "Read this: \"To win, you need a plan.\" What is a plan?",
           "options": [
             "A kind of chess piece",
-            "A fast clock",
+            "A fast clock on the wall",
             "An idea of what you will do",
-            "A prize for the winner"
+            "A prize for the winner of the game"
           ],
           "answer": "C",
           "skill": "vocabulary",
@@ -216,10 +216,10 @@
         {
           "stem": "Why do people call chess a sport for the mind?",
           "options": [
-            "Players run a lot during games",
-            "It is played outside",
+            "Players run a lot during games and sweat much",
+            "It is played outside in the sun and wind",
             "Players work hard by thinking, not by running",
-            "It uses a ball"
+            "It uses a ball and a net on a court"
           ],
           "answer": "C",
           "skill": "inference",
@@ -233,10 +233,10 @@
         {
           "stem": "In what order does the article tell where chess went?",
           "options": [
-            "Europe, India, Persia",
-            "Persia, Europe, India",
+            "Europe, India, Persia, then the Arab lands",
+            "Persia, Europe, India, then the whole world",
             "India, Persia, the Arab lands, then the world",
-            "The world, then India"
+            "The world first, then India, then Persia and Europe"
           ],
           "answer": "C",
           "skill": "sequence",
@@ -294,9 +294,9 @@
           "stem": "What is the central idea of the article?",
           "options": [
             "It is an old game, now a sport that needs skill and planning.",
-            "Chess is a game that only adults should play.",
-            "Chess is a new game that was invented in 2017.",
-            "Chess is played without any rules, so anything goes."
+            "Chess is a game that only adults should play, because children cannot learn it.",
+            "Chess is a new game that was invented in 2017 by a boy.",
+            "Chess is played without any rules, so anything goes in a game."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -311,9 +311,9 @@
           "stem": "How does a player capture an opponent's piece?",
           "options": [
             "By moving onto its square",
-            "By touching the king",
-            "By turning the board",
-            "By stopping the clock"
+            "By touching the king with a pawn",
+            "By turning the board around",
+            "By stopping the clock for good"
           ],
           "answer": "A",
           "skill": "detail",
@@ -327,10 +327,10 @@
         {
           "stem": "Read this: \"a player needs a good strategy.\" What does strategy mean?",
           "options": [
-            "A kind of clock",
+            "A kind of clock for chess",
             "A plan for the whole game",
-            "A special square",
-            "A chess club"
+            "A special square on the board",
+            "A chess club at school"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -412,9 +412,9 @@
         {
           "stem": "Why does the author begin with two students who are not running or kicking a ball?",
           "options": [
-            "To describe a football match",
-            "To explain how pieces move",
-            "To list famous players",
+            "To describe a football match played at school",
+            "To explain how pieces move across the board",
+            "To list famous players from many countries",
             "To show that chess is hard work for the mind"
           ],
           "answer": "D",
@@ -490,8 +490,8 @@
           "stem": "According to the article, what does the phrase shah mat mean?",
           "options": [
             "The king is helpless",
-            "The queen wins",
-            "The game begins",
+            "The queen wins the game",
+            "The game begins today",
             "The board is full"
           ],
           "answer": "A",
@@ -575,9 +575,9 @@
           "stem": "What can be inferred from the fact that as-Suli composed chess puzzles?",
           "options": [
             "Chess was studied as a skill to be practised",
-            "Chess was forbidden in Baghdad",
-            "Puzzles were more popular than games",
-            "Chess had no rules at that time"
+            "Chess was forbidden in Baghdad by the ruler",
+            "Puzzles were more popular than games with players",
+            "Chess had no rules at that time in history"
           ],
           "answer": "A",
           "skill": "inference",

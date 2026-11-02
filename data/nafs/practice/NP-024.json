@@ -29,9 +29,9 @@
       "difficulty": 2,
       "stem": "Which sentence uses the word \"genuinely\" correctly?",
       "options": [
-        "The genuinely was hidden in the box.",
-        "He genuinely the door before leaving.",
-        "They ran genuinely of the classroom.",
+        "The genuinely was hidden in the box under the bed.",
+        "He genuinely the door before leaving the house.",
+        "They ran genuinely of the classroom to the yard.",
         "She was genuinely pleased to see her friend."
       ],
       "answer": "D",
@@ -158,9 +158,9 @@
       "stem": "Which different ending would best fit the message of the story?",
       "options": [
         "Months later, she helps another new student find a class.",
-        "She returns to her old school the next day.",
-        "She decides never to speak to Reem again.",
-        "She hides in the laboratory until evening."
+        "She returns to her old school the very next day to see her friends.",
+        "She decides never to speak to Reem again at lunch or at class.",
+        "She hides in the laboratory until evening comes and the school closes."
       ],
       "answer": "A",
       "why": "This ending continues the lesson of kindness to new students that the narrator learned."

@@ -88,7 +88,7 @@
       "questions": [
         {
           "stem": "What is this article mainly about?",
-          "options": ["How to build a windmill at home", "The two kinds of energy and how they differ", "How to fix a broken phone quickly", "Why oil is more useful than any gas"],
+          "options": ["How to build a windmill at home from wood", "The two kinds of energy and how they differ", "How to fix a broken phone quickly at home", "Why oil is more useful than any gas or coal"],
           "answer": "B",
           "skill": "central-idea",
           "why": "The article explains renewable and nonrenewable energy and how they are different.",
@@ -128,7 +128,7 @@
         },
         {
           "stem": "Why can people not quickly make more oil once it is used up?",
-          "options": ["Oil is found only in the sun", "Oil forms deep underground over millions of years", "Oil is made from wind", "Oil is made in factories in one day"],
+          "options": ["Oil is found only in the sun and in its heat and rays", "Oil forms deep underground over millions of years", "Oil is made from wind in the desert at night", "Oil is made in factories in one day by workers"],
           "answer": "B",
           "skill": "inference",
           "why": "The article says oil forms deep underground over millions of years, so it cannot be replaced quickly.",
@@ -136,7 +136,7 @@
         },
         {
           "stem": "Why does burning oil, coal, and gas make the air dirtier?",
-          "options": ["Because burning them releases gases into the air", "Because they are heavier than air", "Because they are usually blue in color", "Because sunlight burns them instantly"],
+          "options": ["Because burning them releases gases into the air", "Because they are heavier than air and fall to the ground", "Because they are usually blue in color and the sky turns blue", "Because sunlight burns them instantly in the air above"],
           "answer": "A",
           "skill": "cause-effect",
           "why": "The article says burning oil, coal, and gas can make the air dirty because of what is released.",
@@ -166,7 +166,7 @@
       "questions": [
         {
           "stem": "Which sentence best states the central idea of the article?",
-          "options": ["Fossil fuels are the only energy source worth using.", "Renewable energy comes from sources that replenish themselves, while nonrenewable energy comes from fossil fuels that take millions of years to form.", "Wind and water are dangerous sources of energy.", "All countries use only renewable energy today."],
+          "options": ["Fossil fuels are the only energy source worth using, and renewable sources are a waste of money for every country, because they never last long.", "Renewable energy comes from sources that replenish themselves, while nonrenewable energy comes from fossil fuels that take millions of years to form.", "Wind and water are dangerous sources of energy, and countries should not build farms or dams to use them, since they harm the land and people.", "All countries use only renewable energy today, and no country burns oil, coal, or gas in its power plants, because those fuels are all gone."],
           "answer": "B",
           "skill": "central-idea",
           "why": "The article explains the key difference between renewable sources and nonrenewable fossil fuels.",
@@ -182,7 +182,7 @@
         },
         {
           "stem": "According to the article, how did fossil fuels form?",
-          "options": ["From the remains of ancient plants and animals, over millions of years", "From melted rock in volcanoes", "From ocean salt and sand", "From wind and rain over one year"],
+          "options": ["From the remains of ancient plants and animals, over millions of years", "From melted rock in volcanoes that cooled and became hard, over a few years", "From ocean salt and sand that was pressed together by the sea waves", "From wind and rain over one year or two, at the top of the mountains"],
           "answer": "A",
           "skill": "detail",
           "why": "The article says fossil fuels formed from the buried remains of ancient plants and animals over millions of years.",
@@ -190,7 +190,7 @@
         },
         {
           "stem": "The article says renewable sources replenish themselves. What does replenish mean?",
-          "options": ["Disappear forever", "Naturally fill back up or renew", "Become more expensive", "Turn into rock"],
+          "options": ["Disappear forever from the Earth", "Naturally fill back up or renew", "Become more expensive to buy", "Turn into rock over time"],
           "answer": "B",
           "skill": "vocabulary",
           "why": "Replenish means to fill back up, which is why renewable sources do not run out.",
@@ -206,7 +206,7 @@
         },
         {
           "stem": "A country depends mostly on oil and coal for energy. What challenge will it likely face someday?",
-          "options": ["Its sunlight will disappear", "Its wind will stop blowing", "Its rivers will flow backward", "Its supply of oil and coal could eventually run out"],
+          "options": ["Its sunlight will disappear for good one day", "Its wind will stop blowing across the whole land", "Its rivers will flow backward toward the mountains", "Its supply of oil and coal could eventually run out"],
           "answer": "D",
           "skill": "inference",
           "why": "Since oil and coal are nonrenewable and take millions of years to form, a country relying on them could eventually run short.",
@@ -214,7 +214,7 @@
         },
         {
           "stem": "Why does burning fossil fuels affect the planet's climate?",
-          "options": ["Because it makes rivers flow faster", "Because it blocks the wind from blowing", "Because it releases gases that pollute the air", "Because it makes the sun shine brighter"],
+          "options": ["Because it makes rivers flow faster to the sea", "Because it blocks the wind from blowing across the land", "Because it releases gases that pollute the air", "Because it makes the sun shine brighter in the sky"],
           "answer": "C",
           "skill": "cause-effect",
           "why": "The article explains that burning fossil fuels releases gases that pollute the air and affect the climate.",
@@ -222,7 +222,7 @@
         },
         {
           "stem": "How does the author organize the article?",
-          "options": ["By telling a story about one country's energy", "By comparing renewable and nonrenewable energy sources", "By listing every fossil fuel in the world", "By describing how to build a power plant"],
+          "options": ["By telling a story about one country's energy and its people", "By comparing renewable and nonrenewable energy sources", "By listing every fossil fuel in the world and its price", "By describing how to build a power plant in a town"],
           "answer": "B",
           "skill": "text-structure",
           "why": "The article is organized around comparing the two categories of energy sources.",
@@ -244,7 +244,7 @@
       "questions": [
         {
           "stem": "Which statement best expresses the central idea of the article?",
-          "options": ["Renewable energy sources naturally replenish themselves, while nonrenewable fossil fuels are finite and took millions of years to form.", "Fossil fuels will never run out.", "Wind and solar power are the same source of energy.", "Every nation currently relies entirely on one single energy source."],
+          "options": ["Renewable energy sources naturally replenish themselves, while nonrenewable fossil fuels are finite and took millions of years to form.", "Fossil fuels will never run out, because nature makes new coal, oil and gas every single year in huge amounts.", "Wind and solar power are the same source of energy, since both of them come from burning materials in a furnace.", "Every nation currently relies entirely on one single energy source, which is the same for every country on Earth, and no other kind of energy is used anywhere today."],
           "answer": "A",
           "skill": "central-idea",
           "why": "The article's central comparison is between renewable sources that replenish and finite fossil fuels that took millions of years to form.",
@@ -276,7 +276,7 @@
         },
         {
           "stem": "Why does the article call renewable sources \"essentially inexhaustible\"?",
-          "options": ["Because they were discovered very recently", "Because they replenish naturally and are unlikely to run out on a human timescale", "Because they formed millions of years ago", "Because they cannot be used to generate electricity"],
+          "options": ["Because they were discovered very recently by scientists in a laboratory", "Because they replenish naturally and are unlikely to run out on a human timescale", "Because they formed millions of years ago in the ground, under the sea", "Because they cannot be used to generate electricity at all, said the writer"],
           "answer": "B",
           "skill": "inference",
           "why": "Renewable sources are called inexhaustible because they keep replenishing on a human timescale.",

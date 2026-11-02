@@ -294,9 +294,9 @@
           "stem": "Which sentence best states the main idea of the article?",
           "options": [
             "Ancient Egyptians used the Nile's flood and a bright star to build an early calendar.",
-            "Ancient Egyptians never grew enough food to feed their own people.",
-            "The Nile River stopped flooding once Egyptian civilization began.",
-            "Egyptian priests mainly studied the moon instead of the sun or stars."
+            "Ancient Egyptians never grew enough food to feed their own people, so they used a calendar to count hungry days.",
+            "The Nile River stopped flooding once Egyptian civilization began, so a bright star was no longer needed.",
+            "Egyptian priests mainly studied the moon instead of the sun or stars to plan their yearly festivals."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -413,9 +413,9 @@
           "stem": "What can you infer about why this calendar mattered beyond farming alone?",
           "options": [
             "A reliable system for counting days could also help organize other parts of life.",
-            "It proved that the Nile River would never flood again.",
-            "It showed that Egyptian farmers disliked keeping track of time.",
-            "It meant priests no longer needed to watch the night sky."
+            "It proved that the Nile River would never flood again, so farmers could stop watching it.",
+            "It showed that Egyptian farmers disliked keeping track of time and wanted to stop counting.",
+            "It meant priests no longer needed to watch the night sky, because the stars had stopped moving."
           ],
           "answer": "A",
           "skill": "inference",
@@ -473,9 +473,9 @@
           "stem": "Which statement best summarizes the article?",
           "options": [
             "Egyptian civilization relied on the Nile's annual flood and careful astronomical observation to build a precise solar calendar.",
-            "Egyptian civilization abandoned farming once stone pyramids were built.",
-            "The star Sirius was discovered by Egyptian astronomers only in modern times.",
-            "Egyptian priests tracked time using only the changing phases of the moon."
+            "Egyptian civilization abandoned farming once stone pyramids were built, and then the calendar was left unused for many hundreds of years afterward.",
+            "The star Sirius was discovered by Egyptian astronomers only in modern times, long after the pyramids and the great temples were built along the river.",
+            "Egyptian priests tracked time using only the changing phases of the moon, and never used the sun, the stars, or the Nile flood to make a calendar."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -592,9 +592,9 @@
           "stem": "What can you infer about the lasting influence of the Nile calendar?",
           "options": [
             "Its basic structure quietly shaped how later civilizations organized time.",
-            "It was completely forgotten the moment the pharaohs lost power.",
-            "It was replaced by lunar calendars within a single generation.",
-            "No civilization after ancient Egypt ever counted days in years."
+            "It was completely forgotten the moment the pharaohs lost power in Egypt.",
+            "It was replaced by lunar calendars within a single generation of people.",
+            "No civilization after ancient Egypt ever counted days in years or months."
           ],
           "answer": "A",
           "skill": "inference",

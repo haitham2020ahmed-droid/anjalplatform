@@ -199,10 +199,10 @@
         {
           "stem": "Why do people build solar farms where the sun shines strongly?",
           "options": [
-            "Strong sun keeps the panels cool.",
+            "Strong sun keeps the panels cool in the day.",
             "Strong sun lets the panels make more power.",
-            "Strong sun keeps birds away.",
-            "Strong sun makes the panels bigger."
+            "Strong sun keeps birds away from the farm.",
+            "Strong sun makes the panels bigger every year."
           ],
           "answer": "B",
           "skill": "inference",
@@ -293,10 +293,10 @@
         {
           "stem": "What is the main idea of the article?",
           "options": [
-            "Sundials are no longer useful for anything in the modern world.",
+            "Sundials are no longer useful for anything in the modern world, so nobody makes them anymore.",
             "Solar cells turn sunlight into clean electricity, but the sun is not always shining.",
-            "Solar farms create a large amount of air pollution near cities.",
-            "Electricity can only be made by burning fuel in big power plants."
+            "Solar farms create a large amount of air pollution near cities, so most cities now ban them.",
+            "Electricity can only be made by burning fuel in big power plants, so the sun cannot help."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -378,10 +378,10 @@
         {
           "stem": "Why would an open desert be a good place for a solar farm?",
           "options": [
-            "Panels work better when they are cold.",
+            "Panels work better when they are cold, so a desert is a poor place.",
             "Strong, steady sunlight lets the panels make more power.",
-            "Deserts have no need for electricity.",
-            "Sunlight in the desert never stops at all."
+            "Deserts have no need for electricity, so panels are not needed there.",
+            "Sunlight in the desert never stops at all, even through the night."
           ],
           "answer": "B",
           "skill": "inference",
@@ -523,10 +523,10 @@
         {
           "stem": "Why do engineers sometimes build tracking systems that tilt solar panels toward the sun?",
           "options": [
-            "To make the panels look nicer.",
+            "To make the panels look nicer from the street outside",
             "To keep the panels facing strong sunlight and increase power.",
-            "To protect panels from saltwater.",
-            "To stop birds from landing on panels."
+            "To protect panels from saltwater near the sea or beach",
+            "To stop birds from landing on panels and making them dirty"
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -557,9 +557,9 @@
         {
           "stem": "Why might engineers track how solar panels degrade over time?",
           "options": [
-            "Degraded panels could block sunlight from reaching the desert.",
-            "Panel degradation shows where the ground is flat.",
-            "Degraded panels help absorb more sunlight.",
+            "Degraded panels could block sunlight from reaching the desert and cool the ground.",
+            "Panel degradation shows where the ground is flat, so engineers can map the land.",
+            "Degraded panels help absorb more sunlight, so the plant makes more power each year.",
             "Degraded panels slowly produce less electricity, so output must be planned for."
           ],
           "answer": "D",
@@ -591,10 +591,10 @@
         {
           "stem": "How does the author organize the article?",
           "options": [
-            "As a debate between two scientists who disagree",
+            "As a debate between two scientists who disagree about the sun",
             "From ancient uses of the sun to modern panels and their challenges",
-            "As a list of the world's solar farms ranked by size",
-            "As a set of instructions for building a panel"
+            "As a list of the world's solar farms ranked by their size",
+            "As a set of instructions for building a solar panel at home"
           ],
           "answer": "B",
           "skill": "text-structure",

@@ -148,10 +148,10 @@
         {
           "stem": "What happens when seawater is heated?",
           "options": [
-            "The salt floats up into the sky.",
+            "The salt floats up into the sky as a white cloud.",
             "Steam rises and the salt stays behind.",
-            "The water turns into ice.",
-            "The salt turns into sand."
+            "The water turns into ice and the salt stays inside.",
+            "The salt turns into sand at the bottom of the pot."
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -183,9 +183,9 @@
           "stem": "In the article, the filter has tiny holes. What does the word filter mean?",
           "options": [
             "A thing that lets water pass but stops the salt",
-            "A big pot that heats water",
-            "A pump that pushes water",
-            "A tank that keeps fish safe"
+            "A big pot that heats water on a stove at home",
+            "A pump that pushes water through a long pipe",
+            "A tank that keeps fish safe in the sea water"
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -216,10 +216,10 @@
         {
           "stem": "Why should people not waste fresh water?",
           "options": [
-            "Because it turns salty if it sits too long",
+            "Because it turns salty if it sits too long in the pipes",
             "Because making it takes hard work and lots of power",
-            "Because the pipes are too small",
-            "Because it is only used for cooking"
+            "Because the pipes are too small to carry it to every house",
+            "Because it is only used for cooking and never for washing"
           ],
           "answer": "B",
           "skill": "inference",
@@ -233,9 +233,9 @@
         {
           "stem": "How does the author explain the ways to take out salt?",
           "options": [
-            "By telling a story about a fisherman",
-            "By listing the prices of water",
-            "By giving rules for a game",
+            "By telling a story about a fisherman at sea",
+            "By listing the prices of water in the shops",
+            "By giving the rules for a game of football",
             "By describing one way and then a second way"
           ],
           "answer": "D",
@@ -294,9 +294,9 @@
           "stem": "Which sentence best tells the central idea of the article?",
           "options": [
             "Saudi Arabia removes salt from seawater to supply drinking water, using methods that need careful planning.",
-            "Seawater is dangerous, so people should stay away from the beach.",
-            "Solar power is the cheapest kind of energy in the world.",
-            "Coral reefs in the Red Sea are the most beautiful in the world."
+            "Seawater is dangerous, so people should stay away from the beach and never swim in the sea.",
+            "Solar power is the cheapest kind of energy in the world, so every country should use it in every home.",
+            "Coral reefs in the Red Sea are the most beautiful in the world, and divers visit them every year."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -378,10 +378,10 @@
         {
           "stem": "Why does the author compare the heat method to rain?",
           "options": [
-            "To show that rain is very salty",
+            "To show that rain is very salty, and that it falls mostly over the sea",
             "To show that the method copies how nature leaves salt behind when water rises",
-            "To explain why Saudi Arabia gets so little rain",
-            "To prove that steam is colder than seawater"
+            "To explain why Saudi Arabia gets so little rain in the summer and the winter",
+            "To prove that steam is colder than seawater, even when it rises from a pot"
           ],
           "answer": "B",
           "skill": "inference",
@@ -412,9 +412,9 @@
         {
           "stem": "Why did the author most likely write this article?",
           "options": [
-            "To persuade readers to move to the coast",
-            "To tell a funny story about a trip to the beach",
-            "To sell a new kind of water filter",
+            "To persuade readers to move to the coast to find clean water",
+            "To tell a funny story about a trip to the beach with friends",
+            "To sell a new kind of water filter to families at home",
             "To explain how and why seawater is turned into drinking water"
           ],
           "answer": "D",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
-            "Reverse osmosis will soon replace all other sources of water on Earth.",
+            "Reverse osmosis will soon replace all other sources of water on Earth, including rivers, wells, and rain, as many experts say.",
             "Desalination supplies Saudi Arabia with vital drinking water, but its energy use and brine must be carefully managed.",
-            "Seawater is harmful because it contains fish and coral.",
-            "Riyadh is the largest user of water in the world."
+            "Seawater is harmful because it contains fish and coral, which must be removed by a machine before anyone can use the water.",
+            "Riyadh is the largest user of water in the world, and the city takes nearly all of its water from the sea each year."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -574,9 +574,9 @@
         {
           "stem": "What can the reader infer about Saudi Arabia's choice to use solar energy?",
           "options": [
-            "It will make the brine less salty.",
-            "It means pipelines will no longer be needed.",
-            "It is meant to stop fish from entering the plants.",
+            "It will make the brine less salty and cooler when it goes out to sea",
+            "It means pipelines will no longer be needed in the country",
+            "It is meant to stop fish from entering the plants",
             "It could reduce the burning of fossil fuels needed for desalination."
           ],
           "answer": "D",
@@ -591,9 +591,9 @@
         {
           "stem": "How does the article organize its information about the two desalination technologies?",
           "options": [
-            "It tells the life story of an engineer.",
+            "It tells the life story of an engineer who built a plant.",
             "It describes each method in turn and then compares their energy use.",
-            "It lists water prices in different cities.",
+            "It lists water prices in different cities of the Kingdom, one by one, by year.",
             "It presents arguments for and against living near the sea."
           ],
           "answer": "B",

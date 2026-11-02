@@ -114,9 +114,9 @@
      "passage": "The lamp did not work. Dad put in a new bulb. Now the lamp gives light.",
      "stem": "Why does the lamp work now?",
      "options": [
-      "Mom fixed it.",
+      "Mom fixed it herself.",
       "It was turned off.",
-      "The sun came out.",
+      "The sun came out today.",
       "Dad put in a new bulb."
      ],
      "answer": 3,
@@ -181,9 +181,9 @@
     "passage": "Our town had a problem with litter near the beach. Plastic bags and bottles blew into the water. To fix this, students from three schools started a cleanup club. Every month, they collect rubbish along the sand. The town also put new bins with lids beside the paths. Now the beach is much cleaner.",
     "stem": "How is the cleanup club connected to the litter?",
     "options": [
-     "The club made more litter.",
-     "The club only worked at school.",
-     "The club was started before the problem.",
+     "The club made more litter at the school.",
+     "The club only worked at school on Fridays.",
+     "The club was started before the problem began.",
      "The club was started to solve the litter problem."
     ],
     "answer": 3,
@@ -212,10 +212,10 @@
      "passage": "Lions and cheetahs are both big cats that live in Africa. Lions live in groups called prides. Unlike lions, cheetahs usually hunt alone. Cheetahs are also much faster runners.",
      "stem": "How are lions and cheetahs different?",
      "options": [
-      "Only lions live in Africa.",
-      "Only cheetahs are big cats.",
+      "Only lions live in Africa, while cheetahs live in India.",
+      "Only cheetahs are big cats, and lions are not.",
       "Cheetahs usually hunt alone, but lions live in groups.",
-      "Lions are faster than cheetahs."
+      "Lions are faster than cheetahs when they run."
      ],
      "answer": 2,
      "why": "The word Unlike shows the difference: lions live in prides, while cheetahs usually hunt alone."
@@ -236,10 +236,10 @@
      "passage": "First, the farmer plants the wheat seeds in autumn. Then the winter rain helps the young plants grow. In spring, the wheat turns golden. After that, the farmer cuts and collects it.",
      "stem": "What happens right after the winter rain helps the plants grow?",
      "options": [
-      "The farmer plants seeds.",
+      "The farmer plants seeds in the field.",
       "The wheat turns golden in spring.",
-      "The farmer cuts the wheat.",
-      "It rains again in autumn."
+      "The farmer cuts the wheat with a tool.",
+      "It rains again in the autumn months."
      ],
      "answer": 1,
      "why": "The order is: plant in autumn, rain in winter, then in spring the wheat turns golden."
@@ -327,9 +327,9 @@
      "stem": "How is the flood connected to Fatima's later studies?",
      "options": [
       "Seeing the flood and the help made her want to prepare cities for floods.",
-      "Her studies caused the flood to happen.",
-      "The flood made her stop volunteering.",
-      "She studied floods before she saw one."
+      "Her studies caused the flood to happen in the city where she lived as a child.",
+      "The flood made her stop volunteering and leave the city for good.",
+      "She studied floods for many years before she ever saw one."
      ],
      "answer": 0,
      "why": "The text moves from the flood, to volunteering, to studying emergency planning so she could help cities prepare for floods."
@@ -441,9 +441,9 @@
      "passage": "Rachel Carson spent years studying the effects of chemical sprays used to kill insects. In 1962 she published a book showing that these sprays were also harming birds and fish. Chemical companies attacked her work. Despite the criticism, her careful evidence persuaded many readers, and the United States later banned the chemical DDT for most uses on farms.",
      "stem": "How is the criticism connected to the outcome?",
      "options": [
-      "The criticism caused the ban.",
-      "The criticism proved her evidence was wrong.",
-      "The criticism came after the ban.",
+      "The criticism caused the ban on her new work.",
+      "The criticism proved her evidence was wrong and stopped the work.",
+      "The criticism came after the ban was already in place.",
       "Her work led to change even though it was criticized."
      ],
      "answer": 3,
@@ -466,9 +466,9 @@
      "stem": "According to the passage, how did the pipeline affect girls' education?",
      "options": [
       "It freed girls from carrying water so they could attend school.",
-      "It required girls to study engineering.",
-      "It made schools close for repairs.",
-      "It made the walk to school longer."
+      "It required girls to study engineering and fix the pipes themselves.",
+      "It made schools close for repairs during the dry season.",
+      "It made the walk to school longer, so girls arrived late."
      ],
      "answer": 0,
      "why": "Before the pipeline, girls fetched water; once it opened, they could attend school regularly."

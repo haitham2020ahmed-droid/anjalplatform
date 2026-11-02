@@ -88,7 +88,7 @@
       "questions": [
         {
           "stem": "What is this article mostly about?",
-          "options": ["How farmers water their crops each day", "How forests grow best near rivers", "What natural resources are and why they are spread unevenly", "How gold and iron are made into tools"],
+          "options": ["How farmers water their crops each day in the fields", "How forests grow best near rivers and lakes in cool lands", "What natural resources are and why they are spread unevenly", "How gold and iron are made into tools by workers"],
           "answer": "C",
           "skill": "central-idea",
           "why": "The article explains what natural resources are and why they are spread unevenly around the world.",
@@ -120,7 +120,7 @@
         },
         {
           "stem": "Why can hot, wet land grow a thick forest?",
-          "options": ["Because the land has no rock at all", "Because forests need oil to grow", "Because the land has many minerals", "Because trees need heat and water to grow"],
+          "options": ["Because the land has no rock at all", "Because forests need oil to grow and spread", "Because the land has many minerals", "Because trees need heat and water to grow"],
           "answer": "D",
           "skill": "cause-effect",
           "why": "The article says hot, wet land can grow a thick forest, since trees need both heat and water.",
@@ -128,7 +128,7 @@
         },
         {
           "stem": "Why might one country have lots of oil while another has none?",
-          "options": ["All countries have the exact same land", "Not every piece of land holds the same resources", "Oil only forms in cold, snowy places", "Every mineral turns into oil over time"],
+          "options": ["All countries have the exact same land and minerals", "Not every piece of land holds the same resources", "Oil only forms in cold, snowy places, far from the sea", "Every mineral turns into oil over time, slowly"],
           "answer": "B",
           "skill": "inference",
           "why": "The article says not every piece of land has the same resources, which explains why one country has lots of oil and another has none.",
@@ -136,7 +136,7 @@
         },
         {
           "stem": "Why do countries trade resources with each other?",
-          "options": ["Because every country has the exact same resources", "Because trading is required by law everywhere", "Because one country may have oil but little water, while another has the opposite", "Because resources never run out"],
+          "options": ["Because every country has the exact same resources, so there is nothing to trade", "Because trading is required by law everywhere in the world, even for small things", "Because one country may have oil but little water, while another has the opposite", "Because resources never run out, so countries can trade whenever they like"],
           "answer": "C",
           "skill": "inference",
           "why": "The article says one country may have oil but little water, while another has the opposite, which is why countries trade.",
@@ -144,7 +144,7 @@
         },
         {
           "stem": "How does the article compare oil and water?",
-          "options": ["It shows that no land ever has both", "It shows that oil is more important than water", "It shows that water always comes from oil", "It shows that one country might have plenty of oil but little water, while another has the reverse"],
+          "options": ["It shows that no land ever has both oil and water, anywhere on the planet, not even a little", "It shows that oil is more important than water to every country in the world, in every year", "It shows that water always comes from oil under the ground, so the two must be found together", "It shows that one country might have plenty of oil but little water, while another has the reverse"],
           "answer": "D",
           "skill": "compare",
           "why": "The article compares countries, showing one might have plenty of oil but little water, while another has the reverse.",
@@ -166,7 +166,7 @@
       "questions": [
         {
           "stem": "Which sentence best states the central idea of the article?",
-          "options": ["Workers dig deep to find oil.", "Some countries sit on huge amounts of oil.", "Rain falls more in some regions than others.", "Natural resources are distributed unevenly across the Earth because of geology and climate, so countries trade what they have for what they lack."],
+          "options": ["Workers dig deep to find oil, and then they sell it to every country in the world for a high price and keep none for themselves at all.", "Some countries sit on huge amounts of oil, while others have none, and so the oil is never traded with anyone at all, in any year, or at any price.", "Rain falls more in some regions than others, and so farmers in those places grow more crops than anyone else in the world, and sell them far away.", "Natural resources are distributed unevenly across the Earth because of geology and climate, so countries trade what they have for what they lack."],
           "answer": "D",
           "skill": "central-idea",
           "why": "The article's central idea is that natural resources are spread unevenly because of geology and climate, which leads countries to trade with one another.",
@@ -190,7 +190,7 @@
         },
         {
           "stem": "The article says resources are distributed unevenly. What does distributed mean here?",
-          "options": ["Spread out across different places", "Dug up from deep underground", "Traded between two countries", "Studied by geologists"],
+          "options": ["Spread out across different places", "Dug up from deep underground by workers", "Traded between two countries at the port", "Studied by geologists in the field"],
           "answer": "A",
           "skill": "vocabulary",
           "why": "The article uses distributed to mean resources are spread out across different places on Earth.",
@@ -198,7 +198,7 @@
         },
         {
           "stem": "Why can hot, wet regions near the equator support thick rainforests?",
-          "options": ["Because their rock holds more oil", "Because their soil has no minerals", "Because their climate provides the heat and rain forests need", "Because they trade with drier countries"],
+          "options": ["Because their rock holds more oil than the rock in other lands", "Because their soil has no minerals, so only vines can grow", "Because their climate provides the heat and rain forests need", "Because they trade with drier countries that send them water"],
           "answer": "C",
           "skill": "cause-effect",
           "why": "The article says hot, wet regions near the equator have a climate that gives forests the heat and rain they need.",
@@ -206,7 +206,7 @@
         },
         {
           "stem": "What can you infer about a country with almost no oil reserves?",
-          "options": ["It must also have no other resources", "It never studies geology", "It always has a desert climate", "It may rely on trade to get oil from elsewhere"],
+          "options": ["It must also have no other resources of any kind", "It never studies geology at school or in college", "It always has a desert climate with little rain", "It may rely on trade to get oil from elsewhere"],
           "answer": "D",
           "skill": "inference",
           "why": "The article suggests a country with little oil may need to trade with other countries that have more.",
@@ -244,7 +244,7 @@
       "questions": [
         {
           "stem": "Which statement best summarizes the article?",
-          "options": ["Gulf countries hold large oil reserves.", "Rivers and glaciers shape where fresh water collects.", "Mineral deposits form near ancient volcanoes.", "Natural resources are distributed unevenly because of geology and climate, making some finite resources abundant in one country and scarce in another."],
+          "options": ["Gulf countries hold large oil reserves under the desert and the sea, so every country in the world has a lot of oil and gas, as it is spread out evenly.", "Rivers and glaciers shape where fresh water collects, so every country has the same amount of water, and no country ever has too little water for its people.", "Mineral deposits form near ancient volcanoes, so only countries with volcanoes have any minerals at all, and other countries must buy all of theirs from them.", "Natural resources are distributed unevenly because of geology and climate, making some finite resources abundant in one country and scarce in another."],
           "answer": "D",
           "skill": "central-idea",
           "why": "The article's main point is that uneven geology and climate make finite resources abundant in some countries and scarce in others.",
@@ -260,7 +260,7 @@
         },
         {
           "stem": "According to the article, what can form oil underground over millions of years?",
-          "options": ["Ancient layers of rock from buried sea life", "Modern factories near the coast", "Rainfall collecting in rivers", "Minerals mixing with fresh water"],
+          "options": ["Ancient layers of rock from buried sea life", "Modern factories near the coast that make plastic", "Rainfall collecting in rivers that flow down to the sea", "Minerals mixing with fresh water in the deep ground"],
           "answer": "A",
           "skill": "detail",
           "why": "The article says certain ancient layers of rock, formed from buried sea life, trap oil underground.",
@@ -268,7 +268,7 @@
         },
         {
           "stem": "The article describes oil and minerals as finite resources. What does finite mean here?",
-          "options": ["Impossible to extract from the ground", "Found only in hot desert climates", "Having a limit and able to eventually run out", "Traded only between two countries"],
+          "options": ["Impossible to extract from the ground at all", "Found only in hot desert climates and nowhere else", "Having a limit and able to eventually run out", "Traded only between two countries, never more"],
           "answer": "C",
           "skill": "vocabulary",
           "why": "The article uses finite to describe resources with a limited supply that will eventually run out.",
@@ -300,7 +300,7 @@
         },
         {
           "stem": "How does the article compare oil-rich and water-rich countries?",
-          "options": ["It shows that no country can be rich in both oil and water", "It shows that a country can be rich in oil but scarce in water, while another is the reverse", "It shows that oil-rich countries always have abundant water too", "It shows that water-rich countries never need oil"],
+          "options": ["It shows that no country can be rich in both oil and water at the same time, ever", "It shows that a country can be rich in oil but scarce in water, while another is the reverse", "It shows that oil-rich countries always have abundant water too, in every single case", "It shows that water-rich countries never need oil, because they have so many rivers"],
           "answer": "B",
           "skill": "compare",
           "why": "The article compares countries, showing that one may be rich in oil but scarce in water, while another is the reverse.",

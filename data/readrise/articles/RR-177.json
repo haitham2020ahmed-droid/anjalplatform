@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How to build a toy train at home",
+            "How to build a toy train at home with wood",
             "Trains that float on magnets and go fast",
-            "Why all trains make a lot of noise",
-            "A trip from Makkah to Madinah"
+            "Why all trains make a lot of noise on tracks",
+            "A trip from Makkah to Madinah by a fast train"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -165,10 +165,10 @@
         {
           "stem": "What does friction mean in this article?",
           "options": [
-            "A kind of strong magnet",
-            "How fast a train can go",
+            "A kind of strong magnet that pulls metal",
+            "How fast a train can go on a track",
             "Rubbing that slows things down",
-            "A new track for trains"
+            "A new track for the trains to use"
           ],
           "answer": "C",
           "skill": "vocabulary",
@@ -200,9 +200,9 @@
           "stem": "Why can a maglev not use old train tracks?",
           "options": [
             "It needs a track with magnets in it.",
-            "Old tracks are too short.",
-            "Old tracks are only in Japan.",
-            "Old tracks are much too quiet."
+            "Old tracks are too short for it.",
+            "Old tracks are only in Japan today.",
+            "Old tracks are much too quiet for it."
           ],
           "answer": "A",
           "skill": "inference",
@@ -217,9 +217,9 @@
           "stem": "Why does the author ask you to think about holding two magnets?",
           "options": [
             "To get you to buy some magnets",
-            "To start a game you can play",
+            "To start a game you can play with a friend",
             "To help you see how a maglev floats",
-            "To show that magnets are heavy"
+            "To show that magnets are very heavy things"
           ],
           "answer": "C",
           "skill": "author-purpose",
@@ -293,9 +293,9 @@
         {
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
-            "Maglev trains are now used in almost every country.",
-            "Magnets are mostly toys for young children.",
-            "Japan builds the only fast trains in the world.",
+            "Maglev trains are now used in almost every country in the world.",
+            "Magnets are mostly toys for young children and do not move trains.",
+            "Japan builds the only fast trains in the world, and no one else tries.",
             "Magnets let maglevs float and move fast, but they cost a lot."
           ],
           "answer": "D",
@@ -361,10 +361,10 @@
         {
           "stem": "How do magnets in the guideway move the train forward?",
           "options": [
-            "They heat the air behind the train.",
+            "They heat the air behind the train and push it forward.",
             "Magnets ahead pull and magnets behind push.",
-            "They make the wheels spin faster.",
-            "They pump water under the train."
+            "They make the wheels spin faster on the metal track.",
+            "They pump water under the train to lift it up."
           ],
           "answer": "B",
           "skill": "detail",
@@ -506,10 +506,10 @@
         {
           "stem": "According to the article, why are superconductors cooled to very low temperatures?",
           "options": [
-            "To keep passengers cool in summer",
+            "To keep passengers cool in summer, when the sun is hot",
             "So they can make very strong magnetic fields",
-            "To slow the train down at stations",
-            "To make the train ride more quietly"
+            "To slow the train down at stations so it can stop",
+            "To make the train ride more quietly for the people"
           ],
           "answer": "B",
           "skill": "detail",
@@ -557,10 +557,10 @@
         {
           "stem": "Which claim is best supported by the article?",
           "options": [
-            "Maglevs will soon replace every train in Saudi Arabia.",
+            "Maglevs will soon replace every train in Saudi Arabia, so ordinary railways will close.",
             "Removing wheel friction does not remove every force that slows a maglev.",
-            "Maglev trains can run on any ordinary railway.",
-            "Two magnets always pull toward each other."
+            "Maglev trains can run on any ordinary railway, with no special track at all.",
+            "Two magnets always pull toward each other, so they never push apart."
           ],
           "answer": "B",
           "skill": "inference",

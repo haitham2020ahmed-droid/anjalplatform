@@ -131,10 +131,10 @@
         {
           "stem": "What does code do?",
           "options": [
-            "It draws the hero",
-            "It makes the music",
+            "It draws the hero on the screen",
+            "It makes the music for the game",
             "It tells the game what to do",
-            "It sells the game"
+            "It sells the game to players"
           ],
           "answer": "C",
           "skill": "detail",
@@ -182,10 +182,10 @@
         {
           "stem": "What does the team do first?",
           "options": [
-            "Sells the game",
+            "Sells the game online",
             "Makes a small test game",
-            "Fixes all the bugs",
-            "Adds new parts"
+            "Fixes all the bugs now",
+            "Adds new parts and levels"
           ],
           "answer": "B",
           "skill": "sequence",
@@ -200,9 +200,9 @@
           "stem": "Why do kids play the test game?",
           "options": [
             "To help the team see what is fun",
-            "To earn money",
-            "To draw new heroes",
-            "To write the code"
+            "To earn money for the studio",
+            "To draw new heroes for the story",
+            "To write the code for the game"
           ],
           "answer": "A",
           "skill": "inference",
@@ -216,10 +216,10 @@
         {
           "stem": "Why does a big game take years to make?",
           "options": [
-            "The team plays it all day",
-            "The team only has one person",
+            "The team plays it all day and night",
+            "The team only has one person to do it",
             "There are many jobs and many steps",
-            "The computer is very slow"
+            "The computer is very slow and old"
           ],
           "answer": "C",
           "skill": "inference",
@@ -233,9 +233,9 @@
         {
           "stem": "How does the author explain making a game?",
           "options": [
-            "By telling a funny story",
-            "By giving rules for a game",
-            "By comparing games and books",
+            "By telling a funny story about a game",
+            "By giving rules for a game and its players",
+            "By comparing games and books for children",
             "By listing jobs and then steps in order"
           ],
           "answer": "D",
@@ -361,10 +361,10 @@
         {
           "stem": "In the article, the word feedback means…",
           "options": [
-            "a part of the computer",
-            "a kind of music",
+            "a part of the computer inside the box",
+            "a kind of music for the game",
             "comments about what is fun or confusing",
-            "a type of game level"
+            "a type of game level to play"
           ],
           "answer": "C",
           "skill": "vocabulary",
@@ -378,10 +378,10 @@
         {
           "stem": "Which step comes right after players try the prototype?",
           "options": [
-            "The game is released.",
+            "The game is released to the public at once.",
             "The team uses feedback to make changes.",
-            "The music is deleted.",
-            "The testers go home."
+            "The music is deleted from the game for good.",
+            "The testers go home and the team stops work."
           ],
           "answer": "B",
           "skill": "sequence",
@@ -412,9 +412,9 @@
         {
           "stem": "Why does the author end with young people in Saudi Arabia?",
           "options": [
-            "To argue that games should be banned",
-            "To list famous Saudi games",
-            "To explain how engines work",
+            "To argue that games should be banned in all schools in the country",
+            "To list famous Saudi games that were played by children long ago",
+            "To explain how engines work inside a car or a truck",
             "To show that readers could learn to make games too"
           ],
           "answer": "D",
@@ -524,9 +524,9 @@
           "stem": "Why does movement in a game look smooth?",
           "options": [
             "Because the engine draws many frames every second",
-            "Because artists paint each scene by hand",
-            "Because testers remove all bugs",
-            "Because composers add music"
+            "Because artists paint each scene by hand on the screen",
+            "Because testers remove all bugs from the game",
+            "Because composers add music to every level"
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -540,10 +540,10 @@
         {
           "stem": "In the article, the word iteration refers to…",
           "options": [
-            "selling a game in many countries",
+            "selling a game in many countries around the world",
             "repeating the cycle of testing and changing a design",
-            "drawing characters in three dimensions",
-            "hiring more programmers"
+            "drawing characters in three dimensions on a screen",
+            "hiring more programmers for a company"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -575,9 +575,9 @@
           "stem": "What can you infer about why a prototype uses plain gray blocks?",
           "options": [
             "The team wants to test whether the game is fun before spending time on finished art.",
-            "Artists refuse to work on early versions.",
-            "Players prefer gray blocks to colorful art.",
-            "Game engines cannot display colors."
+            "Artists refuse to work on early versions of the game because they are unfinished.",
+            "Players prefer gray blocks to colorful art because the colors feel too noisy for them.",
+            "Game engines cannot display colors until the game is finished and sold to players."
           ],
           "answer": "A",
           "skill": "inference",

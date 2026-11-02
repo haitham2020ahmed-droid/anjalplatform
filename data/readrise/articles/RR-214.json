@@ -115,9 +115,9 @@
           "stem": "What is this article mostly about?",
           "options": [
             "A headset that shows a made-up world and how it is used",
-            "How pilots learned to fly long ago",
-            "How to build a computer at home",
-            "Why mountains look small from far away"
+            "How pilots learned to fly planes a long time ago in the sky",
+            "How to build a computer at home with some parts from a shop",
+            "Why mountains look small when seen from far away"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -165,10 +165,10 @@
         {
           "stem": "The article says VR shows you a made-up world. What does made-up mean here?",
           "options": [
-            "painted with bright colors",
+            "painted with bright colors and shapes",
             "not real, but created to look real",
-            "very old and historic",
-            "too heavy to carry"
+            "very old and historic, like a castle",
+            "too heavy to carry up the stairs"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -182,10 +182,10 @@
         {
           "stem": "Why might a doctor want to practice surgery using VR first?",
           "options": [
-            "So the hospital saves money on tools",
+            "So the hospital saves money on tools and does not need to buy new ones",
             "So the doctor can practice safely before working on a real patient",
-            "So the patient can watch from home",
-            "So the surgery takes much longer"
+            "So the patient can watch from home and talk to the doctor in real time",
+            "So the surgery takes much longer and the doctor can rest in the middle"
           ],
           "answer": "B",
           "skill": "inference",
@@ -200,9 +200,9 @@
           "stem": "Why is it helpful for a pilot to practice flying in VR?",
           "options": [
             "It is much safer than practicing in a real plane.",
-            "It makes the real plane fly faster.",
-            "It lets the pilot sleep during the flight.",
-            "It teaches the pilot to build airplanes."
+            "It makes the real plane fly faster and farther.",
+            "It lets the pilot sleep during the flight home.",
+            "It teaches the pilot to build airplanes and engines."
           ],
           "answer": "A",
           "skill": "inference",
@@ -294,9 +294,9 @@
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
             "VR lets people enter a realistic made-up world and is used to learn and train safely.",
-            "VR headsets have two small screens inside them.",
-            "Doctors always use VR before every surgery.",
-            "Schools now use VR instead of books."
+            "VR headsets have two small screens inside them, and that is all the article explains.",
+            "Doctors always use VR before every surgery, and they never practice in any other way.",
+            "Schools now use VR instead of books, because teachers do not like reading any more."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -327,9 +327,9 @@
         {
           "stem": "According to the article, what can VR controllers let a wearer do?",
           "options": [
-            "Repair the headset's screens",
-            "Record a video of the room",
-            "Make the headset lighter",
+            "Repair the headset's screens when they break or crack",
+            "Record a video of the room and send it to friends",
+            "Make the headset lighter so it feels better on the head",
             "Reach into the virtual world and pick up or build objects"
           ],
           "answer": "D",
@@ -361,10 +361,10 @@
         {
           "stem": "Why would a pilot benefit more from a realistic VR simulation than from reading a book about flying?",
           "options": [
-            "Books are always wrong about flying.",
+            "Books are always wrong about flying, so pilots should never read them or study.",
             "A realistic simulation lets the pilot practice real actions and reactions.",
-            "VR headsets are cheaper than books.",
-            "Books cannot be read on an airplane."
+            "VR headsets are cheaper than books, so every school should buy them.",
+            "Books cannot be read on an airplane, so pilots must use a simulator."
           ],
           "answer": "B",
           "skill": "inference",
@@ -379,9 +379,9 @@
           "stem": "What can you infer about why schools are starting to use VR?",
           "options": [
             "VR can take a class to places they cannot easily visit in person.",
-            "VR is required by law in every school.",
-            "VR is cheaper than every school textbook.",
-            "VR replaces the need for teachers."
+            "VR is required by law in every school, so all must use it.",
+            "VR is cheaper than every school textbook, so schools buy it.",
+            "VR replaces the need for teachers in the class."
           ],
           "answer": "A",
           "skill": "inference",
@@ -395,10 +395,10 @@
         {
           "stem": "Why do VR headsets often make a wearer feel dizzy?",
           "options": [
-            "Because the hand controllers are too heavy to hold",
-            "Because the screens are much too bright for tired eyes",
+            "Because the hand controllers are too heavy to hold for a long time",
+            "Because the screens are much too bright for tired eyes to watch",
             "Because the eyes sense motion that the rest of the body does not feel",
-            "Because the headset itself takes too long to turn on"
+            "Because the headset itself takes too long to turn on and load"
           ],
           "answer": "C",
           "skill": "cause-effect",
@@ -412,9 +412,9 @@
         {
           "stem": "How does the article mostly organize its information?",
           "options": [
-            "It lists all of the steps for building your own VR headset.",
-            "It compares several VR headsets made by different companies.",
-            "It tells the whole life story of one very famous engineer.",
+            "It lists all of the steps for building your own VR headset at home.",
+            "It compares several VR headsets made by different companies, one by one.",
+            "It tells the whole life story of one very famous engineer who made headsets.",
             "It tells how a VR headset works, then describes its many uses and its limits."
           ],
           "answer": "D",
@@ -473,9 +473,9 @@
           "stem": "Which statement best summarizes the article?",
           "options": [
             "VR creates an immersive world with real benefits for training and therapy, though it has limits and needs rules.",
-            "VR headsets always weigh less than regular glasses.",
-            "Augmented reality has completely replaced virtual reality.",
-            "Pilots no longer need any real flight training."
+            "VR headsets always weigh less than regular glasses, so people can wear them all day long and never feel tired at all.",
+            "Augmented reality has completely replaced virtual reality, so no one makes VR headsets for training or therapy anymore.",
+            "Pilots no longer need any real flight training, because VR can teach them everything, and it has no limits or rules at all."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -489,10 +489,10 @@
         {
           "stem": "According to the article, how do the two screens inside a VR headset trick the brain?",
           "options": [
-            "They flash bright colors very quickly.",
-            "They play a recorded sound to confuse the ears.",
+            "They flash bright colors very quickly and loudly at the wearer.",
+            "They play a recorded sound to confuse the two ears of the user, so the user feels dizzy.",
             "They each show a slightly different picture, creating a sense of depth.",
-            "They turn off whenever the wearer blinks."
+            "They turn off whenever the wearer blinks his eyes in the dark."
           ],
           "answer": "C",
           "skill": "detail",
@@ -523,10 +523,10 @@
         {
           "stem": "The article says VR scenes can help a patient with a phobia. What does phobia mean here?",
           "options": [
-            "a type of strong medicine for headaches",
+            "a type of strong medicine for headaches and colds",
             "a strong, often unreasonable fear of something",
-            "a sickness caused only by heights",
-            "a handheld controller used in VR games"
+            "a sickness caused only by heights and high places",
+            "a handheld controller used in VR games for fun"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -558,9 +558,9 @@
           "stem": "Why do engineers design VR headsets to track head movement so precisely?",
           "options": [
             "So the picture can instantly match the wearer's motion and feel believable.",
-            "So the headset can charge its battery faster.",
-            "So the controllers stop working during use.",
-            "So the wearer cannot turn their head at all."
+            "So the headset can charge its battery faster when the head moves in the game",
+            "So the controllers stop working during use of the headset by the player",
+            "So the wearer cannot turn their head at all in the game or the room"
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -574,10 +574,10 @@
         {
           "stem": "Based on the article, how is augmented reality different from virtual reality?",
           "options": [
-            "Augmented reality uses no screens of any kind.",
-            "Augmented reality cannot be used by pilots or surgeons.",
+            "Augmented reality uses no screens of any kind, only the real world around you.",
+            "Augmented reality cannot be used by pilots or surgeons in their daily work, only by gamers.",
             "Augmented reality overlays digital images onto the real world instead of replacing it entirely.",
-            "Augmented reality is only used for phobia therapy."
+            "Augmented reality is only used for phobia therapy in clinics and nowhere else in life."
           ],
           "answer": "C",
           "skill": "compare",
@@ -591,7 +591,7 @@
         {
           "stem": "Why does the author mention age-based regulations near the end of the article?",
           "options": [
-            "To warn that VR headsets will soon be banned everywhere",
+            "To warn that VR headsets will soon be banned everywhere in the world",
             "To explain in detail how VR headsets are manufactured",
             "To argue that only adults should ever use technology",
             "To show that VR has real limits that require careful rules for safety"

@@ -29,9 +29,9 @@
       "difficulty": 1,
       "stem": "Which of these sentences is a COMMAND?",
       "options": [
-        "Sea turtles eat jellyfish.",
-        "Do microplastics harm people?",
-        "What a beautiful coral reef!",
+        "Sea turtles eat jellyfish and small fish.",
+        "Do microplastics harm people in the sea?",
+        "What a beautiful coral reef it is!",
         "Carry a reusable bottle to school."
       ],
       "answer": "D",
@@ -125,10 +125,10 @@
       "difficulty": 3,
       "stem": "Which information in the passage is the LEAST complete?",
       "options": [
-        "What microplastics are",
+        "What microplastics are made of and where",
         "How microplastics may affect human health",
         "Why turtles swallow plastic bags",
-        "How individuals can help"
+        "How individuals can help beaches"
       ],
       "answer": "B",
       "why": "The writer says scientists are still investigating this question, so no answer is given."

@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How to cook healthy meals at home",
+            "How to cook healthy meals at home with simple food",
             "How the body breaks food down and turns it into energy",
-            "Why some kids do not like vegetables",
-            "How farmers grow food in the fields"
+            "Why some kids do not like vegetables at lunch time",
+            "How farmers grow food in the fields all year round"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -490,8 +490,8 @@
           "stem": "According to the article, what is the main function of villi?",
           "options": [
             "They increase the surface area available for absorbing nutrients.",
-            "They secrete acidic juices that break food apart.",
-            "They push food forward through wave-like contractions.",
+            "They secrete acidic juices that break food apart in the stomach.",
+            "They push food forward through wave-like contractions of the gut.",
             "They store waste material before it leaves the body."
           ],
           "answer": "A",
@@ -557,10 +557,10 @@
         {
           "stem": "Why does the small intestine need villi if food has already been broken down into chyme by the stomach?",
           "options": [
-            "Villi further digest food by chewing it into smaller pieces.",
+            "Villi further digest food by chewing it into smaller pieces inside the gut.",
             "Villi give the small intestine enough surface area to absorb nutrients.",
-            "Villi secrete the acid that originally broke down the food.",
-            "Villi compact the leftover waste before it leaves the body."
+            "Villi secrete the acid that originally broke down the food in the stomach.",
+            "Villi compact the leftover waste before it leaves the body each day."
           ],
           "answer": "B",
           "skill": "inference",

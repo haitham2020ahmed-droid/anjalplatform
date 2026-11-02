@@ -141,10 +141,10 @@
         {
           "stem": "Why didn't the crow trust the fox's plan to tip the jar?",
           "options": [
-            "She wanted to keep every single pebble for herself",
-            "She did not like the dull color of the clay jar",
+            "She wanted to keep every single pebble for herself and not share any with the fox",
+            "She did not like the dull color of the clay jar, so she wanted a new one",
             "She knew spilled water would soak into the sand and be lost",
-            "She knew the fox could never lift the heavy jar"
+            "She knew the fox could never lift the heavy jar, so the plan would fail"
           ],
           "answer": "C",
           "skill": "inference",
@@ -168,8 +168,8 @@
           "stem": "Why did the water in the jar rise?",
           "options": [
             "The hot sun slowly melted part of the jar",
-            "Rain fell into the open jar overnight",
-            "The fox quietly poured in more water",
+            "Rain fell into the open jar overnight in the desert",
+            "The fox quietly poured in more water from a pond",
             "The crow dropped many small pebbles into the jar"
           ],
           "answer": "D",
@@ -212,9 +212,9 @@
           "stem": "Which sentence best states the central idea of the story?",
           "options": [
             "A thirsty crow finds a clever way to drink from a jar while resisting a fox's deceptive scheme",
-            "A crow and a fox become close, lasting friends after sharing water together",
-            "A wise old fox carefully explains how deserts slowly form over time",
-            "A patient crow teaches a young, eager fox how to fly properly"
+            "A crow and a fox become close, lasting friends after sharing water together in the end, in the desert",
+            "A wise old fox carefully explains how deserts slowly form over time to a young crow, in a story",
+            "A patient crow teaches a young, eager fox how to fly properly, with help from the wind and a hill"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -263,9 +263,9 @@
         {
           "stem": "Why would spilling the water onto the sand not have helped either animal?",
           "options": [
-            "The jar would shatter and cut both of their feet",
-            "The fox would simply refuse to share any spilled water",
-            "The hot sun would somehow turn the water into solid ice",
+            "The jar would shatter and cut both of their feet on the hot sand",
+            "The fox would simply refuse to share any spilled water with the crow",
+            "The hot sun would somehow turn the water into solid ice on the sand",
             "The sand would absorb the water quickly, leaving little to drink"
           ],
           "answer": "D",
@@ -302,10 +302,10 @@
         {
           "stem": "How does the author organize the events of the story?",
           "options": [
-            "By comparing three very different deserts around the world",
+            "By comparing three very different deserts around the world and their weather",
             "In the order the crow faces a problem, rejects a trick, and solves it herself",
-            "By simply listing facts about foxes and crows in general",
-            "By jumping back and forth between two completely unrelated stories"
+            "By simply listing facts about foxes and crows in general, one after another",
+            "By jumping back and forth between two completely unrelated stories about birds"
           ],
           "answer": "B",
           "skill": "text-structure",
@@ -373,9 +373,9 @@
           "stem": "Why does the fox's plan reveal more cunning than kindness?",
           "options": [
             "He offers a solution that conveniently benefits only himself once examined closely",
-            "He never actually speaks one single word to the crow",
-            "He immediately runs far away without proposing anything at all",
-            "He simply asks the crow to teach him how to fly"
+            "He never actually speaks one single word to the crow, so the crow ignores him",
+            "He immediately runs far away without proposing anything at all, and the crow is left alone",
+            "He simply asks the crow to teach him how to fly like a bird, which costs him nothing"
           ],
           "answer": "A",
           "skill": "inference",
@@ -398,10 +398,10 @@
         {
           "stem": "What is the underlying reason spilling the water would have failed both animals?",
           "options": [
-            "Clay jars simply cannot be tipped over by small birds",
-            "The fox was, in truth, actually quite afraid of water",
+            "Clay jars simply cannot be tipped over by small birds, so the water would not spill",
+            "The fox was, in truth, actually quite afraid of water, and would not go near any puddle",
             "Dry sand absorbs liquid rapidly, and the faster fox would reach any surviving puddle first",
-            "The jar's water had already been badly contaminated"
+            "The jar's water had already been badly contaminated by the desert wind and dust"
           ],
           "answer": "C",
           "skill": "cause-effect",

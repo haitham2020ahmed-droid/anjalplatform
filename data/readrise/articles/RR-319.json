@@ -115,9 +115,9 @@
           "stem": "What is this article mostly about?",
           "options": [
             "How bookbinders folded, sewed, and covered books by hand",
-            "How farmers grow and harvest trees for paper",
-            "Why some old books feel heavy when held",
-            "How to paint a wall neatly without a mess"
+            "How farmers grow and harvest trees to make paper for books",
+            "Why some old books feel heavy when they are held in the hands",
+            "How to paint a wall neatly without making a mess"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -344,9 +344,9 @@
         {
           "stem": "Why did becoming a skilled bookbinder usually take many years?",
           "options": [
-            "Because sewing machines were hard to find and repair",
-            "Because very few people ever wanted books",
-            "Because leather was impossible to find anywhere",
+            "Because sewing machines were hard to find and repair in the old days",
+            "Because very few people ever wanted books, so the craft was slow to learn",
+            "Because leather was impossible to find anywhere in the land",
             "Because apprentices trained closely with a craftsman for years"
           ],
           "answer": "D",
@@ -395,10 +395,10 @@
         {
           "stem": "What can you infer about why a protective flap was added to many Islamic bindings?",
           "options": [
-            "To replace the need for careful sewing",
-            "To make the finished book much heavier",
+            "To replace the need for careful sewing of the pages",
+            "To make the finished book much heavier to carry around",
             "To shield the pages from damage even more than a cover alone",
-            "To hide the title of the book from readers"
+            "To hide the title of the book from the readers and keep it secret"
           ],
           "answer": "C",
           "skill": "inference",
@@ -412,9 +412,9 @@
         {
           "stem": "Why does the author describe illuminated manuscripts near the end of the article?",
           "options": [
-            "To compare two completely unrelated crafts",
-            "To explain in detail how paper mills worked",
-            "To argue that illuminated books were useless",
+            "To compare two completely unrelated crafts, such as glass and iron",
+            "To explain in detail how paper mills worked in the old days",
+            "To argue that illuminated books were useless to most readers",
             "To show how binding and decoration together made art"
           ],
           "answer": "D",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
-            "Only rulers were ever allowed to own a book",
+            "Only rulers were ever allowed to own a book in the old kingdoms",
             "Hand bookbinding was a demanding craft that could become illuminated art",
-            "Gilding was invented only to replace sewing",
-            "The printing press made bookbinding needless from the start"
+            "Gilding was invented only to replace sewing in the making of books",
+            "The printing press made bookbinding needless from the start, so it ended"
           ],
           "answer": "B",
           "skill": "central-idea",

@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How to keep a flamingo as a pet",
+            "How to keep a flamingo as a pet at home or in a school",
             "How flamingos live, eat, and get their pink color",
-            "Why all birds are pink",
-            "How shrimp swim in the sea"
+            "Why all kinds of birds are pink or red",
+            "How shrimp swim in the sea and in rivers"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -182,9 +182,9 @@
         {
           "stem": "In the article, the word wade means to —",
           "options": [
-            "fly very high in the sky",
+            "fly very high in the sky above",
             "dig a hole in the mud",
-            "sleep standing up",
+            "sleep standing up on one leg",
             "walk in water that is not deep"
           ],
           "answer": "D",
@@ -233,10 +233,10 @@
         {
           "stem": "Why does the author tell about flamingos in Saudi Arabia at the end?",
           "options": [
-            "To show that flamingos only live there",
-            "To explain how flamingos make nests",
+            "To show that flamingos only live there and nowhere else",
+            "To explain how flamingos make nests of mud and stones",
             "To tell readers they might see flamingos near them",
-            "To warn people to stay away from the coast"
+            "To warn people to stay away from the coast and the birds"
           ],
           "answer": "C",
           "skill": "author-purpose",
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best tells the central idea of the article?",
           "options": [
-            "Flamingos are tall birds that cannot fly.",
+            "Flamingos are tall birds that cannot fly, and they stay on the ground all day.",
             "Flamingos are wading birds with special ways of feeding, getting their color, and living together.",
-            "Flamingos only eat algae.",
-            "Flamingos build the biggest nests of any bird."
+            "Flamingos only eat algae, and nothing else, as long as they live, and they eat it at night in the shallow lakes.",
+            "Flamingos build the biggest nests of any bird, and these nests stand in the water."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -310,9 +310,9 @@
         {
           "stem": "How does a flamingo get food out of the water?",
           "options": [
-            "It dives deep and chases fish",
-            "It grabs shrimp with its feet",
-            "It waits for its parents to bring it food every day",
+            "It dives deep and chases fish in the open sea, like a pelican does",
+            "It grabs shrimp with its feet and passes them up to its mouth",
+            "It waits for its parents to bring it food every day in the nest",
             "It pumps water through its beak, which traps food like a filter"
           ],
           "answer": "D",
@@ -412,10 +412,10 @@
         {
           "stem": "How is the article mainly organized?",
           "options": [
-            "As a story about one flamingo's life from start to finish",
+            "As a story about one flamingo's life from start to finish, from egg to old age",
             "By describing different features and habits of flamingos, one in each part",
-            "As a list of steps for caring for birds",
-            "By comparing flamingos with penguins"
+            "As a list of steps for caring for birds, such as feeding and cleaning cages",
+            "By comparing flamingos with penguins, ducks, and other birds that live by water"
           ],
           "answer": "B",
           "skill": "text-structure",
@@ -473,9 +473,9 @@
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
             "Flamingos are colorful birds whose diet, feeding method, and social habits help them thrive in salty wetlands.",
-            "Flamingos are endangered and live only in Saudi Arabia.",
-            "Carotenoids are the most important pigments in nature.",
-            "Flamingos stand on one leg because their knees are weak."
+            "Flamingos are endangered and live only in Saudi Arabia, in a few salty lakes near the sea and the desert.",
+            "Carotenoids are the most important pigments in all of nature, and every plant and animal needs them.",
+            "Flamingos stand on one leg because their knees are weak, and so they cannot stand on both legs."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -574,9 +574,9 @@
         {
           "stem": "Why do scientists describe the one-leg posture with words like believe and still investigating?",
           "options": [
-            "Because the reason has been proven for all birds",
-            "Because flamingos never stand on one leg",
-            "Because the posture only happens in Saudi Arabia",
+            "Because the reason has been proven for all birds in the world",
+            "Because flamingos never stand on one leg in the water",
+            "Because the posture only happens in Saudi Arabia and nowhere else",
             "Because the explanation is likely but not fully understood yet"
           ],
           "answer": "D",
@@ -592,9 +592,9 @@
           "stem": "What is the author's main purpose in the article?",
           "options": [
             "To inform readers about how flamingos are adapted to their way of life",
-            "To persuade readers to protect all wetlands",
-            "To entertain readers with a story about a lost flamingo",
-            "To compare six flamingo species in detail"
+            "To persuade readers to protect all wetlands and the birds living there",
+            "To entertain readers with a story about a lost flamingo in the wild",
+            "To compare six flamingo species in great detail, one by one"
           ],
           "answer": "A",
           "skill": "author-purpose",

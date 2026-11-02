@@ -89,10 +89,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How sailors once built strong wooden boats",
+            "How sailors once built strong wooden boats for long trips",
             "The grid of lines that helps us find exact spots on Earth",
-            "Why the equator always feels hot outside",
-            "How to draw a round globe at school"
+            "Why the equator always feels hot outside in the summer",
+            "How to draw a round globe at school with a pencil"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -154,10 +154,10 @@
         {
           "stem": "Why can no two places on Earth share the same two numbers?",
           "options": [
-            "Because famous places get special numbers",
+            "Because famous places get special numbers of their own",
             "Because every place has its own exact pair, like an address",
-            "Because the ocean never gets any numbers at all",
-            "Because the numbers change a little each day"
+            "Because the ocean never gets any numbers at all, only land does",
+            "Because the numbers change a little each day or week"
           ],
           "answer": "B",
           "skill": "inference",
@@ -167,9 +167,9 @@
         {
           "stem": "What can you tell about GPS from the article?",
           "options": [
-            "It only works when used on large ships",
-            "It cannot work anywhere near open ocean",
-            "It never uses latitude or longitude numbers",
+            "It only works when used on large ships at sea",
+            "It cannot work anywhere near the open ocean or sky",
+            "It never uses latitude or longitude numbers to find a place",
             "It finds your exact spot much faster than old ways"
           ],
           "answer": "D",
@@ -181,9 +181,9 @@
           "stem": "How does the author mostly explain latitude and longitude?",
           "options": [
             "By explaining what each kind of line does and how they work together",
-            "By telling a made-up story about a lost sailor",
-            "By listing strict rules for drawing any new map",
-            "By comparing several different kinds of old boats"
+            "By telling a made-up story about a lost sailor on the sea",
+            "By listing strict rules for drawing any new map of a land",
+            "By comparing several different kinds of old boats and maps used by sailors long ago"
           ],
           "answer": "A",
           "skill": "text-structure",
@@ -211,10 +211,10 @@
         {
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
-            "GPS was invented only for use on large ships",
+            "GPS was invented only for use on large ships and not for phones or cars",
             "Latitude and longitude form a grid that lets any place be pinpointed",
-            "Sailors in the past were often afraid of the sea",
-            "The equator is the only important line on Earth"
+            "Sailors in the past were often afraid of the sea and the big waves",
+            "The equator is the only important line on Earth, and all others are not needed"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -238,9 +238,9 @@
           "stem": "What does a GPS receiver do, according to the article?",
           "options": [
             "It talks to satellites to work out its latitude and longitude",
-            "It builds brand new roads across the land",
-            "It prints fresh paper maps for travelers",
-            "It slowly changes where the equator is located"
+            "It builds brand new roads across the land for cars and trucks",
+            "It prints fresh paper maps for travelers on a long trip",
+            "It slowly changes where the equator is located on the Earth"
           ],
           "answer": "A",
           "skill": "detail",
@@ -263,10 +263,10 @@
         {
           "stem": "Why was finding longitude at sea so difficult for old sailors?",
           "options": [
-            "Paper maps had simply not been invented yet",
+            "Paper maps had simply not been invented yet in those years",
             "It required an extremely accurate clock, which was hard to build",
-            "There were far too many fish swimming nearby",
-            "Sailors were not permitted to look at the stars"
+            "There were far too many fish swimming nearby, so ships were slow",
+            "Sailors were not permitted to look at the stars at night"
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -302,8 +302,8 @@
         {
           "stem": "How is the article mainly organized?",
           "options": [
-            "It compares the flags used by different countries",
-            "It lists dangers of ocean travel in time order",
+            "It compares the flags used by different countries at sea for many years",
+            "It lists the dangers of ocean travel in time order, one storm after another",
             "It tells a long story about a single sailor's journey",
             "It explains each line, then how they work together, then their history"
           ],
@@ -333,10 +333,10 @@
         {
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
-            "Only sailors from past centuries ever needed latitude and longitude",
-            "The prime meridian is the single most important place on Earth",
+            "Only sailors from past centuries ever needed latitude and longitude, and no one uses them today",
+            "The prime meridian is the single most important place on Earth, and every city lies on it",
             "Latitude and longitude form a grid that GPS now lets us use with great precision",
-            "Atomic clocks are useful only for telling the time of day"
+            "Atomic clocks are useful only for telling the time of day, and not for maps or GPS"
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -346,9 +346,9 @@
         {
           "stem": "What does the article say made longitude historically difficult to calculate at sea?",
           "options": [
-            "A complete absence of any maps showing latitude",
-            "Sailors' flat refusal to use any mathematics",
-            "A lack of stars that sailors could ever see",
+            "A complete absence of any maps showing latitude, so that sailors could not find their place on the sea",
+            "Sailors' flat refusal to use any mathematics on the ship, because they thought it was a waste of time",
+            "A lack of stars that sailors could ever see at night, since the sky over the sea was always full of clouds",
             "The need for an extremely precise chronometer that could withstand a rocking ship"
           ],
           "answer": "D",
@@ -359,10 +359,10 @@
         {
           "stem": "According to the article, what role did the year 1884 play?",
           "options": [
-            "It is when chronometers were formally banned from all ships",
+            "It is when chronometers were formally banned from all ships at sea",
             "It is when the prime meridian was officially designated at Greenwich",
-            "It is when GPS satellites were first launched into orbit",
-            "It is when the equator was first discovered by explorers"
+            "It is when GPS satellites were first launched into orbit around Earth",
+            "It is when the equator was first discovered by explorers on a ship"
           ],
           "answer": "B",
           "skill": "detail",
@@ -385,8 +385,8 @@
         {
           "stem": "Why does a GPS receiver need to communicate with a network of satellites?",
           "options": [
-            "Because only one single satellite exists in all of orbit",
-            "Because satellites must take turns passing above the equator",
+            "Because only one single satellite exists in all of orbit around Earth",
+            "Because satellites must take turns passing above the equator each day",
             "Because multiple satellite signals together calculate an exact position",
             "Because one satellite alone would give the wrong time of day"
           ],
@@ -398,10 +398,10 @@
         {
           "stem": "What can be inferred about why coordinates are often divided into minutes and seconds?",
           "options": [
-            "To decide exactly which country owns a given ocean",
+            "To decide exactly which country owns a given ocean or sea",
             "To give an even more exact position than whole degrees alone",
-            "To measure how hot or cold a given location is",
-            "To tell sailors on board precisely what time it is"
+            "To measure how hot or cold a given location is on the map",
+            "To tell sailors on board precisely what time it is each day"
           ],
           "answer": "B",
           "skill": "inference",
@@ -412,7 +412,7 @@
           "stem": "Which conclusion is best supported by the article's comparison of old and new navigation?",
           "options": [
             "Navigation has grown far more precise since the days of early sailors",
-            "GPS cannot ever work without a coastline nearby",
+            "GPS cannot ever work without a coastline nearby to guide the ships",
             "Chronometers are no longer useful for any purpose at all",
             "Stars were always more reliable than any modern satellite"
           ],

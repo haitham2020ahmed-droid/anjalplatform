@@ -349,9 +349,9 @@
       "type": "MCQ",
       "stem": "How was the sky after the storm different from the sky as the storm approached?",
       "options": [
-        "It was dark instead of bright.",
-        "It was orange instead of clear.",
-        "It was rainy instead of dusty.",
+        "It was dark instead of bright and sunny.",
+        "It was orange instead of clear and blue.",
+        "It was rainy instead of dusty and dry.",
         "It was clear instead of smoky orange."
       ],
       "answer": "D",
@@ -430,9 +430,9 @@
       "stem": "Why do you think the writer tells the story in Khalid's own words?",
       "options": [
         "so readers can share Khalid's thoughts and feelings",
-        "so the father seems to be the main character",
-        "so the story sounds like a news report",
-        "so readers learn facts about sandstorms"
+        "so the father seems to be the main character of the story",
+        "so the story sounds like a news report from the radio",
+        "so readers learn facts about sandstorms and how they form"
       ],
       "answer": "A",
       "why": "A first-person narrator lets readers know exactly what Khalid thinks and feels, such as when his heart sank."
@@ -445,10 +445,10 @@
       "type": "MCQ",
       "stem": "Which value is MOST important in the story?",
       "options": [
-        "courage in competition",
-        "keeping secrets",
+        "courage shown in a hard competition",
+        "keeping secrets from other people",
         "returning what belongs to others",
-        "becoming wealthy"
+        "becoming wealthy at a young age"
       ],
       "answer": "C",
       "why": "Khalid returns Lulu because what belongs to others must be returned to them."

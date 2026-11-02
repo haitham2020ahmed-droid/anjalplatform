@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How to make a lamp at home",
+            "How to make a lamp at home from simple things and a battery",
             "Living things that make their own light and why they use it",
-            "Why the sea is blue in the daytime",
-            "How fish sleep in the deep sea"
+            "Why the sea is blue in the daytime and black at night",
+            "How fish sleep in the deep sea, far below the waves"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -149,9 +149,9 @@
           "stem": "Why does a firefly flash its light?",
           "options": [
             "To send a signal so fireflies can find each other",
-            "To keep its body warm at night",
-            "To scare away the sun",
-            "To help it see the grass"
+            "To keep its body warm at night in the cold air",
+            "To scare away the sun in the early morning",
+            "To help it see the grass in the dark night"
           ],
           "answer": "A",
           "skill": "detail",
@@ -165,10 +165,10 @@
         {
           "stem": "In the article, the light on the fish's head is called a lure. What does lure mean here?",
           "options": [
-            "A kind of fin",
+            "A kind of fin on the fish's back",
             "A thing that pulls other animals close",
-            "A place where fish hide",
-            "A cloud of bright water"
+            "A place where fish hide from large sharks",
+            "A cloud of bright water around the fish"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -182,10 +182,10 @@
         {
           "stem": "What happens to tiny plankton when waves shake them?",
           "options": [
-            "They sink to the bottom.",
-            "They turn into fish.",
+            "They sink to the bottom at once.",
+            "They turn into fish in the sea.",
             "They make the sea shine blue.",
-            "They make the water hot."
+            "They make the water hot like tea."
           ],
           "answer": "C",
           "skill": "cause-effect",
@@ -217,9 +217,9 @@
           "stem": "A squid squirts out a bright cloud. What is the squid most likely trying to do?",
           "options": [
             "Get away from danger",
-            "Catch a firefly",
-            "Help plants grow",
-            "Clean the water"
+            "Catch a firefly at night",
+            "Help the plants grow",
+            "Clean the water in the sea"
           ],
           "answer": "A",
           "skill": "inference",
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
-            "Fireflies are the brightest animals on Earth.",
+            "Fireflies are the brightest animals on Earth, and no other animal makes more light than they do.",
             "Many living things make light through a chemical reaction and use it to survive.",
-            "The deep sea is too dark for any animals to live there.",
-            "Scientists invented bioluminescence in laboratories."
+            "The deep sea is too dark for any animals to live there, so the sea floor is empty of life.",
+            "Scientists invented bioluminescence in laboratories, and no living thing made light before that time."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -310,10 +310,10 @@
         {
           "stem": "What two things combine in the chemical reaction that makes living light?",
           "options": [
-            "Sunlight and water",
-            "Heat and salt",
+            "Sunlight and fresh water",
+            "Heat and salt crystals together",
             "A glowing chemical and oxygen",
-            "Plankton and sand"
+            "Plankton and sea sand"
           ],
           "answer": "C",
           "skill": "detail",
@@ -361,10 +361,10 @@
         {
           "stem": "A fish glows softly on its belly. Why would a predator swimming below it have trouble seeing it?",
           "options": [
-            "The glow blinds the predator.",
+            "The glow blinds the predator for a short time.",
             "The glow matches the dim light coming from above.",
-            "The glow makes the fish look bigger.",
-            "The predator is afraid of light."
+            "The glow makes the fish look much bigger than it is.",
+            "The predator is afraid of any light from the fish."
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -395,9 +395,9 @@
         {
           "stem": "Each kind of firefly has its own pattern of blinks. What can you infer from this?",
           "options": [
-            "Fireflies blink at random with no purpose.",
-            "All fireflies are the same kind.",
-            "Fireflies blink to warm their wings.",
+            "Fireflies blink at random with no purpose at all in the night",
+            "All fireflies are the same kind, so they all blink the same way",
+            "Fireflies blink to warm their wings on cold nights",
             "A firefly can tell which flashes come from its own kind."
           ],
           "answer": "D",
@@ -541,9 +541,9 @@
           "stem": "Why would counterillumination fail to protect a fish if its belly glowed much more brightly than the light coming from the surface?",
           "options": [
             "Because the brighter glow would make the fish stand out against the dim background",
-            "Because bright light uses up all the oxygen in the sea",
-            "Because predators can only see red light",
-            "Because the fish would become too warm"
+            "Because bright light uses up all the oxygen in the sea around the fish and its home",
+            "Because predators can only see red light in the deep water, far below the waves",
+            "Because the fish would become too warm and sink slowly down to the bottom of the sea"
           ],
           "answer": "A",
           "skill": "inference",
@@ -557,10 +557,10 @@
         {
           "stem": "What can you infer about why deep-sea animals mostly glow blue-green instead of red?",
           "options": [
-            "Red light is too hot for the deep sea.",
-            "Their predators prefer red.",
+            "Red light is too hot for the deep sea animals to make",
+            "Their predators prefer red light and cannot see blue or green",
             "Blue-green light would be seen over a greater distance underwater.",
-            "Red chemicals cannot mix with oxygen."
+            "Red chemicals cannot mix with oxygen in the deep water"
           ],
           "answer": "C",
           "skill": "inference",
@@ -574,10 +574,10 @@
         {
           "stem": "How does the anglerfish's use of light differ from the squid's glowing cloud?",
           "options": [
-            "The anglerfish uses light to escape, while the squid uses it to hunt.",
-            "Both use light only to talk with members of their own kind.",
+            "The anglerfish uses light to escape, while the squid uses it to hunt, in the open sea.",
+            "Both use light only to talk with members of their own kind, never to attract or hide.",
             "The anglerfish uses light to attract prey, while the squid uses it to distract an attacker.",
-            "Both use light to warm the water around them."
+            "Both use light to warm the water around them, and they use it to stay alive in the cold."
           ],
           "answer": "C",
           "skill": "compare",
@@ -591,10 +591,10 @@
         {
           "stem": "Why does the author mention the jellyfish protein and the Nobel Prize at the end?",
           "options": [
-            "To argue that jellyfish are the most important sea animals",
+            "To argue that jellyfish are the most important sea animals, since they glow the most",
             "To show that studying living light has also been valuable to people",
-            "To explain how fireflies choose their blinking patterns",
-            "To warn readers that glowing animals are dangerous"
+            "To explain how fireflies choose their blinking patterns on summer nights in the grass",
+            "To warn readers that glowing animals are dangerous and should be left alone at sea"
           ],
           "answer": "B",
           "skill": "author-purpose",

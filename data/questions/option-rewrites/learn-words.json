@@ -1,0 +1,2754 @@
+[
+ {
+  "stem": "What is a stanza?",
+  "correct": "a group of lines in a poem",
+  "replace": [
+   {
+    "old": "a rhyming word",
+    "new": "a rhyming word at the end of a line"
+   },
+   {
+    "old": "the title of a song",
+    "new": "the title of a song on the radio"
+   },
+   {
+    "old": "a type of piano",
+    "new": "a type of piano with many keys"
+   }
+  ]
+ },
+ {
+  "stem": "In the poem, the children's \"plots\" are...",
+  "correct": "their secret little plans",
+  "replace": [
+   {
+    "old": "pieces of farmland",
+    "new": "pieces of farmland nearby"
+   },
+   {
+    "old": "their school grades",
+    "new": "their school grades for the year"
+   },
+   {
+    "old": "their bedtime stories",
+    "new": "their bedtime stories at night"
+   }
+  ]
+ },
+ {
+  "stem": "Which sentence uses severe correctly?",
+  "correct": "A severe storm knocked down trees and power lines.",
+  "replace": [
+   {
+    "old": "The severe kitten slept softly.",
+    "new": "The severe kitten slept softly on the rug in the sun."
+   },
+   {
+    "old": "She wore a severe smile to the party.",
+    "new": "She wore a severe smile to the party and told a joke."
+   },
+   {
+    "old": "The severe breeze was light and pleasant.",
+    "new": "The severe breeze was light and pleasant on the beach."
+   }
+  ]
+ },
+ {
+  "stem": "Which sentence uses directing correctly?",
+  "correct": "The operator was directing calls to the doctor's office.",
+  "replace": [
+   {
+    "old": "The tree was directing in the wind.",
+    "new": "The tree was directing in the wind all through the night."
+   },
+   {
+    "old": "The cat was directing a nap on the sofa.",
+    "new": "The cat was directing a nap on the sofa all afternoon."
+   },
+   {
+    "old": "He was directing his soup with a spoon.",
+    "new": "He was directing his soup with a spoon at the table."
+   }
+  ]
+ },
+ {
+  "stem": "What does artificial mean?",
+  "correct": "made by people instead of nature",
+  "replace": [
+   {
+    "old": "found deep in the ocean",
+    "new": "found deep in the ocean or in caves"
+   },
+   {
+    "old": "growing wild on a beach",
+    "new": "growing wild on a beach by the sea"
+   },
+   {
+    "old": "very old and broken",
+    "new": "very old and broken from long use"
+   }
+  ]
+ },
+ {
+  "stem": "Which sentence uses \"savor\" correctly?",
+  "correct": "He ate slowly to savor every bite of his mother's food.",
+  "replace": [
+   {
+    "old": "She savored the broken chair out the window.",
+    "new": "She savored the broken chair out the window with a loud crash."
+   },
+   {
+    "old": "The rain savored the street all night.",
+    "new": "The rain savored the street all night long, until the morning."
+   },
+   {
+    "old": "He savored the bus because he was late.",
+    "new": "He savored the bus because he was late for the first class."
+   }
+  ]
+ },
+ {
+  "stem": "Which sentence uses convention correctly?",
+  "correct": "Leaders traveled to the convention to talk about new laws.",
+  "replace": [
+   {
+    "old": "The convention swam across the river.",
+    "new": "The convention swam across the river to the other side."
+   },
+   {
+    "old": "He ate a convention with his soup.",
+    "new": "He ate a convention with his soup at the kitchen table."
+   },
+   {
+    "old": "The convention was a tiny red flower.",
+    "new": "The convention was a tiny red flower on the school lawn."
+   }
+  ]
+ },
+ {
+  "stem": "What is a coincidence?",
+  "correct": "things happening together by chance",
+  "replace": [
+   {
+    "old": "a debate rule",
+    "new": "a debate rule for the class"
+   },
+   {
+    "old": "a kind of fuel",
+    "new": "a kind of fuel for cars and trucks"
+   },
+   {
+    "old": "a carefully made plan",
+    "new": "a carefully made plan for the week"
+   }
+  ]
+ },
+ {
+  "stem": "Which sentence uses precise correctly?",
+  "correct": "She wrote down the precise time Brownie went missing.",
+  "replace": [
+   {
+    "old": "The precise ran away into the yard.",
+    "new": "The precise ran away into the yard and hid behind a tree."
+   },
+   {
+    "old": "He ate a precise for a snack.",
+    "new": "He ate a precise for a snack after the long walk home."
+   },
+   {
+    "old": "The precise was tall and green.",
+    "new": "The precise was tall and green and stood by the wall."
+   }
+  ]
+ },
+ {
+  "stem": "What does assume mean?",
+  "correct": "to believe something without proof",
+  "replace": [
+   {
+    "old": "to know something for certain",
+    "new": "to know something for certain and be sure"
+   },
+   {
+    "old": "to sing in a show",
+    "new": "to sing in a show on stage for all"
+   },
+   {
+    "old": "to lose a job",
+    "new": "to lose a job at the shop in town"
+   }
+  ]
+ },
+ {
+  "stem": "Which sentence uses individuality correctly?",
+  "correct": "Each sister shows her individuality in the way she paints.",
+  "replace": [
+   {
+    "old": "The individuality climbed the hill.",
+    "new": "The individuality climbed the hill behind the old school."
+   },
+   {
+    "old": "Individuality is a kind of rock.",
+    "new": "Individuality is a kind of rock found in the desert."
+   },
+   {
+    "old": "He ate individuality for breakfast.",
+    "new": "He ate individuality for breakfast with milk and bread."
+   }
+  ]
+ },
+ {
+  "stem": "Which sentence uses declined correctly?",
+  "correct": "The bird population declined when its habitat was destroyed.",
+  "replace": [
+   {
+    "old": "She declined a song to the class.",
+    "new": "She declined a song to the class and then sat down in her seat."
+   },
+   {
+    "old": "The river declined into a tall tree.",
+    "new": "The river declined into a tall tree by the bank of the stream."
+   },
+   {
+    "old": "He declined his lunch into a sandwich.",
+    "new": "He declined his lunch into a sandwich at the picnic by the lake."
+   }
+  ]
+ },
+ {
+  "stem": "What does archaeologist mean?",
+  "correct": "a scientist who digs up and studies objects from the past",
+  "replace": [
+   {
+    "old": "a person who sells strings",
+    "new": "a person who sells strings and ropes at a market stall in town"
+   },
+   {
+    "old": "a farmer who grows corn",
+    "new": "a farmer who grows corn and wheat in large fields every year"
+   },
+   {
+    "old": "a ruler of a city",
+    "new": "a ruler of a city who makes the laws for all of its people"
+   }
+  ]
+ },
+ {
+  "stem": "What does generosity mean?",
+  "correct": "being willing to give to others",
+  "replace": [
+   {
+    "old": "being very fast",
+    "new": "being very fast at running"
+   },
+   {
+    "old": "being afraid of storms",
+    "new": "being afraid of storms and thunder"
+   },
+   {
+    "old": "being very tired",
+    "new": "being very tired after school"
+   }
+  ]
+ },
+ {
+  "stem": "What are ancestors?",
+  "correct": "family members from long ago",
+  "replace": [
+   {
+    "old": "young children",
+    "new": "young children at a school"
+   },
+   {
+    "old": "travelers from far away",
+    "new": "travelers from far away places"
+   },
+   {
+    "old": "new neighbors",
+    "new": "new neighbors on our street"
+   }
+  ]
+ },
+ {
+  "stem": "What does access mean?",
+  "correct": "the chance or right to use something",
+  "replace": [
+   {
+    "old": "a broken screen",
+    "new": "a broken screen on a phone or a tablet"
+   },
+   {
+    "old": "a game with no rules",
+    "new": "a game with no rules at all, played in the yard"
+   },
+   {
+    "old": "a long rest",
+    "new": "a long rest after a hard day of work"
+   }
+  ]
+ },
+ {
+  "stem": "What does adaptation mean?",
+  "correct": "a special feature that helps an animal survive",
+  "replace": [
+   {
+    "old": "a large underwater ship",
+    "new": "a large underwater ship that carries people and goods"
+   },
+   {
+    "old": "a map of the ocean",
+    "new": "a map of the ocean showing the deep and shallow areas"
+   },
+   {
+    "old": "the darkest part of the sea",
+    "new": "the darkest part of the sea, where the light never goes"
+   }
+  ]
+ },
+ {
+  "stem": "Which sentence uses contributions correctly?",
+  "correct": "The town collected contributions of food for the soldiers.",
+  "replace": [
+   {
+    "old": "The contributions flew over the bakery.",
+    "new": "The contributions flew over the bakery and landed on the roof."
+   },
+   {
+    "old": "She wore contributions on her feet.",
+    "new": "She wore contributions on her feet to the school yard."
+   },
+   {
+    "old": "He swam across the contributions.",
+    "new": "He swam across the contributions to the other side."
+   }
+  ]
+ },
+ {
+  "stem": "If a celebrity has influence, she...",
+  "correct": "can change how others think or act",
+  "replace": [
+   {
+    "old": "has many cars",
+    "new": "has many cars and a big house"
+   },
+   {
+    "old": "sings very well",
+    "new": "sings very well on the stage"
+   },
+   {
+    "old": "never gives interviews",
+    "new": "never gives interviews to anyone"
+   }
+  ]
+ },
+ {
+  "stem": "Which sentence uses thrive correctly?",
+  "correct": "Fish thrive in clean, healthy rivers.",
+  "replace": [
+   {
+    "old": "The thrive was painted blue.",
+    "new": "The thrive was painted blue by the artist."
+   },
+   {
+    "old": "He tied a thrive to his shoe.",
+    "new": "He tied a thrive to his shoe before the race."
+   },
+   {
+    "old": "A thrive is a kind of bread.",
+    "new": "A thrive is a kind of bread that bakers make."
+   }
+  ]
+ },
+ {
+  "stem": "Which sentence uses \"emerge\" correctly?",
+  "correct": "The fighters will emerge from the tunnel when their names are called.",
+  "replace": [
+   {
+    "old": "She will emerge her lunch at noon.",
+    "new": "She will emerge her lunch at noon in the park near school."
+   },
+   {
+    "old": "The radio emerge very loud music.",
+    "new": "The radio emerge very loud music at night, and all of us heard it."
+   },
+   {
+    "old": "They emerged the ball into the net.",
+    "new": "They emerged the ball into the net during the last game of the year."
+   }
+  ]
+ },
+ {
+  "stem": "Which sentence uses advise correctly?",
+  "correct": "The coach will advise us to warm up before we perform.",
+  "replace": [
+   {
+    "old": "The cat advised under the table.",
+    "new": "The cat advised under the table all through dinner."
+   },
+   {
+    "old": "We advise the window to open it.",
+    "new": "We advise the window to open it in the morning."
+   },
+   {
+    "old": "I advise my sandwich at lunch.",
+    "new": "I advise my sandwich at lunch with a cold drink."
+   }
+  ]
+ },
+ {
+  "stem": "Which sentence uses critical correctly?",
+  "correct": "He was critical of the trip and complained all day.",
+  "replace": [
+   {
+    "old": "The critical cookie was sweet and soft.",
+    "new": "The critical cookie was sweet and soft and still warm."
+   },
+   {
+    "old": "She swam across the critical lake.",
+    "new": "She swam across the critical lake in the morning sun."
+   },
+   {
+    "old": "A critical is a kind of bird.",
+    "new": "A critical is a kind of bird that lives near the sea."
+   }
+  ]
+ },
+ {
+  "stem": "What does intercept mean?",
+  "correct": "to catch something on its way",
+  "replace": [
+   {
+    "old": "to bake bread",
+    "new": "to bake bread in an oven"
+   },
+   {
+    "old": "to write a letter",
+    "new": "to write a letter to a friend"
+   },
+   {
+    "old": "to welcome a guest",
+    "new": "to welcome a guest to the house"
+   }
+  ]
+ },
+ {
+  "stem": "Which sentence uses agile correctly?",
+  "correct": "The agile fish twisted quickly between the rocks.",
+  "replace": [
+   {
+    "old": "The agile rock sat still for years.",
+    "new": "The agile rock sat still for years on the hill."
+   },
+   {
+    "old": "She drank an agile with her lunch.",
+    "new": "She drank an agile with her lunch at school."
+   },
+   {
+    "old": "The agile was a kind of boat.",
+    "new": "The agile was a kind of boat on the old river."
+   }
+  ]
+ },
+ {
+  "stem": "What does accountable mean?",
+  "correct": "responsible for what you do",
+  "replace": [
+   {
+    "old": "scared of crowds",
+    "new": "scared of crowds and loud noise"
+   },
+   {
+    "old": "good at counting",
+    "new": "good at counting coins and numbers"
+   },
+   {
+    "old": "feeling very sleepy",
+    "new": "feeling very sleepy after lunch"
+   }
+  ]
+ },
+ {
+  "stem": "In a boxing story, what is a bout?",
+  "correct": "a match between two fighters",
+  "replace": [
+   {
+    "old": "a pair of boxing gloves",
+    "new": "a pair of boxing gloves and shoes"
+   },
+   {
+    "old": "a coach's whistle",
+    "new": "a coach's whistle and a stopwatch"
+   },
+   {
+    "old": "a crowd of fans",
+    "new": "a crowd of fans in a big hall"
+   }
+  ]
+ },
+ {
+  "stem": "What does attitude mean?",
+  "correct": "how you think or feel about something",
+  "replace": [
+   {
+    "old": "a rainy season",
+    "new": "a rainy season in the south"
+   },
+   {
+    "old": "a heavy bag of food",
+    "new": "a heavy bag of food for a trip"
+   },
+   {
+    "old": "a kind of insect",
+    "new": "a kind of insect that lives in trees"
+   }
+  ]
+ },
+ {
+  "stem": "What does lyric mean in poetry?",
+  "correct": "a short poem that expresses personal feelings",
+  "replace": [
+   {
+    "old": "a long story about a battle",
+    "new": "a long story about a battle at sea and a king"
+   },
+   {
+    "old": "a list of facts",
+    "new": "a list of facts about the sea, the sun, and the sky"
+   },
+   {
+    "old": "a poem with no feelings",
+    "new": "a poem with no feelings and no music in it at all"
+   }
+  ]
+ },
+ {
+  "stem": "What does assuring mean?",
+  "correct": "making someone feel calm and certain",
+  "replace": [
+   {
+    "old": "making someone feel afraid",
+    "new": "making someone feel afraid and nervous"
+   },
+   {
+    "old": "weaving cloth with thread",
+    "new": "weaving cloth with thread on a loom"
+   },
+   {
+    "old": "climbing a steep hill",
+    "new": "climbing a steep hill with a friend"
+   }
+  ]
+ },
+ {
+  "stem": "Which sentence uses \"vow\" correctly?",
+  "correct": "She vowed to visit her grandmother every summer.",
+  "replace": [
+   {
+    "old": "The vow flew over the rice field.",
+    "new": "The vow flew over the rice field in the morning."
+   },
+   {
+    "old": "He vowed the soup with a spoon.",
+    "new": "He vowed the soup with a spoon at lunch."
+   },
+   {
+    "old": "They were very vow after lunch.",
+    "new": "They were very vow after lunch on Friday."
+   }
+  ]
+ },
+ {
+  "stem": "What does indicated mean?",
+  "correct": "showed or pointed out",
+  "replace": [
+   {
+    "old": "covered up",
+    "new": "covered up with a cloth"
+   },
+   {
+    "old": "built quickly",
+    "new": "built quickly in one day"
+   },
+   {
+    "old": "forgot completely",
+    "new": "forgot completely about it"
+   }
+  ]
+ },
+ {
+  "stem": "What does afford mean?",
+  "correct": "to have enough money to buy something",
+  "replace": [
+   {
+    "old": "to give something away for free",
+    "new": "to give something away for free to a friend"
+   },
+   {
+    "old": "to grow plants in a garden",
+    "new": "to grow plants in a garden near a house"
+   },
+   {
+    "old": "to borrow land from a neighbor",
+    "new": "to borrow land from a neighbor for a year"
+   }
+  ]
+ },
+ {
+  "stem": "What does frustrated mean?",
+  "correct": "upset because things are not working",
+  "replace": [
+   {
+    "old": "brave and strong",
+    "new": "brave and strong in a fight at school"
+   },
+   {
+    "old": "happy and relaxed",
+    "new": "happy and relaxed after a good rest"
+   },
+   {
+    "old": "hungry and full",
+    "new": "hungry and full at the same time all day"
+   }
+  ]
+ },
+ {
+  "stem": "Which sentence uses data correctly?",
+  "correct": "The chart shows data about how long kids read each day.",
+  "replace": [
+   {
+    "old": "The data ran around the playground.",
+    "new": "The data ran around the playground until the bell rang."
+   },
+   {
+    "old": "She painted the data bright blue.",
+    "new": "She painted the data bright blue on the wall."
+   },
+   {
+    "old": "We planted data in the garden.",
+    "new": "We planted data in the garden near the gate."
+   }
+  ]
+ },
+ {
+  "stem": "What does contradicted mean?",
+  "correct": "said the opposite of what another person said",
+  "replace": [
+   {
+    "old": "agreed with every word",
+    "new": "agreed with every word that he said at dinner"
+   },
+   {
+    "old": "sang a happy song",
+    "new": "sang a happy song with a friend in the park today"
+   },
+   {
+    "old": "walked to the market",
+    "new": "walked to the market with her aunt in the morning"
+   }
+  ]
+ },
+ {
+  "stem": "Which line shows alliteration?",
+  "correct": "Busy bees buzz by the bright blooms.",
+  "replace": [
+   {
+    "old": "The day was warm and long.",
+    "new": "The day was warm and long and bright."
+   },
+   {
+    "old": "I love the sea in June.",
+    "new": "I love the sea in June and July."
+   },
+   {
+    "old": "Autumn is coming soon.",
+    "new": "Autumn is coming soon to our town."
+   }
+  ]
+ },
+ {
+  "stem": "Which sentence uses repetition correctly?",
+  "correct": "The repetition of 'climb, climb, climb' shows how hard he tried.",
+  "replace": [
+   {
+    "old": "My repetition is tall and green.",
+    "new": "My repetition is tall and green and it grows in a pot by the window."
+   },
+   {
+    "old": "She ate a bowl of repetition.",
+    "new": "She ate a bowl of repetition with a spoon at lunch time in the hall."
+   },
+   {
+    "old": "The repetition flew out the window.",
+    "new": "The repetition flew out the window and over the roof of the old school."
+   }
+  ]
+ },
+ {
+  "stem": "Which sentence uses prevalent correctly?",
+  "correct": "Wheat fields are prevalent across the region, stretching for miles.",
+  "replace": [
+   {
+    "old": "The prevalent apple was the only one of its kind.",
+    "new": "The prevalent apple was the only one of its kind in the whole orchard."
+   },
+   {
+    "old": "She prevalent the cake carefully.",
+    "new": "She prevalent the cake carefully and put it on the plate."
+   },
+   {
+    "old": "He was prevalent and ran home.",
+    "new": "He was prevalent and ran home as fast as he could."
+   }
+  ]
+ },
+ {
+  "stem": "Which sentence uses dribbles correctly?",
+  "correct": "Water dribbles slowly from the leaf onto the ground.",
+  "replace": [
+   {
+    "old": "He dribbles a loud song.",
+    "new": "He dribbles a loud song on his old guitar every day."
+   },
+   {
+    "old": "The rock dribbles up the hill quickly.",
+    "new": "The rock dribbles up the hill quickly each day."
+   },
+   {
+    "old": "The owl dribbles a nest in the tree.",
+    "new": "The owl dribbles a nest in the tall tree."
+   }
+  ]
+ },
+ {
+  "stem": "What does boycott mean?",
+  "correct": "to refuse to buy or use something to protest",
+  "replace": [
+   {
+    "old": "to build a new road",
+    "new": "to build a new road for a town and its people"
+   },
+   {
+    "old": "to vote in an election",
+    "new": "to vote in an election for a leader of a city"
+   },
+   {
+    "old": "to clean a river",
+    "new": "to clean a river after a flood in the spring"
+   }
+  ]
+ },
+ {
+  "stem": "Which sentence uses descriptive correctly?",
+  "correct": "The descriptive poem helped me picture the eagle's huge wings.",
+  "replace": [
+   {
+    "old": "The descriptive dog barked at the cat.",
+    "new": "The descriptive dog barked at the cat all night long, and the neighbors woke up."
+   },
+   {
+    "old": "He ran descriptive to the bus.",
+    "new": "He ran descriptive to the bus stop, but the bus had already left without him."
+   },
+   {
+    "old": "I ate a descriptive apple.",
+    "new": "I ate a descriptive apple for lunch and put the seeds in the garden by the school."
+   }
+  ]
+ },
+ {
+  "stem": "What does barren mean?",
+  "correct": "empty, with nothing growing",
+  "replace": [
+   {
+    "old": "full of bright flowers",
+    "new": "full of bright flowers in spring"
+   },
+   {
+    "old": "warm and sunny",
+    "new": "warm and sunny in the afternoon"
+   },
+   {
+    "old": "noisy and crowded",
+    "new": "noisy and crowded with people"
+   }
+  ]
+ },
+ {
+  "stem": "What does ripen mean?",
+  "correct": "to become fully ready, like fruit",
+  "replace": [
+   {
+    "old": "to tear into pieces",
+    "new": "to tear into small pieces of paper"
+   },
+   {
+    "old": "to fold neatly",
+    "new": "to fold neatly in a drawer"
+   },
+   {
+    "old": "to fall asleep",
+    "new": "to fall asleep after a long day"
+   }
+  ]
+ },
+ {
+  "stem": "Working under supervision means...",
+  "correct": "someone in charge watches and guides you",
+  "replace": [
+   {
+    "old": "you work completely alone",
+    "new": "you work completely alone all day long"
+   },
+   {
+    "old": "you work only at night",
+    "new": "you work only at night in a shop or a mill"
+   },
+   {
+    "old": "you are paid twice",
+    "new": "you are paid twice each week for your work"
+   }
+  ]
+ },
+ {
+  "stem": "Which sentence is a simile?",
+  "correct": "The chimp jumped as quick as a spring.",
+  "replace": [
+   {
+    "old": "The chimp lives in the forest.",
+    "new": "The chimp lives in the forest by the river."
+   },
+   {
+    "old": "The chimp ate a banana.",
+    "new": "The chimp ate a banana in the tree."
+   },
+   {
+    "old": "The chimp is a clown.",
+    "new": "The chimp is a clown in the circus."
+   }
+  ]
+ },
+ {
+  "stem": "Which sentence uses microscope correctly?",
+  "correct": "She used a microscope to study tiny cells.",
+  "replace": [
+   {
+    "old": "We ate a microscope for dinner.",
+    "new": "We ate a microscope for dinner last night."
+   },
+   {
+    "old": "The microscope sang a song.",
+    "new": "The microscope sang a song in the hall."
+   },
+   {
+    "old": "He wore a microscope on his feet.",
+    "new": "He wore a microscope on his feet to school."
+   }
+  ]
+ },
+ {
+  "stem": "What does assonance mean?",
+  "correct": "repeating the same vowel sound in nearby words",
+  "replace": [
+   {
+    "old": "repeating the first letter of words",
+    "new": "repeating the first letter of words in a line"
+   },
+   {
+    "old": "words that end exactly the same",
+    "new": "words that end exactly the same way at the end"
+   },
+   {
+    "old": "a poem with no rhythm",
+    "new": "a poem with no rhythm and no rhyme at all"
+   }
+  ]
+ },
+ {
+  "stem": "What does appreciation mean?",
+  "correct": "understanding and enjoying the value of something",
+  "replace": [
+   {
+    "old": "wanting to go home quickly",
+    "new": "wanting to go home quickly after class is over"
+   },
+   {
+    "old": "being angry at your family",
+    "new": "being angry at your family for a whole day"
+   },
+   {
+    "old": "forgetting a trip",
+    "new": "forgetting a trip that you took long ago with a friend"
+   }
+  ]
+ },
+ {
+  "stem": "Which sentence uses loan correctly?",
+  "correct": "She got a loan from her uncle and paid it back later.",
+  "replace": [
+   {
+    "old": "The loan grew tall in the sunny garden.",
+    "new": "The loan grew tall in the sunny garden by the wall."
+   },
+   {
+    "old": "He wore a red loan to the market.",
+    "new": "He wore a red loan to the market on Sunday."
+   },
+   {
+    "old": "A loan is a kind of sweet fruit.",
+    "new": "A loan is a kind of sweet fruit that grows on trees."
+   }
+  ]
+ },
+ {
+  "stem": "Which sentence uses concealed correctly?",
+  "correct": "The chameleon stayed concealed on a brown branch.",
+  "replace": [
+   {
+    "old": "The concealed sang a loud song.",
+    "new": "The concealed sang a loud song in the school hall."
+   },
+   {
+    "old": "He concealed a glass of juice in one sip.",
+    "new": "He concealed a glass of juice in one sip at lunch."
+   },
+   {
+    "old": "The concealed ran across the room.",
+    "new": "The concealed ran across the room to the door."
+   }
+  ]
+ },
+ {
+  "stem": "Which sentence uses organizations correctly?",
+  "correct": "Several organizations helped families rebuild their homes.",
+  "replace": [
+   {
+    "old": "My shoe has organizations on it.",
+    "new": "My shoe has organizations on it and they are blue."
+   },
+   {
+    "old": "I ate two organizations for lunch.",
+    "new": "I ate two organizations for lunch with a drink."
+   },
+   {
+    "old": "The organizations fell from the sky like rain.",
+    "new": "The organizations fell from the sky like rain and snow."
+   }
+  ]
+ },
+ {
+  "stem": "Which sentence uses \"circuit\" correctly?",
+  "correct": "Each year the family moved along the same circuit of farms.",
+  "replace": [
+   {
+    "old": "He ate a circuit for breakfast.",
+    "new": "He ate a circuit for breakfast with some milk and toast."
+   },
+   {
+    "old": "The teacher circuit the homework quickly.",
+    "new": "The teacher circuit the homework quickly and then went home."
+   },
+   {
+    "old": "She felt very circuit after the long day.",
+    "new": "She felt very circuit after the long day at school."
+   }
+  ]
+ },
+ {
+  "stem": "What is a bayonet?",
+  "correct": "a blade attached to a rifle",
+  "replace": [
+   {
+    "old": "a soldier's helmet",
+    "new": "a soldier's helmet made of steel"
+   },
+   {
+    "old": "a school bell",
+    "new": "a school bell that rings loudly"
+   },
+   {
+    "old": "a kind of army truck",
+    "new": "a kind of army truck for roads"
+   }
+  ]
+ },
+ {
+  "stem": "Which sentence uses blurted correctly?",
+  "correct": "She blurted out the surprise before the party started.",
+  "replace": [
+   {
+    "old": "He blurted a tall tree in the park.",
+    "new": "He blurted a tall tree in the park near school."
+   },
+   {
+    "old": "The bus blurted down the quiet road.",
+    "new": "The bus blurted down the quiet road at night."
+   },
+   {
+    "old": "They blurted their dinner with a spoon.",
+    "new": "They blurted their dinner with a spoon and a fork."
+   }
+  ]
+ },
+ {
+  "stem": "What does rely mean?",
+  "correct": "to depend on someone for help",
+  "replace": [
+   {
+    "old": "to run away from home",
+    "new": "to run away from home at night"
+   },
+   {
+    "old": "to forget a friend",
+    "new": "to forget a friend for a while"
+   },
+   {
+    "old": "to argue loudly",
+    "new": "to argue loudly with someone"
+   }
+  ]
+ },
+ {
+  "stem": "What is an expedition?",
+  "correct": "a long trip with a purpose",
+  "replace": [
+   {
+    "old": "a short nap",
+    "new": "a short nap in the afternoon"
+   },
+   {
+    "old": "a type of food",
+    "new": "a type of food from the sea"
+   },
+   {
+    "old": "a small house",
+    "new": "a small house near the lake"
+   }
+  ]
+ },
+ {
+  "stem": "What does pounce mean?",
+  "correct": "to jump suddenly to catch something",
+  "replace": [
+   {
+    "old": "to sleep for a long time",
+    "new": "to sleep for a long time in the sun"
+   },
+   {
+    "old": "to sing loudly",
+    "new": "to sing loudly on a high stage"
+   },
+   {
+    "old": "to swim slowly",
+    "new": "to swim slowly across a long river"
+   }
+  ]
+ },
+ {
+  "stem": "Which sentence uses guarantee correctly?",
+  "correct": "I guarantee the show will make everyone smile.",
+  "replace": [
+   {
+    "old": "The guarantee danced on the stage.",
+    "new": "The guarantee danced on the stage with a smile."
+   },
+   {
+    "old": "She ate a guarantee for breakfast.",
+    "new": "She ate a guarantee for breakfast every day."
+   },
+   {
+    "old": "The guarantee was a big brown hat.",
+    "new": "The guarantee was a big brown hat on a hook."
+   }
+  ]
+ },
+ {
+  "stem": "If you answer hesitantly, you answer...",
+  "correct": "slowly and unsure of yourself",
+  "replace": [
+   {
+    "old": "loudly and proudly",
+    "new": "loudly and proudly, with a big smile"
+   },
+   {
+    "old": "in a foreign language",
+    "new": "in a foreign language you know well"
+   },
+   {
+    "old": "without any words",
+    "new": "without any words, only with gestures"
+   }
+  ]
+ },
+ {
+  "stem": "Which sentence uses \"sentiment\" correctly?",
+  "correct": "The thank-you card expressed a kind sentiment.",
+  "replace": [
+   {
+    "old": "She sentimented the box onto the shelf.",
+    "new": "She sentimented the box onto the high shelf in the closet."
+   },
+   {
+    "old": "The sentiment ran across the yard.",
+    "new": "The sentiment ran across the yard to the old gate."
+   },
+   {
+    "old": "He was sentiment the window shut.",
+    "new": "He was sentiment the window shut with a bang."
+   }
+  ]
+ },
+ {
+  "stem": "Which sentence uses \"severe\" correctly?",
+  "correct": "The cruel messages caused severe harm to the student.",
+  "replace": [
+   {
+    "old": "She severe the door gently.",
+    "new": "She severe the door gently and walked out of the room."
+   },
+   {
+    "old": "A severe of students walked in.",
+    "new": "A severe of students walked in with their bags."
+   },
+   {
+    "old": "We severe lunch at noon.",
+    "new": "We severe lunch at noon in the school hall."
+   }
+  ]
+ },
+ {
+  "stem": "Which sentence uses enterprise correctly?",
+  "correct": "The enterprise sells shoes and donates a pair for each one sold.",
+  "replace": [
+   {
+    "old": "The enterprise flew south for the winter.",
+    "new": "The enterprise flew south for the winter with the geese in a line."
+   },
+   {
+    "old": "She brushed her enterprise before bed.",
+    "new": "She brushed her enterprise before bed every night with a soft brush."
+   },
+   {
+    "old": "I put an enterprise on my sandwich.",
+    "new": "I put an enterprise on my sandwich with some cheese and a leaf."
+   }
+  ]
+ },
+ {
+  "stem": "Which word is closest in meaning to historian?",
+  "correct": "chronicler of the past",
+  "replace": [
+   {
+    "old": "builder",
+    "new": "builder of houses and roads"
+   },
+   {
+    "old": "sailor",
+    "new": "sailor on a ship at sea"
+   },
+   {
+    "old": "painter",
+    "new": "painter of walls and doors"
+   }
+  ]
+ },
+ {
+  "stem": "What is a chrysalis?",
+  "correct": "the case where a caterpillar becomes a butterfly",
+  "replace": [
+   {
+    "old": "a flower's sweet juice",
+    "new": "a flower's sweet juice that bees drink"
+   },
+   {
+    "old": "a bird's nest",
+    "new": "a bird's nest built high in a tall tree"
+   },
+   {
+    "old": "a spider's web",
+    "new": "a spider's web spun in a dark corner of the barn"
+   }
+  ]
+ },
+ {
+  "stem": "Which sentence uses tremendous correctly?",
+  "correct": "Finding clean water was a tremendous problem for the settlers.",
+  "replace": [
+   {
+    "old": "She tremendous her bread.",
+    "new": "She tremendous her bread with a lot of butter."
+   },
+   {
+    "old": "He walked tremendous to the store.",
+    "new": "He walked tremendous to the store on the corner."
+   },
+   {
+    "old": "The tremendous ant was too small to see.",
+    "new": "The tremendous ant was too small to see on the dusty ground."
+   }
+  ]
+ },
+ {
+  "stem": "What is meter in a poem?",
+  "correct": "the regular beat in the lines",
+  "replace": [
+   {
+    "old": "a picture beside the poem",
+    "new": "a picture beside the poem in the book"
+   },
+   {
+    "old": "the name of the poet",
+    "new": "the name of the poet who wrote it"
+   },
+   {
+    "old": "the title of the poem",
+    "new": "the title of the poem at the top"
+   }
+  ]
+ },
+ {
+  "stem": "Which sentence uses \"plunge\" correctly?",
+  "correct": "The needle plunged through the thick cloth.",
+  "replace": [
+   {
+    "old": "The quilt plunged a happy song.",
+    "new": "The quilt plunged a happy song about spring."
+   },
+   {
+    "old": "He plunged his name on the paper.",
+    "new": "He plunged his name on the paper with a pen."
+   },
+   {
+    "old": "She plunged softly about the weather.",
+    "new": "She plunged softly about the weather today."
+   }
+  ]
+ },
+ {
+  "stem": "Which sentence uses \"grudgingly\" correctly?",
+  "correct": "He grudgingly agreed to give up his Saturday to help.",
+  "replace": [
+   {
+    "old": "The grudgingly was very heavy.",
+    "new": "The grudgingly was very heavy to carry upstairs."
+   },
+   {
+    "old": "They grudgingly the boxes upstairs.",
+    "new": "They grudgingly the boxes upstairs to the room."
+   },
+   {
+    "old": "A grudgingly flew past the window.",
+    "new": "A grudgingly flew past the window of the kitchen."
+   }
+  ]
+ },
+ {
+  "stem": "Which sentence uses savings correctly?",
+  "correct": "He kept his savings in a jar to buy a bike later.",
+  "replace": [
+   {
+    "old": "The savings sang loudly in the tree.",
+    "new": "The savings sang loudly in the tree by the house."
+   },
+   {
+    "old": "She planted savings in the soil.",
+    "new": "She planted savings in the soil of her garden."
+   },
+   {
+    "old": "We walked across the savings to school.",
+    "new": "We walked across the savings to school today."
+   }
+  ]
+ },
+ {
+  "stem": "In \"not by desert or merit of yours,\" desert means...",
+  "correct": "what you have earned or deserve",
+  "replace": [
+   {
+    "old": "a dry, sandy land",
+    "new": "a dry, sandy land with few plants"
+   },
+   {
+    "old": "to leave someone alone",
+    "new": "to leave someone alone in a hard time"
+   },
+   {
+    "old": "a sweet dish after dinner",
+    "new": "a sweet dish after dinner at home"
+   }
+  ]
+ },
+ {
+  "stem": "What is archaeology?",
+  "correct": "the study of the past through old objects",
+  "replace": [
+   {
+    "old": "the study of music",
+    "new": "the study of music and of the human voice"
+   },
+   {
+    "old": "the study of stars",
+    "new": "the study of stars and the planets above"
+   },
+   {
+    "old": "the study of weather",
+    "new": "the study of weather and the clouds"
+   }
+  ]
+ },
+ {
+  "stem": "Which sentence uses \"spectacular\" correctly?",
+  "correct": "The sunset over the sea was spectacular.",
+  "replace": [
+   {
+    "old": "He spectaculared the dishes.",
+    "new": "He spectaculared the dishes after dinner."
+   },
+   {
+    "old": "The spectacular is in my pocket.",
+    "new": "The spectacular is in my pocket today."
+   },
+   {
+    "old": "She spectacular her homework.",
+    "new": "She spectacular her homework before school."
+   }
+  ]
+ },
+ {
+  "stem": "What does committees mean?",
+  "correct": "groups chosen to do a special job",
+  "replace": [
+   {
+    "old": "large ships for war",
+    "new": "large ships for war at sea"
+   },
+   {
+    "old": "heavy taxes on tea",
+    "new": "heavy taxes on tea and sugar"
+   },
+   {
+    "old": "long letters to the king",
+    "new": "long letters to the king of England"
+   }
+  ]
+ },
+ {
+  "stem": "What does debris mean?",
+  "correct": "scattered broken pieces left behind",
+  "replace": [
+   {
+    "old": "a quiet place in the forest",
+    "new": "a quiet place deep in the forest"
+   },
+   {
+    "old": "a small wild animal",
+    "new": "a small wild animal that hides in holes"
+   },
+   {
+    "old": "a page in a journal",
+    "new": "a page in a journal or a book"
+   }
+  ]
+ },
+ {
+  "stem": "A student who shows tolerance...",
+  "correct": "accepts people who are different",
+  "replace": [
+   {
+    "old": "refuses to share",
+    "new": "refuses to share with the class"
+   },
+   {
+    "old": "talks during tests",
+    "new": "talks during tests and quizzes"
+   },
+   {
+    "old": "arrives late every day",
+    "new": "arrives late every day to class"
+   }
+  ]
+ },
+ {
+  "stem": "What does intensity mean?",
+  "correct": "great strength or force",
+  "replace": [
+   {
+    "old": "a gentle sound",
+    "new": "a gentle sound in the night"
+   },
+   {
+    "old": "a long nap",
+    "new": "a long nap in the afternoon"
+   },
+   {
+    "old": "a small change",
+    "new": "a small change in the weather"
+   }
+  ]
+ },
+ {
+  "stem": "Which sentence uses supportive correctly?",
+  "correct": "Her supportive sister cheered her on during practice.",
+  "replace": [
+   {
+    "old": "The supportive rained on the city.",
+    "new": "The supportive rained on the city all day long and all night."
+   },
+   {
+    "old": "He put the supportive in the oven.",
+    "new": "He put the supportive in the oven to bake for an hour."
+   },
+   {
+    "old": "The supportive was a tall building.",
+    "new": "The supportive was a tall building by the sea in the town."
+   }
+  ]
+ },
+ {
+  "stem": "Which sentence uses astronomical correctly?",
+  "correct": "The scientist wrote astronomical notes about the moons of Jupiter.",
+  "replace": [
+   {
+    "old": "She cooked an astronomical soup for dinner.",
+    "new": "She cooked an astronomical soup for dinner last night with rice."
+   },
+   {
+    "old": "The astronomical barked at the cat.",
+    "new": "The astronomical barked at the cat in the yard all afternoon."
+   },
+   {
+    "old": "He tied his astronomical before running.",
+    "new": "He tied his astronomical before running to school with his friends."
+   }
+  ]
+ },
+ {
+  "stem": "Which sentence uses \"crave\" correctly?",
+  "correct": "After weeks indoors, Hana craved fresh air and sunshine.",
+  "replace": [
+   {
+    "old": "The book craved on the shelf all day.",
+    "new": "The book craved on the shelf all day long without a sound."
+   },
+   {
+    "old": "He craved the door shut quietly.",
+    "new": "He craved the door shut quietly at night so no one woke up."
+   },
+   {
+    "old": "The river craves very slowly downhill.",
+    "new": "The river craves very slowly downhill to the sea in the spring."
+   }
+  ]
+ },
+ {
+  "stem": "What are residents?",
+  "correct": "people who live in a place",
+  "replace": [
+   {
+    "old": "toys for children",
+    "new": "toys for children to play with"
+   },
+   {
+    "old": "tools used to build",
+    "new": "tools used to build a house"
+   },
+   {
+    "old": "storms at sea",
+    "new": "storms at sea in the winter"
+   }
+  ]
+ },
+ {
+  "stem": "Which line shows consonance?",
+  "correct": "The black truck struck the stack of bricks.",
+  "replace": [
+   {
+    "old": "Ice is nice in July.",
+    "new": "Ice is nice in July, so we eat it at noon."
+   },
+   {
+    "old": "I fly up high.",
+    "new": "I fly up high in the sky, and I see the sun."
+   },
+   {
+    "old": "Go home slowly.",
+    "new": "Go home slowly, but do not stop on the way."
+   }
+  ]
+ },
+ {
+  "stem": "What does outspoken mean?",
+  "correct": "saying your opinions boldly and openly",
+  "replace": [
+   {
+    "old": "keeping your thoughts secret",
+    "new": "keeping your thoughts secret from all"
+   },
+   {
+    "old": "forgetting what to say",
+    "new": "forgetting what to say at all"
+   }
+  ]
+ },
+ {
+  "stem": "What does function mean?",
+  "correct": "the job something is made to do",
+  "replace": [
+   {
+    "old": "a kind of sea animal",
+    "new": "a kind of sea animal in a lake"
+   },
+   {
+    "old": "a large wave",
+    "new": "a large wave on the beach"
+   },
+   {
+    "old": "a bright color",
+    "new": "a bright color of the sky"
+   }
+  ]
+ },
+ {
+  "stem": "If you groped for a door, you...",
+  "correct": "felt for it with your hands",
+  "replace": [
+   {
+    "old": "painted it carefully",
+    "new": "painted it carefully with a brush"
+   },
+   {
+    "old": "slammed it shut",
+    "new": "slammed it shut with a bang"
+   },
+   {
+    "old": "ran past it",
+    "new": "ran past it without a glance"
+   }
+  ]
+ },
+ {
+  "stem": "Which sentence uses process correctly?",
+  "correct": "Baking bread is a process with many steps.",
+  "replace": [
+   {
+    "old": "My process is blue and soft.",
+    "new": "My process is blue and soft and has a long tail."
+   },
+   {
+    "old": "The process ran away from the dog.",
+    "new": "The process ran away from the dog and hid under a bed."
+   },
+   {
+    "old": "He drank a glass of process.",
+    "new": "He drank a glass of process with his dinner at noon."
+   }
+  ]
+ },
+ {
+  "stem": "What does compassionate mean?",
+  "correct": "kind and caring toward others",
+  "replace": [
+   {
+    "old": "angry and loud",
+    "new": "angry and loud toward other people"
+   },
+   {
+    "old": "very rich",
+    "new": "very rich and proud of money"
+   },
+   {
+    "old": "fast and strong",
+    "new": "fast and strong in every race"
+   }
+  ]
+ },
+ {
+  "stem": "What is a flogging?",
+  "correct": "a punishment by whipping",
+  "replace": [
+   {
+    "old": "a school festival",
+    "new": "a school festival with music"
+   },
+   {
+    "old": "a kind of radio show",
+    "new": "a kind of radio show at night"
+   },
+   {
+    "old": "a mountain path",
+    "new": "a mountain path with rocks"
+   }
+  ]
+ },
+ {
+  "stem": "Which sentence uses personification?",
+  "correct": "The wind whispered through the trees.",
+  "replace": [
+   {
+    "old": "There was a lot of wind.",
+    "new": "There was a lot of wind in the hills."
+   },
+   {
+    "old": "The wind blew for an hour.",
+    "new": "The wind blew for an hour at dusk."
+   },
+   {
+    "old": "The wind was cold.",
+    "new": "The wind was cold on the lake today."
+   }
+  ]
+ },
+ {
+  "stem": "Which sentence uses commotion correctly?",
+  "correct": "There was a commotion when everyone shouted at once.",
+  "replace": [
+   {
+    "old": "The commotion fell asleep quietly.",
+    "new": "The commotion fell asleep quietly on the sofa after lunch."
+   },
+   {
+    "old": "The commotion was soft and silent.",
+    "new": "The commotion was soft and silent in the empty room at noon."
+   },
+   {
+    "old": "She ate a commotion for dinner.",
+    "new": "She ate a commotion for dinner with some bread and rice."
+   }
+  ]
+ },
+ {
+  "stem": "Which sentence uses expression correctly?",
+  "correct": "Her poem is an expression of joy about summer.",
+  "replace": [
+   {
+    "old": "The expression flew into the window.",
+    "new": "The expression flew into the window and then fell down."
+   },
+   {
+    "old": "He planted an expression in the yard.",
+    "new": "He planted an expression in the yard behind the house."
+   },
+   {
+    "old": "The expression melted in the sun.",
+    "new": "The expression melted in the sun on the hot afternoon."
+   }
+  ]
+ },
+ {
+  "stem": "Which sentence uses evaluate correctly?",
+  "correct": "Students evaluate the evidence to decide which idea is correct.",
+  "replace": [
+   {
+    "old": "The evaluate floated in space.",
+    "new": "The evaluate floated in space for many hours and days, high above the planet."
+   },
+   {
+    "old": "He wore an evaluate on his wrist.",
+    "new": "He wore an evaluate on his wrist all day and all night, even in bed."
+   },
+   {
+    "old": "The evaluate grew in the garden.",
+    "new": "The evaluate grew in the garden with the roses and the tall green beans."
+   }
+  ]
+ },
+ {
+  "stem": "What does blares mean?",
+  "correct": "makes a very loud sound",
+  "replace": [
+   {
+    "old": "shines softly",
+    "new": "shines softly in the dark night"
+   },
+   {
+    "old": "whispers quietly",
+    "new": "whispers quietly to a friend"
+   }
+  ]
+ },
+ {
+  "stem": "Which sentence uses \"vehemently\" correctly?",
+  "correct": "She vehemently denied copying her sister's homework.",
+  "replace": [
+   {
+    "old": "The vehemently was on the table.",
+    "new": "The vehemently was on the table next to the cup."
+   },
+   {
+    "old": "She bought a vehemently at the shop.",
+    "new": "She bought a vehemently at the shop on the corner."
+   },
+   {
+    "old": "They vehemently the ball over the fence.",
+    "new": "They vehemently the ball over the fence into the yard."
+   }
+  ]
+ },
+ {
+  "stem": "What is a democracy?",
+  "correct": "a government chosen by the people's votes",
+  "replace": [
+   {
+    "old": "a large library",
+    "new": "a large library with many books and desks"
+   },
+   {
+    "old": "a kind of sports team",
+    "new": "a kind of sports team in a big city"
+   },
+   {
+    "old": "a city with no roads",
+    "new": "a city with no roads or bridges at all"
+   }
+  ]
+ },
+ {
+  "stem": "What does counterpoint mean?",
+  "correct": "an opposite idea in an argument",
+  "replace": [
+   {
+    "old": "a sharp pencil tip",
+    "new": "a sharp pencil tip on a thin stick"
+   },
+   {
+    "old": "a correct answer key",
+    "new": "a correct answer key for a test"
+   },
+   {
+    "old": "a new computer",
+    "new": "a new computer in the classroom"
+   }
+  ]
+ },
+ {
+  "stem": "Which sentence uses inspiration correctly?",
+  "correct": "Watching great dancers gave her inspiration for her own routine.",
+  "replace": [
+   {
+    "old": "I ate an inspiration for lunch.",
+    "new": "I ate an inspiration for lunch with some milk and bread."
+   },
+   {
+    "old": "He locked the door with an inspiration.",
+    "new": "He locked the door with an inspiration he found in a box."
+   },
+   {
+    "old": "The inspiration fell off the shelf.",
+    "new": "The inspiration fell off the shelf in the hall and broke into pieces."
+   }
+  ]
+ },
+ {
+  "stem": "Which sentence uses era correctly?",
+  "correct": "The Incas built great roads during their era.",
+  "replace": [
+   {
+    "old": "She tied an era to the rope.",
+    "new": "She tied an era to the rope on the boat."
+   },
+   {
+    "old": "The era jumped into the river.",
+    "new": "The era jumped into the river and swam off."
+   },
+   {
+    "old": "He ate a warm era for dinner.",
+    "new": "He ate a warm era for dinner with his family."
+   }
+  ]
+ },
+ {
+  "stem": "Which sentence uses agriculture correctly?",
+  "correct": "Modern agriculture uses machines to plant and harvest wheat.",
+  "replace": [
+   {
+    "old": "The agriculture barked at the mailman.",
+    "new": "The agriculture barked at the mailman every single morning."
+   },
+   {
+    "old": "She wore agriculture to the party.",
+    "new": "She wore agriculture to the party with her new red shoes."
+   },
+   {
+    "old": "He read the agriculture on his watch.",
+    "new": "He read the agriculture on his watch to see the time of day."
+   }
+  ]
+ },
+ {
+  "stem": "Which sentence uses resolve correctly?",
+  "correct": "The two sides met to resolve their argument.",
+  "replace": [
+   {
+    "old": "The resolve flew over the ocean.",
+    "new": "The resolve flew over the ocean to a distant land."
+   },
+   {
+    "old": "She put the resolve in her pocket.",
+    "new": "She put the resolve in her pocket with some coins."
+   },
+   {
+    "old": "A resolve is a type of hat.",
+    "new": "A resolve is a type of hat that people wear in rain."
+   }
+  ]
+ },
+ {
+  "stem": "What is artillery?",
+  "correct": "large guns used in battle",
+  "replace": [
+   {
+    "old": "soft cotton thread",
+    "new": "soft cotton thread for sewing"
+   },
+   {
+    "old": "a box for buttons",
+    "new": "a box for buttons and pins"
+   },
+   {
+    "old": "a kind of blanket",
+    "new": "a kind of wool blanket"
+   }
+  ]
+ },
+ {
+  "stem": "What does ambitious mean?",
+  "correct": "wanting very much to achieve something big",
+  "replace": [
+   {
+    "old": "feeling sleepy and bored",
+    "new": "feeling sleepy and bored with every task"
+   },
+   {
+    "old": "being afraid of the dark",
+    "new": "being afraid of the dark and of storms"
+   },
+   {
+    "old": "not caring about anything",
+    "new": "not caring about anything at all, ever"
+   }
+  ]
+ },
+ {
+  "stem": "Which sentence uses \"notoriety\" correctly?",
+  "correct": "The prankster gained notoriety after his rude video spread online.",
+  "replace": [
+   {
+    "old": "She drank a glass of notoriety.",
+    "new": "She drank a glass of notoriety with her lunch every day."
+   },
+   {
+    "old": "The notoriety barked at the mailman.",
+    "new": "The notoriety barked at the mailman when he came to the door."
+   },
+   {
+    "old": "We notorietied the cake.",
+    "new": "We notorietied the cake that we made for the party at school."
+   }
+  ]
+ },
+ {
+  "stem": "What does guidance mean?",
+  "correct": "advice that helps you know what to do",
+  "replace": [
+   {
+    "old": "a heavy storm",
+    "new": "a heavy storm at sea at night"
+   },
+   {
+    "old": "a piece of silk",
+    "new": "a piece of silk cloth in the market"
+   },
+   {
+    "old": "a hidden treasure",
+    "new": "a hidden treasure in a cave by the sea"
+   }
+  ]
+ },
+ {
+  "stem": "What does risk mean?",
+  "correct": "a chance that something could go wrong",
+  "replace": [
+   {
+    "old": "a sure way to win",
+    "new": "a sure way to win every game you play"
+   },
+   {
+    "old": "a kind of vegetable",
+    "new": "a kind of vegetable that grows in the ground"
+   },
+   {
+    "old": "money you earn each week",
+    "new": "money you earn each week for your work"
+   }
+  ]
+ },
+ {
+  "stem": "Which sentence uses \"merit\" correctly?",
+  "correct": "The prize was given for merit, not for luck.",
+  "replace": [
+   {
+    "old": "She merit the dishes after dinner.",
+    "new": "She merit the dishes after dinner was over."
+   },
+   {
+    "old": "The merit barked at the stranger.",
+    "new": "The merit barked at the stranger by the gate."
+   },
+   {
+    "old": "He was very merit and fell asleep.",
+    "new": "He was very merit and fell asleep on the sofa."
+   }
+  ]
+ },
+ {
+  "stem": "Which sentence uses advance correctly?",
+  "correct": "Smartphones were a great advance in communication.",
+  "replace": [
+   {
+    "old": "The advance tasted sweet and juicy.",
+    "new": "The advance tasted sweet and juicy on a hot day."
+   },
+   {
+    "old": "She wore an advance on her head.",
+    "new": "She wore an advance on her head to the party."
+   },
+   {
+    "old": "The advance barked at the mailman.",
+    "new": "The advance barked at the mailman at the gate."
+   }
+  ]
+ },
+ {
+  "stem": "Which sentence uses collapse correctly?",
+  "correct": "The ground shook so hard that the wall started to collapse.",
+  "replace": [
+   {
+    "old": "She will collapse a letter to her aunt.",
+    "new": "She will collapse a letter to her aunt and send it soon."
+   },
+   {
+    "old": "We collapse breakfast every morning.",
+    "new": "We collapse breakfast every morning at the kitchen table."
+   },
+   {
+    "old": "The bird began to collapse a song.",
+    "new": "The bird began to collapse a song in the early morning light."
+   }
+  ]
+ },
+ {
+  "stem": "What does inherit mean?",
+  "correct": "to receive features from parents",
+  "replace": [
+   {
+    "old": "to water a garden",
+    "new": "to water a garden in the morning"
+   },
+   {
+    "old": "to plant seeds in rows",
+    "new": "to plant seeds in rows in a field"
+   },
+   {
+    "old": "to sell food at a market",
+    "new": "to sell food at a market in town"
+   }
+  ]
+ },
+ {
+  "stem": "Which sentence uses \"lobbying\" correctly?",
+  "correct": "The group spent months lobbying the council for a new animal shelter.",
+  "replace": [
+   {
+    "old": "She was lobbying her soup until it was cold.",
+    "new": "She was lobbying her soup until it was cold and thick on the table."
+   },
+   {
+    "old": "The lobbying fell off the shelf and broke.",
+    "new": "The lobbying fell off the shelf in the hall and broke into three pieces."
+   },
+   {
+    "old": "He wore his warm lobbying to school.",
+    "new": "He wore his warm lobbying to school in the winter every single day."
+   }
+  ]
+ },
+ {
+  "stem": "Which sentence uses \"deaf\" correctly?",
+  "correct": "Without English, Elena feels deaf to her children's conversations.",
+  "replace": [
+   {
+    "old": "She deafed the cookies in the oven.",
+    "new": "She deafed the cookies in the oven until they were golden brown."
+   },
+   {
+    "old": "The deaf flew over the house.",
+    "new": "The deaf flew over the house and landed on the old roof at night."
+   },
+   {
+    "old": "He deaf his bicycle to school.",
+    "new": "He deaf his bicycle to school with his brother and his sister."
+   }
+  ]
+ },
+ {
+  "stem": "Which sentence uses protest correctly?",
+  "correct": "People held signs at a peaceful protest against pollution.",
+  "replace": [
+   {
+    "old": "The protest was a small blue bird.",
+    "new": "The protest was a small blue bird that sat in the tall tree."
+   },
+   {
+    "old": "He wore a protest on his foot.",
+    "new": "He wore a protest on his foot to the party last night."
+   },
+   {
+    "old": "I baked a protest for my brother.",
+    "new": "I baked a protest for my brother's birthday and put it on a plate."
+   }
+  ]
+ },
+ {
+  "stem": "Which sentence uses consequences correctly?",
+  "correct": "Wasting energy can have serious consequences for the planet.",
+  "replace": [
+   {
+    "old": "The consequences played soccer outside.",
+    "new": "The consequences played soccer outside in the school yard."
+   },
+   {
+    "old": "He drew consequences on the wall.",
+    "new": "He drew consequences on the wall of his room."
+   },
+   {
+    "old": "She drank a glass of consequences.",
+    "new": "She drank a glass of consequences at lunch."
+   }
+  ]
+ },
+ {
+  "stem": "An involuntary action is one that...",
+  "correct": "happens without your control",
+  "replace": [
+   {
+    "old": "you plan carefully",
+    "new": "you plan carefully in advance"
+   },
+   {
+    "old": "you do for money",
+    "new": "you do for money every day"
+   },
+   {
+    "old": "you do every Sunday",
+    "new": "you do every Sunday at church"
+   }
+  ]
+ },
+ {
+  "stem": "Which sentence uses endurance correctly?",
+  "correct": "The long, cold journey tested the explorers' endurance.",
+  "replace": [
+   {
+    "old": "He put endurance on his bread.",
+    "new": "He put endurance on his bread and ate it with jam."
+   },
+   {
+    "old": "The endurance sang in the tree.",
+    "new": "The endurance sang in the tree by the house all day."
+   },
+   {
+    "old": "She folded her endurance neatly.",
+    "new": "She folded her endurance neatly and put it in the drawer."
+   }
+  ]
+ },
+ {
+  "stem": "Which sentence uses connection correctly?",
+  "correct": "Music creates a connection between people of different cultures.",
+  "replace": [
+   {
+    "old": "The connection flew south for the winter.",
+    "new": "The connection flew south for the winter with the other geese."
+   },
+   {
+    "old": "He ate a connection with rice.",
+    "new": "He ate a connection with rice and beans for lunch today."
+   },
+   {
+    "old": "The connection was too heavy to lift.",
+    "new": "The connection was too heavy to lift off the floor by hand."
+   }
+  ]
+ },
+ {
+  "stem": "Which sentence uses reserved correctly?",
+  "correct": "The reserved girl rarely shared her ideas in class.",
+  "replace": [
+   {
+    "old": "The reserved dog barked at every car.",
+    "new": "The reserved dog barked at every car on the road."
+   },
+   {
+    "old": "He reserved loudly from the stage.",
+    "new": "He reserved loudly from the stage in front of the crowd."
+   },
+   {
+    "old": "The reserved shouted at the crowd.",
+    "new": "The reserved shouted at the crowd as it ran by."
+   }
+  ]
+ },
+ {
+  "stem": "Which sentence uses document correctly?",
+  "correct": "The museum showed a document written by John Smith.",
+  "replace": [
+   {
+    "old": "The document barked at the ship.",
+    "new": "The document barked at the ship in the harbor."
+   },
+   {
+    "old": "She planted a document in the field.",
+    "new": "She planted a document in the field near the farm."
+   },
+   {
+    "old": "He swam across the document.",
+    "new": "He swam across the document to the other side."
+   }
+  ]
+ },
+ {
+  "stem": "What does anticipation mean?",
+  "correct": "excited waiting for something to happen",
+  "replace": [
+   {
+    "old": "deep sadness about the past",
+    "new": "deep sadness about the past and what is gone"
+   },
+   {
+    "old": "a long walk north",
+    "new": "a long walk north with a big group"
+   },
+   {
+    "old": "a loud argument",
+    "new": "a loud argument between friends"
+   }
+  ]
+ },
+ {
+  "stem": "What does camouflaged mean?",
+  "correct": "hidden by matching colors",
+  "replace": [
+   {
+    "old": "very loud",
+    "new": "very loud and noisy all day"
+   },
+   {
+    "old": "bright and shiny",
+    "new": "bright and shiny in the sun"
+   },
+   {
+    "old": "fast asleep",
+    "new": "fast asleep in the afternoon"
+   }
+  ]
+ },
+ {
+  "stem": "Which sentence uses commitment correctly?",
+  "correct": "The mayor kept her commitment to fix the dangerous roads.",
+  "replace": [
+   {
+    "old": "My commitment is green and leafy.",
+    "new": "My commitment is green and leafy and grows in the garden."
+   },
+   {
+    "old": "He put a commitment in the oven.",
+    "new": "He put a commitment in the oven to bake for an hour."
+   },
+   {
+    "old": "The commitment flew over the river.",
+    "new": "The commitment flew over the river toward the hills."
+   }
+  ]
+ },
+ {
+  "stem": "Which line uses personification?",
+  "correct": "The wind sang a song to the sleepy town.",
+  "replace": [
+   {
+    "old": "The wind was cold and strong.",
+    "new": "The wind was cold and strong in the night."
+   },
+   {
+    "old": "I traveled by train to the city.",
+    "new": "I traveled by train to the big city."
+   },
+   {
+    "old": "The map was blue and green.",
+    "new": "The map was blue and green, with a small red line."
+   }
+  ]
+ },
+ {
+  "stem": "In \"He sat on the stoop,\" a stoop is...",
+  "correct": "the front steps of a building",
+  "replace": [
+   {
+    "old": "a city bus",
+    "new": "a city bus that goes to town"
+   },
+   {
+    "old": "a kind of hat",
+    "new": "a kind of hat with a wide brim"
+   },
+   {
+    "old": "a tall fence",
+    "new": "a tall fence around a yard"
+   }
+  ]
+ },
+ {
+  "stem": "Which sentence uses \"participate\" correctly?",
+  "correct": "Everyone in the class will participate in the science fair.",
+  "replace": [
+   {
+    "old": "She participated the cake into slices.",
+    "new": "She participated the cake into slices for the party guests."
+   },
+   {
+    "old": "The participate is on the shelf.",
+    "new": "The participate is on the shelf in the living room."
+   },
+   {
+    "old": "He was very participate yesterday.",
+    "new": "He was very participate yesterday at the school fair."
+   }
+  ]
+ },
+ {
+  "stem": "What does approximately mean?",
+  "correct": "about; close to an exact number",
+  "replace": [
+   {
+    "old": "exactly and perfectly",
+    "new": "exactly and perfectly right every time"
+   },
+   {
+    "old": "never at all",
+    "new": "never at all, not even once or twice"
+   },
+   {
+    "old": "far away",
+    "new": "far away from here, by a lot"
+   }
+  ]
+ },
+ {
+  "stem": "Which sentence uses assigned correctly?",
+  "correct": "Our leader assigned me the job of packing the blankets.",
+  "replace": [
+   {
+    "old": "He assigned a sandwich for breakfast.",
+    "new": "He assigned a sandwich for breakfast with some juice."
+   },
+   {
+    "old": "The storm assigned the trees to fall.",
+    "new": "The storm assigned the trees to fall on the road."
+   },
+   {
+    "old": "The river assigned quietly to the sea.",
+    "new": "The river assigned quietly to the sea at night."
+   }
+  ]
+ },
+ {
+  "stem": "Which sentence uses encouragement correctly?",
+  "correct": "Her friends' encouragement helped her keep fighting for clean water.",
+  "replace": [
+   {
+    "old": "He drank a cup of encouragement in the garden.",
+    "new": "He drank a cup of encouragement in the garden at noon with his friends."
+   },
+   {
+    "old": "The encouragement fell into the river.",
+    "new": "The encouragement fell into the river from the old bridge near the town."
+   },
+   {
+    "old": "Encouragement is a kind of coal.",
+    "new": "Encouragement is a kind of coal that people burn in winter to stay warm."
+   }
+  ]
+ },
+ {
+  "stem": "Which sentence uses \"retrieve\" correctly?",
+  "correct": "The dog ran to retrieve the stick from the pond.",
+  "replace": [
+   {
+    "old": "She retrieved happy all day long.",
+    "new": "She retrieved happy all day long in the sun by the lake."
+   },
+   {
+    "old": "The retrieve was painted blue.",
+    "new": "The retrieve was painted blue by the artist on Monday."
+   },
+   {
+    "old": "He felt very retrieve after dinner.",
+    "new": "He felt very retrieve after dinner at home with his family."
+   }
+  ]
+ },
+ {
+  "stem": "Which sentence uses preserved correctly?",
+  "correct": "The museum preserved the quipu in a glass case.",
+  "replace": [
+   {
+    "old": "The rope preserved over the mountain.",
+    "new": "The rope preserved over the mountain at night."
+   },
+   {
+    "old": "He preserved loudly at the soccer game.",
+    "new": "He preserved loudly at the soccer game on Sunday."
+   },
+   {
+    "old": "The quipu preserved to the store.",
+    "new": "The quipu preserved to the store in the town."
+   }
+  ]
+ },
+ {
+  "stem": "What does version mean?",
+  "correct": "one form of something",
+  "replace": [
+   {
+    "old": "a tall building",
+    "new": "a tall building in a city"
+   },
+   {
+    "old": "a kind of fruit",
+    "new": "a kind of fruit that is sweet"
+   },
+   {
+    "old": "a very loud noise",
+    "new": "a very loud noise at night"
+   }
+  ]
+ },
+ {
+  "stem": "Which sentence uses defy correctly?",
+  "correct": "He decided to defy the cruel law that kept people from reading.",
+  "replace": [
+   {
+    "old": "She will defy a cake for the party.",
+    "new": "She will defy a cake for the party at school and bring it in."
+   },
+   {
+    "old": "The bird defy across the sky.",
+    "new": "The bird defy across the sky above the lake and the hills."
+   },
+   {
+    "old": "They defy a nap after lunch.",
+    "new": "They defy a nap after lunch in the shade of the big tree."
+   }
+  ]
+ },
+ {
+  "stem": "What does scouted mean?",
+  "correct": "looked around to gather information",
+  "replace": [
+   {
+    "old": "fell asleep quickly",
+    "new": "fell asleep quickly after dinner on the sofa"
+   },
+   {
+    "old": "painted a wall",
+    "new": "painted a wall in the kitchen yesterday"
+   },
+   {
+    "old": "shouted loudly",
+    "new": "shouted loudly at the big game today"
+   }
+  ]
+ },
+ {
+  "stem": "In \"civil rights,\" civil refers to...",
+  "correct": "the rights of citizens in a society",
+  "replace": [
+   {
+    "old": "space travel",
+    "new": "space travel and rockets to the Moon"
+   },
+   {
+    "old": "farming tools",
+    "new": "farming tools used in the fields"
+   },
+   {
+    "old": "movie awards",
+    "new": "movie awards given each year"
+   }
+  ]
+ },
+ {
+  "stem": "Which sentence uses naturalist correctly?",
+  "correct": "The naturalist wrote notes about the frogs in the pond.",
+  "replace": [
+   {
+    "old": "The naturalist was made of wood and nails.",
+    "new": "The naturalist was made of wood and nails and stood by the barn."
+   },
+   {
+    "old": "We ate a naturalist for breakfast.",
+    "new": "We ate a naturalist for breakfast with some bread and tea."
+   },
+   {
+    "old": "The naturalist melted in the warm sun.",
+    "new": "The naturalist melted in the warm sun on the windowsill."
+   }
+  ]
+ },
+ {
+  "stem": "Which sentence uses \"integration\" correctly?",
+  "correct": "School integration allowed students of all races to learn together.",
+  "replace": [
+   {
+    "old": "He integrationed his lunch quickly.",
+    "new": "He integrationed his lunch quickly before the bell rang at school."
+   },
+   {
+    "old": "The integration barked at the cat.",
+    "new": "The integration barked at the cat in the yard until it ran off."
+   },
+   {
+    "old": "She was very integration about the test.",
+    "new": "She was very integration about the test on Friday and on Monday."
+   }
+  ]
+ },
+ {
+  "stem": "Which sentence uses collaborate correctly?",
+  "correct": "The teams collaborate to rescue the sea turtles.",
+  "replace": [
+   {
+    "old": "The fish collaborate was very blue.",
+    "new": "The fish collaborate was very blue and shiny at noon."
+   },
+   {
+    "old": "She ate a collaborate for lunch.",
+    "new": "She ate a collaborate for lunch with her friends."
+   },
+   {
+    "old": "The oil collaborate sank to the bottom.",
+    "new": "The oil collaborate sank to the bottom of the sea."
+   }
+  ]
+ },
+ {
+  "stem": "What does representatives mean?",
+  "correct": "people chosen to speak for others",
+  "replace": [
+   {
+    "old": "soldiers who guard a fort",
+    "new": "soldiers who guard a fort at night"
+   },
+   {
+    "old": "boxes of tea",
+    "new": "boxes of tea sent by ship"
+   },
+   {
+    "old": "ships that carry goods",
+    "new": "ships that carry goods across the sea"
+   }
+  ]
+ },
+ {
+  "stem": "What is a hazard?",
+  "correct": "something that may cause harm",
+  "replace": [
+   {
+    "old": "a quiet place to rest",
+    "new": "a quiet place to rest after school"
+   },
+   {
+    "old": "a reward for good work",
+    "new": "a reward for good work at school"
+   },
+   {
+    "old": "a kind of tool",
+    "new": "a kind of tool for the garden"
+   }
+  ]
+ },
+ {
+  "stem": "What does incredible mean?",
+  "correct": "amazing and hard to believe",
+  "replace": [
+   {
+    "old": "dark and cold",
+    "new": "dark and cold, like the night sky"
+   },
+   {
+    "old": "dull and boring",
+    "new": "dull and boring, like a long lesson"
+   },
+   {
+    "old": "small and weak",
+    "new": "small and weak, like a young bird"
+   }
+  ]
+ },
+ {
+  "stem": "What does gobble mean?",
+  "correct": "to eat very quickly",
+  "replace": [
+   {
+    "old": "to sing softly",
+    "new": "to sing softly in the dark"
+   },
+   {
+    "old": "to walk slowly",
+    "new": "to walk slowly in the rain"
+   },
+   {
+    "old": "to climb high",
+    "new": "to climb high up a tree"
+   }
+  ]
+ },
+ {
+  "stem": "What is the keystone of a plan?",
+  "correct": "its most important part",
+  "replace": [
+   {
+    "old": "its last page",
+    "new": "its last page in the book"
+   },
+   {
+    "old": "its cheapest part",
+    "new": "its cheapest part to buy"
+   },
+   {
+    "old": "its title",
+    "new": "its title at the top"
+   }
+  ]
+ },
+ {
+  "stem": "Which sentence uses \"relieve\" correctly?",
+  "correct": "Donating food can help relieve hunger in poor neighborhoods.",
+  "replace": [
+   {
+    "old": "She relieved the stairs to the top floor.",
+    "new": "She relieved the stairs to the top floor of the house and sat down."
+   },
+   {
+    "old": "The cake was relieve and sweet.",
+    "new": "The cake was relieve and sweet and warm from the oven."
+   },
+   {
+    "old": "He relieved his shoes on the wrong feet.",
+    "new": "He relieved his shoes on the wrong feet this morning at school."
+   }
+  ]
+ },
+ {
+  "stem": "Which sentence uses technology correctly?",
+  "correct": "New technology let the doctor talk to patients far away.",
+  "replace": [
+   {
+    "old": "Technology is a kind of soup.",
+    "new": "Technology is a kind of soup that people eat on cold days."
+   },
+   {
+    "old": "The technology chirped in the tree.",
+    "new": "The technology chirped in the tree all morning long and woke us up."
+   },
+   {
+    "old": "She planted technology in the garden.",
+    "new": "She planted technology in the garden last spring, beside the beans."
+   }
+  ]
+ },
+ {
+  "stem": "Which sentence uses \"impromptu\" correctly?",
+  "correct": "With no notes, she gave an impromptu speech.",
+  "replace": [
+   {
+    "old": "He impromptu the window open.",
+    "new": "He impromptu the window open with a stick."
+   },
+   {
+    "old": "The impromptu ate all the bread.",
+    "new": "The impromptu ate all the bread in the kitchen."
+   },
+   {
+    "old": "They impromptued to the park.",
+    "new": "They impromptued to the park after school."
+   }
+  ]
+ },
+ {
+  "stem": "What does creative mean?",
+  "correct": "good at thinking of new ideas",
+  "replace": [
+   {
+    "old": "always quiet",
+    "new": "always quiet and shy at school"
+   },
+   {
+    "old": "very tall",
+    "new": "very tall for his age"
+   },
+   {
+    "old": "afraid of animals",
+    "new": "afraid of animals at the zoo"
+   }
+  ]
+ },
+ {
+  "stem": "Which sentence uses legislation correctly?",
+  "correct": "The government passed legislation to protect parks from pollution.",
+  "replace": [
+   {
+    "old": "I painted my bedroom legislation.",
+    "new": "I painted my bedroom legislation last Saturday with my father."
+   },
+   {
+    "old": "She tied her legislation with a ribbon.",
+    "new": "She tied her legislation with a ribbon before the party began."
+   },
+   {
+    "old": "The legislation swam across the lake.",
+    "new": "The legislation swam across the lake on a warm summer day."
+   }
+  ]
+ },
+ {
+  "stem": "Which sentence uses memorized correctly?",
+  "correct": "He memorized his plan so he would not forget a step.",
+  "replace": [
+   {
+    "old": "The memorized dog ran into the yard.",
+    "new": "The memorized dog ran into the yard and barked at the gate."
+   },
+   {
+    "old": "She memorized a sandwich for lunch.",
+    "new": "She memorized a sandwich for lunch and ate it on the bench."
+   },
+   {
+    "old": "They memorized the floor with a mop.",
+    "new": "They memorized the floor with a mop after the party was over."
+   }
+  ]
+ },
+ {
+  "stem": "What is a scenario?",
+  "correct": "an imagined situation that might happen",
+  "replace": [
+   {
+    "old": "a measuring tool",
+    "new": "a measuring tool for wood and cloth and string"
+   },
+   {
+    "old": "a scientist's report card",
+    "new": "a scientist's report card at school"
+   },
+   {
+    "old": "a large crowd",
+    "new": "a large crowd at a game or a show in town"
+   }
+  ]
+ },
+ {
+  "stem": "What does roots mean in 'proud of her family roots'?",
+  "correct": "where her family comes from",
+  "replace": [
+   {
+    "old": "new friends",
+    "new": "new friends from my school"
+   }
+  ]
+ },
+ {
+  "stem": "What is free verse?",
+  "correct": "poetry without regular rhyme or beat",
+  "replace": [
+   {
+    "old": "a poem that must rhyme",
+    "new": "a poem that must rhyme at every line"
+   },
+   {
+    "old": "a story with chapters",
+    "new": "a story with chapters and a title"
+   },
+   {
+    "old": "a song with a chorus",
+    "new": "a song with a chorus and a drum"
+   }
+  ]
+ },
+ {
+  "stem": "Which sentence uses detected correctly?",
+  "correct": "She detected a small sound coming from the cave.",
+  "replace": [
+   {
+    "old": "He detected his lunch and ate it quickly.",
+    "new": "He detected his lunch and ate it quickly at noon."
+   },
+   {
+    "old": "The river detected over the hills.",
+    "new": "The river detected over the hills to the far sea."
+   },
+   {
+    "old": "They detected a blanket to keep warm.",
+    "new": "They detected a blanket to keep warm in the camp."
+   }
+  ]
+ },
+ {
+  "stem": "Which sentence uses outcome correctly?",
+  "correct": "Everyone was happy with the outcome of the long journey.",
+  "replace": [
+   {
+    "old": "The outcome was sewn with red thread.",
+    "new": "The outcome was sewn with red thread by the tailor in town."
+   },
+   {
+    "old": "He drank a cup of outcome.",
+    "new": "He drank a cup of outcome at breakfast time with his toast."
+   },
+   {
+    "old": "The outcome barked at the horse.",
+    "new": "The outcome barked at the horse in the barn all night long."
+   }
+  ]
+ },
+ {
+  "stem": "What does diameter mean?",
+  "correct": "the distance straight across a circle through its center",
+  "replace": [
+   {
+    "old": "the weight of a planet",
+    "new": "the weight of a planet in space, which is found by using a scale"
+   },
+   {
+    "old": "the color of a star",
+    "new": "the color of a star as seen from the Earth at night, which depends on its heat"
+   }
+  ]
+ },
+ {
+  "stem": "A resilient mattress...",
+  "correct": "springs back after you press it",
+  "replace": [
+   {
+    "old": "breaks when touched",
+    "new": "breaks when touched or pressed"
+   },
+   {
+    "old": "is very hot",
+    "new": "is very hot to sleep on"
+   },
+   {
+    "old": "has no shape at all",
+    "new": "has no shape at all, like water"
+   }
+  ]
+ }
+]

@@ -199,10 +199,10 @@
         {
           "stem": "What did rock climbing begin as, long ago?",
           "options": [
-            "A game played indoors",
+            "A game played indoors on a wall, with a ball",
             "Training for people who climbed big mountains",
-            "A race between two teams",
-            "A way to build strong walls"
+            "A race between two teams of climbers",
+            "A way to build strong walls for houses"
           ],
           "answer": "B",
           "skill": "detail",
@@ -217,9 +217,9 @@
           "stem": "Why do climbers need both grip and balance?",
           "options": [
             "Pulling with the arms alone is not enough",
-            "The wall is always wet",
-            "A rope cannot be used otherwise",
-            "Chalk only works with good balance"
+            "The wall is always wet, so climbers must be careful",
+            "A rope cannot be used otherwise on a high wall",
+            "Chalk only works with good balance and strong legs"
           ],
           "answer": "A",
           "skill": "inference",
@@ -294,9 +294,9 @@
           "stem": "What is the central idea of the article?",
           "options": [
             "Rock climbing combines careful planning with physical strength.",
-            "Rock climbing is only safe when done outdoors.",
-            "Rock climbing was invented at the 2020 Olympics.",
-            "Rock climbing does not need any safety equipment."
+            "Rock climbing is only safe when done outdoors, on real rock, with no help.",
+            "Rock climbing was invented at the 2020 Olympics in Tokyo, in Japan.",
+            "Rock climbing does not need any safety equipment, like ropes or helmets."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -327,10 +327,10 @@
         {
           "stem": "Read this: \"This careful plan is called a sequence.\" What does sequence mean here?",
           "options": [
-            "A type of knot",
+            "A type of knot used to tie a rope",
             "A series of planned moves in order",
-            "A kind of climbing shoe",
-            "A difficulty grade"
+            "A kind of climbing shoe made of rubber",
+            "A difficulty grade given to a route"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -361,10 +361,10 @@
         {
           "stem": "In what order does a climber prepare, according to the article?",
           "options": [
-            "Climb first, then study the route",
+            "Climb first, then study the route afterward",
             "Study the route, plan a sequence, then climb",
-            "Plan a sequence, then choose a gym",
-            "Use chalk, then pick a route"
+            "Plan a sequence, then choose a gym to visit",
+            "Use chalk, then pick a route to try today"
           ],
           "answer": "B",
           "skill": "sequence",
@@ -379,9 +379,9 @@
           "stem": "What can you infer about why climbing began as mountaineer training?",
           "options": [
             "Mountaineers needed climbing skills to stay safe on real mountains",
-            "Mountaineers disliked climbing walls",
-            "Mountaineers only trained indoors",
-            "Mountaineers never used ropes"
+            "Mountaineers disliked climbing walls and thought they were boring",
+            "Mountaineers only trained indoors, in gyms in the cities",
+            "Mountaineers never used ropes when they climbed on rocks"
           ],
           "answer": "A",
           "skill": "inference",
@@ -412,10 +412,10 @@
         {
           "stem": "Why does the author begin with two climbers who are not running or kicking a ball?",
           "options": [
-            "To describe a soccer match",
-            "To list famous climbers",
+            "To describe a soccer match played at school after lessons",
+            "To list famous climbers from Saudi Arabia and other lands of the world",
             "To show that climbing works the body and mind in a different way",
-            "To explain how ropes are made"
+            "To explain how ropes are made from long strands of fibre"
           ],
           "answer": "C",
           "skill": "author-purpose",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best summarizes the article?",
           "options": [
-            "Climbing is a sport of chance that depends mainly on luck.",
+            "Climbing is a sport of chance that depends mainly on luck and not on skill.",
             "Climbing combines physical strength with careful planning and safety.",
-            "Climbing is only practiced indoors on artificial walls.",
-            "Climbing has no official competitions or disciplines."
+            "Climbing is only practiced indoors on artificial walls in big cities.",
+            "Climbing has no official competitions or disciplines in any country."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -524,9 +524,9 @@
           "stem": "Why do experienced climbers evaluate the friction of the rock?",
           "options": [
             "To know exactly where their shoes will grip best",
-            "To decide how long the route will take",
-            "To choose which rope color to use",
-            "To avoid needing a difficulty grade"
+            "To decide how long the route will take them to climb",
+            "To choose which rope color to use on the high wall",
+            "To avoid needing a difficulty grade for the route"
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -540,10 +540,10 @@
         {
           "stem": "Which detail best supports the idea that climbing is now a serious, organized sport?",
           "options": [
-            "A climbing wall has many holds",
-            "Chalk keeps a climber's hands dry",
+            "A climbing wall has many holds of different shapes and colors",
+            "Chalk keeps a climber's hands dry while they hold the rock",
             "Sport climbing appeared at the Olympic Games with three disciplines",
-            "Climbing began as mountaineer training"
+            "Climbing began as mountaineer training for soldiers in the army"
           ],
           "answer": "C",
           "skill": "inference",
@@ -558,9 +558,9 @@
           "stem": "How are indoor and outdoor climbing different, according to the article?",
           "options": [
             "Indoor holds are plastic; outdoor holds are natural rock features",
-            "Only outdoor climbing uses a rope and harness",
-            "Only indoor climbing has a difficulty grade",
-            "Indoor climbing does not require balance"
+            "Only outdoor climbing uses a rope and a harness",
+            "Only indoor climbing has a difficulty grade for its routes",
+            "Indoor climbing does not require balance, strength, or any planning"
           ],
           "answer": "A",
           "skill": "compare",
@@ -575,9 +575,9 @@
           "stem": "What can be inferred from climbers conserving energy for the hardest sections of a route?",
           "options": [
             "Managing effort wisely is part of a climber's strategy",
-            "Climbers never get tired during a climb",
+            "Climbers never get tired during a climb on a route",
             "The easiest sections require the most planning",
-            "Energy has no effect on a climb's outcome"
+            "Energy has no effect on a climb's final outcome"
           ],
           "answer": "A",
           "skill": "inference",
@@ -591,10 +591,10 @@
         {
           "stem": "How is the article organized?",
           "options": [
-            "As a story told by an Olympic champion",
-            "As an argument against indoor climbing",
+            "As a story told by an Olympic champion who climbs high peaks",
+            "As an argument against indoor climbing and its artificial walls",
             "Equipment and goals, then strategy, then history and the sport today",
-            "As a set of instructions for building an anchor"
+            "As a set of instructions for building an anchor and a safe rope line"
           ],
           "answer": "C",
           "skill": "text-structure",

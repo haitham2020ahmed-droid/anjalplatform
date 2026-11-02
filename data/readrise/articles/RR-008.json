@@ -396,9 +396,9 @@
           "stem": "Why does the author explain that large batteries can store extra energy made during the day?",
           "options": [
             "To show one way people are solving the problem of darkness",
-            "To prove that solar power has no problems at all",
-            "To explain how silicon is made from sand",
-            "To persuade readers to stop using air conditioners"
+            "To prove that solar power has no problems at all, in the day or the night",
+            "To explain how silicon is made from sand in the factory",
+            "To persuade readers to stop using air conditioners at home"
           ],
           "answer": "A",
           "skill": "author-purpose",
@@ -591,10 +591,10 @@
         {
           "stem": "Why are the cleaning robots described in the article well suited to the desert?",
           "options": [
-            "They need large amounts of water to work.",
-            "They clean panels only at night.",
+            "They need large amounts of water to clean the panels.",
+            "They clean the panels only at night, when it is dark.",
             "They clean with soft brushes instead of scarce water.",
-            "They make the panels produce less electricity."
+            "They make the panels produce less electricity than before."
           ],
           "answer": "C",
           "skill": "inference",

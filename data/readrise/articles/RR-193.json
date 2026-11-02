@@ -132,9 +132,9 @@
           "stem": "What is light pollution?",
           "options": [
             "Too much light at night",
-            "Smoke from cars",
-            "Trash on the beach",
-            "Light from the Moon"
+            "Smoke from cars on roads",
+            "Trash left on the beach",
+            "Light from the Moon at night"
           ],
           "answer": "A",
           "skill": "detail",
@@ -182,10 +182,10 @@
         {
           "stem": "Why might a child in a big city never see the Milky Way?",
           "options": [
-            "The Milky Way only shows in the day",
-            "The Milky Way is too far to ever see",
+            "The Milky Way only shows in the day time",
+            "The Milky Way is too far for anyone to see",
             "City lights make the sky glow and hide the stars",
-            "Children are not allowed outside at night"
+            "Children are not allowed outside at night in big cities"
           ],
           "answer": "C",
           "skill": "inference",
@@ -216,9 +216,9 @@
         {
           "stem": "Read the sentence: \"Lights left on waste power.\" What does waste mean?",
           "options": [
-            "Make more of",
-            "Save for later",
-            "Clean up",
+            "Make more of something",
+            "Save it for later use",
+            "Clean up after dinner",
             "Use for no good reason"
           ],
           "answer": "D",
@@ -310,10 +310,10 @@
         {
           "stem": "Toward what do baby sea turtles naturally crawl?",
           "options": [
-            "The darkest sand",
+            "The darkest sand, away from the sea",
             "The brightest place, usually the sea",
-            "The nearest road",
-            "The tallest building"
+            "The nearest road, where cars drive by",
+            "The tallest building on the beach"
           ],
           "answer": "B",
           "skill": "detail",
@@ -344,10 +344,10 @@
         {
           "stem": "Why does the sky above a city glow at night?",
           "options": [
-            "The Moon is closer to cities.",
-            "Cities have more stars above them.",
+            "The Moon is closer to cities than to fields.",
+            "Cities have more stars above them in the sky.",
             "Lights below send light up into the sky.",
-            "Clouds make their own light."
+            "Clouds make their own light over the town."
           ],
           "answer": "C",
           "skill": "cause-effect",
@@ -396,9 +396,9 @@
           "stem": "Read the sentence: \"Many birds migrate at night.\" What does migrate mean?",
           "options": [
             "Travel far at a certain time of year",
-            "Sleep in a nest",
-            "Build a home",
-            "Hunt for insects"
+            "Sleep in a nest all day long",
+            "Build a home out of leaves and twigs",
+            "Hunt for insects in the dark night"
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -489,10 +489,10 @@
         {
           "stem": "According to the article, what does melatonin do?",
           "options": [
-            "It helps turtles find the sea.",
-            "It makes the sky glow.",
+            "It helps turtles find the sea at night.",
+            "It makes the sky glow over the city.",
             "It is a hormone that makes us sleepy.",
-            "It helps birds read the stars."
+            "It helps birds read the stars as they fly."
           ],
           "answer": "C",
           "skill": "detail",
@@ -540,10 +540,10 @@
         {
           "stem": "A city replaces its old streetlights with shielded fixtures. What result is most likely?",
           "options": [
-            "More insects would circle the lamps.",
+            "More insects would circle the lamps at night.",
             "There would be less skyglow and more visible stars.",
-            "Turtles would stop nesting on its beaches.",
-            "People would need more melatonin."
+            "Turtles would stop nesting on its beaches at all.",
+            "People would need more melatonin to be able to sleep."
           ],
           "answer": "B",
           "skill": "inference",
@@ -591,9 +591,9 @@
         {
           "stem": "Why does the author mention that thousands of stars should be visible to the naked eye?",
           "options": [
-            "To explain how telescopes work",
-            "To argue that stars are getting closer",
-            "To list the names of the brightest stars",
+            "To explain how telescopes work and how they are made",
+            "To argue that stars are getting closer to us",
+            "To list the names of the brightest stars in the sky",
             "To show how much of the sky light pollution hides"
           ],
           "answer": "D",

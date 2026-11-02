@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How to properly load camels before a journey begins",
+            "How to properly load camels before a journey begins in the morning",
             "A young guide who notices storm signs and helps change the route",
-            "Why desert merchants prefer cloth over other goods",
-            "How ants build nests underneath desert sand dunes"
+            "Why desert merchants prefer cloth over other goods in the market",
+            "How ants build nests underneath desert sand dunes in the summer"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -148,10 +148,10 @@
         {
           "stem": "Who was the leader of the caravan?",
           "options": [
-            "Younes, the newest member of the group",
-            "A merchant who sold lizards in the market",
+            "Younes, the newest member of the group of traders",
+            "A merchant who sold lizards in the market of the town",
             "Malik, an experienced merchant leading the caravan",
-            "Younes's father, who stayed back home"
+            "Younes's father, who stayed back home to guard the house"
           ],
           "answer": "C",
           "skill": "detail",
@@ -184,8 +184,8 @@
           "options": [
             "He trusted his own experience and thought storms were weeks away",
             "He thought Younes only wanted some attention from him",
-            "He did not like listening to young apprentices much",
-            "He could not understand what Younes was saying"
+            "He did not like listening to young apprentices much, even when they were right.",
+            "He could not understand what Younes was saying to him about the sky."
           ],
           "answer": "A",
           "skill": "inference",
@@ -216,8 +216,8 @@
         {
           "stem": "Why does the author describe the ants and the lizards in detail?",
           "options": [
-            "To show that ants can be dangerous to people",
-            "To teach readers how lizards dig their burrows",
+            "To show that ants can be dangerous to people who walk by",
+            "To teach readers how lizards dig their burrows in the sand",
             "To explain what camels usually like to eat each day",
             "To help readers notice the small signs that warned of a storm"
           ],
@@ -233,10 +233,10 @@
         {
           "stem": "What happened because Malik changed the caravan's route?",
           "options": [
-            "The caravan got lost somewhere deep in the desert",
+            "The caravan got lost somewhere deep in the desert at night",
             "The caravan stayed safe while the storm struck the old path",
-            "The camels became tired and refused to walk",
-            "The caravan ran short of food and water on the trip"
+            "The camels became tired and refused to walk any more that day",
+            "The caravan ran short of food and water on the long trip"
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -327,10 +327,10 @@
         {
           "stem": "What specific signs did Younes notice besides the ants and lizards?",
           "options": [
-            "A sudden drop in temperature",
-            "A strong smell of rain in the air",
+            "A sudden drop in the temperature of the air",
+            "A strong smell of rain in the air nearby",
             "Thin, fast-moving clouds stretching across the horizon",
-            "Camels refusing to carry their loads"
+            "Camels refusing to carry their heavy loads that day"
           ],
           "answer": "C",
           "skill": "detail",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
-            "Desert insects are scientifically proven to control the weather",
-            "A merchant's decades of experience are always more reliable than a young guide's instinct",
+            "Desert insects are scientifically proven to control the weather across the whole region, and merchants must obey them",
+            "A merchant's decades of experience are always more reliable than a young guide's instinct in the desert, so storms never matter",
             "A young apprentice's careful attention to subtle natural signs leads a skeptical, experienced merchant to change course before a storm",
-            "A caravan's route is chosen entirely by chance"
+            "A caravan's route is chosen entirely by chance, so no one can plan a safe journey and signs of nature are never useful"
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -541,9 +541,9 @@
           "stem": "What can you infer about Malik's usual approach to decisions, based on how rarely he set aside his own judgment?",
           "options": [
             "Malik normally relied heavily on his own experience and rarely trusted someone else's observations over it",
-            "Malik always asked his apprentices for advice before deciding anything",
-            "Malik had never led a caravan before this journey",
-            "Malik did not care whether the caravan reached Sabah safely"
+            "Malik always asked his apprentices for advice before deciding anything on the road to the city and the market",
+            "Malik had never led a caravan before this journey across the sand, so he was afraid to lead them",
+            "Malik did not care whether the caravan reached Sabah safely or not, so he rushed on ahead of everyone"
           ],
           "answer": "A",
           "skill": "inference",
@@ -557,10 +557,10 @@
         {
           "stem": "In the article, the word skeptical most nearly means —",
           "options": [
-            "completely certain something is true",
-            "excited about a new idea",
+            "completely certain that something is true or right",
+            "excited and happy about a new idea or plan",
             "doubtful or unwilling to easily believe something",
-            "afraid of changing plans"
+            "afraid of changing plans at the last moment"
           ],
           "answer": "C",
           "skill": "vocabulary",

@@ -114,10 +114,10 @@
         {
           "stem": "What is the article mostly about?",
           "options": [
-            "How people catch fish near the Red Sea",
-            "Why the water in the Red Sea is warm",
+            "How people catch fish near the Red Sea in boats",
+            "Why the water in the Red Sea is warm all year",
             "Coral reefs are full of life and need our help",
-            "How divers learn to swim under the sea"
+            "How divers learn to swim under the sea with tanks"
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -199,10 +199,10 @@
         {
           "stem": "Why might some Red Sea corals be special?",
           "options": [
-            "They are the only corals that are plants",
+            "They are the only corals that are plants, not animals",
             "They may handle hot water better than many corals",
-            "They live far away from any fish",
-            "They never need any sunlight"
+            "They live far away from any fish in the open sea",
+            "They never need any sunlight to grow or to live"
           ],
           "answer": "B",
           "skill": "inference",
@@ -234,9 +234,9 @@
           "stem": "How does the author end the article?",
           "options": [
             "With ways people can help keep reefs safe",
-            "With a story about a diver",
-            "With a list of fish names",
-            "With a question about the moon"
+            "With a story about a diver on a reef",
+            "With a list of fish names and colors",
+            "With a question about the moon and the sea"
           ],
           "answer": "A",
           "skill": "text-structure",
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
-            "Red Sea divers must follow strict rules in marine parks.",
+            "Red Sea divers must follow strict rules in marine parks, which protect the sand and sea.",
             "Coral reefs are rich homes for sea life that face threats people can reduce.",
-            "Algae are the most important living things in the ocean.",
-            "Coral reefs grow faster in salty water than in fresh water."
+            "Algae are the most important living things in the ocean, and they feed every large fish.",
+            "Coral reefs grow faster in salty water than in fresh water, so they are found on every shore."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -344,10 +344,10 @@
         {
           "stem": "Read the sentence: \"To protect its body, a polyp builds a hard, stony skeleton beneath it.\" What does skeleton mean in this sentence?",
           "options": [
-            "A soft cover of skin",
-            "A group of fish",
+            "A soft cover of skin that keeps water out",
+            "A group of fish that swim near reefs",
             "A hard frame that supports and protects",
-            "A layer of sand on the sea floor"
+            "A layer of sand on the sea floor below"
           ],
           "answer": "C",
           "skill": "vocabulary",
@@ -523,10 +523,10 @@
         {
           "stem": "Read the sentence: \"Microscopic algae inhabit the polyps' tissues in a relationship called symbiosis, in which both partners benefit.\" What does symbiosis mean?",
           "options": [
-            "A disease that spreads between corals",
+            "A disease that spreads between corals in the sea",
             "A partnership that helps both living things",
-            "A process that turns corals white",
-            "A layer of rock under the reef"
+            "A process that turns corals white in warm water",
+            "A layer of rock under the reef and the sand"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -576,7 +576,7 @@
           "options": [
             "To prove that corals are a kind of mineral",
             "To contrast how reefs look with what they really are",
-            "To describe how divers collect stones",
+            "To describe how divers collect stones from the sea floor",
             "To explain why boats use floating moorings"
           ],
           "answer": "B",
@@ -591,9 +591,9 @@
         {
           "stem": "Why are underwater coral nurseries a useful conservation tool?",
           "options": [
-            "They keep the sea from becoming polluted.",
-            "They prevent the Red Sea from getting warmer.",
-            "They let divers touch corals safely.",
+            "They keep the sea from becoming polluted by oil and trash",
+            "They prevent the Red Sea from getting warmer in summer",
+            "They let divers touch the corals safely and take them home",
             "Reefs grow slowly, so replanting helps them recover sooner."
           ],
           "answer": "D",

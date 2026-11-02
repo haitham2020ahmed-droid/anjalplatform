@@ -92,9 +92,9 @@
      "stem": "What should Reem say?",
      "options": [
       "Can you tell me more?",
-      "That is silly.",
-      "Stop talking.",
-      "I don't care."
+      "That is silly, I think.",
+      "Stop talking right now.",
+      "I don't care about it."
      ],
      "answer": 0,
      "why": "Asking a kind question helps Reem understand."
@@ -103,10 +103,10 @@
      "passage": "Yousef thinks the trip should be to the zoo. Fahad thinks the park is better.",
      "stem": "What is a kind thing for Fahad to say?",
      "options": [
-      "The zoo is a bad idea, Yousef.",
-      "You are wrong, and I am right.",
+      "The zoo is a bad idea, Yousef, and boring.",
+      "You are wrong, and I am always right.",
       "The zoo is fun, but I like the park more.",
-      "I won't go anywhere with you."
+      "I won't go anywhere with you, ever again."
      ],
      "answer": 2,
      "why": "Fahad shares a different idea and is still kind."
@@ -188,9 +188,9 @@
      "passage": "Group topic: the best way to learn new words. Lina: I write new words in a notebook.",
      "stem": "Which reply best builds on Lina's idea?",
      "options": [
-      "I'm hungry. Is it time for lunch yet?",
-      "Learning words is boring, so I never do it.",
-      "What time does school finish today, Lina?",
+      "I'm hungry. Is it time for lunch yet? I want to eat now.",
+      "Learning words is boring, so I never do it. I only play games.",
+      "What time does school finish today, Lina? I need to go home early.",
       "Like Lina, I use a notebook, and I draw a picture next to each word."
      ],
      "answer": 3,
@@ -201,9 +201,9 @@
      "stem": "Which is the best question for Mariam to ask?",
      "options": [
       "Why do you think the science museum is the best choice?",
-      "Why are you always wrong about everything?",
-      "Can we please stop talking about trips now?",
-      "Who cares about museums? They are boring."
+      "Why are you always wrong about everything we plan?",
+      "Can we please stop talking about the school trips now?",
+      "Who cares about museums? They are boring and old."
      ],
      "answer": 0,
      "why": "It asks Nasser for his reasons in a polite way, which keeps the discussion going."
@@ -310,10 +310,10 @@
      "passage": "Mazen: I think we should plant trees because they give shade and clean the air. Rawan: ___",
      "stem": "Which reply best paraphrases Mazen to check understanding?",
      "options": [
-      "Trees are boring to plant and water every day.",
-      "I'd like to plant flowers instead of trees.",
+      "Trees are boring to plant and water every day of the whole year.",
+      "I'd like to plant flowers instead of trees in the school.",
       "So you're saying trees would make the school cooler and healthier?",
-      "Plants need water every single day in summer."
+      "Plants need water every single day in summer, or they die."
      ],
      "answer": 2,
      "why": "Rawan restates Mazen's idea in her own words to check she understood."
@@ -377,10 +377,10 @@
     "passage": "Question: How should our class spend the prize money? Ali: A trip to the science centre would teach us the most. Maha: But the trip only lasts one day, while new books for the class library would last for years. Ali: That's a fair point; I hadn't thought about how long each option lasts. Salem: Could we ask the science centre whether they offer a cheaper half-day visit? Huda: So far, we agree that we want something educational, and we differ on whether it should last. Maybe we could spend most of the money on books and use the rest for Salem's half-day visit.",
     "stem": "How does Huda's comment help the discussion?",
     "options": [
-     "It introduces a new topic for the group to argue about.",
+     "It introduces a new topic for the group to argue about at the next meeting.",
      "It sums up where the group agrees and differs, then proposes a compromise.",
-     "It rejects every idea and asks to start again.",
-     "It repeats Ali's first idea without change."
+     "It rejects every idea and asks to start again from the beginning.",
+     "It repeats Ali's first idea without any change at all or new words."
     ],
     "answer": 1,
     "hint": "Look at what Huda does first, and what she suggests at the end.",
@@ -410,8 +410,8 @@
      "stem": "What does Ali's comment show?",
      "options": [
       "He refuses to listen to Maha's argument.",
-      "He is changing the topic to something new.",
-      "He is asking Maha for more evidence.",
+      "He is changing the topic to something new and fun.",
+      "He is asking Maha for more evidence and facts.",
       "He is open to new ideas and is rethinking his view."
      ],
      "answer": 3,
@@ -421,10 +421,10 @@
      "passage": "In a discussion about school uniforms, everyone has shared an opinion, but the talk is going in circles.",
      "stem": "Which question would best deepen the discussion?",
      "options": [
-      "Who agrees with me, and who is on my side?",
-      "Can we stop now and just vote without talking?",
+      "Who agrees with me, and who is on my side in this group?",
+      "Can we stop now and just vote without talking about it?",
       "What evidence would help us decide which option is better?",
-      "Why are you all so wrong about this today?"
+      "Why are you all so wrong about this, and so silly?"
      ],
      "answer": 2,
      "why": "It pushes the group to look for evidence instead of repeating opinions."
@@ -434,9 +434,9 @@
      "stem": "What is the biggest weakness of this exchange?",
      "options": [
       "Neither student gives reasons or responds to the other's ideas.",
-      "They use far too many examples and facts.",
-      "They both agree with each other too quickly.",
-      "Their language is much too formal for a class."
+      "They use far too many examples and facts in their talk.",
+      "They both agree with each other too quickly and too often.",
+      "Their language is much too formal for a normal class discussion."
      ],
      "answer": 0,
      "why": "They only repeat opinions. Without reasons or responses, the discussion cannot move forward."

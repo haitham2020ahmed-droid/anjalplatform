@@ -102,9 +102,9 @@
      "stem": "What does “between” mean here?",
      "options": [
       "in the middle of two people",
-      "behind two people",
-      "far from two people",
-      "in front of the class"
+      "behind two people in a line",
+      "far from two people on a bus",
+      "in front of the whole class"
      ],
      "answer": 0,
      "why": "Ali is on one side and Khalid is on the other. Ahmed is in the middle."
@@ -309,9 +309,9 @@
      "passage": "Despite the heat, hundreds of runners finished the race in Riyadh. Many of them had trained in the early morning for months.",
      "stem": "What does “despite” show?",
      "options": [
-      "The heat caused the runners to stop.",
-      "The race was held in the morning.",
-      "The weather was cool.",
+      "The heat caused the runners to stop for a rest.",
+      "The race was held in the morning at the track.",
+      "The weather was cool and the sky was cloudy.",
       "The runners finished even though it was hot."
      ],
      "answer": 3,
@@ -334,9 +334,9 @@
      "stem": "What relationship does “yet” show?",
      "options": [
       "something unexpected after what came before",
-      "a cause and its effect",
-      "a place and where it is",
-      "two things that are exactly the same"
+      "a cause and its effect on the story",
+      "a place and where it is in the town",
+      "two things that are exactly the same in the story"
      ],
      "answer": 0,
      "why": "After weeks of study you expect him to know the answer. **Yet** signals the surprise: his mind went blank."
@@ -433,9 +433,9 @@
      "stem": "In this sentence, “while” means…",
      "options": [
       "at the same time as",
-      "but",
-      "because",
-      "in spite of"
+      "but in a different way",
+      "because of the reason",
+      "in spite of the fact"
      ],
      "answer": 0,
      "why": "Both groups were busy during the same period, so **while** shows time here, not contrast."

@@ -48,8 +48,8 @@
       "options": [
         "painted carefully",
         "pulled up with effort",
-        "sold quickly",
-        "dropped suddenly"
+        "sold quickly in the market",
+        "dropped suddenly on the deck"
       ],
       "answer": "B",
       "why": "A trap full of fish is heavy and lies under the water, so “hauled up” means pulled it up with effort."
@@ -189,10 +189,10 @@
       "type": "MCQ",
       "stem": "What is the main idea of the part of the letter that begins “Later, as we drank sweet tea on the shore”?",
       "options": [
-        "Grandfather prefers tea to coffee.",
+        "Grandfather prefers tea to coffee on the shore.",
         "The Gulf has changed, but new rules help to protect it.",
-        "Shrimp are more important than hamour.",
-        "Grandfather caught many fish when he was young."
+        "Shrimp are more important than hamour for fishermen.",
+        "Grandfather caught many fish when he was young and strong."
       ],
       "answer": "B",
       "why": "That paragraph explains how fish numbers have fallen and how rules, such as the shrimp season, now protect the sea."
@@ -205,9 +205,9 @@
       "type": "MCQ",
       "stem": "Why did Grandfather throw the smaller fish back into the water?",
       "options": [
-        "Small fish are not good to eat and taste bitter.",
-        "The trap was too heavy for him to lift into the boat.",
-        "Fishing for small fish is allowed only in the summer.",
+        "Small fish are not good to eat and taste very bitter.",
+        "The trap was too heavy for him to lift into the boat by himself.",
+        "Fishing for small fish is allowed only in the summer months by law.",
         "They had not laid eggs yet, so keeping them would mean fewer fish later."
       ],
       "answer": "D",
@@ -238,9 +238,9 @@
       "stem": "According to the letter, why are there fewer hamour in the Gulf today?",
       "options": [
         "Too many were caught, and some shallow shelters were damaged.",
-        "The water of the Gulf became far too cold for them.",
-        "Large numbers of shrimp ate all the young hamour.",
-        "Fishermen stopped using traps and switched to nets."
+        "The water of the Gulf became far too cold for them to live in.",
+        "Large numbers of shrimp ate all the young hamour in the Gulf.",
+        "Fishermen stopped using traps and switched to using only nets."
       ],
       "answer": "A",
       "why": "Grandfather says “too many fish were caught for too many years” and some shallow areas where young fish shelter “have been damaged”."
@@ -269,10 +269,10 @@
       "type": "MCQ",
       "stem": "Who is the writer of the letter, and who is it written to?",
       "options": [
-        "Yaseen is writing to Ali.",
-        "Grandfather is writing to Ali.",
+        "Yaseen is writing to Ali, his cousin.",
+        "Grandfather is writing to Ali, his grandson.",
         "Ali is writing to his cousin Yaseen.",
-        "Ali is writing to Grandfather."
+        "Ali is writing to Grandfather, his uncle."
       ],
       "answer": "C",
       "why": "It begins “Dear Yaseen” and ends “Your cousin, Ali”."
@@ -365,9 +365,9 @@
       "type": "MCQ",
       "stem": "What would be the EFFECT of catching all the young fish, according to Grandfather?",
       "options": [
-        "The traps would break.",
-        "The fish would grow faster.",
-        "The shrimp season would end.",
+        "The traps would break under the weight.",
+        "The fish would grow faster and bigger.",
+        "The shrimp season would end early.",
         "There would be no big fish in the future."
       ],
       "answer": "D",
@@ -445,10 +445,10 @@
       "type": "MCQ",
       "stem": "In your opinion, which of Grandfather's actions is MOST helpful for the future of the Gulf?",
       "options": [
-        "weaving his own traps",
+        "weaving his own traps from palm leaves",
         "releasing young fish so they can lay eggs",
-        "navigating by the stars",
-        "drinking sweet tea on the shore"
+        "navigating by the stars at night, far out at sea",
+        "drinking sweet tea on the shore after the catch"
       ],
       "answer": "B",
       "why": "Releasing young fish lets them breed, which keeps the fish population healthy."
@@ -462,9 +462,9 @@
       "stem": "Which message is the writer most likely sharing through the letter?",
       "options": [
         "The sea's riches must be used wisely so they last for the future.",
-        "Fishing should be banned everywhere.",
-        "Old ways are always better than new ones.",
-        "Toronto is colder than Al-Qatif."
+        "Fishing should be banned everywhere in the world, even for food.",
+        "Old ways are always better than new ones for every person.",
+        "Toronto is colder than Al-Qatif in winter and in summer."
       ],
       "answer": "A",
       "why": "The lesson of the letter is to take only what the sea can replace: “if you harvest everything and plant nothing, it eventually runs out”."
@@ -526,9 +526,9 @@
       "stem": "Which title best describes the events of the letter?",
       "options": [
         "No Big Fish Without Little Fish",
-        "The Lost Boat",
-        "A Holiday in Canada",
-        "The Golden Hamour"
+        "The Lost Boat of the Gulf Coast",
+        "A Holiday in Canada with the Family",
+        "The Golden Hamour of the Sea"
       ],
       "answer": "A",
       "why": "The key event is Grandfather releasing the little fish so that there will be big fish in the future."

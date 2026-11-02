@@ -199,10 +199,10 @@
         {
           "stem": "Why might bright lights near a beach be bad for baby turtles?",
           "options": [
-            "The lights make the sand too hot.",
-            "The lights scare the mother away for good.",
+            "The lights make the sand too hot for the little feet.",
+            "The lights scare the mother away for good from her nest.",
             "The babies may follow the lights instead of the sea.",
-            "The lights make the eggs hatch much too soon."
+            "The lights make the eggs hatch much too soon in the sand."
           ],
           "answer": "C",
           "skill": "inference",
@@ -378,10 +378,10 @@
         {
           "stem": "No adult turtle shows a young turtle the way home. What can you infer from this?",
           "options": [
-            "Young turtles never return to their beach.",
-            "The mother waits for her young at the nest.",
+            "Young turtles never return to their beach once they leave it.",
+            "The mother waits for her young at the nest to guide them.",
             "Turtles are born with some way to sense where to go.",
-            "Turtles learn the way by following boats."
+            "Turtles learn the way by following boats along the coast."
           ],
           "answer": "C",
           "skill": "inference",
@@ -473,9 +473,9 @@
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
             "Sea turtles complete remarkable journeys guided by instinct, but their survival now depends partly on human choices.",
-            "Sea turtles are fish that rarely leave the ocean.",
+            "Sea turtles are fish that rarely leave the ocean, and they cannot breathe or lay eggs on any beach, so they stay at sea all their lives.",
             "Sea turtle eggs always produce equal numbers of males and females, no matter how warm the sand is.",
-            "Sea turtles are no longer found near Saudi Arabia."
+            "Sea turtles are no longer found near Saudi Arabia, and scientists think none will ever return."
           ],
           "answer": "A",
           "skill": "central-idea",

@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the main idea of the article?",
           "options": [
-            "Goats are the only animals that give hair for weaving",
+            "Goats are the only animals that give hair for weaving cloth in the desert",
             "A nomadic craft made useful cloth with meaningful patterns, now heritage",
-            "Looms are too hard for anyone to learn",
-            "Bedouin families built their tents out of stone"
+            "Looms are too hard for anyone to learn to use, even in a village",
+            "Bedouin families built their tents out of stone and mud"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -327,9 +327,9 @@
         {
           "stem": "In the article, a durable piece of sadu cloth is one that",
           "options": [
-            "looks the most colorful of all",
-            "uses the least amount of thread",
-            "is the fastest cloth to weave",
+            "looks the most colorful of all the cloths",
+            "uses the least amount of thread of any cloth",
+            "is the fastest cloth to weave in the tent",
             "lasts a long time without wearing out"
           ],
           "answer": "D",
@@ -361,9 +361,9 @@
         {
           "stem": "Why do you think sadu patterns often stood for things like animals or stars?",
           "options": [
-            "Because factories required certain patterns",
-            "Because weavers copied designs from books",
-            "Because UNESCO chose the patterns for them",
+            "Because factories required certain patterns for the tents",
+            "Because weavers copied designs from books and magazines",
+            "Because UNESCO chose the patterns for them long ago",
             "These were familiar, important parts of daily desert life"
           ],
           "answer": "D",
@@ -395,10 +395,10 @@
         {
           "stem": "How does the author mostly organize the information in this article?",
           "options": [
-            "As a set of instructions for building a loom",
+            "As a set of instructions for building a loom at home",
             "From how sadu thread is made, to its uses, to today",
-            "As a comparison between sadu and factories",
-            "From the newest sadu patterns to the oldest"
+            "As a comparison between sadu and factories in the city",
+            "From the newest sadu patterns to the oldest ones"
           ],
           "answer": "B",
           "skill": "text-structure",
@@ -412,9 +412,9 @@
         {
           "stem": "How were learning to weave and learning the pattern meanings alike for a girl?",
           "options": [
-            "Both were taught in a classroom using books",
-            "Both were learned only from total strangers",
-            "Both were unrelated skills taught apart",
+            "Both were taught in a classroom using books and pencils",
+            "Both were learned only from total strangers in the market",
+            "Both were unrelated skills taught apart in two different places",
             "Both took years of practice passed down by relatives"
           ],
           "answer": "D",
@@ -489,10 +489,10 @@
         {
           "stem": "Why was sadu weaving typically transmitted without written instructions?",
           "options": [
-            "Writing was against Bedouin religious law",
+            "Writing was against Bedouin religious law in the tents",
             "It was taught through watching and practice over years",
-            "Paper was unavailable anywhere in Arabia",
-            "Patterns changed too quickly to write down"
+            "Paper was unavailable anywhere in Arabia, so no one could write",
+            "Patterns changed too quickly to write down in the desert"
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -591,9 +591,9 @@
         {
           "stem": "Why does the author emphasize how many years of practice sadu weaving requires?",
           "options": [
-            "To discourage people from ever trying to learn it",
-            "To explain in detail exactly how looms are built",
-            "To argue that factory-made cloth is always worse",
+            "To discourage people from ever trying to learn it, since it takes so long",
+            "To explain in detail exactly how looms are built and how they are repaired",
+            "To argue that factory-made cloth is always worse than cloth made by hand",
             "To highlight the real skill behind a seemingly plain craft"
           ],
           "answer": "D",

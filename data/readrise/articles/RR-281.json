@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "The history of the Olympic Games",
+            "The history of the Olympic Games and the sports that were played there",
             "How lifting weights with good form safely builds muscle strength over time",
-            "The rules of basketball",
-            "How to build a home gym"
+            "The rules of basketball and how teams score points in each game",
+            "How to build a home gym in a small room with cheap equipment"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -165,9 +165,9 @@
         {
           "stem": "Why do young lifters start with light weights?",
           "options": [
-            "Because light weights are more fun to use",
-            "Because heavy weights are not allowed in gyms",
-            "Because light weights make muscles weaker",
+            "Because light weights are more fun to use than heavy ones",
+            "Because heavy weights are not allowed in most gyms at all",
+            "Because light weights make muscles weaker over a long time",
             "So they build good form and strength slowly and safely"
           ],
           "answer": "D",
@@ -183,9 +183,9 @@
           "stem": "Why might poor form lead to an injury?",
           "options": [
             "Because poor form moves the body in a way that strains the back or knees",
-            "Because poor form makes the bar lighter",
-            "Because poor form is never checked by a coach",
-            "Because poor form makes the lift faster"
+            "Because poor form makes the bar lighter and the lift much easier to do",
+            "Because poor form is never checked by a coach in the gym",
+            "Because poor form makes the lift faster and also less tiring"
           ],
           "answer": "A",
           "skill": "inference",
@@ -233,10 +233,10 @@
         {
           "stem": "How does the author organize the article?",
           "options": [
-            "By comparing two different sports",
-            "By arguing that weightlifting is dangerous",
+            "By comparing two different sports played by teams in schools",
+            "By arguing that weightlifting is dangerous for young people and should be stopped",
             "By describing a lifter, then explaining form, coaching, basic lifts, and rest",
-            "By listing Olympic records"
+            "By listing Olympic records for each sport from the last ten games"
           ],
           "answer": "C",
           "skill": "text-structure",
@@ -472,8 +472,8 @@
         {
           "stem": "Which statement best captures the central idea of the article?",
           "options": [
-            "Tendons are never affected by weightlifting technique at all",
-            "Rest becomes unnecessary once hypertrophy actually begins",
+            "Tendons are never affected by weightlifting technique at all, even for beginners",
+            "Rest becomes unnecessary once hypertrophy actually begins in the body",
             "Hypertrophy occurs only in professional athletes, never beginners",
             "Overload and good technique together build muscle safely through hypertrophy"
           ],
@@ -490,9 +490,9 @@
           "stem": "What is hypertrophy, according to the article?",
           "options": [
             "The gradual process by which muscle fibers adapt and thicken",
-            "A sudden, painful injury to a tendon near a joint",
-            "A particular method a coach uses to correct posture",
-            "An official type of rule used in a competition"
+            "A sudden, painful injury to a tendon near a joint after a fall",
+            "A particular method a coach uses to correct posture in training",
+            "An official type of rule used in a competition between teams"
           ],
           "answer": "A",
           "skill": "detail",

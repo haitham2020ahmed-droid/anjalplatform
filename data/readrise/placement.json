@@ -1485,10 +1485,10 @@
         {
           "stem": "What is the central idea of the passage?",
           "options": [
-            "Antibiotics directly cause bacteria to mutate into resistant forms.",
+            "Antibiotics directly cause bacteria to mutate into resistant forms, so every dose makes new super germs.",
             "Resistance already exists at low levels and spreads because antibiotics remove competition for resistant bacteria.",
-            "Plasmids are the only way bacteria can become resistant to antibiotics.",
-            "Stopping antibiotic treatment early always cures an infection faster."
+            "Plasmids are the only way bacteria can become resistant to antibiotics, and they pass from one cell to another.",
+            "Stopping antibiotic treatment early always cures an infection faster, so doctors should give short courses of medicine."
           ],
           "answer": "B",
           "skill": "central-idea"
@@ -1497,9 +1497,9 @@
           "stem": "According to the passage, why is stopping an antibiotic course early considered dangerous?",
           "options": [
             "It allows bacteria with partial resistance to survive and multiply.",
-            "It causes the antibiotic to become toxic to the patient.",
-            "It prevents plasmids from transferring between bacteria.",
-            "It makes susceptible bacteria resistant instantly."
+            "It causes the antibiotic to become toxic to the patient's body.",
+            "It prevents plasmids from transferring between bacteria in the gut.",
+            "It makes susceptible bacteria become resistant instantly in the body."
           ],
           "answer": "A",
           "skill": "detail"
@@ -1526,10 +1526,10 @@
         {
           "stem": "What is the passage mainly about?",
           "options": [
-            "Why black holes are the brightest objects in the universe.",
+            "Why black holes are the brightest objects in the universe, shining more than any star.",
             "Several indirect methods astronomers use to detect and study black holes.",
-            "The exact date the first black hole was discovered.",
-            "Why telescopes cannot observe any object beyond our galaxy."
+            "The exact date the first black hole was discovered by a scientist in a laboratory.",
+            "Why telescopes cannot observe any object beyond our galaxy, however big they may be."
           ],
           "answer": "B",
           "skill": "central-idea"
@@ -1567,10 +1567,10 @@
         {
           "stem": "What is the main point of the passage?",
           "options": [
-            "Countries should only trade with nations that are equally productive.",
+            "Countries should only trade with nations that are equally productive, so a weak country should never trade with a strong one.",
             "A country can benefit from trade by specializing in what it gives up least to produce, even if another country is more efficient overall.",
-            "Comparative advantage proves that trade never benefits less productive countries.",
-            "Wheat and cloth are the only goods comparative advantage applies to."
+            "Comparative advantage proves that trade never benefits less productive countries, because only the strongest nations can gain from it.",
+            "Wheat and cloth are the only goods comparative advantage applies to, and it cannot be used for any other product or service."
           ],
           "answer": "B",
           "skill": "central-idea"
@@ -1608,10 +1608,10 @@
         {
           "stem": "What is the passage mainly about?",
           "options": [
-            "Why Einstein invented quantum mechanics.",
+            "Why Einstein invented quantum mechanics and what he thought about it in his old age, when he was a famous old man in America.",
             "How experiments testing Bell's inequality showed that entangled particles do not have predetermined, independent properties.",
-            "The exact distance at which quantum entanglement stops working.",
-            "Why gloves are used to explain quantum computing."
+            "The exact distance at which quantum entanglement stops working for the particles in the experiments of the lab.",
+            "Why gloves are used to explain quantum computing and how engineers build the computers."
           ],
           "answer": "B",
           "skill": "central-idea"
@@ -1620,9 +1620,9 @@
           "stem": "According to the passage, what did John Bell's inequality allow physicists to test?",
           "options": [
             "Whether hidden-variable theories could explain entanglement.",
-            "The exact speed of light.",
-            "Whether gloves can be entangled.",
-            "How quantum computers are built."
+            "The exact speed of light in empty space and in water or glass.",
+            "Whether gloves can be entangled across a long distance.",
+            "How quantum computers are built in a modern laboratory."
           ],
           "answer": "A",
           "skill": "detail"
@@ -1630,10 +1630,10 @@
         {
           "stem": "In the passage, the phrase \"spooky action at a distance\" is used to describe Einstein's view that entanglement seemed",
           "options": [
-            "completely predictable and ordinary",
+            "completely predictable and ordinary in every experiment",
             "troublingly instantaneous and hard to explain classically",
-            "impossible to test experimentally",
-            "only relevant to gloves and mittens"
+            "impossible to test experimentally with any equipment",
+            "only relevant to gloves and mittens in cold places"
           ],
           "answer": "B",
           "skill": "vocabulary"
@@ -1649,10 +1649,10 @@
         {
           "stem": "What is the main idea of the passage?",
           "options": [
-            "Neuroscience has already fully solved the mystery of subjective experience.",
+            "Neuroscience has already fully solved the mystery of subjective experience, and no question remains open.",
             "The \"hard problem\" asks why physical brain processes produce subjective experience, a question that remains unresolved.",
-            "The \"easy problems\" of consciousness are more important than the \"hard problem.\"",
-            "Philosophers agree that consciousness cannot be studied scientifically at all."
+            "The \"easy problems\" of consciousness are more important than the \"hard problem,\" so scientists skip the second.",
+            "Philosophers agree that consciousness cannot be studied scientifically at all, so it is a closed matter."
           ],
           "answer": "B",
           "skill": "central-idea"
@@ -1660,10 +1660,10 @@
         {
           "stem": "According to the passage, what are the \"easy problems\" of consciousness?",
           "options": [
-            "Questions about why subjective experience exists at all.",
+            "Questions about why subjective experience exists at all, and why it feels like something to be alive and awake.",
             "Functions like attention, memory, and processing sensory input, which can be explained by identifying neural mechanisms.",
-            "Problems that have never been studied by neuroscience.",
-            "Questions only philosophers, not scientists, can address."
+            "Problems that have never been studied by neuroscience or by any other science, because they are too hard for anyone to understand.",
+            "Questions only philosophers, not scientists, can address in a book or a class, since they have nothing to do with the brain or with memory."
           ],
           "answer": "B",
           "skill": "detail"
@@ -1671,10 +1671,10 @@
         {
           "stem": "The comparison to \"earlier mysteries about life itself\" suggests that some philosophers believe the hard problem",
           "options": [
-            "can never be solved by any future scientific advance.",
+            "can never be solved by any future scientific advance of any kind, however much we learn.",
             "might eventually be explained as science advances, similar to past biological mysteries.",
-            "was already solved before neuroscience existed.",
-            "is not related to biology in any way."
+            "was already solved before neuroscience existed at all, so nobody needs to study it now.",
+            "is not related to biology in any way whatsoever, and is only about weather and stars."
           ],
           "answer": "B",
           "skill": "inference"
@@ -1690,10 +1690,10 @@
         {
           "stem": "What is the passage mainly about?",
           "options": [
-            "Why one branch of government should always have more power than the others.",
+            "Why one branch of government should always have more power than the others, and rule them all alone.",
             "The reasoning behind dividing governmental authority among separate branches that check one another.",
-            "The exact year separation of powers was invented.",
-            "Why gridlock never occurs in governments with separated powers."
+            "The exact year separation of powers was invented, and who first wrote about it in a very old book.",
+            "Why gridlock never occurs in governments with separated powers, and how every branch always agrees at once."
           ],
           "answer": "B",
           "skill": "central-idea"
@@ -1702,9 +1702,9 @@
           "stem": "According to the passage, what did Montesquieu argue?",
           "options": [
             "Concentrating all power in one person or body makes abuse of power more likely.",
-            "Only a single branch of government should exist.",
-            "Judiciaries should never be able to check executives.",
-            "Gridlock is always more dangerous than concentrated power."
+            "Only a single branch of government should exist, so that laws are made quickly.",
+            "Judiciaries should never be able to check executives, even when a leader breaks the law.",
+            "Gridlock is always more dangerous than concentrated power in any country."
           ],
           "answer": "A",
           "skill": "detail"
@@ -1712,10 +1712,10 @@
         {
           "stem": "In the passage, the word \"gridlock\" most nearly means",
           "options": [
-            "rapid, efficient decision-making",
-            "a situation of unified agreement",
+            "rapid, efficient decision-making by all the parts of a system",
+            "a situation of unified agreement among all parts of a system",
             "a standstill caused by disagreement among parts of a system",
-            "a type of legal document"
+            "a type of legal document used in many courts"
           ],
           "answer": "C",
           "skill": "vocabulary"

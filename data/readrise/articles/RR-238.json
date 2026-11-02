@@ -88,7 +88,7 @@
       "questions": [
         {
           "stem": "What is this article mostly about?",
-          "options": ["How bones are made", "How muscles pull to move your body", "Why food tastes good", "How to tie your shoes"],
+          "options": ["How bones are made inside the body", "How muscles pull to move your body", "Why food tastes good to us", "How to tie your shoes well"],
           "answer": "B",
           "skill": "central-idea",
           "why": "The article explains how muscles contract and pull in pairs to move your body.",
@@ -112,7 +112,7 @@
         },
         {
           "stem": "In the article, what does the word pair mean?",
-          "options": ["Two things that work together", "A piece of fruit", "A kind of bone", "A type of exercise"],
+          "options": ["Two things that work together", "A piece of fruit that grows on a tree", "A kind of bone in the human leg", "A type of exercise done in a gym"],
           "answer": "A",
           "skill": "vocabulary",
           "why": "The article uses pair to describe two muscles that work together, one pulling one way and one the other.",
@@ -120,7 +120,7 @@
         },
         {
           "stem": "What happens to a muscle after you use it hard in sports and then rest and eat well?",
-          "options": ["It disappears completely", "It turns into a tendon", "It stops pulling forever", "It fixes itself and grows back thicker"],
+          "options": ["It disappears completely after a hard day", "It turns into a tendon again", "It stops pulling forever after use", "It fixes itself and grows back thicker"],
           "answer": "D",
           "skill": "cause-effect",
           "why": "The article says rest and good food help fix tiny tears, and the muscle grows back thicker and stronger.",
@@ -144,7 +144,7 @@
         },
         {
           "stem": "Which child is most likely helping their muscles stay strong?",
-          "options": ["Omar, who plays and exercises, then rests and eats well", "Lina, who never moves much and stays inside", "Huda, who eats only candy all day", "Sami, who never drinks water"],
+          "options": ["Omar, who plays and exercises, then rests and eats well", "Lina, who never moves much and stays inside all day", "Huda, who eats only candy and sweets all day long", "Sami, who never drinks any water at all"],
           "answer": "A",
           "skill": "inference",
           "why": "The article says exercise, rest, and good food all help keep muscles strong.",
@@ -182,7 +182,7 @@
         },
         {
           "stem": "What is a joint, according to the article?",
-          "options": ["A thin strand inside a muscle.", "A kind of food that helps muscles.", "A place where two bones meet and can move.", "A cord that connects muscle to bone."],
+          "options": ["A thin strand inside a muscle fiber.", "A kind of food that helps muscles grow strong.", "A place where two bones meet and can move.", "A cord that connects muscle to bone."],
           "answer": "C",
           "skill": "detail",
           "why": "The article defines a joint as the place where two bones meet and can move.",
@@ -198,7 +198,7 @@
         },
         {
           "stem": "How does the author explain why muscles work in pairs?",
-          "options": ["By telling a long story about one doctor's entire career.", "By comparing muscles to several different kinds of food.", "By explaining that a pulling-only muscle needs a partner to reverse its motion.", "By carefully listing every single muscle in the human body."],
+          "options": ["By telling a long story about one doctor's entire career in a big hospital.", "By comparing muscles to several different kinds of food in a kitchen.", "By explaining that a pulling-only muscle needs a partner to reverse its motion.", "By carefully listing every single muscle in the human body, one by one."],
           "answer": "C",
           "skill": "text-structure",
           "why": "The article explains that because a muscle can only pull one way, its partner is needed to pull the joint back the other way.",
@@ -252,7 +252,7 @@
         },
         {
           "stem": "According to the article, what is skeletal muscle unlike?",
-          "options": ["Cardiac and smooth muscle, which function involuntarily", "Tendons, which are said to never move at all", "Joints, which supposedly contain no tissue", "Fibers, which are said to never bundle together"],
+          "options": ["Cardiac and smooth muscle, which function involuntarily", "Tendons, which are said to never move at all in the body", "Joints, which supposedly contain no tissue or bone at all", "Fibers, which are said to never bundle together in the body"],
           "answer": "A",
           "skill": "detail",
           "why": "The article says skeletal muscle is unlike the involuntary smooth muscle in organs or the cardiac muscle of the heart.",
@@ -276,7 +276,7 @@
         },
         {
           "stem": "How does the author structure the explanation after introducing skeletal muscle's basic function?",
-          "options": ["By comparing muscles across several different animal species", "By moving through fiber structure, bone attachment, antagonist pairs, and exercise", "By telling a single long story about one professional athlete", "By arguing throughout that muscles matter less than bones do"],
+          "options": ["By comparing muscles across several different animal species, from fish to birds", "By moving through fiber structure, bone attachment, antagonist pairs, and exercise", "By telling a single long story about one professional athlete and his coach", "By arguing throughout that muscles matter less than bones do for the body"],
           "answer": "B",
           "skill": "text-structure",
           "why": "The article moves through fiber structure, tendon attachment, antagonist pairs, and the effects of exercise and inactivity in order.",

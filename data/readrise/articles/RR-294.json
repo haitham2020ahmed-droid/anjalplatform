@@ -115,8 +115,8 @@
           "stem": "What is this article mostly about?",
           "options": [
             "How trees grow tall in hot, dry desert places",
-            "Why singers often need a microphone to be heard",
-            "How glue is used to repair broken furniture",
+            "Why singers often need a microphone to be heard far away",
+            "How glue is used to repair broken furniture at home",
             "A stringed instrument called the oud and how it is played"
           ],
           "answer": "D",
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the main idea of this article?",
           "options": [
-            "Only people in one single country have ever played the oud",
-            "Frets make every single stringed instrument sound exactly the same",
+            "Only people in one single country have ever played the oud in the world",
+            "Frets make every single stringed instrument sound exactly the same in all countries",
             "The oud's pear shape, fretless neck, and sound are all central to Arabic music",
-            "The lute and the oud have never been connected in any real way"
+            "The lute and the oud have never been connected in any real way at all"
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -395,9 +395,9 @@
         {
           "stem": "Why does the author explain both how the oud is built and how it later influenced the European lute?",
           "options": [
-            "To prove that European instruments matter more than Arabic ones",
+            "To prove that European instruments matter more than Arabic ones in music",
             "To argue that the lute and the oud sound exactly identical",
-            "To compare the market price of each separate instrument",
+            "To compare the market price of each separate musical instrument",
             "To show the oud's lasting influence across different cultures and centuries"
           ],
           "answer": "D",
@@ -490,9 +490,9 @@
           "stem": "According to the article, why does the oud's fretless neck matter for Arabic musical expression?",
           "options": [
             "It lets a player slide smoothly between pitches, producing gliding ornaments",
-            "It makes the whole instrument nearly impossible to tune correctly",
-            "It fully prevents the player from ever changing notes at all",
-            "It allows the whole instrument to be played without any strings"
+            "It makes the whole instrument nearly impossible to tune correctly for a player",
+            "It fully prevents the player from ever changing notes at all while playing",
+            "It allows the whole instrument to be played without any strings or fingers"
           ],
           "answer": "A",
           "skill": "detail",
@@ -523,10 +523,10 @@
         {
           "stem": "As used in the article, what does maqam mean?",
           "options": [
-            "A tool used to pluck the strings of the oud",
+            "A tool used to pluck the strings of the oud with the hand",
             "A traditional melodic mode that shapes much of Arabic music",
-            "A region in southern Spain known for its music",
-            "A kind of wood used to build the oud's body"
+            "A region in southern Spain known for its music and dance",
+            "A kind of wood used to build the oud's body and neck"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -574,10 +574,10 @@
         {
           "stem": "Why does the author compare the oud's playing technique with its long history across centuries?",
           "options": [
-            "To argue that modern instruments are always superior to much older ones",
-            "To prove that techniques for playing music never really change over time",
+            "To argue that modern instruments are always superior to much older ones in sound and style",
+            "To prove that techniques for playing music never really change over time or between countries",
             "To show how its technique and its spreading history both explain its lasting significance",
-            "To explain in careful detail how to build a European lute from scratch"
+            "To explain in careful detail how to build a European lute from scratch, step by step at home"
           ],
           "answer": "C",
           "skill": "author-purpose",

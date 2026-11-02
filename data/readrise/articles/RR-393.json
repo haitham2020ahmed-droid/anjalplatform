@@ -212,7 +212,7 @@
           "stem": "What is the best summary of this story?",
           "options": [
             "A shy, talented artist slowly builds the courage to share her drawing with an audience, who end up admiring it",
-            "A group of close friends spends weeks planning a surprise class trip to an art museum",
+            "A group of close friends spends weeks planning a surprise class trip to an art museum, and the trip is a big success",
             "A nervous boy practices singing for weeks before performing in front of a large audience",
             "A school teacher spends the whole year organizing a big talent show for every single student"
           ],
@@ -411,10 +411,10 @@
         {
           "stem": "Which lists these events in the order they actually happened?",
           "options": [
-            "Lama performs, the school announces the show, Noor encourages Lama",
-            "The audience applauds, Lama draws her picture, the show is announced",
+            "Lama performs, the school announces the show, Noor encourages Lama, and the audience applauds",
+            "The audience applauds, Lama draws her picture, the school announces the show, and Noor encourages her",
             "The school announces the show, Noor encourages Lama, Lama draws her picture, Lama performs",
-            "Noor encourages Lama, Lama performs, the school announces the show"
+            "Noor encourages Lama, Lama performs, the school announces the show, and Lama draws her picture"
           ],
           "answer": "C",
           "skill": "sequence",

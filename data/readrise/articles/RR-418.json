@@ -122,9 +122,9 @@
           "stem": "What is this story mostly about?",
           "options": [
             "A boy's first trip with a caravan, where people help each other",
-            "A boy who learns to build a brand new ship",
-            "A king who owns every camel in the land",
-            "A story that teaches you how to read maps"
+            "A boy who learns to build a brand new ship with his father by the sea, then sails away",
+            "A king who owns every camel in the land and counts them every day in the palace",
+            "A story that teaches you how to read maps and find the way across a big desert"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -301,9 +301,9 @@
           "stem": "Which sentence best states the central idea of the story?",
           "options": [
             "A boy's first journey shows how merchants rely on skill and trust to survive the desert",
-            "Merchants in this story never need to carry any water",
-            "The desert route is different every single year",
-            "Camels can travel through the desert without any guidance"
+            "Merchants in this story never need to carry any water, because oases are on every road",
+            "The desert route is different every single year, so a boy cannot learn the way at all",
+            "Camels can travel through the desert without any guidance, so merchants only need to follow"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -334,10 +334,10 @@
         {
           "stem": "What helps the men find their way besides the stars?",
           "options": [
-            "Sounds made by distant camels",
-            "Letters left along the road",
+            "Sounds made by distant camels in the night",
+            "Letters left along the road by travelers",
             "Landmarks, like a rock shaped like a camel's head",
-            "Lanterns set up by earlier traders"
+            "Lanterns set up by earlier traders on the hills"
           ],
           "answer": "C",
           "skill": "detail",
@@ -479,10 +479,10 @@
         {
           "stem": "Which statement best expresses the central idea of the story?",
           "options": [
-            "Frankincense is more valuable than water in the desert",
+            "Frankincense is more valuable than water in the desert, so the merchants spend most of their water on it, and the young man learns to buy it",
             "A young merchant's first journey reveals how navigation, careful water use, and cooperation keep a caravan alive",
-            "Ancient incense routes were used by only one caravan",
-            "Camels require no water when crossing the desert"
+            "Ancient incense routes were used by only one caravan, which crossed the desert once and never came back to the town again",
+            "Camels require no water when crossing the desert, so a caravan can travel for months without any supplies from the wells"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -513,10 +513,10 @@
         {
           "stem": "What does Faisal's father use, besides the stars, to navigate?",
           "options": [
-            "A compass brought from a distant kingdom",
-            "Letters left behind by earlier travelers",
+            "A compass brought from a distant kingdom by a trader",
+            "Letters left behind by earlier travelers in the sand",
             "Landmarks, such as a distinctive rock formation",
-            "A map drawn by a royal geographer"
+            "A map drawn by a royal geographer long ago"
           ],
           "answer": "C",
           "skill": "detail",
@@ -530,10 +530,10 @@
         {
           "stem": "In the story, essential most likely means —",
           "options": [
-            "completely unnecessary and easy to replace",
+            "completely unnecessary and easy to replace at any time",
             "absolutely necessary and impossible to do without",
-            "extremely rare and valuable to merchants",
-            "difficult to carry across long distances"
+            "extremely rare and valuable to merchants in the city",
+            "difficult to carry across long distances on camels"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -547,9 +547,9 @@
         {
           "stem": "Why does the sudden wind pose such a serious problem for the caravan?",
           "options": [
-            "It damages the frankincense being carried",
-            "It frightens the camels into running away",
-            "It uses up the caravan's limited water supply",
+            "It damages the frankincense the caravan is carrying",
+            "It frightens the camels into running away from the men",
+            "It uses up the limited water supply the caravan has",
             "It hides the landmarks the men depend on to navigate"
           ],
           "answer": "D",
@@ -581,8 +581,8 @@
         {
           "stem": "What can readers infer about why the other traders shared water without being asked?",
           "options": [
-            "They had far more water than they truly needed",
-            "The man with the torn bag demanded their help",
+            "They had far more water than they truly needed for the trip",
+            "The man with the torn bag demanded their help right away",
             "Cooperation and trust were expected among traveling merchants",
             "Faisal's father ordered them to share their water"
           ],
@@ -598,9 +598,9 @@
         {
           "stem": "Why does the author end the story with Faisal's reflection beside the fire?",
           "options": [
-            "To show that Faisal regretted joining the caravan",
-            "To explain exactly how frankincense is harvested",
-            "To describe the market town in further detail",
+            "To show that Faisal regretted joining the caravan in the first place",
+            "To explain exactly how frankincense is harvested from the trees",
+            "To describe the market town in further detail for the readers",
             "To emphasize the real lessons Faisal learned about trust and survival"
           ],
           "answer": "D",

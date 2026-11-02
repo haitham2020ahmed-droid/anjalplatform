@@ -60,9 +60,9 @@
     "stem": "Which is the best way to fix “In the big basket.”?",
     "options": [
      "In the big basket with bread.",
-     "Big basket in the.",
+     "Big basket in the Dad put the bread.",
      "In the big basket, Dad put the bread.",
-     "In the big basket and."
+     "In the big basket and Dad put."
     ],
     "answer": 2,
     "hint": "That still has no who and no action. Which choice adds a who and a verb?",
@@ -89,8 +89,8 @@
      "options": [
       "After dinner, we ate fruit.",
       "After dinner and fruit.",
-      "After the big dinner.",
-      "Dinner after."
+      "After the big dinner at home.",
+      "Dinner after the fruit."
      ],
      "answer": 0,
      "why": "“We ate fruit” tells who and what they did, so the phrase becomes a sentence."
@@ -164,8 +164,8 @@
     "options": [
      "When the hole was deep enough, we stopped digging.",
      "When the hole that we dug was deep enough.",
-     "When the hole, was deep enough.",
-     "When deep enough the hole."
+     "When the hole, was deep enough, we stopped digging.",
+     "When deep enough the hole that we dug."
     ],
     "answer": 0,
     "hint": "Cover the clause that starts with “when”. Is a full sentence left? Choose the answer that adds one.",
@@ -295,10 +295,10 @@
      "passage": "The museum, which opened last year in the old fort, displays coins, maps and pottery.",
      "stem": "Is this sentence complete?",
      "options": [
-      "No, because it starts with a noun.",
+      "No, because it starts with a noun and not a verb.",
       "Yes, because “The museum displays…” can stand alone.",
       "No, because “which” always makes a fragment.",
-      "Yes, because it has two commas."
+      "Yes, because it has two commas in the middle."
      ],
      "answer": 1,
      "why": "Take out “which opened last year in the old fort” and you still have “The museum displays coins, maps and pottery.”"

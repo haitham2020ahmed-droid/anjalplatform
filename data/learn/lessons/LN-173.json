@@ -74,9 +74,9 @@
     "passage": "I put my books into my bag,\nI tie my shoes, I comb my hair.\nI wave goodbye and run outside,\nMy teacher and my class are there.",
     "stem": "Who is the speaker in this poem?",
     "options": [
-     "A teacher",
-     "A shop owner",
-     "A mother",
+     "A teacher at the school",
+     "A shop owner in the town",
+     "A mother waiting at home",
      "A student going to school"
     ],
     "answer": 3,
@@ -303,9 +303,9 @@
     "stem": "What is the effect of having the old door speak in the poem?",
     "options": [
      "It helps readers see the door as a witness to the market's history.",
-     "It shows readers that the door needs new paint very soon.",
-     "It explains to readers how wooden doors are made.",
-     "It shows that the traders never liked the old door."
+     "It shows readers that the door needs new paint very soon, before the winter.",
+     "It explains to readers how wooden doors are made by hand.",
+     "It shows that the traders never liked the old door at all."
     ],
     "answer": 0,
     "hint": "What can the door tell us because it has been there so long? Look at what it remembers.",
@@ -465,9 +465,9 @@
      "passage": "The new port shines with cranes and steel;\nThe ships are tall as towers.\nI find the place my father's boat\nOnce rocked for quiet hours:\nA concrete step. I sit. I stay.\nThe gulls, at least, still know the way.",
      "stem": "Which detail best shows what the speaker has lost?",
      "options": [
-      "The ships are tall as towers.",
+      "The ships are tall as towers and loud with their big engines.",
       "A quiet spot linked to the speaker's father is now concrete.",
-      "The new port shines with cranes and steel.",
+      "The new port shines with cranes and steel in the sun.",
       "The gulls still know the way to the old place."
      ],
      "answer": 1,

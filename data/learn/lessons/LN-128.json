@@ -185,9 +185,9 @@
     "stem": "Which technique does the author use in the second sentence to help readers understand erosion?",
     "options": [
      "A comparison to something familiar",
-     "A list of steps",
-     "A problem and a solution",
-     "A story about a person"
+     "A list of steps to follow in order",
+     "A problem and a solution to it",
+     "A story about a person who lives nearby"
     ],
     "answer": 0,
     "hint": "The second sentence says Think of it like... What does like signal?",
@@ -213,10 +213,10 @@
      "passage": "A habitat is the natural home of an animal or plant. For example, a coral reef is the habitat of many colourful fish. A desert is the habitat of camels and lizards.",
      "stem": "How does the author develop the idea of a habitat?",
      "options": [
-      "By comparing two animals' sizes",
-      "By telling events in time order",
+      "By comparing two animals' sizes and weights",
+      "By telling events in time order, day by day",
       "By giving a definition followed by examples",
-      "By asking the reader questions"
+      "By asking the reader many questions"
      ],
      "answer": 2,
      "why": "The first sentence defines habitat; the next two give examples."
@@ -226,8 +226,8 @@
      "stem": "Which technique does the author mainly use?",
      "options": [
       "Steps in a process",
-      "Comparison",
-      "Opinion",
+      "Comparison of two",
+      "Opinion and feelings",
       "Definition only"
      ],
      "answer": 0,
@@ -239,7 +239,7 @@
      "options": [
       "By giving a long list of plant names",
       "By showing what happens when plants lack light",
-      "By telling a story about a farmer",
+      "By telling a story about a farmer and his field",
       "By comparing plants to animals in a zoo"
      ],
      "answer": 1,
@@ -327,9 +327,9 @@
      "passage": "Nelson Mandela spent 27 years in prison for opposing unfair laws in South Africa. When he was freed, many expected him to seek revenge. Instead, he invited one of his former guards to his presidential ceremony.",
      "stem": "What does the detail about the guard reveal about Mandela?",
      "options": [
-      "He was still angry at his guards.",
-      "He did not care about the ceremony.",
-      "He wanted to stay in prison longer.",
+      "He was still angry at his guards after the years.",
+      "He did not care about the ceremony at all.",
+      "He wanted to stay in prison for many more years.",
       "He wanted to forgive and bring people together."
      ],
      "answer": 3,
@@ -339,9 +339,9 @@
      "passage": "The young inventor failed again and again. Each time her machine broke, she wrote down what went wrong and tried a new design. Her friends called her \"the girl who never stops.\"",
      "stem": "Which detail shows how OTHERS saw the inventor?",
      "options": [
-      "She failed again and again at first.",
+      "She failed again and again at first, but she kept going.",
       "Her friends called her the girl who never stops.",
-      "Each time, her machine broke down.",
+      "Each time, her machine broke down in the workshop.",
       "She wrote notes and tried a new design."
      ],
      "answer": 1,
@@ -460,7 +460,7 @@
      "passage": "Grandfather put down the old photograph. \"We had no electricity then,\" he said, \"but we had each other every evening.\" I looked around the room at everyone staring at their phones.",
      "stem": "How does the grandfather's dialogue help develop the central idea?",
      "options": [
-      "It describes how electricity first came to homes.",
+      "It describes how electricity first came to homes in the town.",
       "It shows the grandfather disliked phones and computers.",
       "It explains when and where the photograph was taken.",
       "It contrasts past closeness with present distance in the family."
@@ -472,10 +472,10 @@
      "passage": "When the young scientist presented her results, a senior professor said, \"Impossible. You must have made an error.\" She replied calmly, \"Then let us repeat the test together.\" The repeated test gave the same result.",
      "stem": "What does the dialogue reveal about the young scientist?",
      "options": [
-      "She was rude to the professor.",
+      "She was rude to the professor in class.",
       "She was confident and calm under challenge.",
-      "She agreed she had made an error.",
-      "She was afraid to share her work."
+      "She agreed that she had made a big error.",
+      "She was afraid to share her work in class."
      ],
      "answer": 1,
      "why": "Her calm offer to repeat the test shows confidence; the result proves she was right."

@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How to build a brand new library out of stone",
+            "How to build a brand new library out of stone and wood",
             "A young helper notices rising water and saves the rare books",
-            "Why scholars like to copy old books by hand each day",
-            "How heavy rain forms in the sky above a busy city"
+            "Why scholars like to copy old books by hand each day of the week",
+            "How heavy rain forms in the sky above a busy city in spring"
           ],
           "answer": "B",
           "skill": "central-idea",

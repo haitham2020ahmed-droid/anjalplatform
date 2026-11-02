@@ -473,9 +473,9 @@
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
             "The Nile's flow, floods, and sediment shaped where and how people in Egypt could live and farm.",
-            "The Aswan High Dam was a complete mistake.",
+            "The Aswan High Dam was a complete mistake, and it harmed every farm and village along the river.",
             "The Nile is the only river in all of Africa that flows from south to north.",
-            "The White Nile supplies all of the Nile's water."
+            "The White Nile supplies all of the Nile's water, so the Blue Nile does not matter at all."
           ],
           "answer": "A",
           "skill": "central-idea",

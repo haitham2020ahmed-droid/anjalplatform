@@ -64,7 +64,7 @@
       },
       {
        "label": "B",
-       "text": "Tomatoes grow better than beans in the summer.",
+       "text": "Tomatoes grow better than beans in the summer, when the sun is hot.",
        "correct": false,
        "rationale": "This is a detail about plants, not a lesson about life.",
        "misconception": "EVENT_NOT_THEME"
@@ -78,7 +78,7 @@
       },
       {
        "label": "D",
-       "text": "Gardens need sunshine more than water.",
+       "text": "Gardens need sunshine more than water to grow.",
        "correct": false,
        "rationale": "The story never compares sunshine and water.",
        "misconception": "NOT_SUPPORTED"
@@ -152,21 +152,21 @@
       },
       {
        "label": "B",
-       "text": "He is angry at Nadia and wants her to fail.",
+       "text": "He is angry at Nadia and wants her to fail the test at school.",
        "correct": false,
        "rationale": "Samir helps Nadia when her bow breaks, so he does not want her to fail.",
        "misconception": "CONTRADICTS_TEXT"
       },
       {
        "label": "C",
-       "text": "He plans to quit the orchestra after the concert.",
+       "text": "He plans to quit the orchestra after the big concert is over.",
        "correct": false,
        "rationale": "Nothing in the story says Samir wants to quit.",
        "misconception": "NOT_SUPPORTED"
       },
       {
        "label": "D",
-       "text": "He does not care where his name is on the list.",
+       "text": "He does not care where his name is on the list at all.",
        "correct": false,
        "rationale": "He reads the list twice and walks away silently, so he does care.",
        "misconception": "CONTRADICTS_TEXT"
@@ -240,21 +240,21 @@
       },
       {
        "label": "B",
-       "text": "A tar roof can become hot enough to cook an egg.",
+       "text": "A tar roof can become hot enough to cook an egg, and nothing else is true about roofs.",
        "correct": false,
        "rationale": "This is a detail from the first sentence, not the idea of the whole passage.",
        "misconception": "DETAIL_NOT_MAIN"
       },
       {
        "label": "C",
-       "text": "Sweat helps people stay cool on hot days.",
+       "text": "Sweat helps people stay cool on hot days, and roofs have nothing to do with it.",
        "correct": false,
        "rationale": "Sweat is only used as a comparison.",
        "misconception": "DETAIL_NOT_MAIN"
       },
       {
        "label": "D",
-       "text": "Cities should stop building new buildings.",
+       "text": "Cities should stop building new buildings, because buildings make the city hot.",
        "correct": false,
        "rationale": "The passage never says this.",
        "misconception": "NOT_SUPPORTED"
@@ -328,21 +328,21 @@
       },
       {
        "label": "B",
-       "text": "Worms ate most of the apples on the trees.",
+       "text": "Worms ate most of the apples on the trees that year.",
        "correct": false,
        "rationale": "The passage says the worms disappeared.",
        "misconception": "CONTRADICTS_TEXT"
       },
       {
        "label": "C",
-       "text": "The farmer planted clover between the trees.",
+       "text": "The farmer planted clover between the trees that spring.",
        "correct": false,
        "rationale": "The clover was planted the NEXT year, and it helped the trees.",
        "misconception": "SEQUENCE_TIME"
       },
       {
        "label": "D",
-       "text": "The trees were too old to grow fruit.",
+       "text": "The trees were too old to grow fruit at all.",
        "correct": false,
        "rationale": "The passage never says the trees were old.",
        "misconception": "NOT_SUPPORTED"

@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How cobalt metal is mined from the ground",
+            "How cobalt metal is mined from the ground by workers and machines",
             "How Chien-Shiung Wu proved an old rule was wrong",
-            "How to build a strong magnet at home",
-            "Why China has many famous mountains"
+            "How to build a strong magnet at home with a coil and a battery",
+            "Why China has many famous mountains and rivers"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -148,10 +148,10 @@
         {
           "stem": "What did Wu do FIRST to test the idea about parity?",
           "options": [
-            "She watched the particles shoot out.",
-            "She won a famous prize for her work.",
+            "She watched the particles shoot out of the machine.",
+            "She won a famous prize for her work as a scientist.",
             "She cooled cobalt and lined up its atoms with a magnet.",
-            "She told everyone the old rule was wrong."
+            "She told everyone the old rule was wrong in a big meeting."
           ],
           "answer": "C",
           "skill": "sequence",
@@ -182,10 +182,10 @@
         {
           "stem": "Why was it unfair that Wu did not share the famous prize?",
           "options": [
-            "She had never studied physics.",
+            "She had never studied physics at a university in her life.",
             "She designed and ran the experiment that proved the idea true.",
-            "She did not work hard on the project.",
-            "The two men did not need her help at all."
+            "She did not work hard on the project like the others did.",
+            "The two men did not need her help at all, since they knew the answer."
           ],
           "answer": "B",
           "skill": "inference",
@@ -345,9 +345,9 @@
           "stem": "Why did Wu cool the cobalt to such an extremely low temperature?",
           "options": [
             "So the magnet could line up the nuclei of the atoms clearly",
-            "So the cobalt would turn into a liquid",
-            "So the particles would move faster than usual",
-            "So the cobalt would stop being radioactive"
+            "So the cobalt would turn into a liquid that flows easily",
+            "So the particles would move faster than usual in the tube",
+            "So the cobalt would stop being radioactive for a short time"
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -361,10 +361,10 @@
         {
           "stem": "What can be inferred from the fact that far more electrons flew out in one direction than the other?",
           "options": [
-            "The old rule about parity was correct after all.",
-            "The magnet in the experiment was broken.",
+            "The old rule about parity was correct after all, and nothing was learned.",
+            "The magnet in the experiment was broken, so the results are not useful.",
             "Nature does not always behave the same as its mirror image.",
-            "The cobalt had not been cooled enough."
+            "The cobalt had not been cooled enough, so the atoms were not lined up."
           ],
           "answer": "C",
           "skill": "inference",
@@ -378,10 +378,10 @@
         {
           "stem": "What can the reader infer about why Lee and Yang needed Wu specifically?",
           "options": [
-            "She was the only physicist who liked cold temperatures.",
+            "She was the only physicist who liked cold temperatures, so she was able to work in their cold lab.",
             "Her exceptional skill with careful experiments made her the right person to test their idea.",
-            "She had already won the Nobel Prize before this experiment.",
-            "She happened to live closest to their laboratory."
+            "She had already won the Nobel Prize before this experiment, so everyone trusted her ideas without tests.",
+            "She happened to live closest to their laboratory, so it was easy for her to get to work there."
           ],
           "answer": "B",
           "skill": "inference",
@@ -395,10 +395,10 @@
         {
           "stem": "In the article, confirm most nearly means —",
           "options": [
-            "to guess without any evidence",
+            "to guess without any evidence or proof",
             "to show something is true using a test",
-            "to completely ignore an idea",
-            "to disagree loudly with someone"
+            "to completely ignore an idea you dislike",
+            "to disagree loudly with someone at school"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -473,9 +473,9 @@
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
             "Wu's rigorous experiment provided the empirical proof that overturned the assumption of parity conservation in the weak interaction.",
-            "Lee and Yang personally performed the cobalt-60 experiment in their own laboratory.",
-            "Parity conservation has never been questioned by any physicist since Wu's experiment.",
-            "Cobalt-60 was invented by physicists specifically for Wu's research."
+            "Lee and Yang personally performed the cobalt-60 experiment in their own laboratory, with their own hands and tools.",
+            "Parity conservation has never been questioned by any physicist since Wu's experiment, and every rule remains the same.",
+            "Cobalt-60 was invented by physicists specifically for Wu's research, and it has never been used in any other laboratory in the world since."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -540,10 +540,10 @@
         {
           "stem": "What can be inferred about why theoretical reasoning alone could not resolve the parity question?",
           "options": [
-            "Because Lee and Yang refused to explain their idea to anyone",
+            "Because Lee and Yang refused to explain their idea to anyone at the university",
             "Because only an empirical experiment could reveal how nature actually behaves",
-            "Because mathematics is never useful in physics",
-            "Because the question had already been answered centuries earlier"
+            "Because mathematics is never useful in physics, so the idea could not be written down",
+            "Because the question had already been answered centuries earlier by Greek scholars"
           ],
           "answer": "B",
           "skill": "inference",
@@ -575,9 +575,9 @@
           "stem": "In the article, the word empirical most nearly means —",
           "options": [
             "based on evidence from observation or experiment",
-            "based purely on guesswork with no testing",
-            "related only to mathematics and equations",
-            "impossible to measure or observe directly"
+            "based purely on guesswork with no testing at all",
+            "related only to mathematics and long equations",
+            "impossible to measure or to observe directly"
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -591,10 +591,10 @@
         {
           "stem": "How does Wu's approach differ from that of Lee and Yang?",
           "options": [
-            "Both scientists performed the exact same laboratory experiment.",
+            "Both scientists performed the exact same laboratory experiment together, in one lab on the same day, and shared the work.",
             "Lee and Yang proposed the theoretical idea; Wu designed and executed the experimental test of it.",
-            "Wu proposed the theory, while Lee and Yang built the laboratory equipment.",
-            "Neither scientist contributed anything to the final discovery."
+            "Wu proposed the theory, while Lee and Yang built the laboratory equipment and ran the test in their own lab.",
+            "Neither scientist contributed anything to the final discovery at all, since it was found by a machine on its own."
           ],
           "answer": "B",
           "skill": "compare",

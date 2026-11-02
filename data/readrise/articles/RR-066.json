@@ -182,9 +182,9 @@
         {
           "stem": "What can happen if you use a screen right before bed?",
           "options": [
-            "Your eyes get stronger.",
-            "You may wake up too early.",
-            "Your bed gets too warm.",
+            "Your eyes get stronger and see better.",
+            "You may wake up too early the next day.",
+            "Your bed gets too warm during the night.",
             "Its bright light can make it hard to sleep."
           ],
           "answer": "D",
@@ -233,10 +233,10 @@
         {
           "stem": "How does the author organize most of the article?",
           "options": [
-            "By telling a story about a doctor",
+            "By telling a story about a doctor and her patients",
             "By telling a problem and then ways to fix it",
-            "By listing screens from small to big",
-            "By comparing eyes to ears"
+            "By listing screens from small to big, one by one",
+            "By comparing eyes to ears in each of the parts"
           ],
           "answer": "B",
           "skill": "text-structure",
@@ -344,10 +344,10 @@
         {
           "stem": "After a long time on a screen, you may feel eye strain. What does strain mean here?",
           "options": [
-            "A bright color on a screen",
+            "A bright color on a screen in a dark room",
             "A tired, sore feeling from working too hard",
-            "A tiny hole in the eye",
-            "A rule that doctors give"
+            "A tiny hole in the eye of a person",
+            "A rule that doctors give to patients"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -413,9 +413,9 @@
           "stem": "Why did the author most likely write this article?",
           "options": [
             "To inform readers about their eyes and give tips for healthy screen use",
-            "To persuade readers to buy new glasses",
-            "To entertain readers with a story about a game",
-            "To compare different brands of tablets"
+            "To persuade readers to buy new glasses from a shop near their school or home",
+            "To entertain readers with a funny story about a game that a boy plays all day",
+            "To compare different brands of tablets and tell readers which price is the best"
           ],
           "answer": "A",
           "skill": "author-purpose",
@@ -507,9 +507,9 @@
           "stem": "What is the job of the optic nerve?",
           "options": [
             "It carries signals from the retina to the brain.",
-            "It bends light onto the retina.",
-            "It controls how often you blink.",
-            "It produces tears for the eye."
+            "It bends light onto the retina at the back of the eye.",
+            "It controls how often you blink during the day.",
+            "It produces tears for the eye when you are sad."
           ],
           "answer": "A",
           "skill": "detail",
@@ -592,9 +592,9 @@
           "stem": "Why does the author begin by calling screens valuable tools before describing their effects?",
           "options": [
             "To present a balanced view that screens are useful but need sensible habits",
-            "To convince readers to buy more screens",
-            "To show that screens have no effects on the eyes",
-            "To introduce a story about a famous inventor"
+            "To convince readers to buy more screens for their homes and schools, as gifts",
+            "To show that screens have no effects on the eyes or the sleep of any child",
+            "To introduce a story about a famous inventor of the screen and his shop"
           ],
           "answer": "A",
           "skill": "author-purpose",

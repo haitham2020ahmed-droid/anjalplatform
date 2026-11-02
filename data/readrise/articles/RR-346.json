@@ -115,8 +115,8 @@
           "stem": "What is this article mostly about?",
           "options": [
             "A narrow strip of water that is important for carrying oil",
-            "How a large ship engine works day to day",
-            "The life story of a sailor from long ago",
+            "How a large ship engine works day to day on a long trip",
+            "The life story of a sailor from long ago who sailed the seas",
             "How oil is first pumped up from under the ground"
           ],
           "answer": "A",
@@ -131,9 +131,9 @@
         {
           "stem": "What is a strait?",
           "options": [
-            "A kind of very large ship used at sea",
+            "A kind of very large ship used at sea for trade",
             "A narrow strip of water joining two bigger seas",
-            "A type of pump used to draw up oil",
+            "A type of pump used to draw up oil from the ground",
             "A wide, open ocean with no land nearby"
           ],
           "answer": "B",
@@ -378,10 +378,10 @@
         {
           "stem": "How is the Strait of Hormuz different from a wide, open ocean?",
           "options": [
-            "The strait has no ships at all, unlike a busy ocean",
+            "The strait has no ships at all, unlike a busy ocean full of boats",
             "The strait is narrow, with land close by, unlike an open ocean",
-            "The strait is always much colder than any ocean",
-            "There is really no difference between them at all"
+            "The strait is always much colder than any ocean, in every season",
+            "There is really no difference between them at all, in any way"
           ],
           "answer": "B",
           "skill": "compare",
@@ -523,10 +523,10 @@
         {
           "stem": "In the article, the word chokepoint most nearly means \u2014",
           "options": [
-            "a tax charged on all goods being shipped",
+            "a tax charged on all goods being shipped across the sea",
             "a narrow passage carrying a large share of trade",
-            "a type of very large oil storage tanker",
-            "a wide, open area with no traffic at all"
+            "a type of very large oil storage tanker at a port",
+            "a wide, open area with no traffic at all near the coast"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -575,9 +575,9 @@
           "stem": "Why do energy analysts pay close attention to a passage as narrow as the Strait of Hormuz?",
           "options": [
             "Its narrow geography concentrates a huge volume of trade",
-            "It has no real connection to any ocean at all",
-            "No tanker vessel has ever used it successfully",
-            "It is in fact the largest body of water on Earth"
+            "It has no real connection to any ocean at all, so ships avoid it",
+            "No tanker vessel has ever used it successfully, so analysts watch it",
+            "It is in fact the largest body of water on Earth, so analysts watch it"
           ],
           "answer": "A",
           "skill": "inference",

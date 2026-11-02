@@ -25,9 +25,9 @@
       "stem": "What does debris mean?",
       "options": [
        "scattered broken pieces left behind",
-       "a quiet place in the forest",
-       "a small wild animal",
-       "a page in a journal"
+       "a quiet place deep in the forest",
+       "a small wild animal that hides in holes",
+       "a page in a journal or a book"
       ],
       "answer": 0
      }
@@ -139,10 +139,10 @@
      "check": {
       "stem": "What does indicated mean?",
       "options": [
-       "covered up",
+       "covered up with a cloth",
        "showed or pointed out",
-       "built quickly",
-       "forgot completely"
+       "built quickly in one day",
+       "forgot completely about it"
       ],
       "answer": 1
      }
@@ -167,9 +167,9 @@
       "stem": "Which sentence uses naturalist correctly?",
       "options": [
        "The naturalist wrote notes about the frogs in the pond.",
-       "The naturalist was made of wood and nails.",
-       "We ate a naturalist for breakfast.",
-       "The naturalist melted in the warm sun."
+       "The naturalist was made of wood and nails and stood by the barn.",
+       "We ate a naturalist for breakfast with some bread and tea.",
+       "The naturalist melted in the warm sun on the windowsill."
       ],
       "answer": 0
      }
@@ -261,10 +261,10 @@
      "check": {
       "stem": "What does afford mean?",
       "options": [
-       "to give something away for free",
-       "to grow plants in a garden",
+       "to give something away for free to a friend",
+       "to grow plants in a garden near a house",
        "to have enough money to buy something",
-       "to borrow land from a neighbor"
+       "to borrow land from a neighbor for a year"
       ],
       "answer": 2
      }
@@ -291,10 +291,10 @@
      "check": {
       "stem": "Which sentence uses loan correctly?",
       "options": [
-       "The loan grew tall in the sunny garden.",
+       "The loan grew tall in the sunny garden by the wall.",
        "She got a loan from her uncle and paid it back later.",
-       "He wore a red loan to the market.",
-       "A loan is a kind of sweet fruit."
+       "He wore a red loan to the market on Sunday.",
+       "A loan is a kind of sweet fruit that grows on trees."
       ],
       "answer": 1
      }
@@ -384,9 +384,9 @@
      "check": {
       "stem": "What does risk mean?",
       "options": [
-       "a sure way to win",
-       "a kind of vegetable",
-       "money you earn each week",
+       "a sure way to win every game you play",
+       "a kind of vegetable that grows in the ground",
+       "money you earn each week for your work",
        "a chance that something could go wrong"
       ],
       "answer": 3
@@ -414,10 +414,10 @@
      "check": {
       "stem": "Which sentence uses savings correctly?",
       "options": [
-       "The savings sang loudly in the tree.",
-       "She planted savings in the soil.",
+       "The savings sang loudly in the tree by the house.",
+       "She planted savings in the soil of her garden.",
        "He kept his savings in a jar to buy a bike later.",
-       "We walked across the savings to school."
+       "We walked across the savings to school today."
       ],
       "answer": 2
      }
@@ -509,9 +509,9 @@
       "stem": "What does access mean?",
       "options": [
        "the chance or right to use something",
-       "a broken screen",
-       "a game with no rules",
-       "a long rest"
+       "a broken screen on a phone or a tablet",
+       "a game with no rules at all, played in the yard",
+       "a long rest after a hard day of work"
       ],
       "answer": 0
      }
@@ -540,9 +540,9 @@
      "check": {
       "stem": "Which sentence uses advance correctly?",
       "options": [
-       "The advance tasted sweet and juicy.",
-       "She wore an advance on her head.",
-       "The advance barked at the mailman.",
+       "The advance tasted sweet and juicy on a hot day.",
+       "She wore an advance on her head to the party.",
+       "The advance barked at the mailman at the gate.",
        "Smartphones were a great advance in communication."
       ],
       "answer": 3
@@ -624,10 +624,10 @@
      "check": {
       "stem": "What does counterpoint mean?",
       "options": [
-       "a sharp pencil tip",
+       "a sharp pencil tip on a thin stick",
        "an opposite idea in an argument",
-       "a correct answer key",
-       "a new computer"
+       "a correct answer key for a test",
+       "a new computer in the classroom"
       ],
       "answer": 1
      }
@@ -652,9 +652,9 @@
       "stem": "Which sentence uses data correctly?",
       "options": [
        "The chart shows data about how long kids read each day.",
-       "The data ran around the playground.",
-       "She painted the data bright blue.",
-       "We planted data in the garden."
+       "The data ran around the playground until the bell rang.",
+       "She painted the data bright blue on the wall.",
+       "We planted data in the garden near the gate."
       ],
       "answer": 0
      }
@@ -742,10 +742,10 @@
      "check": {
       "stem": "What does committees mean?",
       "options": [
-       "large ships for war",
-       "heavy taxes on tea",
+       "large ships for war at sea",
+       "heavy taxes on tea and sugar",
        "groups chosen to do a special job",
-       "long letters to the king"
+       "long letters to the king of England"
       ],
       "answer": 2
      }
@@ -769,10 +769,10 @@
      "check": {
       "stem": "Which sentence uses convention correctly?",
       "options": [
-       "The convention swam across the river.",
+       "The convention swam across the river to the other side.",
        "Leaders traveled to the convention to talk about new laws.",
-       "He ate a convention with his soup.",
-       "The convention was a tiny red flower."
+       "He ate a convention with his soup at the kitchen table.",
+       "The convention was a tiny red flower on the school lawn."
       ],
       "answer": 1
      }
@@ -855,9 +855,9 @@
      "check": {
       "stem": "What does representatives mean?",
       "options": [
-       "soldiers who guard a fort",
-       "boxes of tea",
-       "ships that carry goods",
+       "soldiers who guard a fort at night",
+       "boxes of tea sent by ship",
+       "ships that carry goods across the sea",
        "people chosen to speak for others"
       ],
       "answer": 3
@@ -884,10 +884,10 @@
      "check": {
       "stem": "Which sentence uses resolve correctly?",
       "options": [
-       "The resolve flew over the ocean.",
-       "She put the resolve in her pocket.",
+       "The resolve flew over the ocean to a distant land.",
+       "She put the resolve in her pocket with some coins.",
        "The two sides met to resolve their argument.",
-       "A resolve is a type of hat."
+       "A resolve is a type of hat that people wear in rain."
       ],
       "answer": 2
      }
@@ -981,9 +981,9 @@
       "stem": "What does assuring mean?",
       "options": [
        "making someone feel calm and certain",
-       "making someone feel afraid",
-       "weaving cloth with thread",
-       "climbing a steep hill"
+       "making someone feel afraid and nervous",
+       "weaving cloth with thread on a loom",
+       "climbing a steep hill with a friend"
       ],
       "answer": 0
      }
@@ -1013,9 +1013,9 @@
      "check": {
       "stem": "Which sentence uses detected correctly?",
       "options": [
-       "He detected his lunch and ate it quickly.",
-       "The river detected over the hills.",
-       "They detected a blanket to keep warm.",
+       "He detected his lunch and ate it quickly at noon.",
+       "The river detected over the hills to the far sea.",
+       "They detected a blanket to keep warm in the camp.",
        "She detected a small sound coming from the cave."
       ],
       "answer": 3
@@ -1103,10 +1103,10 @@
      "check": {
       "stem": "What does guidance mean?",
       "options": [
-       "a heavy storm",
+       "a heavy storm at sea at night",
        "advice that helps you know what to do",
-       "a piece of silk",
-       "a hidden treasure"
+       "a piece of silk cloth in the market",
+       "a hidden treasure in a cave by the sea"
       ],
       "answer": 1
      }
@@ -1132,9 +1132,9 @@
       "stem": "Which sentence uses outcome correctly?",
       "options": [
        "Everyone was happy with the outcome of the long journey.",
-       "The outcome was sewn with red thread.",
-       "He drank a cup of outcome.",
-       "The outcome barked at the horse."
+       "The outcome was sewn with red thread by the tailor in town.",
+       "He drank a cup of outcome at breakfast time with his toast.",
+       "The outcome barked at the horse in the barn all night long."
       ],
       "answer": 0
      }
@@ -1227,10 +1227,10 @@
      "check": {
       "stem": "What does ambitious mean?",
       "options": [
-       "feeling sleepy and bored",
-       "being afraid of the dark",
+       "feeling sleepy and bored with every task",
+       "being afraid of the dark and of storms",
        "wanting very much to achieve something big",
-       "not caring about anything"
+       "not caring about anything at all, ever"
       ],
       "answer": 2
      }
@@ -1256,10 +1256,10 @@
      "check": {
       "stem": "Which sentence uses memorized correctly?",
       "options": [
-       "The memorized dog ran into the yard.",
+       "The memorized dog ran into the yard and barked at the gate.",
        "He memorized his plan so he would not forget a step.",
-       "She memorized a sandwich for lunch.",
-       "They memorized the floor with a mop."
+       "She memorized a sandwich for lunch and ate it on the bench.",
+       "They memorized the floor with a mop after the party was over."
       ],
       "answer": 1
      }
@@ -1459,9 +1459,9 @@
       "stem": "What does appreciation mean?",
       "options": [
        "understanding and enjoying the value of something",
-       "wanting to go home quickly",
-       "being angry at your family",
-       "forgetting a trip"
+       "wanting to go home quickly after class is over",
+       "being angry at your family for a whole day",
+       "forgetting a trip that you took long ago with a friend"
       ],
       "answer": 0
      }
@@ -1487,9 +1487,9 @@
      "check": {
       "stem": "Which sentence uses blurted correctly?",
       "options": [
-       "He blurted a tall tree in the park.",
-       "The bus blurted down the quiet road.",
-       "They blurted their dinner with a spoon.",
+       "He blurted a tall tree in the park near school.",
+       "The bus blurted down the quiet road at night.",
+       "They blurted their dinner with a spoon and a fork.",
        "She blurted out the surprise before the party started."
       ],
       "answer": 3
@@ -1580,10 +1580,10 @@
      "check": {
       "stem": "What does contradicted mean?",
       "options": [
-       "agreed with every word",
+       "agreed with every word that he said at dinner",
        "said the opposite of what another person said",
-       "sang a happy song",
-       "walked to the market"
+       "sang a happy song with a friend in the park today",
+       "walked to the market with her aunt in the morning"
       ],
       "answer": 1
      }
@@ -1613,9 +1613,9 @@
       "stem": "Which sentence uses critical correctly?",
       "options": [
        "He was critical of the trip and complained all day.",
-       "The critical cookie was sweet and soft.",
-       "She swam across the critical lake.",
-       "A critical is a kind of bird."
+       "The critical cookie was sweet and soft and still warm.",
+       "She swam across the critical lake in the morning sun.",
+       "A critical is a kind of bird that lives near the sea."
       ],
       "answer": 0
      }
@@ -1702,10 +1702,10 @@
      "check": {
       "stem": "What does artificial mean?",
       "options": [
-       "found deep in the ocean",
-       "growing wild on a beach",
+       "found deep in the ocean or in caves",
+       "growing wild on a beach by the sea",
        "made by people instead of nature",
-       "very old and broken"
+       "very old and broken from long use"
       ],
       "answer": 2
      }
@@ -1733,10 +1733,10 @@
      "check": {
       "stem": "Which sentence uses collaborate correctly?",
       "options": [
-       "The fish collaborate was very blue.",
+       "The fish collaborate was very blue and shiny at noon.",
        "The teams collaborate to rescue the sea turtles.",
-       "She ate a collaborate for lunch.",
-       "The oil collaborate sank to the bottom."
+       "She ate a collaborate for lunch with her friends.",
+       "The oil collaborate sank to the bottom of the sea."
       ],
       "answer": 1
      }
@@ -1823,9 +1823,9 @@
      "check": {
       "stem": "What does function mean?",
       "options": [
-       "a kind of sea animal",
-       "a large wave",
-       "a bright color",
+       "a kind of sea animal in a lake",
+       "a large wave on the beach",
+       "a bright color of the sky",
        "the job something is made to do"
       ],
       "answer": 3
@@ -1940,9 +1940,9 @@
       "stem": "What does archaeologist mean?",
       "options": [
        "a scientist who digs up and studies objects from the past",
-       "a person who sells strings",
-       "a farmer who grows corn",
-       "a ruler of a city"
+       "a person who sells strings and ropes at a market stall in town",
+       "a farmer who grows corn and wheat in large fields every year",
+       "a ruler of a city who makes the laws for all of its people"
       ],
       "answer": 0
      }
@@ -1965,9 +1965,9 @@
      "check": {
       "stem": "Which sentence uses era correctly?",
       "options": [
-       "She tied an era to the rope.",
-       "The era jumped into the river.",
-       "He ate a warm era for dinner.",
+       "She tied an era to the rope on the boat.",
+       "The era jumped into the river and swam off.",
+       "He ate a warm era for dinner with his family.",
        "The Incas built great roads during their era."
       ],
       "answer": 3
@@ -2021,10 +2021,10 @@
      "check": {
       "stem": "Which word is closest in meaning to historian?",
       "options": [
-       "builder",
+       "builder of houses and roads",
        "chronicler of the past",
-       "sailor",
-       "painter"
+       "sailor on a ship at sea",
+       "painter of walls and doors"
       ],
       "answer": 1
      }
@@ -2083,9 +2083,9 @@
       "stem": "Which sentence uses preserved correctly?",
       "options": [
        "The museum preserved the quipu in a glass case.",
-       "The rope preserved over the mountain.",
-       "He preserved loudly at the soccer game.",
-       "The quipu preserved to the store."
+       "The rope preserved over the mountain at night.",
+       "He preserved loudly at the soccer game on Sunday.",
+       "The quipu preserved to the store in the town."
       ],
       "answer": 0
      }
@@ -2175,10 +2175,10 @@
      "check": {
       "stem": "What does anticipation mean?",
       "options": [
-       "deep sadness about the past",
-       "a long walk north",
+       "deep sadness about the past and what is gone",
+       "a long walk north with a big group",
        "excited waiting for something to happen",
-       "a loud argument"
+       "a loud argument between friends"
       ],
       "answer": 2
      }
@@ -2208,10 +2208,10 @@
      "check": {
       "stem": "Which sentence uses defy correctly?",
       "options": [
-       "She will defy a cake for the party.",
+       "She will defy a cake for the party at school and bring it in.",
        "He decided to defy the cruel law that kept people from reading.",
-       "The bird defy across the sky.",
-       "They defy a nap after lunch."
+       "The bird defy across the sky above the lake and the hills.",
+       "They defy a nap after lunch in the shade of the big tree."
       ],
       "answer": 1
      }
@@ -2294,9 +2294,9 @@
      "check": {
       "stem": "What does outspoken mean?",
       "options": [
-       "keeping your thoughts secret",
+       "keeping your thoughts secret from all",
        "speaking in another language",
-       "forgetting what to say",
+       "forgetting what to say at all",
        "saying your opinions boldly and openly"
       ],
       "answer": 3
@@ -2324,10 +2324,10 @@
      "check": {
       "stem": "Which sentence uses reserved correctly?",
       "options": [
-       "The reserved dog barked at every car.",
-       "He reserved loudly from the stage.",
+       "The reserved dog barked at every car on the road.",
+       "He reserved loudly from the stage in front of the crowd.",
        "The reserved girl rarely shared her ideas in class.",
-       "The reserved shouted at the crowd."
+       "The reserved shouted at the crowd as it ran by."
       ],
       "answer": 2
      }
@@ -2454,9 +2454,9 @@
      "check": {
       "stem": "Which sentence uses concealed correctly?",
       "options": [
-       "The concealed sang a loud song.",
-       "He concealed a glass of juice in one sip.",
-       "The concealed ran across the room.",
+       "The concealed sang a loud song in the school hall.",
+       "He concealed a glass of juice in one sip at lunch.",
+       "The concealed ran across the room to the door.",
        "The chameleon stayed concealed on a brown branch."
       ],
       "answer": 3
@@ -2579,9 +2579,9 @@
       "stem": "Which sentence uses precise correctly?",
       "options": [
        "She wrote down the precise time Brownie went missing.",
-       "The precise ran away into the yard.",
-       "He ate a precise for a snack.",
-       "The precise was tall and green."
+       "The precise ran away into the yard and hid behind a tree.",
+       "He ate a precise for a snack after the long walk home.",
+       "The precise was tall and green and stood by the wall."
       ],
       "answer": 0
      }
@@ -2672,10 +2672,10 @@
      "check": {
       "stem": "What does barren mean?",
       "options": [
-       "full of bright flowers",
-       "warm and sunny",
+       "full of bright flowers in spring",
+       "warm and sunny in the afternoon",
        "empty, with nothing growing",
-       "noisy and crowded"
+       "noisy and crowded with people"
       ],
       "answer": 2
      }
@@ -2701,10 +2701,10 @@
      "check": {
       "stem": "Which sentence uses expression correctly?",
       "options": [
-       "The expression flew into the window.",
+       "The expression flew into the window and then fell down.",
        "Her poem is an expression of joy about summer.",
-       "He planted an expression in the yard.",
-       "The expression melted in the sun."
+       "He planted an expression in the yard behind the house.",
+       "The expression melted in the sun on the hot afternoon."
       ],
       "answer": 1
      }
@@ -2782,9 +2782,9 @@
      "check": {
       "stem": "What does lyric mean in poetry?",
       "options": [
-       "a long story about a battle",
-       "a list of facts",
-       "a poem with no feelings",
+       "a long story about a battle at sea and a king",
+       "a list of facts about the sea, the sun, and the sky",
+       "a poem with no feelings and no music in it at all",
        "a short poem that expresses personal feelings"
       ],
       "answer": 3
@@ -2805,10 +2805,10 @@
      "check": {
       "stem": "Which line shows alliteration?",
       "options": [
-       "The day was warm and long.",
-       "I love the sea in June.",
+       "The day was warm and long and bright.",
+       "I love the sea in June and July.",
        "Busy bees buzz by the bright blooms.",
-       "Autumn is coming soon."
+       "Autumn is coming soon to our town."
       ],
       "answer": 2
      }
@@ -2893,9 +2893,9 @@
       "stem": "What does approximately mean?",
       "options": [
        "about; close to an exact number",
-       "exactly and perfectly",
-       "never at all",
-       "far away"
+       "exactly and perfectly right every time",
+       "never at all, not even once or twice",
+       "far away from here, by a lot"
       ],
       "answer": 0
      }
@@ -2919,9 +2919,9 @@
      "check": {
       "stem": "Which sentence uses astronomical correctly?",
       "options": [
-       "She cooked an astronomical soup for dinner.",
-       "The astronomical barked at the cat.",
-       "He tied his astronomical before running.",
+       "She cooked an astronomical soup for dinner last night with rice.",
+       "The astronomical barked at the cat in the yard all afternoon.",
+       "He tied his astronomical before running to school with his friends.",
        "The scientist wrote astronomical notes about the moons of Jupiter."
       ],
       "answer": 3
@@ -3003,8 +3003,8 @@
       "options": [
        "the distance around the outside of a circle",
        "the distance straight across a circle through its center",
-       "the weight of a planet",
-       "the color of a star"
+       "the weight of a planet in space, which is found by using a scale",
+       "the color of a star as seen from the Earth at night, which depends on its heat"
       ],
       "answer": 1
      }
@@ -3031,9 +3031,9 @@
       "stem": "Which sentence uses evaluate correctly?",
       "options": [
        "Students evaluate the evidence to decide which idea is correct.",
-       "The evaluate floated in space.",
-       "He wore an evaluate on his wrist.",
-       "The evaluate grew in the garden."
+       "The evaluate floated in space for many hours and days, high above the planet.",
+       "He wore an evaluate on his wrist all day and all night, even in bed.",
+       "The evaluate grew in the garden with the roses and the tall green beans."
       ],
       "answer": 0
      }
@@ -3125,10 +3125,10 @@
      "check": {
       "stem": "What does assume mean?",
       "options": [
-       "to know something for certain",
-       "to sing in a show",
+       "to know something for certain and be sure",
+       "to sing in a show on stage for all",
        "to believe something without proof",
-       "to lose a job"
+       "to lose a job at the shop in town"
       ],
       "answer": 2
      }
@@ -3153,10 +3153,10 @@
      "check": {
       "stem": "Which sentence uses guarantee correctly?",
       "options": [
-       "The guarantee danced on the stage.",
+       "The guarantee danced on the stage with a smile.",
        "I guarantee the show will make everyone smile.",
-       "She ate a guarantee for breakfast.",
-       "The guarantee was a big brown hat."
+       "She ate a guarantee for breakfast every day.",
+       "The guarantee was a big brown hat on a hook."
       ],
       "answer": 1
      }
@@ -3240,9 +3240,9 @@
      "check": {
       "stem": "What does rely mean?",
       "options": [
-       "to run away from home",
-       "to forget a friend",
-       "to argue loudly",
+       "to run away from home at night",
+       "to forget a friend for a while",
+       "to argue loudly with someone",
        "to depend on someone for help"
       ],
       "answer": 3
@@ -3272,10 +3272,10 @@
      "check": {
       "stem": "Which sentence uses supportive correctly?",
       "options": [
-       "The supportive rained on the city.",
-       "He put the supportive in the oven.",
+       "The supportive rained on the city all day long and all night.",
+       "He put the supportive in the oven to bake for an hour.",
        "Her supportive sister cheered her on during practice.",
-       "The supportive was a tall building."
+       "The supportive was a tall building by the sea in the town."
       ],
       "answer": 2
      }
@@ -3388,9 +3388,9 @@
      "check": {
       "stem": "Which sentence uses declined correctly?",
       "options": [
-       "She declined a song to the class.",
-       "The river declined into a tall tree.",
-       "He declined his lunch into a sandwich.",
+       "She declined a song to the class and then sat down in her seat.",
+       "The river declined into a tall tree by the bank of the stream.",
+       "He declined his lunch into a sandwich at the picnic by the lake.",
        "The bird population declined when its habitat was destroyed."
       ],
       "answer": 3
@@ -3510,9 +3510,9 @@
       "stem": "Which sentence uses thrive correctly?",
       "options": [
        "Fish thrive in clean, healthy rivers.",
-       "The thrive was painted blue.",
-       "He tied a thrive to his shoe.",
-       "A thrive is a kind of bread."
+       "The thrive was painted blue by the artist.",
+       "He tied a thrive to his shoe before the race.",
+       "A thrive is a kind of bread that bakers make."
       ],
       "answer": 0
      }
@@ -3634,10 +3634,10 @@
      "check": {
       "stem": "Which sentence uses contributions correctly?",
       "options": [
-       "The contributions flew over the bakery.",
+       "The contributions flew over the bakery and landed on the roof.",
        "The town collected contributions of food for the soldiers.",
-       "She wore contributions on her feet.",
-       "He swam across the contributions."
+       "She wore contributions on her feet to the school yard.",
+       "He swam across the contributions to the other side."
       ],
       "answer": 1
      }
@@ -3724,9 +3724,9 @@
      "check": {
       "stem": "What does intercept mean?",
       "options": [
-       "to bake bread",
-       "to write a letter",
-       "to welcome a guest",
+       "to bake bread in an oven",
+       "to write a letter to a friend",
+       "to welcome a guest to the house",
        "to catch something on its way"
       ],
       "answer": 3
@@ -3849,9 +3849,9 @@
       "stem": "What does adaptation mean?",
       "options": [
        "a special feature that helps an animal survive",
-       "a large underwater ship",
-       "a map of the ocean",
-       "the darkest part of the sea"
+       "a large underwater ship that carries people and goods",
+       "a map of the ocean showing the deep and shallow areas",
+       "the darkest part of the sea, where the light never goes"
       ],
       "answer": 0
      }
@@ -3878,9 +3878,9 @@
      "check": {
       "stem": "Which sentence uses agile correctly?",
       "options": [
-       "The agile rock sat still for years.",
-       "She drank an agile with her lunch.",
-       "The agile was a kind of boat.",
+       "The agile rock sat still for years on the hill.",
+       "She drank an agile with her lunch at school.",
+       "The agile was a kind of boat on the old river.",
        "The agile fish twisted quickly between the rocks."
       ],
       "answer": 3
@@ -4089,9 +4089,9 @@
       "stem": "What does blares mean?",
       "options": [
        "moves very slowly",
-       "shines softly",
+       "shines softly in the dark night",
        "makes a very loud sound",
-       "whispers quietly"
+       "whispers quietly to a friend"
       ],
       "answer": 2
      }
@@ -4120,10 +4120,10 @@
      "check": {
       "stem": "Which sentence uses connection correctly?",
       "options": [
-       "The connection flew south for the winter.",
+       "The connection flew south for the winter with the other geese.",
        "Music creates a connection between people of different cultures.",
-       "He ate a connection with rice.",
-       "The connection was too heavy to lift."
+       "He ate a connection with rice and beans for lunch today.",
+       "The connection was too heavy to lift off the floor by hand."
       ],
       "answer": 1
      }
@@ -4198,9 +4198,9 @@
      "check": {
       "stem": "Which line uses personification?",
       "options": [
-       "The wind was cold and strong.",
-       "I traveled by train to the city.",
-       "The map was blue and green.",
+       "The wind was cold and strong in the night.",
+       "I traveled by train to the big city.",
+       "The map was blue and green, with a small red line.",
        "The wind sang a song to the sleepy town."
       ],
       "answer": 3
@@ -4220,10 +4220,10 @@
      "check": {
       "stem": "What does assonance mean?",
       "options": [
-       "repeating the first letter of words",
-       "words that end exactly the same",
+       "repeating the first letter of words in a line",
+       "words that end exactly the same way at the end",
        "repeating the same vowel sound in nearby words",
-       "a poem with no rhythm"
+       "a poem with no rhythm and no rhyme at all"
       ],
       "answer": 2
      }
@@ -4242,10 +4242,10 @@
      "check": {
       "stem": "Which line shows consonance?",
       "options": [
-       "Ice is nice in July.",
+       "Ice is nice in July, so we eat it at noon.",
        "The black truck struck the stack of bricks.",
-       "I fly up high.",
-       "Go home slowly."
+       "I fly up high in the sky, and I see the sun.",
+       "Go home slowly, but do not stop on the way."
       ],
       "answer": 1
      }

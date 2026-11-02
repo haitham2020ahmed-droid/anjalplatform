@@ -69,9 +69,9 @@
     "passage": "Lina was very kind. She saw a new girl sitting alone. Lina sat next to her and said hello. The new girl smiled. Soon they were best friends.",
     "stem": "Why did Lina and the new girl become friends?",
     "options": [
-     "The new girl was sitting alone.",
+     "The new girl was sitting alone on a bench.",
      "Lina was kind and said hello to her.",
-     "The new girl had a new bag.",
+     "The new girl had a new bag and a pen.",
      "They lived in the same house."
     ],
     "answer": 1,
@@ -99,10 +99,10 @@
      "passage": "Omar was in a hurry. He ran down the stairs. He fell and hurt his knee.",
      "stem": "Why did Omar hurt his knee?",
      "options": [
-      "He was hungry for his lunch.",
-      "He was sleepy and tired.",
+      "He was hungry for his lunch at noon.",
+      "He was sleepy and tired after class.",
       "He ran down the stairs in a hurry.",
-      "He walked down very slowly."
+      "He walked down the stairs very slowly."
      ],
      "answer": 2,
      "why": "He was in a hurry and ran, so he fell."
@@ -112,9 +112,9 @@
      "stem": "Why is the garden full of colour?",
      "options": [
       "Noor waters the flowers every day.",
-      "It rained a lot.",
-      "Noor does not like plants.",
-      "Dad bought new flowers."
+      "It rained a lot in the spring.",
+      "Noor does not like plants at all.",
+      "Dad bought new flowers last week."
      ],
      "answer": 0,
      "why": "Noor loves plants and waters them every day, so the garden is full of colour."
@@ -178,10 +178,10 @@
     "passage": "Hamad was a stubborn boy. When his father said the sea was too rough for swimming, Hamad went in anyway. A big wave knocked him over, and he swallowed a mouthful of salty water. A lifeguard pulled him out. After that, Hamad always listened to the warning flags on the beach.",
     "stem": "How does Hamad's stubbornness affect the plot?",
     "options": [
-     "It makes him stay on the sand and read a book.",
+     "It makes him stay on the sand and read a book all day.",
      "It helps him become the best swimmer on the beach.",
      "It leads him to swim in rough water, so he needs to be rescued.",
-     "It makes the lifeguard angry with his father."
+     "It makes the lifeguard angry with his father for being late."
     ],
     "answer": 2,
     "hint": "What does Hamad do because he is stubborn? What happens next?",
@@ -210,10 +210,10 @@
      "passage": "Afraid of the dark, Reem left her light on every night. One night the bulb burned out. She went to find her father, and together they discovered that the power was off in the whole street.",
      "stem": "How does Reem's fear move the plot?",
      "options": [
-      "It makes her hide under the blanket and sleep.",
+      "It makes her hide under the blanket and sleep all night.",
       "It leads her to find her father and discover the power cut.",
-      "It makes her angry at her father for the dark.",
-      "It causes the bulb in her room to burn out."
+      "It makes her angry at her father for the dark and the noise.",
+      "It causes the bulb in her room to burn out suddenly."
      ],
      "answer": 1,
      "why": "Her fear of the dark sends her to her father, and together they discover the power cut."
@@ -323,7 +323,7 @@
      "stem": "How do Khalid's feelings affect the plot?",
      "options": [
       "His excitement keeps him awake, leading to a chain of problems.",
-      "His calm mood helps him sleep well and play his best.",
+      "His calm mood helps him sleep well and play his best in the final.",
       "His anger at the referee makes him leave the match.",
       "His sadness about the team makes him miss the final."
      ],
@@ -334,9 +334,9 @@
      "passage": "Sumaya was honest to a fault. When the shopkeeper gave her too much change, she walked back across the market to return it. The shopkeeper was so impressed that he offered her a summer job.",
      "stem": "What causes the shopkeeper to offer Sumaya a job?",
      "options": [
-      "She asks him for a job.",
-      "Her mother knows the shopkeeper.",
-      "She gives him too much money.",
+      "She asks him for a job every single day.",
+      "Her mother knows the shopkeeper very well.",
+      "She gives him too much money by mistake.",
       "Her honesty in returning the extra change."
      ],
      "answer": 3,
@@ -405,9 +405,9 @@
     "passage": "Everyone in the village knew Umm Saleh as the woman who never threw anything away. Her courtyard was crowded with old ropes, broken lanterns, empty tins and planks of wood. Her neighbours teased her, and her own son begged her to clear the mess. Then, one winter, heavy rain flooded the lower road, and the bridge to the clinic washed away. While others waited for help from the town, Umm Saleh directed the young men to carry her planks and ropes to the stream. By evening, they had built a narrow footbridge, and the doctor was able to cross to an injured farmer on the other side. The next spring, the village council asked Umm Saleh to keep a store of materials for emergencies, and nobody laughed at her courtyard again.",
     "stem": "How does Umm Saleh's habit of keeping everything shape the plot?",
     "options": [
-     "It causes the flood, because her courtyard blocks the water.",
-     "It makes her son leave the village to live in town.",
-     "It has no real effect, because help arrives from the town.",
+     "It causes the flood, because her full courtyard blocks the water from the hills.",
+     "It makes her son leave the village to live in town, far from her.",
+     "It has no real effect on the story, because help arrives from the town.",
      "It first makes her a joke, then lets the village build a bridge in an emergency."
     ],
     "answer": 3,
@@ -453,9 +453,9 @@
      "stem": "How do the twins' different traits move the plot?",
      "options": [
       "Their traits combine: Lama's planning and Lujain's friendliness together save the bakery.",
-      "Only Lama's planning matters; Lujain's visits change nothing at the end.",
-      "Their differences cause arguments, so the bakery has to close.",
-      "Lujain's friendliness causes them to lose customers."
+      "Only Lama's planning matters; Lujain's visits change nothing at the end of the story.",
+      "Their differences cause arguments, so the bakery has to close down for good.",
+      "Lujain's friendliness causes them to lose customers, and Lama blames her for it."
      ],
      "answer": 0,
      "why": "Each twin's strength solves part of the problem; together they bring the customers back."

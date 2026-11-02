@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
-            "All regions of the world have exactly the same number of people.",
-            "Cities never grow larger than small towns.",
+            "All regions of the world have exactly the same number of people, no matter the land or the weather.",
+            "Cities never grow larger than small towns, because families always prefer to live in the villages.",
             "Water, climate, farmland, and jobs explain why people cluster in some places and not others.",
-            "Deserts always have more people than river valleys."
+            "Deserts always have more people than river valleys, since there is more room for houses there."
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -328,9 +328,9 @@
           "stem": "What does the article say rivers and coastlines allow boats to do?",
           "options": [
             "Carry people and goods and help trade",
-            "Stop climates from changing",
-            "Make deserts more fertile",
-            "Remove jobs from cities"
+            "Stop climates from changing over time",
+            "Make deserts more fertile and green",
+            "Remove jobs from cities and towns"
           ],
           "answer": "A",
           "skill": "detail",
@@ -361,10 +361,10 @@
         {
           "stem": "What is the result when a region has a mild, comfortable climate?",
           "options": [
-            "Fewer people choose to live there",
-            "Farmland there stops producing food",
+            "Fewer people choose to live there in the end",
+            "Farmland there stops producing any food at all",
             "It tends to attract large numbers of people",
-            "Rivers there dry up completely"
+            "Rivers there dry up completely in the summer"
           ],
           "answer": "C",
           "skill": "cause-effect",
@@ -412,10 +412,10 @@
         {
           "stem": "How does the author organize the explanation of where people live?",
           "options": [
-            "By telling a single family's life story",
+            "By telling a single family's life story, from birth to old age",
             "By explaining several separate reasons, one at a time",
-            "By comparing two countries' governments",
-            "By listing rules that cities must follow"
+            "By comparing two countries' governments and their laws",
+            "By listing rules that cities must follow when they grow"
           ],
           "answer": "B",
           "skill": "text-structure",
@@ -523,10 +523,10 @@
         {
           "stem": "The article describes wealth or jobs as \"concentrated\" in cities. Which detail best shows what concentrated means here?",
           "options": [
-            "Rocky terrain with steep mountain slopes",
-            "Boats carrying goods along a quiet river",
+            "Rocky terrain with steep mountain slopes and few people",
+            "Boats carrying goods along a quiet river to the sea",
             "Shops, factories, offices, and schools packed closely together",
-            "A village in an extremely cold polar region"
+            "A village in an extremely cold polar region with a few houses"
           ],
           "answer": "C",
           "skill": "vocabulary",
@@ -540,10 +540,10 @@
         {
           "stem": "Why, according to the article, does fertile farmland allow a dense population to persist?",
           "options": [
-            "Because it is always located very close to the poles",
+            "Because it is always located very close to the poles, where the weather is mild",
             "Because it produces surpluses of food that can feed many people over generations",
-            "Because it removes the need for any infrastructure",
-            "Because it attracts cold, arid weather patterns"
+            "Because it removes the need for any infrastructure, such as roads or markets",
+            "Because it attracts cold, arid weather patterns from the desert far away"
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -575,9 +575,9 @@
           "stem": "A mountain region has little farmland and poor infrastructure connecting it to nearby cities. What does the article suggest is most likely true of its population?",
           "options": [
             "It probably has a relatively low population compared to fertile lowlands",
-            "It probably has a very dense, rapidly growing population",
-            "It probably has the strongest trade network in its country",
-            "It probably has no climate at all"
+            "It probably has a very dense, rapidly growing population in its cities",
+            "It probably has the strongest trade network in its country, with roads everywhere",
+            "It probably has no climate at all, so nobody can live there or visit"
           ],
           "answer": "A",
           "skill": "inference",
@@ -591,10 +591,10 @@
         {
           "stem": "Why does the author repeatedly connect water, climate, farmland, and infrastructure to population throughout the article?",
           "options": [
-            "To argue that infrastructure is irrelevant to where people settle",
-            "To prove that climate alone decides where every person on Earth lives",
+            "To argue that infrastructure is irrelevant to where people settle, but climate matters",
+            "To prove that climate alone decides where every person on Earth lives and works",
             "To argue that population distribution results from several combined factors, not one",
-            "To show that migration never actually changes a region's population"
+            "To show that migration never actually changes a region's population in any country"
           ],
           "answer": "C",
           "skill": "author-purpose",

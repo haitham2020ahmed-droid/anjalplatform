@@ -115,9 +115,9 @@
           "stem": "What is this article mostly about?",
           "options": [
             "How paper came to Baghdad and helped people make and share more books",
-            "How to build a river boat",
-            "Why people in China wrote on skin",
-            "How to play games in a library"
+            "How to build a river boat out of wood and rope for a long trip to the sea",
+            "Why people in China wrote on skin in the first years after paper was made",
+            "How to play games in a library with other children after the school day"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -199,10 +199,10 @@
         {
           "stem": "Why do you think a whole street in Baghdad sold books?",
           "options": [
-            "Books were against the rules in other places",
+            "Books were against the rules in other places in the city",
             "Paper made books cheap, so many people wanted to buy them",
-            "The rulers did not like books",
-            "Only one person in the city could read"
+            "The rulers did not like books, so they sent them away",
+            "Only one person in the city could read, so he sold them"
           ],
           "answer": "B",
           "skill": "inference",
@@ -233,10 +233,10 @@
         {
           "stem": "How does the author mostly tell this history?",
           "options": [
-            "As a list of rules",
-            "By comparing two cities",
+            "As a list of rules about paper and how to use it",
+            "By comparing two cities that make paper in their shops",
             "In the order things happened, from before paper to today",
-            "As a poem"
+            "As a poem about the long history of paper and books"
           ],
           "answer": "C",
           "skill": "text-structure",
@@ -294,9 +294,9 @@
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
             "Papermaking in Abbasid Baghdad made books more common and helped knowledge spread.",
-            "Parchment was better than paper for writing.",
-            "The House of Wisdom was the only building in Baghdad.",
-            "Paper was invented in Baghdad."
+            "Parchment was better than paper for writing, so scholars kept using animal skins in Baghdad.",
+            "The House of Wisdom was the only building in Baghdad, and every book was kept inside it.",
+            "Paper was invented in Baghdad by Arab scholars, and it quickly spread to China."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -379,9 +379,9 @@
           "stem": "Why might scholars have traveled from many lands to the House of Wisdom?",
           "options": [
             "It held many books and was a place to study with others",
-            "It was the only place that sold parchment",
-            "It was a paper mill",
-            "It was near the sea"
+            "It was the only place that sold parchment in the land",
+            "It was a paper mill that made paper for the caliph",
+            "It was near the sea and had a busy port for ships"
           ],
           "answer": "A",
           "skill": "inference",
@@ -395,10 +395,10 @@
         {
           "stem": "Why did scholars translate books from Greek and Persian into Arabic?",
           "options": [
-            "To make the books shorter",
+            "To make the books shorter and easier for children",
             "So more readers in Baghdad could learn from them",
-            "Because Arabic books cost more",
-            "To hide the ideas from others"
+            "Because Arabic books cost more than Greek books",
+            "To hide the ideas from others who lived far away"
           ],
           "answer": "B",
           "skill": "inference",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
-            "Abbasid Baghdad imported all its books from Europe.",
+            "Abbasid Baghdad imported all its books from Europe, which made scholarship grow slowly in the city.",
             "The arrival of papermaking in Abbasid Baghdad lowered the cost of books and helped scholarship flourish.",
-            "Parchment remained the main writing material in Baghdad.",
-            "Al-Khwarizmi invented paper."
+            "Parchment remained the main writing material in Baghdad, because paper was never used by scholars there.",
+            "Al-Khwarizmi invented paper, and this was the main reason the city became famous for science."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -540,9 +540,9 @@
         {
           "stem": "How did translation at the House of Wisdom affect ancient knowledge?",
           "options": [
-            "It replaced older ideas with new ones",
-            "It made the old books much more expensive to buy",
-            "It kept the knowledge only in Greek",
+            "It replaced older ideas with new ones, so old books were thrown away or burned",
+            "It made the old books much more expensive to buy for the students",
+            "It kept the knowledge only in Greek, so few readers could use it",
             "It preserved knowledge that might otherwise have been lost"
           ],
           "answer": "D",

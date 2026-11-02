@@ -88,7 +88,7 @@
       "questions": [
         {
           "stem": "What is this article mostly about?",
-          "options": ["Space stations that were built before the ISS", "How rockets are launched from Earth", "Why the Moon changes shape every month", "How astronauts play sports in space"],
+          "options": ["Space stations that were built before the ISS", "How rockets are launched from Earth into space", "Why the Moon changes shape every month", "How astronauts play sports in space on the station"],
           "answer": "A",
           "skill": "central-idea",
           "why": "The article describes Salyut, Skylab, and Mir, and how they led to the ISS.",
@@ -174,7 +174,7 @@
         },
         {
           "stem": "How did engineers build Skylab?",
-          "options": ["By converting an empty rocket stage into a laboratory", "By copying the design of Salyut 1 exactly", "By building it brick by brick on the ground", "By using parts bought from another country"],
+          "options": ["By converting an empty rocket stage into a laboratory", "By copying the design of Salyut 1 exactly in every part", "By building it brick by brick on the ground of the desert", "By using parts bought from another country and put together"],
           "answer": "A",
           "skill": "detail",
           "why": "The article says Skylab was made by converting an empty rocket stage into a laboratory.",
@@ -244,7 +244,7 @@
       "questions": [
         {
           "stem": "Which statement best expresses the central idea of the article?",
-          "options": ["Early stations such as Salyut, Skylab, and Mir, despite setbacks, built the knowledge and cooperation that shaped the ISS.", "Space stations have always been free of danger or difficulty.", "The Soviet Union built space stations only to compete with the United States.", "Skylab was the only station that ever had serious problems."],
+          "options": ["Early stations such as Salyut, Skylab, and Mir, despite setbacks, built the knowledge and cooperation that shaped the ISS.", "Space stations have always been free of danger or difficulty, so astronauts never worry about them.", "The Soviet Union built space stations only to compete with the United States, and never to study science, medicine or space travel.", "Skylab was the only station that ever had serious problems, while all the others worked perfectly well."],
           "answer": "A",
           "skill": "central-idea",
           "why": "The article traces setbacks and achievements across three stations that together shaped the ISS.",
@@ -260,7 +260,7 @@
         },
         {
           "stem": "What change did Salyut 6 and Salyut 7 add that earlier stations lacked?",
-          "options": ["A giant window for viewing Earth", "A second docking port for crews and supply ships", "A kitchen for cooking hot meals", "A swimming pool for exercise"],
+          "options": ["A giant window for viewing Earth from space", "A second docking port for crews and supply ships", "A kitchen for cooking hot meals for the crew", "A swimming pool for exercise and fun in orbit"],
           "answer": "B",
           "skill": "detail",
           "why": "The article explains that a second docking port let fresh crews and supplies arrive during a mission.",
@@ -284,7 +284,7 @@
         },
         {
           "stem": "Why did engineers converting a rocket stage into Skylab make sense, even though the shield later tore away?",
-          "options": ["Because it reused large, already-built hardware instead of starting from nothing", "Because rocket stages are impossible to launch into orbit", "Because rocket stages are naturally airtight and safe", "Because it was the cheapest way to avoid launching anything at all"],
+          "options": ["Because it reused large, already-built hardware instead of starting from nothing", "Because rocket stages are impossible to launch into orbit, so engineers had to use a new design", "Because rocket stages are naturally airtight and safe, so no shield was needed to protect it", "Because it was the cheapest way to avoid launching anything at all, and the shield would not matter"],
           "answer": "A",
           "skill": "inference",
           "why": "Converting existing hardware let engineers build a station without starting completely from scratch.",

@@ -79,10 +79,10 @@
     "passage": "My brother broke my favourite car,\nI shouted, 'Go away!'\nBut later he said, 'I am sorry,'\nAnd asked if we could play.\nI wiped my tears and took his hand,\nMy anger slipped away.\nA brother matters more than toys,\nI learned that on that day.",
     "stem": "What is the theme (lesson) of the poem?",
     "options": [
-     "Toy cars break very easily.",
-     "Brothers always break toys.",
+     "Toy cars break very easily, so buy strong ones.",
+     "Brothers always break toys, so hide them away.",
      "Forgiving family matters more than things.",
-     "Never play with your brother."
+     "Never play with your brother, because he is rough."
     ],
     "answer": 2,
     "hint": "That is not the lesson. What does the speaker learn at the end?",
@@ -113,9 +113,9 @@
      "passage": "The seed was small and in the dark,\nIt waited in the ground.\nIt pushed and pushed, day after day,\nThen green leaves pushed up and out.",
      "stem": "What is the theme of the poem?",
      "options": [
-      "Seeds are green.",
-      "It is dark under the ground.",
-      "Plants grow fast.",
+      "Seeds are green and small.",
+      "It is dark under the ground at night.",
+      "Plants grow fast in the sun.",
       "If you keep trying, you can grow."
      ],
      "answer": 3,
@@ -138,9 +138,9 @@
      "stem": "What is the theme of the poem?",
      "options": [
       "Slow and steady can win a long trip.",
-      "Horses are very beautiful.",
-      "The desert is hot and sandy.",
-      "Camels like to visit towns."
+      "Horses are very beautiful and fast.",
+      "The desert is hot and sandy at noon.",
+      "Camels like to visit towns and shops."
      ],
      "answer": 0,
      "why": "The fast horse got tired, but the slow, steady camel reached the town. That is the lesson."
@@ -245,9 +245,9 @@
      "passage": "Some friends are like the summer rain,\nThey come, and then they go.\nBut true friends are like a palm tree's roots,\nThey hold on deep below.\nWhen hot winds blow and the sand flies high,\nThe roots still hold the tree.",
      "stem": "What is the theme of the poem?",
      "options": [
-      "Summer rain does not last long.",
+      "Summer rain does not last very long.",
       "Palm trees have very deep roots.",
-      "Sandstorms can be dangerous.",
+      "Sandstorms can be dangerous for travellers.",
       "True friends stay with you in hard times."
      ],
      "answer": 3,
@@ -257,10 +257,10 @@
      "passage": "At dinner, every head bent low,\nEach face lit by a screen.\nThen the power cut, the screens went dark,\nAnd faces could be seen.\nWe talked and laughed by candlelight\nUntil the clock struck ten.\nWhen the lights came back, nobody reached\nFor a phone again.",
      "stem": "What is the theme of the poem?",
      "options": [
-      "Power cuts can be dangerous.",
-      "Candles are better than lamps.",
+      "Power cuts can be dangerous in big cities.",
+      "Candles are better than lamps for reading.",
       "Putting screens away can bring a family closer.",
-      "Phones must be charged every night."
+      "Phones must be charged every night before bed."
      ],
      "answer": 2,
      "why": "Without screens, the family talked and laughed, and afterwards nobody wanted the phones. The poem shows screens can keep a family apart."
@@ -322,8 +322,8 @@
     "options": [
      "It describes how the well was built, stone by stone.",
      "It moves from a forgotten well to memories that join generations.",
-     "It explains why the village's water ran out.",
-     "It shows the children learning to fetch water."
+     "It explains why the village's water ran out in the dry year.",
+     "It shows the children learning to fetch water from the well."
     ],
     "answer": 1,
     "hint": "Look at the poem stanza by stanza: what does the well mean at the start, in the middle, and at the end?",
@@ -361,9 +361,9 @@
      "stem": "Which best states the central idea of the poem?",
      "options": [
       "The market is hard at work before the city wakes.",
-      "Bakers light their fires every morning.",
-      "Fresh fish are brought in on carts.",
-      "Hard work is never rewarded in a city."
+      "Bakers light their fires every morning in town.",
+      "Fresh fish are brought in on carts to the shops.",
+      "Hard work is never rewarded in a busy city."
      ],
      "answer": 0,
      "why": "The baker, the fish and the spices are all examples of the market working before the city wakes. The last choice is not in the poem."
@@ -373,7 +373,7 @@
      "stem": "How does the second stanza help develop the theme?",
      "options": [
       "It describes the dust and the heat in more detail.",
-      "It explains exactly how long the drive takes.",
+      "It explains exactly how long the drive takes from the city to the farm.",
       "It shows a new experience that changes the speaker's feelings.",
       "It describes the uncle's daily work on the farm."
      ],
@@ -448,7 +448,7 @@
     "stem": "Which statement best explains how the poem develops its theme?",
     "options": [
      "It lists the tools a potter needs to show that pottery is a costly hobby.",
-     "It describes the teacher's studio to show that artists prefer to work alone.",
+     "It describes the teacher's studio to show that artists prefer to work alone and in quiet.",
      "It shows that the teacher grows impatient with the speaker's many mistakes.",
      "Through failure and the teacher's example, the speaker learns that skill takes patience."
     ],

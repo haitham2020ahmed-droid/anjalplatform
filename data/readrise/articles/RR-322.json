@@ -131,10 +131,10 @@
         {
           "stem": "Where do most rivers begin?",
           "options": [
-            "In the middle of a big, busy city",
-            "Inside a large dam built by people",
+            "In the middle of a big, busy city of people",
+            "Inside a large dam that was built by people long ago",
             "As rain or melting snow high in hills or mountains",
-            "At the very bottom of the deep sea"
+            "At the very bottom of the deep sea floor"
           ],
           "answer": "C",
           "skill": "detail",
@@ -182,10 +182,10 @@
         {
           "stem": "Why is the soil near a river often good for growing crops?",
           "options": [
-            "The river keeps the soil frozen",
+            "The river keeps the soil frozen all year round",
             "The river water and rich soil help plants grow well",
-            "Farmers paint the soil a dark color",
-            "The soil near a river has no water in it"
+            "Farmers paint the soil a dark color before planting",
+            "The soil near a river has no water in it at all"
           ],
           "answer": "B",
           "skill": "inference",

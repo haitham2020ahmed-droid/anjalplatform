@@ -90,10 +90,10 @@
      "passage": "It rained all night. In the morning, the streets were full of water. The children could not walk to school, so their fathers drove them.",
      "stem": "Why did the fathers drive the children to school?",
      "options": [
-      "The cars were new.",
+      "The cars were new and clean.",
       "The school was far away.",
       "The streets were full of water.",
-      "The children were late."
+      "The children were late that day."
      ],
      "answer": 2,
      "why": "The streets were full of water, so the children could not walk."
@@ -114,10 +114,10 @@
      "passage": "Sami's baby sister was sleeping. Sami spoke very quietly. He did not want to wake her.",
      "stem": "Why did Sami speak quietly?",
      "options": [
-      "He had a sore throat.",
+      "He had a sore throat from the cold.",
       "He did not want to wake his sister.",
-      "He was in the library.",
-      "He was sad."
+      "He was in the library at his school.",
+      "He was sad about his bad mark."
      ],
      "answer": 1,
      "why": "The story tells us: he did not want to wake his sleeping sister."
@@ -232,8 +232,8 @@
      "passage": "Majed's grandmother lives alone in a village. Last week she fell and hurt her ankle. Now Majed's family drives to the village every afternoon to cook her dinner.",
      "stem": "Why does Majed's family drive to the village every afternoon?",
      "options": [
-      "They like the food in the village.",
-      "Majed's grandmother is a famous cook.",
+      "They like the food in the village market.",
+      "Majed's grandmother is a famous cook in the village.",
       "His grandmother hurt her ankle and needs help.",
       "They are moving to the village soon."
      ],
@@ -350,9 +350,9 @@
      "passage": "When the teacher announced the class trip to the museum, everyone cheered except Yazan. He stared at his desk. That morning, his father had said that money was tight this month because the car needed expensive repairs. The trip cost fifty riyals for the bus.",
      "stem": "Why doesn't Yazan cheer?",
      "options": [
-      "He has visited the museum before.",
-      "He does not like his classmates.",
-      "He feels sick that morning.",
+      "He has visited the museum before with his father.",
+      "He does not like his classmates very much.",
+      "He feels sick that morning after breakfast.",
       "He worries his family cannot pay right now."
      ],
      "answer": 3,
@@ -474,7 +474,7 @@
       "They learned why Abu Fahd protected his garden.",
       "Abu Fahd took their ball and kept it.",
       "Their ball had broken during the game.",
-      "The empty lot was closer to their homes."
+      "The empty lot was closer to their homes and the shop."
      ],
      "answer": 0,
      "why": "Once the grandson explained about the precious roses, the boys understood the shouting and moved their game to protect the garden."

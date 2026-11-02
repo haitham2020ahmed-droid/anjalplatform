@@ -263,7 +263,7 @@
         {
           "stem": "Why do the hare and the gazelle fail to deliver the message?",
           "options": [
-            "They become too exhausted to continue walking any farther",
+            "They become too exhausted to continue walking any farther down the road",
             "Their boastful confidence leads them to get distracted and stop trying",
             "The tortoise secretly blocks the path so they cannot pass",
             "They get lost because they cannot read the stars at night"
@@ -334,9 +334,9 @@
           "stem": "Which statement best expresses the central idea of the story?",
           "options": [
             "A steadfast tortoise's quiet perseverance succeeds where two complacent, boastful rivals fail",
-            "A clever hare teaches a tortoise an important lesson about speed",
-            "Several savanna animals cooperate to build a faster route across the land",
-            "An old animal carefully explains the complex science of desert weather"
+            "A clever hare teaches a tortoise an important lesson about speed and about how to win a race",
+            "Several savanna animals cooperate to build a faster route across the land, so every animal can travel",
+            "An old animal carefully explains the complex science of desert weather to a young tortoise and a hare"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -347,9 +347,9 @@
           "stem": "Why does the oldest animal choose the tortoise rather than a faster animal?",
           "options": [
             "She believes a resolute, steady traveler suits the task better than an unreliable one",
-            "She wants to secretly test how fast the hare and gazelle truly are",
-            "She owes the tortoise a favor from many years earlier",
-            "She cannot find any faster animal willing to carry the message"
+            "She wants to secretly test how fast the hare and the gazelle truly are in a race",
+            "She owes the tortoise a favor from many years earlier, and she pays it back",
+            "She cannot find any faster animal willing to carry the message for her at all"
           ],
           "answer": "A",
           "skill": "detail",
@@ -385,7 +385,7 @@
         {
           "stem": "What does the tortoise's reaction to the mockery reveal about him?",
           "options": [
-            "He is deeply hurt and seriously considers giving up the task",
+            "He is deeply hurt and seriously considers giving up the task for good",
             "He is confident enough in his resolve to ignore their mockery completely",
             "He secretly plans to mock the hare and gazelle in return later",
             "He is unaware that the hare and gazelle are mocking him at all"

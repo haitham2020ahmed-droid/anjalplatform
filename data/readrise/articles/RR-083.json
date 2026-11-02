@@ -310,9 +310,9 @@
         {
           "stem": "What problem did early mechanical clocks have?",
           "options": [
-            "They needed sunlight to work.",
-            "They were made of sand and fell apart quickly.",
-            "They could only be used by sailors out at sea.",
+            "They needed sunlight to work, so they stopped at night",
+            "They were made of sand and fell apart quickly in the rain and wind",
+            "They could only be used by sailors out at sea on ships",
             "They were not very accurate and could lose many minutes each day."
           ],
           "answer": "D",
@@ -379,9 +379,9 @@
           "stem": "How was a water clock similar to an hourglass?",
           "options": [
             "Both used something falling at a steady rate to show time passing.",
-            "Both needed bright sunlight to show the hours.",
-            "Both used a pendulum that swung back and forth.",
-            "Both were invented by Huygens in the year 1656."
+            "Both needed bright sunlight to show the hours of the day and night.",
+            "Both used a pendulum that swung back and forth to keep the time.",
+            "Both were invented by Huygens in the year 1656 in the Netherlands."
           ],
           "answer": "A",
           "skill": "compare",
@@ -489,10 +489,10 @@
         {
           "stem": "According to the article, how precise are the best atomic clocks?",
           "options": [
-            "They gain or lose a few minutes every single day.",
-            "They are as precise as a good sundial.",
+            "They gain or lose a few minutes every single day, even in the best labs.",
+            "They are as precise as a good sundial in the garden, and no better.",
             "They would not gain or lose a second over millions of years.",
-            "They must be reset by hand at least once every week."
+            "They must be reset by hand at least once every week to stay right."
           ],
           "answer": "C",
           "skill": "detail",

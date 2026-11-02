@@ -165,10 +165,10 @@
         {
           "stem": "What is a national park?",
           "options": [
-            "A playground built only for children to play in",
+            "A playground built only for children to play in after school and on weekends",
             "Land that is protected by rule, where wild plants and animals can live",
-            "A zoo where wild animals are kept in small cages",
-            "A large farm that grows crops like wheat and corn"
+            "A zoo where wild animals are kept in small cages for visitors to see",
+            "A large farm that grows crops like wheat and corn for the market"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -293,10 +293,10 @@
         {
           "stem": "What is the main idea of the article?",
           "options": [
-            "Hunting wild animals is a safe hobby that everyone should try sometime.",
+            "Hunting wild animals is a safe hobby that everyone should try sometime, even in the parks.",
             "Parks protect wild habitats and wildlife, but balancing visitors and protection is a challenge.",
-            "National parks exist mainly to entertain visiting tourists with fun games.",
-            "Rangers are not needed anymore once a single park rule is written down."
+            "National parks exist mainly to entertain visiting tourists with fun games and large shows.",
+            "Rangers are not needed anymore once a single park rule is written down on a sign."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -344,10 +344,10 @@
         {
           "stem": "The article says a park protects habitat. What does habitat mean?",
           "options": [
-            "A special kind of park ranger",
+            "A special kind of park ranger who works in the park",
             "The natural home where a plant or animal lives",
-            "A rule that every visitor must follow",
-            "A particular type of wild animal"
+            "A rule that every visitor must follow in the park",
+            "A particular type of wild animal that lives in the park"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -473,9 +473,9 @@
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
             "National parks protect biodiversity and habitat, but managing visitor numbers sustainably is an ongoing challenge.",
-            "National parks exist mainly so governments can collect extra money from visiting tourists.",
+            "National parks exist mainly so governments can collect extra money from visiting tourists in every country.",
             "Conservation became completely unnecessary once the very first parks were created in the 1800s.",
-            "Rangers were invented specifically to replace the need for any park regulations at all."
+            "Rangers were invented specifically to replace the need for any park regulations at all, so rules were removed."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -507,9 +507,9 @@
           "stem": "What does the article mean by biodiversity?",
           "options": [
             "The full variety of living species found within an area",
-            "The total number of rangers working in a park",
-            "A particular type of government regulation",
-            "The total amount of land set aside for farming"
+            "The total number of rangers working in a national park",
+            "A particular type of government regulation about hunting",
+            "The total amount of land set aside for farming crops"
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -523,10 +523,10 @@
         {
           "stem": "Why do even minor rule-breaking disturbances by visitors matter over time?",
           "options": [
-            "Because rangers simply get tired of writing warnings.",
+            "Because rangers simply get tired of writing so many warnings every day.",
             "Because small disturbances can accumulate and affect an entire ecosystem.",
-            "Because parks slowly lose money from unpaid fines.",
-            "Because trails become far too crowded to walk on."
+            "Because parks slowly lose money from the fines that visitors do not pay.",
+            "Because trails become far too crowded to walk on in the busy season."
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -540,10 +540,10 @@
         {
           "stem": "What is described as a park's central purpose?",
           "options": [
-            "Providing steady jobs for local farmers nearby",
-            "Building brand new roads for visiting tourists",
+            "Providing steady jobs for the local farmers who live in the nearby villages",
+            "Building brand new roads for the visiting tourists who come in the summer",
             "Conservation, the protection and sustainable management of natural resources",
-            "Collecting entrance fees from every single visitor"
+            "Collecting entrance fees from every single visitor who comes through the gate"
           ],
           "answer": "C",
           "skill": "detail",

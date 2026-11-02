@@ -79,9 +79,9 @@
     "passage": "A frog lives in a pond. The pond is its habitat. The pond has water to swim in. It has bugs to eat and plants to hide in.",
     "stem": "What is a habitat?",
     "options": [
-     "A kind of frog.",
-     "A bug that frogs eat.",
-     "A plant in the water.",
+     "A kind of frog that can jump.",
+     "A bug that frogs eat at night.",
+     "A plant in the water of a pond.",
      "The home where an animal lives."
     ],
     "answer": 3,
@@ -109,10 +109,10 @@
      "passage": "Bees go from flower to flower. They carry pollen on their legs. Pollen is a yellow powder in flowers.",
      "stem": "What is pollen?",
      "options": [
-      "A kind of bee.",
+      "A kind of bee that stings.",
       "A yellow powder in flowers.",
-      "A leg of a bee.",
-      "A red flower."
+      "A leg of a bee or a bug.",
+      "A red flower in the garden."
      ],
      "answer": 1,
      "why": "The text says: pollen is **a yellow powder in flowers**."
@@ -122,9 +122,9 @@
      "stem": "What is a map?",
      "options": [
       "A drawing that shows where places are.",
-      "A street in the town.",
-      "A book of stories.",
-      "A park near the school."
+      "A street in the town with many shops.",
+      "A book of stories for young children.",
+      "A park near the school with a big lake."
      ],
      "answer": 0,
      "why": "The map **shows the streets, the park and the school**."
@@ -133,9 +133,9 @@
      "passage": "Mom put butter in a hot pan. The butter began to melt. Soon it was all runny.",
      "stem": "What does melt mean?",
      "options": [
-      "Get very cold.",
-      "Get bigger.",
-      "Turn hard.",
+      "Get very cold and hard like ice.",
+      "Get bigger and bigger over time.",
+      "Turn hard like a stone from cold.",
       "Turn soft and runny from heat."
      ],
      "answer": 3,
@@ -188,10 +188,10 @@
     "passage": "On a hot afternoon, the puddles in our street slowly disappear. The sun heats the water, and the water changes into an invisible gas called water vapour. The vapour rises into the air. This process is called evaporation. In the summer heat, evaporation happens very quickly, which is why wet clothes on the roof dry in less than an hour.",
     "stem": "What is evaporation?",
     "options": [
-     "When rain falls from clouds.",
+     "When rain falls from clouds onto the ground.",
      "When heat changes liquid water into a gas.",
-     "When water freezes into ice.",
-     "When clothes are washed."
+     "When water freezes into ice in cold weather.",
+     "When clothes are washed with soap and water."
     ],
     "answer": 1,
     "hint": "Find the sentences right before \"This process is called evaporation.\" What process do they describe?",
@@ -218,10 +218,10 @@
      "passage": "Over many years, wind and water slowly wear away rock and soil. This is called erosion. Erosion can carve deep valleys.",
      "stem": "What is erosion?",
      "options": [
-      "Rain falling on a mountain.",
-      "A deep valley.",
+      "Rain falling on a mountain in spring.",
+      "A deep valley between two hills.",
       "The slow wearing away of rock and soil.",
-      "Wind that blows very hard."
+      "Wind that blows very hard at sea."
      ],
      "answer": 2,
      "why": "The text says wind and water **slowly wear away rock and soil**. This is called erosion."
@@ -231,9 +231,9 @@
      "stem": "What is a natural resource?",
      "options": [
       "Something from nature that people use.",
-      "A building made by people.",
-      "A kind of tree.",
-      "A job in a factory."
+      "A building made by people in a city.",
+      "A kind of tree that grows in forests.",
+      "A job in a factory or a shop."
      ],
      "answer": 0,
      "why": "Natural resources **come from nature** and **people use them**."
@@ -242,9 +242,9 @@
      "passage": "A food chain shows who eats whom. Grass is eaten by a goat, and a goat may be eaten by a wolf.",
      "stem": "What does a food chain show?",
      "options": [
-      "How to cook food.",
-      "Where animals sleep.",
-      "How tall plants grow.",
+      "How to cook food at home.",
+      "Where animals sleep at night.",
+      "How tall plants grow each year.",
       "Which living things eat which."
      ],
      "answer": 3,
@@ -298,9 +298,9 @@
     "stem": "What does export mean in this passage?",
     "options": [
      "A product sent to other countries to be sold.",
-     "A product bought from other countries.",
-     "A ship that carries oil.",
-     "A port on the Red Sea."
+     "A product bought from other countries and sold.",
+     "A ship that carries oil to other ports.",
+     "A port on the Red Sea for large ships."
     ],
     "answer": 0,
     "hint": "Find the sentences that tell where the oil goes. Then compare export with import.",
@@ -327,10 +327,10 @@
      "passage": "Because rain is rare, farmers in Al-Qassim pump water from deep wells and spray it over their wheat fields with long, turning sprinklers. Without irrigation, the crops would dry up.",
      "stem": "What does irrigation mean?",
      "options": [
-      "Collecting rainwater on roofs.",
+      "Collecting rainwater on roofs in large tanks.",
       "Bringing water to crops by pipes or sprinklers.",
-      "Cutting wheat at harvest time.",
-      "Digging new wells for drinking water."
+      "Cutting wheat at harvest time with sharp tools.",
+      "Digging new wells for drinking water in villages."
      ],
      "answer": 1,
      "why": "Farmers **pump water** and **spray it over their fields**. Without it, crops dry up."
@@ -339,10 +339,10 @@
      "passage": "The city's population has grown quickly. Twenty years ago, about one million people lived there. Today, nearly two million do, and new neighbourhoods are being built every year.",
      "stem": "What does population mean?",
      "options": [
-      "The size of a city's land.",
-      "The number of new buildings.",
+      "The size of a city's land and parks.",
+      "The number of new buildings in a city.",
       "The number of people living in a place.",
-      "The age of a city."
+      "The age of a city and its streets."
      ],
      "answer": 2,
      "why": "The text counts **people who lived there**: one million, then two million."
@@ -351,9 +351,9 @@
      "passage": "Many desert plants are drought-tolerant. They can live for months with little or no water, storing what they need in thick stems or deep roots.",
      "stem": "What does drought-tolerant mean?",
      "options": [
-      "Needing water every day.",
-      "Growing only near rivers.",
-      "Dying quickly in the heat.",
+      "Needing water every day to stay green and alive.",
+      "Growing only near rivers and lakes.",
+      "Dying quickly in the heat of summer.",
       "Able to survive a long time without water."
      ],
      "answer": 3,
@@ -406,10 +406,10 @@
     "passage": "Earth's outer layer is broken into giant pieces called tectonic plates, which move a few centimetres each year. Where two plates pull apart, the crust stretches and cracks, forming a long, deep valley called a rift. The Red Sea lies in such a rift: millions of years ago, the Arabian Plate began to separate from the African Plate, and seawater flowed into the gap. Because the plates are still moving apart, scientists say the Red Sea is growing wider by about a centimetre each year. Earthquakes and underwater volcanoes along its centre are signs of this slow but powerful activity.",
     "stem": "In this passage, what is a rift?",
     "options": [
-     "A giant piece of Earth's outer layer.",
-     "A volcano under the sea.",
+     "A giant piece of Earth's outer layer that moves slowly over the mantle.",
+     "A volcano under the sea that throws up hot ash and rock.",
      "A long valley formed where plates pull apart and the crust cracks.",
-     "A sea that is getting smaller every year."
+     "A sea that is getting smaller every year as the water dries up."
     ],
     "answer": 2,
     "hint": "Careful: one choice defines a different term from the passage. Which sentence describes how a rift forms?",
@@ -436,10 +436,10 @@
      "passage": "Rivers carry tiny pieces of sand, mud and rock. Where the water slows down at the river's mouth, this sediment sinks to the bottom and builds up, sometimes forming new land.",
      "stem": "What is sediment?",
      "options": [
-      "Fast-moving water in a river.",
+      "Fast-moving water in a river, which can wash things away quickly.",
       "Small bits of rock, sand and mud carried and dropped by water.",
-      "New land at the edge of a sea.",
-      "The mouth of a river."
+      "New land at the edge of a sea, built over many years.",
+      "The mouth of a river where it flows out into the sea."
      ],
      "answer": 1,
      "why": "The text says rivers carry **sand, mud and rock**, and **this sediment** sinks and builds up."
@@ -449,9 +449,9 @@
      "stem": "What does diversify mean here?",
      "options": [
       "Add many different kinds of business.",
-      "Sell more oil than before.",
-      "Close old factories.",
-      "Depend on a single product."
+      "Sell more oil than before to other countries.",
+      "Close old factories and stop making things.",
+      "Depend on a single product for all money."
      ],
      "answer": 0,
      "why": "Growing **tourism, technology and manufacturing** so income does **not rely on one product** means adding variety."

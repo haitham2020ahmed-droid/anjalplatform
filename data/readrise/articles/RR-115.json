@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How to build a spaceship",
+            "How to build a spaceship that flies to Mars",
             "Two cold, blue planets far from the Sun",
-            "Why Earth is the best planet",
-            "How the Sun makes light"
+            "Why Earth is the best planet in the galaxy",
+            "How the Sun makes light and heat each day"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -165,9 +165,9 @@
         {
           "stem": "The article says Uranus is tilted. What does tilted mean?",
           "options": [
-            "Very hot",
-            "Full of rings",
-            "Moving very fast",
+            "Very hot all year long",
+            "Full of rings and ice",
+            "Moving very fast in space",
             "Leaning to one side"
           ],
           "answer": "D",
@@ -234,9 +234,9 @@
           "stem": "Why does the author compare each planet's size to four Earths?",
           "options": [
             "To help readers picture how big each planet is",
-            "To show that Earth is bigger",
-            "To tell how many moons each has",
-            "To explain why they are blue"
+            "To show that Earth is bigger than any other planet",
+            "To tell how many moons each planet has around it",
+            "To explain why the planets are blue and green"
           ],
           "answer": "A",
           "skill": "author-purpose",
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
-            "Neptune was found in 1846.",
+            "Neptune was found in 1846 by astronomers in Europe, and the article is only about this event.",
             "Uranus and Neptune are distant, icy, blue planets with many unusual features.",
-            "Voyager 2 is the fastest spacecraft ever built.",
-            "Methane is the most common gas in space."
+            "Voyager 2 is the fastest spacecraft ever built by people.",
+            "Methane is the most common gas in all of space, and every planet is made mostly of it."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -379,9 +379,9 @@
           "stem": "Based on the article, why is sunlight on Neptune so weak?",
           "options": [
             "Neptune is about thirty times as far from the Sun as Earth.",
-            "Neptune's moons block the Sun.",
-            "Neptune's winds blow the light away.",
-            "Neptune has no atmosphere."
+            "Neptune's moons block the Sun, so the planet is dark for most of the year.",
+            "Neptune's winds blow the light away from the surface into space.",
+            "Neptune has no atmosphere, so sunlight cannot spread across the planet."
           ],
           "answer": "A",
           "skill": "inference",
@@ -412,10 +412,10 @@
         {
           "stem": "How is the article mainly organized?",
           "options": [
-            "As a story told by an astronaut",
+            "As a story told by an astronaut who travels to both planets in a spaceship",
             "By describing different features of the two planets in separate paragraphs",
-            "As a list of steps to find a planet",
-            "By comparing the ice giants with Earth's oceans"
+            "As a list of steps to find a planet using a telescope in the backyard",
+            "By comparing the ice giants with Earth's oceans and the deep lakes below"
           ],
           "answer": "B",
           "skill": "text-structure",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
-            "Neptune is more important than Uranus.",
+            "Neptune is more important than Uranus because it is farther away, and scientists have sent many spacecraft to visit it.",
             "The ice giants are distant, unusual worlds that scientists have studied through careful observation, calculation, and one spacecraft visit.",
-            "All planets in the solar system are made of ice.",
-            "Triton is the largest moon in the solar system."
+            "All planets in the solar system are made of ice, and scientists have visited every one of them with a probe.",
+            "Triton is the largest moon in the solar system, and it is the only moon that has an atmosphere of its own, which is why astronomers study it."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -557,10 +557,10 @@
         {
           "stem": "Why does the author point out that Neptune was observed almost precisely where astronomers had calculated it would be?",
           "options": [
-            "To show that luck was the main reason it was found",
+            "To show that luck was the main reason that the planet was found in the night sky",
             "To show that careful calculation correctly predicted something no one had yet seen",
-            "To argue that telescopes are not useful",
-            "To explain why Neptune is blue"
+            "To argue that telescopes are not useful for finding new planets in deep space",
+            "To explain why Neptune is blue and why it looks so far away from the Sun"
           ],
           "answer": "B",
           "skill": "author-purpose",
@@ -575,9 +575,9 @@
           "stem": "Which conclusion is best supported by the article?",
           "options": [
             "A future mission to the ice giants could teach scientists much more about them.",
-            "Scientists already know everything about Uranus.",
-            "Neptune is warmer than Earth.",
-            "People could land on Neptune's surface."
+            "Scientists already know everything about Uranus, so they need no more missions.",
+            "Neptune is warmer than Earth, so people could live on it someday.",
+            "People could land on Neptune's surface and walk around for a while."
           ],
           "answer": "A",
           "skill": "inference",

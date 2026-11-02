@@ -53,10 +53,10 @@
     "passage": "I think our class should have a fish tank. Fish are fun to watch. They help us learn about animals. A fish tank would make our class happy.",
     "stem": "What is the writer's opinion?",
     "options": [
-     "Fish are fun to watch.",
+     "Fish are fun to watch in a tank.",
      "Our class should have a fish tank.",
-     "Animals live in the sea.",
-     "Our class is happy."
+     "Animals live in the sea and rivers.",
+     "Our class is happy and friendly."
     ],
     "answer": 1,
     "hint": "Look for the words I think.",
@@ -94,10 +94,10 @@
      "passage": "Some sentences are facts. One sentence is an opinion.",
      "stem": "Choose the opinion.",
      "options": [
-      "The sky is blue.",
-      "A week has seven days.",
+      "The sky is blue on a sunny day.",
+      "A week has seven days in total.",
       "Football is the most fun sport.",
-      "Fish live in water."
+      "Fish live in water all their lives."
      ],
      "answer": 2,
      "why": "Most fun is what someone thinks. Others may disagree."
@@ -107,9 +107,9 @@
      "stem": "Which is the best ending?",
      "options": [
       "That is why we should plant more trees.",
-      "I have a new bike at home.",
-      "Trees are green and very tall.",
-      "It is the end of a long day."
+      "I have a new bike at home, and it is red.",
+      "Trees are green and very tall in spring.",
+      "It is the end of a long day at school."
      ],
      "answer": 0,
      "why": "The ending says the opinion again."
@@ -165,10 +165,10 @@
     "passage": "In my opinion, students should learn to cook at school. One reason is that cooking teaches important life skills. For example, students learn to measure, follow steps and stay safe in the kitchen. Another reason is that cooking helps students eat healthier food. When they make their own meals, they can choose fresh vegetables instead of fast food. In conclusion, cooking lessons would help students now and in the future.",
     "stem": "Which detail supports the reason that cooking teaches life skills?",
     "options": [
-     "Students can choose fresh vegetables.",
+     "Students can choose fresh vegetables from the school garden.",
      "Students learn to measure, follow steps and stay safe in the kitchen.",
-     "Cooking lessons would help students in the future.",
-     "Students should learn to cook at school."
+     "Cooking lessons would help students in the future when they grow up.",
+     "Students should learn to cook at school every week of the year."
     ],
     "answer": 1,
     "hint": "Find the reason about life skills. Which sentence comes right after it and explains it?",
@@ -208,9 +208,9 @@
      "passage": "Opinion: Our town needs a new park.",
      "stem": "Which is the strongest reason with support?",
      "options": [
-      "Parks are nice, and I really like them a lot.",
-      "I like green things, so a park would be good.",
-      "Parks have grass and trees and also some benches.",
+      "Parks are nice, and I really like them a lot because they are pretty.",
+      "I like green things, so a park would be good for our town.",
+      "Parks have grass and trees and also some benches and a pond.",
       "Children have nowhere safe to play, as the only park is far away."
      ],
      "answer": 3,
@@ -316,10 +316,10 @@
      "passage": "Claim: Students should drink more water during the school day.",
      "stem": "Which reason uses the strongest evidence?",
      "options": [
-      "Water is everywhere, so it must be good.",
+      "Water is everywhere, so it must be good for everyone.",
       "Doctors say even mild thirst can make it harder to focus.",
       "Everybody always loves water more than anything.",
-      "I drink water at home every single day."
+      "I drink water at home every single day, so it is good."
      ],
      "answer": 1,
      "why": "It uses expert knowledge that connects directly to school performance."
@@ -383,10 +383,10 @@
     "passage": "Cities in hot regions should plant far more trees along their streets. Research from several universities shows that shaded streets can be significantly cooler than unshaded ones in summer. Cooler streets mean people are more likely to walk, which improves health and reduces traffic. Some people argue that trees need too much water in a desert climate. However, many native species, such as the sidr and the ghaf, are adapted to dry conditions and need little watering once established. City leaders should therefore launch a tree-planting plan this year, before another record-breaking summer arrives.",
     "stem": "How does the writer respond to the opposing view about water?",
     "options": [
-     "The writer ignores it completely.",
-     "The writer agrees that trees should not be planted.",
+     "The writer ignores it completely and does not answer it.",
+     "The writer agrees that trees should not be planted at all.",
      "The writer rebuts it by naming native trees that need little water.",
-     "The writer attacks the people who hold that view."
+     "The writer attacks the people who hold that view, not the idea."
     ],
     "answer": 2,
     "hint": "Find the sentence after Some people argue. What does it say?",
@@ -427,8 +427,8 @@
      "stem": "Which sentence best acknowledges and rebuts a counterclaim?",
      "options": [
       "Critics say PE takes time from academics; however, exercise is linked to better focus.",
-      "PE is the best subject at school, and absolutely everyone loves it.",
-      "People who dislike PE are just lazy and do not want to move.",
+      "PE is the best subject at school, and absolutely everyone in the whole class loves it.",
+      "People who dislike PE are just lazy and do not want to move or try anything new.",
       "Some people say PE is bad for school, and they are completely right."
      ],
      "answer": 0,

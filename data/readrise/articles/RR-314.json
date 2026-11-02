@@ -131,9 +131,9 @@
         {
           "stem": "What does a lens help a camera do?",
           "options": [
-            "Plays loud music during the shot",
-            "Prints the finished photo on paper",
-            "Charges the camera's battery fully",
+            "Plays loud music during the shot of the picture",
+            "Prints the finished photo on paper right away",
+            "Charges the camera's battery fully with sunlight",
             "Makes the picture sharp instead of blurry"
           ],
           "answer": "D",
@@ -233,10 +233,10 @@
         {
           "stem": "How does the author explain how a camera works?",
           "options": [
-            "By telling a long made-up fantasy story",
-            "By comparing two very different cities",
+            "By telling a long made-up fantasy story about a magic camera",
+            "By comparing two very different cities that have many cameras",
             "By describing camera parts, then framing and light",
-            "By giving steps to fix a broken old camera"
+            "By giving steps to fix a broken old camera at home"
           ],
           "answer": "C",
           "skill": "text-structure",
@@ -361,9 +361,9 @@
         {
           "stem": "In the article, the word digital describes a camera that…",
           "options": [
-            "uses film and an old dark room",
-            "has no camera lens built in at all",
-            "only takes photos when it is dark",
+            "uses film and an old dark room to make pictures",
+            "has no camera lens or screen built in at all",
+            "only takes photos when it is dark outside",
             "uses an electronic sensor instead of film"
           ],
           "answer": "D",
@@ -412,10 +412,10 @@
         {
           "stem": "How does the author organize the explanation of photography?",
           "options": [
-            "By arguing that cameras cost way too much money",
-            "By comparing two completely unrelated hobbies",
+            "By arguing that cameras cost way too much money for most people",
+            "By comparing two completely unrelated hobbies, such as art and sport",
             "By describing how a camera works, then its two purposes",
-            "By listing many famous photographers by name"
+            "By listing many famous photographers by name, with their dates"
           ],
           "answer": "C",
           "skill": "text-structure",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
-            "A camera cannot ever take a sharp picture without using film.",
-            "Digital sensors completely eliminate the need for any lens.",
+            "A camera cannot ever take a sharp picture without using film, so every photographer must buy rolls.",
+            "Digital sensors completely eliminate the need for any lens, so a photographer does not need light.",
             "A photographer uses aperture, exposure, and light to document and create art.",
-            "Composition matters far less than the brand of camera used."
+            "Composition matters far less than the brand of camera used, so a photographer must buy the best."
           ],
           "answer": "C",
           "skill": "central-idea",

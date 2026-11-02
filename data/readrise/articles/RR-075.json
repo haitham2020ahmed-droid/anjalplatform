@@ -233,9 +233,9 @@
         {
           "stem": "What can you tell about coders from the part about bugs?",
           "options": [
-            "They never make any mistakes.",
-            "They stop when they find a bug.",
-            "They only write code for robots.",
+            "They never make any mistakes in their work.",
+            "They stop when they find a bug in the code.",
+            "They only write code for robots and toys.",
             "Fixing mistakes is part of their job."
           ],
           "answer": "D",
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
-            "Computers are smarter than people.",
-            "Only adults can learn to write code.",
+            "Computers are smarter than people, and soon they will think for us.",
+            "Only adults can learn to write code, so children should wait.",
             "Coding means giving a computer exact steps, and it teaches problem solving.",
-            "Scratch is the only programming language that people use today."
+            "Scratch is the only programming language that people use today, and all coders learn it."
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -473,9 +473,9 @@
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
             "Coding needs exact instructions, and learning it builds problem-solving habits.",
-            "Computers will soon be able to guess what programmers mean.",
-            "Typed languages are always better than block-based languages.",
-            "Debugging is only needed by beginners."
+            "Computers will soon be able to guess what programmers mean, so coding will need no steps.",
+            "Typed languages are always better than block-based languages, and so beginners should avoid blocks.",
+            "Debugging is only needed by beginners, and so expert coders never have bugs in their work."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -540,10 +540,10 @@
         {
           "stem": "Why does the article call persistence one of a programmer's most valuable qualities?",
           "options": [
-            "Programmers must type very quickly.",
+            "Programmers must type very quickly all day long.",
             "Programs rarely work perfectly on the first attempt.",
-            "Computers refuse to run short programs.",
-            "Loops take a long time to write."
+            "Computers refuse to run short programs of any kind.",
+            "Loops take a long time to write and to read."
           ],
           "answer": "B",
           "skill": "inference",

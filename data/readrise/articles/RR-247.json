@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "Why tongues can only taste sour food",
+            "Why tongues can only taste sour food and bitter drinks",
             "How your nose catches smells for your brain",
-            "Why having a cold makes people tired",
-            "How tall grass grows in a garden"
+            "Why having a cold makes people tired and sleepy",
+            "How tall grass grows in a garden after the rain"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
-            "The brain learns new things only through smell",
-            "Bread always smells stronger than flowers do",
+            "The brain learns new things only through smell and never through sight",
+            "Bread always smells much stronger than flowers do",
             "Receptors detect molecules that shape flavor and memory",
-            "Colds are the main cause of forgetting things"
+            "Colds are the main cause of forgetting things for most people"
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -361,10 +361,10 @@
         {
           "stem": "Why does the author compare a molecule fitting a receptor to a key fitting a lock?",
           "options": [
-            "To explain how real locks and keys are made",
-            "To describe what molecules are made of",
+            "To explain how real locks and keys are made in a shop",
+            "To describe what molecules are made of inside the air",
             "To show that only a matching shape triggers a signal",
-            "To argue that smell is not very useful"
+            "To argue that smell is not very useful for people at all"
           ],
           "answer": "C",
           "skill": "author-purpose",
@@ -395,7 +395,7 @@
         {
           "stem": "Zaid smells his uncle's cologne and suddenly feels happy, remembering a wedding. What explains this best?",
           "options": [
-            "Cologne always smells the same to every person",
+            "Cologne always smells exactly the same to every single person",
             "The tongue stores emotional memories like this",
             "Only unpleasant smells can bring back feelings",
             "Smell signals travel directly to memory and emotion areas"
@@ -557,10 +557,10 @@
         {
           "stem": "According to the article, what is the direct effect of a matching molecule fitting a receptor?",
           "options": [
-            "The molecule disappears from the air instantly",
+            "The molecule disappears from the air instantly, and no smell is left",
             "The receptor fires a signal carrying information about it",
-            "The tongue begins tasting the molecule directly",
-            "The olfactory bulb shrinks slightly in size"
+            "The tongue begins tasting the molecule directly, like a drop of juice",
+            "The olfactory bulb shrinks slightly in size as it gets tired"
           ],
           "answer": "B",
           "skill": "cause-effect",

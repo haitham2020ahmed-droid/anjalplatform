@@ -126,9 +126,9 @@
       "stem": "Which information in the passage is the LEAST complete?",
       "options": [
         "How a device knows that a packet is damaged",
-        "What the number on each packet is for",
-        "What a router does with each packet",
-        "Why each packet carries an IP address"
+        "What the number on each packet is for in the network",
+        "What a router does with each packet that it receives",
+        "Why each packet carries an IP address on its front"
       ],
       "answer": "A",
       "why": "The passage says a damaged packet is requested again but never explains how the damage is detected."

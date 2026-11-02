@@ -159,10 +159,10 @@
     "passage": "Khalid wrote his report about falcons on the computer. The spell check found no mistakes, so he almost printed it. Then his sister read it and pointed to a sentence: Falcons use there sharp eyes to hunt. Khalid realized he should have written their, not there. The spell check had missed the mistake because there is also a real word.",
     "stem": "What lesson does Khalid learn?",
     "options": [
-     "Spell check finds every mistake.",
-     "Reports should never be typed.",
+     "Spell check finds every mistake, so you can skip reading.",
+     "Reports should never be typed on a computer or tablet.",
      "He should always reread his work, even after spell check.",
-     "Falcons do not have sharp eyes."
+     "Falcons do not have sharp eyes, so they hunt by smell."
     ],
     "answer": 2,
     "hint": "What did spell check miss, and who found it?",
@@ -202,9 +202,9 @@
      "passage": "Yousef has three files named story, story new and story final final.",
      "stem": "What would help Yousef the most?",
      "options": [
-      "Delete all the old files and start again",
-      "Never save his work, so there are no files",
-      "Use one long name for every single file",
+      "Delete all the old files and start again every day",
+      "Never save his work, so there are no files to lose",
+      "Use one long name for every single file in his computer folder",
       "Name files clearly, like Desert Story Draft 1 and Draft 2"
      ],
      "answer": 3,
@@ -269,10 +269,10 @@
     "passage": "Our group wrote a report on water saving in a shared document. Each of us wrote one section from home. Our teacher added a comment beside Fahad's part: Where did this number come from? Fahad found the website he had used, checked that it was a government water agency, and added it to our list of sources. Later, Maryam suggested an edit to my conclusion. I read it, agreed it was clearer, and accepted the change.",
     "stem": "How did the shared document help the group improve their report?",
     "options": [
-     "It wrote the report for them automatically.",
+     "It wrote the report for them automatically, so they did not need to type.",
      "It let the teacher and classmates give feedback that the writers could act on.",
-     "It removed the need to check any sources.",
-     "It made each section longer by itself."
+     "It removed the need to check any sources, because the document checked them.",
+     "It made each section longer by itself, without the writers adding anything."
     ],
     "answer": 1,
     "hint": "Find the comment and the suggested edit. What did the writers do with them?",
@@ -385,10 +385,10 @@
     "passage": "Our class created a website about the history of our town. Sami wanted to use a beautiful photo of the old fort that he found online. Before adding it, he checked the page and saw that the photographer allowed people to reuse it with credit. He added the photo with a caption naming the photographer. Rana wrote an interview with her grandfather about the town in the past. At first she included his full name and home address, but she removed the address before we published. The website was shared with families across the town.",
     "stem": "What do Sami's and Rana's actions have in common?",
     "options": [
-     "Both made the website more colourful.",
-     "Both added more information than was needed.",
+     "Both made the website more colourful and fun for every visitor.",
+     "Both added more information than was needed on the pages.",
      "Both made sure the site was published responsibly before sharing it.",
-     "Both changed the format of the website."
+     "Both changed the format of the website to look different."
     ],
     "answer": 2,
     "hint": "Look at what each of them checked or changed before publishing.",
@@ -430,10 +430,10 @@
      "passage": "Ziad's class blog post gets two comments. One says: The second paragraph needs a source for the statistic. The other says: This is boring lol.",
      "stem": "How should Ziad respond?",
      "options": [
-      "Delete his blog post and stop writing for the blog",
+      "Delete his blog post and stop writing for the blog until next year",
       "Change everything in the post to please both readers",
       "Add a source for the statistic and set the unhelpful comment aside",
-      "Reply angrily to the second comment so it stops"
+      "Reply angrily to the second comment so it stops for good"
      ],
      "answer": 2,
      "why": "The first comment gives specific, useful feedback. The second gives nothing to act on."
@@ -443,9 +443,9 @@
      "stem": "What should he do before using it?",
      "options": [
       "Check that it is free to reuse or that he has permission, and credit the creator",
-      "Use it freely, since everything that is posted online is free",
-      "Change the speed of the song so that nobody recognizes it",
-      "Use only a short part of it without telling anyone about it"
+      "Use it freely, since everything that is posted online is free to use for school.",
+      "Change the speed of the song so that nobody recognizes it at all.",
+      "Use only a short part of it without telling anyone about it first."
      ],
      "answer": 0,
      "why": "Music belongs to its creator. He needs permission or a free-to-reuse licence, and should give credit."

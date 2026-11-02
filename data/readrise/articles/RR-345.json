@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "A tale about a brave old sailor",
+            "A tale about a brave old sailor at sea",
             "Countries that have no coastline and how they trade",
-            "The biggest oceans in the world",
-            "How to draw a map of a town"
+            "The biggest oceans in the world and their names",
+            "How to draw a map of a small town and its streets"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -131,10 +131,10 @@
         {
           "stem": "What does landlocked mean?",
           "options": [
-            "A country with many busy ports",
-            "A country that is very small in size",
+            "A country with many busy ports and a long coastline",
+            "A country that is very small in size and population",
             "A country with land all around it and no coastline",
-            "A country that is covered in thick sand"
+            "A country that is covered in thick sand and dunes"
           ],
           "answer": "C",
           "skill": "detail",
@@ -216,10 +216,10 @@
         {
           "stem": "How do landlocked countries solve their trade problem?",
           "options": [
-            "They stop trading with every other country",
-            "They dig a brand new ocean of their own",
+            "They stop trading with every other country in the world",
+            "They dig a brand new ocean of their own with big machines",
             "They make deals so goods can pass through a friend's port",
-            "They wait patiently for the sea to move closer"
+            "They wait patiently for the sea to move closer to their land"
           ],
           "answer": "C",
           "skill": "detail",
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the central idea?",
           "options": [
-            "Only African countries in the world are landlocked today",
-            "Landlocked countries cannot trade with any other nation at all",
+            "Only African countries in the world are landlocked today, since all the others touch the sea",
+            "Landlocked countries cannot trade with any other nation at all, so they have no shops or ports",
             "Landlocked countries face trade problems but still find a way to reach the sea",
-            "All landlocked countries are extremely small in total size"
+            "All landlocked countries are extremely small in total size, like a village or a single town"
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -396,9 +396,9 @@
           "stem": "Why might a landlocked country want to join a regional trade group?",
           "options": [
             "To gain a guaranteed right to move goods through a neighbor's land",
-            "To stop every single ship from ever using its own roads",
-            "To close its own border to all outside trade completely",
-            "To build a brand new coastline somewhere along its edge"
+            "To stop every single ship from ever using its own roads and ports",
+            "To close its own border to all outside trade completely and forever",
+            "To build a brand new coastline somewhere along its own edge"
           ],
           "answer": "A",
           "skill": "inference",

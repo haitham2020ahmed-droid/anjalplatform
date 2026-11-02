@@ -96,10 +96,10 @@
      "passage": "The cat is black. The dog is brown. They both like to sleep in the sun.",
      "stem": "How are the cat and the dog different?",
      "options": [
-      "They both sleep.",
+      "They both sleep all day long.",
       "They are different colours.",
-      "They both like the sun.",
-      "They are both cats."
+      "They both like the warm sun.",
+      "They are both cats at home."
      ],
      "answer": 1,
      "why": "The cat is black and the dog is brown. That is different."
@@ -120,9 +120,9 @@
      "passage": "The first day was sunny. Children played outside. The next day was rainy. Children played inside.",
      "stem": "What is different about the two days?",
      "options": [
-      "Children played both days.",
-      "Both days were sunny.",
-      "Both days were cold.",
+      "Children played both days in the park.",
+      "Both days were sunny and hot.",
+      "Both days were cold and windy.",
       "One was sunny and one was rainy."
      ],
      "answer": 3,
@@ -175,10 +175,10 @@
     "passage": "Story 1: Saad wanted to win the class spelling contest. He studied his word list every night with his mother. On the day of the contest, he spelled every word correctly and won. Story 2: Rana also entered a spelling contest. She did not study, because she thought it would be easy. She missed three words and felt disappointed.",
     "stem": "How are Saad and Rana different?",
     "options": [
-     "Saad entered a contest, but Rana did not.",
+     "Saad entered a contest, but Rana did not enter it this year.",
      "Saad studied and won, but Rana did not study and lost.",
-     "Both studied hard every night.",
-     "Rana won the contest, but Saad lost."
+     "Both studied hard every night before the contest.",
+     "Rana won the contest, but Saad lost and went home."
     ],
     "answer": 1,
     "hint": "Look at what each one did before the contest and how each contest ended.",
@@ -209,9 +209,9 @@
      "stem": "How are the two stories alike?",
      "options": [
       "Both have an animal that tricks another animal.",
-      "Both happen under the sea.",
-      "Both have a crow and a fox in them.",
-      "Both end with a big party."
+      "Both happen under the sea, near a reef.",
+      "Both have a crow and a fox in them, and a piece of cheese.",
+      "Both end with a big party for everyone."
      ],
      "answer": 0,
      "why": "In each story, one animal tricks another."
@@ -220,10 +220,10 @@
      "passage": "Noura's house was in the busy city, full of cars and noise. Her cousin's house was in a quiet village where goats walked down the road.",
      "stem": "How are the two houses different?",
      "options": [
-      "Both houses are full of cars and noise.",
-      "Both houses have goats walking by the door.",
+      "Both houses are full of cars, buses and noise.",
+      "Both houses have goats walking by the door every day.",
       "One is in a busy city, the other in a quiet village.",
-      "Both houses are in the same busy city."
+      "Both houses are in the same busy city by the sea."
      ],
      "answer": 2,
      "why": "Noura's is in a busy city; her cousin's is in a quiet village."
@@ -403,10 +403,10 @@
     "passage": "In the first story, Salim spends years saving to buy a fishing boat of his own. When he finally buys it, he works alone from dawn to dusk, refusing help from the other fishermen. His catches are good, but he returns each evening to an empty house and eats in silence. By the end, he sits on his new boat watching the others laugh together on the harbour wall, and he wonders what all his hard work has been for. In the second story, Nadia wins a scholarship to study engineering in a distant city. She calls her family every week and invites her classmates to share meals from her home country. When she graduates, both her family and her new friends crowd the hall to cheer for her.",
     "stem": "How do the two stories compare in what they suggest about success?",
     "options": [
-     "Both stories suggest that success is only about money and hard work.",
-     "Both suggest that people must be alone to succeed.",
+     "Both stories suggest that success is only about money and hard work, not about friends or family.",
+     "Both suggest that people must be alone to succeed, because other people only slow them down.",
      "Salim's story suggests success without others feels empty, while Nadia's shows success is richer when shared.",
-     "Nadia's story suggests that studying far away always leads to loneliness."
+     "Nadia's story suggests that studying far away always leads to loneliness, and that students should never leave home to study."
     ],
     "answer": 2,
     "hint": "Look at how each story ends. How does Salim feel? Who is with Nadia when she graduates?",
@@ -450,7 +450,7 @@
      "passage": "Story 1 ends with a city boy moving to the desert and slowly learning to love its silence. Story 2 ends with a desert girl moving to the city and missing the silence every night.",
      "stem": "Which statement best compares the endings?",
      "options": [
-      "Both characters come to love the city's noise.",
+      "Both characters come to love the city's noise and busy streets.",
       "Both characters dislike every new place they move to.",
       "Both stories end with the characters returning home.",
       "Both are about moving, but one finds peace and the other feels loss."
@@ -464,7 +464,7 @@
      "options": [
       "Fishing in the sea is much harder than gardening.",
       "Some things in nature cannot be rushed, so we must be patient.",
-      "Young people are always more patient than old people.",
+      "Young people are always more patient than old people in the world.",
       "Roses grow best in gardens that are near the sea."
      ],
      "answer": 1,

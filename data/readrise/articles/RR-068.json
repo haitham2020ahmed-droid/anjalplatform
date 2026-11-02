@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How to draw a map of your town",
-            "Why phones need to be charged",
+            "How to draw a map of your town on paper with a ruler",
+            "Why phones need to be charged every night",
             "How GPS uses satellites to find where you are",
-            "How cars are built"
+            "How cars are built in a large factory"
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -165,10 +165,10 @@
         {
           "stem": "How does the phone tell how far away a satellite is?",
           "options": [
-            "It sends a call up and waits.",
-            "It looks up at the sky with a camera.",
+            "It sends a call up and waits there.",
+            "It looks up at the sky with its camera lens",
             "It checks how long the signal took to come.",
-            "It asks another phone."
+            "It asks another phone nearby for help"
           ],
           "answer": "C",
           "skill": "cause-effect",
@@ -182,8 +182,8 @@
         {
           "stem": "The article says each satellite sends out a signal. What is a signal?",
           "options": [
-            "A kind of clock",
-            "A big machine",
+            "A kind of clock face",
+            "A big flat machine",
             "A dot on a map",
             "A message sent out"
           ],
@@ -200,9 +200,9 @@
           "stem": "Why must the satellite clocks keep the time just right?",
           "options": [
             "So the phone can tell how far away each one is",
-            "So people know when to wake up",
-            "So the satellites do not crash",
-            "So the map has the right colors"
+            "So people know when to wake up in the morning",
+            "So the satellites do not crash into each other",
+            "So the map has the right colors on the screen"
           ],
           "answer": "A",
           "skill": "inference",
@@ -233,9 +233,9 @@
         {
           "stem": "Why does the author begin with a family driving to a new place?",
           "options": [
-            "To tell a funny story about a trip",
-            "To explain how to drive a car",
-            "To show that maps are not needed",
+            "To tell a funny story about a family trip",
+            "To explain how to drive a big car",
+            "To show that maps are not needed by anyone",
             "To connect GPS to something readers know"
           ],
           "answer": "D",
@@ -310,10 +310,10 @@
         {
           "stem": "What information does each satellite's signal carry?",
           "options": [
-            "The weather for the day",
+            "The weather for the day ahead",
             "Its position and the exact time",
-            "The phone's location",
-            "A picture of the road"
+            "The phone's location on the map",
+            "A picture of the road below"
           ],
           "answer": "B",
           "skill": "detail",
@@ -557,10 +557,10 @@
         {
           "stem": "Why are atomic clocks essential to GPS rather than ordinary clocks?",
           "options": [
-            "Ordinary clocks cannot survive in space.",
+            "Ordinary clocks cannot survive in space, where it is cold.",
             "Tiny timing errors would cause large mistakes in position.",
-            "Atomic clocks are cheaper to build.",
-            "Ordinary clocks cannot send radio signals."
+            "Atomic clocks are cheaper to build than ordinary ones.",
+            "Ordinary clocks cannot send radio signals through the air."
           ],
           "answer": "B",
           "skill": "inference",

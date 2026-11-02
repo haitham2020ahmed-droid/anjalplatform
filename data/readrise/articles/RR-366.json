@@ -182,10 +182,10 @@
         {
           "stem": "Why does Father also help the old neighbor with his boat?",
           "options": [
-            "The neighbor pays him money",
-            "It is a rule from the radio",
+            "The neighbor pays him money for the help",
+            "It is a rule from the radio that all must help",
             "He wants to be kind and help someone else in need",
-            "He forgot to tie his own boats"
+            "He forgot to tie his own boats before the storm"
           ],
           "answer": "C",
           "skill": "inference",
@@ -199,10 +199,10 @@
         {
           "stem": "In the article, to tie something down means to —",
           "options": [
-            "paint it a new color",
-            "make it move faster",
+            "paint it a new color with a brush",
+            "make it move faster along the road",
             "fasten it tightly so it cannot move",
-            "take it far away"
+            "take it far away from the house"
           ],
           "answer": "C",
           "skill": "vocabulary",
@@ -217,9 +217,9 @@
           "stem": "Why does the author describe each family member's job, one by one?",
           "options": [
             "To show how everyone worked together as a team",
-            "To make the reader feel sad",
-            "To describe different kinds of boats",
-            "To explain how to cook fish"
+            "To make the reader feel sad about the family",
+            "To describe different kinds of boats in the harbor",
+            "To explain how to cook fish for a big dinner"
           ],
           "answer": "A",
           "skill": "author-purpose",
@@ -233,10 +233,10 @@
         {
           "stem": "What happens right after the family finishes tying down the boats?",
           "options": [
-            "They go fishing",
+            "They go fishing in the quiet sea again",
             "The storm begins, with wind and rain",
-            "They go to the market",
-            "They watch TV"
+            "They go to the market to buy fish and bread",
+            "They watch TV in the living room together"
           ],
           "answer": "B",
           "skill": "sequence",
@@ -361,9 +361,9 @@
         {
           "stem": "Why does Mother bring in the outdoor furniture?",
           "options": [
-            "She is cleaning the yard",
-            "She wants to sell it",
-            "It is too hot outside",
+            "She is cleaning the yard and the garden for the guests",
+            "She wants to sell it at the market this weekend",
+            "It is too hot outside, so the chairs would get burned",
             "Strong wind could blow it around and cause damage"
           ],
           "answer": "D",
@@ -378,10 +378,10 @@
         {
           "stem": "Why does Father check on the elderly neighbor's boat as well as his own?",
           "options": [
-            "He is required to by the radio station",
+            "He is required to by the radio station, which tells all fishermen to do it",
             "He cares about his neighbor and believes in helping others in the community",
-            "He wants to be paid for the help",
-            "He has no boats of his own to protect"
+            "He wants to be paid for the help, since the neighbor is a rich man",
+            "He has no boats of his own to protect, so he checks his neighbor's boat"
           ],
           "answer": "B",
           "skill": "inference",
@@ -395,9 +395,9 @@
         {
           "stem": "What is the result of the family's careful preparation before the storm?",
           "options": [
-            "The boats are damaged anyway",
-            "The family loses their home",
-            "Nothing changes",
+            "The boats are damaged anyway by the waves",
+            "The family loses their home to the water",
+            "Nothing changes for the boats or the family",
             "All the boats stay safe through the storm"
           ],
           "answer": "D",
@@ -413,9 +413,9 @@
           "stem": "How does the author organize most of the article?",
           "options": [
             "By following the events in the order they happen, from the warning to the morning after",
-            "By comparing two different storms",
-            "By listing facts about different fish",
-            "By explaining how boats are built"
+            "By comparing two different storms that hit the coast, one after the other in the same year",
+            "By listing facts about different fish that live near the shore, from the smallest to the largest",
+            "By explaining how boats are built, and then how sailors keep them safe from the waves"
           ],
           "answer": "A",
           "skill": "text-structure",
@@ -541,9 +541,9 @@
           "stem": "Why does Father feel a responsibility to help secure his elderly neighbor's boat?",
           "options": [
             "Helping others is simply part of life in their close-knit community",
-            "The neighbor threatens to report him if he refuses",
-            "He is paid a fee for the help",
-            "The radio forecast orders him to do it"
+            "The neighbor threatens to report him if he refuses to help",
+            "He is paid a fee for the help by the harbor office each month",
+            "The radio forecast orders him to do it before the storm arrives"
           ],
           "answer": "A",
           "skill": "inference",
@@ -557,9 +557,9 @@
         {
           "stem": "What can readers infer about the family from how quickly and calmly they prepare for the storm?",
           "options": [
-            "They have never experienced a storm before",
-            "They panic and do not know what to do",
-            "They do not care about their boats",
+            "They have never experienced a storm before, so they are learning as they go",
+            "They panic and do not know what to do, so they argue about the boats",
+            "They do not care about their boats and leave them out in the open sea",
             "They are experienced and know how to handle this kind of danger together"
           ],
           "answer": "D",
@@ -574,10 +574,10 @@
         {
           "stem": "How are Maha's and her father's actions during the story alike?",
           "options": [
-            "Both ignore the storm forecast",
-            "Both refuse to help anyone outside the family",
+            "Both ignore the storm forecast and stay at home, safe inside the house",
+            "Both refuse to help anyone outside the family at all, even in danger",
             "Both take responsibility for securing boats, their own and a neighbor's",
-            "Both are afraid to go near the shore"
+            "Both are afraid to go near the shore of the sea, so they stay far away"
           ],
           "answer": "C",
           "skill": "compare",
@@ -592,9 +592,9 @@
           "stem": "Why does the author include the detail that Father also secures an elderly neighbor's boat, beyond his own family's boats?",
           "options": [
             "To emphasize that responsibility in a community extends beyond one's own family",
-            "To show that storms only damage old boats",
-            "To explain how boats are repaired",
-            "To suggest that neighbors should not be trusted"
+            "To show that storms only damage old boats, so new boats do not need any rope",
+            "To explain how boats are repaired after a storm and who pays for the work",
+            "To suggest that neighbors should not be trusted with a family's boats"
           ],
           "answer": "A",
           "skill": "author-purpose",

@@ -88,7 +88,7 @@
       "questions": [
         {
           "stem": "What is this article mostly about?",
-          "options": ["How islands can form and how island life is different", "How ships cross the wide, deep ocean safely", "Why volcanoes are dangerous for nearby towns", "Why coral reefs have so many colorful fish"],
+          "options": ["How islands can form and how island life is different", "How ships cross the wide, deep ocean safely in storms", "Why volcanoes are dangerous for nearby towns and farms", "Why coral reefs have so many colorful fish and plants"],
           "answer": "A",
           "skill": "central-idea",
           "why": "The article explains how islands form in different ways and how island life is different from mainland life.",
@@ -112,7 +112,7 @@
         },
         {
           "stem": "In the article, what does archipelago mean?",
-          "options": ["A single large mountain", "A kind of ocean storm", "A group of islands close together", "A deep hole in the sea"],
+          "options": ["A single large mountain with snow on top", "A kind of ocean storm with strong winds", "A group of islands close together", "A deep hole in the sea where fish hide"],
           "answer": "C",
           "skill": "vocabulary",
           "why": "The article uses Japan as an example of a big archipelago, a group of islands.",
@@ -136,7 +136,7 @@
         },
         {
           "stem": "What happens after enough sand piles up on top of a coral reef?",
-          "options": ["A new volcano quickly erupts nearby", "The reef sinks deeper into the sea", "The nearby coast slowly disappears", "Sand rises above the water and forms an island"],
+          "options": ["A new volcano quickly erupts nearby in the sea", "The reef sinks deeper into the sea and is lost", "The nearby coast slowly disappears under the sand", "Sand rises above the water and forms an island"],
           "answer": "D",
           "skill": "cause-effect",
           "why": "The article says sand piling on a reef can rise above the water, forming an island.",
@@ -144,7 +144,7 @@
         },
         {
           "stem": "Why does the author describe three different ways islands can form?",
-          "options": ["To prove that volcanoes make every island", "To show that islands can form in more than one way", "To explain why the ocean is salty", "To describe how old ships were built"],
+          "options": ["To prove that volcanoes make every island in the sea", "To show that islands can form in more than one way", "To explain why the ocean is salty and why it is deep", "To describe how old ships were built to sail around them"],
           "answer": "B",
           "skill": "author-purpose",
           "why": "The article explains volcanic, coral, and continental islands, showing several ways islands form.",
@@ -166,7 +166,7 @@
       "questions": [
         {
           "stem": "Which sentence best states the central idea of the article?",
-          "options": ["Islands form in different ways and island life often differs from life on the mainland.", "Volcanoes are the only natural danger to island residents.", "Coral reefs are more important than volcanic islands.", "Archipelagos always have better weather than single islands."],
+          "options": ["Islands form in different ways and island life often differs from life on the mainland.", "Volcanoes are the only natural danger to island residents, and storms never harm them.", "Coral reefs are more important than volcanic islands, since islands cannot hold life.", "Archipelagos always have better weather than single islands, since the sea keeps them warm."],
           "answer": "A",
           "skill": "central-idea",
           "why": "The article explains volcanic, coral, and continental formation, plus how isolation shapes island life.",
@@ -182,7 +182,7 @@
         },
         {
           "stem": "What happened to the land that became Greenland, according to the article?",
-          "options": ["It sank completely under the ocean.", "Rising sea levels cut it off from the mainland.", "A volcano pushed it up from below.", "Coral reefs slowly built it from sand."],
+          "options": ["It sank completely under the ocean after a flood.", "Rising sea levels cut it off from the mainland.", "A volcano pushed it up from below the sea.", "Coral reefs slowly built it from sand and shells."],
           "answer": "B",
           "skill": "detail",
           "why": "The article says rising sea levels after the ice age separated Greenland from the mainland it had been joined to.",
@@ -206,7 +206,7 @@
         },
         {
           "stem": "Why do archipelagos like Japan or Indonesia contain so many separate habitats?",
-          "options": ["Each island is completely identical to the next.", "The islands are joined together by roads.", "Volcanoes destroy habitats faster than they can form.", "Being spread across the sea, each island can support its own distinct plants and animals."],
+          "options": ["Each island is completely identical to the next, with the same plants and the same animals.", "The islands are joined together by roads, so animals can walk from one island to another.", "Volcanoes destroy habitats faster than they can form, so most islands have no animals left.", "Being spread across the sea, each island can support its own distinct plants and animals."],
           "answer": "D",
           "skill": "inference",
           "why": "The article notes that scattered islands each support their own habitat and community of living things.",
@@ -214,7 +214,7 @@
         },
         {
           "stem": "How is a continental island different from a volcanic island, based on the article?",
-          "options": ["A continental island forms from a piece of existing land, while a volcanic island forms from new rock.", "A continental island forms from coral, while a volcanic island forms from sand.", "A continental island always sits in an archipelago, while a volcanic island never does.", "A continental island has no coast, while a volcanic island has many coasts."],
+          "options": ["A continental island forms from a piece of existing land, while a volcanic island forms from new rock.", "A continental island forms from coral, while a volcanic island forms from sand and shells.", "A continental island always sits in an archipelago, while a volcanic island never sits in one.", "A continental island has no coast, while a volcanic island has many coasts all around it."],
           "answer": "A",
           "skill": "compare",
           "why": "A continental island separates from a larger landmass, while a volcanic island is built up from new lava rock.",
@@ -276,7 +276,7 @@
         },
         {
           "stem": "Why does the article suggest island habitats are especially vulnerable?",
-          "options": ["Because islands receive far too much rainfall each year", "Because islands are always much larger than continents", "Because species that evolved in isolation may exist nowhere else", "Because island soil never contains any nutrients at all"],
+          "options": ["Because islands receive far too much rainfall each year in the sea", "Because islands are always much larger than continents", "Because species that evolved in isolation may exist nowhere else", "Because island soil never contains any nutrients at all"],
           "answer": "C",
           "skill": "inference",
           "why": "Species found only on an island have nowhere else to survive if their habitat is harmed.",
@@ -284,7 +284,7 @@
         },
         {
           "stem": "What can be inferred about a hot spot that forms a chain of volcanic islands over millions of years?",
-          "options": ["The hot spot itself moves rapidly across the wide ocean.", "Each new island in the chain forms within a single year.", "The hot spot eventually becomes a continental island.", "The crust above the hot spot gradually drifts, forming new islands."],
+          "options": ["The hot spot itself moves rapidly across the wide ocean, dragging the islands.", "Each new island in the chain forms within a single year or two.", "The hot spot eventually becomes a continental island over time.", "The crust above the hot spot gradually drifts, forming new islands."],
           "answer": "D",
           "skill": "inference",
           "why": "The article explains the hot spot stays in place while the crust above it drifts, producing a chain of islands over millions of years.",

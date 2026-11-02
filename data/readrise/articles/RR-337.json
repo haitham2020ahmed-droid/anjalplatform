@@ -88,7 +88,7 @@
       "questions": [
         {
           "stem": "What is this article mostly about?",
-          "options": ["How farmers grow food in rural villages", "How Riyadh built tall towers for tourists", "Why people move from the countryside to cities and how cities grow", "Why roads are built across the desert"],
+          "options": ["How farmers grow food in rural villages with simple tools", "How Riyadh built tall towers for tourists to visit each year", "Why people move from the countryside to cities and how cities grow", "Why roads are built across the desert, and who drives on them"],
           "answer": "C",
           "skill": "central-idea",
           "why": "The article explains why people leave rural areas for cities and how cities like Riyadh grow larger over time.",
@@ -96,7 +96,7 @@
         },
         {
           "stem": "Why do people move to cities, according to the article?",
-          "options": ["To find jobs and get better services", "To live closer to farm animals", "To escape heavy rain each year", "To grow larger wheat farms"],
+          "options": ["To find jobs and get better services", "To live closer to farm animals and fields", "To escape heavy rain each year in villages", "To grow larger wheat farms near the town"],
           "answer": "A",
           "skill": "detail",
           "why": "The article says cities have jobs and good services, which is why people move there.",
@@ -104,7 +104,7 @@
         },
         {
           "stem": "What has Riyadh become today, according to the article?",
-          "options": ["A small farming village", "An empty stretch of desert", "A quiet rural town", "One of the biggest cities in the region"],
+          "options": ["A small farming village with few people", "An empty stretch of desert with no buildings", "A quiet rural town with farms", "One of the biggest cities in the region"],
           "answer": "D",
           "skill": "detail",
           "why": "The article says Riyadh has grown into one of the biggest cities in the region.",
@@ -144,7 +144,7 @@
         },
         {
           "stem": "What does the article describe about Riyadh?",
-          "options": ["How it will become a village again", "How it changed from a small town into a big city", "How it was always a big city", "How farmers grow crops there"],
+          "options": ["How it will become a small village again one day", "How it changed from a small town into a big city", "How it was always a big city in the desert", "How farmers grow crops there with deep wells"],
           "answer": "B",
           "skill": "sequence",
           "why": "The article describes how Riyadh went from a small town to a big city over time.",
@@ -166,7 +166,7 @@
       "questions": [
         {
           "stem": "Which sentence best states the central idea of the article?",
-          "options": ["Riyadh has many government offices.", "Cities need more schools and hospitals.", "Urbanization is the process of people migrating from rural areas to cities in search of jobs and better services, as shown by Riyadh's growth.", "Rural villages are quiet and slow-paced."],
+          "options": ["Riyadh has many government offices and big companies, and thousands of workers drive there each morning to do their jobs in the busy city center.", "Cities need more schools and hospitals, and builders must work quickly to make them for the families who live there.", "Urbanization is the process of people migrating from rural areas to cities in search of jobs and better services, as shown by Riyadh's growth.", "Rural villages are quiet and slow-paced, so families there enjoy a calm life far from busy roads and tall buildings."],
           "answer": "C",
           "skill": "central-idea",
           "why": "The article's central idea is that urbanization, driven by jobs and services, explains why cities like Riyadh grow quickly.",
@@ -190,7 +190,7 @@
         },
         {
           "stem": "The article says many people migrate to cities. What does migrate mean?",
-          "options": ["to build new infrastructure", "to move from one place to live in another", "to lose a job suddenly", "to grow crops on a farm"],
+          "options": ["to build new infrastructure in a town or a city", "to move from one place to live in another", "to lose a job suddenly and move away from home", "to grow crops on a farm near the village"],
           "answer": "B",
           "skill": "vocabulary",
           "why": "The article uses migrate to describe people moving from rural areas to live in cities.",
@@ -206,7 +206,7 @@
         },
         {
           "stem": "Why might someone see moving to a city as an opportunity?",
-          "options": ["Villages offer more jobs than cities", "Cities never need new infrastructure", "A city may offer a chance at a better life through jobs and services", "Rural areas have more hospitals than cities"],
+          "options": ["Villages offer more jobs than cities, so people should stay in the countryside", "Cities never need new infrastructure, because the old roads and pipes last forever", "A city may offer a chance at a better life through jobs and services", "Rural areas have more hospitals than cities, so the sick should live there"],
           "answer": "C",
           "skill": "inference",
           "why": "The article suggests cities offer a chance at a better life, which is why many families see them as an opportunity.",
@@ -214,7 +214,7 @@
         },
         {
           "stem": "What can you infer about cities around the world based on Riyadh's growth?",
-          "options": ["Urbanization is likely happening in many places, not only Saudi Arabia", "Most cities are shrinking back into villages", "Only desert cities experience urbanization", "Urbanization only affects government workers"],
+          "options": ["Urbanization is likely happening in many places, not only Saudi Arabia", "Most cities are shrinking back into small villages every year", "Only desert cities experience urbanization in the whole world", "Urbanization only affects government workers in the cities of Saudi Arabia"],
           "answer": "A",
           "skill": "inference",
           "why": "The article says urbanization is not unique to Saudi Arabia, suggesting it is happening in many places.",
@@ -244,7 +244,7 @@
       "questions": [
         {
           "stem": "Which statement best summarizes the article?",
-          "options": ["Riyadh's roads are wider than those of other capitals.", "Rural villages generally have more hospitals than cities.", "Government buildings are the tallest structures in Riyadh.", "Urbanization, driven by economic opportunity, has reshaped Riyadh into a modern megacity, though rapid growth brings infrastructure and sustainability challenges."],
+          "options": ["Riyadh's roads are wider than those of other capitals, and the city has no traffic at all, because its cars are few and its drivers are careful, so there are no problems.", "Rural villages generally have more hospitals than cities, because villages have more people to care for and more space for them to build large clinics.", "Government buildings are the tallest structures in Riyadh, and no houses, hotels, or towers rise above them in the city, because the law does not allow it.", "Urbanization, driven by economic opportunity, has reshaped Riyadh into a modern megacity, though rapid growth brings infrastructure and sustainability challenges."],
           "answer": "D",
           "skill": "central-idea",
           "why": "The article's main point is that economic opportunity drives urbanization, turning Riyadh into a megacity, while also creating challenges for sustainable growth.",
@@ -252,7 +252,7 @@
         },
         {
           "stem": "What demographic shift does the article describe?",
-          "options": ["A steady movement of population from the countryside to cities", "A sudden drop in the number of children born", "A migration of city residents back to villages", "An increase in rural farming jobs"],
+          "options": ["A steady movement of population from the countryside to cities", "A sudden drop in the number of children who are born each year", "A migration of city residents back to the villages and the farms", "An increase in rural farming jobs in the countryside and villages"],
           "answer": "A",
           "skill": "detail",
           "why": "The article describes a steady demographic shift as people move from rural areas into cities like Riyadh.",
@@ -268,7 +268,7 @@
         },
         {
           "stem": "The article describes sustainable growth. What does sustainable mean in this context?",
-          "options": ["Growth that happens instantly", "Growth that can continue without causing serious long-term harm", "Growth that only affects government buildings", "Growth that reduces a city's population"],
+          "options": ["Growth that happens instantly, in a single day or night, and never slows down", "Growth that can continue without causing serious long-term harm", "Growth that only affects government buildings and offices in the capital", "Growth that reduces a city's population year after year until it is empty"],
           "answer": "B",
           "skill": "vocabulary",
           "why": "The article uses sustainable to describe growth that can last without causing serious long-term harm.",
@@ -292,7 +292,7 @@
         },
         {
           "stem": "Why might unmanaged urban sprawl create problems for a growing city?",
-          "options": ["It makes a city smaller and easier to manage", "It can stretch infrastructure and services over a wider area than planned", "It always lowers the cost of housing", "It has no effect on roads or transportation"],
+          "options": ["It makes a city smaller and easier to manage, with fewer roads and buses to build", "It can stretch infrastructure and services over a wider area than planned", "It always lowers the cost of housing, so every family can buy a larger home nearby", "It has no effect on roads or transportation, because people still live close to work"],
           "answer": "B",
           "skill": "inference",
           "why": "The article suggests unmanaged sprawl can stretch infrastructure and services over a wider area than planned, making them harder to maintain.",
@@ -300,7 +300,7 @@
         },
         {
           "stem": "How does the article compare Riyadh's past and present?",
-          "options": ["It shows a small desert town growing into a major regional megacity", "It shows a megacity shrinking back into a small town", "It shows Riyadh staying the same size for decades", "It shows rural villages becoming more popular than cities"],
+          "options": ["It shows a small desert town growing into a major regional megacity", "It shows a megacity shrinking back into a small town in the desert", "It shows Riyadh staying the same size for decades and decades", "It shows rural villages becoming more popular than cities"],
           "answer": "A",
           "skill": "compare",
           "why": "The article compares Riyadh's past as a small desert town with its present as a major regional megacity.",

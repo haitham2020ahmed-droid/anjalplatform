@@ -216,8 +216,8 @@
         {
           "stem": "How is Mercury different from Venus?",
           "options": [
-            "Mercury is bigger than Venus",
-            "Venus has no air at all",
+            "Mercury is bigger than Venus and has thick air",
+            "Venus has no air at all, so it is cold",
             "Mercury has many moons, but Venus has none",
             "Mercury is closer to the Sun, but Venus is hotter"
           ],
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the main idea of the article?",
           "options": [
-            "Mercury is the easiest planet to see from Earth.",
+            "Mercury is the easiest planet to see from Earth, since it is so large.",
             "Mercury is a small, fast planet with extreme conditions.",
-            "Mercury and Venus are almost exactly the same.",
-            "Spacecraft have found water flowing on Mercury."
+            "Mercury and Venus are almost exactly the same in every way.",
+            "Spacecraft have found water flowing on Mercury in big rivers."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -344,10 +344,10 @@
         {
           "stem": "Why does Mercury's temperature swing so wildly between day and night?",
           "options": [
-            "It is the smallest planet.",
-            "It spins faster than any other planet.",
+            "It is the smallest planet in the solar system.",
+            "It spins faster than any other planet in the sky.",
             "It has almost no atmosphere to hold in heat.",
-            "Its craters are full of ice."
+            "Its craters are full of ice and water."
           ],
           "answer": "C",
           "skill": "cause-effect",
@@ -361,10 +361,10 @@
         {
           "stem": "How can ice exist on the planet closest to the Sun?",
           "options": [
-            "Mercury's days are too short to melt it.",
+            "Mercury's days are too short to melt it in the heat.",
             "It stays in deep craters that are always in shadow.",
-            "Mercury's thick atmosphere keeps it cool.",
-            "Mercury is farther from the Sun than Venus."
+            "Mercury's thick atmosphere keeps it cool all day long.",
+            "Mercury is farther from the Sun than Venus is, so it is cold."
           ],
           "answer": "B",
           "skill": "inference",
@@ -412,10 +412,10 @@
         {
           "stem": "Why does the author include the fact that Venus is hotter than Mercury?",
           "options": [
-            "To show that Venus is closer to the Sun",
-            "To tell readers to visit Venus instead",
+            "To show that Venus is closer to the Sun than any other planet",
+            "To tell readers that they should visit Venus instead of Mercury",
             "To show that a thick atmosphere can matter more than distance",
-            "To explain why Mercury has no moons"
+            "To explain why Mercury has no moons and no air around it"
           ],
           "answer": "C",
           "skill": "author-purpose",
@@ -506,9 +506,9 @@
         {
           "stem": "According to the article, why is Mercury difficult to observe from Earth?",
           "options": [
-            "It is hidden behind Venus.",
-            "It only appears at midnight.",
-            "It is too dark to reflect light.",
+            "It is hidden behind Venus for most of the year.",
+            "It only appears at midnight, when it is very dark.",
+            "It is too dark to reflect light from the Sun.",
             "It never strays far from the Sun's glare."
           ],
           "answer": "D",
@@ -523,10 +523,10 @@
         {
           "stem": "Why must engineers guide a spacecraft past other planets on its way to Mercury?",
           "options": [
-            "To collect fuel from their atmospheres",
+            "To collect fuel from their atmospheres along the way",
             "Because it keeps speeding up as it falls toward the Sun",
-            "Because Mercury moves too slowly to catch",
-            "To take photos for a different mission"
+            "Because Mercury moves too slowly to catch up easily",
+            "To take photos of the planets for a different mission"
           ],
           "answer": "B",
           "skill": "cause-effect",

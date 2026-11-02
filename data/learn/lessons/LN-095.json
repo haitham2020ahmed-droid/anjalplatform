@@ -83,9 +83,9 @@
      "passage": "Nora looked at the sky. It is going to rain, she said.",
      "stem": "Where do the quotation marks go?",
      "options": [
-      "around Nora looked",
-      "around she said",
-      "around the sky",
+      "around Nora looked at the sky",
+      "around she said softly",
+      "around the sky outside",
       "around It is going to rain"
      ],
      "answer": 3,
@@ -270,9 +270,9 @@
     "passage": "Hessa and her brother were planning a surprise for their mother. \"We could bake a cake,\" Hessa said, \"or we could plant flowers in the garden.\" Her brother thought about it for a moment. He said that flowers would last much longer than a cake. \"Then flowers it is,\" Hessa agreed, and they went to find the seeds.",
     "stem": "Why are there no quotation marks around what the brother said?",
     "options": [
-     "The writer forgot them.",
-     "He was whispering.",
-     "His words are a question.",
+     "The writer forgot them by mistake in the story.",
+     "He was whispering so nobody could hear him.",
+     "His words are a question to the teacher.",
      "The writer reports his idea, not his exact words."
     ],
     "answer": 3,
@@ -378,10 +378,10 @@
     "passage": "Our teacher read us a line from her grandfather's old notebook. \"He always wrote, 'A day without learning is a day lost,'\" she said. Then she asked us to write our own rule for life. Salem wrote that patience is worth more than speed. Afnan wrote, \"Ask one good question every day.\" The teacher pinned both rules on the wall beside her grandfather's words.",
     "stem": "Why does the writer use single quotation marks (' ') in the second sentence?",
     "options": [
-     "to show the teacher is unsure",
-     "to show the title of a book",
+     "to show the teacher is unsure of the answer",
+     "to show the title of a book that is mentioned",
      "to show a quotation inside another quotation",
-     "to show that words were left out"
+     "to show that some words were left out of a quote"
     ],
     "answer": 2,
     "hint": "Whose words are inside the double marks? Whose words are inside the single marks?",
@@ -409,9 +409,9 @@
      "stem": "What does the dash in Yara's words show?",
      "options": [
       "She stops suddenly in the middle of speaking.",
-      "She is reading from a book.",
-      "She is joining two words into one.",
-      "She has finished speaking."
+      "She is reading from a book out loud.",
+      "She is joining two words into one long word.",
+      "She has finished speaking to the class."
      ],
      "answer": 0,
      "why": "The dash breaks her sentence: she stops one thought to ask about a sound."

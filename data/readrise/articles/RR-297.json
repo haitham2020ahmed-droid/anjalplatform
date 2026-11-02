@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How to sew an abaya from black cloth",
-            "Why Saudi Arabia has very little rain",
+            "How to sew an abaya from black cloth with a machine",
+            "Why Saudi Arabia has very little rain in the summer",
             "How traditional Saudi clothing fits the desert climate",
-            "How ships once sailed across the Red Sea"
+            "How ships once sailed across the Red Sea with big sails"
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the main idea of the article?",
           "options": [
-            "Arab tailors invented the sewing machine",
+            "Arab tailors invented the sewing machine long ago in the desert",
             "Saudi clothing balances desert comfort with regional custom",
-            "Saudi clothing styles never change between regions",
-            "The abaya is always more expensive than the thobe"
+            "Saudi clothing styles never change between the different regions",
+            "The abaya is always more expensive than the thobe in every shop"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -310,9 +310,9 @@
         {
           "stem": "What is one difference between a plain white ghutra and a shemagh?",
           "options": [
-            "The ghutra is only worn by women",
-            "The shemagh is never worn with an agal",
-            "The ghutra is made only of wool",
+            "The ghutra is only worn by women in the cities",
+            "The shemagh is never worn with an agal on the head",
+            "The ghutra is made only of wool from camels",
             "The shemagh has a red-and-white checked pattern"
           ],
           "answer": "D",
@@ -344,10 +344,10 @@
         {
           "stem": "In the article, the word breathable describes fabric that —",
           "options": [
-            "never needs to be washed",
-            "is always black in color",
+            "never needs to be washed again",
+            "is always black in its color",
             "lets air pass through easily",
-            "is worn only indoors"
+            "is worn only indoors, at home"
           ],
           "answer": "C",
           "skill": "vocabulary",
@@ -398,7 +398,7 @@
             "Because each region has its own local traditions and conditions",
             "Because tailors in some regions cannot sew embroidery",
             "Because only certain regions allow a bisht to be worn",
-            "Because thobes are banned in parts of the country"
+            "Because thobes are banned in many parts of the country by law"
           ],
           "answer": "A",
           "skill": "inference",
@@ -523,9 +523,9 @@
         {
           "stem": "In the article, the word craftsmanship refers to —",
           "options": [
-            "a region's usual weather pattern",
+            "a region's usual weather pattern during the year",
             "skill and care shown in making something by hand",
-            "a formal cloak worn at weddings",
+            "a formal cloak worn at weddings and holidays",
             "a style of embroidery used only in cities"
           ],
           "answer": "B",
@@ -574,10 +574,10 @@
         {
           "stem": "Why does the article suggest this clothing is more than just practical?",
           "options": [
-            "Because it is always more expensive than other clothing",
-            "Because it is only worn during religious holidays",
+            "Because it is always more expensive than other clothing in the shops",
+            "Because it is only worn during religious holidays in the year",
             "Because it also carries heritage and identity across generations",
-            "Because it is no longer worn by anyone today"
+            "Because it is no longer worn by anyone today in the country"
           ],
           "answer": "C",
           "skill": "inference",

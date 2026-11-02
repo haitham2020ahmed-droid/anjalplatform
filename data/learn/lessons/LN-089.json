@@ -194,9 +194,9 @@
      "passage": "We celebrate Eid with our cousins. In summer, we visit the beach.",
      "stem": "Why does summer start with a small letter?",
      "options": [
-      "It is a holiday.",
+      "It is a holiday in June.",
       "Seasons are not capitalized.",
-      "It comes after In.",
+      "It comes after the word In.",
       "It is a person's name."
      ],
      "answer": 1,
@@ -302,9 +302,9 @@
      "passage": "Our Principal spoke at the meeting this morning.",
      "stem": "What is wrong?",
      "options": [
-      "Our should be our.",
-      "spoke should be Spoke.",
-      "Nothing is wrong.",
+      "Our should be our, not Our.",
+      "spoke should be Spoke at the start.",
+      "Nothing is wrong at all here.",
       "Principal should be principal."
      ],
      "answer": 3,

@@ -294,9 +294,9 @@
           "stem": "Which sentence best states the main idea?",
           "options": [
             "Your lungs bring in oxygen and remove waste gas, and you can help protect them.",
-            "The diaphragm is the only muscle in the body.",
-            "Dust storms happen only in Saudi Arabia.",
-            "The windpipe pumps blood to the body."
+            "The diaphragm is the only muscle in the body, so it does all of the work.",
+            "Dust storms happen only in Saudi Arabia, so other countries never have to worry.",
+            "The windpipe pumps blood to the body, while the lungs make the heart beat."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -473,9 +473,9 @@
           "stem": "What is the central idea of the article?",
           "options": [
             "The lungs bring oxygen into the blood and remove carbon dioxide, and they need protection.",
-            "The left lung is smaller than the right one.",
-            "Exercise is dangerous for the lungs.",
-            "The nose is more important than the lungs."
+            "The left lung is smaller than the right one, because the heart takes up some space.",
+            "Exercise is dangerous for the lungs, so people with healthy bodies should rest more.",
+            "The nose is more important than the lungs, because it does all the work of breathing."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -540,10 +540,10 @@
         {
           "stem": "Why might having hundreds of millions of alveoli be useful?",
           "options": [
-            "They make the lungs heavier and stronger.",
+            "They make the lungs heavier and stronger for sport.",
             "They give a huge surface for oxygen to enter the blood.",
-            "They stop the heart from beating too fast.",
-            "They store food for the body."
+            "They stop the heart from beating too fast at night.",
+            "They store food for the body for many days."
           ],
           "answer": "B",
           "skill": "inference",
@@ -591,10 +591,10 @@
         {
           "stem": "Why does the author end with advice about dust storms in Saudi Arabia?",
           "options": [
-            "To explain how storms form",
-            "To warn readers never to go outside",
+            "To explain how storms form over the desert and the sea",
+            "To warn readers never to go outside during a storm",
             "To connect lung health to readers' own lives",
-            "To prove that masks add oxygen"
+            "To prove that masks add oxygen to the air we breathe"
           ],
           "answer": "C",
           "skill": "author-purpose",

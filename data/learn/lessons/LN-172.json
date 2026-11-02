@@ -71,10 +71,10 @@
     "passage": "Mazen stood at the edge of the pool. His legs shook. He remembered last summer, when he slipped and fell into the deep end. His uncle had pulled him out. Now Mazen took a deep breath and stepped into the shallow water.",
     "stem": "Why are Mazen's legs shaking?",
     "options": [
-     "He is cold from the water.",
-     "He is late for school.",
+     "He is cold from the water of the pool.",
+     "He is late for school this morning.",
      "He once fell into the deep end of a pool.",
-     "His uncle is angry with him."
+     "His uncle is angry with him about the pool."
     ],
     "answer": 2,
     "hint": "Look for the words that go back in time. What happened to Mazen in the past?",
@@ -113,9 +113,9 @@
      "passage": "Reem always checks the stove twice before she leaves the kitchen. When she was eight, she left a pan on the fire, and smoke filled the house. No one was hurt, but Reem never forgot it.",
      "stem": "What does the flashback tell us about Reem?",
      "options": [
-      "She does not like cooking with pans.",
-      "Her mother cooks every day.",
-      "She is afraid of her mother's kitchen.",
+      "She does not like cooking with pans or pots.",
+      "Her mother cooks every day for the family.",
+      "She is afraid of her mother's kitchen at night.",
       "She is careful because of something from her past."
      ],
      "answer": 3,
@@ -231,10 +231,10 @@
      "passage": "Jana planted a tiny olive seedling beside the school gate. It was no taller than her hand. Many years later, students would sit in the shade of that olive tree to eat their lunch, never knowing who had planted it.",
      "stem": "Why does the author include the flash-forward?",
      "options": [
-      "To explain why Jana felt sad that day",
+      "To explain why Jana felt sad that day at school",
       "To show that a small act would matter in the future",
       "To describe what Jana ate for her lunch",
-      "To show what happened before Jana planted it"
+      "To show what happened before Jana planted it in the garden"
      ],
      "answer": 1,
      "why": "The jump ahead shows the tiny seedling growing into a tree that helps many students later."
@@ -335,10 +335,10 @@
      "passage": "Mariam stared at the chess board. She had played this same opening a year ago against her grandfather, and she had lost in six moves. He had laughed and shown her the trap. Mariam smiled and moved her knight.",
      "stem": "How does the author signal the flashback?",
      "options": [
-      "By bringing in a new character's name",
+      "By bringing in a new character's name and age",
       "By switching to 'had' and saying 'a year ago'",
-      "By starting a new chapter",
-      "By asking the reader a question"
+      "By starting a new chapter with a title",
+      "By asking the reader a question directly"
      ],
      "answer": 1,
      "why": "'A year ago' and the verbs 'had played', 'had lost' and 'had laughed' show the story has moved into the past."
@@ -452,10 +452,10 @@
      "passage": "The medal hung on Omar's wall, its ribbon faded. Every visitor asked about it, and every time Omar began the same way: 'It was the hottest race of the year...' His story took him back to a morning when he was seventeen, the stadium half empty and his left shoe already torn.",
      "stem": "Why might the author begin with the medal and then move back in time?",
      "options": [
-      "To show that Omar never won a single race",
-      "To describe the stadium before it was built",
+      "To show that Omar never won a single race in his life",
+      "To describe the stadium before it was built many years ago",
       "To reveal the outcome first, so readers focus on how Omar won",
-      "To hide who won the race until the very end"
+      "To hide who won the race until the very end of the story"
      ],
      "answer": 2,
      "why": "The medal tells us Omar won. Going back in time makes the reader curious about HOW he won with a torn shoe."
@@ -478,7 +478,7 @@
      "options": [
       "To explain the rules of a penalty kick",
       "To show that Khalil is not on the team",
-      "To reveal the score of the current match",
+      "To reveal the score of the current match to the crowd",
       "To raise the tension by showing what is at stake"
      ],
      "answer": 3,

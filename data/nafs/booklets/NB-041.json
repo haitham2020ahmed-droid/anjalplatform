@@ -221,9 +221,9 @@
       "type": "MCQ",
       "stem": "What type of text is this?",
       "options": [
-        "a poem",
-        "an imaginary adventure story",
-        "a play",
+        "a poem about the moon and stars at night",
+        "an imaginary adventure story about a boy at sea",
+        "a play for a school stage with a curtain and lights",
         "an informational text about a real scientist"
       ],
       "answer": "D",
@@ -253,9 +253,9 @@
       "type": "MCQ",
       "stem": "Which step did al-Biruni carry out FIRST?",
       "options": [
-        "He calculated the radius of the Earth.",
-        "He climbed to the top of the mountain.",
-        "He measured the dip of the horizon.",
+        "He calculated the radius of the Earth from the numbers.",
+        "He climbed to the top of the mountain with his tools.",
+        "He measured the dip of the horizon from the summit.",
         "He measured the height of the mountain from two points."
       ],
       "answer": "D",
@@ -397,10 +397,10 @@
       "type": "MCQ",
       "stem": "In your opinion, why does the writer compare al-Biruni's result with the modern measurement taken by satellites?",
       "options": [
-        "to show that satellites are always wrong",
+        "to show that satellites are always wrong about the Earth",
         "to show how impressively accurate his result was",
-        "to explain how satellites work",
-        "to prove that the Earth is getting bigger"
+        "to explain how satellites work in space and send data",
+        "to prove that the Earth is getting bigger every year"
       ],
       "answer": "B",
       "why": "The comparison (within one per cent) helps readers see how remarkable his result was, given his simple instruments."
@@ -429,10 +429,10 @@
       "type": "MCQ",
       "stem": "What does the writer mean by “great discoveries do not always depend on expensive tools”?",
       "options": [
-        "Expensive tools are useless.",
+        "Expensive tools are useless in science, so scientists should not use them.",
         "Clever thinking can sometimes matter more than costly equipment.",
-        "Scientists should never buy tools.",
-        "Al-Biruni was too poor to buy instruments."
+        "Scientists should never buy tools for their work, and should use only their hands.",
+        "Al-Biruni was too poor to buy instruments, so he used the stars to measure."
       ],
       "answer": "B",
       "why": "The next sentence explains that discoveries can depend on asking the right question and thinking creatively."
@@ -461,10 +461,10 @@
       "type": "MCQ",
       "stem": "What is the main message the writer wants readers to remember?",
       "options": [
-        "The Moon has many craters named after scholars.",
-        "Mountains are too dangerous for scientists to climb.",
+        "The Moon has many craters named after scholars and kings.",
+        "Mountains are too dangerous for scientists to climb in winter.",
         "Careful thinking and creativity can lead to great discoveries.",
-        "Satellites were first imagined by al-Biruni."
+        "Satellites were first imagined by al-Biruni a long time ago."
       ],
       "answer": "C",
       "why": "The final two sentences state this message directly."
@@ -510,9 +510,9 @@
       "stem": "Which of the following events could really happen?",
       "options": [
         "A student measures the height of a tower using angles and triangles.",
-        "A scholar jumps from a mountain to the Moon.",
-        "The horizon moves closer when someone shouts.",
-        "A mountain grows taller so it can be measured."
+        "A scholar jumps from a mountain to the Moon and then measures it with a rope.",
+        "The horizon moves closer when someone shouts at it from a high mountain top.",
+        "A mountain grows taller so it can be measured by the students from a distance."
       ],
       "answer": "A",
       "why": "Measuring height with angles and trigonometry is a real method; the others are impossible."
@@ -526,9 +526,9 @@
       "stem": "Which title best describes the events in the passage?",
       "options": [
         "How One Scholar Measured Our Planet",
-        "The Mountain That Disappeared",
-        "A Race Across the Plain",
-        "The Lost Books of Khwarazm"
+        "The Mountain That Disappeared Overnight",
+        "A Race Across the Plain at Dawn",
+        "The Lost Books of Khwarazm and Baghdad"
       ],
       "answer": "A",
       "why": "The passage focuses on how al-Biruni measured the Earth and on his other achievements."
@@ -556,10 +556,10 @@
       "type": "MCQ",
       "stem": "Based on the passage, what is the BEST way for a student to solve a difficult problem?",
       "options": [
-        "Give up if there are no expensive tools to use.",
+        "Give up if there are no expensive tools to use in the lab.",
         "Ask the right question and think creatively about a method.",
-        "Wait patiently for someone else to find the answer.",
-        "None of the above"
+        "Wait patiently for someone else to find the answer for you.",
+        "None of these ways will work for a student at school."
       ],
       "answer": "B",
       "why": "The passage ends by saying discoveries depend on asking the right question and thinking creatively."

@@ -165,10 +165,10 @@
         {
           "stem": "In the article, an operation means ___.",
           "options": [
-            "a kind of book",
-            "a trip to another country",
+            "a kind of book that doctors write for school",
+            "a trip to another country by plane or by boat",
             "medical work done to treat a sick or hurt body",
-            "a school lesson"
+            "a school lesson that is taught in a big hall"
           ],
           "answer": "C",
           "skill": "vocabulary",
@@ -183,9 +183,9 @@
           "stem": "What did Al-Zahrawi do after he made new instruments and a new stitch?",
           "options": [
             "He wrote a huge book about medicine",
-            "He became king of Cordoba",
-            "He moved to Europe",
-            "He stopped working as a doctor"
+            "He became king of Cordoba and ruled the land",
+            "He moved to Europe with his family and friends",
+            "He stopped working as a doctor and sold his tools"
           ],
           "answer": "A",
           "skill": "sequence",
@@ -199,9 +199,9 @@
         {
           "stem": "Why did Al-Zahrawi draw pictures of his instruments?",
           "options": [
-            "Because he liked art more than medicine",
-            "Because he had no patients",
-            "Because the king told him to",
+            "Because he liked art more than medicine, so he drew all day",
+            "Because he had no patients, so he had free time to draw",
+            "Because the king told him to draw them for the palace",
             "So other doctors could copy and use the same tools"
           ],
           "answer": "D",
@@ -216,10 +216,10 @@
         {
           "stem": "Why do you think doctors in Europe used Al-Zahrawi's book for a long time?",
           "options": [
-            "It was the only book they owned",
+            "It was the only book they owned in their small libraries",
             "A king from Cordoba forced them to",
             "It was very useful for treating patients",
-            "It was shorter than other books"
+            "It was shorter than the other books they read each day"
           ],
           "answer": "C",
           "skill": "inference",
@@ -328,9 +328,9 @@
           "stem": "What material did Al-Zahrawi use to make a stitch the body could absorb?",
           "options": [
             "A material from nature that dissolved over time",
-            "Metal wire from a blacksmith's shop",
-            "Cotton cloth woven by hand at home",
-            "Paper thread rolled very thin by hand"
+            "Metal wire from a blacksmith's shop that was cut into thin pieces",
+            "Cotton cloth woven by hand at home from soft white thread",
+            "Paper thread rolled very thin by hand and then dried in the sun"
           ],
           "answer": "A",
           "skill": "detail",
@@ -361,10 +361,10 @@
         {
           "stem": "Why did Al-Zahrawi's new stitch mean a patient did not need a second visit to the doctor?",
           "options": [
-            "The stitch was invisible.",
+            "The stitch was invisible, so the doctor could not see it.",
             "The stitch's material was absorbed by the body on its own.",
-            "The doctor removed it before leaving.",
-            "Patients were taught to remove it themselves."
+            "The doctor removed it before leaving the patient's home.",
+            "Patients were taught to remove it themselves at home."
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -378,10 +378,10 @@
         {
           "stem": "Why do you think Al-Zahrawi drew careful illustrations of each surgical instrument?",
           "options": [
-            "So his book would look decorative.",
-            "Because he enjoyed drawing more than treating patients.",
+            "So his book would look decorative and pretty to the king and his sons in the palace",
+            "Because he enjoyed drawing more than treating patients in Cordoba, said the writer",
             "So that doctors far from Cordoba could copy and use the same tools correctly.",
-            "Because the king required pictures in every book."
+            "Because the king required pictures in every book in the library, as a rule of the court"
           ],
           "answer": "C",
           "skill": "inference",
@@ -396,9 +396,9 @@
           "stem": "What can you infer about why Al-Zahrawi's encyclopedia remained useful in Europe for hundreds of years?",
           "options": [
             "It contained practical, clearly explained techniques that still worked.",
-            "European doctors had no other medical books at all.",
-            "It was required reading by law.",
-            "It was the shortest book available."
+            "European doctors had no other medical books at all, so they used his",
+            "It was required reading by law for all doctors in Europe",
+            "It was the shortest book available to the students"
           ],
           "answer": "A",
           "skill": "inference",
@@ -412,9 +412,9 @@
         {
           "stem": "Why does the author include details about Al-Zahrawi's belief that cleanliness mattered for healing?",
           "options": [
-            "To compare him to kings of his time.",
-            "To explain the history of Cordoba.",
-            "To give directions for washing hands today.",
+            "To compare him to kings of his time who lived in big palaces.",
+            "To explain the history of Cordoba and the people who lived in that city long ago.",
+            "To give directions for washing hands today in school and at home.",
             "To show one of his important medical ideas beyond just inventing tools."
           ],
           "answer": "D",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
-            "Al-Zahrawi was primarily remembered for ruling Al-Andalus.",
+            "Al-Zahrawi was primarily remembered for ruling Al-Andalus and its great palaces for many long years.",
             "Al-Zahrawi was a renowned surgeon whose meticulous innovations shaped surgical procedure for centuries.",
-            "Al-Zahrawi's only accomplishment was translating foreign texts into Latin.",
-            "Al-Zahrawi's ideas were forgotten shortly after his death."
+            "Al-Zahrawi's only accomplishment was translating foreign texts into Latin for the monks of Europe.",
+            "Al-Zahrawi's ideas were forgotten shortly after his death, and no doctor ever used them again."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -557,10 +557,10 @@
         {
           "stem": "Why most likely did European universities keep Al-Zahrawi's translated text as standard reading for centuries?",
           "options": [
-            "It was the shortest text available to students.",
-            "No other medical texts existed in Europe at the time.",
+            "It was the shortest text available to students, so they could read it in one day.",
+            "No other medical texts existed in Europe at the time, so students had to use it.",
             "Its explanations of techniques and instruments remained genuinely useful in practice.",
-            "Students were required to read it regardless of usefulness."
+            "Students were required to read it regardless of usefulness, as a rule of the school."
           ],
           "answer": "C",
           "skill": "inference",
@@ -574,9 +574,9 @@
         {
           "stem": "How did Al-Zahrawi's approach to closing wounds differ from the use of ordinary thread?",
           "options": [
-            "His stitch material could not be seen by the patient.",
-            "His stitch required daily cleaning by the patient's family.",
-            "His stitch could only be used on royal patients.",
+            "His stitch material could not be seen by the patient, even in a bright room",
+            "His stitch required daily cleaning by the patient's family, with warm water and soap",
+            "His stitch could only be used on royal patients, and it was kept in the palace",
             "His stitch was absorbed by the body, so a second procedure to remove it was unnecessary."
           ],
           "answer": "D",
@@ -591,10 +591,10 @@
         {
           "stem": "Why does the author mention that Al-Zahrawi examined patients with meticulous attention and extended patience?",
           "options": [
-            "To entertain readers with an unrelated story",
+            "To entertain readers with an unrelated story about a boy and a magic lamp in a faraway land",
             "To highlight the careful, deliberate nature of his medical practice, not only his inventions",
-            "To criticize other physicians of his time",
-            "To explain the geography of Cordoba"
+            "To criticize other physicians of his time for being slow and careless with patients",
+            "To explain the geography of Cordoba and the rivers that run through the old city"
           ],
           "answer": "B",
           "skill": "author-purpose",

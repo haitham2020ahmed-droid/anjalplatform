@@ -89,10 +89,10 @@
         {
           "stem": "What is this story mostly about?",
           "options": [
-            "Two children who build a new house",
+            "Two children who build a new house beside a quiet river with their father and mother",
             "A flood that made a river change its path, and two children who investigate it",
-            "A village that has no water at all",
-            "A trip to buy new stones for a garden"
+            "A village that has no water at all in the summer months, so people must walk far",
+            "A trip to buy new stones for a garden at the old school with a teacher and some friends"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -115,10 +115,10 @@
         {
           "stem": "What do Nour and Zaid find at the old riverbed?",
           "options": [
-            "A new bridge",
+            "A new bridge made of wood and rope",
             "Smooth stones and a line of old trees",
-            "A pile of fresh mud",
-            "Fish swimming in the water"
+            "A pile of fresh mud near the water",
+            "Fish swimming in the water of the pond"
           ],
           "answer": "B",
           "skill": "detail",
@@ -154,10 +154,10 @@
         {
           "stem": "Why does the river always flow along the easiest path downhill?",
           "options": [
-            "Because villagers dig the path for it every year",
+            "Because villagers dig the path for it every year with big tools and shovels",
             "Because flowing water naturally moves toward the path that takes the least effort",
-            "Because the old trees pull the water toward them",
-            "Because the stones push the water uphill"
+            "Because the old trees pull the water toward them with their strong roots",
+            "Because the stones push the water uphill as it flows along the ground"
           ],
           "answer": "B",
           "skill": "inference",
@@ -181,9 +181,9 @@
           "stem": "Why do the children walk to both the old riverbed and the new river?",
           "options": [
             "To compare the two paths and understand how the river changed",
-            "To fish in both places",
-            "To plant new trees along both paths",
-            "To ask the river for permission to visit"
+            "To fish in both places with a net and a line, for food and for fun",
+            "To plant new trees along both paths by the river with a spade",
+            "To ask the river for permission to visit its banks in the spring"
           ],
           "answer": "A",
           "skill": "author-purpose",
@@ -224,10 +224,10 @@
         {
           "stem": "What carried the heavy boulders and sediment down the valley during the flood?",
           "options": [
-            "The villagers' carts",
-            "A group of travelers",
+            "The villagers' carts and mules",
+            "A group of travelers on camels",
             "The rushing flood current",
-            "A herd of animals"
+            "A herd of animals from the hills"
           ],
           "answer": "C",
           "skill": "detail",
@@ -250,10 +250,10 @@
         {
           "stem": "What does erosion mean in this story?",
           "options": [
-            "A sudden, powerful flood",
+            "A sudden, powerful flood that fills the valley in an hour",
             "The slow wearing away of stone by moving water over time",
-            "A new path cut in one single day",
-            "A grandfather telling an old story"
+            "A new path cut in one single day by the villagers",
+            "A grandfather telling an old story to the children"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -264,9 +264,9 @@
           "stem": "Why did the river choose the new, gentler slope instead of returning to its old channel?",
           "options": [
             "Because flowing water naturally follows the path that takes the least effort",
-            "Because villagers blocked the old channel on purpose",
-            "Because the old trees grew across the old path",
-            "Because the new slope has more boulders to flow around"
+            "Because villagers blocked the old channel on purpose with big stones and heavy logs last year",
+            "Because the old trees grew across the old path and stopped the flow, years and years ago",
+            "Because the new slope has more boulders and rocks to flow around, so the water likes it better"
           ],
           "answer": "A",
           "skill": "inference",
@@ -302,10 +302,10 @@
         {
           "stem": "How does the author organize this story?",
           "options": [
-            "By comparing two different rivers in two different countries",
+            "By comparing two different rivers in two different countries, then telling how the children visit each one of them",
             "By telling Saad's story of the flood, then following the children as they investigate and Saad explains why it happened",
-            "By listing the exact dates of every flood in the village's history",
-            "By describing how to build a boat to cross the new river"
+            "By listing the exact dates of every flood in the village's history, one by one, from the oldest flood to the newest one",
+            "By describing how to build a boat to cross the new river, with each tool and each step that is needed"
           ],
           "answer": "B",
           "skill": "text-structure",
@@ -333,10 +333,10 @@
         {
           "stem": "Which statement best expresses the central idea of the story?",
           "options": [
-            "A village elder's memory alone fully explains every detail of how the river's course changed.",
+            "A village elder's memory alone fully explains every detail of how the river's course changed, and no other evidence of any kind is needed.",
             "A long-ago flood permanently altered the river's course, and oral memory together with physical evidence in the terrain explain how and why.",
-            "Rivers never change course once they have been established in a particular channel.",
-            "A visiting geologist discovered the old riverbed before any villager knew it existed."
+            "Rivers never change course once they have been established in a particular channel, so the story is a legend only.",
+            "A visiting geologist discovered the old riverbed before any villager knew it existed, and the elder had no part in the story."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -385,10 +385,10 @@
         {
           "stem": "Based on the story, why do the old trees along the dry channel still grow there today?",
           "options": [
-            "Villagers water them by hand every week",
+            "Villagers water them by hand every week, carrying jars from the well in the village",
             "Their roots reach deep underground toward moisture that remains from the old channel",
-            "They were planted recently to mark the new river's path",
-            "They do not actually need any water to survive"
+            "They were planted recently to mark the new river's path across the dry valley floor",
+            "They do not actually need any water to survive, because desert trees live on sunlight alone"
           ],
           "answer": "B",
           "skill": "inference",
@@ -411,10 +411,10 @@
         {
           "stem": "What can readers infer from the layers of deposit found in the old channel?",
           "options": [
-            "They show exactly which year the flood occurred",
+            "They show exactly which year the great flood occurred in the valley, and the name of the river",
             "They provide physical evidence that confirms the moving water carried and dropped material there over time",
-            "They prove that the old channel was never actually part of the river",
-            "They were placed there by the geologist during a recent visit"
+            "They prove that the old channel was never actually part of the river at all, only a road",
+            "They were placed there by the geologist during a recent visit to the site, to confuse the students"
           ],
           "answer": "B",
           "skill": "inference",
@@ -424,10 +424,10 @@
         {
           "stem": "Why does the author include the geologist's explanation about the gradient near the end of the story?",
           "options": [
-            "To argue that Saad's story cannot be trusted",
+            "To argue that Saad's story cannot be trusted and that the children made it up",
             "To connect the children's physical evidence with a scientific reason that supports Saad's account",
-            "To describe in detail how geologists collect rock samples",
-            "To suggest that the river will soon change course again"
+            "To describe in detail how geologists collect rock samples from the dry riverbed",
+            "To suggest that the river will soon change course again and flood the village houses near the old well"
           ],
           "answer": "B",
           "skill": "author-purpose",

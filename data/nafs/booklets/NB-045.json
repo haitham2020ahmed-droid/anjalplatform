@@ -46,10 +46,10 @@
       "type": "MCQ",
       "stem": "Read this sentence from paragraph 4: “The breakthrough came in 1885.” What does “breakthrough” mean here?",
       "options": [
-        "an accident that damaged a machine",
+        "an accident that damaged a machine in the lab",
         "an important advance that solves a problem",
-        "a race between two rival inventors",
-        "a broken part that must be replaced"
+        "a race between two rival inventors in the city",
+        "a broken part that must be replaced in the engine"
       ],
       "answer": "B",
       "why": "The safety bicycle solved the dangers of earlier designs, so a “breakthrough” is an important advance that solves a problem."
@@ -157,10 +157,10 @@
       "type": "MCQ",
       "stem": "Which is another suitable title for the whole text?",
       "options": [
-        "Karl Drais and His Childhood",
-        "New Cycling Paths in Riyadh",
+        "Karl Drais and His Childhood in Germany",
+        "New Cycling Paths in Riyadh and Jeddah",
         "From Running Machine to Safety Bicycle",
-        "How to Repair a Flat Tyre"
+        "How to Repair a Flat Tyre on a Bicycle"
       ],
       "answer": "C",
       "why": "The text traces the bicycle from Drais's running machine to the safety bicycle and beyond; the other titles cover a detail or are not discussed."
@@ -190,9 +190,9 @@
       "stem": "Which sentence best states the main idea of paragraph 3?",
       "options": [
         "Pedals helped, but the new machines were rough or dangerous.",
-        "French inventors were busy during the 1860s.",
-        "Some front wheels were taller than a grown man.",
-        "Roads in the 1860s were often covered in stones."
+        "French inventors were busy with new designs during the 1860s.",
+        "Some front wheels were taller than a grown man on the road.",
+        "Roads in the 1860s were often covered in stones and mud."
       ],
       "answer": "A",
       "why": "The paragraph explains that pedals were progress, but boneshakers were rough and penny-farthings were dangerous."
@@ -270,9 +270,9 @@
       "stem": "Which detail must a reader consider to understand why people called early machines “boneshakers”?",
       "options": [
         "Their iron tyres and wooden frames bounced on stony roads.",
-        "They had no pedals of any kind.",
-        "They used a chain to turn the rear wheel.",
-        "They were first built in Germany."
+        "They had no pedals of any kind, so riders pushed with their feet.",
+        "They used a chain to turn the rear wheel on every journey.",
+        "They were first built in Germany in the early 1800s."
       ],
       "answer": "A",
       "why": "Iron tyres and wooden frames shook riders “so violently on stony roads” that the nickname fitted."
@@ -301,9 +301,9 @@
       "type": "MCQ",
       "stem": "What made the penny-farthing dangerous?",
       "options": [
-        "Its chain often snapped on steep hills.",
-        "It had no seat, so riders had to stand.",
-        "It was too slow to share busy roads.",
+        "Its chain often snapped on steep hills and in the rain.",
+        "It had no seat, so riders had to stand on the pedals.",
+        "It was too slow to share busy roads with horses and carts.",
         "Riders sat so high that a stone could throw them."
       ],
       "answer": "D",
@@ -397,9 +397,9 @@
       "type": "MCQ",
       "stem": "What does the nickname “boneshakers” suggest about riding those machines?",
       "options": [
-        "They were good for the rider's bones.",
-        "They were built from animal bones.",
-        "They were used mainly by doctors.",
+        "They were good for the rider's bones and health.",
+        "They were built from animal bones and wood.",
+        "They were used mainly by doctors in the city.",
         "The ride felt rough enough to rattle bones."
       ],
       "answer": "D",
@@ -413,10 +413,10 @@
       "type": "MCQ",
       "stem": "In your opinion, why does the writer compare the running machine to “a child on a balance bike”?",
       "options": [
-        "to suggest that only small children rode it",
+        "to suggest that only small children rode it in the park",
         "to help readers picture it through something familiar",
-        "to show that balance bikes are very dangerous",
-        "to prove that Karl Drais only built toys"
+        "to show that balance bikes are very dangerous for riders",
+        "to prove that Karl Drais only built toys for his children"
       ],
       "answer": "B",
       "why": "Most readers have seen a balance bike, so the comparison makes the old machine easy to imagine."

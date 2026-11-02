@@ -216,9 +216,9 @@
         {
           "stem": "Why do books often use the Naskh script instead of Kufic?",
           "options": [
-            "Naskh uses less ink than Kufic",
-            "Kufic can't be written with a pen",
-            "Kufic is used only on coins",
+            "Naskh uses less ink than Kufic does",
+            "Kufic can't be written with a pen on paper",
+            "Kufic is used only on coins and stones",
             "Naskh is round, clear, and easy to read"
           ],
           "answer": "D",
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the main idea of the article?",
           "options": [
-            "Reed pens are the rarest tool in the Islamic world",
+            "Reed pens are the rarest tool in the Islamic world and cost a lot of money",
             "A respected art grew from writing, learned through years of practice",
-            "Mosques are decorated only with coins",
-            "Kufic is better than Naskh in every single way"
+            "Mosques are decorated only with coins and with colored glass from far away",
+            "Kufic is better than Naskh in every single way and every writer agrees"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -310,10 +310,10 @@
         {
           "stem": "Why did writing become a respected art in the Islamic world?",
           "options": [
-            "Because paper was very rare back then",
+            "Because paper was very rare back then in the Islamic world",
             "People wanted to write the Quran's words beautifully",
-            "Because kings required calligraphy by law",
-            "Because ink was always expensive to buy"
+            "Because kings required calligraphy by law in every city",
+            "Because ink was always expensive to buy in the market"
           ],
           "answer": "B",
           "skill": "detail",
@@ -364,7 +364,7 @@
             "Copying builds the skill needed before trying original work",
             "Because paper is too costly to waste on mistakes",
             "Because masters never allow students to use ink",
-            "Because new designs are strictly against the rules"
+            "Because new designs are strictly against the rules of the school"
           ],
           "answer": "A",
           "skill": "inference",
@@ -395,10 +395,10 @@
         {
           "stem": "How does the author mostly organize the information in this article?",
           "options": [
-            "As a set of steps for cutting a reed pen",
-            "As an argument between two rival artists",
+            "As a set of steps for cutting a reed pen for writing",
+            "As an argument between two rival artists in the city",
             "From why calligraphy rose, to its scripts and tools, to today",
-            "From the newest script in use back to the oldest"
+            "From the newest script in use back to the oldest script of all"
           ],
           "answer": "C",
           "skill": "text-structure",
@@ -473,9 +473,9 @@
           "stem": "What is the central idea of the article?",
           "options": [
             "Calligraphy grew into a revered art mastered through disciplined practice",
-            "Kufic script is no longer used anywhere today",
-            "Reed pens are the single most expensive calligraphy tool",
-            "Only royal families were ever allowed to learn calligraphy"
+            "Kufic script is no longer used anywhere today, and nobody can read it.",
+            "Reed pens are the single most expensive calligraphy tool in the world.",
+            "Only royal families were ever allowed to learn calligraphy in the old days."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -523,10 +523,10 @@
         {
           "stem": "What does a student receive after demonstrating true mastery of calligraphy?",
           "options": [
-            "A brand new qalam",
-            "A gold medal for excellence",
+            "A brand new qalam made of reed from the river",
+            "A gold medal for excellence from the school",
             "An ijazah, a certificate to sign their own work",
-            "A teaching position at a mosque"
+            "A teaching position at a mosque in the city"
           ],
           "answer": "C",
           "skill": "detail",
@@ -557,10 +557,10 @@
         {
           "stem": "Why might Thuluth suit monumental titles on mosque walls better than Naskh does?",
           "options": [
-            "Thuluth is the only script that uses a qalam",
+            "Thuluth is the only script that uses a qalam, and Naskh uses a brush",
             "Its tall, graceful letters create a striking visual impact",
-            "Naskh cannot ever be written using ink",
-            "Thuluth takes far less time to learn than Naskh"
+            "Naskh cannot ever be written using ink, so it is never used in books",
+            "Thuluth takes far less time to learn than Naskh, so it is easier to write"
           ],
           "answer": "B",
           "skill": "inference",
@@ -591,9 +591,9 @@
         {
           "stem": "Why does the author describe the years a student spends copying a master's models?",
           "options": [
-            "To show just how little effort calligraphy requires",
-            "To explain in detail how paper itself is made",
-            "To argue that earning an ijazah is unnecessary",
+            "To show just how little effort calligraphy requires from a student",
+            "To explain in detail how paper itself is made in a mill",
+            "To argue that earning an ijazah is unnecessary for a student",
             "To stress the discipline needed before earning original work"
           ],
           "answer": "D",

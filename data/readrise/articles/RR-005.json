@@ -115,9 +115,9 @@
           "stem": "What is the article mostly about?",
           "options": [
             "How people live and work on a station in space",
-            "How rockets are built on Earth",
-            "Why the Moon is bright at night",
-            "How to become a football player"
+            "How rockets are built on Earth in big factories",
+            "Why the Moon is bright at night in the sky",
+            "How to become a football player for a big club"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -165,10 +165,10 @@
         {
           "stem": "Read the sentences: \"In space, things do not fall. They float!\" What does float mean?",
           "options": [
-            "To fall down fast",
+            "To fall down fast to the ground",
             "To stay up without falling",
-            "To break into pieces",
-            "To swim in deep water"
+            "To break into pieces in the air",
+            "To swim in deep water like a fish"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -199,10 +199,10 @@
         {
           "stem": "Why are sleeping bags tied to the wall?",
           "options": [
-            "To keep the bags clean",
-            "To make the room look nice",
+            "To keep the bags clean from the dust",
+            "To make the room look nice and tidy",
             "So sleeping astronauts do not float away",
-            "So astronauts can see the Earth"
+            "So astronauts can see the Earth from bed"
           ],
           "answer": "C",
           "skill": "inference",
@@ -233,10 +233,10 @@
         {
           "stem": "Why does the author tell us that astronauts from Saudi Arabia have worked on the ISS?",
           "options": [
-            "To explain how the ISS was built",
+            "To explain how the ISS was built by a group of engineers from the many countries",
             "To show that people from many lands, including ours, work in space",
-            "To teach how to grow plants in space",
-            "To describe what astronauts eat"
+            "To teach how to grow plants in space on the station, in the dark",
+            "To describe what astronauts eat in space every day, from tubes"
           ],
           "answer": "B",
           "skill": "author-purpose",
@@ -378,9 +378,9 @@
         {
           "stem": "Why is the ISS a useful place for some experiments?",
           "options": [
-            "It has more scientists than any lab on Earth.",
-            "Experiments there are cheaper than on Earth.",
-            "Plants grow faster there than anywhere else.",
+            "It has more scientists than any lab on Earth, so it is the best place.",
+            "Experiments there are cheaper than on Earth, and the station is free.",
+            "Plants grow faster there than anywhere else, so seeds are sent up.",
             "It has microgravity, which is hard to make on Earth."
           ],
           "answer": "D",
@@ -558,9 +558,9 @@
           "stem": "Why might scientists study flames on the ISS instead of on Earth?",
           "options": [
             "Flames act differently without gravity, so they reveal new things.",
-            "Fire is not allowed in any science laboratory on Earth.",
-            "The station carries more fuel than labs on Earth do.",
-            "Flames on the ISS are used to help astronauts cook food."
+            "Fire is not allowed in any science laboratory on Earth, so scientists must go to space.",
+            "The station carries more fuel than labs on Earth do, so flames are bigger there.",
+            "Flames on the ISS are used to help astronauts cook their food every day."
           ],
           "answer": "A",
           "skill": "inference",

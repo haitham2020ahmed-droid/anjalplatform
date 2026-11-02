@@ -88,7 +88,7 @@
       "questions": [
         {
           "stem": "What is this article mostly about?",
-          "options": ["How to build a wooden stage", "How puppeteers use objects to tell stories", "Why shadows are hard to see at night", "How to grow up to be an actor"],
+          "options": ["How to build a wooden stage for a school play", "How puppeteers use objects to tell stories", "Why shadows are hard to see at night", "How to grow up to be a good actor"],
           "answer": "B",
           "skill": "central-idea",
           "why": "The article explains how different kinds of puppets and skilled puppeteers are used to tell stories.",
@@ -104,7 +104,7 @@
         },
         {
           "stem": "What makes a shadow puppet show work?",
-          "options": ["A light shining behind a flat cutout shape", "A puppeteer's hand inside a glove", "Strings pulled from above a stage", "A puppet that talks on its own"],
+          "options": ["A light shining behind a flat cutout shape", "A puppeteer's hand inside a glove puppet", "Strings pulled from above a wooden stage", "A puppet that talks on its own at night"],
           "answer": "A",
           "skill": "detail",
           "why": "The article says a light shines behind flat cutout shapes so the audience sees only their shadow.",
@@ -112,7 +112,7 @@
         },
         {
           "stem": "Read this: \"A puppeteer holds the strings above a small stage.\" What is a stage?",
-          "options": ["A kind of string", "The area where a show is performed", "A tool for cutting paper", "A light used for shadows"],
+          "options": ["A kind of string used to tie things", "The area where a show is performed", "A tool used for cutting paper into shapes", "A light used for making shadows on a wall"],
           "answer": "B",
           "skill": "vocabulary",
           "why": "A stage is the area where a show, like a puppet show, takes place.",
@@ -120,7 +120,7 @@
         },
         {
           "stem": "Why must a skilled puppeteer practice for a long time?",
-          "options": ["So the puppet can move by itself", "So the puppet seems alive to the audience", "So the stage becomes bigger", "So the strings never break"],
+          "options": ["So the puppet can move by itself on the stage", "So the puppet seems alive to the audience", "So the stage becomes bigger for the audience", "So the strings never break during the show"],
           "answer": "B",
           "skill": "cause-effect",
           "why": "The article says a good puppeteer makes an object seem alive, which takes real skill and practice.",
@@ -252,7 +252,7 @@
         },
         {
           "stem": "According to the article, what effect is called the illusion of life?",
-          "options": ["A puppet appearing to be genuinely alive to an audience", "A screen appearing brighter than it really is", "A string appearing shorter than it really is", "An audience appearing larger than it really is"],
+          "options": ["A puppet appearing to be genuinely alive to an audience", "A screen appearing brighter than it really is in the dark", "A string appearing shorter than it really is", "An audience appearing larger than it really is"],
           "answer": "A",
           "skill": "vocabulary",
           "why": "The article defines the illusion of life as making a lifeless object appear genuinely alive to a watching audience.",

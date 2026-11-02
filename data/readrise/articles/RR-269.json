@@ -140,9 +140,9 @@
         {
           "stem": "Why might a hatchling crawl toward bright lights instead of the sea?",
           "options": [
-            "It likes to play near hotels.",
-            "It is looking for food in the lights.",
-            "It wants to meet people.",
+            "It likes to play near hotels and cafes by the sea on the beach, with people.",
+            "It is looking for food in the lights on the sand, such as small bugs.",
+            "It wants to meet people who walk on the beach at night.",
             "Bright lights confuse it, so it crawls toward danger instead of the sea."
           ],
           "answer": "D",
@@ -157,10 +157,10 @@
         {
           "stem": "What can you tell about why some beaches are now kept safe for turtles?",
           "options": [
-            "People want fewer turtles in the sea.",
-            "Turtles asked people for help.",
+            "People want fewer turtles in the sea, so they close the beaches to them.",
+            "Turtles asked people for help by coming up to the town in large groups.",
             "People realized turtles need safe places to nest without being disturbed.",
-            "Beaches are kept safe only for swimming."
+            "Beaches are kept safe only for swimming, and turtles must stay in the water."
           ],
           "answer": "C",
           "skill": "inference",
@@ -208,9 +208,9 @@
         {
           "stem": "Why does a sea turtle sometimes eat a plastic bag?",
           "options": [
-            "It is very hungry for plastic.",
-            "It wants to clean up the sea.",
-            "It mistakes the bag for soft sand.",
+            "It is very hungry for plastic, and it likes the taste of it.",
+            "It wants to clean up the sea for the other fish and animals.",
+            "It mistakes the bag for soft sand, so it bites the bag from below.",
             "The bag looks like a jellyfish, one of its favorite foods."
           ],
           "answer": "D",
@@ -244,9 +244,9 @@
           "stem": "Which sentence best states the central idea of this article?",
           "options": [
             "Sea turtles face threats like habitat loss and pollution, but conservation efforts such as reserves and hatcheries can protect them.",
-            "All sea turtles live only in zoos.",
-            "The Red Sea has no sandy beaches.",
-            "Hatchlings always crawl toward bright lights on purpose."
+            "All sea turtles live only in zoos, because the sea is now too dirty and too warm for any turtle to live in it.",
+            "The Red Sea has no sandy beaches, so turtles cannot lay their eggs anywhere along its coast, and none visit it.",
+            "Hatchlings always crawl toward bright lights on purpose, because they want to find the city and live with people near the shore."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -346,9 +346,9 @@
           "stem": "How does the article mainly organize its information about sea turtles?",
           "options": [
             "It describes the nesting process, then explains threats, then describes solutions.",
-            "It lists sea turtle species in alphabetical order.",
-            "It compares two different hotels.",
-            "It tells a made-up story about one turtle's life."
+            "It lists sea turtle species in alphabetical order, with a short fact about each one.",
+            "It compares two different hotels near the beach, then it tells which one is better.",
+            "It tells a made-up story about one turtle's life, from the egg to the sea."
           ],
           "answer": "A",
           "skill": "text-structure",
@@ -397,10 +397,10 @@
         {
           "stem": "Which sentence best summarizes the article?",
           "options": [
-            "Sea turtles face no real threats anywhere in the world.",
-            "Predators are the only threat sea turtles have ever faced.",
+            "Sea turtles face no real threats anywhere in the world, so nobody needs to protect their beaches, eggs, or the sea around them, and the number of turtles keeps on growing every year, as many people say today.",
+            "Predators are the only threat sea turtles have ever faced, and people do not harm them at all, so reserves and hatcheries are not needed, and the turtle numbers are rising.",
             "Sea turtle populations are declining primarily because of habitat loss, light pollution, and ocean pollution, but conservation programs like protected reserves and hatcheries are helping restore their nesting beaches.",
-            "Hatcheries have completely replaced natural nesting on every beach."
+            "Hatcheries have completely replaced natural nesting on every beach, so no turtle lays eggs in sand anymore, and the sea turtle populations are now larger than ever before in history."
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -414,9 +414,9 @@
         {
           "stem": "According to the article, what happens to eggs collected by hatchery workers from unsafe beaches?",
           "options": [
-            "They are sold to zoos around the world.",
-            "They are left on the original beach untouched.",
-            "They are moved permanently into the sea.",
+            "They are sold to zoos around the world for a lot of money.",
+            "They are left on the original beach untouched, in the open where anyone can walk.",
+            "They are moved permanently into the sea, where the waves carry them away.",
             "They are kept secure in controlled sand to incubate until they hatch."
           ],
           "answer": "D",
@@ -517,9 +517,9 @@
           "stem": "Why does losing a single nesting beach to construction pose a serious risk to an entire regional turtle population?",
           "options": [
             "Turtles depend on very specific beaches and rarely nest successfully elsewhere.",
-            "Construction immediately kills every adult turtle in the region.",
-            "Turtles abandon the ocean entirely once one beach is lost.",
-            "Losing a beach causes more predators to appear everywhere."
+            "Construction immediately kills every adult turtle in the region, so the whole group is lost",
+            "Turtles abandon the ocean entirely once one beach is lost, and live on land",
+            "Losing a beach causes more predators to appear everywhere, and so all the turtles die"
           ],
           "answer": "A",
           "skill": "cause-effect",

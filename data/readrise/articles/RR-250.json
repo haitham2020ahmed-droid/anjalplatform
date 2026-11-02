@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How ships are built in Syria today",
+            "How ships are built in Syria today by workers",
             "The life and skilled work of Mariam al-Asturlabi",
-            "How to find stars in the night sky",
-            "The history of the city of Aleppo alone"
+            "How to find stars in the night sky with a map",
+            "The history of the city of Aleppo alone and its walls"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -148,10 +148,10 @@
         {
           "stem": "What did people use astrolabes for, according to the article?",
           "options": [
-            "Only for decoration in homes",
-            "Cooking food over a fire",
+            "Only for decoration in homes and in the markets of towns",
+            "Cooking food over a fire in the desert at night",
             "Finding direction, telling time, and knowing prayer times",
-            "Building workshops"
+            "Building workshops for the craftsmen of the city"
           ],
           "answer": "C",
           "skill": "detail",
@@ -182,9 +182,9 @@
         {
           "stem": "What can you tell about Mariam from how carefully she made each astrolabe?",
           "options": [
-            "She rushed through her work without caring",
-            "She disliked working with her father",
-            "She never finished any of her tools",
+            "She rushed through her work without caring about the result",
+            "She disliked working with her father in the small shop",
+            "She never finished any of her tools and left them half made",
             "She took great care and wanted her work to be exact"
           ],
           "answer": "D",
@@ -200,9 +200,9 @@
           "stem": "Why most likely did a ruler of Aleppo want astrolabes made by Mariam?",
           "options": [
             "Because her tools were known to be especially well made",
-            "Because she gave her tools away for free",
-            "Because he did not trust other craftsmen at all",
-            "Because astrolabes were brand new inventions"
+            "Because she gave her tools away for free to the poor",
+            "Because he did not trust other craftsmen at all in the city",
+            "Because astrolabes were brand new inventions that nobody else had"
           ],
           "answer": "A",
           "skill": "inference",
@@ -234,9 +234,9 @@
           "stem": "Why does the article end by saying Mariam is remembered today?",
           "options": [
             "To show why her skilled work is still important to remember",
-            "To explain exactly how astrolabes are built",
-            "To describe what the city of Aleppo looks like",
-            "To tell readers where stars are located"
+            "To explain exactly how astrolabes are built, step by step, from brass",
+            "To describe what the city of Aleppo looks like from far away",
+            "To tell readers where stars are located in the night sky"
           ],
           "answer": "A",
           "skill": "author-purpose",
@@ -294,9 +294,9 @@
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
             "Mariam al-Asturlabi's precision as an instrument-maker made her astrolabes valuable for astronomy and navigation.",
-            "Aleppo is more important than any other city in Syria.",
-            "Astrolabes are too complicated for anyone to use correctly.",
-            "Only rulers were allowed to own astrolabes."
+            "Aleppo is more important than any other city in Syria, and it was the home of all of the rulers of the land.",
+            "Astrolabes are too complicated for anyone to use correctly, so only a few famous scholars have ever used one.",
+            "Only rulers were allowed to own astrolabes, and no sailor or traveler ever used one on a journey or in the desert."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -361,10 +361,10 @@
         {
           "stem": "How is most of the article organized?",
           "options": [
-            "By comparing two different rulers of Aleppo",
-            "By listing steps for building a workshop",
+            "By comparing two different rulers of Aleppo and their wars",
+            "By listing steps for building a workshop from stone",
             "In order, from Mariam's training to her lasting reputation",
-            "By arguing that astrolabes should not be used"
+            "By arguing that astrolabes should not be used by sailors"
           ],
           "answer": "C",
           "skill": "text-structure",
@@ -378,9 +378,9 @@
         {
           "stem": "What happened because Mariam's astrolabes were so precise?",
           "options": [
-            "She stopped making astrolabes completely.",
-            "She moved away from Aleppo.",
-            "Her father took over all her work.",
+            "She stopped making astrolabes completely and became a teacher",
+            "She moved away from Aleppo to live by the sea",
+            "Her father took over all her work in the shop",
             "A powerful ruler asked her to make instruments for his court."
           ],
           "answer": "D",
@@ -395,10 +395,10 @@
         {
           "stem": "Why most likely did sailors and desert travelers depend on astrolabes for navigation?",
           "options": [
-            "Astrolabes could cook food during long trips.",
+            "Astrolabes could cook food during long trips across the sea",
             "Astrolabes helped them find their direction without roads or landmarks.",
-            "Astrolabes were lighter to carry than maps.",
-            "Astrolabes could predict the weather exactly."
+            "Astrolabes were lighter to carry than maps and were easier to fold",
+            "Astrolabes could predict the weather exactly for the next week"
           ],
           "answer": "B",
           "skill": "inference",
@@ -473,9 +473,9 @@
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
             "Mariam al-Asturlabi's meticulous craftsmanship made her a renowned maker of astronomical instrumentation whose legacy endures today.",
-            "Rulers of Aleppo cared only about military power, not science.",
-            "Astrolabes were replaced quickly by better tools soon after Mariam's time.",
-            "Workshops in Aleppo mainly produced simple cooking tools."
+            "Rulers of Aleppo cared only about military power, not science, so they never paid for any workshop or school.",
+            "Astrolabes were replaced quickly by better tools soon after Mariam's time, so her workshop closed within a year.",
+            "Workshops in Aleppo mainly produced simple cooking tools, and no craftsman there ever worked with brass or stars, not even Mariam."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -523,10 +523,10 @@
         {
           "stem": "The article describes Mariam's work as meticulous. What does meticulous mean here?",
           "options": [
-            "Extremely careless and quick",
+            "Extremely careless and quick in all her work",
             "Extremely careful about small details",
-            "Extremely expensive to buy",
-            "Extremely common and simple"
+            "Extremely expensive to buy in the market",
+            "Extremely common and simple to make at home"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -541,9 +541,9 @@
           "stem": "How does the article's description of Mariam's training compare with her later reputation?",
           "options": [
             "She trained as a careful apprentice and later became a renowned, trusted craftsman.",
-            "She trained for only one day and immediately became famous.",
-            "She trained as a sailor before becoming an astrolabe maker.",
-            "She never trained at all before making instruments for the ruler."
+            "She trained for only one day and immediately became famous across the land.",
+            "She trained as a sailor before becoming an astrolabe maker for the ruler.",
+            "She never trained at all before making instruments for the ruler of the city."
           ],
           "answer": "A",
           "skill": "compare",
@@ -558,9 +558,9 @@
           "stem": "Why does the article mention that few scholarly records exist about Mariam's personal life?",
           "options": [
             "To explain honestly what is and is not known about her, within a true account",
-            "To suggest that she never truly existed at all in history",
-            "To argue that her work was not actually important to anyone",
-            "To prove that historians dislike studying craftsmen and their work"
+            "To suggest that she never truly existed at all in history books or old records",
+            "To argue that her work was not actually important to anyone in her own time",
+            "To prove that historians dislike studying craftsmen and their work in old cities"
           ],
           "answer": "A",
           "skill": "author-purpose",
@@ -574,10 +574,10 @@
         {
           "stem": "What can you infer about women's roles in skilled crafts of Mariam's time, based on the article?",
           "options": [
-            "No historical records about women craftsmen survived from this period.",
+            "No historical records about women craftsmen survived from this period, so we know nothing at all.",
             "While rare, at least some women could become renowned, skilled craftsmen whose work was recorded.",
-            "Women were forbidden by law from working in any workshop.",
-            "Only men were ever allowed to build astrolabes."
+            "Women were forbidden by law from working in any workshop, even when their families owned it.",
+            "Only men were ever allowed to build astrolabes, and women could only sell them in the market."
           ],
           "answer": "B",
           "skill": "inference",

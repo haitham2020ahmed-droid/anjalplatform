@@ -60,8 +60,8 @@
     "stem": "What should happen next in the story?",
     "options": [
      "Mona went swimming in the sea.",
-     "A bird sang a song.",
-     "The cake turned into a car.",
+     "A bird sang a song in a tree.",
+     "The cake turned into a car at night.",
      "Mona smelled smoke from the kitchen."
     ],
     "answer": 3,
@@ -90,9 +90,9 @@
      "stem": "What should happen next?",
      "options": [
       "Omar waited for the car to pass.",
-      "Omar ate lunch at home.",
-      "The sun went down.",
-      "Omar read a book."
+      "Omar ate lunch at home with Dad.",
+      "The sun went down behind the hill.",
+      "Omar read a book in the shade."
      ],
      "answer": 0,
      "why": "The car is coming, so the safe and sensible next step is to wait."
@@ -101,10 +101,10 @@
      "passage": "It started to rain. Sara had no umbrella.",
      "stem": "What should happen next?",
      "options": [
-      "Sara went to sleep.",
-      "Sara found a cat.",
+      "Sara went to sleep on the sofa.",
+      "Sara found a cat under the bed.",
       "Sara ran to stand under a roof.",
-      "Sara painted a picture."
+      "Sara painted a picture of the rain."
      ],
      "answer": 2,
      "why": "She has no umbrella in the rain, so she looks for shelter."
@@ -168,10 +168,10 @@
     "passage": "Every afternoon, Nada practised her bicycle in the yard. Her little brother Saad watched her ride in circles. One day, Saad asked if he could learn too. Nada smiled and brought out her old, small bike from the shed. The sun was still hot.",
     "stem": "What should happen next in the story?",
     "options": [
-     "Nada went to a shop to buy shoes.",
+     "Nada went to a shop to buy new shoes for school.",
      "Nada held the bike steady while Saad climbed on.",
-     "Saad fell asleep in his bed.",
-     "Nada drove a car to school."
+     "Saad fell asleep in his bed and began to dream.",
+     "Nada drove a car to school with her mother."
     ],
     "answer": 1,
     "hint": "Does that event follow from what Saad asked and what Nada brought out?",
@@ -320,9 +320,9 @@
      "passage": "Setting: a quiet village at night.",
      "stem": "Which detail best develops the setting?",
      "options": [
-      "The village had a mosque.",
-      "It was night.",
-      "The village was quiet.",
+      "The village had a mosque, a school and a small shop near the main road.",
+      "It was night, and the villagers were all asleep in their beds.",
+      "The village was quiet, and nobody was walking in the street.",
       "Only a single lamp glowed, and the only sound was a dog barking far away."
      ],
      "answer": 3,
@@ -392,9 +392,9 @@
     "stem": "What is the most logical next event?",
     "options": [
      "Taking a deep breath, Dalia gripped the rail and began to climb, one step at a time, beside Amal.",
-     "Dalia raced up the stairs two at a time, laughing louder than everyone else.",
-     "Amal went home and left Dalia alone at the tower.",
-     "Dalia suddenly decided to become a mountain climber."
+     "Dalia raced up the stairs two at a time, laughing louder than everyone else, and left Amal far behind.",
+     "Amal went home and left Dalia alone at the tower, and she never came back to the town again.",
+     "Dalia suddenly decided to become a mountain climber and left the tower to go to the Alps."
     ],
     "answer": 0,
     "hint": "Which choice grows from what the story has set up: Dalia's fear and Amal's patient offer?",
@@ -426,7 +426,7 @@
       "Salem's torch shines brightly all the way back.",
       "The sun suddenly rises at nine o'clock at night.",
       "Salem's torch flickers and goes out halfway down the path.",
-      "Salem decides to go shopping."
+      "Salem decides to go shopping in the middle of the night."
      ],
      "answer": 2,
      "why": "The uncharged torch was planted earlier, so its failure is the logical consequence."
@@ -435,10 +435,10 @@
      "passage": "Scene: an old fisherman tells his grandson about the sea. The writer wants one detail that develops both character and setting.",
      "stem": "Which detail does this best?",
      "options": [
-      "The fisherman was old.",
+      "The fisherman was old, and he had lived by the sea for many years.",
       "The fisherman's sun-darkened hands still smelled faintly of salt and rope.",
-      "The fisherman liked tea.",
-      "The grandson was eleven."
+      "The fisherman liked tea, and he drank a small cup of it every evening.",
+      "The grandson was eleven years old and went to a school in the town."
      ],
      "answer": 1,
      "why": "It shows his long life at sea (character) and the seaside world (setting) at once."
@@ -447,9 +447,9 @@
      "passage": "Draft: \"The storm came. The family was scared. Then it ended.\"",
      "stem": "Which revision best develops the conflict?",
      "options": [
-      "The storm came, and it was a storm.",
-      "The family was very, very scared.",
-      "The storm came and then it ended quickly.",
+      "The storm came, and it was a very big storm that lasted for many hours that night.",
+      "The family was very, very scared, and everyone in the house felt afraid and worried all night.",
+      "The storm came and then it ended quickly, and everyone went back to sleep in the morning.",
       "As rain hammered the roof, water began to seep under the door, and Dad rushed to block it with towels."
      ],
      "answer": 3,

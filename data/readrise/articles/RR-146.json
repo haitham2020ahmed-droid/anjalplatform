@@ -165,9 +165,9 @@
         {
           "stem": "The article says some bees \"buzz hard\" to shake a flower. What does shake mean here?",
           "options": [
-            "Eat it all up",
-            "Paint",
-            "Plant",
+            "Eat it all up in one go",
+            "Paint it with a brush now",
+            "Plant it in the ground",
             "Move quickly back and forth"
           ],
           "answer": "D",
@@ -311,9 +311,9 @@
           "stem": "About how many of the world's main food crops benefit from pollinators?",
           "options": [
             "Three out of four",
-            "One out of ten",
-            "None of them",
-            "All of them"
+            "Only one out of ten",
+            "None of them at all",
+            "All of them, always"
           ],
           "answer": "A",
           "skill": "detail",
@@ -327,10 +327,10 @@
         {
           "stem": "How are date palms pollinated in Saudi Arabia, according to the article?",
           "options": [
-            "By bumblebees",
+            "By bumblebees in spring",
             "By farmers, by hand",
-            "By birds",
-            "By rain"
+            "By birds, in the air",
+            "By rain, in the fall"
           ],
           "answer": "B",
           "skill": "detail",
@@ -361,10 +361,10 @@
         {
           "stem": "What causes pollen to fall out of a flower during buzz pollination?",
           "options": [
-            "The flower opens at night.",
-            "Rain washes it out.",
+            "The flower opens at night when the moon is out.",
+            "Rain washes it out of the flower in the spring.",
             "The bee shakes or vibrates its body very fast.",
-            "The bee bites the flower."
+            "The bee bites the flower and chews it up."
           ],
           "answer": "C",
           "skill": "cause-effect",
@@ -523,10 +523,10 @@
         {
           "stem": "Bumblebees \"vibrate their bodies so rapidly that the pollen shakes loose.\" What does vibrate mean?",
           "options": [
-            "To fly in a circle",
-            "To bite into a flower",
+            "To fly in a circle around a flower",
+            "To bite into a flower with its mouth",
             "To shake back and forth very quickly",
-            "To fold the wings"
+            "To fold the wings back over the body"
           ],
           "answer": "C",
           "skill": "vocabulary",

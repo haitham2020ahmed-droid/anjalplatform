@@ -165,10 +165,10 @@
         {
           "stem": "What did Lama learn to do right before she practiced with the kickboard?",
           "options": [
-            "Swim a full lap alone",
+            "Swim a full lap alone in the deep end",
             "Float on her back with Coach Huda's help",
-            "Dive off the side of the pool",
-            "Swim underwater"
+            "Dive off the side of the pool by herself",
+            "Swim underwater with her eyes open"
           ],
           "answer": "B",
           "skill": "sequence",
@@ -201,8 +201,8 @@
           "options": [
             "feeling worried or a little afraid",
             "feeling very tired and sleepy",
-            "feeling proud and happy",
-            "feeling hungry for lunch"
+            "feeling proud and happy about the win",
+            "feeling hungry for lunch after a long day"
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -216,10 +216,10 @@
         {
           "stem": "How did Lama most likely feel right after she swam across the pool by herself?",
           "options": [
-            "Bored and ready to go home",
+            "Bored and ready to go home early",
             "Proud and no longer so afraid of the water",
-            "Angry at Coach Huda",
-            "Confused about what had happened"
+            "Angry at Coach Huda for her help",
+            "Confused about what had happened at the pool"
           ],
           "answer": "B",
           "skill": "inference",
@@ -233,10 +233,10 @@
         {
           "stem": "Why does the story first tell us that Lama avoided the deep end?",
           "options": [
-            "To explain the rules of her swim club",
+            "To explain the rules of her swim club and its teams",
             "To show how scared she was at the start, so her change feels bigger",
-            "To describe what the pool looks like",
-            "To explain why the pool was built"
+            "To describe what the pool looks like from the street",
+            "To explain why the pool was built in the town long ago by the mayor"
           ],
           "answer": "B",
           "skill": "author-purpose",
@@ -327,10 +327,10 @@
         {
           "stem": "According to the article, how did Coach Huda teach Lama?",
           "options": [
-            "By giving her a book to read about swimming",
+            "By giving her a book to read about swimming and a test about it",
             "By breaking the skills into small steps and letting Lama go at her own pace",
-            "By having her watch other students swim first",
-            "By asking her to swim in the deep end right away"
+            "By having her watch other students swim for a whole month before trying",
+            "By asking her to swim in the deep end of the pool right away"
           ],
           "answer": "B",
           "skill": "detail",
@@ -344,10 +344,10 @@
         {
           "stem": "Why did Lama need to build confidence before she could swim alone?",
           "options": [
-            "Because the pool rules required a confidence test",
+            "Because the pool rules required a confidence test before swimming alone, and she had not taken it yet",
             "Because she needed to believe she could handle something that once felt too hard",
-            "Because Coach Huda refused to teach nervous swimmers",
-            "Because her mother asked her to prove she was brave"
+            "Because Coach Huda refused to teach nervous swimmers, so Lama had to learn by herself in the water",
+            "Because her mother asked her to prove she was brave, so she had to swim in front of the family"
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -378,10 +378,10 @@
         {
           "stem": "Why was Lama determined to keep practicing even when her hands shook before lessons?",
           "options": [
-            "She wanted to prove something to her friends",
+            "She wanted to prove something to her friends at school and to show them she was brave",
             "She wanted to eventually feel comfortable in the water she once feared",
-            "She was afraid Coach Huda would stop teaching her",
-            "She needed to win a prize at the pool"
+            "She was afraid Coach Huda would stop teaching her if she missed even one more lesson",
+            "She needed to win a prize at the pool that summer so her family could buy her a new bag"
           ],
           "answer": "B",
           "skill": "inference",
@@ -506,10 +506,10 @@
         {
           "stem": "What specifically allowed Lama to overcome her fear and swim the width of the pool unaided?",
           "options": [
-            "A sudden burst of natural talent that appeared without warning",
-            "A lucky guess about how to move her arms and legs",
+            "A sudden burst of natural talent that appeared without warning, on the third day",
+            "A lucky guess about how to move her arms and legs in the water, one afternoon",
             "Weeks of determined effort and gradually built confidence from patient practice",
-            "Watching another student swim across successfully first"
+            "Watching another student swim across successfully first and then copying her moves"
           ],
           "answer": "C",
           "skill": "cause-effect",
@@ -540,9 +540,9 @@
         {
           "stem": "What can readers infer about why Coach Huda never rushed Lama through the steps?",
           "options": [
-            "She had no other students waiting for lessons that day",
-            "She was required by pool rules to spend extra time with beginners",
-            "She did not believe Lama would ever learn to swim",
+            "She had no other students waiting for lessons that day at the pool",
+            "She was required by the pool rules to spend extra time with all of the beginners",
+            "She did not believe that Lama would ever learn to swim well in the pool",
             "She understood that lasting confidence grows best through gradual, patient steps"
           ],
           "answer": "D",
@@ -575,9 +575,9 @@
           "stem": "Why does the author end the article by describing Lama's feeling of accomplishment rather than simply stating that she learned to swim?",
           "options": [
             "To emphasize how meaningful overcoming a genuine fear felt to her, beyond just the physical skill",
-            "To suggest that Lama wants to become a professional swimmer",
-            "To explain the exact rules of competitive swimming",
-            "To compare Lama's accomplishment with her mother's past achievements"
+            "To suggest that Lama wants to become a professional swimmer one day and win medals",
+            "To explain the exact rules of competitive swimming and the strokes that swimmers must use in a race",
+            "To compare Lama's accomplishment with her mother's past achievements in sport"
           ],
           "answer": "A",
           "skill": "author-purpose",
@@ -592,9 +592,9 @@
           "stem": "The article suggests that persistence mattered more to Lama's success than any single moment of bravery. Which detail best supports this idea?",
           "options": [
             "Lama kept practicing lesson after lesson, even when progress felt painfully slow",
-            "Lama's mother originally decided to sign her up for lessons",
-            "The pool was located near Lama's home",
-            "Coach Huda had taught other nervous beginners before Lama"
+            "Lama's mother originally decided to sign her up for lessons at the swim club in town",
+            "The pool was located near Lama's home on the main street",
+            "Coach Huda had taught other nervous beginners before she met Lama"
           ],
           "answer": "A",
           "skill": "inference",

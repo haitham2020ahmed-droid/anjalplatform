@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How to hunt animals in the desert",
+            "How to hunt animals in the desert and how to track their footprints",
             "How the oryx lives in the desert and how people helped it come back",
-            "Why oryx can only live in zoos today",
-            "How camels and oryx share water"
+            "Why oryx can only live in zoos today and never in the wild",
+            "How camels and oryx share water in the desert and how far they travel"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -182,10 +182,10 @@
         {
           "stem": "Why did the oryx disappear from the wild?",
           "options": [
-            "The desert got too cold.",
+            "The desert got too cold at night.",
             "Hunters shot too many of them.",
-            "All the grass dried up.",
-            "They all moved into zoos."
+            "All the grass dried up in the hills.",
+            "They all moved into zoos far away."
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -200,9 +200,9 @@
           "stem": "Why does the oryx walk to a place where rain has fallen?",
           "options": [
             "New grass grows there, so it can find food.",
-            "It wants to swim in the water.",
-            "Hunters can never go there.",
-            "Rain makes its coat whiter."
+            "It wants to swim in the water, so it travels there",
+            "Hunters can never go there, so it feels safe",
+            "Rain makes its coat whiter, so it likes the place"
           ],
           "answer": "A",
           "skill": "inference",
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
-            "The oryx has long horns that can look like one horn from the side.",
-            "Oryx rest in the shade during the hottest part of the day.",
+            "The oryx has long horns that can look like one horn when seen from the side.",
+            "Oryx rest in the shade during the hottest part of the day, under trees and rocks.",
             "The oryx is adapted to the desert, and people saved it after it disappeared from the wild.",
-            "Hunters used fast cars to chase animals in the desert."
+            "Hunters used fast cars to chase animals in the desert, and this made the oryx very rare."
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -361,9 +361,9 @@
         {
           "stem": "Why were hunters with fast cars so dangerous to the oryx?",
           "options": [
-            "The cars made the grass stop growing.",
-            "The noise of the cars made the oryx sick.",
-            "The cars brought water that the oryx could not drink.",
+            "The cars made the grass stop growing, so the oryx had nothing left to eat.",
+            "The noise of the cars made the oryx sick, and many of them died of fright.",
+            "The cars brought water that the oryx could not drink, so they all went thirsty.",
             "They could chase oryx across the open desert, where the animals had nowhere to hide."
           ],
           "answer": "D",
@@ -412,10 +412,10 @@
         {
           "stem": "How is most of this article organized?",
           "options": [
-            "As a list of steps for caring for a pet",
-            "By comparing the oryx with the camel",
+            "As a list of steps for caring for a pet oryx at home or at school",
+            "By comparing the oryx with the camel and the gazelle in the desert",
             "By describing the oryx, then a problem, then how the problem was solved",
-            "As a story told by a ranger"
+            "As a story told by a ranger who works in the park each day"
           ],
           "answer": "C",
           "skill": "text-structure",
@@ -473,9 +473,9 @@
           "stem": "Which statement best summarizes the article?",
           "options": [
             "The Arabian oryx, well suited to the desert, was hunted out of the wild but returned through captive breeding and protected reserves.",
-            "The Arabian oryx is the only animal that lives in the Empty Quarter.",
-            "Radio collars are the most important tool for studying desert animals.",
-            "Oman and Saudi Arabia have the largest zoos in the world."
+            "The Arabian oryx is the only animal that lives in the Empty Quarter, and so it needs protection, and the reserves are for it alone, say the guides in the park.",
+            "Radio collars are the most important tool for studying desert animals, say the people who work in the park, and they are used on every animal in the desert.",
+            "Oman and Saudi Arabia have the largest zoos in the world, and the oryx lives in these zoos only, as it was hunted out of the wild and is not found in any reserve."
           ],
           "answer": "A",
           "skill": "central-idea",

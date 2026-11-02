@@ -294,9 +294,9 @@
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
             "Robots sense, think, and act to help in many places, but still need people.",
-            "Robots in car factories work faster than all other robots.",
-            "Mars rovers are the smartest robots ever built by engineers.",
-            "Robot vacuums will soon replace all workers who clean."
+            "Robots in car factories work faster than all other robots in the world.",
+            "Mars rovers are the smartest robots ever built by engineers on Earth.",
+            "Robot vacuums will soon replace all workers who clean in the cities."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -310,9 +310,9 @@
         {
           "stem": "What does a surgeon do with a robot arm during an operation?",
           "options": [
-            "Lets the robot decide where to cut",
-            "Uses it to carry medicine to rooms",
-            "Programs it once and leaves the room",
+            "Lets the robot decide where to cut without any help",
+            "Uses it to carry medicine to rooms in the hospital",
+            "Programs it once and leaves the room for a rest",
             "Controls every movement to make precise cuts"
           ],
           "answer": "D",
@@ -327,10 +327,10 @@
         {
           "stem": "Read the sentence: \"They can repeat the same task thousands of times without getting tired, so they are ideal for repetitive work.\" What does repetitive mean?",
           "options": [
-            "Hot and dangerous",
+            "Hot and dangerous for people who work",
             "Done the same way again and again",
-            "New and surprising",
-            "Done very slowly"
+            "New and surprising every single time",
+            "Done very slowly and very quietly"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -395,10 +395,10 @@
         {
           "stem": "How does the author organize the middle of the article?",
           "options": [
-            "By telling events in the order they happened",
-            "By listing problems and then solutions",
+            "By telling the events in the order they happened to one robot",
+            "By listing problems and then giving solutions for each one",
             "By showing how robots help in one place after another",
-            "By comparing robots with animals"
+            "By comparing robots with animals in each paragraph"
           ],
           "answer": "C",
           "skill": "text-structure",
@@ -523,10 +523,10 @@
         {
           "stem": "Why must a Mars rover be partially autonomous?",
           "options": [
-            "Engineers want to save fuel on each trip",
+            "Engineers want to save fuel on each trip across the red sand",
             "Signals take up to twenty minutes, so live steering is impossible",
-            "Its actuators are stronger than those of factory robots",
-            "The surface of Mars has no boulders to avoid"
+            "Its actuators are stronger than those of factory robots on Earth",
+            "The surface of Mars has no boulders to avoid, so it drives alone"
           ],
           "answer": "B",
           "skill": "cause-effect",

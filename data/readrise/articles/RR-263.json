@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How to build a new toy from wood",
+            "How to build a new toy from wood and nails",
             "Why plastic bags are bad for the sea",
             "Three ways to help the Earth, done in order",
-            "How a factory makes metal cans"
+            "How a factory makes metal cans for drinks"
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -165,10 +165,10 @@
         {
           "stem": "What is one example of reusing, according to the article?",
           "options": [
-            "Melting an old can into a new can",
+            "Melting an old can into a new can in a factory",
             "Filling the same bag or cup many times",
-            "Buying a brand new water bottle",
-            "Throwing a bottle into the sea"
+            "Buying a brand new water bottle each time",
+            "Throwing a bottle into the sea from a boat"
           ],
           "answer": "B",
           "skill": "detail",
@@ -182,10 +182,10 @@
         {
           "stem": "Why does making new things use up resources and create trash?",
           "options": [
-            "Because trash cans are too small",
-            "Because recycling plants are closed",
+            "Because trash cans are too small for all of the waste in town",
+            "Because recycling plants are closed on most days",
             "Because making new items uses things like trees and metal",
-            "Because reused bags always break"
+            "Because reused bags always break after one day"
           ],
           "answer": "C",
           "skill": "cause-effect",
@@ -233,10 +233,10 @@
         {
           "stem": "Why did the author list reduce, reuse, and recycle in that exact order?",
           "options": [
-            "To show the order does not matter at all",
+            "To show the order does not matter at all to anyone who reads",
             "To show which steps help the Earth the most, from best to last",
-            "To describe how a factory is built",
-            "To explain how sea animals find food"
+            "To describe how a factory is built in a big city",
+            "To explain how sea animals find their food in the deep sea"
           ],
           "answer": "B",
           "skill": "author-purpose",
@@ -327,10 +327,10 @@
         {
           "stem": "According to the article, why does reuse still save resources even though the reused item was already manufactured?",
           "options": [
-            "Because reused items never wear out at all",
+            "Because reused items never wear out at all, so they last forever and ever",
             "Because using the same item again and again avoids making new ones",
-            "Because reuse always costs more money than recycling",
-            "Because reused items are thrown away faster"
+            "Because reuse always costs more money than recycling, so it saves the most resources",
+            "Because reused items are thrown away faster, so factories can make new ones sooner"
           ],
           "answer": "B",
           "skill": "detail",
@@ -395,10 +395,10 @@
         {
           "stem": "How is most of the article organized?",
           "options": [
-            "As a comparison between plastic and metal",
-            "As a story about one family's shopping trip",
+            "As a comparison between plastic and metal in many shops",
+            "As a story about one family's shopping trip to town",
             "As an explanation of each R, from most to least important",
-            "As a list of questions with no answers"
+            "As a list of questions with no answers at the end"
           ],
           "answer": "C",
           "skill": "text-structure",
@@ -412,10 +412,10 @@
         {
           "stem": "Why does the author end the article by urging readers to follow the three Rs \"in their correct and proper order\"?",
           "options": [
-            "To suggest that any order works equally well",
+            "To suggest that any order works equally well for the three Rs in every case",
             "To remind readers that the sequence itself is the point of the article",
-            "To argue that recycling should be banned completely",
-            "To explain how aluminum cans are mined from the Earth"
+            "To argue that recycling should be banned completely in the whole city today",
+            "To explain how aluminum cans are mined from the Earth by workers and trucks"
           ],
           "answer": "B",
           "skill": "author-purpose",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
-            "Recycling should always be a person's first choice when managing waste.",
+            "Recycling should always be a person's first choice when managing waste, because it is the best of all.",
             "The waste hierarchy ranks reduce, reuse, and recycle by how effectively each conserves finite resources.",
-            "Manufacturing is harmless as long as recycled materials are eventually used.",
-            "Reuse and recycle are interchangeable strategies with no real difference."
+            "Manufacturing is harmless as long as recycled materials are eventually used by the factory.",
+            "Reuse and recycle are interchangeable strategies with no real difference between them at all."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -523,9 +523,9 @@
         {
           "stem": "The article says manufacturing products from raw materials relies on the \"extraction\" of resources. What does extraction mean in this context?",
           "options": [
-            "Shipping finished products to stores",
-            "Melting metal into a new shape",
-            "Sorting recyclable items by type",
+            "Shipping finished products to stores in far places",
+            "Melting metal into a new shape in a furnace",
+            "Sorting recyclable items by type in a plant",
             "Removing raw materials, such as ore, from the Earth"
           ],
           "answer": "D",
@@ -541,9 +541,9 @@
           "stem": "Why does the article argue that reducing consumption prevents pollution that recycling cannot address?",
           "options": [
             "Because reducing eliminates the entire production cycle before it starts",
-            "Because recycling plants are typically located far from cities",
-            "Because reduced items are always made from recycled material",
-            "Because recycling only works for liquids, not solids"
+            "Because recycling plants are typically located far from cities and towns",
+            "Because reduced items are always made from recycled material in factories",
+            "Because recycling only works for liquids, not solids, in most places"
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -558,9 +558,9 @@
           "stem": "What can the reader infer about why the article treats the three Rs as a hierarchy rather than three equally good choices?",
           "options": [
             "Because each strategy carries a different environmental cost depending on when it is applied",
-            "Because only reduce is mentioned as being legal in most countries",
-            "Because recycling was invented more recently than reduce or reuse",
-            "Because reuse always requires more money than recycling"
+            "Because only reduce is mentioned as being legal in most countries, and reuse is not allowed",
+            "Because recycling was invented more recently than reduce or reuse, so it is the least useful",
+            "Because reuse always requires more money than recycling does, so people should avoid it"
           ],
           "answer": "A",
           "skill": "inference",
@@ -591,10 +591,10 @@
         {
           "stem": "How does the article's structure support its central argument?",
           "options": [
-            "It tells a chronological story of one factory's history",
+            "It tells a chronological story of one factory's history, from its first day to its last",
             "It defines each R in descending order of effectiveness, then explains the shared underlying reason",
-            "It compares the three Rs to unrelated environmental problems",
-            "It lists random facts about aluminum without any order"
+            "It compares the three Rs to unrelated environmental problems around the world, such as rain",
+            "It lists random facts about aluminum without any order or plan at all, like a pile of notes"
           ],
           "answer": "B",
           "skill": "text-structure",

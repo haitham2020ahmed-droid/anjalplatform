@@ -157,9 +157,9 @@
       "type": "MCQ",
       "stem": "Which is another suitable title for the whole text?",
       "options": [
-        "A Farm Visit in France",
-        "Birds That Taught Us to Fly",
-        "The King's Favourite Animals",
+        "A Farm Visit in France with the King",
+        "Birds That Taught Us to Fly Across Seas",
+        "The King's Favourite Animals at the Palace",
         "Lighter Than Air: The First Balloons"
       ],
       "answer": "D",
@@ -206,9 +206,9 @@
       "stem": "According to paragraph 4, why did the brothers send animals up in a balloon?",
       "options": [
         "Nobody knew whether living creatures could survive up high.",
-        "The king asked to see animals flying in the sky.",
-        "The animals were lighter than any human passengers.",
-        "They wanted to sell the animals at Versailles."
+        "The king asked to see animals flying in the sky above Paris.",
+        "The animals were lighter than any human passengers on board.",
+        "They wanted to sell the animals at Versailles to the court."
       ],
       "answer": "A",
       "why": "“Nobody knew, however, whether a living creature could survive high in the air. For this reason…”"
@@ -365,10 +365,10 @@
       "type": "MCQ",
       "stem": "What was the effect of the news of the Annonay experiment spreading so rapidly?",
       "options": [
-        "The brothers closed their paper business.",
-        "The crowd refused to believe the story.",
+        "The brothers closed their paper business at once.",
+        "The crowd refused to believe the story of the flight.",
         "The brothers were invited to show their invention to the king.",
-        "Other inventors in France copied the balloon at once."
+        "Other inventors in France copied the balloon at once, in a month."
       ],
       "answer": "C",
       "why": "Paragraph 3: news spread rapidly, “and soon the brothers were invited to Versailles … to show their invention to the king.”"
@@ -397,9 +397,9 @@
       "type": "MCQ",
       "stem": "What does the writer mean by saying that the dream “still floats gracefully over the world”?",
       "options": [
-        "The first Montgolfier balloon is still flying today.",
-        "People no longer dream about flying.",
-        "Hot-air balloons are allowed to fly only over France.",
+        "The first Montgolfier balloon is still flying today over France.",
+        "People no longer dream about flying in balloons today.",
+        "Hot-air balloons are allowed to fly only over France and Spain.",
         "Balloon flight, which began long ago, is still enjoyed today."
       ],
       "answer": "D",
@@ -414,9 +414,9 @@
       "stem": "In your opinion, why does the writer mention that the brothers “wrongly believed” smoke contained a special gas?",
       "options": [
         "to show that inventors can succeed before fully understanding why",
-        "to prove that the brothers were poor scientists",
-        "to explain that smoke is the best way to lift a balloon",
-        "to suggest that the balloon in Annonay never really flew"
+        "to prove that the brothers were poor scientists and not clever",
+        "to explain that smoke is the best way to lift a balloon in the air",
+        "to suggest that the balloon in Annonay never really flew into the air"
       ],
       "answer": "A",
       "why": "The brothers' balloons worked even though their explanation was wrong; the writer then gives the correct science."
@@ -525,9 +525,9 @@
       "type": "MCQ",
       "stem": "Which title best describes the events in the text?",
       "options": [
-        "The Balloon That Never Rose",
-        "A Duck's Long Journey Home",
-        "The Smoke Gas Mystery Solved",
+        "The Balloon That Never Rose from the Ground",
+        "A Duck's Long Journey Home to the Pond",
+        "The Smoke Gas Mystery Solved by the Brothers",
         "From a Bag Above a Fire to the Sky"
       ],
       "answer": "D",

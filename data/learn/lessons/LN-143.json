@@ -95,9 +95,9 @@
      "stem": "Why did the kitchen smell of smoke? Reread to find out.",
      "options": [
       "Sami forgot the cake in the oven.",
-      "Sami made tea.",
-      "The window was open.",
-      "Sami cleaned the kitchen."
+      "Sami made tea for his family in the kitchen.",
+      "The window was open and the wind came in.",
+      "Sami cleaned the kitchen after he ate lunch."
      ],
      "answer": 0,
      "why": "Rereading shows Sami forgot the cake, so it burned."
@@ -204,9 +204,9 @@
      "stem": "Who carried the bucket proudly? Reread to decide.",
      "options": [
       "Saud, because he caught the fish",
-      "Nasser, because he is older",
-      "Both boys",
-      "Nobody"
+      "Nasser, because he is the older boy",
+      "Both boys, because they went together",
+      "Nobody, because it was too heavy"
      ],
      "answer": 0,
      "why": "Rereading shows Saud caught the fish, so he would be proud."
@@ -215,10 +215,10 @@
      "passage": "The museum guide said the vase was very fragile. 'Please do not touch it,' she said. 'Even a small knock could break it.'",
      "stem": "A reader does not know the word 'fragile'. What should they reread?",
      "options": [
-      "The word museum",
-      "The word guide",
+      "The word museum in the first sentence",
+      "The word guide in the last line",
       "'Even a small knock could break it.'",
-      "The word vase"
+      "The word vase in the second line"
      ],
      "answer": 2,
      "why": "That sentence shows 'fragile' means easy to break."
@@ -378,10 +378,10 @@
     "passage": "Contrary to what the title of the report suggests, the city's water supply is not running out. The report, titled 'A City Without Water?', was designed to grab attention. Its actual findings are more careful: demand is rising by about three percent a year, and if nothing changes, supply could fall short of demand within two decades. However, the authors stress that fixing leaks, which waste nearly a quarter of the water in old pipes, could delay that point by many years. The report is therefore less a warning of disaster than a call for repairs.",
     "stem": "A reader who only skimmed the title believed the city was about to run out of water. What does a careful rereading show?",
     "options": [
-     "The city will run out of water this year.",
-     "The report says water demand is falling.",
+     "The city will run out of water this year, and nothing can be done to stop it.",
+     "The report says water demand is falling, so the city will have plenty of water.",
      "Supply may fall short in about twenty years, but fixing leaks could delay this.",
-     "The report was written to sell newspapers."
+     "The report was written to sell newspapers and to make readers feel afraid."
     ],
     "answer": 2,
     "hint": "Reread the first sentence and the sentences with 'if nothing changes' and 'However'. What do they say exactly?",
@@ -411,9 +411,9 @@
      "stem": "A reader first concluded the experiment failed. What does rereading the full sentence show?",
      "options": [
       "It was useful because it ruled out one explanation.",
-      "The experiment gave the hoped-for result.",
-      "The team gave up the search.",
-      "The experiment was not finished."
+      "The experiment gave the hoped-for result in the end.",
+      "The team gave up the search for the cause.",
+      "The experiment was not finished by the team."
      ],
      "answer": 0,
      "why": "'Hardly a failure' and 'narrowed the search' show the author sees value in it."
@@ -422,9 +422,9 @@
      "passage": "The museum's newest exhibit, which some visitors have called 'just a room of empty chairs', is in fact a memorial: each chair represents a fisherman lost at sea during the great storm of 1925.",
      "stem": "Why might a reader need to reread this sentence?",
      "options": [
-      "To find the price of a museum ticket",
-      "To learn who built the museum",
-      "To count the chairs",
+      "To find the price of a museum ticket for kids",
+      "To learn who built the museum a long time ago",
+      "To count the chairs in the museum hall",
       "To notice how 'in fact' reveals the real meaning"
      ],
      "answer": 3,

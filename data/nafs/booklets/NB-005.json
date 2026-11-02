@@ -158,9 +158,9 @@
       "stem": "What is the overall purpose of the text?",
       "options": [
         "to explain how the date palm is grown and why it is so valuable",
-        "to compare the date palm with other desert plants",
-        "to describe the history of the date festivals",
-        "to persuade farmers to grow palms instead of rice"
+        "to compare the date palm with other desert plants that grow in sand",
+        "to describe the history of the date festivals in Arabia and in Iraq",
+        "to persuade farmers to grow palms instead of rice on their own land"
       ],
       "answer": "A",
       "why": "The paragraphs explain the palm’s needs, planting, pollination, uses, economic value and dangers."
@@ -222,9 +222,9 @@
       "stem": "According to paragraph 3, what is the main advantage of planting an offshoot rather than a seed?",
       "options": [
         "It produces the same variety of dates as its mother.",
-        "It bears fruit in less than one year.",
-        "It needs no water while its roots grow.",
-        "It is protected from the red palm weevil."
+        "It bears fruit in less than one year after it is planted.",
+        "It needs no water while its roots grow in the sand.",
+        "It is protected from the red palm weevil in all cases."
       ],
       "answer": "A",
       "why": "The text says the offshoot “will produce exactly the same variety of dates as its mother”; the other claims are not in the text."
@@ -286,9 +286,9 @@
       "stem": "Which condition must farmers meet to avoid a small harvest?",
       "options": [
         "pollinating the female flowers at the right time",
-        "cutting all the offshoots in spring",
-        "growing every new palm from seed",
-        "removing the fronds before summer"
+        "cutting all the offshoots in spring, before the heat",
+        "growing every new palm from seed in the sand",
+        "removing the fronds before summer begins each year"
       ],
       "answer": "A",
       "why": "Pollination “must be done at precisely the right time; otherwise, the harvest will be small.”"
@@ -301,10 +301,10 @@
       "type": "MCQ",
       "stem": "Using paragraph 7, why is the red palm weevil especially hard to stop?",
       "options": [
-        "It attacks only the fronds, which are too high to reach.",
-        "It is too large for farmers to remove by hand.",
+        "It attacks only the fronds, which are too high to reach by hand.",
+        "It is too large for farmers to remove by hand from the tree.",
         "It damages the trunk from inside, often before anything can be seen.",
-        "It spreads pollen to the wrong trees in spring."
+        "It spreads pollen to the wrong trees in spring and in summer."
       ],
       "answer": "C",
       "why": "The weevil tunnels “through the inside of a trunk … often before any damage is visible”, so farmers may not notice it in time."
@@ -429,10 +429,10 @@
       "type": "MCQ",
       "stem": "What is your opinion of how the writer organises the ideas?",
       "options": [
-        "Confusing, because the paragraphs are in no clear order.",
-        "Weak, because it gives opinions but no facts at all.",
+        "Confusing, because the paragraphs are in no clear order at all, and the ideas jump.",
+        "Weak, because it gives opinions but no facts at all, and no examples.",
         "Clear, because it moves from growing palms to their uses and dangers.",
-        "Unclear, because it is told only through a conversation."
+        "Unclear, because it is told only through a conversation between two people."
       ],
       "answer": "C",
       "why": "The paragraphs follow a logical path: needs, planting, pollination, uses, economy, dangers and a conclusion."
@@ -445,10 +445,10 @@
       "type": "MCQ",
       "stem": "According to the text, which use of the date palm is most beneficial to people’s health?",
       "options": [
-        "using the trunks as beams for roofs",
+        "using the trunks as beams for roofs and doors",
         "eating dates for their sugar, fibre and minerals",
-        "weaving fans and mats from the fronds",
-        "twisting the fibres into durable ropes"
+        "weaving fans and mats from the fronds of the palm",
+        "twisting the fibres into durable ropes for boats"
       ],
       "answer": "B",
       "why": "Only the dates themselves are described as giving the body sugar, fibre, minerals and energy."
@@ -509,10 +509,10 @@
       "type": "MCQ",
       "stem": "Which of the following events could really happen?",
       "options": [
-        "A male palm gives a large harvest of dates every summer.",
+        "A male palm gives a large harvest of dates every summer to the farmer.",
         "A farmer plants an offshoot and picks its first dates five years later.",
-        "A palm in the desert produces fruit without any water at all.",
-        "A palm grown from seed bears fruit one month after planting."
+        "A palm in the desert produces fruit without any water at all for years.",
+        "A palm grown from seed bears fruit one month after planting in the sand."
       ],
       "answer": "B",
       "why": "Offshoots bear fruit after four to six years; the other events contradict facts in the text."
@@ -542,9 +542,9 @@
       "stem": "Which is the best way, according to the text, for farmers to protect their palms from the red palm weevil?",
       "options": [
         "inspect the trees regularly and remove infected ones quickly",
-        "pollinate each tree twice during the spring",
-        "plant only offshoots taken from male trees",
-        "stop watering the trees during the summer"
+        "pollinate each tree twice during the spring and summer",
+        "plant only offshoots taken from male trees in the garden",
+        "stop watering the trees during the summer months and autumn"
       ],
       "answer": "A",
       "why": "Paragraph 7 gives this solution."

@@ -323,10 +323,10 @@
      "passage": "The boy found the wallet who was crying.",
      "stem": "What is wrong with this sentence?",
      "options": [
-      "It needs whose instead of who.",
-      "The relative clause is too short.",
+      "It needs whose instead of who in the middle.",
+      "The relative clause is too short to describe it.",
       "The clause is far from the noun it describes.",
-      "It should use where instead of who."
+      "It should use where instead of who in the clause."
      ],
      "answer": 2,
      "why": "The boy was crying, not the wallet. It should be: **The boy who was crying found the wallet.**"
@@ -427,9 +427,9 @@
      "passage": "Students who forget their books must share with a partner.",
      "stem": "Why are there no commas around the clause?",
      "options": [
-      "It is about a place.",
+      "It is about a place near the school gate.",
       "It tells which students, so it is essential.",
-      "It shows ownership.",
+      "It shows ownership of a thing or a place.",
       "The clause is too short for commas."
      ],
      "answer": 1,

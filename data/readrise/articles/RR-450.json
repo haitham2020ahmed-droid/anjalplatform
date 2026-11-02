@@ -115,9 +115,9 @@
           "stem": "What is this story mostly about?",
           "options": [
             "Two children who discover that their watchman's secret is a kind habit of growing vegetables for old neighbors",
-            "A watchman who is very afraid of the dark at night",
-            "Two children who plant a brand new garden at their own school",
-            "A watchman who loses his house keys every single night"
+            "A watchman who is very afraid of the dark at night and asks the children to stay with him",
+            "Two children who plant a brand new garden at their own school with the help of their teacher and the principal",
+            "A watchman who loses his house keys every single night and asks the neighbors for help"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -182,9 +182,9 @@
         {
           "stem": "Why do Yousef and Mira think Saleh might have a secret?",
           "options": [
-            "Saleh told them directly that he had one",
-            "He locks his own apartment door every night",
-            "He wears a strange disguise around the building",
+            "Saleh told them directly that he had one, and he asked them to keep it quiet",
+            "He locks his own apartment door every night and never opens it for anyone",
+            "He wears a strange disguise around the building when the other tenants are asleep",
             "They see him quietly doing the same thing every night without explaining why"
           ],
           "answer": "D",
@@ -200,9 +200,9 @@
           "stem": "How do Yousef and Mira probably feel after learning the truth about the garden?",
           "options": [
             "Impressed and happy to learn about Saleh's kindness",
-            "Disappointed that it was not a real mystery",
-            "Angry that Saleh kept a secret from everyone",
-            "Afraid of Saleh after hearing his answer"
+            "Disappointed that it was not a real mystery at all",
+            "Angry that Saleh kept a secret from everyone in the building",
+            "Afraid of Saleh after hearing his answer about the garden"
           ],
           "answer": "A",
           "skill": "inference",
@@ -216,10 +216,10 @@
         {
           "stem": "In the story, elderly means —",
           "options": [
-            "young and full of energy",
-            "brand new to the building",
+            "young and full of energy and strength",
+            "brand new to the building and the street",
             "old, especially referring to older people",
-            "living very far away"
+            "living very far away from the town"
           ],
           "answer": "C",
           "skill": "vocabulary",
@@ -233,9 +233,9 @@
         {
           "stem": "Why does the author have the children ask Saleh directly about the garden?",
           "options": [
-            "To show that children should not be curious",
-            "To explain the correct way to grow tomatoes",
-            "To describe the entire history of the building",
+            "To show that children should not be curious about things around them",
+            "To explain the correct way to grow tomatoes in a small garden at home",
+            "To describe the entire history of the old building in the town",
             "To show that asking politely can solve a mystery and reveal the truth"
           ],
           "answer": "D",
@@ -294,9 +294,9 @@
           "stem": "Which sentence best states the central idea of the story?",
           "options": [
             "Saleh's nightly garden is a quiet act of generosity toward elderly neighbors who cannot easily shop for themselves",
-            "Watchmen are officially required to maintain a garden at every building",
-            "Yousef and Mira get into serious trouble for being too curious",
-            "The small garden actually belongs to the building manager, not Saleh"
+            "Watchmen are officially required to maintain a garden at every building, and they get paid for the work they do on it",
+            "Yousef and Mira get into serious trouble for being too curious about the garden, and the manager sends them home",
+            "The small garden actually belongs to the building manager, not Saleh, who keeps it only to sell flowers and herbs to the people"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -345,9 +345,9 @@
           "stem": "How do Yousef and Mira's feelings about Saleh change from the beginning to the end of the story?",
           "options": [
             "They go from feeling curious and suspicious to feeling admiring and grateful",
-            "They go from trusting him completely to suddenly suspecting him",
-            "They dislike him throughout the entire story, start to finish",
-            "Their feelings about him never change at all in the story"
+            "They go from trusting him completely to suddenly suspecting him of a secret crime",
+            "They dislike him throughout the entire story, from the first page to the last",
+            "Their feelings about him never change at all in the story, even at the end"
           ],
           "answer": "A",
           "skill": "compare",
@@ -361,9 +361,9 @@
         {
           "stem": "Why does Saleh say 'a little kindness doesn't have to be loud to matter'?",
           "options": [
-            "He believes kind acts only count if everyone finds out about them",
-            "He is embarrassed about enjoying gardening as a hobby",
-            "He wants the children to stop asking him any more questions",
+            "He believes kind acts only count if everyone finds out about them, so he tells all",
+            "He is embarrassed about enjoying gardening as a hobby, and wants to hide it",
+            "He wants the children to stop asking him any more questions about the garden",
             "He thinks quiet, unannounced kindness is just as meaningful as public kindness"
           ],
           "answer": "D",
@@ -378,10 +378,10 @@
         {
           "stem": "What can you infer about why Saleh never told anyone about the garden before?",
           "options": [
-            "He simply forgot that the hidden garden existed",
-            "He was told never to mention it by the building manager",
+            "He simply forgot that the hidden garden existed until the children asked him about it",
+            "He was told never to mention it by the building manager when he started the job",
             "He did not want attention or praise for something he saw as simply the right thing to do",
-            "He was secretly planning to sell the vegetables for profit"
+            "He was secretly planning to sell the vegetables for profit once the garden grew bigger"
           ],
           "answer": "C",
           "skill": "inference",
@@ -473,9 +473,9 @@
           "stem": "Which statement best captures the central idea of the story?",
           "options": [
             "Saleh's quiet, humble habit of tending a garden to provide vegetables for elderly neighbors shows that genuine kindness does not require recognition",
-            "Night watchmen are formally required by law to maintain a garden",
-            "The children eventually discover that Saleh is secretly a trained professional farmer",
-            "The elderly residents of the building eventually decide to move away"
+            "Night watchmen are formally required by law to maintain a garden at every building in the whole city, even if they dislike the work, and the neighbors pay them.",
+            "The children eventually discover that Saleh is secretly a trained professional farmer who grows vegetables to sell at the market, and that he earns a lot of money from them every night.",
+            "The elderly residents of the building eventually decide to move away, so Saleh's garden is left empty, and the children plant flowers in the pots for the new people who come."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -524,9 +524,9 @@
           "stem": "How does the children's initial assumption about Saleh's 'secret' compare with the actual explanation?",
           "options": [
             "They assumed something mysterious or concerning, but the truth was a simple, considerate act of community kindness",
-            "They assumed he was gardening purely for profit, and that assumption proved true",
-            "They assumed absolutely nothing at all until the very end of the story",
-            "They assumed it involved the building manager, which also proved true"
+            "They assumed he was gardening purely for profit, and that assumption proved true at the end of the story",
+            "They assumed absolutely nothing at all until the very end of the story, when the building manager told them",
+            "They assumed it involved the building manager, which also proved true when the manager told them everything"
           ],
           "answer": "A",
           "skill": "compare",
@@ -540,10 +540,10 @@
         {
           "stem": "What does Saleh's reluctance to acknowledge his habit publicly suggest about his character?",
           "options": [
-            "He is ashamed of spending his time gardening",
+            "He is ashamed of spending his time gardening in the building",
             "He is humble and does not seek praise for considerate acts",
-            "He wants to keep all of the vegetables for himself",
-            "He genuinely dislikes his elderly neighbors"
+            "He wants to keep all of the vegetables for himself and his family",
+            "He genuinely dislikes his elderly neighbors and avoids talking to them"
           ],
           "answer": "B",
           "skill": "inference",
@@ -558,9 +558,9 @@
           "stem": "Based on the story, why might quiet acts of compassion matter especially to elderly neighbors like Umm Fahd?",
           "options": [
             "Such acts of consideration can meet real daily needs without requiring them to ask for help publicly",
-            "Elderly residents generally prefer not to interact with watchmen at all",
-            "They are completely unaware that the vegetables even exist",
-            "They would much rather receive money than fresh vegetables"
+            "Elderly residents generally prefer not to interact with watchmen at all, because they feel shy",
+            "They are completely unaware that the vegetables even exist, because nobody tells them",
+            "They would much rather receive money than fresh vegetables, since money buys anything they want"
           ],
           "answer": "A",
           "skill": "inference",
@@ -591,10 +591,10 @@
         {
           "stem": "Why does the author conclude the story by calling the garden \"a lesson in... everyday generosity\"?",
           "options": [
-            "To suggest that gardening is the only true and meaningful form of kindness",
-            "To explain exactly how to successfully grow tomatoes at home each year",
+            "To suggest that gardening is the only true and meaningful form of kindness in the whole world",
+            "To explain exactly how to successfully grow tomatoes at home each year, with simple steps",
             "To emphasize that meaningful kindness is often quiet and unnoticed rather than dramatic or public",
-            "To criticize the people in this particular story who choose never to garden at all"
+            "To criticize the people in this particular story who choose never to garden at all, or to share"
           ],
           "answer": "C",
           "skill": "author-purpose",

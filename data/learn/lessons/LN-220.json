@@ -55,10 +55,10 @@
     "passage": "A school is like a beehive. In a hive, every bee has a job. Some bees make honey, and some guard the door. In a school, teachers teach, cooks make lunch and guards keep everyone safe.",
     "stem": "How is a school like a beehive?",
     "options": [
-     "Both have honey.",
+     "Both have honey and wax.",
      "Everyone in them has a job.",
-     "Both are made of wax.",
-     "Both are very small."
+     "Both are made of wax and wood.",
+     "Both are very small in size."
     ],
     "answer": 1,
     "hint": "A school has no honey or wax! What do the bees and the people DO?",
@@ -86,9 +86,9 @@
      "stem": "How is the eye like a camera?",
      "options": [
       "Both take in light and make a picture.",
-      "The eye is made of plastic.",
-      "The eye can print photos.",
-      "The eye needs batteries."
+      "The eye is made of plastic and glass.",
+      "The eye can print photos on paper.",
+      "The eye needs batteries to work."
      ],
      "answer": 0,
      "why": "Light goes in, and a picture forms. That is what a camera does too."
@@ -109,9 +109,9 @@
      "passage": "Roots are like straws for a plant. They drink water up from the soil.",
      "stem": "What does the analogy help explain?",
      "options": [
-      "Roots are made of plastic.",
-      "Plants drink juice.",
-      "Roots are long and thin.",
+      "Roots are made of plastic tubes.",
+      "Plants drink juice from fruit.",
+      "Roots are long and thin like string.",
       "Roots bring water up into the plant."
      ],
      "answer": 3,
@@ -196,9 +196,9 @@
      "stem": "What does the analogy help explain?",
      "options": [
       "what the nucleus does in a cell",
-      "how big a school is",
-      "why cells are small",
-      "who works in a head office"
+      "how big a school is in a town",
+      "why cells are small and round",
+      "who works in a big head office"
      ],
      "answer": 0,
      "why": "Head office ↔ nucleus; instructions to classrooms ↔ instructions to the cell. It explains the nucleus's job."
@@ -207,10 +207,10 @@
      "passage": "A good friendship is like a garden. If you water it and pull the weeds, it grows. If you forget about it, it slowly dries up.",
      "stem": "What does the analogy suggest?",
      "options": [
-      "Friends like gardening.",
-      "Gardens are full of friends.",
+      "Friends like gardening on weekends.",
+      "Gardens are full of friends and flowers.",
       "Friendships need care to stay strong.",
-      "Weeds are bad friends."
+      "Weeds are bad friends to have around."
      ],
      "answer": 2,
      "why": "Watering and weeding stand for caring. Without care, a friendship dries up like a garden."
@@ -307,9 +307,9 @@
      "passage": "A vaccine works like a “wanted” poster. It shows the body's defence system what a germ looks like, so the body can recognise and fight the germ quickly if it ever appears.",
      "stem": "What does the analogy help explain?",
      "options": [
-      "Vaccines are printed on paper.",
-      "Germs are criminals.",
-      "Posters can cure illness.",
+      "Vaccines are printed on paper at the clinic.",
+      "Germs are criminals that the police must catch.",
+      "Posters can cure illness if people read them.",
       "Vaccines teach the body to recognise a germ."
      ],
      "answer": 3,
@@ -331,8 +331,8 @@
      "passage": "The writer compares a team without a captain to “a ship without a rudder”.",
      "stem": "What does the analogy suggest?",
      "options": [
-      "The team needs a boat.",
-      "The captain is too strict.",
+      "The team needs a boat to cross the sea.",
+      "The captain is too strict with the team.",
       "The team plays near the sea.",
       "Without a leader, the team drifts."
      ],
@@ -449,7 +449,7 @@
      "options": [
       "Everyone learns to read and ride at the same age.",
       "Reading skills keep developing for years; riding does not.",
-      "Bicycles and books are both used by children.",
+      "Bicycles and books are both used by children at school.",
       "Reading is easier to learn than riding a bicycle."
      ],
      "answer": 1,

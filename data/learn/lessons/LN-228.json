@@ -316,8 +316,8 @@
      "options": [
       "It makes the character's fear feel slow, creepy, and physical.",
       "It explains the scientific cause of fear in the body.",
-      "It states plainly that the character was afraid.",
-      "It names a specific medical condition."
+      "It states plainly that the character was afraid of the dark.",
+      "It names a specific medical condition that people can have."
      ],
      "answer": 0,
      "why": "Comparing fear to a **cold spider crawling** creates a creepy, physical feeling of dread — more vivid than simply saying 'he felt afraid.'"
@@ -422,9 +422,9 @@
      "passage": "The article explained that the bridge had suffered metal corrosion, then added that the bridge looked like 'an old soldier, tired and bent.'",
      "stem": "What kind of language is the phrase 'an old soldier, tired and bent,' and what effect does it have?",
      "options": [
-      "It is technical language that names the exact chemical process.",
+      "It is technical language that names the exact chemical process used in the bridge.",
       "It is figurative language that makes the bridge seem worn and sympathetic, almost human.",
-      "It is literal language that states the bridge's exact age.",
+      "It is literal language that states the bridge's exact age in years and months.",
       "It is connotative language that makes the engineers sound careless."
      ],
      "answer": 1,
@@ -434,10 +434,10 @@
      "passage": "The witness said the driver had been reckless, while the driver's lawyer insisted he had only been assertive behind the wheel.",
      "stem": "What effect do the words 'reckless' and 'assertive' have, even though they describe the same driving?",
      "options": [
-      "They are both technical terms used only in traffic law.",
-      "They both state the same plain fact with no feeling attached.",
+      "They are both technical terms used only in traffic law and by police officers on the road each day.",
+      "They both state the same plain fact with no feeling attached to either word at all.",
       "They give the same action two very different feelings — one negative, one more neutral or positive.",
-      "They compare the driver to a fast-moving animal."
+      "They compare the driver to a fast-moving animal that runs across an open field."
      ],
      "answer": 2,
      "why": "**Reckless** has a negative connotation that blames the driver, while **assertive** has a more neutral-to-positive connotation for the same action — the words shape how the reader judges him."

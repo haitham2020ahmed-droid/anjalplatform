@@ -258,10 +258,10 @@
         {
           "stem": "How does the author help readers understand how an aquifer fills with water over time?",
           "options": [
-            "By listing exact dates of several famous past droughts",
+            "By listing exact dates of several famous past droughts and floods in the area",
             "By walking through, in order, how rain soaks in and slowly recharges it",
-            "By telling a long story about one family's old well",
-            "By describing the steps of a science experiment in a lab"
+            "By telling a long story about one family's old well in a village",
+            "By describing the steps of a science experiment in a school lab"
           ],
           "answer": "B",
           "skill": "text-structure",
@@ -337,9 +337,9 @@
         {
           "stem": "What happens when extraction of groundwater exceeds the rate of recharge?",
           "options": [
-            "The water table rises and the well overflows",
-            "The aquifer instantly refills from the sea",
-            "Nothing changes, since groundwater is unlimited",
+            "The water table rises and the well overflows with water, so the farmers have more",
+            "The aquifer instantly refills from the sea, so it never goes dry",
+            "Nothing changes, since groundwater is unlimited and never runs out",
             "The water table falls, and the aquifer can become depleted"
           ],
           "answer": "D",
@@ -350,10 +350,10 @@
         {
           "stem": "A hydrologist observes a water table steadily dropping for many years. What can be concluded?",
           "options": [
-            "The region has had unusually heavy rainfall",
+            "The region has had unusually heavy rainfall for many years",
             "More water is being extracted than is being recharged",
-            "The aquifer has become completely saturated",
-            "The well has stopped being used altogether"
+            "The aquifer has become completely saturated with water",
+            "The well has stopped being used altogether by the town"
           ],
           "answer": "B",
           "skill": "inference",

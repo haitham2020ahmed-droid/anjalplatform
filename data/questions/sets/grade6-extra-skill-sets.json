@@ -118,9 +118,9 @@
           "stem": "Which best defines \"connotative language\"?",
           "options": [
             "language that carries an emotional feeling beyond its dictionary meaning",
-            "language that states only scientific facts",
-            "language that is always spoken, never written",
-            "language that has no meaning at all"
+            "language that states only scientific facts and uses no feeling at all",
+            "language that is always spoken aloud and is never written down in any books",
+            "language that has no meaning at all for the listeners or for the readers"
           ],
           "correct": "A",
           "why": "Connotative language carries an emotional or associative feeling beyond the literal dictionary definition."
@@ -131,9 +131,9 @@
           "stem": "Which best defines \"literal language\"?",
           "options": [
             "language that means exactly what it says, with no hidden or extra meaning",
-            "language that always exaggerates the truth",
-            "language used only by scientists",
-            "language that hides its true meaning on purpose"
+            "language that always exaggerates the truth to make it sound much bigger",
+            "language used only by scientists when they write their reports",
+            "language that hides its true meaning on purpose from the readers"
           ],
           "correct": "A",
           "why": "Literal language means exactly what it says, without any figurative or hidden meaning."
@@ -222,9 +222,9 @@
           "stem": "Which choice best explains the difference between \"literal\" and \"figurative\" language?",
           "options": [
             "literal language means exactly what it says; figurative language means something beyond the actual words",
-            "literal language is always longer than figurative language",
-            "figurative language is only used in science writing",
-            "there is no real difference between the two"
+            "literal language is always longer than figurative language in most books and stories",
+            "figurative language is only used in science writing and in reports about the world today and in the past",
+            "there is no real difference between the two kinds of language in a text that you read"
           ],
           "correct": "A",
           "why": "Literal language states the plain meaning, while figurative language suggests a meaning beyond the literal words."
@@ -261,9 +261,9 @@
           "stem": "Which sentence uses only literal language, with no figurative meaning?",
           "options": [
             "The bus arrives at the corner every morning at eight.",
-            "The wind whispered secrets through the trees.",
-            "Her words cut deeper than any knife.",
-            "The classroom was a zoo during the fire drill."
+            "The wind whispered secrets through the trees in the garden.",
+            "Her words cut deeper than any knife in the kitchen drawer.",
+            "The classroom was a zoo during the fire drill last week."
           ],
           "correct": "A",
           "why": "This sentence states a plain fact about the bus schedule with no figurative language."
@@ -274,9 +274,9 @@
           "stem": "A word's \"connotation\" refers to what?",
           "options": [
             "the feeling or association a word carries beyond its dictionary meaning",
-            "the exact number of letters in a word",
-            "the part of speech a word belongs to",
-            "the country where a word was invented"
+            "the exact number of letters in a word that we read in a text or a book",
+            "the part of speech a word belongs to in a sentence or a line of a poem",
+            "the country where a word was first invented by people long ago"
           ],
           "correct": "A",
           "why": "Connotation is the emotional feeling or association attached to a word beyond its literal definition."
@@ -339,9 +339,9 @@
           "stem": "The phrase \"the company's bottom line\" uses \"bottom line\" as what kind of language?",
           "options": [
             "technical business language meaning final profit or loss",
-            "figurative language about the ocean floor",
-            "connotative language about feelings",
-            "a casual nickname with no real meaning"
+            "figurative language about the ocean floor and the sea",
+            "connotative language about feelings and mood",
+            "a casual nickname with no real meaning at all"
           ],
           "correct": "A",
           "why": "In business, \"bottom line\" is a technical term referring to a company's final profit or loss."
@@ -352,9 +352,9 @@
           "stem": "Which sentence best shows the use of a technical term from the field of medicine?",
           "options": [
             "The doctor measured the patient's blood pressure before the exam.",
-            "The patient's heart was a drum pounding with fear.",
-            "The waiting room felt like a prison cell.",
-            "Her smile was sunshine on a cloudy day."
+            "The patient's heart was a drum pounding with fear in the quiet room.",
+            "The waiting room felt like a prison cell for the sick.",
+            "Her smile was sunshine on a cloudy day for all of us."
           ],
           "correct": "A",
           "why": "\"Blood pressure\" is a specialized medical term, making this sentence an example of technical language."
@@ -443,9 +443,9 @@
           "stem": "In the sentence \"The negotiations collapsed overnight,\" what is the effect of the word \"collapsed\" rather than \"ended\"?",
           "options": [
             "it suggests a sudden, dramatic failure rather than a calm, neutral stop",
-            "it suggests the negotiations succeeded completely",
-            "it has no effect on the tone of the sentence at all",
-            "it is a technical legal term with no emotional weight"
+            "it suggests the negotiations succeeded completely and made everyone glad",
+            "it has no effect on the tone of the sentence at all, since it is a plain word",
+            "it is a technical legal term with no emotional weight for the reader"
           ],
           "correct": "A",
           "why": "\"Collapsed\" has a connotation of sudden, dramatic failure, unlike the neutral word \"ended.\""
@@ -510,9 +510,9 @@
           "stem": "In the passage, the bus is described as \"groaned around the corner.\" What kind of language is this?",
           "options": [
             "figurative language (personification), giving the bus a human-like sound",
-            "technical language describing a mechanical part",
-            "a literal description of a human voice",
-            "connotative language with a cheerful feeling"
+            "technical language describing a mechanical part of the bus engine and its wheels",
+            "a literal description of a human voice from a tired man at the stop",
+            "connotative language with a cheerful feeling for the street and the town"
           ],
           "correct": "A",
           "why": "Buses cannot literally groan; this is figurative language (personification) describing the bus's noise.",
@@ -525,9 +525,9 @@
           "stem": "In the passage, \"relief washed over her like a warm wave\" is an example of what kind of figurative language?",
           "options": [
             "a simile, comparing relief to a wave using \"like\"",
-            "a technical term from ocean science",
-            "a literal description of actual water",
-            "a negative connotation of comfort"
+            "a technical term from ocean science and the sea",
+            "a literal description of actual water in the sea",
+            "a negative connotation of comfort for the reader"
           ],
           "correct": "A",
           "why": "This is a simile because it compares relief to a wave using the word \"like.\"",
@@ -570,9 +570,9 @@
           "stem": "What effect does the phrase \"the evidence would speak for itself\" have, compared to simply saying \"the evidence was good\"?",
           "options": [
             "it personifies the evidence, suggesting it is powerful enough to convince on its own",
-            "it is a technical scientific term with no figurative meaning",
-            "it suggests the evidence was weak and unconvincing",
-            "it has no connotation or figurative meaning at all"
+            "it is a technical scientific term with no figurative meaning at all, used in labs",
+            "it suggests the evidence was weak and unconvincing to the judges and the jury",
+            "it has no connotation or figurative meaning at all, only a plain fact in a court"
           ],
           "correct": "A",
           "why": "\"Speak for itself\" personifies the evidence, giving it human qualities to emphasize its persuasive strength.",
@@ -630,9 +630,9 @@
           "stem": "Which sentence below best demonstrates connotative language shaping a reader's opinion of a character?",
           "options": [
             "The stubborn old man refused every offer of help.",
-            "The elderly man was seventy-two years old.",
-            "The man lived alone in a small house.",
-            "The man walked to the store every Tuesday."
+            "The elderly man was seventy-two years old that spring.",
+            "The man lived alone in a small house by the river.",
+            "The man walked to the store every Tuesday morning."
           ],
           "correct": "A",
           "why": "\"Stubborn\" carries a negative connotation that shapes the reader's opinion of the character, beyond a neutral fact."
@@ -643,9 +643,9 @@
           "stem": "A weather report uses the term \"barometric pressure.\" Why might the reporter also explain this term in simpler words?",
           "options": [
             "because it is technical language that general audiences may not fully understand",
-            "because it is figurative language with a hidden meaning",
-            "because it is slang used only by teenagers",
-            "because it has no real meaning in meteorology"
+            "because it is figurative language with a hidden meaning for most kids in school",
+            "because it is slang used only by teenagers in the big city and on the web",
+            "because it has no real meaning in the science of weather and the sky"
           ],
           "correct": "A",
           "why": "\"Barometric pressure\" is technical vocabulary from meteorology, so a reporter may clarify it for general audiences."
@@ -669,8 +669,8 @@
           "stem": "Which sentence below contains an example of a symbol, where an object represents a larger idea?",
           "options": [
             "The dove on the flag represented the nation's hope for peace.",
-            "The flag was made of cotton and dyed bright red.",
-            "The flag measured six feet by four feet.",
+            "The flag was made of cotton and dyed bright red for the day.",
+            "The flag measured six feet by four feet on the pole.",
             "The flag was raised at exactly eight in the morning."
           ],
           "correct": "A",
@@ -695,9 +695,9 @@
           "stem": "Which sentence uses a technical term from the field of music rather than everyday vocabulary?",
           "options": [
             "The conductor asked the orchestra to play the next passage in a slow tempo marked largo.",
-            "The conductor asked the orchestra to play the next part more quietly.",
-            "The conductor stood at the front of the stage with a baton.",
-            "The conductor smiled as the audience applauded loudly."
+            "The conductor asked the orchestra to play the next part more quietly this time, please.",
+            "The conductor stood at the front of the stage with a baton in his hand.",
+            "The conductor smiled as the audience applauded loudly for a very long time."
           ],
           "correct": "A",
           "why": "\"Tempo\" and \"largo\" are specialized musical terms, making this sentence an example of technical language."
@@ -721,9 +721,9 @@
           "stem": "In the passage, \"the small town had become a fortress of ice\" is best described as what kind of language, and what does it suggest?",
           "options": [
             "figurative language suggesting the town felt cold, isolated, and difficult to penetrate",
-            "technical language describing an actual military structure",
-            "literal language describing a real fortress built from ice blocks",
-            "connotative language with an entirely positive, warm feeling"
+            "technical language describing an actual military structure built by a king",
+            "literal language describing a real fortress built from ice blocks in the snow",
+            "connotative language with an entirely positive, warm feeling for the people there"
           ],
           "correct": "A",
           "why": "This is figurative language (metaphor) suggesting the town felt isolated and harshly cold, like a fortress of ice.",
@@ -736,9 +736,9 @@
           "stem": "What is the effect of saying conversations \"seemed to crystallize in the cold air\" rather than simply \"people stopped talking\"?",
           "options": [
             "it figuratively suggests words becoming sharp, brittle, and frozen in place, emphasizing the harshness of the cold",
-            "it is a purely technical scientific description of actual crystal formation",
-            "it suggests people were talking more cheerfully than usual",
-            "it has no figurative meaning and simply states a plain fact"
+            "it is a purely technical scientific description of actual crystal formation in a science lab, with no feeling in it",
+            "it suggests people were talking more cheerfully than usual in the cold air, with warm and happy words",
+            "it has no figurative meaning and simply states a plain fact about the weather, with no extra idea in it"
           ],
           "correct": "A",
           "why": "This figurative use of \"crystallize\" suggests words becoming frozen and brittle, emphasizing the oppressive cold more vividly than a plain statement.",
@@ -751,9 +751,9 @@
           "stem": "Why might the author choose the phrase \"only a heartbeat away\" instead of \"coming soon\" to describe spring's arrival?",
           "options": [
             "it connects spring's arrival to something alive and urgent, adding emotional hope despite the townspeople's doubt",
-            "it is a technical medical term describing cardiac rhythm",
-            "it suggests spring is actually very far away",
-            "it removes all emotional meaning from the sentence"
+            "it is a technical medical term describing the cardiac rhythm of a patient in a hospital",
+            "it suggests spring is actually very far away and will not arrive for many months, so the townspeople should stop waiting",
+            "it removes all emotional meaning from the sentence and makes the weather sound like a plain fact"
           ],
           "correct": "A",
           "why": "\"A heartbeat away\" figuratively connects spring to something alive and immediate, adding a hopeful emotional tone that contrasts with the townspeople's doubt.",
@@ -781,9 +781,9 @@
           "stem": "In the passage, the testimony is described as beginning \"to splinter under the pressure.\" What does this figurative use of \"splinter\" suggest?",
           "options": [
             "the witness's once-steady account was starting to break apart and become inconsistent",
-            "the witness literally touched a piece of broken wood during questioning",
-            "the testimony became stronger and more convincing",
-            "the jury fell asleep during the questioning"
+            "the witness literally touched a piece of broken wood during the questioning in court",
+            "the testimony became stronger and more convincing as the hour went by in the court",
+            "the jury fell asleep during the questioning because it was long and quiet"
           ],
           "correct": "A",
           "why": "Figuratively, \"splinter\" suggests the testimony was breaking apart into inconsistent pieces under pressure, not literal wood breaking.",
@@ -796,9 +796,9 @@
           "stem": "What is the combined effect of pairing technical legal vocabulary with figurative language like \"splinter\" in this passage?",
           "options": [
             "it grounds the scene in a real courtroom setting while also conveying the emotional tension of the moment",
-            "it makes the passage purely informational, with no emotional tone at all",
-            "it confuses the reader by mixing unrelated topics with no purpose",
-            "it removes any sense of tension from the courtroom scene"
+            "it makes the passage purely informational, with no emotional tone at all, like a manual of rules for the court",
+            "it confuses the reader by mixing unrelated topics with no purpose or plan in the text, which is a flaw",
+            "it removes any sense of tension from the courtroom scene and makes it calm and dull for every reader"
           ],
           "correct": "A",
           "why": "Combining technical vocabulary with figurative language grounds the scene realistically while still conveying emotional tension through vivid imagery.",
@@ -824,9 +824,9 @@
           "stem": "Which sentence best demonstrates how connotation can shift a reader's sympathy toward a character, even though the literal facts stay the same?",
           "options": [
             "The old woman shuffled slowly, her frail hands trembling with every step.",
-            "The woman, age seventy-eight, walked at a reduced pace.",
-            "The woman walked from the kitchen to the front door.",
-            "The woman's house had three bedrooms and two bathrooms."
+            "The woman, age seventy-eight, walked at a reduced pace across the room.",
+            "The woman walked from the kitchen to the front door of her house at noon.",
+            "The woman's house had three bedrooms and two bathrooms on two floors."
           ],
           "correct": "A",
           "why": "Words like \"shuffled,\" \"frail,\" and \"trembling\" carry connotations of vulnerability, shifting sympathy, even though the underlying fact (an old woman walking slowly) is the same."
@@ -837,9 +837,9 @@
           "stem": "A critic says a poem's imagery is \"crystal,\" while its central metaphor is \"murky.\" What is the critic most likely contrasting?",
           "options": [
             "sharp, clear description versus a confusing, unclear comparison",
-            "two equally confusing elements of the poem",
-            "two equally clear elements of the poem",
-            "the poem's rhyme scheme versus its punctuation"
+            "two equally confusing elements of the poem, the imagery and the metaphor",
+            "two equally clear elements of the poem, the imagery and the metaphor",
+            "the poem's rhyme scheme versus its punctuation and its line breaks"
           ],
           "correct": "A",
           "why": "\"Crystal\" figuratively suggests clarity, while \"murky\" figuratively suggests confusion, so the critic is contrasting clear imagery with an unclear metaphor."
@@ -850,9 +850,9 @@
           "stem": "Why would an author use the technical term \"photosynthesis\" rather than a vague phrase like \"plants making food\" in a nature documentary script?",
           "options": [
             "precision and credibility matter in scientific explanations, and the technical term conveys exact meaning",
-            "technical terms always confuse viewers, so they should never be used",
-            "vague phrases are always more scientifically accurate than technical terms",
-            "there is no difference in meaning between the two phrases"
+            "technical terms always confuse viewers, so they should never be used in any talk or any text, ever",
+            "vague phrases are always more scientifically accurate than technical terms are for a science report",
+            "there is no difference in meaning between the two phrases for any reader, so either one is fine"
           ],
           "correct": "A",
           "why": "A technical term like \"photosynthesis\" offers precise, credible meaning appropriate for scientific explanation, unlike a vague paraphrase."
@@ -863,9 +863,9 @@
           "stem": "In the sentence \"The negotiations were a chess match, each side calculating its next move,\" which best explains the figurative language?",
           "options": [
             "an extended metaphor compares the negotiation process to a strategic game",
-            "a technical term from the field of chess competition rules",
-            "a literal description of an actual chess match taking place",
-            "connotative language with no figurative comparison at all"
+            "a technical term from the field of chess competition rules and scoring",
+            "a literal description of an actual chess match taking place in a room",
+            "connotative language with no figurative comparison at all in the sentence"
           ],
           "correct": "A",
           "why": "This is an extended metaphor comparing the negotiation process to a chess match, emphasizing strategy and calculation."
@@ -876,9 +876,9 @@
           "stem": "A speech uses the connotative phrase \"the backbone of our community\" to describe local teachers. What does this figurative phrase suggest about teachers?",
           "options": [
             "they provide essential support and structure that holds the community together",
-            "they are literally part of the human skeletal system",
-            "they are the weakest, least important members of the community",
-            "they have no real impact on the community at all"
+            "they are literally part of the human skeletal system and the spine of the body",
+            "they are the weakest, least important members of the community, according to the speaker",
+            "they have no real impact on the community at all, even though they teach every child"
           ],
           "correct": "A",
           "why": "\"Backbone\" figuratively suggests teachers provide essential, structural support, much like a backbone supports a body."
@@ -889,9 +889,9 @@
           "stem": "Which choice best explains the difference in effect between describing rain as \"a gentle mist\" versus \"a relentless downpour\"?",
           "options": [
             "the first connotes calm and softness, while the second connotes overwhelming, unstoppable force",
-            "both phrases are purely literal with identical connotations",
-            "the first is technical language, and the second is figurative language",
-            "there is no meaningful difference between the two phrases"
+            "both phrases are purely literal with identical connotations for every reader of the passage",
+            "the first is technical language, and the second is figurative language used in poems",
+            "there is no meaningful difference between the two phrases in how they feel to a reader"
           ],
           "correct": "A",
           "why": "\"Gentle mist\" connotes softness and calm, while \"relentless downpour\" connotes overwhelming force, even though both describe rain."
@@ -915,9 +915,9 @@
           "stem": "Why might an author deliberately combine technical vocabulary with figurative language in a single passage about a hospital?",
           "options": [
             "to ground the scene in medical realism while still conveying the emotional weight of the situation",
-            "to confuse the reader with no clear purpose",
-            "to remove all emotional content from the passage entirely",
-            "technical and figurative language can never appear together in good writing"
+            "to confuse the reader with no clear purpose at all in the text, and make it hard to follow the plot",
+            "to remove all emotional content from the passage entirely and keep it dry, cold, and plain like a list",
+            "technical and figurative language can never appear together in good writing of any kind, in any field"
           ],
           "correct": "A",
           "why": "Combining technical vocabulary with figurative language can ground a scene in realism while still conveying emotional depth."
@@ -928,9 +928,9 @@
           "stem": "A columnist writes that a rival's proposal is \"all bark and no bite.\" What does this figurative idiom suggest?",
           "options": [
             "the proposal sounds aggressive or impressive but has little real effect or substance",
-            "the proposal was created by a dog trainer",
-            "the proposal was extremely effective and powerful",
-            "the proposal contained detailed technical specifications"
+            "the proposal was created by a dog trainer who works for the town, so it sounds like a bark",
+            "the proposal was extremely effective and powerful, and it made a real change for everyone",
+            "the proposal contained detailed technical specifications that only an expert could understand"
           ],
           "correct": "A",
           "why": "\"All bark and no bite\" is a figurative idiom suggesting something seems threatening or impressive but lacks real substance or effect."
@@ -941,9 +941,9 @@
           "stem": "Which sentence best shows a word's connotation reinforcing the overall tone of determination in a paragraph about an athlete?",
           "options": [
             "She refused to quit, relentlessly pushing through every grueling mile of the marathon.",
-            "She ran a marathon that was twenty-six point two miles long.",
-            "She finished the race in four hours and twelve minutes.",
-            "She wore running shoes and a blue headband during the race."
+            "She ran a marathon that was twenty-six point two miles long, which is over forty kilometers.",
+            "She finished the race in four hours and twelve minutes, just before noon.",
+            "She wore running shoes and a blue headband during the race, with a number on her shirt."
           ],
           "correct": "A",
           "why": "Words like \"refused,\" \"relentlessly,\" and \"grueling\" carry connotations of determination, reinforcing the paragraph's tone."
@@ -954,9 +954,9 @@
           "stem": "A business report states the company's \"net profit margin\" declined. Which best explains why this phrase is technical rather than figurative?",
           "options": [
             "it refers to a precise, calculable financial measurement used specifically in business and accounting",
-            "it compares the company to a living creature in a figurative way",
-            "it uses a metaphor to describe the company's emotional state",
-            "it has no specific or specialized meaning in any field"
+            "it compares the company to a living creature in a figurative way, like an animal or a bird that moves",
+            "it uses a metaphor to describe the company's emotional state at the time of the report, like sadness",
+            "it has no specific or specialized meaning in any field of work at all, so it is just a loose phrase"
           ],
           "correct": "A",
           "why": "\"Net profit margin\" is a precise, calculable financial term used specifically in accounting, making it technical rather than figurative."
@@ -993,9 +993,9 @@
           "stem": "In the passage, describing the opponent's statement as \"a loaded gun\" is an example of what kind of language, and what does it suggest?",
           "options": [
             "figurative language suggesting the statement was dangerously sharp and ready to do damage",
-            "technical language describing an actual firearm used in the debate",
-            "literal language stating that a real weapon was present in the room",
-            "connotative language suggesting the statement was calm and gentle"
+            "technical language describing an actual firearm used in the debate by one of the speakers",
+            "literal language stating that a real weapon was present in the room during the debate",
+            "connotative language suggesting the statement was calm and gentle, like a quiet kind word"
           ],
           "correct": "A",
           "why": "This figurative comparison suggests the opponent's statement felt dangerously sharp and ready to strike, not a literal weapon.",
@@ -1008,9 +1008,9 @@
           "stem": "Why does the author extend the metaphor by having Jo think of \"preparation\" as her \"ammunition\"?",
           "options": [
             "it continues the battle imagery, showing Jo reframing her own strength in the same figurative terms as the threat she faces",
-            "it introduces a new, unrelated technical term from a different field",
-            "it suggests Jo is literally carrying a weapon into the debate",
-            "it removes all figurative meaning established earlier in the passage"
+            "it introduces a new, unrelated technical term from a different field of science that readers do not know at all, such as a word from medicine",
+            "it suggests Jo is literally carrying a weapon into the debate hall, which would be against the rules of the school and the contest",
+            "it removes all figurative meaning that was established earlier in the passage and makes the whole sentence plain and literal for readers"
           ],
           "correct": "A",
           "why": "Extending the \"weapon\" metaphor to Jo's preparation shows her reframing her own strength using the same figurative battle imagery.",
@@ -1023,9 +1023,9 @@
           "stem": "What does the phrase \"the room's energy sharpen into something electric\" suggest about the mood in the passage?",
           "options": [
             "the atmosphere became tense, charged, and intensely focused",
-            "the room literally filled with static electricity",
-            "the atmosphere became calm and relaxed",
-            "the lights in the room began to flicker"
+            "the room literally filled with static electricity from the walls",
+            "the atmosphere became calm and relaxed for everyone",
+            "the lights in the room began to flicker and go out"
           ],
           "correct": "A",
           "why": "This figurative language suggests a tense, highly charged, focused atmosphere, not literal electricity.",
@@ -1038,9 +1038,9 @@
           "stem": "A sports commentator says a player's performance was \"surgical.\" What is the effect of borrowing this technical, medical term figuratively?",
           "options": [
             "it suggests the performance was extremely precise and controlled, like a skilled surgeon's work",
-            "it suggests the player literally performed a medical procedure",
-            "it suggests the performance was careless and disorganized",
-            "it is used only in its literal medical sense with no figurative meaning"
+            "it suggests the player literally performed a medical procedure on the field during the match",
+            "it suggests the performance was careless and disorganized, with many mistakes from the start",
+            "it is used only in its literal medical sense with no figurative meaning at all in sports"
           ],
           "correct": "A",
           "why": "Borrowing \"surgical\" from medicine figuratively emphasizes extreme precision and control in the performance."
@@ -1051,9 +1051,9 @@
           "stem": "An editorial calls a proposed law \"a Band-Aid solution.\" What does this figurative, borrowed-from-medicine phrase suggest about the law?",
           "options": [
             "it only temporarily covers a problem without truly fixing its underlying cause",
-            "it permanently and completely solves the underlying problem",
-            "it is a precise technical term with no figurative meaning",
-            "it refers to an actual medical treatment being proposed as law"
+            "it permanently and completely solves the underlying problem for good and for all, with no more trouble",
+            "it is a precise technical term with no figurative meaning at all, used only in the field of law",
+            "it refers to an actual medical treatment being proposed as a law in the country, for sick people"
           ],
           "correct": "A",
           "why": "\"Band-Aid solution\" figuratively suggests a fix that only covers a problem temporarily, without solving its root cause."
@@ -1064,9 +1064,9 @@
           "stem": "Which best explains why authors often blend technical vocabulary with figurative language, as in calling a skilled debater's argument \"surgical precision\"?",
           "options": [
             "blending the two lets a writer borrow the exactness of technical language while still creating a vivid, memorable image",
-            "the two types of language cancel each other out and create no meaning",
-            "figurative language always replaces technical vocabulary entirely in formal writing",
-            "technical vocabulary can never be used figuratively in any context"
+            "the two types of language cancel each other out and create no meaning for the reader at all",
+            "figurative language always replaces technical vocabulary entirely in formal writing and in science books of all kinds",
+            "technical vocabulary can never be used figuratively in any context, so writers must keep the two types apart"
           ],
           "correct": "A",
           "why": "Blending technical precision with figurative imagery lets a writer create a vivid, memorable description while still conveying exactness."
@@ -1121,10 +1121,10 @@
           "level": "BELOW",
           "stem": "What does the phrase \"she had swallowed her fear\" mean?",
           "options": [
-            "Elena literally swallowed something.",
+            "Elena literally swallowed something at the breakfast table.",
             "Elena pushed down or hid her fear instead of showing it.",
-            "Elena was eating breakfast.",
-            "Elena was not afraid at all."
+            "Elena was eating breakfast in the kitchen at home.",
+            "Elena was not afraid at all of the big test."
           ],
           "correct": "B",
           "why": "\"Swallowed her fear\" is a figurative way of saying she suppressed or hid her fear.",
@@ -1151,10 +1151,10 @@
           "level": "BELOW",
           "stem": "What is the literal action Elena is doing outside the operating room?",
           "options": [
-            "Performing surgery",
+            "Performing surgery on a patient",
             "Walking back and forth in the hallway",
-            "Sleeping",
-            "Talking to the surgeon"
+            "Sleeping on a bench in the room",
+            "Talking to the surgeon about his work"
           ],
           "correct": "B",
           "why": "\"Elena paced the hallway\" literally describes her walking back and forth.",
@@ -1181,10 +1181,10 @@
           "level": "ON",
           "stem": "What effect does the phrase \"it clawed its way back up her throat\" have on the reader's understanding of Elena's fear?",
           "options": [
-            "It makes the fear seem calm and manageable.",
+            "It makes the fear seem calm and manageable, like a small thing.",
             "It makes the fear feel sharp, physical, and hard to control.",
-            "It suggests Elena is not afraid anymore.",
-            "It describes a medical procedure."
+            "It suggests Elena is not afraid anymore at all.",
+            "It describes a medical procedure in a hospital."
           ],
           "correct": "B",
           "why": "The violent image of clawing makes the fear feel intense and almost unbearable, not calm.",
@@ -1196,10 +1196,10 @@
           "level": "ON",
           "stem": "How does the connotation of the word \"precision\" affect the reader's impression of the surgeon?",
           "options": [
-            "It makes the surgeon seem careless.",
+            "It makes the surgeon seem careless and rude.",
             "It makes the surgeon seem highly skilled and exact.",
-            "It makes the surgeon seem frightened.",
-            "It has no effect on the reader's impression."
+            "It makes the surgeon seem frightened and weak.",
+            "It has no effect on the reader's impression of him."
           ],
           "correct": "B",
           "why": "\"Precision\" has a positive connotation suggesting great skill and exactness.",
@@ -1211,10 +1211,10 @@
           "level": "ON",
           "stem": "Why does the author compare Elena's heart to \"a drum pounding against her ribs\" instead of simply saying \"Elena's heart was beating fast\"?",
           "options": [
-            "To give technical medical detail",
+            "To give technical medical detail about the human heart",
             "To help the reader feel the intensity and force of her anxiety",
-            "To describe the sound of music",
-            "To explain how surgery works"
+            "To describe the sound of music playing in the street nearby",
+            "To explain how surgery works in a big city hospital"
           ],
           "correct": "B",
           "why": "The metaphor creates a vivid, physical sense of how hard and forcefully her heart was pounding, which a plain statement would not convey.",
@@ -1241,10 +1241,10 @@
           "level": "ON",
           "stem": "Consider the sentence: \"After the final loss, the team's spirit was shattered.\" What does \"shattered\" suggest about the team's spirit?",
           "options": [
-            "The spirit was physically broken into pieces.",
+            "The spirit was physically broken into pieces on the floor of the room.",
             "The team's morale was completely crushed and difficult to repair.",
-            "The team was happy and confident.",
-            "The team won the game."
+            "The team was happy and confident after the loss, and ready to play again.",
+            "The team won the game by a large score, so the spirit was high."
           ],
           "correct": "B",
           "why": "\"Shattered\" is used figuratively to show the team's morale was deeply and painfully damaged.",
@@ -1286,10 +1286,10 @@
           "level": "ABOVE",
           "stem": "What does the figurative phrase \"his hands were maps of a life spent working outdoors\" suggest about the character?",
           "options": [
-            "His hands are shaped like actual maps.",
+            "His hands are shaped like actual maps, with rivers and roads on them.",
             "His hands show lines and marks that reveal years of hard, outdoor labor.",
-            "He works as a mapmaker.",
-            "His hands are soft and unused."
+            "He works as a mapmaker and draws maps of countries all day.",
+            "His hands are soft and unused, because he has always worked indoors."
           ],
           "correct": "B",
           "why": "Comparing hands to \"maps\" figuratively suggests the lines and marks tell the story of years of outdoor work.",
@@ -1301,10 +1301,10 @@
           "level": "ABOVE",
           "stem": "Compare \"his heart was beating fast\" with \"her heart a drum pounding against her ribs.\" Why is the second phrase more effective at conveying intense emotion?",
           "options": [
-            "The second phrase uses a technical medical term.",
+            "The second phrase uses a technical medical term that only doctors know and use in their work at a hospital.",
             "The second phrase uses a vivid metaphor and physical imagery that make the feeling more powerful and memorable.",
-            "The second phrase is shorter.",
-            "The two phrases have the same effect on the reader."
+            "The second phrase is shorter than the first one is, so it is easier to read and to learn by heart.",
+            "The two phrases have the same effect on the reader in the end, because they say the same thing in other words."
           ],
           "correct": "B",
           "why": "The metaphor creates a specific, forceful image that conveys intensity more vividly than the plain statement.",
@@ -1316,10 +1316,10 @@
           "level": "ABOVE",
           "stem": "The passage mixes technical language (\"incision,\" \"calculated decision\") with figurative language (\"her heart a drum\"). What overall effect does this combination create?",
           "options": [
-            "It makes the passage purely informational, like a textbook.",
+            "It makes the passage purely informational, like a textbook that explains an operation.",
             "It contrasts the surgeon's controlled, clinical world with Elena's raw, emotional experience.",
-            "It shows that both characters feel the exact same way.",
-            "It removes all emotion from the passage."
+            "It shows that both characters feel the exact same way about what is happening to the patient.",
+            "It removes all emotion from the passage and makes the reader feel nothing."
           ],
           "correct": "B",
           "why": "The technical language reflects the surgeon's controlled environment, while the figurative language captures Elena's intense emotional state, creating contrast.",
@@ -1347,8 +1347,8 @@
           "stem": "Why might an author choose the connotative word \"scrawny\" over the neutral word \"thin\" when describing a struggling character?",
           "options": [
             "To make the reader feel more sympathy or pity, or see the character as weak",
-            "To give purely factual, emotion-free information",
-            "Because \"scrawny\" is a technical term",
+            "To give purely factual, emotion-free information about the character's size",
+            "Because \"scrawny\" is a technical term used by doctors and scientists",
             "There is no real reason; the words are interchangeable in effect"
           ],
           "correct": "A",
@@ -1361,10 +1361,10 @@
           "level": "ABOVE",
           "stem": "A student says, \"Technical language and figurative language always do the same job in a text.\" Explain why this statement is inaccurate, using the passage as evidence.",
           "options": [
-            "It is accurate; both always create the same emotional effect.",
+            "It is accurate; both always create the same emotional effect, because writers use them in the same way in every sentence and readers feel the same thing each time.",
             "It is inaccurate: technical language (like \"incision\") gives precise, factual information, while figurative language (like \"her heart a drum\") creates emotional, sensory effects.",
-            "Technical language is only used in poetry.",
-            "Figurative language is only used in science writing."
+            "Technical language is only used in poetry, where writers use words like \"incision\" to make rhymes, and it never appears in factual or scientific writing at all.",
+            "Figurative language is only used in science writing, where authors need to describe facts, and it never appears in stories, poems or novels about people and their feelings."
           ],
           "correct": "B",
           "why": "Technical language conveys exact factual meaning, whereas figurative language conveys feeling and imagery; the passage uses both for different purposes.",
@@ -1402,9 +1402,9 @@
           "stem": "What is the most likely purpose of the chart described in the passage?",
           "options": [
             "to show how the dance's angle relates to the sun's position, helping readers understand the direction information",
-            "to list the different flowers bees prefer",
-            "to show how many bees live in one hive",
-            "to compare bee size to human size"
+            "to list the different flowers bees prefer to visit in the spring and summer, with their names and colors for readers",
+            "to show how many bees live in one hive, from the queen to the workers, the drones and the babies",
+            "to compare bee size to human size, so readers can see how small the insects are next to a person"
           ],
           "correct": "A",
           "why": "The passage says the chart shows the angle of the dance compared to the sun, which helps explain how direction is communicated.",
@@ -1416,10 +1416,10 @@
           "level": "ABOVE",
           "stem": "Which detail from the passage serves as supporting evidence that the waggle dance communicates real information, not just random movement?",
           "options": [
-            "bees live in hives",
+            "bees live in hives made of wax and are found in many countries of the world",
             "the dance's direction and length tell other bees exactly which way and how far to fly",
-            "flowers come in many colors",
-            "bees are insects"
+            "flowers come in many colors and shapes, such as red, yellow, blue and white ones in spring",
+            "bees are insects with six legs, two pairs of wings and a pair of eyes"
           ],
           "correct": "B",
           "why": "This detail directly explains how the dance conveys specific, useful information, supporting the idea that it is a real form of communication.",
@@ -1446,10 +1446,10 @@
           "level": "ON",
           "stem": "Which example from the passage best supports the idea that hand-copying books was slow?",
           "options": [
-            "printing presses used movable metal letters",
+            "printing presses used movable metal letters to print many pages",
             "a single monk might spend months copying one book by hand",
-            "presses spread across Europe within fifty years",
-            "millions of books were eventually produced"
+            "presses spread across Europe within fifty years of the first one",
+            "millions of books were eventually produced in the following centuries"
           ],
           "correct": "B",
           "why": "The detail about a monk spending months on one book is a concrete example showing just how slow hand-copying was.",
@@ -1461,10 +1461,10 @@
           "level": "ABOVE",
           "stem": "What is the overall purpose of mentioning that printing presses 'produced millions of books' within fifty years?",
           "options": [
-            "to show how expensive books became",
+            "to show how expensive books became after the printing presses came to Europe",
             "to provide evidence of how dramatically and quickly printing changed the spread of books",
-            "to explain how monks felt about printing",
-            "to describe what pitchblende is"
+            "to explain how monks felt about printing when they lost their jobs of copying books by hand",
+            "to describe what pitchblende is and how scientists use it in their work"
           ],
           "correct": "B",
           "why": "This detail serves as evidence showing the enormous, rapid impact the printing press had on book production.",
@@ -1476,10 +1476,10 @@
           "level": "BELOW",
           "stem": "Which key detail tells readers exactly what year Marie Curie isolated the two new elements?",
           "options": [
-            "She tested tons of pitchblende.",
+            "She tested tons of pitchblende in a cold, old lab.",
             "In 1898, she and Pierre isolated polonium and radium.",
-            "She worked in a cold, leaky shed.",
-            "Her notebooks helped doctors later."
+            "She worked in a cold, leaky shed near the school.",
+            "Her notebooks helped doctors later in their study of disease."
           ],
           "correct": "B",
           "why": "The passage states the specific year, 1898, when the elements were isolated.",
@@ -1491,10 +1491,10 @@
           "level": "ON",
           "stem": "What supporting evidence shows that Marie Curie's work was difficult and demanding?",
           "options": [
-            "she named the elements polonium and radium",
+            "she named the elements polonium and radium after her home country and her teacher",
             "she worked for years testing tons of mineral in a cold, leaky shed",
-            "her work helped treat cancer",
-            "she recorded her results in notebooks"
+            "her work helped treat cancer in many hospitals around the world later on",
+            "she recorded her results in notebooks every day and every night at her desk"
           ],
           "correct": "B",
           "why": "Working for years in harsh conditions on huge quantities of material is direct evidence of how demanding her research was.",
@@ -1506,10 +1506,10 @@
           "level": "ABOVE",
           "stem": "Why does the author likely mention that Curie's measurements 'eventually helped doctors develop new treatments for cancer'?",
           "options": [
-            "to prove pitchblende is a common rock",
+            "to prove pitchblende is a common rock that is found in every garden",
             "to give a pertinent example of the real-world impact of her discovery",
-            "to explain how radium is mined today",
-            "to describe the shed she worked in"
+            "to explain how radium is mined today in large factories",
+            "to describe the shed she worked in and how cold it was"
           ],
           "correct": "B",
           "why": "This detail is a pertinent example connecting her scientific discovery to a meaningful, real-world benefit.",
@@ -1536,10 +1536,10 @@
           "level": "ON",
           "stem": "What is the most likely purpose of the map described in the passage?",
           "options": [
-            "to show where the tern was born",
+            "to show where the tern was born and where its parents had made their nest",
             "to help readers visualize the long, looping migration route the tern followed",
-            "to show the weight of the bird",
-            "to compare terns to other bird species"
+            "to show the weight of the bird in grams at each stage of its life",
+            "to compare terns to other bird species that live along the same coasts"
           ],
           "correct": "B",
           "why": "A map tracing the bird's path helps readers see and understand the shape and scale of its migration route.",
@@ -1552,9 +1552,9 @@
           "stem": "Which detail serves as supporting evidence for the claim that a single tern can fly 'over a million miles in its lifetime'?",
           "options": [
             "the tern lived for about thirty years and travels roughly 44,000 miles yearly",
-            "the map traces a looping path",
-            "terns fly from the Arctic to Antarctica",
-            "scientists track birds using tags"
+            "the map traces a looping path across the oceans of the world and back",
+            "terns fly from the Arctic to Antarctica every year in summer and winter",
+            "scientists track birds using tags on their legs and wings in the north"
           ],
           "correct": "A",
           "why": "Multiplying the tern's roughly thirty-year lifespan by its yearly distance supports the claim about lifetime mileage.",
@@ -1566,10 +1566,10 @@
           "level": "BELOW",
           "stem": "Which key detail tells readers approximately how many limestone blocks were used to build the pyramid?",
           "options": [
-            "nine tons",
+            "nine tons of stone each day",
             "more than two million blocks",
-            "thousands of workers",
-            "ramps for hauling stones"
+            "thousands of workers on site",
+            "ramps for hauling the stones"
           ],
           "correct": "B",
           "why": "The passage states that more than two million limestone blocks were used.",
@@ -1581,10 +1581,10 @@
           "level": "ON",
           "stem": "What evidence does the passage give to support the idea that paid laborers, not slaves, built the pyramid?",
           "options": [
-            "the blocks weighed up to nine tons",
+            "the blocks weighed up to nine tons and were cut by hand",
             "worker villages nearby included bakeries and bread molds",
-            "the pyramid is in Giza",
-            "ramps were used to move stone"
+            "the pyramid is in Giza, close to the Nile river",
+            "ramps were used to move the stone blocks up the sides"
           ],
           "correct": "B",
           "why": "Finding bakeries and bread molds in worker villages suggests organized, supported laborers rather than enslaved workers.",
@@ -1596,10 +1596,10 @@
           "level": "ABOVE",
           "stem": "What is the likely purpose of the diagram mentioned in the passage?",
           "options": [
-            "to show what bread molds look like",
+            "to show what bread molds look like under a glass lens at a science lab",
             "to help readers understand how workers may have moved heavy stones using ramps",
-            "to compare pyramid sizes around the world",
-            "to list the names of the workers"
+            "to compare pyramid sizes around the world and their age in years and months",
+            "to list the names of the workers and the jobs they did there every day"
           ],
           "correct": "B",
           "why": "The diagram illustrates the ramps researchers believe were used, helping readers visualize the construction method.",
@@ -1626,10 +1626,10 @@
           "level": "ON",
           "stem": "What supporting evidence explains HOW an octopus is able to change color so quickly?",
           "options": [
-            "it lives near coral reefs",
+            "it lives near coral reefs in warm seas where many colorful fish and plants also live",
             "special cells called chromatophores expand and contract to produce different colors",
-            "it has eight arms",
-            "it can swim quickly"
+            "it has eight arms that are covered with strong suckers for holding food",
+            "it can swim quickly by pushing water out of its body like a jet"
           ],
           "correct": "B",
           "why": "The passage explains the mechanism, chromatophores, that allows the rapid color change, supporting the main claim.",
@@ -1641,10 +1641,10 @@
           "level": "ABOVE",
           "stem": "What is the purpose of including the close-up photograph described in the passage?",
           "options": [
-            "to show what chromatophores look like under a microscope",
+            "to show what chromatophores look like under a microscope, magnified many times over",
             "to let readers see just how well the octopus blends into its coral surroundings",
-            "to show how big an octopus can grow",
-            "to compare an octopus to a squid"
+            "to show how big an octopus can grow in the deep ocean waters",
+            "to compare an octopus to a squid, a shark and a large jellyfish"
           ],
           "correct": "B",
           "why": "The photograph visually demonstrates the camouflage effect described in the text, letting readers see it for themselves.",
@@ -1671,10 +1671,10 @@
           "level": "ON",
           "stem": "Which detail serves as supporting evidence that the flight was dangerous?",
           "options": [
-            "she landed in a pasture",
+            "she landed in a pasture near a small farm town in Ireland",
             "her plane faced icy conditions and a leaking fuel gauge",
-            "newspapers printed her photo",
-            "she flew in 1932"
+            "newspapers printed her photo on the front page",
+            "she flew in 1932, during the warm month of May"
           ],
           "correct": "B",
           "why": "Facing icy conditions and equipment problems during the flight is direct evidence of the danger involved.",
@@ -1686,10 +1686,10 @@
           "level": "ABOVE",
           "stem": "Why does the passage likely mention that newspapers 'printed her photograph on their front pages the following morning'?",
           "options": [
-            "to prove that cameras existed in 1932",
+            "to prove that cameras existed in 1932 in that part of the world and in Ireland",
             "to show how significant and celebrated her achievement was at the time",
-            "to explain how airplanes were built",
-            "to describe the weather in Ireland"
+            "to explain how airplanes were built in those years by hard-working workers",
+            "to describe the weather in Ireland on the day of her long flight"
           ],
           "correct": "B",
           "why": "Front-page coverage worldwide is evidence of how big an achievement her flight was considered at the time.",
@@ -1716,10 +1716,10 @@
           "level": "ON",
           "stem": "What evidence from the passage supports the idea that the library was an important center of learning?",
           "options": [
-            "it was located in Egypt",
+            "it was located in Egypt, near the sea in the city of Alexandria",
             "scholars from across the ancient world traveled there to study and copy rare texts",
-            "it was eventually destroyed",
-            "it had many scrolls"
+            "it was eventually destroyed by fire during a war many years after it was built",
+            "it had many scrolls kept on long wooden shelves in its large halls"
           ],
           "correct": "B",
           "why": "Scholars traveling from far away specifically to study there is strong evidence of the library's importance as a center of learning.",
@@ -1731,10 +1731,10 @@
           "level": "ABOVE",
           "stem": "What is the purpose of the timeline mentioned in the passage?",
           "options": [
-            "to list the names of every scholar who visited",
+            "to list the names of every scholar who visited the library over the years",
             "to help readers see how the library changed and grew across several centuries",
-            "to show the exact number of scrolls lost",
-            "to compare it to a modern library"
+            "to show the exact number of scrolls that were lost in the big fire there",
+            "to compare it to a modern library with computers and many screens"
           ],
           "correct": "B",
           "why": "The timeline is meant to show the library's growth and history over an extended period of time.",
@@ -1776,10 +1776,10 @@
           "level": "ABOVE",
           "stem": "What is the likely purpose of the graph described in the passage?",
           "options": [
-            "to show the exact number of fish species in reefs",
+            "to show the exact number of fish species in reefs of the sea and the ocean",
             "to show how ocean temperatures have changed over the past fifty years",
-            "to compare reef colors around the world",
-            "to list countries with coral reefs"
+            "to compare reef colors around the world and their names in many languages",
+            "to list countries with coral reefs and their capital cities on a map"
           ],
           "correct": "B",
           "why": "The graph is described as tracking temperature change over fifty years, helping readers see the trend described in the text.",
@@ -1806,10 +1806,10 @@
           "level": "ON",
           "stem": "Which detail serves as supporting evidence that the brothers carefully prepared before their historic flight?",
           "options": [
-            "the flight lasted only twelve seconds",
+            "the flight lasted only twelve seconds and covered about 120 feet",
             "they tested dozens of wing designs using a homemade wind tunnel",
-            "Orville flew the plane",
-            "a photograph was taken"
+            "Orville flew the plane on the first day of the test",
+            "a photograph was taken of the plane in the air that day"
           ],
           "correct": "B",
           "why": "Testing dozens of wing designs beforehand is evidence of the careful preparation behind their success.",
@@ -1821,10 +1821,10 @@
           "level": "ABOVE",
           "stem": "What is the likely purpose of the photograph mentioned in the passage?",
           "options": [
-            "to show what the wind tunnel looked like",
+            "to show what the wind tunnel looked like inside the brothers' small workshop",
             "to capture and preserve the exact historic moment the plane left the ground",
-            "to show the brothers as children",
-            "to compare the plane to a bird"
+            "to show the brothers as young children playing with a toy",
+            "to compare the plane to a bird flying over the open field"
           ],
           "correct": "B",
           "why": "The photograph is described as capturing the exact moment of liftoff, preserving that historic instant visually.",
@@ -1836,10 +1836,10 @@
           "level": "BELOW",
           "stem": "Which key detail explains where female sea turtles often return to lay their eggs?",
           "options": [
-            "any warm beach nearby",
+            "any warm beach nearby, with soft sand and shells, near their home",
             "the very same beach where they themselves hatched decades earlier",
-            "a beach chosen at random each year",
-            "a beach close to deep water only"
+            "a beach chosen at random each year, with no plan at all, by the sea",
+            "a beach close to deep water only, and no other place on earth"
           ],
           "correct": "B",
           "why": "The passage states turtles often return to the exact beach where they hatched, sometimes decades earlier.",
@@ -1851,10 +1851,10 @@
           "level": "ON",
           "stem": "What evidence does the passage give to explain HOW turtles find their way home across long distances?",
           "options": [
-            "turtles swim very fast",
+            "turtles swim very fast, so they reach their home beach before the other animals",
             "turtles likely sense the Earth's magnetic field and use it like an internal compass",
-            "turtles lay many eggs",
-            "turtles live for decades"
+            "turtles lay many eggs each year, so they remember the way to their home",
+            "turtles live for decades, so they learn the long route by seeing it often"
           ],
           "correct": "B",
           "why": "The passage explains the magnetic-field sensing ability as the mechanism supporting the turtles' long-distance navigation.",
@@ -1866,10 +1866,10 @@
           "level": "ABOVE",
           "stem": "What is the purpose of the map described in the passage?",
           "options": [
-            "to show where turtle eggs are sold",
+            "to show where turtle eggs are sold in the busy fish markets of the coast",
             "to let readers visualize the long migration routes of three tracked turtles",
-            "to compare turtle shell sizes",
-            "to show ocean depth"
+            "to compare turtle shell sizes among the different sea turtles",
+            "to show ocean depth in different parts of the sea, from top to bottom"
           ],
           "correct": "B",
           "why": "The map is explicitly described as showing the long migration routes, helping readers visualize the turtles' journeys.",
@@ -1911,10 +1911,10 @@
           "level": "ABOVE",
           "stem": "What is the likely purpose of the diagram described in the passage?",
           "options": [
-            "to show how much a camel weighs",
+            "to show how much a camel weighs at different ages and sizes of the animal",
             "to label the parts of a camel's body that help it survive desert heat",
-            "to compare camels to horses",
-            "to show where camels are sold"
+            "to compare camels to horses and to other large animals",
+            "to show where camels are sold in the desert markets"
           ],
           "correct": "B",
           "why": "The diagram is described as labeling body parts related to heat survival, helping readers connect anatomy to function.",
@@ -1927,9 +1927,9 @@
           "stem": "Which key detail explains what the Nile's yearly flood deposited on farmland?",
           "options": [
             "a thick layer of rich black soil",
-            "wheat and barley seeds",
-            "a stone calendar",
-            "fresh water only"
+            "wheat and barley seeds from the north",
+            "a stone calendar made by priests",
+            "fresh water only, with no soil"
           ],
           "correct": "A",
           "why": "The passage states the flood deposited a thick layer of rich black soil.",
@@ -1941,10 +1941,10 @@
           "level": "ON",
           "stem": "What is a pertinent example from the passage of how ancient Egyptians depended on the Nile's flood?",
           "options": [
-            "they built pyramids nearby",
+            "they built tall pyramids nearby with huge blocks of stone",
             "they grew wheat and barley using the fertile soil left behind",
-            "they sailed boats on the river",
-            "they worshipped many gods"
+            "they sailed boats on the river to visit other towns",
+            "they worshipped many gods and held big yearly festivals"
           ],
           "correct": "B",
           "why": "Growing wheat and barley using the flood-enriched soil is a specific, directly relevant example of this dependence.",
@@ -1956,10 +1956,10 @@
           "level": "ABOVE",
           "stem": "What is the likely purpose of the chart described in the passage?",
           "options": [
-            "to compare the Nile to other rivers in the world",
+            "to compare the Nile to other long rivers in the world",
             "to show how flood levels changed across several centuries",
-            "to list the crops Egyptians grew",
-            "to show the river's exact length"
+            "to list the crops Egyptians grew along the river",
+            "to show the river's exact length in kilometers"
           ],
           "correct": "B",
           "why": "The chart is described as comparing flood levels across centuries, letting readers see historical patterns.",
@@ -1986,10 +1986,10 @@
           "level": "ON",
           "stem": "Which detail serves as supporting evidence that Franklin's work required great skill and patience?",
           "options": [
-            "she worked with X-rays",
+            "she worked with X-rays in a large university lab in London",
             "her careful, painstaking lab work took months of trial and error to perfect",
-            "other scientists used her image",
-            "DNA has a double-helix shape"
+            "other scientists used her image in their own research papers and books",
+            "DNA has a double-helix shape that looks like a twisted ladder"
           ],
           "correct": "B",
           "why": "Spending months of trial and error on careful lab work is clear evidence of the skill and patience her research required.",
@@ -2001,10 +2001,10 @@
           "level": "ABOVE",
           "stem": "Why does the passage likely mention that 'other scientists later used her image to help build a model explaining how DNA carries genetic information'?",
           "options": [
-            "to prove DNA was first discovered by Franklin alone",
+            "to prove DNA was first discovered by Franklin alone, without any help from other scientists",
             "to give a pertinent example of how her discovery impacted later scientific understanding",
-            "to describe what a double helix looks like",
-            "to explain how X-rays are produced"
+            "to describe what a double helix looks like to the readers of the article",
+            "to explain how X-rays are produced inside the large machines in a lab"
           ],
           "correct": "B",
           "why": "This detail connects Franklin's specific discovery to its real, lasting impact on scientific understanding, which is a pertinent example.",
@@ -2031,10 +2031,10 @@
           "level": "ON",
           "stem": "Which detail is supporting evidence that electric car technology has improved significantly over the last decade?",
           "options": [
-            "batteries take several hours to recharge",
+            "batteries take several hours to recharge, even with a fast charger at home",
             "driving range has grown from under 100 miles to over 300 miles in many new models",
-            "battery packs are heavy",
-            "engineers work on car design"
+            "battery packs are heavy and can weigh more than a small motorcycle",
+            "engineers work on car design in large offices in many countries around the world"
           ],
           "correct": "B",
           "why": "The large increase in driving range over ten years is direct evidence of significant technological improvement.",
@@ -2046,10 +2046,10 @@
           "level": "ABOVE",
           "stem": "What is the likely purpose of the graph described in this passage about electric cars?",
           "options": [
-            "to show the price of electric cars",
+            "to show the price of electric cars across the years",
             "to show how driving range has changed year by year",
-            "to compare battery colors",
-            "to list car brands"
+            "to compare battery colors of the new cars on sale",
+            "to list car brands of the world in a row"
           ],
           "correct": "B",
           "why": "The graph is described as tracking range improvement over time, helping readers visualize the trend.",
@@ -2062,9 +2062,9 @@
           "stem": "Which key detail tells readers how old some trapped air bubbles in the ice cores can be?",
           "options": [
             "more than 800,000 years old",
-            "several hours old",
-            "30 feet long",
-            "from last winter only"
+            "several hours old at most",
+            "about 30 feet long in all",
+            "from only last winter's snow"
           ],
           "correct": "A",
           "why": "The passage states some air bubbles are more than 800,000 years old.",
@@ -2076,10 +2076,10 @@
           "level": "ON",
           "stem": "What evidence does the passage give to explain why ice cores are scientifically valuable?",
           "options": [
-            "they are shaped like cylinders",
+            "they are shaped like long cylinders, which makes them easy to carry back to the lab",
             "researchers can study trapped gases to estimate Earth's ancient atmosphere and climate",
-            "they are drilled in Antarctica",
-            "scientists wear white lab coats"
+            "they are drilled in Antarctica, where it is very cold and the wind is strong",
+            "scientists wear white lab coats and warm gloves while they work on the ice"
           ],
           "correct": "B",
           "why": "The ability to learn about ancient atmosphere and climate from trapped gases is the key evidence of the cores' scientific value.",
@@ -2091,10 +2091,10 @@
           "level": "ABOVE",
           "stem": "What is the likely purpose of the photograph described in the passage?",
           "options": [
-            "to show what Antarctica looks like from space",
+            "to show what Antarctica looks like from space on a clear night in winter",
             "to show readers what a freshly drilled ice core sample actually looks like",
-            "to compare ice cores to glaciers",
-            "to show the temperature of the lab"
+            "to compare ice cores to big glaciers in other very cold lands of the world",
+            "to show the temperature of the lab where the scientists work all day long"
           ],
           "correct": "B",
           "why": "The photograph is described as showing a scientist holding a core sample, helping readers picture the physical object discussed.",
@@ -2121,10 +2121,10 @@
           "level": "ON",
           "stem": "Which detail serves as supporting evidence that Braille's system became widely useful around the world?",
           "options": [
-            "he became blind at age five",
+            "he became blind at age five after an accident in his father's shop",
             "today, Braille has been adapted into more than 130 languages",
-            "he finished an early version by age fifteen",
-            "raised dots can be felt with fingertips"
+            "he finished an early version by age fifteen in a school in Paris",
+            "raised dots can be felt with fingertips, even in the dark"
           ],
           "correct": "B",
           "why": "Being adapted into more than 130 languages is strong evidence of how widely useful and successful the Braille system became.",
@@ -2150,9 +2150,9 @@
           "stem": "Which of these is the best example of 'supporting evidence' in an informational text?",
           "options": [
             "a fact, example, or piece of data that backs up a claim the author makes",
-            "a random sentence with no connection to the topic",
-            "the title of the article",
-            "a question posed at the end of the article"
+            "a random sentence with no connection to the topic of the article",
+            "the title of the article, written at the top of the page",
+            "a question posed at the end of the article for readers to think about"
           ],
           "correct": "A",
           "why": "Supporting evidence is specific information, such as a fact or example, used to back up a claim."
@@ -2162,10 +2162,10 @@
           "level": "ON",
           "stem": "A 'pertinent example' in an informational text is best described as:",
           "options": [
-            "any example, even one unrelated to the main idea",
+            "any example, even one unrelated to the main idea, as long as it is long enough to fill space",
             "a specific instance that is logically and clearly connected to the idea being explained",
-            "a drawing with no caption",
-            "a list of unrelated vocabulary words"
+            "a drawing with no caption, which does not explain anything about the main idea",
+            "a list of unrelated vocabulary words that the author found in the dictionary"
           ],
           "correct": "B",
           "why": "A pertinent example is directly and logically connected to the idea it is meant to illustrate."
@@ -2175,10 +2175,10 @@
           "level": "ABOVE",
           "stem": "Which of the following is considered a 'text feature' in informational writing?",
           "options": [
-            "a chapter of a novel",
+            "a chapter of a novel with many characters in it",
             "a photograph, chart, map, or diagram included alongside the text",
-            "a character's thoughts",
-            "a made-up dialogue between two characters"
+            "a character's thoughts told in the first person voice",
+            "a made-up dialogue between two characters in a play or story"
           ],
           "correct": "B",
           "why": "Text features include visual elements like photographs, charts, maps, and diagrams that support the written text."
@@ -2196,10 +2196,10 @@
           "level": "ON",
           "stem": "Why do authors of informational texts often include supporting evidence after making a claim?",
           "options": [
-            "to make the article longer without adding meaning",
+            "to make the article longer without adding any meaning for the reader",
             "to help convince readers that the claim is accurate and well supported",
-            "to confuse the reader on purpose",
-            "to avoid stating an actual claim"
+            "to confuse the reader on purpose so that nobody understands",
+            "to avoid stating an actual claim so no one can disagree"
           ],
           "correct": "B",
           "why": "Supporting evidence helps readers trust and understand why a claim is accurate."
@@ -2209,10 +2209,10 @@
           "level": "ABOVE",
           "stem": "Which question would best help a reader identify the KEY DETAILS in a biography?",
           "options": [
-            "What is the author's favorite color?",
+            "What is the author's favorite color, and what is her name, and how old is she?",
             "What specific facts, dates, or names does the text provide about this person's life?",
-            "How long is the biography?",
-            "What font is used in the book?"
+            "How long is the biography, and how many pages and chapters does it have in all?",
+            "What font is used in the book, and what size are the letters on each page of it?"
           ],
           "correct": "B",
           "why": "Key details are specific facts, dates, or names, so asking about those helps identify them."
@@ -2222,10 +2222,10 @@
           "level": "BELOW",
           "stem": "A student reads an article and notices a labeled diagram next to a paragraph about how a volcano erupts. What is the most likely purpose of that diagram?",
           "options": [
-            "to decorate the page with no real purpose",
+            "to decorate the page with no real purpose, only to make it look nice for readers",
             "to help readers visually understand the stages or structure described in the text",
-            "to replace the need for reading the paragraph",
-            "to test the reader's drawing skills"
+            "to replace the need for reading the paragraph, so readers can skip the words",
+            "to test the reader's drawing skills and see how well he can copy a picture"
           ],
           "correct": "B",
           "why": "Diagrams are typically included to help readers visualize a process or structure explained in the text."
@@ -2256,10 +2256,10 @@
           "level": "BELOW",
           "stem": "An author writing about healthy eating states: 'Eating more vegetables can improve your health.' Which sentence would be the best piece of supporting evidence for this claim?",
           "options": [
-            "Vegetables come in many colors.",
+            "Vegetables come in many colors, shapes and sizes, and they look nice on a plate at home.",
             "A study of 10,000 people found that those who ate five servings of vegetables daily had fewer illnesses.",
-            "Some people dislike the taste of vegetables.",
-            "Vegetables are sold at most grocery stores."
+            "Some people dislike the taste of vegetables, and they often push them to the side of their plate.",
+            "Vegetables are sold at most grocery stores, and they cost less in the summer season."
           ],
           "correct": "B",
           "why": "A specific study with data directly supports the health claim, making it strong supporting evidence."
@@ -2269,10 +2269,10 @@
           "level": "ON",
           "stem": "Why might an author include a specific pertinent example rather than just stating a general idea?",
           "options": [
-            "to make the idea harder to understand",
+            "to make the idea harder to understand for the reader and hide it from everyone",
             "to help the reader see exactly how the general idea applies in a real, specific situation",
-            "to avoid explaining the idea at all",
-            "to lengthen the article with unrelated information"
+            "to avoid explaining the idea at all and leave the reader to guess it alone",
+            "to lengthen the article with unrelated information about other topics, to fill the page"
           ],
           "correct": "B",
           "why": "A pertinent example makes an abstract idea concrete by showing how it applies in a specific situation."
@@ -2282,10 +2282,10 @@
           "level": "ABOVE",
           "stem": "Which of these is NOT typically considered a text feature?",
           "options": [
-            "a photograph with a caption",
-            "a bar graph showing data over time",
+            "a photograph with a caption under it on the page",
+            "a bar graph showing data over time on the page",
             "a character's internal thoughts in a short story",
-            "a labeled map"
+            "a labeled map of the whole country, with a key"
           ],
           "correct": "C",
           "why": "A character's internal thoughts belong to fiction, not to the visual text features used in informational writing."
@@ -2304,9 +2304,9 @@
           "stem": "A speech includes the line 'Over three hundred volunteers rebuilt the community center in just two weekends.' This sentence is best described as:",
           "options": [
             "a key detail providing a specific fact about the rebuilding effort",
-            "a text feature",
-            "an unrelated opinion",
-            "a made-up story"
+            "a text feature like a heading or a chart in the middle of the speech",
+            "an unrelated opinion about the town that the speaker holds",
+            "a made-up story about a community center that never existed"
           ],
           "correct": "A",
           "why": "This sentence gives specific facts (a number and a timeframe), making it a key detail."
@@ -2316,10 +2316,10 @@
           "level": "ABOVE",
           "stem": "An interview transcript includes a photograph of the person being interviewed standing in their workshop. What is the most likely reason the interviewer included this photograph?",
           "options": [
-            "to prove the interview never happened",
+            "to prove the interview never happened at all in that town or in any other",
             "to help readers visualize the person and the setting discussed in the interview",
-            "to replace the need for any interview questions",
-            "to decorate the page randomly"
+            "to replace the need for any interview questions that the reporter asked in the text",
+            "to decorate the page randomly with a nice picture of a famous place"
           ],
           "correct": "B",
           "why": "Photographs in interviews often help readers picture the subject and setting being discussed."
@@ -2329,10 +2329,10 @@
           "level": "BELOW",
           "stem": "Which of the following best describes the difference between a key detail and supporting evidence?",
           "options": [
-            "they are exactly the same thing with no difference",
+            "they are exactly the same thing with no difference between them at all, in any text that you read",
             "a key detail is a specific fact, while supporting evidence specifically backs up a claim the author is making",
-            "a key detail only appears in fiction",
-            "supporting evidence never includes facts"
+            "a key detail only appears in fiction and never in a nonfiction text, such as a report",
+            "supporting evidence never includes facts, numbers, or quotations from the text, and only has opinions"
           ],
           "correct": "B",
           "why": "A key detail is simply a specific fact, while supporting evidence is information used specifically to back up a claim."
@@ -2363,10 +2363,10 @@
           "level": "BELOW",
           "stem": "An essay claims that 'reading for just twenty minutes a day can improve a student's vocabulary.' Which addition would make the claim most convincing?",
           "options": [
-            "a joke unrelated to reading",
+            "a funny joke unrelated to reading, told at the start of the essay",
             "a cited study showing vocabulary test score improvements among students who read daily",
-            "a description of the essay's cover page",
-            "a list of unrelated hobbies"
+            "a description of the essay's cover page, its color and the size of the paper it is on",
+            "a list of unrelated hobbies that many students enjoy after school"
           ],
           "correct": "B",
           "why": "A cited study with real results directly supports the claim with credible evidence."
@@ -2376,10 +2376,10 @@
           "level": "ON",
           "stem": "Which of these questions would best help identify the PURPOSE of a chart included in an article about rainfall?",
           "options": [
-            "What color is the chart?",
+            "What color is the chart, and what size is the paper it is printed on?",
             "What information does the chart show, and how does it help explain the text's main idea?",
-            "How many words are in the article?",
-            "What is the author's name?"
+            "How many words are in the article, and how many paragraphs and pictures does it have?",
+            "What is the author's name, and where was the article first printed?"
           ],
           "correct": "B",
           "why": "Understanding a chart's purpose means considering what it shows and how it supports the article's main idea."
@@ -2389,10 +2389,10 @@
           "level": "ABOVE",
           "stem": "A biography states, 'She faced rejection from twelve publishers before her first book was finally accepted.' This detail is best used by the author to:",
           "options": [
-            "prove the subject never became successful",
+            "prove the subject never became successful in her life and work",
             "provide evidence of the subject's persistence despite many setbacks",
-            "describe an unrelated event",
-            "criticize the publishers unfairly"
+            "describe an unrelated event in the writer's life and home",
+            "criticize the publishers unfairly for their choices and their rules"
           ],
           "correct": "B",
           "why": "This detail supports a claim about persistence by showing a specific, relevant struggle the subject overcame."
@@ -2415,10 +2415,10 @@
           "level": "ON",
           "stem": "An article about ancient trade routes includes a labeled map showing the paths traders traveled between cities. What skill is a reader using when they study this map to understand the article better?",
           "options": [
-            "ignoring the text completely",
+            "ignoring the text completely when reading about the routes",
             "connecting a text feature to the information described in the written text",
-            "memorizing every city name without understanding why",
-            "assuming the map is unrelated to the article"
+            "memorizing every city name without understanding why they matter to the trade",
+            "assuming the map is unrelated to the article and skipping it"
           ],
           "correct": "B",
           "why": "Studying a map alongside the text to deepen understanding is exactly how readers use text features effectively."
@@ -2436,10 +2436,10 @@
           "level": "BELOW",
           "stem": "A science article claims that 'exercise improves memory' and then describes a specific experiment where students who exercised before a test scored higher than those who did not. This experiment is best described as:",
           "options": [
-            "an unrelated detail",
+            "an unrelated detail that has nothing to do with the claim in the text",
             "a pertinent example supporting the claim about exercise and memory",
-            "a text feature",
-            "a contradiction of the claim"
+            "a text feature like a heading, a chart, or a caption in the article",
+            "a contradiction of the claim about exercise and memory in the article"
           ],
           "correct": "B",
           "why": "The experiment is a specific, directly relevant instance that supports the claim, making it a pertinent example."
@@ -2449,10 +2449,10 @@
           "level": "ON",
           "stem": "Which of the following best explains why authors of informational texts often combine key details, supporting evidence, and text features together?",
           "options": [
-            "to make the text as long and confusing as possible",
+            "to make the text as long and confusing as possible so that nobody can finish reading it today",
             "to build a clear, well-supported explanation that readers can both read and visually understand",
-            "because it is required by law",
-            "because images are always more important than words"
+            "because it is required by law in every school and in every country of the world",
+            "because images are always more important than words in any kind of text"
           ],
           "correct": "B",
           "why": "Combining these elements helps authors create clear, convincing, and visually supported explanations for readers."
@@ -2462,10 +2462,10 @@
           "level": "ABOVE",
           "stem": "An article about bridges includes a cutaway diagram showing the different layers and materials inside a bridge's support beam. This diagram most directly helps readers to:",
           "options": [
-            "memorize the names of bridge engineers",
+            "memorize the names of bridge engineers who lived long ago in the past and in many lands",
             "see the internal structure described in the text that would be difficult to picture otherwise",
-            "learn the cost of building a bridge",
-            "avoid reading the article's text"
+            "learn the cost of building a bridge in the city center or the port",
+            "avoid reading the article's text and look only at the pictures on the page"
           ],
           "correct": "B",
           "why": "A cutaway diagram helps readers visualize internal structures that are hard to picture from text alone."
@@ -2475,10 +2475,10 @@
           "level": "BELOW",
           "stem": "A student is asked to explain 'how a detail elaborates on the author's main point.' Which response best completes this task?",
           "options": [
-            "simply repeating the detail word for word with no explanation",
+            "simply repeating the detail word for word with no explanation of how it helps",
             "explaining exactly how the specific detail adds support or clarity to the author's broader idea",
-            "ignoring the main point entirely",
-            "describing an unrelated detail instead"
+            "ignoring the main point entirely and writing about something else from another text",
+            "describing an unrelated detail instead, from another part of the text that is far away from it"
           ],
           "correct": "B",
           "why": "Elaborating on a point means explaining how a specific detail connects to and supports the broader idea."
@@ -2488,10 +2488,10 @@
           "level": "ON",
           "stem": "Which of these best explains why an author might choose one particular piece of evidence over another when writing an informational article?",
           "options": [
-            "because the shortest piece of evidence is always best, regardless of relevance",
+            "because the shortest piece of evidence is always best, regardless of relevance to the claim made",
             "because the chosen evidence most clearly and directly supports the specific claim being made",
-            "because any random fact works equally well",
-            "because evidence should never relate to the claim"
+            "because any random fact works equally well for any claim that the author makes",
+            "because evidence should never relate to the claim in the text that the author wrote"
           ],
           "correct": "B",
           "why": "Authors choose evidence based on how directly and clearly it supports the specific claim they are making."
@@ -2501,10 +2501,10 @@
           "level": "BELOW",
           "stem": "What was Marie Tharp's main job in the 1950s, according to the passage?",
           "options": [
-            "Sailing on research ships",
+            "Sailing on research ships to measure the ocean floor",
             "Translating sonar readings into hand-drawn ocean floor profiles",
-            "Teaching geology at a university",
-            "Designing new sonar equipment"
+            "Teaching geology to students at a large university in New York",
+            "Designing new sonar equipment for the navy ships"
           ],
           "correct": "B",
           "why": "The passage states she spent the 1950s \"translating raw sonar readings into hand-drawn profiles of the ocean floor.\"",
@@ -2516,10 +2516,10 @@
           "level": "BELOW",
           "stem": "Why did Marie Tharp do her work entirely from land?",
           "options": [
-            "She preferred working indoors.",
+            "She preferred working indoors, where it was warm and quiet all year.",
             "Women were not permitted on the research ships that collected the data.",
-            "She did not know how to swim.",
-            "The ships were too small for extra passengers."
+            "She did not know how to swim, so she was afraid of the open sea.",
+            "The ships were too small for extra passengers, so only the crew could go."
           ],
           "correct": "B",
           "why": "The passage directly states that women were not permitted on the research ships at that time.",
@@ -2546,10 +2546,10 @@
           "level": "BELOW",
           "stem": "What did Tharp believe the V-shaped valley was evidence of?",
           "options": [
-            "A shipwreck",
+            "A shipwreck on the ocean floor near the coast",
             "A rift valley showing the ocean floor was spreading apart",
-            "A volcanic eruption",
-            "An error in the sonar equipment"
+            "A volcanic eruption under the sea near the ridge",
+            "An error in the sonar equipment that gave odd readings"
           ],
           "correct": "B",
           "why": "The passage states she believed it was \"a rift valley — evidence that the ocean floor was spreading apart.\"",
@@ -2591,10 +2591,10 @@
           "level": "BELOW",
           "stem": "What theory did Tharp's work eventually provide crucial evidence for?",
           "options": [
-            "The theory of evolution",
+            "The theory of evolution of species",
             "The theory of plate tectonics",
-            "The theory of relativity",
-            "The theory of gravity"
+            "The theory of relativity in space",
+            "The theory of gravity and motion"
           ],
           "correct": "B",
           "why": "The passage states her charts \"provided crucial visual evidence for what would become the theory of plate tectonics.\"",
@@ -2621,10 +2621,10 @@
           "level": "ON",
           "stem": "How does the second paragraph build on the first paragraph's central idea?",
           "options": [
-            "It introduces an unrelated topic about ship design.",
+            "It introduces an unrelated topic about ship design and the sailors who built old boats.",
             "It shows a specific discovery that resulted from the painstaking work described in the first paragraph.",
-            "It contradicts everything stated in the first paragraph.",
-            "It only repeats information from the first paragraph."
+            "It contradicts everything stated in the first paragraph and says the work was a complete waste of time.",
+            "It only repeats information from the first paragraph in different words, with no new ideas."
           ],
           "correct": "B",
           "why": "The first paragraph describes her patient data work; the second shows the specific major discovery that work led to.",
@@ -2636,10 +2636,10 @@
           "level": "ON",
           "stem": "What is the relationship between Tharp's research partner dismissing her idea and the eventual publication of her charts?",
           "options": [
-            "Her partner's dismissal caused her to permanently stop her research.",
+            "Her partner's dismissal caused her to permanently stop her research and to leave the ship for good, they say.",
             "Despite the dismissal, Tharp continued mapping, and her persistence eventually led to important charts and evidence.",
-            "Her partner's dismissal was proven correct, and her idea was incorrect.",
-            "The two events are unrelated to each other."
+            "Her partner's dismissal was proven correct, and her idea was incorrect, as the maps later showed.",
+            "The two events are unrelated to each other, and the text does not link them in any way at all."
           ],
           "correct": "B",
           "why": "The passage shows that despite being dismissed, Tharp persisted (\"But Tharp kept mapping\"), which led to her important later contribution.",
@@ -2666,10 +2666,10 @@
           "level": "ON",
           "stem": "What is the central idea that both paragraphs of the passage support together?",
           "options": [
-            "Sonar equipment is difficult to use.",
+            "Sonar equipment is difficult to use, and it takes many years for a person to learn how to read it well enough to draw maps.",
             "Despite facing obstacles, Marie Tharp made a discovery that became crucial evidence for a major scientific theory.",
-            "Research ships are the best way to study the ocean floor.",
-            "Plate tectonics was discovered by many scientists working together on a ship."
+            "Research ships are the best way to study the ocean floor, because they carry all the tools needed.",
+            "Plate tectonics was discovered by many scientists working together on a ship in the middle of the ocean."
           ],
           "correct": "B",
           "why": "Both paragraphs together build toward this idea: her challenges, her careful work, her discovery, and its lasting scientific importance.",
@@ -2681,10 +2681,10 @@
           "level": "ON",
           "stem": "Why does the author mention that Tharp's partner called her idea \"girl talk\"?",
           "options": [
-            "To show that everyone agreed with Tharp right away.",
+            "To show that everyone agreed with Tharp right away and supported her new idea.",
             "To highlight the resistance and bias Tharp faced even though her idea turned out to be groundbreaking.",
-            "To prove that Tharp's idea was wrong.",
-            "To describe a conversation that had nothing to do with science."
+            "To prove that Tharp's idea was wrong and that her partner was right about it.",
+            "To describe a conversation that had nothing to do with science, with the ocean floor or with her work."
           ],
           "correct": "B",
           "why": "Including this detail emphasizes the skepticism and bias Tharp overcame before her idea was recognized as important.",
@@ -2711,10 +2711,10 @@
           "level": "ABOVE",
           "stem": "How does the detail about the gap between Tharp's 1953 discovery and the 1977 publication help the reader understand her work?",
           "options": [
-            "It shows the discovery was quick and easy.",
+            "It shows the discovery was quick and easy, and that the charts were finished within a few weeks.",
             "It suggests that turning her discovery into complete, published charts took many years of continued effort.",
-            "It shows that she gave up for a long period of time.",
-            "It has no relevance to understanding her work."
+            "It shows that she gave up for a long period of time and then returned to her work only by chance.",
+            "It has no relevance to understanding her work, because the dates are only a small detail in the text."
           ],
           "correct": "B",
           "why": "The passage says Tharp \"kept mapping\" after the initial 1953 discovery, so the gap until 1977 suggests years of ongoing, dedicated work.",
@@ -2727,9 +2727,9 @@
           "stem": "How do the two paragraphs work together to develop the central idea of perseverance despite resistance?",
           "options": [
             "The first paragraph shows her careful work and limitations; the second shows her significant discovery and the doubt she faced before being proven right, together illustrating perseverance.",
-            "The paragraphs are unrelated and develop two separate, unconnected ideas.",
-            "Only the second paragraph relates to perseverance; the first paragraph is unrelated.",
-            "The first paragraph proves she gave up quickly."
+            "The paragraphs are unrelated and develop two separate, unconnected ideas, so one idea cannot help the other one at all, and the reader must choose between them, because together they make the topic confusing.",
+            "Only the second paragraph relates to perseverance; the first paragraph is unrelated, because it describes only her tools and her office and not her feelings.",
+            "The first paragraph proves she gave up quickly, and the second paragraph shows that the critics were completely right about her mistake in the end."
           ],
           "correct": "A",
           "why": "Paragraph one establishes her limited circumstances and painstaking process, and paragraph two shows her persisting through doubt to a lasting discovery — together these develop the idea of perseverance.",
@@ -2756,10 +2756,10 @@
           "level": "ABOVE",
           "stem": "A student claims the passage's central idea is \"primarily about sonar technology.\" Why is this an inaccurate reading of the passage?",
           "options": [
-            "The passage never mentions sonar.",
+            "The passage never mentions sonar or any machine, and it only tells a personal story about a woman in the past, in a faraway land, with no other details, as it seems.",
             "The passage focuses mainly on Tharp's personal struggles, discovery, and lasting scientific contribution, using sonar only as background context for how she gathered data.",
-            "Sonar technology is mentioned in every sentence of the passage.",
-            "The claim is accurate; sonar is the true central idea."
+            "Sonar technology is mentioned in every sentence of the passage, so it must be the central idea of it, and nothing else matters for the text at all.",
+            "The claim is accurate; sonar is the true central idea, and Tharp is only a minor person in the text, who is named once or twice at the end."
           ],
           "correct": "B",
           "why": "Sonar is mentioned only briefly as part of how the data was collected; the passage's focus is on Tharp's work, discovery, and impact, not sonar technology itself.",
@@ -2771,10 +2771,10 @@
           "level": "ABOVE",
           "stem": "Why is the detail that Tharp \"kept mapping\" after her partner's dismissal especially important to the passage's overall message?",
           "options": [
-            "It is a minor detail that could be removed without changing the passage's message.",
+            "It is a minor detail that could be removed without changing the passage's message at all, since it adds very little to the text.",
             "It shows that her persistence despite doubt was essential to eventually producing evidence that changed scientific understanding.",
-            "It shows that she agreed with her partner and stopped working.",
-            "It is unrelated to the theory of plate tectonics."
+            "It shows that she agreed with her partner and stopped working on the maps for good, after he left the ship.",
+            "It is unrelated to the theory of plate tectonics and to the work that she did at sea, so it has no real use."
           ],
           "correct": "B",
           "why": "This detail links her personal determination directly to the larger outcome: without continuing despite being dismissed, the evidence for plate tectonics might never have been produced.",
@@ -2786,10 +2786,10 @@
           "level": "ABOVE",
           "stem": "Considering the passage as a whole, which statement best explains how the examples of the ship restriction, the \"girl talk\" dismissal, and the eventual 1977 publication relate to one another?",
           "options": [
-            "They are three unrelated facts with no connection to each other.",
+            "They are three unrelated facts with no connection to each other, and each one could be removed from the passage without changing the main idea.",
             "Each example builds on the last to show a repeated pattern of obstacles that Tharp overcame on her way to a lasting scientific achievement.",
-            "They show that Tharp faced no real difficulties in her career.",
-            "They prove that her research partner was correct all along."
+            "They show that Tharp faced no real difficulties in her career, because everyone around her supported her work.",
+            "They prove that her research partner was correct all along and that her own idea about the ridge was a mistake."
           ],
           "correct": "B",
           "why": "Together, these examples form a pattern — restriction, doubt, and eventual vindication — that traces Tharp's journey toward her lasting contribution.",
@@ -2826,10 +2826,10 @@
           "level": "BELOW",
           "stem": "What can the reader infer about Deshawn's attitude when he first receives the radio?",
           "options": [
-            "He is annoyed that his grandfather gave him a broken radio.",
+            "He is annoyed that his grandfather gave him a broken radio, and he wants to throw it away.",
             "He is cautious and begins by carefully studying the radio before touching it.",
-            "He already knows exactly how to fix the radio.",
-            "He plans to ask someone else to fix it for him."
+            "He already knows exactly how to fix the radio, so he starts working at once.",
+            "He plans to ask someone else to fix it for him, because it is too hard."
           ],
           "correct": "B",
           "why": "\"He turned the radio over in his hands, studying the screws, the cracked dial, the frayed cord\" shows careful observation before acting.",
@@ -2916,10 +2916,10 @@
           "level": "ON",
           "stem": "Which inference is best supported by the sentence, \"Then he set it down and pulled a notebook from his backpack, sketching the inside of the radio from memory before he'd even opened it\"?",
           "options": [
-            "Deshawn is impulsive and does not think before acting.",
+            "Deshawn is impulsive and does not think before acting on anything.",
             "Deshawn likes to plan and understand something before working on it.",
-            "Deshawn does not care about fixing the radio correctly.",
-            "Deshawn has fixed many radios before."
+            "Deshawn does not care about fixing the radio correctly or about the mess.",
+            "Deshawn has fixed many radios before and knows each part by heart."
           ],
           "correct": "B",
           "why": "Sketching the radio's inside before opening it shows a thoughtful, planning approach.",
@@ -2991,10 +2991,10 @@
           "level": "ON",
           "stem": "When citing text evidence to support an inference, what should a reader look for?",
           "options": [
-            "Any sentence from the passage, even if it is unrelated to the inference",
+            "Any sentence from the passage, even if it is unrelated to the inference they make",
             "A specific word or phrase from the text that directly connects to the claim being made",
-            "Their own opinion about the characters",
-            "A summary of the whole passage"
+            "Their own opinion about the characters, even if the text does not say it",
+            "A summary of the whole passage, written in their own words with no quotes"
           ],
           "correct": "B",
           "why": "Strong evidence is a specific detail from the text that directly connects to and supports the claim.",
@@ -3021,10 +3021,10 @@
           "level": "ABOVE",
           "stem": "Which detail from the passage would best support an inference that Deshawn values figuring things out for himself?",
           "options": [
-            "He asked his grandfather for help fixing the radio.",
-            "He read an instruction manual before starting.",
+            "He asked his grandfather for help fixing the radio as soon as he saw the broken part.",
+            "He read an instruction manual before starting and followed each step in the book one by one.",
             "He tested wires on his own, muttering each time something failed, rather than stopping to ask for help.",
-            "He gave up after the spark jumped from the battery."
+            "He gave up after the spark jumped from the battery and left the radio on the table for the day."
           ],
           "correct": "C",
           "why": "Working through failures alone, without quitting or asking for help, shows self-reliance.",
@@ -3066,10 +3066,10 @@
           "level": "ABOVE",
           "stem": "Why is \"He tested one wire, then another, muttering to himself each time something didn't work\" stronger evidence for \"Deshawn was persistent\" than \"Deshawn stared at the tangle of wires\"?",
           "options": [
-            "It is a longer sentence.",
+            "It is a longer sentence with more words, and longer sentences are always stronger evidence for a claim about a character.",
             "It shows repeated effort despite failure, while the other sentence only shows his first reaction to the radio.",
-            "It mentions the word \"persistent\" directly.",
-            "It happens earlier in the passage."
+            "It mentions the word \"persistent\" directly, so readers do not have to think about it.",
+            "It happens earlier in the passage, so it is the first thing that readers see in the text."
           ],
           "correct": "B",
           "why": "Persistence means continuing despite setbacks, which the repeated testing shows directly; staring is just an initial reaction.",
@@ -3096,9 +3096,9 @@
           "level": "ABOVE",
           "stem": "Why is it important, when citing evidence, to choose a quotation that matches the exact claim being made rather than one that is only loosely related?",
           "options": [
-            "Exact matches make the response longer.",
+            "Exact matches make the response longer, and teachers like longer answers.",
             "Loosely related evidence may not actually prove the specific claim, weakening the argument.",
-            "Teachers prefer long quotations regardless of relevance.",
+            "Teachers prefer long quotations regardless of relevance, so the longest one is best.",
             "It does not matter as long as the quotation comes from the same paragraph."
           ],
           "correct": "B",

@@ -199,10 +199,10 @@
         {
           "stem": "Why is the Dead Sea so salty?",
           "options": [
-            "People pour salt into it",
+            "People pour salt into it from big boats",
             "The sun dries the water but the salt stays",
-            "Rain brings salt from the sky",
-            "Fish make the salt"
+            "Rain brings salt from the sky in winter",
+            "Fish make the salt in the deep water"
           ],
           "answer": "B",
           "skill": "inference",
@@ -218,8 +218,8 @@
           "options": [
             "Building more homes by the shore",
             "Letting more river water reach the lake",
-            "Adding more salt to the water",
-            "Catching the tiny living things"
+            "Adding more salt to the water in the lake",
+            "Catching all the tiny living things in the water"
           ],
           "answer": "B",
           "skill": "inference",
@@ -293,10 +293,10 @@
         {
           "stem": "What is the main idea of the article?",
           "options": [
-            "The Dead Sea is full of fish that people catch.",
+            "The Dead Sea is full of fish that people catch with nets.",
             "The Dead Sea is a very low, very salty lake that is shrinking.",
-            "The Dead Sea is the deepest ocean in the world.",
-            "The Dead Sea gets most of its water from rain."
+            "The Dead Sea is the deepest ocean in the world, near Asia.",
+            "The Dead Sea gets most of its water from rain in the spring."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -327,10 +327,10 @@
         {
           "stem": "Why do people float easily in the Dead Sea?",
           "options": [
-            "The water is very warm.",
-            "The water has strong waves.",
+            "The water is very warm in summer.",
+            "The water has strong waves that lift you.",
             "The salt makes the water very dense.",
-            "The lake is very shallow."
+            "The lake is very shallow near the shore."
           ],
           "answer": "C",
           "skill": "cause-effect",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
-            "The Dead Sea's tourism industry is growing quickly every year.",
+            "The Dead Sea's tourism industry is growing quickly every year, and it keeps the sea full and big.",
             "The Dead Sea is unusual and valuable, but human activity is making it shrink.",
-            "The Dead Sea is filled with many plants and animals.",
-            "The Dead Sea will soon become a freshwater lake."
+            "The Dead Sea is filled with many plants and animals, like fish, crabs, and tall reeds.",
+            "The Dead Sea will soon become a freshwater lake, because rivers are washing its salt away."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -558,9 +558,9 @@
           "stem": "How do the two causes of shrinking described in the article compare?",
           "options": [
             "Both reduce the amount of water in the lake, one upstream and one at the lake itself.",
-            "One adds water and the other removes salt.",
-            "Both are natural and cannot be controlled by people.",
-            "Both increase rainfall in the region."
+            "One adds water and the other removes salt, so the lake becomes fresher every year.",
+            "Both are natural and cannot be controlled by people, so nothing can be done to help.",
+            "Both increase rainfall in the region and make the lake grow bigger over many years."
           ],
           "answer": "A",
           "skill": "compare",

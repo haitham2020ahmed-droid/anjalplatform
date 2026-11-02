@@ -148,10 +148,10 @@
         {
           "stem": "What is a scene, according to the article?",
           "options": [
-            "The plain cover of a book",
+            "The plain cover of a book that has no pictures on it",
             "One part of a story that an illustrator chooses to draw",
-            "A kind of paint used by artists",
-            "The printed name of the illustrator"
+            "A kind of paint that is used by many artists today",
+            "The printed name of the illustrator on the first page"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -182,10 +182,10 @@
         {
           "stem": "Why do many children's books use one picture per page?",
           "options": [
-            "It can make the whole book heavier",
+            "It can make the whole book heavier to carry to school and home",
             "It helps young readers see who is in the story and where it happens",
-            "It can replace all of the written words",
-            "It can make the finished book more expensive"
+            "It can replace all of the written words in the whole book",
+            "It can make the book too hard to read for any child at all"
           ],
           "answer": "B",
           "skill": "inference",
@@ -199,9 +199,9 @@
         {
           "stem": "What can you tell about illustrators from the article?",
           "options": [
-            "They never look closely at the words of a story",
-            "They draw without thinking about the story at all",
-            "They only ever draw pictures for grown-up books",
+            "They never look closely at the words of a story before drawing",
+            "They draw without thinking about the story at all, just for fun",
+            "They only ever draw pictures for grown-up books and magazines",
             "They plan their pictures with care so they match the story"
           ],
           "answer": "D",
@@ -234,9 +234,9 @@
           "stem": "How does the author mostly organize this article?",
           "options": [
             "By telling what illustration is, how it is made, and why it matters",
-            "By comparing the customs of two far away countries",
-            "As a made-up story about one busy illustrator",
-            "By listing strict rules for building tall houses"
+            "By comparing the customs of two faraway countries and their people",
+            "As a made-up story about one busy illustrator in a big city",
+            "By listing strict rules for building tall houses in a town"
           ],
           "answer": "A",
           "skill": "text-structure",
@@ -361,9 +361,9 @@
         {
           "stem": "How does illustration differ from fine art, according to the article?",
           "options": [
-            "Illustration always uses far brighter colors than fine art",
-            "Fine art is only ever found in old manuscripts",
-            "Illustration never requires any planning at all",
+            "Illustration always uses far brighter colors than fine art does",
+            "Fine art is only ever found in old manuscripts and in books",
+            "Illustration never requires any planning at all before drawing",
             "Fine art can stand alone, while illustration must accompany a story"
           ],
           "answer": "D",
@@ -379,9 +379,9 @@
           "stem": "Why might old handwritten manuscripts have included illustrations?",
           "options": [
             "Pictures helped readers follow the story as they read along",
-            "It replaced the need for any written words at all",
-            "It made old manuscripts far heavier to carry around",
-            "It helped hide the story from most curious readers"
+            "It replaced the need for any written words at all in the books",
+            "It made old manuscripts far heavier to carry around for the scribes",
+            "It helped hide the story from most curious readers who passed by"
           ],
           "answer": "A",
           "skill": "inference",
@@ -412,10 +412,10 @@
         {
           "stem": "Why does the author explain the difference between illustration and fine art?",
           "options": [
-            "To argue that fine art is somehow not real art",
+            "To argue that fine art is somehow not real art and should not be shown in museums",
             "To help readers see what makes illustration its own kind of art",
-            "To prove that illustrators never study any fine art",
-            "To explain in some detail how old paper was made"
+            "To prove that illustrators never study any fine art in school",
+            "To explain in some detail how old paper was made and why it turns yellow"
           ],
           "answer": "B",
           "skill": "author-purpose",
@@ -490,9 +490,9 @@
           "stem": "According to the article, what is a scene in illustration?",
           "options": [
             "A chosen moment from a narrative that an illustrator renders by hand",
-            "A decorative border that is unrelated to the story itself",
-            "A category of fine art that is unrelated to writing",
-            "A tool once used to stretch leather tightly over boards"
+            "A decorative border that is unrelated to the story itself, said the writer",
+            "A category of fine art that is unrelated to writing, said the writer",
+            "A tool once used to stretch leather tightly over boards, said the writer"
           ],
           "answer": "A",
           "skill": "detail",
@@ -541,9 +541,9 @@
           "stem": "Why does the article say a picture that fails to match its surrounding text can leave readers confused?",
           "options": [
             "Illustration is meant to complement and support the narrative around it",
-            "Fine art is always included in every illustrated storybook",
-            "Illustrators never actually read the text before they draw",
-            "Children's books never contain any written narrative at all"
+            "Fine art is always included in every illustrated storybook, so readers expect it",
+            "Illustrators never actually read the text before they draw their pictures",
+            "Children's books never contain any written narrative at all, only pictures"
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -557,7 +557,7 @@
         {
           "stem": "What can you infer about why handwritten manuscripts across many cultures included illustrations?",
           "options": [
-            "Illustrations were only ever used within one single culture",
+            "Illustrations were only ever used within one single culture or one region",
             "Readers across many cultures found pictures helped them follow a narrative",
             "Old manuscripts never included any narrative to accompany",
             "Illustrators refused to plan their careful work with any care"
@@ -575,9 +575,9 @@
           "stem": "Why does the author mention that illustrators never included anything improper for their audience?",
           "options": [
             "To highlight how illustrators considered their audience when choosing what to depict",
-            "To argue that illustrators ignored their own audience completely",
-            "To suggest illustration has no real connection to any narrative",
-            "To explain in detail how printing presses were first built"
+            "To argue that illustrators ignored their own audience completely when they made pictures",
+            "To suggest illustration has no real connection to any narrative or story at all",
+            "To explain in detail how printing presses were first built in old workshops"
           ],
           "answer": "A",
           "skill": "author-purpose",

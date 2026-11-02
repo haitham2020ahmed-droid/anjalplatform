@@ -199,10 +199,10 @@
         {
           "stem": "Why did the brothers finally stop arguing about the bridge?",
           "options": [
-            "Their father simply built it instead",
+            "Their father simply built it instead of the boys",
             "Arguing was wasting time while the flood continued",
-            "It finally stopped raining that same day",
-            "Lama and Zaid quickly learned how to swim"
+            "It finally stopped raining that same day at noon",
+            "Lama and Zaid quickly learned how to swim in the river"
           ],
           "answer": "B",
           "skill": "inference",
@@ -294,9 +294,9 @@
           "stem": "Which sentence best states the central idea of the story?",
           "options": [
             "Two stubborn brothers cooperate to build a needed bridge",
-            "A simple story about raising chickens on a farm",
-            "A path that quietly disappears forever one night",
-            "Two brothers who never speak to each other again"
+            "A simple story about raising chickens on a farm in spring",
+            "A path that quietly disappears forever one night in the dark",
+            "Two brothers who never speak to each other again after the flood"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -310,10 +310,10 @@
         {
           "stem": "Why couldn't Lama and Zaid use the path to school after the heavy rain?",
           "options": [
-            "The dirt path was blocked by fallen trees",
+            "The dirt path was blocked by fallen trees on the hill",
             "The flooded stream covered the stepping stones they needed",
-            "Their school was closed for the whole week",
-            "Their father told them not to go that day"
+            "Their school was closed for the whole week because of the storm",
+            "Their father told them not to go to school that day"
           ],
           "answer": "B",
           "skill": "detail",
@@ -361,10 +361,10 @@
         {
           "stem": "Why did the brothers eventually stop arguing about which plan to use?",
           "options": [
-            "Their father simply chose a plan for them",
+            "Their father simply chose a plan for them in the end",
             "They saw their arguing was wasting precious time",
-            "The two brothers simply ran out of wood",
-            "Lama and Zaid quietly built it themselves"
+            "The two brothers simply ran out of wood to build it",
+            "Lama and Zaid quietly built it themselves at night"
           ],
           "answer": "B",
           "skill": "inference",
@@ -412,10 +412,10 @@
         {
           "stem": "How does the author organize events in this story?",
           "options": [
-            "By comparing two completely different villages",
+            "By comparing two completely different villages near the river",
             "In time order: arguing, the flood, the request, the work",
-            "By simply listing different types of wood",
-            "By describing the farm from present back to past"
+            "By simply listing different types of wood used for the bridge",
+            "By describing the farm from present back to past events"
           ],
           "answer": "B",
           "skill": "text-structure",

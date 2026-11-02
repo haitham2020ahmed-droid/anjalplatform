@@ -173,9 +173,9 @@
       "type": "MCQ",
       "stem": "What is the main message of the story?",
       "options": [
-        "Children should never ask their parents questions in the car.",
-        "Living near school is always boring.",
-        "Only adults can solve problems in a city.",
+        "Children should never ask their parents questions in the car on long trips.",
+        "Living near school is always boring because nothing happens in the street.",
+        "Only adults can solve problems in a city, because children are too young to plan.",
         "A young person's idea, planned carefully, can solve a real community problem."
       ],
       "answer": "D",
@@ -190,9 +190,9 @@
       "stem": "What is the main idea of paragraph 7?",
       "options": [
         "Ziyad answers a neighbour's safety worry by planning a careful route.",
-        "Abu Faisal refuses to let the children walk to school.",
-        "The busiest junction in Riyadh is beside the mosque.",
-        "Abu Faisal walks to the mosque every Sunday and Tuesday."
+        "Abu Faisal refuses to let the children walk to school with the others.",
+        "The busiest junction in Riyadh is beside the mosque on the main road.",
+        "Abu Faisal walks to the mosque every Sunday and Tuesday after dawn."
       ],
       "answer": "A",
       "why": "Abu Faisal worried about the wide road, so Ziyad drew a map that avoided the busy junction, and Abu Faisal agreed to help."
@@ -205,10 +205,10 @@
       "type": "MCQ",
       "stem": "Why did it take fifteen minutes to drive one kilometre to school?",
       "options": [
-        "The car had a problem with its engine.",
-        "The road was closed for repairs.",
+        "The car had a problem with its engine on the road.",
+        "The road was closed for repairs for the whole week.",
         "Every family drove to school at the same time.",
-        "Baba stopped to buy a magazine."
+        "Baba stopped to buy a magazine on the way."
       ],
       "answer": "C",
       "why": "Baba explains, “Because every family has exactly the same idea as we do.”"
@@ -317,9 +317,9 @@
       "type": "MCQ",
       "stem": "In your opinion, what makes the reader want to keep reading after paragraph 7?",
       "options": [
-        "a description of the science magazine's cover",
-        "an explanation of how cars produce exhaust",
-        "a list of the streets in the neighbourhood",
+        "a description of the science magazine's cover and its pictures",
+        "an explanation of how cars produce exhaust and smoke",
+        "a list of the streets in the neighbourhood and their names",
         "wondering whether the walking bus will succeed on its first morning"
       ],
       "answer": "D",
@@ -349,10 +349,10 @@
       "type": "MCQ",
       "stem": "How is Hamad's attitude at the end of the story different from his attitude in paragraph 5?",
       "options": [
-        "He was eager at first but later refused to walk.",
+        "He was eager at first but later refused to walk any more, and went home.",
         "He doubted the plan at first but became its most enthusiastic passenger.",
-        "He liked walking at first but later preferred the car.",
-        "He was angry at first and stayed angry."
+        "He liked walking at first but later preferred to ride in the car with Baba.",
+        "He was angry at first and stayed angry to the end of the story, too."
       ],
       "answer": "B",
       "why": "He first said they would “melt like ice cream” but ended as “the most enthusiastic passenger of all.”"
@@ -398,9 +398,9 @@
       "stem": "What does the writer mean by “a frustrating knot of honking cars”?",
       "options": [
         "a tangled traffic jam in which cars could hardly move",
-        "a rope used to tow broken cars",
-        "a group of cars parked neatly in a row",
-        "a car race outside the school"
+        "a rope used to tow broken cars along the road",
+        "a group of cars parked neatly in a row near school",
+        "a car race outside the school at noon, with many fans"
       ],
       "answer": "A",
       "why": "Like a knot that is hard to undo, the cars were tangled together and could not move freely."
@@ -413,9 +413,9 @@
       "type": "MCQ",
       "stem": "Why does Hamad say, “We will melt like ice cream!”?",
       "options": [
-        "He really believes that people can melt.",
-        "He wants to buy ice cream on the way to school.",
-        "He is praising the cool morning weather.",
+        "He really believes that people can melt in the sun like ice.",
+        "He wants to buy ice cream on the way to school with his friends.",
+        "He is praising the cool morning weather as they walk to school.",
         "He is exaggerating to show he thinks the walk will be too hot."
       ],
       "answer": "D",
@@ -445,10 +445,10 @@
       "type": "MCQ",
       "stem": "In your opinion, which part of the plan was MOST important for keeping the children safe?",
       "options": [
-        "walking in the early morning",
-        "collecting passengers outside their houses",
+        "walking in the early morning, before the sun was hot and the roads were full",
+        "collecting passengers outside their houses at the start of the walk",
         "adults at the front and back, and a route using the pedestrian crossing",
-        "reading the article twice"
+        "reading the article twice before the day of the walk, at home and at school"
       ],
       "answer": "C",
       "why": "Adult supervision and a route that avoids the busiest junction protect the children from traffic."
@@ -461,10 +461,10 @@
       "type": "MCQ",
       "stem": "Which message is the writer most likely sharing through the story?",
       "options": [
-        "Cars should be banned from every city.",
+        "Cars should be banned from every city in the world.",
         "Small actions by a community can make a city healthier.",
-        "Children should always walk to school alone.",
-        "Science magazines are only for adults."
+        "Children should always walk to school alone each day.",
+        "Science magazines are only for adults and not for children."
       ],
       "answer": "B",
       "why": "A group of neighbours reduced traffic and pollution while getting exercise, and the principal called it what “our city needs.”"
@@ -509,10 +509,10 @@
       "type": "MCQ",
       "stem": "Which of the following events could really happen?",
       "options": [
-        "A real bus drives itself to school with no driver and no road.",
-        "Hamad melts like ice cream on the walk to school.",
+        "A real bus drives itself to school with no driver and no road to follow, in the dark.",
+        "Hamad melts like ice cream on the walk to school in the summer sun, in front of everyone.",
         "A group of neighbourhood children walks to school together each morning with two adults.",
-        "The traffic jam disappears forever after one walk."
+        "The traffic jam disappears forever after one walk by the children to school on a Monday."
       ],
       "answer": "C",
       "why": "Walking buses like this are realistic; the other events are impossible or exaggerated."
@@ -525,9 +525,9 @@
       "type": "MCQ",
       "stem": "Which title best describes the events of the story?",
       "options": [
-        "The Broken Car",
-        "Hamad's Ice Cream",
-        "Lost on the Way to School",
+        "The Broken Car on the Road to the Mosque",
+        "Hamad's Ice Cream and the Hot Walk",
+        "Lost on the Way to School in the City",
         "How the Walking Bus Beat the Traffic"
       ],
       "answer": "D",

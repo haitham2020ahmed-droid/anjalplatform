@@ -67,9 +67,9 @@
     "stem": "What does the middle part show?",
     "options": [
      "what the sun and moon share",
-     "what only the sun has",
+     "what only the sun has inside",
      "what only the moon has",
-     "the day and the night"
+     "the day and the night sky"
     ],
     "answer": 0,
     "hint": "The middle is where the two circles overlap. What does that mean?",
@@ -94,8 +94,8 @@
      "passage": "Venn diagram: lions and house cats. Lions only: live in groups, very big. Cats only: live with people, small. Both: have whiskers, eat meat.",
      "stem": "Where is \"have whiskers\" written?",
      "options": [
-      "Lions only",
-      "Cats only",
+      "Lions only, on the left side",
+      "Cats only, on the right side",
       "outside the circles",
       "in the middle, for both"
      ],
@@ -294,10 +294,10 @@
     "passage": "Faisal is making a flow chart about the life cycle of a butterfly. Box 1: An adult butterfly lays eggs on a leaf. Box 2: A tiny caterpillar hatches from each egg. Box 3 is still empty. Box 4: An adult butterfly comes out and dries its wings. His science book says that the caterpillar eats and grows for a few weeks. Then it forms a hard case called a chrysalis, and inside it, its body changes.",
     "stem": "What should go in Box 3?",
     "options": [
-     "The butterfly lays eggs.",
+     "The butterfly lays eggs on a flower.",
      "The caterpillar forms a chrysalis.",
      "The egg falls off the leaf.",
-     "The butterfly flies away."
+     "The butterfly flies away to a flower."
     ],
     "answer": 1,
     "hint": "What happens after the caterpillar hatches but before the adult comes out? Check the science book.",
@@ -325,10 +325,10 @@
      "passage": "Idea web. Centre: Ways to save water at home. Outer circles: Turn off the tap while brushing. Fix leaks. Take shorter showers.",
      "stem": "Which idea belongs in another outer circle?",
      "options": [
-      "Leave the hose running.",
-      "Buy more bottles of juice.",
+      "Leave the hose running all day.",
+      "Buy more bottles of juice for the week.",
       "Water plants early in the morning.",
-      "Wash the car every day."
+      "Wash the car every day with a hose."
      ],
      "answer": 2,
      "why": "Watering early, when it is cool, means less water dries up. It supports the centre idea: **saving water**."
@@ -338,7 +338,7 @@
      "stem": "Which best fits Effect 2?",
      "options": [
       "Food in some fridges started to spoil.",
-      "The storm began to form.",
+      "The storm began to form over the sea.",
       "The sun came out the next day.",
       "Power lines are made of metal."
      ],
@@ -349,7 +349,7 @@
      "passage": "Problem-solution chart. Problem: The school library is too noisy. Solution 1: Make a quiet corner with soft chairs. Solution 2: ____",
      "stem": "Which best fits Solution 2?",
      "options": [
-      "Open all the windows wide.",
+      "Open all the windows wide today.",
       "Play music in the library.",
       "Allow phone calls inside.",
       "Put up signs asking for quiet."

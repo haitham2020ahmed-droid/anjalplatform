@@ -178,7 +178,7 @@
         },
         {
           "stem": "What event does National Day mark the anniversary of?",
-          "options": ["The building of Riyadh's very first landmark", "King Abdulaziz uniting separate regions into one country in 1932", "The writing of the national anthem decades ago", "The very first big fireworks show held in Jeddah"],
+          "options": ["The building of Riyadh's very first landmark in the old city", "King Abdulaziz uniting separate regions into one country in 1932", "The writing of the national anthem decades ago by a famous poet", "The very first big fireworks show held in Jeddah by the sea"],
           "answer": "B",
           "skill": "detail",
           "why": "The article states that National Day marks the anniversary of King Abdulaziz uniting the country in 1932.",
@@ -210,7 +210,7 @@
         },
         {
           "stem": "The article says people feel \"patriotic pride.\" What does patriotic mean here?",
-          "options": ["Confused about one's own country", "Showing love and pride for one's country", "Afraid of loud noises at night", "Uninterested in any celebrations"],
+          "options": ["Confused about one's own country and its rules", "Showing love and pride for one's country", "Afraid of loud noises at night in the city", "Uninterested in any celebrations or songs at all"],
           "answer": "B",
           "skill": "vocabulary",
           "why": "Patriotic describes a strong feeling of love and pride for one's own country.",
@@ -218,7 +218,7 @@
         },
         {
           "stem": "How does the author mostly organize the article?",
-          "options": ["By comparing National Day with holidays in other countries", "By arguing at length that all fireworks should be banned entirely", "By describing the celebration's traditions in the order they happen through the day", "By listing the total populations of many different Saudi cities"],
+          "options": ["By comparing National Day with holidays in other countries around the world and their dates", "By arguing at length that all fireworks should be banned entirely in every city", "By describing the celebration's traditions in the order they happen through the day", "By listing the total populations of many different Saudi cities and their regions"],
           "answer": "C",
           "skill": "text-structure",
           "why": "The article moves from decorating, to the parade, to fireworks at night, to family gatherings, following the order of a National Day.",
@@ -226,7 +226,7 @@
         },
         {
           "stem": "How is daytime on National Day different from nighttime, based on the article?",
-          "options": ["Daytime has no celebrations at all; nighttime has everything instead", "Daytime features decorating and the parade; nighttime features fireworks and lit-up landmarks", "Daytime is only for the fireworks; nighttime is only for the decorating", "There is really no noticeable difference at all between daytime and nighttime"],
+          "options": ["Daytime has no celebrations at all; nighttime has everything in the city instead", "Daytime features decorating and the parade; nighttime features fireworks and lit-up landmarks", "Daytime is only for the fireworks; nighttime is only for the decorating and the parade", "There is really no noticeable difference at all between daytime and nighttime on that day"],
           "answer": "B",
           "skill": "compare",
           "why": "The article describes decorating and the parade happening through the day, while fireworks and illuminated landmarks happen as night falls.",
@@ -260,7 +260,7 @@
         },
         {
           "stem": "According to the article, what does the green national flag symbolize?",
-          "options": ["The country's wealth earned from many years of busy trade", "The country's Islamic faith and its history, through its script and sword", "The founding of the city of Riyadh many centuries ago", "The colors chosen by King Abdulaziz for his own family"],
+          "options": ["The country's wealth earned from many years of busy trade across the seas", "The country's Islamic faith and its history, through its script and sword", "The founding of the city of Riyadh many centuries ago by the first king", "The colors chosen by King Abdulaziz for his own family and his tribe"],
           "answer": "B",
           "skill": "detail",
           "why": "The article states that the flag symbolizes the country's Islamic faith through its script, with a sword representing strength and justice.",
@@ -268,7 +268,7 @@
         },
         {
           "stem": "What distinguishes National Day from Founding Day, as explained in the article?",
-          "options": ["National Day happens every ten years, while Founding Day happens annually", "National Day marks 1932, while Founding Day marks the 1727 founding of the first Saudi state", "National Day has no official date, while Founding Day falls on 23 September", "There is really no meaningful difference at all between the two days"],
+          "options": ["National Day happens every ten years, while Founding Day happens annually in the spring", "National Day marks 1932, while Founding Day marks the 1727 founding of the first Saudi state", "National Day has no official date, while Founding Day falls on 23 September every year", "There is really no meaningful difference at all between the two days, and both mark one event"],
           "answer": "B",
           "skill": "detail",
           "why": "The article explains that National Day marks the 1932 unification, while Founding Day, on 22 February, commemorates the earlier 1727 founding of the first Saudi state.",

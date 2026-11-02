@@ -114,10 +114,10 @@
         {
           "stem": "What is this story mostly about?",
           "options": [
-            "A robot that learns to cook food",
-            "A robot that teaches a class at school",
+            "A robot that learns to cook food in a busy kitchen at night",
+            "A robot that teaches a class at school for a whole week",
             "A robot that practices a maze overnight and gets much faster",
-            "A robot that builds other robots"
+            "A robot that builds other robots in a factory by the sea"
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -148,9 +148,9 @@
         {
           "stem": "Why did Lina say it looked like Robo was dreaming?",
           "options": [
-            "Robo was actually asleep",
-            "Robo was talking in its sleep",
-            "Robo closed its eyes",
+            "Robo was actually asleep with its lights switched off",
+            "Robo was talking in its sleep while it rolled on the floor",
+            "Robo closed its eyes and snored very loudly in the dark",
             "Robo's lights blinked while its program ran quietly at night"
           ],
           "answer": "D",
@@ -182,10 +182,10 @@
         {
           "stem": "What can you tell from the fact that Lina called the overnight practice \"machine learning\"?",
           "options": [
-            "Robo was truly dreaming like a person",
+            "Robo was truly dreaming like a person who sleeps in a bed",
             "There is a real name for how programs get better through practice",
-            "Machine learning only happens in mazes",
-            "Robo stopped working after that night"
+            "Machine learning only happens in mazes and inside a robot's head",
+            "Robo stopped working after that night and could not be repaired"
           ],
           "answer": "B",
           "skill": "inference",
@@ -345,9 +345,9 @@
           "stem": "Why did the program's overnight repetition help Robo find the best pattern of turns?",
           "options": [
             "Because repeating the maze let it collect data about which paths worked",
-            "Because Lina told it the correct answer directly",
-            "Because the maze changed shape overnight",
-            "Because repeating the maze charged its battery"
+            "Because Lina told it the correct answer directly after the first try",
+            "Because the maze changed its shape overnight while the robot slept",
+            "Because repeating the maze again and again charged its battery fully"
           ],
           "answer": "A",
           "skill": "inference",
@@ -361,10 +361,10 @@
         {
           "stem": "In the story, the word pattern means —",
           "options": [
-            "a kind of sensor used in robots",
+            "a kind of sensor used in robots to see the walls",
             "a way something repeats that can be noticed and predicted",
-            "a sudden mistake made by a program",
-            "a type of maze wall"
+            "a sudden mistake made by a program during the night and in the lab",
+            "a type of maze wall that the robot cannot cross"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -378,10 +378,10 @@
         {
           "stem": "How is Robo's overnight repetition different from how it moved during the day?",
           "options": [
-            "Overnight, it physically drove through the maze; during the day, it only imagined moving",
+            "Overnight, it physically drove through the maze; during the day, it only imagined moving in its memory, and did not drive at all",
             "Overnight, the program repeated the maze inside its memory without moving; during the day, Robo actually drove through the real maze",
-            "Overnight and during the day, Robo did exactly the same thing",
-            "Overnight, Robo rested completely; during the day, it practiced"
+            "Overnight and during the day, Robo did exactly the same thing, with the same movements in the maze",
+            "Overnight, Robo rested completely; during the day, it practiced in the real maze and in its memory"
           ],
           "answer": "B",
           "skill": "compare",
@@ -395,9 +395,9 @@
         {
           "stem": "Why do sensors and data matter to how a programmer builds a robot like Robo?",
           "options": [
-            "Sensors replace the need for any programming at all",
-            "Data makes the robot heavier so it moves more slowly",
-            "Programmers only need data after the robot is finished",
+            "Sensors replace the need for any programming at all, so a robot can run alone from the start",
+            "Data makes the robot heavier so it moves more slowly, which is why programmers avoid it",
+            "Programmers only need data after the robot is finished, and not while they are building it",
             "Sensors collect data that tells the program what is happening, which it uses to improve"
           ],
           "answer": "D",
@@ -413,9 +413,9 @@
           "stem": "Why did the programmer explain machine learning to her teammates?",
           "options": [
             "To help them understand the real reason Robo improved so much",
-            "To convince them that Robo truly has feelings",
-            "To discourage them from ever programming a robot",
-            "To hide the fact that a program was involved"
+            "To convince them that Robo truly has feelings like a person",
+            "To discourage them from ever programming a robot in their lives",
+            "To hide the fact that a program was involved from the visitors"
           ],
           "answer": "A",
           "skill": "author-purpose",
@@ -523,10 +523,10 @@
         {
           "stem": "In the story, the word optimize means —",
           "options": [
-            "to switch a machine off completely",
+            "to switch a machine off completely and leave it alone for a long time",
             "to make something work as well or efficiently as possible through gradual change",
-            "to collide with a wall by accident",
-            "to copy a program onto another robot"
+            "to collide with a wall by accident when the machine moves in the dark",
+            "to copy a program onto another robot as quickly and cleanly as possible every day"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -540,10 +540,10 @@
         {
           "stem": "How does Robo's overnight simulation compare with a person practicing a physical skill?",
           "options": [
-            "Only Robo's method involves any kind of repetition at all",
-            "Robo's simulation and human practice are identical in every scientific sense",
+            "Only Robo's method involves any kind of repetition at all, and people never repeat an action many times to learn a skill, like a game",
+            "Robo's simulation and human practice are identical in every scientific sense, including the way they work inside the body and the machine",
             "Both involve repeating an action many times to gradually improve performance, though the underlying mechanism differs greatly",
-            "A person's practice happens entirely inside silicon chips, just like Robo's"
+            "A person's practice happens entirely inside silicon chips, just like Robo's, and there is no use for muscles, hands, or the brain in practice"
           ],
           "answer": "C",
           "skill": "compare",
@@ -557,10 +557,10 @@
         {
           "stem": "In what order did these events occur in the story?",
           "options": [
-            "Robo solves the real maze quickly, the diagnostic routine runs, Robo bumps into walls",
+            "Robo solves the real maze quickly, the diagnostic routine runs overnight, and Robo bumps into walls on the first try",
             "Robo bumps into walls on the first try, the overnight diagnostic routine runs, Robo solves the real maze quickly",
-            "The overnight diagnostic routine runs, Robo bumps into walls, Robo solves the real maze quickly",
-            "Robo solves the real maze quickly, Robo bumps into walls, the overnight routine runs"
+            "The overnight diagnostic routine runs, Robo bumps into walls, and Robo solves the real maze quickly the next day",
+            "Robo solves the real maze quickly, Robo bumps into walls, and the overnight routine runs on the first day"
           ],
           "answer": "B",
           "skill": "sequence",
@@ -574,9 +574,9 @@
         {
           "stem": "Why does the author include Lina's explanation that no genuine understanding or awareness is involved in the algorithm?",
           "options": [
-            "To suggest that machine learning is a kind of trick played on the audience",
-            "To argue that algorithms are completely useless for robots",
-            "To prove that Robo secretly understands human language",
+            "To suggest that machine learning is a kind of trick played on the audience at the fair",
+            "To argue that algorithms are completely useless for robots that work in a busy factory or hospital",
+            "To prove that Robo secretly understands human language and can talk to the engineers",
             "To clarify that Robo's overnight improvement is a scientific process, not real consciousness"
           ],
           "answer": "D",
@@ -592,9 +592,9 @@
           "stem": "What can readers infer about machine learning from how Robo's algorithm improved overnight?",
           "options": [
             "Machine learning can improve performance through repeated simulation and data, without requiring real understanding",
-            "Machine learning requires a robot to be physically awake and moving",
-            "Machine learning only works if a human manually types in the correct answer",
-            "Machine learning cannot work unless a robot has a camera"
+            "Machine learning requires a robot to be physically awake and moving around the room all through the whole night",
+            "Machine learning only works if a human manually types in the correct answer for every single step",
+            "Machine learning cannot work unless a robot has a camera and a screen so that it can see its own work"
           ],
           "answer": "A",
           "skill": "inference",

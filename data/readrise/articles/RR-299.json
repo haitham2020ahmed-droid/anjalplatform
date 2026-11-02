@@ -310,9 +310,9 @@
         {
           "stem": "According to the article, what is an artifact?",
           "options": [
-            "A worker who studies old bones",
-            "A building that keeps objects safe",
-            "A sign that explains an exhibit",
+            "A worker who studies old bones in the field",
+            "A building that keeps objects safe for the city",
+            "A sign that explains an exhibit to the visitors",
             "An object made or used by people in the past"
           ],
           "answer": "D",
@@ -327,10 +327,10 @@
         {
           "stem": "What is the National Museum in Riyadh part of?",
           "options": [
-            "A private art collector's home",
+            "A private art collector's home in the city",
             "The King Abdulaziz Historical Center",
-            "A university research lab",
-            "An ancient trade route"
+            "A university research lab for old books",
+            "An ancient trade route across the desert"
           ],
           "answer": "B",
           "skill": "detail",
@@ -412,10 +412,10 @@
         {
           "stem": "Why does the author describe the National Museum in Riyadh at the end of the article?",
           "options": [
-            "To argue that Saudi Arabia needs more museums",
+            "To argue that Saudi Arabia needs more museums in every city and town",
             "To give a real example of the ideas explained earlier in the article",
-            "To compare it with a museum in another country",
-            "To explain how to become a curator"
+            "To compare it with a museum in another country of the world",
+            "To explain how to become a curator and work in a museum"
           ],
           "answer": "B",
           "skill": "author-purpose",
@@ -473,9 +473,9 @@
           "stem": "Which statement best captures the central idea of the article?",
           "options": [
             "Museums connect people to their heritage by collecting, conserving, researching, and interpreting artifacts.",
-            "Conservation is less important than acquisition for most museums today.",
-            "Only ancient civilizations ever built museums anywhere in the world.",
-            "Curators rarely interpret artifacts for visitors who come to the museum."
+            "Conservation is less important than acquisition for most museums today, and museums mainly buy things.",
+            "Only ancient civilizations ever built museums anywhere in the world, and no new ones were built.",
+            "Curators rarely interpret artifacts for visitors who come to the museum, and visitors read alone."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -557,10 +557,10 @@
         {
           "stem": "Why might researchers compare an artifact's provenance with records from other sites around the world?",
           "options": [
-            "To determine the artifact's exact price at auction",
-            "To decide which color to paint the gallery walls",
+            "To determine the artifact's exact price at auction and sell it to the best buyer",
+            "To decide which color to paint the gallery walls in the new museum hall",
             "To build a more complete picture of who made the object and how it was used",
-            "To decide whether the artifact should be destroyed"
+            "To decide whether the artifact should be destroyed or locked away forever"
           ],
           "answer": "C",
           "skill": "inference",
@@ -593,8 +593,8 @@
           "options": [
             "A curator decides what to display and interpret, while a conservator protects artifacts from damage",
             "A curator protects artifacts from damage, while a conservator decides what to display",
-            "Both roles involve only acquiring new artifacts",
-            "Neither role involves working directly with artifacts"
+            "Both roles involve only acquiring new artifacts for the museum's collection and its visitors",
+            "Neither role involves working directly with artifacts, since both work only in offices with computers"
           ],
           "answer": "A",
           "skill": "compare",

@@ -115,9 +115,9 @@
           "stem": "What is this article mostly about?",
           "options": [
             "How bats use sound to find food in the dark",
-            "Why bats are afraid of the sun",
-            "How to keep bats out of a house",
-            "Why bats cannot see at all"
+            "Why bats are afraid of the sun and of light",
+            "How to keep bats out of a house or a barn",
+            "Why bats cannot see at all in the dark"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -131,7 +131,7 @@
         {
           "stem": "Why is a bat called a mammal?",
           "options": [
-            "It can fly very fast at night.",
+            "It can fly very fast at night in the dark sky",
             "It eats many kinds of insects.",
             "It has fur and its babies drink milk.",
             "It sleeps in dark caves all day."
@@ -234,9 +234,9 @@
           "stem": "Why does the author end with bats in Saudi Arabia?",
           "options": [
             "To show readers that bats live near them too",
-            "To explain how to visit a cave",
-            "To list all the caves in the Kingdom",
-            "To prove bats only live in deserts"
+            "To explain how to visit a cave in the mountains",
+            "To list all the caves in the Kingdom by size",
+            "To prove bats only live in deserts and in caves"
           ],
           "answer": "A",
           "skill": "author-purpose",
@@ -293,10 +293,10 @@
         {
           "stem": "What is the central idea of the article?",
           "options": [
-            "Bats are blind and depend completely on luck to find food.",
+            "Bats are blind and depend completely on luck to find food at night.",
             "Many bats use echoes to hunt in the dark, and bats help people in several ways.",
-            "Sonar was invented before anyone studied bats.",
-            "Bats are the most dangerous animals of the night."
+            "Sonar was invented long before anyone ever studied how bats fly.",
+            "Bats are the most dangerous animals of the night, and people should fear them."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -327,9 +327,9 @@
         {
           "stem": "How does sonar work, according to the article?",
           "options": [
-            "It uses light to take pictures under the sea.",
-            "It measures how warm or cold the water is.",
-            "It listens for whales singing under the sea.",
+            "It uses light to take pictures under the sea floor.",
+            "It measures how warm or cold the water is in the sea.",
+            "It listens for whales singing under the sea at night.",
             "It sends sound through water and listens for echoes."
           ],
           "answer": "D",
@@ -345,7 +345,7 @@
           "stem": "Most bat calls are too high in pitch for human ears. What does pitch mean here?",
           "options": [
             "How high or low a sound is",
-            "How long a sound lasts",
+            "How long a sound will last",
             "How far a bat can fly",
             "How dark the night is"
           ],
@@ -412,9 +412,9 @@
         {
           "stem": "How does the author organize the part about echolocation?",
           "options": [
-            "By comparing bats to birds",
-            "By listing bats from smallest to largest",
-            "By telling a story about one bat's life",
+            "By comparing bats to birds in the way they fly",
+            "By listing bats from smallest to largest in size",
+            "By telling a story about one bat's life in a cave",
             "By explaining the steps from the call to the catch"
           ],
           "answer": "D",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
-            "Bats are rare animals that have little effect on people.",
+            "Bats are rare animals that have little effect on people or on nature at all, and they never help anyone.",
             "Echolocation lets many bats navigate and hunt in darkness, and bats benefit people and nature.",
-            "Moths always escape from bats because they hear them coming.",
-            "Bats are blind, so they must use sound."
+            "Moths always escape from bats because they hear them coming from far away, so bats rarely catch food.",
+            "Bats are blind, so they must use sound to find their way in every place."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -540,10 +540,10 @@
         {
           "stem": "Why do some moths dive toward the ground when bats approach?",
           "options": [
-            "They are attracted to the bats' calls.",
+            "They are attracted to the bats' calls and fly toward them.",
             "They detect the bats and are trying to escape a predator.",
-            "They are searching for flowers to pollinate.",
-            "They are following the echoes back to the cave."
+            "They are searching for flowers to pollinate on the ground.",
+            "They are following the echoes back to the cave at night."
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -557,10 +557,10 @@
         {
           "stem": "What can the reader infer from the fact that some moths produce clicks of their own?",
           "options": [
-            "Moths and bats are close relatives.",
-            "Moths use echolocation to find flowers.",
+            "Moths and bats are close relatives, and both of them make clicks.",
+            "Moths use echolocation to find flowers in the dark.",
             "Prey animals can develop defenses against a predator's methods.",
-            "Bats are afraid of all insects."
+            "Bats are afraid of all insects, so they never hunt moths."
           ],
           "answer": "C",
           "skill": "inference",

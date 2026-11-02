@@ -114,7 +114,7 @@
         {
           "stem": "What is this story mostly about?",
           "options": [
-            "A fisherman catches a whale to sell its meat at the market",
+            "A fisherman catches a whale to sell its meat at the market in the town square",
             "Fishermen and children help guide a lost young whale back to the deep sea",
             "Children learn to swim and play safely alongside whales",
             "Scientists study why whales grow to be so large and heavy"
@@ -182,10 +182,10 @@
         {
           "stem": "Why didn't the team touch the whale or make loud noise?",
           "options": [
-            "Touching whales is against the law",
+            "Touching whales is against the law in every country",
             "Loud noise or touching could scare the whale further",
-            "The whale might bite them",
-            "The water was too shallow to get close"
+            "The whale might bite them if they got too close",
+            "The water was too shallow to get close to the whale"
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -216,10 +216,10 @@
         {
           "stem": "What happened right after the fishermen saw the whale?",
           "options": [
-            "The whale found its pod",
-            "The children went swimming",
+            "The whale found its pod and swam away from the beach",
+            "The children went swimming near the boat in the bay",
             "The fishermen called for help from biologists",
-            "The whale swam into deep water"
+            "The whale swam into deep water by itself at night"
           ],
           "answer": "C",
           "skill": "sequence",
@@ -233,10 +233,10 @@
         {
           "stem": "Why does the author tell us the children watched quietly and stayed calm?",
           "options": [
-            "To show that watching whales is boring",
+            "To show that watching whales is boring for the children all day",
             "To show that staying calm and patient helps a frightened animal",
-            "To explain how to build a boat",
-            "To show the children were tired"
+            "To explain how to build a boat out of wood and rope",
+            "To show that the children were tired and sleepy at night"
           ],
           "answer": "B",
           "skill": "author-purpose",
@@ -344,10 +344,10 @@
         {
           "stem": "In the article, the word confused means —",
           "options": [
-            "excited and happy",
+            "excited and happy about the road ahead of them today",
             "unable to think clearly about which way to go",
-            "very hungry",
-            "fast and strong"
+            "very hungry and thirsty after the trip",
+            "fast and strong enough to run far away from the camp"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -361,10 +361,10 @@
         {
           "stem": "What might happen if the team used sudden, loud noise near the whale?",
           "options": [
-            "The whale would immediately find its pod",
+            "The whale would immediately find its pod and swim home",
             "The whale might panic and swim farther into danger",
-            "The whale would fall asleep",
-            "The tide would rise faster"
+            "The whale would fall asleep and drift to the beach",
+            "The tide would rise faster and push it out to sea"
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -379,9 +379,9 @@
           "stem": "Why were the schoolchildren allowed to be so close to this rescue?",
           "options": [
             "They happened to already be on the biologists' research boat for a field trip",
-            "They were trained lifeguards",
-            "They asked the fishermen for a ride",
-            "They were the whale's owners"
+            "They were trained lifeguards who worked at the beach near the harbor every day",
+            "They asked the fishermen for a ride out to the whale after school",
+            "They were the whale's owners and had cared for it since it was small"
           ],
           "answer": "A",
           "skill": "inference",
@@ -412,10 +412,10 @@
         {
           "stem": "How are the fishermen's and the biologists' roles different in this rescue?",
           "options": [
-            "The fishermen cared for the whale's health, while the biologists caught fish",
+            "The fishermen cared for the whale's health, while the biologists caught fish for it to eat after the rescue is done",
             "The fishermen first noticed and reported the whale, while the biologists understood whale behavior and guided it to safety",
-            "The fishermen and biologists did exactly the same job",
-            "The biologists caught the whale in a net while the fishermen watched"
+            "The fishermen and biologists did exactly the same job all day long, with no difference between them at all",
+            "The biologists caught the whale in a net while the fishermen watched from the beach and took some photos"
           ],
           "answer": "B",
           "skill": "compare",
@@ -506,10 +506,10 @@
         {
           "stem": "What specific technique does Dr. Huda's team use to guide the whale, and why?",
           "options": [
-            "They play recorded dolphin sounds because the whales are afraid of dolphins",
+            "They play recorded dolphin sounds because the whales are afraid of dolphins and swim away fast",
             "They create a slow, steady acoustic signal because whales find it calming rather than threatening",
-            "They flash bright lights across the water to try to lead the whale forward",
-            "They release food into the water to try to lure the whale forward instead"
+            "They flash bright lights across the water to try to lead the whale forward in the dark",
+            "They release food into the water to try to lure the whale forward, since it is hungry"
           ],
           "answer": "B",
           "skill": "detail",
@@ -524,9 +524,9 @@
           "stem": "In the article, the word navigate most nearly means —",
           "options": [
             "to find and follow a path or direction",
-            "to make a loud noise",
-            "to search for food",
-            "to swim backward"
+            "to make a very loud noise at night",
+            "to search for food in the hot forest",
+            "to swim backward across the lake"
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -541,9 +541,9 @@
           "stem": "Why does the article mention that humpback whales migrate long distances each year?",
           "options": [
             "To explain why the whale was likely traveling along a migration route when it became separated from its pod",
-            "To prove that humpback whales never stay near the Red Sea",
-            "To show that whales migrate only once in their lives",
-            "To explain why fishermen cannot find whales"
+            "To prove that humpback whales never stay near the Red Sea, and only live in cold places far away from it",
+            "To show that whales migrate only once in their lives, so the whale was probably on its first and last trip",
+            "To explain why fishermen cannot find whales in the sea, since the animals swim much too fast for boats"
           ],
           "answer": "A",
           "skill": "inference",
@@ -575,9 +575,9 @@
           "stem": "How does the biologists' approach to this rescue differ from simply chasing the whale toward open water?",
           "options": [
             "It relies on patient, calming sound rather than force or sudden noise that could frighten the whale further",
-            "It involves capturing the whale with nets for transport",
-            "It requires no understanding of whale behavior at all",
-            "It is exactly the same as chasing the whale, only slower"
+            "It involves capturing the whale with strong nets so that it can be carried to the open sea by a big truck",
+            "It requires no understanding of whale behavior at all, only strong boats and a lot of speed",
+            "It is exactly the same as chasing the whale, only slower and with a few more boats"
           ],
           "answer": "A",
           "skill": "compare",
@@ -591,10 +591,10 @@
         {
           "stem": "Why does the author include the detail that the biologists later used the event to train future rescues and keep long-term records?",
           "options": [
-            "To suggest that such rescues are rare, pointless events",
+            "To suggest that such rescues are rare, pointless events that scientists do not remember",
             "To show that careful observation and documentation help improve future wildlife rescues",
-            "To criticize the fishermen for calling for help",
-            "To argue that whales should be kept away from research boats"
+            "To criticize the fishermen for calling for help instead of leaving the whale alone",
+            "To argue that whales should be kept away from research boats and from all people"
           ],
           "answer": "B",
           "skill": "author-purpose",

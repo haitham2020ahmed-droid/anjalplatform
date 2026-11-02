@@ -235,9 +235,9 @@
      "stem": "What is this list called?",
      "options": [
       "the table of contents",
-      "the index",
-      "the back cover",
-      "the title page"
+      "the index at the end",
+      "the back cover page",
+      "the title page up front"
      ],
      "answer": 0,
      "why": "A list of chapters with page numbers at the front of a book is the **table of contents**."
@@ -447,7 +447,7 @@
      "options": [
       "She drew all of the pictures.",
       "She owns a fishing boat today.",
-      "She wrote the book's index.",
+      "She wrote the book's index herself.",
       "She used her own life in the story."
      ],
      "answer": 3,

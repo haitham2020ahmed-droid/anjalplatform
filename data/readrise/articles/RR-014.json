@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "Why cold water is good to drink on a hot day",
-            "How to build a machine that makes bottles",
+            "Why cold water is good to drink on a hot day at the beach",
+            "How to build a machine that makes bottles in a plant",
             "Where a plastic bottle comes from and where it goes",
-            "Why sea turtles like to swim near beaches"
+            "Why sea turtles like to swim near beaches in the summer"
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -132,9 +132,9 @@
           "stem": "What is most plastic made from?",
           "options": [
             "Oil and gas from the ground",
-            "Sand from the desert",
-            "Wood from old trees",
-            "Salt from the sea"
+            "Sand from the desert floor",
+            "Wood from old forest trees",
+            "Salt from the deep sea water"
           ],
           "answer": "A",
           "skill": "detail",
@@ -148,10 +148,10 @@
         {
           "stem": "What happens to a plastic bottle when sunlight shines on it for a long time?",
           "options": [
-            "It turns back into oil.",
+            "It turns back into oil again.",
             "It breaks into small bits that stay.",
-            "It melts into clean water.",
-            "It grows into a new bottle."
+            "It melts into clean water in the heat.",
+            "It grows into a new bottle each year."
           ],
           "answer": "B",
           "skill": "detail",
@@ -182,10 +182,10 @@
         {
           "stem": "Why does plastic last so long?",
           "options": [
-            "People paint it every year.",
+            "People paint it every year to keep it strong.",
             "Tiny living things cannot break it down.",
-            "It is kept inside cold machines.",
-            "Sea water makes it grow stronger."
+            "It is kept inside cold machines all day long.",
+            "Sea water makes it grow stronger each day."
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -294,9 +294,9 @@
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
             "Plastic bottles last a long time, so we should reduce, reuse, and recycle.",
-            "Recycling centers are the only place where bottles are made.",
-            "Fossil fuels are found only under the ocean floor.",
-            "Sea turtles are the animals most harmed by litter."
+            "Recycling centers are the only place where plastic bottles are made.",
+            "Fossil fuels are found only under the ocean floor, far from any city.",
+            "Sea turtles are the animals most harmed by litter left on the beach each year."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -344,10 +344,10 @@
         {
           "stem": "Which step is part of recycling a bottle?",
           "options": [
-            "Pumping oil from underground",
+            "Pumping oil from underground into big tanks",
             "Washing it and chopping it into flakes",
-            "Covering it with layers of soil",
-            "Leaving it in a river to soften"
+            "Covering it with layers of soil and stones",
+            "Leaving it in a river to soften for weeks"
           ],
           "answer": "B",
           "skill": "detail",
@@ -379,9 +379,9 @@
           "stem": "Why does the article say reducing comes first?",
           "options": [
             "A bottle that is never made never becomes waste.",
-            "Reducing is the only way to make money.",
-            "Recycling centers are always closed.",
-            "Reused bottles always become litter."
+            "Reducing is the only way to make money from trash.",
+            "Recycling centers are always closed on the weekend.",
+            "Reused bottles always become litter on the beach."
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -506,10 +506,10 @@
         {
           "stem": "What does the article say becomes of recycled flakes?",
           "options": [
-            "They are buried to protect the soil.",
-            "They are fed to farm animals as food.",
+            "They are buried to protect the soil from the sun.",
+            "They are fed to farm animals as food every day.",
             "They are made into fibers, carpets, and bottles.",
-            "They are burned to make electricity."
+            "They are burned to make electricity for the town."
           ],
           "answer": "C",
           "skill": "detail",
@@ -541,9 +541,9 @@
           "stem": "Why can microorganisms not quickly break down a plastic bottle?",
           "options": [
             "They cannot easily digest its long polymer chains.",
-            "The bottle is too cold for them to reach.",
-            "They only live in the deep ocean.",
-            "Sunlight kills them before they can eat it."
+            "The bottle is too cold for them to reach, even in summer.",
+            "They only live in the deep ocean, far from bottles.",
+            "Sunlight kills them before they can eat it up."
           ],
           "answer": "A",
           "skill": "cause-effect",

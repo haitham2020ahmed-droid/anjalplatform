@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "A coach who stops teaching runners",
+            "A coach who stops teaching runners after the first race",
             "A boy who gets better at running by practicing",
-            "A boy who bakes bread for his team",
-            "A boy who wins every single race"
+            "A boy who bakes bread for his team before each game",
+            "A boy who wins every single race with no practice"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -148,10 +148,10 @@
         {
           "stem": "What two tips does Coach Ali give Zaid?",
           "options": [
-            "Wear new shoes and drink more water",
-            "Run fast at the start and watch other runners",
+            "Wear new shoes on race day and drink more water at lunch",
+            "Run fast at the start and watch other runners the whole time",
             "Do not run too fast at the start, and breathe slow and steady",
-            "Eat more food and sleep longer"
+            "Eat more food at the start and sleep longer before races"
           ],
           "answer": "C",
           "skill": "detail",
@@ -182,10 +182,10 @@
         {
           "stem": "Why does Zaid's running time get better each week?",
           "options": [
-            "He buys new running shoes",
+            "He buys new running shoes every week",
             "He practices and uses his coach's tips",
-            "He eats more candy",
-            "He grows much taller"
+            "He eats more candy before the race",
+            "He grows much taller each month"
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -233,9 +233,9 @@
         {
           "stem": "Why does the author tell us that Zaid does not win the big race?",
           "options": [
-            "To explain that running races is a bad idea",
-            "To make readers feel sad for Zaid",
-            "To show that winning is the only thing that matters",
+            "To explain that running races is a bad idea for children",
+            "To make readers feel sad for Zaid at the end of the story",
+            "To show that winning is the only thing that matters in a race",
             "To show that getting better than before can feel like winning too"
           ],
           "answer": "D",
@@ -294,9 +294,9 @@
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
             "Zaid learns to pace himself and breathe steadily, and improves without winning",
-            "Coach Ali decides to stop coaching the school team this year",
-            "Running races is too hard for most students to ever enjoy",
-            "Zaid wins the biggest school race of the year with ease"
+            "Coach Ali decides to stop coaching the school team this year after a long argument",
+            "Running races is too hard for most students to ever enjoy, and so they stop trying",
+            "Zaid wins the biggest school race of the year with ease, and everyone cheers for him"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -345,9 +345,9 @@
           "stem": "What happens right after Coach Ali gives Zaid the two tips about pacing?",
           "options": [
             "Zaid begins practicing every day using the new tips",
-            "Zaid wins his very next scheduled race",
-            "Zaid quietly quits the school running team",
-            "Zaid stops speaking with his coach entirely"
+            "Zaid wins his very next scheduled race with ease",
+            "Zaid quietly quits the school running team that week",
+            "Zaid stops speaking with his coach entirely for days"
           ],
           "answer": "A",
           "skill": "sequence",
@@ -361,10 +361,10 @@
         {
           "stem": "Why does Zaid's personal running time keep improving each week?",
           "options": [
-            "He switches over to playing a different sport",
-            "He races mostly against much younger students",
+            "He switches over to playing a different sport at school each week",
+            "He races mostly against much younger students than himself",
             "He consistently practices and applies the pacing and breathing tips",
-            "He simply stops attending school for a while"
+            "He simply stops attending school for a while each week"
           ],
           "answer": "C",
           "skill": "cause-effect",
@@ -378,10 +378,10 @@
         {
           "stem": "In the article, the word discouraged means —",
           "options": [
-            "extremely proud of a recent achievement",
+            "extremely proud of a recent achievement at school",
             "feeling like giving up because something is hard",
-            "completely confused about a school lesson",
-            "excited and full of extra energy"
+            "completely confused about a school lesson on maps",
+            "excited and full of extra energy for the game"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -412,9 +412,9 @@
         {
           "stem": "How does the author organize events in this article?",
           "options": [
-            "By comparing the methods of two different coaches",
-            "By describing a school race that never actually happens",
-            "By listing several facts about running shoes",
+            "By comparing the methods of two different coaches, and showing which one is better in the end",
+            "By describing a school race that never actually happens, because the coach cancels it",
+            "By listing several facts about running shoes, such as their weight, color, and price",
             "By showing Zaid's struggle, the coach's tips, weeks of practice, then the race"
           ],
           "answer": "D",
@@ -473,9 +473,9 @@
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
             "Zaid learns that consistent effort toward pacing and breathing brings real improvement, even without winning",
-            "The school track meet gets canceled because of poor weather",
-            "Coach Ali decides that Zaid should quit running for good",
-            "Zaid concludes that winning first place is the only true measure of success"
+            "The school track meet gets canceled because of poor weather, so nobody runs in the race at all this year",
+            "Coach Ali decides that Zaid should quit running for good, because he is too slow to join the team",
+            "Zaid concludes that winning first place is the only true measure of success in sports and in life"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -489,10 +489,10 @@
         {
           "stem": "According to the article, why should a runner avoid sprinting at full speed during the opening stretch of a race?",
           "options": [
-            "It makes the runner appear overconfident to the watching crowd",
+            "It makes the runner appear overconfident to the watching crowd in the stands",
             "It rapidly depletes the endurance and stamina needed for the rest of the course",
-            "It is against the official written rules of school track meets",
-            "It causes a runner's breathing to slow down too much"
+            "It is against the official written rules of school track meets and leads to a penalty",
+            "It causes a runner's breathing to slow down too much at the beginning"
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -506,9 +506,9 @@
         {
           "stem": "How does Zaid apply Coach Ali's pacing technique during the final race?",
           "options": [
-            "He stops running partway through the race to rest",
-            "He watches the other runners closely to copy their pace",
-            "He sprints as fast as he possibly can from the very start",
+            "He stops running partway through the race to rest and drink",
+            "He watches the other runners closely to copy their pace and speed",
+            "He sprints as fast as he possibly can from the very start to the end",
             "He breathes slowly and keeps a steady pace, ignoring other runners"
           ],
           "answer": "D",
@@ -558,9 +558,9 @@
           "stem": "In what order do these events occur in the article?",
           "options": [
             "Coach Ali offers pacing tips, Zaid practices for weeks, then the race happens",
-            "Zaid wins the final race, then Coach Ali offers pacing tips",
-            "The final race happens before Zaid even joins the team",
-            "Zaid practices for weeks before he ever joins the team"
+            "Zaid wins the final race, then Coach Ali offers pacing tips to help him run",
+            "The final race happens before Zaid even joins the team, then he practices for weeks",
+            "Zaid practices for weeks before he ever joins the team, and then he runs in a race"
           ],
           "answer": "A",
           "skill": "sequence",
@@ -574,7 +574,7 @@
         {
           "stem": "What can readers infer from the fact that Zaid's personal running time keeps dropping steadily each week?",
           "options": [
-            "The race distance keeps becoming shorter every single week",
+            "The race distance keeps becoming shorter every single week, so his time drops",
             "His consistent use of the pacing and breathing techniques is genuinely working",
             "He is secretly taking some kind of shortcut during each race",
             "His teammates are intentionally slowing down to let him catch up"

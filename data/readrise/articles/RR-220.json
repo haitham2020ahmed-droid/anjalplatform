@@ -165,10 +165,10 @@
         {
           "stem": "In the article, what does the word \"float\" describe the needle doing?",
           "options": [
-            "Sinking to the bottom of a bowl",
+            "Sinking to the bottom of a bowl of water",
             "Resting on top of water on a piece of straw",
-            "Melting slowly inside a hot fire",
-            "Flying through the air like a bird"
+            "Melting slowly inside a hot fire all day",
+            "Flying through the air like a small bird"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -294,9 +294,9 @@
           "stem": "Which sentence best states the main idea of the article?",
           "options": [
             "A magnetized needle in a compass helped sailors find direction at sea.",
-            "Iron ore is the most valuable metal ever found by sailors.",
-            "Sailors in China never traded with people from other lands.",
-            "Compasses were only ever used inside small bowls of water."
+            "Iron ore is the most valuable metal ever found by sailors in the sea.",
+            "Sailors in China never traded with people from other lands or countries.",
+            "Compasses were only ever used inside small bowls of water on the shore."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -361,10 +361,10 @@
         {
           "stem": "Why could sailors travel farther from land once they had a compass?",
           "options": [
-            "Because the compass made their ships sail faster",
+            "Because the compass made their ships sail faster across the open sea",
             "Because the compass could always show direction, even in bad weather",
-            "Because the compass let them talk to sailors on other ships",
-            "Because the compass made the sea calmer during storms"
+            "Because the compass let them talk to sailors on other ships far away",
+            "Because the compass made the sea calmer during storms and big waves"
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -473,9 +473,9 @@
           "stem": "Which statement best summarizes the article?",
           "options": [
             "A magnetized needle, refined into the compass, gave sailors a reliable way to find direction in any weather.",
-            "The Mediterranean Sea was the only place where lodestones could be found.",
-            "Sailors abandoned the compass soon after it was first invented in China.",
-            "Trade routes mattered only after the compass was fully perfected."
+            "The Mediterranean Sea was the only place where lodestones could be found, and sailors went there to get them.",
+            "Sailors abandoned the compass soon after it was first invented in China, because it often gave wrong answers.",
+            "Trade routes mattered only after the compass was fully perfected, and not before that time in any country."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -489,10 +489,10 @@
         {
           "stem": "According to the article, what happens when a lodestone is suspended freely enough to rotate?",
           "options": [
-            "It immediately shatters into smaller pieces.",
+            "It immediately shatters into smaller pieces on the table.",
             "It aligns itself in one steady orientation toward north.",
-            "It stops attracting iron objects altogether.",
-            "It spins continuously without ever settling."
+            "It stops attracting iron objects altogether, even small nails.",
+            "It spins continuously without ever settling in one place."
           ],
           "answer": "B",
           "skill": "detail",

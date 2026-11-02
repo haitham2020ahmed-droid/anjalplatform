@@ -121,10 +121,10 @@
      "passage": "My grandma makes the best rice. It is soft and warm. I always ask for more.",
      "stem": "Which sentence shows that the narrator loves Grandma's rice?",
      "options": [
-      "It is soft.",
+      "It is soft and fluffy on a plate.",
       "My grandma makes the best rice.",
-      "Grandma cooks.",
-      "It is warm."
+      "Grandma cooks in the kitchen.",
+      "It is warm and tasty today."
      ],
      "answer": 1,
      "why": "The narrator says it is the best rice. The word best shows the narrator's view."
@@ -188,9 +188,9 @@
     "passage": "For years, the empty lot at the end of our street was full of rubbish and dust. This spring, the city turned it into a park. It is truly wonderful: green grass, shady trees and a path where my grandfather walks every evening. Now the street is full of laughter instead of silence. In my opinion, it is the perfect gift for our neighbourhood.",
     "stem": "What is the narrator's attitude toward the new park?",
     "options": [
-     "Bored, because the park has nothing new",
-     "Worried, because the park is not safe",
-     "Angry, because the old field is gone",
+     "Bored, because the park has nothing new to see or do there",
+     "Worried, because the park is not safe for young children",
+     "Angry, because the old field is gone and the trees are cut",
      "Delighted, because the park has changed the neighbourhood"
     ],
     "answer": 3,
@@ -243,10 +243,10 @@
      "passage": "Text A: I think the old souq is magical, with its narrow lanes and spice smells. Text B: I think the old souq is a maze, with lanes so narrow you can barely move.",
      "stem": "How do the narrators' points of view affect the descriptions?",
      "options": [
-      "Both narrators describe the souq the same way.",
+      "Both narrators describe the souq the same way, with the same words.",
       "Each narrator's attitude makes the same lanes seem good or bad.",
-      "Neither narrator has an opinion.",
-      "Text B describes a different market."
+      "Neither narrator has an opinion about the souq at all.",
+      "Text B describes a different market in a different city."
      ],
      "answer": 1,
      "why": "Both see narrow lanes, but Text A calls the souq magical and Text B calls it a maze."
@@ -413,10 +413,10 @@
     "passage": "Everyone knows I am the natural leader of our group, so naturally I made all the decisions for our history project. I chose the topic, the colours and the title, and I told the others exactly what to write. When Rana suggested adding a map, I explained kindly why it was a poor idea. For some reason, Rana and Dana exchanged a look and went quiet for the rest of the afternoon. The next day, they asked the teacher if they could join another group.",
     "stem": "How does the author show that the narrator's view of herself may not be accurate?",
     "options": [
-     "She admits openly that she was wrong about everything.",
+     "She admits openly that she was wrong about everything she said.",
      "Her classmates' reactions do not match her description of herself.",
      "She gives exact facts and numbers about her project.",
-     "The story is told by a narrator outside the story."
+     "The story is told by a narrator who stands outside the story."
     ],
     "answer": 1,
     "hint": "Compare what the narrator says about herself with how the other girls act.",
@@ -444,9 +444,9 @@
      "stem": "What does the reader understand that the narrator does not?",
      "options": [
       "The narrator made a poor deal, and the uncle may be right.",
-      "The narrator is an expert trader.",
-      "The uncle will be very impressed.",
-      "The boy paid too much for the bicycle."
+      "The narrator is an expert trader and knows the price of everything.",
+      "The uncle will be very impressed with the narrator.",
+      "The boy paid too much for the bicycle at the market."
      ],
      "answer": 0,
      "why": "Selling for half price is a bad deal, and the boy's \"generous\" comment confirms it. The narrator misses this."

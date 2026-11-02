@@ -88,7 +88,7 @@
       "questions": [
         {
           "stem": "What is this article mostly about?",
-          "options": ["Why people drink water", "Why sweat helps cool your body down", "How to run faster", "Why skin turns red in the sun"],
+          "options": ["Why people drink water when they are hot", "Why sweat helps cool your body down", "How to run faster in a race at school", "Why skin turns red in the sun"],
           "answer": "B",
           "skill": "central-idea",
           "why": "The article explains what sweat is and how it helps cool your body when you are hot or active.",
@@ -96,7 +96,7 @@
         },
         {
           "stem": "Where does sweat come from?",
-          "options": ["Tiny holes in your skin called sweat glands", "Your blood only", "Your hair", "Your bones"],
+          "options": ["Tiny holes in your skin called sweat glands", "Your blood only, which leaks out of your veins", "Your hair, which is always wet and cold", "Your bones, deep inside your body somewhere"],
           "answer": "A",
           "skill": "detail",
           "why": "The article says sweat comes from tiny holes in your skin called sweat glands.",
@@ -120,7 +120,7 @@
         },
         {
           "stem": "Why do you sweat more when you run and play hard?",
-          "options": ["Your body makes extra heat from moving", "Your skin turns a new color", "Your clothes get tighter", "Your bones grow faster"],
+          "options": ["Your body makes extra heat from moving", "Your skin turns a new color when you play", "Your clothes get tighter as you run fast", "Your bones grow faster when you exercise"],
           "answer": "A",
           "skill": "cause-effect",
           "why": "The article explains that your body makes more heat when you run and play, so you sweat more to cool down.",
@@ -144,7 +144,7 @@
         },
         {
           "stem": "Why does the author explain that sweat is mostly water?",
-          "options": ["To explain why drinking water matters after you sweat", "To tell you not to drink water", "To describe what color sweat is", "To compare sweat to rain"],
+          "options": ["To explain why drinking water matters after you sweat", "To tell you not to drink water after you play outside", "To describe what color sweat is when you are hot", "To compare sweat to rain that falls from the clouds"],
           "answer": "A",
           "skill": "author-purpose",
           "why": "Knowing sweat is mostly water helps explain why you need to drink water to replace what your body loses.",
@@ -166,7 +166,7 @@
       "questions": [
         {
           "stem": "Which sentence best states the central idea of the article?",
-          "options": ["Hippocrates invented sweat glands", "Sweating is how your body uses evaporation to cool down, and staying hydrated matters", "Exercise is bad for your body", "Only athletes need to drink water"],
+          "options": ["Hippocrates invented sweat glands in the skin of the whole human body and gave them a name", "Sweating is how your body uses evaporation to cool down, and staying hydrated matters", "Exercise is bad for your body, so it is better to stay still and let the body rest every day", "Only athletes need to drink water, because ordinary people never lose water when they sweat"],
           "answer": "B",
           "skill": "central-idea",
           "why": "The article explains how sweat glands, heat, and evaporation work together to cool the body, and why replacing lost water matters.",
@@ -190,7 +190,7 @@
         },
         {
           "stem": "Read: \"staying properly hydrated is essential.\" What does hydrated mean?",
-          "options": ["Having enough water in your body", "Having clean skin", "Having strong muscles", "Having good eyesight"],
+          "options": ["Having enough water in your body", "Having clean skin and clean hair", "Having strong muscles and bones", "Having good eyesight at night"],
           "answer": "A",
           "skill": "vocabulary",
           "why": "Hydrated describes having enough water in the body, which is why replacing lost sweat with water matters.",
@@ -222,7 +222,7 @@
         },
         {
           "stem": "How does the article mainly explain why we sweat?",
-          "options": ["By comparing different animals", "By telling a made-up story", "By describing the causes of sweat and then how it cools the body", "By listing famous sports teams"],
+          "options": ["By comparing different animals and how their skin gets wet in summer", "By telling a made-up story about a boy who runs in a race", "By describing the causes of sweat and then how it cools the body", "By listing famous sports teams and their players and the games they won"],
           "answer": "C",
           "skill": "text-structure",
           "why": "The article first explains what causes sweating, then explains the process by which sweat cools the body.",
@@ -244,7 +244,7 @@
       "questions": [
         {
           "stem": "Which statement best expresses the central idea of the article?",
-          "options": ["The hypothalamus controls hunger, not temperature", "Sweating is a thermoregulatory process that cools the body through evaporation, and losing too much water can cause dehydration", "Hippocrates discovered the hypothalamus", "Dehydration always leads to overheating within minutes"],
+          "options": ["The hypothalamus controls hunger, not temperature, and sweating is only a sign of fear in the body, not of heat", "Sweating is a thermoregulatory process that cools the body through evaporation, and losing too much water can cause dehydration", "Hippocrates discovered the hypothalamus when he was a young man and wrote about it in the first book on sweat", "Dehydration always leads to overheating within minutes, so people must drink at the first sign of any thirst at all, even in cool air"],
           "answer": "B",
           "skill": "central-idea",
           "why": "The article explains that sweating is part of thermoregulation, that evaporation cools the skin, and that excessive sweating without enough fluid can cause dehydration.",
@@ -284,7 +284,7 @@
         },
         {
           "stem": "What can you infer from the fact that Hippocrates linked sweating to heat long before the hypothalamus was understood?",
-          "options": ["Ancient physicians fully understood brain chemistry", "The hypothalamus was discovered in ancient Greece", "Hippocrates' ideas were later proven completely wrong", "Careful observation can lead to real insight even without full scientific explanation"],
+          "options": ["Ancient physicians fully understood brain chemistry and the hypothalamus in the body", "The hypothalamus was discovered in ancient Greece by Hippocrates himself", "Hippocrates' ideas were later proven completely wrong by modern doctors and tests", "Careful observation can lead to real insight even without full scientific explanation"],
           "answer": "D",
           "skill": "inference",
           "why": "Hippocrates' observation turned out to be an accurate early insight, even though he lacked the scientific understanding of the hypothalamus.",
@@ -292,7 +292,7 @@
         },
         {
           "stem": "Why does the article describe thermoregulation as a 'regulatory process' rather than a random reaction?",
-          "options": ["To suggest sweating happens without any cause", "To suggest the hypothalamus works only during exercise", "To suggest the body deliberately controls and adjusts its temperature", "To suggest temperature never actually changes"],
+          "options": ["To suggest that sweating happens without any cause at all in the body", "To suggest that the hypothalamus works only during hard exercise", "To suggest the body deliberately controls and adjusts its temperature", "To suggest that the body's temperature never actually changes at all"],
           "answer": "C",
           "skill": "inference",
           "why": "Calling it a regulatory process shows the body actively monitors and adjusts temperature, rather than reacting randomly.",
@@ -300,7 +300,7 @@
         },
         {
           "stem": "Why does the author end the article by mentioning Hippocrates?",
-          "options": ["To explain exactly how the hypothalamus functions", "To prove dehydration was unknown until modern times", "To describe how sweat glands are built", "To show that interest in how the body manages heat goes back a very long time"],
+          "options": ["To explain exactly how the hypothalamus functions inside the brain when we feel hot", "To prove dehydration was unknown until modern times, when doctors first noticed it", "To describe how sweat glands are built under the skin and how many each person has", "To show that interest in how the body manages heat goes back a very long time"],
           "answer": "D",
           "skill": "author-purpose",
           "why": "The historical mention of Hippocrates shows that people have long been curious about how the body manages heat, even before modern science explained it.",

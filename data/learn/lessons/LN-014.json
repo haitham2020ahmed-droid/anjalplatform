@@ -96,8 +96,8 @@
      "stem": "Which sentence is the best opening?",
      "options": [
       "Our class needs a fan.",
-      "Summer is long.",
-      "I like my class.",
+      "Summer is very long.",
+      "I like my class a lot.",
       "Fans can be white."
      ],
      "answer": 0,
@@ -210,9 +210,9 @@
      "stem": "Which is the strongest opening?",
      "options": [
       "Our class should hold a clothes drive.",
-      "Clothes come in many sizes.",
-      "I have a lot of clothes.",
-      "This letter is about clothes."
+      "Clothes come in many sizes and colors.",
+      "I have a lot of clothes at home.",
+      "This letter is about clothes for school."
      ],
      "answer": 0,
      "why": "It gives a clear opinion, and every sentence supports a clothes drive."
@@ -334,10 +334,10 @@
      "passage": "Purpose: convince the principal that the school needs a water fountain on every floor. Details: students on the top floor walk down three floors to drink, and some skip drinking water all day.",
      "stem": "Which opening is most effective?",
      "options": [
-      "Water is made of hydrogen and oxygen.",
+      "Water is made of hydrogen and oxygen, which join together in a tiny drop.",
       "Students on our top floor must walk down three floors just to drink water.",
-      "Some people prefer cold water.",
-      "I am going to talk about many different things."
+      "Some people prefer cold water, and others like it warm in the winter.",
+      "I am going to talk about many different things in my speech today."
      ],
      "answer": 1,
      "why": "It opens with a real fact from the draft that shows the problem, then the claim can follow."
@@ -347,9 +347,9 @@
      "stem": "Which opening fits best?",
      "options": [
       "Picture a quiet evening: no screens, just your family and a stack of good books.",
-      "Reading nights are on Thursdays.",
-      "Screens are made in factories.",
-      "My essay has three parts, and each part talks about a different book."
+      "Reading nights are on Thursdays at six o'clock in the school hall.",
+      "Screens are made in factories by workers using machines and glass.",
+      "My essay has three parts, and each part talks about a different book that I read."
      ],
      "answer": 0,
      "why": "The purpose is to make parents imagine the evening, so a picture-making opening works best."
@@ -405,10 +405,10 @@
     "passage": "Every year, more young people volunteer in their communities. Some help at food banks, sorting donations for families in need. Others clean parks or read to elderly neighbours. Studies of volunteering suggest that young volunteers often build confidence and teamwork skills that help them later at school and at work. Volunteering also connects students with adults and neighbours they might never meet otherwise. Because of these benefits, some educators suggest that community service should be part of school life. Critics worry that it would take time away from lessons. However, even a few hours a term could make a real difference.",
     "stem": "Which thesis statement best fits this introduction and the essay it begins?",
     "options": [
-     "Young people help at food banks.",
+     "Young people help at food banks, and many of them say that they enjoy it because it makes them feel useful.",
      "Schools should include a few hours of community service each term because it builds skills and connects students to their community.",
-     "This essay will talk about volunteering.",
-     "Everyone in the world should volunteer every day."
+     "This essay will talk about volunteering, and it will tell the reader about the places where people choose to do it.",
+     "Everyone in the world should volunteer every day, because the world needs help from all people and every person has a lot of free time."
     ],
     "answer": 1,
     "hint": "Check the choice: is it a fact, an announcement, or too broad? A thesis must take a clear, reasonable position.",
@@ -462,9 +462,9 @@
      "passage": "An essay argues that schools should teach basic first aid, giving evidence that it saves lives, builds confidence and is quick to learn.",
      "stem": "Which thesis is the strongest?",
      "options": [
-      "Some people know first aid.",
-      "First aid is important, and many things in life are important too.",
-      "This essay is about first aid.",
+      "Some people know first aid, while other people learn about it only when an accident happens.",
+      "First aid is important, and many other things in life are important too, like food and sleep.",
+      "This essay is about first aid, and it tells what first aid is and who can learn about it.",
       "Every school should teach basic first aid, a quick lesson that builds confidence and can save lives."
      ],
      "answer": 3,

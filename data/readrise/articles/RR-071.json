@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How to fix a flat tire",
+            "How to fix a flat tire on a bike",
             "Cars that run on power from a battery",
-            "Why gas is the best fuel",
-            "How to build a road"
+            "Why gas is the best fuel for cars",
+            "How to build a road across the desert"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -182,10 +182,10 @@
         {
           "stem": "What happens when an electric car slows down?",
           "options": [
-            "Smoke comes out of the back",
+            "Smoke comes out of the back of the car",
             "The motor makes a bit of power for the battery",
-            "The battery breaks into pieces",
-            "The car needs to stop for gas"
+            "The battery breaks into pieces in the trunk",
+            "The car needs to stop for gas at once"
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -233,10 +233,10 @@
         {
           "stem": "Why does the author tell about some problems with electric cars?",
           "options": [
-            "To show that electric cars are bad",
-            "To tell how to fix a battery",
+            "To show that electric cars are bad and should not be bought by anyone",
+            "To tell how to fix a battery at home with simple tools",
             "To give a fair picture with both good and hard parts",
-            "To sell a car brand"
+            "To sell a car brand to the readers of the article and the news"
           ],
           "answer": "C",
           "skill": "author-purpose",
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
-            "Electric cars are too slow to be useful.",
+            "Electric cars are too slow to be useful, and few people want to buy them because they are weak.",
             "Electric cars use batteries instead of fuel, which brings benefits and some challenges.",
-            "Gasoline cars were invented after electric cars disappeared.",
-            "Charging stations are found only in Saudi Arabia."
+            "Gasoline cars were invented after electric cars disappeared from the roads, say the experts.",
+            "Charging stations are found only in Saudi Arabia, and nowhere else in the world, says the article."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -361,10 +361,10 @@
         {
           "stem": "What does the motor do when the driver slows down?",
           "options": [
-            "It shuts off the battery completely",
+            "It shuts off the battery completely for a short time",
             "It works in reverse and makes a little electricity",
-            "It burns a little extra gasoline",
-            "It makes a loud roar like an engine"
+            "It burns a little extra gasoline to keep going",
+            "It makes a loud roar like an engine in a car"
           ],
           "answer": "B",
           "skill": "detail",
@@ -395,10 +395,10 @@
         {
           "stem": "What can readers infer about why electric cars are returning today?",
           "options": [
-            "Gasoline is no longer sold anywhere",
-            "People have forgotten how to drive gasoline cars",
+            "Gasoline is no longer sold anywhere, so everyone must use electric cars",
+            "People have forgotten how to drive gasoline cars after so many years",
             "Better batteries and concern about air pollution make them more useful",
-            "Electric cars are now cheaper than bicycles"
+            "Electric cars are now cheaper than bicycles, so most families buy them"
           ],
           "answer": "C",
           "skill": "inference",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
-            "Electric cars should replace all buses and trains.",
-            "Gasoline engines are more efficient than electric motors.",
+            "Electric cars should replace all buses and trains in every city, because they are cheaper and quicker than every other kind of travel.",
+            "Gasoline engines are more efficient than electric motors, so people should stop making electric cars and keep their old ones for good.",
             "Electric cars offer cleaner, more efficient travel, but batteries, power sources, and infrastructure remain challenges.",
-            "Lithium is the most valuable metal on Earth."
+            "Lithium is the most valuable metal on Earth, and it is found everywhere, so every country can make as many batteries as it likes."
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -506,9 +506,9 @@
         {
           "stem": "Why do electric cars need comparatively little energy to travel each kilometer?",
           "options": [
-            "They are always lighter than gasoline cars",
-            "They are only driven on flat, smooth roads",
-            "They never need to use their brakes at all",
+            "They are always lighter than gasoline cars are",
+            "They are only driven on flat, smooth roads in cities",
+            "They never need to use their brakes at all while driving",
             "Their motors turn most of the stored energy into motion"
           ],
           "answer": "D",
@@ -557,9 +557,9 @@
         {
           "stem": "What can readers infer from the statement that people need charging networks before they will feel confident to switch?",
           "options": [
-            "People already have enough charging stations everywhere",
-            "Electric cars cannot be charged at home at all",
-            "Charging stations make electric cars travel faster",
+            "People already have enough charging stations everywhere in the whole country",
+            "Electric cars cannot be charged at home at all, only at stations",
+            "Charging stations make electric cars travel faster on the highway",
             "Many drivers worry about running out of power far from a charger"
           ],
           "answer": "D",
@@ -575,9 +575,9 @@
           "stem": "How is the article mainly organized?",
           "options": [
             "It explains how electric cars work, gives their history, then weighs benefits against challenges",
-            "It tells the life story of the person who invented the electric car",
-            "It lists car prices from cheapest to most expensive",
-            "It describes a single trip from Riyadh to Jeddah"
+            "It tells the life story of the person who invented the electric car, from childhood to old age",
+            "It lists car prices from cheapest to most expensive, and then it compares the colours of cars",
+            "It describes a single trip from Riyadh to Jeddah in an electric car, stop by stop"
           ],
           "answer": "A",
           "skill": "text-structure",

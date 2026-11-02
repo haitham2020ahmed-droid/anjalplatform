@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How to build a house out of ice",
+            "How to build a house out of ice and snow for the winter",
             "The two cold ends of Earth and how they are alike and different",
-            "Why polar bears are good swimmers",
-            "The hot deserts of Saudi Arabia"
+            "Why polar bears are good swimmers in the freezing, dark sea",
+            "The hot deserts of Saudi Arabia and the plants that live there"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -233,10 +233,10 @@
         {
           "stem": "How does the author mostly explain the two places?",
           "options": [
-            "By telling a story about a trip",
-            "By listing rules for visitors",
+            "By telling a story about a trip to both of the places",
+            "By listing rules for visitors to follow at each place",
             "By comparing how the two places are alike and different",
-            "By giving steps to make ice"
+            "By giving steps to make ice in the hot summer weather"
           ],
           "answer": "C",
           "skill": "text-structure",
@@ -294,9 +294,9 @@
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
             "The polar regions are both cold, but they differ in their land, animals, and people.",
-            "The Arctic is the coldest place on Earth.",
-            "Penguins and polar bears are the same kind of animal.",
-            "Scientists live in the Arctic all year."
+            "The Arctic is the coldest place on Earth, and no people or animals have ever lived there.",
+            "Penguins and polar bears are the same kind of animal, and they live side by side.",
+            "Scientists live in the Arctic all year, and they never come back to any city."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -345,9 +345,9 @@
           "stem": "Who lives in the Antarctic?",
           "options": [
             "Nobody lives there permanently; scientists visit research stations",
-            "Large cities of people",
-            "Polar bears and their hunters",
-            "Farmers who grow wheat"
+            "Large cities of people, with schools, shops, airports and a busy port",
+            "Polar bears and their hunters, who live there all year",
+            "Farmers who grow wheat in the snow and sell it to ships"
           ],
           "answer": "A",
           "skill": "detail",
@@ -413,9 +413,9 @@
           "stem": "How is the Arctic different from the Antarctic?",
           "options": [
             "The Arctic is mostly a frozen ocean, while the Antarctic is a continent of land",
-            "The Arctic is warmer because it has no sun",
-            "Only the Arctic has a pole",
-            "The Antarctic has more people living there"
+            "The Arctic is warmer because it has no sun, while the Antarctic is lit all year",
+            "Only the Arctic has a pole, while the Antarctic is only a large field of snow",
+            "The Antarctic has more people living there, in big cities built on the ice"
           ],
           "answer": "A",
           "skill": "compare",
@@ -473,9 +473,9 @@
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
             "The Arctic and Antarctic share extreme cold for the same reason but differ greatly in geography, wildlife, and human presence.",
-            "The Antarctic is dangerous and should never be visited.",
-            "Indigenous peoples have lived in both polar regions for thousands of years.",
-            "Sea ice and ice sheets are the same thing."
+            "The Antarctic is dangerous and should never be visited by anyone, not even by scientists, so it is empty of people and life.",
+            "Indigenous peoples have lived in both polar regions for thousands of years, and they are the same in each place.",
+            "Sea ice and ice sheets are the same thing, and both are found only at the North Pole, in the same way."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -574,9 +574,9 @@
         {
           "stem": "Which conclusion is best supported by the article?",
           "options": [
-            "The Arctic has no land at all",
-            "Penguins could easily survive in the Arctic Ocean",
-            "The Antarctic receives more rain than Saudi Arabia",
+            "The Arctic has no land at all, because it is only a thick sheet of ice floating on the sea",
+            "Penguins could easily survive in the Arctic Ocean, since the water there is just as cold",
+            "The Antarctic receives more rain than Saudi Arabia, and the rain there falls every single day",
             "People can live in the Arctic partly because it is mostly ocean surrounded by land and coasts"
           ],
           "answer": "D",

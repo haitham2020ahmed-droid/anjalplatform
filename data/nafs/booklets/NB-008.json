@@ -127,9 +127,9 @@
       "stem": "Which of these sentences is a statement?",
       "options": [
         "My grandparents were waiting for us at the station in Hofuf.",
-        "What would I do all day without my friends?",
-        "Feed the goats before you eat your breakfast.",
-        "What a beautiful oasis this is!"
+        "What would I do all day long without my best friends?",
+        "Feed the goats before you eat your breakfast every morning.",
+        "What a beautiful oasis this is in the desert!"
       ],
       "answer": "A",
       "why": "A statement gives information and ends with a full stop; the others are a question, a command and an exclamation."
@@ -157,9 +157,9 @@
       "type": "MCQ",
       "stem": "What is the main purpose of the story?",
       "options": [
-        "to persuade families to move away from Riyadh",
-        "to explain how Hasawi rice is grown",
-        "to describe the train between Riyadh and Hofuf",
+        "to persuade families to move away from Riyadh to the farms",
+        "to explain how Hasawi rice is grown in the fields of the east",
+        "to describe the train between Riyadh and Hofuf and its stations",
         "to share how a girl came to love her grandparents’ farm"
       ],
       "answer": "D",
@@ -189,10 +189,10 @@
       "type": "MCQ",
       "stem": "What is the main idea of paragraph 1?",
       "options": [
-        "Lama was excited about seeing the goats.",
+        "Lama was excited about seeing the goats and sheep and the farm.",
         "Lama felt unsure about spending the holiday on the farm.",
-        "Lama wanted to move to a new school.",
-        "Lama’s friends were going to the farm with her."
+        "Lama wanted to move to a new school in the town near the farm.",
+        "Lama’s friends were going to the farm with her for the holiday."
       ],
       "answer": "B",
       "why": "She says she “felt uncertain” and wonders what she will do without her friends."
@@ -237,10 +237,10 @@
       "type": "MCQ",
       "stem": "Which feature shows that this text is a personal narrative?",
       "options": [
-        "It gives step-by-step instructions.",
-        "It lists facts under headings.",
+        "It gives step-by-step instructions to the reader.",
+        "It lists facts under headings about a place.",
         "The writer tells about her own experience using “I”.",
-        "It tries to sell a product to readers."
+        "It tries to sell a product to readers by phone."
       ],
       "answer": "C",
       "why": "Lama tells a true-to-life experience of her own in the first person."
@@ -269,10 +269,10 @@
       "type": "MCQ",
       "stem": "What did Lama do AFTER she explored Jabal Al-Qarah?",
       "options": [
-        "She saw the rice field for the first time.",
+        "She saw the rice field for the first time that day.",
         "She ate dates under the palms on the final evening.",
-        "She arrived at the station in Hofuf.",
-        "She heard that Al-Ahsa is a huge oasis."
+        "She arrived at the station in Hofuf in the morning.",
+        "She heard that Al-Ahsa is a huge oasis in the east."
       ],
       "answer": "B",
       "why": "The cave visit was followed by the final evening under the palms; the other events happened earlier."
@@ -333,10 +333,10 @@
       "type": "MCQ",
       "stem": "What caused Lama to be amazed during her early morning walk?",
       "options": [
-        "seeing goats for the first time",
+        "seeing goats for the first time in her life",
         "discovering that rice grows in Saudi Arabia",
-        "hearing her echo in the caves",
-        "watching the sky turn orange"
+        "hearing her echo in the caves near the farm",
+        "watching the sky turn orange over the palms"
       ],
       "answer": "B",
       "why": "She was amazed because she “had never imagined that rice could grow in Saudi Arabia”."
@@ -349,9 +349,9 @@
       "type": "MCQ",
       "stem": "How did Lama’s feelings at the end differ from her feelings at the beginning?",
       "options": [
-        "She was happy at first but very bored by the end.",
-        "She was angry at first and still angry at the end.",
-        "She was excited at first but frightened at the end.",
+        "She was happy at first but very bored by the end of the day.",
+        "She was angry at first and still angry at the end of the visit.",
+        "She was excited at first but frightened at the end of the night.",
         "She was worried at first but did not want to leave at the end."
       ],
       "answer": "D",
@@ -382,9 +382,9 @@
       "stem": "What was the effect of Grandmother’s gentle laugh and reassurance?",
       "options": [
         "Lama gradually became confident enough to feed the goats.",
-        "Lama refused to go near the goats again.",
-        "Grandfather fed the goats instead of Lama.",
-        "The goats ran away from the gate."
+        "Lama refused to go near the goats again that summer.",
+        "Grandfather fed the goats instead of Lama that evening.",
+        "The goats ran away from the gate into the hills."
       ],
       "answer": "A",
       "why": "By the end of the week she was feeding them every morning and had even named one."
@@ -429,10 +429,10 @@
       "type": "MCQ",
       "stem": "What is your opinion of how the writer describes the visit?",
       "options": [
-        "Unclear, because nobody in the story says anything.",
-        "Dull, because she gives no details about the farm.",
+        "Unclear, because nobody in the story says anything to anyone.",
+        "Dull, because she gives no details about the farm or animals.",
         "Lively, because she uses details of sight, touch and sound.",
-        "Confusing, because the events have no clear order."
+        "Confusing, because the events have no clear order at all."
       ],
       "answer": "C",
       "why": "She describes the green palms, the smooth rock walls, the cool air and the echo of her voice."
@@ -446,9 +446,9 @@
       "stem": "In your opinion, what was the most important thing Lama gained from the visit?",
       "options": [
         "a love of the farm and her family’s way of life",
-        "a box of dates for her classmates",
-        "knowledge of how trains work",
-        "a pet goat to take back to Riyadh"
+        "a box of dates for her classmates at the school in Riyadh",
+        "knowledge of how trains work and how they move",
+        "a pet goat to take back to Riyadh in her bag"
       ],
       "answer": "A",
       "why": "She left wishing to stay longer; the dates are a gift, but her new feelings matter most."
@@ -462,9 +462,9 @@
       "stem": "What most likely motivated the writer to tell this story?",
       "options": [
         "to show that new places can surprise us in good ways",
-        "to complain about life in big cities",
-        "to warn children not to travel by train",
-        "to explain how caves are formed"
+        "to complain about life in big cities and busy streets",
+        "to warn children not to travel by train at night alone",
+        "to explain how caves are formed under the ground"
       ],
       "answer": "A",
       "why": "Lama expected to be bored but discovered many wonderful things."
@@ -493,10 +493,10 @@
       "type": "MCQ",
       "stem": "In your opinion, which information is the LEAST clear in the story?",
       "options": [
-        "how long the train journey took",
-        "where the grandparents met the family",
+        "how long the train journey took to the oasis",
+        "where the grandparents met the family after the trip",
         "how the water is brought up from the deep wells",
-        "what the name Sukkar means"
+        "what the name Sukkar means in the village"
       ],
       "answer": "C",
       "why": "The story gives the other facts but does not explain how the water is raised from the wells."
@@ -541,9 +541,9 @@
       "type": "MCQ",
       "stem": "How could Lama keep her new love for the farm after returning to Riyadh?",
       "options": [
-        "by staying away from her friends at school",
-        "by throwing away the box of dates",
-        "by never talking about the farm again",
+        "by staying away from her friends at school and from the farm for a year",
+        "by throwing away the box of dates that her grandfather gave her at the end",
+        "by never talking about the farm again to her family at home or at school",
         "by keeping in touch with her grandparents and planning another visit"
       ],
       "answer": "D",

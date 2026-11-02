@@ -120,7 +120,7 @@
         },
         {
           "stem": "Why does a player need to think ahead in this game?",
-          "options": ["To get more seeds than the next player", "To find more holes to dig in sand", "To make the whole game end faster", "To pick a nicer color of stone"],
+          "options": ["To get more seeds than the next player", "To find more holes to dig in the sand", "To make the whole game end faster than usual", "To pick a nicer color of stone for the board"],
           "answer": "A",
           "skill": "cause-effect",
           "why": "The article says the goal is to get more seeds than the other player, so thinking ahead helps a player win.",
@@ -166,7 +166,7 @@
       "questions": [
         {
           "stem": "What is the central idea of the article?",
-          "options": ["A simple, ancient board game has tested strategy across the region for centuries.", "This board game was invented last year in one single country.", "Players must own costly equipment to play this old game.", "Luck, not skill, decides who wins this old board game."],
+          "options": ["A simple, ancient board game has tested strategy across the region for centuries.", "This board game was invented last year in one single country, and so no one has played it for long.", "Players must own costly equipment to play this old game, and only rich families have ever joined in.", "Luck, not skill, decides who wins this old board game, and strategy has no part in the play at all."],
           "answer": "A",
           "skill": "central-idea",
           "why": "The article explains how this old, simple game has tested strategy and skill across the region for a very long time.",
@@ -198,7 +198,7 @@
         },
         {
           "stem": "Why does this game need no dice at all?",
-          "options": ["Because dice cost too much for most families", "Because the small board has no room for dice", "Because only two players are ever allowed", "Because every win depends only on skill, not chance"],
+          "options": ["Because dice cost too much for most of the families in town", "Because the small board has no room for the dice to roll", "Because only two players are ever allowed to play it", "Because every win depends only on skill, not chance"],
           "answer": "D",
           "skill": "cause-effect",
           "why": "The article says chance plays no part, and every win comes from skill, patience, and strategy.",

@@ -205,10 +205,10 @@
       "type": "MCQ",
       "stem": "According to paragraph 2, why does a polyp build a hard cup of limestone?",
       "options": [
-        "to store its food",
+        "to store its food for the winter",
         "to protect its delicate body",
-        "to attract plankton",
-        "to make the water warmer"
+        "to attract plankton to its mouth",
+        "to make the water warmer around it"
       ],
       "answer": "B",
       "why": "“To protect its delicate body, the polyp … build[s] a hard cup of limestone beneath itself.”"
@@ -269,10 +269,10 @@
       "type": "MCQ",
       "stem": "Which detail must be considered to understand why a large reef may be thousands of years old?",
       "options": [
-        "Polyps usually feed on plankton at night.",
+        "Polyps usually feed on plankton at night in the sea.",
         "Many corals grow only a few millimetres each year.",
-        "Algae give many corals their colours.",
-        "Reefs line much of the Saudi coast."
+        "Algae give many corals their colours and their food.",
+        "Reefs line much of the Saudi coast of the Red Sea."
       ],
       "answer": "B",
       "why": "Because each year adds only a few millimetres, a large reef needs thousands of years to grow."
@@ -334,9 +334,9 @@
       "stem": "How does a reef protect the shore?",
       "options": [
         "It breaks the force of storm waves before they reach the shore.",
-        "It stops fish from swimming near the beach.",
-        "It makes the sea water warmer near the coast.",
-        "It keeps sea turtles away from the sand."
+        "It stops fish from swimming near the beach and the shore.",
+        "It makes the sea water warmer near the coast and the town.",
+        "It keeps sea turtles away from the sand and from the nests."
       ],
       "answer": "A",
       "why": "Paragraph 5: reefs act as “natural walls, breaking the force of storm waves”."
@@ -349,10 +349,10 @@
       "type": "MCQ",
       "stem": "How is a coral polyp SIMILAR to a jellyfish?",
       "options": [
-        "Both build limestone cups.",
-        "Both grow only in the Red Sea.",
+        "Both build limestone cups to hide in.",
+        "Both grow only in the Red Sea and nowhere else.",
         "Both use stinging cells to catch food.",
-        "Both make food from sunlight."
+        "Both make their food from sunlight in the water."
       ],
       "answer": "C",
       "why": "Paragraph 2: “like a jellyfish, it uses stinging cells on its tentacles to capture tiny drifting creatures”."
@@ -397,10 +397,10 @@
       "type": "MCQ",
       "stem": "The writer calls a reef “a crowded underwater city”. What does this comparison suggest?",
       "options": [
-        "People live in houses under the sea.",
+        "People live in houses under the sea, in rows.",
         "A reef is home to a great many living things, close together.",
-        "Reefs have roads, buildings and traffic lights.",
-        "Reefs are noisy, dirty and dangerous places."
+        "Reefs have roads, buildings and traffic lights, like cities.",
+        "Reefs are noisy, dirty and dangerous places to swim in."
       ],
       "answer": "B",
       "why": "Like a crowded city full of people, a reef is packed with many kinds of animals living side by side."
@@ -493,10 +493,10 @@
       "type": "MCQ",
       "stem": "In your opinion, which information in the passage is the LEAST clear?",
       "options": [
-        "how long the Great Barrier Reef is",
-        "what polyps eat",
+        "how long the Great Barrier Reef is in miles and why",
+        "what polyps eat when the tide is high or low",
         "exactly how the polyp takes minerals from seawater",
-        "where reefs are found in Saudi Arabia"
+        "where reefs are found in Saudi Arabia and Egypt"
       ],
       "answer": "C",
       "why": "The writer says only that the polyp “takes minerals from seawater” without explaining how; the other facts are stated."
@@ -556,10 +556,10 @@
       "type": "MCQ",
       "stem": "Based on the passage, which of these would MOST harm a reef?",
       "options": [
-        "clear, warm, shallow water",
-        "fish hiding among the branches",
+        "clear, warm, shallow water full of sunlight",
+        "fish hiding among the branches of the coral",
         "mud that makes the water cloudy and blocks sunlight",
-        "sea turtles feeding on reef plants"
+        "sea turtles feeding on reef plants and small weeds"
       ],
       "answer": "C",
       "why": "The algae need sunlight, so cloudy water would starve the corals; the other conditions are part of a healthy reef."

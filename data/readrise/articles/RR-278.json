@@ -395,10 +395,10 @@
         {
           "stem": "What can you infer about why the hood is useful for a wild bird like a falcon?",
           "options": [
-            "It helps the falcon see farther.",
+            "It helps the falcon see farther across the open desert sands and hills.",
             "It keeps the falcon from reacting to things that might startle it.",
-            "It makes the falcon fly faster.",
-            "It helps the falcon find food."
+            "It makes the falcon fly faster when it is let go to hunt.",
+            "It helps the falcon find food in the bushes below the sky."
           ],
           "answer": "B",
           "skill": "inference",
@@ -491,8 +491,8 @@
           "options": [
             "Catching small prey for food during journeys",
             "Carrying heavy loads across the desert",
-            "Guarding livestock from predators",
-            "Finding water sources underground"
+            "Guarding their livestock from predators at night",
+            "Finding water sources deep underground"
           ],
           "answer": "A",
           "skill": "detail",

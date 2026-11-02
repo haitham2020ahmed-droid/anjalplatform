@@ -77,10 +77,10 @@
     "passage": "Reading is fun for me. I read stories about animals. I read books about space. I read every night in bed.",
     "stem": "Which sentence is the best ending for this paragraph?",
     "options": [
-     "Space is very big.",
-     "My bed is soft.",
+     "Space is very big, and it has many stars.",
+     "My bed is soft, and I sleep well in it.",
      "That is why I enjoy reading so much.",
-     "Cats are animals."
+     "Cats are animals, and they like to play."
     ],
     "answer": 2,
     "hint": "Does that ending say the main idea again? Look at the first sentence.",
@@ -129,10 +129,10 @@
      "passage": "Water is important. We drink it. Plants need it. Animals need it too. ____",
      "stem": "Which is the best ending?",
      "options": [
-      "Some animals are big.",
+      "Some animals are big and strong.",
       "All living things need water.",
-      "I drink juice.",
-      "Plants are green."
+      "I drink juice every morning.",
+      "Plants are green in the spring."
      ],
      "answer": 1,
      "why": "It wraps up the main idea and covers people, plants and animals."
@@ -189,9 +189,9 @@
     "stem": "Which sentence would be the best ending for this letter?",
     "options": [
      "Please help us start a recycling program to keep our school clean and green.",
-     "Plastic bottles come in many shapes and sizes.",
-     "Our hallways are long, and some of them are painted blue.",
-     "Students also need more time to play at break."
+     "Plastic bottles come in many shapes and sizes, and some are made of glass.",
+     "Our hallways are long, and some of them are painted blue and green.",
+     "Students also need more time to play at break and during lunch time."
     ],
     "answer": 0,
     "hint": "Does that ending restate the purpose of the letter, or does it bring in a new idea?",
@@ -229,10 +229,10 @@
      "passage": "Dear Ms. Noura, Our class would like a reading corner. It would give us a quiet place to read. We could share books. ____",
      "stem": "Which is the best ending for this letter?",
      "options": [
-      "Books are made of paper and ink.",
+      "Books are made of paper and ink, and sold in many big shops.",
       "Thank you for thinking about our idea for a reading corner.",
-      "We have a long break today.",
-      "Some students read slowly."
+      "We have a long break today, so we can all go outside.",
+      "Some students read slowly, and some of them read fast."
      ],
      "answer": 1,
      "why": "It goes back to the purpose (a reading corner) and closes the letter politely."
@@ -300,9 +300,9 @@
     "passage": "Some people think homework should be banned, but schools should keep a small amount of it. First, homework helps students practise what they learned in class, so the lesson stays in their memory. Second, it teaches students to plan their time and work on their own. Of course, too much homework can leave students tired, so it should be short and useful. Many teachers now give fifteen to twenty minutes a night.",
     "stem": "Which sentence is the best conclusion for this argument?",
     "options": [
-     "Students should finish their homework before dinner.",
-     "Some students like maths homework more than writing homework.",
-     "Teachers spend many hours marking homework every week.",
+     "Students should finish their homework before dinner, so that they can play and watch TV later.",
+     "Some students like maths homework more than writing homework, and others prefer reading tasks.",
+     "Teachers spend many hours marking homework every week, often at night and on weekends.",
      "A small amount of homework helps students remember lessons and become independent learners."
     ],
     "answer": 3,
@@ -344,9 +344,9 @@
      "stem": "Which conclusion best supports the claim?",
      "options": [
       "A library would give everyone in our town a place to learn, read and grow.",
-      "Libraries have shelves.",
-      "Some books are expensive.",
-      "I like to read mystery stories."
+      "Libraries have shelves, and the shelves are made of strong wood or metal.",
+      "Some books are expensive, and a few of them are very heavy to carry.",
+      "I like to read mystery stories at night before I go to sleep."
      ],
      "answer": 0,
      "why": "It restates the claim and links it to all the reasons."
@@ -414,10 +414,10 @@
     "passage": "To the members of the Parents' Committee, Each afternoon, more than two hundred cars line up outside our school gate. Engines run while parents wait, filling the air that students breathe with exhaust fumes. Younger children must squeeze between bumpers to reach their families. A walking group, led by volunteer parents, could take children safely along the quiet streets to a meeting point two blocks away. Other schools that tried this report cleaner air and calmer afternoons. The plan would cost nothing but a little time from a few volunteers.",
     "stem": "The writer wants the committee to take action. Which conclusion best achieves this goal?",
     "options": [
-     "Cars have improved a great deal over the last fifty years.",
+     "Cars have improved a great deal over the last fifty years, and they are now much safer and faster.",
      "We ask the committee to approve a trial walking group next term and to invite parents to volunteer.",
      "In the end, perhaps some things could maybe be a little different at our school.",
-     "Each afternoon, more than two hundred cars line up outside our school gate."
+     "Each afternoon, more than two hundred cars line up outside our school gate at pickup."
     ],
     "answer": 1,
     "hint": "Is that a clear call to action? Some choices bring in a new idea, sound unsure, or just copy the opening.",
@@ -471,9 +471,9 @@
      "stem": "Which revision is strongest?",
      "options": [
       "Learning to cook builds independence and healthy habits, so every student should master at least one simple meal.",
-      "Cooking is done in kitchens with pots and pans.",
-      "Some people prefer to eat at restaurants with their friends.",
-      "Maybe students could think about cooking someday."
+      "Cooking is done in kitchens with pots and pans, and it is a thing that many people do every day at home.",
+      "Some people prefer to eat at restaurants with their friends, because they like to sit and talk after a long day.",
+      "Maybe students could think about cooking someday, if they have time and if their teachers say it is a good idea."
      ],
      "answer": 0,
      "why": "It restates the claim with confidence and recalls the reasons."

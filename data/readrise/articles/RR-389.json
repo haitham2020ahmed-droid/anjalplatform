@@ -166,7 +166,7 @@
       "questions": [
         {
           "stem": "Which sentence best states what this story is mainly about?",
-          "options": ["Yusuf forgets his homework and chooses honesty and a real plan over an excuse", "Yusuf decides that homework assignments do not matter very much", "Yusuf's teacher cancels homework for the rest of the entire class", "Yusuf's friend lends him an already finished homework notebook"],
+          "options": ["Yusuf forgets his homework and chooses honesty and a real plan over an excuse", "Yusuf decides that homework assignments do not matter very much to him or to his class", "Yusuf's teacher cancels homework for the rest of the entire class", "Yusuf's friend lends him an already finished homework notebook"],
           "answer": "A",
           "skill": "central-idea",
           "why": "The story follows Yusuf as he forgets his homework and chooses to be honest and make a real plan rather than make an excuse.",
@@ -276,7 +276,7 @@
         },
         {
           "stem": "Compare Yusuf's state of mind right after discovering his homework missing with his state of mind after he reflects and commits to a plan.",
-          "options": ["He moves from anxious panic to a steady, deliberate resolve", "He remains equally anxious throughout both moments", "He feels proud at first, and ashamed afterward", "He feels bored at first, and alarmed afterward"],
+          "options": ["He moves from anxious panic to a steady, deliberate resolve", "He remains equally anxious throughout both moments of the day", "He feels proud at first, and ashamed afterward when he gets home", "He feels bored at first, and alarmed afterward in the classroom"],
           "answer": "A",
           "skill": "compare",
           "why": "Yusuf first feels a wave of worry and the urge to panic, but after reflecting he grows steadier and more resolved.",

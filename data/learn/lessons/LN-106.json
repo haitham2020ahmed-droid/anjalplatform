@@ -75,10 +75,10 @@
     "passage": "Ants work as a team. They carry food home together.\n[Picture: a line of ants carrying a leaf.]\nCaption: An ant can lift a leaf much heavier than its own body.",
     "stem": "What does the caption tell us about ants?",
     "options": [
-     "Ants are red.",
-     "Ants live in trees.",
+     "Ants are red and very small.",
+     "Ants live in trees and bushes.",
      "Ants can lift heavy things.",
-     "Ants eat sugar."
+     "Ants eat sugar and bread."
     ],
     "answer": 2,
     "hint": "Read the line that starts with Caption. What does it say an ant can do?",
@@ -312,7 +312,7 @@
      "They show how far the water must travel to reach cities.",
      "They explain how salt is removed from water.",
      "They prove that Saudi Arabia has many rivers.",
-     "They show which cities use the least water."
+     "They show which cities use the least water in the country."
     ],
     "answer": 0,
     "hint": "The paragraph explains how salt is removed. What do the map lines and the caption show about distance?",
@@ -339,9 +339,9 @@
      "passage": "Our hearts never stop working. The heart is a strong muscle that pumps blood around the body.\n[Diagram: a heart with arrows showing blood going in, through four rooms called chambers, and out.]\nCaption: Blood always moves in one direction through the heart.",
      "stem": "Why did the author most likely include the diagram?",
      "options": [
-      "To show that the heart is a muscle",
-      "To prove that blood is red",
-      "To name the bones near the heart",
+      "To show that the heart is a muscle in the chest",
+      "To prove that blood is red and not blue",
+      "To name the bones that are near the heart",
       "To show the path blood takes through the heart"
      ],
      "answer": 3,
@@ -422,10 +422,10 @@
     "passage": "Many people assume that traffic accidents happen mostly at night, when it is dark. A city's road safety office studied a full year of crash reports to find out. The results surprised many drivers: the largest number of crashes happened in the late afternoon, when roads were busiest and people were hurrying home. The office now places extra traffic officers on main roads during those hours.\nBar graph: Crashes by time of day.\nMorning: 310 crashes.\nEarly afternoon: 420 crashes.\nLate afternoon and evening: 690 crashes.\nNight: 380 crashes.\nCaption: Most crashes happened during the evening rush.",
     "stem": "How does the bar graph develop the ideas in the passage?",
     "options": [
-     "It shows that night is the most dangerous time to drive.",
-     "It explains why drivers hurry home in the afternoon.",
+     "It shows that night is the most dangerous time to drive a car.",
+     "It explains why drivers hurry home in the afternoon every day.",
      "It supplies numbers showing the late-afternoon period had the most crashes.",
-     "It shows where the officers will stand on main roads."
+     "It shows where the police officers will stand on the main roads and bridges."
     ],
     "answer": 2,
     "hint": "Which bar is tallest? Does it match the surprising result in the words, or the common belief?",
@@ -458,9 +458,9 @@
      "passage": "Some people think Saudi Arabia is desert everywhere. In fact, the southwest has green mountain slopes where farmers grow coffee and fruit on stepped terraces.\nMap: rainfall per year; most of the country is shaded pale yellow (under 100 mm), while the Asir mountains in the southwest are dark green (over 300 mm).",
      "stem": "How does the map support the author's point?",
      "options": [
-      "It shows that all regions get the same rainfall.",
-      "It proves that coffee grows in every region.",
-      "It shows that the desert is growing each year.",
+      "It shows that all regions get the same rainfall each year.",
+      "It proves that coffee grows in every region of the country.",
+      "It shows that the desert is growing each year in the east.",
       "It shows the southwest gets much more rain than most areas."
      ],
      "answer": 3,
@@ -471,8 +471,8 @@
      "stem": "What is the main purpose of the timeline?",
      "options": [
       "To compare, so readers see how much longer plastic lasts",
-      "To list the most common items in rubbish bins",
-      "To teach readers how to recycle paper bags",
+      "To list the most common items in rubbish bins at home",
+      "To teach readers how to recycle paper bags at home",
       "To prove that banana peels are bad for nature"
      ],
      "answer": 0,

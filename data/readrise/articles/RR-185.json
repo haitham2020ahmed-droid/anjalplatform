@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How to build a new air conditioner",
+            "How to build a new air conditioner for the home",
             "How towers on roofs kept homes cool long ago",
-            "Why the Gulf is very windy",
-            "How to swim in a pool"
+            "Why the Gulf is very windy in the summer",
+            "How to swim in a pool without a teacher"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -200,9 +200,9 @@
           "stem": "Why does the article say some towers send the air past cool water first?",
           "options": [
             "To make the air even cooler",
-            "To wash the tower",
-            "To give birds a drink",
-            "To make the house wet"
+            "To wash the tower each day",
+            "To give birds a drink of water",
+            "To make the house wet inside"
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -310,10 +310,10 @@
         {
           "stem": "Why do windcatcher openings face the wind high above the ground?",
           "options": [
-            "The wind there is weaker and dustier.",
+            "The wind there is weaker and much dustier.",
             "The wind there is stronger and has less dust.",
-            "Birds cannot reach that high.",
-            "The sun is hidden up there."
+            "Birds cannot reach that high, so they stay away.",
+            "The sun is hidden up there, so it stays cool."
           ],
           "answer": "B",
           "skill": "detail",
@@ -395,9 +395,9 @@
         {
           "stem": "Why might architects today care that windcatchers need no electricity?",
           "options": [
-            "Because electricity is never used in modern homes",
-            "Because windcatchers are cheaper to paint",
-            "Because towers make buildings look taller",
+            "Because electricity is never used in modern homes or offices, so towers are needed",
+            "Because windcatchers are cheaper to paint than other towers in the town",
+            "Because towers make buildings look taller and grander than they are",
             "Because new buildings that use less energy are helpful today"
           ],
           "answer": "D",
@@ -557,10 +557,10 @@
         {
           "stem": "Based on the article, which modern building would best follow windcatcher principles?",
           "options": [
-            "A sealed glass tower cooled only by large air conditioners",
+            "A sealed glass tower cooled only by large air conditioners on every floor",
             "A school with tall vents that bring in breezes and let hot air escape",
-            "A house with no windows at all",
-            "A building that burns fuel to make cold air"
+            "A house with no windows at all, so the air stays still inside",
+            "A building that burns fuel to make cold air for all the rooms"
           ],
           "answer": "B",
           "skill": "inference",
@@ -574,10 +574,10 @@
         {
           "stem": "Why does the author describe the rawasheen of Al-Balad in an article about windcatchers?",
           "options": [
-            "To show that Jeddah had the tallest windcatchers",
+            "To show that Jeddah had the tallest windcatchers in all the Arab world",
             "To show a related way of using natural breezes in Saudi Arabia",
-            "To explain how evaporation works",
-            "To argue that wood is better than stone"
+            "To explain how evaporation works in a hot and dry place",
+            "To argue that wood is better than stone for building a home"
           ],
           "answer": "B",
           "skill": "author-purpose",

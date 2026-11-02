@@ -148,10 +148,10 @@
         {
           "stem": "What helped the diver go down fast?",
           "options": [
-            "A big fish",
+            "A big fish that pulled him",
             "A heavy stone on a rope",
-            "A clip on his nose",
-            "A long ladder"
+            "A clip on his nose and ears",
+            "A long ladder made of rope"
           ],
           "answer": "B",
           "skill": "detail",
@@ -233,10 +233,10 @@
         {
           "stem": "Which two things made pearl diving end?",
           "options": [
-            "Storms and sharks",
+            "Storms and sharks near the coast",
             "Pearl farms in Japan and finding oil",
-            "New boats and new ropes",
-            "Cold water and big waves"
+            "New boats and new ropes for the divers",
+            "Cold water and big waves every winter"
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -294,9 +294,9 @@
           "stem": "What is the central idea of the article?",
           "options": [
             "Pearl diving was a key Gulf way of life until farmed pearls and oil changed it.",
-            "Oysters are dangerous sea animals that divers tried to avoid.",
-            "Oil was found in Japan in 1938, so the divers moved there.",
-            "Divers used modern tanks of air to stay underwater for hours."
+            "Oysters are dangerous sea animals that divers tried to avoid, so they stopped diving",
+            "Oil was found in Japan in 1938, so the divers moved there and left the Gulf for good",
+            "Divers used modern tanks of air to stay underwater for hours, deep below the waves"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -345,9 +345,9 @@
           "stem": "Read this: \"pearls were the main source of income.\" What does income mean?",
           "options": [
             "Money a family earns",
-            "A kind of boat",
-            "A type of shell",
-            "A long trip"
+            "A kind of boat for fishing",
+            "A type of shell on the sand",
+            "A long trip on the sea"
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -395,10 +395,10 @@
         {
           "stem": "Why did many men leave pearl diving for oil jobs?",
           "options": [
-            "They were afraid of dhows",
+            "They were afraid of dhows and wanted to avoid the big ships",
             "Oil jobs were more dependable than diving for pearls",
-            "Oil companies paid them in pearls",
-            "The sea dried up"
+            "Oil companies paid them in pearls instead of money",
+            "The sea dried up and no more pearls could be found"
           ],
           "answer": "B",
           "skill": "inference",
@@ -412,9 +412,9 @@
         {
           "stem": "How is the article mostly organized?",
           "options": [
-            "As a list of famous pearls",
-            "As an argument for more diving",
-            "As a comparison of Gulf countries",
+            "As a list of famous pearls found in the Gulf and in the Red Sea",
+            "As an argument for more diving in the waters of the Gulf",
+            "As a comparison of Gulf countries and their pearl sales",
             "From how pearls form, to how divers worked, to why the work declined"
           ],
           "answer": "D",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best summarizes the article?",
           "options": [
-            "Pearl diving was easy, safe work that paid every diver very well.",
+            "Pearl diving was easy, safe work that paid every diver very well in the end.",
             "Pearling was a hard Gulf livelihood that declined but lives on as heritage.",
-            "Cultured pearls have only ever been found in the Arabian Gulf.",
-            "Divers used stones to break open oysters underwater."
+            "Cultured pearls have only ever been found in the Arabian Gulf, and nowhere else.",
+            "Divers used stones to break open oysters underwater, and then swam up quickly."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -541,9 +541,9 @@
           "stem": "What can be inferred about why the crew opened the oysters the next morning rather than on the sea floor?",
           "options": [
             "Divers had only one breath, so they spent their time collecting, not searching",
-            "Oysters can only be opened in sunlight",
-            "Captains wanted to sleep first",
-            "Pearls dissolve in seawater"
+            "Oysters can only be opened in sunlight, because the shells stay closed in the dark water",
+            "Captains wanted to sleep first, so the crew waited until morning to work",
+            "Pearls dissolve in seawater, so the shells had to be taken out of the water"
           ],
           "answer": "A",
           "skill": "inference",
@@ -558,9 +558,9 @@
           "stem": "What is the most likely reason the author describes the stone, nose clip, and rope in detail?",
           "options": [
             "To show the simple tools and great skill that pearl diving required",
-            "To explain how oil is drilled",
-            "To sell diving equipment",
-            "To describe modern scuba diving"
+            "To explain how oil is drilled from the sea floor by large machines",
+            "To sell diving equipment to readers who want to try the sport",
+            "To describe modern scuba diving and the tanks that divers carry"
           ],
           "answer": "A",
           "skill": "author-purpose",
@@ -591,10 +591,10 @@
         {
           "stem": "Why does the article say pearl diving \"survives as treasured heritage\"?",
           "options": [
-            "Divers still use it as their main job",
+            "Divers still use it as their main job in the Gulf every year",
             "People remember and celebrate it in museums, songs, and festivals",
-            "It is now taught in every school",
-            "Cultured pearls are made in the Gulf"
+            "It is now taught in every school as a required subject for all children",
+            "Cultured pearls are made in the Gulf by farms that use new machines"
           ],
           "answer": "B",
           "skill": "detail",

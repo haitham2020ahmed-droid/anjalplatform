@@ -91,10 +91,10 @@
      "passage": "At the zoo we saw lions, bears, and camels.",
      "stem": "What do the commas do?",
      "options": [
-      "They end the sentence.",
+      "They end the sentence after each animal.",
       "They keep the animals in the list apart.",
-      "They show a question.",
-      "They join two names."
+      "They show a question about the animals.",
+      "They join two names into one word."
      ],
      "answer": 1,
      "why": "Lions, bears and camels are three things in a list. The commas keep them apart."
@@ -115,10 +115,10 @@
      "passage": "Grandma made soup. She used carrots onions and beans. It was hot and good.",
      "stem": "Which sentence needs commas?",
      "options": [
-      "Grandma made soup.",
+      "Grandma made soup for the family.",
       "She used carrots onions and beans.",
-      "It was hot and good.",
-      "None of them."
+      "It was hot and good for lunch.",
+      "None of them need any commas."
      ],
      "answer": 1,
      "why": "Carrots, onions and beans are three things. Hot and good is only two, so it needs no comma."
@@ -418,7 +418,7 @@
       "It shows that three different groups were thanked.",
       "It shows that the sentence is a question.",
       "It shows that the principal is a teacher.",
-      "It shows that the guard spoke first."
+      "It shows that the guard spoke first, then the others."
      ],
      "answer": 0,
      "why": "Without it, a reader may think the teachers ARE the principal and the guard. The comma shows three separate groups."
@@ -427,10 +427,10 @@
      "passage": "The new park has shaded benches, a long walking track and, a small playground for children.",
      "stem": "Which change corrects the sentence?",
      "options": [
-      "Add a comma after \"shaded.\"",
+      "Add a comma after \"shaded.\" at the end of the line.",
       "Move the comma from after \"and\" to before it.",
-      "Remove the comma after \"benches.\"",
-      "Add a comma after \"small.\""
+      "Remove the comma after \"benches.\" in the middle part.",
+      "Add a comma after \"small.\" near the start of it."
      ],
      "answer": 1,
      "why": "A comma never comes right after and. Moving it gives: a long walking track, and a small playground."

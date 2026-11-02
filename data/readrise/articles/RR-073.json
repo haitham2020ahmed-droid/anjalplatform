@@ -165,7 +165,7 @@
         {
           "stem": "The article says a drone has no pilot on board. What is a pilot?",
           "options": [
-            "a box with two sticks",
+            "a box with two sticks and a button",
             "a person who flies an aircraft",
             "a small camera on a drone",
             "a tall tower near a farm"
@@ -199,9 +199,9 @@
         {
           "stem": "How could a drone with a camera help find a lost child?",
           "options": [
-            "It can call the child's name.",
-            "It can dig deep in the sand.",
-            "It can carry the child home.",
+            "It can call the child's name",
+            "It can dig deep in the sand to find the child.",
+            "It can carry the child home through the desert.",
             "It can see a big area from high up."
           ],
           "answer": "D",
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
-            "Drones have four propellers that spin quickly.",
+            "Drones have four propellers that spin quickly, and they can fly for many hours in the rain.",
             "Drones fly without a pilot on board and do many useful jobs, but they must be flown safely.",
-            "Farmers use drones to spray their crops.",
-            "Drones must be registered in Saudi Arabia."
+            "Farmers use drones to spray their crops, and no other jobs are done by drones in Saudi Arabia.",
+            "Drones must be registered in Saudi Arabia, and children are not allowed to fly them at all."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -310,10 +310,10 @@
         {
           "stem": "How does a drone rise into the air?",
           "options": [
-            "It fills with a gas lighter than air.",
-            "A remote controller pulls it upward.",
+            "It fills with a gas that is lighter than air.",
+            "A remote controller pulls it upward on a string.",
             "Its propellers spin faster and push air down.",
-            "Its battery shoots out a jet of fire."
+            "Its battery shoots out a jet of fire to lift it."
           ],
           "answer": "C",
           "skill": "detail",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best summarizes the article?",
           "options": [
-            "Thermal cameras can find people in the dark.",
-            "Rwanda was the first country to use drones.",
+            "Thermal cameras can find people in the dark, so drones are used only at night to look for them.",
+            "Rwanda was the first country to use drones, and it uses them for delivery in the cities.",
             "Drones are useful tools with real limits, so they need rules for safety and privacy.",
-            "Satellites are the most important part of a drone."
+            "Satellites are the most important part of a drone, and they hold the cameras and the wings."
           ],
           "answer": "C",
           "skill": "central-idea",

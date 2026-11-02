@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How airplanes use their wings to fly",
+            "How airplanes use their wings to fly through the air",
             "How wind turbines turn moving air into electricity",
-            "Why the wind blows harder at the sea",
-            "How people build very tall buildings"
+            "Why the wind blows harder at the sea than inland",
+            "How people build very tall buildings with cranes"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
-            "Turbines are far too tall for engineers to build safely.",
-            "Every single wind farm in the world is built out at sea.",
+            "Turbines are far too tall for engineers to build safely, so wind power is never used.",
+            "Every single wind farm in the world is built out at sea, far from any town.",
             "Wind turbines generate renewable electricity, though wind is not steady.",
-            "Oil and gas will always cost far less than wind power does."
+            "Oil and gas will always cost far less than wind power does, in every country."
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -311,8 +311,8 @@
           "stem": "According to the article, what shape are turbine blades designed with?",
           "options": [
             "Shaped somewhat like an airplane wing",
-            "Round and curved like a ball",
-            "Completely flat, like a wall",
+            "Round and curved like a ball in the air",
+            "Completely flat, like a wall of stone",
             "Shaped like the hull of a boat"
           ],
           "answer": "A",
@@ -327,8 +327,8 @@
         {
           "stem": "What has Saudi Arabia begun building, according to the article?",
           "options": [
-            "Underwater tunnels built for large ships",
-            "Tall city buildings that have no windows",
+            "Underwater tunnels built for large ships to pass through",
+            "Tall city buildings that have no windows at all",
             "Small windmills meant only for home gardens",
             "Large wind farms as part of its push toward renewable energy"
           ],
@@ -344,10 +344,10 @@
         {
           "stem": "Read: \"it is a renewable source of energy.\" What does renewable mean here?",
           "options": [
-            "Costly for a country to build",
+            "Costly for a country to build and run each year",
             "Able to be used again without running out",
-            "Dangerous to be near or to touch",
-            "Difficult to find in most places"
+            "Dangerous to be near or to touch with bare hands",
+            "Difficult to find in most places on Earth"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -491,8 +491,8 @@
           "options": [
             "A battery at the base of the tower",
             "A generator inside the turbine's housing",
-            "A solar panel beside the blades",
-            "A pump connected to the ground"
+            "A solar panel beside the blades of the turbine",
+            "A pump connected to the ground below the tower"
           ],
           "answer": "B",
           "skill": "detail",
@@ -558,9 +558,9 @@
           "stem": "Based on the article, why does a wind farm need supporting infrastructure, such as roads and cables?",
           "options": [
             "To connect the site to the wider grid so power can be used elsewhere",
-            "To give visiting tourists a convenient place to park",
-            "To keep the turbines from ever spinning too fast",
-            "To store a supply of extra blades for repairs"
+            "To give visiting tourists a convenient place to park their cars",
+            "To keep the turbines from ever spinning too fast in a storm",
+            "To store a supply of extra blades for repairs on the site"
           ],
           "answer": "A",
           "skill": "inference",

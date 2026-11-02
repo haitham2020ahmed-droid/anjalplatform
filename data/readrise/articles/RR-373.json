@@ -182,10 +182,10 @@
         {
           "stem": "Why can the crow find water when the other birds cannot?",
           "options": [
-            "She has a map of the hillside",
+            "She has a map of the hillside and the lake",
             "She remembers water from past dry years",
-            "She asks a farmer for help",
-            "She digs new wells in the ground"
+            "She asks a farmer for help with the water",
+            "She digs new wells in the ground by herself"
           ],
           "answer": "B",
           "skill": "inference",
@@ -199,10 +199,10 @@
         {
           "stem": "What can you tell about the other birds' panic?",
           "options": [
-            "It helps them find water faster",
+            "It helps them find water faster, as they fly in all ways",
             "It wastes their energy and finds no water",
-            "It makes the crow panic, too",
-            "It brings the rain back sooner"
+            "It makes the crow panic, too, and she flies away fast",
+            "It brings the rain back sooner than before"
           ],
           "answer": "B",
           "skill": "inference",
@@ -233,10 +233,10 @@
         {
           "stem": "Why does the author describe the panicked birds before describing the calm crow?",
           "options": [
-            "To teach readers how birds build nests",
+            "To teach readers how birds build nests in trees and bushes",
             "To make the crow's calm thinking stand out by contrast",
-            "To explain what the weather is like in winter",
-            "To show how fast young birds can fly"
+            "To explain what the weather is like in winter in the desert",
+            "To show how fast young birds can fly when they are afraid"
           ],
           "answer": "B",
           "skill": "author-purpose",
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the central idea of the story?",
           "options": [
-            "A flock of birds moves away from a dry hillside forever.",
+            "A flock of birds moves away from a dry hillside forever, to find a green valley, and never comes back.",
             "A calm, experienced crow relies on her memory and a reliable method to guide her flock through a drought.",
-            "A young crow learns to fly for the very first time.",
-            "A flock of birds argues about which hill to live on."
+            "A young crow learns to fly for the very first time, with help from the flock and an old fox.",
+            "A flock of birds argues about which hill to live on, and in the end, they split into two groups."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -310,10 +310,10 @@
         {
           "stem": "What does the crow rely on to locate water during the drought?",
           "options": [
-            "A map drawn by the village farmers",
-            "Advice from a wiser animal she meets",
+            "A map drawn by the village farmers, with springs",
+            "Advice from a wiser animal she meets on the road",
             "Her memory of water from earlier dry years",
-            "The sound of running water nearby"
+            "The sound of running water nearby, heard from afar"
           ],
           "answer": "C",
           "skill": "detail",
@@ -361,10 +361,10 @@
         {
           "stem": "Why does panic make the other birds' situation worse, based on the story?",
           "options": [
-            "Panic makes the birds too tired to fly at all",
+            "Panic makes the birds too tired to fly at all, so they sit on the ground",
             "Panic makes the birds search without a plan, wasting their strength",
-            "Panic causes the drought to last even longer",
-            "Panic makes the younger birds forget how to drink"
+            "Panic causes the drought to last even longer than it would have",
+            "Panic makes the younger birds forget how to drink from the small pool"
           ],
           "answer": "B",
           "skill": "inference",
@@ -378,10 +378,10 @@
         {
           "stem": "What can you infer about why the crow finds a quiet branch away from the panicked crowd?",
           "options": [
-            "She wants to rest and ignore the problem",
+            "She wants to rest and ignore the problem for a while",
             "She needs quiet to think clearly and remember carefully",
-            "She is afraid of the other birds",
-            "She is looking for food for herself"
+            "She is afraid of the other birds and wants to hide from them",
+            "She is looking for food for herself and her young birds"
           ],
           "answer": "B",
           "skill": "inference",
@@ -412,10 +412,10 @@
         {
           "stem": "How does the author organize the events of the story?",
           "options": [
-            "By comparing two different flocks of birds",
+            "By comparing two different flocks of birds in a drought, one after the other",
             "By describing the drought and panic first, then the crow's calm, methodical search for water",
-            "By listing facts about crows in general",
-            "By telling the story backward, starting with the rain's return"
+            "By listing facts about crows in general, such as their size and what they eat",
+            "By telling the story backward, starting with the rain's return and ending in the drought"
           ],
           "answer": "B",
           "skill": "text-structure",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best expresses the central idea of the story?",
           "options": [
-            "A flock abandons its home rather than face a drought.",
-            "A crow competes with other birds to find water first.",
+            "A flock abandons its home rather than face a drought that lasts all year.",
+            "A crow competes with other birds to find water first, and wins a prize.",
             "A calm, experienced crow's instinct and memory resolve the crisis.",
-            "A drought permanently destroys an entire flock of birds."
+            "A drought permanently destroys an entire flock of birds in the mountains."
           ],
           "answer": "C",
           "skill": "central-idea",

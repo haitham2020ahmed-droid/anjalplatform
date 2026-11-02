@@ -472,9 +472,9 @@
         {
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
-            "Rainbows are rare and appear only after storms in spring.",
-            "Isaac Newton proved that the ideas of Ibn al-Haytham about light were wrong.",
-            "Garden hoses produce stronger rainbows than rain does.",
+            "Rainbows are rare and appear only after storms in spring, when the air is very cold.",
+            "Isaac Newton proved that the ideas of Ibn al-Haytham about light were wrong, and people stopped studying light.",
+            "Garden hoses produce stronger rainbows than rain does, because the water is closer to us.",
             "Raindrops refract and reflect sunlight, separating its wavelengths into an ordered spectrum."
           ],
           "answer": "D",
@@ -506,7 +506,7 @@
         {
           "stem": "What did Isaac Newton use prisms to demonstrate?",
           "options": [
-            "That rainbows are full circles",
+            "That rainbows are full circles in the sky",
             "That raindrops are made of glass",
             "That white light contains every color",
             "That violet bends less than red"

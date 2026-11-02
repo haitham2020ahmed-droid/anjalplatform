@@ -131,10 +131,10 @@
         {
           "stem": "Where does space junk come from?",
           "options": [
-            "Only from the Sun burning out",
-            "Only from clouds forming in the sky",
+            "Only from the Sun burning out, which throws bits into space",
+            "Only from clouds forming in the sky above the Earth",
             "Old satellites, rocket parts, and crashes or blasts",
-            "Only from the Moon breaking apart"
+            "Only from the Moon breaking apart into small pieces"
           ],
           "answer": "C",
           "skill": "detail",
@@ -184,8 +184,8 @@
           "options": [
             "Because it is painted a dark color",
             "Because it moves very fast, like a bullet",
-            "Because it is always very hot",
-            "Because it is shaped like a ball"
+            "Because it is always very hot and burns",
+            "Because it is shaped like a ball that bounces"
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -234,9 +234,9 @@
           "stem": "Why does the author explain how fast space junk moves?",
           "options": [
             "To show why even small pieces of junk can be dangerous",
-            "To teach readers how to build a rocket",
-            "To explain how stars are born",
-            "To show that space junk is not a real problem"
+            "To teach readers how to build a rocket from old parts",
+            "To explain how stars are born in clouds of dust",
+            "To show that space junk is not a real problem for ships"
           ],
           "answer": "A",
           "skill": "author-purpose",
@@ -293,9 +293,9 @@
         {
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
-            "Space junk is harmless because it never moves very fast.",
-            "Space agencies have already removed every piece of space junk from orbit.",
-            "Only astronauts need to know anything at all about space junk.",
+            "Space junk is harmless because it never moves very fast, so it cannot hurt any satellite or spacecraft.",
+            "Space agencies have already removed every piece of space junk from orbit, so the sky is now completely clean and safe.",
+            "Only astronauts need to know anything at all about space junk, because it never comes near anyone else on Earth or in the sky above.",
             "Space junk is made of old satellites, rocket parts, and fragments, and it is tracked and cleaned up because it is dangerous at high speed."
           ],
           "answer": "D",
@@ -344,10 +344,10 @@
         {
           "stem": "The article says junk can break into fragments. What does fragment mean?",
           "options": [
-            "A whole, working satellite",
+            "A whole, working satellite in space today",
             "A small broken piece of something larger",
-            "A kind of fast-moving rocket",
-            "A tool used to track junk"
+            "A kind of fast-moving rocket engine",
+            "A tool used to track junk in orbit"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -412,10 +412,10 @@
         {
           "stem": "How does the author organize the information in this article?",
           "options": [
-            "By telling the complete life story of one astronaut",
+            "By telling the complete life story of one astronaut who works in space",
             "By explaining what space junk is, why it is risky, and what is being done about it",
-            "By comparing Earth's atmosphere to the atmosphere of Mars",
-            "By listing every single satellite ever launched into space"
+            "By comparing Earth's atmosphere to the atmosphere of Mars and Venus",
+            "By listing every single satellite ever launched into space by any country in history"
           ],
           "answer": "B",
           "skill": "text-structure",
@@ -489,10 +489,10 @@
         {
           "stem": "According to the article, what besides old satellites and rocket stages creates orbital debris?",
           "options": [
-            "Clouds forming unusually high in Earth's atmosphere",
+            "Clouds forming unusually high in Earth's atmosphere above the poles",
             "Fragments scattered when objects collide or a satellite explodes",
-            "New stars forming far outside our solar system",
-            "Sunlight reflecting off the surface of the Moon"
+            "New stars forming far outside our solar system in deep space",
+            "Sunlight reflecting off the surface of the Moon at night"
           ],
           "answer": "B",
           "skill": "detail",
@@ -506,10 +506,10 @@
         {
           "stem": "What method does the article describe for removing a dead satellite from orbit?",
           "options": [
-            "Launching a second rocket to crash directly into it",
+            "Launching a second rocket to crash directly into it and break it apart",
             "Using a net, harpoon, or robotic arm to capture it, then dragging it to burn up",
-            "Waiting for sunlight to melt it away completely",
-            "Sending astronauts outside to push it manually toward Earth"
+            "Waiting for sunlight to melt it away completely over many years in space",
+            "Sending astronauts outside to push it manually toward Earth with their hands"
           ],
           "answer": "B",
           "skill": "detail",
@@ -523,10 +523,10 @@
         {
           "stem": "The article explains that agencies try to mitigate the hazard of orbital debris. What does mitigate mean here?",
           "options": [
-            "To make a problem more dangerous",
+            "To make a problem more dangerous than before",
             "To create an entirely new problem",
             "To make a problem or its effects less severe",
-            "To completely ignore a problem"
+            "To completely ignore it and walk away"
           ],
           "answer": "C",
           "skill": "vocabulary",
@@ -541,9 +541,9 @@
           "stem": "Why does the article say that size alone does not determine how hazardous debris is?",
           "options": [
             "Because tiny fragments move at the same extreme velocity and still carry great force.",
-            "Because tiny fragments are always much heavier than large ones.",
-            "Because large pieces of debris are completely harmless to spacecraft.",
-            "Because tiny fragments cannot be detected by any instrument ever built."
+            "Because tiny fragments are always much heavier than large ones, so they cause more damage.",
+            "Because large pieces of debris are completely harmless to spacecraft, even at high speed.",
+            "Because tiny fragments cannot be detected by any instrument ever built, even from the ground."
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -574,10 +574,10 @@
         {
           "stem": "What can the reader infer about the Kessler syndrome mentioned in the article?",
           "options": [
-            "It describes a single satellite that will never stop working.",
+            "It describes a single satellite that will never stop working, fall, or break apart.",
             "It describes a chain reaction in which collisions create debris that causes further collisions.",
-            "It describes a method for safely removing all debris at once.",
-            "It describes a rule that prevents any new satellites from being launched."
+            "It describes a method for safely removing all of the space debris at once from orbit around Earth.",
+            "It describes a rule that prevents any new satellites from being launched at all."
           ],
           "answer": "B",
           "skill": "inference",
@@ -591,10 +591,10 @@
         {
           "stem": "Why does the author describe both tracking efforts and cleanup missions in this article?",
           "options": [
-            "To argue that orbital debris is actually a harmless myth",
+            "To argue that orbital debris is actually a harmless myth that has been made up",
             "To show the two main ways scientists respond to the hazard of orbital debris",
-            "To explain how satellites are originally designed and built",
-            "To compare the atmospheres of Earth and Mars"
+            "To explain how satellites are originally designed and built in a factory",
+            "To compare the atmospheres of Earth and Mars in great detail"
           ],
           "answer": "B",
           "skill": "author-purpose",

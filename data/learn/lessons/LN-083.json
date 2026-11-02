@@ -115,10 +115,10 @@
      "passage": "Sara sat down. Sara, open your book. Sara smiled.",
      "stem": "In which sentence is someone spoken to?",
      "options": [
-      "Sara sat down.",
-      "Sara smiled.",
+      "Sara sat down on a chair.",
+      "Sara smiled at the book.",
       "Sara, open your book.",
-      "None of them."
+      "None of them at all."
      ],
      "answer": 2,
      "why": "Someone tells Sara to open her book. The other sentences only tell about her."
@@ -324,10 +324,10 @@
      "passage": "Mona, the library opens at eight, doesn't it?",
      "stem": "Why does this sentence have two commas?",
      "options": [
-      "Both separate items in a list.",
+      "Both separate items in a list of names.",
       "One sets off the name; one sets off the tag.",
-      "Both show where the speaker is.",
-      "One joins two sentences; one ends it."
+      "Both show where the speaker is standing.",
+      "One joins two sentences; one ends it for good."
      ],
      "answer": 1,
      "why": "Mona is spoken to, and doesn't it? is a tag. Each extra part gets a comma."

@@ -114,10 +114,10 @@
         {
           "stem": "What is this story mostly about?",
           "options": [
-            "Three friends who plant a garden at school",
+            "Three friends who plant a garden at school and sell the flowers to visitors",
             "Three friends who find a new way to get kids to join their library club",
-            "A teacher who closes the school library",
-            "A class that goes on a field trip to another school"
+            "A teacher who closes the school library because there are not enough books",
+            "A class that goes on a field trip to another school across the city"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -132,9 +132,9 @@
           "stem": "Why does Sara feel sad at the start of the story?",
           "options": [
             "Only three kids come to the library club",
-            "She lost her favorite book",
-            "She did not get a sticker",
-            "Her friends moved to a new school"
+            "She lost her favorite book at the library",
+            "She did not get a sticker for her work",
+            "Her friends moved to a new school far away"
           ],
           "answer": "A",
           "skill": "detail",
@@ -231,10 +231,10 @@
         {
           "stem": "How are the reading challenge and the book wall alike?",
           "options": [
-            "They both happen outside the school",
+            "They both happen outside the school building, in a park",
             "They both help make the library club more popular",
-            "They both are about sports, not books",
-            "They both happen only one time"
+            "They both are about sports, not about books at all",
+            "They both happen only one time, at the end of the year"
           ],
           "answer": "B",
           "skill": "compare",
@@ -292,9 +292,9 @@
           "stem": "Which sentence best states the central idea of the story?",
           "options": [
             "Three students use creative ideas to grow their library club and make it popular.",
-            "A librarian decides to remove all the mystery books from the shelves.",
-            "A school cancels every after-school club because of low attendance.",
-            "A student wins a prize for reading the most books in the whole school."
+            "A librarian decides to remove all the mystery books from the shelves of the library.",
+            "A school cancels every after-school club because of low attendance in the fall.",
+            "A student wins a prize for reading the most books in the whole school this year."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -308,10 +308,10 @@
         {
           "stem": "Why are Sara, Omar, and Lina worried at the beginning of the story?",
           "options": [
-            "They cannot find enough mystery books",
+            "They cannot find enough mystery books for the club to read",
             "Attendance at their club never grows past the three of them",
-            "The library closes every Tuesday",
-            "Their teacher wants to cancel the book wall"
+            "The library closes every Tuesday, so the club cannot meet there",
+            "Their teacher wants to cancel the book wall in the main hall"
           ],
           "answer": "B",
           "skill": "detail",
@@ -343,9 +343,9 @@
           "stem": "Why do more students become curious about the library after the school meeting?",
           "options": [
             "The signs and announcement introduce exciting new ideas",
-            "The principal orders every student to join",
-            "The library offers free lunch to visitors",
-            "The teacher gives everyone a mystery novel"
+            "The principal orders every student to join the library",
+            "The library offers free lunch to visitors who come",
+            "The teacher gives everyone a mystery novel to read"
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -393,10 +393,10 @@
         {
           "stem": "How does the author organize the events in the story?",
           "options": [
-            "By comparing two different schools in every paragraph",
+            "By comparing two different schools in every paragraph of the story",
             "By describing the problem, the new ideas, and then the result of those ideas",
-            "By listing steps to build library shelves",
-            "By telling the story backward, starting with the ending"
+            "By listing the steps to build library shelves in a room",
+            "By telling the story backward, starting with the ending and then going back"
           ],
           "answer": "B",
           "skill": "text-structure",
@@ -410,10 +410,10 @@
         {
           "stem": "How are Mystery Month and the book wall similar as club ideas?",
           "options": [
-            "Both ideas take place far away from the school",
+            "Both ideas take place far away from the school, in the city",
             "Both ideas give students a reason to be curious about reading",
-            "Both ideas require students to write a long essay",
-            "Both ideas happen only one single time"
+            "Both ideas require students to write a long essay each week",
+            "Both ideas happen only one single time in a year"
           ],
           "answer": "B",
           "skill": "compare",
@@ -471,9 +471,9 @@
           "stem": "Which statement best expresses the central idea of the story?",
           "options": [
             "A small, struggling club is transformed when its members design initiatives that make reading feel genuinely exciting.",
-            "A principal forces every student to attend an after-school club against their will.",
-            "A library closes permanently because too few students show any interest in reading.",
-            "Three students compete against each other to see who can read the most books."
+            "A principal forces every student to attend an after-school club against their will, and nobody enjoys it at all.",
+            "A library closes permanently because too few students show any interest in reading or in the club at all.",
+            "Three students compete against each other to see who can read the most books, and one of them wins a prize."
           ],
           "answer": "A",
           "skill": "central-idea",

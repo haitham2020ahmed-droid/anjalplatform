@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How doctors clean ears",
+            "How doctors clean ears and keep them healthy and dry",
             "How the parts of the ear work together so we can hear",
-            "Why some animals have big ears",
-            "How to make loud music"
+            "Why some animals have big ears for the hot sun",
+            "How to make loud music with an ear piece and a drum"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
-            "The ear is the most important organ in the body.",
-            "Earwax is the main way the ear protects itself.",
+            "The ear is the most important organ in the body, and all of the other organs need it to work.",
+            "Earwax is the main way the ear protects itself from harm, and noise cannot hurt the ear at all.",
             "The ear turns vibrations into signals the brain understands, and it needs protection from loud noise.",
-            "People hear better in quiet places than in noisy ones."
+            "People hear better in quiet places than in noisy ones, and that is the only thing the article says."
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -361,9 +361,9 @@
         {
           "stem": "Why is it important that hair cells never grow back?",
           "options": [
-            "It means people can only hear for a few years",
-            "It means earwax must be removed every day",
-            "It means the bones in the ear will become weaker",
+            "It means people can only hear for a few years of life",
+            "It means earwax must be removed from the ear every day",
+            "It means the bones in the ear will become weaker with age",
             "It means hearing harmed by loud noise may be lost for good"
           ],
           "answer": "D",
@@ -472,9 +472,9 @@
         {
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
-            "Sound waves travel faster through fluid than through air.",
+            "Sound waves travel faster through fluid than through air, which is why people hear so well underwater, and this is all that matters for hearing.",
             "Hearing depends on a chain of structures that turn air vibrations into signals the brain interprets, and this system can be permanently harmed.",
-            "The middle ear is the most important part of hearing.",
+            "The middle ear is the most important part of hearing, so the other parts of the ear matter very little to the brain at all, and are not needed.",
             "Audiologists are the only people who understand how the ear works, so students should not try to learn about it."
           ],
           "answer": "B",
@@ -489,10 +489,10 @@
         {
           "stem": "According to the article, what do the hair cells in the cochlea do?",
           "options": [
-            "They secrete earwax to trap dust",
-            "They amplify vibrations in the middle ear",
+            "They secrete earwax to trap dust and keep the ear clean",
+            "They amplify vibrations in the middle ear before the sound goes in",
             "They convert mechanical vibration into electrical signals",
-            "They stretch the eardrum tight"
+            "They stretch the eardrum tight so that it can hear well"
           ],
           "answer": "C",
           "skill": "detail",
@@ -575,9 +575,9 @@
           "stem": "How does having two ears help the brain, according to the article?",
           "options": [
             "It compares the timing and loudness of sounds at each ear to find their direction",
-            "It doubles the number of bones that amplify sound",
-            "It lets one ear rest while the other one hears",
-            "It allows the brain to repair damaged hair cells"
+            "It doubles the number of bones that amplify sound inside each ear canal and eardrum",
+            "It lets one ear rest while the other one hears, so the brain gets less tired",
+            "It allows the brain to repair damaged hair cells in both ears while we sleep"
           ],
           "answer": "A",
           "skill": "compare",

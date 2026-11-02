@@ -200,9 +200,9 @@
           "stem": "Why was Antonie van Leeuwenhoek's discovery special?",
           "options": [
             "He was the first to see those tiny swimming things.",
-            "He was the first to make glass.",
-            "He was the first doctor in Holland.",
-            "He named the cells in cork."
+            "He was the first to make glass in Europe.",
+            "He was the first doctor in the country of Holland.",
+            "He named the cells in a piece of cork."
           ],
           "answer": "A",
           "skill": "inference",
@@ -216,10 +216,10 @@
         {
           "stem": "How might a microscope help a sick person?",
           "options": [
-            "It can make the sick person feel warm and sleepy.",
-            "It can take the place of medicine.",
+            "It can make the sick person feel warm and sleepy at night.",
+            "It can take the place of medicine in the hospital",
             "It can help a doctor find the germs that cause the sickness.",
-            "It can make the person's cells bigger."
+            "It can make the person's cells bigger and stronger"
           ],
           "answer": "C",
           "skill": "inference",
@@ -233,10 +233,10 @@
         {
           "stem": "Why does the author start with a drop of pond water?",
           "options": [
-            "To teach how to swim",
+            "To teach how to swim in a pond or a river",
             "To show that a lot of life is hidden from our eyes",
-            "To tell readers not to drink pond water",
-            "To explain how ponds are made"
+            "To tell readers not to drink pond water at all",
+            "To explain how ponds are made in the ground"
           ],
           "answer": "B",
           "skill": "author-purpose",
@@ -293,10 +293,10 @@
         {
           "stem": "What is the central idea of the article?",
           "options": [
-            "Robert Hooke was a better scientist than Leeuwenhoek.",
+            "Robert Hooke was a better scientist than Leeuwenhoek because he drew more pictures of insects.",
             "Microscopes reveal a hidden world of tiny living things and help science and medicine.",
-            "Pond water is dangerous and should never be touched by anyone.",
-            "Electron microscopes have replaced all other microscopes."
+            "Pond water is dangerous and should never be touched by anyone, not even to look at it.",
+            "Electron microscopes have replaced all other kinds of microscopes."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -378,10 +378,10 @@
         {
           "stem": "Why did Hooke choose the name \"cells\"?",
           "options": [
-            "He found them in a jail.",
+            "He found them in a jail near his home",
             "The tiny boxes reminded him of small rooms.",
-            "He saw them moving in water.",
-            "They looked like germs."
+            "He saw them moving in water under the glass",
+            "They looked like germs on the glass"
           ],
           "answer": "B",
           "skill": "inference",
@@ -395,9 +395,9 @@
         {
           "stem": "What can you infer about life before microscopes were invented?",
           "options": [
-            "People knew all about bacteria.",
-            "Doctors could easily see germs in blood.",
-            "Almost every family owned a lens at home.",
+            "People knew all about bacteria and how they spread.",
+            "Doctors could easily see germs in blood with their eyes.",
+            "Almost every family owned a lens at home for school.",
             "People did not know that tiny creatures lived in water."
           ],
           "answer": "D",
@@ -412,10 +412,10 @@
         {
           "stem": "How does the author organize the middle of the article?",
           "options": [
-            "From newest invention to oldest",
+            "From newest invention to oldest, one by one, back to the first",
             "By telling about early discoveries in order and then modern uses",
-            "As a list of steps for building a microscope",
-            "As a story told by a germ"
+            "As a list of steps for building a microscope out of glass",
+            "As a story told by a germ about its small life in the dirt"
           ],
           "answer": "B",
           "skill": "text-structure",
@@ -473,9 +473,9 @@
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
             "Microscopes have uncovered an invisible world and remain essential to science and medicine.",
-            "Cork is the best material for studying cells because it is thin and light.",
-            "Electron microscopes are too expensive for schools.",
-            "Leeuwenhoek invented the compound microscope."
+            "Cork is the best material for studying cells because it is thin and light, and so schools still use it today.",
+            "Electron microscopes are too expensive for schools, so most students use only their eyes.",
+            "Leeuwenhoek invented the compound microscope, and all later ones were copies."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -574,10 +574,10 @@
         {
           "stem": "What can be inferred about why scientists sometimes dye a specimen?",
           "options": [
-            "Dye makes the specimen grow larger.",
-            "Dye kills all the bacteria.",
+            "Dye makes the specimen grow larger so it is easy to see.",
+            "Dye kills all the bacteria so the specimen stays clean.",
             "Dye helps hidden parts stand out so they are easier to see.",
-            "Dye replaces the need for a lens."
+            "Dye replaces the need for a lens when looking at small things."
           ],
           "answer": "C",
           "skill": "inference",

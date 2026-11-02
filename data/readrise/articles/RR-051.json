@@ -182,10 +182,10 @@
         {
           "stem": "What is the weather like in the Empty Quarter?",
           "options": [
-            "Cold days, warm nights, and wind",
+            "Cold days, warm nights, and strong wind",
             "Hot days, cold nights, and little rain",
-            "Rain every day",
-            "Snow in the summer"
+            "Rain every day and green grass all year",
+            "Snow in the summer on the high dunes"
           ],
           "answer": "B",
           "skill": "detail",
@@ -233,9 +233,9 @@
         {
           "stem": "Why does the author begin by asking you to imagine a sea?",
           "options": [
-            "To teach you about fish in the sea",
+            "To teach you about the many fish in the deep sea",
             "To show that the desert is near the beach",
-            "To explain how ships sail",
+            "To explain how big ships sail across the sea at night",
             "To help you picture a huge place covered in sand"
           ],
           "answer": "D",
@@ -294,9 +294,9 @@
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
             "The Empty Quarter is a huge, harsh sand desert, yet animals and people have found ways to live and work there.",
-            "The Empty Quarter is the rainiest place in Saudi Arabia.",
-            "Camels are the only animals that live in the Empty Quarter.",
-            "Oil is the only interesting thing about the desert."
+            "The Empty Quarter is the rainiest place in Saudi Arabia, with lakes and green fields all over the land.",
+            "Camels are the only animals that live in the Empty Quarter, and people never go there to live or work.",
+            "Oil is the only interesting thing about the desert, so scientists and tourists have no reason to visit it."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -310,10 +310,10 @@
         {
           "stem": "Which countries does the Empty Quarter reach into besides Saudi Arabia?",
           "options": [
-            "Egypt, Jordan, Iraq, and Lebanon",
-            "Kuwait, Qatar, and Bahrain",
+            "Egypt, Jordan, Iraq, and Lebanon as well",
+            "Kuwait, Qatar, and Bahrain, and Iran",
             "Oman, the United Arab Emirates, and Yemen",
-            "Sudan, Syria, Turkey, and Libya"
+            "Sudan, Syria, Turkey, and Libya, too"
           ],
           "answer": "C",
           "skill": "detail",
@@ -412,10 +412,10 @@
         {
           "stem": "How does the author organize the article?",
           "options": [
-            "By telling a story about one camel from birth to old age",
+            "By telling a story about one camel from birth to old age in the dunes and the oases",
             "By describing the desert's size, sand, and weather, then the life and history found there",
-            "By listing steps to drill for oil",
-            "By comparing the Empty Quarter with a rainforest in each paragraph"
+            "By listing steps to drill for oil in the desert and the sea, one after another",
+            "By comparing the Empty Quarter with a rainforest in each paragraph, with a table"
           ],
           "answer": "B",
           "skill": "text-structure",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
-            "The Empty Quarter is too dangerous for anyone to study.",
+            "The Empty Quarter is too dangerous for anyone to study, so scientists have never gone inside it.",
             "The Empty Quarter is a vast, arid desert whose harsh conditions have shaped its land, its wildlife, and the people connected to it.",
-            "The Empty Quarter was once completely covered by an ocean.",
-            "Explorers from Europe discovered the Empty Quarter before anyone lived near it."
+            "The Empty Quarter was once completely covered by an ocean, and today the water has returned to it.",
+            "Explorers from Europe discovered the Empty Quarter before anyone lived near it, and they gave the desert its name and its first maps."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -575,9 +575,9 @@
           "stem": "What can readers infer from the rapid evaporation described in the article?",
           "options": [
             "Rain that falls is quickly lost, making it hard for plants and animals to find water",
-            "Evaporation makes the dunes grow taller each day",
-            "The desert is slowly turning into a lake",
-            "Evaporation is the reason the sand is red"
+            "Evaporation makes the dunes grow taller each day, because the wet sand lifts into the air",
+            "The desert is slowly turning into a lake, because rain collects there every single week",
+            "Evaporation is the reason the sand is red, as the water burns the stones in the heat"
           ],
           "answer": "A",
           "skill": "inference",

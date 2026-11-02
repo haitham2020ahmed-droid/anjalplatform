@@ -114,10 +114,10 @@
         {
           "stem": "What is this story mostly about?",
           "options": [
-            "A boy who learns to climb cliffs alone",
+            "A boy who learns to climb cliffs alone and without any rope",
             "A boy who finds a fallen eagle chick and gets help to save it",
-            "A boy who builds a nest for a bird",
-            "A dog that chases birds near a cliff"
+            "A boy who builds a nest for a bird in his garden at home",
+            "A dog that chases birds near a cliff by the sea every day"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -233,10 +233,10 @@
         {
           "stem": "Why do eagles help the land?",
           "options": [
-            "They build nests for other birds",
+            "They build nests for other birds in the trees",
             "They eat small animals, which helps balance",
-            "They scare away the ranger",
-            "They dig in the sand for oil"
+            "They scare away the ranger who looks after them",
+            "They dig in the sand for oil under the ground"
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -472,9 +472,9 @@
         {
           "stem": "Which statement best captures the central idea of the story?",
           "options": [
-            "Eagle chicks never fall from their nests",
-            "Noura's main job is counting the region's cliffs",
-            "Eagles only live safely inside zoos",
+            "Eagle chicks never fall from their nests, and so rangers have no reason to climb the high cliffs",
+            "Noura's main job is counting the region's cliffs, and she does not care about the birds living there",
+            "Eagles only live safely inside zoos, where people give them food and keep them away from danger",
             "Rakan's rescue of a fallen chick reveals the vital role eagles play as predators in their ecosystem"
           ],
           "answer": "D",
@@ -507,9 +507,9 @@
           "stem": "What does the story say rangers do to help protect the eagle population?",
           "options": [
             "They keep records of nests and check on them",
-            "They move nests to zoos every year",
-            "They feed eagles every single day",
-            "They build new cliffs for nesting"
+            "They move nests to zoos every year for safety",
+            "They feed eagles every single day in the winter",
+            "They build new cliffs for nesting out of stone"
           ],
           "answer": "A",
           "skill": "detail",
@@ -523,9 +523,9 @@
         {
           "stem": "Why does it matter that a breeding pair may raise only one or two chicks a year?",
           "options": [
-            "Eagles never lay more than one egg",
-            "Eagles live for only one or two years",
-            "Ranchers do not like eagles very much",
+            "Eagles never lay more than one egg each year",
+            "Eagles live for only one or two years in the wild",
+            "Ranchers do not like eagles very much at all",
             "Every surviving chick matters to the population"
           ],
           "answer": "D",
@@ -541,9 +541,9 @@
           "stem": "What can you infer about why Rakan chose to get help rather than act alone?",
           "options": [
             "His own effort, without the right skill, could harm the chick",
-            "He was afraid the mother eagle would attack him",
-            "He did not actually care about the chick",
-            "He was simply too tired to climb the cliff"
+            "He was afraid the mother eagle would attack him on the cliff",
+            "He did not actually care about the chick and its mother",
+            "He was simply too tired to climb the cliff by himself"
           ],
           "answer": "A",
           "skill": "inference",
@@ -558,9 +558,9 @@
           "stem": "In the story, the word habitat refers to —",
           "options": [
             "a kind of rope used for climbing",
-            "a law that protects animals",
+            "a law that protects animals from hunters",
             "the place where an animal normally lives",
-            "the sound an eagle makes"
+            "the sound an eagle makes when it calls"
           ],
           "answer": "C",
           "skill": "vocabulary",

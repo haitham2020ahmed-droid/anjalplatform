@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How your eyes let you see color",
+            "How your eyes let you see color and light",
             "How your ear hears sound and sends it to your brain",
-            "How to play a drum the right way",
-            "Why some animals cannot hear at all"
+            "How to play a drum the right way in a band",
+            "Why some animals cannot hear at all in the dark"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -165,10 +165,10 @@
         {
           "stem": "The article says the shaking finally turns into a signal. What does signal mean here?",
           "options": [
-            "A loud, scary sound",
+            "A loud, scary sound that wakes you at night",
             "A message sent to another part of the body",
-            "A tiny bone inside the ear",
-            "A kind of music"
+            "A tiny bone inside the ear that moves up and down",
+            "A kind of music that the brain plays"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -216,10 +216,10 @@
         {
           "stem": "How does the author mainly organize this article?",
           "options": [
-            "By comparing two different musical instruments",
+            "By comparing two different musical instruments and their sounds",
             "By following a sound's trip through the ear, step by step",
-            "By listing facts about the brain only",
-            "By telling a made-up story about a singer"
+            "By listing facts about the brain only, one after another",
+            "By telling a made-up story about a singer and her fans"
           ],
           "answer": "B",
           "skill": "text-structure",
@@ -378,10 +378,10 @@
         {
           "stem": "Why might someone not notice any pain even as loud noise damages their hearing?",
           "options": [
-            "Because the eardrum stops working completely during loud noise.",
-            "Because the auditory nerve blocks all signals during loud sound.",
+            "Because the eardrum stops working completely during loud noise, so the pain cannot be felt.",
+            "Because the auditory nerve blocks all signals during loud sound, so the brain feels nothing.",
             "Because hair cells in the cochlea can be damaged without causing warning pain.",
-            "Because loud sound never actually reaches the inner ear."
+            "Because loud sound never actually reaches the inner ear, so no part of it can be harmed."
           ],
           "answer": "C",
           "skill": "inference",
@@ -523,9 +523,9 @@
         {
           "stem": "The article states that hearing loss from loud noise is frequently irreversible. What does irreversible mean here?",
           "options": [
-            "Easy to fix again after just a short rest",
+            "Easy to fix again after just a short rest at home",
             "Unable to be undone or restored to how it was before",
-            "Loud and extremely noticeable right away",
+            "Loud and extremely noticeable right away to everyone",
             "Related only to the outer part of the ear"
           ],
           "answer": "B",
@@ -557,10 +557,10 @@
         {
           "stem": "Why would wearing hearing protection during a loud concert most likely help prevent permanent hearing loss?",
           "options": [
-            "It would stop the pinna from capturing any sound waves at all.",
+            "It would stop the pinna from capturing any sound waves at all, so no sound can enter.",
             "It would reduce vibrations reaching the hair cells, lowering the risk of damage.",
-            "It would make the auditory nerve regenerate more quickly than usual.",
-            "It would amplify vibrations so hair cells detect them more easily."
+            "It would make the auditory nerve regenerate more quickly than usual after a concert.",
+            "It would amplify vibrations so hair cells detect them more easily and work harder."
           ],
           "answer": "B",
           "skill": "inference",

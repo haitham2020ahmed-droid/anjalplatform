@@ -115,9 +115,9 @@
           "stem": "What is this article mostly about?",
           "options": [
             "How a camel's special body let it cross the desert and carry trade goods",
-            "How tall sand dunes slowly form and move across a desert",
+            "How tall sand dunes slowly form and then move across a desert",
             "How horses are trained to run fast across open, flat land",
-            "How ships are specially built for long ocean voyages"
+            "How ships are specially built to make long voyages across the ocean"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
-            "Camels were first tamed by farmers living in ancient Egypt long ago",
+            "Camels were first tamed by farmers living in ancient Egypt long ago, along the river Nile",
             "The camel's body has adaptations that let it tolerate the desert and made long trade possible",
-            "Horses can actually carry much heavier loads than camels ever can",
-            "Camels are simply the fastest animals that live anywhere in the desert"
+            "Horses can actually carry much heavier loads than camels ever can, so traders chose horses",
+            "Camels are simply the fastest animals that live anywhere in the desert, faster than any bird"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -412,9 +412,9 @@
         {
           "stem": "How is most of the article organized?",
           "options": [
-            "It lists every single animal that can be found living in a desert",
-            "It compares several different deserts found around the whole world",
-            "It argues strongly that camels should never be used for trade",
+            "It lists every single animal that can be found living in a desert, one by one",
+            "It compares several different deserts found around the whole world, and their sizes",
+            "It argues strongly that camels should never be used for trade by any merchant",
             "It explains several adaptations, then links them to the camel's role in trade"
           ],
           "answer": "D",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
-            "No animal besides the camel can survive in any hot climate",
+            "No animal besides the camel can survive in any hot climate, even for a few days at a time",
             "The camel's unique physiology gave it the endurance to make long-distance desert trade possible",
-            "Deserts around the world are slowly becoming far less arid every year",
-            "Camels were domesticated earlier than every other known farm animal"
+            "Deserts around the world are slowly becoming far less arid every year because of rain",
+            "Camels were domesticated earlier than every other known farm animal, long before the sheep"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -574,9 +574,9 @@
         {
           "stem": "What can be inferred about desert trade before camels were domesticated?",
           "options": [
-            "It mostly took place across oceans instead of across deserts",
-            "It relied mainly on wild camels that still lived freely then",
-            "It happened just as easily as it did after camels were tamed",
+            "It mostly took place across oceans instead of across deserts, using large wooden boats",
+            "It relied mainly on wild camels that still lived freely then in the desert",
+            "It happened just as easily as it did after camels were tamed, with the same loads",
             "It was severely limited since no animal could endure such harsh conditions"
           ],
           "answer": "D",

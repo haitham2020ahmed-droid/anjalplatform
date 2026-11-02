@@ -165,10 +165,10 @@
         {
           "stem": "In this article, what happens after skin gets a small cut?",
           "options": [
-            "The skin stops working forever.",
+            "The skin stops working forever after that day.",
             "A scab forms and new skin grows under it.",
-            "Sweat covers the whole cut quickly.",
-            "The cut turns into a shield."
+            "Sweat covers the whole cut quickly like a bandage.",
+            "The cut turns into a shield of hard metal."
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -182,10 +182,10 @@
         {
           "stem": "What happens when your skin touches something sharp, like a pin?",
           "options": [
-            "It grows a new scab right away.",
-            "It stops feeling anything at all.",
+            "It grows a new scab right away, before you feel it.",
+            "It stops feeling anything at all for an hour.",
             "It sends a message to your brain fast.",
-            "It makes extra sweat come out."
+            "It makes extra sweat come out of your hand."
           ],
           "answer": "C",
           "skill": "cause-effect",
@@ -233,10 +233,10 @@
         {
           "stem": "Why does the author tell readers to take care of their skin at the end of the article?",
           "options": [
-            "To list all the bones under the skin",
+            "To list all the bones under the skin of the body",
             "To remind readers how skin helps them stay healthy",
-            "To explain how doctors remove scabs",
-            "To describe a brand new kind of shield"
+            "To explain how doctors remove scabs from the skin",
+            "To describe a brand new kind of shield for the body"
           ],
           "answer": "B",
           "skill": "author-purpose",
@@ -344,10 +344,10 @@
         {
           "stem": "In the sentence about sweat, what does evaporate mean?",
           "options": [
-            "to freeze into a solid shape",
-            "to soak permanently into the skin",
+            "to freeze into a solid shape like ice on the skin",
+            "to soak permanently into the skin and stay there for days",
             "to change into a gas and disappear into the air",
-            "to turn into a thick, sticky paste"
+            "to turn into a thick, sticky paste on the arms"
           ],
           "answer": "C",
           "skill": "vocabulary",
@@ -413,9 +413,9 @@
           "stem": "Why does the author describe both sweating and blood vessels constricting in the same part of the article?",
           "options": [
             "To show two different ways skin helps regulate temperature",
-            "To argue that sweating is more useful than warmth",
-            "To explain how scabs form after a small cut",
-            "To list every receptor found inside human skin"
+            "To argue that sweating is more useful than warmth in cold weather",
+            "To explain how scabs form after a small cut on the knee",
+            "To list every receptor found inside human skin and their names"
           ],
           "answer": "A",
           "skill": "author-purpose",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
-            "The epidermis is the only layer of skin that matters at all.",
+            "The epidermis is the only layer of skin that matters at all, and the other layers are not needed.",
             "Skin is composed of layers that together perform multiple vital functions.",
-            "Marcello Malpighi invented the skin's ability to heal itself.",
-            "Sweat glands are harmful and should be avoided when possible."
+            "Marcello Malpighi invented the skin's ability to heal itself, and before him, skin never healed.",
+            "Sweat glands are harmful and should be avoided when possible, because they make the skin weak."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -591,10 +591,10 @@
         {
           "stem": "Why does the author include the paragraph about Marcello Malpighi within an article mainly about skin's functions?",
           "options": [
-            "To argue that modern medicine has made no further progress",
+            "To argue that modern medicine has made no further progress since the 1600s or after",
             "To show that understanding skin's layers has a real scientific history",
-            "To prove that microscopes were invented in the 1600s",
-            "To explain exactly how sweat glands were first discovered"
+            "To prove that microscopes were invented in the 1600s by Malpighi himself",
+            "To explain exactly how sweat glands were first discovered by a monk long ago"
           ],
           "answer": "B",
           "skill": "author-purpose",

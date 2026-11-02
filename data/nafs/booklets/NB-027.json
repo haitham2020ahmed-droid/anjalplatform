@@ -141,10 +141,10 @@
       "type": "MCQ",
       "stem": "Grandfather says, “Whenever you face it, north is directly in front of you.” Which sentence turns his advice into a COMMAND?",
       "options": [
-        "North is in front of anyone who faces it.",
+        "North is in front of anyone who faces it, at any time.",
         "Is north in front of you when you face it?",
         "Face the North Star, and you will be facing north.",
-        "How easily the North Star shows us the way!"
+        "How easily the North Star shows us the way home!"
       ],
       "answer": "C",
       "why": "A command tells someone to do something and begins with a verb (“Face…”); the others are a statement, a question and an exclamation."
@@ -253,10 +253,10 @@
       "type": "MCQ",
       "stem": "Which of these events happened LAST?",
       "options": [
-        "Lama put her phone into her pocket.",
-        "Grandfather pointed out al-Jadi.",
+        "Lama put her phone into her pocket at last.",
+        "Grandfather pointed out al-Jadi to the children.",
         "An enormous fireball blazed across the sky.",
-        "Lama saw her first silver meteor."
+        "Lama saw her first silver meteor in the sky."
       ],
       "answer": "C",
       "why": "The fireball appeared “shortly before midnight,” after the phone, the North Star and the first meteors."

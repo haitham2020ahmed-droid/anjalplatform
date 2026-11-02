@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "The history of the first pools",
+            "The history of the first pools and how they were built long ago",
             "How science helps us float, move, and stay safe when we swim",
-            "Why fish swim faster than people",
-            "The rules of a swimming race"
+            "Why fish swim faster than people do in the deep sea",
+            "The rules of a swimming race at the Olympics and in schools"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -131,10 +131,10 @@
         {
           "stem": "What helps your body float in the water?",
           "options": [
-            "Heavy shoes",
-            "Kicking very slowly",
+            "Heavy shoes tied to your feet",
+            "Kicking very slowly with your legs",
             "Water pushing up and air in your chest",
-            "Keeping your eyes closed"
+            "Keeping your eyes closed while you float"
           ],
           "answer": "C",
           "skill": "detail",
@@ -182,8 +182,8 @@
         {
           "stem": "Why do good swimmers stay flat and long, like a fish?",
           "options": [
-            "To look nice for the people watching",
-            "To keep their hands warm",
+            "To look nice for the people watching at the pool",
+            "To keep their hands warm in the cold water",
             "To be able to see the bottom of the pool",
             "So the thick water does not slow them down as much"
           ],
@@ -472,9 +472,9 @@
         {
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
-            "Swimming is mainly a matter of strength, and science plays little part.",
+            "Swimming is mainly a matter of strength and speed, and science plays little part in how fast any person swims in a pool or in the sea.",
             "Swimming relies on physical principles such as buoyancy, action and reaction, and drag, which swimmers use to move efficiently and safely.",
-            "Archimedes invented the four competitive strokes.",
+            "Archimedes invented the four competitive strokes, and swimmers still use his names for them in every race held today.",
             "Swimsuits are the most important factor in a race, so a swimmer's training and body position matter much less."
           ],
           "answer": "B",
@@ -506,10 +506,10 @@
         {
           "stem": "About how much denser than air is water, according to the article?",
           "options": [
-            "Twice as dense",
-            "Ten times denser",
+            "Twice as dense as air",
+            "Ten times denser than air",
             "About 800 times denser",
-            "Exactly as dense"
+            "Exactly as dense as air"
           ],
           "answer": "C",
           "skill": "detail",
@@ -540,10 +540,10 @@
         {
           "stem": "A swimmer breathes out all her air and stops moving. Based on the article, what will most likely happen?",
           "options": [
-            "She will float higher than before",
+            "She will float higher than before, since she is lighter",
             "She will sink lower, because her body is now denser",
-            "She will move forward quickly",
-            "Drag will push her upward"
+            "She will move forward quickly through the water",
+            "Drag will push her upward, out of the water"
           ],
           "answer": "B",
           "skill": "inference",

@@ -166,9 +166,9 @@
           "stem": "Read the sentence: \"Astronauts do not use loose salt or pepper.\" What does loose mean here?",
           "options": [
             "Not held together or contained",
-            "Very expensive",
-            "Covered in water",
-            "Kept in a locked box"
+            "Very expensive and rare to find",
+            "Covered in water or in milk",
+            "Kept in a locked box on a shelf"
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -199,10 +199,10 @@
         {
           "stem": "Why do astronauts keep a spoon ready while eating?",
           "options": [
-            "To stir their drink",
+            "To stir their drink in the cup in space",
             "To catch bits of food before they float away",
-            "To cut their food into pieces",
-            "To clean the food tray"
+            "To cut their food into pieces with the blade",
+            "To clean the food tray after every meal"
           ],
           "answer": "B",
           "skill": "inference",
@@ -294,9 +294,9 @@
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
             "Space food must be specially packaged and eaten with great care because of floating crumbs and drops",
-            "Astronauts only eat fresh fruit while they are in space",
-            "All space food tastes exactly the same as food on Earth",
-            "Space food is prepared the same way as food served on airplanes"
+            "Astronauts only eat fresh fruit while they are in space, because it is the lightest food they can carry",
+            "All space food tastes exactly the same as food on Earth, so it needs no special packages at all",
+            "Space food is prepared the same way as food served on airplanes, and it is kept in plain paper boxes"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -345,9 +345,9 @@
           "stem": "Why do food scientists avoid using loose salt and pepper in space?",
           "options": [
             "Floating grains could drift into eyes or into equipment",
-            "Loose salt and pepper cost too much money",
-            "Astronauts do not like the taste of salt",
-            "Loose seasonings take up too much storage space"
+            "Loose salt and pepper cost too much money for the space program",
+            "Astronauts do not like the taste of salt on their food in space",
+            "Loose seasonings take up too much storage space on the station"
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -378,9 +378,9 @@
         {
           "stem": "Why might astronauts' food taste less flavorful while they are in space?",
           "options": [
-            "Space food never contains any seasoning at all",
-            "Astronauts are not allowed to taste their food",
-            "Food loses its flavor the moment it is packaged",
+            "Space food never contains any seasoning at all, so it tastes plain",
+            "Astronauts are not allowed to taste their food in space",
+            "Food loses its flavor the moment it is packaged in a bag",
             "Shifting body fluids give them a feeling like a stuffy nose"
           ],
           "answer": "D",
@@ -396,9 +396,9 @@
           "stem": "How does the author mainly organize the information in this article?",
           "options": [
             "By describing the challenge of floating food, then the solutions used",
-            "By telling the complete life story of one astronaut",
-            "By comparing rockets from different space programs",
-            "By listing every meal eaten during one single day"
+            "By telling the complete life story of one astronaut who lived on the station",
+            "By comparing rockets from different space programs and their costs",
+            "By listing every meal eaten during one single day on the station"
           ],
           "answer": "A",
           "skill": "text-structure",
@@ -489,10 +489,10 @@
         {
           "stem": "According to the article, why are thermostabilized foods useful for long missions?",
           "options": [
-            "They never need to be opened or sealed",
+            "They never need to be opened or sealed, so they last forever",
             "They remain safe to eat without refrigeration for many months",
-            "They are the only food astronauts are allowed to eat",
-            "They must be eaten within a single day of preparation"
+            "They are the only food astronauts are allowed to eat in space",
+            "They must be eaten within a single day of preparation or they spoil"
           ],
           "answer": "B",
           "skill": "detail",
@@ -523,9 +523,9 @@
         {
           "stem": "Why do engineers avoid loose salt and pepper and instead dissolve them into liquid form?",
           "options": [
-            "Liquid seasonings last longer than solid seasonings do",
-            "Astronauts are physically unable to taste solid seasonings",
-            "Liquid seasonings weigh less than solid seasonings",
+            "Liquid seasonings last longer than solid seasonings do, so the food stays good",
+            "Astronauts are physically unable to taste solid seasonings in space",
+            "Liquid seasonings weigh less than solid seasonings do on the rocket",
             "Floating grains could drift into sensitive equipment and cause damage"
           ],
           "answer": "D",
@@ -557,10 +557,10 @@
         {
           "stem": "Why might a spacecraft's engineers consider a floating salt crystal a more serious hazard than a floating crumb of bread?",
           "options": [
-            "Salt crystals are heavier than bread crumbs and fall faster",
+            "Salt crystals are heavier than bread crumbs and fall faster, so they land on the floor of the cabin more quickly",
             "A salt crystal could be just as likely to enter a vent, and either could threaten delicate electronics",
-            "Bread crumbs dissolve instantly in the air, unlike salt",
-            "Salt crystals are too large to float at all in microgravity"
+            "Bread crumbs dissolve instantly in the air, unlike salt, which stays in the cabin for days",
+            "Salt crystals are too large to float at all in microgravity, so they stay on the table"
           ],
           "answer": "B",
           "skill": "inference",
@@ -574,10 +574,10 @@
         {
           "stem": "Why does the author include the detail about Saudi astronauts sharing dates and Arabic coffee with the international crew?",
           "options": [
-            "To argue that only traditional foods should be allowed on spacecraft",
-            "To explain the chemical process used to dehydrate dates",
+            "To argue that only traditional foods should be allowed on spacecraft, never any modern snacks",
+            "To explain the chemical process used to dehydrate dates so that they last a very long time",
             "To show how astronauts can bring a taste of their home culture into a shared international experience",
-            "To criticize other countries for not sharing their own food"
+            "To criticize other countries for not sharing their own food with the visitors on the station"
           ],
           "answer": "C",
           "skill": "author-purpose",

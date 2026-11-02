@@ -507,9 +507,9 @@
           "stem": "Where did Ibn Battuta serve as a judge?",
           "options": [
             "In Delhi and the Maldives",
-            "In Tangier and Makkah",
-            "In Mali and China",
-            "In Egypt and Syria"
+            "In Tangier and Marrakesh",
+            "In Mali and China, far away",
+            "In Egypt and Syria too"
           ],
           "answer": "A",
           "skill": "detail",

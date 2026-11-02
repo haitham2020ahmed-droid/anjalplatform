@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How to grow coffee plants in a garden",
-            "Why dates taste better than coffee",
+            "How to grow coffee plants in a garden or in a pot",
+            "Why dates taste better than coffee for most people",
             "How families serve qahwa to show guests a warm welcome",
-            "How to build a tall clay pot"
+            "How to build a tall clay pot for the kitchen shelf"
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -165,10 +165,10 @@
         {
           "stem": "The article says serving coffee this way is an old custom. What is a custom?",
           "options": [
-            "A tiny cup with no handle",
+            "A tiny cup with no handle and a small hole in its bottom",
             "A way of doing something a group has done for a long time",
-            "A spice that smells strong",
-            "A fruit that grows on a tree"
+            "A spice that smells strong and is added to the drink",
+            "A fruit that grows on a tree in the garden"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -216,9 +216,9 @@
         {
           "stem": "Why might a host offer a date along with the coffee?",
           "options": [
-            "To replace the coffee completely",
-            "To make the guest leave sooner",
-            "To hide the smell of the cardamom",
+            "To replace the coffee completely at the end",
+            "To make the guest leave sooner than planned",
+            "To hide the smell of the cardamom in the pot",
             "To help balance the coffee's bold taste"
           ],
           "answer": "D",
@@ -233,10 +233,10 @@
         {
           "stem": "How does the author organize the ideas in this article?",
           "options": [
-            "By comparing coffee from many different countries",
+            "By comparing coffee from many different countries and showing how each one tastes",
             "By explaining how coffee is made, then how it is served, then why it matters",
-            "By listing coffee recipes from newest to oldest",
-            "By describing a guest's whole day from morning to night"
+            "By listing coffee recipes from newest to oldest, starting with this year's drinks",
+            "By describing a guest's whole day from morning to night, hour by hour at the table"
           ],
           "answer": "B",
           "skill": "text-structure",
@@ -294,9 +294,9 @@
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
             "Preparing and serving qahwa is a careful ritual that shows hospitality toward guests.",
-            "Qahwa tastes exactly like coffee served in other parts of the world.",
-            "Only hosts are allowed to drink qahwa, never guests.",
-            "Cardamom is more important than coffee in making qahwa."
+            "Qahwa tastes exactly like coffee served in other parts of the world, and the people prepare it quickly.",
+            "Only hosts are allowed to drink qahwa, never guests, and the hosts drink it alone.",
+            "Cardamom is more important than coffee in making qahwa, so the drink needs no coffee beans."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -310,10 +310,10 @@
         {
           "stem": "According to the article, what does the dallah's long use across centuries suggest about it?",
           "options": [
-            "It is a disposable item replaced after every use.",
+            "It is a disposable item replaced after every use at home, and never kept for long.",
             "It is a traditional vessel often passed down within families.",
-            "It is only used in modern coffee shops.",
-            "It is rarely used for making qahwa today."
+            "It is only used in modern coffee shops in the city, and rarely in a home.",
+            "It is rarely used for making qahwa today, as people prefer tea in a glass."
           ],
           "answer": "B",
           "skill": "detail",
@@ -344,10 +344,10 @@
         {
           "stem": "The article describes serving qahwa as a \"ritual.\" What does ritual mean here?",
           "options": [
-            "A random act done without any plan",
+            "A random act done without any plan or order at all",
             "A set of actions done the same careful way each time",
-            "A single ingredient added to the coffee",
-            "A type of cup used only once"
+            "A single ingredient added to the coffee pot or the cup",
+            "A type of cup used only once at a big party"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -362,9 +362,9 @@
           "stem": "Why does the host usually fill each cup only part way?",
           "options": [
             "To signal thoughtful care rather than haste",
-            "To save coffee for later in the day",
-            "To make the coffee cool down faster",
-            "To avoid offering dates afterward"
+            "To save coffee for later in the day, for more guests",
+            "To make the coffee cool down faster for the guests",
+            "To avoid offering dates afterward to the guests"
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -413,9 +413,9 @@
           "stem": "How does the author mainly organize this article?",
           "options": [
             "By describing how qahwa is prepared, then how it is served, then what the ritual means",
-            "By comparing coffee prices in different shops",
-            "By ranking regions by how much coffee they grow",
-            "By listing every ingredient from most to least expensive"
+            "By comparing coffee prices in different shops, from the cheapest to the most expensive",
+            "By ranking regions by how much coffee they grow, from the largest to the smallest",
+            "By listing every ingredient from most to least expensive, with a price for each one"
           ],
           "answer": "A",
           "skill": "text-structure",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
-            "Saffron is the single most essential ingredient in any Arabian coffee.",
+            "Saffron is the single most essential ingredient in any Arabian coffee, and no cup is ever served without it.",
             "Preparing and serving qahwa follows a precise heritage ritual that expresses the region's culture of hospitality.",
-            "Modern coffee shops have fully replaced the traditional qahwa ritual.",
-            "Only elders are permitted to drink qahwa at a gathering."
+            "Modern coffee shops have fully replaced the traditional qahwa ritual in homes and in the cities.",
+            "Only elders are permitted to drink qahwa at a gathering, and young people must leave the room."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -523,9 +523,9 @@
         {
           "stem": "In the article, the host's serving order is described as a \"gesture.\" What does gesture mean in this context?",
           "options": [
-            "A written rule found in an etiquette guide",
-            "A specific spice added to the coffee",
-            "The exact temperature of the roasted beans",
+            "A written rule found in an etiquette guide for hosts",
+            "A specific spice added to the coffee for flavor",
+            "The exact temperature of the roasted beans in the pot",
             "An action that communicates meaning, such as respect"
           ],
           "answer": "D",
@@ -574,9 +574,9 @@
         {
           "stem": "Why might serving the eldest guest first matter in a multigenerational gathering?",
           "options": [
-            "It ensures the youngest guest receives the most coffee.",
-            "It guarantees that saffron is only used for older guests.",
-            "It prevents younger guests from ever being served.",
+            "It ensures the youngest guest receives the most coffee, as a gift.",
+            "It guarantees that saffron is only used for older guests, and not for others.",
+            "It prevents younger guests from ever being served, even if they ask.",
             "It reinforces respect for seniority within the family or community."
           ],
           "answer": "D",
@@ -592,9 +592,9 @@
           "stem": "Why does the author end the article by connecting this ritual to guests from entirely different cultural backgrounds?",
           "options": [
             "To show that the hospitality ritual still meaningfully engages a wide range of people today",
-            "To argue that only local guests should be served qahwa",
-            "To suggest that the tradition has lost all of its original meaning",
-            "To claim that modern guests no longer enjoy the custom"
+            "To argue that only local guests should be served qahwa in the majlis, never visitors from far away",
+            "To suggest that the tradition has lost all of its original meaning in the modern world today",
+            "To claim that modern guests no longer enjoy the custom and prefer to drink tea in a cup"
           ],
           "answer": "A",
           "skill": "author-purpose",

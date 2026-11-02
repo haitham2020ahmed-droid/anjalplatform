@@ -218,10 +218,10 @@
      "passage": "These box is too heavy for me to carry.",
      "stem": "What is the mistake?",
      "options": [
-      "Box should be boxs.",
+      "Box should be boxs, because it is plural.",
       "These should be This, because there is one box.",
-      "Heavy should be heavier.",
-      "Me should be I."
+      "Heavy should be heavier, to compare two things.",
+      "Me should be I, because it is the subject."
      ],
      "answer": 1,
      "why": "Box is only one thing, so we need this, not these."

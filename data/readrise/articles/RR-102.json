@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How rainbows are made after rain",
+            "How rainbows are made after a heavy rain in spring",
             "Why the sky looks blue and sometimes other colors",
-            "How to stay safe on a dusty day",
-            "Why the sun is hot"
+            "How to stay safe on a dusty day when you are outdoors",
+            "Why the sun is hot and shines all day long"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -131,9 +131,9 @@
         {
           "stem": "What is sunlight made of, according to the article?",
           "options": [
-            "Only white light",
-            "Only blue light",
-            "Tiny bits of dust",
+            "Only white light from the sun",
+            "Only blue light from the sky",
+            "Tiny bits of dust from space",
             "A mix of all the colors"
           ],
           "answer": "D",
@@ -165,10 +165,10 @@
         {
           "stem": "In the article, light \"scatters\" when it hits tiny bits of air. What does scatters mean here?",
           "options": [
-            "Gets very hot",
-            "Turns into a rainbow",
+            "Gets very hot and starts to glow",
+            "Turns into a rainbow of colors",
             "Bounces off in many directions",
-            "Stops moving"
+            "Stops moving and stays still"
           ],
           "answer": "C",
           "skill": "vocabulary",
@@ -182,10 +182,10 @@
         {
           "stem": "Why does the sky look red and gold at sunset?",
           "options": [
-            "The sun turns a different color in the evening.",
+            "The sun turns a different color in the evening, as it gets tired.",
             "The light passes through more air, so most blue is lost.",
-            "Dust always fills the sky in the evening.",
-            "There is no air near the ground at night."
+            "Dust always fills the sky in the evening, and it paints the clouds red.",
+            "There is no air near the ground at night, so the sky shows its fire."
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -412,10 +412,10 @@
         {
           "stem": "How does the author organize most of the article?",
           "options": [
-            "By telling a story about one scientist's life",
-            "By comparing two different planets",
+            "By telling a story about one scientist's life and travels",
+            "By comparing two different planets and their moons",
             "By giving facts step by step that lead to an explanation",
-            "By listing rules in order of importance"
+            "By listing rules in order of importance for explorers"
           ],
           "answer": "C",
           "skill": "text-structure",
@@ -523,10 +523,10 @@
         {
           "stem": "Newton's prism split light into \"distinct colors.\" What does distinct mean here?",
           "options": [
-            "Dull and faded",
+            "Dull and faded like old cloth",
             "Clearly separate from one another",
-            "Mixed together into white",
-            "Too faint to see"
+            "Mixed together into white light",
+            "Too faint to see well at all"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -575,9 +575,9 @@
           "stem": "A student says, \"If Earth had no atmosphere, the daytime sky would still be blue.\" Based on the article, what is the best response?",
           "options": [
             "The student is wrong, because without molecules to scatter light the sky would look black.",
-            "The student is right, because sunlight already contains blue light.",
-            "The student is right, because our eyes are most sensitive to blue.",
-            "The student is wrong, because the sky would be white like clouds."
+            "The student is right, because sunlight already contains blue light, and nothing is needed.",
+            "The student is right, because our eyes are most sensitive to the color blue.",
+            "The student is wrong, because the sky would be white like clouds are in the day."
           ],
           "answer": "A",
           "skill": "inference",

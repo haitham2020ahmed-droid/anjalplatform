@@ -165,10 +165,10 @@
         {
           "stem": "Why should you lean forward, not back, when your nose bleeds?",
           "options": [
-            "So you can see the floor",
+            "So you can see the floor and the sink and the towel",
             "So the blood does not run down your throat",
-            "So your nose gets cold",
-            "So you fall asleep"
+            "So your nose gets cold and the bleeding can stop quickly",
+            "So you fall asleep and the blood stops by itself"
           ],
           "answer": "B",
           "skill": "inference",
@@ -200,9 +200,9 @@
           "stem": "What should you do right after you wash your hands to care for a small cut?",
           "options": [
             "Rinse the cut with clean water",
-            "Put on the bandage",
-            "Call an ambulance",
-            "Put butter on it"
+            "Put on the bandage at once",
+            "Call an ambulance right away",
+            "Put butter on it to heal it"
           ],
           "answer": "A",
           "skill": "sequence",
@@ -233,10 +233,10 @@
         {
           "stem": "Why does the author start with a story about cutting your knee?",
           "options": [
-            "To show how to make a bandage",
+            "To show how to make a bandage at home with cloth",
             "To help readers picture when first aid is needed",
-            "To tell about a sports game",
-            "To explain how knees work"
+            "To tell about a sports game at school last week",
+            "To explain how knees work in the body of a child"
           ],
           "answer": "B",
           "skill": "author-purpose",
@@ -293,10 +293,10 @@
         {
           "stem": "What is the central idea of the article?",
           "options": [
-            "Only doctors should help people who are hurt.",
+            "Only doctors should help people who are hurt, and others must wait for them.",
             "Knowing a few simple first aid steps helps you help others safely.",
-            "Burns are the most common injury.",
-            "Every injury needs an ambulance."
+            "Burns are the most common injury, and all first aid is about burns.",
+            "Every injury needs an ambulance, so people should always call one."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -395,9 +395,9 @@
         {
           "stem": "How are the steps for a nosebleed different from the steps for a cut?",
           "options": [
-            "For a nosebleed you rinse with water; for a cut you pinch",
-            "For a nosebleed you call 997; for a cut you rest",
-            "Both need ice",
+            "For a nosebleed you rinse with water; for a cut you pinch the skin with your fingers",
+            "For a nosebleed you call 997; for a cut you rest the arm and lie down",
+            "Both need ice on the skin for a long time, and nothing else is done",
             "For a nosebleed you pinch the nose; for a cut you press with a cloth"
           ],
           "answer": "D",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best expresses the main idea of the article?",
           "options": [
-            "First aid is complicated and only for experts.",
+            "First aid is complicated and only for experts, so children should not try it.",
             "Simple, correct first aid steps can protect people until professional help arrives.",
-            "Heatstroke is the only real emergency.",
-            "Children should treat serious injuries alone."
+            "Heatstroke is the only real emergency that people ever face outside their homes.",
+            "Children should treat serious injuries alone, and should not call any adult for help."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -591,10 +591,10 @@
         {
           "stem": "A student says, \"I should put ice on a burn because it's the fastest way to cool it.\" How would the article respond?",
           "options": [
-            "It would agree because ice is colder than water",
-            "It would say butter works better",
+            "It would agree because ice is colder than water and cools the burn faster",
+            "It would say butter works better and should be spread thickly on the burn",
             "It would disagree, because ice can damage the skin; cool running water is safer",
-            "It would say burns need no care"
+            "It would say burns need no care and will heal quickly by themselves"
           ],
           "answer": "C",
           "skill": "inference",

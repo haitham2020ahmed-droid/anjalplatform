@@ -507,9 +507,9 @@
           "stem": "How does oiling the axles most directly affect the buggies' performance?",
           "options": [
             "It reduces friction, helping the wheels keep their momentum",
-            "It makes the buggies heavier and therefore slower",
-            "It changes the color of the paint on the wheels",
-            "It increases the number of gears on each buggy"
+            "It makes the buggies heavier and therefore slower on the track",
+            "It changes the color of the paint on the wheels and axles",
+            "It increases the number of gears on each buggy by a few"
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -575,9 +575,9 @@
           "stem": "Why does the author mention that Tariq's wheel sticks again during the race, after it had already been fixed earlier?",
           "options": [
             "To show Tariq simply forgot to oil the axle again, a realistic mistake",
-            "To suggest that oil never actually solves a friction problem",
-            "To imply that Faisal secretly damaged Tariq's buggy",
-            "To show that gears, not friction, caused the second problem"
+            "To suggest that oil never actually solves a friction problem in any buggy",
+            "To imply that Faisal secretly damaged Tariq's buggy before the race",
+            "To show that gears, not friction, caused the second problem for Tariq"
           ],
           "answer": "A",
           "skill": "inference",

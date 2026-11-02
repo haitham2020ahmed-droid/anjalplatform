@@ -114,10 +114,10 @@
         {
           "stem": "What is this story mostly about?",
           "options": [
-            "A boy who learns to swim in the cold sea",
-            "A boy who builds a brand new lighthouse alone",
+            "A boy who learns to swim in the cold sea with his uncle",
+            "A boy who builds a brand new lighthouse alone on a rock",
             "A boy who keeps the light on when his father gets hurt",
-            "A boy who sails his own boat during a storm"
+            "A boy who sails his own boat during a storm at night"
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -131,9 +131,9 @@
         {
           "stem": "Why does Yusuf's father climb the stairs during the storm?",
           "options": [
-            "To get his dinner before bed",
-            "To watch the big waves for fun",
-            "To find his son in the storm",
+            "To get his dinner before bed time",
+            "To watch the big waves for fun alone",
+            "To find his son in the storm outside",
             "To check that the light still works"
           ],
           "answer": "D",
@@ -327,10 +327,10 @@
         {
           "stem": "What signal problem does the storm create for ships?",
           "options": [
-            "Ships cannot hear each other's warning horns",
-            "Ships cannot find any fresh drinking water",
+            "Ships cannot hear each other's warning horns at all",
+            "Ships cannot find any fresh drinking water at sea",
             "Ships cannot see the dangerous rocks near the shore",
-            "Ships lose all their paper maps in the wind"
+            "Ships lose all their paper maps in the strong wind"
           ],
           "answer": "C",
           "skill": "cause-effect",
@@ -361,10 +361,10 @@
         {
           "stem": "Why does Yusuf keep repeating his father's instructions in his mind as he climbs?",
           "options": [
-            "He is bored and wants to pass the time",
-            "He forgot his father's name completely",
+            "He is bored and wants to pass the time on the way up",
+            "He forgot his father's name completely and tries to remember",
             "It helps him stay calm and remember what to do",
-            "He is practicing hard for a school test"
+            "He is practicing hard for a school test on Monday"
           ],
           "answer": "C",
           "skill": "inference",
@@ -490,9 +490,9 @@
           "stem": "What causes Yusuf's father to begin climbing the stairs in the first place?",
           "options": [
             "He is watchful about the ships and wants to confirm the light works",
-            "He wants fresh air after a long, tiring day outside",
-            "He hears his son calling loudly from somewhere above",
-            "He wants to escape the constant noise of the storm"
+            "He wants fresh air after a long, tiring day outside on the shore",
+            "He hears his son calling loudly from somewhere above in the tower",
+            "He wants to escape the constant noise of the storm in the house"
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -574,10 +574,10 @@
         {
           "stem": "Why does the author include the detail that the tower sways in the wind as Yusuf climbs?",
           "options": [
-            "To suggest the lighthouse might soon collapse entirely",
-            "To explain clearly why ships cannot see the beam at all",
+            "To suggest the lighthouse might soon collapse entirely into the sea",
+            "To explain clearly why ships cannot see the beam at all at night",
             "To heighten danger and show the courage Yusuf's training requires",
-            "To show that the storm is actually weakening quickly"
+            "To show that the storm is actually weakening quickly as he climbs"
           ],
           "answer": "C",
           "skill": "author-purpose",
@@ -591,10 +591,10 @@
         {
           "stem": "The poll asks whether a child can handle an adult's job in an emergency if well taught. How does the story's ending support or challenge this idea?",
           "options": [
-            "It challenges the idea, since Yusuf fails and a ship gets wrecked",
+            "It challenges the idea, since Yusuf fails and a ship gets wrecked on the rocks",
             "It supports the idea, since Yusuf succeeds and every ship reaches harbor safely",
-            "It is unrelated, since the story never says if the ships were safe",
-            "It challenges the idea, since an adult has to come rescue Yusuf"
+            "It is unrelated, since the story never says if the ships were safe or not",
+            "It challenges the idea, since an adult has to come and rescue Yusuf at sea"
           ],
           "answer": "B",
           "skill": "inference",

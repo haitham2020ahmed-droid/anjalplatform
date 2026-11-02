@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How plastic air fresheners are made",
+            "How plastic air fresheners are made in big factories",
             "How people burn bakhoor to make a sweet scent",
-            "How bread is baked in a hot oven",
-            "Why some rooms become dusty over time"
+            "How bread is baked in a very hot oven at home",
+            "Why some rooms become dusty over time and how to clean"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -216,9 +216,9 @@
         {
           "stem": "How is the article mostly organized?",
           "options": [
-            "It compares two different kinds of cars",
-            "It tells a scary story about dark smoke",
-            "It lists the steps to grow a palm tree",
+            "It compares two different kinds of cars on a road",
+            "It tells a scary story about dark smoke at night",
+            "It lists the steps to grow a palm tree in sand",
             "It explains what bakhoor is and why it is used"
           ],
           "answer": "D",
@@ -361,10 +361,10 @@
         {
           "stem": "Why might a family consider their bakhoor blend valuable?",
           "options": [
-            "It is required by law to be shared with others",
-            "It uses the same ingredients found in every shop",
+            "It is required by law to be shared with others in the town",
+            "It uses the same ingredients found in every shop in the city",
             "It reflects a unique family tradition passed down over time",
-            "It can only be burned once a year on holidays"
+            "It can only be burned once a year on holidays at home"
           ],
           "answer": "C",
           "skill": "inference",
@@ -506,7 +506,7 @@
         {
           "stem": "What does the article say artisans do when making bakhoor?",
           "options": [
-            "They avoid using any resin in their blends",
+            "They avoid using any resin in their blends of bakhoor",
             "They combine wood, resin, and oils in precise proportions",
             "They burn the blend before adding any ingredients",
             "They sell their recipes openly to any buyer"
@@ -540,9 +540,9 @@
         {
           "stem": "Why does the article mention that oud is valued well beyond the region where it originates?",
           "options": [
-            "To show that oud has no real value elsewhere",
-            "To argue that oud should not be exported",
-            "To prove that oud is cheaper outside Arabia",
+            "To show that oud has no real value elsewhere in the world, only at home",
+            "To argue that oud should not be exported to other countries at all",
+            "To prove that oud is cheaper outside Arabia than it is at home",
             "To show that oud's reputation reaches a wide, global audience"
           ],
           "answer": "D",
@@ -591,10 +591,10 @@
         {
           "stem": "How does the article compare oud to the overall bakhoor blend?",
           "options": [
-            "Oud replaces every other ingredient in the blend",
-            "Oud is less important than the color of the smoke",
+            "Oud replaces every other ingredient in the blend, so only oud is left in the smoke",
+            "Oud is less important than the color of the smoke, according to the article",
             "Oud deepens the blend's fragrance beyond its other ingredients",
-            "Oud and bakhoor are described as completely unrelated"
+            "Oud and bakhoor are described as completely unrelated, with no link at all"
           ],
           "answer": "C",
           "skill": "compare",

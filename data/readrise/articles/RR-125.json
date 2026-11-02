@@ -199,10 +199,10 @@
         {
           "stem": "Sara skipped breakfast. What will most likely happen in her first class?",
           "options": [
-            "She will feel full and strong.",
+            "She will feel full and strong all day.",
             "She may feel tired and find it hard to focus.",
-            "She will remember more than ever.",
-            "She will not need lunch."
+            "She will remember more than ever before in class.",
+            "She will not need lunch or a drink."
           ],
           "answer": "B",
           "skill": "inference",
@@ -216,9 +216,9 @@
         {
           "stem": "Which breakfast fits the article's ideas best?",
           "options": [
-            "A big sweet cake and a cold soda",
-            "Nothing at all",
-            "Only candy from the shop",
+            "A big sweet cake and a cold soda from the shop",
+            "Nothing at all, only some water before school",
+            "Only candy from the shop and a bag of chips",
             "An egg, whole wheat bread, and some fruit"
           ],
           "answer": "D",
@@ -234,9 +234,9 @@
           "stem": "Why does the author tell what the body does while you sleep?",
           "options": [
             "To show that your body uses energy even at night",
-            "To teach how to sleep well",
-            "To tell a story about a dream",
-            "To explain how hearts are made"
+            "To teach how to sleep well at night in a bed",
+            "To tell a story about a dream that a boy had at night",
+            "To explain how hearts are made in the body"
           ],
           "answer": "A",
           "skill": "author-purpose",
@@ -294,9 +294,9 @@
           "stem": "Which sentence best states the central idea?",
           "options": [
             "Breakfast refuels the body after the night and helps the brain work well.",
-            "Children should eat only dates for breakfast every single day.",
-            "Breakfast should always be large and fancy.",
-            "Sleeping well is more important than eating."
+            "Children should eat only dates for breakfast every single day, with nothing else added.",
+            "Breakfast should always be large and fancy, with many dishes on a long table.",
+            "Sleeping well is more important than eating, so children should skip breakfast."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -310,10 +310,10 @@
         {
           "stem": "About how long have most people gone without food when they wake up?",
           "options": [
-            "About one hour",
+            "About one hour of sleep",
             "Ten hours or more",
-            "Two whole days",
-            "Thirty minutes"
+            "Two whole days or more",
+            "Thirty minutes or less"
           ],
           "answer": "B",
           "skill": "detail",
@@ -328,9 +328,9 @@
           "stem": "Why does whole wheat bread give energy that lasts?",
           "options": [
             "It contains fiber, so its energy is released slowly.",
-            "It is very sweet, so it gives a fast burst.",
-            "It is eaten cold, straight from the fridge.",
-            "It has no nutrients."
+            "It is very sweet, so it gives a fast burst of energy.",
+            "It is eaten cold, straight from the fridge, with milk.",
+            "It has no nutrients, so the body uses it up quickly."
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -361,10 +361,10 @@
         {
           "stem": "The article says your brain needs energy to concentrate. Here, concentrate means",
           "options": [
-            "to sleep deeply",
+            "to sleep deeply for many hours",
             "to pay close attention",
-            "to grow taller",
-            "to eat quickly"
+            "to grow taller each year",
+            "to eat quickly at lunch"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -473,9 +473,9 @@
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
             "A balanced breakfast refuels the body after the overnight fast and supports concentration and learning.",
-            "Glucose is harmful to the brain and should be avoided by children at breakfast.",
-            "Only children need to eat breakfast.",
-            "Refined foods are the healthiest choice in the morning."
+            "Glucose is harmful to the brain and should be avoided by children at breakfast, since it makes them sleepy.",
+            "Only children need to eat breakfast, and grown-ups do not need it at all, since they can go without food.",
+            "Refined foods are the healthiest choice in the morning, since they give a quick burst of energy and nothing else."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -489,10 +489,10 @@
         {
           "stem": "According to the article, how does the body get glucose?",
           "options": [
-            "By breathing deeply while asleep",
+            "By breathing deeply while asleep, in the night",
             "By digesting the carbohydrates in food",
-            "By sleeping a few hours longer",
-            "By drinking water"
+            "By sleeping a few hours longer each day",
+            "By drinking water from a clean cup"
           ],
           "answer": "B",
           "skill": "detail",
@@ -557,10 +557,10 @@
         {
           "stem": "Which detail supports the claim that breakfast helps learning?",
           "options": [
-            "Dates are popular in Saudi Arabia.",
+            "Dates are popular in Saudi Arabia and many people eat them in the morning.",
             "Studies found children who eat breakfast pay attention and remember more easily.",
-            "Pastries are made from refined flour and sugar.",
-            "The word breakfast joins two words."
+            "Pastries are made from refined flour and sugar, and many shops sell them.",
+            "The word breakfast joins two words, and it means to break a fast."
           ],
           "answer": "B",
           "skill": "detail",
@@ -574,10 +574,10 @@
         {
           "stem": "What can be inferred about a breakfast of only sugary cereal?",
           "options": [
-            "It would keep a student alert until lunch.",
-            "It contains more protein than eggs.",
+            "It would keep a student alert until lunch time.",
+            "It contains more protein than eggs and milk",
             "It might leave a student sluggish by mid-morning.",
-            "It is the best choice before a test."
+            "It is the best choice before a test at school"
           ],
           "answer": "C",
           "skill": "inference",

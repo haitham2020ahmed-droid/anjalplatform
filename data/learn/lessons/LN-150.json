@@ -79,9 +79,9 @@
     "stem": "What is the story mostly about?",
     "options": [
      "Zaid and his mom make bread.",
-     "The oven is hot.",
-     "Zaid likes water.",
-     "Mom has flour."
+     "The oven is hot and big.",
+     "Zaid likes water and juice.",
+     "Mom has flour in a bag."
     ],
     "answer": 0,
     "hint": "That is one small part. What are ALL the sentences about?",
@@ -111,8 +111,8 @@
      "options": [
       "Mona finds a shell.",
       "Mona's day at the beach.",
-      "The sea is blue.",
-      "Mona makes a cake."
+      "The sea is blue and deep.",
+      "Mona makes a cake for tea."
      ],
      "answer": 1,
      "why": "Swimming, a shell and a sand castle are all part of Mona's beach day."
@@ -124,7 +124,7 @@
       "The mouse is small.",
       "The cat sits down.",
       "The cat chases a mouse.",
-      "The hole is dark."
+      "The hole is dark and deep."
      ],
      "answer": 2,
      "why": "Most sentences tell about the cat chasing the mouse."
@@ -249,9 +249,9 @@
      "passage": "Khaled lost his bike on the way home. He looked everywhere. He asked the shopkeeper and the bus driver. Finally, a boy he did not know rode up and said, \"I think this is yours.\"",
      "stem": "What is the story mostly about?",
      "options": [
-      "A shopkeeper who sells bikes.",
-      "A boy who rides a bus home every day.",
-      "Khaled finds a new friend at school.",
+      "A shopkeeper who sells bikes in the market.",
+      "A boy who rides a bus home every day after school.",
+      "Khaled finds a new friend at his new school.",
       "Khaled searches for his lost bike and gets it back."
      ],
      "answer": 3,
@@ -312,10 +312,10 @@
     "passage": "The night before the science fair, Hind's volcano model collapsed. The plaster cracked, and the paint ran in muddy streaks. She wanted to give up and stay home. Her older sister, Asma, sat down beside her with tape and a new bag of plaster. Together they rebuilt the cone, talking and laughing until midnight. The new volcano was not as neat as the first, but it worked perfectly. When the judges asked how she had made it, Hind smiled and said, \"With help.\"",
     "stem": "Which detail best supports the central idea that Hind succeeds because of her sister's help?",
     "options": [
-     "The plaster cracked, and the paint ran in muddy streaks.",
-     "The new volcano was not as neat as the first one.",
+     "The plaster cracked, and the paint ran in muddy streaks down the side.",
+     "The new volcano was not as neat as the first one that she made.",
      "Together they rebuilt the cone, talking and laughing until midnight.",
-     "The judges asked Hind how she had made it."
+     "The judges asked Hind how she had made it so tall and bright."
     ],
     "answer": 2,
     "hint": "Which detail shows the sister helping, not just the problem or the result?",
@@ -370,8 +370,8 @@
      "stem": "Which is the best title for the story?",
      "options": [
       "Two Days of Waiting",
-      "Lost at Sea",
-      "The Broken Engine",
+      "Lost at Sea for Days",
+      "The Broken Engine Again",
       "Saved by Clever Thinking"
      ],
      "answer": 3,

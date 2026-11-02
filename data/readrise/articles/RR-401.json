@@ -114,7 +114,7 @@
         {
           "stem": "What is this story mostly about?",
           "options": [
-            "A boy who loses his toy car at school",
+            "A boy who loses his toy car at school and looks for it",
             "A robot who makes mistakes but learns to help right",
             "A family that plants a new garden outside",
             "A family that buys a new car for their house"
@@ -199,10 +199,10 @@
         {
           "stem": "Why does the family feel so rushed on the busy morning?",
           "options": [
-            "Robi is too slow to get ready",
+            "Robi is too slow to get ready for school",
             "Everyone is running late and things go wrong",
-            "The family is moving to a new house",
-            "The toaster breaks and cannot be fixed"
+            "The family is moving to a new house this morning",
+            "The toaster breaks and cannot be fixed by anyone"
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -233,10 +233,10 @@
         {
           "stem": "What does Robi do differently on the busy morning compared to his first tries?",
           "options": [
-            "He waters the plants one more time only",
+            "He waters the plants one more time only, and then he rests",
             "He helps in just the right way with no mistakes",
-            "He makes the same mistakes again",
-            "He refuses to help at all that day"
+            "He makes the same mistakes again and again all morning",
+            "He refuses to help at all that day and sits in a corner"
           ],
           "answer": "B",
           "skill": "compare",
@@ -294,9 +294,9 @@
           "stem": "Which sentence best tells what this story is mainly about?",
           "options": [
             "A robot slowly learns, through patient teaching, how to help a family in exactly the right way",
-            "A family decides that robots are too much trouble to keep in their home",
-            "A boy loses his toy car and never manages to find it again",
-            "A family grows new plants in their garden every single season"
+            "A family decides that robots are too much trouble to keep in their home, so they sell it",
+            "A boy loses his toy car and never manages to find it again, however hard he looks",
+            "A family grows new plants in their garden every single season, and the plants win a prize"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -523,10 +523,10 @@
         {
           "stem": "What in the story suggests that Robi's eagerness to help initially outpaces his actual ability?",
           "options": [
-            "He refuses every chore offered to him at first",
+            "He refuses every chore offered to him at first, saying that the work is too hard",
             "His enthusiasm leads him to attempt chores before his settings are calibrated",
-            "He waits for explicit instructions before trying anything",
-            "He only ever attempts chores he has already mastered"
+            "He waits for explicit instructions before trying anything at all",
+            "He only ever attempts chores he has already mastered many times"
           ],
           "answer": "B",
           "skill": "inference",
@@ -540,10 +540,10 @@
         {
           "stem": "Compare Robi's emotional state during his early mistakes with his emotional state on the frantic morning.",
           "options": [
-            "He feels proud early on and embarrassed later",
-            "He is calm and composed in both situations",
+            "He feels proud early on and embarrassed later on",
+            "He is calm and composed in both situations of the story",
             "He is clumsy early on, yet feels anything but overwhelmed later",
-            "He is frightened throughout the entire story"
+            "He is frightened throughout the entire story, from start to end"
           ],
           "answer": "C",
           "skill": "compare",
@@ -557,9 +557,9 @@
         {
           "stem": "Why does the family's frantic morning create the ideal test of what Robi has learned?",
           "options": [
-            "It is the only morning Robi is ever allowed to help",
-            "It is the first time Robi has ever touched the vacuum",
-            "It happens on a day when no one else is home",
+            "It is the only morning when Robi is ever allowed to help",
+            "It is the first time that Robi has ever touched the vacuum cleaner",
+            "It happens on a day when no one else is home to help",
             "It requires Robi to apply several lessons at once, under pressure"
           ],
           "answer": "D",
@@ -591,9 +591,9 @@
         {
           "stem": "Why does the author most likely include two separate mistakes, with the watering and the vacuuming, rather than just one?",
           "options": [
-            "To make the story twice as long as it needed to be",
-            "To show that Robi is simply too careless to ever improve",
-            "To suggest that only Dad can teach Robi anything useful",
+            "To make the story twice as long as it really needed to be",
+            "To show that Robi is simply too careless to ever improve at chores",
+            "To suggest that only Dad can teach Robi anything useful at home",
             "To show a believable pattern of trial, correction, and improvement"
           ],
           "answer": "D",

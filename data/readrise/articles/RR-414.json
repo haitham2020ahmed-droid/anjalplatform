@@ -123,9 +123,9 @@
         {
           "stem": "What does Tariq write in his journal?",
           "options": [
-            "Stories about his friends",
-            "The weather each morning",
-            "Recipes for his favorite dinner",
+            "Stories about his friends at school",
+            "The weather each morning before class",
+            "Recipes for his favorite dinner at home",
             "The date and what he sees in the sky"
           ],
           "answer": "D",
@@ -174,10 +174,10 @@
         {
           "stem": "In the story, the word journal means —",
           "options": [
-            "a kind of telescope used to see stars",
+            "a kind of telescope used to see stars far away",
             "a notebook where someone writes or draws things",
             "a group of stars seen in the night sky",
-            "a school where students study space"
+            "a school where students go to study space and rockets"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -243,9 +243,9 @@
         {
           "stem": "Which sentence best states the central idea of the story?",
           "options": [
-            "Only scientists with expensive telescopes can ever find comets.",
-            "Tariq's journal is mostly filled with stories about his friends.",
-            "The night sky never changes, so there is nothing new to observe.",
+            "Only scientists with expensive telescopes can ever find comets in the night sky, so boys cannot.",
+            "Tariq's journal is mostly filled with stories about his friends and what they did at school.",
+            "The night sky never changes, so there is nothing new to observe, and the club closes down.",
             "A boy's months of careful sky observations help an astronomy club identify a new comet."
           ],
           "answer": "D",
@@ -294,10 +294,10 @@
         {
           "stem": "Why is Tariq able to tell that the new light is unusual?",
           "options": [
-            "Because his teacher told him it looked strange",
+            "Because his teacher told him it looked very strange",
             "Because his careful records show nothing like it before",
-            "Because the astronomy club called him first",
-            "Because comets always look the same color"
+            "Because the astronomy club called him first that night",
+            "Because comets always look the same color to everyone"
           ],
           "answer": "B",
           "skill": "inference",
@@ -329,9 +329,9 @@
           "stem": "In the story, the word observe means —",
           "options": [
             "to watch something carefully and closely",
-            "to draw a picture very quickly",
-            "to write a letter to a friend",
-            "to build a model of something"
+            "to draw a picture very quickly with a pencil",
+            "to write a letter to a friend far away",
+            "to build a model of something with clay"
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -414,10 +414,10 @@
         {
           "stem": "What does Tariq do with his journal every single clear night?",
           "options": [
-            "He shows it to his classmates for fun",
-            "He sells sketches from it at school",
+            "He shows it to his classmates for fun at lunch",
+            "He sells sketches from it at school every week",
             "He records careful, consistent observations of the sky",
-            "He compares it with his friends' journals"
+            "He compares it with his friends' journals at school"
           ],
           "answer": "C",
           "skill": "detail",
@@ -448,9 +448,9 @@
         {
           "stem": "Why might Tariq's consistency make his observations especially valuable to the astronomy club?",
           "options": [
-            "Because consistency makes the drawings more colorful",
-            "Because the club cannot use a telescope without his help",
-            "Because consistent habits guarantee a comet will appear",
+            "Because consistency makes the drawings more colorful and more beautiful for the club members to see",
+            "Because the club cannot use a telescope without his help, since he is the only one who knows it",
+            "Because consistent habits guarantee a comet will appear on the nights when he is watching",
             "Because long, steady records make it easier to notice when something new and unusual appears"
           ],
           "answer": "D",
@@ -516,9 +516,9 @@
         {
           "stem": "In what order do these events happen in the story?",
           "options": [
-            "The club confirms the comet, Tariq notices the light, he checks his records",
-            "Tariq checks his records, the club confirms the comet, he notices the light",
-            "The teacher sees the journal, Tariq notices the light, the club is contacted",
+            "The club confirms the comet, Tariq notices the light, he checks his records, his teacher sees the journal",
+            "Tariq checks his records, the club confirms the comet, he notices the light, his teacher sees the journal",
+            "The teacher sees the journal, Tariq notices the light, the club is contacted, he checks his records",
             "Tariq notices the light, he checks his records, his teacher sees the journal, the club confirms it"
           ],
           "answer": "D",

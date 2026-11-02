@@ -472,10 +472,10 @@
         {
           "stem": "What is the central idea of the article?",
           "options": [
-            "Paper was invented only once and then never changed at all afterward",
+            "Paper was invented only once and then never changed at all afterward, in any land",
             "Papermaking was invented in China, then slowly carried and refined across the world",
-            "Europe invented papermaking entirely on its own, without outside help",
-            "Trade roads were used only for selling cloth, never for sharing ideas"
+            "Europe invented papermaking entirely on its own, without outside help from any other land",
+            "Trade roads were used only for selling cloth, never for sharing ideas or new skills"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -506,10 +506,10 @@
         {
           "stem": "What does the word technique mean as it is used in the article?",
           "options": [
-            "A tool used only for cutting cloth into strips",
+            "A tool used only for cutting cloth into strips and sewing them",
             "A particular skilled way of making something, such as paper",
-            "A type of ancient trade road",
-            "A fee charged for crossing into a new country"
+            "A type of ancient trade road across the hills and the desert",
+            "A fee charged for crossing into a new country at the border"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -523,10 +523,10 @@
         {
           "stem": "What material did workers in Baghdad and Damascus use to strengthen their paper?",
           "options": [
-            "Thin sheets of beaten copper",
+            "Thin sheets of beaten copper, pressed flat by hand",
             "Linen rags, refined with flowing river water",
-            "Dried animal bones ground into powder",
-            "Sand gathered from the nearby desert"
+            "Dried animal bones ground into a fine powder",
+            "Sand gathered from the nearby desert and sieved"
           ],
           "answer": "B",
           "skill": "detail",
@@ -558,9 +558,9 @@
           "stem": "Why might artisans in Samarkand have needed to adapt the original Chinese technique rather than copy it exactly?",
           "options": [
             "Local materials, tools, and climate were likely somewhat different from China's",
-            "They refused to learn any part of the original Chinese process",
-            "Paper could no longer be made from plant fiber at all",
-            "They were required to invent a brand new, unrelated craft instead"
+            "They refused to learn any part of the original Chinese process of making paper",
+            "Paper could no longer be made from plant fiber at all in Samarkand",
+            "They were required to invent a brand new, unrelated craft instead of copying"
           ],
           "answer": "A",
           "skill": "inference",

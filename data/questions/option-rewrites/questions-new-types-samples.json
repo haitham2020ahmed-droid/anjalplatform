@@ -1,0 +1,70 @@
+[
+ {
+  "stem": "What is the central idea of the passage?",
+  "correct": "Green roofs can cool cities and save energy, even though they cost more to build.",
+  "replace": [
+   {
+    "old": "A tar roof can become hot enough to cook an egg.",
+    "new": "A tar roof can become hot enough to cook an egg, and nothing else is true about roofs."
+   },
+   {
+    "old": "Sweat helps people stay cool on hot days.",
+    "new": "Sweat helps people stay cool on hot days, and roofs have nothing to do with it."
+   },
+   {
+    "old": "Cities should stop building new buildings.",
+    "new": "Cities should stop building new buildings, because buildings make the city hot."
+   }
+  ]
+ },
+ {
+  "stem": "Which sentence best states a theme of “The Seed Swap”?",
+  "correct": "Caring well for a few things can be better than having too many.",
+  "replace": [
+   {
+    "old": "Tomatoes grow better than beans in the summer.",
+    "new": "Tomatoes grow better than beans in the summer, when the sun is hot."
+   },
+   {
+    "old": "Gardens need sunshine more than water.",
+    "new": "Gardens need sunshine more than water to grow."
+   }
+  ]
+ },
+ {
+  "stem": "What can the reader infer about Samir?",
+  "correct": "He is disappointed but keeps working and still helps others.",
+  "replace": [
+   {
+    "old": "He is angry at Nadia and wants her to fail.",
+    "new": "He is angry at Nadia and wants her to fail the test at school."
+   },
+   {
+    "old": "He plans to quit the orchestra after the concert.",
+    "new": "He plans to quit the orchestra after the big concert is over."
+   },
+   {
+    "old": "He does not care where his name is on the list.",
+    "new": "He does not care where his name is on the list at all."
+   }
+  ]
+ },
+ {
+  "stem": "Why did Hilltop Farm pick only a few baskets of apples that fall?",
+  "correct": "The bug spray drove away the bees that carry pollen.",
+  "replace": [
+   {
+    "old": "Worms ate most of the apples on the trees.",
+    "new": "Worms ate most of the apples on the trees that year."
+   },
+   {
+    "old": "The farmer planted clover between the trees.",
+    "new": "The farmer planted clover between the trees that spring."
+   },
+   {
+    "old": "The trees were too old to grow fruit.",
+    "new": "The trees were too old to grow fruit at all."
+   }
+  ]
+ }
+]

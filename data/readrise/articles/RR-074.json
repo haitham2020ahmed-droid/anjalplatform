@@ -233,9 +233,9 @@
         {
           "stem": "Why does the author tell about the King Fahd Causeway at the end?",
           "options": [
-            "To show how to build an arch",
+            "To show how to build an arch with stones and bricks",
             "To give a real example of bridges close to home",
-            "To explain why wind is dangerous",
+            "To explain why wind is dangerous on a bridge",
             "To list the longest bridges on Earth"
           ],
           "answer": "B",
@@ -310,8 +310,8 @@
         {
           "stem": "What is tension?",
           "options": [
-            "A force that squeezes parts together",
-            "The distance between two supports",
+            "A force that squeezes parts together, like a heavy weight",
+            "The distance between two supports of a bridge",
             "A pulling force that stretches parts apart",
             "The weight of the cars on a bridge"
           ],
@@ -412,9 +412,9 @@
         {
           "stem": "How is most of the article organized?",
           "options": [
-            "As a story told by a bridge worker",
-            "As a set of steps for building a bridge at home",
-            "In time order from the oldest bridge to the newest",
+            "As a story told by a bridge worker about his job on a river",
+            "As a set of steps for building a bridge at home with sticks",
+            "In time order from the oldest bridge to the newest bridge in the whole of Asia",
             "By explaining forces first, then describing different types of bridges"
           ],
           "answer": "D",
@@ -507,8 +507,8 @@
           "stem": "What are abutments?",
           "options": [
             "Solid supports at each end of an arch bridge",
-            "Gaps with metal teeth in the roadway",
-            "Vertical cables that hold up a deck",
+            "Gaps with metal teeth in the roadway of the bridge",
+            "Vertical cables that hold up a deck from above",
             "Small models tested in wind tunnels"
           ],
           "answer": "A",
@@ -558,9 +558,9 @@
           "stem": "Why does the author mention that summer temperatures in Saudi Arabia can exceed 45 degrees Celsius?",
           "options": [
             "To show why expansion joints matter for bridges here",
-            "To persuade readers to stay indoors",
-            "To explain why bridges collapse in wind",
-            "To compare Saudi Arabia with the Romans"
+            "To persuade readers to stay indoors during the summer",
+            "To explain why bridges collapse in wind and sand storms",
+            "To compare Saudi Arabia with the Romans who built roads"
           ],
           "answer": "A",
           "skill": "author-purpose",
@@ -574,10 +574,10 @@
         {
           "stem": "An engineer must cross a strait three kilometers wide with as few supports in the water as possible. Based on the article, which design is most suitable?",
           "options": [
-            "A single stone arch",
-            "A short beam bridge",
+            "A single stone arch built right across the water",
+            "A short beam bridge with many small supports in the water",
             "A suspension bridge with towers and anchored main cables",
-            "A row of wooden planks"
+            "A row of wooden planks laid across the strait"
           ],
           "answer": "C",
           "skill": "inference",

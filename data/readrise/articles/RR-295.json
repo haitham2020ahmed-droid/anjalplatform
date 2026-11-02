@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How swords are made in factories",
+            "How swords are made in factories by machines and workers, with iron and fire",
             "A traditional Saudi dance performed with poetry, drums, and swords",
-            "A new sport invented last year",
-            "How to plant trees in the desert"
+            "A new sport invented last year for children, played with balls, drums, and a net",
+            "How to plant trees in the desert with little water, using sand, sun, and small pots"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -182,10 +182,10 @@
         {
           "stem": "Why do the men hold swords without fighting?",
           "options": [
-            "The swords are too heavy to lift and move a full step",
+            "The swords are too heavy to lift and move a full step, so they stay on the ground",
             "The swords are only part of the dance, not a real fight that could hurt someone",
-            "The swords are too old to be used safely by anyone at all",
-            "They do not know how to use swords properly in any situation"
+            "The swords are too old to be used safely by anyone at all, so the men only hold them",
+            "They do not know how to use swords properly in any situation, so they stand quietly"
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -292,10 +292,10 @@
         {
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
-            "Swords are the most dangerous weapons in Saudi Arabia",
-            "UNESCO invented Al-Ardah in 2015 as a brand-new tradition",
+            "Swords are the most dangerous weapons in Saudi Arabia, and people use them in the dance as in a real war",
+            "UNESCO invented Al-Ardah in 2015 as a brand-new tradition for visitors who come to the city",
             "Al-Ardah is a traditional dance that combines poetry, drumming, and synchronized movement to celebrate heritage",
-            "Drums are only used at weddings and never at any other kind of event or celebration"
+            "Drums are only used at weddings and never at any other kind of event or celebration in the country"
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -377,9 +377,9 @@
         {
           "stem": "Why do the dancers answer the poet by chanting lines back?",
           "options": [
-            "Because the poet cannot be heard",
-            "Because it is required by law",
-            "To end the ceremony early",
+            "Because the poet cannot be heard from the back",
+            "Because it is required by law in the country",
+            "To end the ceremony early and go home",
             "To create a shared, back-and-forth performance"
           ],
           "answer": "D",
@@ -394,10 +394,10 @@
         {
           "stem": "What can you infer about why UNESCO recognized Al-Ardah?",
           "options": [
-            "Because it uses the most expensive swords",
+            "Because it uses the most expensive swords in the whole world",
             "Because it is a valuable cultural tradition worth protecting",
-            "Because only one country performs it",
-            "Because it is a brand-new dance"
+            "Because only one country performs it every single year of all",
+            "Because it is a brand-new dance from this year"
           ],
           "answer": "B",
           "skill": "inference",
@@ -412,9 +412,9 @@
           "stem": "How is the article mostly organized?",
           "options": [
             "From the dance's history to how it is performed today, ending with its modern recognition",
-            "As a set of instructions for building a drum",
-            "As an argument against traditional dances",
-            "As a comparison between two different countries' flags"
+            "As a set of instructions for building a drum at home with wood, a skin cover, and strong rope",
+            "As an argument against traditional dances in the schools of the whole country",
+            "As a comparison between two different countries' flags and songs"
           ],
           "answer": "A",
           "skill": "text-structure",

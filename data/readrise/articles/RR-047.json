@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How to make a mirror at home",
+            "How to make a mirror at home from simple things",
             "How telescopes help us see things far away in space",
-            "Why the Moon has hills on it",
-            "How stars are born in a galaxy"
+            "Why the Moon has hills on it and long valleys",
+            "How stars are born in a galaxy of dust and gas"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -182,9 +182,9 @@
         {
           "stem": "Why do people put some telescopes on tall hills or in space?",
           "options": [
-            "To be closer to the Sun",
-            "So that people can visit them",
-            "To keep them away from rain",
+            "To be closer to the Sun for more light",
+            "So that people can visit them on holidays",
+            "To keep them away from rain and the wind",
             "Because the air can blur the stars"
           ],
           "answer": "D",
@@ -216,10 +216,10 @@
         {
           "stem": "Why might the author say a telescope can show the past?",
           "options": [
-            "Because it shows old photos of Earth",
-            "Because Galileo made the first one",
+            "Because it shows old photos of Earth long ago",
+            "Because Galileo made the first one in Italy",
             "Because light from far away left there long ago",
-            "Because stars stop shining at night"
+            "Because stars stop shining at night for a while"
           ],
           "answer": "C",
           "skill": "inference",
@@ -233,10 +233,10 @@
         {
           "stem": "Why does the author compare a telescope to a big eye?",
           "options": [
-            "To show that it can blink",
+            "To show that it can blink and close like a lid",
             "To show that it takes in light so we can see more",
-            "To show that it is shaped like a face",
-            "To show that it can only see at night"
+            "To show that it is shaped like a face with a nose",
+            "To show that it can only see at night in the dark"
           ],
           "answer": "B",
           "skill": "author-purpose",
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
-            "Galileo was the most important astronomer who ever lived.",
+            "Galileo was the most important astronomer who ever lived, and he built the first telescope.",
             "Telescopes gather light so astronomers can study distant objects in space.",
-            "The atmosphere is the main reason stars twinkle at night.",
-            "Gold is the best material for making any telescope mirror."
+            "The atmosphere is the main reason stars twinkle at night, and telescopes cannot fix this.",
+            "Gold is the best material for making any telescope mirror, because it never gets dirty."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -328,9 +328,9 @@
           "stem": "According to the article, why are the largest telescopes built with huge mirrors?",
           "options": [
             "Wider mirrors collect more light and show fainter objects.",
-            "Mirrors are cheaper than lenses of any size.",
-            "Mirrors stop stars from twinkling.",
-            "Huge mirrors are easier to launch into space."
+            "Mirrors are cheaper than lenses of any size or shape.",
+            "Mirrors stop the stars from twinkling in the sky.",
+            "Huge mirrors are easier to launch into space than lenses."
           ],
           "answer": "A",
           "skill": "detail",
@@ -379,9 +379,9 @@
           "stem": "Why did the author most likely include the story of Galileo?",
           "options": [
             "To show that telescopes have helped people make discoveries for centuries",
-            "To explain how to build a telescope from glass",
-            "To prove that the Moon has no mountains",
-            "To compare Galileo with the Webb engineers"
+            "To explain how to build a telescope from glass, wood and a long tube",
+            "To prove that the Moon has no mountains, only flat plains and seas",
+            "To compare Galileo with the Webb engineers who built the big space telescope"
           ],
           "answer": "A",
           "skill": "author-purpose",
@@ -395,9 +395,9 @@
         {
           "stem": "Based on the article, why would an astronomer choose a dark mountaintop far from a city?",
           "options": [
-            "Because city air has no atmosphere",
-            "Because Jupiter can only be seen from mountains",
-            "Because cities do not allow telescopes",
+            "Because city air has no atmosphere in it at all",
+            "Because Jupiter can only be seen from mountains at night",
+            "Because cities do not allow telescopes at night",
             "Because there is less light and less air to block the view"
           ],
           "answer": "D",
@@ -412,10 +412,10 @@
         {
           "stem": "Why can Webb see objects that our eyes would never notice, even with perfect vision?",
           "options": [
-            "It is closer to those objects than Earth is.",
+            "It is closer to those objects than Earth is, so it sees them well.",
             "It detects infrared light, which human eyes cannot see.",
-            "It uses a lens instead of a mirror.",
-            "It works only during the day."
+            "It uses a lens instead of a mirror to collect the light.",
+            "It works only during the day, when the Sun is bright."
           ],
           "answer": "B",
           "skill": "inference",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
-            "Galileo's telescope remains more powerful than modern instruments.",
+            "Galileo's telescope remains more powerful than modern instruments, and no one has built a better one.",
             "Telescopes, from Galileo's to Webb, collect light that lets astronomers study faint and distant objects, even seeing into the past.",
-            "Refracting telescopes have completely replaced reflecting telescopes.",
-            "The atmosphere makes it impossible to observe anything from Earth."
+            "Refracting telescopes have completely replaced reflecting telescopes, so mirrors are no longer used in space.",
+            "The atmosphere makes it impossible to observe anything from Earth, so all astronomers must work only in space stations high above the clouds."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -557,9 +557,9 @@
         {
           "stem": "Why does the author include the paragraph explaining that light needs time to travel across space?",
           "options": [
-            "To argue that light travels slower in deserts",
-            "To prove that Galileo saw distant galaxies",
-            "To describe how mirrors are coated with gold",
+            "To argue that light travels slower in deserts than in other places",
+            "To prove that Galileo saw distant galaxies with his very small telescope",
+            "To describe how mirrors are coated with gold in the big telescopes",
             "To show that observing far objects means seeing them as they were long ago"
           ],
           "answer": "D",
@@ -591,10 +591,10 @@
         {
           "stem": "Why might astronomers in Saudi Arabia have an advantage when observing faint objects from the ground?",
           "options": [
-            "The desert air removes the need for mirrors.",
+            "The desert air removes the need for mirrors, so telescopes can be much smaller there.",
             "Dark, dry skies provide clearer views with less light to hide faint objects.",
-            "Saudi Arabia is closer to Jupiter than other countries.",
-            "Telescopes in deserts can see in infrared without special design."
+            "Saudi Arabia is closer to Jupiter than other countries, so the planet looks bigger.",
+            "Telescopes in deserts can see in infrared without special design, even on cloudy days."
           ],
           "answer": "B",
           "skill": "inference",

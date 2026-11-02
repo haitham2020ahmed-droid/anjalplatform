@@ -199,10 +199,10 @@
     {
      "stem": "Why did towns grow up around oases?",
      "options": [
-      "The sand there was softer.",
+      "The sand there was softer to build on and to walk",
       "People could get water there to live and farm.",
-      "Oases were far from any trees.",
-      "Camels would not walk any farther."
+      "Oases were far from any trees and from the roads",
+      "Camels would not walk any farther in the heat of day"
      ],
      "answer": "B",
      "skill": "inference",
@@ -294,9 +294,9 @@
      "stem": "Which sentence best states the central idea of the article?",
      "options": [
       "Oases hold underground water that lets people farm and live in the desert, but it must be used carefully.",
-      "Date palms are the tallest trees that grow in Saudi Arabia.",
-      "Camel caravans were the fastest way to travel long ago.",
-      "Al-Ahsa has more than two million palm trees."
+      "Date palms are the tallest trees that grow in Saudi Arabia, and they need no water at all.",
+      "Camel caravans were the fastest way to travel long ago, so oases were never needed by travelers or merchants in the desert.",
+      "Al-Ahsa has more than two million palm trees, which is more than any other place in the world."
      ],
      "answer": "A",
      "skill": "central-idea",
@@ -472,10 +472,10 @@
     {
      "stem": "Which statement best summarizes the article?",
      "options": [
-      "Al-Ahsa became a UNESCO World Heritage Site in 2018.",
+      "Al-Ahsa became a UNESCO World Heritage Site in 2018, and its farms were closed to visitors.",
       "Ancient groundwater makes oases possible, supporting farms, trade, and towns, yet it must be managed carefully.",
-      "Camel caravans were the main way merchants traded goods.",
-      "Drip irrigation is the newest invention in farming."
+      "Camel caravans were the main way merchants traded goods, and oases played no part in their trips across the Empty Quarter and the sand seas.",
+      "Drip irrigation is the newest invention in farming, and it has replaced oases in modern farming."
      ],
      "answer": "B",
      "skill": "central-idea",
@@ -506,9 +506,9 @@
     {
      "stem": "Why was Al-Ahsa added to the UNESCO World Heritage List?",
      "options": [
-      "Its tall mountains and deep rivers",
-      "Its modern factories and highways",
-      "Its large herds of wild camels",
+      "Its tall mountains and deep rivers that run to the sea",
+      "Its modern factories and highways that join its cities",
+      "Its large herds of wild camels that roam the sand",
       "Its long history of farming and settlement"
      ],
      "answer": "D",

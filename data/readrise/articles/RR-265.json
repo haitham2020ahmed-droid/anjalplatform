@@ -182,10 +182,10 @@
         {
           "stem": "In the article, a drip is…",
           "options": [
-            "a whole field of water",
+            "a whole field of water in the desert",
             "a small drop of water falling one at a time",
-            "a kind of pipe",
-            "a dry desert"
+            "a kind of pipe that is buried in the ground",
+            "a dry desert with no rain for many years"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -199,10 +199,10 @@
         {
           "stem": "Why is it good that drip irrigation is slow?",
           "options": [
-            "Slow means the farmer can rest all day",
+            "Slow means the farmer can rest all day long in the shade of a tree",
             "Slow means the plant drinks a little water for a long time, so less is wasted",
-            "Slow means the field never gets any water",
-            "Slow means the pipe breaks less often"
+            "Slow means the field never gets any water at all from the pipes",
+            "Slow means the pipe breaks less often than a fast one would do in the field"
           ],
           "answer": "B",
           "skill": "inference",
@@ -234,9 +234,9 @@
           "stem": "Why does the author compare drip irrigation to flooding a field?",
           "options": [
             "To show how drip irrigation wastes much less water",
-            "To explain how to build a canal",
-            "To describe a kind of storm",
-            "To tell a story about a farmer's family"
+            "To explain how to build a canal for a large farm",
+            "To describe a kind of storm that floods the fields",
+            "To tell a story about a farmer's family and their farm"
           ],
           "answer": "A",
           "skill": "author-purpose",
@@ -293,9 +293,9 @@
         {
           "stem": "What is the main idea of this article?",
           "options": [
-            "Plants that grow in dry regions do not have any roots at all.",
-            "Farmers living in dry regions should stop growing crops completely.",
-            "Flood irrigation is actually the single most efficient way to water any field.",
+            "Plants that grow in dry regions do not have any roots at all, so they cannot drink.",
+            "Farmers living in dry regions should stop growing crops completely, since water is scarce.",
+            "Flood irrigation is actually the single most efficient way to water any field, in dry lands or wet.",
             "Drip irrigation delivers water to crop roots slowly and wastes far less than flood irrigation."
           ],
           "answer": "D",
@@ -378,10 +378,10 @@
         {
           "stem": "How is this article organized?",
           "options": [
-            "It tells a story about one farmer's childhood.",
+            "It tells a story about one farmer's childhood and his first day on the farm.",
             "It describes an older method, then explains a newer, more efficient method.",
-            "It lists irrigation methods used in different centuries in order.",
-            "It compares farms in different countries one by one."
+            "It lists irrigation methods used in different centuries in order, with dates.",
+            "It compares farms in different countries one by one, starting with the smallest."
           ],
           "answer": "B",
           "skill": "text-structure",
@@ -395,10 +395,10 @@
         {
           "stem": "What can you infer about weeds in a field that uses drip irrigation?",
           "options": [
-            "They grow much faster than in a flooded field",
-            "They are destroyed by the emitters",
+            "They grow much faster than in a flooded field, since they get more water",
+            "They are destroyed by the emitters when the water drips on them",
             "They receive less encouragement to grow between the rows",
-            "They are not affected by water at all"
+            "They are not affected by water at all in a drip field"
           ],
           "answer": "C",
           "skill": "inference",
@@ -413,9 +413,9 @@
           "stem": "Why is it efficient for water to evaporate less during irrigation?",
           "options": [
             "Because evaporated water is no longer available for the plant to use",
-            "Because evaporation makes plants grow faster",
-            "Because evaporation adds nutrients to the soil",
-            "Because evaporation only happens at night"
+            "Because evaporation makes plants grow faster in the sun and so it helps the farm",
+            "Because evaporation adds nutrients to the soil of the field and so it is good",
+            "Because evaporation only happens at night on the farm and does not matter then"
           ],
           "answer": "A",
           "skill": "inference",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
-            "Arid regions no longer need any form of irrigation of any kind at all for their crops",
-            "Flood irrigation has completely replaced drip irrigation on modern farms.",
+            "Arid regions no longer need any form of irrigation of any kind at all for their crops, because they now get heavy rain every day",
+            "Flood irrigation has completely replaced drip irrigation on modern farms everywhere, and no farmer uses pipes with small holes anymore.",
             "Drip irrigation's slow, targeted delivery of water makes farming in arid regions far more efficient than flooding.",
-            "Fertilizer use is completely unrelated to how a given field is irrigated."
+            "Fertilizer use is completely unrelated to how a given field is irrigated or watered, so farmers never need to think about it."
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -506,9 +506,9 @@
         {
           "stem": "What keeps the soil near a plant's root from becoming saturated under drip irrigation?",
           "options": [
-            "Pipes that release all their water only once a year",
-            "A sudden, large flood of water released all at once",
-            "The complete and total absence of any water near the roots",
+            "Pipes that release all their water only once a year in spring",
+            "A sudden, large flood of water released all at once into the field",
+            "The complete and total absence of any water near the roots for many weeks",
             "The gradual, steady release of small amounts of water over many hours"
           ],
           "answer": "D",
@@ -523,10 +523,10 @@
         {
           "stem": "In the article, the word precision most nearly means…",
           "options": [
-            "a very loud noise",
+            "a very loud noise that can hurt the ears of people",
             "exact accuracy in targeting where something goes",
-            "a type of soil found only in deserts",
-            "an old-fashioned farming tool"
+            "a type of soil found only in hot deserts",
+            "an old-fashioned farming tool used with an ox"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -541,9 +541,9 @@
           "stem": "How do flood irrigation and drip irrigation compare in terms of fertilizer loss?",
           "options": [
             "Flood irrigation loses more fertilizer to runoff than drip irrigation does",
-            "Drip irrigation loses more fertilizer than flood irrigation",
-            "Neither method affects fertilizer at all",
-            "Both methods lose exactly the same amount of fertilizer"
+            "Drip irrigation loses more fertilizer than flood irrigation does",
+            "Neither method affects fertilizer at all, so farmers can use either one",
+            "Both methods lose exactly the same amount of fertilizer, so they are equal"
           ],
           "answer": "A",
           "skill": "compare",
@@ -574,9 +574,9 @@
         {
           "stem": "Why does the author describe drip irrigation's pace as \"deliberately gradual\"?",
           "options": [
-            "To describe a sudden natural disaster affecting nearby crops",
-            "To criticize drip irrigation for being too slow to be useful",
-            "To explain in detail why farmers dislike using drip irrigation",
+            "To describe a sudden natural disaster affecting nearby crops, such as a storm or a flood that harms them",
+            "To criticize drip irrigation for being too slow to be useful to farmers, and to say they should stop",
+            "To explain in detail why farmers dislike using drip irrigation, since it costs too much to buy",
             "To emphasize that the slowness is an intentional design choice that reduces waste"
           ],
           "answer": "D",
@@ -592,9 +592,9 @@
           "stem": "What can you infer about the future importance of drip irrigation in arid regions like the Arabian Peninsula?",
           "options": [
             "It will likely become more important as water becomes scarcer and more costly",
-            "It will likely be abandoned in favor of flood irrigation",
-            "It has no connection to the region's water supply",
-            "It will make desalination and groundwater unnecessary immediately"
+            "It will likely be abandoned in favor of flood irrigation as water becomes cheaper",
+            "It has no connection to the region's water supply or to how farmers grow food",
+            "It will make desalination and groundwater unnecessary immediately for every farm"
           ],
           "answer": "A",
           "skill": "inference",

@@ -116,7 +116,7 @@
           "options": [
             "How to keep a pet turtle safe at home",
             "Why some animals are in danger and how we can help",
-            "How the dodo learned to fly",
+            "How the dodo learned to fly across the sea to a new home",
             "Why the oryx has such long, straight horns"
           ],
           "answer": "B",
@@ -294,9 +294,9 @@
           "stem": "Which sentence best states the central idea?",
           "options": [
             "Animals become endangered mainly because of human actions, but people can also help them recover.",
-            "Only animals that live on small islands far out at sea become endangered.",
-            "The dodo is the only extinct animal.",
-            "Zoos are the only safe place for animals."
+            "Only animals that live on small islands far out at sea become endangered, because they have fewer places to hide.",
+            "The dodo is the only extinct animal that people have ever lost, so the article warns about dodos only.",
+            "Zoos are the only safe place for animals, and no animal can live well in the wild any longer."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -327,10 +327,10 @@
         {
           "stem": "What is a reserve?",
           "options": [
-            "A small cage in a city zoo",
+            "A small cage in a city zoo for a few animals",
             "A large area where wildlife is kept safe",
-            "A list of extinct animals",
-            "A kind of antelope"
+            "A list of extinct animals from long ago",
+            "A kind of antelope with long horns"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -379,9 +379,9 @@
           "stem": "How is an endangered species different from an extinct species?",
           "options": [
             "An endangered species still has some living members; an extinct one has none.",
-            "An extinct species lives only in zoos and on reserves.",
-            "An endangered species is gone forever.",
-            "There is no difference."
+            "An extinct species lives only in zoos and on reserves, and an endangered one is gone.",
+            "An endangered species is gone forever, and an extinct one is just rare.",
+            "There is no difference between them, since both are gone."
           ],
           "answer": "A",
           "skill": "compare",
@@ -473,9 +473,9 @@
           "stem": "Which statement best summarizes the article?",
           "options": [
             "Human activities push species toward extinction, but protection and reintroduction can reverse the decline.",
-            "Extinction is a natural process, so people should never try to stop or slow it.",
-            "Invasive species are the only threat to wildlife.",
-            "The Arabian oryx is still extinct in the wild."
+            "Extinction is a natural process, so people should never try to stop or slow it, even for the oryx.",
+            "Invasive species are the only threat to wildlife, and people and pollution do no harm to any animal.",
+            "The Arabian oryx is still extinct in the wild, and no oryx has been seen in nature for a hundred years."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -506,10 +506,10 @@
         {
           "stem": "What does the success of the Arabian oryx demonstrate, according to the article?",
           "options": [
-            "That zoos should keep all animals forever",
+            "That zoos should keep all animals forever behind walls",
             "That determined conservation efforts can succeed",
-            "That hunting helps animal populations",
-            "That reserves are too small to help"
+            "That hunting helps animal populations to grow again",
+            "That reserves are too small to help any animal"
           ],
           "answer": "B",
           "skill": "detail",
@@ -591,9 +591,9 @@
         {
           "stem": "What can be inferred from the mention of the Arabian leopard?",
           "options": [
-            "The leopard is no longer in any danger.",
-            "The leopard is extinct.",
-            "The leopard harms the oryx.",
+            "The leopard is no longer in any danger, so nobody needs to protect it.",
+            "The leopard is extinct, so no one will ever see one again.",
+            "The leopard harms the oryx, so rangers wanted to remove it.",
             "Saudi Arabia's conservation work did not end with the oryx."
           ],
           "answer": "D",

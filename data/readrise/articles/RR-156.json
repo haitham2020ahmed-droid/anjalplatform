@@ -216,10 +216,10 @@
         {
           "stem": "Jeddah is by the sea and Riyadh is far from it. What can you tell?",
           "options": [
-            "Riyadh gets more dew than Jeddah",
-            "Both cities have the same air",
+            "Riyadh gets more dew than Jeddah does",
+            "Both cities have the same air all year",
             "Air near the sea gets more water vapor",
-            "Riyadh is always humid"
+            "Riyadh is always humid in every season"
           ],
           "answer": "C",
           "skill": "inference",
@@ -396,9 +396,9 @@
           "stem": "Why would a runner probably feel worse in Dammam in summer than in Riyadh on a day with the same temperature?",
           "options": [
             "Dammam's humid air slows sweat from evaporating",
-            "Riyadh has more sweat in the air",
-            "Dammam is higher in the mountains",
-            "Runners do not sweat in Riyadh"
+            "Riyadh has more sweat in the air, so runners feel hotter there",
+            "Dammam is higher in the mountains, so the air is thin there",
+            "Runners do not sweat in Riyadh, because the air is too dry"
           ],
           "answer": "A",
           "skill": "inference",
@@ -412,9 +412,9 @@
         {
           "stem": "How does the article mainly explain dew, clouds, and fog?",
           "options": [
-            "As a list of dates",
-            "As a story about one family",
-            "As three different causes",
+            "As a list of dates and famous scientists",
+            "As a story about one family on a trip",
+            "As three different causes and three effects",
             "As results of the same cause: cooling air"
           ],
           "answer": "D",
@@ -557,9 +557,9 @@
         {
           "stem": "If the temperature rises in the afternoon but the amount of vapor stays the same, what happens to relative humidity?",
           "options": [
-            "It goes up to 100 percent",
-            "It stays exactly the same",
-            "It becomes saturated",
+            "It goes up to 100 percent, because the air is hotter",
+            "It stays exactly the same, because the vapor is fixed",
+            "It becomes saturated, because the air cannot hold more",
             "It goes down, because warm air could hold more"
           ],
           "answer": "D",
@@ -575,9 +575,9 @@
           "stem": "What can you infer about coastal Jeddah compared with Riyadh?",
           "options": [
             "More water evaporates from the nearby sea into Jeddah's air",
-            "Jeddah has no hygrometers",
-            "Riyadh has more water vapor in its air",
-            "Jeddah is colder all year"
+            "Jeddah has no hygrometers because the weather is always dry",
+            "Riyadh has more water vapor in its air than a coastal city",
+            "Jeddah is colder all year because it is far from the desert"
           ],
           "answer": "A",
           "skill": "inference",

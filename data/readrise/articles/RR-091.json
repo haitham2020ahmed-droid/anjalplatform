@@ -115,9 +115,9 @@
           "stem": "What is this article mostly about?",
           "options": [
             "Trees that grow in salty water by the sea",
-            "How to catch fish with a net",
-            "Why trees lose their leaves",
-            "How to build a boat"
+            "How to catch fish with a net from a boat",
+            "Why trees lose their leaves in the autumn",
+            "How to build a boat from wood"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -165,10 +165,10 @@
         {
           "stem": "In the article, the word shelter means —",
           "options": [
-            "a kind of food",
+            "a kind of food that people eat",
             "a safe place to hide and live",
-            "a strong wave",
-            "a type of seed"
+            "a strong wave that comes in from the sea",
+            "a type of seed that grows in the sand"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -199,9 +199,9 @@
         {
           "stem": "What would most likely happen to young fish if the mangroves were cut down?",
           "options": [
-            "They would grow much faster",
-            "They would move into the trees",
-            "They would turn into crabs",
+            "They would grow much faster in the open sea",
+            "They would move into the trees on the shore",
+            "They would turn into crabs and live on the sand",
             "They would lose a safe place to hide"
           ],
           "answer": "D",
@@ -216,10 +216,10 @@
         {
           "stem": "What happens after a mangrove seed starts to grow on the tree?",
           "options": [
-            "It turns into a leaf",
+            "It turns into a leaf and grows on a branch",
             "It drops off and may float to a new place",
-            "It stays on the tree forever",
-            "It sinks and makes salt"
+            "It stays on the tree forever and never falls",
+            "It sinks into the mud and makes the salt"
           ],
           "answer": "B",
           "skill": "sequence",
@@ -234,9 +234,9 @@
           "stem": "Why does the author say that Saudi Arabia is planting new mangroves?",
           "options": [
             "To show that people are helping these trees",
-            "To explain how salt gets into the sea",
+            "To explain how salt gets into the sea water",
             "To tell readers where fish sleep",
-            "To show that mangroves are not useful"
+            "To show that mangroves are not useful trees"
           ],
           "answer": "A",
           "skill": "author-purpose",
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
-            "Mangroves are weak trees that need fresh water.",
+            "Mangroves are weak trees that need fresh water to live and grow, so they die near the sea.",
             "Mangroves have special features to live in salty water, and they protect sea life and coasts.",
-            "Mangroves grow only on islands far from land.",
-            "Birds are the most important animals in mangrove forests."
+            "Mangroves grow only on islands that are far from the land and from any people.",
+            "Birds are the most important animals in mangrove forests, and they are the only animals there."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -361,10 +361,10 @@
         {
           "stem": "In the article, why are mangrove forests called a nursery?",
           "options": [
-            "Farmers grow baby trees there to sell",
-            "People take children there to play",
+            "Farmers grow baby trees there to sell in the market",
+            "People take children there to play and to learn to swim",
             "Young sea animals grow up safely among the roots",
-            "The trees are very young"
+            "The trees are very young and have just been planted"
           ],
           "answer": "C",
           "skill": "vocabulary",
@@ -379,9 +379,9 @@
           "stem": "What can readers infer about coasts without mangroves?",
           "options": [
             "Waves and storms can wear away the land more easily",
-            "They have more fish than other coasts",
-            "Their water has no salt in it at all",
-            "They never have tides"
+            "They have more fish than other coasts do each year",
+            "Their water has no salt in it at all, even in summer",
+            "They never have tides, even at full moon"
           ],
           "answer": "A",
           "skill": "inference",
@@ -413,9 +413,9 @@
           "stem": "How is the article organized?",
           "options": [
             "It explains how mangroves survive, how they help, and how people affect them",
-            "As a story about one fish's life",
-            "As a list of steps for planting a garden",
-            "It compares mangroves with desert plants in each part"
+            "As a story about one fish's life among the mangrove roots from birth to old age, in a river",
+            "As a list of steps for planting a garden of mangroves near the sea",
+            "It compares mangroves with desert plants in each part of the article"
           ],
           "answer": "A",
           "skill": "text-structure",
@@ -472,9 +472,9 @@
         {
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
-            "Mangroves are useful only because birds nest in them.",
-            "Mangroves grow mainly in cold regions far from the equator.",
-            "Mangroves rarely need protection because they grow so quickly.",
+            "Mangroves are useful only because birds nest in them, and that is the main reason that people plant them near the shore.",
+            "Mangroves grow mainly in cold regions far from the equator, where the sea is icy and the water is not salty at all.",
+            "Mangroves rarely need protection because they grow so quickly, so people can cut them down and the trees soon grow back.",
             "Mangroves' adaptations let them thrive where land meets sea, where they support wildlife, protect coasts, and store carbon."
           ],
           "answer": "D",
@@ -523,10 +523,10 @@
         {
           "stem": "How do mangrove roots help prevent erosion?",
           "options": [
-            "They make the seawater less salty",
+            "They make the seawater less salty near the shore",
             "They trap sediment and hold it in place",
-            "They push the tide farther out",
-            "They release oxygen into the mud"
+            "They push the tide farther out into the bay",
+            "They release oxygen into the mud for the crabs"
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -557,10 +557,10 @@
         {
           "stem": "How do the grey mangrove's salt glands compare with its pencil-like roots?",
           "options": [
-            "Both help the tree catch fish",
+            "Both help the tree catch fish in the water, mud, and tide, as nets do",
             "The glands solve the problem of salt; the roots solve the problem of low oxygen",
-            "Both are found only in young seedlings",
-            "The glands take in oxygen; the roots release salt"
+            "Both are found only in young seedlings, and not in old trees, say the authors",
+            "The glands take in oxygen; the roots release salt into the mud and the water"
           ],
           "answer": "B",
           "skill": "compare",
@@ -575,9 +575,9 @@
           "stem": "Why does the author describe the destruction of mangroves before describing the Saudi Green Initiative?",
           "options": [
             "To show the problem that the planting program is trying to solve",
-            "To argue that buildings matter more than forests",
-            "To explain how propagules float to distant shores",
-            "To list the countries where mangroves grow"
+            "To argue that buildings matter more than forests in a coastal city",
+            "To explain how propagules float to distant shores in the sea",
+            "To list the countries where mangroves grow around the world"
           ],
           "answer": "A",
           "skill": "text-structure",

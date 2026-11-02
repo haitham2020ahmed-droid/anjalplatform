@@ -116,9 +116,9 @@
      "passage": "Huda can read. Huda can write. Huda can ___ read ___ write.",
      "stem": "Which pair fits best?",
      "options": [
-      "either / or",
-      "or / nor",
-      "nor / but",
+      "either / or together",
+      "or / nor together",
+      "nor / but together",
       "not only / but also"
      ],
      "answer": 3,

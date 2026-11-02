@@ -174,9 +174,9 @@
       "stem": "What is the main purpose of the text?",
       "options": [
         "to inform readers how the Riyadh Metro works and why it matters",
-        "to persuade readers to sell their family cars and walk",
-        "to tell the long history of Riyadh's mud-brick houses",
-        "to explain how a person can train to drive trains"
+        "to persuade readers to sell their family cars and walk to work",
+        "to tell the long history of Riyadh's mud-brick houses and towers",
+        "to explain how a person can train to drive trains for a living"
       ],
       "answer": "A",
       "why": "The text explains the metro's reasons, design, technology, benefits and challenges."
@@ -189,10 +189,10 @@
       "type": "MCQ",
       "stem": "Which sentence best states the main idea of paragraph 4?",
       "options": [
-        "Concrete bridges carry some of the lines.",
-        "Riyadh's summers are very hot.",
+        "Concrete bridges carry some of the lines above the roads.",
+        "Riyadh's summers are very hot and very dry, with little rain.",
         "Building the metro required solving many engineering problems.",
-        "Solar cells provide some power for stations."
+        "Solar cells provide some power for the stations and the trains."
       ],
       "answer": "C",
       "why": "The paragraph begins “Building the network was an enormous engineering challenge” and gives examples; the others are supporting details."
@@ -237,10 +237,10 @@
       "type": "MCQ",
       "stem": "According to paragraph 3, why do glass doors along the platform edge open only when a train has arrived?",
       "options": [
-        "to keep sand out of the tunnels",
+        "to keep sand out of the tunnels and the trains",
         "to protect passengers from falling onto the track",
-        "to keep the trains cool",
-        "to count the passengers"
+        "to keep the trains cool in the hot summer",
+        "to count the passengers who get on and off"
       ],
       "answer": "B",
       "why": "The doors open only when a train arrives, “which protects passengers from falling onto the track.”"
@@ -269,10 +269,10 @@
       "type": "MCQ",
       "stem": "Who watches the metro network while the trains run without drivers?",
       "options": [
-        "the passengers",
+        "the passengers who sit at the front",
         "human operators at a control centre",
-        "Guinness World Records",
-        "bus drivers"
+        "Guinness World Records judges in London",
+        "bus drivers from the city streets"
       ],
       "answer": "B",
       "why": "Paragraph 3: “Human operators still watch the whole network on large screens, ready to step in.”"
@@ -301,9 +301,9 @@
       "type": "MCQ",
       "stem": "According to paragraph 3, what allows the system to keep a safe distance between trains?",
       "options": [
-        "Drivers who look out of the window",
-        "Glass doors on the platforms",
-        "Passengers who report delays",
+        "Drivers who look out of the window of the train",
+        "Glass doors on the platforms of each station",
+        "Passengers who report delays to the staff at once",
         "Sensors that report each train's position and speed"
       ],
       "answer": "D",
@@ -333,10 +333,10 @@
       "type": "MCQ",
       "stem": "In your opinion, what makes the reader want to keep reading after paragraph 2?",
       "options": [
-        "wanting to know the colours of every line",
+        "wanting to know the colours of every line on the map",
         "wanting to know how trains can run without drivers",
-        "wanting to know who built mud-brick houses",
-        "wanting to know the date of the next record"
+        "wanting to know who built the mud-brick houses long ago",
+        "wanting to know the date of the next speed record"
       ],
       "answer": "B",
       "why": "Paragraph 2 ends with the driverless record, and paragraph 3 begins by asking how this is possible, which builds curiosity."
@@ -413,10 +413,10 @@
       "type": "MCQ",
       "stem": "In your opinion, why does the writer compare “an hour of stop-and-go traffic” with “a calm ride above the rooftops”?",
       "options": [
-        "to show that trains are slower than cars",
-        "to complain about the noise of trains",
+        "to show that trains are slower than cars on the road",
+        "to complain about the noise of trains in the city",
         "to help readers feel the difference the metro makes",
-        "to describe the history of Riyadh's roads"
+        "to describe the history of Riyadh's roads and streets"
       ],
       "answer": "C",
       "why": "Placing the stressful old journey beside the peaceful new one makes the benefit vivid and memorable."
@@ -461,10 +461,10 @@
       "type": "MCQ",
       "stem": "What most likely motivated the writer to write this text?",
       "options": [
-        "a wish to complain about Riyadh's traffic",
-        "a plan to sell tickets for the metro",
+        "a wish to complain about Riyadh's traffic jams every day",
+        "a plan to sell tickets for the metro to tourists",
         "a wish to explain a major change in how a city moves",
-        "a belief that cars should be banned"
+        "a belief that cars should be banned from all cities"
       ],
       "answer": "C",
       "why": "The writer explains the metro's technology, benefits and challenges and ends by celebrating how much the city has changed."
@@ -493,10 +493,10 @@
       "type": "MCQ",
       "stem": "In your opinion, which information is the LEAST clear in the text?",
       "options": [
-        "how many stations the metro has",
+        "how many stations the metro has in the city",
         "how passengers pay for their journeys",
-        "why platforms have glass doors",
-        "when the metro opened"
+        "why platforms have glass doors on the edge",
+        "when the metro first opened"
       ],
       "answer": "B",
       "why": "The text never explains tickets or payment; the other facts are clearly stated."
@@ -509,10 +509,10 @@
       "type": "MCQ",
       "stem": "Which of the following events could really happen?",
       "options": [
-        "A metro train flies over the rooftops without any track.",
+        "A metro train flies over the rooftops without any track or driver.",
         "A student rides the metro to visit her grandmother across the city.",
-        "A tunnel-boring machine drives itself to Makkah.",
-        "The glass doors open while the train is still far away."
+        "A tunnel-boring machine drives itself to Makkah all alone at night.",
+        "The glass doors open while the train is still far away from the station."
       ],
       "answer": "B",
       "why": "The text says students can travel independently on the metro; the other events contradict how the system is described."

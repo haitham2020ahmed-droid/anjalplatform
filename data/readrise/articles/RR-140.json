@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How to stay healthy by running",
+            "How to stay healthy by running every day in the park",
             "A doctor who found out how blood goes from the heart to the lungs",
-            "How hospitals were built in Cairo",
-            "Why books get lost"
+            "How hospitals were built in Cairo hundreds of years ago by the king",
+            "Why books get lost in big libraries and old houses"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -233,10 +233,10 @@
         {
           "stem": "How does the article tell the story of Ibn al-Nafis?",
           "options": [
-            "It starts in 1924 and goes back in time.",
-            "It lists many doctors from many lands.",
+            "It starts in 1924 and goes back in time, from the newest finding to the oldest",
+            "It lists many doctors from many lands, one after another, with their famous books",
             "It tells about the heart, then his life, then his idea, then how it was found again.",
-            "It compares Damascus and Cairo."
+            "It compares Damascus and Cairo, then it describes the hospitals of each city"
           ],
           "answer": "C",
           "skill": "text-structure",
@@ -294,9 +294,9 @@
           "stem": "Which sentence best states the central idea?",
           "options": [
             "Ibn al-Nafis challenged Galen's theory and correctly described how blood travels between the heart and lungs.",
-            "Galen was the most important doctor who ever lived.",
-            "Libraries in Berlin hold many books.",
-            "The heart has four chambers."
+            "Galen was the most important doctor who ever lived, and nobody improved on his ideas for hundreds of years.",
+            "Libraries in Berlin hold many books about the heart, the lungs, and medicine.",
+            "The heart has four chambers that pump blood around the body of every animal that has a heart and lungs."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -413,8 +413,8 @@
           "stem": "How is Ibn al-Nafis's idea different from Galen's theory?",
           "options": [
             "Galen said blood goes to the lungs; Ibn al-Nafis said it goes through holes.",
-            "Both said the wall in the heart has holes.",
-            "Both said blood never moves.",
+            "Both said that the wall in the heart has small holes, and both agreed that blood goes through it.",
+            "Both said blood never moves around the body, and that the heart only holds it in place.",
             "Galen said blood passes through holes in the wall; Ibn al-Nafis said it travels through the lungs."
           ],
           "answer": "D",
@@ -472,10 +472,10 @@
         {
           "stem": "What is the central idea of the article?",
           "options": [
-            "Ibn Sina wrote a famous encyclopedia.",
-            "William Harvey discovered everything about blood.",
+            "Ibn Sina wrote a famous encyclopedia of medicine that doctors in Europe read for a long time after his death.",
+            "William Harvey discovered everything about blood, and nobody had written about it before him.",
             "Ibn al-Nafis used careful reasoning about anatomy to describe the pulmonary circulation centuries before Europe.",
-            "Hospitals in Cairo were the largest in the world."
+            "Hospitals in Cairo were the largest in the world, and they treated all kinds of sick people for free."
           ],
           "answer": "C",
           "skill": "central-idea",

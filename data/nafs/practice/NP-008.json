@@ -45,10 +45,10 @@
       "difficulty": 1,
       "stem": "Why does magma rise toward the surface?",
       "options": [
-        "Seawater pulls it upward from above.",
-        "It is colder than the rock around it.",
+        "Seawater pulls it upward from above, into the hole.",
+        "It is colder than the rock around it, so it floats.",
         "It is lighter than the solid rock around it.",
-        "New islands press down on it."
+        "New islands press down on it from above, so it moves."
       ],
       "answer": "C",
       "why": "The passage says, 'Because magma is lighter than the solid rock around it, it slowly rises.'"
@@ -77,9 +77,9 @@
       "difficulty": 2,
       "stem": "Why are the oldest Hawaiian Islands farthest from the hot spot?",
       "options": [
-        "Waves have pushed them across the ocean.",
-        "The hot spot moves quickly toward the west.",
-        "They were made from coral, not from lava.",
+        "Waves have pushed them across the ocean over time.",
+        "The hot spot moves quickly toward the west each year.",
+        "They were made from coral, not from lava, long ago.",
         "The Pacific Plate has carried them away over time."
       ],
       "answer": "D",
@@ -94,9 +94,9 @@
       "stem": "The writer ends by saying islands 'remind us that the surface of our planet is still changing today.' What is the effect of this ending?",
       "options": [
         "It leaves readers thinking about how active the Earth is.",
-        "It shows that islands can speak to people.",
-        "It suggests that all islands will soon vanish.",
-        "It explains how plants reach new islands."
+        "It shows that islands can speak to people on the shore.",
+        "It suggests that all islands will soon vanish into the sea.",
+        "It explains how plants and birds reach new islands over time."
       ],
       "answer": "A",
       "why": "The closing sentence widens the topic from islands to the whole planet, leaving readers aware that the Earth is still active."
@@ -125,10 +125,10 @@
       "difficulty": 3,
       "stem": "In your opinion, which information in the passage is the LEAST clear or complete?",
       "options": [
-        "what magma is made of and how it forms",
-        "where the island of Surtsey is located",
+        "what magma is made of and how it forms deep down",
+        "where the island of Surtsey is located on the map",
         "how plants and animals reach a brand-new island",
-        "in which year Surtsey first appeared"
+        "in which year Surtsey first appeared above the sea"
       ],
       "answer": "C",
       "why": "The passage says researchers study how plants and animals arrive, but it never explains how they do so; the other facts are given."

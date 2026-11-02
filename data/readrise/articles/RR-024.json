@@ -217,9 +217,9 @@
           "stem": "Why does the author say that plants help keep people and animals alive?",
           "options": [
             "Plants give off oxygen, and we need it to breathe.",
-            "Plants keep the sun from getting too hot.",
-            "Plants tell people when it will rain.",
-            "Plants drink up all the dirty water."
+            "Plants keep the sun from getting too hot in the summer.",
+            "Plants tell people when it will rain by changing color.",
+            "Plants drink up all the dirty water in the soil."
           ],
           "answer": "A",
           "skill": "inference",
@@ -233,10 +233,10 @@
         {
           "stem": "Why does the author tell about date palms at the end?",
           "options": [
-            "To give a list of fruits to buy",
-            "To show that palms do not need sun",
+            "To give a list of fruits to buy at the market",
+            "To show that palms do not need sun or water",
             "To give a real example from Saudi Arabia",
-            "To explain how to cook dates"
+            "To explain how to cook dates in a big pot"
           ],
           "answer": "C",
           "skill": "author-purpose",
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
-            "Plants need more water than any other living thing.",
+            "Plants need more water than any other living thing, so they must be watered each day.",
             "Through photosynthesis, plants use light to make food and release oxygen.",
-            "Date palms are the only plants that store sugar.",
-            "Leaves are green so that animals can find them."
+            "Date palms are the only plants that store sugar in their fruit.",
+            "Leaves are green so that animals can find them and eat them."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -540,10 +540,10 @@
         {
           "stem": "Why does the author begin by comparing a hungry person with a plant?",
           "options": [
-            "To argue that plants feel hunger",
-            "To show that people should eat more vegetables",
+            "To argue that plants feel hunger just like people do, every single day",
+            "To show that people should eat more vegetables and fruit each day",
             "To introduce the surprising idea that plants make their own food",
-            "To explain how kitchens are organized"
+            "To explain how kitchens are organized in big hotels and restaurants"
           ],
           "answer": "C",
           "skill": "author-purpose",
@@ -574,10 +574,10 @@
         {
           "stem": "A plant has stored glucose in its roots. Why might this help it during a few weeks of cloudy weather?",
           "options": [
-            "Stored glucose turns into sunlight.",
-            "The roots can photosynthesize in the dark.",
+            "Stored glucose turns into sunlight in the leaves.",
+            "The roots can photosynthesize in the dark soil underground.",
             "It can use the stored energy while it makes less food.",
-            "Cloudy weather makes the plant need no energy."
+            "Cloudy weather makes the plant need no energy at all."
           ],
           "answer": "C",
           "skill": "inference",

@@ -131,10 +131,10 @@
         {
           "stem": "What four things are on Yousef's shopping list?",
           "options": [
-            "Bread, milk, eggs, and oil",
-            "Apples, rice, honey, and tea",
+            "Bread, milk, eggs, and oil from the shop",
+            "Apples, rice, honey, and tea for the guests",
             "Tomatoes, rice, dates, and cheese",
-            "Rice, cheese, oil, and bread"
+            "Rice, cheese, oil, and bread from the store"
           ],
           "answer": "C",
           "skill": "detail",
@@ -148,9 +148,9 @@
         {
           "stem": "Who is Abu Salem?",
           "options": [
-            "Yousef's teacher",
-            "Hind's brother",
-            "A police officer",
+            "Yousef's teacher at school",
+            "Hind's brother from the town",
+            "A police officer on the road",
             "The shopkeeper at the stall"
           ],
           "answer": "D",
@@ -165,10 +165,10 @@
         {
           "stem": "In the story, a mistake is —",
           "options": [
-            "a kind of paper receipt",
+            "a kind of paper receipt that a shop gives you",
             "something done the wrong way without meaning to",
-            "a bag used for shopping",
-            "a list of food to buy"
+            "a bag that people use for shopping at the market",
+            "a list of food that people must buy at the store"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -182,10 +182,10 @@
         {
           "stem": "Why does Yousef pick up the wrong bag?",
           "options": [
-            "He cannot read his own list",
+            "He cannot read his own list of things to buy",
             "Many bags at the market look almost the same",
-            "Abu Salem gives him the wrong bag",
-            "He wants Hind's cheese instead"
+            "Abu Salem gives him the wrong bag by mistake",
+            "He wants Hind's cheese instead of the dates"
           ],
           "answer": "B",
           "skill": "inference",
@@ -199,10 +199,10 @@
         {
           "stem": "How can you tell that Yousef's mother first notices something is wrong at home?",
           "options": [
-            "She finds a hole in the cloth bag",
-            "She hears Hind calling from outside",
+            "She finds a hole in the cloth bag at the market",
+            "She hears Hind calling from outside the door",
             "She sees a different kind of cheese in the bag",
-            "She counts the wrong number of coins"
+            "She counts the wrong number of coins in her hand"
           ],
           "answer": "C",
           "skill": "inference",
@@ -216,10 +216,10 @@
         {
           "stem": "How does the receipt help Yousef and his mother?",
           "options": [
-            "It proves Abu Salem made a mistake",
+            "It proves Abu Salem made a mistake and gave away the wrong bag",
             "It shows another shopper's name, which helps find the right bag",
-            "It tells them the market's opening hours",
-            "It shows the price of a new bag"
+            "It tells them the market's opening hours and the shop's phone number",
+            "It shows the price of a new bag and the date of the sale"
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best tells what this story is mainly about?",
           "options": [
-            "A shopkeeper loses his job after giving a customer the wrong bag",
-            "A boy decides never to go shopping at the market again",
+            "A shopkeeper loses his job after giving a customer the wrong bag at the shop",
+            "A boy decides never to go shopping at the market again after the mix-up",
             "A boy accidentally swaps bags with another shopper and calmly helps fix the mix-up",
-            "A boy buys a brand new kind of cheese he has never tried before"
+            "A boy buys a brand new kind of cheese he has never tried before and likes it"
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -327,9 +327,9 @@
         {
           "stem": "What detail in the story shows that the two bags looked almost identical?",
           "options": [
-            "Yousef's bag had a torn handle that Hind's did not",
-            "Hind's bag had her name written on the outside",
-            "Both bags were the same bright color of plastic",
+            "Yousef's bag had a torn handle that Hind's did not have, so they could tell them apart",
+            "Hind's bag had her name written on the outside in ink, so everyone could see it",
+            "Both bags were the same bright color of plastic and had the same pattern on them",
             "Many plain cloth bags at the market looked almost exactly alike"
           ],
           "answer": "D",
@@ -361,10 +361,10 @@
         {
           "stem": "Why does Yousef's mother feel confused when she looks at the food?",
           "options": [
-            "She cannot remember writing the list at all",
-            "The bag is completely empty when she opens it",
+            "She cannot remember writing the list at all, and nothing looks familiar",
+            "The bag is completely empty when she opens it on the kitchen table",
             "The food looks almost the same as the list, but one item is different",
-            "The food is spoiled and smells bad"
+            "The food is spoiled and smells bad, so she cannot use any of it"
           ],
           "answer": "C",
           "skill": "inference",
@@ -395,10 +395,10 @@
         {
           "stem": "Why does checking the receipt help solve the mix-up?",
           "options": [
-            "It proves that Abu Salem charged too much",
+            "It proves that Abu Salem charged too much for the fruit he sold them",
             "It has another customer's name, which leads them to Abu Salem and then Hind",
-            "It tells Yousef the correct way home",
-            "It shows exactly which items cost the most money"
+            "It tells Yousef the correct way home from the shop through the market",
+            "It shows exactly which items cost the most money, so they can return them"
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -489,9 +489,9 @@
         {
           "stem": "In the story, discrepancy most nearly refers to —",
           "options": [
-            "a friendly conversation between two shoppers",
-            "a type of cloth bag used for shopping",
-            "a small paper receipt given after a purchase",
+            "a friendly conversation between two shoppers in a store",
+            "a type of cloth bag used for shopping at the market",
+            "a small paper receipt given after a purchase at the till",
             "a difference between what was expected and what was found"
           ],
           "answer": "D",
@@ -506,10 +506,10 @@
         {
           "stem": "What detail from the story shows that Abu Salem is a diligent, attentive shopkeeper?",
           "options": [
-            "He refuses to serve customers during busy hours",
-            "He always closes his stall early on Thursdays",
+            "He refuses to serve customers during busy hours of the day",
+            "He always closes his stall early on Thursdays, to rest",
             "He quietly checks off each item on Yousef's list as they go",
-            "He sells the cheapest cheese in the entire market"
+            "He sells the cheapest cheese in the entire market, say the people"
           ],
           "answer": "C",
           "skill": "detail",
@@ -523,10 +523,10 @@
         {
           "stem": "What in the story suggests that the mix-up resulted from the crowded conditions rather than carelessness alone?",
           "options": [
-            "The text says Hind intentionally swapped the bags as a joke",
+            "The text says Hind intentionally swapped the bags as a joke on the new shopper and his mother",
             "The text specifically notes that many bags looked almost exactly alike and Yousef was briefly distracted by the shifting crowd",
-            "The text says Abu Salem deliberately gave Yousef the wrong bag",
-            "The text says Yousef never once looked at the list his mother gave him"
+            "The text says Abu Salem deliberately gave Yousef the wrong bag to get rid of an old fruit box",
+            "The text says Yousef never once looked at the list his mother gave him, so he took any bag at all that was left on the counter near the door"
           ],
           "answer": "B",
           "skill": "inference",
@@ -557,9 +557,9 @@
         {
           "stem": "Why does Abu Salem's familiarity with his regular customers matter to how the mix-up gets resolved?",
           "options": [
-            "It helps him raise his prices for loyal customers",
-            "It allows him to close the stall early that day",
-            "It lets him refund Yousef's family for their trouble",
+            "It helps him raise his prices for loyal customers and earn more",
+            "It allows him to close the stall early that day and go home",
+            "It lets him refund Yousef's family for their trouble with money",
             "It allows him to recall Hind immediately and locate her nearby"
           ],
           "answer": "D",
@@ -591,10 +591,10 @@
         {
           "stem": "Why does the author most likely include the detail that both families laugh together at the end?",
           "options": [
-            "To prove that Abu Salem secretly planned the entire mix-up",
-            "To suggest that Yousef and Hind decide never to shop at that market again",
+            "To prove that Abu Salem secretly planned the entire mix-up to sell more fruit that day to the customers",
+            "To suggest that Yousef and Hind decide never to shop at that market again after the day",
             "To emphasize that a calm, amicable approach can turn a frustrating mistake into a pleasant memory",
-            "To show that mix-ups are always someone's fault and must be punished"
+            "To show that mix-ups are always someone's fault and must be punished by the stall owner"
           ],
           "answer": "C",
           "skill": "author-purpose",

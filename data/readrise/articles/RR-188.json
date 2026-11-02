@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How to build a flying machine at home",
+            "How to build a flying machine at home with wood and cloth, step by step",
             "How Ada Lovelace wrote steps for a machine and became known as the first programmer",
-            "Why kids should stay in bed when they are sick",
-            "How to write music on a computer"
+            "Why kids should stay in bed when they are sick and rest all day long",
+            "How to write music on a computer and play it for a class at school with a few friends"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the central idea?",
           "options": [
-            "Ada Lovelace was often sick as a child.",
+            "Ada Lovelace was often sick as a child, so she stayed at home all the time and learned little.",
             "Ada Lovelace's notes on Babbage's engine included the first program and showed great imagination.",
-            "Charles Babbage built the first working computer.",
-            "An Italian engineer wrote about machines in French."
+            "Charles Babbage built the first working computer, and it was finished in his own lifetime.",
+            "An Italian engineer wrote about machines in French, and Ada only read his old book and lost it."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -328,9 +328,9 @@
           "stem": "What was special about Ada's notes?",
           "options": [
             "They were much longer than the article and included step-by-step instructions",
-            "They were written in French",
-            "They were only a few short lines long and had no numbers",
-            "They described how to fly"
+            "They were written in French, and they were shorter than the main article",
+            "They were only a few short lines long and had no numbers or steps at all",
+            "They described how to fly a machine over the sea, and they were mostly drawings"
           ],
           "answer": "A",
           "skill": "detail",
@@ -395,10 +395,10 @@
         {
           "stem": "Babbage designed the engine, but Ada wrote the instructions. How were their roles different?",
           "options": [
-            "Babbage wrote music and Ada built machines",
+            "Babbage wrote music and Ada built machines, so their roles were the same",
             "Babbage planned the machine, while Ada showed how it could be told what to do",
-            "Both of them only translated articles",
-            "Ada designed the engine and Babbage translated it"
+            "Both of them only translated articles, and neither planned the machine",
+            "Ada designed the engine and Babbage translated it for the readers"
           ],
           "answer": "B",
           "skill": "compare",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best summarizes the article?",
           "options": [
-            "Ada Lovelace translated a French article and nothing more.",
-            "Babbage built the Analytical Engine with Ada's help.",
+            "Ada Lovelace translated a French article and nothing more, and she wrote no ideas of her own.",
+            "Babbage built the Analytical Engine with Ada's help, and the two of them finished it in one year.",
             "Through her published notes, Ada wrote the first algorithm for a machine and imagined uses beyond math.",
-            "Ada invented the punched card."
+            "Ada invented the punched card and used it to weave cloth in a factory, and the machine was never built."
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -557,10 +557,10 @@
         {
           "stem": "Why does the author call Ada a \"visionary\"?",
           "options": [
-            "Because she had excellent eyesight and could see very far away",
+            "Because she had excellent eyesight and could see very far away without any glasses at all",
             "Because she imagined machines that could do far more than arithmetic, such as composing music",
-            "Because she translated many articles",
-            "Because she lived a long life"
+            "Because she translated many articles into French for her teacher, her friends, and her family",
+            "Because she lived a long life and saw many things change in the world around her country"
           ],
           "answer": "B",
           "skill": "author-purpose",
@@ -575,9 +575,9 @@
           "stem": "Based on the article, what can you infer about how Ada's education shaped her work?",
           "options": [
             "Her early training in mathematics prepared her to understand and write instructions for Babbage's engine",
-            "Her education made her dislike machines",
-            "She learned everything from the Italian engineer",
-            "She never studied science"
+            "Her education made her dislike machines, so she refused to work with any engine or tool of Babbage",
+            "She learned everything from the Italian engineer, who taught her all her math at home",
+            "She never studied science or mathematics, and she wrote only poems and stories"
           ],
           "answer": "A",
           "skill": "inference",

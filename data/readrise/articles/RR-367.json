@@ -120,7 +120,7 @@
         },
         {
           "stem": "What happened after the family reached the high ground?",
-          "options": ["They went straight back to bed", "They planted a new vegetable garden", "They watched the flood cover the field below", "They rode a boat across the river"],
+          "options": ["They went straight back to bed in the tent", "They planted a new vegetable garden on the hill", "They watched the flood cover the field below", "They rode a boat across the river to town"],
           "answer": "C",
           "skill": "sequence",
           "why": "Once safe on the high ground, the family turned and watched the flood rise and cover the lower field.",
@@ -144,7 +144,7 @@
         },
         {
           "stem": "Why does the author tell about the neighbors helping after the flood?",
-          "options": ["To show how kind and helpful a community can be", "To explain the steps to build a fence", "To describe a recipe for warm bread", "To show the family did not need any help"],
+          "options": ["To show how kind and helpful a community can be", "To explain the steps to build a fence around a farm", "To describe a recipe for warm bread in the oven", "To show the family did not need any help at all"],
           "answer": "A",
           "skill": "author-purpose",
           "why": "The neighbors bring tools and food and work together, showing how a caring community helps in hard times.",
@@ -166,7 +166,7 @@
       "questions": [
         {
           "stem": "Which sentence best states the central idea of the story?",
-          "options": ["A family evacuates its livestock during a flood and recovers with help from neighbors.", "A family moves to a new farm because they dislike heavy rain.", "Neighbors in the village refuse to help each other in hard times.", "The story mainly explains how to build a taller river embankment."],
+          "options": ["A family evacuates its livestock during a flood and recovers with help from neighbors.", "A family moves to a new farm because they dislike heavy rain in their old home.", "Neighbors in the village refuse to help each other in hard times, even during a flood.", "The story mainly explains how to build a taller river embankment with stones and soil."],
           "answer": "A",
           "skill": "central-idea",
           "why": "The story follows the family's effort to evacuate their animals safely and the neighbors' help afterward, which is the main idea.",
@@ -244,7 +244,7 @@
       "questions": [
         {
           "stem": "Which statement best expresses the central idea of the story?",
-          "options": ["The family's quick thinking and a resilient community help them survive the flood and rebuild.", "A family abandons their farm forever after just one bad flood.", "The story mainly explains how to measure a river's exact depth.", "A family builds an embankment that stops every future flood completely."],
+          "options": ["The family's quick thinking and a resilient community help them survive the flood and rebuild.", "A family abandons their farm forever after just one bad flood, and the village is empty.", "The story mainly explains how to measure a river's exact depth with a rope and stone.", "A family builds an embankment that stops every future flood completely, and no flood ever comes."],
           "answer": "A",
           "skill": "central-idea",
           "why": "The story centers on the family's quick response to the flood and the resilient community that helps them restore their farm afterward.",
@@ -276,7 +276,7 @@
         },
         {
           "stem": "What can readers infer about the family from how quickly they reacted to the rising water?",
-          "options": ["They had likely planned beforehand what to do if the river flooded", "They had never once considered the river dangerous", "They wanted an excuse to leave the farm permanently", "They did not care much about their animals' safety"],
+          "options": ["They had likely planned beforehand what to do if the river flooded", "They had never once considered the river dangerous before", "They wanted an excuse to leave the farm permanently and move away", "They did not care much about their animals' safety at all"],
           "answer": "A",
           "skill": "inference",
           "why": "Their calm, organized, and fast response suggests the family had some sense of what to do if the river ever flooded.",
@@ -292,7 +292,7 @@
         },
         {
           "stem": "Why does the author include the detail that the river was \"ordinarily no deeper than a person's waist\"?",
-          "options": ["To teach readers how to measure a river's depth accurately", "To suggest that the river was never truly dangerous at all", "To emphasize how extraordinary and dangerous the sudden rise truly was", "To compare the river to an ordinary swimming pool"],
+          "options": ["To teach readers how to measure a river's depth accurately", "To suggest that the river was never truly dangerous at all", "To emphasize how extraordinary and dangerous the sudden rise truly was", "To compare the river to an ordinary swimming pool at a big hotel in town"],
           "answer": "C",
           "skill": "author-purpose",
           "why": "Comparing the river's normal depth to its sudden two-meter rise highlights just how extreme and dangerous that night's flood really was.",

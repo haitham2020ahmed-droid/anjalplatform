@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How to take good photos with a phone",
+            "How to take good photos with a phone under the sea",
             "How the internet travels through cables under the sea",
-            "Why ships need steel to float",
-            "How fish live on the sea floor"
+            "Why ships need steel to float on the open water and cross it",
+            "How fish live on the sea floor in the dark depths"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -182,10 +182,10 @@
         {
           "stem": "Why is a cable thicker near the shore than in deep water?",
           "options": [
-            "Because the water is colder near the shore",
-            "Because more people touch it on the beach",
+            "Because the water is colder near the shore, so the cable needs more cover",
+            "Because more people touch it on the beach, and children play with it",
             "Because ships and fishing nets near the shore can hurt it",
-            "Because light moves faster near the shore"
+            "Because light moves faster near the shore, which could break a thin cable"
           ],
           "answer": "C",
           "skill": "inference",
@@ -200,9 +200,9 @@
           "stem": "Read: \"A big ship lays the cable.\" What does lays mean here?",
           "options": [
             "Puts something down in its place",
-            "Sleeps on a bed",
-            "Cuts into small parts",
-            "Paints with bright colors"
+            "Sleeps on a bed in the cabin",
+            "Cuts into small parts with a knife",
+            "Paints with bright colors on the hull"
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the main idea of the article?",
           "options": [
-            "Satellites carry almost all internet data between countries.",
-            "The first ocean cable in 1858 still works today.",
+            "Satellites carry almost all internet data between countries and under the sea.",
+            "The first ocean cable in 1858 still works today for many people.",
             "Cables on the ocean floor carry most of the internet between continents.",
-            "Fishing nets are the biggest problem in the ocean."
+            "Fishing nets are the biggest problem in the ocean for ships and cables."
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -344,10 +344,10 @@
         {
           "stem": "According to the article, what causes most cable damage?",
           "options": [
-            "Sharks biting the cables",
+            "Sharks biting the cables at night",
             "Ship anchors and fishing nets",
-            "Strong sunlight",
-            "Too many messages at once"
+            "Strong sunlight over the sea",
+            "Too many messages sent at once"
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -395,10 +395,10 @@
         {
           "stem": "How is the first ocean cable from 1858 different from today's cables?",
           "options": [
-            "It was made of glass fibers",
+            "It was made of glass fibers and was very fast and strong",
             "It carried simple messages and worked for only a few weeks",
-            "It ran from Jeddah to Europe",
-            "It carried more data than today's cables"
+            "It ran from Jeddah to Europe under the sea",
+            "It carried more data than today's cables do"
           ],
           "answer": "B",
           "skill": "compare",
@@ -412,9 +412,9 @@
         {
           "stem": "What can you infer about Saudi Arabia from the article?",
           "options": [
-            "It has no internet cables",
-            "It sends all its data by satellite",
-            "It builds all the world's cable ships",
+            "It has no internet cables under the sea or on land",
+            "It sends all its data by satellite, never by cable",
+            "It builds all the world's cable ships in its own ports",
             "It is an important link between three continents"
           ],
           "answer": "D",
@@ -472,9 +472,9 @@
         {
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
-            "Satellites are the fastest way to send information.",
-            "Cable ships are the most important ships on the ocean.",
-            "The internet was invented in 1858.",
+            "Satellites are the fastest way to send information, and cables are almost never used today.",
+            "Cable ships are the most important ships on the ocean, and they carry people all over the world.",
+            "The internet was invented in 1858 by a team of engineers who laid a line across the Atlantic.",
             "Undersea cables carry most data between continents and must be protected and maintained."
           ],
           "answer": "D",
@@ -575,9 +575,9 @@
           "stem": "Which statement would the author most likely agree with?",
           "options": [
             "Undersea cables matter more to the internet than satellites do.",
-            "Satellites will soon replace all undersea cables.",
-            "Cables near the shore need no protection.",
-            "Only a few countries use undersea cables."
+            "Satellites will soon replace all undersea cables in every country.",
+            "Cables near the shore need no protection from ships or anchors.",
+            "Only a few countries use undersea cables to send messages."
           ],
           "answer": "A",
           "skill": "inference",

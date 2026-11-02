@@ -165,10 +165,10 @@
         {
           "stem": "In the story, a seed is —",
           "options": [
-            "a tool used for digging up dirt",
+            "a tool used for digging up dirt in the garden",
             "a small part that can grow into a plant",
-            "a kind of weed that grows wild",
-            "a basket used for carrying food"
+            "a kind of weed that grows wild in the field",
+            "a basket used for carrying food to the market"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -199,10 +199,10 @@
         {
           "stem": "Why did the author probably write this story?",
           "options": [
-            "To explain the steps for planting a tree",
-            "To describe a scary event that happens at night",
+            "To explain the steps for planting a tree in a school garden",
+            "To describe a scary event that happens at night in a small village",
             "To show how a messy lot and a shy girl can both change for the better",
-            "To teach readers how to drive a tractor safely"
+            "To teach readers how to drive a tractor safely on a farm"
           ],
           "answer": "C",
           "skill": "author-purpose",
@@ -280,7 +280,7 @@
           "options": [
             "The neighbors sold the vegetables at a market",
             "Mr. Nasser kept all of the food for himself",
-            "The whole garden was quietly torn down",
+            "The whole garden was quietly torn down at night by the city",
             "Neighbors shared the food with families on the street"
           ],
           "answer": "D",
@@ -296,9 +296,9 @@
           "stem": "Which sentence best states the central idea of the story?",
           "options": [
             "A community works together to turn an empty lot into a garden, and a shy girl finds friendship along the way",
-            "A family argues loudly about who owns an old, empty lot",
-            "A group of scientists studies unusual plants inside a lab",
-            "Mr. Nasser quietly grows the whole garden by himself"
+            "A family argues loudly about who owns an old, empty lot, and the case is taken to a judge",
+            "A group of scientists studies unusual plants inside a lab, and a shy girl visits them",
+            "Mr. Nasser quietly grows the whole garden by himself while the rest of the neighbors stay at home and watch from their windows"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -346,9 +346,9 @@
         {
           "stem": "How does the author organize this story?",
           "options": [
-            "By comparing two completely different gardens side by side",
-            "By listing numbered steps for how to plant vegetables",
-            "By describing only one single day from morning to night",
+            "By comparing two completely different gardens side by side in the city",
+            "By listing numbered steps for how to plant vegetables in a garden",
+            "By describing only one single day from the morning to the night",
             "By describing the lot's problem, the community's solution, and Lina's change"
           ],
           "answer": "D",
@@ -363,10 +363,10 @@
         {
           "stem": "Why did Lina's mother encourage her to try helping in the garden?",
           "options": [
-            "She needed Lina to stay home and watch the house",
-            "She wanted Lina to stop playing with her friend Sara",
+            "She needed Lina to stay home and watch the house while the family was away",
+            "She wanted Lina to stop playing with her friend Sara and spend time alone",
             "She hoped Lina would feel good about helping, even though she was shy",
-            "She wanted Lina to sell vegetables at a stand"
+            "She wanted Lina to sell vegetables at a stand by the road all weekend"
           ],
           "answer": "C",
           "skill": "inference",
@@ -491,9 +491,9 @@
         {
           "stem": "Which statement best expresses the central idea of the story?",
           "options": [
-            "A single volunteer secretly repairs the lot overnight",
-            "The story argues that community gardens are too difficult to maintain",
-            "Mr. Nasser decides the garden is a failure and abandons it",
+            "A single volunteer secretly repairs the lot overnight, and no one learns who did it",
+            "The story argues that community gardens are too difficult to maintain, so people give up",
+            "Mr. Nasser decides the garden is a failure and abandons it after a few days",
             "A neglected lot and a reserved girl are both transformed through the community's effort"
           ],
           "answer": "D",
@@ -525,10 +525,10 @@
         {
           "stem": "Why does the author describe Lina hesitating before joining the volunteers?",
           "options": [
-            "To suggest that Lina disliked gardening from the very start",
+            "To suggest that Lina disliked gardening from the very start and wanted to leave",
             "To show that overcoming shyness is part of her transformation across the story",
-            "To show that the other volunteers rejected her at first",
-            "To explain why the garden eventually failed to grow"
+            "To show that the other volunteers rejected her at first and told her to go away",
+            "To explain why the garden eventually failed to grow in the dry, hot soil"
           ],
           "answer": "B",
           "skill": "author-purpose",
@@ -544,7 +544,7 @@
           "options": [
             "To suggest that Sara was new to the entire neighborhood",
             "To show that the two girls disliked each other at first",
-            "To explain why the garden's plants grew so quickly",
+            "To explain why the garden's plants grew so quickly in the spring",
             "To emphasize that the shared garden project created their friendship"
           ],
           "answer": "D",

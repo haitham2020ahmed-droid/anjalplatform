@@ -53,10 +53,10 @@
     "passage": "Hello, everyone. I think we should have a reading corner in our class. Books help us learn new words. A quiet corner helps us read calmly.",
     "stem": "What is one reason the speaker gives?",
     "options": [
-     "Hello, everyone.",
+     "Hello, everyone, good morning.",
      "Books help us learn new words.",
-     "The class is big.",
-     "Reading is hard."
+     "The class is big and noisy today.",
+     "Reading is hard for most people."
     ],
     "answer": 1,
     "hint": "What does the speaker want? Now find a sentence that tells WHY.",
@@ -106,9 +106,9 @@
      "passage": "Let's plant a tree in the yard. It will give us shade. Birds can live in it.",
      "stem": "Which is a reason from the talk?",
      "options": [
-      "Trees are tall.",
-      "The yard is big.",
-      "We like birds.",
+      "Trees are tall and green.",
+      "The yard is big and wide.",
+      "We like birds and flowers.",
       "It will give us shade."
      ],
      "answer": 3,
@@ -332,10 +332,10 @@
      "passage": "I ask the school to allow students to bring water bottles to class. On hot days, students feel dizzy and tired. Our school nurse reported eleven visits for dizziness in one week of May. Being able to drink often would help prevent this.",
      "stem": "What kind of evidence does the speaker use?",
      "options": [
-      "A survey of all parents",
+      "A survey of all the parents in the school",
       "A report from the school nurse with a number",
-      "A story about the speaker's family",
-      "A quote from a famous person"
+      "A story about the speaker's family and home",
+      "A quote from a famous person in history"
      ],
      "answer": 1,
      "why": "The nurse's report of eleven visits is expert evidence with a number."
@@ -420,8 +420,8 @@
      "stem": "What is the main weakness in the speaker's evidence?",
      "options": [
       "The evidence is too technical to understand.",
-      "She gives too many numbers.",
-      "Her evidence is from experts only.",
+      "She gives too many numbers and long charts to read.",
+      "Her evidence is from experts only, and not from any students.",
       "One school's result is too little to prove her big claim."
      ],
      "answer": 3,
@@ -432,9 +432,9 @@
      "stem": "Which piece of evidence is more reliable, and why?",
      "options": [
       "Ticket sales, because they come from an official source and cover many riders",
-      "The cousin's opinion, because he uses the ferry often",
-      "Both are equally reliable.",
-      "Neither, because ferries are slow"
+      "The cousin's opinion, because he uses the ferry often and knows the captain",
+      "Both are equally reliable, because both of them talk about how full the ferry is",
+      "Neither, because ferries are slow and people can trust nothing about them"
      ],
      "answer": 0,
      "why": "Official ticket data covers many riders; one relative's opinion is a single, personal example."
@@ -443,10 +443,10 @@
      "passage": "In a speech supporting longer school holidays, the speaker explains that children's brains need rest, citing a sleep study of adults who work night shifts.",
      "stem": "Why is the speaker's evidence weak?",
      "options": [
-      "It comes from a study.",
-      "It is about school holidays.",
+      "It comes from a study, which is a strong kind of source of facts.",
+      "It is about school holidays that last too long.",
       "It is about adults working at night, not children's holidays.",
-      "It is too short."
+      "It is too short to be read by the whole class at once."
      ],
      "answer": 2,
      "why": "The study is about a different group and situation, so it is not relevant to the claim about children's holidays."

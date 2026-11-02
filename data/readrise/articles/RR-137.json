@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How to build a telescope",
+            "How to build a telescope from glass and tubes in a shop at home",
             "How people long ago studied and mapped the stars",
-            "Why the Moon changes shape",
-            "How to make clay pots"
+            "Why the Moon changes shape each night, from full to thin",
+            "How to make clay pots by hand and bake them in an oven"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -199,10 +199,10 @@
         {
           "stem": "Why was a map of the stars useful to a traveler at night?",
           "options": [
-            "It showed where to buy food.",
-            "It made the night warmer.",
+            "It showed where to buy food in town.",
+            "It made the night warmer for the traveler.",
             "It helped the traveler find the way.",
-            "It made the stars brighter."
+            "It made the stars shine brighter."
           ],
           "answer": "C",
           "skill": "inference",
@@ -217,9 +217,9 @@
           "stem": "Why do some stars, like Rigel, have Arabic names?",
           "options": [
             "People who wrote in Arabic studied and named the stars.",
-            "Rigel was found last year.",
-            "All stars have Arabic names.",
-            "Greek men gave them Arabic names."
+            "Rigel was found last year by a team of scientists in space.",
+            "All stars have Arabic names, because Arabic is the language of space.",
+            "Greek men gave them Arabic names after they traveled through the desert."
           ],
           "answer": "A",
           "skill": "inference",
@@ -293,9 +293,9 @@
         {
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
-            "The Andromeda Galaxy is the brightest star.",
-            "Hipparchus was the only person to study the stars.",
-            "Telescopes are the only way to see stars.",
+            "The Andromeda Galaxy is the brightest star in the sky, and also the nearest.",
+            "Hipparchus was the only person to study the stars, and nobody else wrote about them.",
+            "Telescopes are the only way to see stars, so people knew nothing before them.",
             "Over thousands of years, people in many places recorded and mapped the stars."
           ],
           "answer": "D",
@@ -361,10 +361,10 @@
         {
           "stem": "Why did people begin to record the stars?",
           "options": [
-            "They wanted to sell maps.",
+            "They wanted to sell maps to sailors and to travelers",
             "The stars were useful for calendars and finding the way.",
-            "They thought the stars would disappear.",
-            "Telescopes made it easy."
+            "They thought the stars would disappear one day soon",
+            "Telescopes made it easy for them to count the stars"
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -378,10 +378,10 @@
         {
           "stem": "Why did al-Sufi most likely draw each constellation twice?",
           "options": [
-            "He made mistakes the first time.",
-            "He wanted two books.",
+            "He made mistakes the first time, so he drew again on a new page, to fix them.",
+            "He wanted two books to sell to the king's library, so he copied the pictures.",
             "He wanted readers to compare the sky from the ground with a star globe.",
-            "He forgot the first drawing."
+            "He forgot the first drawing, so he made another one on the next day, by memory."
           ],
           "answer": "C",
           "skill": "inference",
@@ -413,9 +413,9 @@
           "stem": "How are the Babylonian star list and Gaia's map different?",
           "options": [
             "The Babylonians used clay; Gaia is a space telescope that mapped billions of stars.",
-            "Both were made with telescopes.",
-            "Both were made in 964.",
-            "Gaia's map has fewer stars."
+            "Both were made with telescopes, which the Babylonians had built from clay and glass.",
+            "Both were made in 964, and both listed the same stars in the same order.",
+            "Gaia's map has fewer stars, because it was made by a single person with a pen."
           ],
           "answer": "A",
           "skill": "compare",
@@ -473,9 +473,9 @@
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
             "Mapping the stars has been a long, shared effort across many cultures, from clay tablets to space telescopes.",
-            "Greek astronomers invented every star name.",
-            "Star maps were only useful for farmers.",
-            "Modern telescopes have proved that ancient star catalogs were useless."
+            "Greek astronomers invented every star name that is used by scientists around the world today, long before any other people.",
+            "Star maps were only useful for farmers, and sailors and kings never needed to read them.",
+            "Modern telescopes have proved that ancient star catalogs were useless for scientists and sailors."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -540,10 +540,10 @@
         {
           "stem": "What is one reason stars such as Aldebaran, Altair, and Rigel carry Arabic names?",
           "options": [
-            "They were first seen through the Gaia space telescope.",
-            "Babylonians spoke Arabic.",
+            "They were first seen through the Gaia space telescope in the year 2013.",
+            "Babylonians spoke Arabic, so they named every bright star in the night sky.",
             "Arabic names recorded in star books spread throughout the world.",
-            "Hipparchus wrote in Arabic."
+            "Hipparchus wrote in Arabic when he made his first list of stars in Greece."
           ],
           "answer": "C",
           "skill": "cause-effect",
@@ -558,9 +558,9 @@
           "stem": "Why does the author explain that the stars served as a calendar and guided navigation?",
           "options": [
             "To show why people were motivated to record the stars carefully",
-            "To argue that calendars are no longer needed",
-            "To describe the weather in the desert",
-            "To explain how telescopes work"
+            "To argue that calendars are no longer needed by anyone today, since people use clocks",
+            "To describe the weather in the desert at night, when it is cold and still",
+            "To explain how telescopes work in a lab, with glass and mirrors"
           ],
           "answer": "A",
           "skill": "author-purpose",
@@ -574,10 +574,10 @@
         {
           "stem": "What does al-Sufi's description of a 'little cloud' suggest about early astronomers?",
           "options": [
-            "They could see nothing without telescopes.",
+            "They could see nothing at all in the night sky without telescopes, so they never looked.",
             "Careful observers noticed objects whose true nature was understood only much later.",
-            "They believed every cloud was a star.",
-            "They invented the Andromeda Galaxy."
+            "They believed every cloud in the sky was a star that had come down close to Earth.",
+            "They invented the Andromeda Galaxy themselves, and it did not exist before they named it."
           ],
           "answer": "B",
           "skill": "inference",

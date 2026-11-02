@@ -115,8 +115,8 @@
           "stem": "What is this article mostly about?",
           "options": [
             "How a story is told live on a stage by actors, with help from a whole team",
-            "How to build a stage out of wood",
-            "The history of the Greek language",
+            "How to build a stage out of wood and nails for a school play with friends",
+            "The history of the Greek language and how its words changed over time",
             "How movie cameras and film studios work behind the scenes"
           ],
           "answer": "A",
@@ -294,9 +294,9 @@
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
             "Creating a live theater performance requires a script, a director, rehearsals, and a cast and crew working together.",
-            "Only famous actors can perform in a play.",
-            "Movies and plays are exactly the same.",
-            "A script is not needed to put on a good, well-planned performance"
+            "Only famous actors can perform in a play, and every theater must hire them for every show",
+            "Movies and plays are exactly the same, so a theater needs the same people and cameras as a film studio",
+            "A script is not needed to put on a good, well-planned performance, because actors can say anything they like on stage"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -395,10 +395,10 @@
         {
           "stem": "How does the article mostly organize information about theater?",
           "options": [
-            "By arguing that live theater performances should be replaced entirely by film",
+            "By arguing that live theater performances should be replaced entirely by film and television shows, which are better",
             "By explaining what theater is, how a script and rehearsal process work, and what makes a performance come together",
-            "By comparing ticket prices in different cities",
-            "By listing every play ever performed"
+            "By comparing ticket prices in different cities and countries around the world and over the years, one by one",
+            "By listing every play ever performed on any stage in the world, in the order of their dates"
           ],
           "answer": "B",
           "skill": "text-structure",
@@ -473,9 +473,9 @@
           "stem": "Which statement best captures the central idea of the article?",
           "options": [
             "Live theater combines a script, direction, rehearsal, design elements, and a collaborating cast and crew to create a performance that connects directly with an audience.",
-            "Only ancient Greek audiences enjoyed theater.",
-            "A performance is identical every single night.",
-            "Lighting design is the single most important part of any live show"
+            "Only ancient Greek audiences enjoyed theater, because modern people prefer films and music to plays, so the plays ended long ago and nobody writes them now.",
+            "A performance is identical every single night, because actors repeat each word and move in the same way, and the audience has no effect.",
+            "Lighting design is the single most important part of any live show, because without lights, the play and the actors would not matter."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -591,10 +591,10 @@
         {
           "stem": "Why does the author describe both the history of theater and the modern process of producing a show?",
           "options": [
-            "To argue that modern theater has no real connection to its ancient past",
+            "To argue that modern theater has no real connection to its ancient past, and that the two are unrelated in every way that matters",
             "To show that theater is an ancient art form that still relies today on the same kind of live collaboration between many people",
-            "To compare theater ticket prices across history",
-            "To prove that film is better than theater"
+            "To compare theater ticket prices across history, from the first plays long ago until the shows of today in the biggest cities of the world",
+            "To prove that film is better than theater and that plays will soon end in every country on Earth"
           ],
           "answer": "B",
           "skill": "author-purpose",

@@ -262,9 +262,9 @@
         "good": "Right! Paragraph two shows the effects of the broken lights, which strengthens the case for a solution in paragraph three.",
         "options": [
           "It describes the EFFECTS of the problem (accidents, fewer customers), building the case before the solution is given.",
-          "It introduces the solution the city council chose.",
-          "It compares Old Town to a different neighborhood.",
-          "It describes when the streetlights were first installed."
+          "It introduces the solution the city council chose, such as new lamps and brighter bulbs for every street in Old Town.",
+          "It compares Old Town to a different neighborhood that has bright lights, busy shops and many families.",
+          "It describes when the streetlights were first installed, who paid for them, and how long it took."
         ],
         "answer": 0
       },
@@ -288,9 +288,9 @@
           "stem": "What is the role of the sentence 'As a result, some students skipped lunch altogether'?",
           "why": "This sentence shows a consequence (effect) of the long lines, before the solution is introduced.",
           "options": [
-            "It states the solution the school chose.",
+            "It states the solution the school chose, which is the main point of the passage.",
             "It shows an effect of the problem, making the case for why a solution was needed.",
-            "It compares two different schools.",
+            "It compares two different schools and tells which one is better.",
             "It describes how the cafeteria looked before any problem existed."
           ],
           "answer": 1
@@ -365,9 +365,9 @@
         "good": "Right! Opening with the dramatic effect hooks the reader before the article makes its persuasive point about inspections.",
         "options": [
           "Leading with a vivid, dramatic effect grabs the reader's attention and builds curiosity, making the later explanation and persuasive point land more powerfully.",
-          "The order has no real effect on how the reader experiences the article.",
-          "Explaining the cause first would have been impossible to write clearly.",
-          "The author simply forgot to mention the cause until later in the article."
+          "The order has no real effect on how the reader experiences the article, because readers always read every part of the text the same way.",
+          "Explaining the cause first would have been impossible to write clearly, because the cause is too hard for most readers to follow.",
+          "The author simply forgot to mention the cause until later in the article, and so the order of the parts was just a mistake that no editor ever noticed or fixed."
         ],
         "answer": 0
       },
@@ -392,10 +392,10 @@
           "stem": "What effect does saving the cause for the final paragraph create?",
           "why": "Delaying the cause keeps readers curious and makes the final persuasive point about inspections hit harder.",
           "options": [
-            "It makes the article confusing and pointless.",
+            "It makes the article confusing and pointless, because readers wait too long to learn what the facts are.",
             "It builds suspense and keeps readers engaged until the persuasive point about inspections lands at the end.",
-            "It proves the cause was unimportant to the story.",
-            "It has the same effect as explaining the cause first would have had."
+            "It proves the cause was unimportant to the story, so the writer put it last where nobody would look.",
+            "It has the same effect as explaining the cause first would have had, because the order does not change anything."
           ],
           "answer": 1
         },
@@ -404,10 +404,10 @@
           "stem": "Why might the report start with the effect (hospital visits) instead of the cause (the heatwave)?",
           "why": "Opening with a striking effect grabs attention and sets up the explanation and recommendation that follow.",
           "options": [
-            "Starting with the effect makes the chart impossible to understand.",
-            "It has no real purpose; any order would be the same.",
+            "Starting with the effect makes the chart impossible to understand, because readers need the cause before any numbers.",
+            "It has no real purpose; any order would be the same, so the writer just chose one by chance.",
             "Starting with the alarming result grabs attention and shows readers why the topic matters before explaining the cause.",
-            "It hides the heatwave from readers until the chart is explained."
+            "It hides the heatwave from readers until the chart is explained, so they feel tricked when they finish."
           ],
           "answer": 2
         },
@@ -416,9 +416,9 @@
           "stem": "How does comparing other bridges first help the essay's structure?",
           "why": "Comparing to other bridges first highlights that this failure was unusual, making the specific cause stand out more.",
           "options": [
-            "It has no effect on how the unique cause is understood.",
-            "It proves all bridges eventually fail the same way.",
-            "It replaces the need to explain the actual cause at all.",
+            "It has no effect on how the unique cause is understood, since readers already know the cause of every failure.",
+            "It proves all bridges eventually fail in the same way, so there is nothing unique left to explain in this one, and the essay could stop.",
+            "It replaces the need to explain the actual cause at all, because the other bridges already tell the whole story.",
             "It shows the failure wasn't typical, making the unique cause (corroded bolts) feel more significant when it's finally revealed."
           ],
           "answer": 3

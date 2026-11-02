@@ -183,9 +183,9 @@
           "stem": "Your cousin calls from another country and says it's already tomorrow there. What does this likely mean?",
           "options": [
             "Your cousin lives in a different, more easterly time zone",
-            "Your cousin's clock must be completely broken",
-            "Your cousin simply does not own a calendar",
-            "The Sun is somehow closer to your cousin's home"
+            "Your cousin's clock must be completely broken or set to the wrong day",
+            "Your cousin simply does not own a calendar and forgot the date",
+            "The Sun is somehow closer to your cousin's home than to yours"
           ],
           "answer": "A",
           "skill": "inference",

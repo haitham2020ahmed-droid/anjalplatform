@@ -115,9 +115,9 @@
           "stem": "What is this article mostly about?",
           "options": [
             "Two friends who have a bike race around the block",
-            "A boy who learns to swim in a lake",
-            "A girl who buys a brand-new bike",
-            "Two neighbors who argue about a bike"
+            "A boy who learns to swim in a big lake",
+            "A girl who buys a brand-new bike at a shop downtown",
+            "Two neighbors who argue about a bike on their street"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -182,10 +182,10 @@
         {
           "stem": "Why does Sam decide to stop and help Nour instead of finishing the race alone?",
           "options": [
-            "Sam's bike also breaks down",
+            "Sam's bike also breaks down on the road to school",
             "Sam cares more about the friend than about winning",
-            "Sam does not like racing at all",
-            "Sam's mom tells Sam to stop"
+            "Sam does not like racing at all, even with friends",
+            "Sam's mom tells Sam to stop and wait at the gate"
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -217,9 +217,9 @@
           "stem": "In the article, a chain on a bike is —",
           "options": [
             "a set of connected metal links that turns the wheels",
-            "a seat for riding",
-            "a light on the front of the bike",
-            "a basket for carrying things"
+            "a seat for riding that goes on top of the frame",
+            "a light on the front of the bike for riding at night",
+            "a basket for carrying things on the back of the bike"
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -361,10 +361,10 @@
         {
           "stem": "Why does Nour feel embarrassed when the chain breaks?",
           "options": [
-            "Nour is wearing the wrong clothes for riding",
-            "Nour forgot the rules of the race",
+            "Nour is wearing the wrong clothes for riding a bike in the race",
+            "Nour forgot the rules of the race, and so the others laugh",
             "Nour's bike problem happens in front of a good friend",
-            "Nour is riding a borrowed bike"
+            "Nour is riding a borrowed bike that is too big"
           ],
           "answer": "C",
           "skill": "cause-effect",
@@ -378,9 +378,9 @@
         {
           "stem": "In the article, the word stubborn describes the chain as —",
           "options": [
-            "easy and quick to fix",
-            "shiny and brand new",
-            "too small to see clearly",
+            "easy and quick to fix by hand",
+            "shiny and brand new, like it was just bought",
+            "too small to see clearly with the eyes",
             "difficult to fix and slow to repair"
           ],
           "answer": "D",
@@ -412,10 +412,10 @@
         {
           "stem": "How does the author organize the events of this article?",
           "options": [
-            "By describing the bike shop where the bikes were bought",
+            "By describing the bike shop where the bikes were bought and sold",
             "By explaining the race, the broken chain, Sam's choice, and the fix",
-            "By comparing bikes from different countries",
-            "By listing rules for riding safely in the street"
+            "By comparing bikes from different countries and their prices",
+            "By listing rules for riding safely in the street at night"
           ],
           "answer": "B",
           "skill": "text-structure",
@@ -472,9 +472,9 @@
         {
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
-            "Neighborhood bike races always end in an argument between friends",
-            "Nour decides to give up bicycling after the chain breaks",
-            "Bicycle chains are too unreliable to use in any race",
+            "Neighborhood bike races always end in an argument between friends, and no one rides again",
+            "Nour decides to give up bicycling after the chain breaks on the road",
+            "Bicycle chains are too unreliable to use in any race, so the riders walk",
             "Sam makes a deliberate choice to value genuine friendship over an easy, uncontested victory"
           ],
           "answer": "D",
@@ -490,8 +490,8 @@
           "stem": "According to the article, what happens to cause Nour to stop pedaling so suddenly?",
           "options": [
             "The bicycle's chain snaps completely without warning",
-            "Nour deliberately slows down to let Sam win",
-            "A neighbor steps into the road unexpectedly",
+            "Nour deliberately slows down to let Sam win the race",
+            "A neighbor steps into the road unexpectedly in front of him",
             "Nour's bicycle tire goes flat near the curb"
           ],
           "answer": "A",
@@ -540,7 +540,7 @@
         {
           "stem": "Based on the article, why does Sam most likely choose friendship over an easy, uncontested victory?",
           "options": [
-            "Sam is uncertain about the official racing rules",
+            "Sam is uncertain about the official racing rules of the town",
             "Sam's bicycle is not actually fast enough to win",
             "Sam wants the neighbors to notice the kind gesture",
             "Sam genuinely values the friendship more than winning alone"
@@ -574,10 +574,10 @@
         {
           "stem": "What can readers infer from the fact that Sam and Nour choose not to resume their race after the chain is fixed?",
           "options": [
-            "Neither of them cares about bicycles anymore",
+            "Neither of them cares about bicycles anymore after the long day",
             "They both value their friendship more than finishing the competition",
-            "The race rules do not allow restarting a race",
-            "Nour's bike remains too damaged to ride safely"
+            "The race rules do not allow restarting a race once it has stopped",
+            "Nour's bike remains too damaged to ride safely, so they cannot go on"
           ],
           "answer": "B",
           "skill": "inference",
@@ -591,10 +591,10 @@
         {
           "stem": "Why does the author end the article by stating that helping a friend felt more rewarding than winning alone?",
           "options": [
-            "To argue that bicycle races should never be held again",
-            "To explain the exact mechanics of how a bicycle chain works",
+            "To argue that bicycle races should never be held again in the town or the school",
+            "To explain the exact mechanics of how a bicycle chain works and how to fix it",
             "To emphasize the article's theme that genuine friendship matters more than victory",
-            "To suggest that Nour should have ridden a different route"
+            "To suggest that Nour should have ridden a different route to the race"
           ],
           "answer": "C",
           "skill": "author-purpose",

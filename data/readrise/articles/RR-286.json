@@ -128,10 +128,10 @@
         {
           "stem": "Why do players often jump into the air before they shoot near the goal?",
           "options": [
-            "To rest their legs before attempting the next play",
+            "To rest their legs before attempting the next play in the match",
             "To release the ball before landing and surprise the goalkeeper",
-            "To avoid having to bounce the ball on the floor",
-            "To ask the referee to call a short time-out"
+            "To avoid having to bounce the ball on the floor again and again",
+            "To ask the referee to call a short time-out for the whole team"
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -227,7 +227,7 @@
             "Pass to a teammate, dribble it, or shoot at the goal",
             "Hand the ball directly over to the referee",
             "Walk slowly off the court to the sideline",
-            "Wait quietly for the goalkeeper to approach"
+            "Wait quietly for the goalkeeper to approach the player"
           ],
           "answer": "A",
           "skill": "detail",
@@ -289,10 +289,10 @@
         {
           "stem": "How is the article mainly organized?",
           "options": [
-            "As a timeline of one real match from start to finish",
+            "As a timeline of one real match from the first kick to the final whistle",
             "By explaining different parts of handball: rules, shots, roles, and defense",
-            "As a comparison between handball and a game of water polo",
-            "As step-by-step instructions for building a handball court"
+            "As a comparison between handball and a game of water polo in a pool",
+            "As step-by-step instructions for building a handball court at school"
           ],
           "answer": "B",
           "skill": "text-structure",
@@ -333,10 +333,10 @@
         {
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
-            "Handball results depend mostly on luck, not on skill or strategy",
+            "Handball results depend mostly on luck, not on skill, strategy, or hard training",
             "The jump shot, team roles, and defense all rely on technique and basic physics",
-            "Physics explains basketball far better than it explains handball",
-            "Only the goalkeeper's actions decide a handball match's outcome"
+            "Physics explains basketball far better than it explains handball or any other sport",
+            "Only the goalkeeper's actions decide a handball match's outcome in every game"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -386,9 +386,9 @@
           "stem": "A defender fails to anticipate an attacker's next move and reacts a moment too late. Based on the article, what is the most likely result?",
           "options": [
             "The attacker's shot is more likely to beat the block",
-            "The match is stopped at once for a time-out",
-            "The attacker automatically loses the ball",
-            "The goalkeeper is removed from the game"
+            "The match is stopped at once for a time-out and a break",
+            "The attacker automatically loses the ball to the referee",
+            "The goalkeeper is removed from the game by the coach"
           ],
           "answer": "A",
           "skill": "inference",
@@ -411,10 +411,10 @@
         {
           "stem": "The article says the jump shot is a technique that depends on physics. What does technique mean as it is used here?",
           "options": [
-            "A rule enforced only by the referee",
+            "A rule that is enforced only by the referee",
             "A skillful way of acting, honed through practice",
-            "A penalty given whenever a foul happens",
-            "The official name for the goal area"
+            "A penalty that is given whenever a foul happens",
+            "The official name for the goal area of the court"
           ],
           "answer": "B",
           "skill": "vocabulary",

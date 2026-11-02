@@ -233,10 +233,10 @@
         {
           "stem": "Why does the author end the article with what we can do?",
           "options": [
-            "To tell a funny story",
+            "To tell a funny story to the readers",
             "To show readers that they can help reefs",
-            "To explain how coral eats",
-            "To describe the Red Sea"
+            "To explain how coral eats its food",
+            "To describe the Red Sea and its colors"
           ],
           "answer": "B",
           "skill": "author-purpose",
@@ -395,10 +395,10 @@
         {
           "stem": "A coral has bleached, and the water stays hot for months. What will most likely happen?",
           "options": [
-            "The algae will return right away.",
-            "The coral will become brighter.",
+            "The algae will return right away to the coral.",
+            "The coral will become brighter and more colorful.",
             "The coral may die and become covered in seaweed.",
-            "The coral will move to cooler water."
+            "The coral will move to cooler water by itself."
           ],
           "answer": "C",
           "skill": "inference",
@@ -413,9 +413,9 @@
           "stem": "How is the article mainly organized?",
           "options": [
             "It explains a problem, its cause, and ways it can be solved.",
-            "It tells a story about one diver.",
-            "It lists reefs from biggest to smallest.",
-            "It compares corals to land animals."
+            "It tells a story about one diver and her first trip.",
+            "It lists reefs from the biggest to the smallest in the world.",
+            "It compares corals to land animals and to plants."
           ],
           "answer": "A",
           "skill": "text-structure",
@@ -489,10 +489,10 @@
         {
           "stem": "According to the article, what happens to the algae when the water stays too warm?",
           "options": [
-            "They grow faster and turn green.",
+            "They grow faster and turn green, and they stay in the coral.",
             "They make harmful substances and are pushed out.",
-            "They form a hard limestone layer.",
-            "They swim to deeper water."
+            "They form a hard limestone layer around the coral.",
+            "They swim to deeper water and leave the reef behind."
           ],
           "answer": "B",
           "skill": "detail",
@@ -506,10 +506,10 @@
         {
           "stem": "What fact does the article give about the bleaching event that began in 2023?",
           "options": [
-            "It affected only the Red Sea.",
-            "It ended within a week.",
+            "It affected only the Red Sea, and no other sea in the world.",
+            "It ended within a week, once the water cooled down.",
             "It became the most widespread ever recorded.",
-            "It was caused by too much cold water."
+            "It was caused by too much cold water near the reefs."
           ],
           "answer": "C",
           "skill": "detail",
@@ -540,10 +540,10 @@
         {
           "stem": "Why is the relationship between the polyp and its algae described as symbiotic?",
           "options": [
-            "The algae harm the coral to survive.",
+            "The algae harm the coral to survive in the sea.",
             "Both partners benefit from living together.",
-            "The coral eats the algae for food.",
-            "The algae build the coral's skeleton."
+            "The coral eats the algae for food each night.",
+            "The algae build the coral's skeleton by themselves."
           ],
           "answer": "B",
           "skill": "inference",

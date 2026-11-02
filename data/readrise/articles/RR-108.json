@@ -165,10 +165,10 @@
         {
           "stem": "Read this sentence: \"It digs a hole to sleep in. The hole is a burrow.\" What is a burrow?",
           "options": [
-            "A kind of food that bees make",
-            "A sharp tooth for biting",
+            "A kind of food that bees make in a hive",
+            "A sharp tooth for biting through a hard shell",
             "A hole in the ground where an animal rests",
-            "A sweet smell"
+            "A sweet smell that comes from a flower"
           ],
           "answer": "C",
           "skill": "vocabulary",
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
-            "Honey badgers are dangerous pets that people should not keep.",
-            "Honey badgers mostly eat honey and nothing else.",
+            "Honey badgers are dangerous pets that people should not keep in their homes or gardens.",
+            "Honey badgers mostly eat honey and nothing else, so they must live where bees are found.",
             "Honey badgers are small, but their bodies and habits make them tough survivors.",
-            "Honey badgers live in large family groups."
+            "Honey badgers live in large family groups and travel together across the whole desert."
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -345,9 +345,9 @@
           "stem": "In the article, \"partly resistant to some snake venom\" means that the venom",
           "options": [
             "harms the badger less than it would harm most animals",
-            "cannot get through the badger's thick skin",
-            "makes the badger run faster",
-            "is used by the badger to hunt"
+            "cannot get through the badger's thick skin or fur",
+            "makes the badger run faster than any snake",
+            "is used by the badger to hunt other animals"
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -378,10 +378,10 @@
         {
           "stem": "Why might a leopard have trouble keeping hold of a honey badger?",
           "options": [
-            "The badger's fur is too slippery.",
-            "The badger is much bigger than a leopard.",
+            "The badger's fur is too slippery for the leopard's claws.",
+            "The badger is much bigger than a leopard and very heavy.",
             "The badger's loose skin lets it twist around and bite.",
-            "The badger can climb out of reach."
+            "The badger can climb out of reach into the tallest trees."
           ],
           "answer": "C",
           "skill": "inference",
@@ -412,9 +412,9 @@
         {
           "stem": "How does the author organize most of the paragraphs in the middle of the article?",
           "options": [
-            "By telling events in the order they happened in history",
-            "By comparing honey badgers with lions in every paragraph",
-            "By naming a problem and asking readers to solve it",
+            "By telling events in the order they happened in history, year by year",
+            "By comparing honey badgers with lions in every paragraph of the middle part",
+            "By naming a problem and asking readers to solve it on their own",
             "By describing one feature or habit and explaining how it helps the badger"
           ],
           "answer": "D",
@@ -473,9 +473,9 @@
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
             "A combination of physical adaptations and flexible habits lets a small animal survive among larger predators.",
-            "Honey badgers survive mainly because they live in protected national parks with guards.",
-            "Honey badgers depend on honey, so they cannot live where bees are rare.",
-            "Honey badgers are dangerous only to bees and scorpions."
+            "Honey badgers survive mainly because they live in protected national parks with guards and fences, far from danger",
+            "Honey badgers depend on honey, so they cannot live in any place where bees are rare or missing",
+            "Honey badgers are dangerous only to bees and scorpions, and they leave all other animals alone"
           ],
           "answer": "A",
           "skill": "central-idea",

@@ -132,9 +132,9 @@
           "stem": "What is overfishing?",
           "options": [
             "Catching fish faster than they can replace themselves",
-            "Catching only the largest fish in the sea",
-            "Using one small net to catch a single fish",
-            "Fishing only very early in the morning hours"
+            "Catching only the largest fish in the sea, and leaving the rest",
+            "Using one small net to catch a single fish at a time",
+            "Fishing only very early in the morning hours, before the sun"
           ],
           "answer": "A",
           "skill": "detail",
@@ -395,9 +395,9 @@
         {
           "stem": "Why do scientists regularly study fish populations?",
           "options": [
-            "So that boats can be built much bigger",
-            "So that fish can be taught to avoid nets",
-            "So that fishing can be stopped completely",
+            "So that boats can be built much bigger and heavier than before",
+            "So that fish can be taught to avoid nets and hooks at sea",
+            "So that fishing can be stopped completely in every place",
             "So regulations can be adjusted when things change"
           ],
           "answer": "D",
@@ -523,10 +523,10 @@
         {
           "stem": "What effect does bycatch have on marine ecosystems, according to the article?",
           "options": [
-            "It has no real effect on any other species",
+            "It has no real effect on any other species or place",
             "It adds strain to populations and disturbs the ecosystem",
-            "It helps unrelated species reproduce much faster",
-            "It increases the total number of fish to catch"
+            "It helps unrelated species reproduce much faster than before",
+            "It increases the total number of fish to catch each year"
           ],
           "answer": "B",
           "skill": "cause-effect",

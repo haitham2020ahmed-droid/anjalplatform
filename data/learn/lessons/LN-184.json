@@ -57,10 +57,10 @@
     "passage": "Sami is at the beach today. The sand is white. Blue waves splash on the shore. He builds a tall sand castle.",
     "stem": "Which picture matches the text best?",
     "options": [
-     "Green grass and a small red ball.",
+     "Green grass, a small red ball and a tall tree.",
      "White sand, blue waves and a tall sand castle.",
      "A boy sleeping under a tree at night.",
-     "Grey rocks and a big brown boat."
+     "Grey rocks, a big brown boat and dark clouds."
     ],
     "answer": 1,
     "hint": "Look back at the colour words: white, blue. Which picture has them?",
@@ -218,7 +218,7 @@
      "stem": "What picture does \"as still as a stone\" create?",
      "options": [
       "The falcon was grey like a rock.",
-      "The falcon was very heavy.",
+      "The falcon was very heavy for its size.",
       "The falcon was sitting on a rock.",
       "The falcon did not move its body at all."
      ],
@@ -230,9 +230,9 @@
      "stem": "Which picture fits the text best?",
      "options": [
       "A warm campfire on a cold, dark night.",
-      "A sunny picnic on green grass.",
-      "A busy kitchen in the morning.",
-      "A campfire that has gone out."
+      "A sunny picnic on green grass by a lake.",
+      "A busy kitchen in the early morning.",
+      "A campfire that has gone out in the rain."
      ],
      "answer": 0,
      "why": "Crackling fire, sparks in a black sky and blankets pulled close show a warm fire on a cold night."
@@ -290,8 +290,8 @@
     "options": [
      "A bright, tidy room with new furniture.",
      "A dusty, unused room full of old fishing things.",
-     "A busy shop where fishermen buy nets.",
-     "A cool, clean room where people rest."
+     "A busy shop where fishermen buy nets and ropes.",
+     "A cool, clean room where people sit and rest."
     ],
     "answer": 1,
     "hint": "Look at the details: dust, rusty corners, old nets. Do they sound new and tidy?",
@@ -320,10 +320,10 @@
      "passage": "The classroom had been noisy all morning. Then the teacher held up a jar with a live scorpion inside it. Chairs scraped as students leaned back. Nobody spoke, and the only sound was the slow tick of the clock.",
      "stem": "How does the picture of the classroom change?",
      "options": [
-      "It goes from calm to angry.",
+      "It goes from calm to angry and loud.",
       "It goes from quiet to very noisy.",
       "It goes from noisy to completely silent.",
-      "It stays noisy the whole time."
+      "It stays noisy the whole time, never quiet."
      ],
      "answer": 2,
      "why": "It starts **noisy**, then **nobody spoke** and only the clock could be heard."
@@ -345,7 +345,7 @@
      "stem": "What does the comparison \"like green squares on a carpet\" help you picture?",
      "options": [
       "The farms are covered with carpets.",
-      "The road is green and soft.",
+      "The road is green and soft like a carpet.",
       "The farms are very close to the road.",
       "The farms look small and neat from high up."
      ],
@@ -407,9 +407,9 @@
     "passage": "The storm announced itself first as a smudge on the horizon, no bigger than a thumbprint. Within minutes it had swollen into a brown wall that swallowed the distant hills one by one. The afternoon sun dimmed to a pale coin, and the air grew thick and gritty in our mouths. Goats bleated and pressed against the fence while shopkeepers dragged their goods inside and slammed metal shutters. By the time the first gust struck the village, the street was empty except for a plastic bag tumbling past the mosque.",
     "stem": "Which mental picture best captures the scene the writer creates?",
     "options": [
-     "A gentle wind cooling a quiet village on a sunny afternoon.",
+     "A gentle wind cooling a quiet village on a sunny afternoon in spring.",
      "A huge dust storm growing fast and driving the whole village into shelter.",
-     "Shopkeepers and their goats enjoying a busy market day.",
+     "Shopkeepers and their goats enjoying a busy market day in the sun.",
      "A distant storm that passes the village without reaching it."
     ],
     "answer": 1,
@@ -463,10 +463,10 @@
      "passage": "Ahmad's first view of the hospital ward was a blur of white: white walls, white sheets, white coats moving quickly between the beds. Machines beeped in different rhythms. Then a nurse knelt beside him and smiled, and for the first time he noticed the bright paintings of birds on the wall.",
      "stem": "How does Ahmad's picture of the ward change?",
      "options": [
-      "It changes from colourful to grey.",
+      "It changes from bright and colourful to grey and sad over time.",
       "It changes from cold and confusing to warmer and more human.",
-      "It changes from quiet to noisy.",
-      "It stays exactly the same."
+      "It changes from quiet to noisy as the day goes on.",
+      "It stays exactly the same from the start to the end."
      ],
      "answer": 1,
      "why": "At first it is a **blur of white** and beeping. After the nurse smiles, he notices **bright paintings**, so the scene feels warmer."

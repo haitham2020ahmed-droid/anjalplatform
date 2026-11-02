@@ -114,10 +114,10 @@
         {
           "stem": "What is this story mostly about?",
           "options": [
-            "How to grow dates in the desert",
+            "How to grow dates in the desert sand",
             "A boy who learns to be a fair merchant",
-            "A man who gets lost in the market",
-            "How markets are built long ago"
+            "A man who gets lost in the old market",
+            "How markets are built long ago by kings"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -182,9 +182,9 @@
         {
           "stem": "Why did Salim think about charging more money?",
           "options": [
-            "The traveler asked him to do it",
-            "Ammar secretly told him he should",
-            "The cloth cost more that day",
+            "The traveler asked him to do it for a gift",
+            "Ammar secretly told him he should do it",
+            "The cloth cost more that day in the market",
             "The traveler would not know the real price"
           ],
           "answer": "D",
@@ -216,10 +216,10 @@
         {
           "stem": "What happens if a merchant is not fair?",
           "options": [
-            "He gets more money every time",
-            "The whole market closes down for good",
+            "He gets more money every time he cheats a buyer",
+            "The whole market closes down for good in a week",
             "People stop trusting him and stop coming back",
-            "He must sell all his cloth for free"
+            "He must sell all his cloth for free to everyone"
           ],
           "answer": "C",
           "skill": "cause-effect",
@@ -397,7 +397,7 @@
             "The merchant quickly becomes the richest person in town",
             "Other merchants soon copy the cheating merchant's methods",
             "Customers eventually stop trusting the merchant and stop returning",
-            "The entire market closes down permanently"
+            "The entire market closes down permanently and no one buys again"
           ],
           "answer": "C",
           "skill": "cause-effect",
@@ -411,10 +411,10 @@
         {
           "stem": "How does the story mainly develop its lesson about fair dealing?",
           "options": [
-            "By listing clear rules for pricing cloth in any market",
+            "By listing clear rules for pricing cloth in any market, town, or city that Salim and Ammar visit",
             "Through a single event where Salim is tempted, followed by Ammar's explanation of why fairness matters",
-            "By comparing two completely different market towns",
-            "By describing the long history of Arabian trade routes"
+            "By comparing two completely different market towns and showing which one is richer and which one is bigger",
+            "By describing the long history of Arabian trade routes and the towns that grew along them over many years"
           ],
           "answer": "B",
           "skill": "text-structure",
@@ -471,9 +471,9 @@
           "stem": "Which statement best captures the central idea of the story?",
           "options": [
             "Fair dealing, rather than short-term profit gained by exploiting a customer's ignorance, is what sustains a merchant's reputation and long-term success.",
-            "Traveling merchants from distant lands always pay noticeably more than local customers in every Arabian market.",
-            "Ammar's apprentice, Salim, eventually becomes far wealthier than his master by learning to bargain aggressively.",
-            "Honest merchants in old Arabia were required by strict law to charge perfectly identical prices."
+            "Traveling merchants from distant lands always pay noticeably more than local customers in every Arabian market and shop, since they carry more coins and gold.",
+            "Ammar's apprentice, Salim, eventually becomes far wealthier than his master by learning to bargain aggressively with each and every customer.",
+            "Honest merchants in old Arabia were required by strict law to charge perfectly identical prices to every single buyer in the market."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -487,10 +487,10 @@
         {
           "stem": "What specific temptation does Salim face when the traveler arrives?",
           "options": [
-            "He is tempted to give the traveler his cloth for free, out of pity",
-            "He is tempted to send the traveler off to a rival merchant instead",
+            "He is tempted to give the traveler his cloth for free, out of pity for his tired animals",
+            "He is tempted to send the traveler off to a rival merchant instead, to avoid the trouble",
             "He is tempted to overcharge the traveler, who does not know the fair local price",
-            "He is tempted to ask Ammar for a few more coins for himself"
+            "He is tempted to ask Ammar for a few more coins for himself, since his pay is small"
           ],
           "answer": "C",
           "skill": "detail",
@@ -504,9 +504,9 @@
         {
           "stem": "How does Ammar signal his disapproval of Salim's unspoken plan?",
           "options": [
-            "He angrily orders Salim to leave the stall at once",
-            "He deliberately raises the price of the cloth on the spot",
-            "He loudly calls out to the traveler to beware of Salim",
+            "He angrily orders Salim to leave the stall at once and never come back",
+            "He deliberately raises the price of the cloth on the spot for the customer",
+            "He loudly calls out to the traveler to beware of Salim in the market",
             "He gives a slow, deliberate shake of his head without saying a word"
           ],
           "answer": "D",
@@ -539,9 +539,9 @@
           "stem": "Based on Ammar's explanation, why is a reputation for integrity more valuable than a single unfair profit?",
           "options": [
             "Because a reputation for integrity brings repeat customers and lasting commerce, while one unfair sale destroys trust permanently.",
-            "Because the local town fines any merchant who is caught being unfair.",
-            "Because travelers, as a rule, never return to any market town twice.",
-            "Because integrity somehow allows a merchant to avoid paying local taxes."
+            "Because the local town fines any merchant who is caught being unfair, and the fine is very large",
+            "Because travelers, as a rule, never return to any market town twice, so a good name is not needed",
+            "Because integrity somehow allows a merchant to avoid paying local taxes, so he can keep all his money for himself and his family"
           ],
           "answer": "A",
           "skill": "inference",
@@ -555,10 +555,10 @@
         {
           "stem": "What can readers infer about Ammar's own past from his reaction to Salim's temptation?",
           "options": [
-            "Ammar claims he never once faced temptation as a young apprentice",
+            "Ammar claims he never once faced any temptation as a young apprentice in the busy market of the town",
             "Ammar likely faced a similar temptation himself when he was a young apprentice, and chose honesty",
-            "Ammar was once formally punished for cheating a customer",
-            "Ammar only learned fairness after losing every one of his customers"
+            "Ammar was once formally punished for cheating a customer, and the guild fined him a great deal of money",
+            "Ammar only learned fairness after losing every one of his customers in the town and his shop closing"
           ],
           "answer": "B",
           "skill": "inference",
@@ -589,10 +589,10 @@
         {
           "stem": "Why does the author end the story by describing Salim's own stall years later?",
           "options": [
-            "To show that Salim eventually abandoned fair dealing for quick profit",
+            "To show that Salim eventually abandoned fair dealing for quick profit and became rich",
             "To show that the lesson of fair, trustworthy commerce lasted and shaped Salim's own future choices",
-            "To explain in detail how Salim became wealthier than Ammar himself",
-            "To suggest that prices in this market always rise over time"
+            "To explain in detail how Salim became wealthier than Ammar himself in only a few years",
+            "To suggest that prices in this market always rise over time, because merchants grow greedy and sell less cloth"
           ],
           "answer": "B",
           "skill": "author-purpose",

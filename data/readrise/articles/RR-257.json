@@ -200,9 +200,9 @@
           "stem": "Grace's mother let her keep fixing clocks, even after she broke a few. What does this tell you about her mother?",
           "options": [
             "She did not really care about the old clocks at all",
-            "She wanted Grace to stop asking questions",
+            "She wanted Grace to stop asking questions about the clocks",
             "She supported Grace's curiosity, even when mistakes happened",
-            "She was upset that Grace liked machines"
+            "She was upset that Grace liked machines more than dolls"
           ],
           "answer": "C",
           "skill": "inference",
@@ -216,10 +216,10 @@
         {
           "stem": "Grace kept working in the Navy long after most people retire. What can you tell about her?",
           "options": [
-            "She disliked her job but had no choice",
+            "She disliked her job but had no other choice",
             "She was dedicated and still had much to give",
-            "The Navy forced her to keep working",
-            "She forgot how old she was"
+            "The Navy forced her to keep working for years",
+            "She forgot how old she was and kept working"
           ],
           "answer": "B",
           "skill": "inference",
@@ -233,10 +233,10 @@
         {
           "stem": "How is the article mostly organized?",
           "options": [
-            "As a detailed list of every chimp body part",
+            "As a detailed list of every chimp body part and its name",
             "In time order, from Grace's childhood to her later years",
-            "As a problem and a solution for fixing a clock",
-            "As steps for writing a computer program"
+            "As a problem and a solution for fixing a clock in a shop",
+            "As steps for writing a computer program in a school lab"
           ],
           "answer": "B",
           "skill": "text-structure",
@@ -344,10 +344,10 @@
         {
           "stem": "In the article, what does a compiler do?",
           "options": [
-            "It fixes broken alarm clocks found around the house",
+            "It fixes broken alarm clocks found around the house and in school",
             "It lets people write computer instructions using plain English words",
             "It teaches young sailors how to swim safely in open water",
-            "It helps ships travel safely between distant countries"
+            "It helps ships travel safely between distant countries at night"
           ],
           "answer": "B",
           "skill": "vocabulary",

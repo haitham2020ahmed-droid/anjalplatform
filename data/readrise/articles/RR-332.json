@@ -128,10 +128,10 @@
         {
           "stem": "Why does the equator stay hot all through the year?",
           "options": [
-            "Because many large cities happen to sit nearby",
-            "Because it is located much closer to the ocean",
+            "Because many large cities happen to sit nearby and give off heat",
+            "Because it is located much closer to the ocean than other places",
             "Because the sun shines almost straight down on it all year",
-            "Because almost no wind ever blows across it"
+            "Because almost no wind ever blows across it during the day"
           ],
           "answer": "C",
           "skill": "cause-effect",
@@ -225,9 +225,9 @@
           "stem": "According to the article, how does sunlight strike the equator?",
           "options": [
             "Only during the cold winter months of the year",
-            "At a very low angle, spreading out weakly",
+            "At a very low angle, spreading out weakly over a large area",
             "Almost perpendicularly, delivering strong, concentrated heat",
-            "It never actually reaches the equator directly"
+            "It never actually reaches the equator directly at all"
           ],
           "answer": "C",
           "skill": "detail",
@@ -276,10 +276,10 @@
         {
           "stem": "Based on the article, why might so many people choose to live near the equator?",
           "options": [
-            "Because living there is required under international law",
+            "Because living there is required under international law, and no one may leave",
             "Its warm, stable climate supports fertile land and rich plant life",
-            "Because the equator is the only region with any sunlight",
-            "Because the equator technically has no weather at all"
+            "Because the equator is the only region with any sunlight, so people go there",
+            "Because the equator technically has no weather at all, and it is always calm"
           ],
           "answer": "B",
           "skill": "inference",
@@ -424,9 +424,9 @@
         {
           "stem": "How is the article mainly organized?",
           "options": [
-            "It presents a step-by-step guide for surviving polar cold",
-            "It debates whether human-caused climate change is real",
-            "It narrates a fictional expedition toward the South Pole",
+            "It presents a step-by-step guide for surviving polar cold, with a list of things to carry",
+            "It debates whether human-caused climate change is real, with arguments from each side",
+            "It narrates a fictional expedition toward the South Pole, with a hero and a dog",
             "It defines the equator and poles, then traces their climate and the life each sustains"
           ],
           "answer": "D",

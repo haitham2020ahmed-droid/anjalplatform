@@ -114,9 +114,9 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How to build and set up a small camping tent",
+            "How to build and set up a small camping tent in the desert",
             "How maps use symbols, a key, and a scale to show real places",
-            "Why Earth happens to have mountains and rivers",
+            "Why Earth happens to have so many mountains and rivers",
             "How a person should drive a car using a road map"
           ],
           "answer": "B",
@@ -311,9 +311,9 @@
           "stem": "What does a map projection do?",
           "options": [
             "It converts the round surface of Earth into a flat image.",
-            "It removes all distortion from a map completely.",
-            "It measures real distances in exact miles.",
-            "It draws symbols for forests and campgrounds."
+            "It removes all distortion from a map completely and perfectly.",
+            "It measures real distances in exact miles on the ground.",
+            "It draws symbols for forests and campgrounds on a map."
           ],
           "answer": "A",
           "skill": "detail",
@@ -344,10 +344,10 @@
         {
           "stem": "If a mapmaker wants the clearest possible road map, what might they choose to leave out?",
           "options": [
-            "The legend and the key shown on the map",
-            "The printed scale found on the map",
+            "The legend and the key shown on the edge of the map",
+            "The printed scale found at the bottom of the map",
             "Natural features like hills, unrelated to roads",
-            "The name of the country being shown"
+            "The name of the country being shown at the top"
           ],
           "answer": "C",
           "skill": "inference",
@@ -412,10 +412,10 @@
         {
           "stem": "How are a political map and a physical map similar?",
           "options": [
-            "Both only ever show roads and highways.",
-            "Both completely ignore the real shape of Earth.",
+            "Both only ever show roads and highways, never rivers, borders or mountains.",
+            "Both completely ignore the real shape of Earth and show only flat squares.",
             "Both are kinds of maps that use symbols, a legend, and a scale.",
-            "Both were first invented in the exact same year."
+            "Both were first invented in the exact same year by the same mapmaker."
           ],
           "answer": "C",
           "skill": "compare",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best captures the central idea of the article?",
           "options": [
-            "Modern satellites have completely eliminated the need for map projections.",
-            "Every cartographer throughout history has used the exact same single projection.",
+            "Modern satellites have completely eliminated the need for map projections, so cartographers do not make any trade-offs now, since every map is perfect and shows no distortion at all, ever.",
+            "Every cartographer throughout history has used the exact same single projection, so maps from every country, every century, and every culture look alike and never change at all.",
             "Cartographers must make deliberate trade-offs when turning Earth's round surface into a flat map, using tools like projections, symbols, legends, scale, and coordinate grids despite unavoidable distortion.",
-            "Latitude and longitude were invented only after digital maps already existed."
+            "Latitude and longitude were invented only after digital maps already existed, so earlier sailors and travelers had no way to describe any place on Earth at all, even with a compass and a chart."
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -506,9 +506,9 @@
         {
           "stem": "What do latitude and longitude lines let a reader do?",
           "options": [
-            "Measure the exact temperature of a location",
-            "Count the number of symbols shown on a map",
-            "Calculate a country's total population",
+            "Measure the exact temperature of a location at any time",
+            "Count the number of symbols shown on a map or a chart",
+            "Calculate a country's total population from its borders",
             "Pinpoint almost any exact location using two numbers"
           ],
           "answer": "D",
@@ -540,7 +540,7 @@
         {
           "stem": "Why might a digital map app rarely mention 'projection' to its everyday users?",
           "options": [
-            "Digital maps do not actually use any projection at all.",
+            "Digital maps do not actually use any projection at all in their software or screens.",
             "Projections were abandoned entirely once satellites were launched.",
             "Only paper maps have ever needed a projection in the first place.",
             "The underlying math still happens, but it is handled automatically and invisibly."
@@ -575,9 +575,9 @@
           "stem": "Why does the author end the article by discussing digital maps on phones and computers?",
           "options": [
             "To connect centuries-old mapmaking ideas to a tool most readers already use today",
-            "To argue that paper maps are now completely useless",
-            "To explain exactly how satellites are physically built",
-            "To compare the price of paper maps with digital maps"
+            "To argue that paper maps are now completely useless to travelers, since phones are better",
+            "To explain exactly how satellites are physically built and sent up into the sky",
+            "To compare the price of paper maps with digital maps in the shops"
           ],
           "answer": "A",
           "skill": "author-purpose",

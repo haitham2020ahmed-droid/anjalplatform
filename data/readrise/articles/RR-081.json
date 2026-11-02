@@ -115,9 +115,9 @@
           "stem": "What is this article mostly about?",
           "options": [
             "Great hospitals of long ago and how they helped the sick",
-            "How to become a doctor today",
-            "The life of one sick child in Cairo",
-            "How to cook meat so it stays fresh"
+            "How to become a doctor today in a big city hospital",
+            "The life of one sick child in the city of Cairo",
+            "How to cook meat so it stays fresh for many days at home"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -165,10 +165,10 @@
         {
           "stem": "What does the word ward mean in this article?",
           "options": [
-            "A test for a new doctor",
-            "A huge book about healing",
+            "A test for a new doctor at the hospital school",
+            "A huge book about healing and old medicines",
             "A part of a hospital for one kind of sickness",
-            "A gift of money for a patient"
+            "A gift of money for a patient who is leaving"
           ],
           "answer": "C",
           "skill": "vocabulary",
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
-            "Al-Razi was the only important doctor in history.",
-            "Cairo had the largest hospital in the world.",
+            "Al-Razi was the only important doctor in history, and no other doctor ever wrote anything useful.",
+            "Cairo had the largest hospital in the world, and it was built before any other hospital existed.",
             "The bimaristans gave free care, sorted the sick, trained doctors, and shaped later hospitals.",
-            "Hospitals long ago were dirty and dangerous."
+            "Hospitals long ago were dirty and dangerous, and most patients left them in a worse state."
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -311,9 +311,9 @@
           "stem": "What does the word bimaristan mean?",
           "options": [
             "Place for the sick",
-            "House of books",
-            "Great teacher",
-            "Clean air"
+            "House of old books",
+            "Great teacher of art",
+            "Clean air and water"
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -327,9 +327,9 @@
         {
           "stem": "What happened in Baghdad in the year 931?",
           "options": [
-            "Ibn Sina finished his giant book.",
+            "Ibn Sina finished his giant book of medicine.",
             "The first pharmacy opened in Cairo.",
-            "Al-Razi hung meat around the city.",
+            "Al-Razi hung meat around the city to test the air.",
             "Doctors had to pass an exam before working."
           ],
           "answer": "D",
@@ -361,10 +361,10 @@
         {
           "stem": "Why did Al-Razi choose the spot where the meat spoiled most slowly?",
           "options": [
-            "The meat there was the cheapest.",
-            "It was nearest to the market.",
+            "The meat there was the cheapest to buy.",
+            "It was nearest to the market in town.",
             "He believed the air there was cleanest.",
-            "It was far from other cities."
+            "It was far from other big cities."
           ],
           "answer": "C",
           "skill": "cause-effect",
@@ -379,9 +379,9 @@
           "stem": "What does free care for rich and poor suggest about the people who ran the bimaristans?",
           "options": [
             "They believed every sick person deserved help.",
-            "They wanted to become wealthy.",
-            "They did not trust physicians.",
-            "They cared only about their own city."
+            "They wanted to become wealthy and famous, as doctors",
+            "They did not trust physicians, and kept them away",
+            "They cared only about their own city and its people"
           ],
           "answer": "A",
           "skill": "inference",
@@ -412,10 +412,10 @@
         {
           "stem": "How does the author organize most of the article?",
           "options": [
-            "As a story told by a patient",
+            "As a story told by a patient who stays in a hospital",
             "By describing the hospitals' features, then famous physicians",
-            "From the newest hospital to the oldest",
-            "As a list of rules for students"
+            "From the newest hospital to the oldest one in the country",
+            "As a list of rules for students and for doctors"
           ],
           "answer": "B",
           "skill": "text-structure",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
-            "Medicine in the Islamic Golden Age was based mainly on guesswork.",
+            "Medicine in the Islamic Golden Age was based mainly on guesswork, not on careful study.",
             "The bimaristans were organized, open to all, and full of ideas still used in hospitals today.",
-            "Al-Razi and Ibn Sina disagreed about how to build hospitals.",
-            "Only the hospital in Cairo offered free treatment."
+            "Al-Razi and Ibn Sina disagreed about how to build hospitals, so only a few were built.",
+            "Only the hospital in Cairo offered free treatment, and the other cities charged high prices."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -523,10 +523,10 @@
         {
           "stem": "Why does the article call the hospitals institutions of learning?",
           "options": [
-            "They were built next to universities.",
-            "Patients had to pass exams before entering.",
+            "They were built next to universities in the biggest cities.",
+            "Patients had to pass exams before entering the building.",
             "Students watched physicians diagnose patients and studied there.",
-            "Every patient was taught to read."
+            "Every patient was taught to read and write there."
           ],
           "answer": "C",
           "skill": "inference",
@@ -540,10 +540,10 @@
         {
           "stem": "What was one result of Al-Razi's description of smallpox and measles?",
           "options": [
-            "Both diseases disappeared from Baghdad.",
+            "Both diseases disappeared from Baghdad after he wrote.",
             "Doctors could tell the two diseases apart by their symptoms.",
-            "Hospitals stopped accepting patients with spots.",
-            "Ibn Sina copied it into a poem."
+            "Hospitals stopped accepting patients with spots on their skin.",
+            "Ibn Sina copied it into a poem for the king."
           ],
           "answer": "B",
           "skill": "cause-effect",

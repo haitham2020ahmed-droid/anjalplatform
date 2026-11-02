@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How to win a race at school",
-            "Why olive trees grow in Greece",
+            "How to win a race at school on sports day",
+            "Why olive trees grow so well in the hills of Greece",
             "How the Olympic Games began and what they are like now",
-            "Why wheelchairs are useful in the city"
+            "Why wheelchairs are useful for people in the city"
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -148,9 +148,9 @@
         {
           "stem": "What prize did winners get at the ancient Games?",
           "options": [
-            "A gold medal",
-            "A new horse",
-            "A bag of money",
+            "A gold medal and a ring",
+            "A new horse from the king",
+            "A bag of money and a feast",
             "A crown of olive leaves"
           ],
           "answer": "D",
@@ -182,10 +182,10 @@
         {
           "stem": "Why do athletes train for years?",
           "options": [
-            "Because the Games are held every day",
+            "Because the Games are held every day of the year",
             "Because it is very hard to get to the Games",
-            "Because they want to make new flags",
-            "Because they need to learn to read"
+            "Because they want to make new flags for the teams",
+            "Because they need to learn to read and write"
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -234,9 +234,9 @@
           "stem": "How does the author organize the start of the article?",
           "options": [
             "By telling about the old Games first, then the new Games",
-            "By giving the steps to make an Olympic flag",
-            "By comparing swimming with running",
-            "By listing the rules of boxing"
+            "By giving the steps to make an Olympic flag at home with cloth",
+            "By comparing swimming with running in a race",
+            "By listing the rules of boxing in the ring"
           ],
           "answer": "A",
           "skill": "text-structure",
@@ -294,9 +294,9 @@
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
             "The Olympic Games have changed but still value sport, friendship, and fair play.",
-            "The ancient Games were better than the modern Games in every way.",
-            "Only athletes from Greece can win medals at the Olympic Games.",
-            "The Paralympic Games are more popular than the Olympics."
+            "The ancient Games were better than the modern Games in every way, and today's athletes are worse.",
+            "Only athletes from Greece can win medals at the Olympic Games, since the rules have not changed.",
+            "The Paralympic Games are more popular than the Olympics, and so they have replaced them for most people."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -327,10 +327,10 @@
         {
           "stem": "Who decided to bring back the Olympic Games?",
           "options": [
-            "A Greek king named Zeus",
+            "A Greek king named Zeus from the town of Olympia",
             "A French educator named Pierre de Coubertin",
-            "A coach from Athens",
-            "A doctor from England"
+            "A coach from the city of Athens in Greece",
+            "A doctor from the country of England in Europe"
           ],
           "answer": "B",
           "skill": "detail",
@@ -361,10 +361,10 @@
         {
           "stem": "Why did Coubertin want to revive the Games?",
           "options": [
-            "He wanted to build a new city in Greece.",
-            "He wanted to find a new kind of olive tree.",
+            "He wanted to build a new city in the land of Greece.",
+            "He wanted to find a new kind of olive tree for farmers.",
             "He believed sport could build healthy youth and peace.",
-            "He believed only men should play sports."
+            "He believed only men should play sports in the Games."
           ],
           "answer": "C",
           "skill": "cause-effect",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
-            "The modern Olympics copy every rule of the ancient festival.",
+            "The modern Olympics copy every rule of the ancient festival, even the old chariot rules.",
             "The Olympic Games began in ancient Greece and have grown, but fair play remains central.",
-            "Chariot racing is the most important event in Olympic history.",
-            "The Paralympic Games replaced the Olympics after 1960."
+            "Chariot racing is the most important event in Olympic history, and it is still the main sport.",
+            "The Paralympic Games replaced the Olympics after 1960, so the Olympics no longer take place."
           ],
           "answer": "B",
           "skill": "central-idea",

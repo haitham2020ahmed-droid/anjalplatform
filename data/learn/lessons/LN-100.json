@@ -221,10 +221,10 @@
      "passage": "Text: Owls hunt at night. Picture: an owl flying with a mouse in its claws.",
      "stem": "What do you learn ONLY from the picture?",
      "options": [
-      "Owls hunt at night.",
+      "Owls hunt at night in the forest.",
       "An owl can carry a mouse in its claws.",
-      "Owls sleep all day.",
-      "Owls live in trees."
+      "Owls sleep all day in the hollow trees.",
+      "Owls live in trees and old barns."
      ],
      "answer": 1,
      "why": "The text only says owls hunt at night. The **picture** shows the owl carrying a mouse."
@@ -315,7 +315,7 @@
      "stem": "Which detail comes from the illustration?",
      "options": [
       "A man sells dates from baskets.",
-      "The souq opens early.",
+      "The souq opens early in the morning.",
       "The souq opens every day.",
       "The souq closes at night."
      ],
@@ -326,10 +326,10 @@
      "passage": "Text: The old fort was built of mud bricks more than a hundred years ago. Drawing: thick walls, a tall watchtower at each corner and one small wooden door.",
      "stem": "What does the drawing help you understand that the text does not?",
      "options": [
-      "what the fort is made of",
-      "when the fort was built",
+      "what the fort is made of in the wall",
+      "when the fort was built long ago",
       "what its towers and door look like",
-      "who lived in the fort"
+      "who lived in the fort long ago"
      ],
      "answer": 2,
      "why": "The text gives the material and the age. The **drawing** shows the towers and the door."
@@ -420,9 +420,9 @@
      "passage": "A science article says that the Moon is about one quarter as wide as Earth. The illustration beside it shows Earth and the Moon side by side, with the Moon drawn almost as big as Earth, and a small note: \"not to scale\".",
      "stem": "What should a careful reader conclude?",
      "options": [
-      "The Moon is nearly as big as Earth.",
-      "The text is wrong about the Moon's size.",
-      "The note means the picture is a photo.",
+      "The Moon is nearly as big as Earth in size.",
+      "The text is wrong about the Moon's size and distance.",
+      "The note means the picture is a photo of the Moon.",
       "Trust the text for size; the picture is not to scale."
      ],
      "answer": 3,
@@ -444,10 +444,10 @@
      "passage": "A leaflet about saving water says that small leaks can waste a lot of water over time. Next to the text is a cartoon of a dripping tap with a sad face and a large number: \"20 litres lost each day\".",
      "stem": "What does the illustration add to the text?",
      "options": [
-      "It disagrees with the text about leaks.",
-      "It explains how to fix a dripping tap.",
+      "It disagrees with the text about leaks and taps.",
+      "It explains how to fix a dripping tap at home.",
       "It gives an amount and makes the problem feel real.",
-      "It shows that leaks are not important."
+      "It shows that leaks are not important at all."
      ],
      "answer": 2,
      "why": "The text speaks generally. The cartoon adds a **specific amount** and a sad face that makes the problem feel real."

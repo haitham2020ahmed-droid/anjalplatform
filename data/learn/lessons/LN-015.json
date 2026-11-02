@@ -317,10 +317,10 @@
      "passage": "Draft: Our school garden has a compost bin. Readers are younger students.",
      "stem": "Which revision best explains the content word?",
      "options": [
-      "Our school garden has a big compost bin in it.",
+      "Our school garden has a big compost bin in it, and it is made of strong wooden boards.",
       "Our school garden has a compost bin, where food scraps break down into rich soil.",
-      "Our school garden has a compost bin, which is green.",
-      "Our school garden has a compost bin near the gate."
+      "Our school garden has a compost bin, which is green and has a lid.",
+      "Our school garden has a compost bin near the gate and the swings."
      ],
      "answer": 1,
      "why": "Only this detail tells what compost is: scraps turning into rich soil."
@@ -330,9 +330,9 @@
      "stem": "Which revision best gives context?",
      "options": [
       "The oryx is a herbivore, so it eats only plants, such as grasses.",
-      "The oryx is a herbivore that lives in Arabia.",
-      "The oryx is a herbivore with long horns.",
-      "The oryx is a herbivore, and it is white."
+      "The oryx is a herbivore that lives in the deserts of Arabia today.",
+      "The oryx is a herbivore with long horns and a white coat.",
+      "The oryx is a herbivore, and it is white and very quick."
      ],
      "answer": 0,
      "why": "It explains the word by telling what a herbivore eats, with an example."
@@ -341,10 +341,10 @@
      "passage": "Draft: The falcon has very sharp eyesight. Scientists call this 'keen vision.'",
      "stem": "Which revision best restates the content phrase?",
      "options": [
-      "Falcons have keen vision and fly fast.",
-      "Keen vision is something falcons have.",
+      "Falcons have keen vision and fly fast over the desert, hunting small birds.",
+      "Keen vision is something falcons have, and they also have strong wings.",
       "Falcons have keen vision; in other words, they can spot small animals from far away.",
-      "Falcons are birds with keen vision and wings."
+      "Falcons are birds with keen vision and wings, and they live in many warm places."
      ],
      "answer": 2,
      "why": "\"In other words\" introduces a restatement that tells what keen vision means."

@@ -114,10 +114,10 @@
         {
           "stem": "What is this story mostly about?",
           "options": [
-            "A girl who sells clay pots at a market",
-            "A girl who learns to paint pictures of pots",
+            "A girl who sells clay pots at a market in the town",
+            "A girl who learns to paint pictures of pots and bowls",
             "A girl who tries many times to remake a blue glaze",
-            "A girl who builds a new shop for her aunt"
+            "A girl who builds a new shop for her aunt in the city"
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -148,10 +148,10 @@
         {
           "stem": "What does Noor want to find out at the start of the story?",
           "options": [
-            "How to build a new kiln",
+            "How to build a new kiln for her aunt's workshop",
             "How her aunt made the blue glaze on the old pot",
-            "How to sell pots at the market",
-            "How to paint a picture of her aunt"
+            "How to sell pots at the market for more money",
+            "How to paint a picture of her aunt at work"
           ],
           "answer": "B",
           "skill": "detail",
@@ -166,9 +166,9 @@
           "stem": "In the story, a glaze is —",
           "options": [
             "a shiny coating on a clay pot",
-            "a kind of large clay bowl",
-            "a tool used to shape clay",
-            "a type of oven for pots"
+            "a kind of large clay bowl used for soup",
+            "a tool used to shape clay on a wheel",
+            "a type of oven for pots at the market"
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -199,10 +199,10 @@
         {
           "stem": "Why does Noor keep trying new mixes, even after they fail?",
           "options": [
-            "She does not care if she ever succeeds",
+            "She does not care if she ever succeeds or fails",
             "She really wants to solve the secret of the glaze",
-            "Her aunt makes her keep trying",
-            "She has nothing else to do all summer"
+            "Her aunt makes her keep trying every single day",
+            "She has nothing else to do all summer long"
           ],
           "answer": "B",
           "skill": "inference",
@@ -217,9 +217,9 @@
           "stem": "What can you tell about Noor from how she reacts to her failed pots?",
           "options": [
             "She is patient and does not give up easily",
-            "She gives up right away",
-            "She blames her aunt for the failures",
-            "She is afraid to touch clay again"
+            "She gives up right away and leaves the clay",
+            "She blames her aunt for all the failures",
+            "She is afraid to touch clay again at all"
           ],
           "answer": "A",
           "skill": "inference",
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the central idea of the story?",
           "options": [
-            "Noor decides that pottery is too hard and gives up on her aunt's craft.",
+            "Noor decides that pottery is too hard and gives up on her aunt's craft after her first day.",
             "An apprentice works patiently through many failed experiments to recreate a special glaze.",
-            "Aunt Hind refuses to let Noor near the kiln.",
-            "The old family pot is accidentally broken during the story."
+            "Aunt Hind refuses to let Noor near the kiln, so the girl never learns how pots are fired.",
+            "The old family pot is accidentally broken during the story, and Noor spends the days crying."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -344,9 +344,9 @@
         {
           "stem": "Why does Noor's second attempt at the glaze crack in the kiln?",
           "options": [
-            "The clay she chose was too soft",
+            "The clay she chose was too soft to hold its shape",
             "The intense heat damages the fragile pot",
-            "Her aunt bumps the pot by accident",
+            "Her aunt bumps the pot by accident in the studio",
             "She uses the wrong color of paint"
           ],
           "answer": "B",
@@ -362,9 +362,9 @@
           "stem": "In the story, the word experiment most nearly means —",
           "options": [
             "a careful test to see what happens",
-            "a kind of clay pot",
-            "a tool used in the kiln",
-            "a story Aunt Hind tells Noor"
+            "a kind of clay pot for storing water",
+            "a tool used in the kiln to lift pots",
+            "a story Aunt Hind tells Noor at night"
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -395,7 +395,7 @@
         {
           "stem": "How does the author organize the events of this story?",
           "options": [
-            "By comparing two different potters in two towns",
+            "By comparing two different potters in two towns by the sea",
             "By listing facts about different kinds of clay",
             "By following Noor's failed attempts, then her final success",
             "By describing a full year in Aunt Hind's life"
@@ -506,10 +506,10 @@
         {
           "stem": "What was the specific cause of Noor's second failed pot?",
           "options": [
-            "She forgot to add any minerals to the mixture",
+            "She forgot to add any minerals to the mixture of clay and water",
             "An overly intense kiln temperature cracked the piece",
-            "She used clay that had already hardened",
-            "Her aunt accidentally dropped the pot"
+            "She used clay that had already hardened in the bowl",
+            "Her aunt accidentally dropped the pot on the floor"
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -523,10 +523,10 @@
         {
           "stem": "In the story, the phrase trial and error most closely describes a process of —",
           "options": [
-            "copying an exact method from a trusted book",
+            "copying an exact method from a trusted book of rules",
             "repeatedly testing and adjusting until something works",
-            "giving up after the very first attempt fails",
-            "asking an expert to solve the problem instead"
+            "giving up after the very first attempt fails badly",
+            "asking an expert to solve the problem for them"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -541,9 +541,9 @@
           "stem": "Based on the story, why does Noor change only one variable at a time in her mixture?",
           "options": [
             "So that she can clearly identify which change affects the outcome",
-            "Because her aunt insists on this exact method",
-            "Because she lacks enough minerals to change more",
-            "So that she can finish her experiments more quickly"
+            "Because her aunt insists on this exact method for every test and rule",
+            "Because she lacks enough minerals to change more than one thing at once",
+            "So that she can finish her experiments more quickly and go home early"
           ],
           "answer": "A",
           "skill": "inference",
@@ -591,8 +591,8 @@
         {
           "stem": "Why does the author end the story with Aunt Hind embracing Noor after her success?",
           "options": [
-            "To suggest the ceramic tradition will now be abandoned",
-            "To imply that the glaze's color does not actually matter",
+            "To suggest the ceramic tradition will now be abandoned by the whole family",
+            "To imply that the glaze's color does not actually matter to anyone in the town",
             "To emphasize that Noor's determined effort restored something meaningful",
             "To show that Aunt Hind had secretly known the recipe all along"
           ],

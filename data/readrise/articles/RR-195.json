@@ -165,10 +165,10 @@
         {
           "stem": "The article says each pet in an animal hospital is a patient. What is a patient?",
           "options": [
-            "A doctor",
+            "A doctor who treats the animals",
             "Someone who gets care from a doctor",
-            "A kind of shot",
-            "A room in a hospital"
+            "A kind of shot that the animals get",
+            "A room in the hospital for visitors"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -217,9 +217,9 @@
           "stem": "Why does a vet need to study for many years?",
           "options": [
             "To learn how many kinds of animal bodies work",
-            "To learn how to drive",
-            "To learn to speak to animals",
-            "To learn how to make pet toys"
+            "To learn how to drive a truck in the city",
+            "To learn to speak to animals in their own language",
+            "To learn how to make pet toys and pet beds"
           ],
           "answer": "A",
           "skill": "inference",
@@ -345,9 +345,9 @@
           "stem": "The vet must look for clues to diagnose the problem. What does diagnose mean?",
           "options": [
             "To find out what is wrong",
-            "To give a shot",
-            "To clean a cage",
-            "To feed an animal"
+            "To give a shot to the animal",
+            "To clean a cage for the pet",
+            "To feed an animal at noon"
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -378,10 +378,10 @@
         {
           "stem": "Why might falcon and camel hospitals be found in the Gulf region?",
           "options": [
-            "Falcons and camels never get sick.",
+            "Falcons and camels never get sick, so the hospitals are empty.",
             "These animals are important to people in the region.",
-            "Other animals are not allowed in the Gulf.",
-            "Camels and falcons are the smallest animals."
+            "Other animals are not allowed in the Gulf by the law.",
+            "Camels and falcons are the smallest animals in the area."
           ],
           "answer": "B",
           "skill": "inference",
@@ -523,10 +523,10 @@
         {
           "stem": "The article says animal patients cannot describe their symptoms. What are symptoms?",
           "options": [
-            "Medicines that cure illness",
-            "Rooms where animals recover",
+            "Medicines that cure an illness",
+            "Rooms where animals recover from surgery",
             "Signs that show something may be wrong",
-            "Tools used in surgery"
+            "Tools that are used in surgery"
           ],
           "answer": "C",
           "skill": "vocabulary",
@@ -540,10 +540,10 @@
         {
           "stem": "Why does veterinary work also protect public health?",
           "options": [
-            "Vets build public hospitals.",
+            "Vets build public hospitals for people and for animals in towns.",
             "Certain diseases can pass from animals to humans.",
-            "Vets treat people as well as animals.",
-            "Animals cannot catch human diseases."
+            "Vets treat people as well as animals in the same clinic.",
+            "Animals cannot catch human diseases, so people stay safe."
           ],
           "answer": "B",
           "skill": "cause-effect",

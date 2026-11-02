@@ -92,9 +92,9 @@
     "stem": "What is a glossary?",
     "options": [
      "A list of hard words and their meanings.",
-     "A picture at the front of a book.",
-     "A story about science.",
-     "A list of the pages in a book."
+     "A picture at the front of a long book.",
+     "A story about science and nature.",
+     "A list of all the pages in a book."
     ],
     "answer": 0,
     "hint": "Read the sentences that tell what the glossary lists and what it says.",
@@ -132,10 +132,10 @@
      "passage": "Ali reads his plant book. He does not know the word seed. He looks in the glossary. It says: seed, the small part of a plant that grows into a new plant.",
      "stem": "What does seed mean?",
      "options": [
-      "A big green leaf.",
+      "A big green leaf that grows on a tall tree.",
       "A part of a plant that grows into a new plant.",
-      "A kind of flower.",
-      "A plant book."
+      "A kind of flower that grows in the garden.",
+      "A plant book with pictures of many plants."
      ],
      "answer": 1,
      "why": "The **glossary** says a seed is the part that **grows into a new plant**."
@@ -311,9 +311,9 @@
     "stem": "Using the text and the glossary, why is the sand cat hard to see?",
     "options": [
      "It hides deep under the sand all day.",
-     "It only comes out when it is very dark.",
+     "It only comes out when it is very dark outside.",
      "Its fur blends in with the colour of the sand.",
-     "It is too small to be seen."
+     "It is too small to be seen from far away."
     ],
     "answer": 2,
     "hint": "What does the glossary say camouflage is? What does the text say about the cat's fur?",
@@ -420,10 +420,10 @@
     "passage": "In his history book, Faisal read that ancient caravans carried frankincense north from the southern coast of Arabia to markets as far away as Egypt and Rome. At first he guessed that frankincense was a kind of cloth. To check, he opened a specialised dictionary of ancient trade goods. The entry read: \"frankincense (noun): a sweet-smelling resin from Boswellia trees of southern Arabia and the Horn of Africa; burned as incense and highly valued in the ancient world.\" Faisal crossed out his first guess. He realised the caravans made their long journeys because distant buyers would pay well for it.",
     "stem": "What can Faisal conclude by using the text and the reference entry together?",
     "options": [
-     "Frankincense was cheap cloth sold in local markets.",
-     "Frankincense grew in Rome and was carried south.",
+     "Frankincense was cheap cloth sold in local markets, and nobody wanted to buy it.",
+     "Frankincense grew in Rome and was carried south by caravans.",
      "Frankincense was a valued, sweet-smelling resin that distant buyers wanted.",
-     "Caravans carried frankincense only to Egypt."
+     "Caravans carried frankincense only to Egypt and nowhere else."
     ],
     "answer": 2,
     "hint": "What does the entry say frankincense is, and how much was it worth? Where does the text say it was carried?",
@@ -477,7 +477,7 @@
      "stem": "What should Dana conclude?",
      "options": [
       "Her guess was wrong; the house was strict.",
-      "Neither meaning fits a house.",
+      "Neither meaning fits a house, so her guess is wrong.",
       "Meaning 1 fits best because houses are strict.",
       "Meaning 2 confirms her guess that the house was plain."
      ],

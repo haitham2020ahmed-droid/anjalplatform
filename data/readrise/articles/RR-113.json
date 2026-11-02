@@ -114,10 +114,10 @@
         {
           "stem": "What is the article mostly about?",
           "options": [
-            "How to keep grasshoppers as pets at home",
-            "Why rain falls in the desert",
+            "How to keep grasshoppers as pets at home in a box",
+            "Why rain falls in the desert only a few days a year",
             "How locusts form big swarms that can harm crops",
-            "How farmers grow wheat"
+            "How farmers grow wheat in the fields near the river"
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -165,10 +165,10 @@
         {
           "stem": "The article says hoppers \"march\" in big bands. What does march mean here?",
           "options": [
-            "Sleep in one place",
+            "Sleep in one place all day long",
             "Walk together across the ground",
-            "Fly high in the sky",
-            "Hide under the sand"
+            "Fly high in the sky above the field",
+            "Hide under the sand until it is night"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -363,8 +363,8 @@
           "options": [
             "Eating too much pesticide in the fields",
             "Repeated touching of its back legs in a crowd",
-            "Flying too far in one day",
-            "Living in a cold place"
+            "Flying too far in one day across the desert",
+            "Living in a cold place for a long time"
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -412,10 +412,10 @@
         {
           "stem": "How is most of the article organized?",
           "options": [
-            "As a list of facts about many kinds of insects",
-            "As a story told by a farmer",
+            "As a list of facts about many kinds of insects, such as ants and bees",
+            "As a story told by a farmer who loses all of his crops to the swarm",
             "As a series of steps that explain how locusts become swarms and spread",
-            "As an argument for and against pesticides"
+            "As an argument for and against pesticides in the fields and farms"
           ],
           "answer": "C",
           "skill": "text-structure",
@@ -559,8 +559,8 @@
           "options": [
             "To show why even a single swarm can quickly destroy a harvest",
             "To prove that locusts are heavier than other insects",
-            "To explain why locusts change color",
-            "To show that hoppers do not eat"
+            "To explain why locusts change color in the rainy season each year",
+            "To show that young hoppers do not eat any plants at all"
           ],
           "answer": "A",
           "skill": "author-purpose",

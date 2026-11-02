@@ -30,9 +30,9 @@
       "type": "MCQ",
       "stem": "Which word is the OPPOSITE of “randomly” as it is used in paragraph 3?",
       "options": [
-        "carelessly",
-        "very quickly",
-        "only rarely",
+        "very carelessly done",
+        "very quickly at once",
+        "only rarely, not often",
         "in a regular pattern"
       ],
       "answer": "D",
@@ -78,9 +78,9 @@
       "type": "MCQ",
       "stem": "Which plural noun from the story does NOT follow the normal -s or -es pattern?",
       "options": [
-        "girls",
-        "trays",
-        "stems",
+        "girls in the story",
+        "trays on the table",
+        "stems of the flowers",
         "None of the above"
       ],
       "answer": "D",
@@ -174,9 +174,9 @@
       "stem": "What is the main purpose of the story?",
       "options": [
         "to show how careful observation and logical thinking can solve a problem",
-        "to explain how to sell plants at a charity market",
-        "to warn readers about stray cats in schools",
-        "to describe the different shelves in a greenhouse"
+        "to explain how to sell plants at a charity market for the school",
+        "to warn readers about stray cats that come into the school grounds",
+        "to describe the different shelves that are found inside a greenhouse"
       ],
       "answer": "A",
       "why": "Dana collects facts, finds a pattern and tests her idea instead of guessing."
@@ -189,10 +189,10 @@
       "type": "MCQ",
       "stem": "What is the main idea of paragraph 3?",
       "options": [
-        "Dana copies the weekly weather forecast for her mother.",
+        "Dana copies the weekly weather forecast for her mother at home.",
         "Dana discovers three important facts by recording what she observes.",
-        "Dana decides that the class next door is guilty.",
-        "Dana moves the heavy trays to the lower shelves."
+        "Dana decides that the class next door is guilty of the crime.",
+        "Dana moves the heavy trays to the lower shelves of the room."
       ],
       "answer": "B",
       "why": "Paragraph 3 lists the pattern Dana finds: top shelf, soil thrown toward the door, windy afternoons."
@@ -238,9 +238,9 @@
       "stem": "Why did the roof window open automatically?",
       "options": [
         "A sensor opened it when the temperature rose above thirty degrees.",
-        "The wind pushed it open every afternoon.",
-        "A cleaner opened it after school.",
-        "It opened every day at exactly two o'clock."
+        "The wind pushed it open every afternoon at two o'clock, when it blew from the sea.",
+        "A cleaner opened it after school every day to let in the air.",
+        "It opened every day at exactly two o'clock by a timer on the wall."
       ],
       "answer": "A",
       "why": "Paragraph 5: “a sensor opened it whenever the temperature inside rose above thirty degrees”."
@@ -253,9 +253,9 @@
       "type": "MCQ",
       "stem": "Which of these happened AFTER Dana asked Ms. Nadia about the roof window?",
       "options": [
-        "Some of the girls blamed the class next door.",
-        "Dana found three trays overturned on Sunday.",
-        "Dana compared her notes with weather reports.",
+        "Some of the girls blamed the class next door again.",
+        "Dana found three trays overturned on Sunday morning.",
+        "Dana compared her notes with weather reports online.",
         "Dana and Ms. Nadia watched the greenhouse after school."
       ],
       "answer": "D",
@@ -286,9 +286,9 @@
       "stem": "Which detail must be considered to explain why the soil was always thrown toward the door?",
       "options": [
         "The door was always left wide open in the afternoon.",
-        "The stray cat usually slept beside the door.",
+        "The stray cat usually slept beside the door in the sun, all day.",
         "The wind came in through the roof window, on the opposite side.",
-        "The lower shelves were close to the door."
+        "The lower shelves were close to the door of the room and the yard."
       ],
       "answer": "C",
       "why": "The gust came through the window and pushed everything away from it, toward the door."
@@ -302,9 +302,9 @@
       "stem": "What caused the trays to fall off the shelf?",
       "options": [
         "Strong gusts of wind blew through the open roof window.",
-        "The class next door secretly knocked them over.",
-        "A stray cat jumped up onto the top shelf.",
-        "The trays were far too heavy for the old shelf."
+        "The class next door secretly knocked them over in the night.",
+        "A stray cat jumped up onto the top shelf and pushed them.",
+        "The trays were far too heavy for the old shelf to hold."
       ],
       "answer": "A",
       "why": "Paragraph 6: a gust “rushed through the gap” and flipped a lightweight tray off the shelf."
@@ -317,10 +317,10 @@
       "type": "MCQ",
       "stem": "Why did Dana decide to open a notebook instead of guessing?",
       "options": [
-        "She wanted to write a story for the charity market.",
-        "Her teacher told her to copy the weather reports.",
+        "She wanted to write a story for the charity market on Saturday.",
+        "Her teacher told her to copy the weather reports into a book.",
         "She believed that facts, not guesses, would reveal the real cause.",
-        "She wanted to prove that the cat was guilty."
+        "She wanted to prove that the cat was guilty of the mess."
       ],
       "answer": "C",
       "why": "Paragraph 3 begins: “Dana decided that guessing would never solve the problem.”"
@@ -429,9 +429,9 @@
       "type": "MCQ",
       "stem": "In your opinion, why does Ms. Nadia point out that “the window that was designed to protect our plants” was letting the wind in?",
       "options": [
-        "to make the story funny without any meaning",
-        "to show that windows are always dangerous",
-        "to prove that Ms. Nadia built the greenhouse badly",
+        "to make the story funny without any meaning at all for readers",
+        "to show that windows are always dangerous in a school building",
+        "to prove that Ms. Nadia built the greenhouse badly from the start",
         "to show that a helpful invention can cause an unexpected problem"
       ],
       "answer": "D",
@@ -446,9 +446,9 @@
       "stem": "In your opinion, which of Dana's actions was MOST important in solving the mystery?",
       "options": [
         "comparing her notes with the weather reports",
-        "blaming the class next door",
-        "selling every tomato plant before noon",
-        "unlocking the greenhouse on Sunday"
+        "blaming the class next door for the mess",
+        "selling every tomato plant before the noon bell",
+        "unlocking the greenhouse door on Sunday morning"
       ],
       "answer": "A",
       "why": "Matching each disaster with windy afternoons pointed her to the wind as the cause."
@@ -461,10 +461,10 @@
       "type": "MCQ",
       "stem": "Which lesson is the writer MOST LIKELY sharing?",
       "options": [
-        "Cats should not be allowed near schools.",
-        "Greenhouses should not have windows.",
+        "Cats should not be allowed near schools or gardens.",
+        "Greenhouses should not have windows or doors, so that no air can get in.",
         "Looking for patterns in evidence is better than jumping to conclusions.",
-        "Science clubs should not sell plants."
+        "Science clubs should not sell plants to the public."
       ],
       "answer": "C",
       "why": "Dana's careful method shows the value of evidence over quick suspicions."
@@ -509,10 +509,10 @@
       "type": "MCQ",
       "stem": "Which of the following events could really happen?",
       "options": [
-        "A tomato plant whispers the name of the culprit to Dana.",
+        "A tomato plant whispers the name of the culprit to Dana in the night.",
         "A strong gust through an open window knocks a light plastic tray off a shelf.",
-        "The wind writes its own name in the scattered soil.",
-        "A tiny seedling grows into a tall tree in one night."
+        "The wind writes its own name in the scattered soil on the floor of the room.",
+        "A tiny seedling grows into a tall tree in one night, right in front of Dana."
       ],
       "answer": "B",
       "why": "Strong gusts can easily move light objects; the other events are impossible."
@@ -556,10 +556,10 @@
       "type": "MCQ",
       "stem": "Based on the story, what is the BEST way to solve a mystery like this one?",
       "options": [
-        "Accept the first suspect that people suggest.",
+        "Accept the first suspect that people suggest to you.",
         "Record facts, look for a pattern, and test your idea.",
-        "Ask everyone to vote on who is guilty.",
-        "Wait until the problem stops by itself."
+        "Ask everyone in the class to vote on who is guilty.",
+        "Wait until the problem stops by itself, and do nothing."
       ],
       "answer": "B",
       "why": "Dana solved the mystery by recording facts, finding a pattern and testing her idea on Thursday."

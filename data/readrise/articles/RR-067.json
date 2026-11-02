@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "Why bikes are hard to ride",
+            "Why bikes are hard to ride at first",
             "How the brain changes when we learn",
-            "How to grow tall grass",
-            "Why we need to eat fruit"
+            "How to grow tall grass in a garden",
+            "Why we need to eat fruit each day"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -166,9 +166,9 @@
           "stem": "Read this sentence from the article: \"Think of a new skill.\" What is a skill?",
           "options": [
             "Something you can learn to do well",
-            "A kind of food for the brain",
-            "A long nap at night",
-            "A path in the grass"
+            "A kind of food for the brain and body",
+            "A long nap at night in a quiet bed",
+            "A path in the grass behind the school"
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -233,9 +233,9 @@
         {
           "stem": "Which student is most likely helping their brain?",
           "options": [
-            "Omar, who stays up all night",
-            "Sara, who skips water all day",
-            "Ali, who quits after one try",
+            "Omar, who stays up all night playing",
+            "Sara, who skips water all day at school",
+            "Ali, who quits after one try at a game",
             "Huda, who practices a little each day"
           ],
           "answer": "D",
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
-            "The hippocampus is the only part of the brain that matters for learning.",
+            "The hippocampus is the only part of the brain that matters for learning, and the rest of the brain does nothing.",
             "Learning changes the brain, and habits like practice, sleep, and review help it learn.",
-            "Riding a bicycle is the hardest skill that any child can ever learn.",
-            "The brain uses most of the body's energy."
+            "Riding a bicycle is the hardest skill that any child can ever learn, and it takes the longest time.",
+            "The brain uses most of the body's energy, so a person should sleep less and eat more to learn."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -395,10 +395,10 @@
         {
           "stem": "Khalid has a test on Thursday. Based on the article, which plan would probably help him most?",
           "options": [
-            "Study for five hours straight on Wednesday night",
+            "Study for five hours straight on Wednesday night, right before the test",
             "Study for twenty minutes on Monday, Tuesday, and Wednesday",
-            "Study while watching television",
-            "Skip sleep on Wednesday night so he can study more"
+            "Study while watching television every night, with the sound turned up",
+            "Skip sleep on Wednesday night so he can study more, until the morning"
           ],
           "answer": "B",
           "skill": "inference",
@@ -558,9 +558,9 @@
           "stem": "According to the article, why does testing yourself strengthen information?",
           "options": [
             "Because it forces you to retrieve the information from memory",
-            "Because tests reduce the brain's energy use",
-            "Because it replaces the need for sleep after studying",
-            "Because it stops neurons from forming new connections"
+            "Because tests reduce the brain's energy use during study",
+            "Because it replaces the need for sleep after studying hard",
+            "Because it stops neurons from forming new connections in the brain"
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -574,10 +574,10 @@
         {
           "stem": "Which conclusion is best supported by the article's description of mistakes?",
           "options": [
-            "A student who makes many errors cannot learn the material.",
-            "Teachers should never let students see wrong answers.",
+            "A student who makes many errors cannot learn the material, even with help.",
+            "Teachers should never let students see wrong answers, because they cause confusion.",
             "A wrong answer followed by another attempt can make a pathway more accurate.",
-            "Mistakes damage the brain's synapses so that they cannot recover."
+            "Mistakes damage the brain's synapses so that they cannot recover, even with practice."
           ],
           "answer": "C",
           "skill": "inference",

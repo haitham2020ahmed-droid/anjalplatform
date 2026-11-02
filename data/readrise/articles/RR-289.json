@@ -182,10 +182,10 @@
         {
           "stem": "What does it mean to have good form in the hurdles?",
           "options": [
-            "Running without shoes",
+            "Running without any shoes on the hard track",
             "Jumping over the bars the right way while running fast",
-            "Standing still at the starting line",
-            "Throwing a pole as far as possible"
+            "Standing still at the starting line for a long time",
+            "Throwing a heavy pole as far as possible on the field"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -217,9 +217,9 @@
           "stem": "Why does good form matter more than speed in the high jump?",
           "options": [
             "Because the athlete must pass over the bar without knocking it down",
-            "Because the high jump has no bar at all",
-            "Because running fast makes the bar fall automatically",
-            "Because the high jump is really a throwing event"
+            "Because the high jump has no bar at all, only a soft mat on the ground",
+            "Because running fast makes the bar fall automatically, so slow jumps win",
+            "Because the high jump is really a throwing event with a heavy ball"
           ],
           "answer": "A",
           "skill": "inference",
@@ -311,9 +311,9 @@
           "stem": "Why do distance runners pace themselves instead of sprinting the whole race?",
           "options": [
             "Sprinting the whole distance would exhaust them before the finish.",
-            "Judges disqualify runners who go too fast.",
-            "Pacing is required only in relay races.",
-            "Distance races do not have a finish line."
+            "Judges disqualify runners who go too fast at the start of a race.",
+            "Pacing is required only in relay races, and never in the other ones.",
+            "Distance races do not have a finish line for runners."
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -328,9 +328,9 @@
           "stem": "As used in the article, technique most nearly means",
           "options": [
             "a careful, practiced way of performing a skill",
-            "the fastest possible running speed",
-            "the length of a race",
-            "a kind of starting block"
+            "the fastest possible running speed for the race",
+            "the length of a race on the track",
+            "a kind of starting block for runners"
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -344,10 +344,10 @@
         {
           "stem": "What must happen for a relay handoff to work well?",
           "options": [
-            "Each runner must run the entire race alone.",
+            "Each runner must run the entire race alone, without any baton, to win",
             "The baton must be passed with precise timing between moving runners.",
-            "The baton must be thrown across the track.",
-            "Only the fastest runner touches the baton."
+            "The baton must be thrown across the track to the next runner far away",
+            "Only the fastest runner touches the baton in the whole race, every time"
           ],
           "answer": "B",
           "skill": "detail",
@@ -395,10 +395,10 @@
         {
           "stem": "How is most of the article organized?",
           "options": [
-            "As one long story about a single athlete",
+            "As one long story about a single athlete and his long journey to the Games",
             "By describing one event after another, from running to jumping to throwing",
-            "As a comparison between two countries' track teams",
-            "As a set of rules for judges"
+            "As a comparison between two countries' track teams and their coaches",
+            "As a set of rules for judges and referees to follow in the stadium"
           ],
           "answer": "B",
           "skill": "text-structure",
@@ -507,9 +507,9 @@
           "stem": "Why does a distance race reward pacing rather than explosive speed?",
           "options": [
             "Sprinting the entire distance would exhaust even elite athletes.",
-            "Distance races are shorter than sprints.",
-            "Judges subtract points for running too fast early.",
-            "Pacing is only useful in relay races."
+            "Distance races are shorter than sprints, so runners can use all their power.",
+            "Judges subtract points for running too fast early in the race, even in short races.",
+            "Pacing is only useful in relay races, and not in long runs on the track."
           ],
           "answer": "A",
           "skill": "cause-effect",

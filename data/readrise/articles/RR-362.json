@@ -115,9 +115,9 @@
           "stem": "What is this story mostly about?",
           "options": [
             "A family who almost misses their train but finds another one",
-            "A family who decides never to take the train again",
-            "A family who wins a prize at the train station",
-            "A family who moves to a new house by the coast"
+            "A family who decides never to take the train again after the trip",
+            "A family who wins a prize at the train station for being on time",
+            "A family who moves to a new house by the coast near the sea"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -148,9 +148,9 @@
         {
           "stem": "What happens right after the family reaches the station?",
           "options": [
-            "They buy tickets for a different holiday",
-            "They call their grandparents on the phone",
-            "They ask a worker to drive them home",
+            "They buy tickets for a different holiday trip",
+            "They call their grandparents on the phone to say hello",
+            "They ask a worker to drive them home in a van today",
             "They look at the board and see their train is gone"
           ],
           "answer": "D",
@@ -200,9 +200,9 @@
           "stem": "How does Sara feel when she sees the board?",
           "options": [
             "Worried, because their train has already left",
-            "Happy, because the train is early",
-            "Bored, because the station is empty",
-            "Angry, because her brother is slow"
+            "Happy, because the train is early today",
+            "Bored, because the station is empty and quiet",
+            "Angry, because her brother is slow to pack"
           ],
           "answer": "A",
           "skill": "inference",
@@ -293,9 +293,9 @@
         {
           "stem": "Which sentence best states the central idea of the story?",
           "options": [
-            "The family decides train travel is too stressful to continue",
-            "The grandparents decide to come to the city instead",
-            "The train breaks down completely before it ever leaves",
+            "The family decides train travel is too stressful to continue, so they go home by car in the night",
+            "The grandparents decide to come to the city instead, so the children no longer need any train",
+            "The train breaks down completely before it ever leaves, and the children go back home that night",
             "The children use the schedule and ask for help to catch the last train"
           ],
           "answer": "D",
@@ -362,9 +362,9 @@
           "stem": "Why does traffic make the family more worried?",
           "options": [
             "It eats into the little time they have left before the train leaves",
-            "It means the car will run out of fuel",
-            "It means the grandparents will not recognize them",
-            "It means the phone will never be found"
+            "It means the car will run out of fuel on the road and stop for a long time",
+            "It means the grandparents will not recognize them at the door",
+            "It means the phone will never be found in the back of the car"
           ],
           "answer": "A",
           "skill": "inference",
@@ -378,9 +378,9 @@
         {
           "stem": "Why does Omar stay calm instead of panicking when he talks to the worker?",
           "options": [
-            "He does not realize the train has left",
-            "He thinks the trip is not important anyway",
-            "He wants to make his sister laugh",
+            "He does not realize the train has left the station yet",
+            "He thinks the trip is not important anyway, so he does not mind",
+            "He wants to make his sister laugh by acting calm and funny",
             "Staying calm helps him think clearly and ask for help"
           ],
           "answer": "D",
@@ -395,10 +395,10 @@
         {
           "stem": "How does the author organize the events of the story?",
           "options": [
-            "By comparing two different train stations",
-            "By listing facts about trains around the world",
+            "By comparing two different train stations, one in a city and one in a village",
+            "By listing facts about trains around the world and how fast they travel",
             "By telling events in order, from getting ready to boarding the last train",
-            "By jumping back and forth between two different holidays"
+            "By jumping back and forth between two different holidays in the family's past"
           ],
           "answer": "C",
           "skill": "text-structure",
@@ -412,10 +412,10 @@
         {
           "stem": "Why does the worker check his schedule carefully before answering?",
           "options": [
-            "He is bored and wants to waste time",
+            "He is bored and wants to waste time, so he looks at the paper slowly",
             "He wants to give the children correct, accurate information",
-            "He forgot where the platforms are",
-            "He wants the family to miss the train"
+            "He forgot where the platforms are, so he must check the paper",
+            "He wants the family to miss the train, so he looks at it slowly"
           ],
           "answer": "B",
           "skill": "inference",
@@ -523,10 +523,10 @@
         {
           "stem": "Why does the author mention that the children learned to read the board without help from their parents?",
           "options": [
-            "To suggest the parents never cared about the trip",
+            "To suggest the parents never cared about the trip, and left everything to the children",
             "To emphasize that the children's independent skill becomes essential later",
-            "To show that the parents cannot read at all",
-            "To explain why the train was delayed"
+            "To show that the parents cannot read at all, so the children had to teach them",
+            "To explain why the train was delayed, since the parents were late to the station"
           ],
           "answer": "B",
           "skill": "inference",
@@ -591,10 +591,10 @@
         {
           "stem": "The poll states that children can solve a family problem as well as adults can. How does the story's ending support or challenge this idea?",
           "options": [
-            "It challenges the idea, since only the parents solve the problem",
+            "It challenges the idea, since only the parents solve the problem for the family, and the children do nothing",
             "It supports the idea, since the children's question to the worker is what saves the trip",
-            "It is unrelated, since no one actually solves the problem",
-            "It challenges the idea, since the family misses the train anyway"
+            "It is unrelated, since no one actually solves the problem, and the trip is cancelled",
+            "It challenges the idea, since the family misses the train anyway, and the children cry"
           ],
           "answer": "B",
           "skill": "inference",

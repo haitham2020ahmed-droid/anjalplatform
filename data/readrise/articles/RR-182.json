@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How to sail a ship on the Red Sea",
+            "How to sail a ship on the Red Sea in winter",
             "The history and old houses of Al-Balad in Jeddah",
-            "Why people should move to big cities",
-            "How to cook with spices"
+            "Why people should move to big cities and tall towers",
+            "How to cook with spices from the old market"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -199,10 +199,10 @@
         {
           "stem": "Why are the narrow streets helpful on a hot day?",
           "options": [
-            "Cars can drive fast on them.",
+            "Cars can drive fast on them to the shops.",
             "The tall houses keep them in the shade.",
-            "They lead straight to the sea.",
-            "They are covered with coral."
+            "They lead straight to the sea and the port.",
+            "They are covered with coral from the sea."
           ],
           "answer": "B",
           "skill": "inference",
@@ -234,9 +234,9 @@
           "stem": "Why does the author end with workers fixing the old houses?",
           "options": [
             "To show that people are keeping Al-Balad safe for the future",
-            "To ask readers to become builders",
-            "To explain how coral grows",
-            "To show that the houses are new"
+            "To ask readers to become builders of old houses",
+            "To explain how coral grows in the warm sea water",
+            "To show that the houses are new and were built last year"
           ],
           "answer": "A",
           "skill": "author-purpose",
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the main idea of the article?",
           "options": [
-            "Jeddah is the largest city on the Red Sea.",
+            "Jeddah is the largest city on the Red Sea, and it has the biggest port in the Gulf.",
             "Al-Balad's history as a port shaped its clever old buildings, which are now being protected.",
-            "Merchants only sold spices in Al-Balad.",
-            "The city wall was the most important building in Jeddah."
+            "Merchants only sold spices in Al-Balad, and they never sold cloth, gold, or pearls there.",
+            "The city wall was the most important building in Jeddah, so people built the old houses around it."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -395,10 +395,10 @@
         {
           "stem": "Why do you think workers today want to restore the old houses?",
           "options": [
-            "To replace them with tall glass towers",
-            "To make the streets wider",
+            "To replace them with tall glass towers and shops for tourists",
+            "To make the streets wider for cars and trucks in the city",
             "Because the houses are an important part of the world's heritage",
-            "Because coral is very cheap"
+            "Because coral is very cheap and builders can find it easily"
           ],
           "answer": "C",
           "skill": "inference",
@@ -412,9 +412,9 @@
         {
           "stem": "How does the author mostly organize the information?",
           "options": [
-            "From the newest building to the oldest",
-            "As steps for building a house",
-            "As a debate between two people",
+            "From the newest building to the oldest one in the town, with a note on each door",
+            "As steps for building a house from clay and wood in the old Hejazi way",
+            "As a debate between two people who argue about the past of the town",
             "From the town's past as a port, to its buildings, to how it is protected today"
           ],
           "answer": "D",
@@ -472,10 +472,10 @@
         {
           "stem": "What is the central idea of the article?",
           "options": [
-            "Jeddah's wall was its most valuable feature.",
+            "Jeddah's wall was its most valuable feature, and the town was famous for nothing else.",
             "Al-Balad's role as a port shaped its architecture and culture, which people now work to preserve.",
-            "Coral is the best building material in the world.",
-            "Nassif House is the only important building in Jeddah."
+            "Coral is the best building material in the world, and all new buildings should use it.",
+            "Nassif House is the only important building in Jeddah, and no other house is worth a visit."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -557,10 +557,10 @@
         {
           "stem": "Why might the roshan be described as a clever design for Jeddah's climate?",
           "options": [
-            "It kept rain from entering the house.",
-            "It made the house look taller.",
+            "It kept rain from entering the house during the winter months.",
+            "It made the house look taller from the street outside.",
             "It let breezes cool the house while shading it from strong sun.",
-            "It allowed merchants to sell goods from the window."
+            "It allowed merchants to sell goods from the window to people in the street."
           ],
           "answer": "C",
           "skill": "inference",
@@ -591,9 +591,9 @@
         {
           "stem": "Why does the author mention that Al-Balad became a World Heritage Site?",
           "options": [
-            "To criticize the restoration work",
-            "To explain how coral is quarried",
-            "To compare Jeddah with Makkah",
+            "To criticize the restoration work done by the builders",
+            "To explain how coral is quarried from the sea floor",
+            "To compare Jeddah with Makkah and their old markets",
             "To show that its value is recognized around the world"
           ],
           "answer": "D",

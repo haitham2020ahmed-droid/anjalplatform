@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How to fix a broken arm at home",
+            "How to fix a broken arm at home with a cast",
             "The bones in our body and what they do",
-            "Why milk is the best drink",
-            "How babies learn to walk"
+            "Why milk is the best drink for the bones",
+            "How babies learn to walk and to run"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -234,9 +234,9 @@
           "stem": "Why does the author end the article with milk, cheese, running, and jumping?",
           "options": [
             "To tell readers how to keep their bones strong",
-            "To list the author's favorite foods",
-            "To explain how the skull works",
-            "To show that sports can break bones"
+            "To list the author's favorite foods, such as milk and cheese",
+            "To explain how the skull works in the head",
+            "To show that sports can break bones in the body"
           ],
           "answer": "A",
           "skill": "author-purpose",
@@ -294,9 +294,9 @@
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
             "The skeleton is a living framework that supports, protects, and helps move the body.",
-            "The femur is the only important bone in the body.",
-            "Bones are hard, dry objects that never change.",
-            "Children should drink milk every day."
+            "The femur is the only important bone in the body, and the other bones can be removed.",
+            "Bones are hard, dry objects that never change, grow or heal after we are born.",
+            "Children should drink milk every day, because milk makes the muscles pull on the bones."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -345,9 +345,9 @@
           "stem": "The spine is described as a 'tower of rings.' This comparison helps the reader picture —",
           "options": [
             "small bones stacked on top of each other",
-            "a bone shaped like a crown",
-            "a muscle wrapped around the back",
-            "the ribs curving around the chest"
+            "a bone shaped like a crown on the head",
+            "a muscle wrapped around the back and the arms",
+            "the ribs curving around the chest and the heart"
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -395,10 +395,10 @@
         {
           "stem": "Why would a helmet be important for protecting the brain even though the skull is hard?",
           "options": [
-            "The skull is soft in adults.",
+            "The skull is soft in adults, so it cannot protect the brain from a fall.",
             "The skull protects the brain, but a hard hit could still harm it.",
-            "The brain is not inside the skull.",
-            "Helmets make the skull grow."
+            "The brain is not inside the skull, so the helmet must protect the neck.",
+            "Helmets make the skull grow thicker over many years of wearing them."
           ],
           "answer": "B",
           "skill": "inference",
@@ -412,9 +412,9 @@
         {
           "stem": "How does the author organize most of the article?",
           "options": [
-            "By telling a story about one child",
-            "By listing events in order of time",
-            "By comparing bones with those of animals",
+            "By telling a story about one child who finds a bone in the sand",
+            "By listing events in order of time, from the oldest to the newest day",
+            "By comparing bones with those of animals, such as birds, fish, and cats",
             "By describing one job or feature of the skeleton in each paragraph"
           ],
           "answer": "D",
@@ -490,7 +490,7 @@
           "stem": "According to the article, what do ligaments do?",
           "options": [
             "They hold the vertebrae in alignment.",
-            "They make new blood cells.",
+            "They make new blood cells in the bones.",
             "They store calcium in the skull.",
             "They pull on bones to move them."
           ],
@@ -540,10 +540,10 @@
         {
           "stem": "What is the result of small bones fusing as a child develops?",
           "options": [
-            "The child gains more bones.",
-            "The child loses marrow.",
+            "The child gains more bones in the legs.",
+            "The child loses marrow from the bones.",
             "The adult has fewer but sturdier bones.",
-            "The spine stops bending."
+            "The spine stops bending in the middle."
           ],
           "answer": "C",
           "skill": "cause-effect",
@@ -591,10 +591,10 @@
         {
           "stem": "Why is it helpful that the spine is made of many vertebrae instead of one long bone?",
           "options": [
-            "One bone would be too light.",
+            "One bone would be too light to support the body of an adult.",
             "Many small bones let the back bend and twist while staying upright.",
-            "Vertebrae are the only bones with marrow.",
-            "A single bone could not hold ligaments."
+            "Vertebrae are the only bones with marrow inside them, so they make blood.",
+            "A single bone could not hold ligaments, so the muscles would not work."
           ],
           "answer": "B",
           "skill": "inference",

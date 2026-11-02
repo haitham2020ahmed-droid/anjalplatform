@@ -148,10 +148,10 @@
         {
           "stem": "What is the dead zone, or no-go zone?",
           "options": [
-            "A place with no water",
-            "A place to tie up the boat",
+            "A place with no water, in the middle of the sea",
+            "A place to tie up the boat at the dock",
             "A spot where a boat cannot sail straight into the wind",
-            "A spot with no wind at all"
+            "A spot with no wind at all, where the sail is slack"
           ],
           "answer": "C",
           "skill": "detail",
@@ -165,9 +165,9 @@
         {
           "stem": "What happens when a sailor tacks the boat?",
           "options": [
-            "The boat stops completely.",
-            "The sail falls down.",
-            "The rope is tied to the dock.",
+            "The boat stops completely in the water and floats there.",
+            "The sail falls down and the sailor rows to the shore.",
+            "The rope is tied to the dock and the boat is parked.",
             "The boat turns through the wind to zig-zag forward."
           ],
           "answer": "D",
@@ -182,10 +182,10 @@
         {
           "stem": "What does it mean to trim a sail?",
           "options": [
-            "To cut the cloth shorter",
+            "To cut the cloth shorter with a sharp knife on the deck",
             "To pull the rope and set the sail at a good angle",
-            "To wash the sail",
-            "To fold the sail away"
+            "To wash the sail with soap and water",
+            "To fold the sail away after the trip"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -233,9 +233,9 @@
         {
           "stem": "Why does the author mention that people sail on the Red Sea in Saudi Arabia?",
           "options": [
-            "To say the Red Sea has no wind",
+            "To say the Red Sea has no wind for sailing boats",
             "To show where this sport is enjoyed close to home",
-            "To explain how to build a boat",
+            "To explain how to build a boat out of wood and rope",
             "To compare the Red Sea to a race in France"
           ],
           "answer": "B",
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
-            "Sailboats always need an engine to race.",
-            "The no-go zone is the best place to sail fast.",
+            "Sailboats always need an engine to race, even when the wind is strong.",
+            "The no-go zone is the best place to sail fast, because the wind pushes straight on the sail.",
             "Sailors use wind, sail trim, and tactics to move boats and win races.",
-            "Keels are only used to hold life vests."
+            "Keels are only used to hold life vests and ropes on the boat."
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -328,9 +328,9 @@
           "stem": "As used in the article, trimming most nearly means",
           "options": [
             "setting the sail at the best angle for the wind",
-            "removing part of the sail",
-            "tying the boat to the dock",
-            "folding the sail away for storage"
+            "removing part of the sail with a knife",
+            "tying the boat to the dock with a rope",
+            "folding the sail away for storage in the hold"
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -361,10 +361,10 @@
         {
           "stem": "A crew notices their sail is flapping loudly. What should they most likely do?",
           "options": [
-            "Let the sheet out even more",
+            "Let the sheet out even more so the sail can flap freely",
             "Trim the sail tighter so it stops wasting wind",
-            "Remove the keel",
-            "Sail straight into the wind"
+            "Remove the keel from the bottom of the boat",
+            "Sail straight into the wind with the sail wide open"
           ],
           "answer": "B",
           "skill": "inference",
@@ -396,9 +396,9 @@
           "stem": "How is most of the article organized?",
           "options": [
             "By explaining how sailing works, then how racing works",
-            "As a comparison of two different sports",
-            "As a single long list of famous sailors",
-            "By telling one story about a single race"
+            "As a comparison of two different sports from two countries",
+            "As a single long list of famous sailors and their boats",
+            "By telling one story about a single race on a windy day"
           ],
           "answer": "A",
           "skill": "text-structure",
@@ -489,10 +489,10 @@
         {
           "stem": "As used in the article, aerodynamic forces most nearly means",
           "options": [
-            "forces created only by the weight of the keel",
-            "forces that come from the crew pushing the boat",
+            "forces created only by the weight of the keel under the water",
+            "forces that come from the crew pushing the boat along",
             "forces created by moving air acting on a curved surface",
-            "forces caused by waves hitting the hull"
+            "forces caused by waves hitting the hull from the side"
           ],
           "answer": "C",
           "skill": "vocabulary",
@@ -523,9 +523,9 @@
         {
           "stem": "Which conclusion about the no-go zone is best supported by the article?",
           "options": [
-            "It is a fixed location that never changes.",
-            "It only exists during official races.",
-            "It disappears once a boat has a keel.",
+            "It is a fixed location that never changes, wherever the boat goes.",
+            "It only exists during official races, and then it is removed.",
+            "It disappears once a boat has a keel, so boats with keels can sail anywhere.",
             "Its position depends on the direction the wind is blowing."
           ],
           "answer": "D",

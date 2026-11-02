@@ -115,9 +115,9 @@
           "stem": "What is this article mostly about?",
           "options": [
             "A man who taught people to think carefully about history",
-            "A king who built a big fort in Tunis",
-            "How the plague spread across the world",
-            "How to write a book in four years"
+            "A king who built a big fort in the city of Tunis",
+            "How the plague spread across the world long ago",
+            "How to write a book in four years' time as a scholar"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -293,10 +293,10 @@
         {
           "stem": "What is the central idea of the article?",
           "options": [
-            "Ibn Khaldun spent most of his life in prison",
+            "Ibn Khaldun spent most of his life in prison cells",
             "Ibn Khaldun changed how people study history and society",
-            "Ibn Khaldun was the ruler of North Africa",
-            "The plague ended in 1406"
+            "Ibn Khaldun was the ruler of all North Africa",
+            "The plague ended in 1406 and nothing changed after it"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -344,9 +344,9 @@
         {
           "stem": "According to Ibn Khaldun, what happens over time to a group that rises to power?",
           "options": [
-            "Its solidarity grows stronger every year",
-            "It always rules forever",
-            "It moves to a new country",
+            "Its solidarity grows stronger every year as the rulers work harder",
+            "It always rules forever and never loses its power over the land",
+            "It moves to a new country with all of its rulers and soldiers",
             "Its rulers become comfortable and the group grows weak"
           ],
           "answer": "D",
@@ -473,9 +473,9 @@
           "stem": "Which statement best expresses the central idea?",
           "options": [
             "Ibn Khaldun's careful methods and theories made him a pioneer in studying history and society",
-            "Ibn Khaldun's greatest achievement was meeting Timur",
-            "The Muqaddimah is a short summary of earlier histories",
-            "Heavy taxes caused the plague in North Africa"
+            "Ibn Khaldun's greatest achievement was meeting Timur, a famous ruler, near Damascus long ago",
+            "The Muqaddimah is a short summary of earlier histories written by other men",
+            "Heavy taxes caused the plague in North Africa and in other lands, he wrote"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -557,10 +557,10 @@
         {
           "stem": "Which detail best supports the idea that Ibn Khaldun understood politics from experience?",
           "options": [
-            "He was born in Tunis in 1332",
+            "He was born in Tunis in 1332, in a family that was well known there for its learning",
             "He served in royal courts for over twenty years and was sometimes imprisoned",
-            "He wrote about land and weather",
-            "He died in Cairo in 1406"
+            "He wrote about land and weather in many books and gave them to the sultan and his sons",
+            "He died in Cairo in 1406, when he was an old man who had finished all of his books"
           ],
           "answer": "B",
           "skill": "inference",
@@ -591,9 +591,9 @@
         {
           "stem": "How is the article mainly organized?",
           "options": [
-            "As a list of rulers in North Africa",
-            "As a debate between Ibn Khaldun and Timur",
-            "As a comparison between Tunis and Damascus",
+            "As a list of rulers in North Africa and the years they ruled",
+            "As a debate between Ibn Khaldun and Timur about war and cities",
+            "As a comparison between the cities of Tunis and Damascus in his time",
             "Mostly in time order, with his main ideas explained in the middle"
           ],
           "answer": "D",

@@ -216,10 +216,10 @@
         {
           "stem": "Why might Moon dust be a big problem for a base?",
           "options": [
-            "It makes the Moon very windy",
-            "It is soft and makes beds dirty",
+            "It makes the Moon very windy and cold at night",
+            "It is soft and makes the beds dirty in the base",
             "It is sharp, sticks to things, and hurts lungs",
-            "It melts in the hot sun"
+            "It melts in the hot sun and turns to water"
           ],
           "answer": "C",
           "skill": "inference",
@@ -233,10 +233,10 @@
         {
           "stem": "How does the article mostly tell its ideas?",
           "options": [
-            "As a story about one astronaut's trip",
+            "As a story about one astronaut's long trip to the Moon",
             "By telling problems on the Moon, then some good news",
-            "As a list of rocket parts",
-            "By comparing the Moon with the Sun"
+            "As a list of rocket parts and their jobs in space",
+            "By comparing the Moon with the Sun and the stars"
           ],
           "answer": "B",
           "skill": "text-structure",
@@ -293,10 +293,10 @@
         {
           "stem": "What is the central idea of the article?",
           "options": [
-            "The Moon is too dangerous for anyone to ever visit",
+            "The Moon is too dangerous for anyone to ever visit, so nobody plans to go there.",
             "Living on the Moon is hard, but people are planning ways to do it",
-            "Saudi Arabia built the first base on the Moon",
-            "Moon dust is useful for building rockets"
+            "Saudi Arabia built the first base on the Moon, and people live there now.",
+            "Moon dust is useful for building rockets, so scientists carry it back to Earth."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -378,10 +378,10 @@
         {
           "stem": "Why might ice stay frozen in the craters near the south pole?",
           "options": [
-            "Because astronauts keep it in freezers",
-            "Because it is made of salt and sand",
+            "Because astronauts keep it in freezers on the base there",
+            "Because it is made of salt and sand, which stay frozen",
             "Because the craters are dark, so sunlight never warms them",
-            "Because the craters are full of air"
+            "Because the craters are full of air, which keeps it cold"
           ],
           "answer": "C",
           "skill": "inference",
@@ -412,10 +412,10 @@
         {
           "stem": "Why does the author end with the Saudi astronauts?",
           "options": [
-            "To show the trip takes three days",
+            "To show the trip to the Moon takes about three days",
             "To connect space travel to readers in Saudi Arabia",
-            "To explain how spacesuits work",
-            "To prove people already live on the Moon"
+            "To explain how spacesuits work in the cold of space",
+            "To prove people already live on the Moon today"
           ],
           "answer": "B",
           "skill": "author-purpose",
@@ -473,9 +473,9 @@
           "stem": "Which statement best expresses the central idea?",
           "options": [
             "Living on the Moon is a huge challenge, but its own resources could help make a base possible",
-            "The Apollo missions ended because the Moon has no gravity",
-            "Regolith is the most valuable resource on the Moon",
-            "Only Saudi astronauts plan to live on the Moon"
+            "The Apollo missions ended because the Moon has no gravity, so astronauts floated away",
+            "Regolith is the most valuable resource on the Moon, and nothing else can be used there",
+            "Only Saudi astronauts plan to live on the Moon, and no other country has such a plan"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -591,10 +591,10 @@
         {
           "stem": "How is the article mainly organized?",
           "options": [
-            "In time order from 1972 to today",
-            "As a comparison between Earth and Mars",
+            "In time order from 1972 to today, starting with the first astronaut on the Moon",
+            "As a comparison between Earth and Mars and their weather, size and distance",
             "As challenges of lunar life followed by resources that could help",
-            "As instructions for building a spacesuit"
+            "As instructions for building a spacesuit, with a list of the parts it needs"
           ],
           "answer": "C",
           "skill": "text-structure",

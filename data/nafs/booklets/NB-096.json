@@ -174,9 +174,9 @@
       "stem": "What is the main purpose of Lina's letter?",
       "options": [
         "to share news of her class project and encourage Reem's school to try it",
-        "to complain to Reem about the food in her school canteen",
-        "to describe the weather and mountains of Tabuk",
-        "to explain how a landfill is built"
+        "to complain to Reem about the food in her school canteen at lunch time",
+        "to describe the weather and mountains of Tabuk in the winter months",
+        "to explain how a landfill is built and how it works in a big city"
       ],
       "answer": "A",
       "why": "Lina tells the story of the project and then asks, “Do you think your school might try something similar?”"
@@ -205,9 +205,9 @@
       "type": "MCQ",
       "stem": "According to Ms Nouf, why is it harmful to bury food waste in a landfill?",
       "options": [
-        "It attracts worms and insects to the school.",
-        "It makes the rubbish trucks too heavy.",
-        "It produces dark soil that is full of nutrients.",
+        "It attracts worms and insects to the school grounds and the garden.",
+        "It makes the rubbish trucks too heavy to carry it away to the dump.",
+        "It produces dark soil that is full of nutrients for the plants.",
         "It rots without air and releases methane, which traps heat."
       ],
       "answer": "D",
@@ -317,10 +317,10 @@
       "type": "MCQ",
       "stem": "In your opinion, what makes Reem want to keep reading after the paragraph beginning “I hope you”?",
       "options": [
-        "a description of the weather in Dammam",
-        "a list of Lina's school subjects",
+        "a description of the weather in Dammam in the summer months",
+        "a list of Lina's school subjects for the whole year",
         "curiosity about how “exciting news” could begin with rubbish",
-        "a question about Reem's family"
+        "a question about Reem's family and her school trip"
       ],
       "answer": "C",
       "why": "Lina links exciting news with something unpleasant, which makes the reader curious."
@@ -349,10 +349,10 @@
       "type": "MCQ",
       "stem": "How is food waste in a landfill different from food waste in a compost heap?",
       "options": [
-        "In a landfill it turns into soil; in compost it releases methane.",
+        "In a landfill it turns into soil after many years; in compost it releases methane.",
         "In a landfill it rots without air and releases methane; in compost it becomes rich soil.",
-        "In both places it disappears without any effect.",
-        "In a landfill it is eaten by worms; in compost it is burned."
+        "In both places it disappears without any effect on the air, soil or water.",
+        "In a landfill it is eaten by worms and birds; in compost it is burned in a fire."
       ],
       "answer": "B",
       "why": "Ms Nouf contrasts rotting “without air” in a landfill with composting “in the open air” into soil “full of nutrients.”"
@@ -413,10 +413,10 @@
       "type": "MCQ",
       "stem": "Why does Lina add “which, in a way, I am” after saying the pile feels “alive”?",
       "options": [
-        "She is joking that the pile can talk.",
+        "She is joking that the pile can talk to her, like a person.",
         "The pile is full of living worms, insects and bacteria.",
-        "She has planted seeds in the pile.",
-        "The pile is warm because of the sun."
+        "She has planted seeds in the pile, and they have started to grow.",
+        "The pile is warm because of the sun, and so it feels alive."
       ],
       "answer": "B",
       "why": "Earlier, Ms Nouf explained that worms, insects and bacteria break down the scraps, so the pile really is full of life."
@@ -509,9 +509,9 @@
       "type": "MCQ",
       "stem": "Which of the following events could really happen?",
       "options": [
-        "A compost heap turns food scraps into soil in a single afternoon.",
-        "Banana peels in a landfill turn into fresh bananas.",
-        "Worms in a compost heap start writing letters to the class.",
+        "A compost heap turns a whole bin of food scraps into rich soil in a single afternoon.",
+        "Banana peels thrown in a landfill turn into fresh bananas after one rainy night.",
+        "Worms in a compost heap start writing letters to the class every Monday.",
         "A school cuts its weekly food waste by more than half after serving smaller portions."
       ],
       "answer": "D",
@@ -556,10 +556,10 @@
       "type": "MCQ",
       "stem": "Based on the letter, how could the class keep the compost heap from smelling again?",
       "options": [
-        "Add only wet fruit scraps every day.",
+        "Add only wet fruit scraps every day and keep the lid shut",
         "Keep mixing in dry material and turn the heap every few days.",
-        "Cover the heap tightly so that no air can reach it.",
-        "Move the heap into the canteen."
+        "Cover the heap tightly so that no air can reach it at all.",
+        "Move the heap into the canteen so everyone can see it."
       ],
       "answer": "B",
       "why": "Mixing in dry leaves and cardboard and turning the heap made the smell disappear; cutting off air would make it rot like a landfill."

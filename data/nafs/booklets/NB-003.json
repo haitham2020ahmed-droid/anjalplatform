@@ -189,10 +189,10 @@
       "type": "MCQ",
       "stem": "Which sentence best states the main idea of paragraph 3?",
       "options": [
-        "Desalination plants always destroy marine life in the sea.",
+        "Desalination plants always destroy marine life in the sea and on the coast.",
         "Producing fresh water is costly, so wasting it is a serious problem.",
-        "Groundwater is much cheaper to use than desalinated water.",
-        "Deep wells are easy to dig and can never be emptied."
+        "Groundwater is much cheaper to use than desalinated water is, and it lasts.",
+        "Deep wells are easy to dig and can never be emptied by people."
       ],
       "answer": "B",
       "why": "Paragraph 3 explains the costs of desalination and pumping and ends: “This is exactly why conserving water matters so much.”"
@@ -205,10 +205,10 @@
       "type": "MCQ",
       "stem": "According to paragraph 2, why can some groundwater not easily be replaced?",
       "options": [
-        "It is too salty for people to drink.",
-        "Desalination plants use all of it.",
+        "It is too salty for people to drink or to use on farms.",
+        "Desalination plants use all of it every day of the year.",
         "It collected thousands of years ago, when Arabia was wetter.",
-        "It is stored underneath the sea."
+        "It is stored underneath the sea, far from land and from wells."
       ],
       "answer": "C",
       "why": "The water was collected when the climate was much wetter, and today's rare rain cannot refill it quickly."
@@ -253,10 +253,10 @@
       "type": "MCQ",
       "stem": "Which topic does the writer discuss BEFORE explaining drip irrigation?",
       "options": [
-        "water-saving habits for families",
+        "water-saving habits for families at home",
         "the costs of desalination and pumping",
-        "the meaning of “Qatrah”",
-        "the teaching of the Holy Qur'an"
+        "the meaning of “Qatrah” in the text",
+        "the teaching of the Holy Qur'an on water"
       ],
       "answer": "B",
       "why": "The costs come in paragraph 3; drip irrigation is in paragraph 4, and the other topics come later."
@@ -286,9 +286,9 @@
       "stem": "According to paragraph 2, what are aquifers?",
       "options": [
         "layers of rock and sand that store water underground",
-        "factories that remove salt from seawater",
-        "narrow pipes used to water plants",
-        "deep wells used for pumping water"
+        "factories that remove salt from seawater for people",
+        "narrow pipes used to water plants in a garden",
+        "deep wells used for pumping water to the farms"
       ],
       "answer": "A",
       "why": "Groundwater is stored “in layers of rock and sand known as aquifers.”"
@@ -349,10 +349,10 @@
       "type": "MCQ",
       "stem": "How is drip irrigation different from flooding fields?",
       "options": [
-        "Flooding loses much less water to evaporation than drip irrigation does.",
-        "Drip irrigation uses seawater, while flooding uses only groundwater.",
+        "Flooding loses much less water to evaporation than drip irrigation does, in the sun.",
+        "Drip irrigation uses seawater, while flooding uses only groundwater from the wells.",
         "Drip irrigation sends water straight to the roots; flooding covers the whole field.",
-        "Both methods use exactly the same amount of water on a farm."
+        "Both methods use exactly the same amount of water on a farm of the same size."
       ],
       "answer": "C",
       "why": "Paragraph 4: drip irrigation “delivers small drops of water directly to the roots” and uses far less water than flooding."
@@ -365,10 +365,10 @@
       "type": "MCQ",
       "stem": "What is the effect of repairing a dripping tap promptly?",
       "options": [
-        "It refills the underground aquifers.",
+        "It refills the underground aquifers in the desert.",
         "It can save thousands of litres of water a year.",
-        "It makes tap water cleaner to drink.",
-        "It reduces the heat of the sun."
+        "It makes tap water cleaner and safer to drink.",
+        "It reduces the heat of the sun in the summer."
       ],
       "answer": "B",
       "why": "Paragraph 5 says a single leaking tap can waste thousands of litres in a year."
@@ -398,9 +398,9 @@
       "stem": "In your opinion, how does the writer make the information easy to follow?",
       "options": [
         "It moves from the problem, to the sources and costs, then to solutions.",
-        "It follows one family through a whole day.",
-        "It repeats the same fact in every paragraph.",
-        "It gives numbers without any explanation."
+        "It follows one family through a whole day, from morning to night, in the city.",
+        "It repeats the same fact in every paragraph, so it is easy to remember.",
+        "It gives numbers without any explanation, and the reader must work them out."
       ],
       "answer": "A",
       "why": "The paragraphs move in a clear order: the problem, the sources, the costs, then solutions for farms and families."
@@ -461,10 +461,10 @@
       "type": "MCQ",
       "stem": "What most likely made the writer write this text?",
       "options": [
-        "a wish to sell more bottled water",
-        "a love of stories about the sea",
+        "a wish to sell more bottled water in the Kingdom each year",
+        "a love of stories about the sea and its fish and boats",
         "concern that the Kingdom's water is limited and costly",
-        "a plan to build new swimming pools"
+        "a plan to build new swimming pools in all of the big cities"
       ],
       "answer": "C",
       "why": "The writer stresses that water is scarce and expensive to produce and must not be wasted."
@@ -493,10 +493,10 @@
       "type": "MCQ",
       "stem": "In your opinion, which information in the text is the LEAST clear?",
       "options": [
-        "the meaning of the word “Qatrah”",
+        "the meaning of the word “Qatrah” in the text",
         "how cities treat used water before reusing it",
-        "why desalination is expensive",
-        "what drip irrigation is"
+        "why desalination is expensive for the country",
+        "what drip irrigation is and how it works"
       ],
       "answer": "B",
       "why": "The writer says cities treat used water but never explains how; the other points are explained."

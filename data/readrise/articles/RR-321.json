@@ -89,10 +89,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How to grow plants in a garden",
+            "How to grow plants in a garden during the summer months",
             "Different deserts around the world and how life survives there",
-            "Why it rains so much in Africa",
-            "How to build a wooden boat for sailing on rivers"
+            "Why it rains so much in Africa during the wet season",
+            "How to build a wooden boat for sailing on rivers and lakes"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -329,9 +329,9 @@
           "stem": "Why can a camel survive for many days without drinking?",
           "options": [
             "It stores fat that its body can turn into water",
-            "It only drinks water once every year",
-            "It somehow gets all its water from sand",
-            "It does not need any water at all, ever"
+            "It only drinks water once every year, in the rainy season",
+            "It somehow gets all its water from the hot sand",
+            "It does not need any water at all, ever, in any weather"
           ],
           "answer": "A",
           "skill": "inference",

@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How to save money in a bank",
+            "How to save money in a bank for a rainy day",
             "How money changed over a long time",
-            "Why gold is the best metal",
-            "How to make paper"
+            "Why gold is the best metal for coins and rings",
+            "How to make paper from old rags and water"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -165,10 +165,10 @@
         {
           "stem": "Why was trading things hard?",
           "options": [
-            "People did not have any dates",
-            "Coins were too heavy",
+            "People did not have any dates or shells to trade",
+            "Coins were too heavy to carry to the market",
             "The other person might not want what you had",
-            "Shells were too small to see"
+            "Shells were too small to see on the ground"
           ],
           "answer": "C",
           "skill": "cause-effect",
@@ -216,10 +216,10 @@
         {
           "stem": "Read the sentences: \"One man had dates. One man had wool. They could trade.\" What does trade mean?",
           "options": [
-            "Buy something in a store",
-            "Grow food on a farm",
+            "Buy something in a store or in a shop",
+            "Grow food on a farm and then sell it",
             "Give one thing and get another thing back",
-            "Keep something safe"
+            "Keep something safe at home for a while"
           ],
           "answer": "C",
           "skill": "vocabulary",
@@ -379,9 +379,9 @@
           "stem": "What problem did using shells, salt, or grain solve?",
           "options": [
             "People could trade without wanting the other's goods.",
-            "It meant people no longer needed food to live.",
-            "It made every coin worth a lot more.",
-            "It let people pay for things with phones."
+            "It meant people no longer needed food to live in the town",
+            "It made every coin worth a lot more to the traders",
+            "It let people pay for things with phones and cards"
           ],
           "answer": "A",
           "skill": "inference",
@@ -395,9 +395,9 @@
         {
           "stem": "Read the sentence: \"Instead, people had to barter, which means trading one item for another.\" What does barter mean?",
           "options": [
-            "To save money in a bank",
-            "To make coins from metal",
-            "To pay with a card",
+            "To save money in a bank for later",
+            "To make coins from metal in a shop",
+            "To pay with a card at the store",
             "To trade goods without using money"
           ],
           "answer": "D",
@@ -412,10 +412,10 @@
         {
           "stem": "How is the article organized?",
           "options": [
-            "By comparing two countries",
+            "By comparing two countries and their coins",
             "In time order, from bartering to cards and phones",
-            "As a list of problems with no solutions",
-            "As a story told by one merchant"
+            "As a list of problems with no solutions at all",
+            "As a story told by one merchant in a market"
           ],
           "answer": "B",
           "skill": "text-structure",
@@ -489,10 +489,10 @@
         {
           "stem": "According to the article, what is electrum?",
           "options": [
-            "A type of paper used for money",
+            "A type of paper used for money in Asia",
             "A natural mixture of gold and silver",
-            "An ancient kingdom in Turkey",
-            "A kind of shell"
+            "An ancient kingdom in Turkey long ago",
+            "A kind of shell used as a coin"
           ],
           "answer": "B",
           "skill": "detail",

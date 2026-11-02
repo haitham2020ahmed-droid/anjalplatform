@@ -77,10 +77,10 @@
       "difficulty": 2,
       "stem": "What do Fatima and her sister Maryam have in common?",
       "options": [
-        "Both were born in the city of Fez.",
+        "Both were born in the city of Fez in the same year.",
         "Both used their inheritance to found mosques.",
-        "Both taught astronomy at Al-Qarawiyyin.",
-        "Both spent their money on comfort."
+        "Both taught astronomy at Al-Qarawiyyin to students.",
+        "Both spent their money on comfort and luxury."
       ],
       "answer": "B",
       "why": "Paragraph 2 says Maryam founded one mosque and Fatima founded Al-Qarawiyyin with their father's fortune."
@@ -142,9 +142,9 @@
       "stem": "Which of the following events could really have happened in the ninth century?",
       "options": [
         "Students travelled far to learn from scholars in Fez.",
-        "Fatima sent emails to invite new students.",
-        "Students flew to Fez by aeroplane.",
-        "The library printed thousands of books a day."
+        "Fatima sent emails to invite new students from other lands.",
+        "Students flew to Fez by aeroplane to visit the library.",
+        "The library printed thousands of books a day in the town."
       ],
       "answer": "A",
       "why": "Travelling to study was possible then; email, aeroplanes and printing presses did not yet exist."
@@ -157,10 +157,10 @@
       "difficulty": 3,
       "stem": "Which is the best alternative title for the passage?",
       "options": [
-        "The Merchants of Kairouan",
+        "The Merchants of Kairouan and Fez",
         "The Woman Who Founded a Place of Learning",
-        "Astronomy in the Ninth Century",
-        "Maryam's Mosque in Fez"
+        "Astronomy in the Ninth Century in Egypt",
+        "Maryam's Mosque in Fez, a Place of Prayer"
       ],
       "answer": "B",
       "why": "The passage focuses on Fatima founding Al-Qarawiyyin, which became a centre of learning."

@@ -114,10 +114,10 @@
         {
           "stem": "What is this story mostly about?",
           "options": [
-            "How nurses give shots to kids at a hospital",
+            "How nurses give shots to kids at a hospital and make them feel brave",
             "A robot that learns the right time to laugh and comfort kids",
-            "A robot that builds hospitals for sick children",
-            "Why jokes are funnier at night than during the day"
+            "A robot that builds hospitals for sick children in faraway towns",
+            "Why jokes are funnier at night than during the day for kids"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -200,9 +200,9 @@
           "stem": "Why did the team want to fix the timing of Rex's laugh?",
           "options": [
             "So the laugh would not scare people and could comfort kids instead",
-            "So Rex could tell more jokes every day",
-            "So nurses would not have to work as hard",
-            "So Rex could laugh louder than before"
+            "So Rex could tell more jokes every day, because kids in the hospital liked funny stories",
+            "So nurses would not have to work as hard, because Rex could do their jobs on the ward",
+            "So Rex could laugh louder than before, because the kids in the room could not hear him"
           ],
           "answer": "A",
           "skill": "inference",
@@ -216,10 +216,10 @@
         {
           "stem": "What can you tell about Rex's laugh at the end of the story?",
           "options": [
-            "Rex feels truly happy whenever a joke works",
-            "Rex's laugh is controlled by the kids on the ward",
+            "Rex feels truly happy whenever a joke works, and he smiles with the children",
+            "Rex's laugh is controlled by the kids on the ward, who press a button each time",
             "Rex's laugh is a sound a computer decides to play, not a real feeling",
-            "Rex's laugh changes depending on Rex's mood"
+            "Rex's laugh changes depending on Rex's mood, which is sad on some days"
           ],
           "answer": "C",
           "skill": "inference",
@@ -233,10 +233,10 @@
         {
           "stem": "Why does the author end the story by saying Rex does not really feel happy?",
           "options": [
-            "To explain why robots cannot ever help people",
+            "To explain why robots cannot ever help people in hospitals or at home",
             "To make clear that the laugh is a programmed sound, not a real emotion",
-            "To show that Dr. Lina made a mistake building Rex",
-            "To warn readers that robots can be dangerous"
+            "To show that Dr. Lina made a mistake building Rex and must start again",
+            "To warn readers that robots can be dangerous to the people around them"
           ],
           "answer": "B",
           "skill": "author-purpose",
@@ -344,10 +344,10 @@
         {
           "stem": "In the article, the word adjust means —",
           "options": [
-            "to remove something completely",
+            "to remove something completely and forever",
             "to change something so it works better",
-            "to make a loud sound",
-            "to copy something exactly"
+            "to make a loud sound with your voice",
+            "to copy something exactly like the first"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -378,9 +378,9 @@
         {
           "stem": "Why did the engineers want kids like Sara to volunteer for testing?",
           "options": [
-            "Kids could fix the sensor's wiring themselves",
-            "Kids were paid to test the robot",
-            "Kids knew how to build robots",
+            "Kids could fix the sensor's wiring themselves in the lab",
+            "Kids were paid to test the robot every afternoon for a month",
+            "Kids knew how to build robots better than the engineers",
             "Kids understood best when the timing felt natural or wrong"
           ],
           "answer": "D",
@@ -395,10 +395,10 @@
         {
           "stem": "What happened after the engineers added the two-second delay?",
           "options": [
-            "Rex stopped telling jokes completely",
+            "Rex stopped telling jokes completely after the change",
             "Rex's laugh became comforting instead of startling",
-            "The sensor was removed from Rex",
-            "Nurses had to retrain every day"
+            "The sensor was removed from Rex and put in a box",
+            "Nurses had to retrain every day for the next month"
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -412,10 +412,10 @@
         {
           "stem": "How does the author organize the article?",
           "options": [
-            "By comparing Rex to a different hospital robot",
-            "By listing ten jokes Rex can tell",
+            "By comparing Rex to a different hospital robot, one that is older",
+            "By listing ten jokes Rex can tell to the patients in the ward",
             "By describing the problem, then the testing process, then the result",
-            "By telling the story backward from the end"
+            "By telling the story backward from the end to the start"
           ],
           "answer": "C",
           "skill": "text-structure",
@@ -472,9 +472,9 @@
         {
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
-            "Rex malfunctioned so badly that the hospital removed him from the ward permanently.",
-            "A sensitive microphone is always more reliable than any human sense in a hospital.",
-            "The kids on the ward were given full responsibility for Rex's laugh algorithm.",
+            "Rex malfunctioned so badly that the hospital removed him from the ward permanently, and the kids missed him.",
+            "A sensitive microphone is always more reliable than any human sense in a hospital, so doctors need no ears.",
+            "The kids on the ward were given full responsibility for Rex's laugh algorithm and wrote all of its code.",
             "Careful calibration and patient feedback turned a flawed prototype into a comforting, simulated companion."
           ],
           "answer": "D",

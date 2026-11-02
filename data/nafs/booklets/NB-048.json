@@ -157,10 +157,10 @@
       "type": "MCQ",
       "stem": "Which is another suitable title for the whole text?",
       "options": [
-        "How to Repair a Vacuum Tube",
+        "How to Repair a Vacuum Tube at Home",
         "Thinking Small: The Shrinking Computer",
-        "The Life of a Human Calculator",
-        "Choosing the Best Smartphone"
+        "The Life of a Human Calculator in Space",
+        "Choosing the Best Smartphone for School"
       ],
       "answer": "B",
       "why": "The text traces how computers became smaller and more powerful as their switches shrank."
@@ -205,10 +205,10 @@
       "type": "MCQ",
       "stem": "According to paragraph 2, why did engineers spend many hours searching for broken tubes?",
       "options": [
-        "The tubes were too small to see.",
+        "The tubes were too small to see, so the men had to use glass.",
         "The heat made the tubes burn out frequently.",
-        "ENIAC had no switches.",
-        "Criminals stole the tubes."
+        "ENIAC had no switches, so engineers turned it on by hand.",
+        "Criminals stole the tubes from the room at night."
       ],
       "answer": "B",
       "why": "“The tubes produced so much heat that they burned out frequently, and engineers spent many hours searching for broken ones.”"
@@ -237,9 +237,9 @@
       "type": "MCQ",
       "stem": "According to paragraph 4, why does it matter how many switches a chip contains?",
       "options": [
-        "More switches make the phone heavier.",
-        "Each switch can store one whole photo.",
-        "Switches stop the chip from overheating.",
+        "More switches make the phone heavier and harder to carry.",
+        "Each switch can store one whole photo of the user's family.",
+        "Switches stop the chip from overheating when the phone is used.",
         "More switches let a computer handle more information at once."
       ],
       "answer": "D",
@@ -270,9 +270,9 @@
       "stem": "What did the word “computer” describe before it described a machine?",
       "options": [
         "a person who calculated numbers by hand",
-        "a room full of vacuum tubes",
-        "a type of glass switch",
-        "a small piece of material"
+        "a room full of vacuum tubes and wires",
+        "a type of glass switch in a lamp",
+        "a small piece of material in a phone"
       ],
       "answer": "A",
       "why": "Paragraph 1: it “described a person whose job was to calculate long lists of numbers by hand.”"
@@ -302,9 +302,9 @@
       "stem": "What problem did the transistor solve?",
       "options": [
         "Vacuum tubes were large, hot and unreliable.",
-        "People could not read binary numbers.",
-        "Smartphones needed bigger batteries.",
-        "Computers could not store photos."
+        "People could not read binary numbers on screens.",
+        "Smartphones needed bigger batteries to last longer.",
+        "Computers could not store photos or songs."
       ],
       "answer": "A",
       "why": "Paragraph 3 says a transistor does the tube's job but is “much smaller, cooler and more reliable”."
@@ -317,10 +317,10 @@
       "type": "MCQ",
       "stem": "Based on the text, why is protecting personal information one of the new “responsibilities” the writer describes?",
       "options": [
-        "Computers are now too small to use safely.",
-        "Engineers no longer understand how chips work.",
+        "Computers are now too small to use safely in the home.",
+        "Engineers no longer understand how chips work inside phones.",
         "Computers hold a lot of private data that criminals may want.",
-        "Washing machines contain chips."
+        "Washing machines contain chips that control the water."
       ],
       "answer": "C",
       "why": "Paragraph 6 links the huge amount of stored personal information to the need to protect it from criminals."
@@ -334,9 +334,9 @@
       "stem": "In your opinion, why does the writer begin with the old meaning of the word “computer”?",
       "options": [
         "to show readers how much has changed, which makes them curious",
-        "to prove that people calculate faster than machines",
-        "to teach the spelling of the word",
-        "to tell a story about the writer's grandfather"
+        "to prove that people calculate faster than machines can",
+        "to teach the spelling of the word to the readers",
+        "to tell a story about the writer's grandfather and his work"
       ],
       "answer": "A",
       "why": "Starting with a surprising fact about the word highlights how great the change has been and invites readers to learn more."
@@ -349,10 +349,10 @@
       "type": "MCQ",
       "stem": "How is a modern smartphone DIFFERENT from ENIAC?",
       "options": [
-        "It is much larger and slower.",
-        "It uses vacuum tubes instead of transistors.",
+        "It is much larger and slower than ENIAC was.",
+        "It uses vacuum tubes instead of transistors to work.",
         "It is far smaller yet millions of times more powerful.",
-        "It must be reprogrammed by moving cables."
+        "It must be reprogrammed by moving cables each time."
       ],
       "answer": "C",
       "why": "Paragraph 5: the phone is “millions of times more powerful than ENIAC, yet it fits in your hand”."
@@ -397,10 +397,10 @@
       "type": "MCQ",
       "stem": "What does the writer mean by “the room-sized giant whose problems inspired engineers to think small”?",
       "options": [
-        "ENIAC was a real giant who helped engineers.",
+        "ENIAC was a real giant who helped engineers build tiny things.",
         "ENIAC's size and faults pushed engineers to make tinier parts.",
-        "Engineers decided to stop building computers.",
-        "Engineers built small rooms for computers."
+        "Engineers decided to stop building computers after its failure.",
+        "Engineers built small rooms for computers to fit inside."
       ],
       "answer": "B",
       "why": "“Giant” describes ENIAC's huge size, and “think small” is a play on words: its problems led to tiny transistors and chips."
@@ -414,9 +414,9 @@
       "stem": "In your opinion, why does the writer compare each transistor to “a grain of sand”?",
       "options": [
         "to help readers picture how tiny transistors are",
-        "to show that chips are made only of sand",
+        "to show that chips are made only of sand and glass",
         "to warn that phones break very easily",
-        "to compare modern phones with the desert"
+        "to compare modern phones with the desert at night"
       ],
       "answer": "A",
       "why": "A grain of sand is something familiar and very small, so the comparison makes the size easy to imagine."
@@ -445,10 +445,10 @@
       "type": "MCQ",
       "stem": "In your opinion, which habit follows the advice in paragraph 6 BEST?",
       "options": [
-        "sharing your password with online friends",
+        "sharing your password with online friends and with players in games",
         "using screens wisely and protecting your personal information",
-        "staying on a game for endless hours",
-        "posting your home address on a website"
+        "staying on a game for endless hours at night without any rest",
+        "posting your home address on a public website for everyone to see"
       ],
       "answer": "B",
       "why": "Paragraph 6 advises protecting personal information and using screens wisely."
@@ -478,9 +478,9 @@
       "stem": "Which attitude toward modern computers is most present in the text?",
       "options": [
         "admiration mixed with a sense of responsibility",
-        "complete fear of what computers might do",
-        "boredom with old and new technology",
-        "disappointment in modern engineers"
+        "complete fear of what computers might do one day",
+        "boredom with old and new technology alike",
+        "disappointment in modern engineers and their work"
       ],
       "answer": "A",
       "why": "The writer admires the progress but also says it “brings new responsibilities”."
@@ -493,9 +493,9 @@
       "type": "MCQ",
       "stem": "In your opinion, which information is the LEAST clear in the text?",
       "options": [
-        "how heavy ENIAC was",
-        "when the transistor was invented",
-        "what 0 and 1 represent",
+        "how heavy ENIAC was when it was built in 1946",
+        "when the transistor was invented and by whom in America",
+        "what 0 and 1 represent in a computer code or file",
         "how people can protect information from criminals"
       ],
       "answer": "D",
@@ -525,10 +525,10 @@
       "type": "MCQ",
       "stem": "Which title best describes the ideas in the text?",
       "options": [
-        "The Broken Tube",
+        "The Broken Tube of the Machine",
         "Big Problems, Tiny Solutions",
-        "A Day with My Phone",
-        "Sand in the Desert"
+        "A Day with My Phone and Friends",
+        "Sand in the Desert and the Sea"
       ],
       "answer": "B",
       "why": "ENIAC's big problems led to tiny transistors and chips, the central idea of the text."

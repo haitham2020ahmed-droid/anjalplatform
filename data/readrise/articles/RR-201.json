@@ -149,9 +149,9 @@
           "stem": "What are body fossils?",
           "options": [
             "The actual bones, teeth, shells, or wood of an ancient living thing",
-            "Footprints left behind in old, dried mud",
-            "Bones from animals alive today",
-            "Rocks shaped like animals by blowing wind"
+            "Footprints left behind in old, dried mud or in wet sand beside a river",
+            "Bones from animals alive today, kept in a museum or a lab",
+            "Rocks shaped like animals by blowing wind over many years"
           ],
           "answer": "A",
           "skill": "detail",
@@ -233,9 +233,9 @@
         {
           "stem": "How does the author mostly organize the article?",
           "options": [
-            "By comparing deserts in two far countries",
-            "By telling a made-up story about a hunter",
-            "By listing the dangers of desert digging",
+            "By comparing deserts in two far countries and their animals",
+            "By telling a made-up story about a hunter in the sand",
+            "By listing the dangers of desert digging for workers",
             "By explaining fossils, then their local importance"
           ],
           "answer": "D",
@@ -344,10 +344,10 @@
         {
           "stem": "The article says minerals seep into buried remains over time. What does seep mean here?",
           "options": [
-            "Explode suddenly and violently",
+            "Explode suddenly and violently into small pieces",
             "Flow in slowly through small spaces",
-            "Freeze solid almost instantly",
-            "Evaporate quickly into the air"
+            "Freeze solid almost instantly in the cold ground",
+            "Evaporate quickly into the air above the soil"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -523,10 +523,10 @@
         {
           "stem": "The article describes petrification as a transformation. What does petrification mean here?",
           "options": [
-            "The sudden explosion of an ancient organism's remains",
-            "The freezing of remains into solid ice",
+            "The sudden explosion of an ancient organism's remains into dust",
+            "The freezing of remains into solid ice in cold lands",
             "The slow replacement of remains with minerals until they become rock",
-            "The complete disappearance of an organism's remains"
+            "The complete disappearance of an organism's remains into the air"
           ],
           "answer": "C",
           "skill": "vocabulary",
@@ -557,10 +557,10 @@
         {
           "stem": "Based on the article, why can scientists not predict exactly where the next major fossil discovery will happen?",
           "options": [
-            "Because fossils only ever form in deserts",
+            "Because fossils only ever form in deserts, and not in other lands where scientists look for them in rocks",
             "Because fossil formation depends on a rare, precise sequence of lucky events that is impossible to foresee",
-            "Because paleontologists refuse to search in new places",
-            "Because rock layers are always exactly the same everywhere"
+            "Because paleontologists refuse to search in new places, and so they keep on digging in the same few spots",
+            "Because rock layers are always exactly the same everywhere, so there is no way to choose one place over another"
           ],
           "answer": "B",
           "skill": "inference",
@@ -574,10 +574,10 @@
         {
           "stem": "What can be reasonably inferred from the discovery of ancient elephant fossils in the dry sands of the Nafud?",
           "options": [
-            "Elephants can survive without any water at all",
-            "Elephants were imported into Arabia by ancient traders",
+            "Elephants can survive without any water at all for years",
+            "Elephants were imported into Arabia by ancient traders on ships",
             "The Nafud desert's climate was once considerably wetter than it is today",
-            "The Nafud desert has always been a desert, without any change"
+            "The Nafud desert has always been a desert, without any change at all"
           ],
           "answer": "C",
           "skill": "inference",
@@ -591,9 +591,9 @@
         {
           "stem": "Why does the author explain that older fossils generally lie in deeper rock layers?",
           "options": [
-            "To show that rock layers have no real order at all",
-            "To prove that elephants are older than sea creatures",
-            "To argue that digging is the only way to discover new deserts",
+            "To show that rock layers have no real order at all, so fossils can be found anywhere in them",
+            "To prove that elephants are older than sea creatures, since they are larger and stronger animals",
+            "To argue that digging is the only way to discover new deserts, and that scientists never use any maps",
             "To help readers understand how paleontologists work out the general sequence in which ancient life appeared"
           ],
           "answer": "D",

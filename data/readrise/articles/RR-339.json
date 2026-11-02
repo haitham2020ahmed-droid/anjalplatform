@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How to ride a camel in a race",
+            "How to ride a camel in a big desert race",
             "The world's biggest hot desert and life there",
-            "Why it rains a lot in North Africa",
-            "How to grow date palms at home"
+            "Why it rains a lot in North Africa each year",
+            "How to grow date palms at home in a garden"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -165,10 +165,10 @@
         {
           "stem": "In the article, an oasis is —",
           "options": [
-            "a hill made of sand",
-            "a kind of desert animal",
+            "a hill made of sand, with soft slopes",
+            "a kind of desert animal that drinks",
             "a green place with water in the desert",
-            "a cold desert night"
+            "a cold desert night with bright stars"
           ],
           "answer": "C",
           "skill": "vocabulary",
@@ -182,10 +182,10 @@
         {
           "stem": "What is the weather like in the Sahara?",
           "options": [
-            "Cold days and warm nights",
+            "Cold days and warm nights, with some rain",
             "Hot days, cool nights, and little rain",
-            "Rain every day",
-            "Snow all year"
+            "Rain falls every day all year",
+            "Snow falls all year long on the sand"
           ],
           "answer": "B",
           "skill": "detail",
@@ -234,8 +234,8 @@
           "stem": "Why might the author describe the Sahara as the biggest hot desert first, before describing the oasis?",
           "options": [
             "To show how large and dry most of the land is before describing the rare green places in it",
-            "To explain how to build a tent",
-            "To describe a cold mountain",
+            "To explain how to build a tent in the desert for a night, with poles and cloth",
+            "To describe a cold mountain with snow on its top in the north of the country and the river below it",
             "To list many kinds of food that people like to eat in nearby towns"
           ],
           "answer": "A",
@@ -294,9 +294,9 @@
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
             "The Sahara is a vast, extremely hot desert, yet people and camels have found ways to live and travel there for thousands of years.",
-            "The Sahara gets more rain than any other region in Africa.",
-            "Camels are the only animals ever found in North Africa.",
-            "Gold is the only valuable thing ever found in the Sahara."
+            "The Sahara gets more rain than any other region in Africa, so it is green and full of rivers and lakes for people to enjoy.",
+            "Camels are the only animals ever found in North Africa, and people have never lived there or tried to cross the sand at all.",
+            "Gold is the only valuable thing ever found in the Sahara, and travelers go there only to dig for it and then go home."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -310,9 +310,9 @@
         {
           "stem": "About how large is the area the Sahara covers?",
           "options": [
-            "About 9,000 square kilometers",
-            "About 90,000 square kilometers",
-            "About 900,000 square kilometers",
+            "About 9,000 square kilometers in all",
+            "About 90,000 square kilometers in all",
+            "About 900,000 square kilometers in all",
             "About nine million square kilometers"
           ],
           "answer": "D",
@@ -344,10 +344,10 @@
         {
           "stem": "Why did camels earn the nickname \"ships of the desert\"?",
           "options": [
-            "They can swim across rivers",
+            "They can swim across rivers with their long strong legs",
             "They can travel for days through sand with little water",
-            "They float above the dunes",
-            "They carry sails on their backs"
+            "They float above the dunes on their wide, soft feet",
+            "They carry sails on their backs to catch the desert wind"
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -362,9 +362,9 @@
           "stem": "In the article, the word vast means —",
           "options": [
             "extremely large in size",
-            "very cold and wet",
-            "small and crowded",
-            "colorful and loud"
+            "very cold and wet in winter",
+            "small and crowded in the city",
+            "colorful and loud in the street"
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -378,9 +378,9 @@
         {
           "stem": "Why do the nights in the Sahara turn cold even though the days are extremely hot?",
           "options": [
-            "Clouds cover the desert every night",
-            "Rain cools the ground after sunset",
-            "Snow falls as soon as the sun sets",
+            "Clouds cover the whole desert every night",
+            "Rain cools the ground after sunset each night",
+            "Snow falls as soon as the sun sets there each day",
             "The dry air does not hold on to the day's heat"
           ],
           "answer": "D",
@@ -396,9 +396,9 @@
           "stem": "Why do nomadic groups like the Tuareg keep moving with their herds?",
           "options": [
             "To find fresh grazing land before the dry season returns",
-            "To avoid meeting traders",
-            "To search for snow in the mountains",
-            "To escape from camels"
+            "To avoid meeting traders on the long roads of the desert",
+            "To search for snow in the mountains far to the north",
+            "To escape from camels that chase them each day"
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -412,10 +412,10 @@
         {
           "stem": "How does the author organize the article?",
           "options": [
-            "By telling a made-up story about one trader's life",
+            "By telling a made-up story about one trader's life, from his birth to his death",
             "By describing the desert's size and climate, then the people, trade, and history connected to it",
-            "By listing the steps to cross a desert on foot",
-            "By comparing the Sahara to a rainforest in every paragraph"
+            "By listing the steps to cross a desert on foot, with a note on water and food",
+            "By comparing the Sahara to a rainforest in every paragraph, from the plants to the weather"
           ],
           "answer": "B",
           "skill": "text-structure",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
-            "The Sahara has always looked exactly the same since the planet formed.",
+            "The Sahara has always looked exactly the same since the planet formed, and its sand never moves or changes in any way at all, even in the strongest wind.",
             "The Sahara is a vast, arid desert whose extreme conditions have shaped its landscape, its history, and the indigenous people connected to it.",
-            "No living thing has ever been able to survive in the Sahara.",
-            "The Sahara receives more rainfall than any tropical rainforest."
+            "No living thing has ever been able to survive in the Sahara, not even a small plant, an insect, or a person, so the whole desert is empty and silent.",
+            "The Sahara receives more rainfall than any tropical rainforest, so its land is green and wet and full of rivers and lakes that flow all year round."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -541,9 +541,9 @@
           "stem": "Based on the article, why did European expedition teams depend on local guides when crossing the Sahara?",
           "options": [
             "The guides' generations of accumulated knowledge revealed the desert's hidden wells",
-            "The guides owned every oasis in the region",
-            "The guides could make rain fall whenever needed",
-            "The guides had modern maps the explorers lacked"
+            "The guides owned every oasis in the whole region and sold the water to travelers",
+            "The guides could make rain fall whenever needed by the explorers",
+            "The guides had modern maps the explorers lacked, drawn by the government"
           ],
           "answer": "A",
           "skill": "inference",
@@ -574,10 +574,10 @@
         {
           "stem": "What can readers infer from the rock paintings of giraffes, hippos, and cattle found in the Sahara?",
           "options": [
-            "Artists today still paint these animals in the desert",
+            "Artists today still paint these animals in the desert for tourists",
             "The Sahara's climate was once wet enough to support grasslands and lakes",
-            "These animals currently live throughout the Sahara",
-            "The paintings prove the Sahara has never changed"
+            "These animals currently live throughout the whole Sahara in herds",
+            "The paintings prove the Sahara has never changed at all in its history"
           ],
           "answer": "B",
           "skill": "inference",
@@ -591,10 +591,10 @@
         {
           "stem": "Why does the author likely include the detail about the Green Sahara near the middle of the article?",
           "options": [
-            "To argue that hippos should be reintroduced to the desert today",
+            "To argue that hippos should be reintroduced to the desert today for the tourists",
             "To show that the region's climate and landscape have changed dramatically over time",
-            "To explain exactly how rock paintings are made",
-            "To describe what modern explorers eat during expeditions"
+            "To explain exactly how rock paintings are made, using stones and animal fat",
+            "To describe what modern explorers eat during expeditions and where they sleep"
           ],
           "answer": "B",
           "skill": "author-purpose",

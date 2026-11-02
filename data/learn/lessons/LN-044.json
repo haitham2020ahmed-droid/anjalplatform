@@ -98,10 +98,10 @@
      "passage": "My mother bakes bread.",
      "stem": "Is it a complete sentence?",
      "options": [
-      "No, it has no action.",
-      "No, it has no who.",
+      "No, it has no action, so it is not finished.",
+      "No, it has no who, so we cannot tell.",
       "Yes, it has who and what happens.",
-      "No, it is too short."
+      "No, it is too short to be a sentence."
      ],
      "answer": 2,
      "why": "Who? My mother. What happens? She bakes bread. Both parts are there."
@@ -196,9 +196,9 @@
      "stem": "Which one is a complete sentence?",
      "options": [
       "Drove for three hours.",
-      "The long road to Taif.",
+      "The long road to Taif and back.",
       "We stopped at a fruit stand.",
-      "After the long drive."
+      "After the long drive home."
      ],
      "answer": 2,
      "why": "“We stopped at a fruit stand” has a subject (we) and a verb (stopped). The others are missing a part."
@@ -270,9 +270,9 @@
     "passage": "The school's robotics team had only two weeks to build their robot. Every afternoon, the members stayed late in the lab. Some wrote the code, while others built the wheels and arms. The team captain checking every part before the final test. On the day of the competition, the robot moved smoothly across the table and picked up all five blocks. The judges gave the team second place.",
     "stem": "Why is “The team captain checking every part before the final test.” a fragment?",
     "options": [
-     "It has no subject.",
+     "It has no subject and no object.",
      "It has an -ing word but no complete verb.",
-     "It starts with a dependent clause.",
+     "It starts with a dependent clause and stops.",
      "It is too long to be a sentence."
     ],
     "answer": 1,
@@ -302,8 +302,8 @@
      "options": [
       "It is missing a subject and a verb.",
       "It is missing only a period.",
-      "It is a complete sentence.",
-      "It is a dependent clause."
+      "It is a complete sentence already.",
+      "It is only a dependent clause."
      ],
      "answer": 0,
      "why": "It only tells where. There is no subject and no verb."
@@ -313,9 +313,9 @@
      "stem": "Is this a complete sentence?",
      "options": [
       "No, it has no subject at all.",
-      "No, it is only one word.",
+      "No, it is only one short word.",
       "Yes, the subject “you” is understood.",
-      "No, it needs a dependent clause."
+      "No, it needs a dependent clause to finish."
      ],
      "answer": 2,
      "why": "A command has an understood subject: (You) stop! So it is complete."
@@ -423,10 +423,10 @@
      "passage": "The new bridge cut the journey from forty minutes to ten. Which pleased the people who drove to work every day.",
      "stem": "Why is the second group of words a fragment?",
      "options": [
-      "It has no verb at all.",
+      "It has no verb at all in the group of words.",
       "It is a dependent clause starting with “which”.",
-      "It is missing a period.",
-      "It is a question."
+      "It is missing a period at the end of it.",
+      "It is a question, not a statement of fact."
      ],
      "answer": 1,
      "why": "“Which pleased…” depends on the sentence before it. Fix: “…to ten, which pleased the people…”"

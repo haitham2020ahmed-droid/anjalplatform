@@ -115,7 +115,7 @@
           "stem": "What is this article mostly about?",
           "options": [
             "Narrow passages of water that connect seas and help trade",
-            "How large ships are built in a busy shipyard",
+            "How large ships are built in a busy shipyard by the sea",
             "Why camels are useful animals in the hot desert",
             "How oceans and seas first got their modern names"
           ],
@@ -131,10 +131,10 @@
         {
           "stem": "What is a strait?",
           "options": [
-            "A large and very fast kind of cargo ship",
+            "A large and very fast kind of cargo ship that crosses the sea",
             "A narrow strip of water that connects two bigger bodies of water",
-            "A strong storm that forms far out at sea",
-            "A factory where oil is made from the ground"
+            "A strong storm that forms far out at sea in the winter",
+            "A factory where oil is made from the ground by machines"
           ],
           "answer": "B",
           "skill": "detail",
@@ -233,7 +233,7 @@
         {
           "stem": "Why does the author mention Bab-el-Mandeb?",
           "options": [
-            "To show that it is the biggest ocean in the world",
+            "To show that it is the biggest ocean in the world today",
             "To explain the steps for how silk cloth is made",
             "To give another example of an important strait near Arabia",
             "To describe a tall and rocky mountain range nearby"
@@ -294,9 +294,9 @@
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
             "Straits are narrow waterways that are vital to global trade and sometimes to strategy",
-            "The Strait of Hormuz is the only strait that truly matters",
-            "Every ship must stop at an inn before crossing a strait",
-            "Straits are dangerous places that cargo ships should avoid"
+            "The Strait of Hormuz is the only strait that truly matters to the whole world's trade",
+            "Every ship must stop at an inn before crossing a strait, so travelers can rest",
+            "Straits are dangerous places that cargo ships should avoid, so they sail around them"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -395,9 +395,9 @@
         {
           "stem": "What do the Strait of Malacca and the Bosphorus have in common, according to the article?",
           "options": [
-            "Both of them are located very close to Arabia",
-            "Both of them are rivers rather than true straits",
-            "Both of them are completely closed off to all ships",
+            "Both of them are located very close to Arabia and the sea",
+            "Both of them are rivers rather than true straits of water",
+            "Both of them are completely closed off to all ships at all times",
             "Both are busy waterways that connect two larger bodies of water"
           ],
           "answer": "D",
@@ -412,10 +412,10 @@
         {
           "stem": "Why does the author describe several straits besides the ones near Arabia?",
           "options": [
-            "To prove that only straits near Arabia truly matter",
-            "To explain the detailed steps for how to build a ship",
+            "To prove that only straits near Arabia truly matter to the world and to its trade routes",
+            "To explain the detailed steps for how to build a ship in a big harbor",
             "To show that straits are important waterways all around the world, not just in one region",
-            "To describe the long history of camels in the desert"
+            "To describe the long history of camels in the desert and their many uses"
           ],
           "answer": "C",
           "skill": "author-purpose",
@@ -473,9 +473,9 @@
           "stem": "Which statement best summarizes the article?",
           "options": [
             "Narrow straits function as vital, strategic chokepoints that carry a huge share of trade",
-            "The Strait of Hormuz is really a long river somewhere in Europe",
-            "Straits matter far less to global trade than wide, open oceans do today",
-            "Every strait anywhere in the world is run by one single country"
+            "The Strait of Hormuz is really a long river somewhere in Europe, and ships use it to carry goods inland.",
+            "Straits matter far less to global trade than wide, open oceans do today, since ships avoid narrow water.",
+            "Every strait anywhere in the world is run by one single country, which collects a fee from each ship."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -523,9 +523,9 @@
         {
           "stem": "The article says controlling a major strait can give a country 'geopolitical influence.' What does geopolitical mean here?",
           "options": [
-            "Related mainly to cooking and preparing tasty food",
-            "Related mainly to music and the fine arts",
-            "Related only to the weather and passing storms",
+            "Related mainly to cooking and preparing tasty food at home",
+            "Related mainly to music and the fine arts of a country",
+            "Related only to the weather and passing storms over the sea",
             "Related to politics and power between nations tied to geography"
           ],
           "answer": "D",
@@ -558,9 +558,9 @@
           "stem": "Based on the article, why might a conflict near a major strait worry countries far away?",
           "options": [
             "Because disrupting a chokepoint can affect trade and energy markets across the globe",
-            "Because far-away countries never use ships for any reason at all",
-            "Because straits have no real link to the global economy at all",
-            "Because any conflict always makes a narrow strait grow much wider"
+            "Because far-away countries never use ships for any reason, so they only watch the news",
+            "Because straits have no real link to the global economy and only matter to nearby fishermen",
+            "Because any conflict always makes a narrow strait grow much wider and easier for ships"
           ],
           "answer": "A",
           "skill": "inference",
@@ -574,9 +574,9 @@
         {
           "stem": "Why does international maritime law generally protect the right of vessels to pass through straits used for navigation?",
           "options": [
-            "To make it illegal for any ship anywhere to use a strait",
-            "To give just one single country total control of every strait",
-            "To stop every single oil tanker from ever sailing again",
+            "To make it illegal for any ship anywhere to use a strait, even in times of peace",
+            "To give just one single country total control of every strait in the world's seas",
+            "To stop every single oil tanker from ever sailing again through the busy waterways",
             "To make sure trade through these narrow, critical waterways is not unfairly blocked"
           ],
           "answer": "D",
@@ -591,10 +591,10 @@
         {
           "stem": "How does the article's discussion of Hormuz and Bab-el-Mandeb support its larger point about straits?",
           "options": [
-            "It proves that straits only exist near the Arabian Peninsula region",
+            "It proves that straits only exist near the Arabian Peninsula region and nowhere else on Earth",
             "It explains the old methods sailors used long ago to navigate by stars",
             "It shows specific, real examples of how narrow waterways carry strategic and economic weight",
-            "It argues that every narrow strait should be filled in with land"
+            "It argues that every narrow strait should be filled in with land to help trade"
           ],
           "answer": "C",
           "skill": "text-structure",

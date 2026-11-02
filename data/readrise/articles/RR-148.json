@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How to ride a horse",
+            "How to ride a horse in the desert and the sand",
             "Camel racing and the robots that ride the camels",
-            "Why camels have humps",
-            "How cars are made"
+            "Why camels have humps on their backs and legs",
+            "How cars are made in a big car factory"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -199,10 +199,10 @@
         {
           "stem": "Why does a robot jockey need to be very light?",
           "options": [
-            "So it can talk louder",
+            "So it can talk louder to the crowd",
             "So it does not slow the camel down",
-            "So it can drive a car",
-            "So it can sink in the sand"
+            "So it can drive a car on the track",
+            "So it can sink in the sand quickly"
           ],
           "answer": "B",
           "skill": "inference",
@@ -217,9 +217,9 @@
           "stem": "Why might a camel run harder when it hears the robot?",
           "options": [
             "It hears the voice of its owner.",
-            "The robot sings a song.",
-            "The robot is very heavy.",
-            "It wants to eat the robot."
+            "The robot sings a song that it likes.",
+            "The robot is very heavy and slow.",
+            "It wants to eat the robot jockey."
           ],
           "answer": "A",
           "skill": "inference",
@@ -233,9 +233,9 @@
         {
           "stem": "Why does the author end by saying the sport mixes old and new?",
           "options": [
-            "To explain how to build a track",
-            "To say that old camels race new camels",
-            "To tell readers to buy a robot",
+            "To explain how to build a long track for the races in the desert",
+            "To say that old camels race against new camels every year in the same place",
+            "To tell readers that they should buy a robot for the race",
             "To show that camel racing is an old sport that now uses new tools"
           ],
           "answer": "D",
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
-            "Camels are faster than cars.",
+            "Camels are faster than cars, so owners follow the race by driving beside the track.",
             "Camel racing is an old tradition that now uses robot jockeys instead of children.",
-            "Qatar invented camel racing.",
-            "Owners like to drive cars."
+            "Qatar invented camel racing, and no other country has ever held such a race.",
+            "Owners like to drive cars, so they stopped racing camels many years ago."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -344,10 +344,10 @@
         {
           "stem": "The owner uses a remote control. In this article, remote control means —",
           "options": [
-            "a seat for the jockey",
+            "a seat for the jockey on the camel's back to sit",
             "a device that controls the robot from a distance",
-            "a road that runs next to the race track",
-            "a prize for the winner"
+            "a road that runs next to the race track in the desert",
+            "a prize for the winner of the big race on the sand"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -395,10 +395,10 @@
         {
           "stem": "What can you infer about how owners feel about their camels?",
           "options": [
-            "They do not care how their camels do.",
+            "They do not care how their camels do in a race.",
             "They want to guide and encourage their camels during races.",
-            "They are afraid of their camels.",
-            "They want their camels to stop racing."
+            "They are afraid of their camels and stay far away.",
+            "They want their camels to stop racing and rest at home."
           ],
           "answer": "B",
           "skill": "inference",
@@ -412,10 +412,10 @@
         {
           "stem": "How is the article mostly organized?",
           "options": [
-            "As a list of camel facts with no order",
-            "As a set of instructions",
+            "As a list of camel facts with no order or plan at all, one after another and with no end",
+            "As a set of instructions for riding a camel, with each step shown in its own paragraph",
             "From the past to the present, ending with a problem and its solution",
-            "As a debate between two people"
+            "As a debate between two people about camels, in which each one tries to win the argument"
           ],
           "answer": "C",
           "skill": "text-structure",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
-            "Robots have replaced camels in modern races.",
+            "Robots have replaced camels in modern races, so people no longer train camels for any kind of sport.",
             "Camel racing preserves an old heritage while adapting with modern technology such as robot jockeys.",
-            "Child jockeys were faster than robots.",
-            "Camel racing is only popular in Qatar."
+            "Child jockeys were faster than robots, so they still ride in every big camel race today.",
+            "Camel racing is only popular in Qatar, and no other country in the region holds any races."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -540,10 +540,10 @@
         {
           "stem": "What was the main effect of banning child jockeys?",
           "options": [
-            "Prizes became smaller.",
-            "Racing tracks became shorter.",
+            "Prizes became smaller for the winners of the race that year.",
+            "Racing tracks became shorter for all of the camels and riders.",
             "A need for a new kind of rider, which led to robot jockeys",
-            "Camels stopped running fast."
+            "Camels stopped running fast and began to walk instead."
           ],
           "answer": "C",
           "skill": "cause-effect",
@@ -592,9 +592,9 @@
           "stem": "How is a robot jockey similar to the child jockeys of the past?",
           "options": [
             "Both were lightweight riders that helped camels run fast.",
-            "Both drove cars beside the track.",
-            "Both used remote controls.",
-            "Both were introduced in 2005."
+            "Both drove cars beside the track to guide the camels.",
+            "Both used remote controls to steer the camels on the track.",
+            "Both were introduced in 2005 to make the sport safer."
           ],
           "answer": "A",
           "skill": "compare",

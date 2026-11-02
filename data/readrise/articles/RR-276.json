@@ -115,9 +115,9 @@
           "stem": "What is this article mostly about?",
           "options": [
             "The strength and balance that gymnastics takes",
-            "How robots repair busy city streets",
-            "Why ancient Greeks invented board games",
-            "How swimmers train for deep-water races"
+            "How robots repair the busy streets of a city",
+            "Why ancient Greeks invented board games for fun",
+            "How swimmers train for races in deep water"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -165,9 +165,9 @@
         {
           "stem": "The article says, 'Balance means staying steady and not falling off.' In this article, balance means —",
           "options": [
-            "A type of narrow gym equipment",
-            "A coach's daily training job",
-            "Jumping very high into the air",
+            "A type of narrow gym equipment for the class",
+            "A coach's daily training job at the school",
+            "Jumping very high into the air from the mat",
             "Staying steady without ever falling"
           ],
           "answer": "D",

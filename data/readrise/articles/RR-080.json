@@ -344,9 +344,9 @@
         {
           "stem": "Why did the workers cut most of the limestone from a quarry right next to the pyramid?",
           "options": [
-            "Limestone could only be cut near the Nile.",
-            "The pharaoh wanted to see the quarry from his tomb.",
-            "Engineers did not know how to use boats.",
+            "Limestone could only be cut near the Nile River bank.",
+            "The pharaoh wanted to see the quarry from his tomb every day.",
+            "Engineers did not know how to use boats on the river.",
             "Moving heavy blocks a short distance saved time and effort."
           ],
           "answer": "D",
@@ -378,10 +378,10 @@
         {
           "stem": "\"It is the only one of the Seven Wonders of the Ancient World that still stands.\" What does wonder mean here?",
           "options": [
-            "A question that has no answer",
-            "A small statue made of gold",
+            "A question that has no answer at all",
+            "A small statue made of gold and stone",
             "Something amazing that people admire",
-            "A tomb that has been robbed"
+            "A tomb that has been robbed by thieves"
           ],
           "answer": "C",
           "skill": "vocabulary",
@@ -396,9 +396,9 @@
           "stem": "Why does the author describe where each kind of stone came from?",
           "options": [
             "To show how far and how carefully materials were moved",
-            "To persuade readers to visit Aswan",
-            "To explain why limestone is white",
-            "To list all the cities in Egypt"
+            "To persuade readers to visit Aswan and see the old quarries",
+            "To explain why limestone is white and granite is red",
+            "To list all the cities in Egypt and their old names"
           ],
           "answer": "A",
           "skill": "author-purpose",

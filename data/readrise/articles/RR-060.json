@@ -523,10 +523,10 @@
         {
           "stem": "Why would losing the juniper forests be especially serious for the Asir magpie?",
           "options": [
-            "The magpie feeds only on rainwater.",
+            "The magpie feeds only on rainwater that falls in the hills",
             "The magpie nests among the junipers and lives nowhere else.",
-            "The magpie needs fog to fly.",
-            "The magpie migrates to the Red Sea in summer."
+            "The magpie needs fog to fly over the high mountains",
+            "The magpie migrates to the Red Sea in the summer"
           ],
           "answer": "B",
           "skill": "inference",
@@ -541,9 +541,9 @@
           "stem": "What can you infer about the farmers who first built the terraces?",
           "options": [
             "They understood how water moves on steep land.",
-            "They did not need to grow any food.",
-            "They lived near flat desert plains.",
-            "They built them only for decoration."
+            "They did not need to grow any food at all.",
+            "They lived near flat desert plains with no hills.",
+            "They built them only for decoration, not for use."
           ],
           "answer": "A",
           "skill": "inference",

@@ -170,10 +170,10 @@
     "passage": "Thousands of families have already joined the Summer Science Club. Your friends are building rockets and robots there right now! Don't miss out on the fun everyone is talking about. The club meets three mornings a week. Join today and be part of the team.",
     "stem": "Which technique does this ad mainly use?",
     "options": [
-     "It uses an expert's opinion.",
+     "It uses an expert's opinion about the product.",
      "It tells you everyone is joining, so you should too.",
-     "It gives prices and compares them.",
-     "It explains science facts."
+     "It gives prices and compares them with other shops.",
+     "It explains science facts about the product."
     ],
     "answer": 1,
     "hint": "Look for words like thousands of families, your friends and everyone.",
@@ -201,10 +201,10 @@
      "passage": "Hurry! The book fair ends tomorrow. Prices this low won't last. Come before the best books are gone!",
      "stem": "Which technique does the ad use?",
      "options": [
-      "An expert says so",
-      "Join the crowd",
+      "An expert says so on TV",
+      "Join the crowd and be happy",
       "Hurry, before it is too late",
-      "Funny pictures"
+      "Funny pictures and a song"
      ],
      "answer": 2,
      "why": "Hurry, ends tomorrow and won't last push you to act quickly."
@@ -215,7 +215,7 @@
      "options": [
       "The drink makes you like a star athlete.",
       "The drink is cheaper than water.",
-      "Football is a hard sport to learn.",
+      "Football is a hard sport to learn for kids.",
       "Khalid plays football every day."
      ],
      "answer": 0,
@@ -280,10 +280,10 @@
     "passage": "Introducing our new breakfast cereal: a delicious, golden start to every morning! Made with real honey, it's the natural way to fuel your busy day. Each bowl is packed with flavour and crunch that kids can't resist. Parents trust it to give their families the very best. A 40-gram serving contains 12 grams of sugar.",
     "stem": "How does the ad mainly use language to persuade?",
     "options": [
-     "It lists many facts that readers can check.",
-     "It compares the cereal with other cereals.",
+     "It lists many facts and numbers that readers can check for themselves.",
+     "It compares the cereal with other cereals and shows a chart.",
      "It uses warm, positive words to make the cereal seem healthy and special.",
-     "It warns readers about eating too much sugar."
+     "It warns readers about eating too much sugar in the morning."
     ],
     "answer": 2,
     "hint": "Look at words like delicious, golden, natural and the very best. Are they facts or feelings?",
@@ -325,8 +325,8 @@
      "stem": "What is the main message of this public message?",
      "options": [
       "Save water because it is precious.",
-      "Brush your teeth twice a day.",
-      "Buy a new tap.",
+      "Brush your teeth twice a day with water.",
+      "Buy a new tap for every sink in town.",
       "Water is free for everyone."
      ],
      "answer": 0,
@@ -391,10 +391,10 @@
     "passage": "Radio advertisement script. Sound: a crowd cheering in a stadium. Voice: \"Every champion starts somewhere.\" The shoe comes in four colours and in sizes for all ages. Ninety percent of runners in our survey said they felt faster. Don't let your dream wait. The shoe is available now in all sports stores, and the first 500 buyers receive a free water bottle.",
     "stem": "Which statement best analyzes how this advertisement persuades its audience?",
     "options": [
-     "It mainly relies on scientific tests that prove the shoe makes runners faster.",
-     "It explains how professional athletes train.",
+     "It mainly relies on scientific tests that prove the shoe makes runners faster than any other shoe.",
+     "It explains how professional athletes train every day to win big races around the world.",
      "It links the shoe with young runners' dreams of success, supported by a vague survey and a limited offer.",
-     "It compares the prices of several shoes."
+     "It compares the prices of several shoes sold in the local shops and online stores."
     ],
     "answer": 2,
     "hint": "Look at the cheering crowd, the champion slogan, the survey and the first 500 buyers. What do they do together?",
@@ -439,9 +439,9 @@
      "stem": "What technique does this message use?",
      "options": [
       "Selective facts: it stresses a healthy detail and leaves out a less healthy one",
-      "Repeating a short slogan many times so people remember it",
-      "Using an expert's opinion to make the snack seem healthy",
-      "Comparing its prices with other snack companies"
+      "Repeating a short slogan many times in the advert so people remember it easily",
+      "Using an expert's opinion to make the snack seem healthy, with a doctor's photo",
+      "Comparing its prices with other snack companies to show it is much cheaper"
      ],
      "answer": 0,
      "why": "Baked, not fried sounds healthy, but the post leaves out the high salt. That is using selective facts."

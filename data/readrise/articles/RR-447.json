@@ -115,9 +115,9 @@
           "stem": "What is this story mostly about?",
           "options": [
             "A girl who remembers Grandma's trick and saves the harvest",
-            "A girl who travels to a big city",
-            "A family that moves away",
-            "A girl who buys new baskets"
+            "A girl who travels to a big city to find a new job",
+            "A family that moves away from the village to the coast",
+            "A girl who buys new baskets for the market and her home"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -148,10 +148,10 @@
         {
           "stem": "What did Grandma say to do?",
           "options": [
-            "Sell the ripe dates fast",
-            "Plant some new trees",
+            "Sell the ripe dates fast at the market",
+            "Plant some new trees by the old well",
             "Cover the shoots and pick dates early",
-            "Call a neighbor for help"
+            "Call a neighbor for help with the work"
           ],
           "answer": "C",
           "skill": "detail",
@@ -182,10 +182,10 @@
         {
           "stem": "Why were Mom and Dad busy and did not notice the warning at first?",
           "options": [
-            "They were sleeping in late",
-            "They were away on a trip",
+            "They were sleeping in late that day",
+            "They were away on a trip to the city",
             "They were getting ready for the harvest",
-            "They were reading some books"
+            "They were reading some books at home"
           ],
           "answer": "C",
           "skill": "inference",
@@ -199,10 +199,10 @@
         {
           "stem": "Why did Noor keep asking her parents to try Grandma's trick?",
           "options": [
-            "She wanted to play outside",
-            "She wanted a small reward",
+            "She wanted to play outside in the cold weather",
+            "She wanted a small reward from her parents",
             "She knew the cold could ruin the dates",
-            "She did not like her parents"
+            "She did not like her parents very much"
           ],
           "answer": "C",
           "skill": "inference",
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the central idea of the story?",
           "options": [
-            "Noor's family decided to sell their land",
-            "Noor's parents refuse to ever listen to her",
+            "Noor's family decided to sell their land to a neighbor and move to the city",
+            "Noor's parents refuse to ever listen to her, so the harvest is lost to the cold",
             "Noor remembers Grandma's advice and persuades her parents to protect the harvest",
-            "The story mainly describes different baskets"
+            "The story mainly describes different baskets and how the farmers use them each day"
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -328,9 +328,9 @@
           "stem": "What two things did Grandma advise doing when cold arrives early?",
           "options": [
             "Cover the shoots and harvest ripe dates right away",
-            "Water the trees more and also pick weeds",
-            "Call the neighbors and also buy more cloth",
-            "Move the young trees indoors and wait"
+            "Water the trees more and pick weeds each day, early in the morning",
+            "Call the neighbors and buy more cloth, too",
+            "Move the young trees indoors and wait a week"
           ],
           "answer": "A",
           "skill": "detail",
@@ -361,9 +361,9 @@
         {
           "stem": "Why were Noor's parents at first unwilling to try Grandma's advice?",
           "options": [
-            "They did not trust old traditions",
-            "They simply did not like cloth",
-            "They wanted to sell their orchard",
+            "They did not trust old traditions from the village",
+            "They simply did not like cloth on their trees",
+            "They wanted to sell their orchard before the winter",
             "They thought there was no time for extra chores"
           ],
           "answer": "D",
@@ -378,10 +378,10 @@
         {
           "stem": "What can you infer about Grandma from the story?",
           "options": [
-            "She never once visited the orchard",
+            "She never once visited the orchard when she was young",
             "She had learned useful ways to protect crops from cold",
-            "She did not really like dates",
-            "She was always afraid of cold weather"
+            "She did not really like dates, so she never grew them",
+            "She was always afraid of cold weather and stayed inside"
           ],
           "answer": "B",
           "skill": "inference",
@@ -395,10 +395,10 @@
         {
           "stem": "Why was the family's harvest safe after the cold front arrived?",
           "options": [
-            "The cold front turned out to be weak",
-            "They had already sold all their dates",
+            "The cold front turned out to be weak, so it did not matter",
+            "They had already sold all their dates at the market",
             "They had covered the shoots and picked dates early",
-            "The radio was simply wrong about the cold"
+            "The radio was simply wrong about the cold, and no frost came"
           ],
           "answer": "C",
           "skill": "cause-effect",
@@ -412,9 +412,9 @@
         {
           "stem": "How does the author mainly organize the events in the story?",
           "options": [
-            "By comparing two different orchards",
-            "By listing random facts about date palms",
-            "By describing the orchard from present to past",
+            "By comparing two different orchards, one old and one new, in the same town",
+            "By listing random facts about date palms and the places they grow",
+            "By describing the orchard from the present back to the past, step by step",
             "In time order: the warning, Noor's memory, the work, and the result"
           ],
           "answer": "D",
@@ -473,9 +473,9 @@
           "stem": "Which statement best captures the central idea of the story?",
           "options": [
             "An early cold front threatens the harvest, but a girl's memory of old advice persuades her parents to protect it",
-            "Dates are simply impossible to grow in Saudi Arabia",
-            "Noor's parents never trust her again",
-            "The story is only about the history of date farming"
+            "Dates are simply impossible to grow in Saudi Arabia, since the weather is too cold, and the farm will fail",
+            "Noor's parents never trust her again after she wakes them up at night, so the harvest is lost to the frost",
+            "The story is only about the history of date farming in the oasis, and the cold front is not important to it"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -489,10 +489,10 @@
         {
           "stem": "Why were the young shoots especially at risk from the sudden freeze?",
           "options": [
-            "They had been planted too close together",
+            "They had been planted too close together in the rows",
             "They lacked the thicker bark that shields older branches",
-            "They had already been harvested that day",
-            "They were planted entirely in the shade"
+            "They had already been harvested that day by the workers",
+            "They were planted entirely in the shade of the big trees"
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -523,10 +523,10 @@
         {
           "stem": "In the story, to persuade someone means to —",
           "options": [
-            "to ignore what they say",
+            "to ignore what they say to you",
             "to convince them with good reasons",
-            "to argue with them angrily",
-            "to copy their actions exactly"
+            "to argue with them very angrily",
+            "to copy their actions exactly as shown"
           ],
           "answer": "B",
           "skill": "vocabulary",

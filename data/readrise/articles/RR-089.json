@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How to tell time without a clock",
+            "How to tell time without a clock or a watch",
             "An inventor from long ago and the machines he made",
-            "Why elephants like water",
-            "How to play music on a boat"
+            "Why elephants like water and mud in the heat",
+            "How to play music on a boat at sea with friends"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -182,9 +182,9 @@
         {
           "stem": "What happened because of Al-Jazari's water pump?",
           "options": [
-            "People had to carry more water.",
-            "Rivers dried up.",
-            "The king stopped giving him work.",
+            "People had to carry more water by hand.",
+            "Rivers dried up in the whole country.",
+            "The king stopped giving him work for a year.",
             "People did not have to lift water by hand."
           ],
           "answer": "D",
@@ -200,9 +200,9 @@
           "stem": "Why did Al-Jazari draw pictures and tell how to build each machine in his book?",
           "options": [
             "So others could build his machines too",
-            "So no one could copy his work",
+            "So no one could copy his work or his ideas",
             "Because he could not write words",
-            "To sell the book to children"
+            "To sell the book to children in the market"
           ],
           "answer": "A",
           "skill": "inference",
@@ -216,10 +216,10 @@
         {
           "stem": "Why do we still remember Al-Jazari today?",
           "options": [
-            "He was the king of a big land.",
+            "He was the king of a big land by the sea.",
             "His ideas are still used in machines.",
-            "He had the biggest elephant.",
-            "He lived for a thousand years."
+            "He had the biggest elephant in the whole world.",
+            "He lived for a thousand years in the palace."
           ],
           "answer": "B",
           "skill": "inference",
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the main idea of the article?",
           "options": [
-            "Water was hard to find 800 years ago.",
-            "Al-Jazari built the first clock in history.",
+            "Water was hard to find 800 years ago, so people dug deep wells in every town and village.",
+            "Al-Jazari built the first clock in history, and kings all over the world copied his designs.",
             "Al-Jazari was a gifted engineer whose clever machines and careful book still matter today.",
-            "Royal families liked music more than machines."
+            "Royal families liked music more than machines, so they paid for songs instead of new inventions."
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -344,10 +344,10 @@
         {
           "stem": "The article says Al-Jazari created an automaton. Based on the article, what is an automaton?",
           "options": [
-            "A tank that stores water",
-            "A book of drawings",
+            "A tank that stores water for a city",
+            "A book of drawings made by a king",
             "A machine that moves by itself",
-            "A wheel with teeth"
+            "A wheel with teeth that turns slowly"
           ],
           "answer": "C",
           "skill": "vocabulary",
@@ -378,9 +378,9 @@
         {
           "stem": "Why do you think Al-Jazari's book was so important?",
           "options": [
-            "It replaced the need for engineers.",
-            "It was the only book written in 1206.",
-            "It told stories about kings.",
+            "It replaced the need for engineers in the city.",
+            "It was the only book written in 1206 in the country.",
+            "It told stories about kings and their long wars.",
             "It let people build his machines even after he was gone."
           ],
           "answer": "D",
@@ -412,10 +412,10 @@
         {
           "stem": "Why does the author describe the elephant clock in so much detail?",
           "options": [
-            "To argue that clocks are not useful",
-            "To teach readers how to care for elephants",
+            "To argue that clocks are not useful for people in a city",
+            "To teach readers how to care for elephants in a zoo",
             "To show how clever and surprising his machines were",
-            "To compare old clocks with phones"
+            "To compare old clocks with phones and other modern tools"
           ],
           "answer": "C",
           "skill": "author-purpose",
@@ -472,9 +472,9 @@
         {
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
-            "Al-Jazari invented every machine used today.",
-            "Al-Jazari mainly built toys to entertain royal guests.",
-            "The elephant clock was the only important invention of the time.",
+            "Al-Jazari invented every machine that people use today, from simple clocks to cars and planes, in his workshop.",
+            "Al-Jazari mainly built toys to entertain royal guests, and his machines had no other uses at all.",
+            "The elephant clock was the only important invention of the time, and no other machines were made then.",
             "Al-Jazari's ingenious machines and detailed manuscript made him an engineer whose influence lasted for centuries."
           ],
           "answer": "D",
@@ -591,9 +591,9 @@
         {
           "stem": "Why does the author end with Al-Jazari's legacy?",
           "options": [
-            "To list every machine in his book",
-            "To describe how he built the elephant clock",
-            "To argue that modern machines are worse",
+            "To list every machine in his book, one after another",
+            "To describe how he built the elephant clock step by step",
+            "To argue that modern machines are worse than his",
             "To explain why his work still matters to engineers today"
           ],
           "answer": "D",

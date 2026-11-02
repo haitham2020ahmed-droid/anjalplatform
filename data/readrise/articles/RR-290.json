@@ -216,10 +216,10 @@
         {
           "stem": "What happens in a tournament, according to the article?",
           "options": [
-            "Only one player plays the whole game",
-            "Coaches play instead of the players",
+            "Only one player plays the whole game for everyone",
+            "Coaches play instead of the players on the field",
             "Many teams play, and the best one wins a prize",
-            "Teams design and sell new video games"
+            "Teams design and sell new video games to fans"
           ],
           "answer": "C",
           "skill": "sequence",
@@ -395,7 +395,7 @@
         {
           "stem": "Why do skilled players need exceptionally fast reflexes, according to the article?",
           "options": [
-            "To help design new video games",
+            "To help design new video games for the team",
             "To talk with fans after a match",
             "To react fast to things on the screen",
             "To build the team's game engine"
@@ -412,10 +412,10 @@
         {
           "stem": "Why does the author compare esports players to athletes who compete in soccer or basketball?",
           "options": [
-            "To explain the official rules of basketball",
+            "To explain the official rules of basketball and how points are won",
             "To show that esports needs real skill and training",
-            "To explain every single rule of soccer",
-            "To argue that esports is not a real sport"
+            "To explain every single rule of soccer, from kicks to fouls",
+            "To argue that esports is not a real sport for serious people"
           ],
           "answer": "B",
           "skill": "author-purpose",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
-            "Esports tournaments are funded entirely by ticket sales",
-            "Esports players rarely need to practice because talent alone is enough",
+            "Esports tournaments are funded entirely by ticket sales from fans, and players are never paid by anyone, so teams cannot take part.",
+            "Esports players rarely need to practice because talent alone is enough, and teams do not train together, so nothing is organized.",
             "Esports is a genuine, organized sport in which teams collaborate, optimize their skills, and compete in a structured system of tournaments",
-            "Esports is simply casual entertainment with no real structure"
+            "Esports is simply casual entertainment with no real structure, and nobody plays it in teams or in tournaments, so it is not a real sport."
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -523,10 +523,10 @@
         {
           "stem": "In the article, the word optimize most nearly means…",
           "options": [
-            "to sell something for a higher price",
-            "to replace something completely",
+            "to sell something for a higher price in a shop or a market",
+            "to replace something completely with a new one",
             "to improve something so it works as well as possible",
-            "to make an audience larger"
+            "to make an audience larger in a big hall"
           ],
           "answer": "C",
           "skill": "vocabulary",
@@ -540,10 +540,10 @@
         {
           "stem": "What can you infer about why teams review recordings of their matches with a coach?",
           "options": [
-            "To avoid qualifying for tournaments",
-            "To make the matches shorter",
+            "To avoid qualifying for tournaments, since winning too much brings extra work",
+            "To make the matches shorter and easier for the players to remember",
             "To systematically find and correct mistakes that reduce precision",
-            "To replace teammates with new players"
+            "To replace teammates with new players who have never played before"
           ],
           "answer": "C",
           "skill": "inference",
@@ -558,9 +558,9 @@
           "stem": "What can you infer about why esports teams avoid violent or frightening content?",
           "options": [
             "To keep the competition focused purely on demonstrated skill",
-            "Because such games are too difficult to optimize",
-            "Because sponsors refuse to fund any video games",
-            "Because spectators cannot watch those games online"
+            "Because such games are too difficult to optimize for teams",
+            "Because sponsors refuse to fund any video games at all",
+            "Because spectators cannot watch those games online or on screen"
           ],
           "answer": "A",
           "skill": "inference",
@@ -591,10 +591,10 @@
         {
           "stem": "According to the article, how are esports players similar to traditional athletes?",
           "options": [
-            "Both rely on equipment rather than practice",
+            "Both rely on equipment rather than on practice, skill, and long years of training",
             "Both depend on skill honed through years of dedicated, disciplined training",
-            "Both compete without any coach or team",
-            "Both avoid tournaments entirely"
+            "Both compete without any coach or team to help them play the game at all",
+            "Both avoid tournaments entirely and play only for fun at home"
           ],
           "answer": "B",
           "skill": "compare",

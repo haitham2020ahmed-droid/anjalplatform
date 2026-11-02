@@ -395,9 +395,9 @@
         {
           "stem": "A student finds a heavy black rock, and a magnet sticks to it. What is the best conclusion?",
           "options": [
-            "It is definitely an ordinary Earth rock.",
-            "It is a piece of a star.",
-            "It is too old to be studied.",
+            "It is definitely an ordinary Earth rock, so a lab is not needed.",
+            "It is a piece of a star, so it should be sent to space.",
+            "It is too old to be studied, so the student should throw it away.",
             "It might be an iron meteorite, so a lab should test it."
           ],
           "answer": "D",
@@ -523,9 +523,9 @@
         {
           "stem": "The article says a dark meteorite contrasts with pale sand. What does contrast mean in this sentence?",
           "options": [
-            "To melt into",
-            "To be hidden by",
-            "To weigh more than",
+            "To melt into the sand",
+            "To be hidden by the sand",
+            "To weigh more than the sand",
             "To look very different from"
           ],
           "answer": "D",
@@ -591,9 +591,9 @@
         {
           "stem": "How does the article organize its information about the space rock's names?",
           "options": [
-            "By comparing meteorites with volcanoes",
-            "By listing the names in alphabetical order",
-            "By describing only the final landing",
+            "By comparing meteorites with volcanoes and with earthquakes, in a long list of facts",
+            "By listing the names in alphabetical order, one after another",
+            "By describing only the final landing of the rock in the desert",
             "By following the rock in sequence from space, through the atmosphere, to the ground"
           ],
           "answer": "D",

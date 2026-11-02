@@ -173,10 +173,10 @@
       "type": "MCQ",
       "stem": "What is the main purpose of the story?",
       "options": [
-        "to describe how to train for a hike using stairs",
-        "to give facts about the height of Jabal al-Lawz",
+        "to describe how to train for a hike using the stairs at home, in a building",
+        "to give facts about the height of Jabal al-Lawz and its snow, with numbers",
         "to show that safety and good judgement matter more than reaching a goal",
-        "to explain how hail forms in storm clouds"
+        "to explain how hail forms in storm clouds above the mountains in the summer"
       ],
       "answer": "C",
       "why": "The story shows Father choosing safety over the summit and the boys realising he was right."
@@ -190,9 +190,9 @@
       "stem": "What is the main idea of paragraph 1?",
       "options": [
         "Majid is excited to climb a mountain he has trained hard for.",
-        "Majid's apartment building has many stairs.",
-        "Turki does not want to climb the mountain.",
-        "The family has climbed Jabal al-Lawz many times."
+        "Majid's apartment building has many stairs, and a lift that is broken.",
+        "Turki does not want to climb the mountain with the others.",
+        "The family has climbed Jabal al-Lawz many times before this trip."
       ],
       "answer": "A",
       "why": "It shows Majid's long dream and the brothers' training before the climb."
@@ -205,10 +205,10 @@
       "type": "MCQ",
       "stem": "Why did Father decide to turn back?",
       "options": [
-        "Majid's fingers were far too cold to hold the rocks safely.",
+        "Majid's fingers were far too cold to hold the rocks safely, and he began to cry.",
         "A storm was coming, and they would be on the exposed summit when it arrived.",
-        "They had forgotten their camera at the bottom of the path.",
-        "Turki was too tired and hungry to continue to the top."
+        "They had forgotten their camera at the bottom of the path and wanted to go back.",
+        "Turki was too tired and hungry to continue to the top of the hill."
       ],
       "answer": "B",
       "why": "Father says that in one hour they would be on “the highest, most exposed rock … exactly when that storm arrives.”"
@@ -237,10 +237,10 @@
       "type": "MCQ",
       "stem": "How had Majid and Turki prepared for the climb?",
       "options": [
-        "by climbing other mountains every month",
-        "by running around the school field",
+        "by climbing other mountains every month of the year with a guide",
+        "by running around the school field every day after class",
         "by climbing the stairs of their building with heavy backpacks",
-        "by reading books about mountains"
+        "by reading books about mountains and maps in the library"
       ],
       "answer": "C",
       "why": "Paragraph 1: they trained “climbing the stairs of their apartment building with heavy backpacks”."
@@ -349,9 +349,9 @@
       "type": "MCQ",
       "stem": "How is Majid's attitude in paragraph 7 different from his attitude in paragraph 12?",
       "options": [
-        "In paragraph 7 he is relieved; in paragraph 12 he is angry.",
-        "In paragraph 7 he is quiet; in paragraph 12 he shouts.",
-        "In paragraph 7 he is frightened; in paragraph 12 he is bored.",
+        "In paragraph 7 he is relieved; in paragraph 12 he is angry with his friend and father.",
+        "In paragraph 7 he is quiet; in paragraph 12 he shouts at the guide and runs ahead.",
+        "In paragraph 7 he is frightened; in paragraph 12 he is bored and wants to go home.",
         "In paragraph 7 he argues against turning back; in paragraph 12 he accepts it was right."
       ],
       "answer": "D",
@@ -429,9 +429,9 @@
       "type": "MCQ",
       "stem": "In your opinion, why does the writer describe lightning striking “the very ridge they had been climbing”?",
       "options": [
-        "to make the scene more colourful",
-        "to show that the car was in danger",
-        "to show that the summit was easy to reach",
+        "to make the scene more colourful and exciting for readers",
+        "to show that the car was in danger from the flood and wind",
+        "to show that the summit was easy to reach before the storm came",
         "to prove that Father's decision probably saved their lives"
       ],
       "answer": "D",
@@ -461,10 +461,10 @@
       "type": "MCQ",
       "stem": "Which message is the writer MOST LIKELY sharing?",
       "options": [
-        "Mountains are far too dangerous for any children to climb.",
-        "Children should never argue with adults about any decision.",
+        "Mountains are far too dangerous for any children to climb, so they should stay home.",
+        "Children should never argue with adults about any decision that they make for them.",
         "Being safe is more important than reaching a goal, which can wait for another day.",
-        "Photographs from summits are not worth taking."
+        "Photographs from summits are not worth taking, since the views are always the same."
       ],
       "answer": "C",
       "why": "Father's last words: “the summit can always wait, but a life cannot be replaced.”"
@@ -526,9 +526,9 @@
       "stem": "Which title best describes the events of the story?",
       "options": [
         "Turning Back Before the Storm",
-        "Lost on the Mountain",
-        "The Snowy Picnic",
-        "Turki's Photograph"
+        "Lost on the Mountain Path",
+        "The Snowy Picnic on the Hill",
+        "Turki's Photograph of the Peak"
       ],
       "answer": "A",
       "why": "The key event is Father turning back just before the storm breaks."

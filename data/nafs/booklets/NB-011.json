@@ -157,10 +157,10 @@
       "type": "MCQ",
       "stem": "Which is another suitable title for the text?",
       "options": [
-        "Making Glue at Home",
-        "How Forests Grow",
+        "Making Glue at Home with Paper",
+        "How Forests Grow in the Rain",
         "The Journey of a Used Sheet",
-        "A History of Newspapers"
+        "A History of Newspapers and Printing"
       ],
       "answer": "C",
       "why": "The text follows a used sheet of paper through each stage of recycling."
@@ -349,10 +349,10 @@
       "type": "MCQ",
       "stem": "How is making recycled paper different from making paper from fresh wood?",
       "options": [
-        "It always produces more buried waste.",
+        "It always produces more buried waste in the ground.",
         "It generally consumes less energy and water.",
-        "It requires more trees to be cut down.",
-        "It cannot be used to make notebooks."
+        "It requires more trees to be cut down each year.",
+        "It cannot be used to make notebooks or books."
       ],
       "answer": "B",
       "why": "Paragraph 7: recycling generally consumes less energy and water than producing paper from fresh wood."
@@ -525,10 +525,10 @@
       "type": "MCQ",
       "stem": "Which title best describes the ideas in the text?",
       "options": [
-        "Trees of the World",
-        "A Day at the Beach",
+        "Trees of the Whole World",
+        "A Day at the Sunny Beach",
         "Give Paper a Second Life",
-        "The Lost Notebook"
+        "The Lost Red Notebook"
       ],
       "answer": "C",
       "why": "The text explains how used paper is made into new paper."

@@ -62,10 +62,10 @@
     "passage": "Mom put fruit in a bowl. Lemons and oranges are both fruits. They both grow on trees. But lemons are sour, and oranges are sweet. Lemons are yellow, while oranges are orange.",
     "stem": "How is this text organized?",
     "options": [
-     "It tells steps in order.",
+     "It tells steps in order, from first to last.",
      "It tells how two fruits are alike and different.",
-     "It tells a problem and a solution.",
-     "It tells a story about a boy."
+     "It tells a problem and then a solution to fix it.",
+     "It tells a story about a boy and his dog."
     ],
     "answer": 1,
     "hint": "Look for the words both, but and while.",
@@ -173,10 +173,10 @@
     "passage": "Long ago, people wrote letters to share news. Today, many people send text messages instead. Both letters and text messages let people stay in touch with family and friends. However, a letter can take days or weeks to arrive, whereas a text message arrives in seconds. Letters are often long and carefully written. In contrast, text messages are usually short and quick.",
     "stem": "Which best describes how the author organizes this passage?",
     "options": [
-     "The author lists the steps for writing a letter.",
-     "The author explains the causes of a problem.",
+     "The author lists the steps for writing a letter to a friend, one by one.",
+     "The author explains the causes of a problem in the town.",
      "The author shows how letters and text messages are alike and different.",
-     "The author tells the events of one day in order."
+     "The author tells the events of one day in order, from the morning."
     ],
     "answer": 2,
     "hint": "Look for the words both, however, whereas and in contrast.",
@@ -217,10 +217,10 @@
      "passage": "First, mix the flour and water. Next, knead the dough for ten minutes. Then, let it rest for one hour. Finally, bake it in a hot oven.",
      "stem": "Is this passage organized by compare and contrast?",
      "options": [
-      "Yes, because it compares flour and water.",
-      "Yes, because it uses the word next.",
+      "Yes, because it compares flour and water in the bowl.",
+      "Yes, because it uses the word next in some sentences.",
       "No, because it tells the steps to make bread in order.",
-      "No, because it gives a problem and a solution."
+      "No, because it gives a problem and a solution to fix it."
      ],
      "answer": 2,
      "why": "First, next, then and finally show time order, not likenesses and differences."
@@ -288,9 +288,9 @@
     "passage": "Electric cars and petrol cars can both carry a family across a city. A petrol car is filled at a station in a few minutes, while an electric car may need an hour or more to charge. On the other hand, electric cars produce no exhaust from their tailpipes, whereas petrol cars release gases that pollute the air. Electric cars also have fewer moving parts, so they often need less repair. For drivers who mostly make short trips in a city, these differences may make an electric car the better choice.",
     "stem": "Why does the author compare and contrast the two kinds of cars?",
     "options": [
-     "To explain how petrol is made",
+     "To explain how petrol is made and sold at stations",
      "To show that petrol cars are always faster",
-     "To describe the history of the car",
+     "To describe the history of the car in the world",
      "To help readers decide which car suits city driving"
     ],
     "answer": 3,
@@ -331,8 +331,8 @@
      "options": [
       "To help readers understand how fast the bird's heart really is",
       "To prove that people should eat all day like birds",
-      "To show that humans are smaller than most birds",
-      "To explain how human and bird hearts are built"
+      "To show that humans are smaller than most other birds",
+      "To explain how human and bird hearts are built in the body"
      ],
      "answer": 0,
      "why": "Comparing with something familiar (our own heart) makes the bird's very fast heart rate easier to understand."
@@ -396,10 +396,10 @@
     "passage": "Two neighbouring towns faced the same problem: their only river was running low each summer. The first town built a large dam upstream to store water. For a few years, the plan seemed to work, but the reservoir slowly filled with mud, and farms downstream received less water than before. The second town took a different path. It repaired old leaking pipes, taught farmers to use drip irrigation and planted trees along the riverbanks to keep the soil in place. Its progress was slower, yet ten years later its river was flowing more steadily than ever. The contrast suggests that the most impressive solution is not always the most lasting one.",
     "stem": "How does the compare-and-contrast structure develop the author's central idea?",
     "options": [
-     "It shows that both towns made the same mistakes and suffered in the same way.",
-     "It explains, step by step, how the first town built its large dam upstream.",
+     "It shows that both towns made the same mistakes and suffered in the same way for years.",
+     "It explains, step by step, how the first town built its large dam upstream of the village, using workers and machines.",
      "By contrasting a quick, impressive fix with a slow, steady one, it shows the slow approach lasted longer.",
-     "It argues that rivers always recover on their own if people leave them alone."
+     "It argues that rivers always recover on their own if people leave them alone for long enough."
     ],
     "answer": 2,
     "hint": "What did each town do, and how did each turn out? Then read the final sentence.",
@@ -429,9 +429,9 @@
      "passage": "Many people picture scientists working alone in a lab, and artists working alone in a studio. Yet both scientists and artists spend long hours testing ideas that fail. Both must notice small details others miss. And both, in the end, share their work with the public to be judged. Seen this way, science and art are less different than they appear.",
      "stem": "What is the effect of the comparison in this passage?",
      "options": [
-      "It shows that scientists are more useful than artists.",
-      "It describes how labs and studios are built and used.",
-      "It shows that artists, unlike scientists, never fail.",
+      "It shows that scientists are more useful than artists in daily life.",
+      "It describes how labs and studios are built and used by people.",
+      "It shows that artists, unlike scientists, never fail at anything.",
       "It challenges the idea that science and art are completely different."
      ],
      "answer": 3,
@@ -442,8 +442,8 @@
      "stem": "Why does the author contrast the two phone cases?",
      "options": [
       "To show that the cheapest choice can cost more over time",
-      "To prove that Shop B is always cheaper",
-      "To explain how phone cases are made",
+      "To prove that Shop B is always cheaper than Shop A in town",
+      "To explain how phone cases are made in factories",
       "To show that both cases are the same quality"
      ],
      "answer": 0,

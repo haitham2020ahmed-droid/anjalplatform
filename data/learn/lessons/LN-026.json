@@ -60,10 +60,10 @@
     "passage": "Sami lost his toy car. He looked under his bed. He looked in the garden. He could not find it anywhere. It was Friday.",
     "stem": "Which sentence best shows how Sami feels?",
     "options": [
-     "Sami had a red toy car.",
+     "Sami had a red toy car and a blue ball.",
      "Sami sat down and cried, \"My car is gone!\"",
-     "Sami's bed is big.",
-     "The garden had flowers."
+     "Sami's bed is big and it has a blue cover.",
+     "The garden had flowers and a small tree."
     ],
     "answer": 1,
     "hint": "Does that sentence show a feeling? Think about how you feel when you lose a toy.",
@@ -169,10 +169,10 @@
     "passage": "I had practised my speech for a whole week. When my name was called, I walked slowly to the front of the class. My knees felt weak, and my mouth was dry. I looked at my notes. The classroom had twenty desks.",
     "stem": "Which sentence should come next to keep the point of view and develop the narrator?",
     "options": [
-     "He took a deep breath and smiled at his friends.",
-     "The teacher had a blue pen.",
+     "He took a deep breath and smiled at his friends nearby.",
+     "The teacher had a blue pen and a red book.",
      "I took a deep breath and told myself, \"You can do this.\"",
-     "They looked out of the window."
+     "They looked out of the window at the rain."
     ],
     "answer": 2,
     "hint": "Who is telling the story: I, or he? And what is the narrator feeling?",
@@ -310,10 +310,10 @@
      "passage": "First-person story. The narrator is watching his grandfather fix a radio.",
      "stem": "Which sentence keeps the point of view?",
      "options": [
-      "Grandfather thought the radio was hopeless.",
-      "Grandfather secretly hoped I would not see his mistake.",
+      "Grandfather thought the radio was hopeless, and he told us to throw it away.",
+      "Grandfather secretly hoped I would not see his mistake with the wires.",
       "Grandfather frowned, and I guessed the radio was harder to fix than he expected.",
-      "Grandfather's mind was full of old memories."
+      "Grandfather's mind was full of old memories of his village and his father."
      ],
      "answer": 2,
      "why": "The narrator sees the frown and guesses. The others read Grandfather's mind."
@@ -334,10 +334,10 @@
      "passage": "Task: Use the character's ACTIONS to show that Sultan is careless.",
      "stem": "Which sentence uses this technique?",
      "options": [
-      "\"I am careless,\" Sultan said.",
+      "\"I am careless,\" Sultan said to his friends after the football game.",
       "Sultan left his new bike in the rain again, and its chain was rusty.",
-      "Sultan's friends say he is careless.",
-      "Sultan thought about being more careful."
+      "Sultan's friends say he is careless and forgets his things.",
+      "Sultan thought about being more careful with his things from now on."
      ],
      "answer": 1,
      "why": "His action (leaving the bike in the rain again) shows carelessness."
@@ -393,9 +393,9 @@
     "passage": "The story follows Dana in third person; the reader sees only her thoughts. Dana had led the science club for two years, and she rarely asked anyone for help. When the new student, Reem, suggested a different design for the solar oven, Dana's jaw tightened. She said nothing and kept cutting the cardboard, her scissors snapping faster than before. Later that night, she looked at Reem's sketch again. The design was simple, and it might actually work better than hers.",
     "stem": "The writer wants to add a sentence that uses Dana's THOUGHTS to show she is proud but beginning to change. Which is best?",
     "options": [
-     "Reem thought Dana would never listen to her ideas.",
-     "Dana stood up and shouted that her design was the best.",
-     "Everyone in the club agreed that Reem's design was much better than Dana's.",
+     "Reem thought Dana would never listen to her ideas, so she stopped talking.",
+     "Dana stood up and shouted that her design was the best one in the whole club.",
+     "Everyone in the club agreed that Reem's design was much better than Dana's design.",
      "It's just one idea, Dana told herself, but maybe I don't have to solve everything alone."
     ],
     "answer": 3,
@@ -438,9 +438,9 @@
      "stem": "What is the problem with this sentence?",
      "options": [
       "It reveals the teacher's private thoughts, which Hamza cannot know.",
-      "It uses too much dialogue for this story.",
-      "It is written in the first person.",
-      "It has no verb in it."
+      "It uses too much dialogue for this story, and the scene feels long.",
+      "It is written in the first person instead of the third person.",
+      "It has no verb in it, so it is not a full sentence at all."
      ],
      "answer": 0,
      "why": "In third person limited, only Hamza's thoughts are available, so the teacher's secret thoughts break the point of view."

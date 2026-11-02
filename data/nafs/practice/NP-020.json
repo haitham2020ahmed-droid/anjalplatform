@@ -29,10 +29,10 @@
       "difficulty": 1,
       "stem": "Which sentence is a command?",
       "options": [
-        "Earth's axis is tilted.",
-        "Why is January cold in Riyadh?",
+        "Earth's axis is tilted by a few degrees.",
+        "Why is January so cold in Riyadh?",
         "Look at the globe and find the equator.",
-        "What a hot afternoon it is!"
+        "What a hot afternoon it is today!"
       ],
       "answer": "C",
       "why": "A command tells someone to do something; \"Look at the globe\" gives an instruction."
@@ -142,9 +142,9 @@
       "stem": "Which information in the passage is the LEAST complete?",
       "options": [
         "Why Earth's axis became tilted in the first place",
-        "When Earth is nearest to the Sun",
-        "How much Earth's axis is tilted",
-        "Why equator places have small changes"
+        "When Earth is nearest to the Sun in the year",
+        "How much Earth's axis is tilted from the vertical",
+        "Why places near the equator have small changes in weather"
       ],
       "answer": "A",
       "why": "The writer explains the effects of the tilt but never says what caused it."

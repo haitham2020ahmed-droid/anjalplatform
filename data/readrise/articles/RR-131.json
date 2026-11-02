@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How people travel to the moon",
+            "How people travel to the moon in a rocket and walk on it",
             "How weather satellites watch Earth and help us know the weather",
-            "Why clouds are white",
-            "How to build a machine at home"
+            "Why clouds are white and how they float so high in the sky",
+            "How to build a machine at home from simple parts and tools"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -166,9 +166,9 @@
           "stem": "Why can one kind of satellite look at the same spot all the time?",
           "options": [
             "It moves just as fast as Earth spins.",
-            "It is tied to a tall tower.",
-            "It does not move at all.",
-            "It flies from pole to pole."
+            "It is tied to a tall tower on the ground.",
+            "It does not move at all in the sky.",
+            "It flies from pole to pole around Earth."
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -327,10 +327,10 @@
         {
           "stem": "According to the article, why doesn't a satellite fall to Earth?",
           "options": [
-            "It is much lighter than the air around it.",
+            "It is much lighter than the air around it, so it floats up there.",
             "It moves sideways so fast that it keeps circling the planet.",
-            "Strong winds high up in space hold it in place.",
-            "Gravity stops working once something reaches space."
+            "Strong winds high up in space hold it in place like a kite.",
+            "Gravity stops working once something reaches space, so nothing pulls it down."
           ],
           "answer": "B",
           "skill": "detail",
@@ -413,9 +413,9 @@
           "stem": "Why does the author include a question about why satellites do not fall?",
           "options": [
             "To make the reader think and then explain an idea",
-            "To show that satellites often fall",
-            "To tell a funny story",
-            "To list the parts of a rocket"
+            "To show that satellites often fall down onto the Earth",
+            "To tell a funny story about a clumsy astronaut",
+            "To list all the parts of a rocket and its engine"
           ],
           "answer": "A",
           "skill": "author-purpose",

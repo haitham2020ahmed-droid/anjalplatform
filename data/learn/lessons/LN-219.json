@@ -98,9 +98,9 @@
      "stem": "What does the coach mean?",
      "options": [
       "We were too sure of ourselves, so we lost.",
-      "We ran like rabbits.",
-      "We were the slowest team.",
-      "We won the race."
+      "We ran like rabbits all through the race.",
+      "We were the slowest team in the whole race.",
+      "We won the race and got a gold cup."
      ],
      "answer": 0,
      "why": "In the story, the hare is far ahead, stops, and loses. The team did the same."
@@ -209,9 +209,9 @@
      "stem": "What does “a Herculean task” mean?",
      "options": [
       "a very hard job that needs great effort",
-      "a quick and easy job",
-      "a job for the sports team",
-      "a job about Greek history"
+      "a quick and easy job for one person to do",
+      "a job for the sports team to do",
+      "a job about Greek history and myths"
      ],
      "answer": 0,
      "why": "Hercules did very hard jobs. Hundreds of chairs and piles of rubbish show cleaning the school was very hard."

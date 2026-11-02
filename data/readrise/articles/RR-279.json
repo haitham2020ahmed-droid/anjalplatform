@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the central idea of this article?",
           "options": [
-            "Rowing boats are nearly impossible for any crew to steer well.",
+            "Rowing boats are nearly impossible for any crew to steer well, even with practice.",
             "Rowing combines a crew's strength with precise timing and coordination to move a boat.",
-            "Only trained Olympic athletes are legally allowed to row competitively.",
-            "The coxswain is always the physically strongest member of the entire crew."
+            "Only trained Olympic athletes are legally allowed to row competitively in the world.",
+            "The coxswain is always the physically strongest member of the entire crew in every boat."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -311,9 +311,9 @@
           "stem": "According to the article, why is a shell shaped long and narrow?",
           "options": [
             "So it can slide through water with very little resistance",
-            "So it can carry many more passengers on board",
-            "So it floats noticeably higher above the water",
-            "So it becomes much easier to paint and decorate"
+            "So it can carry many more passengers on board each trip",
+            "So it floats noticeably higher above the water in the bay",
+            "So it becomes much easier to paint and decorate with colors"
           ],
           "answer": "A",
           "skill": "detail",
@@ -412,9 +412,9 @@
         {
           "stem": "How is this article mostly organized?",
           "options": [
-            "As a step-by-step guide to building a shell from scratch",
+            "As a step-by-step guide to building a shell from scratch in a workshop with wood and tools",
             "By explaining the boat, the stroke, the physics involved, and the teamwork needed, in that order",
-            "As an argument against competitive rowing",
+            "As an argument against competitive rowing and against all other water sports in school",
             "As a lengthy and detailed comparison between rowing and competitive swimming"
           ],
           "answer": "B",
@@ -574,9 +574,9 @@
         {
           "stem": "Why does the author mention that coaches spend countless hours helping crews refine their stroke?",
           "options": [
-            "To argue that coaching is completely unnecessary for already skilled crews",
-            "To explain in detail how coaches are chosen for a national team",
-            "To compare the overall cost of several different coaching methods",
+            "To argue that coaching is completely unnecessary for already skilled crews, since they never improve",
+            "To explain in detail how coaches are chosen for a national team, and who pays them",
+            "To compare the overall cost of several different coaching methods used in the sport",
             "To show that achieving good timing and coordination requires ongoing effort and practice"
           ],
           "answer": "D",

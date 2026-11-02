@@ -148,10 +148,10 @@
         {
           "stem": "What does the big map show?",
           "options": [
-            "Only tall mountains",
-            "Only bright stars",
+            "Only tall mountains and rocks",
+            "Only bright stars and planets",
             "The coast, towns, and water",
-            "A king's old castle"
+            "A king's old castle and gardens"
           ],
           "answer": "C",
           "skill": "detail",
@@ -165,9 +165,9 @@
         {
           "stem": "What happens right after Hassan asks Omar to copy the map?",
           "options": [
-            "Omar throws the map away",
-            "Omar falls asleep at his desk",
-            "Omar runs straight to the king",
+            "Omar throws the map away into the fire",
+            "Omar falls asleep at his desk again",
+            "Omar runs straight to the king's palace",
             "Omar copies the map slowly and with care"
           ],
           "answer": "D",
@@ -183,9 +183,9 @@
           "stem": "Why must Omar be very careful when he copies the map?",
           "options": [
             "A mistake could send a ship to the wrong harbor",
-            "The king is standing right next to him",
-            "The map is written in a strange language",
-            "Hassan cannot see very well at all"
+            "The king is standing right next to him, watching",
+            "The map is written in a strange language he cannot read",
+            "Hassan cannot see very well at all in the dim room"
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -199,10 +199,10 @@
         {
           "stem": "Why does Omar check the harbor a second time?",
           "options": [
-            "He forgot how to copy maps",
+            "He forgot how to copy maps from the book",
             "He wants to be sure before he tells Hassan",
-            "He wants to draw a brand new harbor",
-            "He is waiting for the king to arrive"
+            "He wants to draw a brand new harbor map",
+            "He is waiting for the king to arrive there"
           ],
           "answer": "B",
           "skill": "inference",
@@ -233,9 +233,9 @@
         {
           "stem": "In the story, a mistake is —",
           "options": [
-            "A brand new map",
-            "A kind of sandy harbor",
-            "An order given by the king",
+            "A brand new map made by the king's men",
+            "A kind of sandy harbor near the old town",
+            "An order given by the king to his sailors",
             "Something done wrong that needs fixing"
           ],
           "answer": "D",
@@ -294,9 +294,9 @@
           "stem": "Which sentence best states the central idea of the story?",
           "options": [
             "An apprentice's careful checking saves a valuable map from a costly mistake",
-            "A geographer builds a brand new ship for the king's navy",
-            "Palermo is the only city in the world that makes maps",
-            "Geographers in this story never make any mistakes at all"
+            "A geographer builds a brand new ship for the king's navy and sails around the world",
+            "Palermo is the only city in the world that makes maps, and every mapmaker lives there",
+            "Geographers in this story never make any mistakes at all, so the apprentice has no work"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -412,9 +412,9 @@
         {
           "stem": "Why does Hassan tell Omar to examine every line and label on the map?",
           "options": [
-            "Because the king enjoys reading long maps",
-            "Because Omar is known as a slow reader",
-            "Because the parchment used is far too thin",
+            "Because the king enjoys reading long maps in his palace",
+            "Because Omar is known as a slow reader at school",
+            "Because the parchment used is far too thin for the ink",
             "Because a tiny mistake could send a ship off course"
           ],
           "answer": "D",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best expresses the central idea of the story?",
           "options": [
-            "Scholars in the twelfth century never disagreed about geography",
+            "Scholars in the twelfth century never disagreed about geography, maps, or the shape of the sea",
             "A meticulous apprentice's verification prevents a dangerous error from reaching sailors",
-            "Palermo was the only city with any skilled mapmakers",
-            "Kings in this century had no interest in geography"
+            "Palermo was the only city with any skilled mapmakers, and no other town in the world had any",
+            "Kings in this century had no interest in geography, and they never asked for any maps"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -506,8 +506,8 @@
         {
           "stem": "What does Omar compare his copy against to verify the error?",
           "options": [
-            "A ship captain's personal logbook",
-            "The king's own private letters",
+            "A ship captain's personal logbook from the trip",
+            "The king's own private letters to his friends",
             "The original manuscript and earlier notes",
             "A map drawn by a rival geographer"
           ],
@@ -591,10 +591,10 @@
         {
           "stem": "Why does the author end the story with Omar's reflection years later?",
           "options": [
-            "To show that Omar eventually quit mapmaking",
+            "To show that Omar eventually quit mapmaking for a different job",
             "To show that careful work carries real responsibility",
-            "To explain exactly how parchment is made",
-            "To describe a later voyage Omar took himself"
+            "To explain exactly how parchment is made from animal skins",
+            "To describe a later voyage Omar took himself on a big ship"
           ],
           "answer": "B",
           "skill": "author-purpose",

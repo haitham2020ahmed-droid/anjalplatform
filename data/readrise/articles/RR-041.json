@@ -116,8 +116,8 @@
           "options": [
             "How to catch butterflies in a garden",
             "How a caterpillar changes into a butterfly",
-            "Why birds eat caterpillars",
-            "How plants make sweet nectar"
+            "Why birds eat caterpillars in the spring",
+            "How plants make sweet nectar for the bees"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -165,9 +165,9 @@
         {
           "stem": "What does the word chrysalis mean in this article?",
           "options": [
-            "A sweet juice inside flowers",
-            "A long tube for drinking",
-            "A caterpillar's first meal",
+            "A sweet juice inside flowers that bees collect",
+            "A long tube for drinking from flowers",
+            "A caterpillar's first meal after it hatches",
             "A hard case where the caterpillar changes"
           ],
           "answer": "D",
@@ -182,10 +182,10 @@
         {
           "stem": "What happens just after the butterfly comes out of the case?",
           "options": [
-            "It lays eggs on a leaf.",
+            "It lays eggs on a leaf at once.",
             "It waits for its wings to dry.",
-            "It sheds its skin again.",
-            "It eats its egg shell."
+            "It sheds its skin again in the sun.",
+            "It eats its egg shell and rests."
           ],
           "answer": "B",
           "skill": "sequence",
@@ -294,9 +294,9 @@
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
             "A butterfly goes through four stages and changes its whole body as it grows.",
-            "Caterpillars eat more leaves than any other animal on Earth.",
-            "Butterflies need real straws to drink their food from flowers.",
-            "Painted ladies are the strongest butterflies in the world."
+            "Caterpillars eat more leaves than any other animal on Earth does, and they never stop.",
+            "Butterflies need real straws to drink their food from the flowers.",
+            "Painted ladies are the strongest butterflies in the whole wide world."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -395,10 +395,10 @@
         {
           "stem": "What would most likely happen if a butterfly laid its eggs on a plant its caterpillars cannot eat?",
           "options": [
-            "The caterpillars would molt faster.",
+            "The caterpillars would molt faster and grow bigger.",
             "The caterpillars would not have the food they need.",
-            "The eggs would hatch into adults.",
-            "The plant would make more nectar."
+            "The eggs would hatch into adults right away.",
+            "The plant would make more nectar for the bees."
           ],
           "answer": "B",
           "skill": "inference",
@@ -412,9 +412,9 @@
         {
           "stem": "Why does the author include the paragraph about Saudi Arabia?",
           "options": [
-            "To prove that butterflies live only in Saudi Arabia",
-            "To explain how painted ladies migrate",
-            "To list every butterfly that lives in the desert",
+            "To prove that butterflies live only in Saudi Arabia, and nowhere else",
+            "To explain how painted ladies migrate from place to place in the spring",
+            "To list every butterfly that lives in the desert, one after another",
             "To show a local butterfly whose food plant helps keep it safe"
           ],
           "answer": "D",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
-            "Butterflies are the most important pollinators on Earth.",
-            "Caterpillars are pests that farmers must control.",
+            "Butterflies are the most important pollinators on Earth, more than bees, so farmers should plant more of them.",
+            "Caterpillars are pests that farmers must control, because they eat crops and leaves in the fields.",
             "A butterfly's life is a complete change in form, from egg to larva to pupa to adult.",
-            "Painted ladies and plain tigers are the only butterflies in Arabia."
+            "Painted ladies and plain tigers are the only butterflies in Arabia, and no other kinds are seen there."
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -540,10 +540,10 @@
         {
           "stem": "Why do birds and other predators learn to avoid plain tiger caterpillars?",
           "options": [
-            "The caterpillars hide inside a hard chrysalis all their lives.",
-            "The caterpillars are too small to be worth eating.",
+            "The caterpillars hide inside a hard chrysalis all their lives, so no bird can see them.",
+            "The caterpillars are too small to be worth eating, so birds do not hunt for them.",
             "The caterpillars eat ushar, a plant with a bitter poison, so they taste unpleasant.",
-            "The caterpillars sting predators with their feet."
+            "The caterpillars sting predators with their feet, so no bird dares to come close to them."
           ],
           "answer": "C",
           "skill": "cause-effect",

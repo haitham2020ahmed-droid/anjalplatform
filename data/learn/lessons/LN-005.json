@@ -94,10 +94,10 @@
      "passage": "Penguins are birds that cannot fly. Most penguins live in the cold south of the world. They are good swimmers.",
      "stem": "Your question is: Where do penguins live? Which sentence answers it?",
      "options": [
-      "Penguins are birds that cannot fly.",
-      "They are good swimmers.",
+      "Penguins are birds that cannot fly and live in groups.",
+      "They are good swimmers and eat a lot of fish.",
       "Most penguins live in the cold south of the world.",
-      "Penguins cannot fly."
+      "Penguins cannot fly, but they can run on the ice."
      ],
      "answer": 2,
      "why": "The key word is **live**. This sentence tells where penguins live."
@@ -118,9 +118,9 @@
      "passage": "Lions live in groups. A lion can sleep up to 20 hours a day. Lions roar loudly.",
      "stem": "Your question is: How long do lions sleep? Which sentence answers it?",
      "options": [
-      "Lions live in groups.",
-      "Lions roar loudly.",
-      "Lions are big cats.",
+      "Lions live in groups called prides.",
+      "Lions roar loudly across the grass.",
+      "Lions are big cats with a thick mane.",
       "A lion can sleep up to 20 hours a day."
      ],
      "answer": 3,
@@ -173,10 +173,10 @@
     "passage": "Huda's class is making a booklet about farming in Saudi Arabia. Huda chose to write about date palms. She wants to explain how farmers plant the trees, water them and harvest the fruit. First, she needs one good question to guide her research.",
     "stem": "Which is the best research question for Huda's report?",
     "options": [
-     "Do I like eating dates?",
+     "Do I like eating dates more than apples?",
      "How do farmers plant and care for date palms?",
      "What is the tallest tree in the world?",
-     "What are all the plants on Earth?"
+     "What are all the plants on Earth and the sea?"
     ],
     "answer": 1,
     "hint": "That question is too small, too big or not about her topic. What does Huda want to explain?",
@@ -215,7 +215,7 @@
      "stem": "Your question is: Why do some leaves change colour in autumn? Which note answers it?",
      "options": [
       "The green fades, so hidden yellow and orange show.",
-      "Days become longer and warmer in autumn.",
+      "Days become longer and warmer in the autumn season.",
       "People enjoy walking in parks in autumn.",
       "Trees make more green colouring in autumn."
      ],
@@ -285,7 +285,7 @@
     "passage": "Rüppell's fox lives in the deserts of Arabia and North Africa. Its large ears do more than hear well: blood flowing through them gives off heat, which helps the fox stay cool. Thick fur on the soles of its feet protects it from hot sand. The fox rests in a cool den during the day and hunts at night, when temperatures fall. It eats insects, lizards and small rodents. Foxes appear in many old stories and poems.",
     "stem": "A student's question is: How does Rüppell's fox survive the desert heat? Which note best answers it using the source?",
     "options": [
-     "It eats insects, lizards and small rodents.",
+     "It eats insects, lizards and small rodents at night.",
      "Foxes appear in many old stories and poems.",
      "Its ears give off heat, and it rests in a den by day.",
      "It lives in the deserts of Arabia and Africa."
@@ -340,10 +340,10 @@
      "passage": "The numerals we use today, 0 to 9, first came from India. Scholars writing in Arabic, such as al-Khwarizmi, wrote books that explained them. Later, these books were translated in Europe. Over time, the new numerals replaced Roman numerals there.",
      "stem": "Your question is: How did these numerals reach Europe? Which note answers it?",
      "options": [
-      "They first came from India.",
+      "They first came from India, a long time ago.",
       "Arabic books about them were translated in Europe.",
-      "They replaced Roman numerals over time.",
-      "Al-Khwarizmi wrote about mathematics."
+      "They replaced Roman numerals over a long time.",
+      "Al-Khwarizmi wrote about mathematics in Baghdad."
      ],
      "answer": 1,
      "why": "The source says the books were translated in Europe. That is how the numerals reached it."
@@ -440,10 +440,10 @@
      "passage": "Lina must write a report that compares life in her city today with life 50 years ago. Her main sources will be interviews with her grandparents.",
      "stem": "Which research question best fits her purpose and sources?",
      "options": [
-      "What will our city look like in the year 2100?",
-      "What is the population of every city in the world?",
+      "What will our city look like in the year 2100 with flying cars and robots?",
+      "What is the population of every city in the world and in each country?",
       "How has daily life in our city changed since my grandparents were young?",
-      "Why do so many people like to live in big cities?"
+      "Why do so many people like to live in big cities and not in villages?"
      ],
      "answer": 2,
      "why": "It compares then and now, and her grandparents can answer it from their own lives."

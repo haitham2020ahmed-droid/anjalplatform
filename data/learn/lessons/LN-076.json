@@ -343,9 +343,9 @@
      "stem": "Why does this sentence have a comma?",
      "options": [
       "It separates an opening clause from the main clause.",
-      "It comes before the word and.",
-      "It separates two nouns.",
-      "It shows someone is speaking."
+      "It comes before the word and in the sentence.",
+      "It separates two nouns that are next to each other.",
+      "It shows someone is speaking out loud in a story."
      ],
      "answer": 0,
      "why": "**While Grandma told stories** is an opening clause. The comma separates it from the main clause **we sat**."
@@ -439,9 +439,9 @@
      "passage": "After eating the children went out to play.",
      "stem": "Why does this sentence need a comma after 'eating'?",
      "options": [
-      "Because 'eating' is a noun.",
-      "Because the sentence is a question.",
-      "Because 'children' is plural.",
+      "Because 'eating' is a noun that names a thing.",
+      "Because the sentence is a question that needs a pause.",
+      "Because 'children' is plural and needs a comma after it.",
       "Without it, a reader might think someone ate the children."
      ],
      "answer": 3,

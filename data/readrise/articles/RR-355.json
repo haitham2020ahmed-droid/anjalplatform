@@ -148,10 +148,10 @@
         {
           "stem": "What happens right after the cousins find the map?",
           "options": [
-            "They dig near the tree",
-            "They run to the hill",
+            "They dig near the old tree",
+            "They run to the hill at once",
             "They ask Grandfather about it",
-            "They hide the map"
+            "They hide the map in a box"
           ],
           "answer": "C",
           "skill": "sequence",
@@ -165,9 +165,9 @@
         {
           "stem": "In the story, a chest is —",
           "options": [
-            "a hill made of sand",
-            "a kind of old map",
-            "a path through a field",
+            "a hill made of sand and small stones",
+            "a kind of old map with no signs",
+            "a path through a field of grass",
             "a strong box used to store things"
           ],
           "answer": "D",
@@ -216,10 +216,10 @@
         {
           "stem": "What can you tell about the chest because it was buried for so long?",
           "options": [
-            "It must be very light",
-            "It belonged to a stranger",
+            "It must be very light, since it was empty inside",
+            "It belonged to a stranger from another country far away",
             "It was hidden a long time ago, before Grandfather was born",
-            "It was buried just last week"
+            "It was buried just last week by the family"
           ],
           "answer": "C",
           "skill": "inference",
@@ -233,9 +233,9 @@
         {
           "stem": "Why does the author begin the story by describing a normal Friday visit?",
           "options": [
-            "To show the reader the city market",
-            "To explain how to clean an attic",
-            "To describe Noura's school day",
+            "To show the reader the city market where Noura buys food",
+            "To explain how to clean an attic and what tools to use",
+            "To describe Noura's school day from the first lesson to the very last bell",
             "To help the reader see that this Friday becomes special and different"
           ],
           "answer": "D",
@@ -362,9 +362,9 @@
           "stem": "In the story, the word heirloom best describes —",
           "options": [
             "the old chest passed down through the family",
-            "a new toy bought at a store",
-            "the hill behind the house",
-            "the trail the cousins walk on"
+            "a new toy bought at a store in the town",
+            "the hill behind the house at the edge of town",
+            "the trail the cousins walk on every day"
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -378,10 +378,10 @@
         {
           "stem": "Why do the cousins pack water, a flashlight, and snacks before setting out?",
           "options": [
-            "They plan to be away from home for a long trip",
+            "They plan to be away from home for a long trip to another city",
             "They expect their walk to the hill to take some time and effort",
-            "They are going to a party",
-            "They think it will rain"
+            "They are going to a party at a friend's house on the hill",
+            "They think it will rain, so they take things to stay dry"
           ],
           "answer": "B",
           "skill": "inference",
@@ -395,10 +395,10 @@
         {
           "stem": "What can readers infer about the great-grandfather from the letter he left?",
           "options": [
-            "He disliked his own family",
-            "He planned to dig up the chest himself someday",
+            "He disliked his own family and wanted them to stay away",
+            "He planned to dig up the chest himself someday, when he returned",
             "He wanted someone in the family to eventually find his hidden things",
-            "He did not know how to write"
+            "He did not know how to write, so a friend wrote the letter"
           ],
           "answer": "C",
           "skill": "inference",
@@ -412,9 +412,9 @@
         {
           "stem": "How does the author organize the events of the story?",
           "options": [
-            "By comparing two different hills",
-            "By describing every room in the house at once",
-            "By jumping back and forth between many different days",
+            "By comparing two different hills in the desert and the roads that lead to them",
+            "By describing every room in the house at once, from the kitchen to the roof",
+            "By jumping back and forth between many different days of the cousins' trip",
             "In the order the cousins find the map, follow it, dig, and then learn the truth"
           ],
           "answer": "D",
@@ -523,9 +523,9 @@
         {
           "stem": "In the story, the word keepsake most nearly means —",
           "options": [
-            "a tool used for digging",
-            "a kind of old map",
-            "a hill with three rocks",
+            "a tool that is used for digging in the ground",
+            "a kind of old map that shows hidden treasure",
+            "a hill with three rocks on the top of it",
             "an object kept to remember someone or something"
           ],
           "answer": "D",
@@ -541,9 +541,9 @@
           "stem": "What evidence suggests the great-grandfather buried the chest deliberately, rather than by accident?",
           "options": [
             "He wrote a letter and buried it alongside the compass and photograph",
-            "The chest was found far from any path",
-            "The cousins found the chest without any map at all",
-            "Grandfather said his father lost the chest while playing"
+            "The chest was found far from any path in the forest",
+            "The cousins found the chest without using any map at all",
+            "Grandfather said his father lost the chest while he was playing near the old farm"
           ],
           "answer": "A",
           "skill": "inference",
@@ -574,10 +574,10 @@
         {
           "stem": "What can readers infer about why the great-grandfather chose to hide the chest near a hill rather than inside the house?",
           "options": [
-            "He wanted it to be found easily by anyone passing by",
-            "He disliked the house and wanted to leave it entirely",
+            "He wanted it to be found easily by anyone passing by, so that the village could share it",
+            "He disliked the house and wanted to leave it entirely, so he moved away",
             "He likely wanted a memorable, private spot that only someone with the map could locate",
-            "He was told to bury it there by a neighbor"
+            "He was told to bury it there by a neighbor who lived next to the hill"
           ],
           "answer": "C",
           "skill": "inference",
@@ -591,9 +591,9 @@
         {
           "stem": "Why does the author end the story with Grandfather recounting stories about his father as a boy?",
           "options": [
-            "To explain exactly how old compasses are made",
-            "To suggest the cousins should sell the chest",
-            "To describe what the village looked like in the future",
+            "To explain exactly how old compasses are made by hand in the workshop",
+            "To suggest the cousins should sell the chest to a rich collector in the big city",
+            "To describe what the village looked like in the future, many years later",
             "To show that the chest's real value is the family connection and memory it restores"
           ],
           "answer": "D",

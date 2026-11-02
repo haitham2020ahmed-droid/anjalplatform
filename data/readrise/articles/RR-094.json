@@ -233,9 +233,9 @@
         {
           "stem": "How does the author begin the article?",
           "options": [
-            "With a list of football rules",
-            "With a question about the weather",
-            "With the history of football",
+            "With a list of football rules and fouls",
+            "With a question about the weather that day",
+            "With the history of football in many lands",
             "With a short scene of a free kick that curves"
           ],
           "answer": "D",
@@ -311,9 +311,9 @@
           "stem": "What technique did the kicker use?",
           "options": [
             "She struck one side of the ball with the inside of her foot.",
-            "She threw the ball over the wall with both hands.",
-            "She hit the center of the ball hard with her toe.",
-            "She headed the ball high over the wall of defenders."
+            "She threw the ball over the wall with both hands in the air",
+            "She hit the center of the ball hard with the front of her toe",
+            "She headed the ball high over the wall of defenders to the net"
           ],
           "answer": "A",
           "skill": "detail",
@@ -379,9 +379,9 @@
           "stem": "Compare a ball with lots of spin and a ball with almost no spin. Which statement is correct?",
           "options": [
             "A spinning ball curves smoothly; a ball with no spin can wobble and dip.",
-            "Both balls fly in a perfectly straight line to the goal.",
-            "Only the ball with no spin can curve around the wall.",
-            "Neither ball is affected in any way by the air around it."
+            "Both balls fly in a perfectly straight line to the goal every time, whatever the player does",
+            "Only the ball with no spin can curve around the wall of players and then fall into the net",
+            "Neither ball is affected in any way by the air around it, because air has no effect on balls"
           ],
           "answer": "A",
           "skill": "compare",
@@ -412,10 +412,10 @@
         {
           "stem": "Why does the author mention that Saudi Arabia will host the World Cup in 2034?",
           "options": [
-            "To explain the rules of a free kick",
+            "To explain the rules of a free kick to the new players in the league",
             "To give readers a reason to look for this science in real matches",
-            "To describe how footballs are made",
-            "To prove that spin is not important"
+            "To describe how footballs are made in factories and sold",
+            "To prove that spin is not important in a football match"
           ],
           "answer": "B",
           "skill": "author-purpose",
@@ -491,8 +491,8 @@
           "options": [
             "A famous goalkeeper who played long ago",
             "A German physicist who studied it in the 1850s",
-            "The designer of the first football",
-            "A Saudi coach who trained players"
+            "The designer of the first football ever made",
+            "A Saudi coach who trained young players"
           ],
           "answer": "B",
           "skill": "detail",
@@ -557,7 +557,7 @@
         {
           "stem": "What can you infer from the fact that the same science explains spinning shots in tennis and table tennis?",
           "options": [
-            "The Magnus effect only works on footballs and nothing else.",
+            "The Magnus effect only works on footballs and nothing else in any sport.",
             "The Magnus effect applies to many spinning balls moving through air.",
             "Tennis balls cannot spin when they are hit with a racket.",
             "Table tennis was invented by Magnus himself in Germany."
@@ -574,10 +574,10 @@
         {
           "stem": "How does the author organize the article?",
           "options": [
-            "As an argument against free kicks",
-            "As a list of famous goals in time order",
+            "As an argument against free kicks, with reasons from coaches",
+            "As a list of famous goals in time order, from the oldest to the newest",
             "As a scene from a match followed by a scientific explanation",
-            "As a comparison of two football teams"
+            "As a comparison of two football teams in the same league"
           ],
           "answer": "C",
           "skill": "text-structure",
@@ -591,9 +591,9 @@
         {
           "stem": "Which detail best supports the idea that curving kicks depend on practice as well as science?",
           "options": [
-            "The Magnus effect was studied in the 1850s.",
-            "Air pressure is lower on one side of the ball.",
-            "Tennis players also use spin.",
+            "The Magnus effect was studied in the 1850s by a German scientist.",
+            "Air pressure is lower on one side of the ball in the air, which curves it.",
+            "Tennis players also use spin when they hit the ball over a net.",
             "Mastering a curving kick requires countless hours of practice."
           ],
           "answer": "D",

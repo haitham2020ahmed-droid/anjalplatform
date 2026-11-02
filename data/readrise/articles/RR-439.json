@@ -115,9 +115,9 @@
           "stem": "What is this story mostly about?",
           "options": [
             "A girl who builds up her running and finishes a big race",
-            "A girl who learns to swim at a new pool",
-            "A coach who cannot find her running shoes",
-            "A school that cancels its yearly race"
+            "A girl who learns to swim at a new pool near her home",
+            "A coach who cannot find her running shoes before the race",
+            "A school that cancels its yearly race because of the heat"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -182,10 +182,10 @@
         {
           "stem": "What happened to some kids who sprinted at the start of the race?",
           "options": [
-            "They won the race easily",
+            "They won the race easily at the end",
             "They got tired and had to walk later",
-            "They stopped to help Noor",
-            "They ran the race twice"
+            "They stopped to help Noor on the track",
+            "They ran the race twice in one day"
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -233,10 +233,10 @@
         {
           "stem": "Why does Coach Reem say Noor could run a real marathon one day?",
           "options": [
-            "Because Noor already ran forty-two kilometers",
-            "Because Noor is older than her friends",
+            "Because Noor already ran forty-two kilometers in her first race",
+            "Because Noor is older than her friends and taller than the coach",
             "Because Noor showed she can build up distance and keep going",
-            "Because the school has no more races"
+            "Because the school has no more races, so she must run in a big one"
           ],
           "answer": "C",
           "skill": "author-purpose",
@@ -294,9 +294,9 @@
           "stem": "Which sentence best states the central idea of the story?",
           "options": [
             "Noor trains patiently for months and uses a steady pace and determination to finish her school district's biggest race.",
-            "Noor decides running is too hard and quits the team.",
-            "Lina wins the Fun Run while Noor finishes last.",
-            "Coach Reem cancels the Fun Run because it is too long."
+            "Noor decides running is too hard, so she quits the team and never goes to any practice again, even with Coach Reem.",
+            "Lina wins the Fun Run while Noor finishes last, and Noor feels sad about her slow pace.",
+            "Coach Reem cancels the Fun Run because it is too long, and the students go home early."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -327,10 +327,10 @@
         {
           "stem": "How long is the Fun Run, and what does that make it for the district?",
           "options": [
-            "Two kilometers, the shortest race of the year",
+            "Two kilometers, the shortest race of the year for the district",
             "Five kilometers, the longest race the district holds all year",
-            "Ten kilometers, a race only adults can enter",
-            "One kilometer, a race just for younger students"
+            "Ten kilometers, a race only adults can enter in the district",
+            "One kilometer, a race just for younger students in the district"
           ],
           "answer": "B",
           "skill": "detail",
@@ -379,9 +379,9 @@
           "stem": "Why did Noor keep repeating \"I can do this\" during the third kilometer?",
           "options": [
             "To encourage herself to keep going even though she felt tired",
-            "To remind herself of the route back to school",
-            "To practice speaking loudly for a school play",
-            "To tell Lina to slow down"
+            "To remind herself of the route back to school and the road",
+            "To practice speaking loudly for a school play in the hall",
+            "To tell Lina to slow down because she was so tired"
           ],
           "answer": "A",
           "skill": "inference",
@@ -395,10 +395,10 @@
         {
           "stem": "How does the author organize the events of the story?",
           "options": [
-            "By comparing two different schools in every paragraph",
+            "By comparing two different schools in every paragraph, from their gyms to their teachers and their sports days",
             "By following Noor's training, the race itself, and then her success afterward, in time order",
-            "By explaining rules for several different sports",
-            "By listing facts about marathons around the world"
+            "By explaining rules for several different sports, one by one, from football to tennis",
+            "By listing facts about marathons around the world, from the oldest to the newest race"
           ],
           "answer": "B",
           "skill": "text-structure",
@@ -412,10 +412,10 @@
         {
           "stem": "Why does Coach Reem explain that a real marathon is about forty-two kilometers?",
           "options": [
-            "To scare Noor away from running longer races",
+            "To scare Noor away from running longer races for good, since they are too hard for her",
             "To show that the Fun Run was a fair, age-appropriate step toward a much bigger future goal",
-            "To tell Noor she must run a marathon next week",
-            "To explain why the Fun Run was canceled"
+            "To tell Noor she must run a marathon next week, in the big city race",
+            "To explain why the Fun Run was canceled that day, due to the heat"
           ],
           "answer": "B",
           "skill": "author-purpose",
@@ -591,10 +591,10 @@
         {
           "stem": "Why does the story end by saying Noor's lesson applied to challenges \"both on and off the running track\"?",
           "options": [
-            "To hint that Noor plans to switch to a different sport entirely",
+            "To hint that Noor plans to switch to a different sport entirely next year",
             "To suggest that pacing and determination help with more than just running",
-            "To indicate that the story's events were only a dream",
-            "To argue that running matters less than other activities"
+            "To indicate that the story's events were only a dream at night",
+            "To argue that running matters less than other activities in school"
           ],
           "answer": "B",
           "skill": "author-purpose",

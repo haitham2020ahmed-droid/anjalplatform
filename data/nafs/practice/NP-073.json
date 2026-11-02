@@ -61,10 +61,10 @@
       "difficulty": 2,
       "stem": "According to the passage, what happens when germs slip past the body's barriers?",
       "options": [
-        "The skin forms a protective wall.",
-        "Mucus traps them inside the nose.",
+        "The skin forms a protective wall around the body.",
+        "Mucus traps them inside the nose and the throat.",
         "White blood cells take action against them.",
-        "Tears wash them away at once."
+        "Tears wash them away at once from the eyes."
       ],
       "answer": "C",
       "why": "The barriers (skin, mucus, tears) come first; the passage says that after germs get past them, \"white blood cells take action.\""

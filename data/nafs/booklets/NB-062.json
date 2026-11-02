@@ -46,10 +46,10 @@
       "type": "MCQ",
       "stem": "What does “camouflage” mean in paragraph 1?",
       "options": [
-        "a loud warning call that frightens away enemies",
-        "the ability to run very fast across open ground",
+        "a loud warning call that frightens away enemies at night",
+        "the ability to run very fast across open ground and sand",
         "colouring that helps an animal blend into its surroundings",
-        "a hiding place under the ground"
+        "a hiding place under the ground where young animals sleep"
       ],
       "answer": "C",
       "why": "The speckled sandy feathers let the bird “vanish” against the gravel, so camouflage is colouring that blends in."
@@ -189,10 +189,10 @@
       "type": "MCQ",
       "stem": "What is the main idea of paragraph 4?",
       "options": [
-        "Falconry has always been practised in a careful way.",
-        "Cars and roads help scientists reach the desert.",
+        "Falconry has always been practised in a careful way by all.",
+        "Cars and roads help scientists reach the desert more easily.",
         "Hunting and habitat loss caused houbara numbers to fall sharply.",
-        "Scientists study houbaras in Central Asia."
+        "Scientists study houbaras in Central Asia and in Iran."
       ],
       "answer": "C",
       "why": "Paragraph 4 explains the dramatic fall: more intense hunting and destroyed habitat."
@@ -285,10 +285,10 @@
       "type": "MCQ",
       "stem": "According to paragraph 5, what did the satellite transmitters help researchers to do?",
       "options": [
-        "breed more chicks in captivity",
+        "breed more chicks in captivity in a centre in the desert",
         "follow migration routes and find resting and feeding places",
-        "stop hunters from using cars",
-        "measure the temperature of the desert"
+        "stop hunters from using cars and trucks in the desert",
+        "measure the temperature of the desert at night and by day"
       ],
       "answer": "B",
       "why": "The devices “enabled them to follow the birds' migration routes and to identify the places where they rested and fed.”"
@@ -333,9 +333,9 @@
       "type": "MCQ",
       "stem": "How would you describe the writer's attitude towards falconry?",
       "options": [
-        "The writer thinks it should be banned completely.",
-        "The writer believes it is the only reason houbaras survive.",
-        "The writer has no opinion about it.",
+        "The writer thinks it should be banned completely in the Kingdom.",
+        "The writer believes it is the only reason houbaras survive today.",
+        "The writer has no opinion about it, and only gives the facts.",
         "The writer respects it as heritage but believes it must be controlled."
       ],
       "answer": "D",
@@ -349,10 +349,10 @@
       "type": "MCQ",
       "stem": "How was hunting with falcons in earlier times DIFFERENT from hunting in the twentieth century?",
       "options": [
-        "Earlier hunting used cars; later hunting was on foot.",
+        "Earlier hunting used cars and trucks; later hunting was on foot and by camel.",
         "Earlier hunting was limited and careful; later hunting was far more intense.",
-        "Earlier hunting happened only in Central Asia.",
-        "Earlier hunting used satellite transmitters."
+        "Earlier hunting happened only in Central Asia, while later hunting was in Arabia.",
+        "Earlier hunting used satellite transmitters, but later hunting used no tools at all."
       ],
       "answer": "B",
       "why": "Paragraph 4 contrasts the “limited and careful way” of the past with the more intense hunting that cars made possible."
@@ -366,9 +366,9 @@
       "stem": "What is the effect of the information gathered by tracking the birds?",
       "options": [
         "It helps countries along the routes cooperate to protect important sites.",
-        "It allows hunters to find the birds more easily.",
-        "It stops the birds from migrating.",
-        "It proves that houbaras never drink water."
+        "It allows hunters to find the birds more easily in the desert and to catch them.",
+        "It stops the birds from migrating to the south in winter, as it is too cold.",
+        "It proves that houbaras never drink water in the dry desert or on the way."
       ],
       "answer": "A",
       "why": "Paragraph 5: “This information helps the countries along the routes to cooperate in protecting those important sites.”"
@@ -461,9 +461,9 @@
       "type": "MCQ",
       "stem": "According to paragraph 5, how have houbaras been brought back to protected areas such as Mahazat as-Sayd?",
       "options": [
-        "Hunters stopped using cars.",
-        "The weather became cooler.",
-        "The birds learned to avoid falcons.",
+        "Hunters stopped using cars in the reserves.",
+        "The weather became cooler in the desert.",
+        "The birds learned to avoid falcons and hunters.",
         "Captive-bred chicks were released into reserves."
       ],
       "answer": "D",
@@ -477,10 +477,10 @@
       "type": "MCQ",
       "stem": "Which viewpoint does the writer express in paragraph 6?",
       "options": [
-        "Traditions are less important than science.",
+        "Traditions are less important than science is, and should be left behind.",
         "Heritage and conservation can exist together if people act wisely.",
-        "Only scientists can protect wild animals.",
-        "Houbaras will certainly disappear whatever people do."
+        "Only scientists can protect wild animals in the desert.",
+        "Houbaras will certainly disappear whatever people do to help."
       ],
       "answer": "B",
       "why": "The writer says falconry can continue if hunting is controlled and habitats are preserved, combining science, laws and respect."

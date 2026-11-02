@@ -412,10 +412,10 @@
         {
           "stem": "How is the article mainly organized?",
           "options": [
-            "As a long story told by an old camel driver",
+            "As a long story told by an old camel driver about the desert",
             "By describing different parts of Hegra one at a time",
-            "As a list of problems and their solutions",
-            "By comparing Hegra with modern cities"
+            "As a list of problems and their solutions for the visitors",
+            "By comparing Hegra with modern cities in the Kingdom"
           ],
           "answer": "B",
           "skill": "text-structure",
@@ -557,9 +557,9 @@
         {
           "stem": "Why might archaeologists know more about Hegra's tombs than about daily life in its homes?",
           "options": [
-            "The Nabataeans forbade anyone from entering homes.",
-            "The homes were built many centuries after the tombs.",
-            "No one ever lived in Hegra.",
+            "The Nabataeans forbade anyone from entering homes, even their own families.",
+            "The homes were built many centuries after the tombs were finished.",
+            "No one ever lived in Hegra, so there were no real homes.",
             "The mud-brick homes crumbled, while the stone tombs endured."
           ],
           "answer": "D",

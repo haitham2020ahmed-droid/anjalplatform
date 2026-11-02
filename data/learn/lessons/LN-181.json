@@ -84,9 +84,9 @@
      "stem": "Reader A: The ring is special to Huda. Reader B: Huda does not like the ring. Which reading has proof?",
      "options": [
       "Reader A, because she wears it every day",
-      "Reader B, because the ring is old",
+      "Reader B, because the ring is old and plain",
       "Reader B, because she touches it",
-      "Neither reading has proof"
+      "Neither reading has any proof at all"
      ],
      "answer": 0,
      "why": "She wears it every day and touches it when nervous. That shows the ring is special to her."
@@ -110,7 +110,7 @@
       "Reader A, because the hill is big",
       "Reader A, because he took a breath",
       "Reader B, because he got ready and climbed",
-      "Neither reading is better"
+      "Neither reading is better than the other"
      ],
      "answer": 2,
      "why": "He ties his shoes, breathes deeply and starts to climb. A lazy boy would not do that."
@@ -195,8 +195,8 @@
      "passage": "At the end of the race, Lina was far behind. Her friend Dana, who was in first place, slowed down and waited. The two girls crossed the finish line together, holding hands.",
      "stem": "Reader A: Dana was too tired to win. Reader B: Dana cared more about her friend than about winning. Which reading is better supported?",
      "options": [
-      "Reader A, because Dana slowed down",
-      "Reader A, because Lina was far behind",
+      "Reader A, because Dana slowed down at the end",
+      "Reader A, because Lina was far behind her at the start",
       "Reader B, because Dana waited and held Lina's hand",
       "Both readings are equally well supported"
      ],
@@ -208,7 +208,7 @@
      "stem": "Reader A: The door stands for someone old but still giving. Reader B: The door is broken and useless. Which reading fits the WHOLE poem?",
      "options": [
       "Reader A, because the door still opens to let in light",
-      "Reader B, because the door creaks in the wind",
+      "Reader B, because the door creaks in the wind at night",
       "Reader B, because it groans when children run",
       "Neither, because poems never have a meaning"
      ],
@@ -219,9 +219,9 @@
      "passage": "Faris tore up his drawing and threw it in the bin. Then he took a fresh sheet of paper and began again, slower this time.",
      "stem": "Reader A says Faris gave up on drawing. Which detail best shows Reader A is wrong?",
      "options": [
-      "Faris tore up his drawing.",
-      "He threw it in the bin.",
-      "Faris was making a drawing.",
+      "Faris tore up his drawing and sighed.",
+      "He threw it in the bin and left.",
+      "Faris was making a drawing at his desk.",
       "He took a fresh sheet and began again."
      ],
      "answer": 3,
@@ -274,8 +274,8 @@
     "passage": "After his grandfather passed away, Majed found the old brass lantern in the storeroom. It was dented and black with soot. His mother wanted to throw it away, but Majed cleaned it every evening for a week until the brass shone. He remembered sitting beside his grandfather on the roof on summer nights, the lantern glowing between them while his grandfather named the stars. On the last night of the week, the power went out across the neighbourhood. Majed lit the lantern and carried it up to the roof. His little sister followed him, and he began to name the stars for her.",
     "stem": "Which interpretation of the lantern is best supported by the whole story?",
     "options": [
-     "It shows that Majed is afraid of the dark.",
-     "It shows Majed plans to sell it for money.",
+     "It shows that Majed is afraid of the dark and cannot sleep without light.",
+     "It shows Majed plans to sell it for money to buy a new bicycle.",
      "It stands for his grandfather's memory and the knowledge Majed now passes on.",
      "It shows that old things are useless and should be thrown away."
     ],

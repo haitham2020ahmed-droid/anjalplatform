@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How people dig holes to plant trees",
+            "How people dig holes to plant trees in the garden",
             "How sinkholes form and why the ground can collapse",
-            "How rain falls from clouds onto the ground",
-            "How roads are built across deserts"
+            "How rain falls from clouds onto the ground in spring",
+            "How roads are built across deserts by large machines"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -183,9 +183,9 @@
           "stem": "Based on the article, why might a sinkhole suddenly appear even though the ground looked completely solid the day before?",
           "options": [
             "A hidden empty space below it had slowly been forming for a long time",
-            "A truck drove over the spot the day before",
-            "A storm blew extra sand on top of the ground",
-            "A tree grew very quickly overnight"
+            "A truck drove over the spot the day before and pressed the ground",
+            "A storm blew extra sand on top of the ground and made a hole",
+            "A tree grew very quickly overnight and pushed the ground apart"
           ],
           "answer": "A",
           "skill": "inference",
@@ -200,9 +200,9 @@
           "stem": "Why does rain play an important part in forming a sinkhole?",
           "options": [
             "Rain eats away at the soft rock underground over time",
-            "Rain makes the ground above instantly hard",
-            "Rain fills the hole back up right away",
-            "Rain only affects roads, not the ground"
+            "Rain makes the ground above it instantly hard",
+            "Rain fills the hole back up right away every time",
+            "Rain only affects roads, and never the ground itself"
           ],
           "answer": "A",
           "skill": "inference",
@@ -233,10 +233,10 @@
         {
           "stem": "How does the author mostly organize the article?",
           "options": [
-            "By comparing sinkholes in two far countries",
-            "By telling a made-up story about one town",
+            "By comparing sinkholes in two far countries, one wet and one dry place",
+            "By telling a made-up story about one town and its sinkhole",
             "By explaining, in order, how sinkholes form and why they matter here",
-            "By listing different kinds of trees"
+            "By listing different kinds of trees found in the desert"
           ],
           "answer": "C",
           "skill": "text-structure",
@@ -294,9 +294,9 @@
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
             "Sinkholes form when underground rock slowly dissolves, leaving a cavity whose roof can later collapse.",
-            "Every hole in the ground anywhere in the world is caused by a sinkhole.",
-            "Sinkholes can only ever form directly underneath busy roads and highways.",
-            "Geologists study sinkholes mainly to find valuable buried treasure."
+            "Every hole in the ground anywhere in the world is caused by a sinkhole, even a well, a pit or a cave.",
+            "Sinkholes can only ever form directly underneath busy roads and highways, never in empty land.",
+            "Geologists study sinkholes mainly to find valuable buried treasure, such as gold and old coins."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -362,9 +362,9 @@
           "stem": "Why can the roof of an underground cavity eventually no longer hold up the ground above it?",
           "options": [
             "The roof slowly grows thinner and weaker as rock keeps dissolving",
-            "The roof turns to ice and cracks apart",
-            "The roof is struck by lightning",
-            "Geologists remove the roof on purpose"
+            "The roof turns to ice and cracks apart in the winter cold",
+            "The roof is struck by lightning during a heavy storm",
+            "Geologists remove the roof on purpose to study the rock below"
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -379,9 +379,9 @@
           "stem": "Based on the article, why might pumping too much groundwater make a sinkhole more likely in some places?",
           "options": [
             "It can lower the water that was helping support a cavity's roof",
-            "It instantly fills every cavity with fresh rock",
-            "It causes new limestone to form overnight",
-            "It stops rainwater from ever reaching the ground"
+            "It instantly fills every cavity with fresh rock and makes the ground hard",
+            "It causes new limestone to form overnight under the houses and roads",
+            "It stops rainwater from ever reaching the ground, so the soil turns to dust"
           ],
           "answer": "A",
           "skill": "inference",
@@ -413,9 +413,9 @@
           "stem": "Why does the author explain that some areas of Saudi Arabia sit on karst, limestone ground?",
           "options": [
             "To help readers understand why sinkholes can form in parts of the country",
-            "To prove that every region in Saudi Arabia has sinkholes",
-            "To explain exactly how geologists search for buried treasure",
-            "To show that limestone never dissolves in water"
+            "To prove that every region in Saudi Arabia has sinkholes, even in the sandy deserts",
+            "To explain exactly how geologists search for buried treasure under the ground",
+            "To show that limestone never dissolves in water, even after many years of rain"
           ],
           "answer": "A",
           "skill": "text-structure",
@@ -473,9 +473,9 @@
           "stem": "Which statement best captures the central idea of the article?",
           "options": [
             "Sinkholes form through a gradual process of underground erosion that weakens a cavity's roof until it collapses, sometimes suddenly.",
-            "Every depression anywhere on Earth's surface will eventually turn into a dangerous sinkhole given enough time.",
-            "Geologists map karst landscapes mainly so that engineers can build taller buildings on top of them.",
-            "Groundwater pumping is supposedly the only possible cause of sinkholes anywhere in the world."
+            "Every depression anywhere on Earth's surface will eventually turn into a dangerous sinkhole given enough time and rain, in every land.",
+            "Geologists map karst landscapes mainly so that engineers can build taller buildings on top of them and make more money.",
+            "Groundwater pumping is supposedly the only possible cause of sinkholes anywhere in the world, and nature plays no part at all."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -541,9 +541,9 @@
           "stem": "Why can a cavity's roof eventually no longer support the weight of the ground above it?",
           "options": [
             "Erosion gradually thins and weakens the rock that forms the roof",
-            "Geologists remove the roof to study the cavity below",
-            "The roof instantly turns into fresh groundwater",
-            "Sudden lightning strikes destroy the roof in seconds"
+            "Geologists remove the roof to study the cavity below it",
+            "The roof instantly turns into fresh groundwater in the cave",
+            "Sudden lightning strikes destroy the roof in seconds, during storms"
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -557,10 +557,10 @@
         {
           "stem": "Based on the article, why can a sinkhole appear to form with no warning, even though scientists say the process takes a long time?",
           "options": [
-            "Sinkholes only ever form during violent storms",
-            "Geologists intentionally hide sinkholes from the public",
+            "Sinkholes only ever form during violent storms, when the heavy rain washes the soil away",
+            "Geologists intentionally hide sinkholes from the public so that people will not be afraid",
             "The underground erosion happens slowly and out of sight, so the final collapse can seem sudden",
-            "The ground above a cavity always looks visibly different years in advance"
+            "The ground above a cavity always looks visibly different years in advance, so people can see it"
           ],
           "answer": "C",
           "skill": "inference",
@@ -574,9 +574,9 @@
         {
           "stem": "What can be reasonably inferred about why karst landscapes are especially prone to sinkholes?",
           "options": [
-            "Karst landscapes never receive any rainfall at all",
-            "Karst landscapes are always located deep underwater",
-            "Karst landscapes contain no groundwater whatsoever",
+            "Karst landscapes never receive any rainfall at all, so the rock stays dry and hard",
+            "Karst landscapes are always located deep underwater, where the rock is cold and wet",
+            "Karst landscapes contain no groundwater whatsoever, so there is nothing under the ground",
             "Karst landscapes contain unusually large amounts of easily dissolved limestone"
           ],
           "answer": "D",
@@ -592,9 +592,9 @@
           "stem": "Why does the author explain the difference between solution sinkholes and collapse sinkholes?",
           "options": [
             "To help readers understand that sinkholes can form either gradually or suddenly",
-            "To prove that collapse sinkholes never occur in karst landscapes",
-            "To argue that solution sinkholes are not real sinkholes at all",
-            "To show that only collapse sinkholes can swallow buildings"
+            "To prove that collapse sinkholes never occur in karst landscapes, only in places with sand",
+            "To argue that solution sinkholes are not real sinkholes at all, but only small puddles",
+            "To show that only collapse sinkholes can swallow buildings, cars and whole streets"
           ],
           "answer": "A",
           "skill": "text-structure",

@@ -10,6 +10,7 @@ import { ForbiddenError } from "@/server/auth/rbac";
 import { ValidationError } from "@/server/curriculum-admin";
 import { cellDetail, classSkills, GRID_PLANS, gridOf, isGridPlan, isPractised, isStrand, type CellDetail, type ClassSkills, type GridPlan, type SkillsGrid, type TrendPoint } from "@/server/skills/skills-grid";
 import { classReport, GROUP_LABEL, GROUP_ORDER, GROUP_RULE, sourceCards, type ClassReport, type SourceCard, type StudentGroup } from "@/server/skills/skills-report";
+import { LONGEST_RULE, LONGEST_TIP } from "@/server/skills/longest-pick";
 import { GUESS_RULE, GUESS_TIP, parseRange, rangePresets, TREND_ICON, TREND_RULE, TREND_WORD, type DateRange, type RangePreset, type Trend } from "@/server/skills/skills-trend";
 import { defaultCycle, loadCycle } from "@/server/assessment-cycle/cycle";
 import { skillPage, studentSkillsForTeacher, type SkillPage, type StudentSkillsView } from "@/server/skills/student-skills";
@@ -161,13 +162,14 @@ function DatePresets({ range, presets, t, href }: { range: DateRange; presets: R
 /** r75: ⬆️ ➖ ⬇️ next to a student's name (the word in the tooltip) and ⚡ when answering too fast.
  * r94 (audit): the tooltip also carries a short history ("45% → 60% → 75%", 14d ago → 7d ago → now) instead of
  * only the two-point UP/SAME/DOWN badge, for a teacher who wants more than the arrow. */
-function StudentMarks({ trend, guessing, trendPoints, t }: { trend?: Trend | null; guessing?: boolean; trendPoints?: TrendPoint[] | null; t: T }) {
+function StudentMarks({ trend, guessing, longest, trendPoints, t }: { trend?: Trend | null; guessing?: boolean; longest?: boolean; trendPoints?: TrendPoint[] | null; t: T }) {
   const history = trendPoints?.length ? trendPoints.map((p) => `${p.pct}%`).join(" → ") : null;
   const trendTitle = trend ? (history ? `${t(TREND_WORD[trend])} (${history})` : t(TREND_WORD[trend])) : "";
   return (
     <>
       {trend ? <span className="ms-1 text-xs" title={trendTitle} aria-label={trendTitle} data-testid="trend" data-trend={trend} data-trend-history={history ?? undefined}>{TREND_ICON[trend]}</span> : null}
       {guessing ? <span className="ms-1 text-xs" title={t(GUESS_TIP)} aria-label={t(GUESS_TIP)} data-testid="guessing">⚡</span> : null}
+      {longest ? <span className="ms-1 text-xs" title={t(LONGEST_TIP)} aria-label={t(LONGEST_TIP)} data-testid="longest-pick">🎯</span> : null}
     </>
   );
 }
@@ -217,7 +219,7 @@ function GridView({ g, t, href, plan, strand, detail, filters, range }: { g: Ski
             <table className="border-separate border-spacing-0 text-sm print:text-[9px]">
               <thead className="sticky top-0 z-20 bg-white">
                 <tr data-testid="grid-groups">
-                  <th rowSpan={2} className="sticky start-0 z-30 min-w-[9rem] border-b border-e border-slate-200 bg-white px-3 py-2 text-start align-bottom"><span className="inline-flex items-center gap-1">{t("Student")} <InfoTip text={TREND_RULE} /> <InfoTip text={GUESS_RULE} /></span></th>
+                  <th rowSpan={2} className="sticky start-0 z-30 min-w-[9rem] border-b border-e border-slate-200 bg-white px-3 py-2 text-start align-bottom"><span className="inline-flex items-center gap-1">{t("Student")} <InfoTip text={TREND_RULE} /> <InfoTip text={GUESS_RULE} /> <InfoTip text={LONGEST_RULE} /></span></th>
                   {(g.groups ?? []).map((gr) => (
                     <th key={gr.strand} colSpan={gr.count} scope="colgroup" data-strand={gr.strand} className="whitespace-nowrap border-b border-s border-slate-200 bg-slate-50 px-2 py-1 text-start text-xs font-semibold text-slate-700">
                       {t(gr.label)} <span className="font-normal text-slate-500" dir="ltr">({gr.count})</span>
@@ -246,7 +248,7 @@ function GridView({ g, t, href, plan, strand, detail, filters, range }: { g: Ski
                   <tr key={st.id} data-testid="grid-row">
                     <th scope="row" className="sticky start-0 z-10 border-b border-e border-slate-100 bg-white px-3 py-1.5 text-start font-semibold">
                       <Link prefetch={false} href={href({ view: "student", student: st.id })} className="text-brand-navy hover:underline"><bdi>{st.name}</bdi></Link>
-                      <StudentMarks trend={st.trend} guessing={st.guessing} trendPoints={st.trendPoints} t={t} />
+                      <StudentMarks trend={st.trend} guessing={st.guessing} longest={st.longest} trendPoints={st.trendPoints} t={t} />
                       <span className="block text-[11px] font-normal text-slate-500" data-testid="grid-row-count">{t("{m} of {n} mastered", { n: st.assigned ?? 0, m: st.mastered ?? 0 })}</span>
                     </th>
                     {g.skills.map((k, i) => {
@@ -431,7 +433,7 @@ function ReportView({ d, t, href }: { d: ClassSkills; t: T; href: (o: Partial<SP
           <tbody>
             {r.rows.map((x) => (
               <tr key={x.id} data-testid="report-row" data-group={x.group} className="border-t border-slate-100">
-                <td className="px-3 py-1 print:py-0"><bdi>{x.name}</bdi><StudentMarks trend={x.trend} guessing={x.guessing} t={t} /></td>
+                <td className="px-3 py-1 print:py-0"><bdi>{x.name}</bdi><StudentMarks trend={x.trend} guessing={x.guessing} longest={x.longest} t={t} /></td>
                 <td className="px-3 py-1 tabular-nums print:py-0">{t("{x} of {y}", { x: x.mastered, y: x.of })}</td>
                 <td className="px-3 py-1 tabular-nums print:py-0" dir="ltr">{x.accuracy === null ? "—" : `${x.accuracy}%`}</td>
                 <td className="px-3 py-1 print:py-0"><span className="inline-flex items-center gap-1.5"><span aria-hidden="true" className={`h-2.5 w-2.5 rounded-full ${GROUP_STYLE[x.group].dot}`} />{t(GROUP_LABEL[x.group])}{x.notStarted ? <span className="text-xs text-slate-500">· {t("not started")}</span> : null}</span></td>
@@ -563,7 +565,7 @@ function PlanGridSection({ v, t, href, classId }: { v: PlanGridView; t: T; href:
               <tr key={st.id} data-testid="plan-row" data-state={st.state}>
                 <th scope="row" className="sticky start-0 z-10 border-b border-e border-slate-100 bg-white px-3 py-1.5 text-start font-semibold">
                   <Link prefetch={false} href={href({ tab: undefined, pid: undefined, view: "student", student: st.id })} className="text-brand-navy hover:underline"><bdi>{st.name}</bdi></Link>
-                  <StudentMarks trend={st.trend} guessing={st.guessing} t={t} />
+                  <StudentMarks trend={st.trend} guessing={st.guessing} longest={st.longest} t={t} />
                   <span className="block text-[11px] font-normal text-slate-500" data-testid="plan-row-count">{t("{x} of {y}", { x: st.mastered, y: st.of })} · <span dir="ltr">{st.pct}%</span> · <span title={t(STATE_LABEL[st.state])}>{STATE_ICON[st.state]} {t(STATE_LABEL[st.state])}</span></span>
                 </th>
                 {v.skills.map((k) => {

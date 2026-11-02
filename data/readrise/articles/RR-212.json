@@ -115,9 +115,9 @@
           "stem": "What is this article mainly about?",
           "options": [
             "How a barcode's lines and a QR code's squares help machines read information fast",
-            "Why farms must grow new rice and cereal crops every single year",
-            "Why phones need a brand new battery every single year to work",
-            "How cashiers carefully count the money at the end of each busy day"
+            "Why farms must grow new rice and cereal crops every single year to feed the people",
+            "Why phones need a brand new battery every single year to work well and stay fast",
+            "How cashiers carefully count the money at the end of each busy day in the shop"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -233,9 +233,9 @@
         {
           "stem": "Why does the article compare a QR code to a barcode?",
           "options": [
-            "To show that only one of these two codes actually works",
-            "To tell readers which of these two codes costs more money",
-            "To explain to readers how to bake a loaf of fresh warm bread",
+            "To show that only one of these two codes actually works in a store or a shop",
+            "To tell readers which of these two codes costs more money to print",
+            "To explain to readers how to bake a loaf of fresh warm bread at home",
             "To help readers see how codes can look different but both store information"
           ],
           "answer": "D",
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
-            "Only chewing gum companies have ever used barcodes to sell their products.",
+            "Only chewing gum companies have ever used barcodes to sell their products in shops.",
             "Barcodes and QR codes store information that machines can read quickly and accurately.",
-            "Typing every price by hand is always faster than scanning a barcode.",
-            "QR codes somehow do not work with any modern smartphone at all."
+            "Typing every price by hand is always faster than scanning a barcode at the shop.",
+            "QR codes somehow do not work with any modern smartphone at all, not even new ones."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -312,7 +312,7 @@
           "options": [
             "The weather outside the store that particular day",
             "The cashier's own full name and current job title",
-            "The customer's home address and phone number",
+            "The customer's home address and phone number at the till",
             "The exact item, its maker, and sometimes its size or color"
           ],
           "answer": "D",
@@ -328,9 +328,9 @@
           "stem": "According to the article, what happened in 1974?",
           "options": [
             "A pack of chewing gum became the first product scanned at a real supermarket",
-            "QR codes were first invented in Japan many years later on",
-            "Smartphones with cameras were invented around that very same time",
-            "Woodland and Silver first thought up the barcode idea back then"
+            "QR codes were first invented in Japan many years later on, for use in car factories",
+            "Smartphones with cameras were invented around that very same time, in the same shops",
+            "Woodland and Silver first thought up the barcode idea back then, in a lab"
           ],
           "answer": "A",
           "skill": "detail",
@@ -364,7 +364,7 @@
             "Even a careful worker could press the wrong key, especially after a long shift",
             "Workers at the time could simply not read any numbers at all",
             "The old cash register had no numbers printed on any of its keys",
-            "Prices at the store almost never changed at all, year after year"
+            "Prices at the store almost never changed at all, year after year, even in a big city"
           ],
           "answer": "A",
           "skill": "inference",
@@ -378,9 +378,9 @@
         {
           "stem": "Why might a warehouse use barcodes to track boxes?",
           "options": [
-            "Barcodes somehow make even very heavy boxes much lighter to carry around",
-            "Barcodes always stop boxes from ever getting wet or damaged in storage",
-            "Barcodes are required by a very strict law in every single far-off country",
+            "Barcodes somehow make even very heavy boxes much lighter to carry around, so workers do not need any trucks or tools",
+            "Barcodes always stop boxes from ever getting wet or damaged in storage, so the workers never need to check them",
+            "Barcodes are required by a very strict law in every single far-off country, so warehouses must use them for all the boxes",
             "Barcodes let workers quickly and accurately know what is inside each box and where it is going"
           ],
           "answer": "D",
@@ -489,10 +489,10 @@
         {
           "stem": "Who invented the idea for the barcode, and in what year?",
           "options": [
-            "Engineers at Denso Wave, in 1952",
-            "Masahiro Hara, in the 1990s",
+            "Engineers at Denso Wave in Japan, in 1952",
+            "Masahiro Hara, working in Japan, in the 1990s",
             "Norman Woodland and Bernard Silver, in 1952",
-            "A supermarket cashier, in 1974"
+            "A busy supermarket cashier at work, in 1974"
           ],
           "answer": "C",
           "skill": "detail",
@@ -557,9 +557,9 @@
         {
           "stem": "Why did it take more than two decades after 1952 for barcodes to be used in a real store?",
           "options": [
-            "No one wanted to buy chewing gum before 1974",
-            "Supermarkets did not exist before 1974",
-            "Barcodes were against the law until 1974",
+            "No one wanted to buy chewing gum before the year 1974",
+            "Supermarkets did not exist anywhere in the world before the year 1974",
+            "Barcodes were against the law in stores until 1974",
             "The necessary scanning technology had not yet been fully developed"
           ],
           "answer": "D",

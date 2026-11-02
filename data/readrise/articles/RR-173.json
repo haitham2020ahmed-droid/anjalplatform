@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How to cook a healthy meal",
-            "Why sugar is in every food",
+            "How to cook a healthy meal for the whole family",
+            "Why sugar is in every food we buy",
             "How to read a food label to make good choices",
-            "How food boxes are made"
+            "How food boxes are made in a plant"
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -165,10 +165,10 @@
         {
           "stem": "A bag of chips holds two servings. Sara eats the whole bag. What is true?",
           "options": [
-            "She ate half a serving",
+            "She ate half a serving of the chips",
             "She ate twice the amount for one serving",
-            "She ate no salt at all",
-            "She ate the same as one serving"
+            "She ate no salt at all from the bag",
+            "She ate the same as one single serving"
           ],
           "answer": "B",
           "skill": "inference",
@@ -295,7 +295,7 @@
           "options": [
             "Food packages should not have pictures on the front.",
             "Reading the facts on a label helps people choose healthier food.",
-            "Everyone should stop eating chips.",
+            "Everyone should stop eating chips and other snacks for good, starting today.",
             "Labels are only useful for people with allergies."
           ],
           "answer": "B",
@@ -574,10 +574,10 @@
         {
           "stem": "Read the sentence: \"nutrition experts consistently recommend moderation.\" What does moderation mean?",
           "options": [
-            "Eating only one kind of food",
+            "Eating only one kind of food each day",
             "Eating reasonable amounts, not too much",
-            "Never eating sugar or salt",
-            "Eating as much as you want"
+            "Never eating sugar or salt in any meal",
+            "Eating as much as you want at every meal"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -591,9 +591,9 @@
         {
           "stem": "Why does the author begin by asking readers to pick up a package and turn it over?",
           "options": [
-            "To explain how packages are made",
-            "To show that most packages are empty",
-            "To list the foods found in a kitchen",
+            "To explain how packages are made in a big factory",
+            "To show that most packages are empty when you buy them from a shop",
+            "To list the foods found in a kitchen cupboard at home",
             "To connect the topic to something readers can do right away"
           ],
           "answer": "D",

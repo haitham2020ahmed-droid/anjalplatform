@@ -233,10 +233,10 @@
         {
           "stem": "How does the author organize the article?",
           "options": [
-            "By listing rules for a math game",
-            "By comparing two cities",
+            "By listing the rules for a math game that children play at school",
+            "By comparing two cities that are near the same river and the sea",
             "By telling where he lived, then what he wrote, then how we use it today",
-            "By giving the steps to build a computer"
+            "By giving the steps to build a computer at home with a few simple parts and a screen"
           ],
           "answer": "C",
           "skill": "text-structure",
@@ -523,9 +523,9 @@
         {
           "stem": "Read: \"he presented a systematic method for each category of problem.\" What does systematic mean?",
           "options": [
-            "Quick and careless",
-            "Secret and hidden",
-            "Borrowed from another culture",
+            "Quick and careless, with no real plan",
+            "Secret and hidden from most people",
+            "Borrowed from another culture long ago",
             "Organized and following a clear plan"
           ],
           "answer": "D",
@@ -591,9 +591,9 @@
         {
           "stem": "How does the paragraph about his most celebrated book develop its ideas?",
           "options": [
-            "It tells a story about his childhood.",
-            "It compares Baghdad with Europe.",
-            "It lists the planets he studied.",
+            "It tells a story about his childhood in a small town near the river and its farms.",
+            "It compares the city of Baghdad with the cities of Europe in the same years.",
+            "It lists the planets he studied in the night sky and gives each one a name.",
             "It describes his method, its practical uses, and then the origin of the word algebra."
           ],
           "answer": "D",

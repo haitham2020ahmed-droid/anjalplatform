@@ -216,8 +216,8 @@
         {
           "stem": "Why did doctors in Europe use Ibn Sina's book for a long time?",
           "options": [
-            "It was the only book in Europe.",
-            "It was full of fun stories.",
+            "It was the only book in the whole of Europe.",
+            "It was full of fun stories for children.",
             "It was very useful for helping sick people.",
             "The king of Bukhara made them use it."
           ],
@@ -234,9 +234,9 @@
           "stem": "How does the author mostly tell about Ibn Sina?",
           "options": [
             "In time order, from when he was a boy to when he died",
-            "By comparing him to a modern doctor",
-            "By giving steps for making medicine",
-            "As a list of questions and answers"
+            "By comparing him to a modern doctor who works in a hospital",
+            "By giving steps for making medicine from plants and herbs",
+            "As a list of questions and answers about his long life"
           ],
           "answer": "A",
           "skill": "text-structure",
@@ -412,10 +412,10 @@
         {
           "stem": "Why does the author include details about Ibn Sina's childhood, such as knowing the Quran by heart at age ten?",
           "options": [
-            "To explain the history of Bukhara",
+            "To explain the history of Bukhara and its old city walls long ago",
             "To show his strong memory and love of learning from an early age",
-            "To compare him with other children of his time",
-            "To give steps for memorizing long texts"
+            "To compare him with other children of his time and place",
+            "To give steps for memorizing long texts by heart"
           ],
           "answer": "B",
           "skill": "author-purpose",
@@ -540,10 +540,10 @@
         {
           "stem": "What can you infer from the fact that Ibn Sina often wrote while traveling from city to city?",
           "options": [
-            "He did not take his writing seriously.",
+            "He did not take his writing seriously at all, and he often stopped.",
             "He was determined to keep writing even in difficult conditions.",
-            "He wrote only short notes while traveling.",
-            "He traveled because no city would accept him."
+            "He wrote only short notes while he was traveling.",
+            "He traveled because no city would accept him as a guest or give him a house."
           ],
           "answer": "B",
           "skill": "inference",
@@ -576,8 +576,8 @@
           "options": [
             "He studied medicine mostly on his own and was treating patients by sixteen.",
             "He went to medical school for many years before seeing patients.",
-            "He studied only one subject his whole life.",
-            "He learned medicine by watching the palace doctors."
+            "He studied only one subject for the whole of his life and nothing more.",
+            "He learned medicine by watching the palace doctors work for many years."
           ],
           "answer": "A",
           "skill": "compare",

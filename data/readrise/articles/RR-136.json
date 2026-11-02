@@ -235,8 +235,8 @@
           "options": [
             "To show that the Nabataeans also left carvings in Saudi Arabia",
             "To say Hegra is much bigger and older than Petra",
-            "To tell how to drive to Jordan",
-            "To explain where camels come from"
+            "To tell readers how to drive to Jordan from Riyadh by car in one day",
+            "To explain where camels come from in Arabia and when"
           ],
           "answer": "A",
           "skill": "author-purpose",
@@ -294,9 +294,9 @@
           "stem": "Which sentence best states the central idea?",
           "options": [
             "The Nabataeans carved Petra from rock and grew rich from trade in the desert.",
-            "Petra was built with bricks and wood by Roman soldiers long ago.",
-            "Petra is a modern city in Saudi Arabia.",
-            "The Siq is the only important place in Petra."
+            "Petra was built with bricks and wood by Roman soldiers long ago, in the desert.",
+            "Petra is a modern city in Saudi Arabia, with tall towers and wide roads.",
+            "The Siq is the only important place in Petra, and nothing else is worth a visit."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -412,9 +412,9 @@
         {
           "stem": "How does the article connect Petra to Saudi Arabia?",
           "options": [
-            "It says Petra is in Saudi Arabia.",
-            "It says Saudi traders built the Siq.",
-            "It compares Petra's weather to Riyadh's weather in summer.",
+            "It says Petra is in Saudi Arabia, close to the city of Riyadh.",
+            "It says Saudi traders built the Siq long before the Nabataeans.",
+            "It compares Petra's weather to Riyadh's weather in the summer months.",
             "It explains that the Nabataeans also carved tombs at Hegra near AlUla."
           ],
           "answer": "D",
@@ -473,9 +473,9 @@
           "stem": "Which statement best summarizes the article?",
           "options": [
             "The Nabataeans carved Petra into sandstone, prospered from caravan trade, managed scarce water, and eventually left the city.",
-            "Petra was built by Bedouin families who still live inside the Treasury today and guard its gold.",
-            "Petra was a seaport that shipped incense to Europe.",
-            "Petra was destroyed by a flood shortly after it was built."
+            "Petra was built by Bedouin families who still live inside the Treasury today and guard its gold, which they have kept for many centuries.",
+            "Petra was a seaport that shipped incense to Europe, and its ships sailed from the harbor every week.",
+            "Petra was destroyed by a flood shortly after it was built, and nobody has lived there since that time."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -523,10 +523,10 @@
         {
           "stem": "Which two causes does the article give for Petra's decline?",
           "options": [
-            "A long war and a terrible drought",
+            "A long war and a terrible drought in the land",
             "A shift to sea trade and a powerful earthquake",
-            "A flood and a fire",
-            "A disease and a storm"
+            "A flood and a fire in the city of Petra at night",
+            "A disease and a storm in the valley near the city"
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -540,10 +540,10 @@
         {
           "stem": "In the article, the word cisterns refers to",
           "options": [
-            "narrow canyons with tall walls",
-            "camel saddles",
+            "narrow canyons with tall walls of rock",
+            "saddles used for riding camels",
             "underground tanks for storing rainwater",
-            "carved tombs"
+            "carved tombs in the rocky cliffs"
           ],
           "answer": "C",
           "skill": "vocabulary",

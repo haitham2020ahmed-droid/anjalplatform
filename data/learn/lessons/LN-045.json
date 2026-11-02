@@ -99,10 +99,10 @@
      "passage": "Four sentences from a story.",
      "stem": "Which one is a run-on?",
      "options": [
-      "We baked a cake.",
+      "We baked a cake for my mom today.",
       "The cake was big we ate it all.",
-      "Dad cut the cake.",
-      "It was very sweet."
+      "Dad cut the cake in pieces.",
+      "It was very sweet and yummy."
      ],
      "answer": 1,
      "why": "“The cake was big” and “we ate it all” are two ideas with no stop between them."
@@ -111,10 +111,10 @@
      "passage": "The rain stopped. The sun came out.",
      "stem": "Is this a run-on?",
      "options": [
-      "Yes, it needs a comma.",
-      "Yes, it is too long.",
+      "Yes, it needs a comma in the middle.",
+      "Yes, it is too long for one sentence.",
       "No, each idea has its own sentence.",
-      "No, it is a fragment."
+      "No, it is a fragment with no verb."
      ],
      "answer": 2,
      "why": "Each idea has its own period. It is written correctly."
@@ -306,10 +306,10 @@
      "passage": "Although the shop was small, it sold everything from rice to rope.",
      "stem": "Is this a run-on?",
      "options": [
-      "Yes, it has two ideas.",
+      "Yes, it has two ideas that are joined badly.",
       "No, it is a complex sentence joined correctly.",
       "Yes, it needs a period after “small”.",
-      "Yes, it is too long."
+      "Yes, it is too long to be one sentence."
      ],
      "answer": 1,
      "why": "“Although the shop was small” cannot stand alone. It is correctly joined to the main clause with a comma."
@@ -412,9 +412,9 @@
      "passage": "The library extended its hours during exams, therefore more students could study in the evening.",
      "stem": "What is the problem with this sentence?",
      "options": [
-      "It is a fragment.",
+      "It is a fragment, not a sentence.",
       "“Therefore” should be “then”.",
-      "Nothing; it is correct.",
+      "Nothing; it is correct as written.",
       "It joins two sentences with a comma."
      ],
      "answer": 3,

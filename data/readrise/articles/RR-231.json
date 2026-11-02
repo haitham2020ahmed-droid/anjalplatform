@@ -148,10 +148,10 @@
         {
           "stem": "In what order does a star's life happen?",
           "options": [
-            "Fusion happens before the cloud of gas ever forms.",
-            "The star dies first and then a cloud of gas appears.",
+            "Fusion happens before the cloud of gas ever forms in space and begins.",
+            "The star dies first and then a big cloud of gas appears around it.",
             "A nebula forms first, then fusion begins, and the star shines before it dies.",
-            "The star shines forever and never runs out of fuel."
+            "The star shines forever and never runs out of fuel at all, so it does not die."
           ],
           "answer": "C",
           "skill": "sequence",
@@ -166,9 +166,9 @@
           "stem": "The article talks about fusion. What does fusion mean?",
           "options": [
             "When small bits join together and make heat and light",
-            "When a star cools down completely",
-            "When a cloud of dust blows apart",
-            "When a star moves closer to Earth"
+            "When a star cools down completely and turns dark",
+            "When a cloud of dust blows apart in space",
+            "When a star moves closer to Earth and gets brighter"
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -217,9 +217,9 @@
           "stem": "What can you infer about why the Sun will not become a supernova?",
           "options": [
             "The Sun is too small to end its life in that huge, violent way.",
-            "The Sun has already used up all of its fuel.",
-            "The Sun is actually a planet, not a star.",
-            "The Sun does not use fusion to make light."
+            "The Sun has already used up all of its fuel and is about to go dark",
+            "The Sun is actually a planet, not a star, so it cannot explode at all",
+            "The Sun does not use fusion to make light, so it burns more gently"
           ],
           "answer": "A",
           "skill": "inference",
@@ -234,9 +234,9 @@
           "stem": "Why does the author explain both how stars are born and how they die in one article?",
           "options": [
             "To show the full life story of a star, from start to finish",
-            "To prove that stars never actually change over time",
-            "To explain how rockets travel between stars",
-            "To compare stars to planets in our solar system"
+            "To prove that stars never actually change over time at all",
+            "To explain how rockets travel between stars and planets",
+            "To compare stars to planets in our solar system and moons"
           ],
           "answer": "A",
           "skill": "author-purpose",
@@ -294,9 +294,9 @@
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
             "Stars form from clouds of gas, shine through fusion for a long time, and die differently depending on their mass.",
-            "Every star in the universe eventually becomes a black hole.",
-            "Stars never change at all once they begin to shine.",
-            "Nebulae are the brightest objects in the entire universe."
+            "Every star in the universe eventually becomes a black hole, no matter how large or small it is.",
+            "Stars never change at all once they begin to shine, and they stay the same for ever and ever.",
+            "Nebulae are the brightest objects in the entire universe, and they make all of the light that we see at night from our planet."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -327,9 +327,9 @@
         {
           "stem": "According to the article, what determines how a star eventually dies?",
           "options": [
-            "How close the star is to Earth",
+            "How close the star is to Earth in the sky",
             "How much mass the star contained at its birth",
-            "What color the star happens to be",
+            "What color the star happens to be at night",
             "How many planets orbit around the star"
           ],
           "answer": "B",
@@ -361,10 +361,10 @@
         {
           "stem": "What happens right after a star like the Sun uses up its hydrogen fuel?",
           "options": [
-            "It instantly turns into a brand-new nebula.",
-            "It explodes immediately in a massive supernova.",
+            "It instantly turns into a brand-new nebula and then starts to shine again.",
+            "It explodes immediately in a massive supernova and leaves a black hole.",
             "It swells into a red giant before shrinking into a white dwarf.",
-            "It stays exactly the same size and brightness forever."
+            "It stays exactly the same size and brightness forever, with no change."
           ],
           "answer": "C",
           "skill": "cause-effect",
@@ -413,9 +413,9 @@
           "stem": "How does the author organize this article?",
           "options": [
             "By following a star's life in order, from a cloud of gas to its final death",
-            "By comparing the orbits of every planet in our solar system",
-            "By listing famous astronomers in the order they were born",
-            "By describing how telescopes have changed over the years"
+            "By comparing the orbits of every planet in our solar system, one after another",
+            "By listing famous astronomers in the order they were born, from first to last",
+            "By describing how telescopes have changed over the years, from small to huge ones"
           ],
           "answer": "A",
           "skill": "text-structure",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
-            "Nebulae are permanent objects that never change or collapse.",
-            "All stars eventually become black holes after billions of years.",
+            "Nebulae are permanent objects that never change, never collapse, and never form any new stars out of dust and gas.",
+            "All stars eventually become black holes after many billions of years of burning gas, no matter how big they are, and then they disappear forever.",
             "A star's entire life cycle, from formation out of gas to its final fate, is governed by fusion and ultimately decided by its mass.",
-            "A star's color is the single factor that determines how long it will live."
+            "A star's color is the single factor that determines how long it will live, and its mass has nothing to do with it."
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -524,9 +524,9 @@
           "stem": "The article says a massive star can deplete its fuel within a few million years. What does deplete mean here?",
           "options": [
             "To use up a supply until little or none remains",
-            "To create a brand-new supply of fuel",
-            "To cool down a supply of fuel completely",
-            "To store a supply safely for later use"
+            "To create a brand-new supply of fuel for the star",
+            "To cool down a supply of fuel completely and fast",
+            "To store a supply of fuel safely for later use"
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -540,7 +540,7 @@
         {
           "stem": "Why do massive stars generally have much shorter lives than smaller, Sun-like stars?",
           "options": [
-            "Because gravity pulls much more weakly on a massive star's outer layers.",
+            "Because gravity pulls much more weakly on a massive star's outer layers than on a small star's.",
             "Because they never actually reach the temperature needed to ignite fusion.",
             "Because they contain almost no hydrogen at all compared to smaller stars.",
             "Because they burn through their much larger fuel supply at a dramatically faster rate."
@@ -574,10 +574,10 @@
         {
           "stem": "What can the reader infer about why the article treats black holes only briefly, in passing?",
           "options": [
-            "Because black holes are considered too dangerous to be mentioned at all",
+            "Because black holes are considered too dangerous to be mentioned at all, and the writer did not want to scare readers",
             "Because black holes are a complex topic covered in more depth elsewhere, separate from this article's focus",
-            "Because black holes are not actually related to how stars die",
-            "Because scientists are not yet certain that black holes exist"
+            "Because black holes are not actually related to how stars die, and so they do not belong in the article at all",
+            "Because scientists are not yet certain that black holes exist, and so the author chose to skip over them quickly"
           ],
           "answer": "B",
           "skill": "inference",
@@ -591,10 +591,10 @@
         {
           "stem": "Why does the author describe the entire arc of a star's life, from nebula to final remnant, within a single article?",
           "options": [
-            "To argue that stars never truly change throughout their existence",
+            "To argue that stars never truly change throughout their existence in space, from start to end",
             "To present a complete picture of how a star's beginning shapes its ultimate end",
-            "To compare different telescopes used to observe distant stars",
-            "To explain in detail how planets form around a young star"
+            "To compare different telescopes used to observe distant stars, and tell which one is the best",
+            "To explain in detail how planets form around a young star, and how many each star can have"
           ],
           "answer": "B",
           "skill": "author-purpose",

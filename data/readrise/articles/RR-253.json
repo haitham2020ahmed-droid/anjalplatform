@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How plates are made",
+            "How plates are made in a factory from clay and glass",
             "How Katherine Johnson used math to help send astronauts into space",
-            "Why stars twinkle at night",
-            "How to build a rocket engine"
+            "Why stars twinkle at night and seem to change colors in the sky",
+            "How to build a rocket engine from metal and fuel pipes"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -131,10 +131,10 @@
         {
           "stem": "What did Katherine love to do as a young girl?",
           "options": [
-            "Paint pictures",
+            "Paint pictures of flowers",
             "Count things around her",
-            "Build model rockets",
-            "Fly small planes"
+            "Build model rockets at home",
+            "Fly small planes in the sky"
           ],
           "answer": "B",
           "skill": "detail",
@@ -148,10 +148,10 @@
         {
           "stem": "What job did Katherine get when she grew up?",
           "options": [
-            "A pilot who flew rockets",
+            "A pilot who flew rockets to space",
             "A mathematician on a rocket team",
-            "A teacher at a space museum",
-            "A builder who built rockets"
+            "A teacher at a space museum in town",
+            "A builder who built rockets by hand"
           ],
           "answer": "B",
           "skill": "detail",
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the central idea?",
           "options": [
-            "Katherine Johnson mostly enjoyed teaching French.",
+            "Katherine Johnson mostly enjoyed teaching French to students at the small school where she worked.",
             "Through skill and persistence, Katherine's math helped NASA send astronauts safely into space.",
-            "NASA allowed every mathematician to attend planning meetings.",
-            "Electronic computers never needed to be checked by hand."
+            "NASA allowed every mathematician to attend planning meetings, whatever their job in the building.",
+            "Electronic computers never needed to be checked by hand, because they never made mistakes at all."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -311,8 +311,8 @@
           "stem": "What were human computers?",
           "options": [
             "A group of Black women mathematicians who calculated by hand",
-            "A factory that built rocket engines",
-            "A school where astronauts trained",
+            "A factory that built rocket engines for the space program",
+            "A school where astronauts trained to fly the shuttle",
             "A large automatic machine that launched the rockets"
           ],
           "answer": "A",
@@ -361,10 +361,10 @@
         {
           "stem": "Why did segregation make Katherine's achievement especially impressive?",
           "options": [
-            "Segregation gave her extra time to study math.",
+            "Segregation gave her extra time to study math at school and in the library.",
             "Segregation limited opportunities, so her success took extra determination.",
-            "Segregation meant she worked alone with no team.",
-            "Segregation had no real effect on her career."
+            "Segregation meant she worked alone with no team around her at the lab.",
+            "Segregation had no real effect on her career at the lab."
           ],
           "answer": "B",
           "skill": "inference",
@@ -413,9 +413,9 @@
           "stem": "What can you infer about why John Glenn wanted Katherine to verify the computer's math?",
           "options": [
             "He trusted her accuracy more than the new, untested machine.",
-            "He did not believe electronic computers existed.",
-            "He wanted to avoid flying altogether.",
-            "He thought Katherine's math was usually wrong."
+            "He did not believe electronic computers existed in his day.",
+            "He wanted to avoid flying altogether, and so he stayed home.",
+            "He thought Katherine's math was usually wrong, and he wanted to see."
           ],
           "answer": "A",
           "skill": "inference",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best expresses the central idea?",
           "options": [
-            "Katherine Johnson became famous mainly because of a movie.",
+            "Katherine Johnson became famous mainly because of a movie that was made about her many years later.",
             "Her precision and persistence overcame barriers and helped shape America's early spaceflights.",
-            "NASA's electronic computers always outperformed human calculators.",
-            "Segregation had little effect on who worked at NASA."
+            "NASA's electronic computers always outperformed human calculators, so the team stopped needing people.",
+            "Segregation had little effect on who worked at NASA, because every worker was treated the same way."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -592,9 +592,9 @@
           "stem": "What is the most likely reason Katherine's story is remembered today as a legacy for future mathematicians and scientists?",
           "options": [
             "She proved that skill and persistence could overcome unjust barriers.",
-            "She was the only mathematician NASA ever employed.",
-            "She preferred teaching French over working with numbers.",
-            "She avoided every important meeting at NASA."
+            "She was the only mathematician NASA ever employed in its history.",
+            "She preferred teaching French over working with numbers at the agency.",
+            "She avoided every important meeting at NASA to keep her work secret."
           ],
           "answer": "A",
           "skill": "inference",

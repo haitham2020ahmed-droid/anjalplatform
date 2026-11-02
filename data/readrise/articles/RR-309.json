@@ -112,7 +112,7 @@
         },
         {
           "stem": "The article says a craftsman hammers metal 'again and again.' What does this help the reader understand?",
-          "options": ["The craftsman is angry at the metal.", "Hammering is a quick, one-time step.", "Shaping the metal takes many repeated hits.", "The metal breaks after one hit."],
+          "options": ["The craftsman is angry at the metal today.", "Hammering is a quick, one-time step in the work.", "Shaping the metal takes many repeated hits.", "The metal breaks after just one hit."],
           "answer": "C",
           "skill": "vocabulary",
           "why": "'Again and again' shows that hammering is repeated many times to slowly shape the metal.",
@@ -120,7 +120,7 @@
         },
         {
           "stem": "What happens because the craftsman heats the metal first?",
-          "options": ["The metal becomes soft and easier to bend.", "The metal turns into brass.", "The pattern appears by itself.", "The metal becomes heavier."],
+          "options": ["The metal becomes soft and easier to bend.", "The metal turns into brass in the fire.", "The pattern appears by itself on the surface.", "The metal becomes heavier and harder to carry."],
           "answer": "A",
           "skill": "cause-effect",
           "why": "The article says heat makes the metal soft, and soft metal is easy to bend.",
@@ -136,7 +136,7 @@
         },
         {
           "stem": "Why might someone buy a copper or brass item in a market?",
-          "options": ["Because it is the cheapest thing in the market", "Because the article says it is a gift or a useful item for the home", "Because it is the only item sold there", "Because it never needs to be cleaned"],
+          "options": ["Because it is the cheapest thing in the whole market on that day, so everyone buys it", "Because the article says it is a gift or a useful item for the home", "Because it is the only item that is sold in the whole market", "Because it never needs to be cleaned or polished"],
           "answer": "B",
           "skill": "inference",
           "why": "The article says families use these items at home and people also buy them in markets, often as gifts.",
@@ -144,7 +144,7 @@
         },
         {
           "stem": "How does the author organize most of the article?",
-          "options": ["By comparing two different crafts", "By telling a made-up story about a king", "By explaining the steps used to shape and decorate metal", "By listing facts about different countries"],
+          "options": ["By comparing two different crafts, such as clay and glass", "By telling a made-up story about a king who loved metal", "By explaining the steps used to shape and decorate metal", "By listing facts about different countries that make metal"],
           "answer": "C",
           "skill": "text-structure",
           "why": "The article moves through the steps: choosing metal, hammering, heating, adding a pattern, and learning the craft.",
@@ -167,7 +167,7 @@
       "questions": [
         {
           "stem": "Which sentence best states the main idea of the article?",
-          "options": ["Copper is always more valuable than brass.", "Markets in Arabia sell only metal items.", "Artisans use hammering, heating, and engraving to turn flat copper and brass into useful, decorative objects.", "Apprentices work faster than master craftsmen."],
+          "options": ["Copper is always more valuable than brass in the markets of Arabia, and brass is used only for toys and for small gifts.", "Markets in Arabia sell only metal items, and no cloth, food, or spices are sold in the stalls.", "Artisans use hammering, heating, and engraving to turn flat copper and brass into useful, decorative objects.", "Apprentices work faster than master craftsmen, and so masters are no longer needed in the workshops."],
           "answer": "C",
           "skill": "central-idea",
           "why": "The article describes the whole process, from choosing metal to shaping, heating, decorating, and learning the craft.",
@@ -175,7 +175,7 @@
         },
         {
           "stem": "According to the article, how does the flat sheet of metal become a rounded shape like a pot?",
-          "options": ["It is melted and poured into a mold.", "It is cut into pieces and glued together.", "It is hammered repeatedly in a careful order, a process called raising.", "It is left in water until it curves."],
+          "options": ["It is melted in a very hot fire and then poured into a mold made of clay.", "It is cut into pieces and glued together with a strong paste.", "It is hammered repeatedly in a careful order, a process called raising.", "It is left in water until it curves into the shape of a pot."],
           "answer": "C",
           "skill": "detail",
           "why": "The article describes raising: hammering the flat sheet again and again in a careful order until it curves into shape.",
@@ -199,7 +199,7 @@
         },
         {
           "stem": "What is the apprentice's role, based on the article?",
-          "options": ["To sell finished pieces in the souk", "To learn the craft from an experienced master over several years", "To mix copper and zinc into brass", "To design new kinds of hammers"],
+          "options": ["To sell finished pieces in the souk to buyers who pass by", "To learn the craft from an experienced master over several years", "To mix copper and zinc into brass in a hot furnace each day", "To design new kinds of hammers for the workshop and the shop"],
           "answer": "B",
           "skill": "detail",
           "why": "The article says a young apprentice learns the craft from an older, more experienced craftsman over several years.",
@@ -207,7 +207,7 @@
         },
         {
           "stem": "Why do you think families and travelers want to buy these metal items?",
-          "options": ["Because the items are the cheapest things available", "Because the handmade items are useful at home and meaningful as gifts", "Because the law requires every single family to own one", "Because the items can only be found in one small shop"],
+          "options": ["Because the items are the cheapest things available in the market", "Because the handmade items are useful at home and meaningful as gifts", "Because the law requires every single family to own one at home", "Because the items can only be found in one small shop in the city"],
           "answer": "B",
           "skill": "inference",
           "why": "The article says families use these items at home every day, and travelers buy them as gifts in busy markets.",
@@ -215,7 +215,7 @@
         },
         {
           "stem": "Why does cold metal become stiff and brittle while it is being shaped?",
-          "options": ["Because it has not been heated enough during the process", "Because it has already been mixed with zinc", "Because it has been engraved too many times", "Because it has already been sold too quickly"],
+          "options": ["Because it has not been heated enough during the process", "Because it has already been mixed with zinc in the pot", "Because it has been engraved too many times by hand", "Because it has already been sold too quickly at the shop"],
           "answer": "A",
           "skill": "cause-effect",
           "why": "The article explains that heating keeps metal soft, so metal that is not heated enough grows stiff and brittle as it is struck.",
@@ -223,7 +223,7 @@
         },
         {
           "stem": "Why does the author explain both the shaping process and the decorating process in detail?",
-          "options": ["To argue that machines should replace craftsmen", "To show how many separate, careful steps go into making one finished piece", "To compare copper prices across different countries", "To explain why metal is dangerous to touch"],
+          "options": ["To argue that machines should replace craftsmen in all of the workshops", "To show how many separate, careful steps go into making one finished piece", "To compare copper prices across different countries and markets", "To explain why metal is dangerous to touch with bare hands"],
           "answer": "B",
           "skill": "author-purpose",
           "why": "By describing raising, annealing, and engraving step by step, the author shows how much skill and effort the whole craft requires.",
@@ -245,7 +245,7 @@
       "questions": [
         {
           "stem": "Which statement best expresses the central idea of the article?",
-          "options": ["Brass is always more expensive than copper in every market.", "Copper and brass metalwork relies on demanding hand techniques and long apprenticeships that keep an old tradition alive today.", "Modern machines have completely replaced hand-hammered metal objects.", "Souks exist only to sell handmade coffee pots."],
+          "options": ["Brass is always more expensive than copper in every market, so only rich buyers can afford any metalwork at all.", "Copper and brass metalwork relies on demanding hand techniques and long apprenticeships that keep an old tradition alive today.", "Modern machines have completely replaced hand-hammered metal objects, so no one works with a hammer or an anvil in any workshop today.", "Souks exist only to sell handmade coffee pots, and nothing else is ever sold in them, by anyone, at any time of day."],
           "answer": "B",
           "skill": "central-idea",
           "why": "The article traces the whole tradition: materials, raising, annealing, chasing or engraving, and the years of apprenticeship that sustain it.",
@@ -253,7 +253,7 @@
         },
         {
           "stem": "According to the article, what distinguishes an alloy like brass from a pure metal like copper?",
-          "options": ["An alloy is always considerably softer than any pure metal.", "An alloy is a deliberate combination of two or more metals, unlike a pure metal.", "An alloy cannot ever be hammered into any new shape at all.", "An alloy is only used for engraving tools, never for finished pieces."],
+          "options": ["An alloy is always considerably softer than any pure metal, so it cannot be used to make strong tools.", "An alloy is a deliberate combination of two or more metals, unlike a pure metal.", "An alloy cannot ever be hammered into any new shape at all, so it can only be cast in a mold.", "An alloy is only used for engraving tools, never for finished pieces."],
           "answer": "B",
           "skill": "detail",
           "why": "The article defines an alloy as a deliberate mixture of two or more metals, which is how brass differs from pure copper.",
@@ -261,7 +261,7 @@
         },
         {
           "stem": "Why does the article describe chasing as 'pushing the metal from the front rather than cutting material away'?",
-          "options": ["To explain that chasing removes thin slices of metal entirely", "To show how chasing differs from techniques that cut or carve material out", "To argue that chasing is always faster than engraving", "To suggest that chasing only ever works on soft wood"],
+          "options": ["To explain that chasing removes thin slices of metal entirely", "To show how chasing differs from techniques that cut or carve material out", "To argue that chasing is always faster than engraving and needs fewer tools", "To suggest that chasing only ever works on soft wood and never on metal"],
           "answer": "B",
           "skill": "vocabulary",
           "why": "This phrase contrasts chasing, which reshapes the surface by pushing, with methods that remove material by cutting.",
@@ -269,7 +269,7 @@
         },
         {
           "stem": "What can be inferred about why experienced artisans say mastery takes a lifetime?",
-          "options": ["The hammers used in the craft are unusually heavy.", "Judging thickness, heat, and shape by feel, rather than by measurement, develops only through years of repeated practice.", "Apprentices are legally required to work for a set number of years.", "Copper becomes harder to find every year."],
+          "options": ["The hammers used in the craft are unusually heavy and hard to lift, so the work is tiring, and it takes a whole life to become strong enough.", "Judging thickness, heat, and shape by feel, rather than by measurement, develops only through years of repeated practice.", "Apprentices are legally required to work for a set number of years in the shop, and so only a lifetime of rules makes a master of the craft.", "Copper becomes harder to find every year, so a craftsman must spend his whole life searching for enough of the metal to practice."],
           "answer": "B",
           "skill": "inference",
           "why": "The article emphasizes that artisans judge the metal almost entirely by feel, a sense that the article suggests only long practice can build.",
@@ -285,7 +285,7 @@
         },
         {
           "stem": "Which detail best supports the claim that this craft has been carefully preserved across generations?",
-          "options": ["Copper is a reddish-orange metal, and brass is gold-colored.", "A young apprentice studies for several years under an experienced master.", "Coffee pots are simply called dallahs in the article.", "Souks are described as crowded, noisy, and quite lively."],
+          "options": ["Copper is a reddish-orange metal, and brass is gold-colored, as said in the text.", "A young apprentice studies for several years under an experienced master.", "Coffee pots are simply called dallahs in the article, and they are served at meals.", "Souks are described as crowded, noisy, and quite lively in the evening."],
           "answer": "B",
           "skill": "detail",
           "why": "Years of direct apprenticeship under a master is the clearest evidence that skills and knowledge are passed down deliberately.",
@@ -293,7 +293,7 @@
         },
         {
           "stem": "How is raising, the shaping technique, different in purpose from chasing, the decorating technique?",
-          "options": ["Raising forms the object's basic shape, while chasing adds decorative patterns to a shape that already exists.", "Raising decorates the surface, while chasing forms the basic shape.", "Both techniques only affect the color of the metal.", "Raising is used only on brass, while chasing is used only on copper."],
+          "options": ["Raising forms the object's basic shape, while chasing adds decorative patterns to a shape that already exists.", "Raising decorates the surface, while chasing forms the basic shape of the object from a flat sheet of metal.", "Both techniques only affect the color of the metal, and neither one changes its shape or surface at all.", "Raising is used only on brass, while chasing is used only on copper, so the two never meet in one piece."],
           "answer": "A",
           "skill": "compare",
           "why": "The article describes raising as the process that curves a flat sheet into a shape, and chasing or engraving as the later step that adds patterns to that finished shape.",

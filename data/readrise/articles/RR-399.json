@@ -120,7 +120,7 @@
         },
         {
           "stem": "Why does Lama finally smile?",
-          "options": ["Because the bell rings for the end of recess", "Because her teacher gives her a prize", "Because her old friends come to visit", "Because Sara shows that she also loves drawing birds"],
+          "options": ["Because the bell rings for the end of recess, and she can go home", "Because her teacher gives her a prize in front of the class", "Because her old friends come to visit her at the school", "Because Sara shows that she also loves drawing birds"],
           "answer": "D",
           "skill": "cause-effect",
           "why": "Lama smiles once she learns that Sara loves drawing birds too and wants to share her own notebook.",
@@ -136,7 +136,7 @@
         },
         {
           "stem": "In the story, the word notice means —",
-          "options": ["to draw something carefully", "to feel happy about something", "to see or pay attention to something", "to sit down next to someone"],
+          "options": ["to draw something very carefully", "to feel happy about something good", "to see or pay attention to something", "to sit down next to someone you know"],
           "answer": "C",
           "skill": "vocabulary",
           "why": "Sara notices Lama, meaning she sees and pays attention to the fact that Lama sits alone.",
@@ -144,7 +144,7 @@
         },
         {
           "stem": "Why does the author tell us what is inside Lama's notebook?",
-          "options": ["To explain how notebooks are made", "To show that Lama and Sara both love drawing birds", "To describe what Lama's house looks like", "To show that Lama is bad at drawing"],
+          "options": ["To explain how notebooks are made in a factory", "To show that Lama and Sara both love drawing birds", "To describe what Lama's house looks like inside", "To show that Lama is bad at drawing birds"],
           "answer": "B",
           "skill": "author-purpose",
           "why": "Showing the bird drawings sets up the moment when Sara discovers they share the same hobby, which brings them together.",
@@ -182,7 +182,7 @@
         },
         {
           "stem": "What does Lama say taught her to sketch birds?",
-          "options": ["Her grandfather, back in her old city", "Her teacher at the new school", "A book she found in the library", "A video she watched online"],
+          "options": ["Her grandfather, back in her old city", "Her teacher at the new school she joined", "A book she found in the library", "A video she watched online one night"],
           "answer": "A",
           "skill": "detail",
           "why": "Lama explains that her grandfather taught her to sketch birds back in her old city.",
@@ -206,7 +206,7 @@
         },
         {
           "stem": "Why does the first conversation between Sara and Lama feel awkward?",
-          "options": ["They are strangers who have never spoken before.", "They are arguing about a drawing.", "The teacher is listening to every word.", "Lama does not like Sara's notebook."],
+          "options": ["They are strangers who have never spoken before.", "They are arguing about a drawing in class.", "The teacher is listening to every word they say.", "Lama does not like Sara's notebook or her pens."],
           "answer": "A",
           "skill": "inference",
           "why": "Since Lama has never spoken to anyone at school, the first moments with a stranger naturally feel uneasy.",
@@ -214,7 +214,7 @@
         },
         {
           "stem": "In the story, the word include means —",
-          "options": ["to draw something quickly", "to feel sorry for someone", "to let someone join in with a group", "to sit alone at lunch"],
+          "options": ["to draw something quickly on a page", "to feel sorry for someone at school", "to let someone join in with a group", "to sit alone at lunch every day"],
           "answer": "C",
           "skill": "vocabulary",
           "why": "Nobody included Lama, meaning nobody let her join in with their games or conversations.",
@@ -268,7 +268,7 @@
         },
         {
           "stem": "What can you infer about Lama's classmates from the fact that no one noticed her for so long?",
-          "options": ["They disliked her personally.", "They had been told to avoid her.", "They were jealous of her drawings.", "They were simply not paying close attention to those around them."],
+          "options": ["They disliked her personally and did not want her near them at all", "They had been told to avoid her by their teacher in class, so they did", "They were jealous of her drawings and so they ignored her all the time", "They were simply not paying close attention to those around them."],
           "answer": "D",
           "skill": "inference",
           "why": "The story does not describe any dislike or order to avoid Lama, only that people were absorbed in their own activities and failed to notice someone quiet.",
@@ -276,7 +276,7 @@
         },
         {
           "stem": "Based on the story, why might Sara's gesture of sharing her sketchbook matter so much to Lama?",
-          "options": ["It shows someone finally paid attention to and valued what Lama cared about.", "It proves Sara is a better artist than Lama.", "It means Lama no longer needs to do any schoolwork.", "It guarantees Lama a prize at the school fair."],
+          "options": ["It shows someone finally paid attention to and valued what Lama cared about.", "It proves Sara is a better artist than Lama is, and Lama must stop drawing.", "It means Lama no longer needs to do any schoolwork at all, since she can draw.", "It guarantees Lama a big prize at the school fair, because the judges love sketchbooks."],
           "answer": "A",
           "skill": "inference",
           "why": "After weeks of being overlooked, having someone notice and share an interest in the very thing Lama cares about is deeply meaningful.",
@@ -292,7 +292,7 @@
         },
         {
           "stem": "Why does the awkwardness between the two girls melt away so quickly?",
-          "options": ["The teacher orders them to be friends.", "The bell rings and they must stop talking.", "They discover they share a genuine, specific interest.", "Lama's grandfather arrives at the school."],
+          "options": ["The teacher orders them to be friends in front of the class.", "The bell rings and they must stop talking right away.", "They discover they share a genuine, specific interest.", "Lama's grandfather arrives at the school to see them both."],
           "answer": "C",
           "skill": "cause-effect",
           "why": "Once Sara reveals she also loves drawing birds, the shared interest quickly replaces the early discomfort.",
@@ -300,7 +300,7 @@
         },
         {
           "stem": "Why does the author include the detail about Lama's grandfather teaching her to sketch?",
-          "options": ["To explain why birds are hard to draw", "To suggest that only grandparents can teach art", "To show that Lama wants to become a teacher", "To give Lama's hobby a deeper, personal meaning connected to home"],
+          "options": ["To explain why birds are hard to draw for young children and for adults", "To suggest that only grandparents can teach art to a child at home", "To show that Lama wants to become a teacher in the school one day", "To give Lama's hobby a deeper, personal meaning connected to home"],
           "answer": "D",
           "skill": "author-purpose",
           "why": "Connecting the sketching to her grandfather and old home explains why the hobby, and sharing it, means so much to Lama.",

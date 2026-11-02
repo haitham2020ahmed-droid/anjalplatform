@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How to keep a glass of juice cold",
+            "How to keep a glass of juice cold in the sun",
             "How water moves from Earth to the sky and back again",
-            "Why it never rains in Saudi Arabia",
-            "How people build wells in the desert"
+            "Why it never rains in Saudi Arabia in any season",
+            "How people build wells in the desert with simple tools"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -199,10 +199,10 @@
         {
           "stem": "Why do drops form on the outside of a cold glass of juice?",
           "options": [
-            "The juice leaks through the glass.",
-            "Someone splashed water on it.",
+            "The juice leaks through the glass to the outside.",
+            "Someone splashed water on it a short time ago.",
             "Vapor in the air cools and turns into drops.",
-            "The sun heats the glass."
+            "The sun heats the glass and makes it wet."
           ],
           "answer": "C",
           "skill": "inference",
@@ -363,7 +363,7 @@
           "options": [
             "Clouds filter out the salt as they move.",
             "Rain mixes with river water as it falls.",
-            "Desalination plants clean the clouds.",
+            "Desalination plants clean the clouds in the sky.",
             "The salt stays behind when seawater evaporates."
           ],
           "answer": "D",

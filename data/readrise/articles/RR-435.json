@@ -557,10 +557,10 @@
         {
           "stem": "Which list places these events in the correct order?",
           "options": [
-            "The race begins; Yousef becomes exhausted; Yousef starts his morning coastal practice",
+            "The race begins; Yousef becomes exhausted; Yousef starts his morning coastal practice at dawn, near the sea",
             "He begins his coastal practice, the race is announced, exhaustion hits, and he visualizes the wind to finish.",
-            "Yousef finishes the race; the school announces the race; Yousef begins practicing",
-            "Yousef becomes exhausted; the school announces the race; Yousef begins practicing"
+            "Yousef finishes the race; the school announces the race; Yousef begins practicing near the sea in the morning",
+            "Yousef becomes exhausted; the school announces the race; Yousef begins practicing near the coast, every day"
           ],
           "answer": "B",
           "skill": "sequence",

@@ -114,8 +114,8 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How a dentist fixes a broken tooth",
-            "Why candy tastes so sweet to kids",
+            "How a dentist fixes a broken tooth in a clinic",
+            "Why candy tastes so sweet to young kids",
             "How teeth work and how to keep them healthy",
             "Why baby teeth come in many colors"
           ],
@@ -183,7 +183,7 @@
           "stem": "Why does eating less candy help your teeth?",
           "options": [
             "Candy makes teeth fall out at age six",
-            "Candy is too hard for teeth to bite",
+            "Candy is too hard for teeth to bite into easily",
             "Germs eat sugar and make acid that harms teeth",
             "Candy washes away the plaque too fast"
           ],
@@ -233,9 +233,9 @@
         {
           "stem": "Why does the author tell about the miswak at the end?",
           "options": [
-            "To sell miswak sticks to readers",
-            "To explain how trees grow",
-            "To show that brushing is not needed",
+            "To sell miswak sticks to readers at a low price in the market",
+            "To explain how trees grow in the desert without much water",
+            "To show that brushing is not needed, only sticks",
             "To show people in Arabia have cleaned teeth for a long time"
           ],
           "answer": "D",
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
-            "Baby teeth matter more than adult teeth.",
+            "Baby teeth matter more than adult teeth, so care of them is the main idea.",
             "Teeth do important jobs, and daily care and good food keep them healthy.",
-            "The miswak is the only safe way to clean teeth.",
-            "Bacteria in the mouth are always helpful."
+            "The miswak is the only safe way to clean teeth, and brushes are harmful.",
+            "Bacteria in the mouth are always helpful, so teeth do not need any cleaning."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -412,10 +412,10 @@
         {
           "stem": "How is the paragraph about bacteria and plaque mostly organized?",
           "options": [
-            "It compares two kinds of toothpaste",
-            "It lists the steps for flossing",
+            "It compares two kinds of toothpaste that people use",
+            "It lists the steps for flossing every day at home",
             "It shows causes and effects that lead to a cavity",
-            "It tells the history of the miswak"
+            "It tells the history of the miswak in Arabia long ago"
           ],
           "answer": "C",
           "skill": "text-structure",
@@ -473,9 +473,9 @@
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
             "Because permanent teeth must last a lifetime, daily habits and diet are key to stopping decay.",
-            "A miswak works better than any toothpaste.",
-            "Enamel is so hard that it can never be damaged.",
-            "Children need more teeth than adults do."
+            "A miswak works better than any toothpaste, and so people no longer need brushes or paste.",
+            "Enamel is so hard that it can never be damaged by food, sugar, or any drink.",
+            "Children need more teeth than adults do, which is why they grow a new set later."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -523,9 +523,9 @@
         {
           "stem": "\"This acid can erode the enamel.\" What does erode mean?",
           "options": [
-            "To build up",
-            "To change color",
-            "To cool down",
+            "To build up slowly",
+            "To change its color",
+            "To cool down fast",
             "To wear away slowly"
           ],
           "answer": "D",
@@ -591,9 +591,9 @@
         {
           "stem": "Why does the author describe incisors, canines, and molars?",
           "options": [
-            "To persuade readers to eat less meat",
+            "To persuade readers to eat less meat and more fruit",
             "To show that different teeth have different jobs",
-            "To explain how bacteria form plaque",
+            "To explain how bacteria form plaque on teeth",
             "To compare human teeth with animal teeth"
           ],
           "answer": "B",

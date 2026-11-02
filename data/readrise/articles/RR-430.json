@@ -131,10 +131,10 @@
         {
           "stem": "Who is Nura?",
           "options": [
-            "Layla's teacher at school",
+            "Layla's teacher at school who sings",
             "Layla's gran, who weaves cloth",
-            "A woman who lives far away",
-            "Layla's younger sister"
+            "A woman who lives far away from here",
+            "Layla's younger sister who plays outside"
           ],
           "answer": "B",
           "skill": "detail",
@@ -166,8 +166,8 @@
           "stem": "Why do the shapes not line up at first?",
           "options": [
             "Layla uses the wrong thread color",
-            "Layla does not try hard enough",
-            "Layla goes too slow and careful",
+            "Layla does not try hard enough at sewing",
+            "Layla goes too slow and is too careful",
             "Layla makes mistakes while still learning"
           ],
           "answer": "D",
@@ -327,10 +327,10 @@
         {
           "stem": "Why was the occasion important to Nura?",
           "options": [
-            "It was the only day she could weave",
-            "It marked the end of the school year",
+            "It was the only day she could weave in a year",
+            "It marked the end of the school year for the children",
             "Layla's brother was coming home after a year away",
-            "A neighbor was visiting for the first time"
+            "A neighbor was visiting for the first time that week"
           ],
           "answer": "C",
           "skill": "detail",
@@ -344,10 +344,10 @@
         {
           "stem": "Why did the diamonds keep coming out crooked at first?",
           "options": [
-            "Nura used the wrong kind of thread",
-            "The loom was broken the whole time",
+            "Nura used the wrong kind of thread for the pattern",
+            "The loom was broken the whole time they worked",
             "The threads kept crossing in the wrong places",
-            "Layla refused to practice at all"
+            "Layla refused to practice at all for many weeks"
           ],
           "answer": "C",
           "skill": "cause-effect",
@@ -396,9 +396,9 @@
           "stem": "What can you tell about this pattern from how the story describes it?",
           "options": [
             "It had been passed down and valued in the family for a long time",
-            "It was invented by Layla the night before the gift",
-            "It was something only Nura was ever able to weave",
-            "It was no longer important to anyone in the family"
+            "It was invented by Layla the night before she gave the gift",
+            "It was something only Nura was ever able to weave in the village",
+            "It was no longer important to anyone in the family any more"
           ],
           "answer": "A",
           "skill": "inference",
@@ -412,10 +412,10 @@
         {
           "stem": "How does the story mostly unfold?",
           "options": [
-            "By comparing two different weaving traditions",
-            "By listing the tools needed to build a loom",
+            "By comparing two different weaving traditions in two places",
+            "By listing the tools needed to build a loom in the workshop",
             "By following a struggle, then showing how practice overcomes it",
-            "By describing a festival from beginning to end"
+            "By describing a festival from beginning to end in the town"
           ],
           "answer": "C",
           "skill": "text-structure",
@@ -541,7 +541,7 @@
           "stem": "Why does the story emphasize that Layla wove the pattern 'without a single mistake'?",
           "options": [
             "To show that her earlier frustration had led to real, hard-won mastery",
-            "To suggest that mistakes no longer mattered to her at all",
+            "To suggest that mistakes no longer mattered to her at all in the end",
             "To prove that the pattern had actually been quite simple",
             "To imply that Nura had secretly fixed the mistakes herself"
           ],
@@ -557,10 +557,10 @@
         {
           "stem": "Why did Nura's calm, repeated demonstrations succeed where Layla's unguided attempts had failed?",
           "options": [
-            "They happened to take place later in the day",
+            "They happened to take place later in the day, when she felt rested",
             "They broke the complex technique into clear, understandable steps",
-            "They used a completely different and simpler pattern",
-            "They required Layla to stop practicing altogether"
+            "They used a completely different and simpler pattern to start",
+            "They required Layla to stop practicing altogether for a week"
           ],
           "answer": "B",
           "skill": "cause-effect",

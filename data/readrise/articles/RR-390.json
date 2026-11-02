@@ -198,7 +198,7 @@
         },
         {
           "stem": "Why does Omar want to investigate instead of simply believing the rumor?",
-          "options": ["He wants to avoid doing his classwork", "He wants to scare the other students", "He wants to get the janitor in trouble", "He wants a real explanation instead of a guess"],
+          "options": ["He wants to avoid doing his classwork", "He wants to scare the other students in his class", "He wants to get the janitor in trouble", "He wants a real explanation instead of a guess"],
           "answer": "D",
           "skill": "inference",
           "why": "Omar is curious and wants a real explanation for the sound rather than simply accepting the rumor.",
@@ -292,7 +292,7 @@
         },
         {
           "stem": "Which sequence correctly matches the order of events in the story?",
-          "options": ["They find evidence; they form a hypothesis; the rumor spreads; the rumor fades away", "The rumor fades away; the rumor spreads; they find evidence; they form a hypothesis", "The rumor spreads; Omar and Lina form a hypothesis; they find evidence at the window; the rumor fades away", "They form a hypothesis; the rumor spreads; the rumor fades away; they find evidence"],
+          "options": ["First, they find evidence; then they form a hypothesis; then the rumor spreads; at last the rumor fades away", "The rumor fades away; the rumor spreads; they find evidence; they form a hypothesis, in that order", "The rumor spreads; Omar and Lina form a hypothesis; they find evidence at the window; the rumor fades away", "They form a hypothesis; the rumor spreads; the rumor fades away; they find evidence at the window"],
           "answer": "C",
           "skill": "sequence",
           "why": "The rumor spreads first, then Omar and Lina form a hypothesis, then they find evidence at the window, and finally the rumor fades away.",

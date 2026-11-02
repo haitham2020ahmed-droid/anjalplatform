@@ -412,10 +412,10 @@
         {
           "stem": "How does the author mostly organize the information about souqs?",
           "options": [
-            "As a full set of instructions for building a market stall",
+            "As a full set of instructions for building a market stall of wood",
             "From the souq's layout, to its social role, to its comparison with a mall",
-            "As a long argument between a buyer and a stubborn seller",
-            "From the very newest souq in the city to the oldest one"
+            "As a long argument between a buyer and a stubborn seller in the souq",
+            "From the very newest souq in the city to the oldest one in the country"
           ],
           "answer": "B",
           "skill": "text-structure",
@@ -523,10 +523,10 @@
         {
           "stem": "What typically covered the lanes of a souq?",
           "options": [
-            "Stone arches built by the government",
+            "Stone arches built by the government for the king",
             "A roof of wood, cloth, or dried palm leaves",
-            "Open sky with no covering at all",
-            "Metal sheets imported from Europe"
+            "Open sky with no covering at all above the lanes",
+            "Metal sheets imported from Europe by sea traders"
           ],
           "answer": "B",
           "skill": "detail",

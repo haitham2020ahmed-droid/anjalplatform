@@ -88,7 +88,7 @@
       "questions": [
         {
           "stem": "What is this article mostly about?",
-          "options": ["How farmers grow apples", "Why food gets wasted and why it matters", "How to build a food store", "Why trucks need fuel"],
+          "options": ["How farmers grow apples in an orchard", "Why food gets wasted and why it matters", "How to build a food store in a town", "Why trucks need fuel to carry goods"],
           "answer": "B",
           "skill": "central-idea",
           "why": "The article explains that food gets wasted at the farm, the store, and the home, and why that waste matters.",
@@ -166,7 +166,7 @@
       "questions": [
         {
           "stem": "Which sentence best states the central idea of the article?",
-          "options": ["Only stores are responsible for food waste.", "Food waste happens from farm to table and wastes valuable resources.", "Farmers should stop growing more food than needed.", "Leftover food should always be thrown away."],
+          "options": ["Only stores are responsible for food waste, and families and farms never waste any.", "Food waste happens from farm to table and wastes valuable resources.", "Farmers should stop growing more food than needed, and then waste would end at once.", "Leftover food should always be thrown away, because it is never safe to eat."],
           "answer": "B",
           "skill": "central-idea",
           "why": "The article explains that waste happens at many stages and wastes the water, land, and fuel used to produce the food.",
@@ -198,7 +198,7 @@
         },
         {
           "stem": "Why would a store donate surplus food instead of throwing it away?",
-          "options": ["To help people who need food instead of wasting it", "To make the food spoil faster", "To avoid selling any food at all", "To make room for more customers"],
+          "options": ["To help people who need food instead of wasting it", "To make the food spoil faster in the store, so it is gone", "To avoid selling any food at all this week in the shop", "To make room for more customers to walk in the store"],
           "answer": "A",
           "skill": "inference",
           "why": "The article says stores donate surplus food to people experiencing hunger instead of discarding it.",
@@ -206,7 +206,7 @@
         },
         {
           "stem": "A family throws away food that spoiled in their kitchen before they could eat it. What is the most likely reason?",
-          "options": ["They grew the food themselves", "They bought more food than they could use in time", "They donated the food to a store", "They stored the food in a landfill"],
+          "options": ["They grew the food themselves in a garden at home", "They bought more food than they could use in time", "They donated the food to a store near their house", "They stored the food in a landfill behind the house"],
           "answer": "B",
           "skill": "inference",
           "why": "The article says food purchased by a household can spoil before it is eaten, often because too much was bought.",
@@ -222,7 +222,7 @@
         },
         {
           "stem": "How does the author organize the article?",
-          "options": ["By comparing two kinds of farms", "By listing countries with the most farms", "By telling a story about one apple", "By explaining where waste happens, why it matters, and how to reduce it"],
+          "options": ["By comparing two kinds of farms and the crops each one grows", "By listing the countries with the most farms in the world and their size", "By telling a story about one apple on its long journey to the shop", "By explaining where waste happens, why it matters, and how to reduce it"],
           "answer": "D",
           "skill": "text-structure",
           "why": "The article moves from where food waste happens, to why it matters, to ways to reduce it.",
@@ -244,7 +244,7 @@
       "questions": [
         {
           "stem": "Which statement best expresses the central idea of the article?",
-          "options": ["Farms produce too much food and should grow less.", "Food waste squanders resources used to produce food and harms the environment.", "Only wealthy countries waste food.", "Stores should never sell discounted food."],
+          "options": ["Farms produce too much food and should grow less of it, so farmers must plant fewer crops.", "Food waste squanders resources used to produce food and harms the environment.", "Only wealthy countries waste food in their homes and stores, and poorer ones waste nothing.", "Stores should never sell discounted food, because it makes people throw away more."],
           "answer": "B",
           "skill": "central-idea",
           "why": "The article explains that wasted food squanders water, land, and fuel, and contributes to landfill gases.",
@@ -276,7 +276,7 @@
         },
         {
           "stem": "Why does the article mention that resources used to grow food are \"unevenly distributed\"?",
-          "options": ["To argue that farms should be built only in rich countries", "To explain why some farms are bigger than others", "To suggest that food never spoils in dry regions", "To show that wasting food can hurt regions where resources are already scarce"],
+          "options": ["To argue that farms should be built only in rich countries", "To explain why some farms are much bigger than others in the same country", "To suggest that food never spoils in dry regions, so nobody there needs to save it", "To show that wasting food can hurt regions where resources are already scarce"],
           "answer": "D",
           "skill": "inference",
           "why": "Because some regions already have limited water and land, wasting food there has a bigger impact.",
@@ -292,7 +292,7 @@
         },
         {
           "stem": "Why do researchers consider the gap between food production and consumption a serious problem?",
-          "options": ["Because it means farmers grow too little food", "Because it causes food prices to drop sharply", "Because it means resources used to grow food go to waste", "Because it stops trucks from carrying any food"],
+          "options": ["Because it means farmers grow too little food for people", "Because it causes food prices to drop sharply every year", "Because it means resources used to grow food go to waste", "Because it stops trucks from carrying any food to stores"],
           "answer": "C",
           "skill": "cause-effect",
           "why": "When food produced is not eaten, the resources that went into producing it are wasted too.",
@@ -300,7 +300,7 @@
         },
         {
           "stem": "Why does the author describe ancient methods of preserving food, such as drying and salting?",
-          "options": ["To show that preventing food waste is a long-standing human concern", "To prove that refrigerators are a modern invention", "To argue that old food-storage methods were unsafe", "To explain how salt is mined"],
+          "options": ["To show that preventing food waste is a long-standing human concern", "To prove that refrigerators are a modern invention made in the last century", "To argue that old food-storage methods were unsafe for the families who used them", "To explain how salt is mined from the ground and sea"],
           "answer": "A",
           "skill": "author-purpose",
           "why": "The article uses this history to show that people have long worked to prevent food from spoiling and being wasted.",

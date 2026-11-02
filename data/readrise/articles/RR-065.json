@@ -165,10 +165,10 @@
         {
           "stem": "Read: \"A cough or a sneeze can spread germs.\" What does spread mean here?",
           "options": [
-            "Hide in one spot",
+            "Hide in one spot and stay there",
             "Move to other places and people",
-            "Grow bigger",
-            "Wash away"
+            "Grow bigger in the warm air",
+            "Wash away with soap and water"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -233,10 +233,10 @@
         {
           "stem": "Why does the author begin by saying your hands may have germs even if they look clean?",
           "options": [
-            "To make readers afraid of their hands",
+            "To make readers afraid of their hands and of germs, and to scare them",
             "To get readers thinking about germs they cannot see",
-            "To show how to dry your hands",
-            "To tell a funny story"
+            "To show how to dry your hands after washing them with soap",
+            "To tell a funny story about a boy who never washes"
           ],
           "answer": "B",
           "skill": "author-purpose",
@@ -344,10 +344,10 @@
         {
           "stem": "Read: \"so the running water can rinse them away.\" What does rinse mean?",
           "options": [
-            "To dry with a towel",
-            "To rub with soap",
+            "To dry with a towel in the sun",
+            "To rub with soap and a brush",
             "To wash off with water",
-            "To cover with gel"
+            "To cover with gel or cream"
           ],
           "answer": "C",
           "skill": "vocabulary",
@@ -412,10 +412,10 @@
         {
           "stem": "How is the paragraph about washing hands the right way organized?",
           "options": [
-            "By comparing soap and hand gel",
+            "By comparing soap and hand gel in a table",
             "As steps in order, from wetting to drying",
-            "As a story about a hospital",
-            "As a list of different germs"
+            "As a story about a hospital and its nurses",
+            "As a list of different germs and their names"
           ],
           "answer": "B",
           "skill": "text-structure",
@@ -591,10 +591,10 @@
         {
           "stem": "Why does the author end the article with the story of Ignaz Semmelweis?",
           "options": [
-            "To explain how soap molecules are made",
-            "To describe a modern hospital",
+            "To explain how soap molecules are made in a factory",
+            "To describe a modern hospital and the doctors and nurses who work in its wards",
             "To show historical evidence that handwashing protects people's health",
-            "To compare bacteria and viruses"
+            "To compare bacteria and viruses and show how they grow"
           ],
           "answer": "C",
           "skill": "author-purpose",

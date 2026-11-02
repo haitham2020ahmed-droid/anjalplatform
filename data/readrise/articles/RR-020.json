@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How to kick a football far",
+            "How to kick a football far across a big field at school",
             "A force that slows things and how it helps and harms",
-            "Why ice melts on a hot day",
-            "How to fix an old bike"
+            "Why ice melts so fast on a hot day in summer",
+            "How to fix an old bike with a few tools"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -199,9 +199,9 @@
         {
           "stem": "Why is it easy to slip on ice?",
           "options": [
-            "Ice is very rough.",
-            "Ice is too hot to stand on.",
-            "Ice makes a lot of heat.",
+            "Ice is very rough and it grips shoes tightly.",
+            "Ice is too hot to stand on for very long.",
+            "Ice makes a lot of heat when we step on it.",
             "Ice is smooth, so there is little friction."
           ],
           "answer": "D",
@@ -233,10 +233,10 @@
         {
           "stem": "Why does the author tell about shoes, brakes, and bike chains near the end?",
           "options": [
-            "To sell new bikes",
+            "To sell new bikes to children at the shop in town",
             "To show ways friction helps us and causes problems",
-            "To teach how to tie shoes",
-            "To prove that friction is always bad"
+            "To teach how to tie shoes before school every morning",
+            "To prove that friction is always bad for every machine we use"
           ],
           "answer": "B",
           "skill": "author-purpose",
@@ -294,9 +294,9 @@
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
             "Friction is a force between surfaces that slows motion and can be both helpful and harmful.",
-            "Football is played on grass because grass is soft.",
-            "Ice rinks are the best place to study science.",
-            "Machines would last forever without lubricants."
+            "Football is played on grass because grass is soft and the ball bounces higher on it.",
+            "Ice rinks are the best place to study science, because there is no friction on ice at all.",
+            "Machines would last forever without lubricants, because oil only makes them dirty and old."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -361,10 +361,10 @@
         {
           "stem": "Why can a hockey puck glide a long distance on an ice rink?",
           "options": [
-            "The puck is very heavy.",
-            "The players push it with brakes.",
+            "The puck is very heavy, so it slides far.",
+            "The players push it with brakes on their skates.",
             "Ice is smooth, so it creates very little friction.",
-            "The ice makes the puck warm."
+            "The ice makes the puck warm, so it can glide."
           ],
           "answer": "C",
           "skill": "cause-effect",
@@ -412,10 +412,10 @@
         {
           "stem": "How does the author organize the last two paragraphs?",
           "options": [
-            "By telling events in time order",
+            "By telling the events in time order, from first to last",
             "By showing the benefits of friction and then its disadvantages",
-            "By comparing two kinds of sports",
-            "By listing steps in an experiment"
+            "By comparing two kinds of sports and the rules of each",
+            "By listing the steps in an experiment, one after the other"
           ],
           "answer": "B",
           "skill": "text-structure",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best summarizes the article?",
           "options": [
-            "Friction is mostly harmful, so engineers try to remove it completely.",
-            "Ice rinks show that smooth surfaces are always dangerous.",
+            "Friction is mostly harmful, so engineers try to remove it completely from every machine they build.",
+            "Ice rinks show that smooth surfaces are always dangerous, so people should avoid skating and sliding.",
             "Friction opposes motion between surfaces; it depends on texture, generates heat, and both helps and harms us.",
-            "Footballs stop because grass is wet."
+            "Footballs stop because grass is wet, and dry grass would let them roll on forever without slowing."
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -540,10 +540,10 @@
         {
           "stem": "Why does a lubricant help machinery last longer?",
           "options": [
-            "It makes the parts heavier.",
-            "It adds texture to the parts.",
+            "It makes the parts heavier, so the machine moves more slowly.",
+            "It adds texture to the parts, so they can grip each other.",
             "It creates a slippery layer, so the parts rub less and wear out more slowly.",
-            "It cools the air around the machine."
+            "It cools the air around the machine and the room, so the workers feel better."
           ],
           "answer": "C",
           "skill": "cause-effect",
@@ -591,9 +591,9 @@
         {
           "stem": "Why does the author begin with a football rolling to a stop?",
           "options": [
-            "To explain the rules of football",
-            "To argue that grass fields should be replaced",
-            "To compare football and hockey",
+            "To explain the rules of football to new players and referees",
+            "To argue that grass fields should be replaced with sand ones",
+            "To compare football and hockey in speed and in strength",
             "To use a familiar scene to introduce an invisible force"
           ],
           "answer": "D",

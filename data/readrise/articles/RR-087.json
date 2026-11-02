@@ -165,10 +165,10 @@
         {
           "stem": "The article says radium could glow in the dark. What does glow mean?",
           "options": [
-            "To make a loud sound",
+            "To make a loud sound in the night",
             "To give off a soft light",
-            "To grow bigger",
-            "To feel very cold"
+            "To grow bigger every day and week",
+            "To feel very cold in the snow"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -182,10 +182,10 @@
         {
           "stem": "Why did Marie leave Poland to study?",
           "options": [
-            "She wanted to see the sea.",
-            "Pierre asked her to come to Paris.",
+            "She wanted to see the sea and the mountains",
+            "Pierre asked her to come to Paris to work with him.",
             "Girls in Poland could not go to a university.",
-            "She had won a prize in France."
+            "She had won a prize in France for her studies"
           ],
           "answer": "C",
           "skill": "cause-effect",
@@ -294,9 +294,9 @@
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
             "Marie Curie's determination led to discoveries that changed science and medicine.",
-            "Pierre Curie did most of the important work in their laboratory.",
-            "Uranium is the most useful metal that scientists have ever discovered.",
-            "Women could not become scientists in the early 1900s."
+            "Pierre Curie did most of the important work in their laboratory, and Marie only helped him.",
+            "Uranium is the most useful metal that scientists have ever discovered, and it is used in every home.",
+            "Women could not become scientists in the early 1900s, so Marie Curie worked in secret at home."
           ],
           "answer": "A",
           "skill": "central-idea",

@@ -182,9 +182,9 @@
         {
           "stem": "The scholars translated books so more people could read them. What does translate mean?",
           "options": [
-            "To read very fast",
-            "To burn something",
-            "To make a copy with a picture",
+            "To read very fast, without a stop",
+            "To burn something in a big fire",
+            "To make a copy with a picture on it",
             "To change words into a new language"
           ],
           "answer": "D",
@@ -293,10 +293,10 @@
         {
           "stem": "What is the central idea of the article?",
           "options": [
-            "Baghdad was only a city for trade.",
+            "Baghdad was only a city for trade, and scholars never lived or worked there.",
             "The House of Wisdom gathered and grew knowledge that still matters today.",
-            "Paper was invented by the scholars of Europe.",
-            "The caliphs did not care about learning."
+            "Paper was invented by the scholars of Europe and then sent to Baghdad.",
+            "The caliphs did not care about learning, so they closed all the libraries."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -378,10 +378,10 @@
         {
           "stem": "How were the scholars different from people who only copy books?",
           "options": [
-            "They never read old books.",
-            "They wrote only in Greek.",
+            "They never read old books at all.",
+            "They wrote only in the Greek language.",
             "They added new discoveries, like algebra.",
-            "They worked alone and never shared."
+            "They worked alone and never shared their ideas."
           ],
           "answer": "C",
           "skill": "detail",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
-            "The House of Wisdom was mainly a place for storing gold.",
+            "The House of Wisdom was mainly a place for storing gold and silver coins for the caliph.",
             "It gathered, preserved, and expanded knowledge that shaped later learning.",
-            "Abbasid caliphs discouraged translation from other languages.",
-            "The Mongol attack ended all scientific progress forever."
+            "Abbasid caliphs discouraged translation from other languages and burned most foreign books.",
+            "The Mongol attack ended all scientific progress forever, and no scholar ever wrote again."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -506,9 +506,9 @@
         {
           "stem": "According to the article, what did Hunayn ibn Ishaq contribute?",
           "options": [
-            "He built Baghdad's first observatory.",
-            "He measured the circumference of the Earth.",
-            "He invented automatic fountains.",
+            "He built Baghdad's first observatory on a hill near the river.",
+            "He measured the circumference of the Earth with a long rope.",
+            "He invented automatic fountains for the caliph's garden.",
             "He translated many works by the Greek physician Galen."
           ],
           "answer": "D",
@@ -558,9 +558,9 @@
           "stem": "What can be inferred from the report that al-Ma'mun sent messengers to acquire manuscripts?",
           "options": [
             "He believed books from other lands were valuable.",
-            "He wanted to destroy foreign books.",
-            "He did not trust Baghdad's scholars.",
-            "He had no interest in science."
+            "He wanted to destroy foreign books and burn them.",
+            "He did not trust Baghdad's scholars or their work.",
+            "He had no interest in science or in learning."
           ],
           "answer": "A",
           "skill": "inference",
@@ -574,9 +574,9 @@
         {
           "stem": "What does the work of the Banu Musa brothers suggest about scholars at the House of Wisdom?",
           "options": [
-            "They studied only ancient poetry.",
-            "They worked only as translators.",
-            "They refused to read foreign books.",
+            "They studied only ancient poetry, and nothing else, in the library.",
+            "They worked only as translators of old books from Greece.",
+            "They refused to read foreign books from other lands.",
             "They used their knowledge to build practical inventions."
           ],
           "answer": "D",

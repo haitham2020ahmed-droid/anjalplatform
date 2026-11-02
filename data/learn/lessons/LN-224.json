@@ -263,9 +263,9 @@
         "good": "Right! The harsh verbs outside create tension, while the soft verbs inside create calm, even during the same storm.",
         "options": [
           "Smothered and screamed in paragraph one feel tense and violent, while hummed and steady in paragraph two feel calm and controlled.",
-          "Both paragraphs use the same calm words, so the tone never changes.",
-          "Smothered and screamed are soft words, so paragraph one feels peaceful too.",
-          "The paragraphs describe two different storms happening in two different towns."
+          "Both paragraphs use the same calm words, so the tone never changes from the start of the story to the end.",
+          "Smothered and screamed are soft words, so paragraph one feels peaceful too, just like the calm paragraph two.",
+          "The paragraphs describe two different storms happening in two different towns on two different days of the same year, far from each other."
         ],
         "answer": 0
       },
@@ -291,10 +291,10 @@
           "stem": "How do the two sentences differ in tone?",
           "why": "Roared and surged feel wild, while calmly and unhurried feel patient and composed.",
           "options": [
-            "Both sentences feel exactly the same, calm and slow.",
+            "Both sentences feel exactly the same, calm and slow, with no change in mood at all.",
             "The first sentence feels chaotic and excited, while the second feels calm and patient.",
-            "The first sentence is about an elderly couple.",
-            "The second sentence describes a loud, roaring crowd."
+            "The first sentence is about an elderly couple, and the second is about a young child.",
+            "The second sentence describes a loud, roaring crowd, while the first feels quiet."
           ],
           "answer": 1
         },
@@ -303,7 +303,7 @@
           "stem": "What tone does groaned and shuddered create in the first sentence?",
           "why": "Groaned and shuddered describe a machine breaking down, creating a tense tone.",
           "options": [
-            "A joyful, celebratory tone.",
+            "A joyful, celebratory tone, full of fun.",
             "A peaceful, restful tone.",
             "A tense, mechanical-failure tone.",
             "A mysterious, magical tone."
@@ -368,9 +368,9 @@
         "good": "Exactly! Word choice alone, not different facts, creates the opposite tones in these two true accounts.",
         "options": [
           "Each writer's specific word choices, such as 'whirlwind' and 'gleamed' versus 'crawl' and 'dim', shape how the reader feels about the same true events.",
-          "Amal visited a different, more exciting part of the museum than Noor did.",
-          "Noor's essay contains several facts that Amal's essay leaves out.",
-          "The tone difference happens only because Amal's essay is much longer."
+          "Amal visited a different, more exciting part of the museum than Noor did, and that part was newer and had more things to see and to touch for children.",
+          "Noor's essay contains several facts that Amal's essay leaves out, so the two essays tell different stories about the day.",
+          "The tone difference happens only because Amal's essay is much longer than Noor's, and long essays always sound happier."
         ],
         "answer": 0
       },
@@ -396,10 +396,10 @@
           "stem": "What does the employee's word choice ('rushed') suggest about her opinion of the policy, compared with the manager's word ('streamlined')?",
           "why": "'Rushed' has a negative connotation of carelessness, while 'streamlined' sounds efficient and positive, same policy, opposite impressions.",
           "options": [
-            "She agrees completely with the manager's description.",
+            "She agrees completely with the manager's description and thinks the policy was done well.",
             "She feels the policy was done too quickly and carelessly, unlike the manager's positive spin.",
-            "She believes the policy will take years to complete.",
-            "She has no opinion about the policy at all."
+            "She believes the policy will take years to complete, and she thinks it costs too much.",
+            "She has no opinion about the policy at all, and she did not read what the manager said."
           ],
           "answer": 1
         },
@@ -408,10 +408,10 @@
           "stem": "How do the coach's and reporter's word choices differ in tone about the same loss?",
           "why": "'Valuable learning experience' reframes the loss positively, while 'embarrassing collapse' is harshly critical.",
           "options": [
-            "Both word choices sound equally harsh and critical.",
-            "Both word choices sound equally encouraging and positive.",
+            "Both word choices sound equally harsh and critical, and neither is kind about the team.",
+            "Both word choices sound equally encouraging and positive, and neither is harsh about the team.",
             "The coach's words sound encouraging and positive, while the reporter's words sound harsh and critical.",
-            "The coach is describing a win, not a loss."
+            "The coach is describing a win, not a loss, and the reporter is describing a game that was played in a different year."
           ],
           "answer": 2
         },
@@ -420,9 +420,9 @@
           "stem": "What tone does each reviewer's word choice create about the same film?",
           "why": "'Bold, daring experiment' shows admiration, while 'confusing mess' shows frustration, about the exact same film.",
           "options": [
-            "Both reviewers sound equally impressed by the film.",
-            "Both reviewers sound equally confused and frustrated.",
-            "Neither review expresses any feeling about the film.",
+            "Both reviewers sound equally impressed by the film and want to see it again.",
+            "Both reviewers sound equally confused and frustrated by the film and its story.",
+            "Neither review expresses any feeling about the film, only facts about the actors.",
             "The first sounds admiring and impressed; the second sounds frustrated and critical."
           ],
           "answer": 3

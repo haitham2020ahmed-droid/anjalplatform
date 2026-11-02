@@ -160,9 +160,9 @@
         "good": "Right! A measured study across 40 schools is far stronger than one neighbor's personal impression.",
         "options": [
           "The city-wide study of 40 schools showing trash reduced by nearly a third.",
-          "The neighbor's impression that his street looks cleaner.",
-          "The fact that recycling bins exist on some streets.",
-          "The opinion that recycling is generally a good idea."
+          "The neighbor's impression that his street looks a lot cleaner than before.",
+          "The fact that recycling bins exist on some streets in the city.",
+          "The opinion that recycling is generally a good idea for everyone."
         ],
         "answer": 0
       },
@@ -211,8 +211,8 @@
           "stem": "Which statement is the weaker piece of evidence?",
           "why": "'Probably works' from a friend is a guess, much weaker than a 500-patient study.",
           "options": [
-            "The study of 500 patients.",
-            "The fact that most patients had fewer headaches.",
+            "The study of 500 patients from three big hospitals.",
+            "The fact that most patients had fewer headaches after a month.",
             "The report that doctors conducted the study.",
             "The friend's comment that the medicine 'probably' works."
           ],
@@ -264,8 +264,8 @@
         "good": "Right! That claim uses confident-sounding words but cites no real survey or example.",
         "options": [
           "The claim that everyone knows students hate uniforms and will just rebel against them.",
-          "The claim that a survey of 50 schools found less reported teasing.",
-          "The claim that one uniform costs less than many trendy outfits.",
+          "The claim that a survey of 50 schools found less reported teasing among students.",
+          "The claim that one uniform costs less than many trendy outfits bought in a year.",
           "The claim that student surveys show teens value choosing their clothes."
         ],
         "answer": 0
@@ -291,10 +291,10 @@
           "stem": "Which claim is the weaker one?",
           "why": "'Obviously make everyone happier' cites no survey or study, unlike the 20 percent report.",
           "options": [
-            "The report showing a 20 percent exercise increase.",
+            "The report showing a 20 percent exercise increase last year.",
             "The claim that the park would obviously make everyone happier.",
-            "The claim that other cities were studied.",
-            "The claim that parks involve community exercise."
+            "The claim that other cities were studied by the council.",
+            "The claim that parks involve community exercise and sport."
           ],
           "answer": 1
         },
@@ -303,10 +303,10 @@
           "stem": "Which is the stronger piece of evidence?",
           "why": "A year-long comparative study is real evidence; 'everybody knows' is not.",
           "options": [
-            "The commercial's claim that everybody agrees.",
-            "The toothpaste's price.",
+            "The commercial's claim that everybody agrees on it.",
+            "The toothpaste's price in the local shops.",
             "The dental study comparing five brands over one year.",
-            "The toothpaste's flavor."
+            "The toothpaste's flavor and its bright colors."
           ],
           "answer": 2
         },
@@ -368,9 +368,9 @@
         "good": "Right! Acknowledging a real concern and responding to it makes an argument more credible than one that ignores the other side entirely.",
         "options": [
           "By admitting a real but minor cost and showing it already has a partial solution, the argument looks more balanced and credible than one that ignores opposing evidence.",
-          "It makes the argument weaker, since any concession proves the opponents are right.",
-          "It has no effect on the argument, since costs and benefits can't be compared.",
-          "It only matters because delivery trucks are mentioned twice in the passage."
+          "It makes the argument weaker, since any concession proves that the opponents are right and that the supporters are wrong about everything.",
+          "It has no effect on the argument, since costs and benefits can't be compared with each other in any fair way, so the passage should have left the concession out completely.",
+          "It only matters because delivery trucks are mentioned twice in the passage, which makes the topic of delivery look more important than it really is to readers."
         ],
         "answer": 0
       },
@@ -395,10 +395,10 @@
           "stem": "How does the company's response affect the strength of its argument?",
           "why": "Responding to the specific concern with trial evidence makes the overall argument more convincing.",
           "options": [
-            "It ignores the cost concern completely, without any mention of staffing at all.",
+            "It ignores the cost concern completely, without any mention of staffing or equipment at all.",
             "It directly addresses the cost concern with evidence from an actual trial, making the argument stronger.",
-            "It proves the critics' concern was completely wrong with no real cost at all.",
-            "It has no connection to the critics' concern, and simply repeats the original proposal."
+            "It proves the critics' concern was completely wrong with no real cost at all to anyone.",
+            "It has no connection to the critics' concern, and simply repeats the original proposal word for word."
           ],
           "answer": 1
         },

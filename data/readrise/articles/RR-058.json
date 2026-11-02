@@ -182,10 +182,10 @@
         {
           "stem": "Why does a cyclone get weak when it moves over land?",
           "options": [
-            "The land is too cold for any wind.",
-            "People on land push it back to sea.",
+            "The land is too cold for any wind to blow there.",
+            "People on land push it back to sea with fans.",
             "It has no warm sea water to give it power.",
-            "Trees on land eat up all the rain."
+            "Trees on land eat up all the rain in the clouds."
           ],
           "answer": "C",
           "skill": "cause-effect",
@@ -233,10 +233,10 @@
         {
           "stem": "How does the article mostly tell about cyclones?",
           "options": [
-            "It tells the story of one family during a big storm.",
-            "It lists the names of famous storms in order.",
+            "It tells the story of one family during a big storm in their home.",
+            "It lists the names of famous storms in order from the oldest to the newest.",
             "It explains how a cyclone forms, what it does, and how it ends.",
-            "It compares cyclones with earthquakes."
+            "It compares cyclones with earthquakes and says which one is worse."
           ],
           "answer": "C",
           "skill": "text-structure",
@@ -557,9 +557,9 @@
         {
           "stem": "Why do weather organizations give storms short names, according to the article?",
           "options": [
-            "To show which country caused the storm",
-            "To make the storms weaker and slower",
-            "To honor famous scientists",
+            "To show which country caused the storm and who should pay",
+            "To make the storms weaker and slower when they reach land",
+            "To honor famous scientists who studied the weather long ago",
             "To reduce confusion when several storms are active"
           ],
           "answer": "D",

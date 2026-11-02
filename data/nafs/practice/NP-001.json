@@ -29,9 +29,9 @@
       "difficulty": 2,
       "stem": "Which sentence uses the word 'adapt' correctly?",
       "options": [
-        "The fox adapted its ears at the market yesterday.",
-        "She adapt the sand very loudly every morning.",
-        "We adapt the door so the cat could not come home.",
+        "The fox adapted its ears at the market yesterday morning, near the shop.",
+        "She adapt the sand very loudly every morning before she goes out to play.",
+        "We adapt the door so the cat could not come home, and it was cold outside.",
         "Some plants adapt to dry weather by storing water in their leaves."
       ],
       "answer": "D",
@@ -125,10 +125,10 @@
       "difficulty": 3,
       "stem": "In your opinion, which information in the passage is the LEAST clear or complete?",
       "options": [
-        "how long the fennec fox's ears can grow",
-        "what kinds of food desert foxes eat",
+        "how long the fennec fox's ears can grow in a few years and why",
+        "what kinds of food desert foxes eat in the hot summer months",
         "how studying the foxes may help us understand a hotter planet",
-        "where Rüppell's fox lives"
+        "where Rüppell's fox lives in Africa and in Asia, and how many there are"
       ],
       "answer": "C",
       "why": "The last paragraph says the foxes' strategies 'may help us understand' future change but never explains how; the other details are stated clearly."
@@ -142,9 +142,9 @@
       "stem": "Which of the following events could really happen?",
       "options": [
         "A fennec fox finds a beetle by listening to sounds under the sand.",
-        "A fox drinks a whole lake to cool its body down.",
-        "A Rüppell's fox tells a scientist about the heat.",
-        "A fennec fox flies above the dunes using its ears."
+        "A fox drinks a whole lake in one night to cool its body down.",
+        "A Rüppell's fox tells a scientist about the heat in the desert.",
+        "A fennec fox flies above the dunes using its big, thin ears."
       ],
       "answer": "A",
       "why": "Fennec foxes really do hear prey moving beneath the sand; foxes cannot drink lakes, speak or fly."

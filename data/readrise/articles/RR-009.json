@@ -233,10 +233,10 @@
         {
           "stem": "Why does the author end by calling him an early scientist?",
           "options": [
-            "To show that he lived in Cairo",
+            "To show that he lived in Cairo for many years",
             "To show his testing of ideas still matters",
-            "To tell readers how to read a book",
-            "To explain what makes the sun bright"
+            "To tell readers how to read a book at home",
+            "To explain what makes the sun bright and hot"
           ],
           "answer": "B",
           "skill": "author-purpose",
@@ -345,9 +345,9 @@
           "stem": "In the article, the word evidence means—",
           "options": [
             "facts or signs that show something is true",
-            "a story that people tell for fun",
-            "a guess that no one can check",
-            "a rule that everyone must follow"
+            "a story that people tell for fun at night",
+            "a guess that no one is able to check or test",
+            "a rule that everyone must follow at school"
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -412,10 +412,10 @@
         {
           "stem": "How does the author organize most of the article?",
           "options": [
-            "By comparing Basra and Cairo in detail",
-            "By listing steps for building a camera",
+            "By comparing Basra and Cairo in detail, street by street",
+            "By listing steps for building a camera out of a box",
             "By describing an old idea, then his tests and results",
-            "By telling a made-up story about a lamp"
+            "By telling a made-up story about a lamp and a boy"
           ],
           "answer": "C",
           "skill": "text-structure",

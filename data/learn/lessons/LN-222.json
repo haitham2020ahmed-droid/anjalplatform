@@ -90,9 +90,9 @@
      "stem": "What are the two meanings of “hands”?",
      "options": [
       "clock hands and people's hands",
-      "left and right",
-      "big and small",
-      "hot and cold"
+      "left and right, like two shoes",
+      "big and small, like two boxes",
+      "hot and cold, like two drinks"
      ],
      "answer": 0,
      "why": "A clock has hands that point to the time. People have hands that can clap."
@@ -103,8 +103,8 @@
      "options": [
       "Bears have no teeth.",
       "“Gummy” has two meanings.",
-      "Bears like sweets.",
-      "Teeth are white."
+      "Bears like sweets and honey.",
+      "Teeth are white and shiny."
      ],
      "answer": 1,
      "why": "“Gummy” can mean having only gums (no teeth), and a gummy bear is a soft sweet."
@@ -156,10 +156,10 @@
     "passage": "Our science teacher, Mr Hamdi, loves jokes. When we studied electricity, he held up a battery and said, “I'm positively charged about today's lesson!” Some students groaned, but most of us laughed. Then he showed us how the positive and negative ends of a battery make the current flow.",
     "stem": "What makes Mr Hamdi's joke a pun?",
     "options": [
-     "He held up a battery in front of the class.",
+     "He held up a battery in front of the whole class.",
      "“Positively charged” fits both electricity and excitement.",
-     "Some students groaned instead of laughing.",
-     "Batteries have positive and negative ends."
+     "Some students groaned instead of laughing at the joke.",
+     "Batteries have positive and negative ends at the top and bottom."
     ],
     "answer": 1,
     "hint": "That is a fact from the passage, not the joke. Which words have TWO meanings?",
@@ -186,9 +186,9 @@
      "stem": "What makes this a pun?",
      "options": [
       "“Hoarse” sounds like “horse”.",
-      "Horses cannot sing.",
+      "Horses cannot sing at all.",
       "The show was cancelled.",
-      "The horse was little."
+      "The horse was little and brown."
      ],
      "answer": 0,
      "why": "“Hoarse” (a rough voice) sounds exactly like “horse”. Both fit the joke."
@@ -197,10 +197,10 @@
      "passage": "A sign at an eye doctor's: “If you don't see what you're looking for, you've come to the right place.”",
      "stem": "What are the two meanings of “see” in the sign?",
      "options": [
-      "to visit / to leave",
-      "to watch TV / to read a book",
+      "to visit a friend / to leave a place behind",
+      "to watch TV / to read a book at home",
       "to look with your eyes / to find what you want",
-      "to swim / to sail"
+      "to swim in the sea / to sail a boat"
      ],
      "answer": 2,
      "why": "“Don't see what you're looking for” usually means you can't find something. At an eye doctor's, it also means your eyes need help."
@@ -295,8 +295,8 @@
      "stem": "Why is the word “waste” clever here?",
      "options": [
       "The poster is made of waste paper.",
-      "Recycling takes a long time.",
-      "It is spelled like “waist”.",
+      "Recycling takes a long time to finish.",
+      "It is spelled almost like “waist”.",
       "It fits both rubbish and missed chances."
      ],
      "answer": 3,
@@ -306,10 +306,10 @@
      "passage": "A story about a lighthouse keeper is titled “A Light Job”.",
      "stem": "What are the two meanings of “light” in the title?",
      "options": [
-      "bright and dark",
+      "bright and dark, like day and night",
       "easy, and the lamp of a lighthouse",
-      "small and big",
-      "happy and sad"
+      "small and big, like a mouse and a cow",
+      "happy and sad, like a smile and a tear"
      ],
      "answer": 1,
      "why": "A “light job” is an easy one, and a lighthouse keeper's job is all about the light."
@@ -318,10 +318,10 @@
      "passage": "Headline about a new airport: “City's Plans Finally Take Off”.",
      "stem": "Why is the headline clever?",
      "options": [
-      "The plans were written on a plane.",
-      "The airport closed.",
+      "The plans were written on a plane by the mayor.",
+      "The airport closed because of heavy snow.",
       "Planes take off, and the plans finally succeed.",
-      "The city lost its plans."
+      "The city lost all its plans in a big fire."
      ],
      "answer": 2,
      "why": "Planes take off at an airport, and “take off” also means to start succeeding."
@@ -409,8 +409,8 @@
      "stem": "What two meanings does the last line carry?",
      "options": [
       "She flies a plane and grows independent.",
-      "She is a bird and a pilot.",
-      "She is alone and lonely.",
+      "She is a bird and a pilot at the same time.",
+      "She is alone and lonely at night.",
       "She is flying to visit her family."
      ],
      "answer": 0,

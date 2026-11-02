@@ -125,10 +125,10 @@
       "difficulty": 3,
       "stem": "Which information in the passage is the LEAST complete?",
       "options": [
-        "how a caterpillar grows larger",
-        "what adult butterflies drink",
+        "how a caterpillar grows larger in the leaves each day",
+        "what adult butterflies drink from the flowers and the pools",
         "how long the pupa stays inside the chrysalis",
-        "where eggs are usually laid"
+        "where the eggs are usually laid, such as on a leaf or stem"
       ],
       "answer": "C",
       "why": "The passage gives times for the egg and larva stages but not for the pupa stage."
@@ -158,9 +158,9 @@
       "stem": "Which is the best alternative title for the passage?",
       "options": [
         "Four Stages of a Butterfly's Life",
-        "How Bees Make Their Honey",
-        "The Dangers of Desert Winds",
-        "Caring for a Pet Lizard"
+        "How Bees Make Their Honey in a Hive",
+        "The Dangers of Desert Winds and Sand",
+        "Caring for a Pet Lizard at Home"
       ],
       "answer": "A",
       "why": "The passage explains the four stages of a butterfly's life cycle."

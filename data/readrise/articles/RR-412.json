@@ -90,9 +90,9 @@
           "stem": "What is this story mainly about?",
           "options": [
             "A girl and a helper find out why a locked room keeps making a hum",
-            "A girl who gets lost inside a very big building",
-            "A pool that closes down for the whole long summer",
-            "A machine that can talk and tell silly jokes"
+            "A girl who gets lost inside a very big building with her mother",
+            "A pool that closes down for the whole long summer holiday",
+            "A machine that can talk and tell silly jokes to the children"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -102,10 +102,10 @@
         {
           "stem": "What happens right after Noor asks the desk and no one knows about the hum?",
           "options": [
-            "The hum stops on its own without any help",
+            "The hum stops on its own without any help from anyone",
             "Noor meets Mr. Omar, who fixes things at the center",
-            "Noor decides to go straight home for the day",
-            "Mr. Omar locks the door again right away"
+            "Noor decides to go straight home for the rest of the day",
+            "Mr. Omar locks the door again right away without a word"
           ],
           "answer": "B",
           "skill": "sequence",
@@ -142,9 +142,9 @@
           "stem": "Why does Noor feel relieved at the end of the story?",
           "options": [
             "She learns the strange sound has a simple, normal reason",
-            "She finds a hidden treasure chest in the room",
-            "She gets to go swimming right away that day",
-            "Mr. Omar gives her a brand-new shiny key"
+            "She finds a hidden treasure chest in the room upstairs",
+            "She gets to go swimming right away that day at noon",
+            "Mr. Omar gives her a brand-new shiny key to the door"
           ],
           "answer": "A",
           "skill": "inference",
@@ -211,9 +211,9 @@
           "stem": "Which sentence best states the central idea of this story?",
           "options": [
             "A curious girl and an engineer trace a steady hum to a tired machine needing one new part",
-            "An engineer decides to close the swimming pool for repair work",
-            "A girl is frightened away from the center by a loud, scary noise",
-            "A machine breaks down completely and can never be fixed again"
+            "An engineer decides to close the swimming pool for repair work, and the girl helps him fix it",
+            "A girl is frightened away from the center by a loud, scary noise and never comes back",
+            "A machine breaks down completely and can never be fixed again, so the engineer must buy a new one"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -249,7 +249,7 @@
         {
           "stem": "In the story, the word filter most nearly means to —",
           "options": [
-            "make a sound much louder than before",
+            "make a sound much louder than before in the room",
             "lock a heavy metal door tightly shut",
             "clean a liquid by removing unwanted material",
             "add a lot more water into a full pool"
@@ -301,9 +301,9 @@
         {
           "stem": "Why does the author explain exactly how the filtering machine works?",
           "options": [
-            "To convince readers to stay away from swimming pools",
-            "To make the overall story much shorter to read",
-            "To hide the real cause of the hum from readers",
+            "To convince readers to stay away from swimming pools and all other public places",
+            "To make the overall story much shorter and easier to read for children",
+            "To hide the real cause of the hum from readers until the very end",
             "To help readers understand the real reason behind the mystery"
           ],
           "answer": "D",
@@ -332,9 +332,9 @@
           "stem": "Which statement best captures the central idea of this story?",
           "options": [
             "A persistent hum at a center turns out to have a mechanical cause, sparking a girl's interest in engineering",
-            "A community center closes down permanently because of one strange noise",
-            "An engineer firmly refuses to investigate an unusual sound at all",
-            "A machine in a locked room is revealed to be somehow alive"
+            "A community center closes down permanently because of one strange noise that nobody can explain, and the children are sent to a different place",
+            "An engineer firmly refuses to investigate an unusual sound at all, so the girl must do it herself",
+            "A machine in a locked room is revealed to be somehow alive, and it begins to speak to the girl"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -344,7 +344,7 @@
         {
           "stem": "Which sequence correctly orders these events from the story?",
           "options": [
-            "The bearing is replaced, the event occurs, the hum begins, Noor investigates",
+            "The bearing is replaced, the event occurs, the hum begins, then Noor investigates the machine",
             "The event strains the machine, the bearing wears out, Noor investigates, the bearing is replaced",
             "Noor investigates, the bearing wears out, the event occurs, the hum stops",
             "The hum stops, the bearing wears out, Noor investigates, the event occurs"

@@ -132,9 +132,9 @@
           "stem": "What does the ozone layer block?",
           "options": [
             "Most of the sun's harmful rays",
-            "Loud sounds from space",
-            "Cold winter winds",
-            "Rain clouds"
+            "Loud sounds from space and the sky",
+            "Cold winter winds from the north",
+            "Rain clouds over the cities"
           ],
           "answer": "A",
           "skill": "detail",
@@ -327,10 +327,10 @@
         {
           "stem": "According to the article, where were CFCs commonly used?",
           "options": [
-            "Only in cars driven on long road trips",
+            "Only in cars that are driven on long road trips",
             "In refrigerators, air conditioners, and spray cans",
-            "In farming equipment used on large farms",
-            "Only in factories that make window glass"
+            "In farming equipment that is used on large farms",
+            "Only in factories that make window glass for homes"
           ],
           "answer": "B",
           "skill": "detail",
@@ -344,10 +344,10 @@
         {
           "stem": "The article says ozone helps protect living things from ultraviolet radiation. What does protect mean?",
           "options": [
-            "To make something colder",
+            "To make something colder than before",
             "To keep something safe from harm",
-            "To break something apart",
-            "To make something heavier"
+            "To break something apart into pieces",
+            "To make something heavier than before"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -379,9 +379,9 @@
           "stem": "In 1987, almost every country signed the Montreal Protocol. What can you infer about the problem?",
           "options": [
             "Leaders saw it as a problem serious enough for the whole world to address together",
-            "Only a few countries believed the problem was real",
-            "Scientists disagreed about whether CFCs were harmful",
-            "The problem only affected poor countries"
+            "Only a few countries believed the problem was real, and the rest signed to be polite",
+            "Scientists disagreed about whether CFCs were harmful, so the leaders signed in confusion",
+            "The problem only affected poor countries, so the rich ones signed to help them"
           ],
           "answer": "A",
           "skill": "inference",
@@ -395,10 +395,10 @@
         {
           "stem": "Since CFCs were banned, measurements show the ozone layer slowly recovering. What can you infer?",
           "options": [
-            "The ozone layer was never actually damaged",
+            "The ozone layer was never actually damaged by anything",
             "Stopping the harmful chemical allowed the atmosphere to heal",
-            "New chemicals have replaced CFCs with worse effects",
-            "The agreement has had little real effect"
+            "New chemicals have replaced CFCs with even worse effects",
+            "The agreement has had little real effect on the sky"
           ],
           "answer": "B",
           "skill": "inference",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
-            "The Montreal Protocol was signed only by a few nations in Europe",
-            "The stratosphere contains no ozone at all",
+            "The Montreal Protocol was signed only by a few nations in Europe, so it had no effect on the sky",
+            "The stratosphere contains no ozone at all, so there is nothing for people to repair",
             "International cooperation based on evidence can repair severe damage to the ozone layer",
-            "CFCs are no longer dangerous once they reach the stratosphere"
+            "CFCs are no longer dangerous once they reach the stratosphere, and they help the ozone layer"
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -506,9 +506,9 @@
         {
           "stem": "According to the article, what happens when a chlorine atom from a broken-down CFC molecule reacts with ozone?",
           "options": [
-            "It instantly cools the stratosphere",
-            "It turns into a new treaty",
-            "It creates more oxygen atoms",
+            "It instantly cools the stratosphere around the Earth",
+            "It turns into a new treaty between nations",
+            "It creates more oxygen atoms for the air",
             "It can destroy thousands of ozone molecules"
           ],
           "answer": "D",
@@ -523,10 +523,10 @@
         {
           "stem": "The article explains that ozone forms from three oxygen atoms bonding together. What does atom mean here?",
           "options": [
-            "A kind of international treaty between nations",
+            "A kind of international treaty between nations that protects air",
             "A tiny particle that is a basic building block of matter",
-            "A type of harmful man-made chemical compound",
-            "A measurement unit used for radiation levels"
+            "A type of harmful man-made chemical compound that is made in labs",
+            "A measurement unit used for radiation levels in the sky"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -557,9 +557,9 @@
         {
           "stem": "CFC molecules can stay active in the atmosphere for decades. What can you infer about the ozone layer's recovery?",
           "options": [
-            "It would happen within a single year of banning CFCs",
-            "It has nothing to do with how long CFCs remain active",
-            "It depends only on how much ozone existed before 1980",
+            "It would happen within a single year of banning CFCs, because the gas disappears quickly",
+            "It has nothing to do with how long CFCs remain active in the air above us",
+            "It depends only on how much ozone existed before 1980, not on any chemicals",
             "It naturally takes a long time, even after the harmful chemical is banned"
           ],
           "answer": "D",

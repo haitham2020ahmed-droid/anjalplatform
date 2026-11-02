@@ -165,9 +165,9 @@
         {
           "stem": "In the story, the word steady means —",
           "options": [
-            "moving quickly",
-            "very colorful",
-            "extremely loud",
+            "moving quickly across the room",
+            "very colorful and bright",
+            "extremely loud and noisy",
             "not shaking; firm and controlled"
           ],
           "answer": "D",
@@ -199,9 +199,9 @@
         {
           "stem": "Why do you think Maha felt sad about her messy letters at first?",
           "options": [
-            "She did not like Master Nasser",
-            "She wanted to quit calligraphy forever",
-            "She thought the ink was the wrong color",
+            "She did not like Master Nasser or his lessons very much",
+            "She wanted to quit calligraphy forever and go home",
+            "She thought the ink was the wrong color for the page",
             "She wanted to make Master Nasser proud and do well"
           ],
           "answer": "D",
@@ -344,10 +344,10 @@
         {
           "stem": "In the story, the word technique means —",
           "options": [
-            "a kind of pen made from reed",
+            "a kind of pen made from a reed plant",
             "a special, skillful way of doing something",
-            "a loud noise in the shop",
-            "a place where art is shown"
+            "a loud noise in the busy shop all day",
+            "a place where art is shown to people in town"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -378,10 +378,10 @@
         {
           "stem": "Why did Maha's classmates tease her about practicing?",
           "options": [
-            "They wanted to learn calligraphy too",
-            "They did not like Maha at all",
+            "They wanted to learn calligraphy too, just like her",
+            "They did not like Maha at all, and they wanted her to leave",
             "They thought her slow, careful practice looked unnecessary",
-            "They thought Master Nasser was unkind"
+            "They thought Master Nasser was unkind to his students"
           ],
           "answer": "C",
           "skill": "inference",
@@ -413,9 +413,9 @@
           "stem": "How does the author organize the story?",
           "options": [
             "By following Maha's practice and struggles in order, from her first lesson to her finished exhibition piece",
-            "By listing facts and dates about many different faraway countries",
-            "By comparing two different calligraphers",
-            "By describing a trip Maha took with her family"
+            "By listing facts and dates about many different faraway countries and the cities of each one",
+            "By comparing two different calligraphers and the styles of writing that each one used in school, one after the other",
+            "By describing a long trip Maha took with her family to see the old cities and the sea"
           ],
           "answer": "A",
           "skill": "text-structure",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best expresses the central idea of the story?",
           "options": [
-            "Maha disliked thuluth script and preferred simpler styles.",
+            "Maha disliked thuluth script and preferred simpler styles that were easier and faster to write.",
             "Maha's patient apprenticeship helped her master a difficult, heritage-inspired script.",
-            "The exhibition curator decided calligraphy was no longer valuable.",
-            "Master Nasser abandoned thuluth script after thirty years."
+            "The exhibition curator decided calligraphy was no longer valuable and closed the whole show.",
+            "Master Nasser abandoned thuluth script after thirty years and began to teach a different art."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -490,8 +490,8 @@
           "stem": "What script did Master Nasser specialize in, and what was it known for?",
           "options": [
             "Cursive, known for its quick, loosely joined letters and curls",
-            "Printing, known for its even, mechanical-looking letters",
-            "Braille, known for its small raised dot patterns for reading",
+            "Printing, known for its even, mechanical-looking letters of a press",
+            "Braille, known for its small raised dot patterns for reading by touch",
             "Thuluth, known for its sweeping curves and dramatically elongated strokes"
           ],
           "answer": "D",
@@ -540,10 +540,10 @@
         {
           "stem": "Based on the story, why did remarkably few aspiring students ever master thuluth completely?",
           "options": [
-            "Because Master Nasser refused to teach it to most of his many students",
+            "Because Master Nasser refused to teach it to most of his many students, and gave lessons only to his own sons.",
             "Because it demanded exceptional discipline and years of meticulous, painstaking practice",
-            "Because the ink needed for thuluth was too expensive",
-            "Because the script was no longer taught anywhere"
+            "Because the ink needed for thuluth was too expensive for most students to buy, and so they had to stop early.",
+            "Because the script was no longer taught anywhere in the whole region, and the old masters had all moved away."
           ],
           "answer": "B",
           "skill": "inference",
@@ -557,9 +557,9 @@
         {
           "stem": "What can you infer about Master Nasser from the way he responded to Maha's mistakes?",
           "options": [
-            "He grew frustrated and considered dismissing her",
-            "He believed talent mattered more than practice",
-            "He thought mistakes should be ignored completely",
+            "He grew frustrated and considered dismissing her from the shop",
+            "He believed talent mattered more than practice in the craft",
+            "He thought mistakes should be ignored completely by an apprentice",
             "He valued patience and believed true mastery could not be rushed"
           ],
           "answer": "D",
@@ -575,9 +575,9 @@
           "stem": "Why did the curator specifically single out Maha's piece as unusual among younger artists?",
           "options": [
             "Because such meticulous craftsmanship was increasingly uncommon among younger, less experienced artists",
-            "Because Maha was the youngest artist ever invited to exhibit her work there",
-            "Because her piece contained more colors than any other piece",
-            "Because the curator was a personal friend of her family"
+            "Because Maha was the youngest artist ever invited to exhibit her work there, and the curator wanted to praise her age",
+            "Because her piece contained more colors than any other piece in the room, and the curator liked colors best",
+            "Because the curator was a personal friend of her family and wanted to help her with the show"
           ],
           "answer": "A",
           "skill": "cause-effect",

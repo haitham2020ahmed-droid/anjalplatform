@@ -58,9 +58,9 @@
     "stem": "Which detail best supports the idea that octopuses are unusual?",
     "options": [
      "Octopuses have three hearts that work in different ways.",
-     "Octopuses live in the ocean.",
-     "A photo shows an octopus swimming.",
-     "Octopuses are sea animals."
+     "Octopuses live in the ocean and in warm seas.",
+     "A photo shows an octopus swimming near a rock.",
+     "Octopuses are sea animals that live in many parts of the world."
     ],
     "answer": 0,
     "hint": "Look for the fact that explains why three hearts make octopuses unusual.",
@@ -110,7 +110,7 @@
      "passage": "Bats are the only mammals that can truly fly. Their wings are made of thin skin stretched between long finger bones.",
      "stem": "Which detail best supports the idea that bats are unusual mammals?",
      "options": [
-      "Bats usually sleep hanging upside down during the day.",
+      "Bats usually sleep hanging upside down in dark places during the day.",
       "Bats often live together in large groups inside caves.",
       "Bats eat insects and other small creatures at night.",
       "Bats fly using wings made of skin stretched between finger bones."
@@ -194,10 +194,10 @@
      "passage": "Recycling aluminum cans saves a huge amount of energy. Making a new can from recycled aluminum uses only about five percent of the energy needed to make a can from new metal. Recycling also keeps cans out of landfills.",
      "stem": "Which detail is the best evidence that recycling saves energy?",
      "options": [
-      "Recycling keeps cans out of landfills.",
-      "Cans are made of aluminum.",
+      "Recycling keeps cans out of landfills, which makes the town cleaner.",
+      "Cans are made of aluminum, a light and shiny metal that can be melted down again.",
       "Making a recycled can uses only about five percent of the energy of a new one.",
-      "People recycle cans at home."
+      "People recycle cans at home, at school, and in the park on weekends."
      ],
      "answer": 2,
      "why": "The **specific percentage** directly proves how much energy recycling saves."
@@ -206,9 +206,9 @@
      "passage": "Scientists believe sea turtles can sense Earth's magnetic field. This sense may help the turtles find their way back to the same beach where they hatched, even after swimming thousands of miles.",
      "stem": "Which detail best supports the claim that turtles use Earth's magnetic field to navigate?",
      "options": [
-      "Turtles hatch on sandy beaches near the ocean.",
-      "Turtles swim in the ocean for most of their long lives.",
-      "Scientists study turtles in labs around the world.",
+      "Turtles hatch on sandy beaches near the warm ocean water.",
+      "Turtles swim in the ocean for most of their long and quiet lives.",
+      "Scientists study turtles in labs around the world every year.",
       "Turtles return to the beach where they hatched after swimming far."
      ],
      "answer": 3,
@@ -316,9 +316,9 @@
      "stem": "Why did the author most likely include this diagram?",
      "options": [
       "To show the order of the stages so readers can follow the change step by step.",
-      "To replace the need for any paragraph about butterflies.",
-      "To test how well readers can draw butterflies.",
-      "To list the colors of butterfly wings."
+      "To replace the need for any paragraph about butterflies in the whole text.",
+      "To test how well readers can draw butterflies from memory at home.",
+      "To list the colors of butterfly wings and the names of flowers."
      ],
      "answer": 0,
      "why": "The **diagram** uses labeled pictures and arrows to help readers see the order of each stage clearly."
@@ -327,10 +327,10 @@
      "passage": "Engineers say strong triangles make bridges stable. The Firth Bridge in Scotland, built using a web of steel triangles, has carried trains safely for well over a century.",
      "stem": "Which example best supports the point that triangles make bridges stable?",
      "options": [
-      "Bridges are usually built near rivers or other large bodies of water.",
+      "Bridges are usually built near rivers or other large bodies of water, where people live.",
       "The Firth Bridge's steel triangles have carried trains safely for over a century.",
       "Engineers study many different shapes and structures while in school.",
-      "Scotland has several other famous bridges and castles as well."
+      "Scotland has several other famous bridges and castles as well as lakes."
      ],
      "answer": 1,
      "why": "This specific, long-lasting bridge example proves exactly how triangles keep bridges stable."
@@ -386,9 +386,9 @@
     "passage": "City planners often say that community gardens can help reduce food deserts, which are neighborhoods without easy access to fresh produce. In one such neighborhood, residents turned an empty lot into a community garden, and within two years the garden supplied fresh vegetables to more than two hundred families who previously had to travel far to buy fruit and vegetables. A photo caption beside the article notes that the garden is run entirely by volunteers who meet on weekends. The article also mentions that community gardens often improve neighborhood appearance and encourage neighbors to know each other better. While these social benefits are real, the clearest proof that gardens reduce food deserts is the number of families who gained closer access to fresh food.",
     "stem": "Which detail is the most relevant evidence that community gardens reduce food deserts?",
     "options": [
-     "The garden is run entirely by volunteers who meet on weekends.",
-     "Community gardens often improve neighborhood appearance.",
-     "Gardens encourage neighbors to know each other better.",
+     "The garden is run entirely by volunteers who meet on weekends and holidays.",
+     "Community gardens often improve neighborhood appearance and make streets look nice.",
+     "Gardens encourage neighbors to know each other better and talk more often.",
      "The garden supplied fresh vegetables to over two hundred families nearby."
     ],
     "answer": 3,
@@ -417,9 +417,9 @@
      "stem": "Which detail is the most relevant evidence that the recycling program cut trash in half?",
      "options": [
       "Trash sent to the landfill dropped from twenty bags a week to ten bags a week.",
-      "Students decorated the recycling bins with colorful posters.",
-      "The program made students feel proud of their school.",
-      "The newsletter was written by a student reporter."
+      "Students decorated the recycling bins with colorful posters and drawings.",
+      "The program made students feel proud of their school and their city.",
+      "The newsletter was written by a student reporter in the sixth grade."
      ],
      "answer": 0,
      "why": "This is the exact measurement that proves the trash was cut in half — the clearest, most relevant evidence."
@@ -441,7 +441,7 @@
      "stem": "Why do the graph and caption work together to support the article's point?",
      "options": [
       "The graph alone proves that farmers changed which crops they decided to plant.",
-      "The caption completely replaces the need to ever read the graph.",
+      "The caption completely replaces the need to ever read the graph or any other part of the article.",
       "The graph shows the numbers, and the caption explains what those numbers mean for farmers.",
       "The graph and caption both describe the exact same individual farmer's story."
      ],

@@ -126,9 +126,9 @@
       "stem": "Which information in the passage is the LEAST clear or complete?",
       "options": [
         "Which part of the eye focuses light onto the retina",
-        "Which scientist first split sunlight with a prism",
+        "Which scientist first split sunlight with a prism in a room",
         "How only three types of cone let us see colours like yellow",
-        "What kind of light rod cells help us see in"
+        "What kind of light rod cells help us see in at night, in the dark"
       ],
       "answer": "C",
       "why": "The passage says the brain combines the information but never explains how three cone types produce other colours."

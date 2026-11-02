@@ -128,7 +128,7 @@
         },
         {
           "stem": "Why does the author compare the skeleton to a shield?",
-          "options": ["To show the skeleton protects soft parts inside the body", "To show bones are made of metal", "To explain why milk has calcium", "To tell readers to carry a real shield"],
+          "options": ["To show the skeleton protects soft parts inside the body", "To show bones are made of metal like a real shield", "To explain why milk has calcium and helps us grow", "To tell readers to carry a real shield when they play"],
           "answer": "A",
           "skill": "author-purpose",
           "why": "Just like a shield blocks harm, the skeleton protects organs like the heart and lungs.",
@@ -144,7 +144,7 @@
         },
         {
           "stem": "Why do babies have more bones than adults do?",
-          "options": ["Some small bones join together as a child grows", "Doctors remove extra bones from children", "Babies' bones disappear over time", "Adults grow brand-new bones every year"],
+          "options": ["Some small bones join together as a child grows", "Doctors remove extra bones from children when they are sick", "Babies' bones disappear over time as they grow up", "Adults grow brand-new bones every year in the spring"],
           "answer": "A",
           "skill": "inference",
           "why": "The article explains that small bones join together as a person grows, leaving 206 bones in an adult.",
@@ -166,7 +166,7 @@
       "questions": [
         {
           "stem": "Which sentence best states the central idea of the article?",
-          "options": ["Bones are living tissue that grow during childhood and can repair themselves when broken.", "Calcium is the only thing bones need to grow.", "Marrow is more important than calcium for strong bones.", "Doctors always need to fix a broken bone."],
+          "options": ["Bones are living tissue that grow during childhood and can repair themselves when broken.", "Calcium is the only thing bones need to grow strong, so no other food or exercise matters at all.", "Marrow is more important than calcium for strong bones in every child and every grown-up person.", "Doctors always need to fix a broken bone with a cast or a metal tool, because bones cannot heal."],
           "answer": "A",
           "skill": "central-idea",
           "why": "The article explains bone growth, structure, and how bones repair themselves, plus helpful habits.",
@@ -174,7 +174,7 @@
         },
         {
           "stem": "According to the article, what does marrow do inside a bone?",
-          "options": ["It makes the outer layer of bone harder.", "It produces the body's red and white blood cells.", "It turns into calcium over time.", "It closes a bone's growth plate."],
+          "options": ["It makes the outer layer of bone harder and thicker.", "It produces the body's red and white blood cells.", "It turns into calcium over time, as a child grows.", "It closes a bone's growth plate in old age."],
           "answer": "B",
           "skill": "detail",
           "why": "The article says marrow is a soft tissue that produces the blood cells your body needs.",
@@ -182,7 +182,7 @@
         },
         {
           "stem": "What is a joint, according to the article?",
-          "options": ["A thin strand inside a muscle.", "A kind of food that helps muscles.", "A place where two bones meet and can move.", "A cord that connects muscle to bone."],
+          "options": ["A thin strand inside a muscle fiber.", "A kind of food that helps muscles grow strong.", "A place where two bones meet and can move.", "A cord that connects muscle to bone."],
           "answer": "C",
           "skill": "detail",
           "why": "The article discusses bones meeting at movable points as part of how the skeleton functions.",
@@ -190,7 +190,7 @@
         },
         {
           "stem": "In the article, what does the word tissue mean?",
-          "options": ["A type of exercise for muscles.", "A group of similar cells working together in the body.", "A kind of bone found in joints.", "A tool doctors use to check injuries."],
+          "options": ["A type of exercise for muscles and joints in the body.", "A group of similar cells working together in the body.", "A kind of bone found in joints, such as the knee and hip.", "A tool doctors use to check injuries in the clinic."],
           "answer": "B",
           "skill": "vocabulary",
           "why": "The article uses tissue to describe marrow and the soft material that forms during healing.",
@@ -244,7 +244,7 @@
       "questions": [
         {
           "stem": "Which statement best captures the central idea of the article?",
-          "options": ["Bone is a living tissue that grows through cartilage-based growth plates and can regenerate itself through a structured healing and remodeling process.", "Bones are essentially inert structures that never change once puberty ends.", "Marrow is the single most important factor in determining skeletal health.", "Fractures permanently weaken a bone, leaving it unable to regain its original strength."],
+          "options": ["Bone is a living tissue that grows through cartilage-based growth plates and can regenerate itself through a structured healing and remodeling process.", "Bones are essentially inert structures that never change once puberty ends, and they cannot heal at all after a break or a crack in the arm or leg.", "Marrow is the single most important factor in determining skeletal health, and the growth plates play no part in how bones grow.", "Fractures permanently weaken a bone, leaving it unable to regain its original strength, so a broken bone never heals as well as before."],
           "answer": "A",
           "skill": "central-idea",
           "why": "The article describes cartilage growth plates, mineral deposition, and the staged healing and remodeling that restores a fractured bone.",
@@ -252,7 +252,7 @@
         },
         {
           "stem": "According to the article, where specifically does bone lengthening occur?",
-          "options": ["Throughout the marrow cavity", "At growth plates composed of cartilage near the ends of long bones", "Within the compact outer layer only", "Inside the protective hematoma"],
+          "options": ["Throughout the marrow cavity in the center of every bone", "At growth plates composed of cartilage near the ends of long bones", "Within the compact outer layer only, near the surface of the bone", "Inside the protective hematoma that forms after a break in the bone"],
           "answer": "B",
           "skill": "detail",
           "why": "The article states lengthening occurs at growth plates, bands of cartilage near the ends of long bones.",
@@ -276,7 +276,7 @@
         },
         {
           "stem": "How does the author structure the discussion after introducing the skeleton's basic functions?",
-          "options": ["By narrating one patient's hospital visit from start to finish", "By explaining a sequence of related topics: growth, structure, minerals, healing, and mechanical loading", "By ranking every bone in the body from strongest to weakest", "By arguing against a commonly held scientific theory"],
+          "options": ["By narrating one patient's hospital visit from start to finish, with each doctor, each room and each test", "By explaining a sequence of related topics: growth, structure, minerals, healing, and mechanical loading", "By ranking every bone in the body from strongest to weakest, with a score for each one", "By arguing against a commonly held scientific theory, and then showing why it is false"],
           "answer": "B",
           "skill": "text-structure",
           "why": "The article moves through growth, internal structure, minerals, fracture healing, and the effect of exercise on bone density.",

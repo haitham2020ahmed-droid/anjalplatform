@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How rockets are built",
+            "How big rockets are built in a factory",
             "How Mae Jemison became an astronaut",
-            "Why stars shine at night",
-            "How to become a dancer"
+            "Why stars shine at night in the sky",
+            "How to become a dancer on a big stage"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -182,9 +182,9 @@
         {
           "stem": "In the article, the word dream means —",
           "options": [
-            "a story you see when you sleep",
-            "a test that doctors do",
-            "a kind of space ship",
+            "a story you see when you sleep at night",
+            "a test that doctors do at the clinic",
+            "a kind of space ship that flies to Mars",
             "a hope for something you want to do"
           ],
           "answer": "D",
@@ -200,9 +200,9 @@
           "stem": "Why was Mae's trip to space special?",
           "options": [
             "She was the first Black woman to go to space.",
-            "She was the first person ever in space.",
-            "She stayed in space for a year.",
-            "She flew to the moon."
+            "She was the first person ever in space, before all others.",
+            "She stayed in space for a whole year.",
+            "She flew to the moon and back again."
           ],
           "answer": "A",
           "skill": "detail",
@@ -310,10 +310,10 @@
         {
           "stem": "What helped inspire Mae to dream of space?",
           "options": [
-            "Reading about farming",
-            "Working in a factory",
+            "Reading about farming in a book",
+            "Working in a factory for a while",
             "Watching astronauts on television",
-            "Visiting the Moon"
+            "Visiting the Moon with her father"
           ],
           "answer": "C",
           "skill": "detail",
@@ -489,9 +489,9 @@
         {
           "stem": "What did Mae study during the Endeavour mission?",
           "options": [
-            "How to grow food on the Moon",
-            "How to land a shuttle",
-            "How stars form",
+            "How to grow food on the Moon in a garden",
+            "How to land a shuttle on a runway at night",
+            "How stars form in clouds of gas and dust",
             "How weightlessness affects the human body"
           ],
           "answer": "D",
@@ -540,10 +540,10 @@
         {
           "stem": "Which event happened FIRST?",
           "options": [
-            "Mae left NASA and founded a company.",
-            "Mae was selected by NASA.",
+            "Mae left NASA and founded a company of her own.",
+            "Mae was selected by NASA for an astronaut program.",
             "Mae served as a volunteer doctor in West Africa.",
-            "Mae flew aboard Endeavour."
+            "Mae flew aboard Endeavour into space for a week."
           ],
           "answer": "C",
           "skill": "sequence",
@@ -574,10 +574,10 @@
         {
           "stem": "How did Mae's medical training connect to her work in space?",
           "options": [
-            "She designed the shuttle's engines.",
-            "She treated sick people on the Moon.",
+            "She designed the shuttle's engines for the launch.",
+            "She treated sick people on the surface of the Moon.",
             "She studied how weightlessness affects the human body.",
-            "It had no connection to her space work."
+            "It had no connection to her space work at all."
           ],
           "answer": "C",
           "skill": "compare",

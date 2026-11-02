@@ -192,7 +192,7 @@
         {
           "stem": "Where do people often seal time capsules, according to the article?",
           "options": [
-            "inside school libraries far away",
+            "inside school libraries far away from the town",
             "underneath rivers and deep lakes",
             "inside the cornerstones of new buildings",
             "inside old wooden classroom desks"
@@ -231,10 +231,10 @@
         {
           "stem": "Why does the article say no one can truly predict the future?",
           "options": [
-            "because computers can already tell us the future",
+            "because computers can already tell us the future with great accuracy",
             "because the future has not happened yet, so it is uncertain",
-            "because Mr. Faisal already knows what will happen",
-            "because the capsule contains a prediction machine"
+            "because Mr. Faisal already knows what will happen to the children",
+            "because the capsule contains a prediction machine that never fails"
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -244,10 +244,10 @@
         {
           "stem": "What can you infer about Lina from her hope to become a doctor?",
           "options": [
-            "She dislikes helping other people very much",
-            "She does not enjoy going to school at all",
+            "She dislikes helping other people very much at school",
+            "She does not enjoy going to school at all each day",
             "She cares about helping sick people in her community",
-            "She wants to work with robots instead someday"
+            "She wants to work with robots instead of sick people"
           ],
           "answer": "C",
           "skill": "inference",
@@ -296,10 +296,10 @@
         {
           "stem": "Why does the article say that workers sometimes discover old time capsules filled with newspapers and coins?",
           "options": [
-            "Because capsules are specially built to attract curious explorers",
+            "Because capsules are specially built to attract curious explorers and visitors from far away",
             "Because people have sealed capsules in buildings for a century and they later get uncovered",
-            "Because newspapers are required by old laws to be buried underground",
-            "Because coins placed underground naturally multiply in number over time"
+            "Because newspapers are required by old laws to be buried underground in a box",
+            "Because coins placed underground naturally multiply in number over time and years"
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -336,9 +336,9 @@
           "stem": "What can be inferred about Mr. Faisal's goal in framing the letters as a 'legacy'?",
           "options": [
             "He wants students to see their words as meaningful beyond the present moment",
-            "He wants students to forget about the project quickly",
-            "He believes the letters will be read the very next day",
-            "He thinks posterity means the same thing as the present"
+            "He wants students to forget about the project quickly after it ends",
+            "He believes the letters will be read the very next day by the whole class and teachers",
+            "He thinks posterity means the same thing as the present moment"
           ],
           "answer": "A",
           "skill": "inference",

@@ -165,9 +165,9 @@
         {
           "stem": "Why does Omar stop crying?",
           "options": [
-            "Because his mother leaves the room",
-            "Because the pain suddenly disappears",
-            "Because Aunt Huda gives him candy",
+            "Because his mother leaves the room for a few minutes",
+            "Because the pain suddenly disappears from his arm and hand",
+            "Because Aunt Huda gives him some candy to eat after the visit",
             "Because Lina sits with him and tells him a kind, funny story"
           ],
           "answer": "D",
@@ -199,8 +199,8 @@
         {
           "stem": "Why is Omar probably so scared when he first arrives?",
           "options": [
-            "He does not like his mother",
-            "He is afraid of Lina",
+            "He does not like his mother and wants to go home",
+            "He is afraid of Lina and what she will say to him",
             "He is hurt and does not know what will happen next",
             "He does not want to go to school that day"
           ],
@@ -216,10 +216,10 @@
         {
           "stem": "In the story, a patient is —",
           "options": [
-            "a doctor's helper",
+            "a doctor's helper who works in a clinic",
             "a person who is being cared for by a doctor",
-            "a kind of medicine",
-            "a type of bandage"
+            "a kind of medicine that a doctor gives to sick people",
+            "a type of bandage that covers a cut or a wound"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -233,9 +233,9 @@
         {
           "stem": "Why does the author end the story with what Aunt Huda tells Lina?",
           "options": [
-            "To explain how clinics are built",
-            "To describe what Omar eats for lunch",
-            "To show that medicine is too hard to learn",
+            "To explain how clinics are built by workers and nurses in a town",
+            "To describe what Omar eats for lunch each day with his family",
+            "To show that medicine is too hard to learn for most young people",
             "To teach the lesson that kindness matters as much as medical skill"
           ],
           "answer": "D",
@@ -294,9 +294,9 @@
           "stem": "Which sentence best states the central idea of the story?",
           "options": [
             "Lina learns that comforting a nervous patient matters just as much as having strong medical skill",
-            "Aunt Huda runs the busiest clinic in the city",
-            "Omar never wants to ride his bicycle again",
-            "Lina decides medicine is too difficult for her"
+            "Aunt Huda runs the busiest clinic in the city, and she has more patients than any doctor",
+            "Omar never wants to ride his bicycle again after he falls and hurts his ankle badly",
+            "Lina decides medicine is too difficult for her and chooses a different job when she grows up"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -362,9 +362,9 @@
           "stem": "Why does Lina tell Omar a funny story about her own bicycle fall?",
           "options": [
             "She is trying to distract him and make him feel more comfortable",
-            "She wants to change the subject completely",
-            "She wants to brag about her bike-riding skill",
-            "She is bored and has nothing else to say"
+            "She wants to change the subject completely right away",
+            "She wants to brag about her bike-riding skill to everyone in the room",
+            "She is bored and has nothing else to say to Omar today"
           ],
           "answer": "A",
           "skill": "inference",
@@ -378,9 +378,9 @@
         {
           "stem": "What can you infer about Aunt Huda's job as a family physician?",
           "options": [
-            "She only treats children with ankle injuries",
-            "She never sees the same patient twice",
-            "She works only one day a week",
+            "She only treats children with ankle injuries and nothing else at her clinic",
+            "She never sees the same patient twice in her clinic, not even for a check-up",
+            "She works only one day a week at the hospital downtown",
             "She treats many different kinds of patients, from babies to grandparents"
           ],
           "answer": "D",
@@ -395,10 +395,10 @@
         {
           "stem": "In the story, the word shadow means to —",
           "options": [
-            "to completely block out the bright sunlight",
-            "to feel very frightened of someone nearby",
+            "to completely block out the bright sunlight from a room",
+            "to feel very frightened of someone nearby in the dark",
             "follow and closely watch someone to learn from them",
-            "to draw a dark picture of someone's face"
+            "to draw a dark picture of someone's face with a pencil"
           ],
           "answer": "C",
           "skill": "vocabulary",
@@ -412,10 +412,10 @@
         {
           "stem": "How does the author organize the story?",
           "options": [
-            "By comparing two different clinics in the city",
+            "By comparing two different clinics in the city, one old and one new, with their doctors, rooms and prices",
             "By following events in the order they happen, from the clinic visit to the lesson Lina learns at the end",
-            "By listing the steps for wrapping a bandage",
-            "By describing Omar's whole life story"
+            "By listing the steps for wrapping a bandage, from the first turn to the last pin",
+            "By describing Omar's whole life story, from his birth until the day he fell off his bike"
           ],
           "answer": "B",
           "skill": "text-structure",
@@ -473,9 +473,9 @@
           "stem": "Which statement best captures the central idea of the story?",
           "options": [
             "A young girl discovers that treating a frightened patient with compassion matters as much as possessing strong medical skill",
-            "Shadowing a physician is mostly about memorizing medical procedures",
-            "Family physicians only treat minor injuries like sprained ankles",
-            "Omar's fall teaches him to never ride a bicycle again"
+            "Shadowing a physician is mostly about memorizing medical procedures and long lists of facts from the books",
+            "Family physicians only treat minor injuries like sprained ankles, and they never see a serious case in a year",
+            "Omar's fall teaches him to never ride a bicycle again, because he learns that riding is far too dangerous for a boy"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -489,10 +489,10 @@
         {
           "stem": "What does Aunt Huda do first when Omar arrives, frightened and in pain?",
           "options": [
-            "She immediately wraps a soft bandage around his swollen ankle",
-            "She quickly sends him to a completely different clinic across town",
+            "She immediately wraps a soft bandage around his swollen ankle and sends him home",
+            "She quickly sends him to a completely different clinic across town in her own car",
             "She calmly begins the examination procedure, checking gently beneath the swelling",
-            "She asks Lina to handle the entire visit completely by herself"
+            "She asks Lina to handle the entire visit completely by herself while she watches"
           ],
           "answer": "C",
           "skill": "detail",
@@ -506,9 +506,9 @@
         {
           "stem": "According to the story, how does Lina try to reassure Omar?",
           "options": [
-            "By promising him a reward if he manages to stay completely still",
-            "By explaining the entire medical procedure to him in careful detail",
-            "By asking him politely to be quiet so Aunt Huda can work undisturbed",
+            "By promising him a reward if he manages to stay completely still during the whole visit",
+            "By explaining the entire medical procedure to him in careful detail, step by step, with pictures",
+            "By asking him politely to be quiet so Aunt Huda can work undisturbed in the small room",
             "By speaking in a warm, soft voice and telling a funny story about her own bicycle fall"
           ],
           "answer": "D",
@@ -524,9 +524,9 @@
           "stem": "How are Lina's and Aunt Huda's roles during Omar's visit different?",
           "options": [
             "Aunt Huda focuses on the physical examination while Lina focuses on calming Omar's fear",
-            "Lina performs the medical examination while Aunt Huda offers comfort",
-            "Both of them only talk to Omar's mother",
-            "Neither of them interacts directly with Omar"
+            "Lina performs the medical examination while Aunt Huda offers comfort and kind words",
+            "Both of them only talk to Omar's mother during the whole visit",
+            "Neither of them interacts directly with Omar at all in the visit"
           ],
           "answer": "A",
           "skill": "compare",
@@ -540,9 +540,9 @@
         {
           "stem": "What can readers infer about why Aunt Huda lets Lina comfort Omar instead of doing it herself?",
           "options": [
-            "Aunt Huda does not know how to comfort patients",
-            "Aunt Huda is too busy to speak with Omar at all",
-            "Aunt Huda believes comforting patients is unnecessary",
+            "Aunt Huda does not know how to comfort patients, because she was never taught to speak kindly to them",
+            "Aunt Huda is too busy to speak with Omar at all, since she has many other patients waiting outside",
+            "Aunt Huda believes comforting patients is unnecessary, and she thinks children should simply be brave and quiet while she is tired of hearing them cry",
             "Aunt Huda recognizes that comforting a frightened child is as valuable as the examination itself, and trusts Lina to help"
           ],
           "answer": "D",
@@ -574,10 +574,10 @@
         {
           "stem": "In the story, the word reassure most nearly means to —",
           "options": [
-            "to confuse or frighten someone even further",
-            "to examine someone's physical injury very closely",
+            "to confuse or frighten someone even further in the dark",
+            "to examine someone's physical injury very closely with a light",
             "say or do something that removes a person's fear or doubt",
-            "to give someone medicine for their ongoing pain"
+            "to give someone medicine for their ongoing pain every day"
           ],
           "answer": "C",
           "skill": "vocabulary",
@@ -591,10 +591,10 @@
         {
           "stem": "Why does the author end the story with Aunt Huda's comment about compassion mattering as much as medical skill?",
           "options": [
-            "To suggest that medical skill is unimportant",
+            "To suggest that medical skill is unimportant for a good doctor in a clinic",
             "To reinforce the story's central lesson about the value of kindness in medicine",
-            "To criticize doctors who examine patients carefully",
-            "To explain exactly how bandages are wrapped"
+            "To criticize doctors who examine patients carefully and slowly in their rooms",
+            "To explain exactly how bandages are wrapped around an arm or a leg"
           ],
           "answer": "B",
           "skill": "author-purpose",

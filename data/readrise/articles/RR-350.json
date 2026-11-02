@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the main idea of the article?",
           "options": [
-            "Archipelagos are always smaller than a single island",
+            "Archipelagos are always smaller than a single island in the same sea",
             "Archipelagos form in different ways and create unique nations",
-            "Coral never grows near volcanic islands",
-            "Mainlands always have more islands than archipelagos"
+            "Coral never grows near volcanic islands, so reefs are always far from them",
+            "Mainlands always have more islands than archipelagos do in the world"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
-            "Endemic species can be found on every continent in equal numbers",
+            "Endemic species can be found on every continent in equal numbers, and islands matter little",
             "Archipelagos form through subduction and hotspots, and isolation raises biodiversity",
-            "Peninsulas and islands are exactly the same landform",
-            "Subduction always destroys every island it creates"
+            "Peninsulas and islands are exactly the same landform, and both form in the same way",
+            "Subduction always destroys every island it creates, so no archipelago can ever form"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -506,10 +506,10 @@
         {
           "stem": "According to the article, what produces a curved chain of volcanic islands called an island arc?",
           "options": [
-            "Coral growing for centuries",
-            "Rain filling an old crack",
+            "Coral growing for many centuries",
+            "Rain filling an old crack in the rock",
             "Subduction producing rising magma",
-            "Wind piling up volcanic ash"
+            "Wind piling up volcanic ash and dust"
           ],
           "answer": "C",
           "skill": "detail",
@@ -523,9 +523,9 @@
         {
           "stem": "Why do species on isolated islands often become endemic, found nowhere else?",
           "options": [
-            "Because every island has identical plants and animals",
-            "Because ships bring new species every year",
-            "Because mainlands always share every species with islands",
+            "Because every island has identical plants and animals as the mainland",
+            "Because ships bring new species every year from all over the world",
+            "Because mainlands always share every species with islands through the sea",
             "Because limited contact with outside populations lets unique traits develop"
           ],
           "answer": "D",
@@ -574,9 +574,9 @@
         {
           "stem": "What is a peninsula, according to the article?",
           "options": [
-            "A type of curved volcanic island arc",
+            "A type of curved volcanic island arc in the deep sea",
             "A very deep and narrow underwater ocean trench",
-            "A hotspot located beneath a tectonic plate",
+            "A hotspot located far beneath a tectonic plate",
             "Land almost surrounded by water, joined to a mainland"
           ],
           "answer": "D",

@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How to swim safely in a lake",
+            "How to swim safely in a lake in the summer months",
             "How lakes can shrink or dry up, and how people can help",
-            "Why salt is good for lakes",
-            "How fishing ships are built"
+            "Why salt is good for lakes and for the fish in them",
+            "How fishing ships are built in the big shipyards"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -344,10 +344,10 @@
         {
           "stem": "\"These seasonal lakes are common in dry places.\" What does seasonal mean?",
           "options": [
-            "Very deep and cold",
+            "Very deep and cold all year",
             "Present only at certain times",
-            "Full of salt",
-            "Made by people"
+            "Full of salt and sand",
+            "Made by people long ago"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -412,10 +412,10 @@
         {
           "stem": "How does the author organize the article?",
           "options": [
-            "As the story of one family's trip to a lake",
-            "By listing lakes from largest to smallest",
+            "As the story of one family's trip to a lake in summer",
+            "By listing the lakes from the largest to the smallest in the world",
             "By explaining why lakes shrink, then giving natural and human examples",
-            "As a set of instructions for building a dam"
+            "As a set of instructions for building a dam on a river"
           ],
           "answer": "C",
           "skill": "text-structure",
@@ -575,9 +575,9 @@
           "stem": "Based on the article, which situation would most likely make a lake grow?",
           "options": [
             "Years of heavy rain while less river water is taken for farms",
-            "A long, hot period with no rain",
-            "New irrigation canals from its rivers",
-            "A new opening in its floor"
+            "A long, hot period with no rain at all for many years",
+            "New irrigation canals from its rivers to the nearby farms and towns",
+            "A new opening in its floor that lets the water drain out"
           ],
           "answer": "A",
           "skill": "inference",
@@ -591,10 +591,10 @@
         {
           "stem": "Why does the author end the article with the dam completed in 2005?",
           "options": [
-            "To argue that every lake needs a dam",
-            "To describe how cotton is harvested",
+            "To argue that every lake in the world needs a dam",
+            "To describe how cotton is harvested in the fields",
             "To show that damage to a lake can be partly reversed",
-            "To explain how seasonal lakes form"
+            "To explain how seasonal lakes form in the desert"
           ],
           "answer": "C",
           "skill": "author-purpose",

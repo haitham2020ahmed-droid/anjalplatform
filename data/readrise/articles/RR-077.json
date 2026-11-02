@@ -200,9 +200,9 @@
           "stem": "Why did people in Egypt and Rome have to buy frankincense from traders?",
           "options": [
             "The trees did not grow in their lands.",
-            "They did not like the smell.",
-            "They wanted to ride the camels.",
-            "They lived next to the trees."
+            "They did not like the smell of the smoke.",
+            "They wanted to ride the camels to the coast.",
+            "They lived next to the trees in the hills."
           ],
           "answer": "A",
           "skill": "inference",
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
-            "Frankincense was used mostly to cook food in ancient Rome.",
+            "Frankincense was used mostly to cook food in ancient Rome, so traders sold it to bakers.",
             "The Incense Road made towns rich until cheaper sea trade replaced it.",
-            "Camels can walk for weeks without drinking any water.",
-            "Hegra was the largest city in the ancient world."
+            "Camels can walk for weeks without drinking any water, which is why they were used.",
+            "Hegra was the largest city in the ancient world, so the road led to it only."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -310,9 +310,9 @@
         {
           "stem": "How long was the Incense Road?",
           "options": [
-            "About 200 kilometers",
-            "About 500 kilometers",
-            "About 1,000 kilometers",
+            "About 200 kilometers in total",
+            "About 500 kilometers in length",
+            "About 1,000 kilometers long",
             "More than 2,000 kilometers"
           ],
           "answer": "D",
@@ -412,10 +412,10 @@
         {
           "stem": "How is most of the article organized?",
           "options": [
-            "As a list of animals of the desert",
-            "As one big problem followed by many different solutions",
+            "As a list of animals of the desert, from the smallest to the largest one",
+            "As one big problem followed by many different solutions, one for each place",
             "In time order, from the start of the trade to its decline and today",
-            "As a comparison between Rome and Egypt"
+            "As a comparison between Rome and Egypt and their markets and rulers"
           ],
           "answer": "C",
           "skill": "text-structure",
@@ -473,9 +473,9 @@
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
             "A desert trade network enriched Arabian towns until sea routes replaced it.",
-            "The Nabataeans were the first people ever to use camels.",
-            "Frankincense grows best in cold, wet climates.",
-            "The monsoon destroyed the cities along the Incense Road."
+            "The Nabataeans were the first people ever to use camels for long trips.",
+            "Frankincense grows best in cold, wet climates far from the Arabian desert.",
+            "The monsoon destroyed the cities along the Incense Road in a single year."
           ],
           "answer": "A",
           "skill": "central-idea",

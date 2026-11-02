@@ -115,9 +115,9 @@
           "stem": "What is this article mostly about?",
           "options": [
             "The speed and training a racehorse needs",
-            "How to build a house for pets",
-            "Why birds fly south in winter",
-            "How cars are made in a factory"
+            "How to build a house for pets in a yard",
+            "Why birds fly south in winter each year",
+            "How cars are made in a factory by robots"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -131,10 +131,10 @@
         {
           "stem": "What helps a racehorse run far without quickly getting tired?",
           "options": [
-            "A short, thick tail",
+            "A short, thick tail and a big head",
             "A large heart and lungs with long legs",
-            "Small, narrow hooves",
-            "A short neck and small ears"
+            "Small, narrow hooves and heavy legs",
+            "A short neck and small ears and wide feet"
           ],
           "answer": "B",
           "skill": "detail",
@@ -216,10 +216,10 @@
         {
           "stem": "Why might a racehorse need a clean, safe stable?",
           "options": [
-            "So it can win every single race",
-            "So it never needs a trainer",
+            "So it can win every single race it enters",
+            "So it never needs a trainer or a rider",
             "So it can be comfortable and ready to train well",
-            "So it can run on the track at night"
+            "So it can run on the track at night in the dark"
           ],
           "answer": "C",
           "skill": "inference",
@@ -489,10 +489,10 @@
         {
           "stem": "According to the article, what might even a minor injury do to a racehorse?",
           "options": [
-            "Improve its pedigree over time",
+            "Improve its pedigree over time in the stable",
             "End a promising career almost overnight",
-            "Make it gallop faster than before",
-            "Change its breed entirely"
+            "Make it gallop faster than before the injury",
+            "Change its breed entirely after a few weeks"
           ],
           "answer": "B",
           "skill": "detail",
@@ -506,10 +506,10 @@
         {
           "stem": "What does the article say about the Arabian horse's heritage?",
           "options": [
-            "It began only after modern veterinary science existed",
-            "It has no connection to desert life at all",
+            "It began only after modern veterinary science existed, in the last century",
+            "It has no connection to desert life at all, only to farms and rivers",
             "It connects to a desert heritage predating most organized sports",
-            "It started with horses trained in cold, snowy regions"
+            "It started with horses trained in cold, snowy regions and was brought south"
           ],
           "answer": "C",
           "skill": "detail",
@@ -557,10 +557,10 @@
         {
           "stem": "Why does the author mention the horse's unusually large heart and lungs together with its long legs?",
           "options": [
-            "To argue the horse should rest more during races",
+            "To argue the horse should rest more during races, since its heart is big",
             "To explain the physical basis for its speed and endurance",
-            "To compare the horse's body to a car's engine",
-            "To describe how the horse is fed each day"
+            "To compare the horse's body to a car's engine and its wheels",
+            "To describe how the horse is fed each day by its owner"
           ],
           "answer": "B",
           "skill": "author-purpose",

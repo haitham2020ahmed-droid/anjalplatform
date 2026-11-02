@@ -115,9 +115,9 @@
           "stem": "What is this article mostly about?",
           "options": [
             "How the Red Sea sits in a crack between two continents that are slowly moving apart",
-            "How ships cross the Red Sea to trade goods",
-            "How many kinds of fish live in the Red Sea",
-            "How people built cities next to the Red Sea"
+            "How ships cross the Red Sea to trade goods and spices in the east and the west",
+            "How many kinds of fish live in the Red Sea, in its reefs and in its deep water",
+            "How people built cities next to the Red Sea, such as ports, towns, and old camps"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -148,9 +148,9 @@
         {
           "stem": "According to the article, what is a plate?",
           "options": [
-            "A dish used on a ship",
-            "A kind of fish found in the Red Sea",
-            "A small, narrow island",
+            "A dish used on a ship to serve hot food to sailors",
+            "A kind of fish found in the Red Sea near reefs",
+            "A small, narrow island far from the coast",
             "A huge, hard slab of rock that continents sit on"
           ],
           "answer": "D",
@@ -216,10 +216,10 @@
         {
           "stem": "Why did the author most likely write this article?",
           "options": [
-            "To teach readers how to swim safely in the sea",
-            "To describe a trip the author took on a ship",
+            "To teach readers how to swim safely in the sea and stay near the shore",
+            "To describe a trip the author took on a ship across the water",
             "To help readers understand why the Red Sea formed the way it did",
-            "To compare the Red Sea to a famous lake"
+            "To compare the Red Sea to a famous lake in another country"
           ],
           "answer": "C",
           "skill": "author-purpose",
@@ -294,9 +294,9 @@
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
             "The Red Sea sits in a widening rift between two tectonic plates, which helps explain why it is so warm and salty.",
-            "The Red Sea has more rivers flowing into it than any other sea.",
-            "Coral reefs are the main reason the Red Sea formed.",
-            "Ships cannot cross the Red Sea because it is too narrow."
+            "The Red Sea has more rivers flowing into it than any other sea in the world, and that is why it is warm.",
+            "Coral reefs are the main reason the Red Sea formed, since they grew and then pushed the land apart.",
+            "Ships cannot cross the Red Sea because it is too narrow, and so cargo must be carried by camels."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -344,10 +344,10 @@
         {
           "stem": "As used in the article, evaporate most nearly means",
           "options": [
-            "to freeze solid in cold weather",
-            "to flow quickly downhill",
+            "to freeze solid in cold weather and turn to ice",
+            "to flow quickly downhill after a heavy rain",
             "to change from a liquid into a gas because of heat",
-            "to turn into salt crystals instantly"
+            "to turn into salt crystals instantly in the sea"
           ],
           "answer": "C",
           "skill": "vocabulary",
@@ -361,9 +361,9 @@
         {
           "stem": "Based on the article, why does the Red Sea have very few fresh rivers flowing into it?",
           "options": [
-            "Because all nearby rivers flow into the Mediterranean Sea instead",
-            "Because ancient dams blocked every river long ago",
-            "Because the plates swallow rivers as they move apart",
+            "Because all nearby rivers flow into the Mediterranean Sea instead of into it",
+            "Because ancient dams blocked every river there a long time ago",
+            "Because the plates swallow the rivers as they move apart each year",
             "Because it is almost completely covered by desert land with little rainfall"
           ],
           "answer": "D",
@@ -378,10 +378,10 @@
         {
           "stem": "What can be inferred about the Red Sea's future from the article's description of the widening rift?",
           "options": [
-            "It will stay the exact same size and shape forever",
-            "It will shrink and disappear within a few years",
+            "It will stay the exact same size and shape forever and ever",
+            "It will shrink and disappear within a few years of today",
             "It may continue widening until it becomes a full new ocean",
-            "It will freeze over as the plates slow down"
+            "It will freeze over as the plates slow down in the cold"
           ],
           "answer": "C",
           "skill": "inference",
@@ -396,9 +396,9 @@
           "stem": "How does the article mainly organize its explanation of the Red Sea?",
           "options": [
             "By explaining causes, such as moving plates and heat, and their effects on the sea",
-            "By telling a made-up story about a sailor",
-            "By comparing the Red Sea to a famous river",
-            "By listing every country that borders the sea"
+            "By telling a made-up story about a sailor who crosses the Red Sea in a boat",
+            "By comparing the Red Sea to a famous river in Africa, such as the Nile, on many points",
+            "By listing every country that borders the sea, one by one, with its capital and its flag"
           ],
           "answer": "A",
           "skill": "text-structure",
@@ -473,9 +473,9 @@
           "stem": "Which statement best summarizes the article?",
           "options": [
             "The Red Sea occupies a widening rift between two tectonic plates, a process that also explains its extreme salinity and warmth.",
-            "The Red Sea is shrinking because the African and Arabian plates are moving closer together.",
-            "Coral reefs caused the tectonic plates beneath the Red Sea to separate.",
-            "The Red Sea has the lowest salinity of any sea on Earth."
+            "The Red Sea is shrinking because the African and Arabian plates are moving closer together, and it will close one day.",
+            "Coral reefs caused the tectonic plates beneath the Red Sea to separate, because the reefs grew very heavy over time.",
+            "The Red Sea has the lowest salinity of any sea on Earth, because many rivers carry fresh water into it every day."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -506,10 +506,10 @@
         {
           "stem": "What evidence do geologists cite for ongoing spreading along the rift?",
           "options": [
-            "Ancient pottery found along the coastline",
-            "A sudden drop in the sea's salinity",
+            "Ancient pottery found along the coastline of the sea",
+            "A sudden drop in the sea's salinity over the years",
             "Young volcanic rock rising along the center of the rift",
-            "Fossils of extinct fish species"
+            "Fossils of extinct fish species in the nearby rocks"
           ],
           "answer": "C",
           "skill": "detail",
@@ -541,9 +541,9 @@
           "stem": "What can be inferred from the discovery of young volcanic rock at the center of the rift?",
           "options": [
             "The tectonic process shaping the Red Sea is still active today",
-            "The rift stopped widening millions of years ago",
-            "The Red Sea was formed entirely by river erosion",
-            "Volcanic activity has made the sea less salty"
+            "The rift stopped widening millions of years ago and is now still",
+            "The Red Sea was formed entirely by river erosion over time",
+            "Volcanic activity has made the sea less salty than other seas"
           ],
           "answer": "A",
           "skill": "inference",
@@ -557,10 +557,10 @@
         {
           "stem": "Based on the article, why might scientists compare the Red Sea's rift to the earlier separation of other landmasses?",
           "options": [
-            "Because no two rifts could ever share similar features",
+            "Because no two rifts could ever share similar features, so scientists never compare them to each other",
             "Because the same slow tectonic process of widening and eventual ocean formation may be at work",
-            "Because the Red Sea has already fully become a separate ocean",
-            "Because ancient maps describe the exact same process"
+            "Because the Red Sea has already fully become a separate ocean, just like the ones before it",
+            "Because ancient maps describe the exact same process and show the sea at each stage of its growth"
           ],
           "answer": "B",
           "skill": "inference",
@@ -574,10 +574,10 @@
         {
           "stem": "Why does the author most likely describe plate tectonics before explaining the Red Sea's salinity and warmth?",
           "options": [
-            "To prove that salinity has nothing to do with geology",
-            "To argue that coral reefs are more important than tectonics",
+            "To prove that salinity has nothing to do with geology, so the two topics must be kept apart in the article",
+            "To argue that coral reefs are more important than tectonics for understanding the Red Sea",
             "To give readers the geologic background needed to understand why the sea formed and behaves as it does",
-            "To entertain readers with an unrelated story about volcanoes"
+            "To entertain readers with an unrelated story about volcanoes that erupted in a faraway land"
           ],
           "answer": "C",
           "skill": "author-purpose",

@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How to draw the Sun with crayons",
+            "How to draw the Sun with crayons and paint",
             "What the Sun is and how it helps life on Earth",
-            "Why the stars come out only at night",
-            "How people first flew into space"
+            "Why the stars come out only at night in winter",
+            "How people first flew into space in rockets"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -165,9 +165,9 @@
         {
           "stem": "The article says Earth moves in a path around the Sun called an orbit. What is an orbit?",
           "options": [
-            "A dark spot on the Sun",
-            "A tool for looking at stars",
-            "A trip that takes eight minutes",
+            "A dark spot on the Sun that moves across it",
+            "A tool for looking at the stars at night from home",
+            "A trip that takes eight minutes by light from the Sun",
             "The path something takes around another thing in space"
           ],
           "answer": "D",
@@ -182,10 +182,10 @@
         {
           "stem": "What happens when tiny bits of gas join deep inside the Sun?",
           "options": [
-            "The Sun gets smaller and darker.",
+            "The Sun gets smaller and darker as the gas joins",
             "They make energy that comes out as light and heat.",
-            "They turn into dark spots.",
-            "They make Earth move faster."
+            "They turn into dark spots on the face of the Sun",
+            "They make Earth move faster around the Sun"
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -216,10 +216,10 @@
         {
           "stem": "Why does a sunspot look dark?",
           "options": [
-            "It is a hole in the Sun.",
-            "It is a cloud in front of the Sun.",
+            "It is a hole in the Sun that goes down to the core.",
+            "It is a cloud in front of the Sun that blocks light.",
             "It is a little cooler than the rest of the Sun.",
-            "It is a shadow made by Earth."
+            "It is a shadow made by Earth when it passes by."
           ],
           "answer": "C",
           "skill": "inference",
@@ -234,9 +234,9 @@
           "stem": "Why does the author tell about solar farms in Saudi Arabia at the end?",
           "options": [
             "To show one way people use the Sun's energy",
-            "To warn readers not to visit farms",
-            "To explain why the Sun has spots",
-            "To tell how long one orbit takes"
+            "To warn readers not to visit farms in the desert",
+            "To explain why the Sun has spots on its face",
+            "To tell how long one orbit around the Sun takes"
           ],
           "answer": "A",
           "skill": "author-purpose",
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the main idea of the article?",
           "options": [
-            "The Sun is the largest star in the whole universe.",
+            "The Sun is the largest star in the whole universe, and it is the hottest star of all, too.",
             "The Sun is our nearest star, and the energy it makes in its core supports life on Earth.",
-            "Sunspots are the most important part of the Sun.",
-            "Solar farms were invented in Saudi Arabia."
+            "Sunspots are the most important part of the Sun, and they give us all the light we get.",
+            "Solar farms were invented in Saudi Arabia, and they are used for farming in the desert."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -363,8 +363,8 @@
           "options": [
             "A huge amount of energy is released as light and heat.",
             "Hydrogen turns into water and falls as rain.",
-            "Earth's year gets longer and longer.",
-            "Sunspots grow until they cover the Sun."
+            "Earth's year gets longer and longer as the Sun burns",
+            "Sunspots grow until they cover the whole Sun at night"
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -379,9 +379,9 @@
           "stem": "Sunlight travels faster than anything else, yet it still needs about eight minutes to reach Earth. What does this tell you?",
           "options": [
             "The Sun is extremely far from Earth.",
-            "Sunlight slows down near Earth.",
-            "The Sun is smaller than Earth.",
-            "Light only moves at night."
+            "Sunlight slows down when near Earth.",
+            "The Sun is much smaller than Earth.",
+            "Light only moves at night time."
           ],
           "answer": "A",
           "skill": "inference",
@@ -412,9 +412,9 @@
         {
           "stem": "How does the article organize its information?",
           "options": [
-            "It tells a story about an astronaut's trip to the Sun.",
-            "It compares the Sun with the Moon in every paragraph.",
-            "It lists problems the Sun causes and how to fix them.",
+            "It tells a story about an astronaut's long trip to the Sun and back to Earth again in a rocket.",
+            "It compares the Sun with the Moon in every single paragraph of the whole article.",
+            "It lists the problems the Sun causes and how people can fix them one by one in turn, for every country.",
             "It describes the Sun, explains how it makes energy, and then shows how that energy affects Earth."
           ],
           "answer": "D",
@@ -472,9 +472,9 @@
         {
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
-            "The Sun's surface is calm and never changes.",
-            "Saudi Arabia was the first country to use solar power.",
-            "Auroras are the most important effect of the Sun.",
+            "The Sun's surface is calm and never changes, so we can look at it all day without any problem for our eyes.",
+            "Saudi Arabia was the first country to use solar power, in a small town near the Red Sea, long ago.",
+            "Auroras are the most important effect of the Sun, so the article is mostly about the lights in the sky.",
             "The Sun, our nearest star, produces energy through fusion, and that energy shapes conditions on Earth."
           ],
           "answer": "D",
@@ -524,9 +524,9 @@
           "stem": "The article says the Sun's surface is 'anything but calm.' What does this phrase suggest?",
           "options": [
             "The surface is very active and changing.",
-            "The surface is quiet and still.",
-            "The surface is completely frozen.",
-            "The surface is hidden from view."
+            "The surface is quiet and still, like a calm lake.",
+            "The surface is completely frozen, like a block of ice.",
+            "The surface is hidden from view by thick clouds."
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -558,9 +558,9 @@
           "stem": "The article says energy takes many thousands of years to travel from the core to the photosphere. What can you infer?",
           "options": [
             "The light we see today began its journey inside the Sun long ago.",
-            "The Sun will stop shining in a few years.",
-            "Light travels slowly once it leaves the Sun.",
-            "Fusion happens on the surface, not in the core."
+            "The Sun will stop shining in a few years, because it is running out of fuel.",
+            "Light travels slowly once it leaves the Sun and passes through space.",
+            "Fusion happens on the surface, not in the core, where it is cooler."
           ],
           "answer": "A",
           "skill": "inference",
@@ -591,10 +591,10 @@
         {
           "stem": "Why does the author end with the Sakaka solar plant?",
           "options": [
-            "To argue that the Sun is dangerous",
-            "To explain how sunspots form",
+            "To argue that the Sun is dangerous and that people should hide from it all day",
+            "To explain how sunspots form on the face of the Sun each year",
             "To connect the science of the Sun to a real, renewable use of its energy",
-            "To compare the Sun with other stars"
+            "To compare the Sun with other stars that are larger and brighter"
           ],
           "answer": "C",
           "skill": "author-purpose",

@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How to paint pictures like an artist",
+            "How to paint pictures like an artist in a studio and sell them to rich people",
             "How Louis Pasteur discovered that germs cause disease and spoiled food",
-            "How milk is made on a farm",
-            "How doctors give shots to patients"
+            "How milk is made on a farm by cows, goats, and sheep in the morning",
+            "How doctors give shots to the patients in a clinic or at school"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -182,10 +182,10 @@
         {
           "stem": "In the article, the word prove means —",
           "options": [
-            "to guess without checking",
+            "to guess without checking the facts at all, like a game",
             "to show with clear facts that something is true",
-            "to paint a picture of something",
-            "to drink a glass of milk"
+            "to paint a picture of something in the sky",
+            "to drink a glass of milk after a long walk"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -234,9 +234,9 @@
           "stem": "Why does the author explain that many people did not believe in germs before Louis?",
           "options": [
             "To show how surprising and important Louis's discovery was",
-            "To say that germs are not really real",
-            "To explain how to paint realistic pictures",
-            "To describe how microscopes are built"
+            "To say that germs are not real and do not make people sick",
+            "To explain how to paint realistic pictures of tiny things",
+            "To describe how microscopes are built in a workshop"
           ],
           "answer": "A",
           "skill": "author-purpose",
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the central idea?",
           "options": [
-            "Louis Pasteur was mostly known for his paintings.",
+            "Louis Pasteur was mostly known for his paintings and for his drawings of animals.",
             "Through careful experiments, Pasteur proved germs cause spoilage and disease.",
-            "Microscopes were invented by Louis Pasteur himself.",
-            "Vaccines were common long before Pasteur was born."
+            "Microscopes were invented by Louis Pasteur himself in the 1600s.",
+            "Vaccines were common in many towns long before Pasteur was born."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -362,9 +362,9 @@
           "stem": "Why was it important that Pasteur's experiments were carefully designed and repeated?",
           "options": [
             "So that other scientists would trust and accept his conclusions.",
-            "So that he could win a painting contest.",
-            "So that his milk would taste sweeter.",
-            "So that he would not need a microscope."
+            "So that he could win a painting contest at his school in the spring.",
+            "So that his milk would taste sweeter to all the people in the town.",
+            "So that he would not need to use a microscope in the lab any more."
           ],
           "answer": "A",
           "skill": "inference",
@@ -378,10 +378,10 @@
         {
           "stem": "How does the author organize the article?",
           "options": [
-            "By comparing Pasteur to other painters",
-            "By listing random facts about France",
+            "By comparing Pasteur to other painters of his time in France",
+            "By listing random facts about France and its great cities",
             "In time order, from his childhood to his later discoveries",
-            "By describing the parts of a microscope"
+            "By describing the parts of a microscope and how they work"
           ],
           "answer": "C",
           "skill": "text-structure",
@@ -413,9 +413,9 @@
           "stem": "What can you infer about how a vaccine makes a person immune to a disease?",
           "options": [
             "It teaches the body's defenses to recognize and fight a specific germ.",
-            "It removes every single germ from the air permanently.",
-            "It makes a person immune to every disease at once.",
-            "It completely replaces the need for any doctors at all."
+            "It removes every single germ from the air permanently, in the whole room.",
+            "It makes a person immune to every disease at once, in a single shot.",
+            "It completely replaces the need for any doctors at all, for life."
           ],
           "answer": "A",
           "skill": "inference",
@@ -472,10 +472,10 @@
         {
           "stem": "Which statement best expresses the central idea?",
           "options": [
-            "Pasteur is remembered today mainly as a talented painter.",
-            "Microscopes became completely unnecessary after Pasteur's work.",
+            "Pasteur is remembered today mainly as a talented painter of fruit and flowers.",
+            "Microscopes became completely unnecessary after Pasteur's work, so doctors stopped using them.",
             "Pasteur's rigorous experiments established germ theory and reshaped medicine.",
-            "Vaccines had already ended most diseases before Pasteur was born."
+            "Vaccines had already ended most diseases before Pasteur was born in France."
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -506,9 +506,9 @@
         {
           "stem": "Why is it significant that Pasteur's experiments were repeated many times before he drew conclusions?",
           "options": [
-            "It showed that Pasteur preferred painting over careful science.",
-            "It proved beyond doubt that microscopes were unreliable.",
-            "It meant that his very first results were always wrong.",
+            "It showed that Pasteur preferred painting over careful science, even in his lab.",
+            "It proved beyond doubt that microscopes were unreliable and should not be trusted.",
+            "It meant that his very first results were always wrong, so he had to start again.",
             "Repetition provided strong evidence that persuaded a skeptical community."
           ],
           "answer": "D",
@@ -523,10 +523,10 @@
         {
           "stem": "In the article, the word evidence most nearly means —",
           "options": [
-            "a random guess with no support",
+            "a random guess with no support at all from facts",
             "facts or observations that support an idea",
-            "a specific type of medical vaccine",
-            "a particular kind of serious disease"
+            "a specific type of medical vaccine for children",
+            "a particular kind of serious disease in people"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -575,9 +575,9 @@
           "stem": "How does pasteurization compare to a vaccine as a way of protecting health?",
           "options": [
             "Pasteurization kills germs in liquids, while a vaccine trains the body's own immunity against them.",
-            "Both methods work only by removing all germs from the surrounding air permanently.",
-            "Pasteurization and vaccines are identical processes with the same purpose.",
-            "Neither method has any real connection to germ theory."
+            "Both methods work only by removing all germs from the air in a room permanently.",
+            "Pasteurization and vaccines are identical processes with the same purpose and the same steps.",
+            "Neither method has any real connection to germ theory or to staying healthy in daily life."
           ],
           "answer": "A",
           "skill": "compare",
@@ -591,9 +591,9 @@
         {
           "stem": "What is the most likely reason Pasteur is remembered as a pioneer of modern medicine?",
           "options": [
-            "He proved instead that germs do not actually cause any disease.",
-            "He was simply the very first person to ever use a microscope.",
-            "He preferred painting pictures over any scientific pursuits at all.",
+            "He proved instead that germs do not actually cause any disease, and so people should not wash their hands.",
+            "He was simply the very first person to ever use a microscope, and he saw tiny living things in water.",
+            "He preferred painting pictures over any scientific pursuits at all, and he became famous for his art.",
             "His evidence-based discoveries opened the way for safer food and disease prevention."
           ],
           "answer": "D",

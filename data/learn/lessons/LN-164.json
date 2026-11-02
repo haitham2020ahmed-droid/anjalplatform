@@ -130,10 +130,10 @@
      "passage": "Little fish, little fish,\nswimming in the sea,\nlittle fish, little fish,\nswim along with me.",
      "stem": "What is the poem mostly about?",
      "options": [
-      "A big boat",
-      "A sunny beach",
+      "A big boat at sea",
+      "A sunny beach for kids",
       "A little fish swimming",
-      "A sea bird"
+      "A sea bird flying"
      ],
      "answer": 2,
      "why": "The poem keeps repeating little fish and tells about it swimming."
@@ -190,9 +190,9 @@
     "stem": "How is this poem organised?",
     "options": [
      "Each stanza shows the desert at a different time of day.",
-     "Each stanza tells about a different animal.",
-     "Each stanza asks a question about the sand.",
-     "Each stanza describes a different country."
+     "Each stanza tells about a different animal in the desert.",
+     "Each stanza asks a question about the sand and the wind.",
+     "Each stanza describes a different country that the poet visited."
     ],
     "answer": 0,
     "hint": "Read the first words of each stanza. What do they have in common?",
@@ -245,10 +245,10 @@
      "passage": "My grandpa's hands are rough and strong,\nthey built our wall, they dug our well.\n\nMy grandpa's hands are slow and kind,\nthey turn the pages as he tells\nthe stories only he can tell.",
      "stem": "What does the repeated line opening \"My grandpa's hands are\" help the poem do?",
      "options": [
-      "It shows that the poem is about a garden.",
+      "It shows that the poem is about a garden and its plants.",
       "It links the stanzas and shows two sides of Grandpa.",
-      "It tells us that Grandpa is still young.",
-      "It turns the poem into a list of tools."
+      "It tells us that Grandpa is still very young.",
+      "It turns the poem into a list of garden tools."
      ],
      "answer": 1,
      "why": "Both stanzas start the same way. The first shows his hands as strong, the second as kind."
@@ -304,10 +304,10 @@
     "passage": "The storm rolled in across the bay,\nthe little boat was far from shore,\nthe sky went black, the wind went wild,\nthe waves rose higher than before.\n\nOn land, young Sara climbed the tower\nand lit the lamp with steady hands;\nits golden beam swept out to sea\nand showed the way to safer sands.\n\nAt dawn the boat came gliding home,\nher father waving from its side,\nand Sara ran across the beach\nwith arms and heart both open wide.",
     "stem": "What does the last stanza add to the poem's story?",
     "options": [
-     "It describes the storm getting stronger.",
-     "It shows how Sara lit the lamp.",
+     "It describes the storm getting stronger at night.",
+     "It shows how Sara lit the lamp in the window.",
      "It shows the happy ending when the boat returns safely.",
-     "It explains why the boat went to sea."
+     "It explains why the boat went to sea in the morning."
     ],
     "answer": 2,
     "hint": "The first stanza shows the danger, and the second shows Sara's action. What happens in the third?",
@@ -355,10 +355,10 @@
      "passage": "Omar found a bird with a broken wing.\nHe made a nest from cloth inside a box.\nHe fed it seeds and water every day.\nOne morning, it flew up and over the rocks.",
      "stem": "What makes this a narrative poem?",
      "options": [
-      "It only describes how a bird looks.",
+      "It only describes how a bird looks and sounds.",
       "It tells a story with a character and events.",
-      "It has no characters.",
-      "It gives facts about birds."
+      "It has no characters and no events at all.",
+      "It gives facts about birds and their nests."
      ],
      "answer": 1,
      "why": "The poem tells a story: Omar finds a bird, cares for it, and it flies away."
@@ -430,10 +430,10 @@
     "passage": "Each morning, the fishermen push their boats\ninto the grey water, singing old songs\ntheir fathers sang, nets folded at their feet,\nhopeful as the tide.\n\nEach evening, they return with silver piles,\nthe harbour loud with bargaining and laughter,\nchildren racing to the water's edge\nto count the catch.\n\nFor forty years the pattern held:\nthe same boats out, the same boats in,\nas certain as the rising sun\nand the salt wind on their skin.\n\nToday,\none boat\nhas not come home.",
     "stem": "Why does the poet make the last stanza so short and break it into tiny lines?",
     "options": [
-     "To show that the fishermen are tired of singing",
+     "To show that the fishermen are tired of singing at sea all night",
      "To slow the reader down and stress a sudden, worrying change",
-     "To describe the fish in more detail",
-     "To show that the harbour is loud and busy"
+     "To describe the fish in more detail for the reader",
+     "To show that the harbour is loud and busy at noon"
     ],
     "answer": 1,
     "hint": "Compare the last stanza with the ones before it. How is the rhythm different, and what news does it bring?",

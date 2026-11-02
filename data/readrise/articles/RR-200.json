@@ -184,7 +184,7 @@
           "options": [
             "Keep your mind on one thing",
             "Run as fast as you can",
-            "Talk to your friends",
+            "Talk to your friends and your teacher",
             "Close both of your eyes"
           ],
           "answer": "A",
@@ -216,10 +216,10 @@
         {
           "stem": "Why might a calm, slow breath help an archer?",
           "options": [
-            "It makes the arrow fly farther",
+            "It makes the arrow fly farther away from the bow",
             "It keeps the body still to aim well",
-            "It makes the bow stronger",
-            "It makes the target move"
+            "It makes the bow stronger and harder to bend",
+            "It makes the target move slowly toward the archer"
           ],
           "answer": "B",
           "skill": "inference",
@@ -344,9 +344,9 @@
         {
           "stem": "Which step happens last?",
           "options": [
-            "Placing the arrow on the string",
-            "Standing sideways to the target",
-            "Drawing the string back",
+            "Placing the arrow on the string of the bow",
+            "Standing sideways to the target before shooting",
+            "Drawing the string back to the face",
             "Releasing the string and holding still"
           ],
           "answer": "D",
@@ -524,9 +524,9 @@
           "stem": "Read this: \"they release the string smoothly and remain perfectly still, a step known as the follow-through.\" What is the follow-through?",
           "options": [
             "Staying still after letting go of the string",
-            "Pulling the string back to the chin",
-            "Walking out to collect all the arrows",
-            "Choosing a new arrow from the quiver"
+            "Pulling the string back to the chin slowly",
+            "Walking out to collect all the arrows from the field",
+            "Choosing a new arrow from the quiver on the back"
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -540,10 +540,10 @@
         {
           "stem": "What can you infer about why archers must adjust their aim on a windy day?",
           "options": [
-            "The wind makes the target smaller",
+            "The wind makes the target smaller and harder to see",
             "The wind can push the arrow away from the center",
-            "The wind makes the bow string loose",
-            "The wind changes the points on the target"
+            "The wind makes the bow string loose and weak",
+            "The wind changes the points on the target for each ring"
           ],
           "answer": "B",
           "skill": "inference",
@@ -557,10 +557,10 @@
         {
           "stem": "How does the article organize the shooting steps?",
           "options": [
-            "From the most important to the least important",
+            "From the most important to the least important step",
             "In the order they happen, from stance to follow-through",
-            "By comparing them with other sports",
-            "As problems and solutions"
+            "By comparing them with other sports in the class",
+            "As problems and solutions about shooting"
           ],
           "answer": "B",
           "skill": "text-structure",
@@ -591,7 +591,7 @@
         {
           "stem": "Why does the author end with how archery helps young people in Saudi Arabia?",
           "options": [
-            "To argue that archery is the only sport worth learning",
+            "To argue that archery is the only sport worth learning in school",
             "To describe ancient battles fought with bows and arrows",
             "To explain exactly how an archer can score ten points",
             "To show that archery builds qualities such as patience and discipline"

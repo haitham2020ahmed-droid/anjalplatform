@@ -233,10 +233,10 @@
         {
           "stem": "Why does the author end with people coming to cheer?",
           "options": [
-            "To give the steps for training",
+            "To give the steps for training before a marathon",
             "To show that marathons are big events that many people enjoy",
-            "To explain what food gives energy",
-            "To tell how the race got its name a long time ago"
+            "To explain what food gives energy to the runners",
+            "To tell how the race got its name in Greece a long time ago"
           ],
           "answer": "B",
           "skill": "author-purpose",
@@ -558,9 +558,9 @@
           "stem": "Which detail best supports the idea that hydration matters most on hot days?",
           "options": [
             "Runners drink often, especially on hot days, as they lose water and salt.",
-            "The fastest runners finish in just over two hours.",
-            "Runners train for several months.",
-            "Many cities, including Riyadh, organize marathons."
+            "The fastest runners finish the whole race in just over two hours.",
+            "Runners train for several months before the race starts.",
+            "Many cities, including Riyadh, organize marathons every year for runners."
           ],
           "answer": "A",
           "skill": "detail",

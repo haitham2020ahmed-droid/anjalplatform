@@ -433,10 +433,10 @@
      "passage": "After years of study, she finally reached the light of understanding.",
      "stem": "In this sentence, the noun light is:",
      "options": [
-      "concrete, because you can see it",
+      "concrete, because you can see it clearly",
       "abstract, because it means understanding",
       "collective, because it is a group",
-      "proper, because it is special"
+      "proper, because it is very special"
      ],
      "answer": 1,
      "why": "Here light does not mean real light. It means understanding, so it is abstract."

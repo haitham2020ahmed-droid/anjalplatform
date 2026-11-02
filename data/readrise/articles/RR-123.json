@@ -132,9 +132,9 @@
           "stem": "Why does rain run over the top of the desert ground?",
           "options": [
             "The ground is too hard and dry to soak it up fast.",
-            "The strong desert wind blows it away.",
-            "The sand is already too wet to hold more.",
-            "Plants and trees drink all of it up."
+            "The strong desert wind blows it away before it can land.",
+            "The sand is already too wet to hold more water.",
+            "Plants and trees drink all of it up at once."
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -165,10 +165,10 @@
         {
           "stem": "What should you do if water is flowing in a wadi?",
           "options": [
-            "Cross it fast in a car",
-            "Play in the water near the edge",
+            "Cross it fast in a strong car",
+            "Play in the water near the edge of it",
             "Stay out of it and go to high ground",
-            "Wait in the middle of the wadi"
+            "Wait in the middle of the wadi for help"
           ],
           "answer": "C",
           "skill": "detail",
@@ -293,10 +293,10 @@
         {
           "stem": "What is the main idea of the article?",
           "options": [
-            "Deserts in Saudi Arabia never get any rain at all.",
+            "Deserts in Saudi Arabia never get any rain at all, not even in winter.",
             "Rare, heavy rain can cause deadly floods but also helps the land.",
-            "Dams are the most dangerous places to be in a desert.",
-            "Flash floods only happen in big, crowded cities."
+            "Dams are the most dangerous places to be in a desert, and floods start there.",
+            "Flash floods only happen in big, crowded cities, and never in the desert."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -311,9 +311,9 @@
           "stem": "Why does most of the rain become runoff instead of soaking into the ground?",
           "options": [
             "The ground is baked hard and cannot absorb water quickly.",
-            "The rain is too cold to soak in.",
-            "Dams stop the water from entering the ground.",
-            "The wind pushes the rain sideways."
+            "The rain is too cold to soak in, so it runs away.",
+            "Dams stop the water from entering the ground everywhere.",
+            "The wind pushes the rain sideways across the land."
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -395,10 +395,10 @@
         {
           "stem": "Why might a farmer be glad after a big desert storm, even if it caused a flood?",
           "options": [
-            "Floods wash away all the weeds forever.",
-            "The flood makes the soil hard again.",
+            "Floods wash away all the weeds in the field forever.",
+            "The flood makes the soil hard and dry again.",
             "The rain refills underground water and helps plants grow.",
-            "Floods always bring new camels to the farm."
+            "Floods always bring new camels to the farm each year."
           ],
           "answer": "C",
           "skill": "inference",
@@ -489,10 +489,10 @@
         {
           "stem": "According to the article, what is an aquifer?",
           "options": [
-            "A dam that stores floodwater for farms",
-            "A dry riverbed that floods after storms",
+            "A dam that stores floodwater for farms in the valley",
+            "A dry riverbed that floods after big storms in the winter",
             "A layer of rock that stores water underground",
-            "A channel that drains water from cities"
+            "A channel that drains water from cities into the sea"
           ],
           "answer": "C",
           "skill": "detail",
@@ -506,10 +506,10 @@
         {
           "stem": "Which two conditions together cause most desert rain to become runoff?",
           "options": [
-            "Cold air and strong wind",
-            "Thick forests and deep lakes",
+            "Cold air and strong wind blowing from the sea",
+            "Thick forests and deep lakes with tall trees",
             "Hard, compacted soil and sparse vegetation",
-            "High mountains and sandy beaches"
+            "High mountains and sandy beaches near the water"
           ],
           "answer": "C",
           "skill": "cause-effect",
@@ -557,10 +557,10 @@
         {
           "stem": "Why are neighborhoods built on low-lying land at special risk?",
           "options": [
-            "They receive more precipitation than other areas.",
+            "They receive more precipitation than other areas, since clouds stay there.",
             "Water flowing downhill gathers in low areas such as wadis.",
-            "Aquifers rise to the surface in those places.",
-            "Radar signals cannot reach low places at all."
+            "Aquifers rise to the surface in those places, and push up the houses.",
+            "Radar signals cannot reach low places at all, so no warnings are sent."
           ],
           "answer": "B",
           "skill": "inference",

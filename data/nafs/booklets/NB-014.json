@@ -46,10 +46,10 @@
       "type": "MCQ",
       "stem": "Read this sentence from paragraph 3: “our team resembled a group of strangers, each player running in a different direction.” What does “resembled” mean?",
       "options": [
-        "was cheered by",
-        "was larger than",
+        "was cheered by a crowd",
+        "was much larger than",
         "looked or acted like",
-        "was afraid of"
+        "was very afraid of"
       ],
       "answer": "C",
       "why": "The team acted like strangers who do not know each other, so resembled means looked or acted like."
@@ -173,10 +173,10 @@
       "type": "MCQ",
       "stem": "What is the main purpose of the story?",
       "options": [
-        "to explain the rules of football",
-        "to describe Al-Noor School",
+        "to explain the rules of football to the players of a school team",
+        "to describe Al-Noor School and its big stadium",
         "to show that teamwork matters more than one player's talent",
-        "to teach how to be a goalkeeper"
+        "to teach how to be a goalkeeper in a school team"
       ],
       "answer": "C",
       "why": "The story shows that eleven players who cooperate are stronger than one star who plays alone."
@@ -205,9 +205,9 @@
       "type": "MCQ",
       "stem": "According to paragraph 2, why didn't Khalid pass the ball to Omar?",
       "options": [
-        "He could not hear Omar shouting",
-        "Omar was surrounded by two defenders",
-        "The coach had told him not to",
+        "He could not hear Omar shouting over the crowd",
+        "Omar was surrounded by two defenders near the goal",
+        "The coach had told him not to pass the ball",
         "He was determined to score the goal himself"
       ],
       "answer": "D",
@@ -222,9 +222,9 @@
       "stem": "Which features show that this text is a short story?",
       "options": [
         "a narrator, characters, a problem and a lesson",
-        "facts, dates and measurements",
-        "rhyming lines and verses",
-        "a greeting and a signature"
+        "facts, dates and measurements about a place",
+        "rhyming lines and verses in groups",
+        "a greeting and a signature at the end"
       ],
       "answer": "A",
       "why": "The text has a narrator (Khalid), characters, a problem (playing alone) and a lesson (teamwork), so it is a narrative story."
@@ -237,10 +237,10 @@
       "type": "MCQ",
       "stem": "Why did Khalid's face grow hot in paragraph 7?",
       "options": [
-        "The changing room was very warm",
+        "The changing room was very warm and crowded",
         "He realised the coach was talking about him",
-        "He had run too fast in the match",
-        "He was angry with Omar"
+        "He had run too fast in the match and was tired",
+        "He was angry with Omar for taking the ball"
       ],
       "answer": "B",
       "why": "The story says: “My face grew hot, because I realised that he was talking about me.”"
@@ -270,9 +270,9 @@
       "stem": "Who tells this story, and how do we know?",
       "options": [
         "Khalid, because he uses “I” and Omar calls him by name",
-        "Omar, because he gives the final answer",
-        "Coach Salem, because he explains the lesson",
-        "an outside narrator, because no one says “I”"
+        "Omar, because he gives the final answer to the coach",
+        "Coach Salem, because he explains the lesson to the team",
+        "an outside narrator, because no one in the story says “I”"
       ],
       "answer": "A",
       "why": "The narrator says “I” throughout, and paragraph 2 shows Omar shouting to Khalid, so Khalid tells the story in the first person."
@@ -301,10 +301,10 @@
       "type": "MCQ",
       "stem": "What was the main cause of the team's loss against Al-Noor?",
       "options": [
-        "The goalkeeper made many mistakes",
+        "The goalkeeper made many mistakes in the second half",
         "Khalid played alone, so the team did not work together",
-        "Al-Noor had faster players",
-        "The referee was unfair"
+        "Al-Noor had faster players and a taller goalkeeper",
+        "The referee was unfair to the team all game long"
       ],
       "answer": "B",
       "why": "Paragraphs 2 and 3 show Khalid trying to beat every opponent alone, so the team ran like strangers while Al-Noor passed well."
@@ -317,10 +317,10 @@
       "type": "MCQ",
       "stem": "In your opinion, what most makes the reader want to keep reading the story?",
       "options": [
-        "the long list of players' names",
-        "the description of the stadium",
+        "the long list of players' names in the team",
+        "the description of the stadium and its seats",
         "wanting to know whether Khalid will change",
-        "the details of the scoreboard"
+        "the details of the scoreboard and the score"
       ],
       "answer": "C",
       "why": "After the loss, the reader wonders whether Khalid will learn his lesson."
@@ -333,9 +333,9 @@
       "type": "MCQ",
       "stem": "How does Khalid change from paragraph 1 to paragraph 9?",
       "options": [
-        "from nervous to angry",
-        "from lazy to selfish",
-        "from proud to bored",
+        "from nervous to angry at the team",
+        "from lazy to selfish with friends",
+        "from proud to bored of the match",
         "from overconfident to trusting"
       ],
       "answer": "D",
@@ -350,9 +350,9 @@
       "stem": "How was Al-Noor's way of playing different from Khalid's team in the first half?",
       "options": [
         "Al-Noor passed smoothly, while Khalid's team ran separately",
-        "Al-Noor had more players on the field",
-        "Al-Noor's goalkeeper was taller",
-        "Khalid's team passed more often"
+        "Al-Noor had more players on the field than the other team",
+        "Al-Noor's goalkeeper was taller than Khalid's goalkeeper",
+        "Khalid's team passed more often than Al-Noor did all game"
       ],
       "answer": "A",
       "why": "Paragraph 3 contrasts Al-Noor's smooth, confident passing with Khalid's team running in different directions."
@@ -397,10 +397,10 @@
       "type": "MCQ",
       "stem": "What is your opinion of telling the story through Khalid's own eyes?",
       "options": [
-        "It hides all of Khalid's feelings",
-        "It turns the story into a list of facts",
+        "It hides all of Khalid's feelings from the readers of the story",
+        "It turns the story into a list of facts and dates and numbers",
         "It lets readers share his feelings and see his mistakes honestly",
-        "It explains the coach's private thoughts"
+        "It explains the coach's private thoughts to the readers of the story"
       ],
       "answer": "C",
       "why": "Because Khalid tells the story, readers feel his pride, disappointment and embarrassment and see his honest change."
@@ -431,8 +431,8 @@
       "options": [
         "They were secretly talking during the match",
         "They understood each other so well they hardly needed words",
-        "They had magical powers",
-        "They were confused about where to run"
+        "They had magical powers on the field and knew the plan before it began",
+        "They were confused about where to run on the pitch and what to do"
       ],
       "answer": "B",
       "why": "The figurative expression means their teamwork was so good that each player seemed to know what the others would do."
@@ -445,9 +445,9 @@
       "type": "MCQ",
       "stem": "In your opinion, which lesson from the story is the most useful for school teams?",
       "options": [
-        "Always keep the ball for yourself",
-        "Only the fastest player matters",
-        "Never admit your mistakes",
+        "Always keep the ball for yourself in a game",
+        "Only the fastest player matters on the team",
+        "Never admit your mistakes to the coach",
         "Trust your teammates and work together"
       ],
       "answer": "D",
@@ -461,10 +461,10 @@
       "type": "MCQ",
       "stem": "In your opinion, what is the main reason the team improved?",
       "options": [
-        "They bought new football boots",
-        "They changed their coach",
+        "They bought new football boots for the whole team.",
+        "They changed their coach and found a new captain.",
         "They practised passing and learned to trust each other",
-        "They played against weaker teams"
+        "They played against weaker teams for several weeks."
       ],
       "answer": "C",
       "why": "Daily passing practice and the coach's new rule taught them to understand and trust one another."
@@ -478,9 +478,9 @@
       "stem": "Which feeling is most present at the end of the story?",
       "options": [
         "joy and pride in the team",
-        "fear and worry",
-        "anger and jealousy",
-        "boredom"
+        "fear and worry about the match",
+        "anger and jealousy of the others",
+        "boredom with the whole game"
       ],
       "answer": "A",
       "why": "The team runs together, laughing and cheering like one family, and Khalid says they became a real team."

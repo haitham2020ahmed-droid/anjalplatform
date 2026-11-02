@@ -183,9 +183,9 @@
           "stem": "Why did the leopard have less food to eat?",
           "options": [
             "People hunted the ibex and other animals it eats",
-            "The leopard forgot how to hunt",
-            "The weather in the mountains got too cold",
-            "Centers took all the ibex away"
+            "The leopard forgot how to hunt in the mountains",
+            "The weather in the mountains got too cold for it",
+            "Centers took all the ibex away to the zoo"
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -233,10 +233,10 @@
         {
           "stem": "Why did the author write this article?",
           "options": [
-            "To tell a made-up story about a brave cat",
+            "To tell a made-up story about a brave cat in the hills",
             "To teach readers about a rare cat and why it needs help",
-            "To get readers to visit the mountains",
-            "To explain how to take care of a pet cat"
+            "To get readers to visit the mountains where the cat lives",
+            "To explain how to take care of a pet cat at home"
           ],
           "answer": "B",
           "skill": "author-purpose",
@@ -489,10 +489,10 @@
         {
           "stem": "What does it mean that the Arabian leopard is \"critically endangered\"?",
           "options": [
-            "It is in danger only in certain seasons",
+            "It is in danger only in certain seasons of the year, not always",
             "It faces an extremely high risk of extinction in the wild",
-            "It is dangerous to people who live nearby",
-            "It can survive only in breeding centers"
+            "It is dangerous to people who live nearby in the villages",
+            "It can survive only in breeding centers and not in the wild"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -507,9 +507,9 @@
           "stem": "According to the article, what makes the Arabian leopard different from other leopards?",
           "options": [
             "It is the smallest variety of leopard",
-            "It hunts only during the daytime",
-            "It lives in large family groups",
-            "It has no spots on its coat"
+            "It hunts only during the daytime hours",
+            "It lives in large family groups of six",
+            "It has no spots on its coat or tail"
           ],
           "answer": "A",
           "skill": "detail",
@@ -557,10 +557,10 @@
         {
           "stem": "Why does the article compare the weight of an adult male leopard to a ten-year-old child?",
           "options": [
-            "To warn readers that leopards attack children",
-            "To show that leopards grow faster than children",
+            "To warn readers that leopards often attack young children",
+            "To show that leopards grow faster than children do each year",
             "To help readers picture how small this leopard really is",
-            "To prove that the leopard is too weak to hunt"
+            "To prove that the leopard is too weak to hunt for food"
           ],
           "answer": "C",
           "skill": "author-purpose",
@@ -591,10 +591,10 @@
         {
           "stem": "What can the reader infer from the fact that February 10 is the International Day of the Arabian Leopard?",
           "options": [
-            "The leopard is now safe and no longer needs help",
+            "The leopard is now safe and no longer needs any help",
             "Saving the leopard depends on many people knowing about it",
-            "Leopards are easiest to see in February",
-            "The day is meant to celebrate leopard hunters"
+            "Leopards are easiest to see in February in the desert",
+            "The day is meant to celebrate leopard hunters and their skill"
           ],
           "answer": "B",
           "skill": "inference",

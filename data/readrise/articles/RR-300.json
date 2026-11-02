@@ -115,7 +115,7 @@
           "stem": "What is this article mostly about?",
           "options": [
             "How mosaics are made from many small pieces fitted into one picture",
-            "How to paint a large picture using only one color of paint",
+            "How to paint a large picture using only one color of paint on a wall",
             "Why old glass always breaks apart before it can be used",
             "How to plant a garden with many different kinds of flowers"
           ],
@@ -165,10 +165,10 @@
         {
           "stem": "What does the artist do right after picking a piece?",
           "options": [
-            "The artist throws the piece away",
-            "The artist sells the piece to a shop",
+            "The artist throws the piece away in the bin",
+            "The artist sells the piece to a shop in town",
             "The artist sets the piece in place with care",
-            "The artist paints over the whole piece"
+            "The artist paints over the whole piece in red"
           ],
           "answer": "C",
           "skill": "sequence",
@@ -182,9 +182,9 @@
         {
           "stem": "In the article, a pattern is —",
           "options": [
-            "a tool used to cut glass",
-            "a kind of old building",
-            "a small sign next to a picture",
+            "a tool used to cut glass into strips",
+            "a kind of old building in the town",
+            "a small sign next to a picture on the wall",
             "a design that repeats shapes or colors"
           ],
           "answer": "D",
@@ -200,9 +200,9 @@
           "stem": "Why must a mosaic artist be patient?",
           "options": [
             "Because each small piece must be placed with care, one at a time",
-            "Because mosaics are always made in one single day",
-            "Because glass pieces are not allowed in any mosaic",
-            "Because visitors are not allowed to look at the work"
+            "Because mosaics are always made in one single day by a team",
+            "Because glass pieces are not allowed in any mosaic made today",
+            "Because visitors are not allowed to look at the work of the artist"
           ],
           "answer": "A",
           "skill": "inference",
@@ -233,10 +233,10 @@
         {
           "stem": "How does the author mostly organize the ideas in this article?",
           "options": [
-            "By listing rules that every mosaic artist must follow",
+            "By listing rules that every mosaic artist must follow in the studio",
             "By telling how a mosaic is planned and made, then giving an example",
             "By comparing two different paintings from two countries",
-            "By telling a made-up story about a piece of glass"
+            "By telling a made-up story about a piece of glass that wants to see the sea"
           ],
           "answer": "B",
           "skill": "text-structure",
@@ -294,9 +294,9 @@
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
             "Craftsmen plan a design and carefully set each tessera to build a mosaic.",
-            "Ancient buildings were made only of wood and straw.",
-            "A border is more important than the pattern it surrounds.",
-            "Mosaics are always made from a single large piece of glass."
+            "Ancient buildings were made only of wood and straw, so mosaics were never built.",
+            "A border is more important than the pattern it surrounds, in every mosaic design.",
+            "Mosaics are always made from a single large piece of glass, cut by hand."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -310,9 +310,9 @@
         {
           "stem": "According to the article, what is a tessera?",
           "options": [
-            "A tool used to measure a wall before building it",
-            "A finished mosaic hung inside a museum",
-            "A kind of ancient building found near a river",
+            "A tool used to measure a wall before building it with stones",
+            "A finished mosaic hung inside a museum for visitors to see",
+            "A kind of ancient building found near a river in Rome",
             "One small piece of stone, glass, or tile used to make a mosaic"
           ],
           "answer": "D",
@@ -363,7 +363,7 @@
           "options": [
             "a tool for gluing small pieces together",
             "a plan for how something will look when finished",
-            "a kind of ancient building material",
+            "a kind of ancient building material made of clay",
             "a border placed around a finished picture"
           ],
           "answer": "B",
@@ -378,9 +378,9 @@
         {
           "stem": "Why might a craftsman plan a design before placing any pieces?",
           "options": [
-            "To make the mosaic look messy and unplanned",
-            "To finish the work without using any tesserae",
-            "To avoid using any stone, glass, or tile at all",
+            "To make the mosaic look messy and unplanned on purpose",
+            "To finish the work without using any tesserae at all",
+            "To avoid using any stone, glass, or tile at all in the picture",
             "To avoid wasting pieces and to keep the picture balanced"
           ],
           "answer": "D",
@@ -473,9 +473,9 @@
           "stem": "Which statement best captures the central idea of the article?",
           "options": [
             "Craftsmen build intricate mosaics through careful composition, repeated motifs, and meticulous restoration when needed.",
-            "Restoration is far less important than choosing a border for a mosaic.",
-            "Only ancient civilizations ever created mosaic art anywhere in the world.",
-            "A motif should never be repeated more than once in a single mosaic."
+            "Restoration is far less important than choosing a border for a mosaic, which is the hardest step of all.",
+            "Only ancient civilizations ever created mosaic art anywhere in the world, and the craft has died out.",
+            "A motif should never be repeated more than once in a single mosaic, because every piece must look different from the other pieces."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -541,9 +541,9 @@
           "stem": "In the article, the word intricate most nearly means —",
           "options": [
             "having many small, detailed parts arranged in a complex way",
-            "completely plain and empty of any decoration",
-            "quick and simple to finish in one afternoon",
-            "hidden so that no one can ever see it"
+            "completely plain and empty of any decoration or design, like a white wall",
+            "quick and simple to finish in one afternoon of work, like a simple knot",
+            "hidden so that no one can ever see it at all, even up close"
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -574,10 +574,10 @@
         {
           "stem": "What can you infer about why restoration takes great skill?",
           "options": [
-            "Because any random piece can replace a missing tessera",
+            "Because any random piece can replace a missing tessera in the picture on the floor",
             "Because a damaged mosaic must be repaired to match its original composition and motifs",
-            "Because restoration never involves working with any tesserae",
-            "Because borders are removed completely during restoration"
+            "Because restoration never involves working with any tesserae at all in the mosaic",
+            "Because borders are removed completely during restoration of the old floor or wall"
           ],
           "answer": "B",
           "skill": "inference",

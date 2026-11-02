@@ -46,9 +46,9 @@
       "stem": "Why did the German geographer call the network the Silk Road?",
       "options": [
         "Because valuable Chinese silk travelled west along it",
-        "Because the roads were paved with silk cloth",
-        "Because silk was the only product traded on it",
-        "Because he worked as a silk merchant himself"
+        "Because the roads were paved with silk cloth in the desert",
+        "Because silk was the only product traded along the roads",
+        "Because he worked as a silk merchant himself in Berlin"
       ],
       "answer": "A",
       "why": "The passage says he chose the name because of the valuable Chinese silk that travelled west along the routes."
@@ -125,10 +125,10 @@
       "difficulty": 3,
       "stem": "Which information in the passage is the LEAST complete?",
       "options": [
-        "Which goods camels carried westward",
-        "Which cities grew rich from trade",
+        "Which goods camels carried westward from the coast",
+        "Which cities grew rich from trade in the desert",
         "Which diseases spread and how serious they were",
-        "What Arabian merchants traded"
+        "What Arabian merchants traded in the markets of Asia"
       ],
       "answer": "C",
       "why": "The passage mentions that diseases spread but never names them or says how serious they were."
@@ -158,9 +158,9 @@
       "stem": "Which is the BEST alternative title for the passage?",
       "options": [
         "Routes That Carried Goods and Ideas",
-        "The Life of a Silkworm",
-        "Ships of the Indian Ocean",
-        "How to Make Paper at Home"
+        "The Life of a Silkworm and Its Cocoon",
+        "Ships of the Indian Ocean and Their Sailors",
+        "How to Make Paper at Home from Old Rags"
       ],
       "answer": "A",
       "why": "It covers the whole passage: the trade routes and the knowledge, inventions and cultures they carried."

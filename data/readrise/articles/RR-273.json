@@ -294,9 +294,9 @@
           "stem": "Which sentence best states the main idea of the article?",
           "options": [
             "Smart design and technology help buildings use less energy",
-            "Every building should be painted completely black",
-            "Wind is completely useless for cooling a building",
-            "Only solar panels can make a building green"
+            "Every building should be painted completely black to save energy and stay cool",
+            "Wind is completely useless for cooling a building, so it has no use in design",
+            "Only solar panels can make a building green, and nothing else could ever help"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -506,10 +506,10 @@
         {
           "stem": "Why does insulation keep a building's interior cooler?",
           "options": [
-            "It generates its own electricity",
+            "It generates its own electricity for the air conditioner",
             "It slows the movement of heat into the rooms",
-            "It reflects wind away from the windows",
-            "It blocks all sunlight completely"
+            "It reflects wind away from the windows of the house",
+            "It blocks all sunlight completely from the roof"
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -523,9 +523,9 @@
         {
           "stem": "What do photovoltaic panels do, according to the article?",
           "options": [
-            "They store rainwater for later use",
-            "They cool rooms through evaporation",
-            "They block wind from entering a building",
+            "They store rainwater for later use in dry months",
+            "They cool rooms through evaporation of water inside",
+            "They block wind from entering a building at night",
             "They convert sunlight directly into electricity"
           ],
           "answer": "D",
@@ -540,10 +540,10 @@
         {
           "stem": "Why would a building's orientation matter to its architects?",
           "options": [
-            "It has no effect on sun or wind at all",
+            "It has no effect on sun or wind at all for architects",
             "Orientation helps a building use sun and wind well",
-            "It only matters for the color of the paint",
-            "It changes how tall the building looks"
+            "It only matters for the color of the paint on the walls",
+            "It changes how tall the building looks from the street"
           ],
           "answer": "B",
           "skill": "inference",

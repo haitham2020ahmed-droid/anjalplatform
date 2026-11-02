@@ -141,8 +141,8 @@
       "type": "MCQ",
       "stem": "What type of sentence is “Let's think like engineers and ask ourselves what is different here compared with our laboratory.” in paragraph 5?",
       "options": [
-        "a question",
-        "an exclamation",
+        "a question for the reader",
+        "an exclamation of surprise",
         "a statement of fact",
         "a command or suggestion"
       ],
@@ -461,10 +461,10 @@
       "type": "MCQ",
       "stem": "Which message is the writer most likely sharing through the story?",
       "options": [
-        "Winning first place is all that matters.",
-        "Robots are too difficult for students.",
+        "Winning first place is all that matters in a contest.",
+        "Robots are too difficult for students to build or use.",
         "Mistakes can teach lessons that practice cannot.",
-        "Bright lights are dangerous."
+        "Bright lights are dangerous to young students."
       ],
       "answer": "C",
       "why": "Reem says they “learned something that no amount of practice could have taught us.”"
@@ -526,9 +526,9 @@
       "stem": "Which title best describes the events of the story?",
       "options": [
         "Ten Minutes to Think",
-        "The Broken Wheel",
-        "A Day Off School",
-        "The Winning Robot"
+        "The Broken Wheel on the Road",
+        "A Day Off School at Home",
+        "The Winning Robot in Class"
       ],
       "answer": "A",
       "why": "The key events take place in the ten-minute repair period, when careful thinking saves the team."

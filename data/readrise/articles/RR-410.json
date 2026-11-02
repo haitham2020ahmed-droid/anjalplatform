@@ -88,7 +88,7 @@
       "questions": [
         {
           "stem": "What is this story mostly about?",
-          "options": ["A boy who learns to ride a bicycle", "A family who gives their robot a new name", "A boy who builds a telescope and is amazed by what he sees in the sky", "A boy who gets lost at the beach"],
+          "options": ["A boy who learns to ride a bicycle with his father by the sea", "A family who gives their robot a new name and a new home", "A boy who builds a telescope and is amazed by what he sees in the sky", "A boy who gets lost at the beach and finds a cave full of old shells"],
           "answer": "C",
           "skill": "central-idea",
           "why": "The story follows Yusuf building a telescope and being amazed by the moon's craters and Saturn's rings.",
@@ -112,7 +112,7 @@
         },
         {
           "stem": "What did Yusuf see on the moon?",
-          "options": ["Tall green trees", "A flag planted long ago", "Big, round holes called craters", "Bright blue water"],
+          "options": ["Tall green trees with many leaves", "A flag planted there a long time ago", "Big, round holes called craters", "Bright blue water in a deep lake"],
           "answer": "C",
           "skill": "detail",
           "why": "The story says Yusuf saw big, round holes called craters on the moon.",
@@ -144,7 +144,7 @@
         },
         {
           "stem": "Why does the story describe Yusuf looking at the stars every night before he got the telescope?",
-          "options": ["To show he was already curious about the sky before the big night", "To explain how stars are made", "To compare stars with the moon's craters", "To show that Yusuf was afraid of the dark"],
+          "options": ["To show he was already curious about the sky before the big night", "To explain how stars are made from dust and gas in space", "To compare stars with the moon's craters and its high hills", "To show that Yusuf was afraid of the dark every night as a child"],
           "answer": "A",
           "skill": "author-purpose",
           "why": "Describing Yusuf's nightly stargazing shows his curiosity was already there, which makes his excitement with the telescope feel natural.",
@@ -166,7 +166,7 @@
       "questions": [
         {
           "stem": "Which sentence best states the central idea of the article?",
-          "options": ["Yusuf becomes very afraid of the dark night sky", "Yusuf's father buys a brand new car for the family", "Yusuf decides telescopes are too difficult to use", "Building a telescope opens up Yusuf's interest in astronomy"],
+          "options": ["Yusuf becomes very afraid of the dark night sky and will not go outside again", "Yusuf's father buys a brand new car for the family and drives them to the sea", "Yusuf decides telescopes are too difficult to use, so he gives up looking at stars", "Building a telescope opens up Yusuf's interest in astronomy"],
           "answer": "D",
           "skill": "central-idea",
           "why": "The article follows Yusuf building a telescope, seeing the moon and Saturn, and deciding he wants to study astronomy.",
@@ -182,7 +182,7 @@
         },
         {
           "stem": "What did Yusuf's father explain about the moon's craters?",
-          "options": ["They are painted on by astronauts", "They are filled with water", "They are made by strong winds", "They form when rocks from space crash into the moon"],
+          "options": ["They are painted on by astronauts as a sign for ships", "They are filled with water that sparkles in the sun", "They are made by strong winds that blow on the moon", "They form when rocks from space crash into the moon"],
           "answer": "D",
           "skill": "detail",
           "why": "Dad explains that craters form whenever rocks from outer space come crashing into the moon's surface.",
@@ -190,7 +190,7 @@
         },
         {
           "stem": "Why did Yusuf and his father need patience while assembling the telescope?",
-          "options": ["Several small parts were tricky to fit correctly", "The instructions were missing", "It rained while they worked outside", "The telescope was too heavy to lift"],
+          "options": ["Several small parts were tricky to fit correctly", "The instructions were missing from the box", "It rained while they worked outside in the yard", "The telescope was too heavy for them to lift"],
           "answer": "A",
           "skill": "cause-effect",
           "why": "The article says putting the telescope together required patience, since several small parts were tricky to fit into place.",
@@ -198,7 +198,7 @@
         },
         {
           "stem": "In the article, the word orbit refers to —",
-          "options": ["a bright light in the sky", "the curved path an object follows around another object", "a kind of lens used in telescopes", "the surface of a planet"],
+          "options": ["a bright light in the sky at night, like a star or a planet", "the curved path an object follows around another object", "a kind of lens used in telescopes to see far things", "the surface of a planet or a moon, with its dust and rocks"],
           "answer": "B",
           "skill": "vocabulary",
           "why": "The article uses orbit to describe how the moon moves around Earth along a curved path.",
@@ -206,7 +206,7 @@
         },
         {
           "stem": "Why was Saturn, at first, mistaken for a star?",
-          "options": ["It was moving very quickly across the sky", "It was the same color as the moon", "From far away, it appeared only as a bright point of light", "Yusuf had never heard of Saturn before"],
+          "options": ["It was moving very quickly across the sky every single night", "It was the same color as the moon in the sky all year", "From far away, it appeared only as a bright point of light", "Yusuf had never heard of Saturn before that day"],
           "answer": "C",
           "skill": "inference",
           "why": "From a distance, planets can look like ordinary points of light, which is why Saturn seemed like a star at first glance.",
@@ -214,7 +214,7 @@
         },
         {
           "stem": "How did Yusuf's curiosity before getting the telescope compare with his curiosity afterward?",
-          "options": ["He was curious before, but lost interest completely afterward", "He showed absolutely no curiosity until after he used the telescope", "He was curious before, and grew even more curious after seeing the moon and Saturn", "His curiosity stayed exactly the same throughout the whole story"],
+          "options": ["He was curious before, but lost interest completely after he looked through the telescope", "He showed absolutely no curiosity until after he used the telescope for the first time", "He was curious before, and grew even more curious after seeing the moon and Saturn", "His curiosity stayed exactly the same throughout the whole story, from the start to the end"],
           "answer": "C",
           "skill": "compare",
           "why": "Yusuf already wondered about the stars before the telescope, and seeing the moon and Saturn made him want to learn even more.",
@@ -244,7 +244,7 @@
       "questions": [
         {
           "stem": "Which statement best expresses the central idea of the article?",
-          "options": ["A telescope breaks and cannot be repaired by anyone in the story", "Yusuf decides that astronomy is too complicated for him to study", "A carefully built telescope reveals celestial wonders that spark Yusuf's lasting enthusiasm for astronomy", "Yusuf's father discourages him from using the telescope again"],
+          "options": ["A telescope breaks and cannot be repaired by anyone in the story, so the boy gives up sky-watching", "Yousef decides that astronomy is too complicated for him to study, so he sells his telescope", "A carefully built telescope reveals celestial wonders that spark Yusuf's lasting enthusiasm for astronomy", "Yousef's father discourages him from using the telescope again, because it costs too much money"],
           "answer": "C",
           "skill": "central-idea",
           "why": "The article centers on Yusuf and his father building a telescope, discovering celestial sights, and Yusuf's growing enthusiasm for astronomy.",
@@ -268,7 +268,7 @@
         },
         {
           "stem": "In the article, the word meticulous describes work that is —",
-          "options": ["finished quickly without much thought", "done only by professional scientists", "too difficult for a child to attempt", "done extremely carefully and with close attention to detail"],
+          "options": ["finished quickly without much thought or care for the details", "done only by professional scientists in a large laboratory", "too difficult for a child to attempt without help from adults", "done extremely carefully and with close attention to detail"],
           "answer": "D",
           "skill": "vocabulary",
           "why": "The article describes Yusuf and his father meticulously following the instructions, meaning they worked with great care and attention.",
@@ -284,7 +284,7 @@
         },
         {
           "stem": "What can readers infer about why Yusuf's father gave him a telescope specifically?",
-          "options": ["He had noticed Yusuf's growing curiosity about the night sky", "He wanted Yusuf to stop reading so many books", "He hoped Yusuf would become an astronaut immediately", "He needed help identifying constellations himself"],
+          "options": ["He had noticed Yusuf's growing curiosity about the night sky", "He wanted Yusuf to stop reading so many books at night time", "He hoped Yusuf would become an astronaut immediately", "He needed help identifying constellations himself"],
           "answer": "A",
           "skill": "inference",
           "why": "The article says Yusuf's father had noticed his son's growing curiosity, which explains why he chose this particular gift.",
@@ -292,7 +292,7 @@
         },
         {
           "stem": "Which correctly orders these events from the article?",
-          "options": ["Yusuf borrows astronomy books, then the telescope is assembled, then Saturn is observed", "The telescope is assembled, then the moon is observed, then Saturn is observed, then books are borrowed", "Saturn is observed, then the moon is observed, then the telescope is assembled", "Books are borrowed, then the telescope is assembled, then the moon is observed"],
+          "options": ["Yusuf borrows astronomy books, then the telescope is assembled, then Saturn is observed", "The telescope is assembled, then the moon is observed, then Saturn is observed, then books are borrowed", "Saturn is observed, then the moon is observed, then the telescope is assembled in the garden", "Books are borrowed, then the telescope is assembled, then the moon is observed, then Saturn is lost"],
           "answer": "B",
           "skill": "sequence",
           "why": "The telescope must be built before anything is observed, the moon is viewed before Saturn, and the books are borrowed afterward.",
@@ -300,7 +300,7 @@
         },
         {
           "stem": "Why does the author describe the moon's craters as scars formed over billions of years?",
-          "options": ["To emphasize how old and significant the phenomenon Yusuf witnessed truly is", "To suggest that the moon is actually a living creature", "To argue that craters will disappear soon", "To compare the moon to a human face"],
+          "options": ["To emphasize how old and significant the phenomenon Yusuf witnessed truly is", "To suggest that the moon is actually a living creature with scars on its skin", "To argue that craters will disappear soon, because the moon is slowly healing", "To compare the moon to a human face with marks and wrinkles on it"],
           "answer": "A",
           "skill": "author-purpose",
           "why": "Describing the craters as ancient scars highlights just how old and remarkable the phenomenon is that Yusuf gets to observe firsthand.",

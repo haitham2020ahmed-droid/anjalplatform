@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How to build a telescope at home",
+            "How to build a telescope at home with a few simple parts",
             "Why a new unit called a light-year is used to measure space",
-            "Why the Sun is the hottest star",
-            "How astronauts travel to the Moon"
+            "Why the Sun is the hottest star in the whole galaxy",
+            "How astronauts travel to the Moon and back in a rocket"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -131,10 +131,10 @@
         {
           "stem": "What is a light-year?",
           "options": [
-            "A year with extra days in it",
-            "The time it takes a star to shine",
+            "A year with extra days in it, every four years",
+            "The time it takes a star to shine in the sky",
             "The distance light travels in one year",
-            "A tiny unit used to measure ants"
+            "A tiny unit used to measure ants in a nest"
           ],
           "answer": "C",
           "skill": "vocabulary",
@@ -217,9 +217,9 @@
           "stem": "Why does the author tell us that light moves at an amazing speed?",
           "options": [
             "To show why light still takes years to cross huge distances in space",
-            "To prove that light is actually very slow",
-            "To explain how airplanes fly",
-            "To teach readers how to build a flashlight"
+            "To prove that light is actually very slow and weak in space",
+            "To explain how airplanes fly through the air at high speed",
+            "To teach readers how to build a flashlight at home with a battery"
           ],
           "answer": "A",
           "skill": "author-purpose",
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the main idea of the article?",
           "options": [
-            "Kilometers work perfectly well for measuring distances to stars.",
+            "Kilometers work perfectly well for measuring the distances to the stars, so no new unit is needed.",
             "Astronomers created the light-year to measure space's huge distances, and it also lets us see the past.",
-            "The Sun's light takes thousands of years to reach Earth.",
-            "A light-year measures how much a star weighs."
+            "The Sun's light takes thousands of years to reach Earth, so we see the Sun as it was long ago.",
+            "A light-year measures how much a star weighs, so heavy stars have more light-years."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -310,9 +310,9 @@
         {
           "stem": "Why is the kilometer a poor unit for measuring distances to stars?",
           "options": [
-            "Kilometers can only measure land, not air.",
+            "Kilometers can only measure land, not air or the deep sea.",
             "The resulting numbers would be too long to use easily.",
-            "Kilometers were invented after light-years.",
+            "Kilometers were invented after light-years were first used.",
             "Stars are actually closer than people think."
           ],
           "answer": "B",
@@ -327,7 +327,7 @@
         {
           "stem": "About how fast does light travel through a vacuum, according to the article?",
           "options": [
-            "About three hundred kilometers per second",
+            "About three hundred kilometers per second exactly",
             "About three thousand kilometers per second",
             "About three hundred thousand kilometers per second",
             "About three million kilometers per second"
@@ -345,9 +345,9 @@
           "stem": "Why does the article mention that the Sun's light reaches Earth after only a short delay?",
           "options": [
             "To show that even nearby light takes some travel time, unlike an instantaneous signal",
-            "To prove that the Sun is actually very far from Earth",
-            "To explain why the Sun looks yellow",
-            "To show that the Sun is the brightest object in space"
+            "To prove that the Sun is actually very far from Earth, in space, and that it never moves",
+            "To explain why the Sun looks yellow in the sky at noon, and red at the end of day",
+            "To show that the Sun is the brightest object in space, brighter than any star or moon"
           ],
           "answer": "A",
           "skill": "author-purpose",
@@ -395,10 +395,10 @@
         {
           "stem": "How does the article build its explanation from beginning to end?",
           "options": [
-            "It tells the life story of one single astronomer.",
-            "It compares ten different stars one at a time.",
+            "It tells the life story of one single astronomer, from his birth to the end of his long life, in time order.",
+            "It compares ten different stars one at a time, from the nearest star to the farthest star in the sky.",
             "It explains a problem with kilometers, then introduces the light-year, then shows what that means for stargazers.",
-            "It gives step-by-step instructions for building a telescope."
+            "It gives step-by-step instructions for building a telescope, from the first lens to the last screw."
           ],
           "answer": "C",
           "skill": "text-structure",
@@ -574,9 +574,9 @@
         {
           "stem": "Why does the author include the historical detail about parallax measurements in the 1800s?",
           "options": [
-            "To criticize early astronomers harshly for being quite inaccurate",
-            "To argue that modern telescopes are now completely unnecessary",
-            "To explain simply why planet Earth orbits around the Sun",
+            "To criticize early astronomers harshly for being quite inaccurate in their work",
+            "To argue that modern telescopes are now completely unnecessary for measuring stars",
+            "To explain simply why planet Earth orbits around the Sun every year",
             "To show how humans first turned the light-year into real measured distances"
           ],
           "answer": "D",

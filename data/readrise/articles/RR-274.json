@@ -115,7 +115,7 @@
           "stem": "What is this article mostly about?",
           "options": [
             "The science and teamwork behind playing volleyball",
-            "How to build a volleyball net at home",
+            "How to build a volleyball net at home with rope",
             "The detailed life story of William Morgan",
             "Why basketball is harder than volleyball"
           ],
@@ -183,9 +183,9 @@
           "stem": "Read this: \"A spike is a strong hit down into the other team's court.\" What does spike mean here?",
           "options": [
             "A powerful hit aimed down into the court",
-            "A sharp metal point",
-            "A type of ball",
-            "A kind of net"
+            "A sharp metal point on a running shoe",
+            "A type of ball used in a game of volleyball",
+            "A kind of net used in a court"
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -216,9 +216,9 @@
         {
           "stem": "Why do teammates call out \"Mine!\" during a play?",
           "options": [
-            "To tell the referee the score",
-            "To ask for a time out",
-            "To signal the end of the game",
+            "To tell the referee the score of the game so far",
+            "To ask for a time out from the coach at once, so the team can rest",
+            "To signal the end of the game to all of the players",
             "So two players do not bump into each other going for the same ball"
           ],
           "answer": "D",
@@ -233,10 +233,10 @@
         {
           "stem": "Why does the author start the article with \"Bump! Set! Spike!\"?",
           "options": [
-            "To list the rules of volleyball",
-            "To name the positions on a team",
+            "To list the rules of volleyball for new players",
+            "To name the positions on a team of six players",
             "To help the reader hear and picture the game",
-            "To tell the final score of a match"
+            "To tell the final score of a match that was played"
           ],
           "answer": "C",
           "skill": "author-purpose",
@@ -362,9 +362,9 @@
           "stem": "Read this: \"swinging the arm quickly so the ball leaves the hand carrying tremendous momentum.\" What does momentum mean here?",
           "options": [
             "The force that keeps the moving ball going",
-            "The loud sound of the crowd cheering",
-            "The height of the net",
-            "The number of players on the team"
+            "The loud sound of the crowd cheering for them",
+            "The height of the net at the game",
+            "The number of players on the whole team today"
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -378,10 +378,10 @@
         {
           "stem": "In what order does a successful spike usually happen?",
           "options": [
-            "The hitter jumps, then the setter sets the ball, then the hitter swings",
+            "The hitter jumps first, then the setter sets the ball, then the hitter swings after landing",
             "The setter sets the ball, then the hitter jumps and swings at the peak of the jump",
-            "The hitter swings, then jumps, then the ball is set",
-            "The ball crosses the net, then the setter sets it"
+            "The hitter swings, then jumps, then the ball is set by the setter at the net",
+            "The ball crosses the net, then the setter sets it, and the hitter walks away"
           ],
           "answer": "B",
           "skill": "sequence",
@@ -395,10 +395,10 @@
         {
           "stem": "What would most likely happen if teammates stopped communicating during a rally?",
           "options": [
-            "The net would be lowered automatically",
+            "The net would be lowered automatically by the referee",
             "Two players might collide while chasing the same ball",
-            "The team would automatically win the point",
-            "The serve would become a spike"
+            "The team would automatically win the point at once",
+            "The serve would become a spike over the net"
           ],
           "answer": "B",
           "skill": "inference",
@@ -473,9 +473,9 @@
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
             "Volleyball skills depend on physics such as trajectory, spin, velocity, and coordination",
-            "Volleyball was invented to give older gym members a gentler sport",
-            "Diving players should always wear knee pads",
-            "Teams should rotate players only during practice"
+            "Volleyball was invented to give older gym members a gentler sport to play",
+            "Diving players should always wear knee pads on the hard floor and on the sand",
+            "Teams should rotate players only during practice sessions, and never during a game"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -506,10 +506,10 @@
         {
           "stem": "Read this: \"a serve struck with topspin dips sharply downward.\" What does topspin mean?",
           "options": [
-            "A serve hit with no spin at all",
-            "A slow, gentle hit near the net",
+            "A serve hit with no spin at all, so it floats in the air",
+            "A slow, gentle hit near the net that barely clears it",
             "A forward spin that makes the ball dip or curve downward",
-            "A hit that always goes out of bounds"
+            "A hit that always goes out of bounds over the back line"
           ],
           "answer": "C",
           "skill": "vocabulary",
@@ -541,9 +541,9 @@
           "stem": "Based on the article, why must the setter's timing be especially precise?",
           "options": [
             "So the hitter can jump and strike the ball exactly at the peak of the jump",
-            "So the referee can see the ball clearly",
-            "So the server can rotate to a new position",
-            "So the net stays at the correct height"
+            "So the referee can see the ball clearly and call the point at the right time",
+            "So the server can rotate to a new position before the next play",
+            "So the net stays at the correct height during the whole game"
           ],
           "answer": "A",
           "skill": "inference",
@@ -557,10 +557,10 @@
         {
           "stem": "How does a flat serve compare with a serve hit using topspin?",
           "options": [
-            "A flat serve always travels faster than a topspin serve",
+            "A flat serve always travels faster than a topspin serve, and it never bounces high",
             "A flat serve follows a straight, predictable path, while a topspin serve dips sharply downward",
-            "Both serves follow the exact same trajectory",
-            "A topspin serve cannot be returned at all"
+            "Both serves follow the exact same trajectory through the air, so there is no difference at all",
+            "A topspin serve cannot be returned at all, because it moves too fast for a player to see"
           ],
           "answer": "B",
           "skill": "compare",
@@ -591,9 +591,9 @@
         {
           "stem": "Why does the author include the history of William Morgan's invention of the game?",
           "options": [
-            "To prove that mintonette was a better name than volleyball",
-            "To explain how topspin serves were first discovered",
-            "To compare volleyball with other sports invented in gyms",
+            "To prove that mintonette was a better name than volleyball for the new game",
+            "To explain how topspin serves were first discovered by players in gyms",
+            "To compare volleyball with other sports that were invented in gyms long ago",
             "To give background on how the game began before explaining its science"
           ],
           "answer": "D",

@@ -88,7 +88,7 @@
       "questions": [
         {
           "stem": "What is this story mostly about?",
-          "options": ["A boy who loses his compass and finds his way back to camp", "A boy who buys a new pet fox from a desert market", "A family that decides to move to a new desert town", "A boy who learns how to cook food over a campfire"],
+          "options": ["A boy who loses his compass and finds his way back to camp", "A boy who buys a new pet fox from a desert market in town", "A family that decides to move to a new desert town far from the sea", "A boy who learns how to cook food over a campfire with his uncle"],
           "answer": "A",
           "skill": "central-idea",
           "why": "The whole story follows Fahad after he loses his compass and must find his way back to camp.",
@@ -112,7 +112,7 @@
         },
         {
           "stem": "In the story, a landmark is —",
-          "options": ["a hill of sand", "a bright star in the sky", "something you remember to help you find your way", "a tool with a needle"],
+          "options": ["a hill of sand in the desert that people climb", "a bright star in the night sky that sailors follow", "something you remember to help you find your way", "a tool with a needle, used to sew cloth and tents"],
           "answer": "C",
           "skill": "vocabulary",
           "why": "Fahad uses the red rock and the old tree as landmarks, things he remembers to help find his way.",
@@ -128,7 +128,7 @@
         },
         {
           "stem": "Why does Fahad chase the fox in the first place?",
-          "options": ["He is curious and wants to see where it goes", "He wants to catch it for dinner", "His father told him to chase it", "He is trying to find the camp"],
+          "options": ["He is curious and wants to see where it goes", "He wants to catch it for dinner at the camp", "His father told him to chase it away", "He is trying to find the old camp"],
           "answer": "A",
           "skill": "inference",
           "why": "Fahad runs after the fox without thinking, which shows he is just curious and having fun.",
@@ -144,7 +144,7 @@
         },
         {
           "stem": "What happens right before Fahad sees the smoke from the campfire?",
-          "options": ["He finds the tall red rock along his path", "He loses his compass somewhere on the trail", "He chases the small fox near the camp", "He watches the star appear and checks his direction"],
+          "options": ["He finds the tall red rock along his path to the hills", "He loses his compass somewhere on the trail behind him", "He chases the small fox near the camp at dusk", "He watches the star appear and checks his direction"],
           "answer": "D",
           "skill": "sequence",
           "why": "Fahad uses the star to check his direction, and only after that does he spot the smoke and reach camp.",
@@ -206,7 +206,7 @@
         },
         {
           "stem": "Compare how Fahad feels right after losing the compass with how he feels after remembering his father's advice.",
-          "options": ["He feels panicked at first, then calmer after he focuses on his father's advice", "He feels perfectly calm the whole time and never worries at all", "He feels angry at first, and then feels quite sad later on", "He feels tired at first, and then feels very excited later on"],
+          "options": ["He feels panicked at first, then calmer after he focuses on his father's advice", "He feels perfectly calm the whole time and never worries at all, even when lost", "He feels angry at first, and then feels quite sad later on in the evening", "He feels tired at first, and then feels very excited later on after supper"],
           "answer": "A",
           "skill": "compare",
           "why": "Fahad first feels a rush of panic, but after stopping to breathe and remember his father's advice, he moves forward with steady confidence.",
@@ -252,7 +252,7 @@
         },
         {
           "stem": "In the story, disoriented most nearly means —",
-          "options": ["confused about direction or location", "excited and eager", "angry and upset", "exhausted from walking"],
+          "options": ["confused about direction or location", "excited and eager to start the trip today", "angry and upset about the long and lost day", "exhausted from walking all day in the hot sun"],
           "answer": "A",
           "skill": "vocabulary",
           "why": "Fahad becomes disoriented after losing his compass, meaning he no longer knows which way to go.",
@@ -292,7 +292,7 @@
         },
         {
           "stem": "Which sequence correctly matches the method Fahad uses to find his way home?",
-          "options": ["Reach the camp, confirm direction with the star, retrace steps, stop and breathe", "Retrace steps, reach the camp, stop and breathe, confirm direction", "Stop and breathe, retrace steps using landmarks, confirm direction with the star, reach the camp", "Confirm direction with the star, stop and breathe, reach the camp, retrace steps"],
+          "options": ["Reach the camp, confirm direction with the star, retrace steps using landmarks, stop and breathe", "Retrace steps using landmarks, reach the camp, stop and breathe, confirm direction with the star", "Stop and breathe, retrace steps using landmarks, confirm direction with the star, reach the camp", "Confirm direction with the star, stop and breathe, reach the camp, retrace steps using landmarks"],
           "answer": "C",
           "skill": "sequence",
           "why": "Fahad first stops and breathes to calm down, then retraces his steps using landmarks, then confirms his direction with the star, and finally reaches camp.",
@@ -300,7 +300,7 @@
         },
         {
           "stem": "Why does the author most likely include the detail that the compass once belonged to Fahad's grandfather?",
-          "options": ["To explain why the compass was old and easily broken", "To suggest that Fahad's grandfather was lost in the same desert", "To explain why Fahad was not resourceful", "To add a sense of family history and show why the compass mattered to Fahad"],
+          "options": ["To explain why the compass was old and easily broken when it fell in the sand", "To suggest that Fahad's grandfather was lost in the same desert many years before", "To explain why Fahad was not resourceful and had never travelled before", "To add a sense of family history and show why the compass mattered to Fahad"],
           "answer": "D",
           "skill": "author-purpose",
           "why": "Mentioning the grandfather's compass gives the object personal and family significance beyond its practical use.",

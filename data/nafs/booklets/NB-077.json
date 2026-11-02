@@ -173,9 +173,9 @@
       "type": "MCQ",
       "stem": "What is the writer's main purpose in this story?",
       "options": [
-        "to persuade readers to buy better navigation devices",
-        "to explain how sand dunes are formed over thousands of years",
-        "to warn readers never to travel in the Nafud Desert",
+        "to persuade readers to buy better navigation devices for cars",
+        "to explain how sand dunes are formed over thousands of years in deserts",
+        "to warn readers never to travel in the Nafud Desert in any season",
         "to show how a girl learns to rely on observation when technology fails"
       ],
       "answer": "D",
@@ -189,10 +189,10 @@
       "type": "MCQ",
       "stem": "What is the main idea of paragraph 4?",
       "options": [
-        "The mother kneels down because she is tired from driving.",
+        "The mother kneels down because she is tired from driving the car.",
         "The mother explains how wind ripples and dune slopes show direction.",
-        "The wind in the Nafud changes direction every hour.",
-        "The narrator photographs the sand for her school project."
+        "The wind in the Nafud changes direction every hour of the day.",
+        "The narrator photographs the sand for her school project at home."
       ],
       "answer": "B",
       "why": "The whole paragraph explains how ripples and the gentle and steep slopes reveal the wind direction."
@@ -205,10 +205,10 @@
       "type": "MCQ",
       "stem": "According to paragraph 4, why do the ripples show the travellers which way to go?",
       "options": [
-        "They always point toward the nearest town.",
-        "They are darker on the side that faces south.",
+        "They always point toward the nearest town, where the road ends.",
+        "They are darker on the side that faces south, where the sun is strongest.",
         "They form at right angles to a wind that blows steadily from the north-west.",
-        "They are made by trucks driving along the highway."
+        "They are made by trucks driving along the highway, so they point to the road."
       ],
       "answer": "C",
       "why": "The mother says the wind blows steadily from the north-west, “so these ripples always form at right angles to it.”"
@@ -301,10 +301,10 @@
       "type": "MCQ",
       "stem": "What caused the travellers to “read the desert instead of the screen”?",
       "options": [
-        "They had forgotten to bring the navigator.",
+        "They had forgotten to bring the navigator from the car.",
         "The navigator flickered, showed confusing numbers and went dark.",
-        "The mother wanted to test her daughter's knowledge.",
-        "The track was covered by a sandstorm."
+        "The mother wanted to test her daughter's knowledge of the stars.",
+        "The track was covered by a sandstorm that came in the afternoon."
       ],
       "answer": "B",
       "why": "The navigator stopped working at noon, so they had to find the way another way."
@@ -334,9 +334,9 @@
       "stem": "In your opinion, what makes the reader want to keep reading after paragraph 2?",
       "options": [
         "wanting to know how they will find their way without the navigator",
-        "wanting to know what temperature the narrator recorded",
-        "wanting to learn what time they left Ha'il",
-        "wanting to know what colour the car was"
+        "wanting to know what temperature the narrator recorded on her trip",
+        "wanting to learn what time they left Ha'il in the morning",
+        "wanting to know what colour the car was and who owned it"
       ],
       "answer": "A",
       "why": "The navigator's failure creates a problem, and readers want to know how it will be solved."
@@ -349,10 +349,10 @@
       "type": "MCQ",
       "stem": "How is the narrator in paragraph 3 different from the narrator in paragraph 5?",
       "options": [
-        "In paragraph 3 she is confident; in paragraph 5 she is frightened.",
+        "In paragraph 3 she is confident; in paragraph 5 she is frightened and quiet, and unsure of the way ahead.",
         "In paragraph 3 she doubts she can read the desert; in paragraph 5 she gives directions with growing confidence.",
-        "In paragraph 3 she is driving; in paragraph 5 she is resting.",
-        "In paragraph 3 she is happy; in paragraph 5 she is angry with her mother."
+        "In paragraph 3 she is driving the car; in paragraph 5 she is resting in the back seat and sleeping, while her mother drives.",
+        "In paragraph 3 she is happy and calm; in paragraph 5 she is angry with her mother for the delay and the heat."
       ],
       "answer": "B",
       "why": "At first “every dune looked exactly like the one before it”, but later she “announced our direction with growing confidence.”"
@@ -366,9 +366,9 @@
       "stem": "What was the effect of the mother's advice to “examine several slopes before deciding”?",
       "options": [
         "The narrator stopped trusting a single, confusing dune and chose the direction more reliably.",
-        "The narrator refused to be the navigator any longer.",
-        "The car became stuck in the merged dunes.",
-        "The mother decided to drive back to Ha'il."
+        "The narrator refused to be the navigator any longer, and the mother took her place at the wheel.",
+        "The car became stuck in the merged dunes, and they had to dig it out with their hands.",
+        "The mother decided to drive back to Ha'il, and the journey to the desert was cancelled."
       ],
       "answer": "A",
       "why": "Checking several slopes where dunes had merged helped her avoid being misled by one tangled shape; they reached the highway."
@@ -397,10 +397,10 @@
       "type": "MCQ",
       "stem": "What does the writer mean by saying that the Nafud was “a demanding teacher rather than a postcard”?",
       "options": [
-        "The desert was full of teachers and tourists.",
+        "The desert was full of teachers and tourists who came each day.",
         "The desert taught her hard lessons instead of just looking pretty.",
-        "The desert was too hot to take good photographs.",
-        "The desert reminded her of a strict teacher at school."
+        "The desert was too hot to take good photographs with her camera.",
+        "The desert reminded her of a strict teacher at her school at home."
       ],
       "answer": "B",
       "why": "A postcard is only nice to look at; a demanding teacher makes you work and learn. The desert made her learn to navigate."
@@ -461,9 +461,9 @@
       "type": "MCQ",
       "stem": "Which message is the writer MOST LIKELY sharing?",
       "options": [
-        "Children should never travel into the desert.",
-        "Technology is useless and should be avoided.",
-        "Geologists always know the way home.",
+        "Children should never travel into the desert, because it is a place of danger.",
+        "Technology is useless and should be avoided in all cases, even for maps.",
+        "Geologists always know the way home, so they never need any maps or tools.",
         "It is wise to understand the world around us and not depend only on machines."
       ],
       "answer": "D",

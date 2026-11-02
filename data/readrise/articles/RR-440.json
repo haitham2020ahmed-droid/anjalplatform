@@ -114,10 +114,10 @@
         {
           "stem": "What is this story mostly about?",
           "options": [
-            "A girl who learns to swim at a new pool",
-            "A coach who cannot find the volleyball",
+            "A girl who learns to swim at a new pool in town",
+            "A coach who cannot find the volleyball for the match",
             "A team that learns to talk to each other and plays better",
-            "A school that cancels its yearly tournament"
+            "A school that cancels its yearly tournament this year"
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -131,10 +131,10 @@
         {
           "stem": "What problem did the team have at the start of the story?",
           "options": [
-            "They did not have enough players",
+            "They did not have enough players to start the game that day",
             "No one called out the ball, so players ran into each other",
-            "Their coach did not come to practice",
-            "They did not have a volleyball to use"
+            "Their coach did not come to practice on time that morning",
+            "They did not have a volleyball to use during the practice"
           ],
           "answer": "B",
           "skill": "detail",
@@ -166,9 +166,9 @@
           "stem": "In the story, cheer means —",
           "options": [
             "to shout happy words that support someone",
-            "to hit the ball over the net",
-            "to sit quietly during a game",
-            "to leave the gym early"
+            "to hit the ball over the net to a friend and then run",
+            "to sit quietly during a game and watch the others",
+            "to leave the gym early, before the game is over"
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -234,9 +234,9 @@
           "stem": "Why does the author end the story with Coach Amal explaining why the team played so well?",
           "options": [
             "To show that talking to each other made the team better",
-            "To explain why the tournament was canceled",
-            "To show that Coach Amal wanted to quit coaching",
-            "To tell readers where the next game will be"
+            "To explain why the tournament was canceled at the last minute",
+            "To show that Coach Amal wanted to quit coaching after the season",
+            "To tell readers where the next game will be played and when"
           ],
           "answer": "A",
           "skill": "author-purpose",
@@ -294,9 +294,9 @@
           "stem": "Which sentence best states the central idea of the story?",
           "options": [
             "A volleyball team improves by learning to communicate and support each other, and plays its best match at the tournament.",
-            "Dana decides volleyball is too hard and quits the team.",
-            "Rima wins the tournament alone while her teammates watch.",
-            "Coach Amal cancels the tournament because the gym is too small."
+            "Dana decides volleyball is too hard and quits the team, so the others lose every game at the tournament.",
+            "Rima wins the tournament alone while her teammates watch from the bench and cheer for her all day.",
+            "Coach Amal cancels the tournament because the gym is too small, and the players go home feeling sad and tired after the long trip."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -395,10 +395,10 @@
         {
           "stem": "How does the author organize the events in the story?",
           "options": [
-            "By comparing two different sports in each paragraph",
+            "By comparing two different sports in each paragraph, such as volleyball and football, in a table",
             "By following the team's early problem, their new habits, and their success at the tournament, in time order",
-            "By explaining volleyball's official rules step by step",
-            "By listing every player's position on a chart"
+            "By explaining volleyball's official rules step by step, from the serve to the final score, with pictures",
+            "By listing every player's position on a chart, with the name of each girl and her number on the back"
           ],
           "answer": "B",
           "skill": "text-structure",
@@ -413,9 +413,9 @@
           "stem": "Why does Coach Amal connect the team's win directly to their communication, rather than to any one player's skill?",
           "options": [
             "Because the story shows teamwork, not one player's talent, solved their problem",
-            "Because Dana was actually the weakest player on the team",
-            "Because the team secretly had a new, more talented player join them",
-            "Because the referee gave the team extra points for talking"
+            "Because Dana was actually the weakest player on the whole team all season",
+            "Because the team secretly had a new, more talented player join them late",
+            "Because the referee gave the team extra points for talking during the game"
           ],
           "answer": "A",
           "skill": "author-purpose",
@@ -472,9 +472,9 @@
         {
           "stem": "Which statement best captures the central idea of the story?",
           "options": [
-            "Individual talent alone, no matter how great, always decides whether a volleyball team wins a close match.",
+            "Individual talent alone, no matter how great, always decides whether a volleyball team wins a close match, even if the players do not talk.",
             "A team's communication and mutual support let it play with real coordination, overcoming a weakness that had cost it points all season.",
-            "A tournament match always goes to whichever team practices the longest hours.",
+            "A tournament match always goes to whichever team practices the longest hours each day before the game begins.",
             "A coach's instructions matter only during an official match, never during ordinary daily practice sessions."
           ],
           "answer": "B",

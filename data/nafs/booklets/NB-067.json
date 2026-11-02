@@ -173,10 +173,10 @@
       "type": "MCQ",
       "stem": "What is Reem's main purpose in writing this letter?",
       "options": [
-        "to complain to Dana about the litter in the desert",
+        "to complain to Dana about the litter left in the desert by many careless visitors",
         "to share her surprising experience of the desert in spring and invite Dana to visit",
-        "to explain to Dana how to find truffles",
-        "to describe the weather in London"
+        "to explain to Dana how to find truffles after the first spring rain",
+        "to describe the weather in London and how cold it was last winter"
       ],
       "answer": "B",
       "why": "She writes to describe the “extraordinary weekend” and promises that Dana will want to visit in spring."
@@ -190,9 +190,9 @@
       "stem": "What is the main idea of the paragraph that begins “On our final evening”?",
       "options": [
         "Baba teaches the children to protect the desert by cleaning up litter.",
-        "Another group had a picnic near the camp.",
-        "Reem finds a broken chair among the flowers.",
-        "The family eats their last meal in the desert."
+        "Another group had a picnic near the camp site on that night, and left a lot of rubbish.",
+        "Reem finds a broken chair among the flowers in the sand and puts it into a bag for Baba.",
+        "The family eats their last meal in the desert by the fire, and talks about the trip home."
       ],
       "answer": "A",
       "why": "Baba's actions and words teach the family to leave the desert cleaner than they found it."
@@ -205,9 +205,9 @@
       "type": "MCQ",
       "stem": "Why was Reem doubtful about the camping trip at first?",
       "options": [
-        "She was afraid of the animals that live in burrows.",
-        "She thought her grandfather would be too tired to join them.",
-        "She did not enjoy camping when heavy storms were expected.",
+        "She was afraid of the animals that live in burrows in the sand.",
+        "She thought her grandfather would be too tired to join them on the trip.",
+        "She did not enjoy camping when heavy storms were expected in the desert.",
         "She remembered the area as a hot plain where nothing seemed to survive."
       ],
       "answer": "D",
@@ -286,9 +286,9 @@
       "stem": "Which detail must be considered to understand why Reem sends Dana a pressed flower?",
       "options": [
         "Dana lives in London and cannot see the blooming desert herself.",
-        "Reem wants Dana to plant it in London.",
-        "Flowers are cheaper than other gifts.",
-        "Grandfather asked her to send it."
+        "Reem wants Dana to plant it in London in her garden at home.",
+        "Flowers are cheaper than other gifts in the shops of the city.",
+        "Grandfather asked her to send it to her friend as a present."
       ],
       "answer": "A",
       "why": "Dana is far away, so the flower lets her “examine a small piece of our spring” for herself."
@@ -366,9 +366,9 @@
       "stem": "What was the effect of Baba's actions on the final evening?",
       "options": [
         "The family left the area cleaner than they found it.",
-        "The other group came back for their picnic.",
-        "Reem decided never to camp again.",
-        "Turki found another hedgehog."
+        "The other group came back for their picnic at dusk.",
+        "Reem decided never to camp again in her whole life.",
+        "Turki found another hedgehog under a bush in the sand."
       ],
       "answer": "A",
       "why": "Together they “collected every piece”, following Baba's advice to leave it cleaner than they found it."
@@ -381,10 +381,10 @@
       "type": "MCQ",
       "stem": "What do the truffles and the hedgehog have in common in the letter?",
       "options": [
-        "Both are kinds of flowering desert plants.",
+        "Both are kinds of flowering desert plants that grow after rain.",
         "Both are examples of hidden life that Reem did not expect.",
-        "Both were found by Turki early in the morning.",
-        "Both are collected by families to be eaten."
+        "Both were found by Turki early in the morning on the sand.",
+        "Both are collected by families to be eaten at dinner time."
       ],
       "answer": "B",
       "why": "The truffle was underground and the hedgehog vanished into a burrow; both show the desert's “hidden life”."
@@ -429,10 +429,10 @@
       "type": "MCQ",
       "stem": "In your opinion, why does Reem mention at the start that Dana always teases her about the desert?",
       "options": [
-        "to show that she is angry with Dana",
+        "to show that she is angry with Dana for all of her jokes about the desert",
         "to explain why she wants to prove that the desert can be beautiful",
-        "to change the subject from London",
-        "to tell Dana that she agrees with her"
+        "to change the subject from London to the school and the class she attends",
+        "to tell Dana that she agrees with her about the desert being a dull place"
       ],
       "answer": "B",
       "why": "Dana's teasing gives Reem a reason to describe the blooming desert in detail."
@@ -445,9 +445,9 @@
       "type": "MCQ",
       "stem": "In your opinion, which lesson from the letter is MOST important for visitors to the desert?",
       "options": [
-        "Always find a truffle before leaving.",
-        "Bring a broken chair to sit on.",
-        "Visit the desert only in summer.",
+        "Always find a truffle before you leave the sand.",
+        "Bring a broken chair to sit on in the desert.",
+        "Visit the desert only in summer, not in winter.",
         "Leave the desert cleaner than you found it."
       ],
       "answer": "D",
@@ -462,9 +462,9 @@
       "stem": "What most likely motivated Reem to write this letter?",
       "options": [
         "She wanted to share her excitement and change Dana's opinion of the desert.",
-        "She needed help with her homework.",
-        "She wanted Dana to send her a gift from London.",
-        "She was asked to write it by her teacher."
+        "She needed help with her homework from her friend in London, who is clever.",
+        "She wanted Dana to send her a gift from London for her next birthday party.",
+        "She was asked to write it by her teacher for a school lesson on letters."
       ],
       "answer": "A",
       "why": "Reem knows Dana thinks the desert is only sand, and she wants to show her its beauty."
@@ -509,9 +509,9 @@
       "type": "MCQ",
       "stem": "Which of the following events could really happen?",
       "options": [
-        "A truffle hides when it hears people coming.",
-        "A pressed flower grows again inside an envelope.",
-        "A hedgehog writes a letter to Dana.",
+        "A truffle hides when it hears people coming near it.",
+        "A pressed flower grows again inside an envelope in the mail.",
+        "A hedgehog writes a letter to Dana in the desert camp.",
         "Desert seeds sprout and flower after heavy winter rains."
       ],
       "answer": "D",

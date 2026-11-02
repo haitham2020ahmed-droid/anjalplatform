@@ -131,9 +131,9 @@
         {
           "stem": "What is a program?",
           "options": [
-            "A picture of a cat",
-            "A doctor's scan of the body",
-            "A road full of cars",
+            "A picture of a cat sitting by a window",
+            "A doctor's scan of the body in a hospital",
+            "A road full of cars and trucks in the city",
             "A list of steps a computer follows"
           ],
           "answer": "D",
@@ -165,9 +165,9 @@
         {
           "stem": "The computer looks for a pattern, like pointed ears. What does pattern mean here?",
           "options": [
-            "A loud noise",
-            "A fast car",
-            "A broken part",
+            "A loud noise that hurts your ears a lot",
+            "A fast car on the road in town now",
+            "A broken part inside a machine today",
             "Something that shows up again and again"
           ],
           "answer": "D",
@@ -182,10 +182,10 @@
         {
           "stem": "What does the computer do when its guess is wrong?",
           "options": [
-            "It stops working for good.",
-            "It asks a cat for help.",
+            "It stops working for good and shuts itself down.",
+            "It asks a cat for help with the next question.",
             "It changes its math a bit and tries again.",
-            "It deletes all of its data."
+            "It deletes all of its data and starts from zero."
           ],
           "answer": "C",
           "skill": "sequence",
@@ -293,10 +293,10 @@
         {
           "stem": "Which sentence best states the main idea of the article?",
           "options": [
-            "Computers will soon replace all doctors.",
+            "Computers will soon replace all doctors, so hospitals will not need any people to treat patients.",
             "Computers can learn from many labeled examples, which lets AI help people, though it still needs checking.",
-            "Cats are the hardest animals for computers to see.",
-            "Map apps were the first kind of AI."
+            "Cats are the hardest animals for computers to see, which is why AI cannot ever be used in homes.",
+            "Map apps were the first kind of AI, and every other kind of AI was copied from them in later years by the engineers."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -310,10 +310,10 @@
         {
           "stem": "What is an algorithm?",
           "options": [
-            "A photo with a label",
-            "A kind of phone",
+            "A photo with a label on it, like an album",
+            "A kind of phone that is used by a bank",
             "A step-by-step plan for solving a problem",
-            "A mistake made by a computer"
+            "A mistake made by a computer when it runs"
           ],
           "answer": "C",
           "skill": "vocabulary",
@@ -379,9 +379,9 @@
           "stem": "Why does the author say it is almost impossible to explain every rule for recognizing a cat?",
           "options": [
             "To show why training with examples is needed",
-            "To prove that cats are dangerous",
-            "To say that people are not smart",
-            "To explain how maps work"
+            "To prove that cats are dangerous to small children",
+            "To say that people are not smart enough to see cats",
+            "To explain how maps work for ships at sea"
           ],
           "answer": "A",
           "skill": "author-purpose",
@@ -412,9 +412,9 @@
         {
           "stem": "Why must people always check the work of AI?",
           "options": [
-            "AI refuses to finish tasks.",
-            "AI cannot store pictures.",
-            "AI only works in Saudi Arabia.",
+            "AI refuses to finish tasks that people give it, because it gets tired",
+            "AI cannot store pictures or any other files in its memory",
+            "AI only works in Saudi Arabia and nowhere else in the world",
             "AI can learn wrong things if its data is wrong or unfair."
           ],
           "answer": "D",
@@ -473,9 +473,9 @@
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
             "Machine learning lets computers learn patterns from data, which makes AI useful but also raises limits and ethical concerns.",
-            "Neural networks are copies of the human brain.",
-            "Programmers no longer write algorithms.",
-            "AI understands the world better than people do."
+            "Neural networks are copies of the human brain, and they think exactly as people do, say the writers of the article.",
+            "Programmers no longer write algorithms, since machines do all of that work by themselves, without any help from people.",
+            "AI understands the world better than people do, and so it has no limits and no ethical concerns at all, the article says."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -574,10 +574,10 @@
         {
           "stem": "A hospital wants to use AI to help read medical scans. Based on the article, what would be the wisest plan?",
           "options": [
-            "Let the AI decide alone, since it is always accurate.",
-            "Avoid giving the AI any examples.",
+            "Let the AI decide alone, since it is always accurate and never makes a mistake in a scan.",
+            "Avoid giving the AI any examples of scans, so it learns on its own from nothing.",
             "Use the AI, but have doctors check its results and make sure its training data is complete.",
-            "Use only one scan to train it."
+            "Use only one scan to train it, since one picture is enough for the AI to learn."
           ],
           "answer": "C",
           "skill": "inference",
@@ -592,9 +592,9 @@
           "stem": "Why does the author include the paragraph about limits and ethical questions?",
           "options": [
             "To give a balanced view by showing that AI has risks as well as benefits",
-            "To persuade readers never to use AI",
-            "To explain how to write computer code",
-            "To describe the history of phones"
+            "To persuade readers never to use AI in their homes or at school again",
+            "To explain how to write computer code for a game on a screen",
+            "To describe the history of phones and how they changed the world"
           ],
           "answer": "A",
           "skill": "author-purpose",

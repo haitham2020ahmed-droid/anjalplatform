@@ -199,10 +199,10 @@
      "passage": "Four sentences about a desert trip.",
      "stem": "Which one is an exclamation?",
      "options": [
-      "The sand was hot.",
-      "Did you see the camels?",
+      "The sand was hot in the afternoon.",
+      "Did you see the camels by the road?",
       "What a beautiful sunset that was!",
-      "Pack your water bottle."
+      "Pack your water bottle and some snacks."
      ],
      "answer": 2,
      "why": "It starts with **What a…**, shows strong feeling and ends with **!**."
@@ -212,8 +212,8 @@
      "stem": "Is this a complete sentence?",
      "options": [
       "Yes, the subject “you” is understood.",
-      "No, it has no subject.",
-      "No, it is too short.",
+      "No, it has no subject at the start.",
+      "No, it is too short to be a sentence.",
       "No, it needs a question mark."
      ],
      "answer": 0,
@@ -296,10 +296,10 @@
      "passage": "Recipe step: Carefully slicing the onions into thin rings.",
      "stem": "Why is this not a complete command?",
      "options": [
-      "It has no adverb.",
+      "It has no adverb to tell us how or when to do it.",
       "It uses an -ing word instead of a plain verb.",
-      "It needs a question mark.",
-      "It is too long."
+      "It needs a question mark at the end.",
+      "It is too long to be a real command."
      ],
      "answer": 1,
      "why": "A command needs the plain verb: “Carefully **slice** the onions into thin rings.”"

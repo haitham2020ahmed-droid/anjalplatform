@@ -114,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How to grow grass for a golf course",
+            "How to grow grass for a golf course in the hot weather",
             "Why hitting the ball accurately matters more than hitting it far",
-            "Why golf is harder than every other sport",
-            "How golf courses are built in Scotland"
+            "Why golf is harder than every other sport in the whole world for children",
+            "How golf courses are built in Scotland near the sea"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -165,9 +165,9 @@
         {
           "stem": "Read this: \"A short club helps a player hit the ball carefully.\" What does carefully mean here?",
           "options": [
-            "Very quickly",
+            "Very quickly and with force",
             "With close attention and control",
-            "As far as possible",
+            "As far as possible down the field",
             "Without looking at the hole"
           ],
           "answer": "B",
@@ -183,9 +183,9 @@
           "stem": "Why does a good golfer pick a certain club before a shot?",
           "options": [
             "To match the club to the distance and the shot needed",
-            "Because every club looks the same",
-            "Because the rules require only one club",
-            "To make the game take longer"
+            "Because every club looks the same to the player on the course",
+            "Because the rules require only one club for the whole round",
+            "To make the game take longer and give the crowd more time"
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -217,9 +217,9 @@
           "stem": "Why do many new players mistakenly think hitting far is most important?",
           "options": [
             "Because a long shot looks more impressive than a short, accurate one",
-            "Because the official rules of golf clearly say so",
-            "Because short clubs are never allowed in a real match",
-            "Because the hole moves farther away on each new turn"
+            "Because the official rules of golf clearly say so in the main rule book",
+            "Because short clubs are never allowed in a real match at all",
+            "Because the hole moves farther away on each new turn they take"
           ],
           "answer": "A",
           "skill": "inference",
@@ -234,9 +234,9 @@
           "stem": "How are a long club and a short club different?",
           "options": [
             "A long club hits far; a short club hits with more care near the hole",
-            "A long club is only used in Scotland",
-            "A short club cannot hit the ball at all",
-            "Both clubs do exactly the same job"
+            "A long club is only used in Scotland, while a short club is used in Spain",
+            "A short club cannot hit the ball at all, while a long club can hit it far",
+            "Both clubs do exactly the same job, and golfers choose them by their color"
           ],
           "answer": "A",
           "skill": "compare",
@@ -327,10 +327,10 @@
         {
           "stem": "Read this: \"accuracy consistently saves valuable strokes.\" What does accuracy mean here?",
           "options": [
-            "Playing on a famous course",
-            "Hitting the ball as hard as possible",
+            "Playing on a famous course in another country",
+            "Hitting the ball as hard as possible each time",
             "Hitting the ball to exactly the right spot",
-            "Using only one kind of club"
+            "Using only one kind of club for every shot"
           ],
           "answer": "C",
           "skill": "vocabulary",
@@ -344,9 +344,9 @@
         {
           "stem": "Why does a skilled golfer study the wind and the grass before a shot?",
           "options": [
-            "So other players must wait longer",
-            "So she can avoid using a scorecard",
-            "So the ball will never touch the ground",
+            "So other players must wait longer on the green for their turn",
+            "So she can avoid using a scorecard at the golf club",
+            "So the ball will never touch the ground at all, even once",
             "So she can choose the best club and plan for that shot"
           ],
           "answer": "D",
@@ -361,10 +361,10 @@
         {
           "stem": "What usually happens right after a long club sends the ball down the fairway?",
           "options": [
-            "The game ends immediately",
+            "The game ends immediately for the day, after one long hit",
             "A shorter club is often used to approach the hole with more control",
-            "The player must switch to a different course",
-            "The hole is moved to a new spot"
+            "The player must switch to a different course for the next shot",
+            "The hole is moved to a new spot by the staff of the club"
           ],
           "answer": "B",
           "skill": "sequence",
@@ -524,9 +524,9 @@
           "stem": "Why does a skilled golfer weigh several factors before selecting a club?",
           "options": [
             "To match the shot's needs with the right tool for precision",
-            "To make the round finish more quickly",
-            "To avoid thinking about the wind at all",
-            "Because only one club is permitted per hole"
+            "To make the round finish more quickly for the other players",
+            "To avoid thinking about the wind at all during the shot",
+            "Because only one club is permitted per hole on the course"
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -540,10 +540,10 @@
         {
           "stem": "Which detail best supports the claim that golf demands mental skill, not just physical skill?",
           "options": [
-            "A golf club has a handle and a head",
-            "Golf began on coastal land in Scotland",
+            "A golf club has a handle and a head made of metal or wood",
+            "Golf began on coastal land in Scotland, many centuries ago",
             "A golfer evaluates terrain, wind, and distance before every shot",
-            "A golf course includes grass and a flag"
+            "A golf course includes grass, sand, trees, and a flag on a pole"
           ],
           "answer": "C",
           "skill": "inference",
@@ -558,9 +558,9 @@
           "stem": "How is a driver different from an iron, according to the article?",
           "options": [
             "A driver favors distance; an iron favors precision and control",
-            "A driver is used only indoors",
-            "An iron cannot be used near the hole",
-            "Both clubs are used for exactly the same purpose"
+            "A driver is used only indoors, while an iron is used only outside on the grass",
+            "An iron cannot be used near the hole, because it is much too heavy for that",
+            "Both clubs are used for exactly the same purpose in every part of the game"
           ],
           "answer": "A",
           "skill": "compare",
@@ -575,9 +575,9 @@
           "stem": "What can be inferred from golf courses continuing to grow in popularity in Saudi Arabia?",
           "options": [
             "Interest in the sport has expanded well beyond its origins",
-            "Golf is now banned in Scotland",
-            "Saudi Arabia is where golf was first invented",
-            "Golf courses no longer require grass"
+            "Golf is now banned in Scotland, where it was born",
+            "Saudi Arabia is where golf was first invented long ago",
+            "Golf courses no longer require grass to be played"
           ],
           "answer": "A",
           "skill": "inference",

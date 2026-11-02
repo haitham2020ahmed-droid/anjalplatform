@@ -115,9 +115,9 @@
           "stem": "What is this article mostly about?",
           "options": [
             "How builders in Najd use mud brick to make cool, decorated homes",
-            "How to grow palm trees in Najd",
-            "The weather forecast for Riyadh",
-            "A list of cities in Saudi Arabia"
+            "How to grow palm trees in Najd with water from wells and rain",
+            "The weather forecast for Riyadh and for the rest of the region",
+            "A list of cities in Saudi Arabia and the rivers near them"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -165,10 +165,10 @@
         {
           "stem": "Why do the thick walls keep a home cool in the day and warm at night?",
           "options": [
-            "They are painted white",
+            "They are painted white, so the light of the sun bounces off them all day",
             "The thick walls keep heat out by day and let warmth back in at night",
-            "They have fans built inside",
-            "They are covered in ice"
+            "They have fans built inside, which blow cool air through the home",
+            "They are covered in ice, which melts a little during the day"
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -199,9 +199,9 @@
         {
           "stem": "An older builder teaches a younger one how to build with mud brick. What does this tell you about the craft?",
           "options": [
-            "It is a new invention",
-            "No one wants to learn it anymore",
-            "It is only taught in schools",
+            "It is a new invention made last year",
+            "No one wants to learn it in the town",
+            "It is only taught in schools to children",
             "The skill passes down and stays alive"
           ],
           "answer": "D",
@@ -233,10 +233,10 @@
         {
           "stem": "Why does the article say this old way \"shows real skill\"?",
           "options": [
-            "Because it uses expensive machines",
+            "Because it uses expensive machines that make the work fast and neat in a big shop in town",
             "Because it takes careful work with simple things like clay, water, and straw",
-            "Because it was invented last year",
-            "Because builders use computers to design it"
+            "Because it was invented last year by a young builder who lives in the town nearby",
+            "Because builders use computers to design it before they start to work on the walls"
           ],
           "answer": "B",
           "skill": "inference",
@@ -294,9 +294,9 @@
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
             "Builders in Najd use mud brick, a locally made material, to build homes that stay comfortable and are decorated with careful patterns.",
-            "Riyadh is the only city in Najd.",
-            "Mud brick cannot be used to decorate walls.",
-            "Modern homes everywhere are built from mud brick today."
+            "Riyadh is the only city in Najd, and all the builders there come from other countries to work.",
+            "Mud brick cannot be used to decorate walls, so builders always cover the bricks with plain paint.",
+            "Modern homes everywhere are built from mud brick today, and builders no longer use cement, steel or concrete in any country for new houses."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -344,10 +344,10 @@
         {
           "stem": "What is one effect of carving small triangle openings near the roofline of a wall?",
           "options": [
-            "It makes the wall collapse",
-            "It stops all air from entering",
+            "It makes the wall collapse in a strong wind",
+            "It stops all air from entering the room at night",
             "It lets in light and a breeze while keeping privacy",
-            "It makes the brick heavier"
+            "It makes the brick heavier and harder to carry"
           ],
           "answer": "C",
           "skill": "cause-effect",
@@ -362,9 +362,9 @@
           "stem": "Why do you think builders often carve decorative patterns into the clay before it fully dries?",
           "options": [
             "Because the clay is easier to shape and carve while it is still soft",
-            "Because dry clay is softer than wet clay",
-            "Because carving is only possible after the brick is painted",
-            "Because the sun cannot dry carved clay"
+            "Because dry clay is softer than wet clay, so builders wait for the sun",
+            "Because carving is only possible after the brick is painted with colors",
+            "Because the sun cannot dry carved clay, so it stays wet for a long time"
           ],
           "answer": "A",
           "skill": "inference",
@@ -395,10 +395,10 @@
         {
           "stem": "How does the author mostly organize information about mud-brick building?",
           "options": [
-            "By comparing different countries' building styles",
+            "By comparing different countries' building styles, from Asia to Africa, and how each one has changed",
             "By describing the material, how it is used for comfort, its decoration, and how the skill is passed on",
-            "As a step-by-step recipe for cooking",
-            "By listing famous builders in order of age"
+            "As a step-by-step recipe for cooking a meal, from buying the food to serving it at the table",
+            "By listing famous builders in order of age, from the oldest masters to the youngest workers today"
           ],
           "answer": "B",
           "skill": "text-structure",
@@ -473,9 +473,9 @@
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
             "Mud-brick architecture in Najd combines a practical response to the desert climate with a decorative, skill-based craft passed down through generations.",
-            "Mud brick is the only building material ever used anywhere in Saudi Arabia.",
-            "The desert climate of Najd makes any kind of building impossible.",
-            "Geometric patterns are found only in modern architecture, never in traditional buildings."
+            "Mud brick is the only building material ever used anywhere in Saudi Arabia, in every town and city, so no stone houses exist at all.",
+            "The desert climate of Najd makes any kind of building impossible, so people live only in tents and never make houses from any material.",
+            "Geometric patterns are found only in modern architecture, never in traditional buildings, and old houses in Najd were all plain, bare, and empty."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -557,9 +557,9 @@
         {
           "stem": "The article describes the thick walls as producing a thermal effect called insulation. What does thermal mean in this context?",
           "options": [
-            "Relating to color",
-            "Relating to sound",
-            "Relating to weight",
+            "Relating to color and to paint",
+            "Relating to sound and to noise",
+            "Relating to weight and to size",
             "Relating to heat or temperature"
           ],
           "answer": "D",
@@ -574,10 +574,10 @@
         {
           "stem": "Why does the natural insulation of mud-brick walls matter for families living in Najd?",
           "options": [
-            "It made the walls completely waterproof during rare rainstorms",
+            "It made the walls completely waterproof during rare rainstorms, so that the roofs never leaked or fell down",
             "It allowed homes to stay comfortable through extreme daily temperature swings without any mechanical system",
-            "It allowed the walls to be built taller than any other material permits",
-            "It made the bricks lighter so they could be shipped internationally"
+            "It allowed the walls to be built taller than any other material permits, up to many floors",
+            "It made the bricks lighter so they could be shipped internationally to far-off lands and markets"
           ],
           "answer": "B",
           "skill": "cause-effect",

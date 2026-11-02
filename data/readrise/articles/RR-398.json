@@ -361,10 +361,10 @@
         {
           "stem": "In the story, the word responsible describes the unfamiliar teacher because she —",
           "options": [
-            "is in charge of driving the bus herself",
+            "is in charge of driving the bus herself on the trip",
             "can be trusted to help solve the students' problem",
-            "designed the museum's dinosaur exhibit",
-            "wrote the field trip permission form"
+            "designed the museum's dinosaur exhibit last year",
+            "wrote the field trip permission form for the class"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -413,9 +413,9 @@
           "stem": "How are Yousef's and Noura's reactions to the mix-up alike, even though they each feel a brief urge to react differently?",
           "options": [
             "They both ultimately choose to stay calm instead of panicking",
-            "They both decide to get off the bus immediately",
-            "They both blame the bus driver for the mistake",
-            "They both refuse to talk to the unfamiliar teacher"
+            "They both decide to get off the bus immediately, in a panic",
+            "They both blame the bus driver for the mistake, and shout at him",
+            "They both refuse to talk to the unfamiliar teacher on the bus"
           ],
           "answer": "A",
           "skill": "compare",

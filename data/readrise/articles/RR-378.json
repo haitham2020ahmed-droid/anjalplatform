@@ -124,9 +124,9 @@
           "stem": "What happens when Faisal moves too fast toward Barq?",
           "options": [
             "Barq flies away and will not come near him",
-            "Barq lands on his glove right away",
-            "Barq falls asleep on her perch",
-            "Barq flies to Grandfather instead"
+            "Barq lands on his glove right away and eats a bit of meat",
+            "Barq falls asleep on her perch and does not wake up",
+            "Barq flies to Grandfather instead, and lands on his arm"
           ],
           "answer": "A",
           "skill": "detail",
@@ -140,9 +140,9 @@
         {
           "stem": "What does Faisal do every day to earn Barq's trust?",
           "options": [
-            "He chases her around the yard",
-            "He gives her to Grandfather to train instead",
-            "He hides from her all day",
+            "He chases her around the yard with a ball all day",
+            "He gives her to Grandfather to train instead of him",
+            "He hides from her all day long in his room at home and does not speak",
             "He sits quietly with his glove and speaks in a calm voice"
           ],
           "answer": "D",
@@ -191,10 +191,10 @@
         {
           "stem": "In the story, the word patient means —",
           "options": [
-            "angry and upset",
-            "fast and eager",
+            "angry and upset about having to wait",
+            "fast and eager to go first in the line",
             "able to wait calmly without getting upset",
-            "afraid of new things"
+            "afraid of new things and new places"
           ],
           "answer": "C",
           "skill": "vocabulary",
@@ -208,10 +208,10 @@
         {
           "stem": "Why does Grandfather tell Faisal to try again after Barq flies away the first time?",
           "options": [
-            "He wants Faisal to give up on training Barq",
+            "He wants Faisal to give up on training Barq at once",
             "He wants Faisal to understand that trust takes time",
-            "He wants Faisal to find a new falcon",
-            "He is upset with Faisal for trying at all"
+            "He wants Faisal to find a new falcon in the market",
+            "He is upset with Faisal for trying at all to fly her"
           ],
           "answer": "B",
           "skill": "author-purpose",
@@ -294,9 +294,9 @@
         {
           "stem": "Why does Barq finally land on Faisal's glove after many days?",
           "options": [
-            "Grandfather forces her onto the glove",
-            "She is too tired to fly anywhere else",
-            "Faisal stops feeding her from his hand",
+            "Grandfather forces her onto the glove with a long rope",
+            "She is too tired to fly anywhere else in the desert",
+            "Faisal stops feeding her from his hand every evening",
             "Faisal's calm, patient routine slowly earns her trust"
           ],
           "answer": "D",
@@ -328,10 +328,10 @@
         {
           "stem": "Why does Faisal worry while Barq flies in the open sky?",
           "options": [
-            "He is afraid the glove will not fit her",
-            "He thinks Grandfather will be angry at the perch",
+            "He is afraid the glove will not fit her when she comes back",
+            "He thinks Grandfather will be angry about the perch he built for her",
             "He is not certain their bond is strong enough for her to return",
-            "He does not like watching birds fly"
+            "He does not like watching birds fly, so he looks at the ground"
           ],
           "answer": "C",
           "skill": "inference",
@@ -362,9 +362,9 @@
         {
           "stem": "How does the author organize the events of the story?",
           "options": [
-            "By comparing Faisal to other falconers in the village",
-            "By listing steps for building a falcon's perch",
-            "By describing only the final moment Barq returns",
+            "By comparing Faisal to other falconers in the village, one after another, in each paragraph",
+            "By listing steps for building a falcon's perch, from the wood to the nails and the paint",
+            "By describing only the final moment Barq returns, without any of the earlier days",
             "By following Faisal's patient routine from his first failed attempt to Barq's trusting return"
           ],
           "answer": "D",
@@ -466,9 +466,9 @@
           "stem": "What can readers infer about Barq's instinct to flee when Faisal moves quickly?",
           "options": [
             "It is a natural, inborn reaction to sudden or unfamiliar movement",
-            "It shows she already trusts Grandfather more than Faisal",
-            "It means she is sick and cannot fly well",
-            "It means she wants to be released permanently"
+            "It shows she already trusts Grandfather more than Faisal, so she runs",
+            "It means she is sick and cannot fly well, so she must stay low",
+            "It means she wants to be released permanently and live in the wild"
           ],
           "answer": "A",
           "skill": "inference",
@@ -482,10 +482,10 @@
         {
           "stem": "Why does Faisal feel worried while Barq soars far into the open sky?",
           "options": [
-            "He fears Grandfather will take the glove away",
-            "He dislikes watching falcons fly at all",
+            "He fears Grandfather will take the glove away when the training is over",
+            "He dislikes watching falcons fly at all, because they always scare him",
             "He is uncertain whether her instinct to fly free will outweigh their bond",
-            "He thinks she will land on the wrong perch"
+            "He thinks she will land on the wrong perch and be unable to find him"
           ],
           "answer": "C",
           "skill": "inference",
@@ -499,9 +499,9 @@
         {
           "stem": "In the story, the word heritage refers to —",
           "options": [
-            "a type of leather glove used in falconry",
-            "a wild falcon that has never been trained",
-            "a sudden, fearful reaction to movement",
+            "a type of leather glove used in falconry to hold the bird's feet",
+            "a wild falcon that has never been trained to hunt or return",
+            "a sudden, fearful reaction to movement that makes the bird flap",
             "traditions and skills passed down through generations of a family"
           ],
           "answer": "D",
@@ -516,10 +516,10 @@
         {
           "stem": "In what order do these events happen in the story?",
           "options": [
-            "Barq returns to the glove, Faisal receives Barq, Grandfather releases her",
+            "Barq returns to the glove, Faisal receives Barq, Grandfather releases her, and Barq flies away",
             "Faisal receives Barq, Barq flies away from him, Faisal builds trust daily, Barq returns after release",
-            "Grandfather releases Barq, Faisal receives Barq, Barq flies away",
-            "Barq flies away, Grandfather releases her, Faisal receives Barq"
+            "Grandfather releases Barq, Faisal receives Barq, Barq flies away, and Faisal builds trust",
+            "Barq flies away, Grandfather releases her, Faisal receives Barq, and Barq returns to the glove"
           ],
           "answer": "B",
           "skill": "sequence",

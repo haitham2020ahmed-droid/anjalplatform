@@ -217,9 +217,9 @@
           "stem": "What can you tell about these sailors from the article?",
           "options": [
             "They were smart and knew the sky well.",
-            "They were afraid of the sea.",
-            "They only sailed in the daytime.",
-            "They never left their homes."
+            "They were afraid of the sea at night.",
+            "They only sailed in the daytime near land.",
+            "They never left their homes or the shore."
           ],
           "answer": "A",
           "skill": "inference",
@@ -557,8 +557,8 @@
         {
           "stem": "Why did sailors call Ibn Majid the Lion of the Sea?",
           "options": [
-            "Because he hunted lions in Africa",
-            "Because he owned the largest dhow",
+            "Because he hunted lions in Africa long ago",
+            "Because he owned the largest dhow in the Gulf",
             "Because they greatly admired his expertise",
             "Because he was afraid of the ocean"
           ],
