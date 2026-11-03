@@ -11,7 +11,7 @@
  *   - skills are counted by shared skill key (copies of one skill = one skill).
  * Students are read 25 at a time and only totals are kept (512 MB server).
  */
-import { effortFromCounts } from "../practice/guessing";
+import { effortFromCounts, isInstantMisclick } from "../practice/guessing";
 import type { Repo } from "../seeding/repo";
 import { isHiddenSkill } from "../skills/master";
 import { skillKeyIndex } from "../skills/status";
@@ -26,7 +26,7 @@ export interface PracticeTotals {
   questions: number;
   /** right careful answers */
   correct: number;
-  /** answers that were not rapid guesses */
+  /** Nov 2026 redesign: answers that were not a literal instant misclick (not every merely fast answer any more) */
   careful: number;
   /** correct / careful, null when no careful answer */
   accuracy: number | null;
@@ -82,7 +82,10 @@ export async function practiceTotals(
     for (let j = 0; j < unknown.length; j += 500) {
       for (const k of await repo.findMany("Skill", { id: { in: unknown.slice(j, j + 500) } }, { select: ["id", "code"] })) hiddenOf.set(s(k.id), isHiddenSkill(s(k.code)));
     }
-    const ms = new Map<string, number>(), keys = new Map<string, Set<string>>(), dayset = new Map<string, Set<string>>();
+    const ms = new Map<string, number>(), keys = new Map<string, Set<string>>(), dayset = new Map<string, Set<string>>(), guesses = new Map<string, number>();
+    // Nov 2026 redesign (guessing.ts): "careful" (accuracy's denominator) now excludes only a literal instant
+    // misclick, not every merely fast answer; "effort"/Unreliable is the fast-AND-WRONG pattern, tracked separately.
+    const misclick = (a: { ms: number | null }) => a.ms !== null && isInstantMisclick(a.ms);
     for (const a of answers) {
       if (!a.skillId || hiddenOf.get(a.skillId)) continue;
       const tot = out.get(a.studentId);
@@ -90,7 +93,8 @@ export async function practiceTotals(
       tot.bySource[a.source]++;
       if (!want.has(a.source)) continue;
       tot.questions++;
-      if (!a.rapid) { tot.careful++; if (a.correct) tot.correct++; }
+      if (!misclick(a)) { tot.careful++; if (a.correct) tot.correct++; }
+      if (a.rapid && !a.correct) guesses.set(a.studentId, (guesses.get(a.studentId) ?? 0) + 1);
       if (a.ms === null) tot.untimed++; else ms.set(a.studentId, (ms.get(a.studentId) ?? 0) + a.ms);
       const k = keys.get(a.studentId) ?? new Set<string>(); k.add(keyOf(a.skillId)); keys.set(a.studentId, k);
       const d = dayset.get(a.studentId) ?? new Set<string>(); d.add(riyadhDay(a.at)); dayset.set(a.studentId, d);
@@ -98,7 +102,7 @@ export async function practiceTotals(
       const b = opts.bucket?.(a.at);
       if (b !== undefined && b !== null) {
         const x = ((tot.buckets ??= {})[b] ??= { questions: 0, correct: 0, careful: 0, minutes: 0 });
-        x.questions++; if (!a.rapid) { x.careful++; if (a.correct) x.correct++; } x.minutes += (a.ms ?? 0) / 60_000;
+        x.questions++; if (!misclick(a)) { x.careful++; if (a.correct) x.correct++; } x.minutes += (a.ms ?? 0) / 60_000;
       }
     }
     for (const id of ids.slice(i, i + PART)) {
@@ -109,7 +113,7 @@ export async function practiceTotals(
       tot.skillKeys = [...(keys.get(id) ?? [])];
       tot.activeDays = dayset.get(id)?.size ?? 0;
       if (tot.buckets) for (const x of Object.values(tot.buckets)) x.minutes = Math.round(x.minutes);
-      tot.effort = effortFromCounts(tot.questions, tot.questions - tot.careful).effort;
+      tot.effort = effortFromCounts(tot.questions, guesses.get(id) ?? 0).effort;
     }
   }
   return out;

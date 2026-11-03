@@ -13,6 +13,7 @@ import type { Repo, Row } from "../seeding/repo";
 import { assertClassAccess } from "./assignments";
 import { practiceStats } from "../insights/student-data";
 import { practiceTotals } from "../analytics/practice-totals";
+import { isInstantMisclick } from "../practice/guessing";
 import { NEXT_ACTION, type RuleCode } from "./interventions";
 
 const num = (v: unknown) => Number(v ?? 0);
@@ -143,8 +144,8 @@ export async function classOverview(repo: Repo, actor: Actor, classId: string, r
   // 📏 Questions / Accuracy / Minutes = practiceTotals over the page's range (the Practice and time numbers)
   const [book, attempts, totals, globals, openAlerts, practice, studentAlerts] = await Promise.all([
     starBook(repo, ids, String(klass.schoolId ?? "")),
-    // the hardest-questions list only: careful answers (rapid guesses out) inside the range
-    ids.length ? repo.findMany("QuestionAttempt", { studentId: { in: ids }, createdAt: { gte: range.from, lte: range.to } }, { select: ["questionId", "skillId", "isCorrect", "rapidGuess"] }) : Promise.resolve([] as Row[]),
+    // the hardest-questions list only: careful answers (a literal instant misclick out) inside the range
+    ids.length ? repo.findMany("QuestionAttempt", { studentId: { in: ids }, createdAt: { gte: range.from, lte: range.to } }, { select: ["questionId", "skillId", "isCorrect", "rapidGuess", "responseMs"] }) : Promise.resolve([] as Row[]),
     practiceTotals(repo, ids, range.from, range.to, { schoolId: String(klass.schoolId ?? "") || null, days: true }),
     ids.length ? repo.findMany("StudentAbility", { studentId: { in: ids }, scope: "GLOBAL" }, { select: ["studentId", "theta"] }) : Promise.resolve([] as Row[]),
     ids.length ? repo.findMany("InterventionAlert", { studentId: { in: ids }, resolvedAt: null }, { select: ["id", "studentId", "skillId", "message", "ruleCode", "createdAt"] }) : Promise.resolve([] as Row[]),
@@ -160,13 +161,14 @@ export async function classOverview(repo: Repo, actor: Actor, classId: string, r
   const DIAG_LEVEL: Record<string, string> = { ABOVE: "Exceeding the standard", ON: "Meeting the standard", BELOW: "Approaching the standard" };
   const alerts = alertsWithoutStars(openAlerts, book);
   const hidden = await hiddenStarKeys(repo, book);
-  // hardest questions: careful answers only (no rapid guess), the hidden holder skill left out; counts only are kept
+  // hardest questions: careful answers only (a literal instant misclick out — not every merely fast one any more),
+  // the hidden holder skill left out; counts only are kept
   const attSkillIds = [...new Set(attempts.map((a) => String(a.skillId ?? "")).filter(Boolean))];
   const hiddenSkill = new Set<string>();
   for (let i = 0; i < attSkillIds.length; i += 500) for (const k of await repo.findMany("Skill", { id: { in: attSkillIds.slice(i, i + 500) } }, { select: ["id", "code"] })) if (isHiddenSkill(k.code)) hiddenSkill.add(String(k.id));
   const byQ = new Map<string, { n: number; c: number }>();
   for (const a of attempts) {
-    if (a.rapidGuess || hiddenSkill.has(String(a.skillId ?? ""))) continue;
+    if (isInstantMisclick(Number(a.responseMs) || 0) || hiddenSkill.has(String(a.skillId ?? ""))) continue;
     const q = byQ.get(String(a.questionId)) ?? { n: 0, c: 0 }; q.n++; if (a.isCorrect) q.c++; byQ.set(String(a.questionId), q);
   }
   const hardIds = [...byQ].filter(([, v]) => v.n >= 5).map(([id, v]) => ({ id, acc: v.c / v.n, n: v.n })).sort((a, b) => a.acc - b.acc).slice(0, 5);

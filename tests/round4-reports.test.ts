@@ -72,7 +72,7 @@ describe("📏 round 4 · reports on one definition", () => {
     const tot = await practiceTotalsFor(repo, a, weekStart(NOW), NOW);
     assert.equal(w.since, "2030-01-20", "the Riyadh Sunday (the UTC instant is Saturday 21:00)");
     assert.equal(w.answers, 12, "10 practice + the Sunday-01:00-Riyadh answer + the NAFS answer");
-    assert.equal(w.correct, 8, "right CAREFUL answers: the 2 rapid guesses count for nothing");
+    assert.equal(w.correct, 10, "Nov 2026 redesign: fast-but-correct answers count in full now (previously excluded)");
     assert.equal(w.minutes, 14, "5 (the 20-minute answer, capped) + 7 × 1 min + Sunday 1 + NAFS 1 (the 2 fast guesses ≈ 0)");
     assert.equal(w.days, 3, "Sunday, Monday and Tuesday in Riyadh");
     assert.deepEqual([w.answers, w.correct, w.minutes], [tot.questions, tot.correct, tot.minutes], "the same numbers as practiceTotals");
@@ -83,8 +83,8 @@ describe("📏 round 4 · reports on one definition", () => {
     const p = await studentLearningPath(repo, admin, a, NOW);
     const t30 = await practiceTotalsFor(repo, a, new Date(NOW.getTime() - 30 * DAY), NOW);
     assert.deepEqual([p.answers30, p.accuracy30], [t30.questions, t30.accuracy]);
-    assert.equal(p.accuracy30, 80, "8 right of 10 careful answers");
-    assert.equal(p.rapidPct30, 17, "2 rapid guesses of 12 answers");
+    assert.equal(p.accuracy30, 83, "10 right of 12 careful answers (fast-but-correct answers count in full now)");
+    assert.equal(p.rapidPct30, 0, "Nov 2026 redesign: this % is now the misclick rate, not the fast rate — none of the 12 answers (all ≥1s) is a literal instant misclick");
     const span = monthSpan(2030, 0);
     const f = (await monthFacts(repo, [a, b], span)).get(a)!;
     const tm = await practiceTotalsFor(repo, a, span.from, new Date(span.to.getTime() - 1));

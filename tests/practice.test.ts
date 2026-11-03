@@ -188,42 +188,38 @@ describe("answering", () => {
     assert.equal(await repo.count("QuestionAttempt", { sessionId: view.sessionId }), 0);
   });
 
-  // Nov 2026 fix #3 ("اول مرة يفتح مهارة... مفيش له تاريخ اصلا"): the first GRACE_QUESTIONS attempts EVER on a
-  // skill (guessing.ts#inGraceWindow) are no longer flagged just for being fast, as long as the answer is at least
-  // minimally plausible (at or above GRACE_FLOOR_MS) — a genuinely instant, no-read click still is.
-  test("a truly instant click is still flagged a guess, even on a brand-new skill (below the grace floor)", async () => {
+  // Nov 2026 redesign ("ليه السرعة تمنع الدرجة من غير تخمين فعلاً؟"): speed alone no longer withholds credit at
+  // all — only a literal instant misclick (guessing.ts#isInstantMisclick, well under half a second) does, and that
+  // applies identically on a brand-new skill as on any other; there is no more "grace window" or track record needed.
+  test("a truly instant misclick earns nothing, even on a brand-new skill", async () => {
     const sid = await skillId("G4.idioms-adages");
     const served = later(0);
     const view = await startPractice(repo, lina, sid, served, rng);
     const item = (await loadSkillItems(repo, sid)).find((i) => i.questionId === view.question!.questionId)!;
-    const instant = new Date(served.getTime() + 500); // below GRACE_FLOOR_MS (800ms), even on her first-ever attempt
+    const instant = new Date(served.getTime() + 100); // well under MISCLICK_MS (500ms)
     const { feedback } = await submitAnswer(repo, lina, { sessionId: view.sessionId, questionId: item.questionId, response: responseFor(item, view.question!, true) }, instant);
     assert.equal(feedback.correct, true);
     assert.equal(feedback.rapidGuess, true);
-    // Nov 2026 fix #4 ("كل مجهوده راح فاضي"): never a flat zero for a correct answer any more — a small
-    // participation credit, well short of the full reward.
-    assert.equal(feedback.xp, 1);
+    assert.equal(feedback.xp, 0, "a literal misclick earns nothing at all — not even a participation coin");
   });
 
-  test("a plausible fast answer on a brand-new skill is not held against the student (one-time grace window)", async () => {
+  test("a fast but genuine answer on a brand-new skill counts in full (no grace window needed any more)", async () => {
     const sid = await skillId("G4.cause-effect");
     const served = later(0);
     const view = await startPractice(repo, lina, sid, served, rng);
     const item = (await loadSkillItems(repo, sid)).find((i) => i.questionId === view.question!.questionId)!;
-    const plausible = new Date(served.getTime() + 1000); // fast (under the flat 3s default) but a real reading pace
+    const plausible = new Date(served.getTime() + 1000); // fast (under the old flat 3s default) but a real reading pace
     const { feedback } = await submitAnswer(repo, lina, { sessionId: view.sessionId, questionId: item.questionId, response: responseFor(item, view.question!, true) }, plausible);
     assert.equal(feedback.correct, true);
-    assert.equal(feedback.rapidGuess, false, "her very first attempt on a skill she has no track record on yet is graced, not flagged");
-    assert.ok(feedback.xp > 1, "the full reward, not just the participation credit");
-    assert.ok(feedback.masteryAfter > feedback.masteryBefore, "a graced answer counts fully toward mastery, unlike a real rapid guess");
+    assert.equal(feedback.rapidGuess, true, "still logged as fast — informational only, on her very first attempt too");
+    assert.ok(feedback.xp > 0, "the full reward, since only a literal misclick is zeroed now");
+    assert.ok(feedback.masteryAfter > feedback.masteryBefore, "a fast genuine answer counts fully toward mastery");
   });
 
-  test("after the one-time grace window, a fast correct answer earns a small participation point, not zero", async () => {
+  test("a fast correct answer always counts in full now, not just within a one-time grace window", async () => {
     const sid = await skillId("G4.inference");
     let view = await startPractice(repo, lina, sid, later(0), rng);
     const items = await loadSkillItems(repo, sid);
-    // use up the grace window (GRACE_QUESTIONS = 3) with careful, well-paced answers — not enough of them yet to
-    // build the per-skill fluency track record either (that needs 8)
     for (let i = 0; i < 3; i++) {
       const item = items.find((it) => it.questionId === view.question!.questionId)!;
       ({ view } = await submitAnswer(repo, lina, { sessionId: view.sessionId, questionId: item.questionId, response: responseFor(item, view.question!, true) }, later(30)));
@@ -231,8 +227,8 @@ describe("answering", () => {
     const item = items.find((it) => it.questionId === view.question!.questionId)!;
     const { feedback } = await submitAnswer(repo, lina, { sessionId: view.sessionId, questionId: item.questionId, response: responseFor(item, view.question!, true) }, later(1));
     assert.equal(feedback.correct, true);
-    assert.equal(feedback.rapidGuess, true, "the grace window is spent, and there is no fluency track record yet");
-    assert.equal(feedback.xp, 1, "a small participation credit, never zero, for a correct answer");
+    assert.equal(feedback.rapidGuess, true, "still logged as fast, informationally");
+    assert.ok(feedback.xp > 0, "the full reward every time — no grace window to run out of any more");
   });
 
   test("a session ends cleanly when every question of the skill has been answered", async () => {

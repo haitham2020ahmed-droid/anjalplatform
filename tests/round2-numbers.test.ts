@@ -1,9 +1,11 @@
 /**
- * 📏 Round 2 · group "numbers": every report on ONE definition (owner, 1 Nov 2026).
- *  - Questions / Accuracy / Minutes = practiceTotals rules: rapid guesses out of accuracy, ≤ 5 min per answer, the
- *    hidden Curriculum Map holder skill left out, date-bounded (class overview, practiceStats, learning path)
+ * 📏 Round 2 · group "numbers": every report on ONE definition (owner, 1 Nov 2026; redesigned Nov 2026 — a merely
+ * fast answer no longer counts for nothing, only a literal instant misclick does).
+ *  - Questions / Accuracy / Minutes = practiceTotals rules: only a literal instant misclick is out of accuracy
+ *    (not every merely fast answer any more), ≤ 5 min per answer, the hidden Curriculum Map holder skill left out,
+ *    date-bounded (class overview, practiceStats, learning path)
  *  - an open InterventionAlert about a skill the student has ⭐ on is not shown (class overview, student detail)
- *  - the hardest-questions list ignores rapid guesses
+ *  - the hardest-questions list ignores only a literal instant misclick
  *  - strong / needs work in the student file = the star book by key (⭐ never "needs work", holder skill out)
  *  - "Excelling" = ⭐ (isExcelling), the class middle = the average STAR score
  */
@@ -91,20 +93,22 @@ describe("📏 round 2 · numbers on one definition", () => {
     await repo.create("SkillStatus", { studentId: c, skillKey: book.keyOf(holderId), level: 1, status: "MASTERED", skillId: holderId, answered: 30, correct: 30, score: 99, startedAt: new Date(), masteredAt: new Date(), updatedAt: new Date() });
   });
 
-  test("class overview: questions / accuracy / minutes = practiceTotals (rapid guesses out, ≤ 5 min, holder skill out)", async () => {
+  test("class overview: questions / accuracy / minutes = practiceTotals (a literal misclick out, ≤ 5 min, holder skill out)", async () => {
     const o = await classOverview(repo, teacher, classId, range);
     const ra = o.students.find((x) => x.studentId === a)!, rb = o.students.find((x) => x.studentId === b)!;
     assert.equal(ra.answered, 10);
-    assert.equal(ra.accuracyPct, 75, "6 right of 8 careful answers");
+    // Nov 2026 redesign: the 2 "rapid" answers (k=8,9, both well above the misclick floor) now count fully —
+    // 8 right of all 10, not 6 of 8
+    assert.equal(ra.accuracyPct, 80, "8 right of 10 — a merely fast answer is not excluded any more");
     assert.equal(ra.minutes, 14, "9 × 1 min + the 20-minute answer counted as 5");
     assert.equal(rb.answered, 0, "answers on the hidden holder skill are not counted");
     assert.equal(o.kpis.questions, 10);
-    assert.equal(o.kpis.accuracyPct, 75);
+    assert.equal(o.kpis.accuracyPct, 80);
     assert.equal(o.kpis.minutes, 14);
     const hq = o.hardQuestions.find((h) => h.questionId === qid);
     assert.ok(hq, "the question is listed");
-    assert.equal(hq!.attempts, 8, "rapid guesses are not in the hardest-questions list");
-    assert.equal(hq!.accuracyPct, 75);
+    assert.equal(hq!.attempts, 10, "a merely fast answer is no longer excluded from the hardest-questions list");
+    assert.equal(hq!.accuracyPct, 80);
   });
 
   test("an open alert about a ⭐ skill is hidden (class overview and student detail); others stay", async () => {
@@ -120,17 +124,20 @@ describe("📏 round 2 · numbers on one definition", () => {
     const pa = p.get(a)!, pb = p.get(b)!;
     assert.deepEqual(pa.month, { answers: 10, minutes: 14 });
     assert.deepEqual(pa.week, { answers: 10, minutes: 14 });
-    assert.equal(pa.recentAnswers, 8, "careful answers");
+    // recentAnswers/recentAccuracy feed the level engine's evidence, which is deliberately left on the OLD
+    // rapid-guess-excludes rule (that system is calibrated on the old guess rate, not redesigned here) — so a
+    // merely fast answer (k=8,9) is still excluded here even though it now counts everywhere else above
+    assert.equal(pa.recentAnswers, 8, "level evidence: still the old rule, a merely fast answer is still excluded");
     assert.equal(pa.recentAccuracy, 75);
     assert.deepEqual(pb.month, { answers: 0, minutes: 0 });
     // the level engine's evidence is unchanged: every bank answer of the last 30 days (the holder skill's too)
     assert.equal(pb.recentAnswers, 5);
   });
 
-  test("learning path: accuracy over the last 30 days leaves rapid guesses out", async () => {
+  test("learning path: accuracy over the last 30 days leaves only a literal misclick out", async () => {
     const lp = await studentLearningPath(repo, teacher, a, NOW);
     assert.equal(lp.answers30, 10);
-    assert.equal(lp.accuracy30, 75);
+    assert.equal(lp.accuracy30, 80);
   });
 
   test("student file: strong = ⭐ by key; needs work = 🔄, then ◐ needing support, then the lowest star score; holder out", async () => {

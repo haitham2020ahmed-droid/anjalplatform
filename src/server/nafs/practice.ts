@@ -30,7 +30,7 @@ import { runAfterResponse } from "../lib/after-response";
 import { memoryHigh } from "../monitoring/memory";
 import { assignedTo, grade6Class, json, nafsClasses } from "./tests";
 import { paragraphsOf } from "./student";
-import { isRapidGuess } from "../practice/guessing";
+import { isInstantMisclick } from "../practice/guessing";
 import { cellOf, classLine, roundPct, strengthsWeaknesses, type ClassLine, type NoneWhy } from "./strengths";
 import { nafsRemoved } from "./removed";
 import { cancelIndex } from "../student/cancelled-work";
@@ -518,11 +518,12 @@ export async function answerNafsPractice(repo: Repo, actor: Actor, input: { id: 
   const started = d(state.cur.at);
   const ms = started ? Math.min(MAX_ANSWER_MS, Math.max(0, now.getTime() - started.getTime())) : 0;
   const answerRow = { runId: s(r.id), practiceId: s(p.id), studentId, questionId: q.id, target: state.cur.target, difficulty: state.cur.difficulty, choice, correct, ms, at: now };
-  // 🎲 r67: a rapid guess (under 3 s) is only logged (the answer row above) — it counts for nothing: no level move,
-  // no mastery, not toward the question count or accuracy
-  const rapid = started !== null && isRapidGuess(ms);
-  let next = rapid ? { ...state, cur: null } : afterAnswer(state, state.cur.target, state.cur.difficulty, correct, ms);
-  const asked = Number(r.asked ?? 0) + (rapid ? 0 : 1), right = Number(r.correct ?? 0) + (correct && !rapid ? 1 : 0), seconds = Number(r.seconds ?? 0) + Math.round(ms / 1000);
+  // 🎲 Nov 2026 redesign (guessing.ts): "fast" (under 3 s, isRapidGuess) is no longer checked here at all — being
+  // fast is no longer a reason to withhold credit. Only a literal instant misclick (isInstantMisclick, well under
+  // half a second) counts for nothing: no level move, no mastery, not toward the question count or accuracy.
+  const misclick = started !== null && isInstantMisclick(ms);
+  let next = misclick ? { ...state, cur: null } : afterAnswer(state, state.cur.target, state.cur.difficulty, correct, ms);
+  const asked = Number(r.asked ?? 0) + (misclick ? 0 : 1), right = Number(r.correct ?? 0) + (correct && !misclick ? 1 : 0), seconds = Number(r.seconds ?? 0) + Math.round(ms / 1000);
   const max = p.maxQuestions ? Number(p.maxQuestions) : DEFAULT_PRACTICE_QUESTIONS;
   const limit = p.timeLimitMin ? Number(p.timeLimitMin) * 60 : null;
   const why: RunState["end"] | null = targets.every((t) => next.targets[t]?.mastered) ? "MASTERED" : asked >= max ? "COUNT" : limit && seconds >= limit ? "TIME" : null;
@@ -550,11 +551,11 @@ export async function answerNafsPractice(repo: Repo, actor: Actor, input: { id: 
     const qid = q.id;
     runAfterResponse("skills.nafs_answer_sync", () => syncSkillAfterNafsAnswer(repo, studentId, qid, now), { key: `skills.nafs_answer_sync|${studentId}|${qid}` });
   }
-  // 📖 synonym/antonym error-pattern feedback (src/lib/syn-ant-feedback.ts): only for a genuine wrong answer (not a
-  // rapid guess the student did not really attempt), and only when the heuristic is confident enough to say
+  // 📖 synonym/antonym error-pattern feedback (src/lib/syn-ant-feedback.ts): only for a genuine wrong answer (not an
+  // instant misclick the student did not really attempt), and only when the heuristic is confident enough to say
   // something (see that file for exactly what it requires — it returns null far more often than not).
   let hint: string | undefined;
-  if (!correct && !rapid) {
+  if (!correct && !misclick) {
     const rationale = await optionRationale(repo, q.id, choice);
     const h = synAntFeedback({ nafsTarget: state.cur.target, stem: q.stem, correct: false, chosenRationale: rationale });
     if (h) hint = h.message;

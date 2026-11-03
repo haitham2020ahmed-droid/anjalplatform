@@ -8,7 +8,10 @@
  *    session — now each is served once, so the practice part is shorter and the later lesson starts from that history;
  *    RE-RECORDED again for the school's fresh-questions rule (src/server/questions/fresh.ts, record with
  *    tests/helpers/record-update42b.ts): the lesson now gives questions the student never attempted first, so its
- *    items differ from #17 on — the practice and the set are unchanged, and the engine's math is the same)
+ *    items differ from #17 on — the practice and the set are unchanged, and the engine's math is the same;
+ *    RE-RECORDED again (Nov 2026 guessing redesign — src/server/practice/guessing.ts): a merely fast (not a literal
+ *    instant misclick) answer now counts in full toward ability/mastery instead of being zero-weighted, so the
+ *    adaptive engine's own choices diverge from here on — a deliberate behavior change, not a regression)
  *  - work after the response: it does not run before the answer returns, it always runs afterwards, a failure is
  *    logged and never reaches the student
  *  - an answer's transaction only writes; the reads are done before it, in parallel

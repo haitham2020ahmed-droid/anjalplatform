@@ -46,9 +46,10 @@ export interface StudentAnalytics {
   questions: number;
   /** right careful answers */
   correct: number;
-  /** wrong careful answers (rapid guesses count as neither) */
+  /** wrong careful answers (a literal instant misclick counts as neither — Nov 2026 redesign; a merely fast
+   *  answer is careful and counts here like any other) */
   incorrect: number;
-  /** right / careful answers (rapid guesses left out) */
+  /** right / careful answers (a literal instant misclick left out) */
   accuracyPct: number | null;
   /** at most 5 minutes per answer */
   minutes: number;

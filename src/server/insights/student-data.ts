@@ -10,6 +10,7 @@ import { nationalNorm, percentileFromNorm, seasonOf, type Season } from "../map/
 import { bandOf as planBand } from "../map/personal-plan";
 import { cancelIndexForStudents, liveAssignmentWhere } from "../student/cancelled-work";
 import { loadAnswers, STAR_SOURCES, type AnswerSource } from "../analytics/practice";
+import { isInstantMisclick } from "../practice/guessing";
 import { isHiddenSkill } from "../skills/master";
 import { loadCalendar } from "../analytics/calendar";
 import { resolvePeriod } from "../../analytics/periods";
@@ -184,9 +185,11 @@ const BANK_SOURCES: readonly AnswerSource[] = ["PRACTICE", "TESTS", "OTHER"];
 
 /**
  * The practiceTotals rules (analytics/practice-totals.ts) applied in ONE pass for the windows practiceStats shows
- * (school year, last 30 days, last 7 days): the star sources, rapid guesses out of accuracy, ≤ 5 min per answer
- * (loadAnswers caps it), the hidden holder skill left out; `level` = every bank answer of the last 30 days (the level
- * evidence, as before); `lastAny` = the last answer of any source. 25 students at a time, only totals kept.
+ * (school year, last 30 days, last 7 days): the star sources, a literal instant misclick out of accuracy (Nov 2026
+ * redesign — a merely fast but genuine answer counts in full now), ≤ 5 min per answer (loadAnswers caps it), the
+ * hidden holder skill left out; `level` = every bank answer of the last 30 days (the level evidence, left on the
+ * OLD rapid-guess-excludes rule on purpose — that system is calibrated on the old guess rate, not redesigned here);
+ * `lastAny` = the last answer of any source. 25 students at a time, only totals kept.
  */
 async function windowTotals(repo: Repo, ids: string[], from: Date, to: Date, cut: { month: number; week: number }): Promise<Map<string, Windows>> {
   const out = new Map<string, Windows>(ids.map((id) => [id, emptyWindows()]));
@@ -201,15 +204,17 @@ async function windowTotals(repo: Repo, ids: string[], from: Date, to: Date, cut
     for (const a of answers) {
       const w = out.get(a.studentId);
       if (!w) continue;
-      const add = (x: Win) => { x.n++; if (!a.rapid) { x.careful++; if (a.correct) x.c++; } x.ms += a.ms ?? 0; };
-      // last active: any answer of any source; the level evidence: every bank answer of the last 30 days (as before)
+      const add = (x: Win, careful: boolean) => { x.n++; if (careful) { x.careful++; if (a.correct) x.c++; } x.ms += a.ms ?? 0; };
+      // last active: any answer of any source; the level evidence: every bank answer of the last 30 days (as before,
+      // the OLD "rapid" rule — not the new misclick rule)
       if (w.lastAny === null || a.at > w.lastAny) w.lastAny = a.at;
-      if (a.at >= cut.month && BANK_SOURCES.includes(a.source)) add(w.level);
+      if (a.at >= cut.month && BANK_SOURCES.includes(a.source)) add(w.level, !a.rapid);
       if (!a.skillId || hiddenOf.get(a.skillId)) continue;
       if (!isStarSource(a.source)) continue;
-      add(w.year);
-      if (a.at >= cut.month) add(w.month);
-      if (a.at >= cut.week) add(w.week);
+      const careful = a.ms === null || !isInstantMisclick(a.ms);
+      add(w.year, careful);
+      if (a.at >= cut.month) add(w.month, careful);
+      if (a.at >= cut.week) add(w.week, careful);
       if (w.last === null || a.at > w.last) w.last = a.at;
     }
   }

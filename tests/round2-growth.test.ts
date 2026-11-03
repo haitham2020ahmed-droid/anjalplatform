@@ -70,7 +70,10 @@ describe("round 2 · growth = stars, numbers = practiceTotals", () => {
     const tot = await practiceTotalsFor(repo, s1, week.from, week.to, { days: true });
     assert.ok(tot.questions > 0);
     assert.deepEqual([a.questions, a.accuracyPct, a.minutes, a.bySource], [tot.questions, tot.accuracy, tot.minutes, tot.bySource]);
-    assert.equal(a.correct + a.incorrect, a.questions - 1, "the rapid guess is neither right nor wrong");
+    // Nov 2026 redesign: the "rapid guess" marked on this answer is well above the misclick floor (a real, timed
+    // answer), so it now counts in full toward correct/incorrect like any other answer — only a literal instant
+    // misclick counts as neither any more
+    assert.equal(a.correct + a.incorrect, a.questions, "a merely fast answer is no longer neither right nor wrong");
     assert.ok(!("growth" in a), "no engine growth object");
 
     const b = await studentAnalytics(repo, admin, s2, week);

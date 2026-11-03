@@ -34,7 +34,7 @@ import type { Repo, Row } from "../seeding/repo";
 import { ORGANIZERS, lessonForSkill, type LessonContent, type OrganizerKind, type OrganizerSpec } from "./content";
 import { itemHintStep } from "./hints";
 import { freshOrder, itemContentKeys, seenIndex, Sitting } from "../questions/fresh";
-import { isRapidGuess as isRapidAnswer } from "../practice/guessing";
+import { isInstantMisclick, isRapidGuess as isRapidAnswer } from "../practice/guessing";
 import { starBook, starLearning, starMastered, starNeedsReview } from "../skills/star-read";
 
 export type Phase = "MODEL" | "GUIDED" | "INDEPENDENT" | "CHECK" | "DONE";
@@ -254,12 +254,16 @@ async function prepareAttempt(repo: Repo, a: Omit<AttemptInput, "sessionId">, se
     repo.findUnique("StudentSkillMastery", { studentId, skillId }),
     sessionId ? repo.findMany("QuestionAttempt", { sessionId }, { select: ["id", "isCorrect", "createdAt"], orderBy: [{ field: "createdAt", dir: "asc" }, { field: "id", dir: "asc" }] }).then((r) => r.map((x) => Boolean(x.isCorrect))) : Promise.resolve([] as boolean[]),
   ]);
+  // 🎲 Nov 2026 redesign (guessing.ts): "fast" (under 3 s, isRapidAnswer) is logged as the stored, informational
+  // rapidGuess flag only — it no longer by itself zero-weights anything. Only a literal instant misclick
+  // (isInstantMisclick) is passed to the engine as `rapid`, so only that counts for nothing (weight 0).
+  const fast = isRapidAnswer(a.responseMs);
+  const misclick = isInstantMisclick(a.responseMs);
   const evidence: ResponseEvidence = {
     itemId: item.questionId, correct, credit: a.credit > 0 && a.credit < 1 ? a.credit : undefined, level: item.level,
     a: item.irt.a, b: item.irt.b, c: item.irt.c, responseMs: a.responseMs, estimatedSeconds: item.estimatedSeconds, usedHint: a.usedHint, at: now.toISOString(),
     repeat: isRecentRepeat(hist, item.questionId, now.toISOString()),
-    // 🎲 r67: the owner's rapid-guess rule (under 3 s): it counts for nothing (weight 0; ability and mastery kept)
-    rapid: isRapidAnswer(a.responseMs),
+    rapid: misclick,
     ...(a.source && ATTEMPT_SOURCE_WEIGHT[a.source] !== undefined ? { sourceWeight: ATTEMPT_SOURCE_WEIGHT[a.source] } : {}),
   };
   const step = processAnswer({
@@ -269,33 +273,33 @@ async function prepareAttempt(repo: Repo, a: Omit<AttemptInput, "sessionId">, se
   const seenBefore = prevMastery ? Number(prevMastery.score) : step.log.masteryBefore;
   // fairness rule (shared — mastery/mastery.ts#withholdRaise): a wrong answer never raises what the student last saw
   const mst: MasteryResult = withholdRaise(step.mastery, { score: seenBefore, band: (prevMastery?.band as MasteryResult["band"]) ?? step.mastery.band, isMastered: Boolean(prevMastery?.isMastered) }, correct, "a wrong answer cannot raise mastery");
-  return { a, correct, step, histLength: hist.length, prevMastery, seenBefore, mst };
+  return { a, correct, step, histLength: hist.length, prevMastery, seenBefore, mst, fast, misclick };
 }
 
 /** The WRITE half: attempt, ability, mastery. Returns the result and the decision-log row (written by the caller). */
 async function writeAttempt(tx: Repo, p: Awaited<ReturnType<typeof prepareAttempt>>, sessionId: string) {
-  const { a, correct, step, prevMastery, seenBefore, mst } = p;
+  const { a, correct, step, prevMastery, seenBefore, mst, fast, misclick } = p;
   const { studentId, skillId, item, now } = a;
   const attempt = await tx.create("QuestionAttempt", {
     sessionId, studentId, questionId: item.questionId, skillId, response: { value: a.response }, isCorrect: correct,
-    partialCredit: a.credit > 0 && a.credit < 1 ? a.credit : null, responseMs: a.responseMs, usedHint: a.usedHint, rapidGuess: step.rapidGuess,
+    partialCredit: a.credit > 0 && a.credit < 1 ? a.credit : null, responseMs: a.responseMs, usedHint: a.usedHint, rapidGuess: fast,
     difficultyB: item.irt.b, createdAt: now, misconception: correct ? null : attemptMisconception(item, a.response), source: a.source ?? (a.reasonCode === "REVIEW" ? "REVIEW" : "LESSON"),
   });
-  if (!step.rapidGuess) await tx.upsert("StudentAbility", { studentId, scope: `SKILL:${skillId}` }, { skillId, theta: step.ability.theta, thetaSE: step.ability.se, responses: p.histLength + 1 },
+  if (!misclick) await tx.upsert("StudentAbility", { studentId, scope: `SKILL:${skillId}` }, { skillId, theta: step.ability.theta, thetaSE: step.ability.se, responses: p.histLength + 1 },
     { theta: step.ability.theta, thetaSE: step.ability.se, responses: p.histLength + 1 });
   const masteryData = {
     score: mst.score, band: mst.band, attempts: Number(prevMastery?.attempts ?? 0) + 1, correct: Number(prevMastery?.correct ?? 0) + (correct ? 1 : 0),
     maxLevelCorrect: mst.components.maxLevelCorrect, isMastered: mst.isMastered, masteredAt: mst.isMastered ? (prevMastery?.masteredAt ?? now) : null, lastPracticedAt: now, components: mst.components,
     ...nextReview(prevMastery, mst.isMastered, correct, now),
   };
-  if (!step.rapidGuess) await tx.upsert("StudentSkillMastery", { studentId, skillId }, masteryData, masteryData);
+  if (!misclick) await tx.upsert("StudentSkillMastery", { studentId, skillId }, masteryData, masteryData);
   const decisionLog: Row = {
     ...step.log, sessionId, attemptId: attempt.id, nextQuestionId: null, nextTargetB: null, responseCorrect: correct, createdAt: now,
     masteryBefore: seenBefore, masteryAfter: mst.score,
-    reason: `${step.rapidGuess ? "Rapid guess: counted for nothing. " : ""}${a.reason ?? "Answer in an intervention lesson: ability and mastery updated; the next question follows the lesson."}`,
+    reason: `${misclick ? "Instant misclick: counted for nothing. " : ""}${a.reason ?? "Answer in an intervention lesson: ability and mastery updated; the next question follows the lesson."}`,
     reasonCode: a.reasonCode ?? "LESSON",
   };
-  return { result: { correct, rapidGuess: step.rapidGuess, theta: step.ability.theta, masteryBefore: seenBefore, masteryAfter: mst.score, band: mst.band }, decisionLog };
+  return { result: { correct, rapidGuess: fast, theta: step.ability.theta, masteryBefore: seenBefore, masteryAfter: mst.score, band: mst.band }, decisionLog };
 }
 
 /** The PracticeSession that holds the run's answers (created on the first answer). */

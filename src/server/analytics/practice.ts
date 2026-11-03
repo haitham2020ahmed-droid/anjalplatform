@@ -25,7 +25,7 @@
  * a session with over 20 % rapid guesses is Unreliable (teacher-only).
  * Reads are batched by 200 students and select only the columns used (512 MB server).
  */
-import { isRapidGuess, sessionEffort } from "../practice/guessing";
+import { isInstantMisclick, isRapidGuess, sessionEffort } from "../practice/guessing";
 import type { Repo, Row } from "../seeding/repo";
 import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
 import { readableClasses } from "../teacher/coordinators";
@@ -206,9 +206,12 @@ export async function practiceAnalytics(repo: Repo, actor: Actor, input: { class
 
   // the view
   const rows = inRangeAll.filter((a) => VIEW_SOURCES[view].includes(a.source) && a.skillId && !hidden(a.skillId));
-  const careful = (list: Answer[]) => list.filter((r) => !r.rapid);
+  // Nov 2026 redesign (guessing.ts): accuracy now excludes only a literal instant misclick, not every fast answer —
+  // a merely fast genuine answer counts toward accuracy exactly like any other.
+  const careful = (list: Answer[]) => list.filter((r) => r.ms === null || !isInstantMisclick(r.ms));
   const accOf = (list: Answer[]) => { const c = careful(list); return pct(c.filter((r) => r.correct).length, c.length); };
-  const effortOf = (list: Answer[]) => sessionEffort(list.map((r) => ({ rapidGuess: r.rapid }))).effort;
+  // effort/Unreliable is now the fast-AND-WRONG pattern, not fast alone — sessionEffort needs `correct` too
+  const effortOf = (list: Answer[]) => sessionEffort(list.map((r) => ({ rapidGuess: r.rapid, correct: r.correct }))).effort;
   const timeOf = (list: Answer[]) => mins(list.reduce((x, r) => x + (r.ms ?? 0), 0));
 
   // stars now (SkillStatus): every key of the students (for their totals) — one batched read
@@ -221,7 +224,7 @@ export async function practiceAnalytics(repo: Repo, actor: Actor, input: { class
   const bySession = new Map<string, Answer[]>();
   for (const r of rows) { if (r.source === "READRISE") continue; const k = `${r.studentId}|${r.session}`; const l = bySession.get(k); if (l) l.push(r); else bySession.set(k, [r]); }
   const unreliableOf = new Map<string, number>();
-  for (const list of bySession.values()) if (sessionEffort(list.map((r) => ({ rapidGuess: r.rapid }))).unreliable) unreliableOf.set(list[0].studentId, (unreliableOf.get(list[0].studentId) ?? 0) + 1);
+  for (const list of bySession.values()) if (sessionEffort(list.map((r) => ({ rapidGuess: r.rapid, correct: r.correct }))).unreliable) unreliableOf.set(list[0].studentId, (unreliableOf.get(list[0].studentId) ?? 0) + 1);
 
   // by day (Riyadh days)
   const dayMap = new Map<string, DayUse>();
@@ -283,7 +286,7 @@ export async function practiceAnalytics(repo: Repo, actor: Actor, input: { class
 
   // the one-student view: sessions
   const sessions: SessionUse[] = input.studentId ? [...bySession.values()].sort((a, b) => b[0].at - a[0].at).slice(0, 40).map((list) => {
-    const e = sessionEffort(list.map((r) => ({ rapidGuess: r.rapid }))), here = [...new Set(list.map((r) => nameOf(keyOf(r.skillId), r.skillId)))];
+    const e = sessionEffort(list.map((r) => ({ rapidGuess: r.rapid, correct: r.correct }))), here = [...new Set(list.map((r) => nameOf(keyOf(r.skillId), r.skillId)))];
     return { id: list[0].session, day: riyadhDay(list[0].at), skill: here.slice(0, 2).join(", ") + (here.length > 2 ? " +" : ""), source: list[0].source, answers: e.answers, effort: e.effort, unreliable: e.unreliable };
   }) : [];
 
