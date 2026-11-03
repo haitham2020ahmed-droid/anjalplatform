@@ -21,7 +21,7 @@ import type { Repo, Row } from "../seeding/repo";
 import { cleanName } from "../admin/users";
 import { freeStudentNumbers, isUniqueClash, pickUsername, usernameCandidates } from "../admin/quick-students";
 import { studentPasswordIsUsername } from "../admin/student-cards";
-import { withdrawOldClassWork } from "../admin/student-move";
+import { withdrawOldClassWork, addNewClassWork } from "../admin/student-move";
 import { ownClass } from "./class-accounts";
 
 const s = (v: unknown) => (v === null || v === undefined ? "" : String(v));
@@ -142,6 +142,7 @@ export async function addStudentsByName(repo: Repo, actor: Actor, input: { class
           const u = await tx.create("User", { username: x.username, displayName: x.name, email: null, role: "STUDENT", schoolId, passwordHash: hashes[i], mustChangePassword: !sameAsUsername, isActive: true, createdAt: now, updatedAt: now });
           const st = await tx.create("Student", { userId: u.id, schoolId, gradeId: klass.gradeId, studentNumber: x.number, createdAt: now });
           await tx.create("ClassMembership", { classId: klass.id, studentId: st.id, joinedAt: now });
+          await addNewClassWork(tx, s(st.id), s(klass.id)); // catch them up on the class's already-open work
           rows.push({ userId: s(u.id), studentId: s(st.id), name: x.name, username: x.username, number: x.number, password: x.password });
         }
         return rows;

@@ -23,7 +23,7 @@
  * returned once as a credentials CSV and stored only as hashes.
  */
 import { createHash } from "node:crypto";
-import { withdrawOldClassWork } from "./student-move";
+import { withdrawOldClassWork, addNewClassWork } from "./student-move";
 import { parseCsv, toCsv } from "../../imports/csv";
 import { readXlsx } from "../../imports/xlsx";
 import { audit } from "../audit";
@@ -315,6 +315,7 @@ export async function applyRoster(repo: Repo, actor: Actor, fileName: string, by
           await withdrawOldClassWork(tx, sid, open.map((m) => String(m.classId)), target);
           if (await tx.findUnique("ClassMembership", { classId: target, studentId: sid })) await tx.updateMany("ClassMembership", { classId: target, studentId: sid }, { leftAt: null, joinedAt: now });
           else await tx.create("ClassMembership", { classId: target, studentId: sid, joinedAt: now });
+          await addNewClassWork(tx, sid, target); // catch them up on the class's already-open work
         }
       }
       if (l.role === "TEACHER") {

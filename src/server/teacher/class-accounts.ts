@@ -25,6 +25,7 @@ import type { Repo, Row } from "../seeding/repo";
 import { cleanName, cleanUsername } from "../admin/users";
 import { readRosterFile } from "../admin/roster-import";
 import { freeStudentNumbers } from "../admin/quick-students";
+import { addNewClassWork } from "../admin/student-move";
 import { assertClassAccess } from "./assignments";
 import { remember } from "../cache/lru";
 
@@ -58,6 +59,7 @@ async function createStudents(repo: Repo, actor: Actor, klass: Row, list: NewStu
       const u = await tx.create("User", { username: x.username, displayName: x.name, email: null, role: "STUDENT", schoolId, passwordHash: x.hash, mustChangePassword: false, isActive: true, createdAt: now, updatedAt: now });
       const st = await tx.create("Student", { userId: u.id, schoolId, gradeId: klass.gradeId, studentNumber: x.number, createdAt: now });
       await tx.create("ClassMembership", { classId: klass.id, studentId: st.id, joinedAt: now });
+      await addNewClassWork(tx, s(st.id), s(klass.id)); // catch them up on the class's already-open work
       made.push({ userId: s(u.id), studentId: s(st.id), username: x.username });
     }
     return made;

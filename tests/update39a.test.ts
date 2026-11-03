@@ -330,6 +330,14 @@ describe("Update 39A · readiness fixes", () => {
     assert.equal((await repo.findMany("AssignmentStudent", { assignmentId: open.id, studentId: sid })).length, 0, "not on the list as overdue");
     assert.equal((await repo.findMany("AssignmentStudent", { assignmentId: done.id, studentId: sid })).length, 1, "finished work stays in the history");
     assert.ok(await repo.findUnique("StudentLevel", { studentId: sid }), "same grade: the level stays");
+    // 3 Nov 2026 catch-up fix: moving into otherClassId links sid to its already-open work (made before the move,
+    // in the "teacher follow-up" test above) — the curriculum-plan one (Weekly Check) is excluded, the rest aren't.
+    const weeklyCheck = (await repo.findMany("Assignment", { classId: otherClassId, curriculumPlanId: "WEEKLY_CHECK" }))[0];
+    const recheck = (await repo.findMany("Assignment", { classId: otherClassId, title: "Re-check: Make Inferences" }))[0];
+    const ownSet = (await repo.findMany("Assignment", { classId: otherClassId, title: "Teacher's own set" }))[0];
+    assert.equal((await repo.findMany("AssignmentStudent", { assignmentId: weeklyCheck.id, studentId: sid })).length, 0, "curriculum-plan work is not backfilled");
+    assert.equal((await repo.findMany("AssignmentStudent", { assignmentId: recheck.id, studentId: sid })).length, 1, "caught up on the new class's open skill/set work");
+    assert.equal((await repo.findMany("AssignmentStudent", { assignmentId: ownSet.id, studentId: sid })).length, 1, "caught up on the new class's open question set too");
     const g5class = (await repo.findMany("Class", { schoolId: admin.schoolId })).find(async () => true);
     const grades = await repo.findMany("Grade", { schoolId: admin.schoolId });
     const g5 = grades.find((g) => Number(g.level) === 5)!;

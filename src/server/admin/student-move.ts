@@ -20,6 +20,30 @@ export async function withdrawOldClassWork(tx: Repo, studentId: string, oldClass
   return open.length;
 }
 
+/**
+ * The mirror of withdrawOldClassWork, for the NEW class (owner report, 3 Nov 2026 — "ليه skills مش ظاهره عند
+ * الطالب": a skill assigned to a class before a student joined it never showed up for them). AssignmentStudent
+ * rows are written once, at Assign time, from the class roster at that moment — a student added to the class
+ * later (a new account placed straight into it, or moved in from another class) was never retroactively linked
+ * to that work, with nothing elsewhere catching the gap. This links them to the class's already-open skill and
+ * question-set assignments, the same way "reassignSkillAssignmentsForStudents" (teacher/assign.ts) already
+ * re-links a student un-removed from one assignment — just for every live assignment of the class at once.
+ * Curriculum-plan places are excluded (they live in the plan, not the work list — see student/assigned.ts's
+ * `listed`). Already-finished assignments are included too (the student gets it, same as a classmate who
+ * finished early); a soft cancel (the Assigned page's Cancel, AssignmentCancel) is not checked here — the
+ * student is linked like any other classmate, and the cancel still hides it for everyone the normal way.
+ */
+export async function addNewClassWork(tx: Repo, studentId: string, classId: string): Promise<number> {
+  if (!classId) return 0;
+  const asg = (await tx.findMany("Assignment", { classId, deletedAt: null }, { select: ["id", "curriculumPlanId"] })).filter((a) => !a.curriculumPlanId);
+  if (!asg.length) return 0;
+  const have = new Set((await tx.findMany("AssignmentStudent", { studentId, assignmentId: { in: asg.map((a) => a.id) } }, { select: ["assignmentId"] })).map((r) => s(r.assignmentId)));
+  const missing = asg.filter((a) => !have.has(s(a.id)));
+  if (!missing.length) return 0;
+  await tx.createMany("AssignmentStudent", missing.map((a) => ({ assignmentId: s(a.id), studentId, status: "NOT_STARTED", progress: 0 })));
+  return missing.length;
+}
+
 export async function resetLevelsForNewGrade(tx: Repo, studentId: string, actorId: string | null, now: Date, fromGradeId: string, toGradeId: string): Promise<void> {
   const [lvl, cats] = await Promise.all([tx.findMany("StudentLevel", { studentId }), tx.findMany("StudentCategoryLevel", { studentId })]);
   if (!lvl.length && !cats.length) return;

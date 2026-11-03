@@ -14,7 +14,7 @@
  *  - Every change is audited with before/after values (secrets redacted).
  */
 import { audit } from "../audit";
-import { resetLevelsForNewGrade, withdrawOldClassWork } from "./student-move";
+import { resetLevelsForNewGrade, withdrawOldClassWork, addNewClassWork } from "./student-move";
 import { hashPassword } from "../auth/password";
 import { temporaryPassword } from "../auth/passwords-admin";
 import { studentPasswordIsUsername } from "./student-cards";
@@ -279,7 +279,10 @@ export async function createUser(repo: Repo, actor: Actor, input: NewUser, now =
         if (input.role === "PARENT") await tx.create("Parent", { userId: u.id });
         if (input.role === "STUDENT") {
           const st = await tx.create("Student", { userId: u.id, schoolId, gradeId, studentNumber, createdAt: now });
-          if (input.classId) await tx.create("ClassMembership", { classId: input.classId, studentId: st.id, joinedAt: now });
+          if (input.classId) {
+            await tx.create("ClassMembership", { classId: input.classId, studentId: st.id, joinedAt: now });
+            await addNewClassWork(tx, String(st.id), input.classId); // catch them up on the class's already-open work
+          }
         }
         return String(u.id);
       });
@@ -363,6 +366,7 @@ export async function moveStudent(repo: Repo, actor: Actor, studentUserId: strin
       const prior = await tx.findUnique("ClassMembership", { classId: target.id, studentId: st.id });
       if (prior) await tx.updateMany("ClassMembership", { classId: target.id, studentId: st.id }, { leftAt: null, joinedAt: now });
       else await tx.create("ClassMembership", { classId: target.id, studentId: st.id, joinedAt: now });
+      await addNewClassWork(tx, String(st.id), String(target.id)); // catch them up on the new class's already-open work
       if (target.gradeId !== st.gradeId) {
         await tx.updateMany("Student", { id: st.id }, { gradeId: target.gradeId });
         await resetLevelsForNewGrade(tx, String(st.id), actor.userId, now, String(st.gradeId), String(target.gradeId));
