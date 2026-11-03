@@ -100,7 +100,11 @@ describe("Update 42B · same results, less waiting", () => {
     assert.ok(maxTx <= 5, `writes only inside the transaction (session move, attempt, ability, mastery, XP): ${maxTx}`);
     // r89: budget bumped 16 → 17 for the one extra read currentQuestion() always does — the student's own StudentLevel
     // row (src/server/practice/session.ts, "chunked passage" feature) — a real, already-shipped +1 query, not a leak
-    assert.ok(maxAll <= 17, `one answer with warm caches: ${maxAll} calls`);
+    // Nov 2026 fix #2: bumped 17 → 18 for one more extra read, generalCarefulRecord() — the student's own recent
+    // careful-answer record across every skill, needed so a brand-new skill can still be judged "fluent, not
+    // guessing" from the student's general track record (guessing.ts#isGenerallyFluentStudent) — also a real,
+    // intentional +1 query, not a leak.
+    assert.ok(maxAll <= 18, `one answer with warm caches: ${maxAll} calls`);
     await afterResponseSettled();
     const logs = await raw.findMany("AdaptiveDecisionLog", { sessionId: view.sessionId });
     assert.equal(logs.filter((l) => l.attemptId).length, 4, "every answer's decision log was written after its response");

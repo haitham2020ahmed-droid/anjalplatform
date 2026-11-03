@@ -118,6 +118,52 @@ export function isFluentAnswer(recentCarefulCorrect: readonly boolean[]): boolea
   return recentCarefulCorrect.filter(Boolean).length / n >= FLUENCY_ACCURACY;
 }
 
+/** at least this many of the student's own recent careful answers ACROSS EVERY SKILL (last GENERAL_FLUENCY_DAYS
+ * days), before a general "reliable, fast reader" track record can stand in for a skill that has no history of
+ * its own yet */
+export const GENERAL_FLUENCY_MIN_SAMPLE = 20;
+/** …and at least this share of them correct — stricter than the per-skill bar (FLUENCY_ACCURACY): this is standing
+ * in for evidence the student has never shown us on THIS skill, so it asks for more proof, not less */
+export const GENERAL_FLUENCY_ACCURACY = 0.9;
+/** only careful answers from the last this many days count toward the general track record, so an old pattern
+ * cannot keep excusing today's answers forever */
+export const GENERAL_FLUENCY_DAYS = 14;
+/**
+ * Nov 2026 fix #2 ("نفس المشكلة... اول مرة يفتح المهارة"): isFluentAnswer (above) only ever looks at the student's
+ * track record on THIS one skill, so a skill the student just started can never be exempted, no matter how
+ * reliable they have shown themselves on every other skill they practise. This broader, stricter check stands in
+ * for the per-skill one whenever the skill itself has nothing to go on yet — never touches ability, mastery or the
+ * adaptive engine's estimate, exactly like isFluentAnswer.
+ */
+export function isGenerallyFluentStudent(recentCarefulCorrectAcrossSkills: readonly boolean[]): boolean {
+  const n = recentCarefulCorrectAcrossSkills.length;
+  if (n < GENERAL_FLUENCY_MIN_SAMPLE) return false;
+  return recentCarefulCorrectAcrossSkills.filter(Boolean).length / n >= GENERAL_FLUENCY_ACCURACY;
+}
+
+/** the first this many attempts EVER on a skill (by stored history, any session — so it cannot be reset by leaving
+ * and reopening the skill) get a short grace window */
+export const GRACE_QUESTIONS = 3;
+/** below this floor, even inside the grace window, an answer is still a guess — no genuine reading happened at all */
+export const GRACE_FLOOR_MS = 800;
+/**
+ * Nov 2026 fix #3 ("اول مرة يفتح مهارة، مفيش له تاريخ اصلا"): both fluency checks above need an existing track
+ * record (8 careful answers on the skill, or 20 across the platform) before they can exempt anything — so a
+ * student with NO history anywhere yet (new to the platform, or just starting their very first skill ever) gets
+ * neither, and every fast-but-correct answer would be flagged until a record exists. A short, one-time grace
+ * window on each skill closes that gap: the first few attempts EVER on a skill are exempted when at least
+ * minimally plausible (not an instant, no-read click) — `attemptsEverOnSkill` must come from stored history, not
+ * the current session, so a student cannot "reset" the grace by leaving and reopening the same skill.
+ */
+export function inGraceWindow(attemptsEverOnSkill: number, responseMs: number): boolean {
+  return attemptsEverOnSkill < GRACE_QUESTIONS && responseMs >= GRACE_FLOOR_MS;
+}
+
+/** the small credit a fast-but-correct answer gets when none of the checks above can vouch for it yet: never the
+ * full reward, but never zero either — so the student's effort still counts for something and the points on screen
+ * keep moving (Nov 2026, "يحس ان كل مجهوده راح فاضي") while mastery and ability stay exactly as untouched as before */
+export const PARTICIPATION_XP = 1;
+
 export interface SessionEffort { answers: number; guesses: number; /** % careful answers, null before any answer */ effort: number | null; unreliable: boolean }
 /** A session's effort from its answers (each with its rapidGuess flag). */
 export function sessionEffort(answers: readonly Record<string, unknown>[]): SessionEffort {

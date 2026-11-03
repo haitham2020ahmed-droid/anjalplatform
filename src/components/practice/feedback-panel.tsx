@@ -71,9 +71,17 @@ export function FeedbackPanel({ fb, questionId, fxKey }: { fb: Feedback; questio
       )}
       {fb.tip && (ok || reveal) && <p className="mt-4 rounded-xl bg-white/70 px-4 py-3 text-slate-800"><span className="font-semibold text-brand-purple">Tip: </span><RichInline text={fb.tip} /></p>}
       {!ok && reveal && questionId && <ExplainButton key={questionId} questionId={questionId} />}
-      {fb.rapidGuess && <p className="mt-3 text-slate-700">That was very quick. Take your time to read each question; careful answers count more.</p>}
-      <p className="mt-4 text-sm text-slate-600">
-        Mastery {fb.masteryBefore} → <span className="font-semibold text-brand-navy">{fb.masteryAfter}</span>{fb.xp > 0 ? `, +${fb.xp} XP` : ""}
+      {/* Nov 2026 fix #4: encouragement toward full credit, not an accusation of guessing */}
+      {fb.rapidGuess && <p className="mt-3 text-slate-700">That was fast! A few more careful answers like this one and fast, correct answers here will earn full credit too.</p>}
+      {/* Nov 2026 (second indicator): points and mastery are two different signals, shown separately so a point
+          earned on a fast-but-unproven answer (never zero any more) never reads as the mastery bar itself moving. */}
+      {fb.xp > 0 && (
+        <p data-testid="xp-earned" className="mt-4 flex items-center gap-1.5 text-sm font-semibold text-amber-700">
+          <span aria-hidden="true">🪙</span> +{fb.xp} {fb.xp === 1 ? "point" : "points"}
+        </p>
+      )}
+      <p className="mt-1 text-sm text-slate-600">
+        Mastery {fb.masteryBefore} → <span className="font-semibold text-brand-navy">{fb.masteryAfter}</span>
       </p>
     </section>
     </>

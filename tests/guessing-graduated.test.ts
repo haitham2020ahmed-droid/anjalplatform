@@ -79,7 +79,10 @@ describe("guessing in practice", () => {
     }
   });
 
-  test("a rapid guess counts for nothing: no count, no ability, no mastery, no coins — only logged", async () => {
+  // Nov 2026 fix #3 (guessing.ts#inGraceWindow): the first few attempts EVER on a skill get a short grace window,
+  // so this scenario's fast SECOND answer must fall below GRACE_FLOOR_MS (not just under the flat 3 s default) to
+  // still be treated as a genuine guess here — a slower-but-still-"fast" answer this early would now be graced.
+  test("a rapid guess counts for nothing toward mastery/ability/accuracy — only a small participation coin, logged", async () => {
     const me = kids[0];
     const { assignmentId } = await assignSkill(repo, teacher, { source: "CURRICULUM", classId, skillId, studentIds: [me.studentId!] }, tick(0));
     let v: PracticeView = await startPractice(repo, me, skillId, tick(0));
@@ -87,16 +90,18 @@ describe("guessing in practice", () => {
     let r = await submitAnswer(repo, me, { sessionId: v.sessionId, questionId: v.question!.questionId, response: "A" }, tick());
     v = r.view;
     const before = { ability: await repo.findUnique("StudentAbility", { studentId: me.studentId, scope: `SKILL:${skillId}` }), mastery: await repo.findUnique("StudentSkillMastery", { studentId: me.studentId, skillId }), xp: await repo.count("XpEvent", { studentId: me.studentId }), row: (await repo.findMany("AssignmentStudent", { assignmentId, studentId: me.studentId }))[0] };
-    // a correct answer in 1 second
-    r = await submitAnswer(repo, me, { sessionId: v.sessionId, questionId: v.question!.questionId, response: "A" }, tick(1000));
+    // a correct answer in 500ms: an instant click, below the grace floor too — a genuine guess
+    r = await submitAnswer(repo, me, { sessionId: v.sessionId, questionId: v.question!.questionId, response: "A" }, tick(500));
     assert.equal(r.feedback.rapidGuess, true);
-    assert.equal(r.feedback.xp, 0, "no coins");
+    // Nov 2026 fix #4: never a flat zero for a correct answer any more — a small participation credit, well short
+    // of the full reward, so the student's own coin count still visibly moves.
+    assert.equal(r.feedback.xp, 1, "a small participation coin, not the full reward");
     assert.equal(r.feedback.guess ?? null, null, "one guess: only logged");
     assert.equal(r.feedback.masteryAfter, r.feedback.masteryBefore, "mastery unchanged");
     const after = { ability: await repo.findUnique("StudentAbility", { studentId: me.studentId, scope: `SKILL:${skillId}` }), mastery: await repo.findUnique("StudentSkillMastery", { studentId: me.studentId, skillId }), xp: await repo.count("XpEvent", { studentId: me.studentId }), row: (await repo.findMany("AssignmentStudent", { assignmentId, studentId: me.studentId }))[0] };
     assert.equal(Number(after.ability!.theta), Number(before.ability!.theta), "ability unchanged");
     assert.deepEqual([Number(after.mastery!.score), Number(after.mastery!.attempts)], [Number(before.mastery!.score), Number(before.mastery!.attempts)], "mastery and its counts unchanged");
-    assert.equal(after.xp, before.xp);
+    assert.equal(after.xp, before.xp + 1, "the one small participation coin, logged as its own event");
     assert.deepEqual([Number(after.row.coreAnswered), Number(after.row.coreCorrect)], [1, 1], "the 30/50 count and accuracy skip it");
     const att = (await repo.findMany("QuestionAttempt", { sessionId: v.sessionId }, { orderBy: [{ field: "id", dir: "asc" }] }));
     assert.deepEqual(att.map((a) => Boolean(a.rapidGuess)), [false, true], "logged on the attempt");

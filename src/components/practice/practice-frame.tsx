@@ -74,12 +74,14 @@ export function PracticeFrame(props: {
             <span className="rounded-full bg-rose-100 px-2.5 py-0.5 font-semibold text-rose-900">✗ {Math.max(0, view.answered - view.correct)} wrong</span>
             <span className="text-slate-500">{view.answered} answered</span>
           </p>
-          {/* r## (owner: "53 answered and it never stopped"): answered fast ones count for nothing toward the 30/50
-              rule, accuracy or mastery — only explained here when it actually happens, so the number above never
-              looks stuck for no reason */}
+          {/* r## (owner: "53 answered and it never stopped"): answered fast ones count for nothing toward mastery —
+              only explained here when it actually happens, so the number above never looks stuck for no reason.
+              Nov 2026 fix #4: worded as encouragement toward full credit, not as an accusation of guessing. */}
           {view.guessCount > 0 && (
             <p data-testid="guess-note" className="mt-1 text-xs text-slate-400">
-              {view.guessCount === 1 ? "1 answer was too fast to count." : `${view.guessCount} answers were too fast to count.`}
+              {view.guessCount === 1
+                ? "1 answer was too fast to count toward mastery yet — a few more careful ones here and fast, correct answers will count fully too."
+                : `${view.guessCount} answers were too fast to count toward mastery yet — a few more careful ones here and fast, correct answers will count fully too.`}
             </p>
           )}
           {/* assigned work: Done once it is Done (r67, no pressure: no "question 23 of 50" — the bar beside shows how

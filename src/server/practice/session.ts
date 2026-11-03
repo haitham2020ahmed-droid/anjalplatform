@@ -34,7 +34,7 @@ import { answerTexts, attemptMisconception, correctAnswerText, loadQuestionItems
 import { refreshAfterAnswer, refreshQuestionSets } from "../teacher/assign";
 import { allowedQuestions, answerState, keyed, withAnswer, type Allowed, type AnswerState, type KeyedQuestion } from "./no-repeat";
 import { ASSIGNMENT_MAX_QUESTIONS, ASSIGNMENT_MIN_QUESTIONS, assignedSkillAccess, coreCountsOf, countCoreAnswer, isFinishReason, skillStarNow, reviewKeyOf, REVIEW_WORK_QUESTIONS, lastPickedWorkFor, markDone, openWorkFor, workProgressOf, type DoneBy, type WorkProgress } from "./completion";
-import { correctOnNewText, effortFromCounts, guessResponse, isFluentAnswer, isPassageSkill, newTextStar, isRapidGuess as isRapidAnswer, itemTimeStats, notifyGuessPause, seenPassages, SLOW_DOWN_MS, type GuessAction } from "./guessing";
+import { correctOnNewText, effortFromCounts, GENERAL_FLUENCY_DAYS, guessResponse, inGraceWindow, isFluentAnswer, isGenerallyFluentStudent, isPassageSkill, newTextStar, isRapidGuess as isRapidAnswer, itemTimeStats, notifyGuessPause, PARTICIPATION_XP, seenPassages, SLOW_DOWN_MS, type GuessAction } from "./guessing";
 
 /** Nov 2026 ("أسئلة سهلة"): the question's own text (stem + its options), used to scale the rapid-guess threshold
  * to a short standalone question instead of the flat default — see rapidGuessThresholdMs in guessing.ts. */
@@ -201,6 +201,17 @@ async function skillHistory(repo: Repo, studentId: string, skillId: string, item
   // only the latest HISTORY_WINDOW answers (bank answers with their source weight + evidence from ReadRise, writing,
   // Respond to Reading and word reviews: src/server/practice/skill-evidence.ts), oldest → newest
   return skillHistoryWithEvidence(repo, studentId, skillId, items, HISTORY_WINDOW);
+}
+
+/** Nov 2026 fix #2: the student's recent careful (non-guess) answers ACROSS EVERY SKILL, newest first — feeds
+ * isGenerallyFluentStudent (guessing.ts) when the skill being practised has no track record of its own yet. */
+async function generalCarefulRecord(repo: Repo, studentId: string, now: Date): Promise<boolean[]> {
+  const rows = await repo.findMany(
+    "QuestionAttempt",
+    { studentId, rapidGuess: false, createdAt: { gte: new Date(now.getTime() - GENERAL_FLUENCY_DAYS * 86_400_000) } },
+    { select: ["isCorrect"], orderBy: [{ field: "createdAt", dir: "desc" }], take: 200 },
+  );
+  return rows.map((r) => Boolean(r.isCorrect));
 }
 
 /** A prerequisite routed to from a skill is not routed to again within this many hours (the detour and the return). */
@@ -563,7 +574,7 @@ async function submitAnswerUnlocked(
   const misconception = correct ? null : attemptMisconception(item, response);
 
   const linkedAssignment = s.assignmentId ? String(s.assignmentId) : null;
-  const [history, ability, prerequisites, sessionRows, prevMastery, repeatedBefore, stateBefore, workRows, itemStats] = await Promise.all([
+  const [history, ability, prerequisites, sessionRows, prevMastery, repeatedBefore, stateBefore, workRows, itemStats, generalRecord] = await Promise.all([
     skillHistory(repo, studentId, skillId, byId),
     abilityOf(repo, studentId, skillId, cfg.adaptive),
     prerequisitesFor(repo, studentId, skillId, now),
@@ -577,6 +588,8 @@ async function submitAnswerUnlocked(
     linkedAssignment ? repo.findMany("AssignmentStudent", { assignmentId: linkedAssignment, studentId }) : Promise.resolve([] as Row[]),
     // 🎲 the question's own careful answering time (kept in memory): its rapid-guess threshold once it has 20+
     itemTimeStats(repo, item.questionId, now.getTime()),
+    // Nov 2026 fix #2: the student's general track record (every skill), for a skill with none of its own yet
+    generalCarefulRecord(repo, studentId, now),
   ]);
   const workRow = workRows[0] ?? null;
   // a row from before the stored counts has none yet: its first answers are counted once (two reads)
@@ -596,7 +609,16 @@ async function submitAnswerUnlocked(
   // flag, and the graduated slow-down/pause response — treats a fluent answer exactly like any other normal one,
   // the same way a true rapid guess still does everywhere it always did.
   const fluent = rawRapid && correct && isFluentAnswer(history.filter((h) => !h.rapid).slice(-20).map((h) => h.correct));
-  const rapid = rawRapid && !fluent;
+  // Nov 2026 fix #2 ("نفس المشكلة... مفيش تاريخ على المهارة دي"): `fluent` above only ever looks at the student's
+  // track record on THIS skill, so a skill they just started can never be exempted this way. `generallyFluent`
+  // stands in with a broader, stricter check (every skill, last two weeks) when this skill has nothing to go on.
+  const generallyFluent = rawRapid && correct && !fluent && isGenerallyFluentStudent(generalRecord);
+  // Nov 2026 fix #3 ("اول مرة يفتح مهارة... مفيش له تاريخ اصلا"): both checks above need an existing track record
+  // before they can exempt anything, so a student with NO history anywhere yet gets neither. `graceOk` is a
+  // short, one-time grace window on each skill (by stored history, so leaving and reopening the skill cannot
+  // "reset" it) that closes that gap for the first few attempts ever on it.
+  const graceOk = rawRapid && correct && !fluent && !generallyFluent && inGraceWindow(history.length, responseMs);
+  const rapid = rawRapid && !fluent && !generallyFluent && !graceOk;
   const evidence: ResponseEvidence = {
     itemId: item.questionId, correct, credit: credit > 0 && credit < 1 ? credit : undefined, level: item.level,
     a: item.irt.a, b: item.irt.b, c: item.irt.c, responseMs, estimatedSeconds: item.estimatedSeconds, usedHint, at: now.toISOString(),
@@ -677,7 +699,10 @@ async function submitAnswerUnlocked(
     masteredAt: mst.isMastered ? (prevMastery?.masteredAt ?? now) : null, lastPracticedAt: now, components: mst.components,
     ...nextReview(prevMastery, mst.isMastered, correct, now),
   };
-  const xp = rapid ? 0 : step.xp;
+  // Nov 2026 fix #4 ("كل مجهوده راح فاضي"): a rapid guess still earns nothing toward mastery/ability (unchanged
+  // above), but a CORRECT rapid answer is never flat zero any more either — a small participation credit (never
+  // the full reward) keeps the student's points moving while none of the fluency checks can vouch for it yet.
+  const xp = rapid ? (correct ? PARTICIPATION_XP : 0) : step.xp;
   // 🏅 M7 fix: the practice-feedback card must not show "Mastered"/a 100% score before the dashboards would (My
   // Skills/My Work/teacher views all gate the ⭐ MASTERED status on STAR_MIN_ANSWERS answered — status.ts#decideStatus).
   // This caps only what's SHOWN to the student here; mst/masteryData (XP, celebration, the stored row) are untouched.
