@@ -164,6 +164,10 @@ describe("🔎 the shared search rules", () => {
     const k = { name: "Character Traits & Development", names: ["Character Traits & Development", "Character Growth"] };
     for (const q of ["character traits and development", "CHARACTER TRAITS & DEVELOPMENT", "  character   traits ", "char dev", "growth", "Character Growth"]) assert.ok(skillMatches(k, q), q);
     assert.ok(!skillMatches(k, "theme"));
+    // teachers' other word for the skill family (SKILL_SEARCH_ALIASES): "Characterization" finds it in every grade
+    for (const g of [4, 5, 6]) for (const q of ["Characterization", "characterization", "direct and indirect characterization", "charac"])
+      assert.ok(skillMatches({ name: "Character Traits & Development", code: `G${g}.character` }, q), `${g} ${q}`);
+    assert.ok(!skillMatches({ name: "Theme", code: "G5.theme" }, "Characterization"));
     assert.ok(skillMatches({ name: "Author's Purpose" }, "author’s purpose"));
     assert.ok(skillMatches({ name: "Author’s Purpose" }, "authors purpose"));
     assert.equal(skillSearchKey("Author’s  Purpose & Point-of-View"), "authors purpose and point of view");

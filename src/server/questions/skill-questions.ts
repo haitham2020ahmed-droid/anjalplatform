@@ -34,15 +34,7 @@ const MAX_TAKE = 1000;
 export type SkillQuestionStatus = "PUBLISHED" | "DRAFT" | "UNDER_REVIEW" | "ARCHIVED" | "ANY";
 /** Below = levels 1–3, On = 4, Above = 5–6 (the platform's three practice levels), or exact difficulty levels. */
 export type SkillLevel = "BELOW" | "ON" | "ABOVE" | number | number[];
-export interface SkillQuestionOpts {
-  level?: SkillLevel; status?: SkillQuestionStatus; take?: number; skip?: number;
-  /** 🔁 fix (Oct 2026, "فلتر مش شغال... اخترت كذا درس ما ظهرش"): by default this excludes a question already tied
-   * to a Curriculum Map lesson ("stays with its lesson" — kept for callers like the Assessments test builder, which
-   * already offers Curriculum Map questions through a separate source and would otherwise list the same question
-   * twice). Pass true to include those too — for a caller (like the Review Builder's "Language" tab) that has no
-   * such separate source of its own, excluding them left most skills looking empty. */
-  includeMapLinked?: boolean;
-}
+export interface SkillQuestionOpts { level?: SkillLevel; status?: SkillQuestionStatus; take?: number; skip?: number }
 export interface SkillQuestion { id: string; skillId: string; difficultyLevel: number; typeId: string; standardId: string | null; passageId: string | null; status: string }
 
 export const LEVEL_OF = (d: number): "BELOW" | "ON" | "ABOVE" => (d <= 3 ? "BELOW" : d === 4 ? "ON" : "ABOVE");
@@ -260,8 +252,8 @@ export async function questionsOfSkill(repo: Repo, schoolId: string, skillId: st
   const fam = await familyIdsInSchool(repo, schoolId, skillId);
   if (!fam.length) return [];
   const take = Math.max(1, Math.min(MAX_TAKE, Math.floor(opts.take ?? 200)));
-  // the bank only (Curriculum Map questions stay with their lesson) — unless the caller asked for both (includeMapLinked)
-  const onMap = opts.includeMapLinked ? [] : [...(await mapLinkedQuestionIds(repo))];
+  // the bank only (Curriculum Map questions stay with their lesson)
+  const onMap = [...(await mapLinkedQuestionIds(repo))];
   const rows = await repo.findMany("Question", { skillId: fam.length === 1 ? fam[0] : { in: fam }, ...statusWhere(opts.status), ...levelWhere(opts.level), ...(onMap.length ? { id: { notIn: onMap } } : {}) }, {
     select: ["id", "skillId", "difficultyLevel", "typeId", "standardId", "passageId", "status"],
     orderBy: [{ field: "difficultyLevel", dir: "asc" }, { field: "id", dir: "asc" }], take, ...(opts.skip ? { skip: Math.max(0, Math.floor(opts.skip)) } : {}),
@@ -422,12 +414,7 @@ export async function questionsOfNafsArea(repo: Repo, schoolId: string, areaCode
 // ------------------------------------------------------------------ search: the skills a query names
 
 /** Teachers' words for the same skill (shared with the search page). */
-export const SKILL_SYNONYMS: [string, string][] = [["main inference", "make inferences"], ["main idea", "central idea"], ["central idea", "main idea"], ["inferences", "make inferences"], ["inference", "make inferences"], ["context clues", "word meaning"], ["text features", "text structure"], ["author's purpose", "point of view"], ["cause and effect", "text structure"], ["compare and contrast", "text structure"], ["capital letters", "capitalization"], ["capitalization", "capital letters"], ["vocab", "vocabulary"], ["grammar", "usage"],
-  // Nov 2026 fix ("لو قلت theme في حاجات تظهر وحاجات لا"): "theme" only matched a skill literally named with that
-  // word, missing a skill that teaches the same idea under a different name (e.g. Author's Message). These two
-  // synonym pairs make "theme" and "author's message" (or "message") find each other, the same way "main idea" and
-  // "central idea" already do above.
-  ["theme", "author's message"], ["author's message", "theme"], ["message", "author's message"]];
+export const SKILL_SYNONYMS: [string, string][] = [["main inference", "make inferences"], ["main idea", "central idea"], ["central idea", "main idea"], ["inferences", "make inferences"], ["inference", "make inferences"], ["context clues", "word meaning"], ["text features", "text structure"], ["author's purpose", "point of view"], ["cause and effect", "text structure"], ["compare and contrast", "text structure"], ["capital letters", "capitalization"], ["capitalization", "capital letters"], ["vocab", "vocabulary"], ["grammar", "usage"], ["characterization", "character traits"], ["characterisation", "character traits"]];
 
 export interface SkillMatch {
   id: string; name: string; grade: number; questions: number; map: AreaRef | null; nafs: AreaRef | null;
@@ -464,15 +451,10 @@ export async function skillsMatching(repo: Repo, schoolId: string, q: string, op
       const kw = new Set([...words(k.name), ...words(k.code.replace(/^g\d+\./i, "").replace(/[-_.]/g, " "))].map(stemW));
       return qws.some((qw) => qw.length > 0 && qw.every((w) => kw.has(w) || [...kw].some((x) => x.startsWith(w) && w.length >= 3)));
     });
-    // the whole bank: the skills of questions whose text has the words (bounded, ids only). Nov 2026 fix ("البحث
-    // بطيء جدا"): this used to scan EVERY question's stem on the whole server with an unindexed "contains" — slow,
-    // and it could only ever get faster as the question bank grew. Scoping it to skillId IN (this school's own
-    // skills, already known from idx — schoolSkillIndex above) first lets the database use the normal skillId
-    // index to shrink the row set before it has to look at any text, so the contains scan only ever runs over
-    // this school's own questions, not the whole platform's.
+    // the whole bank: the skills of questions whose text has the words (bounded, ids only)
     if (hit.length < 12) {
       const seen = new Set(hit.map((k) => k.id));
-      const rows = await repo.findMany("Question", { skillId: { in: [...idx.skillOf.keys()] }, stem: { contains: s(q).trim().slice(0, 80) }, deletedAt: null, ...statusWhere(opts.status) }, { select: ["skillId"], take: 400 }).catch(() => [] as Row[]);
+      const rows = await repo.findMany("Question", { stem: { contains: s(q).trim().slice(0, 80) }, deletedAt: null, ...statusWhere(opts.status) }, { select: ["skillId"], take: 400 }).catch(() => [] as Row[]);
       const byFamily = new Set(hit.map((k) => idx.keyOf.get(k.id)));
       for (const r of rows) {
         const k = idx.skillOf.get(s(r.skillId));
@@ -497,9 +479,7 @@ export async function skillsMatching(repo: Repo, schoolId: string, q: string, op
   return reps.map((k) => {
     const familyKey = idx.keyOf.get(k.id)!;
     return { id: k.id, name: k.name, grade: k.grade, questions: counts.get(k.id) ?? 0, map: areas.get(k.id)?.map ?? null, nafs: areas.get(k.id)?.nafs ?? null, familyKey, familySkillIds: [...(idx.members.get(familyKey) ?? [k.id])] };
-  // Nov 2026 fix ("خلي كل شي يظهر"): no hard cap here any more — every matching skill is returned; the caller
-  // (findSkillFamilies, home.ts) used to cut this list to 12 too, and now shows the whole thing with a scrollbar.
-  }).sort((a, b) => a.grade - b.grade || a.name.localeCompare(b.name));
+  }).sort((a, b) => a.grade - b.grade || a.name.localeCompare(b.name)).slice(0, 30);
 }
 
 // ------------------------------------------------------------------ chosen questions or the automatic pool
