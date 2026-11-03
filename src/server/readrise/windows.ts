@@ -13,6 +13,7 @@
  */
 import type { Repo, Row } from "../seeding/repo";
 import { isoDay, loadCycle, plusDays, type Window } from "../assessment-cycle/cycle";
+import { riyadhDay } from "./engine";
 
 export type RRPeriod = "BOY" | "MOY" | "EOY";
 export const RR_PERIODS: RRPeriod[] = ["BOY", "MOY", "EOY"];
@@ -23,6 +24,9 @@ export const END_WEEKS = 6;
 export interface RRWindows { yearStart: string; yearEnd: string; BOY: Window; MOY: Window; EOY: Window }
 
 const d = (v: unknown): Date => (v instanceof Date ? v : new Date(String(v)));
+/** round 4: a MOMENT's day is the school's (Riyadh) day — 22:00 UTC is already the next day in Riyadh. Calendar dates
+ * stored as UTC midnight (year / term dates) keep isoDay. */
+const dayOf = (at: Date): string => riyadhDay(at);
 
 /** The three windows from the year's dates (yyyy-mm-dd). `endOpens` defaults to the last END_WEEKS weeks. Pure. */
 export function readRiseWindows(input: { yearStart: string; yearEnd: string; midOpens?: string | null; endOpens?: string | null }): RRWindows {
@@ -42,7 +46,7 @@ export function readRiseWindows(input: { yearStart: string; yearEnd: string; mid
 
 /** The period a moment falls in (before the year: BOY; after it: EOY). Pure. */
 export function periodOf(w: RRWindows, at: Date): RRPeriod {
-  const t = isoDay(at);
+  const t = dayOf(at);
   return t >= w.EOY.opens ? "EOY" : t >= w.MOY.opens ? "MOY" : "BOY";
 }
 
@@ -55,9 +59,9 @@ export function dueCheck(w: RRWindows, now: Date, completed: Date[]): RRPeriod |
   if (!completed.length) return null;
   const p = periodOf(w, now);
   if (p === "BOY") return null;
-  const t = isoDay(now);
+  const t = dayOf(now);
   if (t < w[p].opens || t > w[p].closes) return null;
-  return completed.some((c) => isoDay(c) >= w[p].opens) ? null : p;
+  return completed.some((c) => dayOf(c) >= w[p].opens) ? null : p;
 }
 
 /**
@@ -67,7 +71,7 @@ export function dueCheck(w: RRWindows, now: Date, completed: Date[]): RRPeriod |
 export function placementChecks(w: RRWindows, rows: readonly Row[]): Record<RRPeriod, { level: number; at: string } | null> {
   const out: Record<RRPeriod, { level: number; at: string } | null> = { BOY: null, MOY: null, EOY: null };
   const from = plusDays(w.yearStart, -60);
-  const done = rows.filter((r) => r.completedAt && r.result !== null && r.result !== undefined && isoDay(d(r.completedAt)) >= from)
+  const done = rows.filter((r) => r.completedAt && r.result !== null && r.result !== undefined && dayOf(d(r.completedAt)) >= from)
     .sort((a, b) => d(a.completedAt).getTime() - d(b.completedAt).getTime());
   for (const r of done) {
     const p = (RR_PERIODS as string[]).includes(String(r.period)) ? (String(r.period) as RRPeriod) : periodOf(w, d(r.completedAt));

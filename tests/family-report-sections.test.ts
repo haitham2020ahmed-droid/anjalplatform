@@ -105,7 +105,9 @@ describe("👪 Family report: Writing, ReadRise, Fluency Coach plan — friendly
     assert.match(f[0], /^Goal: read \d+ words correctly per minute by \d{1,2} [A-Z][a-z]{2}\.$/);
     assert.match(f.join("\n"), /Progress: from 70 to 76 words correctly per minute/);
     assert.equal(f.filter((x) => x.startsWith("At home: ")).length, 2);
-    assert.match(sec("Reading fluency")!.lines[0], /76 words correct per minute \(.*\) · Growing toward the grade goal\./);
+    // r4: "Reading fluency" = the newest OFFICIAL check (76) judged by the norms of its own date (76 ≥ the 25th
+    // percentile → meeting), no longer the level copied on a practice row
+    assert.match(sec("Reading fluency")!.lines[0], /76 words correct per minute \(.*\) · Meeting the grade goal\./);
   });
 
   test("no Below / On level / Above / Tier wording in any family-facing report; the approval flow is unchanged", async () => {

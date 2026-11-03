@@ -119,12 +119,13 @@ describe("📉📈 ReadRise level rules", () => {
       await read(repo, s, arts[1], 0, at(1, 1));
       assert.equal(await lvl(s), 200, "stays at the floor (no change row)");
       assert.equal((await reasons(s)).filter((x) => x.startsWith("Down")).length, 1);
-      await setLevelByTeacher(repo, teacher, s.studentId!, 800, "", at(2));
+      // round 4: a stretch needs a NEW question band — 1000 (MID) stretches to 1100 (HIGH); 800 → 900 (MID → MID) is refused
+      await setLevelByTeacher(repo, teacher, s.studentId!, 1000, "", at(2));
       await read(repo, s, arts[2], 8, at(2, 1));
       await read(repo, s, arts[2], 0, at(2, 2), true); // stretch at 0%
-      assert.equal(await lvl(s), 800, "a stretch never lowers the level");
+      assert.equal(await lvl(s), 1000, "a stretch never lowers the level");
       await read(repo, s, arts[2], 0, at(2, 3)); // a re-read at 0%
-      assert.equal(await lvl(s), 800, "a re-read never counts");
+      assert.equal(await lvl(s), 1000, "a re-read never counts");
       await afterResponseSettled();
     });
   });

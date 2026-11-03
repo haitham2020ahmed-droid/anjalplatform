@@ -15,7 +15,7 @@ import { effortFromCounts } from "../practice/guessing";
 import type { Repo } from "../seeding/repo";
 import { isHiddenSkill } from "../skills/master";
 import { skillKeyIndex } from "../skills/status";
-import { loadAnswers, riyadhRange, STAR_SOURCES, type AnswerSource } from "./practice";
+import { loadAnswers, riyadhDay, riyadhRange, STAR_SOURCES, type AnswerSource } from "./practice";
 
 const s = (v: unknown) => (v === null || v === undefined ? "" : String(v));
 const pct = (a: number, b: number) => (b ? Math.round((100 * a) / b) : null);
@@ -42,11 +42,17 @@ export interface PracticeTotals {
   bySource: Record<AnswerSource, number>;
   /** the last answer (ms since epoch), null when none */
   lastAt: number | null;
+  /** days active: distinct Riyadh days with an answer of the chosen sources (round 4, same pass) */
+  activeDays: number;
+  /** the shared skill KEYS practised (round 4: a group's distinct skills = the union of these) */
+  skillKeys: string[];
+  /** with `bucket`: the counts per bucket (e.g. per week), the same rules */
+  buckets?: Record<string, { questions: number; correct: number; careful: number; minutes: number }>;
 }
 
 export const emptyTotals = (): PracticeTotals => ({
   questions: 0, correct: 0, careful: 0, accuracy: null, minutes: 0, untimed: 0, effort: null, skills: 0,
-  bySource: { PRACTICE: 0, NAFS: 0, READRISE: 0, TESTS: 0, OTHER: 0 }, lastAt: null,
+  bySource: { PRACTICE: 0, NAFS: 0, READRISE: 0, TESTS: 0, OTHER: 0 }, lastAt: null, activeDays: 0, skillKeys: [],
 });
 
 /**
@@ -56,7 +62,7 @@ export const emptyTotals = (): PracticeTotals => ({
  */
 export async function practiceTotals(
   repo: Repo, studentIds: readonly string[], from: Date, to: Date,
-  opts: { schoolId?: string | null; sources?: readonly AnswerSource[]; days?: boolean } = {},
+  opts: { schoolId?: string | null; sources?: readonly AnswerSource[]; days?: boolean; bucket?: (at: number) => string | null } = {},
 ): Promise<Map<string, PracticeTotals>> {
   // a report period (calendar days, as periods.ts gives them) = the same days in Riyadh time, exactly as Practice and time
   if (opts.days) ({ from, to } = riyadhRange(from, to));
@@ -76,7 +82,7 @@ export async function practiceTotals(
     for (let j = 0; j < unknown.length; j += 500) {
       for (const k of await repo.findMany("Skill", { id: { in: unknown.slice(j, j + 500) } }, { select: ["id", "code"] })) hiddenOf.set(s(k.id), isHiddenSkill(s(k.code)));
     }
-    const ms = new Map<string, number>(), keys = new Map<string, Set<string>>();
+    const ms = new Map<string, number>(), keys = new Map<string, Set<string>>(), dayset = new Map<string, Set<string>>();
     for (const a of answers) {
       if (!a.skillId || hiddenOf.get(a.skillId)) continue;
       const tot = out.get(a.studentId);
@@ -87,13 +93,22 @@ export async function practiceTotals(
       if (!a.rapid) { tot.careful++; if (a.correct) tot.correct++; }
       if (a.ms === null) tot.untimed++; else ms.set(a.studentId, (ms.get(a.studentId) ?? 0) + a.ms);
       const k = keys.get(a.studentId) ?? new Set<string>(); k.add(keyOf(a.skillId)); keys.set(a.studentId, k);
+      const d = dayset.get(a.studentId) ?? new Set<string>(); d.add(riyadhDay(a.at)); dayset.set(a.studentId, d);
       if (tot.lastAt === null || a.at > tot.lastAt) tot.lastAt = a.at;
+      const b = opts.bucket?.(a.at);
+      if (b !== undefined && b !== null) {
+        const x = ((tot.buckets ??= {})[b] ??= { questions: 0, correct: 0, careful: 0, minutes: 0 });
+        x.questions++; if (!a.rapid) { x.careful++; if (a.correct) x.correct++; } x.minutes += (a.ms ?? 0) / 60_000;
+      }
     }
     for (const id of ids.slice(i, i + PART)) {
       const tot = out.get(id)!;
       tot.accuracy = pct(tot.correct, tot.careful);
       tot.minutes = Math.round((ms.get(id) ?? 0) / 60_000);
       tot.skills = keys.get(id)?.size ?? 0;
+      tot.skillKeys = [...(keys.get(id) ?? [])];
+      tot.activeDays = dayset.get(id)?.size ?? 0;
+      if (tot.buckets) for (const x of Object.values(tot.buckets)) x.minutes = Math.round(x.minutes);
       tot.effort = effortFromCounts(tot.questions, tot.questions - tot.careful).effort;
     }
   }
@@ -101,6 +116,6 @@ export async function practiceTotals(
 }
 
 /** One student's totals (see practiceTotals). */
-export async function practiceTotalsFor(repo: Repo, studentId: string, from: Date, to: Date, opts: { schoolId?: string | null; sources?: readonly AnswerSource[]; days?: boolean } = {}): Promise<PracticeTotals> {
+export async function practiceTotalsFor(repo: Repo, studentId: string, from: Date, to: Date, opts: { schoolId?: string | null; sources?: readonly AnswerSource[]; days?: boolean; bucket?: (at: number) => string | null } = {}): Promise<PracticeTotals> {
   return (await practiceTotals(repo, [studentId], from, to, opts)).get(studentId) ?? emptyTotals();
 }

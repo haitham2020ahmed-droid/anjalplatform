@@ -3,14 +3,15 @@
  *   - no practice in NO_PRACTICE_DAYS days or more (or never practised)
  *   - stuck on a skill: ⭐ stars only (owner, 1 Nov 2026) — the skill's star is ◐ In progress with STUCK_QUESTIONS+
  *     practice answers and a star score still under STUCK_SCORE; one row per skill KEY, never a skill with ⭐
- *     (and 🔄 is already in the star list). The engine table is read only for "last practised".
+ *     (and 🔄 is already in the star list). "Last practised" = the last answer of any source (practiceStats).
  * Plus the home's three small numbers: my students, work sent this week, needs attention.
- * Bounded: the teacher's classes, their students' mastery rows, the week's assignments. Own classes only.
+ * Bounded: the teacher's classes, their students' last 30 days of answers (25 at a time), the week's assignments.
+ * Own classes only.
  */
 import type { Actor } from "../auth/rbac";
 import type { Repo, Row } from "../seeding/repo";
 import { accessibleClasses } from "./assign";
-import { studentNames } from "../insights/student-data";
+import { practiceStats, studentNames } from "../insights/student-data";
 import { isHiddenSkill } from "../skills/master";
 import { starAttention, type StarAttention } from "../skills/status-extras";
 import { starBook, starLearning } from "../skills/star-read";
@@ -24,12 +25,6 @@ export const STUCK_SCORE = 50;
 
 const s = (v: unknown) => (v === null || v === undefined ? "" : String(v));
 const time = (v: unknown) => (v ? new Date(v instanceof Date ? v.toISOString() : String(v)).getTime() : 0);
-const CHUNK = 400;
-async function inChunks<T>(ids: string[], f: (part: string[]) => Promise<T[]>): Promise<T[]> {
-  const out: T[] = [];
-  for (let i = 0; i < ids.length; i += CHUNK) out.push(...(await f(ids.slice(i, i + CHUNK))));
-  return out;
-}
 
 export interface AttentionStudent {
   studentId: string; name: string; classId: string; className: string;
@@ -54,8 +49,10 @@ export async function teacherHomeSummary(repo: Repo, actor: Actor, now = new Dat
   const week = weekRows.filter((a) => ix.live(a)).length;
   const ids = [...new Set(members.map((m) => s(m.studentId)))];
   if (!ids.length) return { students: 0, workThisWeek: week, needsAttention: 0, list: [] };
-  const [mastery, names, starList, book] = await Promise.all([
-    inChunks(ids, (part) => repo.findMany("StudentSkillMastery", { studentId: { in: part }, lastPracticedAt: { not: null } }, { select: ["studentId", "lastPracticedAt"] })),
+  // 📏 round 4: last active = the last answer of ANY source (bank answers incl. tests, NAFS, ReadRise), as practiceStats
+  // gives it (the last 30 days read 25 students at a time; older: the last practised date) — not every engine row
+  const [practice, names, starList, book] = await Promise.all([
+    practiceStats(repo, ids, now, { recentOnly: true }),
     studentNames(repo, ids),
     safeIfBehind("home.stars", () => starAttention(repo, s(actor.schoolId ?? classes[0]?.schoolId), ids, now), [] as StarAttention[]),
     starBook(repo, ids, s(actor.schoolId ?? classes[0]?.schoolId)),
@@ -64,11 +61,7 @@ export async function teacherHomeSummary(repo: Repo, actor: Actor, now = new Dat
   for (const x of starList) starsOf.set(x.studentId, [...(starsOf.get(x.studentId) ?? []), x]);
   const last = new Map<string, number>();
   const stuckRows = new Map<string, { skillId: string; v: StarView }[]>();
-  for (const m of mastery) {
-    const id = s(m.studentId);
-    const t = time(m.lastPracticedAt);
-    if (t > (last.get(id) ?? 0)) last.set(id, t);
-  }
+  for (const id of ids) { const t = time(practice.get(id)?.lastActive); if (t) last.set(id, t); }
   // ⭐ stuck = ◐ with STUCK_QUESTIONS+ answers and a star score under STUCK_SCORE (one per key; never ⭐)
   for (const id of ids) for (const v of (book.byKey.get(id) ?? new Map<string, StarView>()).values()) {
     if (!starLearning(v) || v.answered < STUCK_QUESTIONS || v.score >= STUCK_SCORE) continue;

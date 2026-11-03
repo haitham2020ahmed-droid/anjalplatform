@@ -17,6 +17,14 @@
  *          and end windows a placed student may take it again ("Check your reading level"). A check sets the level
  *          (source PLACEMENT) but keeps the year's start (startLevel / placedAt), so growth runs start → middle → end;
  *          every finished test stores its period (RRPlacement.period).
+ *          Round 4 (owner): a check starts from the student's CURRENT ReadRise level (not the MAP / grade start) and
+ *          never shows a passage the student saw in an earlier placement test (testPool); when none is left at the
+ *          target level, the nearest unseen passage is used (placementPlan).
+ *  Rapid   round 4 (owner, the Diagnostic rule): every passage's answer time is recorded (the server's clock, and the
+ *          page's when it sends one — the smaller wins). A passage answered faster than its minimum reading time
+ *          (passageMinMs: at least 15 s, or a third of the passage's expected reading time when longer) does not
+ *          count (no move, no result); 2+ such passages make the test "Not valid — retake": it is closed with no
+ *          result (result null), the level is NOT changed, and the student can take it again at once.
  */
 import type { Repo, Row } from "../seeding/repo";
 import { ForbiddenError, type Actor } from "../auth/rbac";
@@ -24,6 +32,7 @@ import { ValidationError } from "../curriculum-admin";
 import { RR_MAX, RR_MIN } from "./level";
 import { loadPlacementPassages, type PlacementPassage } from "./content-loader";
 import { RETAKE_REASON, assertStaffForStudent, ensureRRStudent, initialLevel, latestMapLexile, recordLevelChange, s, toDate } from "./engine";
+import { firstAnswerThresholdMs } from "./accuracy";
 import { dueCheck, loadReadRiseWindows, periodOf, RR_PERIOD_NAME, type RRPeriod } from "./windows";
 import { alertMapGap } from "./accuracy";
 import { runAfterResponse } from "../lib/after-response";
@@ -50,7 +59,24 @@ export const PLACEMENT = { maxPassages: 8, minPassages: 5, reversals: 2, mapGap:
  */
 const TOP_TIER = 1200;
 const passBar = (level: number) => (level >= TOP_TIER ? 3 : 2);
-export interface PlacementStep { level: number; passageId: string; answers: string[]; correct: number }
+export interface PlacementStep {
+  level: number; passageId: string; answers: string[]; correct: number;
+  /** round 4: how long the passage + its questions took (ms), when it was recorded */
+  ms?: number;
+  /** round 4: answered faster than the passage's minimum reading time — the step does not count */
+  rapid?: boolean;
+  /** when it was answered (ISO) — the server's clock for the next passage's time */
+  at?: string;
+}
+/** round 4: this many rapid passages make the test "Not valid — retake" (the level is not changed) */
+export const PLACEMENT_RAPID_INVALID = 2;
+/** round 4: the shortest time a passage and its 3 questions can be read in */
+export const PLACEMENT_MIN_MS = 15_000;
+const wordsOf = (t: string) => t.trim().split(/\s+/).filter(Boolean).length;
+/** The minimum reading time of a placement passage (ms): 15 s, or a third of its expected reading time when longer. */
+export const passageMinMs = (text: string): number => Math.max(PLACEMENT_MIN_MS, firstAnswerThresholdMs(wordsOf(text)));
+/** The text shown for a placement test that was not valid. */
+export const PLACEMENT_INVALID_TEXT = "Not valid — retake";
 
 const clampP = (l: number) => Math.min(RR_MAX, Math.max(RR_MIN, l));
 const BIG: Record<number, number> = { 3: 200, 2: 100, 1: -100, 0: -200 };
@@ -62,14 +88,16 @@ export interface PlacementPlan { done: boolean; nextLevel: number | null; passag
 /** Where the test goes next from the steps so far (deterministic: the same steps always give the same passage). */
 export function placementPlan(startLevel: number, steps: PlacementStep[], passages: PlacementPassage[]): PlacementPlan {
   let level = clampP(startLevel), lastSign = 0, reversals = 0;
-  for (const st of steps) {
+  // round 4: a rapid passage does not count (no move); its passage is still never shown again
+  const counted = steps.filter((x) => !x.rapid);
+  for (const st of counted) {
     const big = BIG[Math.max(0, Math.min(3, st.correct))];
     const sign = Math.sign(big);
     if (lastSign && sign !== lastSign) reversals++;
     lastSign = sign;
     level = clampP(st.level + (reversals > 0 ? sign * 100 : big));
   }
-  if (steps.length >= PLACEMENT.maxPassages || (reversals >= PLACEMENT.reversals && steps.length >= PLACEMENT.minPassages)) return { done: true, nextLevel: null, passage: null, reversals };
+  if (counted.length >= PLACEMENT.maxPassages || (reversals >= PLACEMENT.reversals && counted.length >= PLACEMENT.minPassages)) return { done: true, nextLevel: null, passage: null, reversals };
   const used = new Set(steps.map((x) => x.passageId));
   const free = passages.filter((p) => !used.has(p.id));
   if (!free.length) return { done: true, nextLevel: null, passage: null, reversals };
@@ -79,7 +107,8 @@ export function placementPlan(startLevel: number, steps: PlacementStep[], passag
 }
 
 /** The placement result from the steps (before the MAP check). */
-export function placementResult(steps: PlacementStep[], startLevel: number): number {
+export function placementResult(all: PlacementStep[], startLevel: number): number {
+  const steps = all.filter((x) => !x.rapid); // round 4: a rapid passage does not count
   if (!steps.length) return clampP(Math.round(startLevel / 10) * 10);
   const by = new Map<number, { pass: number; fail: number }>();
   for (const st of steps) {
@@ -105,7 +134,25 @@ export function blendWithMap(result: number, mapLexile: number | null): { level:
 
 // ------------------------------------------------------------------ state
 
-const stepsOf = (p: Row): PlacementStep[] => (Array.isArray(p.steps) ? (p.steps as PlacementStep[]) : []);
+const stepsOf = (p: Row): PlacementStep[] => {
+  const v = typeof p.steps === "string" ? (() => { try { return JSON.parse(p.steps as string) as unknown; } catch { return []; } })() : p.steps;
+  return Array.isArray(v) ? (v as PlacementStep[]) : [];
+};
+/** a finished test with a result (a "Not valid" test is closed with result null) */
+const validDone = (r: Row) => !!r.completedAt && r.result !== null && r.result !== undefined;
+
+/**
+ * 🎯 Round 4: the passages a test may use — every passage minus the ones the student saw in any OTHER placement test
+ * (the same set for the whole test: earlier tests never change). When too few unseen passages are left for a test
+ * (under PLACEMENT.minPassages), all the passages are used rather than no test.
+ */
+export async function testPool(repo: Repo, p: Row, passages: PlacementPassage[]): Promise<PlacementPassage[]> {
+  const others = (await repo.findMany("RRPlacement", { studentId: s(p.studentId) }, { select: ["id", "steps"] })).filter((r) => s(r.id) !== s(p.id));
+  if (!others.length) return passages;
+  const seen = new Set(others.flatMap((r) => stepsOf(r).map((x) => s(x.passageId))));
+  const unseen = passages.filter((x) => !seen.has(x.id));
+  return unseen.length >= PLACEMENT.minPassages ? unseen : passages;
+}
 
 export interface PlacementStatus {
   open: Row | null; last: Row | null; canStart: boolean;
@@ -113,19 +160,24 @@ export interface PlacementStatus {
   retake: boolean;
   /** the reading check that is open now (middle / end of year), else null */
   due: RRPeriod | null;
+  /** round 4: the latest test was "Not valid" (too many fast answers): the student takes it again */
+  invalid?: boolean;
 }
 
 export async function placementStatus(repo: Repo, studentId: string, now = new Date()): Promise<PlacementStatus> {
   const rows = (await repo.findMany("RRPlacement", { studentId })).sort((a, b) => toDate(b.startedAt).getTime() - toDate(a.startedAt).getTime());
   const open = rows.find((r) => !r.completedAt) ?? null;
-  const last = rows.find((r) => r.completedAt) ?? null;
+  // round 4: a "Not valid" test (closed with no result) is not a placement: it never sets "last" or a check as done
+  const last = rows.find(validDone) ?? null;
+  const latest = rows.find((r) => r.completedAt) ?? null;
+  const invalid = !!latest && !validDone(latest);
   if (open) return { open, last, canStart: false, retake: false, due: null };
-  if (!last) return { open, last, canStart: true, retake: false, due: null };
+  if (!last) return { open, last, canStart: true, retake: false, due: null, invalid };
   const done = toDate(last.completedAt).getTime();
   const allowed = (await repo.findMany("RRLevelChange", { studentId })).some((c) => s(c.reason).startsWith(RETAKE_REASON) && toDate(c.createdAt).getTime() > done);
   // 🗓️ the middle / end of year reading check (windows.ts): open while its window is and it is not done yet
-  const due = allowed ? null : dueCheck(await loadReadRiseWindows(repo, s(last.schoolId), now), now, rows.filter((r) => r.completedAt).map((r) => toDate(r.completedAt)));
-  return { open, last, canStart: allowed || due !== null, retake: allowed, due };
+  const due = allowed ? null : dueCheck(await loadReadRiseWindows(repo, s(last.schoolId), now), now, rows.filter(validDone).map((r) => toDate(r.completedAt)));
+  return { open, last, canStart: allowed || due !== null, retake: allowed, due, invalid };
 }
 
 function student(actor: Actor): string {
@@ -140,16 +192,18 @@ export interface PlacementView {
   result: number | null; retake: boolean;
   /** owner r69: the middle / end of year reading check that is open (null: the first placement or a retake) */
   check?: RRPeriod | null;
+  /** round 4: the last test was "Not valid" (too many fast answers) — take it again */
+  invalid?: boolean;
 }
 
 /** What the student's placement page shows. Passages are injectable (tests). */
 export async function placementView(repo: Repo, actor: Actor, passages: PlacementPassage[] = loadPlacementPassages(), now = new Date()): Promise<PlacementView> {
   const studentId = student(actor);
   const st = await placementStatus(repo, studentId, now);
-  const base = { placementId: null, stepNumber: 0, maxSteps: PLACEMENT.maxPassages, passage: null, result: st.last ? Number(st.last.result) : null, retake: Boolean(st.last), check: st.due };
+  const base = { placementId: null, stepNumber: 0, maxSteps: PLACEMENT.maxPassages, passage: null, result: st.last ? Number(st.last.result) : null, retake: Boolean(st.last), check: st.due, invalid: Boolean(st.invalid) };
   if (st.open) {
     const steps = stepsOf(st.open);
-    const plan = placementPlan(Number(st.open.startLevel), steps, passages);
+    const plan = placementPlan(Number(st.open.startLevel), steps, await testPool(repo, st.open, passages));
     if (!plan.passage) {
       // the passages ran out (or the file changed) after some answers: finish with what we have
       if (plan.done && steps.length) {
@@ -160,7 +214,7 @@ export async function placementView(repo: Repo, actor: Actor, passages: Placemen
       return { ...base, state: "NOT_AVAILABLE", placementId: s(st.open.id) };
     }
     const p = plan.passage;
-    return { ...base, state: "IN_PROGRESS", placementId: s(st.open.id), stepNumber: steps.length + 1, passage: { id: p.id, title: p.title, text: p.text, questions: p.questions.map((q) => ({ stem: q.stem, options: q.options })) } };
+    return { ...base, invalid: false, state: "IN_PROGRESS", placementId: s(st.open.id), stepNumber: steps.length + 1, passage: { id: p.id, title: p.title, text: p.text, questions: p.questions.map((q) => ({ stem: q.stem, options: q.options })) } };
   }
   if (passages.length < 5) return { ...base, state: "NOT_AVAILABLE" };
   return { ...base, state: st.canStart ? "READY" : "DONE" };
@@ -172,34 +226,54 @@ export async function startPlacement(repo: Repo, actor: Actor, now = new Date())
   const st = await placementStatus(repo, studentId, now);
   if (st.open) return s(st.open.id);
   if (!st.canStart) throw new ValidationError("You already have a ReadRise Level. Your teacher can let you take the placement again.");
-  const init = await initialLevel(repo, studentId);
-  const row = await repo.create("RRPlacement", { studentId, schoolId: actor.schoolId, startLevel: init.level, steps: [], startedAt: now, period: st.due });
+  // round 4: a middle / end of year check starts from the CURRENT ReadRise level (the first test: MAP / grade start)
+  const startLevel = st.due ? Number((await ensureRRStudent(repo, studentId, now)).level) : (await initialLevel(repo, studentId)).level;
+  const row = await repo.create("RRPlacement", { studentId, schoolId: actor.schoolId, startLevel, steps: [], startedAt: now, period: st.due });
   return s(row.id);
 }
 
-export interface PlacementAnswer { done: boolean; correct: number; result: number | null; note: string | null }
+export interface PlacementAnswer {
+  done: boolean; correct: number; result: number | null; note: string | null;
+  /** round 4: 2+ passages answered too fast — the test is "Not valid — retake" and the level did not change */
+  invalid?: boolean;
+  /** round 4: this passage was answered too fast to count */
+  rapid?: boolean;
+}
 
 /** Scores one passage (3 answers A–D) and moves on; finishes the test when the rules say so. */
-export async function answerPlacement(repo: Repo, actor: Actor, placementId: string, passageId: string, answers: string[], passages: PlacementPassage[] = loadPlacementPassages(), now = new Date()): Promise<PlacementAnswer> {
+export async function answerPlacement(repo: Repo, actor: Actor, placementId: string, passageId: string, answers: string[], passages: PlacementPassage[] = loadPlacementPassages(), now = new Date(), timing: { ms?: number | null } = {}): Promise<PlacementAnswer> {
   const studentId = student(actor);
   const res = await repo.transaction(async (tx): Promise<PlacementAnswer> => {
     const p = await tx.findUnique("RRPlacement", { id: placementId });
     if (!p || p.studentId !== studentId) throw new ForbiddenError("Placement not found.");
     if (p.completedAt) throw new ValidationError("This placement is finished.");
     const steps = stepsOf(p);
-    const plan = placementPlan(Number(p.startLevel), steps, passages);
+    const pool = await testPool(tx, p, passages);
+    const plan = placementPlan(Number(p.startLevel), steps, pool);
     if (!plan.passage || plan.passage.id !== passageId) throw new ValidationError("This passage is no longer the current one. Reload the page.");
     const clean = answers.map((a) => String(a ?? "").trim().toUpperCase());
     if (clean.length !== 3 || clean.some((a) => !/^[ABCD]$/.test(a))) throw new ValidationError("Answer all 3 questions.");
     const correct = plan.passage.questions.filter((q, i) => q.answer === clean[i]).length;
-    const next = [...steps, { level: plan.passage.level, passageId, answers: clean, correct }];
+    // ⏱ round 4: the passage's time — the server's (since the last answer, else the test's start) and the page's
+    // when it sent one; the smaller wins (a page can never claim more time than the server saw)
+    const prevAt = steps.length && steps[steps.length - 1].at ? toDate(steps[steps.length - 1].at).getTime() : toDate(p.startedAt).getTime();
+    const serverMs = Number.isFinite(prevAt) ? Math.max(0, now.getTime() - prevAt) : null;
+    const pageMs = timing?.ms === null || timing?.ms === undefined || !Number.isFinite(Number(timing.ms)) ? null : Math.max(0, Number(timing.ms));
+    const ms = serverMs === null ? pageMs : pageMs === null ? serverMs : Math.min(serverMs, pageMs);
+    const rapid = ms !== null && ms < passageMinMs(plan.passage.text);
+    const next: PlacementStep[] = [...steps, { level: plan.passage.level, passageId, answers: clean, correct, ...(ms !== null ? { ms: Math.round(ms) } : {}), rapid, at: now.toISOString() }];
+    // 🚫 2+ rapid passages: "Not valid — retake" (the Diagnostic rule) — closed with NO result, the level unchanged
+    if (next.filter((x) => x.rapid).length >= PLACEMENT_RAPID_INVALID) {
+      await tx.updateMany("RRPlacement", { id: placementId }, { steps: next, completedAt: now, result: null });
+      return { done: true, correct, result: null, note: PLACEMENT_INVALID_TEXT, invalid: true, rapid };
+    }
     await tx.updateMany("RRPlacement", { id: placementId }, { steps: next });
-    const after = placementPlan(Number(p.startLevel), next, passages);
-    if (!after.done) return { done: false, correct, result: null, note: null };
+    const after = placementPlan(Number(p.startLevel), next, pool);
+    if (!after.done) return { done: false, correct, result: null, note: null, rapid };
     const fin = await finishPlacement(tx, { ...p, steps: next }, now);
-    return { done: true, correct, result: fin.level, note: fin.note };
+    return { done: true, correct, result: fin.level, note: fin.note, rapid };
   });
-  if (res.done) afterPlacement(repo, studentId, now);
+  if (res.done && !res.invalid) afterPlacement(repo, studentId, now);
   return res;
 }
 
@@ -210,7 +284,7 @@ async function finishPlacement(repo: Repo, p: Row, now: Date): Promise<{ level: 
   const { level, note } = blendWithMap(raw, await latestMapLexile(repo, studentId));
   const [windows, earlier] = await Promise.all([
     loadReadRiseWindows(repo, s(p.schoolId), now),
-    repo.findMany("RRPlacement", { studentId, completedAt: { not: null } }, { select: ["id"] }),
+    repo.findMany("RRPlacement", { studentId, completedAt: { not: null }, result: { not: null } }, { select: ["id"] }),
   ]);
   const period = periodOf(windows, now);
   // 🗓️ a middle / end of year check keeps the year's start (growth start → middle → end); the first test (or a

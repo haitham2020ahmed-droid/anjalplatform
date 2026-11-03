@@ -11,6 +11,10 @@
  *            goals); later re-reads have firstTry = false. After submitting, every answer's "why" is shown and a
  *            practice pass is allowed that never changes the score.
  *  Stretch   the same article one version higher (stretch = true): ≥ 75% counts toward goals; never lowers the level.
+ *            Round 4 (owner): ONLY the first try counts — a re-read is practice (never the level, goal, window or
+ *            stars). A stretch is offered (and accepted by the server) only after a RELIABLE first try of 75%+ and only
+ *            when the stretch version's question band differs from the first read's band (new questions); otherwise
+ *            the student is offered "Try a new article" (stretchOffer below).
  *  completedAt = when the activity (step 3) was scored — the moment the reading "counts". step = DONE when all
  *  5 steps are finished.
  *  Accuracy  owner r69 (accuracy.ts): the reader sends when each question was first answered; 2+ rapid guesses make
@@ -28,7 +32,8 @@ import type { Repo, Row } from "../seeding/repo";
 import { ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
 import { LIBRARY_LEVELS, bandOf, chooseVersion, stretchAbove, type MeasuredVersion, type RRBand } from "./level";
-import { ENGINE, applyFirstTryScore, ensureRRStudent, goalStats, levelHistory, readRisePlaced, s, studentReadRiseSummary, toDate, yearEndFor, type GoalStats, type ReadRiseSummary } from "./engine";
+import { ENGINE, applyFirstTryScore, ensureRRStudent, goalDates, goalStats, levelHistory, readRisePlaced, s, studentReadRiseSummary, toDate, yearEndFor, type GoalStats, type ReadRiseSummary } from "./engine";
+import { isFirst, isStretch, isUnreliableRun, rapidRead } from "./first-try";
 import { placementStatus } from "./placement";
 import { loadPlacementPassages, type PlacementPassage } from "./content-loader";
 import { modelVersion } from "../cache/bank-version";
@@ -122,7 +127,7 @@ export async function studentLibrary(repo: Repo, actor: Actor, filter: { q?: str
   const [rr, { arts, versions }, runs, mems] = await Promise.all([
     ensureRRStudent(repo, studentId, now),
     visibleCatalog(repo, schoolId),
-    repo.findMany("RRRun", { studentId }, { select: ["articleId", "step", "score", "firstTry", "stretch", "completedAt", "startedAt", "unreliable"] }),
+    repo.findMany("RRRun", { studentId }, { select: ["articleId", "band", "step", "score", "firstTry", "stretch", "completedAt", "startedAt", "unreliable"] }),
     repo.findMany("ClassMembership", { studentId, leftAt: null }, { select: ["classId"] }),
   ]);
   const level = Number(rr.level);
@@ -151,13 +156,15 @@ export async function studentLibrary(repo: Repo, actor: Actor, filter: { q?: str
     const open = mine.some((r) => r.step !== "DONE");
     const done = main.some((r) => r.step === "DONE");
     const stretchDone = mine.some((r) => r.stretch === true && r.step === "DONE");
+    const offer = stretchOffer(mine, level, asMeasured(vs));
     cards.push({
       id: s(a.id), title: s(v.title) || s(a.title), topic: s(a.topic), summary: s(a.summary), minutes: minutesFor(Number(v.wordCount) || 0), versionLevel: vl,
       status: open ? "IN_PROGRESS" : done ? "DONE" : "NEW", firstTryScore: first ? Number(first.score) : null,
       // ⬆ r## owner: Stretch only offered after a strong score (75%+, ENGINE.up) — matches the help text shown next
       // to the button ("75%+ counts toward your goal and can help you move up"). Before this, Stretch showed for
       // ANY completed reading regardless of score, including a reading that had JUST dropped the student's level.
-      canStretch: done && !stretchDone && !open && first !== undefined && Number(first.score) >= ENGINE.up && vs.some((x) => Number(x.level) > vl), stretchDone,
+      // round 4: the server's own stretch rule (stretchOffer): a reliable first try of 75%+ and a NEW question band
+      canStretch: done && !stretchDone && !open && offer.ok, stretchDone,
       assigned: due.has(s(a.id)), dueAt: due.get(s(a.id))?.toISOString() ?? null,
     });
   }
@@ -197,6 +204,8 @@ export interface DoneView {
   score: number | null; firstTry: boolean; stretch: boolean; levelBefore: number; levelAfter: number; goal: GoalStats; canStretch: boolean; prePoll: number | null; postPoll: number | null;
   /** owner r69: some answers were too fast to be read, so this reading did not count (a gentle "take your time") */
   tooFast?: boolean;
+  /** round 4: why there is no stretch for this article (the page then offers "Try a new article"); null = it can stretch */
+  stretchWhy?: string | null;
 }
 export interface RunView {
   runId: string; articleId: string; step: RunStep; stretch: boolean; firstTry: boolean; versionLevel: number; band: RRBand;
@@ -276,11 +285,31 @@ export function stretchVersion(level: number, available: (number | MeasuredVersi
 const asMeasured = (rows: Row[]): MeasuredVersion[] => rows.map((v) => ({ level: Number(v.level), estLevel: v.estLevel, officialLexile: v.officialLexile }));
 const MEASURE_COLS = ["level", "estLevel", "officialLexile"];
 
+/**
+ * 🎯 Round 4 (owner): may this article be stretched now? The same rule for the library card, the article page, the
+ * done screen and the server (startRun). Only after a RELIABLE first try (not a re-read, not Unreliable) of 75%+,
+ * once, and only when the stretch version's question band (LOW / MID / HIGH) differs from the first read's band —
+ * the same band would show the questions (and answers) the student has already seen. `runs` = the student's runs
+ * of this article (columns: band, step, score, firstTry, stretch, unreliable).
+ */
+export function stretchOffer(runs: readonly Row[], level: number, versions: MeasuredVersion[]): { ok: boolean; up: number | null; why: string | null } {
+  const no = (why: string) => ({ ok: false, up: null, why });
+  if (runs.some((r) => isStretch(r))) return no("You already stretched this article.");
+  const first = runs.find((r) => !isStretch(r) && isFirst(r));
+  if (!first || first.step !== "DONE" || first.score === null || first.score === undefined) return no("Read the article first, then stretch it.");
+  if (isUnreliableRun(first)) return no("Your first reading did not count (some answers came too fast), so it cannot unlock a stretch. Try a new article.");
+  if (Number(first.score) < ENGINE.up) return no(`Score ${ENGINE.up}% or higher on this article first, then you can stretch it.`);
+  const up = stretchVersion(level, versions);
+  if (up === null) return no("There is no higher version of this article.");
+  if (bandOf(up) === s(first.band)) return no("The higher version has the same questions you already answered. Try a new article.");
+  return { ok: true, up, why: null };
+}
+
 async function goalFor(repo: Repo, studentId: string, now: Date): Promise<GoalStats> {
   const rr = await repo.findUnique("RRStudent", { studentId });
-  const runs = await repo.findMany("RRRun", { studentId, firstTry: true, score: { gte: ENGINE.up } }, { select: ["completedAt", "unreliable"] });
-  // an Unreliable run (2+ rapid answers) never counts toward the goal
-  return goalStats(runs.filter((r) => r.completedAt && r.unreliable !== true && r.unreliable !== 1).map((r) => toDate(r.completedAt)), Number(rr?.weeklyGoal ?? 2), now);
+  const runs = await repo.findMany("RRRun", { studentId, firstTry: true, score: { not: null } }, { select: ["studentId", "articleId", "band", "firstTry", "stretch", "score", "completedAt", "unreliable"] });
+  // round 4: counted first tries only (a re-read never; a stretch only in a new band), never an Unreliable run
+  return goalStats(goalDates(runs), Number(rr?.weeklyGoal ?? 2), now);
 }
 
 /** Everything the reader needs for one run (answers hidden until the activity is scored). */
@@ -302,18 +331,18 @@ export async function runView(repo: Repo, actor: Actor, runId: string, now = new
   keyWords.catch(() => undefined); // (awaited below; never an unhandled rejection meanwhile)
   if (run.step === "DONE") {
     const studentId = s(run.studentId);
-    const [vers, rr, others, goal] = await Promise.all([
+    const [vers, rr, mine, goal] = await Promise.all([
       repo.findMany("RRVersion", { articleId }, { select: MEASURE_COLS }),
       ensureRRStudent(repo, studentId, now),
-      repo.findMany("RRRun", { studentId, articleId, stretch: true }, { select: ["id"] }),
+      repo.findMany("RRRun", { studentId, articleId }, { select: ["id", "band", "step", "score", "firstTry", "stretch", "unreliable"] }),
       goalFor(repo, studentId, now),
     ]);
+    const offer = run.stretch === true ? { ok: false, why: null } : stretchOffer(mine, Number(rr.level), asMeasured(vers));
     done = {
       score: scored ? Number(run.score) : null, firstTry: run.firstTry === true, stretch: run.stretch === true,
       levelBefore: Number(run.levelBefore), levelAfter: Number(run.levelAfter ?? run.levelBefore), goal,
-      // ⬆ r## owner: same 75%+ guard as studentLibrary's canStretch — a reading that just scored low (and may have
-      // just dropped the level) must not also offer a harder version right away.
-      canStretch: run.stretch !== true && !others.length && scored && Number(run.score) >= ENGINE.up && stretchVersion(Number(rr.level), asMeasured(vers)) !== null,
+      // ⬆ round 4: the one stretch rule (stretchOffer): a reliable first try of 75%+ and a new question band
+      canStretch: offer.ok, stretchWhy: offer.ok ? null : offer.why,
       prePoll: run.prePoll === null || run.prePoll === undefined ? null : Number(run.prePoll), postPoll: run.postPoll === null || run.postPoll === undefined ? null : Number(run.postPoll),
       tooFast: run.unreliable === true || run.unreliable === 1,
     };
@@ -352,12 +381,12 @@ export async function articlePage(repo: Repo, actor: Actor, articleId: string, n
   const runs = allRuns.sort((a, b) => toDate(b.startedAt).getTime() - toDate(a.startedAt).getTime());
   const open = runs.find((r) => r.step !== "DONE");
   const latest = open ?? runs[0];
-  const stretchUsed = runs.some((r) => r.stretch === true);
+  const offer = stretchOffer(runs, Number(rr.level), asMeasured(vers));
   return {
     articleId, title: s(v.title) || s(art.title), topic: s(art.topic), summary: s(art.summary), minutes: minutesFor(Number(v.wordCount) || 0), versionLevel: vl, level: Number(rr.level),
     run: latest ? await runView(repo, actor, s(latest.id), now) : null,
-    // ⬆ r## owner: same 75%+ guard — see studentLibrary's canStretch
-    canStretch: !open && !stretchUsed && runs.some((r) => r.stretch !== true && r.step === "DONE" && Number(r.score ?? 0) >= ENGINE.up) && stretchVersion(Number(rr.level), asMeasured(vers)) !== null,
+    // ⬆ round 4: the one stretch rule (stretchOffer)
+    canStretch: !open && offer.ok,
     hasRead: runs.some((r) => r.step === "DONE"),
   };
 }
@@ -376,14 +405,11 @@ export async function startRun(repo: Repo, actor: Actor, articleId: string, opts
     if (!levels.length) throw new ForbiddenError("Article not found.");
     let versionLevel: number;
     if (opts.stretch) {
-      if (!runs.some((r) => r.stretch !== true && r.step === "DONE")) throw new ValidationError("Read the article first, then stretch it.");
-      // ⬆ r## owner: server-side copy of the 75%+ guard above (never trust the button being hidden client-side) —
-      // a low score must not unlock a harder version right after it.
-      if (!runs.some((r) => r.stretch !== true && r.step === "DONE" && Number(r.score ?? 0) >= ENGINE.up)) throw new ValidationError(`Score ${ENGINE.up}% or higher on this article first, then you can stretch it.`);
-      if (runs.some((r) => r.stretch === true)) throw new ValidationError("You already stretched this article.");
-      const up = stretchVersion(level, levels);
-      if (up === null) throw new ValidationError("There is no higher version of this article.");
-      versionLevel = up;
+      // ⬆ round 4: the server's copy of the one stretch rule (never trust the button being hidden client-side): a
+      // reliable first try of 75%+, once, and a version in a NEW question band (new questions)
+      const offer = stretchOffer(runs, level, levels);
+      if (!offer.ok || offer.up === null) throw new ValidationError(offer.why ?? "This article cannot be stretched.");
+      versionLevel = offer.up;
     } else versionLevel = chooseVersion(level, levels);
     const firstTry = !runs.some((r) => (r.stretch === true) === Boolean(opts.stretch));
     const row = await tx.create("RRRun", {
@@ -467,8 +493,15 @@ export async function submitActivity(repo: Repo, actor: Actor, runId: string, ra
     if (!changed) throw new ValidationError("Already submitted. Reload the page.");
     const rr = await ensureRRStudent(tx, s(run.studentId), now);
     let before = Number(rr.level), after = before;
-    // first try counts; a stretch below 75% is ignored by the level (never lowers it); an Unreliable run never counts
-    if (run.firstTry === true && !fast.unreliable && (run.stretch !== true || pct >= ENGINE.up)) ({ levelBefore: before, levelAfter: after } = await applyFirstTryScore(tx, { ...run, score: pct, completedAt: now, unreliable: false }, now));
+    // first try counts; a stretch below 75% is ignored by the level (never lowers it); an Unreliable run never counts.
+    // Round 4: a re-read never counts; a run read faster than RR_MIN_READ_SECONDS never counts (the skill-evidence
+    // rule); a stretch counts only in a band different from the first read's (an older same-band stretch: never)
+    let counts = run.firstTry === true && !fast.unreliable && !rapidRead(run) && (run.stretch !== true || pct >= ENGINE.up);
+    if (counts && run.stretch === true) {
+      const base = (await tx.findMany("RRRun", { studentId: s(run.studentId), articleId: s(run.articleId), stretch: false, firstTry: true }, { select: ["band"], take: 1 }))[0];
+      counts = !!base && s(base.band) !== s(run.band);
+    }
+    if (counts) ({ levelBefore: before, levelAfter: after } = await applyFirstTryScore(tx, { ...run, score: pct, completedAt: now, unreliable: false }, now));
     moved = after !== before;
     await tx.updateMany("RRRun", { id: runId }, { levelBefore: before, levelAfter: after });
   });
@@ -511,10 +544,14 @@ export async function submitWriting(repo: Repo, actor: Actor, runId: string, tex
   expectStep(run, "WRITE");
   const t = cleanWriting(text).trim();
   if (words(t) < MIN_WRITING_WORDS) throw new ValidationError(`Write at least ${MIN_WRITING_WORDS} words (you have ${words(t)}).`);
-  await repo.updateMany("RRRun", { id: runId, step: "WRITE" }, { writing: t, step: "POSTPOLL" });
+  // round 4: check-and-set — only the request that moves the run from WRITE wins; a second, concurrent submit gets
+  // "Already submitted" and never queues a second AI draft
+  const changed = await repo.updateMany("RRRun", { id: runId, step: "WRITE" }, { writing: t, step: "POSTPOLL" });
+  if (!changed) throw new ValidationError("Already submitted. Reload the page.");
   // 🤖 draft an AI score + comment for the teacher's scoring screen (never shown to the student) — after the
-  // response, so the student is never kept waiting on an AI call; silently skipped if AI is off/limited/fails
-  runAfterResponse("readrise.writing_ai", async () => {
+  // response, so the student is never kept waiting on an AI call; silently skipped if AI is off/limited/fails.
+  // Round 4: only for a first try (a re-read is practice: no AI draft is spent on it)
+  if (run.firstTry === true) runAfterResponse("readrise.writing_ai", async () => {
     const pr = await repo.findUnique("RRPrompt", { articleId: s(run.articleId), band: s(run.band) });
     await draftReadRiseWritingScore(
       repo, { schoolId: s(run.schoolId), runId, prompt: s(pr?.prompt), checklist: (pr?.checklist ?? []) as string[], text: t }, aiEnv(),
@@ -561,7 +598,7 @@ export interface ReadRiseHome {
  * the placement test is available (5+ passages). Without the test the articles stay open, with no level number shown.
  */
 export async function readRiseAccess(repo: Repo, studentId: string, passages: PlacementPassage[] = loadPlacementPassages()): Promise<{ placed: boolean; locked: boolean }> {
-  const [rr, done] = await Promise.all([repo.findUnique("RRStudent", { studentId }), repo.count("RRPlacement", { studentId, completedAt: { not: null } })]);
+  const [rr, done] = await Promise.all([repo.findUnique("RRStudent", { studentId }), repo.count("RRPlacement", { studentId, completedAt: { not: null }, result: { not: null } })]);
   const placed = readRisePlaced(rr, done > 0);
   return { placed, locked: !placed && passages.length >= 5 };
 }
@@ -575,7 +612,7 @@ export async function readRiseHome(repo: Repo, actor: Actor, filter: { q?: strin
   ]);
   const [summary, hist, placements] = await Promise.all([
     studentReadRiseSummary(repo, studentId, now), levelHistory(repo, studentId),
-    repo.findMany("RRPlacement", { studentId, completedAt: { not: null } }, { select: ["result", "period", "completedAt"], take: 50 }),
+    repo.findMany("RRPlacement", { studentId, completedAt: { not: null }, result: { not: null } }, { select: ["result", "period", "completedAt"], take: 50 }),
   ]);
   const ready = passages.length >= 5;
   const state = pst.open ? "OPEN" : !ready ? "NONE" : !pst.last ? "NEED" : pst.retake ? "RETAKE" : pst.due ? "CHECK" : "NONE";

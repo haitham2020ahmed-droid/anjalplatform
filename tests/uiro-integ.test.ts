@@ -328,7 +328,7 @@ describe("Arabic interface strings for every wave-1 page", () => {
 describe("read-aloud in ReadRise", () => {
   test("the ReadRise reader uses the shared player when the natural audio exists; pre-generation has --readrise", () => {
     const reader = read("src/components/readrise/reader.tsx");
-    assert.match(reader, /<ListenButton text=\{articleSpeech\} label="Read aloud" preOnly onAvailability=\{setNatural\} \/>/);
+    assert.match(reader, /<ListenButton text=\{articleSpeech\} label=\{tr\("Read aloud"\)\} preOnly onAvailability=\{setNatural\} \/>/, "the label is translated (round 4)");
     assert.match(reader, /passageSpeech\(view\.title, view\.body\)/, "the same text the pre-generation hashes");
     assert.match(reader, /canSpeak && !natural/, "the device voice only when no natural audio");
     assert.match(read("scripts/tts/pregenerate.ts"), /--readrise/);

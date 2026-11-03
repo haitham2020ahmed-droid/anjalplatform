@@ -25,7 +25,7 @@ describe("Approaching / Meeting / Exceeding", () => {
     for (const m of [LEVEL_NAMES, TEST_LEVEL_NAME, RESPOND_LEVEL_NAME, READMASTER_LEVEL_NAMES] as Record<string, string>[]) {
       assert.deepEqual([m.BELOW, m.ON, m.ABOVE], ["Approaching", "Meeting", "Exceeding"]);
     }
-    assert.match(fluencyRubricText(5, "WINTER"), /^Grade 5: Approaching ≤ \d+ · Meeting \d+–\d+ · Exceeding > \d+ WCPM$/);
+    assert.match(fluencyRubricText(5, "WINTER"), /^Grade 5: Approaching < \d+ · Meeting \d+–\d+ · Exceeding > \d+ WCPM$/);
   });
 
   test("the teacher group 'On level' is now 'Meeting' (and in the Arabic report words)", () => {

@@ -54,8 +54,10 @@ export const RR_SKILL_MAP: Record<string, string[]> = {
   sequence: ["sequence", "plot-events"],
   "text-structure": ["text-structure", "problem-solution", "cause-effect", "compare-contrast", "sequence"],
 };
-/** a ReadRise run read faster than this is a rapid run (its answers are left out) */
-export const RR_MIN_READ_SECONDS = 45;
+/** a ReadRise run read faster than this is a rapid run (its answers are left out) — round 4: the ONE value lives in
+ * readrise/first-try.ts, where the ReadRise level uses the same rule */
+export { RR_MIN_READ_SECONDS } from "../readrise/first-try";
+import { RR_MIN_READ_SECONDS } from "../readrise/first-try";
 /** ReadRise Level points per logit when a ReadRise version is placed on the grade scale (≈ one grade ≈ 0.75 logit) */
 export const RR_POINTS_PER_LOGIT = 190;
 
@@ -177,6 +179,13 @@ export async function safeFeed(what: string, f: () => Promise<unknown>): Promise
 export async function feedReadRise(repo: Repo, runId: string, now = new Date(), onSkills?: (skillIds: string[]) => void): Promise<number> {
   const run = await repo.findUnique("RRRun", { id: runId });
   if (!run || run.score === null || run.score === undefined) return 0;
+  // round 4 (owner): ONLY the first try counts — a re-read is practice and never feeds ⭐; a stretch feeds only when
+  // its question band differs from the first read's (new questions; the same band reuses the questions shown)
+  if (run.firstTry !== true && run.firstTry !== 1) return 0;
+  if (run.stretch === true || run.stretch === 1) {
+    const base = (await repo.findMany("RRRun", { studentId: run.studentId, articleId: run.articleId, stretch: false, firstTry: true }, { select: ["band"], take: 1 }))[0];
+    if (!base || s(base.band) === s(run.band)) return 0;
+  }
   if (Number(run.readSeconds ?? 0) > 0 && Number(run.readSeconds) < RR_MIN_READ_SECONDS) return 0; // a rapid run
   // owner r69: an Unreliable run (2+ rapid answers) feeds nothing; a single rapid answer is left out
   if (run.unreliable === true || run.unreliable === 1) return 0;

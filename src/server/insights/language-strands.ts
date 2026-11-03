@@ -9,7 +9,8 @@
  *   trend     ↑ → ↓ over the last 4 weeks (the last 2 weeks' accuracy against the 2 weeks before)
  *   next      the main next step: a started skill without ⭐ (🔄 first, then needing support, then the lowest score),
  *             else the first not started — never a ⭐ skill
- * Fluency comes from the Fluency Coach one-minute readings (words correct per minute and their level); Writing from
+ * Fluency comes from the newest OFFICIAL check (FluencyCheck: the coach's 1-minute check or a teacher's check — r4, the
+ * same number every page shows; its level judged by the season of the check's date); Writing from
  * the Writing skills and, when there are none, the graded writing (rubric %).
  * Bounded: 6 queries for one student (the grade's skills, mastery, 4 weeks of answers, fluency, writing).
  */
@@ -19,6 +20,8 @@ import { masteredSkills } from "../reports/mastered-count";
 import { safeIfBehind } from "../db/schema-errors";
 import { starBook, starMastered, starNeedsReview } from "../skills/star-read";
 import type { StarView } from "../skills/status";
+import { fluencyLevel } from "../diagnostic/standards";
+import { seasonOf } from "../fluency/norms";
 
 const s = (v: unknown) => String(v ?? "");
 const time = (v: unknown) => (v instanceof Date ? v.getTime() : v ? new Date(s(v)).getTime() : 0);
@@ -94,6 +97,12 @@ interface SkillRow { id: string; name: string; code: string; category: string; d
  */
 export function buildStrands(input: {
   skills: SkillRow[]; mastery: Row[]; mastered: Set<string>; attempts: Row[]; fluency: Row[]; writing: Row[]; now: Date;
+  /**
+   * r4: the student's OFFICIAL checks (FluencyCheck rows: wcpm, checkedAt, season — teacher checks included) and the
+   * grade. When given, Fluency shows the newest official check (the same number as every other page); without them
+   * (older callers) the newest 1-minute practice reading, as before.
+   */
+  checks?: Row[]; grade?: number;
   stars?: { keyOf: (skillId: string) => string; ofKey: (key: string) => StarView; nameOf: (key: string) => string };
 }): StrandRow[] {
   const { skills, mastery, mastered, attempts, fluency, writing, now, stars } = input;
@@ -103,6 +112,21 @@ export function buildStrands(input: {
   const m = new Map(mastery.map((r) => [s(r.skillId), r]));
   const cut2 = now.getTime() - 14 * DAY, cut4 = now.getTime() - 28 * DAY;
   return STRANDS.map(({ key, label, icon }): StrandRow => {
+    if (key === "FLU" && input.checks) {
+      const cs = input.checks.filter((r) => r.wcpm !== null && r.wcpm !== undefined).sort((a, b) => time(b.checkedAt) - time(a.checkedAt));
+      const latest = cs[0];
+      const before = cs.find((r) => time(r.checkedAt) < cut4) ?? cs[cs.length - 1];
+      const recentChecks = cs.filter((r) => time(r.checkedAt) >= cut4);
+      const readings = fluency.filter((r) => time(r.createdAt) >= cut4 && !["ECHO", "DRILL"].includes(s(r.practiceKind))).length;
+      const lv = latest && input.grade ? fluencyLevel(Number(latest.wcpm), input.grade, seasonOf(new Date(time(latest.checkedAt)), latest.season)) : "";
+      const delta = latest && before && before !== latest ? Number(latest.wcpm) - Number(before.wcpm) : 0;
+      return {
+        key, label, icon, mastered: null, total: null, answers: readings, wcpm: latest ? Number(latest.wcpm) : null,
+        level: lv === "BELOW" || lv === "ON" || lv === "ABOVE" ? lv : null,
+        trend: recentChecks.length && delta >= 5 ? "up" : recentChecks.length && delta <= -5 ? "down" : "flat",
+        next: latest ? { skillId: null, text: lv === "BELOW" ? "Read aloud daily with the Fluency Coach" : "Keep a weekly one-minute reading" } : { skillId: null, text: "Record a first one-minute reading" },
+      };
+    }
     if (key === "FLU") {
       const mins = fluency.filter((r) => s(r.mode) === "MINUTE" && r.wcpm !== null && r.wcpm !== undefined).sort((a, b) => time(b.createdAt) - time(a.createdAt));
       const latest = mins[0];
@@ -160,12 +184,15 @@ export function buildStrands(input: {
 export async function languageStrands(repo: Repo, studentId: string, now = new Date()): Promise<StrandRow[]> {
   const st = await repo.findUnique("Student", { id: studentId });
   const curricula = st?.gradeId ? await repo.findMany("Curriculum", { gradeId: s(st.gradeId), deletedAt: null }, { select: ["id"] }) : [];
-  const [gradeSkills, mastery, attempts, fluency, writing] = await Promise.all([
+  const [gradeSkills, mastery, attempts, fluency, writing, checks, gradeRow] = await Promise.all([
     curricula.length ? repo.findMany("Skill", { curriculumId: { in: curricula.map((c) => s(c.id)) }, deletedAt: null }, { select: ["id", "name", "code", "category", "domain", "sequence", "isActive"] }) : Promise.resolve([] as Row[]),
     repo.findMany("StudentSkillMastery", { studentId }, { select: ["skillId", "score", "attempts", "isMastered"] }),
     repo.findMany("QuestionAttempt", { studentId, createdAt: { gte: new Date(now.getTime() - 28 * DAY) } }, { select: ["skillId", "isCorrect", "rapidGuess", "createdAt"], take: 3000 }),
-    repo.findMany("FluencyPractice", { studentId }, { select: ["mode", "wcpm", "level", "createdAt"] }).catch(() => [] as Row[]),
+    repo.findMany("FluencyPractice", { studentId }, { select: ["mode", "practiceKind", "wcpm", "level", "createdAt"] }).catch(() => [] as Row[]),
     safeIfBehind("strands.writing", repo.findMany("WritingSubmission", { studentId, status: "SCORED" }, { select: ["scorePct"] }), [] as Row[]),
+    // r4: Fluency = the newest OFFICIAL check (the same number as the Diagnostic, the teacher's pages and the tiers)
+    repo.findMany("FluencyCheck", { studentId }, { select: ["wcpm", "checkedAt", "season"] }).catch(() => [] as Row[]),
+    st?.gradeId ? repo.findUnique("Grade", { id: s(st.gradeId) }) : Promise.resolve(null),
   ]);
   // the grade's skills + any other skill the student practised (an assignment from another grade)
   const known = new Set(gradeSkills.map((k) => s(k.id)));
@@ -175,7 +202,7 @@ export async function languageStrands(repo: Repo, studentId: string, now = new D
     .map((k) => ({ id: s(k.id), name: s(k.name), code: s(k.code), category: s(k.category), domain: s(k.domain), sequence: Number(k.sequence ?? 0) }));
   const [masteredMap, book] = await Promise.all([masteredSkills(repo, [studentId], skills.map((k) => k.id)), starBook(repo, [studentId], st ? s(st.schoolId) : null)]);
   const mastered = masteredMap.get(studentId) ?? new Set<string>();
-  return buildStrands({ skills, mastery, mastered, attempts, fluency, writing, now, stars: strandStars(book, studentId) });
+  return buildStrands({ skills, mastery, mastered, attempts, fluency, writing, now, checks, grade: gradeRow ? Number(gradeRow.level) : undefined, stars: strandStars(book, studentId) });
 }
 
 /** The star reader buildStrands counts by (one star book per page). */

@@ -19,7 +19,8 @@ import { changeOf, consistencyOf, distribution, percentRank, spreadNote, stdev, 
 import { classProgress } from "../src/server/insights/progress";
 import { demoDatabase } from "./helpers/db";
 
-const TEXT = "The river was low that summer. The farmers watched the sky every morning, hoping for rain. When the clouds finally came, the whole village ran outside to dance in the first heavy drops of water. Children laughed and splashed in the puddles while their parents smiled. That night everyone slept well, listening to the steady sound of the rain on the roofs. In the morning the fields were green again and the river was full.";
+const TEXT = "The river was low that summer. The farmers watched the sky every morning, hoping for rain. When the clouds finally came, the whole village ran outside to dance in the first heavy drops of water. Children laughed and splashed in the puddles while their parents smiled. That night everyone slept well, listening to the steady sound of the rain on the roofs. In the morning the fields were green again and the river was full. The old men sat under the big tree and talked about the dry months. They remembered other years when the rain was late, and they told the children how the village had waited and worked together. The women carried water from the deep well, and the boys helped them with the heavy jars. Every family saved a little for the animals, and nobody was left without a drink. When the rain came, the goats ran around the yard and the birds sang in the wet branches. The farmers walked through the mud to look at their young plants. Some plants were small and weak, but most of them stood up straight in the cool air. The teacher opened the school windows so the children could smell the fresh earth. She asked them to write a story about the day the rain came back. One girl wrote about her grandfather, who danced in the rain with his hat in his hand.";
+// r4: the text is long enough (225–260 words) for an official 1-minute check (MINUTE_MIN_WORDS)
 
 describe("Update 28 · search, grammar, Fluency Coach", () => {
   let repo: SqliteRepo; let admin: Actor; let teacher: Actor; let student: Actor; let classId: string;
@@ -52,10 +53,11 @@ describe("Update 28 · search, grammar, Fluency Coach", () => {
   });
 
   test("rubric: the school's WCPM bands for Grades 4–6", () => {
-    assert.deepEqual([fluencyLevel(75, 4, "FALL"), fluencyLevel(76, 4, "FALL"), fluencyLevel(125, 4, "FALL"), fluencyLevel(126, 4, "FALL")], ["BELOW", "ON", "ON", "ABOVE"]);
-    assert.deepEqual([fluencyLevel(87, 5, "FALL"), fluencyLevel(88, 5, "FALL"), fluencyLevel(153, 5, "FALL"), fluencyLevel(154, 5, "FALL")], ["BELOW", "ON", "ON", "ABOVE"]);
-    assert.deepEqual([fluencyLevel(112, 6, "FALL"), fluencyLevel(113, 6, "FALL"), fluencyLevel(159, 6, "FALL"), fluencyLevel(160, 6, "FALL")], ["BELOW", "ON", "ON", "ABOVE"]);
-    assert.equal(fluencyRubricText(5), "Grade 5: Approaching ≤ 87 · Meeting 88–153 · Exceeding > 153 WCPM");
+    // r4: one boundary rule everywhere — BELOW = wcpm < p25 (the 25th-percentile score itself is On)
+    assert.deepEqual([fluencyLevel(74, 4, "FALL"), fluencyLevel(75, 4, "FALL"), fluencyLevel(125, 4, "FALL"), fluencyLevel(126, 4, "FALL")], ["BELOW", "ON", "ON", "ABOVE"]);
+    assert.deepEqual([fluencyLevel(86, 5, "FALL"), fluencyLevel(87, 5, "FALL"), fluencyLevel(153, 5, "FALL"), fluencyLevel(154, 5, "FALL")], ["BELOW", "ON", "ON", "ABOVE"]);
+    assert.deepEqual([fluencyLevel(111, 6, "FALL"), fluencyLevel(112, 6, "FALL"), fluencyLevel(159, 6, "FALL"), fluencyLevel(160, 6, "FALL")], ["BELOW", "ON", "ON", "ABOVE"]);
+    assert.equal(fluencyRubricText(5, "FALL"), "Grade 5: Approaching < 87 · Meeting 87–153 · Exceeding > 153 WCPM");
   });
 
   test("counting: the platform counts, the AI only marks words", () => {

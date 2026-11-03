@@ -5,6 +5,8 @@
  * Download PDF one / all — one file, a page per student). Demo school in memory — never a real database.
  */
 import { before, describe, test } from "node:test";
+import { practiceTotalsFor } from "../src/server/analytics/practice-totals";
+import { weekStart } from "../src/server/student/weekly";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
@@ -79,7 +81,9 @@ describe("👪 weekly family report", () => {
     const w = await familyWeek(repo, student, sid, NOW);
     assert.equal(w.week, "2026-10-11");
     assert.deepEqual(w.tasks, ["Main Idea practice"], "this week's tasks only, level word removed");
-    assert.ok(w.minutes >= 25, `minutes ${w.minutes}`);
+    // round 4: minutes = practice-totals.ts (≤ 5 min per answer, the Riyadh week) — not the sessions' activeMs any more
+    const tot = await practiceTotalsFor(repo, sid, weekStart(NOW), NOW);
+    assert.ok(w.minutes > 0 && w.minutes === tot.minutes, `minutes ${w.minutes} = ${tot.minutes}`);
     assert.deepEqual(w.articles, ["Turtles of the Red Sea"]);
     assert.equal(w.lessons.length, 1);
     const quiz = w.tests.find((x) => x.kind === "TEST")!;

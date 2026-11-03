@@ -71,7 +71,9 @@ export async function startPlacementAction(): Promise<Result<string>> {
   return guard(() => startPlacement(repo, actor));
 }
 
-export async function answerPlacementAction(placementId: string, passageId: string, answers: string[]): Promise<Result<PlacementAnswer>> {
+export async function answerPlacementAction(placementId: string, passageId: string, answers: string[], ms?: number): Promise<Result<PlacementAnswer>> {
   const actor = await requireActor({ roles: ["STUDENT"] });
-  return guard(() => answerPlacement(repo, actor, String(placementId), String(passageId), Array.isArray(answers) ? answers.map(String) : []));
+  // round 4: the page's time on the passage (ms) — the server also keeps its own clock and uses the smaller
+  const pageMs = Number.isFinite(Number(ms)) && Number(ms) >= 0 ? Number(ms) : null;
+  return guard(() => answerPlacement(repo, actor, String(placementId), String(passageId), Array.isArray(answers) ? answers.map(String) : [], undefined, new Date(), { ms: pageMs }));
 }

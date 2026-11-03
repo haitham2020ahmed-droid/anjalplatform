@@ -15,7 +15,7 @@ import { ValidationError } from "../curriculum-admin";
 import { aiSettings, callJson, pickProvider, rateState, type EnvLike, type Picked, type Validator } from "../ai/engine";
 import type { geminiProvider, anthropicProvider } from "../ai/question-generator";
 import { loadQuestionItems } from "../practice/items";
-import { passageWords, passagesFor, studentGrade } from "./coach";
+import { passageWords, passagesFor, riyadhDay, studentGrade } from "./coach";
 import { norm50, fluencySeason, isSeason, type Season } from "./norms";
 
 const s = (v: unknown) => String(v ?? "");
@@ -139,7 +139,8 @@ export async function startComprehension(repo: Repo, actor: Actor, practiceId: s
   if (linked.length >= 2) quiz = { source: "BANK", questions: linked };
   if (!quiz) {
     // only the part the student read (at least ~40 words), as plain text
-    const words = passageWords(p.body, s(row.mode) === "MINUTE" ? "MINUTE" : "PASSAGE");
+    // r4: an early-stopped 1-minute check is stored as mode PASSAGE but was read from the minute text: practiceKind decides
+    const words = passageWords(p.body, s(row.mode) === "MINUTE" || s(row.practiceKind) === "MINUTE" ? "MINUTE" : "PASSAGE");
     const upTo = Math.max(Math.min(words.length, 40), Number(row.wordsRead) || words.length);
     const ai = await aiQuestions(repo, s(actor.schoolId), { title: p.title, text: words.slice(0, upTo).join(" ") }, env, deps.make, now).catch(() => null);
     if (ai?.length) quiz = { source: "AI", questions: ai };
@@ -166,8 +167,9 @@ export async function answerComprehension(repo: Repo, actor: Actor, practiceId: 
   await repo.updateMany("FluencyPractice", { id: practiceId }, { comprehension: pct, plan: { ...plan, quiz: { ...quiz, answered: true, pct } } });
   // the official 1-minute check of that day gets it too (two reads → the average of both checks)
   if (s(row.mode) === "MINUTE") {
-    const day = (d(row.createdAt) ?? now).toISOString().slice(0, 10);
-    const check = (await repo.findMany("FluencyCheck", { studentId: actor.studentId, source: "COACH" })).filter((c) => d(c.checkedAt)!.toISOString().slice(0, 10) === day).sort((a, b) => (d(b.checkedAt)?.getTime() ?? 0) - (d(a.checkedAt)?.getTime() ?? 0))[0];
+    // r4: the school day in Riyadh (as coach.ts does when it averages two checks)
+    const day = riyadhDay(d(row.createdAt) ?? now);
+    const check = (await repo.findMany("FluencyCheck", { studentId: actor.studentId, source: "COACH" })).filter((c) => riyadhDay(c.checkedAt) === day).sort((a, b) => (d(b.checkedAt)?.getTime() ?? 0) - (d(a.checkedAt)?.getTime() ?? 0))[0];
     if (check) {
       const prev = check.comprehension === null || check.comprehension === undefined ? null : Number(check.comprehension);
       await repo.updateMany("FluencyCheck", { id: check.id }, { comprehension: prev === null ? pct : Math.round((prev + pct) / 2) });

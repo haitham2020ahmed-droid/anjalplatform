@@ -14,12 +14,13 @@
  */
 import type { Repo, Row } from "../seeding/repo";
 import { assertClassRead } from "../teacher/coordinators";
-import { RETAKE_REASON, readRisePlaced, s, toDate, yearEndFor } from "./engine";
+import { RETAKE_REASON, readRisePlaced, riyadhDay, s, toDate, yearEndFor } from "./engine";
+import { articleRuns, keyRowsLookup, tallyAnswers, tallyBy, tallyRuns } from "./first-try";
 import { gradeBand } from "./dashboards";
 import { levelJourney, type HistoryKind } from "./growth-report";
 import { projectionRange, type ProjectionRange } from "./growth";
 import { questionKeys } from "./question-key";
-import { QUESTION_TYPES, QUESTION_TYPE_NAME, isUnreliableRun, normalizeQuestionType, storedRapid, type QuestionType } from "./accuracy";
+import { QUESTION_TYPES, QUESTION_TYPE_NAME, isUnreliableRun, storedRapid, type QuestionType } from "./accuracy";
 import { loadReadRiseWindows, placementChecks, type RRPeriod, type RRWindows } from "./windows";
 import type { Actor } from "../auth/rbac";
 
@@ -33,8 +34,6 @@ export const UNRELIABLE_LIST = 30;
 
 const time = (v: unknown) => (v === null || v === undefined ? 0 : toDate(v).getTime());
 const iso = (t: number) => new Date(t).toISOString();
-const isFirst = (r: Row) => r.firstTry === true || r.firstTry === 1;
-const isStretch = (r: Row) => r.stretch === true || r.stretch === 1;
 
 export interface ReportPoint { at: string; level: number; kind: HistoryKind }
 export interface ReportStudent {
@@ -79,24 +78,13 @@ export function movement(points: readonly ReportPoint[], now: Date): { lastChang
   return { lastChangeAt: last.at, daysSinceChange: Math.max(0, Math.floor((nowT - time(last.at)) / DAY)), gain4w: last.level - before };
 }
 
-/** Accuracy by question type from answered runs (pure): rapid answers are left out. */
+/**
+ * Accuracy by question type from answered runs (pure): rapid answers are left out. Round 4: through the ONE tally
+ * (first-try.ts tallyAnswers) shared with the class skills / standards reports and the growth report.
+ */
 export function accuracyByType(runs: readonly { articleId: string; band: string; answers: unknown; rapid: number[] }[], key: Map<string, { band: string; number: number; answer: string; skill: string }[]>): TypeAccuracy[] {
-  const tally = new Map<QuestionType, [number, number]>();
-  for (const r of runs) {
-    const raw = typeof r.answers === "string" ? (() => { try { return JSON.parse(r.answers as string) as unknown; } catch { return {}; } })() : r.answers;
-    const answers = (raw && typeof raw === "object" ? raw : {}) as Record<string, unknown>;
-    const skip = new Set(r.rapid);
-    for (const q of key.get(r.articleId) ?? []) {
-      if (q.band !== r.band || skip.has(q.number)) continue;
-      const chosen = s(answers[String(q.number)]).toUpperCase();
-      if (!chosen) continue;
-      const type = normalizeQuestionType(q.skill) ?? "detail";
-      const c = tally.get(type) ?? [0, 0];
-      c[0] += chosen === q.answer.toUpperCase() ? 1 : 0; c[1]++;
-      tally.set(type, c);
-    }
-  }
-  return QUESTION_TYPES.filter((t) => tally.has(t)).map((type) => {
+  const tally = tallyBy(tallyAnswers(runs, keyRowsLookup(key)), (a) => a.type) as Map<string, [number, number]>;
+  return QUESTION_TYPES.filter((t) => tally.has(t)).map((type: QuestionType) => {
     const [correct, total] = tally.get(type)!;
     return { type, name: QUESTION_TYPE_NAME[type], correct, total, pct: total ? Math.round((100 * correct) / total) : null };
   });
@@ -121,7 +109,7 @@ export async function readRiseTeacherReport(repo: Repo, actor: Actor, classId: s
     repo.findMany("RRStudent", { studentId: { in: ids } }, { select: ["studentId", "level", "startLevel", "placedAt", "source"] }),
     repo.findMany("RRLevelChange", { studentId: { in: ids } }, { select: ["studentId", "fromLevel", "toLevel", "reason", "createdAt"] }),
     repo.findMany("RRRun", { studentId: { in: ids }, completedAt: { not: null } }, { select: ["id", "studentId", "articleId", "band", "answers", "score", "firstTry", "stretch", "completedAt", "answerMs", "rapidCount", "unreliable"] }),
-    repo.findMany("RRPlacement", { studentId: { in: ids }, completedAt: { not: null } }, { select: ["studentId", "result", "period", "completedAt"] }),
+    repo.findMany("RRPlacement", { studentId: { in: ids }, completedAt: { not: null }, result: { not: null } }, { select: ["studentId", "result", "period", "completedAt"] }),
   ]);
   const users = students.length ? await repo.findMany("User", { id: { in: students.map((x) => s(x.userId)) } }, { select: ["id", "displayName"] }) : [];
   const uname = new Map(users.map((u) => [s(u.id), s(u.displayName)]));
@@ -137,7 +125,8 @@ export async function readRiseTeacherReport(repo: Repo, actor: Actor, classId: s
     const placed = readRisePlaced(rr, (plBy.get(id) ?? []).length > 0) && !!rr;
     const checks = placementChecks(windows, plBy.get(id) ?? []);
     const unreliableRuns = mine.filter(isUnreliableRun).length;
-    const readings4w = mine.filter((r) => isFirst(r) && time(r.completedAt) >= nowT - RISING_DAYS * DAY).length;
+    // round 4: the ONE article definition (first-try.ts articleRuns: reliable non-stretch first tries)
+    const readings4w = articleRuns(mine).filter((r) => time(r.completedAt) >= nowT - RISING_DAYS * DAY).length;
     if (!placed || !rr) return { studentId: id, name: names.get(id) ?? "Student", placed: false, level: null, startLevel: null, points: [], checks, projected: null, lastChangeAt: null, daysSinceChange: null, gain4w: null, readings4w, unreliableRuns };
     const changes = (chBy.get(id) ?? []).filter((c) => !s(c.reason).startsWith(RETAKE_REASON))
       .map((c) => ({ at: time(c.createdAt), from: Number(c.fromLevel), to: Number(c.toLevel), reason: s(c.reason) })).sort((a, b) => a.at - b.at);
@@ -145,7 +134,7 @@ export async function readRiseTeacherReport(repo: Repo, actor: Actor, classId: s
     const points: ReportPoint[] = journey.events.map((e) => ({ at: e.at, level: e.level, kind: e.kind }));
     // the current level wins for "now" (a change may not have a history row)
     if (points.length && points[points.length - 1].level !== Number(rr.level)) points.push({ at: iso(nowT), level: Number(rr.level), kind: "OTHER" });
-    const main = mine.filter((r) => isFirst(r) && !isStretch(r) && !isUnreliableRun(r));
+    const main = articleRuns(mine);
     return {
       studentId: id, name: names.get(id) ?? "Student", placed: true, level: Number(rr.level), startLevel: Number(rr.startLevel), points, checks,
       projected: projectionRange(journey.points, main.map((r) => time(r.completedAt)), now, yearEnd),
@@ -159,7 +148,7 @@ export async function readRiseTeacherReport(repo: Repo, actor: Actor, classId: s
     .map((r) => ({ studentId: r.studentId, name: r.name, level: r.level!, gain: r.gain4w! })).sort((a, b) => b.gain - a.gain || a.name.localeCompare(b.name));
 
   // accuracy by question type: reliable first tries, rapid answers out
-  const reliable = runs.filter((r) => isFirst(r) && !isUnreliableRun(r) && r.score !== null && r.score !== undefined);
+  const reliable = tallyRuns(runs); // round 4: the ONE accuracy set (counted first tries, reliable)
   const key = await questionKeys(repo, [...new Set(reliable.map((r) => s(r.articleId)))]);
   const byType = accuracyByType(reliable.map((r) => ({ articleId: s(r.articleId), band: s(r.band), answers: r.answers, rapid: storedRapid(r.answerMs) })), key);
 
@@ -170,7 +159,7 @@ export async function readRiseTeacherReport(repo: Repo, actor: Actor, classId: s
     runId: s(r.id), studentId: s(r.studentId), name: names.get(s(r.studentId)) ?? "Student", title: title.get(s(r.articleId)) ?? "Article",
     at: iso(time(r.completedAt)), rapid: Number(r.rapidCount ?? 0) || storedRapid(r.answerMs).length, score: r.score === null || r.score === undefined ? null : Number(r.score),
   }));
-  const today = iso(nowT).slice(0, 10);
+  const today = riyadhDay(nowT); // round 4: the window dates are school (Riyadh) days
   const open = (p: "MOY" | "EOY") => today >= windows[p].opens && today <= windows[p].closes;
   return {
     ...empty, students: rows, stuck, rising, byType, unreliable,

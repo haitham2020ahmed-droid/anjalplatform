@@ -6,6 +6,7 @@ import type { Repo } from "../seeding/repo";
 import { canAccessStudent, ForbiddenError, type Actor } from "../auth/rbac";
 import { adaptiveNext } from "../curriculum-map/leveled-run";
 import { CATEGORY_NAME, type Category } from "../curriculum-map/student-level";
+import { practiceTotalsFor } from "../analytics/practice-totals";
 
 const s = (v: unknown) => String(v ?? "");
 const iso = (v: unknown) => (v instanceof Date ? v.toISOString() : s(v));
@@ -22,12 +23,14 @@ export async function studentLearningPath(repo: Repo, actor: Actor, studentId: s
   const st = await repo.findUnique("Student", { id: studentId });
   if (!st || !canAccessStudent(actor, { studentId, schoolId: s(st.schoolId) })) throw new ForbiddenError("You do not have access to this student.");
   const since = new Date(now.getTime() - 30 * 86_400_000);
+  // 📏 round 4: the last 30 days' practice = THE one definition (practice-totals.ts: skill practice + NAFS + ReadRise,
+  // rapid guesses out of accuracy, the hidden holder skill out) — the same number as every other parent page
   const [lv, cats, logs, sessions, recent] = await Promise.all([
     repo.findUnique("StudentLevel", { studentId }),
     repo.findMany("StudentCategoryLevel", { studentId }),
     repo.findMany("AuditLog", { entityType: "Student", entityId: studentId, action: { in: ["level.change", "level.pending"] } }),
     repo.findMany("PracticeSession", { studentId }, { select: ["id", "assessmentId", "assignmentId", "startedAt", "endedAt"] }),
-    repo.findMany("QuestionAttempt", { studentId, createdAt: { gte: since } }, { select: ["isCorrect", "rapidGuess"] }),
+    practiceTotalsFor(repo, studentId, since, now, { schoolId: s(st.schoolId) }),
   ]);
   const history = logs.sort((a, b) => iso(b.createdAt).localeCompare(iso(a.createdAt))).slice(0, 12).map((l) => {
     const after = (l.after ?? {}) as Record<string, unknown>, before = (l.before ?? {}) as Record<string, unknown>;
@@ -50,13 +53,12 @@ export async function studentLearningPath(repo: Repo, actor: Actor, studentId: s
     journeys.push({ title: s(set.title), at: iso(x.startedAt), start: stt.start, path: stt.decision.path, end: stt.decision.level, answers: atts.length,
       correctPct: Math.round((100 * atts.filter((a) => a.isCorrect).length) / atts.length), finished: stt.done, reason: stt.decision.reason });
   }
-  const careful30 = recent.filter((a) => !a.rapidGuess);
   return {
     level: lv ? { level: s(lv.level), source: s(lv.source), at: iso(lv.updatedAt) } : null,
     categories: cats.map((c) => ({ category: s(c.category), name: CATEGORY_NAME[s(c.category) as Category] ?? s(c.category), level: s(c.level), at: iso(c.updatedAt) })).sort((a, b) => a.name.localeCompare(b.name)),
-    history, journeys, answers30: recent.length,
-    rapidPct30: recent.length ? Math.round((100 * recent.filter((a) => a.rapidGuess).length) / recent.length) : null,
+    history, journeys, answers30: recent.questions,
+    rapidPct30: recent.questions ? Math.round((100 * (recent.questions - recent.careful)) / recent.questions) : null,
     // 📏 accuracy = right careful answers / careful answers (a rapid guess counts for nothing — the Practice and time rule)
-    accuracy30: careful30.length ? Math.round((100 * careful30.filter((a) => a.isCorrect).length) / careful30.length) : null,
+    accuracy30: recent.accuracy,
   };
 }

@@ -5,7 +5,9 @@
  * Two ways to read:
  *   MINUTE  — the 1-minute check: the recording stops by itself after 60 seconds. Official: its WCPM sets the
  *             student's fluency level on the school's rubric (Hasbrouck & Tindal 2017) and goes to Reading Fluency,
- *             the Diagnostic analysis, the support groups and the Family Report.
+ *             the Diagnostic analysis, the support groups and the Family Report. r4: official only when the reading
+ *             lasted ≥ 55 s (measured from the WAV itself, never only the browser's word) or the whole passage was
+ *             read; an early Stop is saved as practice. Offered only on passages of MINUTE_MIN_WORDS+ words.
  *   PASSAGE — the whole passage (up to 4 minutes): practice, with feedback on every word; it does not change the
  *             official level (its time is not the standard minute).
  * Practice kinds (FluencyPractice.practiceKind), all built on the same scorer:
@@ -69,7 +71,17 @@ const MINUTE_WORDS = 260, PASSAGE_WORDS = 400;
 // check always records the full 60 seconds (coach-reader.tsx auto-stops at :60, no early-stop), so a passage
 // shorter than the fastest realistic reader's 1-minute output understates their WCPM. 225 ≈ the highest published
 // Hasbrouck & Tindal 90th-percentile rate (Grade 6, spring: 204 WCPM) plus a safety margin.
-const MINUTE_MIN_WORDS = 225;
+// r4: exported so the student page / coachSession / coachHome offer the 1-minute check only on passages this long.
+export const MINUTE_MIN_WORDS = 225;
+/**
+ * r4: a 1-minute check counts as OFFICIAL (a FluencyCheck) only when the reading lasted at least this long or the
+ * student read the whole passage; a check stopped early is saved as practice ("Read for the whole minute…").
+ */
+export const OFFICIAL_MIN_SECONDS = 55;
+export const SHORT_MINUTE_NOTICE = "Read for the whole minute so your score counts.";
+export const MINUTE_TOO_SHORT = "This passage is too short for a full 1-minute check — it could run out before the minute is up. Choose a longer passage.";
+/** r4: no reader is faster than this: a duration the server cannot measure (not a WAV) is stretched to fit it */
+export const MAX_PLAUSIBLE_WCPM = 300;
 const KEY = "fluency.coach";
 
 // ------------------------------------------------------------------ settings (the admin's switch)
@@ -110,7 +122,7 @@ export async function passagesFor(repo: Repo, schoolId: string, grade: number): 
   const ORDER: Record<string, number> = { BELOW: 0, ON: 1, ABOVE: 2 };
   for (const v of vers.sort((a, b) => s(a.articleId).localeCompare(s(b.articleId)) || (ORDER[s(a.level)] ?? 1) - (ORDER[s(b.level)] ?? 1))) {
     const a = arts.find((x) => x.id === v.articleId)!;
-    const body = s(v.body); const words = body.split(/\s+/).filter(Boolean).length;
+    const body = s(v.body); const words = textWords(body).length;
     if (words < 40) continue;
     out.push({ key: `RM:${s(v.id)}`, title: `${s(a.title)} · ${s(v.level).charAt(0)}${s(v.level).slice(1).toLowerCase()}`, words, lexile: Number(v.lexile) || null, level: (s(v.level) as Level) || null, grade: Number(a.gradeLevel), source: "READMASTER", body });
   }
@@ -123,9 +135,16 @@ export async function passagesFor(repo: Repo, schoolId: string, grade: number): 
 }
 
 /** The words of a passage as read aloud: whole sentences up to the mode's limit (markup and extra spaces removed). */
+/**
+ * The words of a text: markup removed; a token with no letter or digit ("—", "–", "&", "…", a lone quote) is not a
+ * word (it is never read aloud, so it must not count toward the words read or the 225-word minimum).
+ */
+export function textWords(body: string): string[] {
+  const text = s(body).replace(/<[^>]+>/g, " ").replace(/\[[^\]]*\]/g, " ").replace(/\s+/g, " ").trim();
+  return text.split(" ").filter((w) => w && /[\p{L}\p{N}]/u.test(w));
+}
 export function passageWords(body: string, mode: CoachMode): string[] {
-  const text = body.replace(/<[^>]+>/g, " ").replace(/\[[^\]]*\]/g, " ").replace(/\s+/g, " ").trim();
-  const words = text.split(" ").filter(Boolean);
+  const words = textWords(body);
   const max = mode === "MINUTE" ? MINUTE_WORDS : PASSAGE_WORDS;
   if (words.length <= max) return words;
   // stop at the end of a sentence near the limit
@@ -173,6 +192,8 @@ Mark only real reading errors on passage words:
  - SKIPPED: the word was left out,
  - HESITATION: the 3-second rule — the reader stopped on the word for MORE than 3 seconds before saying it (or never said it and went on after the pause). This counts as an error.
 NEVER count an accent as an error. A recognisable word said with an Arabic accent is CORRECT (for example a slightly different vowel, a rolled r, p close to b, v close to f, or th close to s/z/t/d while the word is still clearly the word). Count it only when it clearly becomes a different word.
+A numeral or number word written with digits (e.g. 1999, 25, 3rd, 50%) is CORRECT when it is said in any acceptable way ("nineteen ninety-nine" or "one thousand nine hundred ninety-nine"; "twenty-five"; "third"; "fifty percent").
+A proper name (a person, place or brand) that is mispronounced counts as ONE error for the whole passage: mark only its FIRST mispronunciation; every later reading of the same name is CORRECT, however it is said.
 Do NOT count as errors (standard oral reading fluency scoring): self-corrections made within 3 seconds (the word is CORRECT), repetitions, pauses of 3 seconds or less, "um"/"uh" fillers, sounding a word out before saying it right, inserted extra words. Never list them and never use any other error kind.
 The recording may be quiet (its volume was raised on the device), start with a moment of silence, contain classroom noise or other voices in the background, or contain long pauses: listen to all of it. A young reader often pauses between words or sentences, reads slowly, softly or with a strong accent — that is still reading. If you can recognise the reader saying ANY words of the passage (even a few, even with many errors), it is a reading: give lastWordIndex for the last word they reached.
 lastWordIndex = the index of the last passage word the reader reached (they may stop before the end). Use -1 ONLY when no passage word at all can be heard (silence, noise or a different text).
@@ -524,6 +545,8 @@ export interface CoachResult {
   echo: { sentence: number; sentences: number } | null;
   /** a practice re-read: compared with the first read, never stored, never counted */
   practice?: boolean;
+  /** r4: a message for the student, e.g. a 1-minute check stopped early: "Read for the whole minute so your score counts." */
+  notice?: string;
   improvement?: Improvement | null;
 }
 export interface Improvement { first: { wcpm: number; accuracy: number }; wcpmGain: number; accuracyGain: number; message: string }
@@ -569,9 +592,9 @@ export function trialGoal(prevWcpm: number, p50: number | null): number {
 export const averageReads = (reads: number[]) => Math.round(reads.reduce((a, b) => a + b, 0) / Math.max(1, reads.length));
 
 /** The plan after a reading: words and patterns to practise, the week's reading by level, a goal and the next check. */
-export function makePlan(input: { level: Level; wcpm: number; expression: number | null; grade: number; words: string[]; patterns: string[]; passageKey: string; nextKey: { same: string; harder: string | null; another: string | null }; phrasing?: number | null }, now = new Date()): CoachPlan {
+export function makePlan(input: { level: Level; wcpm: number; expression: number | null; grade: number; words: string[]; patterns: string[]; passageKey: string; nextKey: { same: string; harder: string | null; another: string | null; minute?: string | null }; phrasing?: number | null }, now = new Date()): CoachPlan {
   const b = fluencyBands(input.grade);
-  const goal = input.level === "BELOW" ? Math.max(input.wcpm + 1, Math.min(b.below + 1, input.wcpm + 10)) : input.level === "ON" ? Math.max(input.wcpm + 1, Math.min(b.above + 1, input.wcpm + 8)) : input.wcpm + 5;
+  const goal = input.level === "BELOW" ? Math.max(input.wcpm + 1, Math.min(b.below, input.wcpm + 10)) : input.level === "ON" ? Math.max(input.wcpm + 1, Math.min(b.above + 1, input.wcpm + 8)) : input.wcpm + 5;
   const next = new Date(now.getTime() + 7 * 86_400_000).toISOString().slice(0, 10);
   const growth = weeklyGoal(input.grade, input.wcpm, now);
   const go = (key: string, kind: PracticeKind) => `/student/fluency-coach?key=${encodeURIComponent(key)}&mode=${kind}`;
@@ -582,7 +605,7 @@ export function makePlan(input: { level: Level; wcpm: number; expression: number
   else if (input.level === "ON") steps.push({ icon: "📖", text: "Read a new passage at your level twice this week. Pause at commas and full stops, and let your voice show the meaning.", href: input.nextKey.another ? go(input.nextKey.another, "PASSAGE") : undefined });
   else steps.push({ icon: "🚀", text: "Wider reading: try a harder passage this week, then answer its questions in ReadMaster to check you understood it.", href: input.nextKey.harder ? go(input.nextKey.harder, "PASSAGE") : "/student/readmaster" });
   if ((input.expression !== null && input.expression <= 2) || (input.phrasing != null && input.phrasing <= 2)) steps.push({ icon: "🎭", text: "Read like a storyteller: group the words into phrases, and read the sentence again when it does not sound right. Try phrased reading and echo reading.", href: go(input.nextKey.same, "PHRASED") });
-  steps.push({ icon: "⏱", text: `Take your next 1-minute check on ${next}. Goal: ${growth && !growth.reached ? growth.nextGoal : goal} words correct per minute.`, href: go(input.nextKey.same, "MINUTE") });
+  steps.push({ icon: "⏱", text: `Take your next 1-minute check on ${next}. Goal: ${growth && !growth.reached ? growth.nextGoal : goal} words correct per minute.`, href: input.nextKey.minute !== undefined ? (input.nextKey.minute ? go(input.nextKey.minute, "MINUTE") : "/student/fluency-coach") : go(input.nextKey.same, "MINUTE") });
   const nextPassageKey = input.level === "BELOW" ? input.nextKey.same : input.level === "ON" ? input.nextKey.another : input.nextKey.harder;
   return { level: input.level, goal, nextCheck: next, perWeek: input.level === "BELOW" ? 3 : 2, steps, words: input.words.slice(0, 12), patterns: input.patterns, nextPassageKey: nextPassageKey ?? null, growth };
 }
@@ -592,7 +615,7 @@ const day = (x: unknown) => (d(x) ?? new Date(0)).toISOString().slice(0, 10);
 // r85 audit: for deciding whether "two 1-minute cold reads on the same day" should be averaged (riyadhDay below),
 // the school day must be Riyadh-local (UTC+3), the convention used elsewhere in this codebase for day boundaries
 // — `day()` above stays raw UTC since it is only used for display dates, where this doesn't matter.
-const riyadhDay = (x: unknown) => new Date((d(x) ?? new Date(0)).getTime() + 3 * 3_600_000).toISOString().slice(0, 10);
+export const riyadhDay = (x: unknown) => new Date((d(x) ?? new Date(0)).getTime() + 3 * 3_600_000).toISOString().slice(0, 10);
 
 /** One prosody number (NAEP 1–4) for a reading: the mean of the four traits, else the overall expression score. */
 export function prosodyMean(traits: Record<string, unknown> | null | undefined, expression: unknown = null): number | null {
@@ -667,10 +690,105 @@ export class NotHeardError extends ValidationError {
 }
 const SCORING_FAILED = "The coach could not finish scoring this reading. Please try again in a moment — your recording is kept.";
 
-/** Recordings scored at the same time by this server (each holds its audio in memory: 512 MB on Render). */
+/**
+ * r4 (memory): the recordings this server holds at the same time are limited by their total SIZE (512 MB on Render),
+ * not by their number: a 16 kHz mono WAV is ≈1.9 MB a minute, an odd 12 MB upload weighs six of them. The API route
+ * reserves the bytes BEFORE reading the request body (Content-Length, else the largest allowed upload), so a busy
+ * server answers "busy, retry in a few seconds" without buffering anything.
+ */
+export const FLUENCY_MAX_INFLIGHT_BYTES = 60 * 1024 * 1024;
+/** @deprecated r4: the limit is by bytes (FLUENCY_MAX_INFLIGHT_BYTES); kept for old imports */
 export const FLUENCY_MAX_INFLIGHT = 6;
-let inflight = 0;
+export const FLUENCY_BUSY_SECONDS = 5;
+export const FLUENCY_BUSY_REASON = "Many students are reading right now. Your result is next.";
+let inflight = 0, inflightBytes = 0;
 export const fluencyInflight = () => inflight;
+export const fluencyInflightBytes = () => inflightBytes;
+/** A reservation of `bytes` of audio memory; null when the server is full (the caller answers "busy"). */
+export function reserveFluencyBytes(bytes: number): { release: () => void } | null {
+  const n = Math.max(1, Math.round(Number(bytes) || 0));
+  // one recording is always allowed when nothing else is held (a single upload can never be refused for ever)
+  if (inflight > 0 && inflightBytes + n > FLUENCY_MAX_INFLIGHT_BYTES) return null;
+  inflight++; inflightBytes += n;
+  let done = false;
+  return { release: () => { if (done) return; done = true; inflight--; inflightBytes -= n; } };
+}
+
+/**
+ * r4: the length of a WAV recording in seconds from its own header (data bytes ÷ byte rate); null when it is not a
+ * WAV (another container: the server cannot measure it cheaply). The client sends 16 kHz mono 16-bit WAV.
+ */
+export function wavSeconds(b: Uint8Array): number | null {
+  if (!b || b.length < 44) return null;
+  const at = (o: number, t: string) => [...t].every((c, k) => b[o + k] === c.charCodeAt(0));
+  if (!at(0, "RIFF") || !at(8, "WAVE")) return null;
+  const v = new DataView(b.buffer, b.byteOffset, b.byteLength);
+  let o = 12, byteRate = 0;
+  while (o + 8 <= b.length) {
+    const size = v.getUint32(o + 4, true);
+    if (at(o, "fmt ") && o + 20 <= b.length) byteRate = v.getUint32(o + 16, true);
+    if (at(o, "data")) {
+      if (!byteRate) return null;
+      // a streamed header may say 0 / 0xFFFFFFFF: the bytes actually there count
+      const bytes = Math.min(size || Infinity, b.length - (o + 8));
+      return bytes / byteRate;
+    }
+    o += 8 + size + (size % 2);
+  }
+  return null;
+}
+
+/**
+ * r4: the duration the server believes: the audio's own length (WAV) and the browser's `seconds`, the smaller one.
+ * Not a WAV: the browser's value (WCPM plausibility is capped later, MAX_PLAUSIBLE_WCPM).
+ */
+export function readingSeconds(audio: Uint8Array, clientSeconds: number): { seconds: number; measured: boolean } {
+  const a = wavSeconds(audio), c = Number(clientSeconds) || 0;
+  return a === null ? { seconds: c, measured: false } : { seconds: Math.min(a, c), measured: true };
+}
+
+/**
+ * r4: a mispronounced proper name is ONE error for the whole passage: later errors on the same name are dropped (the
+ * word counts as correct). A name = a capitalised word that is not the first word of a sentence somewhere.
+ */
+export function onePerName(words: string[], errors: ReadingMarks["errors"]): ReadingMarks["errors"] {
+  const key = (w: string) => w.replace(/^[^A-Za-z]+|[^A-Za-z]+$/g, "").replace(/'s$/i, "");
+  const startOf = (i: number) => i === 0 || /[.!?]["”’)]?$/.test(words[i - 1] ?? "");
+  const names = new Set<string>();
+  words.forEach((w, i) => { const k = key(w); if (/^[A-Z][a-z]/.test(k) && !startOf(i)) names.add(k); });
+  const seen = new Set<string>();
+  return errors.filter((e) => {
+    if (e.kind !== "MISPRONOUNCED" && e.kind !== "SUBSTITUTED") return true;
+    const k = key(words[e.i] ?? "");
+    if (!names.has(k)) return true;
+    if (seen.has(k)) return false;
+    seen.add(k); return true;
+  });
+}
+
+/**
+ * r4 (retries): the browser sends one id per recording (crypto.randomUUID) with every retry. The first request
+ * claims it (a unique row: RateLimitBucket key, the codebase's create-or-lose guard); a retry of a reading already
+ * scored gets the stored result back — no new scoring, no trial, no daily attempt, no averaging.
+ */
+const REQ_PREFIX = "fluency-req:";
+/**
+ * the request ids (and per-day check slots) being worked on in THIS process (one server instance): a claim row whose
+ * key is not here belongs to a request that died (e.g. an out-of-memory restart) and may be taken again at once
+ */
+const scoringNow = new Set<string>();
+const slotsNow = new Set<string>();
+const recentResults = new Map<string, CoachResult>();
+const RECENT_MAX = 60;
+function rememberResult(k: string, r: CoachResult) { recentResults.delete(k); recentResults.set(k, r); while (recentResults.size > RECENT_MAX) recentResults.delete(recentResults.keys().next().value as string); }
+export const cleanRequestId = (v: unknown): string | null => { const x = s(v).trim(); return /^[A-Za-z0-9-]{8,64}$/.test(x) ? x : null; };
+
+/** Creates a unique row; false when it already exists (also when two requests race: the loser's insert fails). */
+async function claimRow(repo: Repo, key: string, now: Date): Promise<boolean> {
+  if (await repo.findUnique("RateLimitBucket", { key })) return false;
+  try { await repo.create("RateLimitBucket", { key, count: 0, windowStart: now }); return true; }
+  catch (e) { if (await repo.findUnique("RateLimitBucket", { key })) return false; throw e; }
+}
 
 /** Gives back one use of a daily limit (a reading that could not be scored). */
 export async function refundRateLimit(repo: Repo, key: string): Promise<void> {
@@ -729,13 +847,96 @@ async function scoreWithFallback(a: { repo: Repo; schoolId: string; env: EnvLike
   throw last;
 }
 
-export interface ScoreInput { key: string; mode: CoachMode; seconds: number; audio: Uint8Array; mime: string; /** seconds of voice the student's device measured in the recording (a second opinion is asked when the coach hears nothing) */ voiced?: number; kind?: PracticeKind; sentence?: number; grid?: unknown; /** a practice re-read of this earlier reading (not stored, not counted) */ rereadOf?: string; /** 1+: the page sends the same recording again after "heard but unclear" (another model listens first) */ attempt?: number }
+export interface ScoreInput {
+  /** r4: one id per recording (crypto.randomUUID in the browser), sent with every retry of the same recording */
+  requestId?: string;
+  /** r4: the API route already reserved this recording's bytes (reserveFluencyBytes) before reading the body */
+  reserved?: boolean;
+  key: string; mode: CoachMode; seconds: number; audio: Uint8Array; mime: string; /** seconds of voice the student's device measured in the recording (a second opinion is asked when the coach hears nothing) */ voiced?: number; kind?: PracticeKind; sentence?: number; grid?: unknown; /** a practice re-read of this earlier reading (not stored, not counted) */ rereadOf?: string; /** 1+: the page sends the same recording again after "heard but unclear" (another model listens first) */ attempt?: number }
 
 /**
  * Scores one recording. The school's AI limits are kept: when the provider needs a pause, the reply says how long
  * to wait and the page sends the same recording again by itself (a queue, without storing the audio).
  */
-export async function scoreReading(repo: Repo, actor: Actor, input: ScoreInput, env: EnvLike, deps: { scorer?: AudioScorer | null; fetchImpl?: typeof fetch } = {}, now = new Date()): Promise<{ status: "OK"; result: CoachResult } | { status: "WAIT"; seconds: number; reason: string; timeout?: boolean }> {
+export type ScoreReply = { status: "OK"; result: CoachResult } | { status: "WAIT"; seconds: number; reason: string; timeout?: boolean };
+export async function scoreReading(repo: Repo, actor: Actor, input: ScoreInput, env: EnvLike, deps: { scorer?: AudioScorer | null; fetchImpl?: typeof fetch } = {}, now = new Date()): Promise<ScoreReply> {
+  const reqId = cleanRequestId(input.requestId);
+  if (!reqId) return scoreFresh(repo, actor, input, env, deps, now, null);
+  await studentGrade(repo, actor);
+  const reqKey = `${REQ_PREFIX}${actor.studentId}:${reqId}`;
+  // the first request with this id is still being scored in this process: wait, then ask again (its result comes back).
+  // Checked and set without an await in between, so two requests here can never both score it.
+  if (scoringNow.has(reqKey)) return { status: "WAIT", seconds: FLUENCY_BUSY_SECONDS, reason: "Your reading is still being scored. Your result is next." };
+  scoringNow.add(reqKey);
+  try {
+    const prior = await repo.findUnique("RateLimitBucket", { key: reqKey });
+    if (prior) {
+      if (Number(prior.count) >= 1) {
+        // already scored: the same result again — no scoring, no trial, no daily attempt, no averaging
+        const cached = recentResults.get(reqKey);
+        if (cached) return { status: "OK", result: cached };
+        const row = await storedReading(repo, actor.studentId!, reqId);
+        if (row) return { status: "OK", result: await resultFromRow(repo, actor, row) };
+        // scored but never stored (a practice re-read) and forgotten (a restart): it is scored again below
+      }
+      // count 0 and not in scoringNow: the request that claimed it died (a restart) — it is scored now
+      await repo.updateMany("RateLimitBucket", { key: reqKey }, { count: 0, windowStart: now });
+    } else await claimRow(repo, reqKey, now);
+    let r: ScoreReply;
+    try { r = await scoreFresh(repo, actor, input, env, deps, now, reqId); }
+    catch (e) { await repo.deleteMany("RateLimitBucket", { key: reqKey }).catch(() => 0); throw e; }
+    if (r.status !== "OK") { await repo.deleteMany("RateLimitBucket", { key: reqKey }).catch(() => 0); return r; }
+    rememberResult(reqKey, r.result);
+    await repo.updateMany("RateLimitBucket", { key: reqKey }, { count: 1 }).catch(() => 0);
+    return r;
+  } finally { scoringNow.delete(reqKey); }
+}
+
+/** The stored reading made from this recording id (the newest 30 readings of the student). */
+async function storedReading(repo: Repo, studentId: string, reqId: string): Promise<Row | null> {
+  const rows = await repo.findMany("FluencyPractice", { studentId }, { orderBy: [{ field: "createdAt", dir: "desc" }], take: 30 });
+  return rows.find((r) => json<{ requestId?: unknown } | null>(r.plan, null)?.requestId === reqId) ?? null;
+}
+
+/** A stored reading as a result (a retry after the server forgot the first answer): the same numbers and marks. */
+async function resultFromRow(repo: Repo, actor: Actor, row: Row): Promise<CoachResult> {
+  const grade = await studentGrade(repo, actor);
+  const storedMode: CoachMode = s(row.mode) === "MINUTE" ? "MINUTE" : "PASSAGE";
+  const kind = clampKind(row.practiceKind, storedMode);
+  const errs = json<{ i: number; word?: string; heard?: string; kind?: string }[]>(row.errors, []);
+  let words: string[] = [];
+  if (s(row.passageKey) !== "DRILL" && kind !== "ECHO") {
+    const p = (await passagesFor(repo, s(actor.schoolId), grade)).find((x) => x.key === s(row.passageKey));
+    if (p) words = passageWords(p.body, kind === "MINUTE" ? "MINUTE" : storedMode);
+  }
+  const last = Number(row.wordsRead) - 1;
+  const byI = new Map(errs.map((e) => [Number(e.i), e]));
+  const marked: MarkedWord[] = words.length
+    ? words.map((w, i) => { const e = byI.get(i); return { text: w, mark: i > last ? "NOT_READ" : e ? (s(e.kind) as ErrorKind) : "OK", heard: e ? s(e.heard) : "" }; })
+    : errs.map((e) => ({ text: s(e.word), mark: s(e.kind) as ErrorKind, heard: s(e.heard) }));
+  const season = fluencySeason(d(row.createdAt) ?? new Date());
+  const wcpm = Number(row.wcpm);
+  const official = row.level !== null && row.level !== undefined && s(row.level) !== "";
+  const level: Level = official ? (s(row.level) as Level) : fluencyLevel(wcpm, grade, season);
+  const pj = json<Record<string, unknown> | null>(row.prosody, null);
+  const reasons = json<Record<string, string>>(pj?.reasons, {});
+  const prosody = pj ? validateProsody(Object.fromEntries(PROSODY_TRAITS.map((t) => [t, typeof pj[t] === "number" ? { score: pj[t], reason: s(reasons[t]) } : null]))) : null;
+  const planJ = json<(CoachPlan & { quiz?: unknown; requestId?: unknown }) | null>(row.plan, null);
+  const plan: CoachPlan = planJ && Array.isArray(planJ.steps) ? (({ quiz: _q, requestId: _r, ...rest }) => rest as CoachPlan)(planJ) : { level, goal: wcpm + 1, nextCheck: "", perWeek: 0, steps: [], words: [], patterns: [], nextPassageKey: null, growth: null };
+  const errWords = [...new Set(errs.map((e) => s(e.word)).filter((w) => w.length > 1))];
+  return {
+    id: s(row.id), mode: storedMode, kind, title: s(row.title), passageKey: s(row.passageKey), words: marked,
+    wordsRead: Number(row.wordsRead), wordsCorrect: Number(row.wordsCorrect), seconds: Number(row.seconds), wcpm, accuracy: Number(row.accuracy),
+    expression: row.expression === null || row.expression === undefined ? null : Number(row.expression),
+    level, official, rubric: fluencyRubricText(grade, season), patterns: json<string[]>(row.patterns, []), practise: errWords, plan,
+    date: (d(row.createdAt) ?? new Date()).toISOString().slice(0, 10), norm: normView(grade, wcpm, season), prosody,
+    hesitations: Number(row.hesitations ?? 0), tips: tipsFor(errs.map((e) => ({ word: s(e.word), heard: s(e.heard) }))),
+    average: null, trial: row.trial === null || row.trial === undefined ? null : Number(row.trial), trials: [], nextGoal: null, drill: null, echo: null,
+    ...(kind === "MINUTE" && !official ? { notice: SHORT_MINUTE_NOTICE } : {}),
+  };
+}
+
+async function scoreFresh(repo: Repo, actor: Actor, input: ScoreInput, env: EnvLike, deps: { scorer?: AudioScorer | null; fetchImpl?: typeof fetch }, now: Date, reqId: string | null): Promise<ScoreReply> {
   const grade = await studentGrade(repo, actor);
   const schoolId = s(actor.schoolId);
   if (!(await coachSettings(repo, schoolId)).enabled) throw new ValidationError("The Fluency Coach is switched off by the school.");
@@ -756,6 +957,9 @@ export async function scoreReading(repo: Repo, actor: Actor, input: ScoreInput, 
   if (input.audio.length > MAX_AUDIO_BYTES) throw new ValidationError("The recording is too long.");
   if (!geminiAudioMime(input.mime, input.audio)) throw new ValidationError("This recording type is not supported.");
   if (!(input.seconds >= (kind === "ECHO" ? 1 : 3))) throw new ValidationError("Read for a few seconds at least, then stop.");
+  // r4: the server does not trust the browser's `seconds` for the score: a WAV's own length wins when it is shorter
+  // (used for the WCPM and for "official or practice"; the quick check above only stops an empty Stop)
+  const dur = readingSeconds(input.audio, input.seconds);
   const all = await passagesFor(repo, schoolId, grade);
   const official0 = await latestOfficial(repo, actor.studentId!, grade);
 
@@ -770,7 +974,7 @@ export async function scoreReading(repo: Repo, actor: Actor, input: ScoreInput, 
   } else {
     p = all.find((x) => x.key === key) ?? null;
     if (!p) throw new ForbiddenError("Passage not found.");
-    if (mode === "MINUTE" && p.words < MINUTE_MIN_WORDS) throw new ValidationError("This passage is too short for a full 1-minute check — it could run out before the minute is up. Choose a longer passage.");
+    if (mode === "MINUTE" && p.words < MINUTE_MIN_WORDS) throw new ValidationError(MINUTE_TOO_SHORT);
     words = passageWords(p.body, mode);
     if (kind === "ECHO") {
       const ss = sentences(words), k = Number(input.sentence);
@@ -782,7 +986,7 @@ export async function scoreReading(repo: Repo, actor: Actor, input: ScoreInput, 
       if (kind === "REPEATED" && !repeatedOffered(official0?.level ?? null)) throw new ValidationError("You already read above your grade level — repeated reading is not needed. Try wider reading: a new, harder passage.");
       earlier = (await repo.findMany("FluencyPractice", { studentId: actor.studentId, passageKey: p.key, practiceKind: kind }, { select: ["wcpm", "trial", "createdAt"] })).sort((a, b) => (d(a.createdAt)?.getTime() ?? 0) - (d(b.createdAt)?.getTime() ?? 0));
       trial = earlier.length + 1;
-      if (kind === "REPEATED" && trial > REPEATED_MAX_TRIALS) throw new ValidationError(`You read this passage ${REPEATED_MAX_TRIALS} times — well done! Choose a new passage.`);
+      if (kind === "REPEATED" && trial > REPEATED_MAX_TRIALS) throw new ValidationError("You read this passage 5 times — well done! Choose a new passage.");
     }
   }
   const scorer = deps.scorer === undefined ? geminiAudioScorer(env, deps.fetchImpl) : deps.scorer;
@@ -792,18 +996,19 @@ export async function scoreReading(repo: Repo, actor: Actor, input: ScoreInput, 
   if (settings.provider === "off") throw new ValidationError("The AI tools are switched off by the school.");
   const rs = await rateState(repo, schoolId, settings, now);
   if (rs.waitMs > 0) return { status: "WAIT", seconds: Math.ceil(rs.waitMs / 1000), reason: rs.reason ?? "Many students are reading right now. Your result is next." };
-  // this server scores a few recordings at a time (each holds its audio in memory): the rest wait a moment, in order
-  if (inflight >= FLUENCY_MAX_INFLIGHT) return { status: "WAIT", seconds: 6, reason: "Many students are reading right now. Your result is next." };
+  // this server holds a limited amount of audio at a time (by bytes): the rest wait a moment, in order. The API route
+  // reserves before reading the body (input.reserved); a direct call reserves here.
+  const lease = input.reserved ? null : reserveFluencyBytes(input.audio.length);
+  if (!input.reserved && !lease) return { status: "WAIT", seconds: FLUENCY_BUSY_SECONDS, reason: FLUENCY_BUSY_REASON };
   const limitKey = kind === "ECHO" ? `fluency-echo:${actor.userId}` : `fluency:${actor.userId}`;
-  const mine = await consumeRateLimit(repo, limitKey, kind === "ECHO" ? ECHO_PER_DAY : COACH_PER_DAY, 86_400_000, now);
-  if (!mine.allowed) throw new ValidationError(`That is a lot of reading today — well done! Come back tomorrow.`);
+  const mine = await consumeRateLimit(repo, limitKey, kind === "ECHO" ? ECHO_PER_DAY : COACH_PER_DAY, 86_400_000, now).catch((e) => { lease?.release(); throw e; });
+  if (!mine.allowed) { lease?.release(); throw new ValidationError("That is a lot of reading today — well done! Come back tomorrow."); }
   // a reading that could not be scored does not count toward the student's daily limit
   const refund = () => refundRateLimit(repo, limitKey).catch(() => undefined);
   const started = Date.now();
   const model = fluencyModel(env).slice(0, 80);
   let marks: ReadingMarks;
   const task = kind === "ECHO" ? "ECHO" : kind === "DRILL" ? "DRILL" : "READ";
-  inflight++;
   try {
     try { marks = await scoreWithFallback({ repo, schoolId, env, model, scorer, own: deps.scorer === undefined, fetchImpl: deps.fetchImpl, started, voiced: input.voiced, attempt: input.attempt, input: { words, audio: input.audio, mime: input.mime, task, voiced: input.voiced ?? 0 } }); }
     catch (e) {
@@ -821,7 +1026,7 @@ export async function scoreReading(repo: Repo, actor: Actor, input: ScoreInput, 
       }
       throw new ValidationError(SCORING_FAILED);
     }
-  } finally { inflight--; }
+  } finally { lease?.release(); }
   await repo.create("AiRequestLog", { schoolId, tool: "fluency", provider: "gemini", model, ok: true, items: 1, ms: Date.now() - started, error: null, createdAt: new Date() });
   // a fake or older scorer may skip the checks: run the reply through the validator once more
   const v = validateMarks(marks, words.length);
@@ -837,13 +1042,24 @@ export async function scoreReading(repo: Repo, actor: Actor, input: ScoreInput, 
     throw new NotHeardError();
   }
   if (kind === "DRILL") marks = { ...marks, expression: null, prosody: null };
+  // r4: a mispronounced proper name is one error for the whole passage (the prompt says so; the server makes sure)
+  if (task === "READ") marks = { ...marks, errors: onePerName(words, marks.errors) };
 
   const season = fluencySeason(now);
-  const drill = grid ? { ...scoreDrill(grid, marks, input.seconds), grid } : null;
+  // r4: the reading's time: the smaller of the audio's own length and the browser's value, never faster than a
+  // plausible reader (MAX_PLAUSIBLE_WCPM) — a forged or broken `seconds` cannot inflate the WCPM
+  const secs = Math.max(dur.seconds, ((marks.lastWordIndex + 1) * 60) / MAX_PLAUSIBLE_WCPM);
+  const drill = grid ? { ...scoreDrill(grid, marks, secs), grid } : null;
   const n = drill ? { wordsRead: drill.wordsRead, wordsCorrect: drill.wordsCorrect, seconds: drill.seconds, wcpm: drill.wcpm, accuracy: drill.wordsRead ? Math.round((100 * drill.wordsCorrect) / drill.wordsRead) : 0 }
-    : countReading(words, marks, kind === "ECHO" ? Math.min(ECHO_MAX_SECONDS, input.seconds) : input.seconds, mode);
+    : countReading(words, marks, kind === "ECHO" ? Math.min(ECHO_MAX_SECONDS, secs) : secs, mode);
   const level = fluencyLevel(n.wcpm, grade, season);
-  const official = kind === "MINUTE" && !practiceRead;
+  // r4: official only after (about) the whole minute, or when the whole passage was read; an early Stop is practice
+  const finished = marks.lastWordIndex >= words.length - 1;
+  const minuteTry = kind === "MINUTE" && !practiceRead;
+  const official = minuteTry && (secs >= OFFICIAL_MIN_SECONDS || finished);
+  const shortMinute = minuteTry && !official;
+  /** a 1-minute check stopped early is stored as a passage reading (no level, never a minute reading in the reports) */
+  const storedMode: CoachMode = shortMinute ? "PASSAGE" : mode;
   const norm = normView(grade, n.wcpm, season);
   const errWords = [...new Set(marks.errors.map((e) => clean(words[e.i])).filter((w) => w.length > 1))];
   const storedErrors = marks.errors.map((e) => { const w = clean(words[e.i]); return { i: e.i, word: w, heard: e.heard, kind: e.kind, pattern: patternForError(w, marks.patterns), arabic: arabicTags(w, e.heard) }; });
@@ -895,17 +1111,42 @@ export async function scoreReading(repo: Repo, actor: Actor, input: ScoreInput, 
   let average: CoachResult["average"] = null;
   if (official) {
     const today = riyadhDay(now);
-    const todays = (await repo.findMany("FluencyCheck", { studentId: actor.studentId, source: "COACH" })).filter((c) => riyadhDay(c.checkedAt) === today);
-    const first = todays.find((c) => !/average of 2/i.test(s(c.note)));
-    if (first && todays.length === 1) {
+    // r4: two requests at the same moment must not both create "the first check" (or both average): each of the
+    // day's two official slots is claimed once (a unique row, the codebase's create-or-lose guard); the loser looks
+    // again a moment later (the winner's check is then there) and takes the next slot, or stays a reading
+    // A claim is real only while the check it stands for exists (slot 1: a check today; slot 2: the averaged check):
+    // `want` is computed from the checks just read, so a claim that is taken although its check is missing is either
+    // being written right now in this process (slotsNow: wait and look again) or left over (a failed write, a
+    // restart, a check the teacher deleted): it is released and claimed again.
+    let todays: Row[] = [], first: Row | undefined, slot = 0, slotKey = "";
+    for (let tryNo = 0; tryNo < 4 && !slot; tryNo++) {
+      if (tryNo) await new Promise((ok) => setTimeout(ok, 250 * tryNo));
+      todays = (await repo.findMany("FluencyCheck", { studentId: actor.studentId, source: "COACH" })).filter((c) => riyadhDay(c.checkedAt) === today);
+      first = todays.find((c) => !/average of 2/i.test(s(c.note)));
+      const want = !todays.length ? 1 : first && todays.length === 1 ? 2 : 0;
+      if (!want) break;
+      const k = `fluency-check:${actor.studentId}:${today}:${want}`;
+      if (slotsNow.has(k)) continue;   // another reading in this process is writing it: look again in a moment
+      slotsNow.add(k);
+      let got = await claimRow(repo, k, now).catch(() => false);
+      if (!got) { await repo.deleteMany("RateLimitBucket", { key: k }).catch(() => 0); got = await claimRow(repo, k, now).catch(() => false); }
+      if (got) { slot = want; slotKey = k; } else slotsNow.delete(k);
+    }
+    try {
+    if (slot === 2 && first) {
       const reads = [Number(first.wcpm), n.wcpm];
       const avg = averageReads(reads);
       const v2 = normView(grade, avg, season);
       await repo.updateMany("FluencyCheck", { id: first.id }, { wcpm: avg, accuracy: Math.round((Number(first.accuracy ?? n.accuracy) + n.accuracy) / 2), note: `Fluency Coach · average of 2 cold reads (${reads.join(" and ")} WCPM): ${p!.title}`.slice(0, 500), season, percentile: v2.percentile, prosody: prosodyScores(prosody) ?? first.prosody ?? null, checkedAt: now });
       average = { reads, wcpm: avg };
-    } else if (!todays.length) {
+    } else if (slot === 1) {
       await repo.create("FluencyCheck", { studentId: actor.studentId, wcpm: n.wcpm, accuracy: n.accuracy, note: `Fluency Coach: ${p!.title}`.slice(0, 500), source: "COACH", checkedById: null, checkedAt: now, season, percentile: norm.percentile, prosody: prosodyScores(prosody), comprehension: null });
     }
+    } catch (e) {
+      // the check was not written: the slot is released so the next reading can take it
+      if (slotKey) await repo.deleteMany("RateLimitBucket", { key: slotKey }).catch(() => 0);
+      throw e;
+    } finally { if (slotKey) slotsNow.delete(slotKey); }
     // a third check on the same day is kept as a reading; the day's official score stays the average of two
   }
 
@@ -915,19 +1156,25 @@ export async function scoreReading(repo: Repo, actor: Actor, input: ScoreInput, 
     const sameLevel = all.filter((x) => x.level === p!.level && x.key !== p!.key);
     const harder = all.filter((x) => (p!.lexile && x.lexile ? x.lexile > p!.lexile : x.grade > p!.grade || (x.level === "ABOVE" && p!.level !== "ABOVE")));
     const easier = all.filter((x) => (p!.lexile && x.lexile ? x.lexile < p!.lexile : x.grade < p!.grade || (x.level === "BELOW" && p!.level !== "BELOW")));
-    plan = makePlan({ level: official ? level : official0?.level ?? level, wcpm: official ? n.wcpm : official0?.wcpm ?? n.wcpm, expression: marks.expression, grade, words: errWords, patterns: marks.patterns, passageKey: p.key, nextKey: { same: p.key, harder: harder[0]?.key ?? null, another: sameLevel[0]?.key ?? null }, phrasing: prosody?.phrasing?.score ?? null }, now);
+    // r4: the 1-minute check is offered only on passages long enough for a whole minute
+    const longs = all.filter((x) => x.words >= MINUTE_MIN_WORDS);
+    const minuteNew = longs.find((x) => x.key !== p!.key && x.level === p!.level) ?? longs.find((x) => x.key !== p!.key) ?? null;
+    const minuteNext = p.words >= MINUTE_MIN_WORDS ? p.key : minuteNew?.key ?? null;
+    plan = makePlan({ level: official ? level : official0?.level ?? level, wcpm: official ? n.wcpm : official0?.wcpm ?? n.wcpm, expression: marks.expression, grade, words: errWords, patterns: marks.patterns, passageKey: p.key, nextKey: { same: p.key, harder: harder[0]?.key ?? null, another: sameLevel[0]?.key ?? null, minute: minuteNext }, phrasing: prosody?.phrasing?.score ?? null }, now);
     const repeatedOk = repeatedOffered(official0?.level ?? (official ? level : null));
     if (!repeatedOk) plan.steps = plan.steps.map((st) => (/repeated reading/.test(st.text) ? { icon: "🚀", text: "Wider reading: choose a new, harder passage this week.", href: "/student/fluency-coach" } : st));
     // 🧭 the remedial plan: the previous one reviewed with this reading (goal met → raised; no growth → new methods), or a new one
     const current: ReadingEvidence = { date: now.toISOString(), kind, wcpm: n.wcpm, accuracy: n.accuracy, prosody: prosodyMean(prosodyScores(prosody), marks.expression), trial };
     plan.remedial = await remedialAfter(repo, actor.studentId!, grade, history, current, {
       words: feedback.practise.map((x) => x.word.toLowerCase()).concat(errWords).filter((w, i, a) => a.indexOf(w) === i), patterns: marks.patterns,
-      links: { same: p.key, easier: easier[easier.length - 1]?.key ?? null, harder: harder[0]?.key ?? null, another: sameLevel[0]?.key ?? null },
+      links: { same: p.key, easier: easier[easier.length - 1]?.key ?? null, harder: harder[0]?.key ?? null, another: sameLevel[0]?.key ?? null, minute: minuteNew?.key ?? minuteNext },
     }, repeatedOk, now);
   }
   const row = await repo.create("FluencyPractice", {
-    studentId: actor.studentId, mode, passageKey: p ? p.key : "DRILL", title: (p ? (kind === "ECHO" ? `Echo · ${p.title}` : p.title) : "Speed drill").slice(0, 191), lexile: p?.lexile ?? null, wordsRead: n.wordsRead, wordsCorrect: n.wordsCorrect, seconds: n.seconds, wcpm: n.wcpm, accuracy: n.accuracy,
-    expression: marks.expression, level: official ? level : null, errors: storedErrors, patterns: drill ? drill.reteach : marks.patterns, plan,
+    studentId: actor.studentId, mode: storedMode, passageKey: p ? p.key : "DRILL", title: (p ? (kind === "ECHO" ? `Echo · ${p.title}` : p.title) : "Speed drill").slice(0, 191), lexile: p?.lexile ?? null, wordsRead: n.wordsRead, wordsCorrect: n.wordsCorrect, seconds: n.seconds, wcpm: n.wcpm, accuracy: n.accuracy,
+    expression: marks.expression, level: official ? level : null, errors: storedErrors, patterns: drill ? drill.reteach : marks.patterns,
+    // r4: the recording's id rides with the reading (no new column): a retry finds it and gets this result back
+    plan: reqId ? { ...(plan ?? {}), requestId: reqId } : plan,
     prosody: prosody ? { ...prosodyScores(prosody), reasons: Object.fromEntries(PROSODY_TRAITS.map((t) => [t, prosody[t]?.reason ?? ""])) } : null,
     hesitations: marks.hesitations?.length ?? 0, comprehension: null, practiceKind: kind, trial, percentile: official ? norm.percentile : null, createdAt: now,
   });
@@ -938,6 +1185,7 @@ export async function scoreReading(repo: Repo, actor: Actor, input: ScoreInput, 
       words: marked, feedback,
       ...n, expression: marks.expression, level, official, rubric: fluencyRubricText(grade, season), patterns: marks.patterns, practise: errWords, plan: plan ?? emptyPlan, date: now.toISOString().slice(0, 10),
       norm: average ? normView(grade, average.wcpm, season) : norm, prosody, hesitations: marks.hesitations?.length ?? 0, tips, average, trial, trials, nextGoal, drill, echo,
+      ...(shortMinute ? { notice: SHORT_MINUTE_NOTICE } : {}),
     },
   };
 }
@@ -947,6 +1195,9 @@ export async function scoreReading(repo: Repo, actor: Actor, input: ScoreInput, 
 export interface CoachHome {
   enabled: boolean; ready: boolean; grade: number; rubric: string; bands: { below: number; above: number };
   passages: CoachPassage[]; recommended: string | null;
+  /** r4: the passage for the 1-minute check — the recommended one when it is long enough (MINUTE_MIN_WORDS), else the nearest long-enough one; null when none */
+  recommendedMinute: string | null;
+  /** r4: the latest OFFICIAL check (FluencyCheck, teacher checks included) — the same number every page shows */
   latest: { wcpm: number; level: Level; date: string } | null;
   plan: (CoachPlan & { date: string }) | null;
   history: { id: string; mode: CoachMode; kind: PracticeKind; title: string; wcpm: number; accuracy: number; level: Level | null; comprehension: number | null; date: string }[];
@@ -979,12 +1230,16 @@ export async function coachHome(repo: Repo, actor: Actor, env: EnvLike, now = ne
   const minute = mine.filter((x) => s(x.mode) === "MINUTE");
   const lexile = lex ? Number(lex.lexile) : null;
   const ofGrade = passages.filter((x) => x.grade === grade);
-  const planOf = (r: Row | undefined) => { const pl = json<(CoachPlan & { quiz?: unknown }) | null>(r?.plan, null); if (!pl || !Array.isArray(pl.steps)) return null; const { quiz: _q, ...rest } = pl; return rest as CoachPlan; };
+  const planOf = (r: Row | undefined) => { const pl = json<(CoachPlan & { quiz?: unknown; requestId?: unknown }) | null>(r?.plan, null); if (!pl || !Array.isArray(pl.steps)) return null; const { quiz: _q, requestId: _r, ...rest } = pl; return rest as CoachPlan; };
   const planRow = mine.find((x) => planOf(x));
   const lastPlan = planOf(planRow);
   const recommended = (lastPlan?.nextPassageKey && passages.some((x) => x.key === lastPlan.nextPassageKey) ? lastPlan.nextPassageKey
     : lexile !== null ? [...passages].filter((x) => x.lexile !== null).sort((a, b) => Math.abs(a.lexile! - lexile) - Math.abs(b.lexile! - lexile))[0]?.key
     : (ofGrade.find((x) => x.level === (minute[0] ? s(minute[0].level) : "ON")) ?? ofGrade[0] ?? passages[0])?.key) ?? null;
+  const longEnough = (x: CoachPassage) => x.words >= MINUTE_MIN_WORDS;
+  const recP = passages.find((x) => x.key === recommended);
+  const recommendedMinute = recP && longEnough(recP) ? recP.key
+    : ([...passages].filter(longEnough).sort((a, b) => Math.abs(a.grade - grade) - Math.abs(b.grade - grade) || (lexile !== null && a.lexile !== null && b.lexile !== null ? Math.abs(a.lexile - lexile) - Math.abs(b.lexile - lexile) : 0))[0]?.key ?? null);
   const season = fluencySeason(now);
   const checks = checkRows.sort((a, b) => (d(a.checkedAt)?.getTime() ?? 0) - (d(b.checkedAt)?.getTime() ?? 0));
   const seasonOf = (c: Row): Season => (isSeason(c.season) ? (c.season as Season) : fluencySeason(d(c.checkedAt) ?? now));
@@ -1005,8 +1260,8 @@ export async function coachHome(repo: Repo, actor: Actor, env: EnvLike, now = ne
   if (remedial && !repeatedOffered(officialLevel)) remedial.daily = remedial.daily.map((st) => (st.href && /mode=REPEATED/.test(st.href) ? { ...st, href: st.href.replace("mode=REPEATED", "mode=PASSAGE") } : st));
   return {
     enabled, ready: !("error" in chooseAiProvider({ ...env, AI_PROVIDER: "gemini" })), grade, rubric: fluencyRubricText(grade, season), bands: fluencyBands(grade, season),
-    passages, recommended,
-    latest: minute[0] ? { wcpm: Number(minute[0].wcpm), level: (s(minute[0].level) as Level) || fluencyLevel(Number(minute[0].wcpm), grade, season), date: day(minute[0].createdAt) } : null,
+    passages, recommended, recommendedMinute,
+    latest: lastCheck ? { wcpm: Number(lastCheck.wcpm), level: officialLevel!, date: day(lastCheck.checkedAt) } : null,
     plan: planRow && lastPlan ? { ...lastPlan, date: day(planRow.createdAt) } : null,
     history: mine.slice(0, 12).map((x) => ({ id: s(x.id), mode: s(x.mode) as CoachMode, kind: clampKind(x.practiceKind, s(x.mode) as CoachMode), title: s(x.title), wcpm: Number(x.wcpm), accuracy: Number(x.accuracy), level: x.level ? (s(x.level) as Level) : null, comprehension: x.comprehension === null || x.comprehension === undefined ? null : Number(x.comprehension), date: day(x.createdAt) })),
     checks: minute.slice(0, 8).reverse().map((x) => ({ wcpm: Number(x.wcpm), date: day(x.createdAt) })),
@@ -1047,6 +1302,8 @@ export async function coachSession(repo: Repo, actor: Actor, key: string, kind: 
   const mode: CoachMode = kind === "MINUTE" ? "MINUTE" : "PASSAGE";
   const words = passageWords(p.body, mode);
   const base: CoachSession = { key: p.key, title: p.title, words, lexile: p.lexile, kind, marks: null, sentences: null, trial: null, trials: [], goal: null, offered: true, reason: null };
+  // r4: the 1-minute check only on a passage long enough for a whole minute (the same rule as the scorer)
+  if (kind === "MINUTE" && p.words < MINUTE_MIN_WORDS) return { ...base, offered: false, reason: MINUTE_TOO_SHORT };
   if (kind === "ECHO") return { ...base, sentences: sentences(words) };
   if (kind !== "PHRASED" && kind !== "REPEATED") return base;
   const earlier = (await repo.findMany("FluencyPractice", { studentId: actor.studentId, passageKey: p.key, practiceKind: kind }, { select: ["wcpm", "createdAt"] })).sort((a, b) => (d(a.createdAt)?.getTime() ?? 0) - (d(b.createdAt)?.getTime() ?? 0));
@@ -1062,11 +1319,28 @@ export async function coachSession(repo: Repo, actor: Actor, key: string, kind: 
   return { ...base, trial, trials, goal };
 }
 
-/** For the Family Report and the student's home: the latest plan and official check. */
-export async function coachSummary(repo: Repo, studentId: string): Promise<{ latest: { wcpm: number; level: string; date: string } | null; plan: CoachPlan | null; readings14: number }> {
-  const rows: Row[] = (await repo.findMany("FluencyPractice", { studentId }, { select: ["mode", "wcpm", "level", "plan", "createdAt"] })).sort((a, b) => (d(b.createdAt)?.getTime() ?? 0) - (d(a.createdAt)?.getTime() ?? 0));
-  const m = rows.find((x) => s(x.mode) === "MINUTE");
-  const withPlan = rows.map((r) => json<(CoachPlan & { quiz?: unknown }) | null>(r.plan, null)).find((pl) => pl && Array.isArray(pl.steps));
-  const plan = withPlan ? (({ quiz: _q, ...rest }) => rest as CoachPlan)(withPlan) : null;
-  return { latest: m ? { wcpm: Number(m.wcpm), level: s(m.level), date: d(m.createdAt)!.toISOString().slice(0, 10) } : null, plan, readings14: rows.filter((x) => (d(x.createdAt)?.getTime() ?? 0) >= Date.now() - 14 * 86_400_000).length };
+/**
+ * For the Family Report, the parent page and the student's home: the latest plan and the latest OFFICIAL check.
+ * r4: `latest` = the newest FluencyCheck (the Fluency Coach's official 1-minute check or a teacher's check) — the same
+ * number the Diagnostic, the teacher's pages and the tiers use; the newest practice reading is `latestPractice`.
+ */
+export async function coachSummary(repo: Repo, studentId: string): Promise<{ latest: { wcpm: number; level: string; date: string } | null; latestPractice: { wcpm: number; date: string } | null; plan: CoachPlan | null; readings14: number }> {
+  const [practiceRows, checkRows, st] = await Promise.all([
+    repo.findMany("FluencyPractice", { studentId }, { select: ["mode", "practiceKind", "wcpm", "level", "plan", "createdAt"] }),
+    repo.findMany("FluencyCheck", { studentId }, { select: ["wcpm", "season", "checkedAt"] }),
+    repo.findUnique("Student", { id: studentId }),
+  ]);
+  const rows: Row[] = practiceRows.sort((a, b) => (d(b.createdAt)?.getTime() ?? 0) - (d(a.createdAt)?.getTime() ?? 0));
+  const c = checkRows.sort((a, b) => (d(b.checkedAt)?.getTime() ?? 0) - (d(a.checkedAt)?.getTime() ?? 0))[0];
+  let latest: { wcpm: number; level: string; date: string } | null = null;
+  if (c) {
+    const grade = Number((st?.gradeId ? await repo.findUnique("Grade", { id: st.gradeId }) : null)?.level ?? 5);
+    const season = isSeason(c.season) ? (c.season as Season) : fluencySeason(d(c.checkedAt) ?? new Date());
+    latest = { wcpm: Number(c.wcpm), level: fluencyLevel(Number(c.wcpm), grade, season), date: day(c.checkedAt) };
+  }
+  // the newest practice reading of a passage (echo = one sentence, drill = a word list: left out)
+  const pr = rows.find((x) => !["ECHO", "DRILL"].includes(s(x.practiceKind)) && x.wcpm !== null && x.wcpm !== undefined);
+  const withPlan = rows.map((r) => json<(CoachPlan & { quiz?: unknown; requestId?: unknown }) | null>(r.plan, null)).find((pl) => pl && Array.isArray(pl.steps));
+  const plan = withPlan ? (({ quiz: _q, requestId: _r, ...rest }) => rest as CoachPlan)(withPlan) : null;
+  return { latest, latestPractice: pr ? { wcpm: Number(pr.wcpm), date: day(pr.createdAt) } : null, plan, readings14: rows.filter((x) => (d(x.createdAt)?.getTime() ?? 0) >= Date.now() - 14 * 86_400_000).length };
 }

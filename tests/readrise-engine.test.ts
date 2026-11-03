@@ -269,7 +269,9 @@ describe("🚀 ReadRise: placement, the 5-step routine, the level engine and goa
 
   test("first-try rule: a re-read never counts; stretch is one version up and never lowers the level", async () => {
     const s = st[3];
-    await setLevelByTeacher(repo, teacher, s.studentId!, 800, "", at(0));
+    // round 4: a stretch must be in a NEW question band (800 → 900 is MID → MID: the same questions) — so read at
+    // 1000 (MID) and stretch to 1100 (HIGH)
+    await setLevelByTeacher(repo, teacher, s.studentId!, 1000, "", at(0));
     const a = await makeArticle(repo, { code: "F-1" });
     await readArticle(repo, s, a, 8, at(1));
     const re = await readArticle(repo, s, a, 0, at(1, 2));
@@ -283,7 +285,7 @@ describe("🚀 ReadRise: placement, the 5-step routine, the level engine and goa
     // stretch at 0% → no level change
     const before = Number((await repo.findUnique("RRStudent", { studentId: s.studentId }))!.level);
     const sv = await readArticle(repo, s, a, 0, at(1, 4), true);
-    assert.equal(sv.start.versionLevel, 900);
+    assert.equal(sv.start.versionLevel, 1100);
     assert.equal(sv.start.stretch, true);
     assert.equal(Number((await repo.findUnique("RRStudent", { studentId: s.studentId }))!.level), before);
     await assert.rejects(startRun(repo, s, a, { stretch: true }, at(1, 5)), /already stretched/);
@@ -333,7 +335,8 @@ describe("🚀 ReadRise: placement, the 5-step routine, the level engine and goa
     assert.ok(p !== null && p > 800);
     // end to end
     const s = st[5];
-    await setLevelByTeacher(repo, teacher, s.studentId!, 800, "", at(0));
+    // round 4: the stretch must be in a new question band (1000 MID → 1100 HIGH)
+    await setLevelByTeacher(repo, teacher, s.studentId!, 1000, "", at(0));
     const [a, b] = await Promise.all([makeArticle(repo, { code: "G-1" }), makeArticle(repo, { code: "G-2" })]);
     await readArticle(repo, s, a, 8, at(1));
     const st1 = await readArticle(repo, s, a, 6, at(1, 1), true);

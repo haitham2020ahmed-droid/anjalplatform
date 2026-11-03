@@ -16,7 +16,8 @@ import type { Repo, Row } from "../seeding/repo";
 import { ForbiddenError, type Actor } from "../auth/rbac";
 import { assertClassRead } from "../teacher/coordinators";
 import { fitOf, measuredLevel, type Fit } from "./level";
-import { ENGINE, RETAKE_REASON, countsForLevel, goalStats, readRisePlaced, s, toDate, yearEndFor, type LevelPoint } from "./engine";
+import { RETAKE_REASON, countsForLevel, goalDates, goalStats, readRisePlaced, s, toDate, weekLabel, yearEndFor, type LevelPoint } from "./engine";
+import { articleRuns, countedTries, isUnreliableRun, stretchRuns, tallyRuns } from "./first-try";
 import { GOAL_SCORE, INACTIVE_DAYS, gradeBand, histogram, levelAt as levelAtTime, median, type ClassReport } from "./dashboards";
 import {
   confidenceText, gradePosition, growthConfidence, keyOf, perWeek, projectionRange, scoreTrend, skillBreakdown, skillCell, storyLines, stretchSuccess, strongerSkills,
@@ -36,7 +37,7 @@ const scored = (r: Row) => !!r.completedAt && r.score !== null && r.score !== un
 // rapid-guessed runs from growth evidence; without it selected, every run below looked reliable (unreliable was
 // always undefined), so a lucky rapid-guess could inflate "Level confirmed by N readings," stretch success and
 // weekly-goal counts shown to teachers/admins. (studentReadRiseSummary in engine.ts already selected it correctly.)
-const RUN_COLS = ["id", "studentId", "articleId", "band", "versionLevel", "answers", "score", "firstTry", "stretch", "levelBefore", "startedAt", "completedAt", "unreliable"];
+const RUN_COLS = ["id", "studentId", "articleId", "band", "versionLevel", "answers", "answerMs", "score", "firstTry", "stretch", "levelBefore", "startedAt", "completedAt", "unreliable", "readSeconds"];
 
 /** Start of the current term (else the school year, else 120 days ago). */
 export async function termStartOf(repo: Repo, schoolId: string, now: Date): Promise<Date> {
@@ -55,6 +56,9 @@ async function answerKey(repo: Repo, articleIds: string[]): Promise<AnswerKey> {
   for (const [id, qs] of await questionKeys(repo, articleIds)) for (const q of qs) out.set(keyOf(id, q.band, q.number), { answer: q.answer, skill: q.skill });
   return out;
 }
+
+/** runs → the tally's input (answers + the stored rapid answers, left out by the ONE tally) */
+const answeredRuns = (rs: Row[]) => rs.map((r) => ({ studentId: s(r.studentId), articleId: s(r.articleId), band: s(r.band), answers: r.answers, answerMs: r.answerMs, at: time(r.completedAt) }));
 
 const changeEvents = (rows: Row[]): LevelChangeEvent[] => rows
   .filter((c) => !s(c.reason).startsWith(RETAKE_REASON))
@@ -127,25 +131,26 @@ export async function loadStudentGrowth(repo: Repo, studentId: string, now = new
   const changes = changeEvents(changeRows);
   const placedAt = time(rr.placedAt);
   const journey = levelJourney({ startLevel: Number(rr.startLevel), placedAt, source: s(rr.source) }, changes);
-  const first = done.filter((r) => isFirst(r) && scored(r));
-  const main = first.filter((r) => !isStretch(r));
-  const counted = first.filter((r) => countsForLevel({ ...r, firstTry: true, stretch: isStretch(r) }));
+  // round 4: an Unreliable run is dropped EVERYWHERE here (trend, articles, weeks/streak, skills, stretch);
+  // articles = the ONE definition (first-try.ts articleRuns); stretch only in a new band (stretchRuns)
+  const main = articleRuns(done);
+  const counted = countedTries(done.filter((r) => isFirst(r) && scored(r))).filter((r) => countsForLevel({ ...r, firstTry: true, stretch: isStretch(r) }));
   const conf = growthConfidence(counted.map((r) => ({ at: time(r.completedAt), score: Number(r.score) })), changes, placedAt);
   const tr = scoreTrend(main.map((r) => Number(r.score)));
   const wk = perWeek(main.map((r) => time(r.completedAt)), now);
-  const goal = goalStats(first.filter((r) => Number(r.score) >= ENGINE.up).map((r) => toDate(r.completedAt)), Number(rr.weeklyGoal ?? 2), now);
-  const answered = first.map((r) => ({ articleId: s(r.articleId), band: s(r.band), answers: r.answers }));
+  const goal = goalStats(goalDates(done), Number(rr.weeklyGoal ?? 2), now);
+  const answered = answeredRuns(tallyRuns(done));
   return {
     ...base,
     history: journey.events,
     trend: main.slice(-20).map((r) => ({ at: iso(time(r.completedAt)), score: Number(r.score), stretch: false })),
     recentAvg: tr.recentAvg, earlierAvg: tr.earlierAvg, scoreDelta: tr.delta,
-    wordsRead: done.reduce((a, r) => a + Number(ver.get(`${r.articleId}|${r.versionLevel}`)?.wordCount ?? 0), 0),
+    wordsRead: done.filter((r) => !isUnreliableRun(r)).reduce((a, r) => a + Number(ver.get(`${r.articleId}|${r.versionLevel}`)?.wordCount ?? 0), 0),
     readings: done.length, firstTries: main.length,
-    weeks: wk.starts.map((w) => iso(w).slice(5, 10)), perWeek: wk.counts, avgPerWeek: Math.round((10 * wk.counts.reduce((a, b) => a + b, 0)) / wk.counts.length) / 10,
+    weeks: wk.starts.map((w) => weekLabel(w)), perWeek: wk.counts, avgPerWeek: Math.round((10 * wk.counts.reduce((a, b) => a + b, 0)) / wk.counts.length) / 10,
     skills: skillBreakdown(answered, key), stronger: strongerSkills(answered, key),
     confidence: conf, confidenceText: confidenceText(conf),
-    stretch: stretchSuccess(first.filter(isStretch).map((r) => Number(r.score))),
+    stretch: stretchSuccess(stretchRuns(done).map((r) => Number(r.score))),
     streak: goal.streak, weeksMet: goal.weeksMet, movesUp: journey.events.filter((e) => e.kind === "UP").length,
     projection: projectionRange(journey.points, main.map((r) => time(r.completedAt)), now, yearEnd),
     recent: [...done].reverse().slice(0, 12).map((r) => {
@@ -178,7 +183,7 @@ export async function studentGrowthReport(repo: Repo, actor: Actor, classId: str
   const [d, windows, placements, bad] = await Promise.all([
     loadStudentGrowth(repo, studentId, now),
     loadReadRiseWindows(repo, s(klass.schoolId), now),
-    repo.findMany("RRPlacement", { studentId, completedAt: { not: null } }, { select: ["result", "period", "completedAt"], take: 50 }),
+    repo.findMany("RRPlacement", { studentId, completedAt: { not: null }, result: { not: null } }, { select: ["result", "period", "completedAt"], take: 50 }),
     repo.count("RRRun", { studentId, unreliable: true }),
   ]);
   const band = gradeBand(d.grade);
@@ -262,7 +267,8 @@ export async function classGrowth(repo: Repo, actor: Actor, classId: string, now
   const chBy = new Map<string, Row[]>(), runBy = new Map<string, Row[]>();
   for (const c of changeRows) chBy.set(s(c.studentId), [...(chBy.get(s(c.studentId)) ?? []), c]);
   for (const r of runs) runBy.set(s(r.studentId), [...(runBy.get(s(r.studentId)) ?? []), r]);
-  const first = runs.filter((r) => isFirst(r) && scored(r));
+  // round 4: the ONE accuracy set (first-try.ts tallyRuns): counted first tries of reliable runs
+  const first = tallyRuns(runs);
   const readIds = [...new Set(first.map((r) => s(r.articleId)))];
   const key = await answerKey(repo, readIds);
   const termT = tStart.getTime();
@@ -275,11 +281,11 @@ export async function classGrowth(repo: Repo, actor: Actor, classId: string, now
     const changes = changeEvents(chBy.get(id) ?? []);
     const placedAt = time(rr.placedAt), level = Number(rr.level);
     const atTerm = levelAtTime({ startLevel: Number(rr.startLevel), placedAt }, changes.map((c) => ({ at: c.at, toLevel: c.to })), termT) ?? Number(rr.startLevel);
-    const ft = mine.filter((r) => isFirst(r) && scored(r));
+    const ft = countedTries(mine.filter((r) => isFirst(r) && scored(r)));
     const counted = ft.filter((r) => countsForLevel({ ...r, firstTry: true, stretch: isStretch(r) }));
     const conf = growthConfidence(counted.map((r) => ({ at: time(r.completedAt), score: Number(r.score) })), changes, placedAt);
     const journey = levelJourney({ startLevel: Number(rr.startLevel), placedAt, source: s(rr.source) }, changes);
-    const proj = projectionRange(journey.points, ft.filter((r) => !isStretch(r)).map((r) => time(r.completedAt)), now, yearEnd);
+    const proj = projectionRange(journey.points, articleRuns(mine).map((r) => time(r.completedAt)), now, yearEnd);
     return {
       studentId: id, name: names.get(id) ?? "Student", level, growthTerm: level - atTerm, confirmedBy: conf.readings, against: conf.against, confidence: confidenceText(conf),
       projection: proj, position: gradePosition(level, band), lastActivity: last ? iso(last) : null,
@@ -292,7 +298,7 @@ export async function classGrowth(repo: Repo, actor: Actor, classId: string, now
     .map((e) => ({ studentId: e.studentId, name: e.name, placed: e.level !== null, lastActivity: e.lastActivity }));
 
   // skills across the class (first tries), and who struggles
-  const answered = (rs: Row[]) => rs.map((r) => ({ articleId: s(r.articleId), band: s(r.band), answers: r.answers }));
+  const answered = answeredRuns;
   const skills = skillBreakdown(answered(first), key);
   const weak = skills.filter((k) => k.total >= 8 && (k.pct ?? 100) < 70).sort((a, b) => (a.pct ?? 0) - (b.pct ?? 0)).slice(0, 3);
   const perStudent = new Map(ids.map((id) => [id, skillBreakdown(answered(first.filter((r) => s(r.studentId) === id)), key)]));

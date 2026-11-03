@@ -14,6 +14,10 @@ import type { Actor } from "../auth/rbac";
 import type { ReportSection } from "./family-reports";
 import { isLocked } from "../writing/locked";
 import { fluencyGoalWords, gradeGoalWords, hasLevelWords } from "./family-words";
+import { practiceTotalsFor } from "../analytics/practice-totals";
+import { starBook } from "../skills/star-read";
+import { newStarKeys } from "../insights/star-keys";
+import { hiddenStarKeys } from "../teacher/queries";
 export { fluencyGoalWords, gradeGoalWords, hasLevelWords } from "./family-words";
 
 const s = (v: unknown) => String(v ?? "");
@@ -220,10 +224,16 @@ export async function platformPerformanceSections(repo: Repo, actor: Actor, stud
   ]);
   const sections: ReportSection[] = [];
   if (p) {
+    // 📏 round 4: "this month" = the last 30 days, in THE one definition (practice-totals.ts), and the skills
+    // mastered = the ⭐ earned in those 30 days (by key, the hidden holder skill left out) — no longer the year's
+    // answers and the whole term's ⭐ under a "this month" heading
+    const from = new Date(now.getTime() - 30 * DAY);
+    const [tot, book] = await Promise.all([practiceTotalsFor(repo, studentId, from, now), starBook(repo, [studentId])]);
+    const stars = newStarKeys(book, studentId, from, now, await hiddenStarKeys(repo, book)).map((k) => book.nameOf(k));
     sections.push({ heading: "Practice & assignments this month", icon: "💻", lines: [
-      `${p.practice.answers} question${p.practice.answers === 1 ? "" : "s"} answered${p.practice.accuracy !== null ? `, ${p.practice.accuracy}% correct` : ""} · ${p.practice.minutesMonth} minutes of practice.`,
+      `${tot.questions} question${tot.questions === 1 ? "" : "s"} answered${tot.accuracy !== null ? `, ${tot.accuracy}% correct` : ""} · ${tot.minutes} minutes of practice (last 30 days).`,
       `Assigned work: ${p.practice.tasksDone} task${p.practice.tasksDone === 1 ? "" : "s"} done${p.practice.tasksLate ? `, ${p.practice.tasksLate} returned late` : ""}.`,
-      ...(p.completed.length ? [`Skills mastered this term: ${p.completed.slice(0, 8).join(", ")}${p.completed.length > 8 ? ` and ${p.completed.length - 8} more` : ""}.`] : []),
+      ...(stars.length ? [`Skills mastered in the last 30 days: ${stars.slice(0, 8).join(", ")}${stars.length > 8 ? ` and ${stars.length - 8} more` : ""}.`] : []),
       ...(p.badges.length ? [`Badges earned: ${p.badges.map((b) => `${b.icon} ${b.name}`).join(", ")}.`] : []),
     ] });
   }

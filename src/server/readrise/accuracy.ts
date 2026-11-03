@@ -88,14 +88,9 @@ export function rapidAnswers(i: RapidInput): RapidResult {
   return { ms, rapid, unreliable: rapid.length >= RR_UNRELIABLE_RAPID };
 }
 
-/** The rapid question numbers stored on a run (RRRun.answerMs.rapid), [] when none. */
-export function storedRapid(v: unknown): number[] {
-  const o = typeof v === "string" ? (() => { try { return JSON.parse(v) as unknown; } catch { return null; } })() : v;
-  const r = o && typeof o === "object" ? (o as { rapid?: unknown }).rapid : null;
-  return Array.isArray(r) ? r.map(Number).filter((n) => Number.isInteger(n)) : [];
-}
-/** A run marked Unreliable (2+ rapid answers). */
-export const isUnreliableRun = (r: Record<string, unknown>): boolean => r.unreliable === true || r.unreliable === 1;
+// the stored rapid answers and the Unreliable flag live with the other "what counts" rules (first-try.ts)
+export { isUnreliableRun, storedRapid } from "./first-try";
+import { isUnreliableRun } from "./first-try";
 
 // ------------------------------------------------------------------ question types (question-type.ts)
 
@@ -122,7 +117,7 @@ export function mapGap(level: number, mapLevel: number | null): number | null {
 export async function alertMapGap(repo: Repo, studentId: string, now = new Date()): Promise<boolean> {
   const rr = await repo.findUnique("RRStudent", { studentId });
   if (!rr) return false;
-  if (!readRisePlaced(rr, (await repo.count("RRPlacement", { studentId, completedAt: { not: null } })) > 0)) return false;
+  if (!readRisePlaced(rr, (await repo.count("RRPlacement", { studentId, completedAt: { not: null }, result: { not: null } })) > 0)) return false;
   const map = await latestMapLexile(repo, studentId);
   const level = Number(rr.level);
   const gap = mapGap(level, map);
@@ -173,7 +168,7 @@ export async function alertStuckUnreliable(repo: Repo, studentId: string, now = 
   const runs = await repo.findMany(
     "RRRun",
     { studentId, completedAt: { not: null } },
-    { select: ["score", "firstTry", "stretch", "unreliable", "completedAt"], orderBy: [{ field: "completedAt", dir: "desc" }], take: STUCK_RUNS }
+    { select: ["score", "firstTry", "stretch", "unreliable", "completedAt", "readSeconds"], orderBy: [{ field: "completedAt", dir: "desc" }], take: STUCK_RUNS }
   );
   if (runs.length < STUCK_RUNS) return false;
   if (runs.some((r) => countsForLevel(r as Row))) return false; // at least one real signal recently: not stuck

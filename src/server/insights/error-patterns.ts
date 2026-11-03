@@ -116,9 +116,10 @@ export function statesFrom(mastery: Row[], recent: Row[], stars?: { book: StarBo
     const c = new Map<string, number>(); for (const w of wrong) if (w.misconception) c.set(s(w.misconception), (c.get(s(w.misconception)) ?? 0) + 1);
     const top = [...c.entries()].sort((a, b) => b[1] - a[1])[0];
     const v = stars ? stars.book.of(stars.studentId, id) : null;
-    out.set(id, { mastery: Number(m.score ?? 0), attempts: Number(m.attempts ?? 0), theta: null, recentErrors: wrong.length, recentAnswers: l.length, misconception: top && top[1] >= 2 ? top[0] : null, isMastered: v ? starMastered(v) : m.isMastered === true || m.isMastered === 1, ...(v ? { star: v.status } : {}) });
+    // round 4: the mastery % shown ("The real gap is Key Details (52%)") is the STAR score (by key), not the engine's
+    out.set(id, { mastery: v && v.status !== "NOT_STARTED" ? v.score : Number(m.score ?? 0), attempts: Number(m.attempts ?? 0), theta: null, recentErrors: wrong.length, recentAnswers: l.length, misconception: top && top[1] >= 2 ? top[0] : null, isMastered: v ? starMastered(v) : m.isMastered === true || m.isMastered === 1, ...(v ? { star: v.status } : {}) });
   }
-  if (stars?.skillIds) for (const id of stars.skillIds) if (!out.has(id) && starMastered(stars.book.of(stars.studentId, id))) out.set(id, { mastery: 0, attempts: 0, theta: null, recentErrors: 0, recentAnswers: 0, misconception: null, isMastered: true, star: stars.book.of(stars.studentId, id).status });
+  if (stars?.skillIds) for (const id of stars.skillIds) if (!out.has(id) && starMastered(stars.book.of(stars.studentId, id))) out.set(id, { mastery: stars.book.of(stars.studentId, id).score, attempts: 0, theta: null, recentErrors: 0, recentAnswers: 0, misconception: null, isMastered: true, star: stars.book.of(stars.studentId, id).status });
   return out;
 }
 
@@ -137,8 +138,10 @@ export async function studentRootCauses(repo: Repo, studentId: string, limit = 3
   const st = await repo.findUnique("Student", { id: studentId });
   const g = st?.gradeId ? await gradeGraph(repo, s(st.gradeId)) : null;
   if (!g) return [];
+  const graphIds = [...g.nodes.keys()];
   const [mastery, recent, book] = await Promise.all([
-    repo.findMany("StudentSkillMastery", { studentId }, { select: ["skillId", "score", "attempts"] }),
+    // only the rows of the grade's graph skills (round 4: not every skill row of the student)
+    graphIds.length ? repo.findMany("StudentSkillMastery", { studentId, skillId: { in: graphIds } }, { select: ["skillId", "score", "attempts"] }) : Promise.resolve([] as Row[]),
     repo.findMany("QuestionAttempt", { studentId }, { select: ["skillId", "isCorrect", "misconception"], orderBy: [{ field: "createdAt", dir: "desc" }], take: 300 }),
     starBook(repo, [studentId], s(st?.schoolId)),
   ]);
@@ -168,11 +171,13 @@ export async function classErrors(repo: Repo, actor: Actor, classId: string, now
   if (actor.role !== "TEACHER" && actor.role !== "SCHOOL_ADMIN" && actor.role !== "SUPER_ADMIN") throw new ForbiddenError();
   const klass = await assertClassRead(repo, actor, classId);
   const ids = [...new Set((await repo.findMany("ClassMembership", { classId, leftAt: null }, { select: ["studentId"] })).map((m) => s(m.studentId)))];
-  const [students, wrongBy, g, mastery, recent] = await Promise.all([
+  const g = await gradeGraph(repo, s(klass.gradeId));
+  const graphIds = g ? [...g.nodes.keys()] : [];
+  const [students, wrongBy, mastery, recent] = await Promise.all([
     ids.length ? repo.findMany("Student", { id: { in: ids } }, { select: ["id", "userId"] }) : Promise.resolve([] as Row[]),
     latestWrong(repo, ids, now),
-    gradeGraph(repo, s(klass.gradeId)),
-    ids.length ? repo.findMany("StudentSkillMastery", { studentId: { in: ids } }, { select: ["studentId", "skillId", "score", "attempts"] }) : Promise.resolve([] as Row[]),
+    // round 4: only the skill rows the root-cause check needs (the grade's graph skills), not every row of the class
+    ids.length && graphIds.length ? repo.findMany("StudentSkillMastery", { studentId: { in: ids }, skillId: { in: graphIds } }, { select: ["studentId", "skillId", "score", "attempts"] }) : Promise.resolve([] as Row[]),
     ids.length ? repo.findMany("QuestionAttempt", { studentId: { in: ids }, createdAt: { gte: new Date(now.getTime() - 60 * DAY) } }, { select: ["studentId", "skillId", "isCorrect", "misconception"], orderBy: [{ field: "createdAt", dir: "desc" }], take: 20000 }) : Promise.resolve([] as Row[]),
   ]);
   const users = students.length ? await repo.findMany("User", { id: { in: students.map((x) => s(x.userId)) } }, { select: ["id", "displayName"] }) : [];

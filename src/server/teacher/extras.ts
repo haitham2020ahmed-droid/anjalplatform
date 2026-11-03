@@ -21,6 +21,7 @@ import { weekStart } from "./classroom";
 import { cycleCalendarEvents } from "../assessment-cycle/status";
 import { schemaGap, SCHEMA_FIX } from "../db/schema-errors";
 import { starBook, starMastered, starWord } from "../skills/star-read";
+import { practiceTotals } from "../analytics/practice-totals";
 
 const s = (v: unknown) => String(v ?? "");
 const time = (v: unknown) => new Date(v instanceof Date ? v.toISOString() : s(v)).getTime();
@@ -154,7 +155,7 @@ export { questionOfTheDay, answerQuestionOfTheDay } from "../motivation/qotd";
 
 // ------------------------------------------------------------------ 🏁 the class challenge (classes, never individuals)
 
-/** This week: average answers per student of each class of the grade (so big and small classes are fair). */
+/** This week: average careful answers per student of each class of the grade (so big and small classes are fair). */
 export async function classChallenge(repo: Repo, schoolId: string, gradeId: string, now = new Date()): Promise<{ classId: string; name: string; perStudent: number; rank: number }[]> {
   const classes = await repo.findMany("Class", { schoolId, gradeId, deletedAt: null }, { select: ["id", "name"] });
   if (classes.length < 2) return [];
@@ -162,7 +163,8 @@ export async function classChallenge(repo: Repo, schoolId: string, gradeId: stri
   const out = [];
   for (const c of classes) {
     const ids = await classMembers(repo, s(c.id));
-    const n = ids.length ? await repo.count("QuestionAttempt", { studentId: { in: ids }, createdAt: { gte: from } }) : 0;
+    // round 4: careful practice answers only (a rapid guess is not effort) — practice-totals.ts, 25 students at a time
+    const n = ids.length ? [...(await practiceTotals(repo, ids, from, now, { schoolId })).values()].reduce((t, x) => t + x.careful, 0) : 0;
     out.push({ classId: s(c.id), name: s(c.name), perStudent: ids.length ? Math.round((10 * n) / ids.length) / 10 : 0, rank: 0 });
   }
   out.sort((a, b) => b.perStudent - a.perStudent || a.name.localeCompare(b.name)).forEach((x, i) => { x.rank = i + 1; });
@@ -254,8 +256,11 @@ export async function classVisit(repo: Repo, actor: Actor, teacherUserId: string
   const [plans, tickets, comments, week] = await Promise.all([
     repo.findMany("MapPlan", { classId: c.id }, { select: ["status"] }), repo.count("ExitTicket", { classId: c.id }),
     ids.length ? repo.count("WorkComment", { studentId: { in: ids }, authorId: tu.id }) : Promise.resolve(0),
-    ids.length ? repo.findMany("QuestionAttempt", { studentId: { in: ids }, createdAt: { gte: new Date(now.getTime() - 7 * DAY) } }, { select: ["studentId", "isCorrect"] }) : Promise.resolve([] as Row[]),
+    // round 4: the week's practice from practice-totals.ts — accuracy = right careful answers ÷ careful answers
+    practiceTotals(repo, ids, new Date(now.getTime() - 7 * DAY), now, { schoolId: s(actor.schoolId) || null }),
   ]);
+  const weekTot = [...week.values()];
+  const weekCareful = weekTot.reduce((t, x) => t + x.careful, 0), weekRight = weekTot.reduce((t, x) => t + x.correct, 0);
   const goal = (await repo.findMany("WeeklyGoal", { scope: "CLASS", ownerId: c.id, weekStart: weekStart(now) }))[0];
   const rh = (await repo.findMany("SchoolSetting", { schoolId: actor.schoolId, key: `rhythm.${s(c.id)}` }))[0];
   let rv: unknown = rh?.value ?? null; if (typeof rv === "string") { try { rv = JSON.parse(rv); } catch { rv = null; } }
@@ -268,7 +273,7 @@ export async function classVisit(repo: Repo, actor: Actor, teacherUserId: string
       alerts: { open: alerts.filter((a) => a.status === "OPEN").length, handled: alerts.filter((a) => a.status === "HANDLED").length, recent: alerts.sort((a, b) => time(b.createdAt) - time(a.createdAt)).slice(0, 8).map((a) => ({ name: names.get(s(a.studentId))?.name ?? "Student", title: s(a.kind).replace("_", " ").toLowerCase(), action: a.action ? s(a.action) : null, status: s(a.status) })) },
       plans: { draft: plans.filter((p) => p.status === "DRAFT").length, sent: plans.filter((p) => p.status === "SENT").length }, tickets, comments,
       goals: goal ? `${s(goal.title) || `${goal.target} ${s(goal.kind).toLowerCase()}`}` : null, rhythm: r?.days ? `${r.days} day(s) a week, ${r.minutes} min` : null,
-      activeWeek: new Set(week.map((w) => s(w.studentId))).size, accuracy: week.length ? Math.round((100 * week.filter((w) => w.isCorrect).length) / week.length) : null,
+      activeWeek: weekTot.filter((x) => x.questions > 0).length, accuracy: weekCareful ? Math.round((100 * weekRight) / weekCareful) : null,
     },
   };
 }

@@ -4,6 +4,8 @@
  */
 import type { Repo, Row } from "../seeding/repo";
 import { cancelIndexForStudents } from "./cancelled-work";
+import { practiceTotals, practiceTotalsFor, type PracticeTotals } from "../analytics/practice-totals";
+import { riyadhDay } from "../analytics/practice";
 
 const s = (v: unknown) => String(v ?? "");
 const d = (v: unknown) => (v instanceof Date ? v : v ? new Date(s(v)) : null);
@@ -27,9 +29,12 @@ export interface WeekStats { since: string; partsGoal: number; partsDone: number
 /** No access check: callers check the student (the student, their parent or their teacher). */
 export async function weekStats(repo: Repo, studentId: string, now = new Date()): Promise<WeekStats> {
   const since = weekStart(now);
-  const [rows, attempts] = await Promise.all([
+  const st = await repo.findUnique("Student", { id: studentId });
+  const schoolId = st ? s(st.schoolId) : null;
+  // 📏 round 4: answers / correct / minutes = THE one definition (practice-totals.ts) for the Riyadh week from Sunday
+  const [rows, tot] = await Promise.all([
     repo.findMany("AssignmentStudent", { studentId, status: "COMPLETED" }, { select: ["assignmentId", "completedAt"] }),
-    repo.findMany("QuestionAttempt", { studentId, createdAt: { gte: since } }, { select: ["isCorrect", "responseMs", "createdAt"] }),
+    practiceTotalsFor(repo, studentId, since, now, { schoolId }),
   ]);
   const doneNow = rows.filter((r) => { const t = d(r.completedAt); return t && t >= since && t <= now; });
   // only the parts of plans count toward the weekly goal (one per place, whatever plan it is in)
@@ -41,19 +46,35 @@ export async function weekStats(repo: Repo, studentId: string, now = new Date())
     const items = await planItemsFor(repo, aids);
     for (const a of as) if (ix.live(a, studentId) && (a.curriculumPlanId && s(a.curriculumPlanId) !== "WEEKLY_CHECK") || items.has(s(a.id))) parts.push(items.get(s(a.id)) ?? s(a.title));
   }
-  const inWeek = attempts.filter((x) => { const t = d(x.createdAt); return t && t <= now; });
-  const days = new Set(inWeek.map((x) => d(x.createdAt)!.toISOString().slice(0, 10))).size;
+  // days active = Riyadh days of the week with practice (round 4: Riyadh days, not UTC days)
+  const days = tot.activeDays;
   const partsDone = [...new Set(parts)].length;
   // the school's weekly goal of parts (School Goals), else 3
-  const st = await repo.findUnique("Student", { id: studentId });
   const goalRow = st ? (await repo.findMany("SchoolSetting", { schoolId: st.schoolId, key: "school.goals" }))[0] : null;
   const goalVal = (typeof goalRow?.value === "string" ? JSON.parse(s(goalRow.value)) : goalRow?.value) as { weeklyParts?: number } | undefined;
   const partsGoal = Number(goalVal?.weeklyParts) || WEEKLY_PARTS_GOAL;
   return {
-    since: since.toISOString().slice(0, 10), partsGoal, partsDone, parts: [...new Set(parts)],
-    answers: inWeek.length, correct: inWeek.filter((x) => x.isCorrect).length,
-    minutes: Math.round(inWeek.reduce((t, x) => t + Math.min(Number(x.responseMs ?? 0), 5 * 60_000), 0) / 60_000), days, reached: partsDone >= partsGoal,
+    // the Riyadh date of the week's Sunday (since = Sat 21:00 UTC, so a UTC slice showed Saturday)
+    since: riyadhDay(since), partsGoal, partsDone, parts: [...new Set(parts)],
+    // correct = right careful answers (a rapid guess counts for nothing); minutes = ≤ 5 min per answer
+    answers: tot.questions, correct: tot.correct, minutes: tot.minutes, days, reached: partsDone >= partsGoal,
   };
+}
+
+/**
+ * Days active: the Riyadh days in [from, to] on which each student practised (the star sources of practice-totals.ts —
+ * the same answers as the Questions number), counted in the SAME single read as the totals (PracticeTotals.activeDays).
+ */
+export async function activeDaysFor(repo: Repo, studentIds: readonly string[], from: Date, to: Date, schoolId: string | null = null): Promise<Map<string, number>> {
+  const out = new Map<string, number>(studentIds.map((id) => [id, 0]));
+  if (!studentIds.length) return out;
+  for (const [id, tot] of await practiceTotals(repo, studentIds, from, to, { schoolId })) out.set(id, tot.activeDays);
+  return out;
+}
+/** One student's days active (from totals already read, else one read). */
+export async function activeDays(repo: Repo, studentId: string, from: Date, to: Date, total: PracticeTotals | null = null, schoolId: string | null = null): Promise<number> {
+  if (total) return total.activeDays;
+  return (await activeDaysFor(repo, [studentId], from, to, schoolId)).get(studentId) ?? 0;
 }
 
 /** assignmentId → the plan part's name (“Unit 1 · Text Set 1 · Theme” → “Theme (Unit 1)”). */

@@ -78,7 +78,7 @@ describe("⚡ admin home and the heaviest pages", () => {
     const { m, admin, teacher, classId } = S;
     const period = resolvePeriod("SCHOOL_YEAR", await loadCalendar(S.repo, admin.schoolId!));
     const pages: [string, () => Promise<unknown>, number][] = [
-      ["Admin › Department summary", () => departmentSummary(m, admin), 90 /* round 2: practiceStats reads the answers 25 students at a time */],
+      ["Admin › Department summary", () => departmentSummary(m, admin), 120 /* round 2: practiceStats reads the answers 25 students at a time; round 4: the grades' weakest skills are read by skill key from every answer table (NAFS, ReadRise), 25 students at a time (was one unbounded QuestionAttempt read) */],
       ["Admin › Grade summary", () => gradeSummary(m, admin), 50],
       ["Admin › Term report", async () => { const [, , ws] = await Promise.all([departmentSummary(m, admin), growthReport(m, admin, "READING"), windows(m, admin)]); if (ws[0]) await schoolResults(m, admin, ws[0].id, "READING"); }, 70],
       ["Admin › MAP bank gaps", () => Promise.all([bankGaps(m, admin), practiceGaps(m, admin), levelGaps(m, admin)]), 35],

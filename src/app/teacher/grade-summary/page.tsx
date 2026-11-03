@@ -22,8 +22,8 @@ export default async function GradeSummaryPage({ searchParams }: { searchParams:
     <AppShell name={String(me.displayName)}>
       <ReportHeader back={{ href: actor.role === "TEACHER" ? "/teacher" : "/admin", label: "Home" }} icon="🏫" title="Grade Summary" subtitle="Each class at a glance. Click a class to see its students."
         when={subject === "READING" ? tr("MAP Reading") : tr("MAP Language")}
-        filters={<div className="flex flex-wrap gap-2">{(["READING", "LANGUAGE"] as const).map((x) => <Link key={x} href={`/teacher/grade-summary?subject=${x}`} className={chip(x === subject)}>{x === "READING" ? "📖 Reading" : "✏️ Language"}</Link>)}</div>} />
-      {!allowed ? <p className="rounded-2xl bg-white p-6 text-slate-600 ring-1 ring-slate-200">This page is for admins and grade coordinators. An admin can make you a coordinator in Settings → Grade coordinators.</p> : grades.map((g) => {
+        filters={<div className="flex flex-wrap gap-2">{(["READING", "LANGUAGE"] as const).map((x) => <Link key={x} href={`/teacher/grade-summary?subject=${x}`} className={chip(x === subject)}>{x === "READING" ? `📖 ${tr("Reading")}` : `✏️ ${tr("Language")}`}</Link>)}</div>} />
+      {!allowed ? <p className="rounded-2xl bg-white p-6 text-slate-600 ring-1 ring-slate-200">{tr("This page is for admins and grade coordinators. An admin can make you a coordinator in Settings → Grade coordinators.")}</p> : grades.map((g) => {
         const t = g.classes.reduce((a, c) => ({ students: a.students + c.students, tested: a.tested + c.tested, onTrack: a.onTrack + c.onTrack, atRisk: a.atRisk + c.atRisk, active: a.active + c.activeWeek, late: a.late + c.late }), { students: 0, tested: 0, onTrack: 0, atRisk: 0, active: 0, late: 0 });
         const lv = g.classes.reduce((a, c) => ({ BELOW: a.BELOW + c.levels.BELOW, ON: a.ON + c.levels.ON, ABOVE: a.ABOVE + c.levels.ABOVE, NONE: a.NONE + c.levels.NONE }), { BELOW: 0, ON: 0, ABOVE: 0, NONE: 0 });
         const worst = [...g.classes].sort((x, y) => y.atRisk - x.atRisk)[0];
@@ -41,10 +41,10 @@ export default async function GradeSummaryPage({ searchParams }: { searchParams:
               <Callout kind="next" items={[worst?.atRisk ? <>{tr("Start with")} <b>{worst.className}</b>: {tr("{n} students at risk", { n: worst.atRisk })}</> : tr("No class has students at risk."), t.late ? tr("{n} late tasks across the grade.", { n: t.late }) : null]} />
             </div>
             <ReportTable label={tr("Grade {n}", { n: g.grade })}
-              cols={[{ key: "c", label: "Class" }, { key: "t", label: "Teacher" }, { key: "s", label: "Students", num: true }, { key: "a", label: "Active (week)", num: true }, { key: "acc", label: "Accuracy", num: true }, { key: "o", label: "On track · at risk", num: true }, { key: "m", label: "MAP Fall → target", num: true }, { key: "l", label: "Levels B · O · A · not set", num: true }, { key: "d", label: "Tasks done · late", num: true }]}
+              cols={[{ key: "c", label: "Class" }, { key: "t", label: "Teacher" }, { key: "s", label: "Students", num: true }, { key: "a", label: "Active (week)", num: true }, { key: "acc", label: "Accuracy", num: true, hint: "Right ÷ careful practice answers this school year (rapid guesses not counted)." }, { key: "o", label: "On track · at risk", num: true }, { key: "m", label: "MAP Fall → target", num: true }, { key: "l", label: "Levels B · O · A · not set", num: true }, { key: "d", label: "Tasks done · late", num: true }]}
               rows={g.classes.map((c) => ({
                 id: c.classId, flag: c.atRisk ? "bad" : undefined, sort: { c: c.className, a: c.students ? c.activeWeek / c.students : null, acc: c.accuracy, o: c.atRisk, m: c.avgFall, l: c.levels.BELOW, d: c.late },
-                cells: { c: <Link href={`/teacher/progress?classId=${c.classId}&subject=${subject}`} className="font-semibold text-brand-navy hover:underline">{c.className}</Link>, t: c.teacher, s: c.students, a: pct(c.activeWeek, c.students),
+                cells: { c: <Link href={`/teacher/progress?classId=${c.classId}&subject=${subject}`} className="font-semibold text-brand-navy hover:underline"><bdi>{c.className}</bdi></Link>, t: c.teacher, s: c.students, a: pct(c.activeWeek, c.students),
                   acc: c.accuracy === null ? "—" : `${c.accuracy}%`, o: <><span className="text-emerald-700">{c.onTrack}</span> · <span className={c.atRisk ? "font-bold text-red-700" : ""}>{c.atRisk}</span></>,
                   m: c.avgFall ? `${c.avgFall} → ${c.avgTarget ?? "—"}` : "—", l: `${c.levels.BELOW} · ${c.levels.ON} · ${c.levels.ABOVE} · ${c.levels.NONE}`, d: `${c.done} · ${c.late}` },
               }))} />

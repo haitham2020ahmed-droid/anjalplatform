@@ -27,13 +27,17 @@ import { demoDatabase } from "./helpers/db";
 
 const TEXT = "The river was low that summer. The farmers watched the sky every morning, hoping for rain. When the clouds finally came, the whole village ran outside to dance in the first heavy drops of water. Children laughed and splashed in the puddles while their parents smiled. That night everyone slept well, listening to the steady sound of the rain on the roofs. In the morning the fields were green again and the river was full.";
 const OTHER = "A small fox lived at the edge of a quiet wood. Every evening it walked to the stream to drink. One night it saw a bright light between the trees. The fox was curious, so it crept closer and closer. It was only the moon, shining on the water. The fox drank, looked at the moon for a long time, and went home happy.";
+// r4: a 1-minute check needs a passage of at least MINUTE_MIN_WORDS (225) words — the short texts above are for the
+// other modes; these longer versions are for the official 1-minute checks
+const LONG = `${TEXT} The old men sat under the big tree and talked about the dry months. They remembered other years when the rain was late, and they told the children how the village had waited and worked together. The women carried water from the deep well, and the boys helped them with the heavy jars. Every family saved a little for the animals, and nobody was left without a drink. When the rain came, the goats ran around the yard and the birds sang in the wet branches. The farmers walked through the mud to look at their young plants. Some plants were small and weak, but most of them stood up straight in the cool air. The teacher opened the school windows so the children could smell the fresh earth. She asked them to write a story about the day the rain came back. One girl wrote about her grandfather, who danced in the rain with his hat in his hand. A boy wrote about the river, which was loud and fast again after the long, quiet summer. Everyone agreed that it was the best day of the year.`;
+const OTHER_LONG = `${OTHER} The fox liked to sit on a flat rock and watch the water move. Small fish swam near the edge, and frogs jumped from leaf to leaf. In the spring the wood was full of flowers, and the fox walked slowly between them. In the winter the ground was hard and white, and the fox stayed close to its den. Other animals lived in the wood too. An old owl watched from a high branch, and two rabbits played near the path at dawn. The fox never chased them; it was a gentle animal that only wanted a quiet life. Sometimes children from the village came to the stream with their parents. They sat on the grass, ate bread and cheese, and threw small stones into the water. The fox hid behind a bush and listened to their happy voices. When they left, it came out and looked at the round marks the stones had made. Then it went back to its rock and waited for the moon to rise again over the dark trees and the shining stream.`;
 const ENV = { GEMINI_API_KEY: "AIzaTEST" };
 const AUDIO = new Uint8Array(3000).fill(5);
 const fixed = (m: Partial<ReadingMarks> & { lastWordIndex: number }): AudioScorer => async () => ({ errors: [], expression: 3, patterns: [], ...m });
 
 describe("Fluency Coach · advanced", () => {
   let repo: SqliteRepo; let admin: Actor; let teacher: Actor; let classId: string; let students: Actor[]; let grade: number;
-  let onKey: string; let otherKey: string;
+  let onKey: string; let otherKey: string; let longKey: string; let longOtherKey: string;
   before(async () => {
     ({ repo } = await demoDatabase());
     await seedTestEnvironment(repo, { root: process.cwd(), passwordHash: "x".repeat(60), practice: "none" });
@@ -55,9 +59,20 @@ describe("Fluency Coach · advanced", () => {
     const fv = await saveVersion(repo, admin, fox, "ON", { lexile: 700, body: OTHER });
     await addVersionQuestion(repo, admin, fv, { stem: "What did the fox see?", whyCorrect: "The moon.", options: [{ label: "A", text: "The moon", correct: true }, { label: "B", text: "A dog", correct: false, rationale: "No." }] });
     await setArticleStatus(repo, admin, fox, "PUBLISHED");
+    const lr = await saveArticle(repo, admin, { code: "RM-RAINLONG", title: "Long Rain", grade });
+    const lv = await saveVersion(repo, admin, lr, "ON", { lexile: 800, body: LONG });
+    await addVersionQuestion(repo, admin, lv, { stem: "Why was the village happy?", whyCorrect: "Rain came.", options: [{ label: "A", text: "Rain came at last.", correct: true }, { label: "B", text: "There was a party.", correct: false, rationale: "Not in the text." }, { label: "C", text: "The river was full of fish.", correct: false, rationale: "Not in the text." }] });
+    await addVersionQuestion(repo, admin, lv, { stem: "When did the clouds come?", whyCorrect: "After a dry summer.", options: [{ label: "A", text: "After a dry summer.", correct: true }, { label: "B", text: "In the winter snow.", correct: false, rationale: "No." }, { label: "C", text: "Never.", correct: false, rationale: "No." }] });
+    await setArticleStatus(repo, admin, lr, "PUBLISHED");
+    const lf = await saveArticle(repo, admin, { code: "RM-FOXLONG", title: "Long Fox", grade });
+    const lfv = await saveVersion(repo, admin, lf, "ON", { lexile: 700, body: OTHER_LONG });
+    await addVersionQuestion(repo, admin, lfv, { stem: "What did the fox see?", whyCorrect: "The moon.", options: [{ label: "A", text: "The moon", correct: true }, { label: "B", text: "A dog", correct: false, rationale: "No." }] });
+    await setArticleStatus(repo, admin, lf, "PUBLISHED");
     const home = await coachHome(repo, students[0], ENV);
     onKey = home.passages.find((p) => p.title.startsWith("Rain at Last") && p.level === "ON")!.key;
     otherKey = home.passages.find((p) => p.title.startsWith("The Fox"))!.key;
+    longKey = home.passages.find((p) => p.title.startsWith("Long Rain"))!.key;
+    longOtherKey = home.passages.find((p) => p.title.startsWith("Long Fox"))!.key;
   });
 
   test("norms: percentile and bands by season; the sentence for students and teachers", () => {
@@ -83,8 +98,9 @@ describe("Fluency Coach · advanced", () => {
     assert.deepEqual(fluencyBands(5, "WINTER"), { below: 109, above: 160 });
     assert.deepEqual(fluencyBands(6, "SPRING"), { below: 122, above: 171 });
     assert.deepEqual([fluencyLevel(100, 5, "FALL"), fluencyLevel(100, 5, "WINTER")], ["ON", "BELOW"]);
-    assert.equal(fluencyRubricText(5, "WINTER"), "Grade 5: Approaching ≤ 109 · Meeting 110–160 · Exceeding > 160 WCPM");
-    assert.equal(fluencyRubricSeasonText(5, "WINTER"), "Grade 5 · winter: Approaching ≤ 109 · Meeting 110–160 · Exceeding > 160 WCPM");
+    // r4: one boundary rule everywhere — BELOW = wcpm < p25 (109 itself is On)
+    assert.equal(fluencyRubricText(5, "WINTER"), "Grade 5: Approaching < 109 · Meeting 109–160 · Exceeding > 160 WCPM");
+    assert.equal(fluencyRubricSeasonText(5, "WINTER"), "Grade 5 · winter: Approaching < 109 · Meeting 109–160 · Exceeding > 160 WCPM");
     const now = fluencySeason();
     assert.equal(WCPM_BENCHMARK[5], norm50(5, now)); assert.equal(wcpmBenchmark(6, "WINTER"), 145);
     assert.deepEqual(FLUENCY_RUBRIC[4], fluencyBands(4, now));
@@ -229,12 +245,12 @@ describe("Fluency Coach · advanced", () => {
     assert.equal(averageReads([88, 95]), 92);
     const st = students[3];
     const now = new Date();
-    const r1 = await scoreReading(repo, st, { key: onKey, mode: "MINUTE", seconds: 60, audio: AUDIO, mime: "audio/wav" }, ENV, { scorer: fixed({ lastWordIndex: 59 }) }, now);
+    const r1 = await scoreReading(repo, st, { key: longKey, mode: "MINUTE", seconds: 60, audio: AUDIO, mime: "audio/wav" }, ENV, { scorer: fixed({ lastWordIndex: 59 }) }, now);
     assert.ok(r1.status === "OK" && r1.result.official && r1.result.average === null);
     let checks = await repo.findMany("FluencyCheck", { studentId: st.studentId });
     assert.equal(checks.length, 1);
     assert.deepEqual([String(checks[0].season), Number(checks[0].percentile)], [fluencySeason(now), normView(grade, 60, fluencySeason(now)).percentile]);
-    const r2 = await scoreReading(repo, st, { key: otherKey, mode: "MINUTE", seconds: 60, audio: AUDIO, mime: "audio/wav" }, ENV, { scorer: fixed({ lastWordIndex: 63 }) }, new Date(now.getTime() + 60_000));
+    const r2 = await scoreReading(repo, st, { key: longOtherKey, mode: "MINUTE", seconds: 60, audio: AUDIO, mime: "audio/wav" }, ENV, { scorer: fixed({ lastWordIndex: 63 }) }, new Date(now.getTime() + 60_000));
     assert.ok(r2.status === "OK");
     if (r2.status !== "OK") return;
     assert.deepEqual(r2.result.average, { reads: [60, 64], wcpm: 62 });
@@ -255,7 +271,7 @@ describe("Fluency Coach · advanced", () => {
     assert.equal(quizValidator({ questions: [{ stem: "a", options: ["x", "y", "z"], answer: 3 }, { stem: "b", options: ["x", "y", "z"], answer: 0 }] }).ok, false);
     const st = students[4];
     // 1. the passage's own ReadMaster questions
-    const r = await scoreReading(repo, st, { key: onKey, mode: "MINUTE", seconds: 60, audio: AUDIO, mime: "audio/wav" }, ENV, { scorer: fixed({ lastWordIndex: 74 }) });
+    const r = await scoreReading(repo, st, { key: longKey, mode: "MINUTE", seconds: 60, audio: AUDIO, mime: "audio/wav" }, ENV, { scorer: fixed({ lastWordIndex: 74 }) });
     assert.ok(r.status === "OK");
     if (r.status !== "OK") return;
     const q = await startComprehension(repo, st, r.result.id, {});

@@ -24,7 +24,7 @@
  * Teachers see the methods, numbers and decisions; students see the same plan in friendly words — never
  * Below/On/Above or tier wording.
  */
-import { bandEdges, fluencySeason, nextSeason, norm50, type Season } from "./norms";
+import { bandEdges, fluencySeason, nextSeasonTarget, type Season } from "./norms";
 
 export type FocusArea = "ACCURACY" | "RATE" | "PROSODY" | "ENRICH";
 export type PlanMethod = "WORD_WORK" | "MODEL_ECHO" | "REPEATED" | "PHRASE_CUED" | "PARTNER_CHORAL" | "WIDE_READING" | "COLD_READ";
@@ -34,7 +34,8 @@ export type PlanDecision = "NEW" | "ON_TRACK" | "KEEP_GOING" | "RAISE" | "NEXT_F
 export interface ColdRead { date: string; wcpm: number; accuracy: number | null }
 /** any scored reading (kind: MINUTE | PASSAGE | REPEATED | PHRASED | ECHO | DRILL) */
 export interface ReadingEvidence { date: string; kind: string; wcpm: number; accuracy: number; prosody: number | null; trial?: number | null }
-export interface PlanLinks { same?: string | null; easier?: string | null; harder?: string | null; another?: string | null }
+/** minute: r4 — a NEW passage long enough for the 1-minute check (MINUTE_MIN_WORDS); null: none (the passage list) */
+export interface PlanLinks { same?: string | null; easier?: string | null; harder?: string | null; another?: string | null; minute?: string | null }
 // 🐛 fix (audit finding, Oct 2026): `words`/`patterns` are now OPTIONAL — `undefined` means "no fresh reading this
 // call, just re-checking status" (the caller has nothing new to report, e.g. a home/report page refresh) and the
 // previous plan's word list is kept as-is; an actual (possibly empty) array means "a reading just happened" and a
@@ -194,9 +195,9 @@ export function buildRemedialPlan(ev: PlanEvidence, now: Date = new Date(), opts
   const daily = routineFor(focus, set, { words: ev.words ?? [], patterns: ev.patterns ?? [], links, easierText, secondary, firstGoal });
   const weekly: PlanStep = { method: "COLD_READ", minutes: 2, when: "WEEKLY", title: "Weekly cold read", kidTitle: "Friday check",
     teacher: "Weekly cold read: one 1-minute reading of a NEW grade-level passage (never practised) — measures transfer; the plan is judged on it.",
-    kid: "Once a week, read a NEW passage for 1 minute. It shows how much you have grown!", href: href(links.another ?? links.same, "MINUTE") };
+    kid: "Once a week, read a NEW passage for 1 minute. It shows how much you have grown!", href: links.minute !== undefined ? (links.minute ? href(links.minute, "MINUTE") : "/student/fluency-coach") : href(links.another ?? links.same, "MINUTE") };
   const endsOn = addDays(startedAt, weeks * 7);
-  const target = norm50(ev.grade, nextSeason(season));
+  const target = nextSeasonTarget(ev.grade, season).target;   // r4: spring → the next grade's fall
   const success: RemedialPlan["success"] = [
     { teacher: `${goalWcpm} WCPM on a grade-level cold read by ${ymd(endsOn)} (baseline ${b.wcpm}, +${weeklyGain} WCPM/week)`, kid: `Read ${goalWcpm} words correctly in 1 minute by ${ymd(endsOn)}.` },
     { teacher: `Accuracy ≥ ${accGoal} % on 2 cold reads in a row (baseline ${b.accuracy} %)`, kid: `Get ${accGoal} of every 100 words right.` },

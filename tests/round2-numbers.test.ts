@@ -22,7 +22,8 @@ import { practiceStats } from "../src/server/insights/student-data";
 import { studentLearningPath } from "../src/server/student/learning-path";
 import { studentFile } from "../src/server/insights/student-file";
 import { isExcelling } from "../src/server/plans/perf-suggest";
-import { monthCompare, peerRows, starScoreRows } from "../src/server/insights/class-compare";
+import { monthCompare, monthWindows, peerRows, starScoreRows } from "../src/server/insights/class-compare";
+import { emptyTotals } from "../src/server/analytics/practice-totals";
 
 const s = (v: unknown) => String(v ?? "");
 const ROOT = process.cwd();
@@ -159,18 +160,18 @@ describe("📏 round 2 · numbers on one definition", () => {
     const r = peerRows({ students: [{ id: a, name: "A" }, { id: c, name: "C" }], mastery: rows, stars: [], attempts: [], now: NOW });
     const avgA = Math.round((95 + 40) / 2);
     assert.equal(r.rows.find((x) => x.studentId === a)!.average, avgA);
-    const now = NOW;
-    const m = monthCompare({ ids: [a], skillNames: new Map(), stars: [], sessions: [], now,
-      attempts: [{ studentId: a, isCorrect: true, rapidGuess: true, createdAt: new Date(now.getTime() - DAY) }, { studentId: a, isCorrect: false, rapidGuess: false, createdAt: new Date(now.getTime() - DAY) }] });
+    // round 4: the class month takes its numbers from practice-totals.ts (careful answers only in accuracy)
+    const m = monthCompare({ ids: [a], stars: [], windows: monthWindows(NOW).ms, lastTotals: new Map(),
+      thisTotals: new Map([[a, { ...emptyTotals(), questions: 2, correct: 0, careful: 1 }]]) });
     assert.equal(m.thisMonth.answers, 2);
     assert.equal(m.thisMonth.accuracy, 0, "the rapid right answer counts for nothing");
   });
 
   test("the code keeps the rules: 5-minute cap per answer, 25 students at a time, holder skill out of ⭐ counts", () => {
-    for (const f of ["src/server/student/weekly.ts", "src/server/teacher/classroom.ts", "src/server/admin/school-goals.ts"]) {
-      assert.doesNotMatch(read(f), /180_000/, f);
-      assert.match(read(f), /responseMs \?\? 0\), 5 \* 60_000\)/, f);
-    }
+    for (const f of ["src/server/student/weekly.ts", "src/server/teacher/classroom.ts", "src/server/admin/school-goals.ts"]) assert.doesNotMatch(read(f), /180_000/, f);
+    assert.match(read("src/server/teacher/classroom.ts"), /responseMs \?\? 0\), 5 \* 60_000\)/);
+    // round 4: This week and the school goals take their minutes from practice-totals.ts (≤ 5 min per answer there)
+    for (const f of ["src/server/student/weekly.ts", "src/server/admin/school-goals.ts"]) assert.match(read(f), /practiceTotals/, f);
     assert.match(read("src/server/analytics/school-dashboard.ts"), /STUDENT_CHUNK = 25/);
     for (const f of ["src/server/analytics/school-dashboard.ts", "src/server/insights/progress.ts", "src/server/map/map-reports.ts"]) assert.match(read(f), /hiddenStarKeys/, f);
   });

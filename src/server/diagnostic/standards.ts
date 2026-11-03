@@ -126,9 +126,9 @@ export function standardLevel(pct: number): "Strength" | "Moderate" | "Approachi
 
 /**
  * Oral reading fluency benchmark: the 50th percentile of Hasbrouck & Tindal (2017) for the grade and the CURRENT
- * season (fall Aug–Nov · winter Dec–Feb · spring Mar–Jul), from src/server/fluency/norms.ts. Grades 4–6 are read
- * live (getters, so a long-running server moves to the next season by itself); other grades keep the published
- * winter 50th percentile.
+ * season (Riyadh time: fall Sep–Nov · winter Dec–Mar · spring Apr–Aug), from src/server/fluency/norms.ts. Grades 4–6
+ * are read live (getters, so a long-running server moves to the next season by itself); other grades keep the
+ * published winter 50th percentile. r4: to judge an OLD check use wcpmBenchmark(grade, seasonOf(check date)).
  */
 export const WCPM_BENCHMARK: Record<number, number> = { 1: 29, 2: 84, 3: 97, 7: 150, 8: 151 };
 for (const g of [4, 5, 6]) Object.defineProperty(WCPM_BENCHMARK, g, { enumerable: true, get: () => norm50(g, fluencySeason()) ?? 120 });
@@ -136,9 +136,10 @@ export const wcpmBenchmark = (grade: number, season: Season = fluencySeason()): 
 
 /**
  * The school's Diagnostic Fluency Assessment Rubric (WCPM, Hasbrouck & Tindal 2017, season-aware, US norms as
- * published — the school's decision): Below ≤ the 25th percentile · On between · Above > the 75th percentile, for the
- * grade and the season of the reading. E.g. fall: Grade 4 ≤ 75 · 76–125 · > 125 | Grade 5 ≤ 87 · 88–153 · > 153 |
- * Grade 6 ≤ 112 · 113–159 · > 159. Other grades: Below under 75% of the benchmark, Above over 125%.
+ * published — the school's decision): Below < the 25th percentile (r4: one rule everywhere, wcpm < p25) · On between ·
+ * Above > the 75th percentile, for the grade and the season of the reading. E.g. fall: Grade 4 < 75 · 75–125 · > 125
+ * | Grade 5 < 87 · 87–153 · > 153 | Grade 6 < 112 · 112–159 · > 159. Other grades: Below under 75% of the benchmark,
+ * Above over 125%.
  * FLUENCY_RUBRIC holds the current season's edges (getters).
  */
 export const FLUENCY_RUBRIC: Record<number, { below: number; above: number }> = {};
@@ -147,9 +148,9 @@ export function fluencyBands(grade: number, season: Season = fluencySeason()): {
   const e = grade >= 4 && grade <= 6 ? bandEdges(grade, season) : null;
   if (e) return { below: e.below, above: e.above };
   const b = WCPM_BENCHMARK[grade] ?? 120;
-  return { below: Math.round(b * 0.75) - 1, above: Math.round(b * 1.25) };
+  return { below: Math.round(b * 0.75), above: Math.round(b * 1.25) };
 }
-export const fluencyLevel = (wcpm: number, grade: number, season: Season = fluencySeason()): "BELOW" | "ON" | "ABOVE" => { const r = fluencyBands(grade, season); return wcpm <= r.below ? "BELOW" : wcpm > r.above ? "ABOVE" : "ON"; };
-export const fluencyRubricText = (grade: number, season: Season = fluencySeason()) => { const r = fluencyBands(grade, season); return `Grade ${grade}: Approaching ≤ ${r.below} · Meeting ${r.below + 1}–${r.above} · Exceeding > ${r.above} WCPM`; };
-/** The rubric line with its season, e.g. "Grade 5 · winter: Below ≤ 109 · On 110–160 · Above > 160 WCPM". */
+export const fluencyLevel = (wcpm: number, grade: number, season: Season = fluencySeason()): "BELOW" | "ON" | "ABOVE" => { const r = fluencyBands(grade, season); return wcpm < r.below ? "BELOW" : wcpm > r.above ? "ABOVE" : "ON"; };
+export const fluencyRubricText = (grade: number, season: Season = fluencySeason()) => { const r = fluencyBands(grade, season); return `Grade ${grade}: Approaching < ${r.below} · Meeting ${r.below}–${r.above} · Exceeding > ${r.above} WCPM`; };
+/** The rubric line with its season, e.g. "Grade 5 · winter: Approaching < 109 · Meeting 109–160 · Exceeding > 160 WCPM". */
 export const fluencyRubricSeasonText = (grade: number, season: Season = fluencySeason()) => fluencyRubricText(grade, season).replace(/^Grade (\d+):/, `Grade $1 · ${SEASON_NAME[season]}:`);

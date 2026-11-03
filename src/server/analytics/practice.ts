@@ -154,8 +154,19 @@ export async function loadAnswers(repo: Repo, ids: string[], fromD: Date, toD: D
         out.push({ studentId: s(r.studentId), skillId: sk, questionId: s(r.questionId), correct: Boolean(r.correct), ms: Math.min(MAX_MS, raw), at: t(r.at), source: "NAFS", rapid: isRapidGuess(raw), session: `nafs:${s(r.runId)}` });
       }
     }
-    // ReadRise: careful answers of reliable runs only are saved (no per-question time, no question id)
-    for (const r of rr) out.push({ studentId: s(r.studentId), skillId: s(r.skillId), questionId: null, correct: Number(r.credit) >= 1, ms: null, at: t(r.createdAt), source: "READRISE", rapid: false, session: `readrise:${s(r.refId).split(":")[0]}` });
+    // ReadRise: careful answers of reliable runs only are saved (no question id). Round 4: the run's stored
+    // per-question time (RRRun.answerMs.ms, refId = runId:number), at most MAX_MS; none stored → not timed
+    const rrMs = new Map<string, Record<string, number>>();
+    if (rr.length) {
+      const { storedMs } = await import("../readrise/first-try");
+      const runIds = [...new Set(rr.map((r) => s(r.refId).split(":")[0]).filter(Boolean))];
+      for (let j = 0; j < runIds.length; j += 500) for (const run of await repo.findMany("RRRun", { id: { in: runIds.slice(j, j + 500) } }, { select: ["id", "answerMs"] }).catch(() => [] as Row[])) rrMs.set(s(run.id), storedMs(run.answerMs));
+    }
+    for (const r of rr) {
+      const [runId, n] = s(r.refId).split(":");
+      const raw = rrMs.get(runId)?.[n];
+      out.push({ studentId: s(r.studentId), skillId: s(r.skillId), questionId: null, correct: Number(r.credit) >= 1, ms: raw === undefined ? null : Math.min(MAX_MS, Math.max(0, raw)), at: t(r.createdAt), source: "READRISE", rapid: false, session: `readrise:${runId}` });
+    }
   }
   return out.sort((a, b) => a.at - b.at);
 }

@@ -17,7 +17,8 @@ import { readableClasses } from "../teacher/coordinators";
 import { studentNames } from "../insights/student-data";
 import { codeFor, designOf, diagnosticPool } from "./test";
 import { gradeLabel } from "./adaptive";
-import { cellPct, fluencyLevel, fluencyRubricText, prescriptionFor, standardLevel, STRAND_LABEL, bandFor, testBands, tierBandText, TIERS, WCPM_BENCHMARK, type Strand } from "./standards";
+import { cellPct, fluencyLevel, fluencyRubricText, prescriptionFor, standardLevel, STRAND_LABEL, bandFor, testBands, tierBandText, TIERS, WCPM_BENCHMARK, wcpmBenchmark, type Strand } from "./standards";
+import { seasonOf, type Season } from "../fluency/norms";
 import { isInvalidResult } from "../curriculum-map/level-evidence";
 import { resolvePeriod } from "../../analytics/periods";
 import { loadCalendar } from "../analytics/calendar";
@@ -102,14 +103,16 @@ export async function classDiagnosticReport(repo: Repo, actor: Actor, testId: st
   // MAP Reading (Fall) and the latest fluency check of each student
   const [maps, flu] = await Promise.all([
     ids.length ? repo.findMany("MapResult", { studentId: { in: ids } }, { select: ["studentId", "subject", "goalName", "rit", "termName", "testDate"] }) : Promise.resolve([] as Row[]),
-    ids.length ? repo.findMany("FluencyCheck", { studentId: { in: ids } }, { select: ["studentId", "wcpm", "checkedAt"] }) : Promise.resolve([] as Row[]),
+    ids.length ? repo.findMany("FluencyCheck", { studentId: { in: ids } }, { select: ["studentId", "wcpm", "checkedAt", "season"] }) : Promise.resolve([] as Row[]),
   ]);
   // grouped once (never a filter over every row per student / question)
   const group = <K>(rows: Row[], key: (r: Row) => K) => { const m = new Map<K, Row[]>(); for (const r of rows) { const k = key(r); const l = m.get(k); if (l) l.push(r); else m.set(k, [r]); } return m; };
   const mapsBy = group(maps, (m) => s(m.studentId)), fluBy = group(flu, (f) => s(f.studentId));
   const attemptsBySession = group(attempts, (a) => s(a.sessionId)), attemptsByQ = group(attempts, (a) => s(a.questionId));
   const ritOf = (id: string, at: Date | null) => readingRitAt(mapsBy.get(id) ?? [], at);
-  const wcpmOf = (id: string) => { const r = [...(fluBy.get(id) ?? [])].sort((a, b) => (d(b.checkedAt)?.getTime() ?? 0) - (d(a.checkedAt)?.getTime() ?? 0))[0]; return r ? Number(r.wcpm) : null; };
+  // r4: each student's latest check is judged by the season of ITS date (not today's season)
+  const fluSeason = new Map<string, Season>();
+  const wcpmOf = (id: string) => { const r = [...(fluBy.get(id) ?? [])].sort((a, b) => (d(b.checkedAt)?.getTime() ?? 0) - (d(a.checkedAt)?.getTime() ?? 0))[0]; if (r) fluSeason.set(id, seasonOf(d(r.checkedAt), r.season)); return r ? Number(r.wcpm) : null; };
   const B = testBands(t.bands);
 
   const idSet = new Set(ids);
@@ -207,7 +210,7 @@ export async function classDiagnosticReport(repo: Repo, actor: Actor, testId: st
       levels: { ABOVE: students.filter((x) => x.level === "ABOVE").length, ON: students.filter((x) => x.level === "ON").length, BELOW: students.filter((x) => x.level === "BELOW").length },
     },
     standards, strands, students, notTaken, tiers, supportPlan,
-    fluency: { benchmark: bench, rubric: fluencyRubricText(grade), checked: withW.length, below: withW.filter((x) => fluencyLevel(x.wcpm!, grade) === "BELOW").map((x) => ({ id: x.id, name: x.name, wcpm: x.wcpm! })).sort((a, b) => a.wcpm - b.wcpm) },
+    fluency: { benchmark: bench, rubric: fluencyRubricText(grade), checked: withW.length, below: withW.filter((x) => fluencyLevel(x.wcpm!, grade, fluSeason.get(x.id)) === "BELOW").map((x) => ({ id: x.id, name: x.name, wcpm: x.wcpm! })).sort((a, b) => a.wcpm - b.wcpm) },
     items, adaptive: Boolean(design), growth,
   };
   }
@@ -315,7 +318,8 @@ export async function studentDiagnosticReport(repo: Repo, actor: Actor, studentI
     standards: standards.map(({ anchor: _a, ...x }) => x),
     strengths: invalid ? [] : standards.filter((x) => x.pct >= 75).sort((a, b) => b.pct - a.pct).slice(0, 4).map((x) => `${x.label} (${x.code})`),
     needs: invalid ? [] : standards.filter((x) => x.pct < 60).sort((a, b) => a.pct - b.pct).slice(0, 4).map((x) => { const p = prescriptionFor(x.anchor); return { code: x.code, label: x.label, pct: x.pct, objective: p.objective, tip: p.activities[0] }; }),
-    rit, wcpm: flu ? { value: Number(flu.wcpm), benchmark: WCPM_BENCHMARK[grade] ?? 120 } : null,
+    // r4: the check is judged by the season of its own date (an old fall check is not compared with today's norm)
+    rit, wcpm: flu ? { value: Number(flu.wcpm), benchmark: wcpmBenchmark(grade, seasonOf(d(flu.checkedAt), flu.season)) } : null,
     minutes: Number(r.minutes), rapid: Number(r.rapid), shared: Boolean(r.sharedAt), sharedAt: d(r.sharedAt)?.toISOString().slice(0, 10) ?? null, note: r.teacherNote ? s(r.teacherNote) : null,
     adaptive: r.theta !== null && r.theta !== undefined, readingLevel: r.theta !== null && r.theta !== undefined ? gradeLabel(Number(r.theta)) : null,
     ritEstimate: r.ritEstimate !== null && r.ritEstimate !== undefined ? Number(r.ritEstimate) : null,

@@ -121,7 +121,7 @@ export async function myMap(repo: Repo, actor: Actor, now = new Date()): Promise
   const studentId = actor.studentId;
   const st = await repo.findUnique("Student", { id: studentId });
   const grade = Number((st?.gradeId ? await repo.findUnique("Grade", { id: st.gradeId }) : null)?.level ?? 0);
-  const [pk, mastery, book] = await Promise.all([groupPools(repo, actor.schoolId!, grade), repo.findMany("StudentSkillMastery", { studentId }, { select: ["skillId", "attempts", "correct", "score"] }), starBook(repo, [studentId], actor.schoolId)]);
+  const [pk, book] = await Promise.all([groupPools(repo, actor.schoolId!, grade), starBook(repo, [studentId], actor.schoolId)]);
   // ⚡ the two subjects (and the sent plans) are read side by side, not one after another
   const one = async (subject: Subject): Promise<MySubject> => {
     const p = (await mapProfiles(repo, actor.schoolId!, [studentId], subject)).get(studentId)!;
@@ -129,15 +129,16 @@ export async function myMap(repo: Repo, actor: Actor, now = new Date()): Promise
     const next = new Map<GroupKey, string | null>();
     for (const g of GROUPS.filter((x) => x.subject === subject)) {
       const skills = [...pk.skills.values()].filter((k) => k.group === g.key).map((k) => k.id);
-      const m = mastery.filter((x) => skills.includes(s(x.skillId)) && Number(x.attempts) > 0);
-      const a = m.reduce((t, x) => t + Number(x.attempts), 0);
-      acc.set(g.key, a ? Math.round((100 * m.reduce((t, x) => t + Number(x.correct), 0)) / a) : null);
+      // round 4: the goal area's number = the average STAR score of its started skills, each skill KEY once (the
+      // same stars as My Skills) — no longer the old engine's answer counters
+      const started = [...new Set(skills.map((id) => book.keyOf(id)))].map((k) => book.ofKey(studentId, k)).filter((v) => v.status !== "NOT_STARTED");
+      acc.set(g.key, started.length ? Math.round(started.reduce((t, v) => t + v.score, 0) / started.length) : null);
       // next skill to practise (⭐ stars, by skill key): never a ⭐ skill; a 🔄 "needs review" one first, then the
-      // weakest started one (the engine's score only orders), else the first not started
-      const score = new Map(mastery.map((x) => [s(x.skillId), Number(x.score)]));
+      // started one with the lowest star score, else the first not started
       const open = skills.filter((id) => !starMastered(book.of(studentId, id)));
       const review = (id: string) => (starNeedsReview(book.of(studentId, id)) ? 0 : 1);
-      next.set(g.key, [...open].sort((x, y) => review(x) - review(y) || (score.get(x) ?? -1) - (score.get(y) ?? -1))[0] ?? null);
+      const rank = (id: string) => { const v = book.of(studentId, id); return v.status === "NOT_STARTED" ? 1000 : v.score; };
+      next.set(g.key, [...open].sort((x, y) => review(x) - review(y) || rank(x) - rank(y))[0] ?? null);
     }
     const ordered = orderAreas(p, acc).map((a) => ({ ...a, accuracy: acc.get(a.group) ?? null, next: next.get(a.group) ?? null }));
     const est = p.term ? await estimateRit(repo, actor.schoolId!, studentId, subject, now) : null;

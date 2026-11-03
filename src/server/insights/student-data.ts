@@ -6,7 +6,6 @@
  */
 import { idsKey, sharedRead } from "../lib/shared-read";
 import type { Repo, Row } from "../seeding/repo";
-import { countGroups } from "../db/group-count";
 import { nationalNorm, percentileFromNorm, seasonOf, type Season } from "../map/rit";
 import { bandOf as planBand } from "../map/personal-plan";
 import { cancelIndexForStudents, liveAssignmentWhere } from "../student/cancelled-work";
@@ -103,29 +102,11 @@ export async function mapSummaries(repo: Repo, studentIds: string[], subject: Su
   return out;
 }
 
-export interface PracticeStats { answers: number; correct: number; accuracy: number | null; week: { answers: number; minutes: number }; month: { answers: number; minutes: number }; totalMinutes: number; lastActive: string | null; recentAccuracy: number | null; recentAnswers: number;
+export interface PracticeStats { answers: number; correct: number; accuracy: number | null;
+  /** the careful answers behind `accuracy` (rapid guesses out) — so a group's accuracy is Σ correct ÷ Σ careful (round 4) */
+  careful: number; week: { answers: number; minutes: number }; month: { answers: number; minutes: number }; totalMinutes: number; lastActive: string | null; recentAccuracy: number | null; recentAnswers: number;
   /** the student's ability on the skills practised in the last 30 days (θ, 0 = grade level), weighted by answers; null with under 10 answers */
   recentTheta: number | null }
-
-/** Up to this many students, all-time answer totals are counted from the answers themselves (see answerTotals). */
-export const EXACT_ANSWER_COUNT_MAX = 60;
-
-/**
- * ONE definition of “answers” for every report (readiness I-19: the same student showed 607 on one page and 655 on
- * another): the number of saved answers (QuestionAttempt rows), all time, and how many were correct. Every answer is
- * counted: practice, assigned sets, lessons, Review my mistakes and the Diagnostic. For large groups (school-wide
- * scans, more than EXACT_ANSWER_COUNT_MAX students) the per-skill counters are summed instead (they count the same
- * answers except older review answers), so a school-wide job never reads every answer of the year.
- */
-export async function answerTotals(repo: Repo, studentIds: string[]): Promise<Map<string, { answers: number; correct: number }> | null> {
-  if (!studentIds.length || studentIds.length > EXACT_ANSWER_COUNT_MAX) return null;
-  // ⚡ two GROUP BY counts (one row per student) instead of reading every answer of the year
-  const [all, right] = await Promise.all([
-    countGroups(repo, "QuestionAttempt", "studentId", { studentId: { in: studentIds } }),
-    countGroups(repo, "QuestionAttempt", "studentId", { studentId: { in: studentIds }, isCorrect: true }),
-  ]);
-  return new Map(studentIds.map((id) => [id, { answers: all.get(id) ?? 0, correct: right.get(id) ?? 0 }]));
-}
 
 /**
  * Practice of these students — 📏 the ONE definition of Questions / Accuracy / Minutes (analytics/practice-totals.ts,
@@ -181,7 +162,7 @@ async function practiceStatsUncached(repo: Repo, studentIds: string[], now: Date
     const x = totals.get(s(id)) ?? emptyWindows();
     const th = theta.get(s(id));
     out.set(id, {
-      answers: x.year.n, correct: x.year.c, accuracy: pctOf(x.year.c, x.year.careful),
+      answers: x.year.n, correct: x.year.c, accuracy: pctOf(x.year.c, x.year.careful), careful: x.year.careful,
       week: { answers: x.week.n, minutes: Math.round(x.week.ms / 60_000) }, month: { answers: x.month.n, minutes: Math.round(x.month.ms / 60_000) },
       totalMinutes: Math.round(x.year.ms / 60_000), lastActive: x.lastAny === null ? null : new Date(x.lastAny).toISOString(),
       recentAccuracy: pctOf(x.level.c, x.level.careful), recentAnswers: x.level.careful,

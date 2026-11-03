@@ -249,6 +249,9 @@ export async function recomputeStudents(repo: Repo, schoolId: string, studentIds
   const ids = [...new Set(studentIds)];
   if (!ids.length) return 0;
   const ix = opts.index ?? (await skillKeyIndex(repo, schoolId));
+  // ⭐ round 4 (owner): first remove what ReadRise re-reads / same-band stretches already fed to the skills (only the
+  // first try counts), recomputing those skills' mastery — chunked, idempotent (readrise/stars-cleanup.ts)
+  try { const { purgeRereadEvidence } = await import("../readrise/stars-cleanup"); await purgeRereadEvidence(repo, ids, now); } catch { /* best effort: the stars are still recomputed */ }
   const [attempts, mastery, existing] = await Promise.all([
     repo.findMany("QuestionAttempt", { studentId: { in: ids }, rapidGuess: false }, { select: ["studentId", "sessionId", "skillId", "isCorrect", "source", "createdAt", "unreliable"] }),
     repo.findMany("StudentSkillMastery", { studentId: { in: ids } }, { select: ["studentId", "skillId", "score", "isMastered"] }),

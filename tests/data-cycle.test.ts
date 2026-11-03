@@ -14,6 +14,7 @@ import { createDraft } from "../src/server/admin/questions";
 import { itemQuality } from "../src/server/admin/item-quality";
 import { interventionBoard } from "../src/server/teacher/intervention";
 import { parentSummary } from "../src/server/student/parent-summary";
+import { practiceTotalsFor } from "../src/server/analytics/practice-totals";
 import { recordLevel } from "../src/server/curriculum-map/student-level";
 import { demoDatabase } from "./helpers/db";
 
@@ -94,7 +95,11 @@ describe("📊→📋→⭐→📈 the data-driven cycle: plan results, question
 
   test("👪 the parent summary: practice, accuracy, the MAP goal and a tip from the data", async () => {
     const s = await parentSummary(repo, teacher, kids[0]);
-    assert.ok(s.answers30 >= 12);
+    // round 4: "This month" = THE one definition (practice-totals.ts): these answers are on a Curriculum Map question not
+    // linked to a skill yet (the hidden holder skill), which no practice number counts — the summary shows exactly that number
+    const tot = await practiceTotalsFor(repo, kids[0], new Date(Date.now() - 30 * 86_400_000), new Date());
+    assert.equal(s.answers30, tot.questions);
+    assert.equal(s.accuracy30, tot.accuracy);
     assert.equal(s.map?.rit, 170);
     assert.ok(s.tip.en.length > 10 && s.tip.ar.length > 10);
     assert.deepEqual(s.categories.map((c) => c.level), ["ABOVE"]);

@@ -20,6 +20,7 @@ import type { Repo, Row } from "../seeding/repo";
 import { ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
 import { RR_LEVELS, RR_MAX, RR_MIN, defaultLevel } from "./level";
+import { articleRuns, countedTries, isUnreliableRun, rapidRead, scoredRun } from "./first-try";
 
 export const s = (v: unknown) => String(v ?? "");
 export const toDate = (v: unknown) => (v instanceof Date ? v : new Date(s(v)));
@@ -154,10 +155,23 @@ export function levelDecision(scores: number[]): LevelDecision {
 }
 
 /** A run marked Unreliable (2+ rapid answers: accuracy.ts). */
-const unreliableRun = (r: Row) => r.unreliable === true || r.unreliable === 1;
+const unreliableRun = (r: Row) => isUnreliableRun(r);
 
-/** Does this scored run take part in the level window? (first try, not Unreliable; a stretch only when ≥ 75%) */
-export const countsForLevel = (r: Row) => r.firstTry === true && r.score !== null && r.score !== undefined && !unreliableRun(r) && (r.stretch !== true || Number(r.score) >= ENGINE.up);
+/**
+ * Does this scored run take part in the level window? (first try, not Unreliable; a stretch only when ≥ 75%).
+ * Round 4 (owner): the SAME read-time rule as the skill evidence — a run read faster than RR_MIN_READ_SECONDS
+ * (first-try.ts) never counts for the level either. A stretch must also be in a NEW question band: callers that have
+ * the student's runs use countedTries (first-try.ts) before this.
+ */
+export const countsForLevel = (r: Row) => r.firstTry === true && r.score !== null && r.score !== undefined && !unreliableRun(r) && !rapidRead(r) && (r.stretch !== true || Number(r.score) >= ENGINE.up);
+
+/**
+ * The completion dates that count toward the weekly goal: counted first tries (a re-read never; a stretch only in a
+ * new band), reliable, scored 75%+.
+ */
+export function goalDates(runs: readonly Row[]): Date[] {
+  return countedTries(runs).filter((r) => scoredRun(r) && !unreliableRun(r) && Number(r.score) >= ENGINE.up).map((r) => toDate(r.completedAt));
+}
 
 /**
  * Runs after a first-try activity was scored (the run row already has its score and completedAt).
@@ -179,7 +193,8 @@ export async function applyFirstTryScore(repo: Repo, run: Row, now: Date): Promi
     const articlesDoneBefore = Number(rr.articlesDone ?? 0);
     const changes = await levelChanges(repo, studentId);
     const since = changes.length ? toDate(changes[changes.length - 1].createdAt).getTime() : -Infinity;
-    const runs = (await repo.findMany("RRRun", { studentId, firstTry: true, score: { not: null } }))
+    // only counted first tries (a stretch in the same band as the first read reuses its questions: never counted)
+    const runs = countedTries(await repo.findMany("RRRun", { studentId, firstTry: true, score: { not: null } }))
       .filter((r) => r.completedAt && toDate(r.completedAt).getTime() > since && countsForLevel(r))
       .sort((a, b) => toDate(a.completedAt).getTime() - toDate(b.completedAt).getTime());
     const dec = levelDecision(runs.map((r) => Number(r.score)));
@@ -214,12 +229,21 @@ export async function setLevelByTeacher(repo: Repo, actor: Actor, studentId: str
   const to = clampEngine(level);
   const rr = await ensureRRStudent(repo, studentId, now);
   const from = Number(rr.level);
-  await repo.updateMany("RRStudent", { studentId }, { level: to, source: "TEACHER" });
+  // 🐛 round 4: a never-placed student (the working start: DEFAULT / MAP) — the teacher's level IS the start, so
+  // growth starts here (before: startLevel stayed the working start → a fake "growth −350")
+  const neverPlaced = s(rr.source) === "DEFAULT" || s(rr.source) === "MAP";
+  await repo.updateMany("RRStudent", { studentId }, neverPlaced ? { level: to, source: "TEACHER", startLevel: to, placedAt: now } : { level: to, source: "TEACHER" });
   await recordLevelChange(repo, { studentId, schoolId: s(rr.schoolId), from, to, reason: `Teacher set the level${reason.trim() ? `: ${reason.trim()}` : ""}`, now });
   return { from, to };
 }
 
 // ------------------------------------------------------------------ weeks, goals, projection (pure)
+
+/** The Riyadh calendar day (yyyy-mm-dd) of a moment — the same rule as analytics/practice.ts riyadhDay (that module
+ * is not imported here: it would pull the whole analytics graph into the ReadRise engine). */
+export const riyadhDay = (at: Date | string | number): string => new Date((typeof at === "number" ? at : toDate(at).getTime()) + RIYADH).toISOString().slice(0, 10);
+/** A week's label (mm-dd of its Sunday, Riyadh time) from its start (weekStart). */
+export const weekLabel = (start: number): string => riyadhDay(start).slice(5, 10);
 
 /** Start (ms, UTC) of the Sunday-based Riyadh week that contains `d`. */
 export function weekStart(d: Date): number {
@@ -320,15 +344,17 @@ export async function studentReadRiseSummary(repo: Repo, studentId: string, now 
   const rr = await repo.findUnique("RRStudent", { studentId });
   if (!rr) return null;
   // an Unreliable run (2+ rapid answers) counts for nothing: not the average, the goal or the projection
-  const runs = (await repo.findMany("RRRun", { studentId, firstTry: true, score: { not: null } }, { select: ["score", "stretch", "completedAt", "unreliable"] })).filter((r) => !unreliableRun(r));
-  const main = runs.filter((r) => r.stretch !== true);
+  const all = await repo.findMany("RRRun", { studentId, firstTry: true, score: { not: null } }, { select: ["studentId", "articleId", "band", "firstTry", "score", "stretch", "completedAt", "unreliable"] });
+  const runs = countedTries(all).filter((r) => !unreliableRun(r));
+  // round 4: ONE article definition (first-try.ts articleRuns): a reliable, scored, non-stretch first try
+  const main = articleRuns(all);
   const firstTryAvg = main.length ? Math.round(main.reduce((a, r) => a + Number(r.score), 0) / main.length) : null;
-  const g = goalStats(runs.filter((r) => Number(r.score) >= ENGINE.up && r.completedAt).map((r) => toDate(r.completedAt)), Number(rr.weeklyGoal), now);
+  const g = goalStats(goalDates(all), Number(rr.weeklyGoal), now);
   const { points } = await levelHistory(repo, studentId);
-  const placed = readRisePlaced(rr, (await repo.count("RRPlacement", { studentId, completedAt: { not: null } })) > 0);
+  const placed = readRisePlaced(rr, (await repo.count("RRPlacement", { studentId, completedAt: { not: null }, result: { not: null } })) > 0);
   return {
     level: Number(rr.level), startLevel: Number(rr.startLevel), source: s(rr.source), growth: Number(rr.level) - Number(rr.startLevel),
-    articlesDone: Number(rr.articlesDone ?? 0), firstTryAvg, weeklyGoal: g.goal, thisWeek: g.thisWeek, goalMet: g.met, streak: g.streak, weeksMet: g.weeksMet,
+    articlesDone: main.length, firstTryAvg, weeklyGoal: g.goal, thisWeek: g.thisWeek, goalMet: g.met, streak: g.streak, weeksMet: g.weeksMet,
     projected: await readRiseProjection(repo, main, points, s(rr.schoolId), now), placed, runs: runs.length,
   };
 }

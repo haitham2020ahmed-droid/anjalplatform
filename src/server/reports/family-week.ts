@@ -23,6 +23,7 @@ import { assertClassAccess } from "../teacher/assignments";
 import { isHiddenSkill } from "../skills/master";
 import { cancelIndexForStudents, liveAssignmentWhere } from "../student/cancelled-work";
 import { weekStart } from "../student/weekly";
+import { practiceTotals } from "../analytics/practice-totals";
 import { hideLevels } from "../../lib/hide-levels";
 import { homeTopicFor, type HomeTopic } from "./family-week-words";
 import { starBook, starLearning, starMastered, starNeedsReview } from "../skills/star-read";
@@ -105,8 +106,8 @@ export async function saveFamilyWeekNote(repo: Repo, actor: Actor, input: { stud
 async function buildWeeks(repo: Repo, ids: string[], klass: { className: string; classId: string; grade: number }, now: Date): Promise<FamilyWeek[]> {
   const since = weekStart(now);
   const inWeek = (v: unknown) => { const t = time(v); return t >= since.getTime() && t <= now.getTime(); };
-  const [students, done, sessions, runs, lessonRuns, attempts, book, nafs, notes] = await Promise.all([
-    repo.findMany("Student", { id: { in: ids } }, { select: ["id", "userId"] }),
+  const [students, done, sessions, runs, lessonRuns, attempts, book, nafs, notes, totals] = await Promise.all([
+    repo.findMany("Student", { id: { in: ids } }, { select: ["id", "userId", "schoolId"] }),
     repo.findMany("AssignmentStudent", { studentId: { in: ids }, status: "COMPLETED", completedAt: { gte: since } }, { select: ["studentId", "assignmentId", "completedAt"] }),
     repo.findMany("PracticeSession", { studentId: { in: ids }, startedAt: { gte: since } }, { select: ["studentId", "activeMs", "startedAt", "assignmentId", "mode", "correctCount"] }),
     repo.findMany("RRRun", { studentId: { in: ids }, completedAt: { gte: since } }, { select: ["studentId", "articleId", "readSeconds", "completedAt"] }),
@@ -121,6 +122,8 @@ async function buildWeeks(repo: Repo, ids: string[], klass: { className: string;
     starBook(repo, ids),
     repo.findMany("NafsResult", { studentId: { in: ids }, submittedAt: { gte: since } }, { select: ["studentId", "testId", "classId", "points", "maxPoints", "submittedAt"] }).catch(() => [] as Row[]),
     repo.findMany("FamilyWeekNote", { studentId: { in: ids }, week: iso(since) }, { select: ["studentId", "note"] }).catch(() => [] as Row[]), // a database without the table yet: no notes
+    // 📏 round 4: minutes = THE one definition (practice-totals.ts, ≤ 5 min per answer), the Riyadh week from Sunday
+    practiceTotals(repo, ids, since, now),
   ]);
   const doneAll = done.filter((r) => inWeek(r.completedAt));
   const aIds = [...new Set(doneAll.map((r) => s(r.assignmentId)))];
@@ -181,8 +184,9 @@ async function buildWeeks(repo: Repo, ids: string[], klass: { className: string;
       const max = Number(r.maxPoints) || 0;
       testsDone.push({ title: hideLevels(nafsTitle.get(s(r.testId)) || "NAFS"), pct: max ? Math.round((100 * Number(r.points)) / max) : 0, kind: "NAFS" });
     }
-    const minutes = Math.round((mineSessions.reduce((t, x) => t + Math.min(Number(x.activeMs ?? 0), 3 * 3_600_000), 0) + mineRuns.reduce((t, r) => t + Math.min(Number(r.readSeconds ?? 0), 3600) * 1000, 0)) / 60_000);
-    const days = new Set([...mineSessions.filter((x) => Number(x.activeMs) > 0).map((x) => iso(new Date(time(x.startedAt)))), ...mineAttempts.map((a) => iso(new Date(time(a.createdAt)))), ...mineRuns.map((r) => iso(new Date(time(r.completedAt))))]).size;
+    // the same minutes and days as This week (student/weekly.ts), not session time
+    const minutes = totals.get(id)?.minutes ?? 0;
+    const days = totals.get(id)?.activeDays ?? 0;
     // things to practise: this week's hardest skills (3+ careful answers, under 70 %) that are not ⭐, then the 🔄 needs
     // review and ◐ in progress skills (needs support / lowest score first) — never a ⭐ skill (one per key)
     const per = new Map<string, { n: number; ok: number }>();

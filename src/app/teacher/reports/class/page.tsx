@@ -30,7 +30,7 @@ export default async function ClassProgressReport({ searchParams }: { searchPara
   const glance = (a: MonthWindow, b: MonthWindow): Glance[] => [
     { icon: "⭐", label: "New stars", value: `${a.newStars} ${arrow(a.newStars, b.newStars)}`, meaning: t("Last month: {n}", { n: b.newStars }), tone: tone(a.newStars, b.newStars) },
     { icon: "✍️", label: "Effort (answers)", value: `${a.answers} ${arrow(a.answers, b.answers)}`, meaning: t("{n} students practised · last month {m}", { n: a.active, m: b.active }), tone: tone(a.answers, b.answers) },
-    { icon: "⏱️", label: "Practice time", value: `${a.minutes}m ${arrow(a.minutes, b.minutes)}`, meaning: t("Last month: {n} minutes", { n: b.minutes }), tone: tone(a.minutes, b.minutes) },
+    { icon: "⏱️", label: "Practice time", value: `${t("{n} min", { n: a.minutes })} ${arrow(a.minutes, b.minutes)}`, meaning: t("Last month: {n} minutes", { n: b.minutes }), tone: tone(a.minutes, b.minutes) },
     { icon: "🎯", label: "Accuracy", value: a.accuracy === null ? "—" : `${a.accuracy}%`, meaning: b.accuracy === null ? t("No answers last month") : t("Last month: {n}%", { n: b.accuracy }), tone: a.accuracy !== null && b.accuracy !== null ? tone(a.accuracy, b.accuracy) : "neutral" },
   ];
   const PeerList = ({ rows, empty }: { rows: PeerRow[]; empty: string }) => !rows.length ? <p className="text-sm text-slate-600">{t(empty)}</p> : (
@@ -49,18 +49,18 @@ export default async function ClassProgressReport({ searchParams }: { searchPara
       {!klass || !m || !peers ? <EmptyState icon="🏫" title="You do not teach any class yet." /> : (
         <>
           <AtAGlance items={glance(m.thisMonth, m.lastMonth)} />
-          <p className="mb-4 text-xs text-slate-500">{t("This month = the last 30 days; last month = the 30 days before.")}</p>
+          <p className="mb-4 text-xs text-slate-500">{t("This month = the last 30 days; last month = the 30 days before.")} {t("Answers, accuracy and time count skill practice, NAFS practice and ReadRise questions; skills are compared by their stars.")}</p>
           <div className="grid gap-5 lg:grid-cols-2">
             <ReportSection title="Skills improved" icon="📈">
               {!m.improved.length ? <p className="text-sm text-slate-600">{t("No skill improved clearly yet this month.")}</p> : (
-                <ul className="divide-y divide-slate-100 text-sm">{m.improved.map((k) => <li key={k.skillId} className="flex justify-between gap-2 py-1.5"><span data-content lang="en">{k.name}</span><span className="tabular-nums text-emerald-700" dir="ltr">{k.from}% → {k.to}%</span></li>)}</ul>
+                <ul className="divide-y divide-slate-100 text-sm">{m.improved.map((k) => <li key={k.skillId} className="flex justify-between gap-2 py-1.5"><span data-content lang="en">{k.name}</span><span className="tabular-nums text-emerald-700">{t("⭐ {from}% → {to}% of the class", { from: k.from, to: k.to })}</span></li>)}</ul>
               )}
             </ReportSection>
             <ReportSection title="Skills still weak" icon="🧱">
               {!m.weak.length ? <p className="text-sm text-slate-600">{t("No weak skill this month.")}</p> : (
                 <ul className="space-y-2 text-sm">{m.weak.map((k) => (
                   <li key={k.skillId} className="rounded-xl p-2 ring-1 ring-slate-200">
-                    <p className="flex justify-between gap-2"><span data-content lang="en">{k.name}</span><span className="text-rose-700"><span className="tabular-nums" dir="ltr">{k.accuracy}%</span>{k.stillWeak ? ` · ${t("also last month")}` : ""}</span></p>
+                    <p className="flex justify-between gap-2"><span data-content lang="en">{k.name}</span><span className="text-rose-700"><span className="tabular-nums">{t("star score {n} · {m} students", { n: k.accuracy, m: k.answers })}</span>{k.stillWeak ? ` · ${t("also last month")}` : ""}</span></p>
                     <InsightActions t={t} target={{ classId: klass.id, skillId: k.skillId }} only={["reteach", "lesson"]} className="mt-1" />
                   </li>
                 ))}</ul>

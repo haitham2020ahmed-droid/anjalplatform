@@ -20,11 +20,11 @@ import { ValidationError } from "../curriculum-admin";
 import { readableClasses } from "../teacher/coordinators";
 import { countGroups } from "../db/group-count";
 import { safeIfBehind } from "../db/schema-errors";
-import { isHiddenSkill } from "../skills/master";
-import { starBook, starMastered, starNeedsReview } from "../skills/star-read";
-import type { StarView } from "../skills/status";
+import { starBook } from "../skills/star-read";
 import { readRisePlaced } from "../readrise/engine";
-import { mapSummaries, studentNames } from "./student-data";
+import { mapSummaries, practiceStats, studentNames } from "./student-data";
+import { weakestKeyOf } from "./star-keys";
+import { hiddenStarKeys } from "../teacher/queries";
 import { cancelIndexForStudents, liveAssignmentWhere } from "../student/cancelled-work";
 import {
   DAY, DROPS, INVALID_WINDOW_DAYS, MAX_POINTS, MEASURES, MEASURE_KEYS, MIN_TEST_QUESTIONS, MIN_WEEK_ANSWERS, MOVES_DAYS, SCAN_CACHE_MS,
@@ -121,12 +121,8 @@ async function readChunk(repo: Repo, now: Date, ids: string[], classOf: Map<stri
     const where = { studentId: { in: ids }, rapidGuess: false, unreliable: false, createdAt: { gte: new Date(t - (k + 1) * 7 * DAY), lt: new Date(t - k * 7 * DAY) } };
     return Promise.all([countGroups(repo, "QuestionAttempt", "studentId", where), countGroups(repo, "QuestionAttempt", "studentId", { ...where, isCorrect: true })]);
   }));
-  const answered14 = new Map<string, number>();
   weeks.forEach(([all, right], k) => {
-    for (const [id, n] of all) {
-      if (k < 2) answered14.set(id, (answered14.get(id) ?? 0) + n);
-      if (n >= MIN_WEEK_ANSWERS) add(id, "SKILLS", t - k * 7 * DAY, pct(right.get(id) ?? 0, n));
-    }
+    for (const [id, n] of all) if (n >= MIN_WEEK_ANSWERS) add(id, "SKILLS", t - k * 7 * DAY, pct(right.get(id) ?? 0, n));
   });
 
   const [levelLogs, mapRows, maps, weekly, fluency, nafs, writing, rrChanges, rrStudents, rrActive, checkRows, testRows, students, declining, invalid, lastAnswer] = await Promise.all([
@@ -145,8 +141,10 @@ async function readChunk(repo: Repo, now: Date, ids: string[], classOf: Map<stri
     repo.findMany("Student", { id: { in: ids } }, { select: ["id", "createdAt"] }),
     repo.findMany("StudentLevelState", { studentId: { in: ids }, declining: true }, { select: ["studentId"] }),
     repo.findMany("StudentAlert", { studentId: { in: ids }, kind: "INVALID_TEST", createdAt: { gte: new Date(t - INVALID_WINDOW_DAYS * DAY) } }, { select: ["studentId"] }),
-    // the last answer before the 14 days (only for students without an answer in them: "no practice since …")
-    repo.findMany("StudentSkillMastery", { studentId: { in: ids }, lastPracticedAt: { not: null } }, { select: ["studentId", "lastPracticedAt"] }),
+    // 📏 round 4: "no practice since …" = the last answer of ANY source (bank answers incl. tests, NAFS, ReadRise), as
+    // practiceStats gives it (the last 30 days, 25 students at a time; older: the last practised date) — before, only
+    // careful bank answers of the last 14 days counted, so a NAFS / ReadRise-only student showed "no practice"
+    practiceStats(repo, ids, now, { recentOnly: true }),
   ]);
 
   // level group (overall level changes)
@@ -196,7 +194,7 @@ async function readChunk(repo: Repo, now: Date, ids: string[], classOf: Map<stri
   const invalidBy = new Map<string, number>();
   for (const a of invalid) invalidBy.set(s(a.studentId), (invalidBy.get(s(a.studentId)) ?? 0) + 1);
   const lastPractice = new Map<string, number>();
-  for (const m of lastAnswer) { const id = s(m.studentId), at = time(m.lastPracticedAt); if (at > (lastPractice.get(id) ?? 0)) lastPractice.set(id, at); }
+  for (const id of ids) { const at = time(lastAnswer.get(id)?.lastActive); if (Number.isFinite(at) && at > 0) lastPractice.set(id, Math.min(at, t)); }
   const createdAt = new Map(students.map((x) => [s(x.id), time(x.createdAt)]));
 
   const rows: WarningRow[] = [];
@@ -211,8 +209,7 @@ async function readChunk(repo: Repo, now: Date, ids: string[], classOf: Map<stri
     }
     const m = maps.get(id);
     const mapRisk = Boolean(m?.latest && (m.status === "AT_RISK" || m.status === "MISSED" || (m.latest.percentile !== null && m.latest.percentile < 21)));
-    const recent = answered14.get(id) ?? 0;
-    const last = recent > 0 ? t : lastPractice.get(id) ?? null;
+    const last = lastPractice.get(id) ?? null;
     const isNew = (createdAt.get(id) ?? 0) > t - 14 * DAY;
     const v = judge(findings, { daysSincePractice: last === null ? null : Math.floor((t - last) / DAY), isNew, mapRisk, declining: declSet.has(id), invalidTests: invalidBy.get(id) ?? 0 }, t);
     if (!v.severity) continue;
@@ -341,25 +338,18 @@ export async function earlyWarning(repo: Repo, actor: Actor, f: EwFilter = {}, n
   const keep = (id: string, x: { text: string; by: string; at: number }) => { const cur = lastBy.get(id); if (!cur || x.at > cur.at) lastBy.set(id, { ...x, date: new Date(x.at).toISOString().slice(0, 10) }); };
   for (const h of handledAny) keep(s(h.studentId), { text: s(h.action), by: who(h.handledById), at: time(h.handledAt) });
   for (const n of notes) keep(s(n.studentId), { text: `📝 ${s(n.body)}`, by: who(n.authorId), at: time(n.createdAt) });
-  // assign practice: ⭐ stars (owner, 1 Nov 2026) — a 🔄 Needs review skill first, else the weakest skill practised
-  // by the engine's score; never a skill the student has ⭐ on (any copy, by key), never the hidden "Unclassified" skill
-  const [weak, book] = sIds.length ? await Promise.all([
-    repo.findMany("StudentSkillMastery", { studentId: { in: sIds }, score: { lt: 60 }, attempts: { gte: 3 } }, { select: ["studentId", "skillId", "score"] }),
-    starBook(repo, sIds, schoolId),
-  ]) : [[] as Row[], null];
-  const reviewOf = new Map<string, string[]>();
-  if (book) for (const id of sIds) for (const v of (book.byKey.get(id) ?? new Map<string, StarView>()).values()) {
-    const sk = starNeedsReview(v) ? v.skillId ?? book.ix.skillsOf.get(v.key)?.[0] : null;
-    if (sk) reviewOf.set(id, [...(reviewOf.get(id) ?? []), sk]);
-  }
-  const candIds = [...new Set([...weak.map((w) => s(w.skillId)), ...[...reviewOf.values()].flat()])];
-  const skillCodes = candIds.length ? await repo.findMany("Skill", { id: { in: candIds } }, { select: ["id", "code"] }) : [];
-  const hiddenSkill = new Set(skillCodes.filter((k) => isHiddenSkill(k.code)).map((k) => s(k.id)));
+  // assign practice: ⭐ stars only (round 4) — from the star book, by KEY: a 🔄 Needs review skill first, else the ◐ In
+  // progress skill with the lowest star score; never a ⭐ skill, never the hidden "Unclassified" holder skill (the old
+  // engine score no longer decides)
+  const book = sIds.length ? await starBook(repo, sIds, schoolId) : null;
   const weakest = new Map<string, { skillId: string; score: number }>();
-  for (const [id, list] of reviewOf) { const sk = list.find((k) => !hiddenSkill.has(k)); if (sk) weakest.set(id, { skillId: sk, score: -1 }); }
-  for (const w of weak) {
-    if (hiddenSkill.has(s(w.skillId)) || (book && starMastered(book.of(s(w.studentId), s(w.skillId))))) continue;
-    const cur = weakest.get(s(w.studentId)); if (!cur || Number(w.score) < cur.score) weakest.set(s(w.studentId), { skillId: s(w.skillId), score: Number(w.score) });
+  if (book) {
+    const hiddenK = await hiddenStarKeys(repo, book);
+    for (const id of sIds) {
+      const w = weakestKeyOf(book, id, hiddenK);
+      const sk = w ? w.view.skillId ?? book.ix.skillsOf.get(w.key)?.[0] : null;
+      if (w && sk) weakest.set(id, { skillId: sk, score: w.view.score });
+    }
   }
 
   const out: EwRow[] = rows.filter((r) => !f.severity || r.severity === f.severity).map((r) => {

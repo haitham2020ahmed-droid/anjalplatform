@@ -17,6 +17,8 @@ import { intensityFor, reconcileStatus, tiersOf } from "./student-status";
 import { starBook, starMastered, starNeedsHelp } from "../skills/star-read";
 import { hiddenStarKeys } from "../teacher/queries";
 import type { StarStatus } from "../skills/status";
+import { practiceTotals, type PracticeTotals } from "../analytics/practice-totals";
+import { weekStart } from "../student/weekly";
 import { classMembers, levelsOf, mapSummaries, practiceStats, studentNames, workStats, type Level, type MapSummary, type PracticeStats, type Subject, type WorkStats } from "./student-data";
 
 const s = (v: unknown) => String(v ?? "");
@@ -62,18 +64,27 @@ export interface ClassProgress {
   stats: { mean: number | null; sd: number | null; spread: string; improved: number; declined: number; maintained: number; levels: { level: string; count: number; pct: number }[] };
 }
 
-/** Weekly accuracy (last 6 weeks, oldest first; null = fewer than 5 answers that week) and the 4-week change. */
-async function weeklyAccuracy(repo: Repo, ids: string[], now: Date): Promise<Map<string, { weeks: (number | null)[]; last4: number | null; prev4: number | null }>> {
+/**
+ * Weekly accuracy (last 6 weeks, oldest first; null = fewer than 5 careful answers that week) and the 4-week change.
+ * 📏 round 4: THE one definition (practice-totals.ts: skill practice + NAFS + ReadRise, rapid guesses out, the hidden
+ * holder skill out) — ONE read of the last 8 Riyadh school weeks (Sunday → Saturday, the current one so far),
+ * bucketed by week, 25 students at a time.
+ */
+async function weeklyAccuracy(repo: Repo, ids: string[], now: Date, schoolId: string | null = null): Promise<Map<string, { weeks: (number | null)[]; last4: number | null; prev4: number | null }>> {
   const out = new Map<string, { weeks: (number | null)[]; last4: number | null; prev4: number | null }>();
   if (!ids.length) return out;
-  const since = now.getTime() - 56 * 86_400_000;
-  const rows = (await repo.findMany("QuestionAttempt", { studentId: { in: ids }, createdAt: { gte: new Date(since) } }, { select: ["studentId", "isCorrect", "rapidGuess", "createdAt"] })).filter((a) => time(a.createdAt) >= since && !a.rapidGuess); // 📏 rapid guesses out
-  const pct = (list: Row[]) => (list.length >= 5 ? Math.round((100 * list.filter((a) => a.isCorrect).length) / list.length) : null);
+  const W = 7 * 86_400_000;
+  const thisWeek = weekStart(now).getTime();
+  // week index: 0 = this Riyadh week, 1 = last week, … (from Sunday 00:00 Riyadh)
+  const bucket = (at: number) => { const w = Math.floor((thisWeek - weekStart(new Date(at)).getTime() + W / 2) / W); return w >= 0 && w < 8 ? String(w) : null; };
+  const totals = await practiceTotals(repo, ids, new Date(thisWeek - 7 * W), now, { schoolId, bucket });
+  const pct = (c: number, n: number) => (n >= 5 ? Math.round((100 * c) / n) : null);
+  const sum = (b: PracticeTotals["buckets"], ws: number[]) => ws.reduce((o, w) => { const x = b?.[String(w)]; return { c: o.c + (x?.correct ?? 0), n: o.n + (x?.careful ?? 0) }; }, { c: 0, n: 0 });
   for (const id of ids) {
-    const mine = rows.filter((a) => s(a.studentId) === id);
-    const ago = (a: Row) => Math.floor((now.getTime() - time(a.createdAt)) / (7 * 86_400_000));
-    const weeks = [5, 4, 3, 2, 1, 0].map((w) => pct(mine.filter((a) => ago(a) === w)));
-    out.set(id, { weeks, last4: pct(mine.filter((a) => ago(a) < 4)), prev4: pct(mine.filter((a) => ago(a) >= 4 && ago(a) < 8)) });
+    const b = totals.get(id)?.buckets;
+    const weeks = [5, 4, 3, 2, 1, 0].map((w) => { const x = b?.[String(w)]; return pct(x?.correct ?? 0, x?.careful ?? 0); });
+    const l4 = sum(b, [0, 1, 2, 3]), p4 = sum(b, [4, 5, 6, 7]);
+    out.set(id, { weeks, last4: pct(l4.c, l4.n), prev4: pct(p4.c, p4.n) });
   }
   return out;
 }
@@ -141,7 +152,7 @@ export async function classProgress(repo: Repo, actor: Actor, classId: string, s
   const week = now.getTime() - 7 * 86_400_000;
   let canAssign = false;
   if (actor.role === "TEACHER") { const t = await repo.findUnique("Teacher", { userId: actor.userId }); canAssign = Boolean(t && (await repo.findUnique("ClassTeacher", { classId, teacherId: t.id }))); }
-  const wk = await weeklyAccuracy(repo, ids, now);
+  const wk = await weeklyAccuracy(repo, ids, now, actor.schoolId ?? null);
   const accs = rows.map((r) => r.practice.accuracy).filter((x): x is number => x !== null);
   const trends: Record<string, StudentTrend> = {};
   for (const r of rows) {
@@ -285,6 +296,14 @@ export interface GradeSummary { grade: number; classes: { classId: string; class
 
 /** Admin (every grade) or a grade coordinator (their grades): each class in numbers. */
 export async function gradeSummary(repo: Repo, actor: Actor, subject: Subject = "READING", now = new Date()): Promise<GradeSummary[]> {
+  return (await gradeSummaryWithRows(repo, actor, subject, now)).grades;
+}
+
+/**
+ * The grade summary AND each student's row (practice, work, status) it was counted from — the department summary
+ * reuses these numbers instead of reading every student's practice again (round 4, 512 MB server).
+ */
+export async function gradeSummaryWithRows(repo: Repo, actor: Actor, subject: Subject = "READING", now = new Date()): Promise<{ grades: GradeSummary[]; rows: Map<string, ProgressRow> }> {
   assertCan(actor, "reports:read");
   if (actor.role !== "SCHOOL_ADMIN" && actor.role !== "SUPER_ADMIN" && actor.role !== "TEACHER") throw new ForbiddenError();
   const grades = await coordinatorGrades(repo, actor);
@@ -313,18 +332,20 @@ export async function gradeSummary(repo: Repo, actor: Actor, subject: Subject = 
     for (const c of classes) {
       const ids = membersOf.get(s(c.id)) ?? [];
       const rows = ids.map((id) => byId.get(id)!).filter(Boolean).sort((a, b) => a.name.localeCompare(b.name));
-      const answers = rows.reduce((t, r) => t + r.practice.answers, 0), correct = rows.reduce((t, r) => t + r.practice.correct, 0);
+      // 📏 round 4: class accuracy = right careful answers ÷ careful answers (the practice-totals.ts rules each student's
+      // practiceStats already follows) — no longer right answers ÷ ALL answers (rapid guesses pulled it down)
+      const careful = rows.reduce((t, r) => t + (r.practice.careful ?? 0), 0), correct = rows.reduce((t, r) => t + r.practice.correct, 0);
       const levels: Record<Level | "NONE", number> = { BELOW: 0, ON: 0, ABOVE: 0, NONE: 0 };
       for (const r of rows) levels[r.level ?? "NONE"]++;
       list.push({
         classId: s(c.id), className: s(c.name), teacher: teacherOf.get(s(c.id)) || "—", students: rows.length, tested: rows.filter((r) => r.map).length,
         avgFall: avg(rows.filter((r) => r.map?.fall).map((r) => r.map!.fall!.rit)), avgTarget: avg(rows.filter((r) => r.map?.springTarget).map((r) => r.map!.springTarget!)),
         onTrack: rows.filter((r) => r.status === "ON_TRACK" || r.status === "MET").length, atRisk: rows.filter((r) => r.status === "AT_RISK" || r.status === "MISSED").length,
-        activeWeek: rows.filter((r) => r.practice.lastActive && time(r.practice.lastActive) >= week).length, accuracy: answers ? Math.round((correct / answers) * 100) : null,
+        activeWeek: rows.filter((r) => r.practice.lastActive && time(r.practice.lastActive) >= week).length, accuracy: careful ? Math.round((correct / careful) * 100) : null,
         done: rows.reduce((t, r) => t + r.work.done, 0), late: rows.reduce((t, r) => t + r.work.late, 0), levels,
       });
     }
     out.push({ grade: Number(g.level), classes: list });
   }
-  return out;
+  return { grades: out, rows: new Map(perGrade.flat().map((r) => [r.studentId, r])) };
 }

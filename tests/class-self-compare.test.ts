@@ -12,7 +12,8 @@ import type { SqliteRepo } from "../scripts/db/sqlite-repo";
 import { demoDatabase } from "./helpers/db";
 import { resolveActor } from "../src/server/auth/actor";
 import { ForbiddenError, type Actor } from "../src/server/auth/rbac";
-import { classMonth, monthCompare, monthLines, myMonth, myMonthMessage, peerCompare, peerRows, studentPeer, weeklySummary } from "../src/server/insights/class-compare";
+import { emptyTotals } from "../src/server/analytics/practice-totals";
+import { classMonth, monthCompare, monthLines, monthWindows, myMonth, myMonthMessage, peerCompare, peerRows, studentPeer, weeklySummary } from "../src/server/insights/class-compare";
 
 const ROOT = process.cwd();
 const read = (f: string) => readFileSync(join(ROOT, f), "utf8");
@@ -24,21 +25,27 @@ const files = (dir: string): string[] => readdirSync(join(ROOT, dir)).flatMap((f
 
 describe("📈 the class against itself (pure)", () => {
   test("this month against last month: stars, effort, time, skills improved and still weak", () => {
-    const names = new Map([["k1", "Inference"], ["k2", "Theme"]]);
-    const answers = (skillId: string, n: number, ok: number, d: number) => Array.from({ length: n }, (_, i) => ({ studentId: `s${i % 3}`, skillId, isCorrect: i < ok, createdAt: ago(d) }));
+    // round 4: the windows' numbers come from practice-totals.ts (passed in), the skill lists from the stars by KEY
+    const tot = (questions: number, correct: number, careful: number, minutes: number) => ({ ...emptyTotals(), questions, correct, careful, minutes });
+    const { ms } = monthWindows(NOW);
+    const star = (studentId: string, key: string, name: string, status: string, score: number, masteredAt: Date | null, startedAt: Date) =>
+      ({ studentId, key, skillId: `id-${key}`, name, status, score, masteredAt: masteredAt?.toISOString() ?? null, startedAt: startedAt.toISOString() });
     const m = monthCompare({
-      ids: ["s0", "s1", "s2"], skillNames: names, now: NOW,
-      attempts: [...answers("k1", 10, 4, 40), ...answers("k1", 10, 8, 5), ...answers("k2", 10, 4, 40), ...answers("k2", 10, 4, 5)],
-      stars: [{ masteredAt: ago(3) }, { masteredAt: ago(10) }, { masteredAt: ago(45) }],
-      sessions: [{ activeMs: 30 * 60_000, startedAt: ago(5) }, { activeMs: 10 * 60_000, startedAt: ago(40) }],
+      ids: ["s0", "s1", "s2"], windows: ms,
+      thisTotals: new Map([["s0", tot(10, 6, 10, 20)], ["s1", tot(10, 6, 10, 10)], ["s2", tot(0, 0, 0, 0)]]),
+      lastTotals: new Map([["s0", tot(10, 4, 10, 10)]]),
+      stars: [
+        star("s0", "k1", "Inference", "MASTERED", 95, ago(3), ago(50)), star("s1", "k1", "Inference", "MASTERED", 90, ago(10), ago(50)), star("s2", "k1", "Inference", "MASTERED", 92, ago(45), ago(50)),
+        star("s0", "k2", "Theme", "NEEDS_REVIEW", 40, null, ago(50)), star("s1", "k2", "Theme", "IN_PROGRESS", 30, null, ago(5)),
+      ],
     });
     assert.deepEqual([m.thisMonth.newStars, m.lastMonth.newStars], [2, 1]);
     assert.deepEqual([m.thisMonth.minutes, m.lastMonth.minutes], [30, 10]);
-    assert.deepEqual([m.thisMonth.answers, m.thisMonth.accuracy], [20, 60]);
-    assert.deepEqual(m.improved.map((k) => [k.name, k.from, k.to]), [["Inference", 40, 80]]);
-    assert.deepEqual(m.weak.map((k) => [k.name, k.accuracy, k.stillWeak]), [["Theme", 40, true]]);
+    assert.deepEqual([m.thisMonth.answers, m.thisMonth.accuracy, m.thisMonth.active], [20, 60, 2]);
+    assert.deepEqual(m.improved.map((k) => [k.name, k.from, k.to]), [["Inference", 33, 100]], "⭐ share of the class at the start → now");
+    assert.deepEqual(m.weak.map((k) => [k.name, k.accuracy, k.answers, k.stillWeak]), [["Theme", 30, 2, true]], "🔄 first; the ◐ star score; on it since before the month");
     assert.deepEqual(monthLines(m), [
-      "2 new stars this month (up from 1).", "Improved most: Inference (40% → 80%).", "Still to work on: Theme (40% correct).", "Practice: 30 minutes by 3 students (last month 10 minutes by 3).",
+      "2 new stars this month (up from 1).", "Improved most: Inference (⭐ 33% → 100% of the class).", "Still to work on: Theme (star score 30).", "Practice: 30 minutes by 2 students (last month 10 minutes by 1).",
     ]);
   });
 

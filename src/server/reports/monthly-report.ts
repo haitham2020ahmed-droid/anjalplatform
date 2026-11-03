@@ -24,6 +24,7 @@ import { hasLevelWords } from "./family-words";
 import { starBook, starLearning, starMastered, starNeedsReview } from "../skills/star-read";
 import type { StarView } from "../skills/status";
 import { adminUsers, type FamilyContent, type ReportSection } from "./family-reports";
+import { practiceTotals } from "../analytics/practice-totals";
 
 const s = (v: unknown) => String(v ?? "");
 const time = (v: unknown) => (v instanceof Date ? v.getTime() : v ? new Date(s(v)).getTime() : 0);
@@ -91,19 +92,30 @@ export function monthlyContent(f: MonthFacts): FamilyContent {
   return { summary: en.summary, sections: en.sections, message: "", ar };
 }
 
-/** The facts of a month for these students (one class). */
+/** Students per step of monthFacts (512 MB server: a class is read 25 students at a time, no row cap). */
+const PART = 25;
+
+/** The facts of a month for these students (one class), 25 students at a time. */
 export async function monthFacts(repo: Repo, ids: string[], span: MonthSpan): Promise<Map<string, MonthFacts>> {
+  const out = new Map<string, MonthFacts>();
+  for (let i = 0; i < ids.length; i += PART) for (const [k, v] of await monthFactsPart(repo, ids.slice(i, i + PART), span)) out.set(k, v);
+  return out;
+}
+
+async function monthFactsPart(repo: Repo, ids: string[], span: MonthSpan): Promise<Map<string, MonthFacts>> {
   const out = new Map<string, MonthFacts>();
   if (!ids.length) return out;
   const inMonth = (v: unknown) => { const t = time(v); return t >= span.from.getTime() && t < span.to.getTime(); };
   const range = { gte: span.from, lt: span.to };
-  const [students, book, attempts, sessions, runs, fluency] = await Promise.all([
-    repo.findMany("Student", { id: { in: ids } }, { select: ["id", "userId"] }),
+  // the month's last moment (span.to is the next month's first Riyadh midnight; span.from/to are already Riyadh instants)
+  const end = new Date(span.to.getTime() - 1);
+  const [students, book, totals, runs, fluency] = await Promise.all([
+    repo.findMany("Student", { id: { in: ids } }, { select: ["id", "userId", "schoolId"] }),
     // ⭐ the ONE skill status (skills/star-read.ts): one batched read for the class, every student's own keys (no
     // shared row cap — the old `take: ids.length * 12` on the engine table could leave later students with nothing)
     starBook(repo, ids),
-    repo.findMany("QuestionAttempt", { studentId: { in: ids }, createdAt: range }, { select: ["studentId", "isCorrect", "createdAt", "unreliable"], take: 40000 }),
-    repo.findMany("PracticeSession", { studentId: { in: ids }, startedAt: range }, { select: ["studentId", "activeMs", "startedAt"] }),
+    // 📏 round 4: answers / accuracy / minutes = THE one definition (practice-totals.ts) — no 40,000-answer cap
+    practiceTotals(repo, ids, span.from, end),
     repo.findMany("RRRun", { studentId: { in: ids }, completedAt: range }, { select: ["studentId", "articleId", "completedAt"] }).catch(() => [] as Row[]),
     repo.findMany("FluencyPractice", { studentId: { in: ids }, createdAt: range }, { select: ["studentId", "createdAt"] }).catch(() => [] as Row[]),
   ]);
@@ -132,17 +144,12 @@ export async function monthFacts(repo: Repo, ids: string[], span: MonthSpan): Pr
   const title = new Map(arts.map((a) => [s(a.id), s(a.title)]));
   for (const st of students) {
     const id = s(st.id);
-    const a = attempts.filter((x) => s(x.studentId) === id), ss = sessions.filter((x) => s(x.studentId) === id && inMonth(x.startedAt));
-    const days = new Set([...a.map((x) => new Date(time(x.createdAt)).toISOString().slice(0, 10)), ...ss.filter((x) => Number(x.activeMs) > 0).map((x) => new Date(time(x.startedAt)).toISOString().slice(0, 10))]).size;
-    // r85 audit: "unreliable" (a whole session flagged for too many guesses) is kept OUT of the accuracy % only —
-    // the "days/minutes/answers" effort counts below still count every answer, guessed or not, since those are
-    // meant to reflect effort, not performance.
-    const reliable = a.filter((x) => !x.unreliable);
-    const ok = reliable.filter((x) => x.isCorrect === true || x.isCorrect === 1).length;
+    const tot = totals.get(id);
     out.set(id, {
       name: userName.get(s(st.userId)) || "Student",
       mastered: [...new Set((starsOf.get(id) ?? []).map(nameOfRef).filter(Boolean))],
-      days, minutes: Math.round(ss.reduce((t, x) => t + Math.min(Number(x.activeMs ?? 0), 3 * 3_600_000), 0) / 60_000), answers: a.length, accuracy: reliable.length >= 10 ? Math.round((100 * ok) / reliable.length) : null,
+      // accuracy = right careful answers / careful answers (shown from 10 careful answers on)
+      days: tot?.activeDays ?? 0, minutes: tot?.minutes ?? 0, answers: tot?.questions ?? 0, accuracy: tot && tot.careful >= 10 ? tot.accuracy : null,
       articles: [...new Set(runs.filter((r) => s(r.studentId) === id).map((r) => title.get(s(r.articleId)) ?? "").filter(Boolean))],
       fluencyReadings: fluency.filter((r) => s(r.studentId) === id).length,
       next: [...new Set((nextOf.get(id) ?? []).map(nameOfRef).filter(Boolean))].slice(0, 4),
@@ -189,7 +196,7 @@ async function classTeachers(repo: Repo, classIds: string[]): Promise<Map<string
 
 /** The daily job: in the first 7 days of a month, the month that ended, for every class of the school. */
 export async function generateMonthlyReports(repo: Repo, schoolId: string, now = new Date()): Promise<number> {
-  if (now.getUTCDate() > 7) return 0;
+  if (new Date(now.getTime() + RIYADH).getUTCDate() > 7) return 0;   // the Riyadh date (round 4)
   const span = monthToReport(now);
   const classes = await repo.findMany("Class", { schoolId, deletedAt: null }, { select: ["id", "name", "schoolId"] });
   const teacherOf = await classTeachers(repo, classes.map((c) => s(c.id)));
@@ -207,4 +214,4 @@ export async function prepareMonthlyReports(repo: Repo, actor: Actor, classId: s
 }
 
 /** Days left before the job writes next month's reports (for the Family Reports hint). */
-export const daysToMonthEnd = (now: Date) => Math.max(0, Math.ceil((monthSpan(now.getUTCFullYear(), now.getUTCMonth()).to.getTime() - now.getTime()) / DAY));
+export const daysToMonthEnd = (now: Date) => { const l = new Date(now.getTime() + RIYADH); return Math.max(0, Math.ceil((monthSpan(l.getUTCFullYear(), l.getUTCMonth()).to.getTime() - now.getTime()) / DAY)); };

@@ -76,6 +76,10 @@ export async function draftReadRiseWritingScore(
   if (words(input.text) < 5) return { outcome: "TOO_SHORT", reason: "There is not enough writing to score yet." };
   const run = await repo.findUnique("RRRun", { id: input.runId });
   if (!run || run.writingScore !== null && run.writingScore !== undefined) return { outcome: "FAILED", reason: "Already scored by a teacher." };
+  // round 4: only a first try gets an AI draft (a re-read is practice), and only once (a second, concurrent submit
+  // finds the draft already there — no second paid call)
+  if (run.firstTry !== true && run.firstTry !== 1) return { outcome: "FAILED", reason: "Not a first try: no AI draft for a re-read." };
+  if (run.writingAiScore !== null && run.writingAiScore !== undefined) return { outcome: "FAILED", reason: "An AI draft is already saved." };
   const settings = await aiSettings(repo, input.schoolId);
   const picked = pickProvider(env, settings, make);
   if (!picked.ok) return { outcome: "OFF", reason: picked.reason };
@@ -88,7 +92,7 @@ export async function draftReadRiseWritingScore(
     .catch((e: Error) => ({ ok: false as const, error: e.message, stop: true }));
   if (!r.ok) return { outcome: "FAILED", reason: r.error || "The AI did not give a usable draft." };
   // only write if STILL not teacher-scored (a teacher could have scored it while this background call was running)
-  const changed = await repo.updateMany("RRRun", { id: input.runId, writingScore: null }, { writingAiScore: r.value.score, writingAiComment: r.value.comment });
+  const changed = await repo.updateMany("RRRun", { id: input.runId, writingScore: null, writingAiScore: null }, { writingAiScore: r.value.score, writingAiComment: r.value.comment });
   if (!changed) return { outcome: "FAILED", reason: "The run was scored by a teacher before the AI draft finished." };
   return { outcome: "SAVED", reason: null };
 }
