@@ -99,28 +99,41 @@ export function ListenButton({ text, label = "Listen", className = "", slowFirst
   }, []);
 
   // natural audio for this text? (asked once per text; nothing but the text's hash is sent)
+  //
+  // Nov 2026 fix ("بطي اثناء الحل"): this used to fire the instant the text changed (e.g. a new practice question
+  // rendering) — every ListenButton on screen (the passage, the question, later the feedback panel) firing its own
+  // request in the very same tick. A passage-based question has two of these at once, competing for the small
+  // server's attention right when the student is trying to read and answer. None of this check is urgent: until it
+  // resolves, the device's own voice reads instead (the designed fallback above), so a short delay costs nothing a
+  // student would notice, but spares the server from a burst of simultaneous requests on every question. A small
+  // random jitter on top keeps several buttons mounted together from still firing in the same instant as each other.
   useEffect(() => {
     stop();
     setPre(null); asked.current = new Set();
     onAvailRef.current?.(false);
     if (!spoken) return;
     let live = true;
-    (async () => {
-      try {
-        const key = await speechKey(spoken);
-        if (!key || !live) return;
-        const r = await fetch(`/api/tts/${key}?meta=1`, { credentials: "same-origin" });
-        if (!r.ok || !live) return;
-        const j = (await r.json()) as PreAudio & { found?: boolean; speed?: ListenSpeed; slow?: PreAudio | null };
-        if (!j.found || !live) return;
-        const main: PreAudio = { audioUrl: j.audioUrl, durationMs: j.durationMs, timings: j.timings };
-        setPre(j.speed === "slow" ? { normal: null, slow: main } : { normal: main, slow: j.slow ?? null });
-        onAvailRef.current?.(true);
-        // ⚡ ready before the tap: only the file's header is fetched now (light), so playing starts at once
-        try { if (!audio.current) { const a = new Audio(); a.preload = "metadata"; a.src = main.audioUrl; audio.current = a; } } catch { /* no audio element */ }
-      } catch { /* no natural audio yet: the device's voice is used */ }
-    })();
-    return () => { live = false; stop(); };
+    const delayMs = 400 + Math.round(Math.random() * 300);
+    const timer = setTimeout(() => {
+      (async () => {
+        try {
+          const key = await speechKey(spoken);
+          if (!key || !live) return;
+          const r = await fetch(`/api/tts/${key}?meta=1`, { credentials: "same-origin" });
+          if (!r.ok || !live) return;
+          const j = (await r.json()) as PreAudio & { found?: boolean; speed?: ListenSpeed; slow?: PreAudio | null };
+          if (!j.found || !live) return;
+          const main: PreAudio = { audioUrl: j.audioUrl, durationMs: j.durationMs, timings: j.timings };
+          setPre(j.speed === "slow" ? { normal: null, slow: main } : { normal: main, slow: j.slow ?? null });
+          onAvailRef.current?.(true);
+          // ⚡ ready before the tap: only the file's header is fetched now (light), so playing starts at once
+          try { if (!audio.current) { const a = new Audio(); a.preload = "metadata"; a.src = main.audioUrl; audio.current = a; } } catch { /* no audio element */ }
+        } catch { /* no natural audio yet: the device's voice is used */ }
+      })();
+    }, delayMs);
+    // a tap before the delay elapses checks right away instead of waiting (play() below calls requestNatural,
+    // which is independent of this timer and not delayed — only the quiet background check is)
+    return () => { live = false; clearTimeout(timer); stop(); };
   }, [spoken, stop]);
 
   /** Asks the server to make the natural voice for next time (in the background; the device voice reads now). */

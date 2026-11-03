@@ -34,7 +34,7 @@ import { answerTexts, attemptMisconception, correctAnswerText, loadQuestionItems
 import { refreshAfterAnswer, refreshQuestionSets } from "../teacher/assign";
 import { allowedQuestions, answerState, keyed, withAnswer, type Allowed, type AnswerState, type KeyedQuestion } from "./no-repeat";
 import { ASSIGNMENT_MAX_QUESTIONS, ASSIGNMENT_MIN_QUESTIONS, assignedSkillAccess, coreCountsOf, countCoreAnswer, isFinishReason, skillStarNow, reviewKeyOf, REVIEW_WORK_QUESTIONS, lastPickedWorkFor, markDone, openWorkFor, workProgressOf, type DoneBy, type WorkProgress } from "./completion";
-import { correctOnNewText, effortFromCounts, GENERAL_FLUENCY_DAYS, guessResponse, inGraceWindow, isFluentAnswer, isGenerallyFluentStudent, isPassageSkill, newTextStar, isRapidGuess as isRapidAnswer, itemTimeStats, notifyGuessPause, PARTICIPATION_XP, seenPassages, SLOW_DOWN_MS, type GuessAction } from "./guessing";
+import { correctOnNewText, effortFromCounts, generalCarefulRecord, guessResponse, inGraceWindow, isFluentAnswer, isGenerallyFluentStudent, isPassageSkill, newTextStar, isRapidGuess as isRapidAnswer, itemTimeStats, notifyGuessPause, PARTICIPATION_XP, seenPassages, SLOW_DOWN_MS, type GuessAction } from "./guessing";
 
 /** Nov 2026 ("أسئلة سهلة"): the question's own text (stem + its options), used to scale the rapid-guess threshold
  * to a short standalone question instead of the flat default — see rapidGuessThresholdMs in guessing.ts. */
@@ -201,17 +201,6 @@ async function skillHistory(repo: Repo, studentId: string, skillId: string, item
   // only the latest HISTORY_WINDOW answers (bank answers with their source weight + evidence from ReadRise, writing,
   // Respond to Reading and word reviews: src/server/practice/skill-evidence.ts), oldest → newest
   return skillHistoryWithEvidence(repo, studentId, skillId, items, HISTORY_WINDOW);
-}
-
-/** Nov 2026 fix #2: the student's recent careful (non-guess) answers ACROSS EVERY SKILL, newest first — feeds
- * isGenerallyFluentStudent (guessing.ts) when the skill being practised has no track record of its own yet. */
-async function generalCarefulRecord(repo: Repo, studentId: string, now: Date): Promise<boolean[]> {
-  const rows = await repo.findMany(
-    "QuestionAttempt",
-    { studentId, rapidGuess: false, createdAt: { gte: new Date(now.getTime() - GENERAL_FLUENCY_DAYS * 86_400_000) } },
-    { select: ["isCorrect"], orderBy: [{ field: "createdAt", dir: "desc" }], take: 200 },
-  );
-  return rows.map((r) => Boolean(r.isCorrect));
 }
 
 /** A prerequisite routed to from a skill is not routed to again within this many hours (the detour and the return). */

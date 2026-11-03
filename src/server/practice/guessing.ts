@@ -236,6 +236,33 @@ export async function itemTimeStats(repo: Repo, questionId: string, now = Date.n
 /** Forgets the kept statistics (tests). */
 export const resetItemTimeStats = (): void => statsCache.clear();
 
+// ------------------------------------------------------------------ a student's general fluency record (cached per process)
+
+const GENERAL_RECORD_TTL_MS = 3 * 60_000;
+const generalRecordCache = sweptMap<string, { at: number; v: boolean[] }>("practice.general-fluency", GENERAL_RECORD_TTL_MS, 5000);
+/**
+ * Nov 2026 fix #2: a student's recent careful (non-guess) answers ACROSS EVERY SKILL, newest first — feeds
+ * isGenerallyFluentStudent when the skill being practised has no track record of its own yet. Kept a few minutes
+ * in memory (shorter than itemTimeStats: this is a per-student signal that changes with every answer, but being a
+ * few minutes stale never matters for a check built on a two-week window) so this does not cost a fresh database
+ * round trip on every single answer — the extra read this fix originally added to every answer submission.
+ */
+export async function generalCarefulRecord(repo: Repo, studentId: string, now = new Date()): Promise<boolean[]> {
+  const nowMs = now.getTime();
+  const hit = generalRecordCache.get(studentId);
+  if (hit && nowMs - hit.at < GENERAL_RECORD_TTL_MS && nowMs >= hit.at) return hit.v;
+  const rows = await repo.findMany(
+    "QuestionAttempt",
+    { studentId, rapidGuess: false, createdAt: { gte: new Date(nowMs - GENERAL_FLUENCY_DAYS * 86_400_000) } },
+    { select: ["isCorrect"], orderBy: [{ field: "createdAt", dir: "desc" }], take: 200 },
+  );
+  const v = rows.map((r) => Boolean(r.isCorrect));
+  generalRecordCache.set(studentId, { at: nowMs, v });
+  return v;
+}
+/** Forgets the kept general-fluency records (tests). */
+export const resetGeneralCarefulRecord = (): void => generalRecordCache.clear();
+
 // ------------------------------------------------------------------ new texts
 
 /**
