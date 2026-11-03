@@ -50,6 +50,8 @@ export function passageWords(text: string | null | undefined): number {
 export const expectedReadingMs = (words: number): number => Math.round((Math.max(0, words) / READING_WPM) * 60_000);
 
 export interface ItemTimeStats { answers: number; avgMs: number }
+/** a short, simple question needs less reading time than the flat 3 s default assumes; see QUESTION_SHARE below */
+export const QUESTION_MIN_MS = 1_500;
 export interface GuessInput {
   /** the passage of the question (its text), when it has one */
   passageText?: string | null;
@@ -57,13 +59,25 @@ export interface GuessInput {
   firstOnPassage?: boolean;
   /** the question's careful answers so far (count and average time) */
   itemStats?: ItemTimeStats | null;
+  /** the question's own text (stem + its answer options), when it has no passage — Nov 2026 ("أسئلة سهلة ومش بياخد
+   * فيها وقت"): a short standalone question (e.g. a one-line vocabulary or grammar item) gets its own, shorter
+   * expected-reading-time floor instead of the flat 3 s used for every question regardless of length. */
+  questionText?: string | null;
 }
+/** same reading-speed share of the question's own (short) text as PASSAGE_SHARE, applied to its own word count */
+export const QUESTION_SHARE = 1 / 3;
 
 /** The rapid-guess threshold for one answer, in milliseconds (pure). */
 export function rapidGuessThresholdMs(input: GuessInput = {}): number {
   const st = input.itemStats;
   if (st && st.answers >= ITEM_STATS_MIN && st.avgMs > 0) return Math.min(ITEM_CAP_MS, Math.round(ITEM_SHARE * st.avgMs));
   if (input.firstOnPassage && input.passageText) return Math.max(RAPID_GUESS_MS, Math.round(PASSAGE_SHARE * expectedReadingMs(passageWords(input.passageText))));
+  // Nov 2026 fix ("أسئلة سهلة والطالب لا ياخذ فيها وقت"): a question with no passage (a standalone skill item) used
+  // the same flat 3 s floor as everything else, so a short, easy item a student can genuinely read and answer in
+  // under 3 s was flagged exactly like a guess. Scale the floor to the question's own (short) text instead, same
+  // formula as a passage's first question, but never below QUESTION_MIN_MS — reading four short answer options
+  // still takes a little time even for a one-word question.
+  if (!input.firstOnPassage && input.questionText) return Math.max(QUESTION_MIN_MS, Math.round(QUESTION_SHARE * expectedReadingMs(passageWords(input.questionText))));
   return RAPID_GUESS_MS;
 }
 
@@ -85,6 +99,23 @@ export function guessResponse(flags: readonly boolean[]): GuessAction {
   if (last(10) >= 5) return "PAUSE";
   if (last(5) >= 3) return "SLOW_DOWN";
   return flags.length && flags[flags.length - 1] ? "LOGGED" : "NONE";
+}
+
+/** at least this many of the student's own recent careful (non-guess) answers on the skill, before "fluent" can apply */
+export const FLUENCY_MIN_SAMPLE = 8;
+/** …and at least this share of them correct */
+export const FLUENCY_ACCURACY = 0.85;
+/**
+ * Nov 2026 fix ("بيحلوا صح... هما عارفين الاجابه وبسيطة"): a real guess gets lucky only sometimes — a student who
+ * answers fast AND keeps getting it right is demonstrating fluency, not guessing (true random guessing on 4
+ * options succeeds about a quarter of the time). This only ever adds points back for a FAST+CORRECT answer when
+ * the student's own recent track record on this skill supports it; it never touches ability, mastery or the
+ * adaptive engine's estimate — those stay exactly as before for every rapid answer, fluent or not.
+ */
+export function isFluentAnswer(recentCarefulCorrect: readonly boolean[]): boolean {
+  const n = recentCarefulCorrect.length;
+  if (n < FLUENCY_MIN_SAMPLE) return false;
+  return recentCarefulCorrect.filter(Boolean).length / n >= FLUENCY_ACCURACY;
 }
 
 export interface SessionEffort { answers: number; guesses: number; /** % careful answers, null before any answer */ effort: number | null; unreliable: boolean }
@@ -135,11 +166,22 @@ export async function studentEffort(repo: Repo, studentId: string, days = 30, no
 
 const STATS_TTL_MS = 10 * 60_000;
 const statsCache = sweptMap<string, { at: number; v: ItemTimeStats }>("practice.item-times", STATS_TTL_MS, 5000);
-/** A question's careful answers (count, average time; at most its last 200), kept 10 minutes in memory. */
+/**
+ * A question's correct answers (count, average time; at most its last 200), kept 10 minutes in memory.
+ *
+ * Nov 2026 fix (a feedback loop found while chasing "أسئلة سهلة... too fast"): this used to read only answers
+ * already flagged `rapidGuess: false` ("careful"). For an easy, short question, the flat default threshold
+ * (rapidGuessThresholdMs, above) flags most genuinely-fast-and-correct answers as guesses from the very first
+ * answer onward — so this query kept finding zero "careful" rows, `answers` never reached ITEM_STATS_MIN, and the
+ * smarter per-item rule could never take over: the question stayed stuck on the strict default forever. Reading
+ * every CORRECT answer instead (rapid-flagged or not) breaks that loop — a question's own real answering time can
+ * now be learned from how long correct answers actually take, not only from the ones that already passed the test
+ * this very function exists to relax.
+ */
 export async function itemTimeStats(repo: Repo, questionId: string, now = Date.now()): Promise<ItemTimeStats> {
   const hit = statsCache.get(questionId);
   if (hit && now - hit.at < STATS_TTL_MS && now >= hit.at) return hit.v;
-  const rows = await repo.findMany("QuestionAttempt", { questionId, rapidGuess: false }, { select: ["responseMs"], orderBy: [{ field: "createdAt", dir: "desc" }], take: 200 });
+  const rows = await repo.findMany("QuestionAttempt", { questionId, isCorrect: true }, { select: ["responseMs"], orderBy: [{ field: "createdAt", dir: "desc" }], take: 200 });
   const ms = rows.map((r) => Number(r.responseMs) || 0).filter((x) => x > 0 && x <= 30 * 60_000);
   const v = { answers: ms.length, avgMs: ms.length ? Math.round(ms.reduce((a, b) => a + b, 0) / ms.length) : 0 };
   statsCache.set(questionId, { at: now, v });

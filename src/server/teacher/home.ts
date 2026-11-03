@@ -175,5 +175,7 @@ export async function findSkillFamilies(repo: Repo, actor: Actor, q: string, cla
     const pool = withQ.length ? withQ : skills;
     const pick = pool.find((k) => k.grade === g) ?? [...pool].sort((a, b) => Math.abs(a.grade - g) - Math.abs(b.grade - g) || a.grade - b.grade)[0];
     return { key, name: f.name, grades: [...new Set(skills.map((k) => k.grade))], pick, skills, questions: Math.max(0, ...skills.map((k) => k.questions)) }; // the pooled count (not added per grade)
-  }).sort((a, b) => Number(b.questions > 0) - Number(a.questions > 0) || a.name.localeCompare(b.name)).slice(0, 12);
+  // Nov 2026 fix ("خلي كل شي يظهر، وكمان في scroll"): every matching skill is shown now, not just the top 12 —
+  // SkillFinder (home-widgets.tsx) scrolls its own list instead of this function hiding anything.
+  }).sort((a, b) => Number(b.questions > 0) - Number(a.questions > 0) || a.name.localeCompare(b.name));
 }

@@ -34,7 +34,13 @@ import { answerTexts, attemptMisconception, correctAnswerText, loadQuestionItems
 import { refreshAfterAnswer, refreshQuestionSets } from "../teacher/assign";
 import { allowedQuestions, answerState, keyed, withAnswer, type Allowed, type AnswerState, type KeyedQuestion } from "./no-repeat";
 import { ASSIGNMENT_MAX_QUESTIONS, ASSIGNMENT_MIN_QUESTIONS, assignedSkillAccess, coreCountsOf, countCoreAnswer, isFinishReason, skillStarNow, reviewKeyOf, REVIEW_WORK_QUESTIONS, lastPickedWorkFor, markDone, openWorkFor, workProgressOf, type DoneBy, type WorkProgress } from "./completion";
-import { correctOnNewText, effortFromCounts, guessResponse, isPassageSkill, newTextStar, isRapidGuess as isRapidAnswer, itemTimeStats, notifyGuessPause, seenPassages, SLOW_DOWN_MS, type GuessAction } from "./guessing";
+import { correctOnNewText, effortFromCounts, guessResponse, isFluentAnswer, isPassageSkill, newTextStar, isRapidGuess as isRapidAnswer, itemTimeStats, notifyGuessPause, seenPassages, SLOW_DOWN_MS, type GuessAction } from "./guessing";
+
+/** Nov 2026 ("أسئلة سهلة"): the question's own text (stem + its options), used to scale the rapid-guess threshold
+ * to a short standalone question instead of the flat default — see rapidGuessThresholdMs in guessing.ts. */
+function questionTextOf(item: Pick<PracticeItem, "stem" | "options">): string {
+  return [item.stem, ...(item.options ?? []).map((o) => o.text)].filter(Boolean).join(" ");
+}
 import { chosenQuestionIdsOfAssignment } from "../questions/skill-questions";
 import { applyPlacementResult } from "../curriculum-map/placement-result";
 import { adaptiveNext, STUCK_AFTER, type AdaptiveState } from "../curriculum-map/leveled-run";
@@ -581,7 +587,16 @@ async function submitAnswerUnlocked(
   // the passage opened; a question's own time once it has 20 careful answers) counts for NOTHING (guessing.ts)
   const passageOfId = (id: string): string | null => byId.get(id)?.passage ?? null;
   const firstOnPassage = Boolean(item.passage) && !sessionRows.some((r) => passageOfId(String(r.questionId)) === item.passage);
-  const rapid = isRapidAnswer(responseMs, { passageText: item.passageText, firstOnPassage, itemStats });
+  const rawRapid = isRapidAnswer(responseMs, { passageText: item.passageText, firstOnPassage, itemStats, questionText: questionTextOf(item) });
+  // Nov 2026 fix ("بيحلوا صح وبسيطة... النقاط والـGetting started مش بتتحرك"): a fast-but-correct answer is only
+  // ever treated as NOT a guess when the student's own recent careful answers on this skill back this one up
+  // (isFluentAnswer, guessing.ts) — never for a one-off lucky guess, and never for a fast WRONG answer (fluent
+  // requires `correct` too). Folding the exemption into `rapid` itself (rather than only the xp line) means every
+  // consequence below — ability, mastery score (the "Getting started" bar reads this), the stored QuestionAttempt
+  // flag, and the graduated slow-down/pause response — treats a fluent answer exactly like any other normal one,
+  // the same way a true rapid guess still does everywhere it always did.
+  const fluent = rawRapid && correct && isFluentAnswer(history.filter((h) => !h.rapid).slice(-20).map((h) => h.correct));
+  const rapid = rawRapid && !fluent;
   const evidence: ResponseEvidence = {
     itemId: item.questionId, correct, credit: credit > 0 && credit < 1 ? credit : undefined, level: item.level,
     a: item.irt.a, b: item.irt.b, c: item.irt.c, responseMs, estimatedSeconds: item.estimatedSeconds, usedHint, at: now.toISOString(),
@@ -591,8 +606,10 @@ async function submitAnswerUnlocked(
   const order = parseOrder(s.currentOrder);
   const guessFrom = Math.max(0, Number(order.guessFrom ?? 0));
   const guessAction = guessResponse([...sessionRows.map((r) => Boolean(r.rapidGuess)), rapid].slice(guessFrom));
-  // answers that count (never a rapid guess): this session's, with this one
-  const counted = sessionRows.filter((r) => !r.rapidGuess).length + (rapid ? 0 : 1);
+  // answers that count toward the 30/50 progress goal: a rapid guess still "fills its slot" (as on MAP itself —
+  // leveled-run.ts and adaptive.ts both keep every answer in the running count, even though it weighs nothing in
+  // the estimate) instead of being skipped as if it never happened — Nov 2026 fix ("النقاط ما تزيدش... مايتحسبش").
+  const counted = sessionRows.length + 1;
   const guessCount = Number(s.guessCount ?? 0) + (rapid ? 1 : 0);
   // the questions that may come next: never one already attempted (any session, any copy of it — a missed one waits
   // in Second Chance); the engine below scores this answer exactly as before and only CHOOSES among these
@@ -1064,7 +1081,7 @@ async function submitQuizAnswerUnlocked(repo: Repo, actor: Actor, input: { assig
   ]);
   const sessionCorrect = sessionRows.filter((x) => String(x.skillId) === skillId && !x.rapidGuess).map((x) => Boolean(x.isCorrect));
   // 🎲 r67: a rapid guess counts for nothing (guessing.ts) — not ability, mastery or accuracy
-  const rapid = isRapidAnswer(responseMs, { passageText: item.passageText, firstOnPassage: Boolean(item.passage) && !sessionPassages.length, itemStats });
+  const rapid = isRapidAnswer(responseMs, { passageText: item.passageText, firstOnPassage: Boolean(item.passage) && !sessionPassages.length, itemStats, questionText: questionTextOf(item) });
   const evidence: ResponseEvidence = {
     itemId: item.questionId, correct, credit: credit > 0 && credit < 1 ? credit : undefined, level: item.level,
     a: item.irt.a, b: item.irt.b, c: item.irt.c, responseMs, estimatedSeconds: item.estimatedSeconds, usedHint: false, at: now.toISOString(),

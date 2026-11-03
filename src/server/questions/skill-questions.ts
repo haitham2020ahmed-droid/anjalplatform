@@ -422,7 +422,12 @@ export async function questionsOfNafsArea(repo: Repo, schoolId: string, areaCode
 // ------------------------------------------------------------------ search: the skills a query names
 
 /** Teachers' words for the same skill (shared with the search page). */
-export const SKILL_SYNONYMS: [string, string][] = [["main inference", "make inferences"], ["main idea", "central idea"], ["central idea", "main idea"], ["inferences", "make inferences"], ["inference", "make inferences"], ["context clues", "word meaning"], ["text features", "text structure"], ["author's purpose", "point of view"], ["cause and effect", "text structure"], ["compare and contrast", "text structure"], ["capital letters", "capitalization"], ["capitalization", "capital letters"], ["vocab", "vocabulary"], ["grammar", "usage"]];
+export const SKILL_SYNONYMS: [string, string][] = [["main inference", "make inferences"], ["main idea", "central idea"], ["central idea", "main idea"], ["inferences", "make inferences"], ["inference", "make inferences"], ["context clues", "word meaning"], ["text features", "text structure"], ["author's purpose", "point of view"], ["cause and effect", "text structure"], ["compare and contrast", "text structure"], ["capital letters", "capitalization"], ["capitalization", "capital letters"], ["vocab", "vocabulary"], ["grammar", "usage"],
+  // Nov 2026 fix ("لو قلت theme في حاجات تظهر وحاجات لا"): "theme" only matched a skill literally named with that
+  // word, missing a skill that teaches the same idea under a different name (e.g. Author's Message). These two
+  // synonym pairs make "theme" and "author's message" (or "message") find each other, the same way "main idea" and
+  // "central idea" already do above.
+  ["theme", "author's message"], ["author's message", "theme"], ["message", "author's message"]];
 
 export interface SkillMatch {
   id: string; name: string; grade: number; questions: number; map: AreaRef | null; nafs: AreaRef | null;
@@ -459,10 +464,15 @@ export async function skillsMatching(repo: Repo, schoolId: string, q: string, op
       const kw = new Set([...words(k.name), ...words(k.code.replace(/^g\d+\./i, "").replace(/[-_.]/g, " "))].map(stemW));
       return qws.some((qw) => qw.length > 0 && qw.every((w) => kw.has(w) || [...kw].some((x) => x.startsWith(w) && w.length >= 3)));
     });
-    // the whole bank: the skills of questions whose text has the words (bounded, ids only)
+    // the whole bank: the skills of questions whose text has the words (bounded, ids only). Nov 2026 fix ("البحث
+    // بطيء جدا"): this used to scan EVERY question's stem on the whole server with an unindexed "contains" — slow,
+    // and it could only ever get faster as the question bank grew. Scoping it to skillId IN (this school's own
+    // skills, already known from idx — schoolSkillIndex above) first lets the database use the normal skillId
+    // index to shrink the row set before it has to look at any text, so the contains scan only ever runs over
+    // this school's own questions, not the whole platform's.
     if (hit.length < 12) {
       const seen = new Set(hit.map((k) => k.id));
-      const rows = await repo.findMany("Question", { stem: { contains: s(q).trim().slice(0, 80) }, deletedAt: null, ...statusWhere(opts.status) }, { select: ["skillId"], take: 400 }).catch(() => [] as Row[]);
+      const rows = await repo.findMany("Question", { skillId: { in: [...idx.skillOf.keys()] }, stem: { contains: s(q).trim().slice(0, 80) }, deletedAt: null, ...statusWhere(opts.status) }, { select: ["skillId"], take: 400 }).catch(() => [] as Row[]);
       const byFamily = new Set(hit.map((k) => idx.keyOf.get(k.id)));
       for (const r of rows) {
         const k = idx.skillOf.get(s(r.skillId));
@@ -487,7 +497,9 @@ export async function skillsMatching(repo: Repo, schoolId: string, q: string, op
   return reps.map((k) => {
     const familyKey = idx.keyOf.get(k.id)!;
     return { id: k.id, name: k.name, grade: k.grade, questions: counts.get(k.id) ?? 0, map: areas.get(k.id)?.map ?? null, nafs: areas.get(k.id)?.nafs ?? null, familyKey, familySkillIds: [...(idx.members.get(familyKey) ?? [k.id])] };
-  }).sort((a, b) => a.grade - b.grade || a.name.localeCompare(b.name)).slice(0, 30);
+  // Nov 2026 fix ("خلي كل شي يظهر"): no hard cap here any more — every matching skill is returned; the caller
+  // (findSkillFamilies, home.ts) used to cut this list to 12 too, and now shows the whole thing with a scrollbar.
+  }).sort((a, b) => a.grade - b.grade || a.name.localeCompare(b.name));
 }
 
 // ------------------------------------------------------------------ chosen questions or the automatic pool
