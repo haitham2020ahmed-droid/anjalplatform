@@ -47,13 +47,13 @@ export function skillTabOf(domain: unknown, code: unknown = ""): SkillTab {
 
 /**
  * Teachers' other words for a skill, by skill family (the part of the skill code after "G4." / "G5." / "G6."):
- * a search finds the skill by these too, e.g. "Characterization" → Character Traits & Development.
+ * a search finds the skill by these too, e.g. "Characterization" -> Character Traits & Development.
  */
 export const SKILL_SEARCH_ALIASES: Readonly<Record<string, readonly string[]>> = {
   character: ["Characterization", "Characterisation", "Direct and Indirect Characterization", "Character Analysis"],
 };
 
-/** The extra search names of a skill code ("G5.character" → ["Characterization", …]; none for other skills). */
+/** The extra search names of a skill code ("G5.character" -> ["Characterization", ...]; none for other skills). */
 export function skillAliases(code: unknown): readonly string[] {
   const fam = String(code ?? "").replace(/^g\d+\./i, "").split("#")[0].toLowerCase();
   return SKILL_SEARCH_ALIASES[fam] ?? [];
@@ -65,8 +65,7 @@ export function skillSearchKey(text: unknown): string {
 }
 
 /**
- * Does a search find this skill? Empty search: yes. Otherwise any of its names (its pool's names, the teachers'
- * other words in SKILL_SEARCH_ALIASES, or its code) contains the search, or
+ * Does a search find this skill? Empty search: yes. Otherwise any of its names (or its code) contains the search, or
  * every word of the search starts a word of one name ("char dev" → Character Traits & Development).
  */
 export function skillMatches(k: { name: string; names?: readonly string[]; code?: string }, q: string): boolean {
