@@ -169,7 +169,8 @@ async function planRows(repo: Repo, classIds: string[], mine: Row[], hidden: Set
 async function readRiseRows(repo: Repo, sid: string, classIds: string[], now: Date): Promise<MyWorkItem[]> {
   if (!classIds.length) return [];
   // r68: an article assigned for later (its start date) is not in My Work before that day
-  const given = (await repo.findMany("RRClassArticle", { classId: { in: classIds } }, { select: ["articleId", "dueAt", "startAt", "createdAt"], orderBy: [{ field: "createdAt", dir: "desc" }], take: 100 })).filter((g) => startedBy(g.startAt, now));
+  // 3 Nov 2026: no "newest 100" cut — a class with many old (cancelled) articles pushed a live one out of My Work
+  const given = (await repo.findMany("RRClassArticle", { classId: { in: classIds } }, { select: ["articleId", "dueAt", "startAt", "createdAt"], orderBy: [{ field: "createdAt", dir: "desc" }], take: 2000 })).filter((g) => startedBy(g.startAt, now));
   if (!given.length) return [];
   const ids = [...new Set(given.map((g) => s(g.articleId)))];
   const [arts, runs] = await Promise.all([

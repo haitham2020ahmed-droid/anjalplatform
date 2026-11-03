@@ -40,6 +40,8 @@ export const ADMIN_TOOLS: AdminTool[] = [
   { href: "/admin/logins", label: "Sign-Ins", icon: "🔑", group: "school" },
   { href: "/teacher/levels", label: "Student Levels", icon: "🎚", group: "school", perm: "students:read", schoolAdminOnly: true },
   { href: "/admin/cancel-skill", label: "Cancel a Skill", icon: "🚫", group: "school", menu: true, hint: "Remove one skill from any student’s My Work", perm: "assignments:create" },
+  // 3 Nov 2026 (owner: "the teacher sees it Open, the student sees nothing"): one student's assigned work vs their My Work, one reason each (the page itself is English only)
+  { href: "/admin/work-visibility", label: "Work Visibility Check", icon: "🧐", group: "school", menu: true, perm: "assignments:read" },
   { href: "/admin/roster/clean", label: "Clear Roster", icon: "🧹", group: "school", perm: "students:manage" },
 
   // ---- Content

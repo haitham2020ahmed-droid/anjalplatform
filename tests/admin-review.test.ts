@@ -115,7 +115,7 @@ describe("admin review: only working tools", () => {
       const inMenu = menu.filter((i) => i.group === g.title).length;
       assert.ok(inMenu >= 2 && inMenu <= 6, `${g.title}: ${inMenu} menu entries`);
     }
-    assert.ok(ADMIN_TOOLS.length <= 71, `${ADMIN_TOOLS.length} tools in all (was 85; School Reports + Server status + Cancel a Skill raised the 65 budget by 3 to 68; NAFS Item Analysis + Skill Overlap Across Classes + School Goals raised it further to 70; Practice Balance to 71 — pre-existing drift found while wiring r87, unrelated to that change)`);
+    assert.ok(ADMIN_TOOLS.length <= 72, `${ADMIN_TOOLS.length} tools in all (was 85; School Reports + Server status + Cancel a Skill raised the 65 budget by 3 to 68; NAFS Item Analysis + Skill Overlap Across Classes + School Goals raised it further to 70; Practice Balance to 71 — pre-existing drift found while wiring r87, unrelated to that change; Work Visibility Check (3 Nov 2026) to 72)`);
   });
 
   test("every menu / home / All Admin Tools link opens an existing page", () => {

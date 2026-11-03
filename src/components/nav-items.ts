@@ -260,7 +260,7 @@ export const ADMIN_LINE: Record<string, LineIconName> = {
   "/admin/analytics": "growth", "/admin/term-report": "file", "/admin/report-approvals": "inbox", "/teacher/reports": "chart",
   "/admin/department": "building", "/admin/ai-dashboard": "sparkle", "/admin/settings": "settings", "/admin/ai-tools": "sparkle",
   "/admin/backup": "download", "/admin/data-health": "heart", "/admin/data-cleanup": "broom", "/admin/feedback": "chat",
-  "/admin/cancel-skill": "x", "/admin/performance": "award",
+  "/admin/cancel-skill": "x", "/admin/work-visibility": "work", "/admin/performance": "award",
   // r87: the tools that used to be findable only by name now also get a line icon, since they're real "More" icons too.
   "/admin/messages": "mail", "/admin/student-cards": "qr", "/admin/visit": "eye", "/admin/logins": "lock",
   "/teacher/levels": "scale", "/admin/roster/clean": "broom", "/admin/coverage": "chart", "/admin/questions/duplicates": "layers",

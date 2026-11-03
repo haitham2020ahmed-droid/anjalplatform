@@ -27,6 +27,8 @@ const TONE: Record<AssignedStatus, string> = {
   DONE: "bg-emerald-50 text-emerald-800 ring-emerald-200", CANCELLED: "bg-slate-100 text-slate-600 ring-slate-300",
 };
 /** a real table's columns: a leading checkbox cell, then Skill · Class · Due · Progress · Status · Tab · Actions. */
+/** a same-skill group with at most this many rows starts open (no click needed to see 2–5 rows) */
+const SMALL_GROUP = 5;
 const COLS = "grid grid-cols-[1.75rem_minmax(0,1.6fr)_minmax(0,10rem)_7rem_3.5rem_6rem_6rem_4.25rem] items-center gap-x-2";
 
 /**
@@ -139,10 +141,13 @@ function ItemRow({ x, t, who, href, back, admin }: { x: AssignedItem; t: TFn; wh
 /** One skill group within a status section: a single row directly, or (same title repeated) a nested accordion. */
 function SkillGroup({ g, t, who, href, back, admin }: { g: { key: string; title: string; rows: AssignedItem[] }; t: TFn; who: (x: AssignedItem) => string; href: (e: Record<string, string | null>) => string; back: string; admin: boolean }) {
   if (g.rows.length === 1) return <ItemRow x={g.rows[0]} t={t} who={who} href={href} back={back} admin={admin} />;
+  // 🐛 3 Nov 2026: NAMED groups (Tailwind v4 group/<name>) — a plain `group` here and on the bucket around it made a
+  // CLOSED "Theme (2)" show a turned arrow whenever its bucket was open (it looked open and empty). A small group
+  // (≤ SMALL_GROUP rows) starts open.
   return (
-    <details className="group">
+    <details className="group/skill" open={g.rows.length <= SMALL_GROUP}>
       <summary className="flex min-h-9 cursor-pointer items-center gap-1.5 px-3 py-1.5 text-sm">
-        <span aria-hidden="true" className="text-muted transition-transform group-open:rotate-90">▶</span>
+        <span aria-hidden="true" className="text-muted transition-transform group-open/skill:rotate-90">▶</span>
         <span className="min-w-0 truncate font-semibold text-ink" data-content lang="en">{g.title}</span>
         <span className="font-normal text-muted">({g.rows.length})</span>
       </summary>
@@ -156,9 +161,9 @@ function SkillGroup({ g, t, who, href, back, admin }: { g: { key: string; title:
 /** One bucket section (🆕 New / ⏰ Needs follow-up / 📂 Extra Practice): its own column header, then its skill groups. */
 function BucketSection({ g, t, who, href, back, admin, defaultOpen }: { g: { bucket: Bucket; rows: AssignedItem[] }; t: TFn; who: (x: AssignedItem) => string; href: (e: Record<string, string | null>) => string; back: string; admin: boolean; defaultOpen: boolean }) {
   return (
-    <details className="group" open={defaultOpen}>
+    <details className="group/bucket" open={defaultOpen}>
       <summary className="flex min-h-10 cursor-pointer items-center gap-1.5 bg-surface-2/50 px-3 py-2 text-sm font-semibold text-ink">
-        <span aria-hidden="true" className="text-muted transition-transform group-open:rotate-90">▶</span>
+        <span aria-hidden="true" className="text-muted transition-transform group-open/bucket:rotate-90">▶</span>
         <span aria-hidden="true">{BUCKET_ICON[g.bucket]}</span>{t(BUCKET_LABEL[g.bucket])} <span className="font-normal text-muted">({g.rows.length})</span>
       </summary>
       <div className="overflow-x-auto">
@@ -180,9 +185,9 @@ function BucketSection({ g, t, who, href, back, admin, defaultOpen }: { g: { buc
 function DoneSection({ rows, t, who, href, back, admin }: { rows: AssignedItem[]; t: TFn; who: (x: AssignedItem) => string; href: (e: Record<string, string | null>) => string; back: string; admin: boolean }) {
   if (!rows.length) return null;
   return (
-    <details className="group border-t border-line">
+    <details className="group/done border-t border-line">
       <summary className="flex min-h-10 cursor-pointer items-center gap-1.5 px-3 py-2 text-sm font-semibold text-muted">
-        <span aria-hidden="true" className="transition-transform group-open:rotate-90">▶</span>
+        <span aria-hidden="true" className="transition-transform group-open/done:rotate-90">▶</span>
         <span aria-hidden="true">✓</span>{t("Done / Cancelled")} <span className="font-normal text-muted">({rows.length})</span>
       </summary>
       <div className="overflow-x-auto">
@@ -229,7 +234,10 @@ export default async function AssignedPage({ searchParams }: { searchParams: Pro
   const doneMsg = sp.done === "cancelled" ? t("Cancelled. Students no longer see it; their answers are kept.") : sp.done === "removed" ? t("Removed for this student. Their answers are kept.") : sp.done === "restored" ? t("Restored: it is back in the students' My Work.") : sp.done === "start_updated" ? t("Start date updated.") : null;
   return (
     <AppShell name={String(me.displayName)}>
-      <PageHeader title="Assigned" subtitle={v.admin ? t("Everything the teachers assigned. Cancel hides it from the students at once; their answers are kept.") : t("Everything you assigned. Cancel hides it from the students at once; their answers are kept.")} />
+      <PageHeader title="Assigned" subtitle={v.admin ? t("Everything the teachers assigned. Cancel hides it from the students at once; their answers are kept.") : t("Everything you assigned. Cancel hides it from the students at once; their answers are kept.")}>
+        {/* 🔍 the owner's check page is English only (no t() on purpose) */}
+        <Link prefetch={false} href="/admin/work-visibility" lang="en" className="text-sm font-semibold text-brand-teal hover:underline">Why can&apos;t a student see it?</Link>
+      </PageHeader>
 
       {doneMsg && (
         <p role="status" className="mb-3 flex flex-wrap items-center gap-2 rounded-xl bg-teal-50 px-3 py-2 text-sm text-teal-900 ring-1 ring-teal-200">

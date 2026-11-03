@@ -119,7 +119,7 @@ describe("📌 Assigned: select several, cancel / undo in one go", () => {
     // by default, Extra Practice collapsed; Done/Cancelled rows pulled out into one separate footer section
     assert.match(page, /function groupByBucket/, "rows are grouped by bucket");
     assert.match(page, /BUCKET_ORDER:\s*Bucket\[\]\s*=\s*\["FOLLOWUP",\s*"NEW",\s*"EXTRA"\]/, "Needs follow-up, then New, then Extra Practice");
-    assert.match(page, /<details className="group" open=\{defaultOpen\}>/, "each bucket section is a native details/summary accordion");
+    assert.match(page, /<details className="group\/bucket" open=\{defaultOpen\}>/, "each bucket section is a native details/summary accordion (a NAMED group)");
     assert.match(page, /defaultOpen=\{g\.bucket !== "EXTRA"\}/, "New and Needs follow-up start open; only Extra Practice starts collapsed");
     assert.match(page, /function DoneSection/, "Done and Cancelled rows are collected into one minimal footer, not scattered across the buckets");
     assert.match(page, /doneRows = shown\.filter\(\(x\) => x\.status === "DONE" \|\| x\.status === "CANCELLED"\)/, "done/cancelled rows are pulled out before bucketing");
@@ -127,7 +127,12 @@ describe("📌 Assigned: select several, cancel / undo in one go", () => {
     assert.match(page, /function groupBySkill/, "rows sharing the same kind \+ title are grouped");
     assert.match(page, /g\.rows\.length === 1\) return <ItemRow/, "a skill assigned only once renders as a plain row, no extra accordion");
     assert.match(page, /\(\{g\.rows\.length\}\)/, "a repeated skill's group header shows its count");
-    assert.match(page, /group-open:rotate-90/, "the same-skill group has a visible chevron that rotates when open");
+    assert.match(page, /group-open\/skill:rotate-90/, "the same-skill group has a visible chevron that rotates when open");
+    // 3 Nov 2026: named groups — an unnamed group-open inside an open bucket turned a CLOSED skill group's arrow
+    assert.doesNotMatch(page, /group-open:rotate-90|className="group[" ]/, "no unnamed group / group-open left (nested details)");
+    assert.match(page, /group-open\/bucket:rotate-90/); assert.match(page, /group-open\/done:rotate-90/);
+    assert.match(page, /<details className="group\/skill" open=\{g\.rows\.length <= SMALL_GROUP\}>/, "a small skill group (≤ 5 rows) starts open");
+    assert.match(page, /const SMALL_GROUP = 5;/);
     // every skill row shows where it came from (Curriculum / RTI / MAP / Grammar / NAFS / Custom), next to its type tag
     assert.match(page, /x\.source &&.*SOURCE_TAG_CLASS\[x\.source\]/, "a skill's source (Curriculum/RTI/MAP/…) is shown as a small tag on its row");
     // a real table: column headers (Skill · Class · Due · Progress · Status · Tab · Actions), reusing existing strings

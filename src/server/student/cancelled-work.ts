@@ -36,14 +36,19 @@ export async function hiddenWorkKeys(repo: Repo, studentId: string, schoolId: st
   if (!rows.length) return out;
   const readrise = rows.filter((r) => r.kind === "READRISE" && r.classId);
   const learn = rows.filter((r) => r.kind === "LEARN" || r.kind === "WORDS");
-  const [classIds, assignees] = await Promise.all([
+  const [classIds, assignees, liveRR] = await Promise.all([
     readrise.length ? repo.findMany("ClassMembership", { studentId, leftAt: null }, { select: ["classId"] }).then((m) => new Set(m.map((x) => s(x.classId)))) : Promise.resolve(new Set<string>()),
     learn.length ? safeIfBehind("assigned.learn", () => repo.findMany("LearnAssignee", { studentId }, { select: ["assignId", "kind", "ref"], take: 500 }), [] as Row[]) : Promise.resolve([] as Row[]),
+    // 3 Nov 2026 (owner: "the teacher sees it Open, the student sees nothing"): a ReadRise cancel hides the article
+    // only while the CANCELLED class-article row is still the one on the class's list — exactly the teacher's rule
+    // (Assigned page: cancel state by the row's own id). Removed and assigned again = a new row = shown again.
+    readrise.length ? repo.findMany("RRClassArticle", { id: { in: [...new Set(readrise.map((r) => s(r.refId)))] } }, { select: ["id"] }).then((x) => new Set(x.map((r) => s(r.id)))) : Promise.resolve(new Set<string>()),
   ]);
   const learnCancelled = new Set(learn.map((r) => s(r.refId)));
   for (const r of rows) {
     // a ReadRise article: only the class it was cancelled for (the same article may be open in another class)
     if (r.kind === "READRISE" && r.classId && !classIds.has(s(r.classId))) continue;
+    if (r.kind === "READRISE" && !liveRR.has(s(r.refId))) continue;
     if (r.kind === "LEARN" || r.kind === "WORDS") {
       // the same lesson / words given again (another, active assignment): still in My Work
       for (const k of json<string[]>(r.keys, [])) {

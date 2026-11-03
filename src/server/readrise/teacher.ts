@@ -58,6 +58,8 @@ export async function assignArticle(repo: Repo, actor: Actor, classId: string, a
   // r68: the start date (students see it from that day); assigning again updates both dates
   await repo.upsert("RRClassArticle", { classId, articleId }, { classId, articleId, assignedById: actor.userId, dueAt, ...(startAt ? { startAt } : {}), createdAt: now }, { dueAt, startAt });
   await audit(repo, { actorId: actor.userId, action: "readrise.assign", entityType: "RRClassArticle", entityId: `${classId}:${articleId}`, after: { dueAt: dueAt?.toISOString() ?? null }, at: now });
+  // 3 Nov 2026: assigning a cancelled article again brings it back for the class (its open cancels are restored)
+  if (have) await repo.updateMany("AssignmentCancel", { kind: "READRISE", refId: s(have.id), restoredAt: null }, { restoredAt: now, restoredById: actor.userId }).catch(() => 0);
   return { created: !have };
 }
 
