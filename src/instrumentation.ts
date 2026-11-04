@@ -7,15 +7,35 @@ export async function register(): Promise<void> {
   if (process.env.NEXT_RUNTIME === "nodejs") {
     const { loadEnv } = await import("./lib/env");
     loadEnv();
+    // 🛟 r89 (server-stability audit, Oct 2026): a last-resort net. Node terminates the WHOLE process by default on
+    // an uncaught exception or an unhandled promise rejection — one bad error anywhere outside a request's own
+    // try/catch (a timer callback, a stray fire-and-forget call) would otherwise take the whole school offline, not
+    // just fail one request. The rest of this codebase already guards the known-risky spots (timers, fire-and-forget
+    // calls, the job runner) individually; this is the net for whatever a future change misses. It only logs and
+    // keeps the process running — it never calls process.exit() — matching this codebase's "never throws, keeps
+    // serving" philosophy everywhere else (the job runner, the error boundaries, the daily job's per-step try/catch).
+    const { installCrashGuards } = await import("./server/monitoring/crash-guards");
+    installCrashGuards();
     // one log line a minute while the server uses more than 400 MB (what grew before a crash)
-    const { startMemoryLog } = await import("./server/monitoring/memory");
+    const { startMemoryLog, startSelfRestart } = await import("./server/monitoring/memory");
     startMemoryLog();
-    // ✏️ teachers' edited copies made before they became private: private now (once, in the background, never blocking)
-    setTimeout(() => { void import("./instrumentation-node").then((m) => m.privatizeCopiesInBackground()).catch(() => undefined); }, 15_000).unref?.();
-    // 🛠 stuck questions (not under a skill, drafts, waiting): fixed once after the update, in the background (report: System check)
-    setTimeout(() => { void import("./instrumentation-node").then((m) => m.fixStuckQuestionsInBackground()).catch(() => undefined); }, 60_000).unref?.();
-    // ⭐ skill stars computed from the practice already there (once, in the background, batched)
-    setTimeout(() => { void import("./instrumentation-node").then((m) => m.migrateStarsInBackground()).catch(() => undefined); }, 30_000).unref?.();
+    // Nov 2026 (owner-approved): the server restarts itself while idle — once a day at 4 AM Riyadh, and as a
+    // safety net any time RSS crosses 420 MB — before Next.js's normal route-chunk growth reaches the 512 MB
+    // container limit and Render OOM-kills it mid-request (src/server/monitoring/memory.ts has the full story).
+    startSelfRestart();
+    // r68: expired cache entries are removed every minute and parsed content files are released when idle, so the
+    // memory comes back after a class (src/server/cache/idle.ts)
+    const { startCacheSweeper } = await import("./server/cache/idle");
+    startCacheSweeper();
+    // One-time background jobs after an update — ON by default again (r68), safely: 2 minutes after the start, ONE
+    // after another, in small batches with a memory gate and checkpoints, through the light job runner
+    // (src/server/jobs/runner.ts): privatizeCopiesInBackground → migrateStarsInBackground →
+    // fixStuckQuestionsInBackground (instrumentation-node.ts). BACKGROUND_JOBS=off switches them off.
+    const { backgroundJobsOn } = await import("./server/jobs/startup");
+    if (backgroundJobsOn()) {
+      const m = await import("./instrumentation-node");
+      m.startBackgroundJobs();
+    }
   }
 }
 
