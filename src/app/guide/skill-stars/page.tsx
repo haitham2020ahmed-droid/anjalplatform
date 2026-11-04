@@ -21,7 +21,7 @@ const RULES = [
 ];
 const USES = [
   "Reports → Skills grid: filter by plan and by “skills most of the class hasn't mastered” to make small groups; open a cell for dates, questions, accuracy and reviews.",
-  "When you assign a skill, the platform asks: “5 students already mastered this skill — exclude them?” Press Yes so nobody repeats a mastered skill.",
+  "When you assign a skill, nobody is left out: a student who already mastered it gets a 20-question review (16 right keeps the ⭐; fewer → 🔄 and normal practice).",
   "Follow 🔄 and “no progress for 7 days” on the Home page (Needs attention): reteach, or send the Learn lesson.",
   "A student stuck at ◐ for 7 days (or 25 answers without progress) is offered the skill's Learn lesson before practising more.",
   "Weekly goal: the student (or you, in the Skills grid) picks a small goal, e.g. “master 2 skills”.",

@@ -20,6 +20,7 @@ import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
 import { DELETED_OWNER } from "../questions/private-copies";
 import { swapInSets } from "../questions/question-sets";
+import { REMOVED } from "../questions/flags-removed";
 
 export const BULK_MAX = 500;
 const CHUNK = 200;
@@ -32,7 +33,7 @@ async function questionsInSchool(repo: Repo, actor: Actor, ids: string[]): Promi
   const unique = [...new Set(ids.filter(Boolean))];
   if (!unique.length) throw new ValidationError("Choose at least one question.");
   if (unique.length > BULK_MAX) throw new ValidationError(`Choose at most ${BULK_MAX} questions at a time.`);
-  const qs = (await repo.findMany("Question", { id: { in: unique } }, { select: ["id", "skillId", "stem", "status", "imageId", "passageId", "deletedAt"] })).filter((q) => !q.deletedAt);
+  const qs = (await repo.findMany("Question", { id: { in: unique } }, { select: ["id", "skillId", "stem", "status", "imageId", "passageId", "deletedAt", "privateToId"] })).filter((q) => !q.deletedAt);
   if (qs.length !== unique.length) throw new ValidationError("Some questions no longer exist. Reload the page.");
   if (actor.role === "SUPER_ADMIN") return qs;
   const skills = await repo.findMany("Skill", { id: { in: [...new Set(qs.map((q) => q.skillId))] } }, { select: ["id", "curriculumId"] });
@@ -71,6 +72,8 @@ export async function purgeQuestionRows(tx: Repo, rows: Row[]): Promise<void> {
   await tx.updateMany("AdaptiveDecisionLog", { nextQuestionId: { in: pid } }, { nextQuestionId: null });
   await tx.updateMany("ImportedQuestionLog", { questionId: { in: pid } }, { questionId: null });
   await tx.updateMany("ImportedQuestionLog", { duplicateOfId: { in: pid } }, { duplicateOfId: null });
+  // r68: its open reports leave Flagged Questions “To check” (kept as REMOVED)
+  await tx.updateMany("QuestionFlag", { questionId: { in: pid }, status: "OPEN" }, { status: REMOVED, resolvedAt: new Date() });
   await tx.deleteMany("Question", { id: { in: pid } });
   // images used by nobody else are removed with their question
   const imageIds = [...new Set(rows.map((q) => q.imageId).filter(Boolean).map(s))];
@@ -92,8 +95,11 @@ export interface DeleteResult {
 /**
  * Admins only. Unanswered questions are deleted for real; answered ones are hidden everywhere (see the top of this
  * file). `hideAnswered: false` keeps the older rule (answered ones are skipped with “Archive it instead”).
+ * `soft: true` (r68, e.g. questions that need a missing passage) hides every one of them the same way — none is erased,
+ * so an admin can still look one up and bring it back. `why` is kept in the audit log.
+ * Open student / teacher reports of every removed question leave Flagged Questions (resolved as REMOVED).
  */
-export async function deleteQuestions(repo: Repo, actor: Actor, ids: string[], now = new Date(), opts: { hideAnswered?: boolean } = {}): Promise<DeleteResult> {
+export async function deleteQuestions(repo: Repo, actor: Actor, ids: string[], now = new Date(), opts: { hideAnswered?: boolean; soft?: boolean; why?: string } = {}): Promise<DeleteResult> {
   assertCan(actor, "questions:publish");
   if (!isAdmin(actor)) throw new ForbiddenError("Only admins can delete questions.");
   const qs = await questionsInSchool(repo, actor, ids);
@@ -107,8 +113,8 @@ export async function deleteQuestions(repo: Repo, actor: Actor, ids: string[], n
   }
   const hide = opts.hideAnswered !== false;
   const skipped = hide ? [] : qs.filter((q) => answered.has(s(q.id))).map((q) => ({ id: s(q.id), stem: s(q.stem).slice(0, 120), reason: "Students have answered this question, so it was not deleted. Archive it instead." }));
-  const del = qs.filter((q) => !answered.has(s(q.id)));
-  const hidden = hide ? qs.filter((q) => answered.has(s(q.id))) : [];
+  const del = opts.soft ? [] : qs.filter((q) => !answered.has(s(q.id)));
+  const hidden = opts.soft ? qs : hide ? qs.filter((q) => answered.has(s(q.id))) : [];
   const schoolId = s(actor.schoolId ?? (await schoolOfSkill(repo, s(qs[0]?.skillId))));
   if (schoolId && (del.length || hidden.length)) await swapInSets(repo, schoolId, new Map([...del, ...hidden].map((q) => [s(q.id), null])), now);
   for (const part of chunks(del)) {
@@ -120,7 +126,8 @@ export async function deleteQuestions(repo: Repo, actor: Actor, ids: string[], n
   for (const part of chunks(hidden)) {
     await repo.transaction(async (tx) => {
       await tx.updateMany("Question", { id: { in: part.map((q) => q.id) } }, { deletedAt: now, status: "ARCHIVED", privateToId: DELETED_OWNER, updatedAt: now });
-      await tx.createMany("AuditLog", part.map((q) => ({ actorId: actor.userId, action: "question.delete", entityType: "Question", entityId: s(q.id), before: { stem: s(q.stem).slice(0, 300), status: q.status, skillId: q.skillId }, after: { hidden: true, why: "answered by students: removed from the platform, their answers kept" }, createdAt: now })));
+      await tx.updateMany("QuestionFlag", { questionId: { in: part.map((q) => q.id) }, status: "OPEN" }, { status: REMOVED, resolvedAt: now, resolvedById: actor.userId });
+      await tx.createMany("AuditLog", part.map((q) => ({ actorId: actor.userId, action: "question.delete", entityType: "Question", entityId: s(q.id), before: { stem: s(q.stem).slice(0, 300), status: q.status, skillId: q.skillId, privateToId: q.privateToId ?? null }, after: { hidden: true, why: opts.why ?? (answered.has(s(q.id)) ? "answered by students: removed from the platform, their answers kept" : "hidden (soft delete)") }, createdAt: now })));
     });
   }
   return { deleted: del.length + hidden.length, hidden: hidden.length, skipped };
@@ -138,6 +145,7 @@ export async function archiveQuestions(repo: Repo, actor: Actor, ids: string[], 
   for (const part of chunks(todo)) {
     await repo.transaction(async (tx) => {
       await tx.updateMany("Question", { id: { in: part.map((q) => q.id) } }, { status: "ARCHIVED", updatedAt: now });
+      await tx.updateMany("QuestionFlag", { questionId: { in: part.map((q) => q.id) }, status: "OPEN" }, { status: REMOVED, resolvedAt: now, resolvedById: actor.userId });
       await tx.createMany("AuditLog", part.map((q) => ({ actorId: actor.userId, action: "question.archive", entityType: "Question", entityId: s(q.id), before: { status: q.status }, after: { status: "ARCHIVED", reason: why }, createdAt: now })));
     });
   }

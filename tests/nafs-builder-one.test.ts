@@ -78,7 +78,7 @@ describe("1 · ONE NAFS test builder (no duplicates)", () => {
     assert.ok(page.indexOf("legacyBuilderRedirect(sp)") > 0 && page.indexOf("legacyBuilderRedirect(sp)") < page.indexOf("await requireActor"));
     // old tabs
     assert.equal(OLD_TABS.sheets, "marking");
-    assert.match(read("src/app/teacher/nafs/page.tsx"), /OLD_TABS\[sp\.tab\]/);
+    assert.match(read("src/app/teacher/nafs/page.tsx"), /centerRedirect\(sp\)/); // owner r69: old tabs and old report views redirect
     // a saved test's mode → its start
     assert.equal(startOfMode("FULL"), "ALL");
     assert.equal(startOfMode("MINISTRY", { booklet: "NB-001" }), "BOOKLET");
@@ -88,7 +88,7 @@ describe("1 · ONE NAFS test builder (no duplicates)", () => {
   });
 
   test("no capability twice: the tabs, one entry point to the builder, no old links left", () => {
-    assert.deepEqual(CENTER_TABS.map((x) => x.label), ["Home", "Dashboard", "Practice", "Tests", "Question bank", "Marking", "Reports"]);
+    assert.deepEqual(CENTER_TABS.map((x) => x.label), ["Adaptive", "NAFS test", "Ministry booklets", "Reports", "Suggested plan", "Question bank", "Marking"]); // owner r69
     assert.equal(new Set(CENTER_TABS.map((x) => x.key)).size, CENTER_TABS.length);
     for (const x of CENTER_TABS) assert.ok(hasAr(x.label), x.label);
     assert.match(read("src/app/teacher/nafs/page.tsx"), /About NAFS/);
@@ -100,7 +100,7 @@ describe("1 · ONE NAFS test builder (no duplicates)", () => {
     }
     // the builder's three starts are listed on the Tests tab only (Home links to the tools)
     assert.match(read("src/components/nafs/tests-tab.tsx"), /STARTS\.map/);
-    assert.doesNotMatch(read("src/components/nafs/home-tab.tsx"), /STARTS|tests\/new/);
+    // (owner r69: Home was merged into Reports)
     // the Dashboard's "Make a test on these standards" opens the one builder
     assert.match(read("src/server/nafs/dashboard.ts"), /\["start", "CHOOSE"\]/);
   });
@@ -266,6 +266,7 @@ describe("in the school's NAFS center", () => {
     const b = read("src/components/nafs/nafs-builder.tsx");
     assert.match(b, /keywords: `\$\{b\.genre\}/);
     assert.match(read("src/components/nafs/bank-tab.tsx"), /<Combo name="set"/);
-    assert.match(read("src/server/nafs/build.ts"), /readBooklets\(\)\.valid, \.\.\.readPracticeSets\(\)\.valid/);
+    // r84: from the light catalogs (titles, kinds, genres), never the files' full text
+    assert.match(read("src/server/nafs/build.ts"), /bookletCatalog\(\)\?\.list \?\? \[\]\), \.\.\.\(practiceCatalog\(\)\?\.list \?\? \[\]\)/);
   });
 });

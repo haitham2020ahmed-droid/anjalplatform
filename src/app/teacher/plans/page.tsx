@@ -14,7 +14,7 @@ import { fromSearchParams } from "@/server/plans/plan-form";
 import { NAFS_GRADE, plansOverview, type PlanBucket, type PlanListRow } from "@/server/plans/editor";
 import { suggestPlans, type SuggestedPlan } from "@/server/plans/perf-suggest";
 import { isProgram } from "@/server/plans/program";
-import { startPlanAction, useSuggestionAction } from "./editor-actions";
+import { deletePlanAction, startPlanAction, useSuggestionAction, withdrawFromListAction } from "./editor-actions";
 
 export const metadata = { title: "Plans" };
 
@@ -22,12 +22,16 @@ type SP = Record<string, string | string[] | undefined>;
 type Tab = "plans" | "suggested" | "new";
 const TABS: [Tab, string, string][] = [["plans", "My plans", "📋"], ["suggested", "Suggested plans", "💡"], ["new", "New plan", "✏️"]];
 const BUCKETS: [PlanBucket | "ALL", string][] = [["ALL", "All"], ["DRAFTS", "Drafts"], ["SENT", "Sent"], ["ACTIVE", "Active"], ["FINISHED", "Finished"]];
+/** My plans' own filter + summary, by the same key the chip shows (program, or "ENRICHMENT"/"CUSTOM" when there is none). */
+const KIND_FILTERS: [string, string][] = [["CUSTOM", "Custom"], ["RTI", "Support"], ["MAP", "MAP"], ["CURRICULUM", "Curriculum"], ["NAFS", "NAFS"], ["ENRICHMENT", "Enrichment"]];
+const kindKeyOf = (r: PlanListRow): string => (r.kind === "ENRICHMENT" ? "ENRICHMENT" : r.program ?? "CUSTOM");
 const PROGRAM_CHOICES: [string, string, string][] = [
   ["CUSTOM", "Custom", "Any skills and questions you choose."],
   ["RTI", "Support", "Struggling skills of students who need support."],
   ["MAP", "MAP", "From each student's lowest MAP sub-areas."],
   ["CURRICULUM", "Curriculum", "Lessons of the Curriculum Map."],
   ["NAFS", "NAFS", "Grade 6 only: from the NAFS results or areas."],
+  ["ENRICHMENT", "Enrichment", "Skills these students have mastered, with harder practice."],
 ];
 const chip = (on: boolean) => `inline-flex min-h-11 items-center rounded-full px-4 text-sm font-semibold ${on ? "bg-brand-navy text-white" : "bg-white text-brand-navy ring-1 ring-slate-200 hover:ring-brand-teal"}`;
 
@@ -70,7 +74,7 @@ export default async function PlansPage({ searchParams }: { searchParams: Promis
       </nav>
       {msg && <p role="status" className="mb-5 rounded-2xl bg-teal-50 px-4 py-3 text-teal-900 ring-1 ring-teal-200">{t(msg)}</p>}
       {!ctx.klass ? <EmptyState icon="🗂️" title="No classes yet" text="When the admin adds you to a class, you can make plans here." action={{ href: actor.role === "TEACHER" ? "/teacher" : "/admin", label: "Home" }} />
-        : tab === "plans" ? <PlanList t={t} actor={actor} ctx={ctx} classId={get("classId")} bucket={get("bucket")} />
+        : tab === "plans" ? <PlanList t={t} actor={actor} ctx={ctx} classId={get("classId")} bucket={get("bucket")} kind={get("kind")} />
         : tab === "suggested" ? <Suggested t={t} actor={actor} ctx={ctx} canSend={canSend} />
         : <NewPlan t={t} actor={actor} ctx={ctx} canSend={canSend} program={program} who={get("who")} sids={getAll("sid")} add={getAll("add")} subject={get("subject")} />}
       <p className="mt-6 text-sm text-slate-600">{t("Also:")}{" "}
@@ -96,28 +100,53 @@ function ClassChips({ t, ctx, hrefOf, all }: { t: T; ctx: WizardContext; hrefOf:
 
 const SCOPE: Record<PlanListRow["scope"], string> = { CLASS: "Whole class", GROUP: "Group", STUDENT: "One student" };
 
-async function PlanList({ t, actor, ctx, classId, bucket }: { t: T; actor: Actor; ctx: WizardContext; classId: string | null; bucket: string | null }) {
+async function PlanList({ t, actor, ctx, classId, bucket, kind }: { t: T; actor: Actor; ctx: WizardContext; classId: string | null; bucket: string | null; kind: string | null }) {
   const b = (BUCKETS.find(([k]) => k === bucket)?.[0] ?? "ALL") as PlanBucket | "ALL";
   const all = await plansOverview(repo, actor, { classId: classId || null });
   const count = (k: PlanBucket | "ALL") => all.filter((r) => k === "ALL" || (k === "DRAFTS" ? r.status === "DRAFT" : k === "SENT" ? r.status !== "DRAFT" : k === "ACTIVE" ? (r.status === "SENT" || r.status === "PAUSED") && !r.finished : r.status !== "DRAFT" && r.finished)).length;
-  const rows = all.filter((r) => b === "ALL" || (b === "DRAFTS" ? r.status === "DRAFT" : b === "SENT" ? r.status !== "DRAFT" : b === "ACTIVE" ? (r.status === "SENT" || r.status === "PAUSED") && !r.finished : r.status !== "DRAFT" && r.finished));
-  const link = (k: string, cid: string | null) => `/teacher/plans?${new URLSearchParams({ tab: "plans", ...(k !== "ALL" ? { bucket: k } : {}), ...(cid ? { classId: cid } : {}) })}`;
+  const bucketRows = all.filter((r) => b === "ALL" || (b === "DRAFTS" ? r.status === "DRAFT" : b === "SENT" ? r.status !== "DRAFT" : b === "ACTIVE" ? (r.status === "SENT" || r.status === "PAUSED") && !r.finished : r.status !== "DRAFT" && r.finished));
+  // ⚡ kind filter + its counts (the summary: "5 Support, 3 MAP, 2 Enrichment…" lives in these chip counts, scoped
+  // to the bucket already chosen above): a kind only shows a chip when at least one plan of it is in this bucket.
+  const k = KIND_FILTERS.find(([x]) => x === kind)?.[0] ?? null;
+  const kindCount = (x: string) => bucketRows.filter((r) => kindKeyOf(r) === x).length;
+  const rows = bucketRows.filter((r) => !k || kindKeyOf(r) === k);
+  const link = (kk: string, cid: string | null, kn?: string | null) => `/teacher/plans?${new URLSearchParams({ tab: "plans", ...(kk !== "ALL" ? { bucket: kk } : {}), ...(cid ? { classId: cid } : {}), ...((kn ?? k) ? { kind: (kn ?? k)! } : {}) })}`;
   return (
     <>
       <ClassChips t={t} ctx={ctx} hrefOf={(id) => link(b, id)} all={{ on: !classId }} />
-      <nav aria-label={t("Plan status")} className="mb-4 flex flex-wrap gap-2">
-        {BUCKETS.map(([k, label]) => <Link key={k} href={link(k, classId)} aria-current={k === b ? "page" : undefined} className={chip(k === b)}>{t(label)} <span className="ms-1 tabular-nums opacity-80">{count(k)}</span></Link>)}
+      <nav aria-label={t("Plan status")} className="mb-2 flex flex-wrap gap-2">
+        {BUCKETS.map(([bk, label]) => <Link key={bk} href={link(bk, classId)} aria-current={bk === b ? "page" : undefined} className={chip(bk === b)}>{t(label)} <span className="ms-1 tabular-nums opacity-80">{count(bk)}</span></Link>)}
+      </nav>
+      <nav aria-label={t("Kind of plan")} className="mb-4 flex flex-wrap gap-2">
+        <Link href={link(b, classId, "")} aria-current={!k ? "page" : undefined} className={chip(!k)}>{t("Every kind")} <span className="ms-1 tabular-nums opacity-80">{bucketRows.length}</span></Link>
+        {KIND_FILTERS.filter(([x]) => kindCount(x) > 0).map(([x, label]) => <Link key={x} href={link(b, classId, x)} aria-current={k === x ? "page" : undefined} className={chip(k === x)}>{t(label)} <span className="ms-1 tabular-nums opacity-80">{kindCount(x)}</span></Link>)}
       </nav>
       {!rows.length ? <EmptyState icon="📋" title="No plans here yet" text="Start a New plan, or open a Suggested plan." /> : (
-        <form method="get" action="/teacher/plans/bulk">
+        <>
+          {/* 🐛 fix (Oct 2026, "delete مش شغال"): this used to be a form element, method get, action
+              /teacher/plans/bulk, wrapping the whole list — and each row's own "Cancel this plan" panel below put
+              ANOTHER form element (Stop / Delete, each a real server action) inside it. Browsers don't allow a
+              form nested inside another form: the HTML parser silently drops the inner form's start tag (no
+              element is ever created for it) and, worse, its own closing form tag closes the OUTER list form
+              early — so which action actually ran, if any, depended on which row and which button, and "Delete
+              permanently" could end up doing nothing or re-submitting the bulk-select GET instead. Fix: the
+              bulk-select form is now its own empty, separate form element with id "plans-bulk" — every checkbox
+              and the "Change the ticked plans together" button just POINT to it with a plain HTML
+              `form="plans-bulk"` attribute instead of being physically inside it, so the Stop/Delete forms below are
+              free-standing, valid, never-nested forms again. */}
+          <form method="get" action="/teacher/plans/bulk" id="plans-bulk" />
           <Section title={t(BUCKETS.find(([k]) => k === b)![1])} icon="📋" hint={t("Tick several plans to change them together (for example the individual plans of several students).")}>
             <ul className="divide-y divide-slate-100">
               {rows.map((p) => (
-                <li key={p.id} className="flex flex-wrap items-center gap-3 py-3">
-                  <label className="flex min-h-11 items-center px-1"><input type="checkbox" name="id" value={p.id} className="h-5 w-5" aria-label={p.title} /></label>
+                <li key={p.id} className="flex flex-wrap items-start gap-3 py-3">
+                  <label className="flex min-h-11 items-center px-1"><input type="checkbox" name="id" value={p.id} form="plans-bulk" className="h-5 w-5" aria-label={p.title} /></label>
                   <div className="min-w-0 flex-1">
-                    <p className="flex flex-wrap items-center gap-2 font-semibold text-brand-navy"><span className="break-words">{p.title}</span><ProgramChip program={p.program} /><StatusChip t={t} status={p.status} finished={p.finished} /></p>
+                    <p className="flex flex-wrap items-center gap-2 font-semibold text-brand-navy">
+                      <span className="break-words">{p.title}</span><ProgramChip program={p.program} kind={p.kind} /><StatusChip t={t} status={p.status} finished={p.finished} />
+                      {p.stale && <span className="inline-flex items-center rounded-full bg-amber-50 px-2.5 py-0.5 text-xs font-semibold text-amber-800 ring-1 ring-amber-200">⏳ {t(p.status === "DRAFT" ? "Sitting as a draft" : "Sent, no progress yet")}</span>}
+                    </p>
                     <p className="text-sm text-slate-600">{p.className} · {t(SCOPE[p.scope])} · {t("{n} student(s)", { n: p.students })} · {t("{n} part(s)", { n: p.sections })}{p.questions ? ` · ${t("{n} question(s)", { n: p.questions })}` : ""}{p.dueAt ? ` · ${t("Due {date}", { date: p.dueAt })}` : ""} · {p.date}</p>
+                    {p.effect && <p className="text-sm font-semibold text-emerald-700" title={t("Accuracy on this plan's own skills, before it was sent vs. since.")}>📈 <span dir="ltr">{p.effect.before}% → {p.effect.after}%</span></p>}
                   </div>
                   {p.status !== "DRAFT" && (
                     <div className="flex w-40 items-center gap-2" title={t("Progress")}>
@@ -125,13 +154,35 @@ async function PlanList({ t, actor, ctx, classId, bucket }: { t: T; actor: Actor
                       <span className="w-10 text-end text-sm tabular-nums text-slate-700">{p.progress}%</span>
                     </div>
                   )}
-                  <Link href={p.href} className="inline-flex min-h-11 items-center rounded-xl px-4 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">{t(p.status === "DRAFT" ? "Edit" : "Open")}</Link>
+                  <div className="flex flex-col items-end gap-1.5">
+                    <Link href={p.href} className="inline-flex min-h-11 items-center rounded-xl px-4 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">{t(p.status === "DRAFT" ? "Edit" : "Open")}</Link>
+                    {/* 🗑 r87: the teacher's own choice — stop it but keep the record, or delete it for good */}
+                    <details className="text-end">
+                      <summary className="cursor-pointer text-xs font-semibold text-rose-700">{t("Cancel this plan")}</summary>
+                      <div className="mt-2 flex max-w-xs flex-col gap-2 rounded-xl bg-slate-50 p-3 text-start text-xs ring-1 ring-slate-200">
+                        {(p.status === "SENT" || p.status === "PAUSED") && (
+                          <form action={withdrawFromListAction} className="flex flex-col gap-1">
+                            <input type="hidden" name="planId" value={p.id} /><input type="hidden" name="bucket" value={b} />
+                            <p className="text-slate-600">{t("Stop sending to students. Answers already given are kept, and the plan stays in your Finished list.")}</p>
+                            <label className="flex items-center gap-1.5"><input type="checkbox" name="confirm" required className="h-4 w-4" />{t("Yes, stop this plan")}</label>
+                            <button className="self-start rounded-lg bg-white px-3 py-1 font-semibold text-amber-800 ring-1 ring-amber-300 hover:bg-amber-50">{t("Stop (keep saved)")}</button>
+                          </form>
+                        )}
+                        <form action={deletePlanAction} className="flex flex-col gap-1 border-t border-slate-200 pt-2 first:border-t-0 first:pt-0">
+                          <input type="hidden" name="planId" value={p.id} /><input type="hidden" name="bucket" value={b} />
+                          <p className="text-slate-600">{t("Gone from here for good; no Undo. Answers already given are not deleted.")}</p>
+                          <label className="flex items-center gap-1.5"><input type="checkbox" name="confirm" required className="h-4 w-4" />{t("Yes, delete permanently")}</label>
+                          <button className="self-start rounded-lg bg-rose-700 px-3 py-1 font-semibold text-white hover:bg-rose-800">{t("Delete permanently")}</button>
+                        </form>
+                      </div>
+                    </details>
+                  </div>
                 </li>
               ))}
             </ul>
-            <div className="mt-3 flex justify-end"><button className={BTN_SOFT}>{t("Change the ticked plans together")}</button></div>
+            <div className="mt-3 flex justify-end"><button form="plans-bulk" className={BTN_SOFT}>{t("Change the ticked plans together")}</button></div>
           </Section>
-        </form>
+        </>
       )}
     </>
   );
@@ -175,7 +226,7 @@ async function Suggested({ t, actor, ctx, canSend }: { t: T; actor: Actor; ctx: 
 
 async function NewPlan({ t, actor, ctx, canSend, program, who, sids, add, subject }: { t: T; actor: Actor; ctx: WizardContext; canSend: boolean; program: string; who: string | null; sids: string[]; add: string[]; subject: string | null }) {
   const klass = ctx.klass!;
-  const chosenProgram = isProgram(program) ? program : "CUSTOM";
+  const chosenProgram = program === "ENRICHMENT" ? "ENRICHMENT" : isProgram(program) ? program : "CUSTOM";
   const w = who === "student" || who === "group" ? who : "class";
   const start = add.length ? await skillsByIds(repo, actor, add.slice(0, 20)) : [];
   return (
@@ -197,7 +248,7 @@ async function NewPlan({ t, actor, ctx, canSend, program, who, sids, add, subjec
             </div>
           </div>
         )}
-        <fieldset className="mt-4">
+        <fieldset className="group/kind mt-4">
           <legend className="font-semibold text-slate-700">{t("Kind of plan")}</legend>
           <div className="mt-2 grid gap-2 sm:grid-cols-2 lg:grid-cols-5">
             {PROGRAM_CHOICES.filter(([k]) => k !== "NAFS" || klass.grade === NAFS_GRADE).map(([k, label, text]) => {
@@ -211,7 +262,11 @@ async function NewPlan({ t, actor, ctx, canSend, program, who, sids, add, subjec
               );
             })}
           </div>
-          <label className="mt-3 flex flex-wrap items-center gap-2 text-sm text-slate-700">{t("MAP subject")}
+          {/* ⚡ r92: "MAP subject" only ever filters the MAP kind of plan — for Support/Custom/Curriculum it had no
+              effect at all, which looked like a broken filter (e.g. picking "Language Usage" under Support still
+              showed Reading skills). Shown only when "MAP" is the chosen kind, via a pure-CSS :has() on the fieldset
+              (group/kind) — no JS needed, and it still shows correctly on first load for an existing MAP plan. */}
+          <label className="mt-3 hidden flex-wrap items-center gap-2 text-sm text-slate-700 group-has-[input[value=MAP]:checked]/kind:flex">{t("MAP subject")}
             <select name="subject" defaultValue={subject === "LANGUAGE" ? "LANGUAGE" : "READING"} className="min-h-11 rounded-xl border border-slate-300 bg-white px-3"><option value="READING">{t("Reading")}</option><option value="LANGUAGE">{t("Language Usage")}</option></select>
           </label>
         </fieldset>

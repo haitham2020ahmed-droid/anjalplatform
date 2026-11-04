@@ -18,10 +18,11 @@ import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
 import { readableClasses } from "../teacher/coordinators";
 import { classMembers, studentNames } from "../insights/student-data";
-import { bandOf, seasonOf, type Season } from "./rit";
-import { normFor } from "./norm-tables";
+import { bandOf, percentileFromNorm, seasonOf, type Season } from "./rit";
+import { normFor, type NormPoint } from "./norm-tables";
 import { reportStudent, type ReportStudent } from "./map-reports";
 import type { Subject } from "./map-plan";
+import { mapCache, MAP_KEEP_MS } from "./map-cache";
 
 const s = (v: unknown) => String(v ?? "");
 const n = (v: unknown): number | null => (v === null || v === undefined || v === "" || Number.isNaN(Number(v)) ? null : Number(v));
@@ -114,7 +115,9 @@ export async function studentProfile(repo: Repo, actor: Actor, studentId: string
   const student = await reportStudent(repo, actor, studentId);
   const rows = await repo.findMany("MapResult", { studentId });
   const cuts = await cutScores(repo, s(actor.schoolId));
-  const syNow = now.getUTCMonth() + 1 >= 8 ? now.getUTCFullYear() : now.getUTCFullYear() - 1;
+  // 🐛 fix (Oct 2026): check the Aug 1 school-year rollover in Riyadh time, not UTC (same fix as map-reports.ts).
+  const nowRiyadh = new Date(now.getTime() + 3 * 3_600_000);
+  const syNow = nowRiyadh.getUTCMonth() + 1 >= 8 ? nowRiyadh.getUTCFullYear() : nowRiyadh.getUTCFullYear() - 1;
   const subjects: ProfileSubject[] = [];
   for (const subject of ["READING", "LANGUAGE"] as const) {
     const mine = rows.filter((r) => isSubj(subject)(r.subject));
@@ -152,33 +155,96 @@ export async function studentProfile(repo: Repo, actor: Actor, studentId: string
 
 // ------------------------------------------------------------------ 👥 Class Profile
 
-export interface ClassStudent { id: string; name: string; test: TestResult; areas: Record<string, { rit: number; descriptor: string | null }>; projected: string | null; quadrant: "HIGH_ACH_HIGH_GROWTH" | "HIGH_ACH_LOW_GROWTH" | "LOW_ACH_HIGH_GROWTH" | "LOW_ACH_LOW_GROWTH" | null }
+export interface ClassStudent { id: string; name: string; test: TestResult; areas: Record<string, { rit: number; descriptor: string | null; estimated: boolean }>; projected: string | null; quadrant: "HIGH_ACH_HIGH_GROWTH" | "HIGH_ACH_LOW_GROWTH" | "LOW_ACH_HIGH_GROWTH" | "LOW_ACH_LOW_GROWTH" | null }
+/** One instructional (goal) area's name and how many students fall in each of NWEA's five national-percentile
+ *  bands (Low · LoAvg · Avg · HiAvg · High, same order as `QUINTILES`) — the "Instructional Area Achievement
+ *  Percentiles" chart's one row, for a whole class (`ClassProfile.areas`) or one student (`studentAreaQuintiles`,
+ *  a single 1 in the one band that student's own descriptor falls in). `estimated`: true when at least one of
+ *  these counts is not NWEA's own band but one guessed from the area's RIT against the grade/season national
+ *  norm (same ≈ estimate the rest of the platform uses when NWEA's own percentile wasn't imported) — this is
+ *  what lets a plain RIT-per-area file (no comprehensive data file, no typed band word) still populate this
+ *  chart, just marked as an estimate rather than NWEA's own band. */
+export interface AreaQuintileRow { name: string; quintiles: number[]; estimated: boolean }
 export interface ClassProfile {
   classId: string; className: string; grade: number; subject: Subject; term: string; terms: string[];
   n: number; notTested: { id: string; name: string }[]; meanRit: number | null; medianRit: number | null; medianPct: number | null; national: number | null; nationalExact: boolean;
-  quintiles: number[]; areaNames: string[]; areas: { name: string; mean: number | null; quintiles: number[] }[]; students: ClassStudent[];
+  quintiles: number[]; areaNames: string[]; areas: (AreaQuintileRow & { mean: number | null })[]; students: ClassStudent[];
   growth: { n: number; meanObserved: number | null; meanProjected: number | null; pctMet: number | null; medianCgp: number | null; enough: boolean };
+  /** ⚡ class-average RIT per term (up to the last 8), the same shape `studentProfile`'s own `history` uses — so the
+   *  existing `GrowthBandsChart` (built for one student) draws the whole class's line against the same national bands
+   *  with no changes of its own. Empty unless the current term has NWEA's advised 10+ tested students (`growth.enough`
+   *  uses the same bar) — a sparse class average would be as misleading as the growth summary it already guards. */
+  history: HistoryPoint[];
   proficiency: { level: string; count: number }[]; flagged: number;
 }
 
-async function termsOf(repo: Repo, ids: string[], subject: Subject): Promise<{ terms: string[]; rows: Row[] }> {
-  const rows = ids.length ? (await repo.findMany("MapResult", { studentId: { in: ids } })).filter((r) => isSubj(subject)(r.subject)) : [];
+const DESCRIPTORS = ["Low", "LoAvg", "Avg", "HiAvg", "High"];
+
+/** The true ordinal median band index (0–4) from a set of counts — never an invented exact percentile, since the
+ *  comprehensive MAP file only gives each area a band (descriptor), not a raw number. `null` with no students banded. */
+export function medianQuintile(counts: number[]): number | null {
+  const total = counts.reduce((a, b) => a + b, 0);
+  if (!total) return null;
+  const mid = (total - 1) / 2;
+  let cum = 0;
+  for (let i = 0; i < counts.length; i++) { cum += counts[i]; if (cum > mid) return i; }
+  return counts.length - 1;
+}
+
+/** `ClassProfile.areas`, for one student only — every area the class tracks, one-hot in the band that student's own
+ *  descriptor falls in (nothing set for an area this student has no descriptor for yet). Same source, same instructional
+ *  areas as the whole-class chart, so the student and class views of "Instructional Area Achievement Percentiles" always
+ *  list the same rows. */
+export function studentAreaQuintiles(d: ClassProfile, studentId: string): AreaQuintileRow[] {
+  const st = d.students.find((x) => x.id === studentId);
+  return d.areaNames.map((name) => {
+    const quintiles = [0, 0, 0, 0, 0];
+    const a = st?.areas[name];
+    const i = DESCRIPTORS.indexOf(s(a?.descriptor ?? ""));
+    if (i >= 0) quintiles[i] = 1;
+    return { name, quintiles, estimated: i >= 0 && Boolean(a?.estimated) };
+  });
+}
+
+async function termsOf(repo: Repo, ids: string[], subject: Subject, overallOnly = false): Promise<{ terms: string[]; rows: Row[] }> {
+  // r79: the school overview needs the overall scores only (not every goal-area row of every student)
+  const rows = ids.length ? (await repo.findMany("MapResult", overallOnly ? { studentId: { in: ids }, goalName: null } : { studentId: { in: ids } })).filter((r) => isSubj(subject)(r.subject)) : [];
   const latestByTerm = new Map<string, number>();
   for (const r of rows.filter((x) => !x.goalName)) latestByTerm.set(s(r.termName), Math.max(latestByTerm.get(s(r.termName)) ?? 0, time(r.testDate)));
   return { terms: [...latestByTerm].sort((a, b) => b[1] - a[1]).map(([t]) => t), rows };
 }
 
-function profileOf(rows: Row[], ids: string[], names: Map<string, { name: string }>, term: string, cut: number | null): Omit<ClassProfile, "classId" | "className" | "grade" | "subject" | "terms" | "national" | "nationalExact"> {
+/** A goal-area RIT with no NWEA descriptor: the same ≈-estimate the rest of the platform already uses for an
+ *  overall RIT with no imported percentile — the area RIT against the *subject's* grade/season national norm
+ *  (NWEA doesn't publish one per area), bucketed into the same five bands. `null` with no norm to estimate from. */
+function estimatedBand(rit: number, norm: NormPoint | null): (typeof DESCRIPTORS)[number] | null {
+  if (!norm || norm.sd <= 0) return null;
+  // 🔧 fix (Oct 2026): was pctOfZ's logistic approximation — unified onto the one shared true-normal-CDF formula
+  // (percentileFromNorm, rit.ts) so this estimate matches the percentile shown everywhere else for the same RIT.
+  return DESCRIPTORS[quintileOf(percentileFromNorm(rit, norm)!)];
+}
+
+function profileOf(rows: Row[], ids: string[], names: Map<string, { name: string }>, term: string, cut: number | null, norm: NormPoint | null): Omit<ClassProfile, "classId" | "className" | "grade" | "subject" | "terms" | "national" | "nationalExact" | "history"> {
   const students: ClassStudent[] = [];
   const notTested: { id: string; name: string }[] = [];
   const areaSet = new Set<string>();
+  // ⚡ r79: each student's rows of the term by id (was a scan of every row of the school for each student)
+  const byStudent = new Map<string, Row[]>();
+  for (const r of rows) { if (s(r.termName) !== term) continue; const k = s(r.studentId); const l = byStudent.get(k); if (l) l.push(r); else byStudent.set(k, [r]); }
   for (const id of ids) {
-    const mine = rows.filter((r) => s(r.studentId) === id && s(r.termName) === term);
+    const mine = byStudent.get(id) ?? [];
     const o = mine.filter((r) => !r.goalName).sort((a, b) => time(b.testDate) - time(a.testDate))[0];
     if (!o) { notTested.push({ id, name: names.get(id)?.name ?? "Student" }); continue; }
     const test = testOf(o);
     const areas: ClassStudent["areas"] = {};
-    for (const g of mine.filter((r) => r.goalName)) { const k = areaName(s(g.goalName)); if (!areas[k]) { areas[k] = { rit: Number(g.rit), descriptor: g.descriptor ? s(g.descriptor) : null }; areaSet.add(k); } }
+    for (const g of mine.filter((r) => r.goalName)) {
+      const k = areaName(s(g.goalName));
+      if (!areas[k]) {
+        const rit = Number(g.rit), real = g.descriptor ? s(g.descriptor) : null;
+        areas[k] = real ? { rit, descriptor: real, estimated: false } : { rit, descriptor: estimatedBand(rit, norm), estimated: true };
+        areaSet.add(k);
+      }
+    }
     const q = test.percentile !== null && test.cgp !== null ? `${test.percentile >= 50 ? "HIGH" : "LOW"}_ACH_${test.cgp >= 50 ? "HIGH" : "LOW"}_GROWTH` as ClassStudent["quadrant"] : null;
     students.push({ id, name: names.get(id)?.name ?? "Student", test, areas, projected: projectedLevel(test, cut), quadrant: q });
   }
@@ -189,8 +255,9 @@ function profileOf(rows: Row[], ids: string[], names: Map<string, { name: string
   const areas = areaNames.map((name) => {
     const v = students.map((x) => x.areas[name]).filter(Boolean);
     const q = [0, 0, 0, 0, 0];
-    for (const a of v) { const i = ["Low", "LoAvg", "Avg", "HiAvg", "High"].indexOf(s(a.descriptor)); if (i >= 0) q[i]++; }
-    return { name, mean: mean(v.map((a) => a.rit)), quintiles: q };
+    let estimated = false;
+    for (const a of v) { const i = DESCRIPTORS.indexOf(s(a.descriptor)); if (i >= 0) { q[i]++; if (a.estimated) estimated = true; } }
+    return { name, mean: mean(v.map((a) => a.rit)), quintiles: q, estimated };
   });
   const grown = students.filter((x) => x.test.growth !== null);
   const metKnown = students.filter((x) => x.test.met !== null);
@@ -205,18 +272,56 @@ function profileOf(rows: Row[], ids: string[], names: Map<string, { name: string
   };
 }
 
+// ⚡ Oct 2026 (server-stability audit, r79): every open of a class's Class Profile (achievement × growth, instructional
+// areas, quintiles) recomputes the whole class from every member's MapResult rows, from scratch, every time — a
+// teacher or admin flipping between Reading/Language or between terms for the same class reruns it each click. The
+// access check (assertCan + readableClasses) runs on every call, before the cache, so a class that isn't this actor's
+// never reaches a cached answer; once access is confirmed the result depends only on classId/subject/term, same as
+// schoolOverview's sibling cache above.
+const CLASS_PROFILE_MODELS = ["MapResult", "ClassMembership", "ClassTeacher", "Class", "Student", "Grade", "SchoolSetting", "BenchmarkReference"];
+const classProfileCache = mapCache<ClassProfile>("map.nwea-reports.classProfile", MAP_KEEP_MS, 40);
+
 export async function classProfile(repo: Repo, actor: Actor, classId: string, subject: Subject, term?: string | null): Promise<ClassProfile> {
   assertCan(actor, "reports:read");
   const klass = (await readableClasses(repo, actor)).find((c) => c.id === classId);
   if (!klass) throw new ForbiddenError("Class not found.");
+  const key = `${classId}|${subject}|${term ?? ""}`;
+  return structuredClone(await classProfileCache.get(repo, key, CLASS_PROFILE_MODELS, () => classProfileNow(repo, actor, klass, classId, subject, term)));
+}
+
+/** Class-average RIT per term, grouped from the same overall rows `profileOf` already has in memory — no new reads.
+ *  Mirrors `studentProfile`'s own per-term loop (grade/season adjustment, same `shortLabel`/norm lookup) but averages
+ *  the term's tested students instead of reading one student's row. */
+async function classHistoryOf(repo: Repo, rows: Row[], grade: number, subject: Subject, syNow: number): Promise<HistoryPoint[]> {
+  const overall = rows.filter((r) => !r.goalName);
+  const byTerm = new Map<string, Row[]>();
+  for (const r of overall) { const k = s(r.termName) || s(r.testDate); const l = byTerm.get(k); if (l) l.push(r); else byTerm.set(k, [r]); }
+  const terms = [...byTerm.entries()].sort((a, b) => time(a[1][0].testDate) - time(b[1][0].testDate)).slice(-8);
+  const history: HistoryPoint[] = [];
+  for (const [term, rs] of terms) {
+    const r0 = rs[0];
+    const season = seasonOf(r0.termName, r0.testDate), g = grade - (syNow - schoolYear(season, yearOf(s(r0.termName), r0.testDate)));
+    const nm = await normFor(repo, subject, g, season);
+    const avg = mean(rs.map((r) => Number(r.rit)));
+    if (avg === null) continue;
+    history.push({ term, label: shortLabel(s(r0.termName), season), grade: g, rit: avg, se: null, national: nm ? Math.round(nm.mean) : null, exact: Boolean(nm?.exact), bands: nm ? BAND_Z.map((z) => Math.round(nm.mean + z * nm.sd)) : null });
+  }
+  return history;
+}
+
+async function classProfileNow(repo: Repo, actor: Actor, klass: Row, classId: string, subject: Subject, term?: string | null): Promise<ClassProfile> {
   const grade = Number((await repo.findUnique("Grade", { id: klass.gradeId }))?.level ?? 0);
   const ids = await classMembers(repo, classId);
   const [names, { terms, rows }, cuts] = await Promise.all([studentNames(repo, ids), termsOf(repo, ids, subject), cutScores(repo, s(actor.schoolId))]);
   const t = term && terms.includes(term) ? term : terms[0] ?? "";
-  const p = profileOf(rows, ids, names, t, cuts[subject][grade] ?? null);
   const season = seasonOf(t, null);
   const nm = t ? await normFor(repo, subject, grade, season) : null;
-  return { classId, className: s(klass.name), grade, subject, terms, national: nm ? Math.round(nm.mean * 10) / 10 : null, nationalExact: Boolean(nm?.exact), ...p };
+  const p = profileOf(rows, ids, names, t, cuts[subject][grade] ?? null, nm);
+  // 🐛 fix (Oct 2026): same Riyadh-time rollover fix as above — avoid a second drifted UTC calc of "now".
+  const nowRiyadh2 = new Date(Date.now() + 3 * 3_600_000);
+  const syNow = nowRiyadh2.getUTCMonth() + 1 >= 8 ? nowRiyadh2.getUTCFullYear() : nowRiyadh2.getUTCFullYear() - 1;
+  const history = p.n >= GROWTH_MIN_N ? await classHistoryOf(repo, rows, grade, subject, syNow) : [];
+  return { classId, className: s(klass.name), grade, subject, terms, national: nm ? Math.round(nm.mean * 10) / 10 : null, nationalExact: Boolean(nm?.exact), history, ...p };
 }
 
 // ------------------------------------------------------------------ 🏫 School overview (admins; a teacher sees their classes)
@@ -224,18 +329,29 @@ export async function classProfile(repo: Repo, actor: Actor, classId: string, su
 export interface OverviewRow { grade: number; classId: string | null; className: string; n: number; meanRit: number | null; national: number | null; medianPct: number | null; quintiles: number[]; meanGrowth: number | null; pctMet: number | null; flagged: number }
 export interface SchoolOverview { subject: Subject; term: string; terms: string[]; grades: OverviewRow[]; classes: OverviewRow[] }
 
+/**
+ * ⚡ r79: the overview reads every MAP score of the school (an admin): kept per viewer, subject and term until a MAP
+ * score, a class or its roster, the cut scores or the norms change (write counters; at most 10 min); at most 8.
+ */
+const OVERVIEW_MODELS = ["MapResult", "ClassMembership", "ClassTeacher", "Class", "Student", "Grade", "SchoolSetting", "BenchmarkReference"];
+const overviewCache = mapCache<SchoolOverview>("map.nwea-reports.overview", MAP_KEEP_MS, 8);
 export async function schoolOverview(repo: Repo, actor: Actor, subject: Subject, term?: string | null): Promise<SchoolOverview> {
   assertCan(actor, "reports:read");
+  const key = `${actor.userId}|${actor.role}|${s(actor.schoolId)}|${subject}|${term ?? ""}`;
+  return structuredClone(await overviewCache.get(repo, key, OVERVIEW_MODELS, () => schoolOverviewNow(repo, actor, subject, term)));
+}
+
+async function schoolOverviewNow(repo: Repo, actor: Actor, subject: Subject, term?: string | null): Promise<SchoolOverview> {
   const classes = (await readableClasses(repo, actor)).filter((c) => !c.deletedAt);
   const grades = await repo.findMany("Grade", { schoolId: actor.schoolId }, { select: ["id", "level"] });
   const levelOf = new Map(grades.map((g) => [s(g.id), Number(g.level)]));
   const mem = classes.length ? await repo.findMany("ClassMembership", { classId: { in: classes.map((c) => c.id) }, leftAt: null }, { select: ["studentId", "classId"] }) : [];
   const ids = [...new Set(mem.map((m) => s(m.studentId)))];
-  const [names, { terms, rows }, cuts] = await Promise.all([studentNames(repo, ids), termsOf(repo, ids, subject), cutScores(repo, s(actor.schoolId))]);
+  const [names, { terms, rows }, cuts] = await Promise.all([studentNames(repo, ids), termsOf(repo, ids, subject, true), cutScores(repo, s(actor.schoolId))]);
   const t = term && terms.includes(term) ? term : terms[0] ?? "";
   const season = seasonOf(t, null);
   const rowOf = async (grade: number, classId: string | null, className: string, members: string[]): Promise<OverviewRow> => {
-    const p = profileOf(rows, members, names, t, cuts[subject][grade] ?? null);
+    const p = profileOf(rows, members, names, t, cuts[subject][grade] ?? null, null); // overall-only rows here: no goal areas to estimate a band for
     const nm = await normFor(repo, subject, grade, season);
     return { grade, classId, className, n: p.n, meanRit: p.meanRit, national: nm ? Math.round(nm.mean * 10) / 10 : null, medianPct: p.medianPct, quintiles: p.quintiles, meanGrowth: p.growth.meanObserved, pctMet: p.growth.pctMet, flagged: p.flagged };
   };

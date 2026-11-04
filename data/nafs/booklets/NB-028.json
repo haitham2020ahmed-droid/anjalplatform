@@ -269,9 +269,9 @@
       "type": "MCQ",
       "stem": "Who tells the story?",
       "options": [
-        "Faris",
-        "Saud",
-        "Mr Khalid",
+        "Faris, a boy who tells the story to us",
+        "Saud, a friend who tells the story to us",
+        "Mr Khalid, the class teacher",
         "a narrator who is not a character"
       ],
       "answer": "D",
@@ -333,10 +333,10 @@
       "type": "MCQ",
       "stem": "In your opinion, what makes the reader want to keep reading after paragraph 5?",
       "options": [
-        "finding out what colour the next glider will be",
-        "learning how balsa wood is grown",
+        "finding out what colour the next glider will be when it is made",
+        "learning how balsa wood is grown in the forests of America",
         "wondering whether Faris will accept help and fix the glider",
-        "discovering how many students are in the class"
+        "discovering how many students are in the class this year"
       ],
       "answer": "C",
       "why": "Faris keeps failing and blaming the wind, so readers want to see if he will change."
@@ -493,10 +493,10 @@
       "type": "MCQ",
       "stem": "In your opinion, which information is the LEAST clear in the story?",
       "options": [
-        "what the glider was made of",
+        "what the glider was made of and who made it",
         "how far the glider flew in the competition",
-        "what colour the stripes were",
-        "who suggested adding clay"
+        "what colour the stripes were on the wing",
+        "who suggested adding clay to the nose of it"
       ],
       "answer": "B",
       "why": "The story gives the material (balsa wood), the colour (red) and who suggested the clay (Saud), but not the distance flown."

@@ -1,7 +1,8 @@
 /**
- * Role guides (/guide) in ARABIC: one simple page per role with numbered steps of the new menus. Help pages for
- * staff and parents, so they are written in Arabic on purpose; the rest of the interface stays English.
- * Kept under src/i18n because Arabic text lives only here.
+ * Role guides (/guide) in ARABIC — the alternative version, for a parent or anyone who prefers Arabic (the page
+ * offers an "Arabic / العربية" switch for it). English is the default now, in guides-en.ts (feature, Oct 2026: the
+ * guide used to be Arabic-only regardless of the site's English/Arabic toggle, which did not match the rest of the
+ * interface). Keep this file's structure (role keys, step count and order, hrefs) in sync with guides-en.ts.
  */
 export type Step = { title: string; text: string; href: string; where: string };
 export type Guide = { title: string; intro: string; steps: Step[]; ask: string };

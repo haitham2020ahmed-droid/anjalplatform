@@ -15,9 +15,9 @@
       "stem": "Which word is closest in meaning to “cunning” as it is used in paragraph 2?",
       "options": [
         "clever at tricking others",
-        "very fast",
-        "loyal to friends",
-        "easily frightened"
+        "very fast and strong in a race",
+        "loyal to friends and to family",
+        "easily frightened by a loud noise"
       ],
       "answer": "A",
       "why": "The jerboas think foxes are cunning, meaning clever in a sly, tricky way."
@@ -173,10 +173,10 @@
       "type": "MCQ",
       "stem": "What is the main purpose of the fable?",
       "options": [
-        "to explain how hedgehogs find food",
-        "to describe what the wadi looks like in winter",
+        "to explain how hedgehogs find food in the desert at night, under the sand",
+        "to describe what the wadi looks like in winter after the rain has fallen",
         "to teach that we should search for real causes before blaming others",
-        "to persuade readers to build roofs over pools"
+        "to persuade readers to build roofs over pools in the sand and in the wadi"
       ],
       "answer": "C",
       "why": "Nimr's evidence shows the animals were wrong to blame each other, as the moral says."
@@ -190,9 +190,9 @@
       "stem": "What is the main idea of paragraph 2?",
       "options": [
         "The water level falls, and the animals begin blaming each other.",
-        "The fox explains that he drinks only once, at sunrise.",
-        "Barakah organises a fair system for drinking water.",
-        "The sparrows teach the lizards how to swim in the pool."
+        "The fox explains that he drinks only once, at sunrise, from the pool.",
+        "Barakah organises a fair system for drinking water at the pool.",
+        "The sparrows teach the lizards how to swim in the pool each morning."
       ],
       "answer": "A",
       "why": "Paragraph 2 describes the falling water and how “suspicion spread through the wadi like smoke”."
@@ -238,9 +238,9 @@
       "stem": "According to Nimr, why does the pool lose so much water?",
       "options": [
         "It is wide and shallow, so the sun warms its surface and the dry wind carries water away.",
-        "The animals drink more than once a day.",
-        "The rock under the pool has a crack.",
-        "The fox drinks secretly at night."
+        "The animals drink more than once a day, so the pool is soon empty, and the water is gone.",
+        "The rock under the pool has a crack, so the water runs out of it into the sand.",
+        "The fox drinks secretly at night, when no one sees him, and he takes a lot of water."
       ],
       "answer": "A",
       "why": "Paragraph 6 explains that the sun warms the wide surface and the wind carries the water into the air."
@@ -286,9 +286,9 @@
       "stem": "Which detail from Nimr's marks MOST clearly proves that the animals were not to blame?",
       "options": [
         "The level fell fastest on the windy day when nobody came near the pool.",
-        "The marks were made with a sharp flint.",
-        "The marks were thin lines on the rock.",
-        "The pool was at the foot of Red Cliff."
+        "The marks were made with a sharp flint by a traveller long ago in spring.",
+        "The marks were thin lines on the rock beside the old well.",
+        "The pool was at the foot of Red Cliff, far from the camp."
       ],
       "answer": "A",
       "why": "If the water fell fastest when no animal visited, the animals could not be the cause."
@@ -333,9 +333,9 @@
       "type": "MCQ",
       "stem": "How did the jerboas MOST LIKELY choose the fox as their suspect?",
       "options": [
-        "They had seen his footprints by the pool.",
-        "Nimr told them that the fox was guilty.",
-        "The fox admitted it in front of everyone.",
+        "They had seen his footprints by the pool in the sand.",
+        "Nimr told them that the fox was guilty of the crime.",
+        "The fox admitted it in front of everyone at the pool.",
         "They judged him by foxes' reputation for being cunning."
       ],
       "answer": "D",
@@ -350,9 +350,9 @@
       "stem": "How did the water level change at night compared with during the day?",
       "options": [
         "It fell only a little at night but five times as far during the day.",
-        "It fell five times as far at night as during the day.",
-        "It rose at night and fell during the day.",
-        "It stayed the same day and night."
+        "It fell five times as far at night as it did during the day.",
+        "It rose a little at night and fell again during the day.",
+        "It stayed exactly the same, day and night, all through the week."
       ],
       "answer": "A",
       "why": "Nimr says it fell “only the width of a grass stem” at night but “five times as far” by day."
@@ -365,10 +365,10 @@
       "type": "MCQ",
       "stem": "What was the effect of the shady roof?",
       "options": [
-        "The pool dried up even more quickly than before.",
+        "The pool dried up even more quickly than before the roof came.",
         "The pool shrank so gradually that it lasted well into the summer.",
-        "The smaller animals could no longer reach the water.",
-        "The fox was no longer allowed to drink from the pool."
+        "The smaller animals could no longer reach the water in the pool.",
+        "The fox was no longer allowed to drink from the pool in summer."
       ],
       "answer": "B",
       "why": "Paragraph 9: “the protected pool shrank so gradually that it lasted well into the summer.”"
@@ -381,10 +381,10 @@
       "type": "MCQ",
       "stem": "What do the leaf on the hot rock and the pool have in common?",
       "options": [
-        "Both were filled with rainwater by the fox.",
-        "Both were covered with dry palm fronds at night.",
+        "Both were filled with rainwater by the fox that came.",
+        "Both were covered with dry palm fronds at night to keep them cool.",
         "Both lost water to the sun and air without any animal drinking it.",
-        "Both were found high up at the top of Red Cliff."
+        "Both were found high up at the top of Red Cliff, near the nest."
       ],
       "answer": "C",
       "why": "The leaf was empty by noon “although no creature touched it”, just as the pool lost water to the sun and wind."
@@ -413,10 +413,10 @@
       "type": "MCQ",
       "stem": "What does Nimr mean when he calls the sun “the thief”?",
       "options": [
-        "The sun is a real person who steals from animals.",
-        "The fox is hiding the water behind the sun.",
+        "The sun is a real person who steals food and water from animals.",
+        "The fox is hiding the water behind the sun until the animals leave.",
         "The sun takes the water away, as a thief would, but without being seen.",
-        "The sun is angry with the animals for arguing."
+        "The sun is angry with the animals for arguing, so it hides the rain."
       ],
       "answer": "C",
       "why": "He uses the word “thief” figuratively: the sun's heat makes the water disappear invisibly."
@@ -430,9 +430,9 @@
       "stem": "In your opinion, why does the writer give each animal a different suspect to blame in paragraph 2?",
       "options": [
         "to show how quickly blame spreads when nobody looks for evidence",
-        "to teach readers the names of desert animals",
-        "to prove that the lizards were guilty",
-        "to make the fable funnier than it needs to be"
+        "to teach readers the names of desert animals in Arabic and English",
+        "to prove that the lizards were guilty of taking the water",
+        "to make the fable funnier than it really needs to be for children"
       ],
       "answer": "A",
       "why": "The chain of accusations shows how suspicion spreads “like smoke” without proof."
@@ -445,9 +445,9 @@
       "type": "MCQ",
       "stem": "In your opinion, which action in the fable was MOST beneficial to the community?",
       "options": [
-        "the jerboas blaming the fox",
-        "the sparrows accusing the lizards",
-        "the lizards basking on the rocks",
+        "the jerboas blaming the fox for the missing water",
+        "the sparrows accusing the lizards of taking the seeds",
+        "the lizards basking on the rocks in the morning sun",
         "Nimr measuring the water level carefully"
       ],
       "answer": "D",
@@ -509,10 +509,10 @@
       "type": "MCQ",
       "stem": "Which of the following events could really happen?",
       "options": [
-        "A hedgehog makes rain fall by scratching a rock.",
+        "A hedgehog makes rain fall by scratching a rock in the desert.",
         "Water in a shallow pool disappears faster on hot, windy days.",
-        "The sun steals the water and hides it in a cave.",
-        "Two lizards drink an entire pool in one afternoon."
+        "The sun steals the water and hides it in a cave under the hill.",
+        "Two lizards drink an entire pool in one afternoon in the shade."
       ],
       "answer": "B",
       "why": "Evaporation really is faster when it is hot and windy; the other events are impossible."

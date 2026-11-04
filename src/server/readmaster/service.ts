@@ -420,6 +420,10 @@ export function cleanTiming(t: ArticleTiming | null | undefined, questionIds: st
  * own level or higher COUNTS — it moves the reading Lexile (75%+ up 30L, under 50% down 30L) and feeds skill mastery
  * (Update 39B). A read at a LOWER level is Practice: it is saved and shown, but nothing about the level or mastery
  * changes. An article counts once; practice reads before that are allowed.
+ * 🐛 fix (audit finding, Oct 2026): a read ABOVE the student's own level (a STRETCH, the same one-click choice as a
+ * lower Practice level) can still raise the Lexile on a strong score, but a weak score on it never lowers it — same
+ * rule ReadRise already follows for the same situation. And an attempt mostly answered as rapid guesses moves
+ * neither the Lexile nor skill mastery (no real evidence either way), though it still counts as the one attempt.
  */
 export async function submitArticle(repo: Repo, actor: Actor, articleId: string, versionId: string, responses: Record<string, unknown>, now = new Date(), timing?: ArticleTiming | null): Promise<ArticleResult> {
   if (actor.role !== "STUDENT" || !actor.studentId) throw new ForbiddenError("Only students answer ReadMaster articles.");
@@ -437,8 +441,13 @@ export async function submitArticle(repo: Repo, actor: Actor, articleId: string,
   const correct = review.filter((r) => r.correct).length, total = review.length;
   const pct = total ? Math.round((100 * correct) / total) : 0;
   const practice = open.practice;
+  // 🐛 fix (audit finding, Oct 2026): a STRETCH read (the student's own choice: a version ABOVE their own level,
+  // same one-click path as choosing a lower "Practice" version) used to count fully both ways — a weak score on it
+  // dropped the student's real Lexile exactly like a weak score at their own level. Every other adaptive mechanism
+  // on this platform (ReadRise's RRRun, regular practice) follows the same rule for the same situation — a harder
+  // try can raise the level, never lower it — so this now matches: `stretch` below gates the downward move only.
+  const stretch = !practice && LEVEL_RANK[s(open.level) as Level] > LEVEL_RANK[s(open.ownLevel) as Level];
   const before = open.studentLexile;
-  const after = practice ? before : Math.max(RULES.min, Math.min(RULES.max, before + (pct >= RULES.up ? RULES.step : pct < RULES.down ? -RULES.step : 0)));
   const { grade, schoolId } = info;
   const band = (await lexileBands(repo, schoolId))[grade];
   // per-question time (Update 39C): a real time makes rapid-guess detection work for ReadMaster answers too
@@ -446,9 +455,26 @@ export async function submitArticle(repo: Repo, actor: Actor, articleId: string,
   const timed = tm.perQuestion.size === items.length && items.length > 0;
   const msOf = (it: (typeof items)[number]) => tm.perQuestion.get(it.questionId) ?? Math.max(1, Number(it.estimatedSeconds) || 45) * 1000;
   const rapid = timed ? items.filter((it) => isRapidGuess({ responseMs: msOf(it), estimatedSeconds: Number(it.estimatedSeconds) || 45 }, DEFAULT_ADAPTIVE)).length : null;
+  // 🐛 fix (audit finding, Oct 2026): a rapid-guessed answer is treated as no evidence either way everywhere else on
+  // this platform (practice, Second Chance, ReadRise's "unreliable run"); ReadMaster recorded `rapid` on the attempt
+  // but never actually used it — a quiz the student mostly clicked through still moved their real reading Lexile and
+  // fed skill mastery. `guessed` below: most of the answered questions were rapid guesses → no real evidence, so
+  // neither the Lexile nor skill mastery moves (the attempt itself still counts once, same as before).
+  const guessed = Boolean(timed && rapid !== null && total > 0 && rapid >= Math.ceil(total / 2));
+  const after = practice || guessed ? before
+    : stretch && pct < RULES.down ? before
+    : Math.max(RULES.min, Math.min(RULES.max, before + (pct >= RULES.up ? RULES.step : pct < RULES.down ? -RULES.step : 0)));
   await repo.create("ReadMasterAttempt", { studentId: actor.studentId, articleId, versionId, level: open.level, lexileBefore: before, lexileAfter: after, correct, total, seconds: tm.seconds, rapid, practice, createdAt: now });
   const result: ArticleResult = { correct, total, pct, lexileBefore: before, lexileAfter: after, levelBefore: levelForLexile(band, before), levelAfter: levelForLexile(band, after), practice, review };
-  // 🧪 Practice (a lower level than the student's own): saved above, no level or mastery change
+  // 🧪 Practice (a lower level than the student's own): saved above, no skill evidence at all — confirmed by
+  // readmaster-page.test.ts ("no skill evidence from a practice read"). `guessed` is different: the Lexile must
+  // not move (already handled above — `after` equals `before` whenever `guessed`), but the row is still written
+  // with that unchanged value, same as any other attempt, so a student's first ReadMaster attempt still leaves a
+  // real (if unmoved) Lexile for reports to read instead of nothing at all. Each answer is still real per-question
+  // evidence too — recordEngineAttempt already treats any individual rapid guess as "no evidence either way" on
+  // its own (see lessons/run.ts, `if (!step.rapidGuess)`), same as practice/Second Chance/ReadRise. Skipping the
+  // whole loop here for `guessed` would also have silently dropped the genuinely-timed (non-guess) answers in a
+  // mostly-guessed attempt, and hidden every rapid guess from the reports that count them (class/student report).
   if (practice) return result;
   await repo.upsert("StudentReadingLexile", { studentId: actor.studentId }, { lexile: after, source: "READMASTER", updatedAt: now }, { lexile: after, source: "READMASTER", updatedAt: now });
   // 🔗 the article's questions are bank questions: each answer goes through the engine like practice (source
@@ -459,9 +485,15 @@ export async function submitArticle(repo: Repo, actor: Actor, articleId: string,
     const ses = await repo.create("PracticeSession", { studentId: actor.studentId, mode: "ADAPTIVE_PRACTICE", startedAt: now, endedAt: now, endReason: "READMASTER", questionCount: items.length, correctCount: correct });
     for (const it of items) {
       if (!it.skillKey) continue;
+      // r85 audit (#6): msOf() fabricates a ~45s "safe" time when the client sent no real per-question time for
+      // this answer — feeding that invented time to the engine guaranteed isRapidAnswer() could never fire for it,
+      // silently hiding a genuine rapid guess from skill mastery/ability. With no real time, skip the mastery feed
+      // for this one answer entirely (insufficient evidence either way) instead of asserting it was answered slowly.
+      const realMs = tm.perQuestion.get(it.questionId);
+      if (realMs === undefined) continue;
       let credit = 0;
       try { credit = scoreResponse(it as never, normalizeResponse(it, responses[it.questionId])); } catch { credit = 0; }
-      await recordEngineAttempt(repo, { sessionId: s(ses.id), studentId: actor.studentId!, skillId: s(it.skillKey), schoolId: schoolId ?? null, item: it, response: responses[it.questionId] ?? null, credit, usedHint: false, responseMs: msOf(it), now, reasonCode: "READMASTER", reason: "ReadMaster article answer: ability and mastery updated.", source: "READMASTER" });
+      await recordEngineAttempt(repo, { sessionId: s(ses.id), studentId: actor.studentId!, skillId: s(it.skillKey), schoolId: schoolId ?? null, item: it, response: responses[it.questionId] ?? null, credit, usedHint: false, responseMs: realMs, now, reasonCode: "READMASTER", reason: "ReadMaster article answer: ability and mastery updated.", source: "READMASTER" });
     }
   }));
   return result;

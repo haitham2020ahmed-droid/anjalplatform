@@ -67,10 +67,10 @@
     "passage": "Rana looked at the test. Her mind went blank. She could not remember any answers. She took a deep breath and tried again.",
     "stem": "What does “her mind went blank” mean?",
     "options": [
-     "Her head turned white.",
+     "Her head turned white with fear.",
      "She could not think of anything.",
-     "She fell asleep.",
-     "She wrote very fast."
+     "She fell asleep in the class.",
+     "She wrote very fast for a while."
     ],
     "answer": 1,
     "hint": "A mind cannot really turn white. Read the next sentence. What could Rana not do?",
@@ -208,10 +208,10 @@
      "passage": "Ibrahim wanted to tell his friend about the surprise party, but he bit his tongue. He did not want to ruin the secret.",
      "stem": "What does “bit his tongue” mean?",
      "options": [
-      "He hurt his mouth.",
+      "He hurt his mouth with a fork.",
       "He stopped himself from speaking.",
-      "He shouted the secret.",
-      "He ate too quickly."
+      "He shouted the secret to everyone.",
+      "He ate too quickly at lunch."
      ],
      "answer": 1,
      "why": "He did not want to ruin the secret, so he stopped himself from speaking."
@@ -220,9 +220,9 @@
      "passage": "When the teacher asked who had broken the window, the boys all looked at one another. Finally, Turki decided to face the music. He stood up and said, “It was me. I am sorry.”",
      "stem": "What does “face the music” mean?",
      "options": [
-      "listen to a song",
-      "run away from a problem",
-      "look at a band",
+      "listen to a song on the radio",
+      "run away from a problem he made",
+      "look at a band on the stage",
       "accept the results of what he did"
      ],
      "answer": 3,
@@ -321,10 +321,10 @@
      "passage": "The coach said that skipping practice might feel good today, but in the long run, it would hurt the team. Players who trained every week would be stronger by the end of the season.",
      "stem": "What does “in the long run” mean?",
      "options": [
-      "during a running race",
+      "during a running race at school",
       "over a longer period of time",
-      "right now",
-      "on a long track"
+      "right now, this very minute",
+      "on a long track for runners"
      ],
      "answer": 1,
      "why": "“By the end of the season” shows the coach is talking about a long period of time, not a race."
@@ -403,7 +403,7 @@
      "made the dig site brighter",
      "revealed new information about",
      "hid important facts about",
-     "damaged part of"
+     "damaged part of the dig site"
     ],
     "answer": 1,
     "hint": "Nothing in the passage is about lamps or sunlight. What did experts learn that they did not know before?",
@@ -433,7 +433,7 @@
      "stem": "What does “buried the hatchet” mean?",
      "options": [
       "hid a tool in the garden",
-      "started a new fight",
+      "started a new fight with a friend",
       "dug a hole for the fence",
       "made peace and became friendly"
      ],
@@ -456,10 +456,10 @@
      "passage": "With the final exam only a week away, Bader knew he had to buckle down. He switched off his games, made a study timetable and spent every afternoon at the library.",
      "stem": "What does “buckle down” mean?",
      "options": [
-      "fasten his seat belt",
-      "take a long rest",
+      "fasten his seat belt in the car",
+      "take a long rest after his lunch",
       "begin working seriously and with focus",
-      "ask others to do his work"
+      "ask other people to do all of his work"
      ],
      "answer": 2,
      "why": "Switching off games, a timetable and daily library visits show he started working seriously."

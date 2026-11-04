@@ -44,6 +44,6 @@ describe("Coverage Report", () => {
   });
 
   test("a skill with no questions cannot be assigned", async () => {
-    await assert.rejects(assignSkill(repo, teacher, { classId, skillId: empty }), /This skill has no questions yet/);
+    await assert.rejects(assignSkill(repo, teacher, { source: "CURRICULUM", classId, skillId: empty }), /This skill has no questions yet/);
   });
 });

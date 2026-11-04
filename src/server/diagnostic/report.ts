@@ -17,7 +17,11 @@ import { readableClasses } from "../teacher/coordinators";
 import { studentNames } from "../insights/student-data";
 import { codeFor, designOf, diagnosticPool } from "./test";
 import { gradeLabel } from "./adaptive";
-import { fluencyLevel, fluencyRubricText, prescriptionFor, standardLevel, STRAND_LABEL, bandFor, TIERS, WCPM_BENCHMARK, type Strand } from "./standards";
+import { cellPct, fluencyLevel, fluencyRubricText, prescriptionFor, standardLevel, STRAND_LABEL, bandFor, testBands, tierBandText, TIERS, WCPM_BENCHMARK, wcpmBenchmark, type Strand } from "./standards";
+import { seasonOf, type Season } from "../fluency/norms";
+import { isInvalidResult } from "../curriculum-map/level-evidence";
+import { resolvePeriod } from "../../analytics/periods";
+import { loadCalendar } from "../analytics/calendar";
 
 const s = (v: unknown) => String(v ?? "");
 const d = (v: unknown) => (v instanceof Date ? v : v ? new Date(s(v)) : null);
@@ -27,8 +31,20 @@ const avg = (xs: number[]) => (xs.length ? Math.round((10 * xs.reduce((a, b) => 
 const median = (xs: number[]) => { if (!xs.length) return 0; const a = [...xs].sort((x, y) => x - y), m = Math.floor(a.length / 2); return a.length % 2 ? a[m] : Math.round(5 * (a[m - 1] + a[m])) / 10; };
 
 type StdCell = { code: string; label: string; strand: Strand; anchor: string; correct: number; total: number; score?: number; gl?: string; theta?: number };
-/** a cell's result: the adaptive score (0–100 on the grade scale) when there is one, else % correct */
-const cellPct = (x: { correct: number; total: number; score?: number }) => (typeof x.score === "number" ? x.score : pctOf(x.correct, x.total));
+/** a result with 30%+ rapid guesses is not valid: it never gives a level, a tier or a class mean (retake recommended) */
+export const invalidResult = (r: Row) => isInvalidResult(Number(r.rapid ?? 0), Number(r.total ?? 0));
+export const INVALID_TEXT = "Not valid (too many fast answers) — retake recommended";
+/**
+ * The MAP Reading RIT shown next to a Diagnostic: the most recent overall Reading RIT on or before the Diagnostic's
+ * date, else the most recent one (never the oldest test).
+ */
+export function readingRitAt(maps: readonly Row[], at: Date | null): number | null {
+  const list = maps.filter((m) => !m.goalName && /read/i.test(s(m.subject)) && m.rit !== null && m.rit !== undefined)
+    .sort((a, b) => (d(b.testDate)?.getTime() ?? 0) - (d(a.testDate)?.getTime() ?? 0));
+  if (!list.length) return null;
+  const before = at ? list.find((m) => (d(m.testDate)?.getTime() ?? 0) <= at.getTime()) : undefined;
+  return Number((before ?? list[0]).rit);
+}
 export interface StudentRow {
   id: string; name: string; number: string; className: string; correct: number; total: number; pct: number; rank: number; level: "ABOVE" | "ON" | "BELOW"; tier: string;
   standards: Record<string, number>; strands: Record<string, number>; minutes: number; rapid: number; rit: number | null; wcpm: number | null; shared: boolean; resultId: string;
@@ -39,11 +55,12 @@ export interface GrowthRow { id: string; name: string; start: number; calibrated
 export interface ClassDiagnosticReport {
   testId: string; title: string; grade: number; year: string; scope: string; classId: string | null; date: string; bands: { above: number; on: number };
   classes: { id: string; name: string }[];
-  summary: { roster: number; assessed: number; inProgress: number; notStarted: number; mean: number; median: number; min: number; max: number; sd: number | null; spread: string; minutes: number; rapidFlags: number; best: { code: string; label: string; pct: number } | null; focus: { code: string; label: string; pct: number }[]; levels: { ABOVE: number; ON: number; BELOW: number } };
+  summary: { roster: number; assessed: number; inProgress: number; notStarted: number; invalid: number; mean: number; median: number; min: number; max: number; sd: number | null; spread: string; minutes: number; rapidFlags: number; best: { code: string; label: string; pct: number } | null; focus: { code: string; label: string; pct: number }[]; levels: { ABOVE: number; ON: number; BELOW: number } };
   standards: { code: string; label: string; strand: Strand; questions: number; pct: number; level: string; below50: number; objective: string; activities: string[] }[];
   strands: { strand: Strand; label: string; pct: number }[];
   students: StudentRow[];
-  notTaken: { id: string; name: string; className: string; status: "Not started" | "In progress"; answered: number; action: string }[];
+  /** never started, started and not finished, or finished with a result that is not valid (30%+ rapid guesses) */
+  notTaken: { id: string; name: string; className: string; status: "Not started" | "In progress" | "Not valid"; answered: number; action: string }[];
   tiers: { key: string; name: string; sub: string; band: string; strategy: string; students: { id: string; name: string; pct: number }[] }[];
   supportPlan: { week: number; code: string; label: string; objective: string; activities: string[]; students: { id: string; name: string; pct: number }[] }[];
   fluency: { benchmark: number; rubric?: string; checked: number; below: { id: string; name: string; wcpm: number }[] };
@@ -86,14 +103,23 @@ export async function classDiagnosticReport(repo: Repo, actor: Actor, testId: st
   // MAP Reading (Fall) and the latest fluency check of each student
   const [maps, flu] = await Promise.all([
     ids.length ? repo.findMany("MapResult", { studentId: { in: ids } }, { select: ["studentId", "subject", "goalName", "rit", "termName", "testDate"] }) : Promise.resolve([] as Row[]),
-    ids.length ? repo.findMany("FluencyCheck", { studentId: { in: ids } }, { select: ["studentId", "wcpm", "checkedAt"] }) : Promise.resolve([] as Row[]),
+    ids.length ? repo.findMany("FluencyCheck", { studentId: { in: ids } }, { select: ["studentId", "wcpm", "checkedAt", "season"] }) : Promise.resolve([] as Row[]),
   ]);
-  const ritOf = (id: string) => { const r = maps.filter((m) => s(m.studentId) === id && !m.goalName && /read/i.test(s(m.subject))).sort((a, b) => (d(b.testDate)?.getTime() ?? 0) - (d(a.testDate)?.getTime() ?? 0)); return r.length ? Number(r[r.length - 1].rit) : null; };
-  const wcpmOf = (id: string) => { const r = flu.filter((f) => s(f.studentId) === id).sort((a, b) => (d(b.checkedAt)?.getTime() ?? 0) - (d(a.checkedAt)?.getTime() ?? 0))[0]; return r ? Number(r.wcpm) : null; };
-  const bands = json<{ above?: number; on?: number }>(t.bands, {});
-  const B = { above: Number(bands.above) || 85, on: Number(bands.on) || 65 };
+  // grouped once (never a filter over every row per student / question)
+  const group = <K>(rows: Row[], key: (r: Row) => K) => { const m = new Map<K, Row[]>(); for (const r of rows) { const k = key(r); const l = m.get(k); if (l) l.push(r); else m.set(k, [r]); } return m; };
+  const mapsBy = group(maps, (m) => s(m.studentId)), fluBy = group(flu, (f) => s(f.studentId));
+  const attemptsBySession = group(attempts, (a) => s(a.sessionId)), attemptsByQ = group(attempts, (a) => s(a.questionId));
+  const ritOf = (id: string, at: Date | null) => readingRitAt(mapsBy.get(id) ?? [], at);
+  // r4: each student's latest check is judged by the season of ITS date (not today's season)
+  const fluSeason = new Map<string, Season>();
+  const wcpmOf = (id: string) => { const r = [...(fluBy.get(id) ?? [])].sort((a, b) => (d(b.checkedAt)?.getTime() ?? 0) - (d(a.checkedAt)?.getTime() ?? 0))[0]; if (r) fluSeason.set(id, seasonOf(d(r.checkedAt), r.season)); return r ? Number(r.wcpm) : null; };
+  const B = testBands(t.bands);
 
-  const res = results.filter((r) => ids.includes(s(r.studentId)));
+  const idSet = new Set(ids);
+  const mineRes = results.filter((r) => idSet.has(s(r.studentId)));
+  // an invalid result (30%+ rapid guesses) gives no level, tier, rank or class mean: it is listed as “Not valid”
+  const invalid = mineRes.filter(invalidResult);
+  const res = mineRes.filter((r) => !invalidResult(r));
   const pcts = res.map((r) => Number(r.pct)).sort((a, b) => a - b);
   // percentile rank among those assessed (share of students scoring lower, + half the ties)
   // percentile rank in the group (Excel PERCENTRANK.INC, as in the school's workbooks)
@@ -104,7 +130,7 @@ export async function classDiagnosticReport(repo: Repo, actor: Actor, testId: st
     return {
       id, name: names.get(id)?.name ?? "Student", number: names.get(id)?.number ?? "", className: classOf.get(id) ?? "", correct: Number(r.correct), total: Number(r.total), pct, rank: rankOf(pct),
       level: s(r.level) as StudentRow["level"], tier: bandFor(pct, s(r.level)).key, standards: Object.fromEntries(stds.map((x) => [x.code, cellPct(x)])), strands: Object.fromEntries(strs.map((x) => [x.strand, cellPct(x)])),
-      minutes: Number(r.minutes), rapid: Number(r.rapid), rit: ritOf(id), wcpm: wcpmOf(id), shared: Boolean(r.sharedAt), resultId: s(r.id),
+      minutes: Number(r.minutes), rapid: Number(r.rapid), rit: ritOf(id, d(r.completedAt)), wcpm: wcpmOf(id), shared: Boolean(r.sharedAt), resultId: s(r.id),
       readingLevel: r.theta !== null && r.theta !== undefined ? gradeLabel(Number(r.theta)) : null, ritEstimate: r.ritEstimate !== null && r.ritEstimate !== undefined ? Number(r.ritEstimate) : null, theta: r.theta !== null && r.theta !== undefined ? Number(r.theta) : null,
     };
   }).sort((a, b) => b.pct - a.pct || a.name.localeCompare(b.name));
@@ -121,15 +147,19 @@ export async function classDiagnosticReport(repo: Repo, actor: Actor, testId: st
   const strands = strandKeys.map((k) => ({ strand: k, label: STRAND_LABEL[k], pct: avg(students.map((st) => st.strands[k]).filter((v): v is number => v !== undefined)) }));
   const ranked = [...standards].sort((a, b) => a.pct - b.pct);
 
-  // not taken: never started, or started and not finished
+  // not taken: never started, or started and not finished; finished but not valid (retake recommended)
   const done = new Set(res.map((r) => s(r.studentId)));
-  const answeredOf = new Map<string, number>(); for (const ses of sessions) answeredOf.set(s(ses.studentId), new Set(attempts.filter((a) => a.sessionId === ses.id).map((a) => s(a.questionId))).size);
+  const invalidIds = new Set(invalid.map((r) => s(r.studentId)));
+  const answeredOf = new Map<string, number>(); for (const ses of sessions) answeredOf.set(s(ses.studentId), (answeredOf.get(s(ses.studentId)) ?? 0) + new Set((attemptsBySession.get(s(ses.id)) ?? []).map((a) => s(a.questionId))).size);
   const notTaken = ids.filter((id) => !done.has(id)).map((id) => {
     const answered = answeredOf.get(id) ?? 0;
+    if (invalidIds.has(id)) return { id, name: names.get(id)?.name ?? "Student", className: classOf.get(id) ?? "", status: "Not valid" as const, answered, action: INVALID_TEXT };
     return { id, name: names.get(id)?.name ?? "Student", className: classOf.get(id) ?? "", status: (answered ? "In progress" : "Not started") as "In progress" | "Not started", answered, action: answered ? "Remind the student to finish (answers are saved)" : "Schedule a make-up session in the computer lab" };
   }).sort((a, b) => a.className.localeCompare(b.className) || a.name.localeCompare(b.name));
 
-  const tiers = TIERS.map((tr, i) => ({ key: tr.key, name: tr.name, sub: tr.sub, band: i === 0 ? `${tr.min}% – 100%` : `${tr.min}% – ${TIERS[i - 1].min - 0.1}%`, strategy: tr.strategy, students: students.filter((st) => st.tier === tr.key).map((st) => ({ id: st.id, name: st.name, pct: st.pct })) }));
+  // the bands come from the test's REAL level bands (bandFor: Above → Advanced, On → Proficient, Below → Approaching ≥ 40 / Intensive)
+  const unit = designOf(t) ? "" : "%";
+  const tiers = TIERS.map((tr) => ({ key: tr.key, name: tr.name, sub: tr.sub, band: tierBandText(tr.key, B, unit), strategy: tr.strategy, students: students.filter((st) => st.tier === tr.key).map((st) => ({ id: st.id, name: st.name, pct: st.pct })) }));
 
   // 🛟 8-week support plan: the weakest standards of the students who need support (Below level or Tier 3–4)
   const support = students.filter((st) => st.level === "BELOW" || st.tier === "INTENSIVE" || st.tier === "APPROACHING");
@@ -149,7 +179,7 @@ export async function classDiagnosticReport(repo: Repo, actor: Actor, testId: st
     const met = [...new Set(attempts.map((a) => s(a.questionId)))];
     const qrows = met.length ? await repo.findMany("Question", { id: { in: met } }, { select: ["id", "stem"] }) : [];
     const byId = new Map(design.items.map((q) => [q.id, q]));
-    const list = met.map((qid) => { const mineA = attempts.filter((a) => s(a.questionId) === qid); const q = byId.get(qid); const code = q ? codeFor(q.a, grade) : ""; return { questionId: qid, code, label: q ? `Difficulty: ${gradeLabel(q.d)}` : "", pct: pctOf(mineA.filter((a) => a.isCorrect).length, mineA.length), answered: mineA.length, stem: s(qrows.find((x) => x.id === qid)?.stem).replace(/\s+/g, " ").slice(0, 120) }; })
+    const list = met.map((qid) => { const mineA = attemptsByQ.get(qid) ?? []; const q = byId.get(qid); const code = q ? codeFor(q.a, grade) : ""; return { questionId: qid, code, label: q ? `Difficulty: ${gradeLabel(q.d)}` : "", pct: pctOf(mineA.filter((a) => a.isCorrect).length, mineA.length), answered: mineA.length, stem: s(qrows.find((x) => x.id === qid)?.stem).replace(/\s+/g, " ").slice(0, 120) }; })
       .sort((a, b) => b.answered - a.answered || a.code.localeCompare(b.code, undefined, { numeric: true })).slice(0, 80).map((x, i) => ({ n: i + 1, ...x }));
     return finish(list);
   }
@@ -158,7 +188,7 @@ export async function classDiagnosticReport(repo: Repo, actor: Actor, testId: st
   // the area of each question comes from the result rows' standards order: read it from the pool once
   for (const p of await diagnosticPool(repo, s(t.schoolId), grade)) areaByQ.set(p.id, { code: p.area.code, label: p.area.label });
   const items = aqs.sort((a, b) => Number(a.order) - Number(b.order)).map((q, i) => {
-    const mineA = attempts.filter((a) => s(a.questionId) === s(q.questionId));
+    const mineA = attemptsByQ.get(s(q.questionId)) ?? [];
     const area = areaByQ.get(s(q.questionId)) ?? { code: "", label: "" };
     return { n: i + 1, questionId: s(q.questionId), code: area.code, label: area.label, pct: pctOf(mineA.filter((a) => a.isCorrect).length, mineA.length), answered: mineA.length, stem: s(qs.find((x) => x.id === q.questionId)?.stem).replace(/\s+/g, " ").slice(0, 120) };
   });
@@ -173,14 +203,14 @@ export async function classDiagnosticReport(repo: Repo, actor: Actor, testId: st
     testId: s(t.id), title: s(t.title), grade, year: s(t.year), scope: whole ? `Grade ${grade} · all classes` : s(scopeClasses[0].name), classId: whole ? null : s(scopeClasses[0].id), date: now.toISOString().slice(0, 10), bands: B,
     classes: mine.map((c) => ({ id: s(c.id), name: s(c.name) })),
     summary: {
-      roster: ids.length, assessed: res.length, inProgress: notTaken.filter((x) => x.status === "In progress").length, notStarted: notTaken.filter((x) => x.status === "Not started").length,
-      mean: avg(pcts), median: median(pcts), min: pcts[0] ?? 0, max: pcts[pcts.length - 1] ?? 0, sd: stdev(pcts), spread: spreadNote(stdev(pcts)), minutes: Math.round(avg(students.map((x) => x.minutes))), rapidFlags: students.filter((x) => x.rapid >= x.total * 0.3).length,
+      roster: ids.length, assessed: res.length, inProgress: notTaken.filter((x) => x.status === "In progress").length, notStarted: notTaken.filter((x) => x.status === "Not started").length, invalid: invalid.length,
+      mean: avg(pcts), median: median(pcts), min: pcts[0] ?? 0, max: pcts[pcts.length - 1] ?? 0, sd: stdev(pcts), spread: spreadNote(stdev(pcts)), minutes: Math.round(avg(students.map((x) => x.minutes))), rapidFlags: invalid.length,
       best: ranked.length ? { code: ranked[ranked.length - 1].code, label: ranked[ranked.length - 1].label, pct: ranked[ranked.length - 1].pct } : null,
       focus: ranked.slice(0, 2).map((x) => ({ code: x.code, label: x.label, pct: x.pct })),
       levels: { ABOVE: students.filter((x) => x.level === "ABOVE").length, ON: students.filter((x) => x.level === "ON").length, BELOW: students.filter((x) => x.level === "BELOW").length },
     },
     standards, strands, students, notTaken, tiers, supportPlan,
-    fluency: { benchmark: bench, rubric: fluencyRubricText(grade), checked: withW.length, below: withW.filter((x) => fluencyLevel(x.wcpm!, grade) === "BELOW").map((x) => ({ id: x.id, name: x.name, wcpm: x.wcpm! })).sort((a, b) => a.wcpm - b.wcpm) },
+    fluency: { benchmark: bench, rubric: fluencyRubricText(grade), checked: withW.length, below: withW.filter((x) => fluencyLevel(x.wcpm!, grade, fluSeason.get(x.id)) === "BELOW").map((x) => ({ id: x.id, name: x.name, wcpm: x.wcpm! })).sort((a, b) => a.wcpm - b.wcpm) },
     items, adaptive: Boolean(design), growth,
   };
   }
@@ -191,8 +221,8 @@ export async function classDiagnosticReport(repo: Repo, actor: Actor, testId: st
    * so the growth shown is real growth, not the difference between two scales.
    */
   async function growthOf(): Promise<ClassDiagnosticReport["growth"]> {
-    const all = await repo.findMany("DiagnosticScore", { diagnosticId: t.id }, { select: ["studentId", "ritEstimate", "completedAt"] });
-    const est = all.filter((r) => r.ritEstimate !== null && r.ritEstimate !== undefined);
+    const all = await repo.findMany("DiagnosticScore", { diagnosticId: t.id }, { select: ["studentId", "ritEstimate", "completedAt", "rapid", "total"] });
+    const est = all.filter((r) => r.ritEstimate !== null && r.ritEstimate !== undefined && !invalidResult(r));
     const allMaps = est.length ? await repo.findMany("MapResult", { studentId: { in: est.map((r) => s(r.studentId)) } }, { select: ["studentId", "subject", "goalName", "rit", "termName", "testDate"] }) : [];
     const after = (id: string, from: Date | null) => allMaps.filter((m) => s(m.studentId) === id && !m.goalName && /read/i.test(s(m.subject)) && (d(m.testDate)?.getTime() ?? 0) > (from?.getTime() ?? 0)).sort((a, b) => (d(a.testDate)?.getTime() ?? 0) - (d(b.testDate)?.getTime() ?? 0));
     const diffs = est.map((r) => { const m = after(s(r.studentId), d(r.completedAt))[0]; return m ? Number(m.rit) - Number(r.ritEstimate) : null; }).filter((x): x is number => x !== null);
@@ -217,55 +247,84 @@ export interface StudentDiagnosticReport {
   rit: number | null; wcpm: { value: number; benchmark: number } | null; minutes: number; rapid: number; shared: boolean; sharedAt: string | null; note: string | null;
   /** adaptive: overall reading level, the estimated MAP Reading RIT, and the result by MAP goal area */
   adaptive: boolean; readingLevel: string | null; ritEstimate: number | null; areas: { name: string; score: number; readingLevel: string }[];
+  /** 30%+ rapid guesses: the result gives no level / tier / strengths / needs (staff only — families never get one); retake recommended */
+  invalid: boolean;
+  /** the class the “class average” is taken from */
+  classId: string | null;
 }
 
-/** One student's report: staff of their class; the student or their parent once it is shared. */
-export async function studentDiagnosticReport(repo: Repo, actor: Actor, studentId: string, testId?: string | null): Promise<StudentDiagnosticReport | null> {
+/**
+ * One student's report: staff of ANY of their classes; the student or their parent once it is shared.
+ * Families: the newest SHARED valid result (an older shared one is kept when a newer one is not shared).
+ * Staff: the asked test, else the newest valid result (else the newest, marked not valid).
+ * `classId`: the class the report was opened from — the “class average” is that class's (when the student is in it).
+ */
+export async function studentDiagnosticReport(repo: Repo, actor: Actor, studentId: string, testId?: string | null, classId?: string | null): Promise<StudentDiagnosticReport | null> {
   const st = await repo.findUnique("Student", { id: studentId });
   if (!st || s(st.schoolId) !== s(actor.schoolId)) throw new ForbiddenError("Student not found.");
-  const results = (await repo.findMany("DiagnosticScore", { studentId })).sort((a, b) => (d(b.completedAt)?.getTime() ?? 0) - (d(a.completedAt)?.getTime() ?? 0));
-  const r = testId ? results.find((x) => s(x.diagnosticId) === testId) : results[0];
   const family = actor.role === "STUDENT" || actor.role === "PARENT";
   if (actor.role === "STUDENT" && actor.studentId !== studentId) throw new ForbiddenError("Student not found.");
   if (actor.role === "PARENT" && !actor.parentChildIds?.has(studentId)) throw new ForbiddenError("Student not found.");
+  const memberships = await repo.findMany("ClassMembership", { studentId, leftAt: null });
+  const memberIds = memberships.map((m) => s(m.classId));
+  let readable: Set<string> | null = null;
   if (!family) {
     assertCan(actor, "reports:read");
-    const m = (await repo.findMany("ClassMembership", { studentId, leftAt: null }))[0];
-    if (actor.role === "TEACHER" && !(await readableClasses(repo, actor)).some((c) => m && c.id === m.classId)) throw new ForbiddenError("This student is not in your classes.");
+    if (actor.role === "TEACHER") {
+      readable = new Set((await readableClasses(repo, actor)).map((c) => s(c.id)));
+      // any active class of the student the teacher can read (not only the first membership)
+      if (!memberIds.some((id) => readable!.has(id))) throw new ForbiddenError("This student is not in your classes.");
+    }
   }
+  let results = (await repo.findMany("DiagnosticScore", { studentId })).sort((a, b) => (d(b.completedAt)?.getTime() ?? 0) - (d(a.completedAt)?.getTime() ?? 0));
+  // families: shared results first, then the newest — and never a result that is not valid
+  if (family) results = results.filter((x) => x.sharedAt && !invalidResult(x));
+  // no test chosen: the CURRENT result only — this school year and the student's current grade (the same rule as
+  // latestDiagnostic, so the report, the Diagnostic Analysis and the Final Report always agree); else "not yet tested"
+  if (!testId && results.length) {
+    const [cal, gradeRow] = await Promise.all([loadCalendar(repo, s(st.schoolId) || null), st.gradeId ? repo.findUnique("Grade", { id: st.gradeId }) : Promise.resolve(null)]);
+    const from = resolvePeriod("SCHOOL_YEAR", cal).from.getTime(), grade = gradeRow ? Number(gradeRow.level) : null;
+    const tests = await repo.findMany("DiagnosticTest", { id: { in: [...new Set(results.map((x) => s(x.diagnosticId)))] } }, { select: ["id", "grade"] });
+    const gradeOf = new Map(tests.map((x) => [s(x.id), Number(x.grade)]));
+    results = results.filter((x) => (d(x.completedAt)?.getTime() ?? 0) >= from && (grade === null || !gradeOf.has(s(x.diagnosticId)) || gradeOf.get(s(x.diagnosticId)) === grade));
+  }
+  const r = testId ? results.find((x) => s(x.diagnosticId) === testId) : results.find((x) => !invalidResult(x)) ?? results[0];
   if (!r) return null;
-  if (family && !r.sharedAt) return null;
+  const invalid = invalidResult(r);
   const t = await repo.findUnique("DiagnosticTest", { id: r.diagnosticId });
-  // the class averages (same test, same class)
-  const m = (await repo.findMany("ClassMembership", { studentId, leftAt: null }))[0];
-  const klass = m ? await repo.findUnique("Class", { id: m.classId }) : null;
+  // the class of the averages: the class it was opened from, else the first class of the student the reader can read
+  const usable = readable ? memberIds.filter((id) => readable!.has(id)) : memberIds;
+  const klassId = classId && usable.includes(s(classId)) ? s(classId) : usable[0] ?? memberIds[0] ?? null;
+  const klass = klassId ? await repo.findUnique("Class", { id: klassId }) : null;
   const mates = klass ? (await repo.findMany("ClassMembership", { classId: klass.id, leftAt: null }, { select: ["studentId"] })).map((x) => s(x.studentId)) : [];
-  const classRes = mates.length ? await repo.findMany("DiagnosticScore", { diagnosticId: r.diagnosticId, studentId: { in: mates } }) : [];
+  // class averages from VALID results only (same test, same class)
+  const classRes = (mates.length ? await repo.findMany("DiagnosticScore", { diagnosticId: r.diagnosticId, studentId: { in: mates } }) : []).filter((x) => !invalidResult(x));
   const classStd = (code: string) => { const v = classRes.map((x) => json<StdCell[]>(x.byStandard, []).find((y) => y.code === code)).filter((y): y is StdCell => !!y); return v.length ? avg(v.map((y) => cellPct(y))) : null; };
   const classStrand = (k: string) => { const v = classRes.map((x) => json<{ strand: string; correct: number; total: number; score?: number }[]>(x.byStrand, []).find((y) => y.strand === k)).filter(Boolean) as { correct: number; total: number; score?: number }[]; return v.length ? avg(v.map((y) => cellPct(y))) : null; };
   const names = await studentNames(repo, [studentId]);
   const stds = json<StdCell[]>(r.byStandard, []);
   const standards = stds.map((x) => { const pct = cellPct(x); return { code: x.code, label: x.label, correct: x.correct, total: x.total, pct, readingLevel: x.gl ?? null, classPct: classStd(x.code), status: (pct >= 75 ? "Strength" : pct >= 50 ? "Developing" : "Needs support") as "Strength" | "Developing" | "Needs support", anchor: x.anchor }; }).sort((a, b) => a.code.localeCompare(b.code, undefined, { numeric: true }));
   const pct = Number(r.pct);
-  const tier = bandFor(pct, s(r.level));
+  const tier = invalid ? { name: "Not valid", sub: "too many fast answers — retake recommended" } : bandFor(pct, s(r.level));
   const maps = await repo.findMany("MapResult", { studentId }, { select: ["subject", "goalName", "rit", "testDate"] });
-  const reading = maps.filter((x) => !x.goalName && /read/i.test(s(x.subject))).sort((a, b) => (d(a.testDate)?.getTime() ?? 0) - (d(b.testDate)?.getTime() ?? 0))[0];
+  const rit = readingRitAt(maps, d(r.completedAt));
   const flu = (await repo.findMany("FluencyCheck", { studentId })).sort((a, b) => (d(b.checkedAt)?.getTime() ?? 0) - (d(a.checkedAt)?.getTime() ?? 0))[0];
   const grade = Number(t?.grade ?? 0);
-  const bands = json<{ above?: number; on?: number }>(t?.bands, {});
   return {
     resultId: s(r.id), testId: s(r.diagnosticId), title: s(t?.title), grade, year: s(t?.year), date: (d(r.completedAt) ?? new Date()).toISOString().slice(0, 10),
     student: { id: studentId, name: names.get(studentId)?.name ?? "Student", number: names.get(studentId)?.number ?? "", className: s(klass?.name) },
-    correct: Number(r.correct), total: Number(r.total), pct, level: s(r.level) as "ABOVE" | "ON" | "BELOW", tier: { name: tier.name, sub: tier.sub }, bands: { above: Number(bands.above) || 85, on: Number(bands.on) || 65 },
+    correct: Number(r.correct), total: Number(r.total), pct, level: s(r.level) as "ABOVE" | "ON" | "BELOW", tier: { name: tier.name, sub: tier.sub }, bands: testBands(t?.bands),
     strands: json<{ strand: Strand; correct: number; total: number; score?: number; gl?: string }[]>(r.byStrand, []).map((x) => ({ strand: x.strand, label: STRAND_LABEL[x.strand], pct: cellPct(x), readingLevel: x.gl ?? null, classPct: classStrand(x.strand) })),
     standards: standards.map(({ anchor: _a, ...x }) => x),
-    strengths: standards.filter((x) => x.pct >= 75).sort((a, b) => b.pct - a.pct).slice(0, 4).map((x) => `${x.label} (${x.code})`),
-    needs: standards.filter((x) => x.pct < 60).sort((a, b) => a.pct - b.pct).slice(0, 4).map((x) => { const p = prescriptionFor(x.anchor); return { code: x.code, label: x.label, pct: x.pct, objective: p.objective, tip: p.activities[0] }; }),
-    rit: reading ? Number(reading.rit) : null, wcpm: flu ? { value: Number(flu.wcpm), benchmark: WCPM_BENCHMARK[grade] ?? 120 } : null,
+    strengths: invalid ? [] : standards.filter((x) => x.pct >= 75).sort((a, b) => b.pct - a.pct).slice(0, 4).map((x) => `${x.label} (${x.code})`),
+    needs: invalid ? [] : standards.filter((x) => x.pct < 60).sort((a, b) => a.pct - b.pct).slice(0, 4).map((x) => { const p = prescriptionFor(x.anchor); return { code: x.code, label: x.label, pct: x.pct, objective: p.objective, tip: p.activities[0] }; }),
+    // r4: the check is judged by the season of its own date (an old fall check is not compared with today's norm)
+    rit, wcpm: flu ? { value: Number(flu.wcpm), benchmark: wcpmBenchmark(grade, seasonOf(d(flu.checkedAt), flu.season)) } : null,
     minutes: Number(r.minutes), rapid: Number(r.rapid), shared: Boolean(r.sharedAt), sharedAt: d(r.sharedAt)?.toISOString().slice(0, 10) ?? null, note: r.teacherNote ? s(r.teacherNote) : null,
     adaptive: r.theta !== null && r.theta !== undefined, readingLevel: r.theta !== null && r.theta !== undefined ? gradeLabel(Number(r.theta)) : null,
     ritEstimate: r.ritEstimate !== null && r.ritEstimate !== undefined ? Number(r.ritEstimate) : null,
     areas: json<{ name: string; score: number; gl: string }[]>(r.byArea, []).map((x) => ({ name: x.name, score: x.score, readingLevel: x.gl })),
+    invalid, classId: klass ? s(klass.id) : null,
   };
 }
 
@@ -367,6 +426,31 @@ async function reteachSkills(repo: Repo, schoolId: string, grade: number, key: B
   return out;
 }
 
+/**
+ * The grade's skills linked to some standards' anchors (e.g. "RI.2"), weakest anchor first, in curriculum order —
+ * never the hidden Curriculum Map holder skill. Empty when the bank has no skill ↔ standard links for them.
+ */
+export async function skillsForAnchors(repo: Repo, schoolId: string, grade: number, anchors: readonly string[]): Promise<{ skillId: string; name: string; anchor: string }[]> {
+  if (!anchors.length) return [];
+  const g = (await repo.findMany("Grade", { schoolId, level: grade }))[0];
+  if (!g) return [];
+  const curs = await repo.findMany("Curriculum", { gradeId: g.id }, { select: ["id"] });
+  const { isHiddenSkill } = await import("../skills/master");
+  const skills = (curs.length ? await repo.findMany("Skill", { curriculumId: { in: curs.map((c) => c.id) }, deletedAt: null }, { select: ["id", "name", "code", "sequence"] }) : []).filter((k) => !isHiddenSkill(k.code));
+  if (!skills.length) return [];
+  const links = await repo.findMany("SkillStandard", { skillId: { in: skills.map((k) => k.id) } }, { select: ["skillId", "standardId"] });
+  const stds = links.length ? await repo.findMany("Standard", { id: { in: [...new Set(links.map((l) => s(l.standardId)))] } }, { select: ["id", "code"] }) : [];
+  const { areaOfStandard } = await import("./standards");
+  const anchorOfStd = new Map(stds.map((x) => { const a = areaOfStandard(s(x.code)); return [s(x.id), a && a.code.split(".")[1] === String(grade) ? a.anchor : null] as const; }));
+  const bySeq = (a: Row, b: Row) => Number(a.sequence ?? 0) - Number(b.sequence ?? 0) || s(a.name).localeCompare(s(b.name));
+  const out: { skillId: string; name: string; anchor: string }[] = [];
+  for (const anchor of anchors) {
+    const ids = new Set(links.filter((l) => anchorOfStd.get(s(l.standardId)) === anchor).map((l) => s(l.skillId)));
+    for (const k of skills.filter((x) => ids.has(s(x.id))).sort(bySeq)) if (!out.some((o) => o.skillId === s(k.id))) out.push({ skillId: s(k.id), name: s(k.name), anchor });
+  }
+  return out;
+}
+
 /** The class (or grade) benchmark report of one test: every category raw + %, the 80% flags, and what to reteach. */
 export async function classBenchmarkReport(repo: Repo, actor: Actor, testId: string, classId?: string | null): Promise<ClassBenchmark> {
   assertCan(actor, "reports:read");
@@ -382,7 +466,7 @@ export async function classBenchmarkReport(repo: Repo, actor: Actor, testId: str
   const members = await repo.findMany("ClassMembership", { classId: { in: scope.map((c) => s(c.id)) }, leftAt: null }, { select: ["studentId"] });
   const ids = [...new Set(members.map((m) => s(m.studentId)))];
   const [names, results] = await Promise.all([studentNames(repo, ids), ids.length ? repo.findMany("DiagnosticScore", { diagnosticId: t.id, studentId: { in: ids } }) : Promise.resolve([] as Row[])]);
-  const students = results.map((r) => ({ id: s(r.studentId), name: names.get(s(r.studentId))?.name ?? "Student", stds: json<StdCell[]>(r.byStandard, []) }))
+  const students = results.filter((r) => !invalidResult(r)).map((r) => ({ id: s(r.studentId), name: names.get(s(r.studentId))?.name ?? "Student", stds: json<StdCell[]>(r.byStandard, []) }))
     .map((x) => ({ id: x.id, name: x.name, stds: x.stds, categories: Object.fromEntries(benchmarkCategories(x.stds).map((c) => [c.key, c])) as Partial<Record<BenchKey, BenchCell>> }))
     .sort((a, b) => a.name.localeCompare(b.name));
   const all = benchmarkCategories(students.flatMap((x) => x.stds));
@@ -402,7 +486,7 @@ export async function classBenchmarkReport(repo: Repo, actor: Actor, testId: str
 /** One student's categories for a test (same access as their report: staff of their class, the family once shared). */
 export async function studentBenchmark(repo: Repo, actor: Actor, studentId: string, testId: string): Promise<BenchCell[] | null> {
   const rep = await studentDiagnosticReport(repo, actor, studentId, testId);
-  if (!rep) return null;
+  if (!rep || rep.invalid) return null;
   const r = await repo.findUnique("DiagnosticScore", { id: rep.resultId });
   return r ? benchmarkCategories(json<StdCell[]>(r.byStandard, [])) : null;
 }

@@ -82,10 +82,10 @@
      "passage": "My grandpa told me about a big storm. He said the wind was very strong. People stayed inside all day.",
      "stem": "Is the writer telling a firsthand account of the storm?",
      "options": [
-      "Yes, the writer was in the storm.",
-      "Yes, the writer saw the wind.",
+      "Yes, the writer was in the storm itself.",
+      "Yes, the writer saw the wind and rain.",
       "No, the writer heard about it from Grandpa.",
-      "No, the storm was not real."
+      "No, the storm was not real at all."
      ],
      "answer": 2,
      "why": "The writer says Grandpa told me. The writer was not there."
@@ -106,9 +106,9 @@
      "passage": "Long ago, people in this town fished for a living. They sailed in wooden boats. They sold fish in the market.",
      "stem": "What kind of account is this?",
      "options": [
-      "Firsthand, because it says I",
-      "Firsthand, because the writer fished",
-      "A diary of the writer",
+      "Firsthand, because it says I and me",
+      "Firsthand, because the writer fished at sea",
+      "A diary of the writer from last year",
       "Secondhand, because the writer was not there"
      ],
      "answer": 3,
@@ -157,10 +157,10 @@
     "passage": "Account A: When the plane landed in Jeddah, I looked out of the window and saw the sea shining in the sun. I could smell the warm, salty air as soon as the doors opened. Account B: Flights between the two cities take about two hours. The airport in Jeddah is one of the busiest in the country, serving millions of travellers each year.",
     "stem": "How are the two accounts different?",
     "options": [
-     "Both are firsthand accounts.",
-     "A is secondhand, and B is firsthand.",
+     "Both are firsthand accounts written by the same writer.",
+     "A is secondhand, and B is firsthand, told by a friend.",
      "A gives the writer's own senses; B gives general facts.",
-     "Both give the writer's feelings."
+     "Both give the writer's feelings about the storm."
     ],
     "answer": 2,
     "hint": "Look at Account A's words: I looked, I could smell. Look at Account B: numbers and facts. Which one was there?",
@@ -262,9 +262,9 @@
     "stem": "What does the firsthand account offer that the secondhand account does not?",
     "options": [
      "The number of people watching",
-     "How long the show lasted",
+     "How long the show lasted in total",
      "What it felt like to be in the crowd",
-     "What the organisers said"
+     "What the organisers said to the press"
     ],
     "answer": 2,
     "hint": "Find details only in the firsthand account: the boom in the chest, the silence, the cousin. What do they give the reader?",
@@ -304,9 +304,9 @@
      "stem": "Why might the two accounts describe the school's size so differently?",
      "options": [
       "One writer experienced it personally; the other reports measured facts.",
-      "One of the writers is not telling the truth.",
-      "The school changed size between the accounts.",
-      "Both writers are describing different schools."
+      "One of the writers is not telling the truth about the school.",
+      "The school changed size between the two accounts that were written.",
+      "Both writers are describing different schools in different towns."
      ],
      "answer": 0,
      "why": "'Corridors seemed endless' is a personal feeling; '40 classrooms' is a reported fact. Each writer's position shapes the description."
@@ -315,9 +315,9 @@
      "passage": "Firsthand: Our boat rocked as the dolphins leapt beside us. I counted at least ten. Secondhand: Researchers say groups of dolphins are often seen in these waters in spring, when fish are plentiful.",
      "stem": "What information is ONLY in the secondhand account?",
      "options": [
-      "That the boat rocked",
+      "That the boat rocked a lot in the waves",
       "Why dolphins are often seen there in spring",
-      "That the writer counted ten dolphins",
+      "That the writer counted ten dolphins in all",
       "That dolphins leapt beside the boat"
      ],
      "answer": 1,
@@ -366,10 +366,10 @@
     "passage": "Firsthand account (from the diary of a ship's cook, 1871): The storm struck before supper. I was below deck and saw nothing, but I heard the mast crack like thunder and the captain shouting. We bailed water for hours; I thought we were lost. Secondhand account (from a modern history of the voyage): Using the ship's log and letters from three crew members, historians conclude that the captain's quick decision to turn toward the wind saved the ship. The voyage was delayed by eleven days, but no lives were lost.",
     "stem": "Why does the secondhand account explain the captain's decision when the cook's diary does not?",
     "options": [
-     "The cook did not care about the captain.",
+     "The cook did not care about the captain or about anything that happened on the ship.",
      "The historians used several sources, while the cook was below deck and could not see.",
-     "The cook wrote the diary many years later.",
-     "The captain told only the historians."
+     "The cook wrote the diary many years later, after he had left the ship.",
+     "The captain told only the historians and nobody else on the ship."
     ],
     "answer": 1,
     "hint": "Where was the cook during the storm? What sources did the historians use?",
@@ -396,10 +396,10 @@
      "passage": "Firsthand (a fan at the final): The referee clearly favoured the visitors; every close call went against us! Secondhand (a sports report): Video review showed that four of the five disputed calls were correct.",
      "stem": "What best explains the difference between the accounts?",
      "options": [
-      "The fan watched a different match.",
-      "The report was written by the referee.",
+      "The fan watched a different match from the one in the report.",
+      "The report was written by the referee, who was tired after a long match.",
       "The fan's loyalty shaped his view; the report checked the calls with video.",
-      "Video review always favours the visitors."
+      "Video review always favours the visiting team in every match."
      ],
      "answer": 2,
      "why": "The fan's strong feelings for his team colour his account, while the report used video evidence."

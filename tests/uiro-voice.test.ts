@@ -91,7 +91,7 @@ describe("Phase 6 · providers", () => {
     const g = pickTtsProvider({ TTS_PROVIDER: "Google", GOOGLE_TTS_API_KEY: "k" });
     assert.ok(g.ok && g.provider.id === "google" && g.provider.voice === "en-US-Chirp3-HD-Leda");
     const gm = pickTtsProvider({ TTS_PROVIDER: "gemini", GEMINI_API_KEY: "k", GEMINI_TTS_VOICE: "Sulafat" });
-    assert.ok(gm.ok && gm.provider.id === "gemini" && gm.provider.voice === "gemini-2.5-flash-preview-tts:Sulafat");
+    assert.ok(gm.ok && gm.provider.id === "gemini" && gm.provider.voice === "gemini-2.5-flash-preview-tts:Sulafat:t3");
     assert.ok(!pickTtsProvider({ TTS_PROVIDER: "gemini" }).ok);
     assert.ok(!pickTtsProvider({ TTS_PROVIDER: "polly", GEMINI_API_KEY: "k" }).ok);
     // the env helper names every variable explicitly (no process.env passed around)

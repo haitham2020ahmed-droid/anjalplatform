@@ -17,7 +17,8 @@ import type { Strand } from "./standards";
 export interface DesignItem { id: string; a: string; st: Strand; d: number; p: string | null; g: number }
 /** form: "full" (every slot) or "focus" (MOY / EOY: each student re-tests the strands still Below or borderline) */
 export interface Design { blueprint: string[]; items: DesignItem[]; form?: "full" | "focus" }
-export interface Answer { id: string; correct: boolean }
+/** rapid: a rapid guess (too fast to read) — it fills its slot but weighs nothing in the estimate (Update 39B) */
+export interface Answer { id: string; correct: boolean; rapid?: boolean }
 
 export const SLOPE = 1.7;
 export const GUESS = 0.15;
@@ -87,12 +88,16 @@ export const difficultyOf = (grade: number, level: number) => Math.round((grade 
 
 const prob = (theta: number, d: number) => GUESS + (1 - GUESS) / (1 + Math.exp(-SLOPE * (theta - d)));
 
-/** Posterior mean and standard deviation of ability (grade units) from these answers, around a prior. */
-export function estimate(answers: { d: number; correct: boolean }[], prior: number, priorSd = PRIOR_SD): { theta: number; se: number } {
+/**
+ * Posterior mean and standard deviation of ability (grade units) from these answers, around a prior. `weight` 0 leaves
+ * an answer out (a rapid guess: effort-moderated scoring, as the old placement check did); default 1.
+ */
+export function estimate(answers: { d: number; correct: boolean; weight?: number }[], prior: number, priorSd = PRIOR_SD): { theta: number; se: number } {
   let w = 0, m = 0, m2 = 0;
+  const used = answers.filter((a) => (a.weight ?? 1) > 0);
   for (let x = prior - 4; x <= prior + 4 + 1e-9; x += 0.02) {
     let lw = -((x - prior) ** 2) / (2 * priorSd * priorSd);
-    for (const a of answers) { const p = prob(x, a.d); lw += Math.log(a.correct ? p : 1 - p); }
+    for (const a of used) { const p = prob(x, a.d); lw += (a.weight ?? 1) * Math.log(a.correct ? p : 1 - p); }
     const v = Math.exp(lw);
     w += v; m += v * x; m2 += v * x * x;
   }
@@ -128,7 +133,8 @@ export function nextItem(design: Design, answers: Answer[], prior: number, seed 
   if (!open.length) return null;
   const byId = new Map(design.items.map((q) => [q.id, q]));
   const used = new Set(answers.map((a) => a.id));
-  const est = estimate(answers.map((a) => ({ d: byId.get(a.id)?.d ?? prior, correct: a.correct })), prior).theta;
+  // a rapid guess says nothing about the student: it never moves the difficulty of the next question
+  const est = estimate(answers.map((a) => ({ d: byId.get(a.id)?.d ?? prior, correct: a.correct, weight: a.rapid ? 0 : 1 })), prior).theta;
   // `allow` (the school's no-repeat rule, questions/fresh.ts): no copy of an answered question, unseen ones first
   const free = design.items.filter((q) => !used.has(q.id) && (!allow || allow(q.id)));
   const nearest = (list: DesignItem[]) => [...list].sort((x, y) => Math.abs(x.d - est) - Math.abs(y.d - est) || hash(seed + x.id) - hash(seed + y.id))[0] ?? null;

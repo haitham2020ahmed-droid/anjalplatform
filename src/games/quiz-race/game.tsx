@@ -9,6 +9,7 @@ import { useT } from "@/i18n/client";
 import type { GameProps, PowerEffect, PowerUpId } from "../types";
 import { AnswerTiles } from "../kit/answer-tiles";
 import { PowerBar } from "../kit/power-bar";
+import { RichInline } from "../../components/rich-inline";
 
 export const QUESTION_SECONDS = 15;
 
@@ -89,11 +90,11 @@ export default function QuizRace({ questions, round }: GameProps) {
       <article className="rounded-3xl bg-white p-5 shadow-sm ring-1 ring-slate-200 sm:p-6">
         {q.passage && (
           <details className="mb-3 rounded-2xl bg-slate-50 p-3 ring-1 ring-slate-200">
-            <summary className="cursor-pointer font-semibold text-brand-navy">📖 <span dir="ltr" lang="en">{q.passage.title}</span></summary>
-            <p dir="ltr" lang="en" className="mt-2 whitespace-pre-line leading-relaxed text-slate-800">{q.passage.text}</p>
+            <summary className="cursor-pointer font-semibold text-brand-navy">📖 <span dir="ltr" lang="en"><RichInline text={q.passage.title} /></span></summary>
+            <p dir="ltr" lang="en" className="mt-2 whitespace-pre-line leading-relaxed text-slate-800"><RichInline text={q.passage.text} /></p>
           </details>
         )}
-        <p dir="ltr" lang="en" className="text-xl font-semibold leading-relaxed text-slate-900">{q.stem}</p>
+        <p dir="ltr" lang="en" className="text-xl font-semibold leading-relaxed text-slate-900"><RichInline text={q.stem} /></p>
         {hint && <p className="mt-2 rounded-xl bg-amber-50 px-3 py-2 text-amber-900 ring-1 ring-amber-200"><span aria-hidden="true">💡 </span><span dir="ltr" lang="en">{hint}</span></p>}
       </article>
       <AnswerTiles options={q.options ?? []} hidden={hidden} disabled={!!done || round.over} onPick={pick} reveal={done ? { right, picked } : null} />

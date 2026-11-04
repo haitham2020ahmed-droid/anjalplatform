@@ -4,6 +4,7 @@
 import type { ClientQuestion } from "../../server/practice/items";
 import { AnswerInput, type AnswerValue } from "../practice/answer-input";
 import { PassageText, plainPassage } from "@/components/passage-text";
+import { RichInline } from "@/components/rich-inline";
 
 export function PlacementFrame(props: {
   q: ClientQuestion;
@@ -29,12 +30,12 @@ export function PlacementFrame(props: {
       <div className={["mt-6 grid gap-8", q.passage ? "lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]" : ""].join(" ")}>
         {q.passage && (
           <article className="max-h-[70vh] overflow-y-auto rounded-2xl bg-white p-6 ring-1 ring-slate-200" aria-label="Reading passage">
-            <h2 className="text-xl font-bold text-brand-navy">{q.passage.title}</h2>
+            <h2 className="text-xl font-bold text-brand-navy"><RichInline text={q.passage.title} /></h2>
             <PassageText text={q.passage.text} paraClassName="mt-3 whitespace-pre-line text-lg leading-relaxed text-slate-800" />
           </article>
         )}
         <div>
-          {q.type !== "DROPDOWN" && q.type !== "FILL_BLANK" && <p className="text-xl font-medium leading-relaxed text-slate-900">{q.stem}</p>}
+          {q.type !== "DROPDOWN" && q.type !== "FILL_BLANK" && <p className="text-xl font-medium leading-relaxed text-slate-900"><RichInline text={q.stem} /></p>}
           <div className="mt-5"><AnswerInput q={q} value={props.value} onChange={props.onChange} disabled={props.pending} /></div>
           {props.error && <p role="alert" className="mt-4 rounded-lg bg-red-50 px-3 py-2 text-red-700">{props.error}</p>}
           <button type="button" onClick={props.onNext} disabled={!props.ready || props.pending}

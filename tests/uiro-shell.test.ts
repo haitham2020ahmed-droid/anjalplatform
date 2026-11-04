@@ -66,7 +66,12 @@ describe("interface language: t()", () => {
       // owner r67 item 5: "Adaptive" is a NAFS difficulty choice (teacher-facing test builder and practice)
       "Adaptive", "adaptive practice on the same standards", "One builder: start from a model booklet, all 13 standards, or the standards you choose; then the number of questions, the time, the difficulty (Easy, Medium, Hard, Mixed or Adaptive) and test or practice.",
       "Adaptive test: online, each student starts at Medium and the next question is harder after a right answer, easier after a wrong one, inside the test's standards (results under Practice). Printed, it is the Mixed list below.",
-      "Adaptive test given online to {n} student(s): each one starts at Medium and the questions adapt. Results are under Practice."]);
+      "Adaptive test given online to {n} student(s): each one starts at Medium and the questions adapt. Results are under Practice.",
+      // owner r69: the NAFS center's first tab is "Adaptive" (Practice · Report), teacher-facing only
+      "No adaptive practice results yet.", "Assign adaptive practice now",
+      "Everything the students did in NAFS: adaptive practice, NAFS tests, Ministry booklets and practice — never the platform's levels or ReadRise.",
+      "Built from the NAFS reports: the weakest Ministry standards per class, per group and per student. One click gives adaptive practice on exactly those standards (each student starts at Medium and the questions adapt).",
+      "The NAFS center: adaptive practice, NAFS tests, the Ministry booklets, reports and a suggested plan — separate from the platform's own levels."]);
     for (const k of UI_STRINGS) {
       assert.doesNotMatch(k, /lexile/i);
       if (!NAFS_TEACHER.has(k)) assert.doesNotMatch(k, /\badaptive\b/i);
@@ -107,15 +112,17 @@ describe("no Arabic outside the translation files", () => {
   });
 });
 
-describe("Literise D1 fonts: Hanken Grotesk (interface), Young Serif (headings, numbers), IBM Plex Sans Arabic (Arabic)", () => {
-  test("the three fonts are loaded with next/font; Hanken Grotesk is the interface font, Young Serif the display font", () => {
+describe("Literise D1 fonts: Hanken Grotesk (interface), Young Serif (headings, numbers), IBM Plex Sans Arabic (Arabic), Nunito (Curriculum Map only)", () => {
+  test("the fonts are loaded with next/font; Hanken Grotesk is the interface font, Young Serif the display font, Nunito is scoped to .curriculum-map-ui", () => {
     const layout = read("src/app/layout.tsx");
-    assert.match(layout, /import \{ Hanken_Grotesk, IBM_Plex_Sans_Arabic, Young_Serif \} from "next\/font\/google"/);
+    assert.match(layout, /import \{ Hanken_Grotesk, IBM_Plex_Sans_Arabic, Nunito, Young_Serif \} from "next\/font\/google"/);
+    assert.match(layout, /variable: "--font-nunito"/);
     const css = read("src/app/globals.css");
     assert.match(css, /--font-display: var\(--font-young-serif\)/);
     assert.match(css, /--font-sans: var\(--font-hanken\)/);
     assert.match(css, /--font-mono: var\(--font-hanken\)/);
     assert.match(css, /\[lang="ar"\] \{ --font-sans: var\(--font-plex-arabic\)/);
+    assert.match(css, /\.curriculum-map-ui[\s\S]{0,80}var\(--font-nunito\)/, "Nunito is scoped to the Curriculum Map, not applied platform-wide");
     assert.doesNotMatch(layout, /Lexend|DM_Serif_Display/, "fonts no longer used are gone");
     assert.doesNotMatch(css, /Georgia|Times New Roman|Iowan/);
     const fontImports = files(join(ROOT, "src/app")).filter((f) => /from "next\/font\/google"/.test(readFileSync(f, "utf8")));

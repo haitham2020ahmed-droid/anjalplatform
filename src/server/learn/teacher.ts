@@ -17,6 +17,7 @@ import type { LevelKey } from "../../lib/learn/format";
 import { lessonCatalog, lessonFile, readContinuum, readLessons, readTopics, type LessonMeta } from "./files";
 import { hiddenCodes, isAdmin, lessonLevelFor, staffSchool, teacherIdOf, type LevelVersion } from "./edits";
 import { learnSkills, matchSkills, normStd, RULE_LABEL, type LearnSkill, type MatchRule } from "./match";
+import { starBook, starLearning, starNeedsReview, starWord } from "../skills/star-read";
 
 const s = (v: unknown) => String(v ?? "");
 const iso = (v: unknown) => (v === null || v === undefined || v === "" ? null : new Date(v instanceof Date ? v.getTime() : s(v)).toISOString());
@@ -43,7 +44,8 @@ export async function teacherLessons(repo: Repo, actor: Actor, f: LessonFilter =
 
 export interface TeacherLessonView {
   meta: LessonMeta & { hidden: boolean }; level: LevelKey; version: LevelVersion; skills: { id: string; name: string; grade: number; rule: string }[];
-  needs: { studentId: string; name: string; className: string; classId: string; skill: string; score: number }[];
+  /** ⭐ score = the star score; word = the star word ("Needs review" / "In progress") */
+  needs: { studentId: string; name: string; className: string; classId: string; skill: string; score: number; word: string }[];
 }
 
 /** Preview of one level as the teacher's students get it (the teacher's own version first). */
@@ -74,21 +76,41 @@ export async function myStudents(repo: Repo, actor: Actor): Promise<{ classes: R
   return { classes, members };
 }
 
-/** "Students who need this lesson": the teacher's students weak (< 60, 3+ answers) on the skills it explains. */
+/**
+ * "Students who need this lesson" — ⭐ stars (owner, 1 Nov 2026): the teacher's students whose star for a skill the
+ * lesson explains (by KEY: every copy) is 🔄 Needs review, or ◐ In progress with "needs support" or a low engine score
+ * (< 60 after 3+ answers). Never a student with ⭐ on it. 🔄 first, then needs support, then the lowest score. Shown
+ * with the star word and the star score.
+ */
 async function studentsWhoNeed(repo: Repo, actor: Actor, skills: LearnSkill[]): Promise<TeacherLessonView["needs"]> {
   if (!skills.length) return [];
   const { classes, members } = await myStudents(repo, actor);
   if (!members.length) return [];
   const ids = [...new Set(members.map((m) => s(m.studentId)))];
-  const weak = await repo.findMany("StudentSkillMastery", { studentId: { in: ids }, skillId: { in: skills.map((k) => k.id) }, score: { lt: 60 }, attempts: { gte: 3 } }, { select: ["studentId", "skillId", "score"], take: 500 });
-  if (!weak.length) return [];
-  const worst = new Map<string, Row>();
-  for (const w of weak) { const c = worst.get(s(w.studentId)); if (!c || Number(w.score) < Number(c.score)) worst.set(s(w.studentId), w); }
+  const [weak, book] = await Promise.all([
+    repo.findMany("StudentSkillMastery", { studentId: { in: ids }, skillId: { in: skills.map((k) => k.id) }, score: { lt: 60 }, attempts: { gte: 3 } }, { select: ["studentId", "skillId", "score"], take: 2000 }),
+    starBook(repo, ids, s(classes[0]?.schoolId) || staffSchool(actor)),
+  ]);
+  const lowEngine = new Map<string, number>(); // student|key → lowest engine score
+  for (const w of weak) { const k = `${s(w.studentId)}|${book.keyOf(s(w.skillId))}`; lowEngine.set(k, Math.min(lowEngine.get(k) ?? 100, Number(w.score))); }
+  const keys = new Map<string, LearnSkill>();
+  for (const k of skills) if (!keys.has(book.keyOf(k.id))) keys.set(book.keyOf(k.id), k);
+  type Pick = { studentId: string; skill: LearnSkill; rank: number; engine: number; score: number; word: string };
+  const worst = new Map<string, Pick>();
+  for (const id of ids) for (const [key, skill] of keys) {
+    const v = book.ofKey(id, key), low = lowEngine.get(`${id}|${key}`);
+    const rank = starNeedsReview(v) ? 0 : starLearning(v) && v.needsSupport ? 1 : starLearning(v) && v.score < 60 && low !== undefined ? 2 : -1;
+    if (rank < 0) continue; // ⭐, ☆ or ◐ doing fine: not listed
+    const p: Pick = { studentId: id, skill, rank, engine: low ?? 100, score: v.score, word: starWord(v) };
+    const c = worst.get(id);
+    if (!c || p.rank < c.rank || (p.rank === c.rank && p.engine < c.engine)) worst.set(id, p);
+  }
+  if (!worst.size) return [];
   const names = await studentNames(repo, [...worst.keys()]);
-  return [...worst.values()].map((w) => {
-    const cid = s(members.find((m) => m.studentId === w.studentId)?.classId);
-    return { studentId: s(w.studentId), name: names.get(s(w.studentId))?.name ?? "Student", classId: cid, className: s(classes.find((c) => c.id === cid)?.name), skill: skills.find((k) => k.id === w.skillId)?.name ?? "", score: Math.round(Number(w.score)) };
-  }).sort((a, b) => a.score - b.score || a.name.localeCompare(b.name)).slice(0, 60);
+  return [...worst.values()].sort((a, b) => a.rank - b.rank || a.engine - b.engine).map((w) => {
+    const cid = s(members.find((m) => s(m.studentId) === w.studentId)?.classId);
+    return { studentId: w.studentId, name: names.get(w.studentId)?.name ?? "Student", classId: cid, className: s(classes.find((c) => c.id === cid)?.name), skill: w.skill.name, score: w.score, word: w.word };
+  }).slice(0, 60);
 }
 
 /** Early warning → "Send a lesson": the lesson for a (dropping / weakest) skill, by the same matching. */
@@ -105,7 +127,7 @@ export async function lessonForSkill(repo: Repo, actor: Actor, skillId: string):
 // ------------------------------------------------------------------ assign
 
 export type AssignTarget = "CLASS" | "GROUP" | "STUDENTS";
-export interface AssignInput { kind: "LESSON" | "WORDS"; ref: string; title?: string; classId: string; target: AssignTarget; groupLevel?: string | null; studentIds?: string[]; level?: number | null; dueAt?: Date | null }
+export interface AssignInput { kind: "LESSON" | "WORDS"; ref: string; title?: string; classId: string; target: AssignTarget; groupLevel?: string | null; studentIds?: string[]; level?: number | null; dueAt?: Date | null; /** r68: students see it from this day (null: at once) */ startAt?: Date | null }
 
 /**
  * Assigns a lesson (or a selection's words) to a class, a level group of it or some of its students. A student who
@@ -141,8 +163,10 @@ export async function assignLearn(repo: Repo, actor: Actor, input: AssignInput, 
   const level = input.level && input.level >= 1 && input.level <= 4 ? Math.trunc(input.level) : null;
   const open = new Set((await repo.findMany("LearnAssignee", { studentId: { in: ids }, kind, ref: input.ref, status: { in: ["NOT_STARTED", "IN_PROGRESS"] } }, { select: ["studentId"] })).map((r) => s(r.studentId)));
   const fresh = ids.filter((id) => !open.has(id));
-  const a = await repo.create("LearnAssign", { schoolId, kind, ref: input.ref, title: title.slice(0, 191), classId: klass.id, target, groupLevel, level, dueAt: input.dueAt ?? null, createdById: actor.userId, createdAt: now });
-  if (fresh.length) await repo.createMany("LearnAssignee", fresh.map((studentId) => ({ assignId: s(a.id), schoolId, studentId, kind, ref: input.ref, title: title.slice(0, 191), level, dueAt: input.dueAt ?? null, status: "NOT_STARTED", createdAt: now, updatedAt: now })));
+  if (input.startAt && input.dueAt && input.dueAt.getTime() < input.startAt.getTime()) throw new ValidationError("The end (due) date must be on or after the start date.");
+  const start = input.startAt ? { startAt: input.startAt } : {};
+  const a = await repo.create("LearnAssign", { schoolId, kind, ref: input.ref, title: title.slice(0, 191), classId: klass.id, target, groupLevel, level, dueAt: input.dueAt ?? null, ...start, createdById: actor.userId, createdAt: now });
+  if (fresh.length) await repo.createMany("LearnAssignee", fresh.map((studentId) => ({ assignId: s(a.id), schoolId, studentId, kind, ref: input.ref, title: title.slice(0, 191), level, dueAt: input.dueAt ?? null, ...start, status: "NOT_STARTED", createdAt: now, updatedAt: now })));
   await audit(repo, { actorId: actor.userId, action: "learn.assign", entityType: "LearnAssign", entityId: s(a.id), after: { kind, ref: input.ref, classId: klass.id, target, students: fresh.length }, at: now });
   return { assignId: s(a.id), students: fresh.length, already: open.size };
 }

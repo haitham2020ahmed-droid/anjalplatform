@@ -124,9 +124,9 @@
      "passage": "Early in the morning, the farm was quiet. Mona walked to the hen house. She found six brown eggs.",
      "stem": "What is the setting of this story?",
      "options": [
-      "A school at night",
-      "A beach in the evening",
-      "A shop at noon",
+      "A school at night in winter",
+      "A beach in the early evening",
+      "A shop in town at noon",
       "A farm early in the morning"
      ],
      "answer": 3,
@@ -221,9 +221,9 @@
      "passage": "Hind's family moved from a busy city to a quiet farm. At first she missed the noise of cars and the shops near her old home. But after a month, she loved waking to the sound of birds and feeding the goats before school.",
      "stem": "How does the new setting affect Hind?",
      "options": [
-      "She grows bored of the farm animals.",
-      "She wants to move back to the city at once.",
-      "She stops going to school.",
+      "She grows bored of the farm animals and the quiet days.",
+      "She wants to move back to the city at once, and she stays angry.",
+      "She stops going to school and stays in her room.",
       "She misses the city at first but grows to love the farm."
      ],
      "answer": 3,
@@ -423,7 +423,7 @@
      "Seeing what pearl diving costs leads him to choose learning instead.",
      "The hot weather makes him want to live in a cooler land.",
      "His mother forces him to stop practising diving at night.",
-     "The watchtower makes him want to become a town guard."
+     "The watchtower makes him want to become a town guard like his uncle."
     ],
     "answer": 0,
     "hint": "Is that in the text? Think about what life in this pearling town offered young men, and what Ahmad sees when his brother returns.",
@@ -453,10 +453,10 @@
      "passage": "The orchard behind the house had belonged to the family for four generations. When a company offered a large sum to buy it, everyone agreed except Grandmother, who walked between the lemon trees every evening, touching their trunks as if greeting old friends.",
      "stem": "Why does the setting create conflict in this story?",
      "options": [
-      "The lemon trees are sick and the family cannot save them.",
+      "The lemon trees are sick and the family cannot save them from the disease.",
       "The orchard means family history to Grandmother, but money to others.",
       "The company wants to plant even more lemon trees there.",
-      "Grandmother is too tired to walk in the orchard."
+      "Grandmother is too tired to walk in the orchard any more."
      ],
      "answer": 1,
      "why": "Grandmother treats the trees like old friends from four generations; the others see the sale price. The same place means different things to them."

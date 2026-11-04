@@ -8,6 +8,7 @@ import { seedQuestions } from "../src/server/seeding/questions";
 import { DEMO_SCHOOL_CODE } from "../src/server/seeding/demo";
 import { loadBank } from "../src/server/seeding/load-files";
 import { demoDatabase, ROOT } from "./helpers/db";
+import { skillKeysFor } from "../src/server/skills/status";
 
 let repo: SqliteRepo;
 let studentId: string;
@@ -69,15 +70,24 @@ describe("student learning flow", () => {
     const { cards } = await getUnitSkillCards(repo, studentId, c.units[0].unitId);
     const target = cards.find((k) => k.canPractice)!;
     await repo.upsert("StudentSkillMastery", { studentId, skillId: target.skillId }, { score: 93, band: "MASTERED", attempts: 22, correct: 18, isMastered: true, maxLevelCorrect: 6, lastPracticedAt: new Date() });
+    // ⭐ owner 1 Nov 2026: the old engine flag alone (22 answers) is NOT mastered — the star decides
+    const engineOnly = (await getUnitSkillCards(repo, studentId, c.units[0].unitId)).cards.find((k) => k.skillId === target.skillId)!;
+    assert.equal(engineOnly.isMastered, false, "no ⭐ yet: not mastered");
+    assert.notEqual(engineOnly.bandLabel, "Mastered");
+    // the student's ⭐ for the skill's key (30+ answers + mastery)
+    const st = (await repo.findUnique("Student", { id: studentId }))!;
+    const key = (await skillKeysFor(repo, String(st.schoolId), [target.skillId])).get(target.skillId)!;
+    await repo.create("SkillStatus", { studentId, skillKey: key, level: 1, status: "MASTERED", skillId: target.skillId, answered: 32, correct: 29, score: 96, masteredAt: new Date() });
     const after = (await getUnitSkillCards(repo, studentId, c.units[0].unitId)).cards.find((k) => k.skillId === target.skillId)!;
-    assert.equal(after.mastery, 93);
+    assert.equal(after.mastery, 96, "the star score");
     assert.equal(after.bandLabel, "Mastered");
+    assert.equal(after.isMastered, true);
     assert.equal(after.attempts, 22);
     assert.equal(after.accuracy, 82);
     assert.equal(after.recommended, false);
   });
 
-  test("unit progress counts Proficient-or-better skills", async () => {
+  test("unit progress counts the ⭐ skills (by key)", async () => {
     const c = await getStudentCurriculum(repo, studentId);
     assert.ok(c.units[0].proficientOrBetter >= 1 && c.units[0].mastered >= 1);
     assert.ok(c.units[0].progressPct > 0);

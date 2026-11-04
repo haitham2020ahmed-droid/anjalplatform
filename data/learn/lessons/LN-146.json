@@ -57,10 +57,10 @@
     "passage": "The teacher read this story. Noor lost her red pen at school. She looked in her bag. She looked under her desk. Then her friend Lina found it by the door and gave it back.",
     "stem": "Which is the best summary of the story?",
     "options": [
-     "Noor looked in her school bag.",
+     "Noor looked in her school bag at home.",
      "Noor lost her pen, and Lina found it.",
-     "Lina was standing by the door.",
-     "Noor had a pen that was red."
+     "Lina was standing by the door of class.",
+     "Noor had a pen that was red and new."
     ],
     "answer": 1,
     "hint": "That is just one small thing. What is the whole story about?",
@@ -88,9 +88,9 @@
      "stem": "Which is the best summary?",
      "options": [
       "Bees make honey from flower nectar.",
-      "Bees can fly to many places.",
+      "Bees can fly to many places far away.",
       "Flowers come in many colours.",
-      "A man made a video."
+      "A man made a video of the hive."
      ],
      "answer": 0,
      "why": "The video is about how bees get nectar and make honey."
@@ -99,10 +99,10 @@
      "passage": "The teacher read: Omar wanted to ride a bike. He fell many times. He kept trying. At last, he rode all the way home.",
      "stem": "Which is the best summary?",
      "options": [
-      "Omar went home after school.",
-      "Omar fell down on the road.",
+      "Omar went home after school and had his lunch.",
+      "Omar fell down on the road one day.",
       "Omar kept trying and learned to ride a bike.",
-      "Omar has a big, blue, new bike."
+      "Omar has a big, blue, new bike now."
      ],
      "answer": 2,
      "why": "The big things are: he wanted to ride, he kept trying, and he did it."
@@ -111,10 +111,10 @@
      "passage": "You heard a radio report: It will rain today. Take an umbrella. The rain will stop at night.",
      "stem": "What is the main thing the report said?",
      "options": [
-      "The night will be dark and cold.",
+      "The night will be dark and very cold.",
       "It will rain today, so take an umbrella.",
-      "Umbrellas come in many sizes.",
-      "The man on the radio is loud."
+      "Umbrellas come in many sizes and colours.",
+      "The man on the radio is very loud."
      ],
      "answer": 1,
      "why": "The report tells about the rain today and what to do about it."
@@ -205,8 +205,8 @@
      "options": [
       "The grasshopper liked to sing and play all summer long.",
       "The ant worked and was ready for winter, but the grasshopper was not.",
-      "Winter is a cold and hungry time for every animal.",
-      "The ant collected food in summer."
+      "Winter is a cold and hungry time for every animal in the forest.",
+      "The ant collected food in the summer from the fields."
      ],
      "answer": 1,
      "why": "The summary tells what both characters did and what happened in winter."
@@ -290,8 +290,8 @@
     "passage": "In a short documentary, the narrator explains how the Arabian oryx was saved. By the early 1970s, hunting had wiped out the last wild oryx. A few animals, however, still lived in zoos and private herds. Scientists bred these animals carefully until there were enough to return to the wild. The narrator mentions that the oryx's white coat reflects the sun's heat. In the 1980s and 1990s, oryx were released into protected areas, including reserves in Saudi Arabia. Today, the narrator says, the oryx is a symbol of what conservation can achieve.",
     "stem": "Which is the best summary of the documentary?",
     "options": [
-     "The oryx has a white coat that reflects the heat of the sun, which helps it stay cool in the desert.",
-     "Hunting is the biggest danger to desert animals today.",
+     "The oryx has a white coat that reflects the heat of the sun, which helps it stay cool in the desert all day.",
+     "Hunting is the biggest danger to desert animals today, and it is the main reason why so many kinds of animals have disappeared from the wild.",
      "After the oryx vanished from the wild, animals bred in captivity were returned to protected areas, showing that conservation works.",
      "Many zoos around the world keep oryx and other desert animals so that visitors can see them up close."
     ],
@@ -324,9 +324,9 @@
      "passage": "A science podcast said: Plastic in the ocean breaks into tiny pieces called microplastics. Fish and birds eat these pieces by mistake. Scientists have found microplastics even in deep-sea animals. The host suggested using fewer plastic bags and bottles to help.",
      "stem": "Which is the best summary?",
      "options": [
-      "Scientists have found plastic even inside animals that live deep in the sea.",
+      "Scientists have found plastic even inside animals that live deep in the sea, far from land.",
       "Ocean plastic breaks into tiny pieces that harm sea life, so we should use less plastic.",
-      "Birds sometimes eat fish.",
+      "Birds sometimes eat fish, and some birds fly over the sea to find them.",
       "Plastic bags and bottles are cheaper and more useful than paper ones."
      ],
      "answer": 1,
@@ -411,10 +411,10 @@
     "passage": "In a recorded talk, a city planner discusses why some neighbourhoods are hotter than others. She begins by recalling a summer evening when the pavement outside her home was still too hot to touch at ten o'clock at night. Dark roofs and wide roads, she explains, absorb sunlight all day and release heat at night. Areas with few trees have no shade to cool them. Studies she cites show that tree-lined streets can be several degrees cooler than bare ones. She argues that cities should plant trees, use light-coloured roofs and add shaded walkways. These changes, she concludes, are not decoration; they protect people's health during heatwaves.",
     "stem": "Which is the most accurate summary of the talk?",
     "options": [
-     "A planner remembers a hot evening when the pavement outside her home stayed hot until ten o'clock at night.",
-     "A planner proves that trees are the only way to cool a city, so roads should be removed.",
+     "A planner remembers a hot evening when the pavement outside her home stayed hot until ten o'clock at night, and she wished for some shade.",
+     "A planner proves that trees are the only way to cool a city, so roads should be removed to make space for more parks.",
      "A planner explains that dark surfaces and lack of trees make areas hotter, and urges cities to add trees, light roofs and shade to protect health.",
-     "A planner believes cities look more beautiful when they plant trees and build walkways."
+     "A planner believes cities look more beautiful when they plant trees and build walkways, so people will want to visit them."
     ],
     "answer": 2,
     "hint": "Is that the speaker's main claim, or an extra? Does the choice change or exaggerate what she said?",
@@ -446,9 +446,9 @@
      "stem": "Which summary is the most faithful?",
      "options": [
       "Printing made books cheap and common, helping more people read and spreading knowledge faster.",
-      "Printing was the most important invention ever made.",
+      "Printing was the most important invention ever made, and no other invention has ever come close.",
       "A historian talks about the old printed map that he owns and keeps at home.",
-      "Before printing, nobody could read."
+      "Before printing, nobody could read, so only kings and priests owned any books."
      ],
      "answer": 0,
      "why": "It keeps the claim and evidence. The others add an exaggeration, focus on an extra, or overstate the facts."
@@ -472,7 +472,7 @@
       "Foxes and beetles hunt only at night, when it is cool.",
       "Desert animals have adapted in many ways to survive harsh conditions.",
       "Deserts are lifeless at noon, when the sun is hottest.",
-      "Jerboas sleep in burrows during the heat of the day."
+      "Jerboas sleep in burrows during the heat of the day to stay cool."
      ],
      "answer": 1,
      "why": "The details about nighttime activity, burrows and water all support the conclusion about adaptation."

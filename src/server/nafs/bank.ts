@@ -20,6 +20,9 @@ import { audit } from "../audit";
 import { assertNafs, NAFS_GRADE } from "../teacher/nafs-access";
 import { passageForText } from "../admin/passages";
 import { CONTENT_SKILLS, difficultyOfLevel, difficultyOfStats, domainOf, ensureNafsFramework, isDifficulty, isMoeCode, isNafsCode, isProcess, LEVEL_OF_DIFFICULTY, MOE_STANDARDS, NAFS_SKILLS, SKILL_BY_CODE, SKILL_OF_PROCESS, STATS_MIN_ATTEMPTS, standardFor, textTypeOf, type Difficulty, type NafsDomain, type NafsProcess } from "./framework";
+import { sweptWeakMap } from "../cache/idle";
+import { modelVersion } from "../cache/bank-version";
+import { heavyBuild } from "../monitoring/memory";
 
 const s = (v: unknown) => String(v ?? "");
 const on = (v: unknown) => v === true || v === 1 || v === "1" || v === "true";
@@ -29,7 +32,7 @@ export const HOLDING_FAMILY = "nafs-section";
 export const BOOKLET_FAMILY = "nafs-booklets";
 /** The holding family of the NAFS practice sets' questions (platform content; only the NAFS center uses them). */
 export const PRACTICE_FAMILY = "nafs-practice";
-const HOLDING_FAMILIES = new Set([HOLDING_FAMILY, BOOKLET_FAMILY, PRACTICE_FAMILY]);
+export const HOLDING_FAMILIES = new Set([HOLDING_FAMILY, BOOKLET_FAMILY, PRACTICE_FAMILY]);
 /** A practice set's code (NP-001); a model booklet's is NB-001. */
 export const isPracticeSetCode = (c: unknown) => /^NP-/.test(s(c));
 export const BANK_PAGE = 20;
@@ -67,10 +70,22 @@ export interface NafsEntry {
 // ------------------------------------------------------------------ the index (cached a minute per school)
 
 const seeded = new WeakSet<object>();
-const cache = new WeakMap<object, Map<string, { at: number; entries: NafsEntry[] }>>();
-const INDEX_MS = 60_000;
+/**
+ * ⚡ r78: the school's index is kept while the tables it is built from are unchanged in this process (their write
+ * counters: any question / skill / NAFS tag edit, through ANY path, builds it again at the next read; nafsBankChanged
+ * drops it at once) and at most INDEX_MS (other processes: the jobs worker's statistics). Before r78 it was kept one
+ * minute, so nearly every click in the NAFS center read the whole linked bank again (~25 reads, ~10 000 rows).
+ * Concurrent misses share one build; a few schools at most (swept by cache/idle).
+ */
+const cache = sweptWeakMap<{ at: number; v: string; entries: NafsEntry[] }>("nafs.bank.cache", 5 * 60_000);
+const building = new WeakMap<object, Map<string, { v: string; p: Promise<NafsEntry[]> }>>();
+const INDEX_MS = 5 * 60_000; // r81: 10 → 5 minutes (512 MB plan)
+const MAX_SCHOOLS = 2; // r81: one school per server in practice (512 MB plan)
+/** The tables the index is built from (their write counters key the cache). */
+const INDEX_MODELS = ["Question", "Skill", "SkillFamily", "NafsSkillFamily", "NafsBankItem", "QuestionType", "Curriculum", "Grade"];
+const indexVersion = () => modelVersion(...INDEX_MODELS);
 /** Forget the school's index after a change (the next read builds it again). */
-export function nafsBankChanged(repo: Repo, schoolId: string): void { cache.get(repo)?.delete(schoolId); }
+export function nafsBankChanged(repo: Repo, schoolId: string): void { cache.get(repo)?.delete(schoolId); building.get(repo)?.delete(schoolId); }
 
 export async function ensureFramework(repo: Repo): Promise<void> {
   if (seeded.has(repo)) return;
@@ -80,9 +95,40 @@ export async function ensureFramework(repo: Repo): Promise<void> {
 
 /** Every NAFS question of the school (hidden and drafts included, flagged). */
 export async function nafsIndex(repo: Repo, schoolId: string, now = Date.now()): Promise<NafsEntry[]> {
+  const v = indexVersion();
   const hit = cache.get(repo)?.get(schoolId);
-  if (hit && now - hit.at < INDEX_MS) return hit.entries;
+  if (hit && hit.v === v && now - hit.at < INDEX_MS) return hit.entries;
+  let b = building.get(repo);
+  if (!b) { b = new Map(); building.set(repo, b); }
+  const busy = b.get(schoolId);
+  if (busy && busy.v === v) return busy.p;
+  // r84: a big build — one at a time with the other big builds of this process (monitoring/memory.ts heavyBuild)
+  const p: Promise<NafsEntry[]> = heavyBuild(() => buildIndex(repo, schoolId)).then((entries) => {
+    let m = cache.get(repo);
+    if (!m) { m = new Map(); cache.set(repo, m); }
+    m.delete(schoolId);
+    m.set(schoolId, { at: now, v, entries });
+    while (m.size > MAX_SCHOOLS) m.delete(m.keys().next().value as string);
+    return entries;
+  }).finally(() => { if (b!.get(schoolId)?.p === p) b!.delete(schoolId); });
+  b.set(schoolId, { v, p });
+  return p;
+}
+
+/**
+ * 🧠 r84 memory: the index is light — ids, codes, flags and numbers only (never a stem, an option or a passage: those
+ * are read for the rows actually shown, loadNafsQuestions). The codes, processes, standards, set codes and passage ids
+ * repeat thousands of times: one shared copy of each (the database driver makes a new string for every row).
+ */
+function interner(): (v: string | null) => string | null {
+  const seen = new Map<string, string>();
+  return (v) => { if (v === null) return null; const h = seen.get(v); if (h !== undefined) return h; seen.set(v, v); return v; };
+}
+
+async function buildIndex(repo: Repo, schoolId: string): Promise<NafsEntry[]> {
   await ensureFramework(repo);
+  const one = interner();
+  const shared = <T extends string | null>(v: T): T => one(v) as T;
   const [links, fams, mc, grades, items] = await Promise.all([
     repo.findMany("NafsSkillFamily", {}, { select: ["nafsCode", "familyId", "source"] }),
     repo.findMany("SkillFamily", {}, { select: ["id", "code", "category"] }),
@@ -128,11 +174,12 @@ export async function nafsIndex(repo: Repo, schoolId: string, now = Date.now()):
     const code = isNafsCode(it?.nafsCode) && domainOf(s(it?.nafsCode)) !== "PIRLS" ? s(it?.nafsCode) : firstContent ?? (fromProcess ? SKILL_OF_PROCESS[fromProcess] : null);
     if (!code) continue;
     const process = isProcess(it?.process) ? (s(it?.process) as NafsProcess) : fromProcess ?? SKILL_BY_CODE.get(code)!.process;
-    out.push({ id: s(q.id), nafsCode: code, process, domain: domainOf(code), passageId: q.passageId ? s(q.passageId) : null, own: false, hidden: on(it?.hidden), draft: false, copyOfId: null, cat: catOf.get(fam) ?? null, standard: standardFor(it?.standard, code, s(q.stem)), kind: "MCQ", booklet: null, bookletN: null, practiceSet: null, difficulty: diffOf(it, q) });
+    out.push({ id: s(q.id), nafsCode: shared(code), process: shared(process), domain: domainOf(code), passageId: shared(q.passageId ? s(q.passageId) : null), own: false, hidden: on(it?.hidden), draft: false, copyOfId: null, cat: catOf.get(fam) ?? null, standard: shared(standardFor(it?.standard, code, s(q.stem))), kind: "MCQ", booklet: null, bookletN: null, practiceSet: null, difficulty: diffOf(it, q) });
   }
   // the school's own questions and the NAFS model booklets' questions (platform content, loaded for the school)
   const own = items.filter((x) => on(x.own) || x.booklet);
-  const ownQs = own.length ? await inBatches(own.map((x) => s(x.questionId)), 400, (c) => repo.findMany("Question", { id: { in: c }, deletedAt: null }, { select: ["id", "passageId", "typeId", "stem", "difficultyLevel"] })) : [];
+  // (r78: 1000 ids a read — the ~4 500 booklet and practice-set questions in 5 reads, not 12)
+  const ownQs = own.length ? await inBatches(own.map((x) => s(x.questionId)), 1000, (c) => repo.findMany("Question", { id: { in: c }, deletedAt: null }, { select: ["id", "passageId", "typeId", "stem", "difficultyLevel"] })) : [];
   const ownQ = new Map(ownQs.map((q) => [s(q.id), q]));
   for (const it of own) {
     const q = ownQ.get(s(it.questionId));
@@ -142,16 +189,12 @@ export async function nafsIndex(repo: Repo, schoolId: string, now = Date.now()):
     const set = from && isPracticeSetCode(from) ? from : null;
     const booklet = from && !set ? from : null;
     out.push({
-      id: s(q.id), nafsCode: code, process: isProcess(it.process) ? (s(it.process) as NafsProcess) : SKILL_BY_CODE.get(code)!.process, domain: domainOf(code), passageId: q.passageId ? s(q.passageId) : null,
+      id: s(q.id), nafsCode: shared(code), process: shared(isProcess(it.process) ? (s(it.process) as NafsProcess) : SKILL_BY_CODE.get(code)!.process), domain: domainOf(code), passageId: shared(q.passageId ? s(q.passageId) : null),
       own: !from, hidden: on(it.hidden), draft: on(it.draft), copyOfId: it.copyOfId ? s(it.copyOfId) : null, cat: null,
-      standard: standardFor(it.standard, code, s(q.stem)), kind: kindOf(q.typeId), booklet, bookletN: from && it.bookletN !== null && it.bookletN !== undefined ? Number(it.bookletN) : null,
-      practiceSet: set, difficulty: isDifficulty(Number(it.difficulty)) ? (Number(it.difficulty) as Difficulty) : difficultyOfLevel(q.difficultyLevel),
+      standard: shared(standardFor(it.standard, code, s(q.stem))), kind: kindOf(q.typeId), booklet: shared(booklet), bookletN: from && it.bookletN !== null && it.bookletN !== undefined ? Number(it.bookletN) : null,
+      practiceSet: shared(set), difficulty: isDifficulty(Number(it.difficulty)) ? (Number(it.difficulty) as Difficulty) : difficultyOfLevel(q.difficultyLevel),
     });
   }
-  let m = cache.get(repo);
-  if (!m) { m = new Map(); cache.set(repo, m); }
-  if (m.size > 50) m.clear();
-  m.set(schoolId, { at: now, entries: out });
   return out;
 }
 
@@ -412,6 +455,66 @@ export async function holdingSkill(repo: Repo, schoolId: string, family: string 
   const about = family === BOOKLET_FAMILY ? "The NAFS model booklets' questions (NAFS section). Not practised." : family === PRACTICE_FAMILY ? "The NAFS practice sets' questions (NAFS center only). Not practised elsewhere." : "The school's own NAFS questions (NAFS section). Not practised.";
   const k = await repo.create("Skill", { curriculumId: cur.id, familyId: fam.id, code, name, description: about, domain: "READING", category: "COMPREHENSION", sequence: 9999, isActive: false });
   return s(k.id);
+}
+
+/**
+ * The ids of this school's NAFS holding skills (model booklets / practice sets / the section's own-question skill)
+ * that already exist — a pure lookup, never creating one (unlike holdingSkill above). Every Question filed under
+ * one of these is platform/section content that was explicitly designed to never be practised directly by a
+ * student; a bug could still leave a stray real-looking SkillStatus row on one of them (see syncNafsPracticeStars
+ * and healHoldingSkillStatus below), and this is how both the leak-prevention and the self-heal recognise them.
+ */
+export async function existingHoldingSkillIds(repo: Repo, schoolId: string): Promise<Set<string>> {
+  const grade = (await repo.findMany("Grade", { schoolId, level: NAFS_GRADE }, { select: ["id"] }))[0] ?? (await repo.findMany("Grade", { schoolId }, { select: ["id"], orderBy: [{ field: "level", dir: "desc" }], take: 1 }))[0];
+  if (!grade) return new Set();
+  const cur = (await repo.findMany("Curriculum", { gradeId: grade.id }, { select: ["id"], take: 1 }))[0];
+  if (!cur) return new Set();
+  const codes = [...HOLDING_FAMILIES].map((f) => `G${NAFS_GRADE}.${f}`);
+  const rows = await repo.findMany("Skill", { curriculumId: cur.id, code: { in: codes } }, { select: ["id"] });
+  return new Set(rows.map((r) => s(r.id)));
+}
+
+/**
+ * Self-heal for the NAFS holding-skill leak (syncNafsPracticeStars used to call refreshSkillStatus directly on a
+ * holding skill's id, creating a real-looking SkillStatus row on a skill that was designed to be invisible — see
+ * that function and mapPracticeSkills). This sandbox has no connection to the production database, so there is no
+ * one-off SQL/migration script to clean up rows that already exist there; instead, this runs lazily, for ONE
+ * student at a time, wherever that student's own SkillStatus rows are naturally read (their Skills page, their MAP
+ * page) — every normal visit quietly removes that student's own stray rows, with no bulk/global operation needed.
+ * Conservative by design: it only ever deletes a row whose skillId is EXACTLY one of the holding ids above, never
+ * any other skill, so it can never touch legitimate data even if called on every read.
+ */
+export async function healHoldingSkillStatus(repo: Repo, schoolId: string, rows: readonly Row[]): Promise<Row[]> {
+  const holding = await existingHoldingSkillIds(repo, schoolId);
+  if (!holding.size) return [...rows];
+  const bad = rows.filter((r) => r.skillId && holding.has(s(r.skillId)));
+  if (bad.length) await Promise.all(bad.map((r) => repo.deleteMany("SkillStatus", { id: r.id }).catch(() => undefined)));
+  return rows.filter((r) => !(r.skillId && holding.has(s(r.skillId))));
+}
+
+/**
+ * Per-answer freshness (Oct 2026): a NAFS practice answer never used to trigger a skill-status refresh at all — the
+ * only trigger was syncNafsPracticeStars (my-skills.ts), which runs lazily when the student opens My Skills (a
+ * 12-skill batch over the last 30 days). Reports (teacher/admin/family) read the stored SkillStatus directly, so a
+ * student who practises NAFS but never opens My Skills showed stale status there despite real practice having
+ * happened. This closes that gap for ONE skill at a time — the skill of the question just answered, nothing more —
+ * WITHOUT reviving the leak syncNafsPracticeStars itself used to have (see healHoldingSkillStatus above): a
+ * question's skillId that is one of this school's NAFS holding ids is never passed to refreshSkillStatus at all, so
+ * this can never create the stray row that function heals. The caller (nafs/practice.ts answerNafsPractice) runs
+ * this fire-and-forget, after the response, mirroring practice/session.ts's queueAfterAnswer — this function itself
+ * does no scheduling and is a plain, bounded, best-effort read-then-write of exactly one skill.
+ */
+export async function syncSkillAfterNafsAnswer(repo: Repo, studentId: string, questionId: string, now = new Date()): Promise<void> {
+  try {
+    const q = await repo.findUnique("Question", { id: questionId });
+    const skillId = q ? s(q.skillId) : "";
+    if (!skillId) return;
+    const { studentSchool, refreshSkillStatus } = await import("../skills/status");
+    const schoolId = await studentSchool(repo, studentId);
+    if (!schoolId) return;
+    if ((await existingHoldingSkillIds(repo, schoolId)).has(skillId)) return; // never a real status row on a holding skill
+    await refreshSkillStatus(repo, studentId, skillId, now, { schoolId });
+  } catch { /* best-effort: the next answer, or the next My Skills visit, catches it up */ }
 }
 
 /** Writes a question's content (new: on the holding skill; existing: in place). WRITTEN questions have no options. */

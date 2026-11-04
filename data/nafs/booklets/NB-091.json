@@ -173,10 +173,10 @@
       "type": "MCQ",
       "stem": "What is the main purpose of the passage?",
       "options": [
-        "to warn readers never to touch mould",
-        "to describe what soldiers ate in wartime",
+        "to warn readers never to touch mould on bread or fruit",
+        "to describe what soldiers ate in wartime and in camps",
         "to explain how penicillin was discovered and developed",
-        "to compare London and Oxford as cities"
+        "to compare London and Oxford as cities for science"
       ],
       "answer": "C",
       "why": "It follows penicillin from Fleming's dish to mass production and the Nobel Prize."
@@ -189,10 +189,10 @@
       "type": "MCQ",
       "stem": "What is the main idea of paragraph 3?",
       "options": [
-        "Fleming enjoyed working in hospitals in France more than in London.",
-        "Most soldiers in the First World War had no injuries at all.",
+        "Fleming enjoyed working in hospitals in France more than in London, and he stayed there.",
+        "Most soldiers in the First World War had no injuries at all, and few fell ill.",
         "War experiences made Fleming determined to find a safer way to fight infection.",
-        "Chemicals were the best way to clean deep wounds in wartime."
+        "Chemicals were the best way to clean deep wounds in wartime, as doctors said."
       ],
       "answer": "C",
       "why": "Paragraph 3 describes what he saw in military hospitals and ends: “he became determined to find a safer way to fight infection.”"
@@ -206,9 +206,9 @@
       "stem": "According to paragraph 3, why did many soldiers die?",
       "options": [
         "from infected wounds, not from the injuries themselves",
-        "from the cold weather in France",
-        "because there were no doctors in France",
-        "because they refused to be treated"
+        "from the cold weather in France in the winter",
+        "because there were no doctors in France at the time",
+        "because they refused to be treated by the nurses"
       ],
       "answer": "A",
       "why": "“Many soldiers died from infected wounds rather than from the injuries themselves.”"
@@ -221,10 +221,10 @@
       "type": "MCQ",
       "stem": "Why did Fleming's discovery attract little attention for about ten years?",
       "options": [
-        "He kept his results secret until 1939.",
+        "He kept his results secret until 1939 and told no one.",
         "He could not produce enough pure penicillin to treat patients.",
-        "Other scientists did not believe in bacteria.",
-        "The mould died soon after he found it."
+        "Other scientists did not believe in bacteria at that time.",
+        "The mould died soon after he found it in his dish."
       ],
       "answer": "B",
       "why": "Paragraph 4: “he could not produce enough pure penicillin to treat patients, and for about ten years his discovery attracted little attention.”"
@@ -253,9 +253,9 @@
       "type": "MCQ",
       "stem": "Which of these events happened LAST?",
       "options": [
-        "Florey and Chain read Fleming's report.",
-        "Fleming served as a doctor in France.",
-        "Fleming noticed the mould on a dish.",
+        "Florey and Chain read Fleming's report in Oxford.",
+        "Fleming served as a doctor in France in the war.",
+        "Fleming noticed the mould on a dish in his lab.",
         "Fleming, Florey and Chain shared the Nobel Prize."
       ],
       "answer": "D",
@@ -365,10 +365,10 @@
       "type": "MCQ",
       "stem": "According to paragraph 3, what was the effect of the chemicals used to clean deep wounds?",
       "options": [
-        "They healed the wounds within a single day.",
-        "They turned the wounds a blue-green colour.",
+        "They healed the wounds within a single day or two, and left no mark.",
+        "They turned the wounds a blue-green colour in about a week or so.",
         "They often harmed the body's defences more than the bacteria.",
-        "They helped Fleming discover penicillin."
+        "They helped Fleming discover penicillin in his small laboratory room."
       ],
       "answer": "C",
       "why": "Fleming “discovered that the chemicals … often harmed the body's own defences more than they harmed the bacteria.”"
@@ -381,10 +381,10 @@
       "type": "MCQ",
       "stem": "What do the wartime chemicals in paragraph 3 and the careless use of penicillin in paragraph 6 have in common?",
       "options": [
-        "Both were invented by Fleming himself.",
-        "Both were first used at Oxford.",
+        "Both were invented by Fleming himself in his lab.",
+        "Both were first used at Oxford in a small hospital.",
         "Both can make the fight against bacteria harder.",
-        "Both can only be used on soldiers."
+        "Both can only be used on soldiers in a war."
       ],
       "answer": "C",
       "why": "The chemicals harmed the body's defences, and careless use of penicillin can make bacteria resistant."
@@ -445,10 +445,10 @@
       "type": "MCQ",
       "stem": "Which statement best reflects the writer's view about who deserves credit for penicillin?",
       "options": [
-        "Only Fleming deserves any credit.",
+        "Only Fleming deserves any credit for the medicine.",
         "Fleming and the Oxford team all deserve credit.",
-        "Only Florey and Chain deserve credit.",
-        "The factories deserve all the credit."
+        "Only Florey and Chain deserve credit for the drug.",
+        "The factories deserve all the credit for saving soldiers."
       ],
       "answer": "B",
       "why": "The writer says Fleming “never claimed all the credit” and that discoveries become useful “when many people work together.”"
@@ -525,10 +525,10 @@
       "type": "MCQ",
       "stem": "Which title best describes the events of the passage?",
       "options": [
-        "The Scientist Who Hated Holidays",
+        "The Scientist Who Hated Holidays and Rest in Spring",
         "From a Forgotten Dish to a Life-Saving Medicine",
-        "Soldiers of the Second World War",
-        "A Clerk in a Shipping Office"
+        "Soldiers of the Second World War in France and Britain",
+        "A Clerk in a Shipping Office in London in the 1920s"
       ],
       "answer": "B",
       "why": "It sums up the journey from the dish Fleming noticed to the medicine produced in factories."

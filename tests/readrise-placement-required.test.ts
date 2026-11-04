@@ -104,7 +104,7 @@ describe("🎯 ReadRise: a level only after the placement test", () => {
     for (let i = 0; i < 10; i++) {
       v = await placementView(repo, s, PASSAGES);
       if (v.state !== "IN_PROGRESS") break;
-      const a = await answerPlacement(repo, s, pid, v.passage!.id, i % 2 ? ["A", "B", "B"] : ["A", "A", "A"], PASSAGES, NOW);
+      const a = await answerPlacement(repo, s, pid, v.passage!.id, i % 2 ? ["A", "B", "B"] : ["A", "A", "A"], PASSAGES, new Date(NOW.getTime() + (i + 1) * 60_000)); // round 4: a passage takes real time (a 0-second answer is a rapid guess)
       if (a.done) break;
     }
     const row = (await repo.findUnique("RRStudent", { studentId: sid }))!;

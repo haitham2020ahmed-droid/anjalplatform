@@ -83,10 +83,10 @@
     "passage": "Some birds have long, thin beaks. They push their beaks deep into flowers. They drink the sweet nectar inside. Other birds have short, strong beaks.",
     "stem": "What can you infer about long, thin beaks?",
     "options": [
-     "They help birds crack hard nuts.",
+     "They help birds crack hard nuts and seeds open.",
      "They help birds reach food deep inside flowers.",
-     "They help birds build nests.",
-     "They help birds sing."
+     "They help birds build nests in tall trees.",
+     "They help birds sing loud morning songs."
     ],
     "answer": 1,
     "hint": "The text tells what the long beaks go into. What do they get from there?",
@@ -112,10 +112,10 @@
      "passage": "Cactus plants have thick stems. The stems store water. Cactus plants have sharp spines instead of leaves.",
      "stem": "What can you infer about where cactus plants grow?",
      "options": [
-      "In very wet places",
-      "Under the sea",
+      "In very wet places with much rain",
+      "Under the sea, deep in the water",
       "In dry places with little rain",
-      "In cold, snowy places"
+      "In cold, snowy places in the north"
      ],
      "answer": 2,
      "why": "Storing water is useful where there is little rain. So cactus plants grow in dry places."
@@ -136,9 +136,9 @@
      "passage": "Many people stood in a long line outside the new bakery. Some people waited for an hour.",
      "stem": "What can you infer about the bakery?",
      "options": [
-      "It is closed.",
-      "It sells only shoes.",
-      "No one likes it.",
+      "It is closed on Fridays.",
+      "It sells only shoes and bags.",
+      "No one likes it very much.",
       "Many people want to try it."
      ],
      "answer": 3,
@@ -222,9 +222,9 @@
      "stem": "What can you infer about the fishing trip?",
      "options": [
       "He caught a lot of fish.",
-      "He caught nothing.",
-      "His boat was broken.",
-      "His sons were angry."
+      "He caught nothing at all.",
+      "His boat was old and broken.",
+      "His sons were angry with him."
      ],
      "answer": 0,
      "why": "A boat sitting low, a smile and a call for more baskets suggest a big catch."
@@ -331,10 +331,10 @@
      "passage": "Before the race, Huda checked her shoelaces three times. She bounced on her toes and kept glancing at the other runners. When her name was called, she took a deep breath.",
      "stem": "Which detail BEST supports the inference that Huda was nervous?",
      "options": [
-      "Her name was called.",
+      "Her name was called by the teacher.",
       "She checked her shoelaces three times.",
-      "There were other runners.",
-      "It was a race."
+      "There were other runners in the race.",
+      "It was a race for the school."
      ],
      "answer": 1,
      "why": "Checking her laces again and again is a nervous habit, so it supports the inference."
@@ -355,9 +355,9 @@
      "passage": "In her diary, the explorer wrote that she had eaten nothing but dry bread for four days. Yet each page ended with notes about the birds she had seen and drawings of their nests.",
      "stem": "Which inference do the details best support?",
      "options": [
-      "She did not like birds.",
-      "She had plenty of food.",
-      "She stopped writing in her diary.",
+      "She did not like birds, and she never watched them.",
+      "She had plenty of food and water every day.",
+      "She stopped writing in her diary because of the cold.",
       "Her interest in her work kept her going in hard times."
      ],
      "answer": 3,
@@ -410,10 +410,10 @@
     "passage": "Monarch butterflies in North America travel up to 4,000 kilometres each autumn to spend the winter in mountain forests in Mexico. They depend on milkweed, the only plant on which they lay their eggs and the only food their caterpillars eat. Over recent decades, large areas of milkweed have been cleared to make way for farms and roads. During the same period, the number of monarchs reaching Mexico has dropped sharply. Some communities now plant milkweed in gardens and along highways.",
     "stem": "Which inference is best supported by the passage?",
     "options": [
-     "Monarch butterflies no longer travel to Mexico.",
+     "Monarch butterflies no longer travel to Mexico in the winter, so they stay in Canada.",
      "The loss of milkweed has likely contributed to the drop in monarch numbers.",
-     "Farms and roads help monarchs find food.",
-     "Planting milkweed will certainly save every monarch."
+     "Farms and roads help monarchs find food along their long trip.",
+     "Planting milkweed will certainly save every monarch from disappearing."
     ],
     "answer": 1,
     "hint": "Which facts are connected: what monarchs need, what has been cleared, and what has happened to their numbers?",
@@ -442,8 +442,8 @@
      "stem": "Which inference is best supported?",
      "options": [
       "Morning exercise may help students focus in class.",
-      "Cars make students less intelligent.",
-      "All students must cycle to school.",
+      "Cars make students less intelligent over time.",
+      "All students must cycle to school every day.",
       "Concentration only matters in the morning."
      ],
      "answer": 0,
@@ -465,9 +465,9 @@
      "passage": "Ancient coins from the Roman Empire have been found in southern India. Roman writers also described buying pepper and other spices from distant eastern lands.",
      "stem": "What can be inferred from these two pieces of evidence?",
      "options": [
-      "Roman soldiers lived in India.",
-      "India made coins for Rome.",
-      "Pepper grew in Rome.",
+      "Roman soldiers lived in India for many years.",
+      "India made coins for Rome and sent them by ship.",
+      "Pepper grew in Rome in large gardens near the city.",
       "Rome traded with India, likely paying coins for spices."
      ],
      "answer": 3,

@@ -110,9 +110,9 @@
      "passage": "A poem about rain.",
      "stem": "Which line helps you HEAR the rain?",
      "options": [
-      "It is rain today.",
-      "Rain is wet and grey.",
-      "It was a long day.",
+      "It is rain all day today.",
+      "Rain is wet and grey outside.",
+      "It was a long day at school.",
       "Drip, drop, drip on the roof."
      ],
      "answer": 3,
@@ -200,7 +200,7 @@
      "options": [
       "The beach was very nice and fun.",
       "Waves crash and children shout with joy.",
-      "It was a good beach day for us.",
+      "It was a good beach day for all of us.",
       "We went to the beach after school."
      ],
      "answer": 1,
@@ -211,9 +211,9 @@
      "stem": "Which ending makes a simile?",
      "options": [
       "dark and big",
-      "very dark",
+      "very dark night",
       "as dark as ink",
-      "blue"
+      "blue and big"
      ],
      "answer": 2,
      "why": "It uses as… as to compare the sky to ink."
@@ -398,10 +398,10 @@
     "passage": "In the city, the towers rise like glass mountains,\nand cars stream past like rivers without end.\nHorns argue at every crossing.\nScreens glow on every corner,\nand no one looks up.\nBut on my grandmother's rooftop,\nwe lie on a rug and count the stars,\nwhile she names each one softly,\nand the noise below\nbecomes a distant sea.",
     "stem": "Which statement best expresses the poem's theme?",
     "options": [
-     "Cities are the most beautiful places on Earth.",
+     "Cities are the most beautiful places on Earth, and everyone should move to live in them.",
      "Even in a busy, noisy world, people can find calm and wonder in quiet moments together.",
-     "Cars and screens are dangerous.",
-     "Rooftops are the best place to build a house."
+     "Cars and screens are dangerous, so people should stay far away from them.",
+     "Rooftops are the best place to build a house, because the view is better."
     ],
     "answer": 1,
     "hint": "Compare the city lines before But with the rooftop lines after it.",
@@ -461,7 +461,7 @@
      "stem": "Which theme does the shift from Once to Now suggest?",
      "options": [
       "Rivers are always loud and full of life.",
-      "Children enjoy asking adults many questions.",
+      "Children enjoy asking adults many questions about rivers.",
       "Villages should always be built near rivers.",
       "Loss of nature changes life for future generations."
      ],

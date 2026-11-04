@@ -6,10 +6,11 @@
  * stored per word of `speechWords(text)`, so both sides also split words the same way.
  */
 import { plainPassage } from "../passage";
+import { stripMarks } from "../inline-marks";
 
-/** The text that is spoken: blanks ("____") are read as "blank", spaces collapsed. */
+/** The text that is spoken: emphasis marks (<u>, **…**) removed, blanks ("____") read as "blank", spaces collapsed. */
 export function normalizeSpeech(raw: string): string {
-  return String(raw ?? "").replace(/_{3,}/g, " blank ").replace(/\s+/g, " ").trim();
+  return stripMarks(String(raw ?? "")).replace(/_{3,}/g, " blank ").replace(/\s+/g, " ").trim();
 }
 
 /** What the reading pages speak for a passage or article: its title, then the plain text. */

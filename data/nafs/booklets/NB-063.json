@@ -253,9 +253,9 @@
       "type": "MCQ",
       "stem": "In paragraph 4, what happened AFTER George de Mestral examined the burrs under a microscope?",
       "options": [
-        "He went for a walk with his dog.",
-        "He noticed burrs stuck to his dog.",
-        "He planted the burrs in his garden.",
+        "He went for a walk with his dog in the woods near his house.",
+        "He noticed burrs stuck to his dog's thick fur on that day.",
+        "He planted the burrs in his garden at home to see them grow.",
         "His observations later inspired the invention of Velcro."
       ],
       "answer": "D",
@@ -270,9 +270,9 @@
       "stem": "Which detail must be considered to understand why some seeds land “in a convenient supply of natural fertilizer”?",
       "options": [
         "The seeds pass through animals' bodies after the fruit is eaten.",
-        "The seeds are covered in tiny hooks.",
-        "The seeds are wrapped in a husk full of air.",
-        "The seeds are shot out in a sticky jet."
+        "The seeds are covered in tiny hooks that catch on the fur of animals.",
+        "The seeds are wrapped in a husk full of air and cork that floats.",
+        "The seeds are shot out in a sticky jet from the pod to the ground."
       ],
       "answer": "A",
       "why": "Seeds inside eaten fruit pass through the animal and land in its droppings, which act as fertilizer."
@@ -334,9 +334,9 @@
       "stem": "Why does the writer say animals carry seeds “usually without realizing it”?",
       "options": [
         "Animals do not know they are spreading seeds stuck to them or eaten in fruit.",
-        "Animals carry seeds on purpose to plant gardens.",
-        "Animals cannot see small seeds.",
-        "Animals refuse to eat fruit that contains seeds."
+        "Animals carry seeds on purpose to plant their own gardens for later in the year.",
+        "Animals cannot see small seeds that are stuck to their fur or their feet.",
+        "Animals refuse to eat any fruit that contains seeds inside it at all."
       ],
       "answer": "A",
       "why": "Seeds cling to fur or pass through animals' bodies, so the animals help without intending to."
@@ -365,10 +365,10 @@
       "type": "MCQ",
       "stem": "What do the coconut and the maple seed have in common?",
       "options": [
-        "Both are covered in tiny hooks.",
+        "Both are covered in tiny hooks that stick to the fur of animals and clothes.",
         "Both have a special design that helps them travel away from the parent.",
-        "Both burst out of dry pods.",
-        "Both grow only on remote islands."
+        "Both burst out of dry pods when they are ripe and the sun is hot.",
+        "Both grow only on remote islands in the sea, far from any land."
       ],
       "answer": "B",
       "why": "The coconut's air-filled husk lets it float, and the maple's wing lets it spin and drift; both designs help them travel."
@@ -381,9 +381,9 @@
       "type": "MCQ",
       "stem": "What is the effect of spreading seeds widely, according to paragraph 6?",
       "options": [
-        "Plants produce fewer seeds but larger fruit.",
-        "Plants no longer need sunlight or water.",
-        "Young plants grow closer to their parents.",
+        "Plants produce fewer seeds but larger fruit, so the young grow bigger.",
+        "Plants no longer need sunlight or water to live, if the seeds spread far.",
+        "Young plants grow closer to their parents, where the soil is the same.",
         "Competition is reduced and more offspring may find suitable conditions."
       ],
       "answer": "D",
@@ -397,10 +397,10 @@
       "type": "MCQ",
       "stem": "The writer calls seeds “one of nature's cleverest travellers”. What does this expression suggest?",
       "options": [
-        "Seeds can think and choose where to go.",
+        "Seeds can think and choose where to go in the world, like animals can.",
         "Seeds move in surprising, well-designed ways even though plants cannot walk.",
-        "Seeds travel more slowly than animals.",
-        "Seeds always reach the place they aim for."
+        "Seeds travel more slowly than animals do, because they have no legs.",
+        "Seeds always reach the place they aim for, since they plan the way."
       ],
       "answer": "B",
       "why": "Seeds cannot think; the expression praises the clever designs that carry them far from home."
@@ -429,10 +429,10 @@
       "type": "MCQ",
       "stem": "In your opinion, why does the writer begin the text with “A plant cannot walk”?",
       "options": [
-        "to explain that plants are weaker than animals",
+        "to explain that plants are weaker than animals in every way that matters",
         "to make readers wonder how something that cannot move manages to travel",
-        "to tell readers that plants do not need to spread",
-        "to begin a story about a walking plant"
+        "to tell readers that plants do not need to spread their seeds at all",
+        "to begin a story about a plant that walks across the land to find water"
       ],
       "answer": "B",
       "why": "The surprising contrast hooks readers before the writer explains the methods of seed dispersal."
@@ -446,9 +446,9 @@
       "stem": "In your opinion, which example from the text is MOST useful in showing how studying nature can help people?",
       "options": [
         "George de Mestral's study of burrs that led to Velcro",
-        "the dandelion's feathery parachute",
-        "coconuts drifting for months on the sea",
-        "the squirting cucumber's sticky jet"
+        "the dandelion's feathery parachute that carries its seeds",
+        "coconuts drifting for months on the sea to far islands",
+        "the squirting cucumber's sticky jet of seeds"
       ],
       "answer": "A",
       "why": "Only the burr example shows people turning an observation of nature into a useful invention."
@@ -494,9 +494,9 @@
       "stem": "In your opinion, which information in the text is the LEAST clear?",
       "options": [
         "how far a dandelion seed can usually travel",
-        "what a coconut's husk is full of",
-        "what Velcro was inspired by",
-        "where the squirting cucumber grows"
+        "what a coconut's husk is full of, such as air",
+        "what Velcro was inspired by in the woods",
+        "where the squirting cucumber grows in the wild"
       ],
       "answer": "A",
       "why": "The writer says a breeze can lift it “high” but gives no distance; the other facts are stated."
@@ -556,10 +556,10 @@
       "type": "MCQ",
       "stem": "Based on the text, how could a gardener help seeds of a crowded plant grow well?",
       "options": [
-        "Leave all the seeds under the parent plant.",
+        "Leave all the seeds under the parent plant in the same spot.",
         "Spread the seeds in open places with sunlight and space.",
-        "Keep the seeds in a dark box for many years.",
-        "Plant every seed in the same small pot."
+        "Keep the seeds in a dark box for many years before planting.",
+        "Plant every seed in the same small pot together."
       ],
       "answer": "B",
       "why": "The text shows that seeds grow best away from the parent, where there is less competition for sunlight, water and nutrients."

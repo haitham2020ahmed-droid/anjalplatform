@@ -11,8 +11,9 @@ import { assertCan, can, ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
 import { audit } from "../audit";
 import { BANDS, LEVEL_TOLERANCE, type ArticleJson, type BandJson } from "./import";
-import { targetWords, type RRBand } from "./level";
+import { LIBRARY_LEVELS, targetWords, type RRBand } from "./level";
 import { modelVersion } from "../cache/bank-version";
+import { sweptWeakValue } from "../cache/idle";
 
 export const HIDDEN_KEY = "readrise.hidden";
 const s = (v: unknown) => String(v ?? "");
@@ -72,7 +73,7 @@ async function versionStats(repo: Repo, ids: string[]): Promise<VersionStats> {
   return out;
 }
 
-const platformCache = new WeakMap<object, { v: string; at: number; p: Promise<{ rows: Row[]; stats: VersionStats }> }>();
+const platformCache = sweptWeakValue<{ v: string; at: number; p: Promise<{ rows: Row[]; stats: VersionStats }> }>("readrise.library.platformCache", 2 * 60_000);
 /**
  * ⚡ The platform library's list rows and version stats: the same for every school, so kept in memory per data
  * source until a write to RRArticle / RRVersion in this process (import, publish, delete, a new library file) and for
@@ -125,7 +126,7 @@ export interface ArticleDetail {
   bands: Record<RRBand, {
     keyWords: { word: string; partOfSpeech?: string; definition: string; example: string }[];
     questions: { id: string; number: number; stem: string; options: string[]; answer: string; skill: string; rationale: Record<string, string> | null }[];
-    prompt: string; checklist: string[];
+    prompt: string; checklist: string[]; modelAnswer: string | null;
   }>;
 }
 
@@ -135,7 +136,7 @@ async function loadArticle(repo: Repo, id: string): Promise<Row> {
   return a;
 }
 
-/** One article with all 12 versions, key words, questions and prompts per band. */
+/** One article with all {@link LIBRARY_LEVELS}.length (14) versions, key words, questions and prompts per band. */
 export async function articleDetail(repo: Repo, actor: Actor, id: string): Promise<ArticleDetail> {
   const a = await loadArticle(repo, id);
   const hidden = await hiddenArticleIds(repo, actor.schoolId);
@@ -150,7 +151,7 @@ export async function articleDetail(repo: Repo, actor: Actor, id: string): Promi
       questions: questions.filter((q) => q.band === b).sort((x, y) => Number(x.number) - Number(y.number)).map((q) => ({
         id: s(q.id), number: Number(q.number), stem: s(q.stem), options: json(q.options, [] as string[]), answer: s(q.answer), skill: s(q.skill), rationale: json(q.rationale, null as Record<string, string> | null),
       })),
-      prompt: s(p?.prompt), checklist: json(p?.checklist, [] as string[]),
+      prompt: s(p?.prompt), checklist: json(p?.checklist, [] as string[]), modelAnswer: p?.modelAnswer ? s(p.modelAnswer) : null,
     }];
   })) as ArticleDetail["bands"];
   const manage = canManage(actor, a);
@@ -175,7 +176,10 @@ export async function setArticleStatus(repo: Repo, actor: Actor, id: string, sta
   if (status !== "DRAFT" && status !== "PUBLISHED") throw new ValidationError("Unknown status.");
   if (status === "PUBLISHED") {
     const [v, q, p] = await Promise.all([repo.count("RRVersion", { articleId: id }), repo.count("RRQuestion", { articleId: id }), repo.count("RRPrompt", { articleId: id })]);
-    if (v !== 12 || q !== 24 || p !== 3) throw new ValidationError("This article is incomplete (12 versions, 24 questions and 3 prompts are needed). Import it again.");
+    // 🐛 fix (Oct 2026): "v !== 12" was a leftover from before LIBRARY_LEVELS grew to 14 (300…1600) — it blocked
+    // publishing any article actually imported with all 14 versions. Now reads the count from LIBRARY_LEVELS.
+    const NEEDED_VERSIONS = LIBRARY_LEVELS.length;
+    if (v !== NEEDED_VERSIONS || q !== 24 || p !== 3) throw new ValidationError(`This article is incomplete (${NEEDED_VERSIONS} versions, 24 questions and 3 prompts are needed). Import it again.`);
   }
   await repo.updateMany("RRArticle", { id }, { status, updatedAt: now });
   await audit(repo, { actorId: actor.userId, action: status === "PUBLISHED" ? "readrise.article.publish" : "readrise.article.unpublish", entityType: "RRArticle", entityId: id, before: { status: a.status }, after: { status }, at: now });
@@ -230,7 +234,7 @@ export function articleToJson(d: ArticleDetail): ArticleJson {
       const wrong = Object.fromEntries(Object.entries(r).filter(([L]) => L !== q.answer));
       return { stem: q.stem, options: q.options, answer: q.answer, skill: q.skill, ...(r[q.answer] ? { why: r[q.answer] } : {}), ...(Object.keys(wrong).length ? { wrong } : {}) };
     }),
-    prompt: d.bands[b].prompt, checklist: d.bands[b].checklist,
+    prompt: d.bands[b].prompt, checklist: d.bands[b].checklist, ...(d.bands[b].modelAnswer ? { modelAnswer: d.bands[b].modelAnswer } : {}),
   });
   return {
     code: d.code, title: d.title, topic: d.topic, summary: d.summary ?? "", poll: d.poll,

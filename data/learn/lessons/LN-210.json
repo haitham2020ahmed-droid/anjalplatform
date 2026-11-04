@@ -106,10 +106,10 @@
      "passage": "The sun was strong today. The sand was as hot as an oven. We put on our shoes fast.",
      "stem": "What does “as hot as an oven” mean?",
      "options": [
-      "The sand was soft.",
-      "The sand was wet.",
+      "The sand was soft and cool.",
+      "The sand was wet and cold.",
       "The sand was very hot.",
-      "We baked bread."
+      "We baked bread in the oven."
      ],
      "answer": 2,
      "why": "An oven is very hot. We put on our shoes fast because the sand was very hot."
@@ -185,10 +185,10 @@
     "passage": "On the first day of the holiday, Reem's little brother woke up at six o'clock. He jumped out of bed and ran from room to room. He climbed onto the sofa, then onto the chair, then back onto the floor. He was like a bouncing ball all morning. By noon, the rest of the family was tired just watching him.",
     "stem": "What does the simile “like a bouncing ball” tell you about Reem's brother?",
     "options": [
-     "He was round and small.",
+     "He was round and small like a ball.",
      "He was full of energy and kept moving.",
-     "He liked to play football.",
-     "He fell down many times."
+     "He liked to play football with friends.",
+     "He fell down many times in the yard."
     ],
     "answer": 1,
     "hint": "The text does not talk about his size or a football. What does a bouncing ball DO?",
@@ -442,10 +442,10 @@
      "passage": "For weeks Yusuf had argued with his older brother over small things: the remote, the last piece of bread, whose turn it was to wash up. When his brother left for university, the house grew quiet. Yusuf found himself standing at his brother's door, the silence pressing on him like a heavy blanket on a hot night.",
      "stem": "What does the simile suggest about Yusuf's feelings?",
      "options": [
-      "He is relieved that the arguments are over.",
-      "He is cold and needs a blanket.",
+      "He is relieved that the arguments are over, so he can rest at last.",
+      "He is cold and needs a warm blanket from his bed.",
       "He finds the silence uncomfortable and misses his brother.",
-      "He wants to sleep in his brother's room."
+      "He wants to sleep in his brother's room tonight."
      ],
      "answer": 2,
      "why": "A heavy blanket on a hot night is uncomfortable. Standing at his brother's door shows Yusuf misses him."
@@ -466,9 +466,9 @@
      "passage": "The meeting had turned into a shouting match. Then the head of the committee spoke, and her calm words settled over the room like dust after a storm. One by one, people sat down.",
      "stem": "What does the simile show about the effect of her words?",
      "options": [
-      "They made the room dirty.",
-      "They were difficult to hear.",
-      "They came too late to help.",
+      "They made the room dirty and messy.",
+      "They were difficult to hear from the back.",
+      "They came too late to help anyone at all.",
       "They brought quiet after noise and conflict."
      ],
      "answer": 3,

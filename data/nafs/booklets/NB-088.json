@@ -174,9 +174,9 @@
       "stem": "What is the main purpose of the passage?",
       "options": [
         "to show how a writer turned everyday life into great literature",
-        "to summarise the full plot of the Cairo Trilogy",
-        "to describe the cafés of Cairo for tourists",
-        "to explain how the Nobel Prize is chosen"
+        "to summarise the full plot of the Cairo Trilogy for readers",
+        "to describe the cafés of Cairo for tourists and visitors",
+        "to explain how the Nobel Prize is chosen each year"
       ],
       "answer": "A",
       "why": "The passage traces how Mahfouz's observations of ordinary Cairo became world-famous novels."
@@ -189,10 +189,10 @@
       "type": "MCQ",
       "stem": "What is the main idea of paragraph 4?",
       "options": [
-        "Mahfouz preferred making films to writing books.",
+        "Mahfouz preferred making films to writing books for readers.",
         "Mahfouz's work reached many people, and he supported younger writers.",
-        "Cairo's cafés were the only places where he could write.",
-        "Mahfouz wrote only short stories later in his life."
+        "Cairo's cafés were the only places where he could write his stories.",
+        "Mahfouz wrote only short stories later in his life, and no novels."
       ],
       "answer": "B",
       "why": "Paragraph 4 covers his many books, the films made from them and his help for young writers."
@@ -253,10 +253,10 @@
       "type": "MCQ",
       "stem": "Which of these events happened FIRST?",
       "options": [
-        "The Cairo Trilogy was published.",
-        "Mahfouz won the Nobel Prize.",
+        "The Cairo Trilogy was published in a book.",
+        "Mahfouz won the Nobel Prize in Stockholm.",
         "Mahfouz studied philosophy at Cairo University.",
-        "His daughters travelled to Stockholm."
+        "His daughters travelled to Stockholm to get it."
       ],
       "answer": "C",
       "why": "He graduated in 1934; the Trilogy appeared in 1956–1957 and the Nobel Prize came in 1988."
@@ -302,9 +302,9 @@
       "stem": "According to paragraph 3, why did the Cairo Trilogy mean so much to readers?",
       "options": [
         "They recognised their own families and neighbours in it.",
-        "It was the shortest book he ever wrote.",
-        "It described life in ancient Egypt in detail.",
-        "It was written in several different languages."
+        "It was the shortest book he ever wrote for them.",
+        "It described life in ancient Egypt in great detail.",
+        "It was written in several different languages at once."
       ],
       "answer": "A",
       "why": "“Readers recognised their own grandparents, parents and neighbours in his characters.”"
@@ -318,9 +318,9 @@
       "stem": "Why did Mahfouz most likely meet young writers every week?",
       "options": [
         "He wanted to help new authors develop their own voices.",
-        "He needed them to write his novels for him.",
-        "He was too busy to meet anyone else.",
-        "He wanted them to copy his style exactly."
+        "He needed them to write his novels for him at home.",
+        "He was too busy to meet anyone else in the city.",
+        "He wanted them to copy his style exactly in all their work."
       ],
       "answer": "A",
       "why": "He “listened patiently, offered advice and encouraged new authors to find their own voices” — their own, not his."
@@ -365,9 +365,9 @@
       "type": "MCQ",
       "stem": "What was one effect of turning Mahfouz's works into films?",
       "options": [
-        "He stopped writing novels altogether.",
-        "He moved to Stockholm to work on films.",
-        "His books were no longer translated.",
+        "He stopped writing novels altogether after that.",
+        "He moved to Stockholm to work on the films.",
+        "His books were no longer translated into other languages.",
         "More people became familiar with his characters."
       ],
       "answer": "D",
@@ -381,9 +381,9 @@
       "type": "MCQ",
       "stem": "What do the boy in paragraph 1 and the man in the cafés in paragraph 4 have in common?",
       "options": [
-        "Both live far away from the city of Cairo.",
-        "Both give long speeches to large audiences.",
-        "Both work in busy government offices.",
+        "Both live far away from the city of Cairo and its cafés.",
+        "Both give long speeches to large audiences in the halls.",
+        "Both work in busy government offices all day long.",
         "Both pay close attention to the people around them."
       ],
       "answer": "D",
@@ -430,9 +430,9 @@
       "stem": "Which of these statements is an OPINION rather than a fact?",
       "options": [
         "Great literature often begins with careful attention to ordinary people.",
-        "Mahfouz was born in 1911 in the Gamaliya district of Cairo.",
-        "The Cairo Trilogy was published in 1956 and 1957.",
-        "He was the first Arabic-language writer to win this prize."
+        "Mahfouz was born in 1911 in the Gamaliya district of Cairo, in Egypt.",
+        "The Cairo Trilogy was published in 1956 and 1957 in three parts.",
+        "He was the first Arabic-language writer to win this prize in the world."
       ],
       "answer": "A",
       "why": "This is the writer's belief, which people may disagree with; the others can be checked as facts."
@@ -462,9 +462,9 @@
       "stem": "Which message is the writer most likely sharing through this passage?",
       "options": [
         "Great writing can come from closely observing everyday life.",
-        "Writers should always work in government offices.",
+        "Writers should always work in government offices all day.",
         "Only people who travel widely can write good books.",
-        "Films are more important than novels."
+        "Films are more important than novels for readers."
       ],
       "answer": "A",
       "why": "The last sentence says great literature “often begins with paying careful attention to ordinary people.”"
@@ -493,10 +493,10 @@
       "type": "MCQ",
       "stem": "In your opinion, which information in the passage is the LEAST clear?",
       "options": [
-        "the year Mahfouz won the Nobel Prize",
+        "the year Mahfouz won the Nobel Prize for Literature",
         "the titles of the three novels in the Cairo Trilogy",
-        "the subject Mahfouz studied at university",
-        "the city his daughters travelled to"
+        "the subject Mahfouz studied at university in Cairo",
+        "the city his daughters travelled to in 1994"
       ],
       "answer": "B",
       "why": "The passage never names the three novels; the other facts are clearly stated."
@@ -510,9 +510,9 @@
       "stem": "Which of the following events could really happen?",
       "options": [
         "A writer works in an office and writes novels in his free time.",
-        "A city speaks aloud and tells a boy its stories.",
-        "A novel writes its own final chapter overnight.",
-        "A writer finishes thirty novels in a single week."
+        "A city speaks aloud and tells a boy its stories at night.",
+        "A novel writes its own final chapter overnight in a drawer.",
+        "A writer finishes thirty novels in a single week at his desk."
       ],
       "answer": "A",
       "why": "This is exactly what Mahfouz did; the others are impossible or unrealistic."

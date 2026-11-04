@@ -166,15 +166,17 @@ describe("🚀 ReadRise: placement, the 5-step routine, the level engine and goa
     await setLevelByTeacher(repo, admin, s.studentId!, 800, "admin", at(2, 3));
   });
 
-  test("level rule (pure): windows of 4 / 3", () => {
+  // owner r69: faster DOWN (≤ 25% once, or two in a row under 50%: −100), careful UP (unchanged +50)
+  test("level rule (pure): up 3 of 4; down 100 on ≤25% or two in a row under 50%", () => {
     assert.equal(levelDecision([80, 80, 80]).delta, 50, "3 of 3 ≥75 and latest ≥75");
     assert.equal(levelDecision([80, 40, 80, 80]).delta, 50);
     assert.equal(levelDecision([80, 80, 80, 60]).delta, 0, "latest must be ≥75");
     assert.equal(levelDecision([80, 80]).delta, 0);
-    assert.equal(levelDecision([40, 30]).delta, -50);
-    assert.equal(levelDecision([40, 60, 30]).delta, -50);
+    assert.equal(levelDecision([40, 30]).delta, -100, "two in a row under 50%");
+    assert.equal(levelDecision([40, 60, 30]).delta, 0, "not in a row");
     assert.equal(levelDecision([40, 30, 60]).delta, 0, "latest must be <50");
-    assert.equal(levelDecision([100, 100, 100, 40, 40]).delta, -50, "the down rule looks at the last 3 only");
+    assert.equal(levelDecision([100, 100, 100, 40, 40]).delta, -100, "the last two only");
+    assert.equal(levelDecision([25]).delta, -100, "one score of 25% or less: down at once");
   });
 
   test("visibility: platform + own school, not another school's, not DRAFT, not hidden", async () => {
@@ -267,7 +269,9 @@ describe("🚀 ReadRise: placement, the 5-step routine, the level engine and goa
 
   test("first-try rule: a re-read never counts; stretch is one version up and never lowers the level", async () => {
     const s = st[3];
-    await setLevelByTeacher(repo, teacher, s.studentId!, 800, "", at(0));
+    // round 4: a stretch must be in a NEW question band (800 → 900 is MID → MID: the same questions) — so read at
+    // 1000 (MID) and stretch to 1100 (HIGH)
+    await setLevelByTeacher(repo, teacher, s.studentId!, 1000, "", at(0));
     const a = await makeArticle(repo, { code: "F-1" });
     await readArticle(repo, s, a, 8, at(1));
     const re = await readArticle(repo, s, a, 0, at(1, 2));
@@ -281,7 +285,7 @@ describe("🚀 ReadRise: placement, the 5-step routine, the level engine and goa
     // stretch at 0% → no level change
     const before = Number((await repo.findUnique("RRStudent", { studentId: s.studentId }))!.level);
     const sv = await readArticle(repo, s, a, 0, at(1, 4), true);
-    assert.equal(sv.start.versionLevel, 900);
+    assert.equal(sv.start.versionLevel, 1100);
     assert.equal(sv.start.stretch, true);
     assert.equal(Number((await repo.findUnique("RRStudent", { studentId: s.studentId }))!.level), before);
     await assert.rejects(startRun(repo, s, a, { stretch: true }, at(1, 5)), /already stretched/);
@@ -290,7 +294,7 @@ describe("🚀 ReadRise: placement, the 5-step routine, the level engine and goa
     await assert.rejects(startRun(repo, s, b, { stretch: true }, at(1, 5)), /Read the article first/);
   });
 
-  test("level engine: +50 after 3 of 4 ≥75%, −50 after 2 of 3 <50%, window resets after a change", async () => {
+  test("level engine: +50 after 3 of 4 ≥75%, −100 after two in a row <50%, window resets after a change", async () => {
     const s = st[4];
     await setLevelByTeacher(repo, teacher, s.studentId!, 800, "", at(0));
     const arts = await Promise.all(Array.from({ length: 9 }, (_, i) => makeArticle(repo, { code: `E-${i}` })));
@@ -306,13 +310,13 @@ describe("🚀 ReadRise: placement, the 5-step routine, the level engine and goa
     await readArticle(repo, s, arts[4], 8, at(2));
     await readArticle(repo, s, arts[5], 8, at(2, 1));
     assert.equal(await lvl(), 850);
-    // down: needs 2 of the last 3 under 50% since the change
-    await readArticle(repo, s, arts[6], 2, at(3));
+    // down (owner r69): two first-try scores in a row under 50% since the change → −100
+    await readArticle(repo, s, arts[6], 3, at(3));
     assert.equal(await lvl(), 850);
     await readArticle(repo, s, arts[7], 3, at(3, 1));
-    assert.equal(await lvl(), 800);
+    assert.equal(await lvl(), 750);
     const ch = (await repo.findMany("RRLevelChange", { studentId: s.studentId })).map((c) => String(c.reason));
-    assert.ok(ch.some((r) => /^Up 50/.test(r)) && ch.some((r) => /^Down 50/.test(r)));
+    assert.ok(ch.some((r) => /^Up 50/.test(r)) && ch.some((r) => /^Down 100: the last two first-try scores were both under 50%/.test(r)));
     assert.equal(Number((await repo.findUnique("RRStudent", { studentId: s.studentId }))!.articlesDone), 8);
     // cap / floor
     await setLevelByTeacher(repo, teacher, s.studentId!, 5000, "", at(4));
@@ -331,7 +335,8 @@ describe("🚀 ReadRise: placement, the 5-step routine, the level engine and goa
     assert.ok(p !== null && p > 800);
     // end to end
     const s = st[5];
-    await setLevelByTeacher(repo, teacher, s.studentId!, 800, "", at(0));
+    // round 4: the stretch must be in a new question band (1000 MID → 1100 HIGH)
+    await setLevelByTeacher(repo, teacher, s.studentId!, 1000, "", at(0));
     const [a, b] = await Promise.all([makeArticle(repo, { code: "G-1" }), makeArticle(repo, { code: "G-2" })]);
     await readArticle(repo, s, a, 8, at(1));
     const st1 = await readArticle(repo, s, a, 6, at(1, 1), true);

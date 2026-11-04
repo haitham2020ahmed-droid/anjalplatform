@@ -4,6 +4,7 @@ import { PageHeader } from "@/components/page-header";
 import { PrintButton } from "@/components/plans/print-button";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { miniLesson } from "@/server/teacher/support";
+import { RichInline } from "@/components/rich-inline";
 
 export const metadata = { title: "Mini-Lesson" };
 
@@ -27,7 +28,7 @@ export default async function LessonPage({ searchParams }: { searchParams: Promi
         <section className={box}>
           <h2 className="text-lg font-bold text-brand-navy">🎟️ Exit Ticket</h2>
           {!l.exitTicket.length ? <p className="mt-1 text-sm text-slate-600">No short multiple-choice question of this skill in the bank yet — ask 2 oral questions instead.</p> : (
-            <ol className="mt-2 space-y-3">{l.exitTicket.map((q, i) => <li key={i} className="text-sm"><p className="font-semibold text-slate-900">{i + 1}. {q.stem}</p><ul className="mt-1 ps-5 text-slate-700">{q.options.map((o) => <li key={o}>{o}</li>)}</ul><p className="mt-1 text-xs text-emerald-800 print:text-slate-500">Answer: {q.answer}</p></li>)}</ol>
+            <ol className="mt-2 space-y-3">{l.exitTicket.map((q, i) => <li key={i} className="text-sm"><p className="font-semibold text-slate-900">{i + 1}. <RichInline text={q.stem} /></p><ul className="mt-1 ps-5 text-slate-700">{q.options.map((o) => <li key={o}><RichInline text={o} /></li>)}</ul><p className="mt-1 text-xs text-emerald-800 print:text-slate-500">Answer: <RichInline text={q.answer} /></p></li>)}</ol>
           )}
         </section>
       </div>

@@ -1,21 +1,26 @@
 "use client";
+import { OFFLINE_MESSAGE } from "@/lib/answer-send";
 import Link from "next/link";
 import { useRef, useState } from "react";
 import { AnswerInput, isAnswerReady, type AnswerValue } from "@/components/practice/answer-input";
-import { PassageText } from "@/components/passage-text";
+import { ChunkedPassage } from "@/components/passage/chunked-passage";
 import { ListenButton } from "@/components/listen-button";
 import type { ClientQuestion } from "@/server/practice/items";
 import type { Graded } from "@/server/teacher/worksheet";
 import { FlagButton } from "./flag-button";
 import { WordLookup } from "./word-lookup";
+import { RichInline } from "@/components/rich-inline";
 
 type Result = { correct: number; total: number; review: Graded[] };
 
 /** A short set of questions answered together (exit ticket, review of mistakes): submit once, see what was right. */
-export function QuestionSet({ id, questions, submit, doneHref, doneLabel = "Back to my work", resultNote, preview = false }: {
+export function QuestionSet({ id, questions, submit, doneHref, doneLabel = "Back to my work", resultNote, preview = false, level = null }: {
   id: string; questions: ClientQuestion[]; doneHref: string; doneLabel?: string; resultNote?: string;
   /** 👀 a teacher's "Preview as student": the same set, nothing can be sent */
   preview?: boolean;
+  /** the student's working level ("BELOW" | "ON" | "ABOVE"), passed through to ChunkedPassage — null/undefined
+   *  when not known, which simply shows any passage here whole, as before. */
+  level?: string | null;
   submit: (id: string, responses: Record<string, unknown>, timesMs?: Record<string, number>) => Promise<{ ok: true; value: Result } | { ok: false; error: string }>;
 }) {
   const [values, setValues] = useState<Record<string, AnswerValue>>({});
@@ -32,8 +37,11 @@ export function QuestionSet({ id, questions, submit, doneHref, doneLabel = "Back
     setBusy(true); setError(null);
     const responses: Record<string, unknown> = {};
     for (const q of questions) { const v = values[q.questionId] ?? null; responses[q.questionId] = (q.type === "SENTENCE_ORDER" || q.type === "WORD_ORDER") && !Array.isArray(v) ? q.elements : v; }
-    const r = await submit(id, responses, { ...spent.current });
-    setBusy(false);
+    // r68: the button is always released; a failed request shows a message here (never the full-page error)
+    let r: Awaited<ReturnType<typeof submit>>;
+    try { r = await submit(id, responses, { ...spent.current }); }
+    catch { setError(OFFLINE_MESSAGE); return; }
+    finally { setBusy(false); }
     if (r.ok) setResult(r.value); else setError(r.error);
   };
   const passages = new Set<string>();
@@ -46,15 +54,15 @@ export function QuestionSet({ id, questions, submit, doneHref, doneLabel = "Back
           if (q.passage) passages.add(q.passage.text);
           return (
             <section key={q.questionId} className={`rounded-2xl bg-white p-5 ring-1 ${rv ? (rv.correct ? "ring-2 ring-emerald-400" : "ring-2 ring-red-300") : "ring-slate-200"}`}>
-              {showPassage && q.passage && <details open className="mb-3 rounded-xl bg-slate-50 p-3"><summary className="cursor-pointer font-bold text-brand-navy">📖 {q.passage.title || "Read the text"}</summary><PassageText text={q.passage.text} /></details>}
+              {showPassage && q.passage && <details open className="mb-3 rounded-xl bg-slate-50 p-3"><summary className="cursor-pointer font-bold text-brand-navy">📖 <RichInline text={q.passage.title || "Read the text"} /></summary><ChunkedPassage key={q.passage.text} text={q.passage.text} level={level} /></details>}
               {q.image && (
                 // eslint-disable-next-line @next/next/no-img-element
                 <img src={q.image.url} alt={q.image.alt} className="mb-3 max-h-80 w-auto max-w-full rounded-xl ring-1 ring-slate-200" />
               )}
-              <p className="font-semibold text-slate-900">{i + 1}. {q.type !== "DROPDOWN" && q.type !== "FILL_BLANK" ? q.stem : ""}</p>
+              <p className="font-semibold text-slate-900">{i + 1}. {q.type !== "DROPDOWN" && q.type !== "FILL_BLANK" ? <RichInline text={q.stem} /> : ""}</p>
               <ListenButton text={[q.stem, ...(q.options ?? []).map((o) => `${o.label}. ${o.text}`)].join(". ")} label="Listen" className="mt-1" />
               <div className="mt-3"><AnswerInput q={q} value={values[q.questionId] ?? null} onChange={(v) => { onAnswer(q.questionId); setValues((s) => ({ ...s, [q.questionId]: v })); }} disabled={Boolean(result) || busy} /></div>
-              {rv && <p className={`mt-3 text-sm ${rv.correct ? "text-emerald-800" : "text-red-800"}`}>{rv.correct ? "✓ Correct." : `✗ The answer is: ${rv.correctAnswer}.`} {rv.why}</p>}
+              {rv && <p className={`mt-3 text-sm ${rv.correct ? "text-emerald-800" : "text-red-800"}`}>{rv.correct ? "✓ Correct." : <>✗ The answer is: <RichInline text={rv.correctAnswer} />.</>} <RichInline text={rv.why} /></p>}
               {!result && <FlagButton questionId={q.questionId} />}
             </section>
           );

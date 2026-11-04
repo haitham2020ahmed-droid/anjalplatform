@@ -8,16 +8,23 @@
  *   PREREQ_GAP         the engine routed the student to a prerequisite ≥ 2 times in 14 days
  * At most ONE open alert per student × skill: all findings are merged into it (the most
  * important rule leads the message), so teachers are not flooded. Teachers resolve them.
+ * ⭐ Stars (owner, 1 Nov 2026): LOW_ACCURACY, REPEATED_ERRORS and DECLINING_MASTERY are never raised for a skill the
+ * student has ⭐ on (any copy — by KEY, skills/star-read.ts); the engine score stays only the rules' input.
  * (Thresholds were tightened after a 14-student simulated class produced 20 alerts.)
  * Rapid guesses are excluded from accuracy rules (they are handled as engagement).
  */
 import type { Repo, Row } from "../seeding/repo";
 import { audit } from "../audit";
 import { canAccessStudent, ForbiddenError, type Actor } from "../auth/rbac";
+import { starBook, starMastered } from "../skills/star-read";
 
 export type RuleCode = "LOW_ACCURACY" | "REPEATED_ERRORS" | "DECLINING_MASTERY" | "SLOW_RESPONSES" | "FAILED_SESSIONS" | "PREREQ_GAP";
 
-export const NEXT_ACTION: Record<RuleCode, string> = {
+/** rules created outside the scan: 50 answers without ⭐ (skills/status.ts) and a failed 20-question review (practice/completion.ts) */
+export type StarRuleCode = "NEEDS_SUPPORT" | "REVIEW_FAILED";
+export const NEXT_ACTION: Record<RuleCode | StarRuleCode, string> = {
+  NEEDS_SUPPORT: "50 questions without a star: reteach the skill in a small group (RTI plan), then let the student practise again.",
+  REVIEW_FAILED: "The student forgot a mastered skill: go over one worked example together; the practice continues until the star is back.",
   LOW_ACCURACY: "Reteach the skill in a small group, then assign 10 minutes of practice.",
   REPEATED_ERRORS: "Check the recent wrong answers below for a shared misconception and model one example.",
   DECLINING_MASTERY: "Assign a short review; the skill may need refreshing.",
@@ -105,6 +112,9 @@ export async function scanInterventions(repo: Repo, studentIds: string[], now = 
   const users = new Map(userRows.map((u) => [String(u.id), String(u.displayName)]));
   const nameOf = new Map(students.map((s) => [String(s.id), (users.get(String(s.userId)) ?? "This student").split(" ")[0]]));
   const openKey = new Set(open.map((a) => `${a.studentId}|${a.skillId}`));
+  // ⭐ the stars of these students (one batched read)
+  const book = await starBook(repo, studentIds);
+  const STAR_QUIET: readonly RuleCode[] = ["LOW_ACCURACY", "REPEATED_ERRORS", "DECLINING_MASTERY"];
   let created = 0;
   for (const sid of studentIds) {
     const mine = attempts.filter((a) => a.studentId === sid);
@@ -115,13 +125,14 @@ export async function scanInterventions(repo: Repo, studentIds: string[], now = 
       }));
       const skillLogs = logs.filter((l) => l.studentId === sid && l.skillId === skillId);
       const m = mastery.find((x) => x.studentId === sid && x.skillId === skillId);
+      const starred = starMastered(book.of(String(sid), skillId));
       const findings = evaluateRules({
         attempts: as,
         masteryNow: Number(m?.score ?? 0),
         masteryPeak30d: Math.max(Number(m?.score ?? 0), ...skillLogs.map((l) => Number(l.masteryAfter ?? 0))),
         prereqRoutes14d: skillLogs.filter((l) => l.reasonCode === "PREREQ_ROUTE" && now.getTime() - t(l.createdAt) <= 14 * DAY).length,
         now: now.getTime(),
-      });
+      }).filter((f) => !(starred && STAR_QUIET.includes(f.rule)));
       if (!findings.length) continue;
       const key = `${sid}|${skillId}`;
       if (openKey.has(key)) continue;

@@ -67,9 +67,9 @@
     "stem": "What do you do in step 3?",
     "options": [
      "Drop the food in the water.",
-     "Open the food box.",
-     "Close the box.",
-     "Wash the fish."
+     "Open the food box and smell it.",
+     "Close the box with a lid.",
+     "Wash the fish in a clean bowl."
     ],
     "answer": 0,
     "hint": "Find the words Step 3. What does that step say?",
@@ -95,10 +95,10 @@
      "passage": "How to make a card.\nStep 1: Fold the paper in half.\nStep 2: Draw a picture on the front.\nStep 3: Write a kind note inside.",
      "stem": "What do you do first?",
      "options": [
-      "Write a note",
-      "Draw a picture",
+      "Write a note on a card",
+      "Draw a picture on a card",
       "Fold the paper in half",
-      "Mail the card"
+      "Mail the card to a friend"
      ],
      "answer": 2,
      "why": "Step 1 says: Fold the paper in half."
@@ -120,8 +120,8 @@
      "stem": "What do you do after you stand up?",
      "options": [
       "Run to the door",
-      "Sit down",
-      "Eat lunch",
+      "Sit down on the floor",
+      "Eat your lunch now",
       "Push in your chair"
      ],
      "answer": 3,
@@ -222,9 +222,9 @@
      "stem": "Where should students meet their class?",
      "options": [
       "At the flagpole in the front yard",
-      "In the classroom",
-      "At the nearest exit",
-      "In the school hall"
+      "In the classroom next to the office",
+      "At the nearest exit of the building",
+      "In the school hall by the stage"
      ],
      "answer": 0,
      "why": "The directions say: Meet your class at the flagpole in the front yard."
@@ -233,10 +233,10 @@
      "passage": "How to Care for a Cut.\nStep 1: Wash your hands.\nStep 2: Rinse the cut with clean water.\nStep 3: Cover it with a clean bandage.\nTip: If the cut is deep or will not stop bleeding, tell an adult right away.",
      "stem": "What should you do if a cut will not stop bleeding?",
      "options": [
-      "Rinse it again",
+      "Rinse it again with water",
       "Tell an adult right away",
-      "Use two bandages",
-      "Wash your hands"
+      "Use two bandages at once",
+      "Wash your hands for a minute"
      ],
      "answer": 1,
      "why": "The tip says: If the cut will not stop bleeding, tell an adult right away."
@@ -292,10 +292,10 @@
     "passage": "Using the School Microscope.\nThese directions will help you look at a slide safely without damaging the microscope.\nFirst, carry the microscope with two hands: one under the base and one on the arm.\nPlace your slide on the stage and hold it with the clips.\nStart with the smallest lens, and turn the large knob slowly until the picture is clear.\nDo not let the lens touch the slide, because it can crack the glass.\nWhen you finish, turn off the light and cover the microscope.",
     "stem": "What is the specific purpose of these directions?",
     "options": [
-     "To explain how microscopes were invented",
+     "To explain how microscopes were invented hundreds of years ago",
      "To help students use the microscope safely and carefully",
-     "To describe the parts of a cell",
-     "To persuade the school to buy microscopes"
+     "To describe the parts of a cell in the body",
+     "To persuade the school to buy new microscopes"
     ],
     "answer": 1,
     "hint": "Read the line right after the title. What does it say the directions will help you do?",
@@ -402,9 +402,9 @@
     "passage": "Setting Up the Class Aquarium.\nThese directions explain how to prepare a tank so that fish can live in it safely.\nStep 1: Rinse the gravel in a bucket until the water runs clear, then spread it on the bottom of the tank.\nStep 2: Fill the tank with tap water.\nStep 3: Add the water conditioner, which removes chemicals in tap water that can harm fish.\nStep 4: Switch on the filter and heater.\nNote: If you are keeping tropical fish, set the heater to 25 degrees; for goldfish, leave the heater off.\nStep 5: Wait at least one week before adding any fish, so that helpful bacteria can grow in the filter.",
     "stem": "According to the directions, why must you wait a week before adding fish?",
     "options": [
-     "The gravel needs time to dry.",
-     "The heater takes a week to warm up.",
-     "The tank must be cleaned again.",
+     "The gravel needs time to dry in the tank.",
+     "The heater takes a week to warm up the water.",
+     "The tank must be cleaned again before the fish arrive.",
      "Helpful bacteria need time to grow in the filter."
     ],
     "answer": 3,
@@ -434,10 +434,10 @@
      "passage": "Printing a Document in the Library.\nLog in with your student number.\nOpen your file and choose Print.\nFor black-and-white pages, choose Printer A; for color pages, choose Printer B, which is beside the front desk.\nCollect your pages within ten minutes, or they will be deleted from the queue.",
      "stem": "A student wants to print a color poster. Where should she collect it?",
      "options": [
-      "From Printer A",
+      "From Printer A in the library",
       "From the printer beside the front desk",
       "From the student number machine",
-      "From the queue screen"
+      "From the queue screen near the door"
      ],
      "answer": 1,
      "why": "For color pages, choose Printer B, which is beside the front desk."
@@ -446,8 +446,8 @@
      "passage": "Painting the Model.\nCover the table with newspaper.\nPaint the base coat and wait until it is completely dry; otherwise the next color will smudge.\nAdd details with a thin brush.\nWhen you are finished, wash brushes in water if you used water paints, or in the special cleaner if you used oil paints.",
      "stem": "Why do the directions say to wait until the base coat is dry?",
      "options": [
-      "To clean the brushes",
-      "To save paint",
+      "To clean the brushes for the next color",
+      "To save paint and not waste any",
       "So the next color does not smudge",
       "So the newspaper stays clean"
      ],

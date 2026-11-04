@@ -81,10 +81,10 @@
      "passage": "I can see a bird. It is in the tree.",
      "stem": "What does “see” mean here?",
      "options": [
-      "big water",
+      "a big lake of water",
       "look at with your eyes",
-      "a letter",
-      "a boat"
+      "a letter in an envelope",
+      "a boat on the sea"
      ],
      "answer": 1,
      "why": "You look at a bird with your eyes. That is “see”. “Sea” is big water."
@@ -297,7 +297,7 @@
      "options": [
       "a dry, sandy place",
       "to leave someone behind",
-      "a sweet food",
+      "a sweet food after dinner",
       "to cross the sand"
      ],
      "answer": 1,

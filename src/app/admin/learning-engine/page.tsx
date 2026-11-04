@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { AppShell } from "@/components/app-shell";
 import { PageHeader } from "@/components/page-header";
+import { PendingButton } from "@/components/pending-button";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { engineOverview } from "@/server/insights/daily";
 import { recommendationStats } from "@/server/insights/recommendation-log";
@@ -25,7 +26,8 @@ export default async function LearningEnginePage({ searchParams }: { searchParam
         subtitle="What the platform knows about every student and whether its decisions work. Updated every night (and once a day on the first visit)." />
       {sp.msg && <p role="status" className="mb-4 rounded-xl bg-teal-50 p-3 text-sm text-teal-900 ring-1 ring-teal-200">{sp.msg}</p>}
       <form action={runEngineNowAction} className="mb-5 flex flex-wrap items-center gap-3">
-        <button className="rounded-xl bg-brand-navy px-5 py-2.5 font-semibold text-white hover:bg-brand-purple">🔄 Update now</button>
+        {/* r89: PendingButton disables itself while the run is in flight, so a second click can't start a second run */}
+        <PendingButton label="Update now" pendingLabel="Updating…" icon="🔄" className="rounded-xl bg-brand-navy px-5 py-2.5 font-semibold text-white hover:bg-brand-purple" />
         <span className="text-sm text-slate-600">Last update: {o.lastRun ? o.lastRun.day : "never"}</span>
       </form>
       <section className="grid gap-4 md:grid-cols-4">

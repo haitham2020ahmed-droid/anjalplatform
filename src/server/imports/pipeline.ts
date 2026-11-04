@@ -226,7 +226,18 @@ export async function confirmImport(repo: Repo, actor: Actor, jobId: string, opt
     } else {
       const src = await tx.upsert("ExternalAssessmentSource", { code: options.source }, { name: `${options.source} (imported reports)` });
       for (const r of records as (ExtRecord & { dupInDb?: boolean })[]) {
-        if (r.dupInDb && opts.duplicates === "skip") { summary.skippedDuplicates++; continue; }
+        if (r.dupInDb) {
+          if (opts.duplicates === "skip") { summary.skippedDuplicates++; continue; }
+          // r85 audit: "replace" used to fall straight through to create() below with no delete step — unlike the
+          // MAP_RESULTS branch above, which explicitly removes the old row first — so a "replace" import of
+          // external (e.g. IXL) results just appended a second copy of the same result instead of replacing it,
+          // and summary.replaced was never incremented, so the admin saw nothing unusual happened.
+          const same = (await tx.findMany("ExternalAssessmentResult", { studentId: r.studentId, sourceId: src.id }))
+            .filter((x) => String((x.raw as { skillCode?: string; skill?: string } | null)?.skillCode || x.externalSkill).toLowerCase() === String(r.skillCode || r.skill).toLowerCase()
+              && iso(new Date(String(x.takenOn instanceof Date ? x.takenOn.toISOString() : x.takenOn))) === r.takenOn);
+          if (same.length) await tx.deleteMany("ExternalAssessmentResult", { id: { in: same.map((x) => x.id) } });
+          summary.replaced++;
+        }
         await tx.create("ExternalAssessmentResult", {
           sourceId: src.id, studentId: r.studentId, importJobId: jobId, externalSkill: r.skill, score: r.score, questions: r.questions,
           timeSpentSec: r.timeSpentSec, takenOn: new Date(`${r.takenOn}T00:00:00Z`), raw: { skill: r.skill, skillCode: r.skillCode, row: r.row }, importedAt: now,

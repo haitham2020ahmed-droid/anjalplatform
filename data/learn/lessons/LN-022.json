@@ -56,9 +56,9 @@
     "passage": "Sara must write how to make a sandwich. First, she gets the bread. Next, she adds cheese and tomato. Last, she cuts it in half. She likes cheese the most.",
     "stem": "Which plan should Sara use?",
     "options": [
-     "A web with many circles",
+     "A web with many circles and lines",
      "A steps chart with boxes and arrows",
-     "A list of her friends",
+     "A list of her friends and teachers",
      "A drawing of a sandwich shop"
     ],
     "answer": 1,
@@ -88,9 +88,9 @@
      "stem": "Which plan fits best?",
      "options": [
       "A web with details about the school",
-      "A steps chart",
-      "A shopping list for the week",
-      "A calendar"
+      "A steps chart for a science test",
+      "A shopping list for the whole week",
+      "A calendar of school holidays"
      ],
      "answer": 0,
      "why": "Describing one thing with many details fits a web."
@@ -99,10 +99,10 @@
      "passage": "Task: Tell how you plant a seed.",
      "stem": "Which plan fits best?",
      "options": [
-      "A web of seed colours",
-      "A list of animals",
+      "A web of seed colours and sizes",
+      "A list of animals in the zoo",
       "A steps chart: dig, plant, water",
-      "A map of the city"
+      "A map of the city streets"
      ],
      "answer": 2,
      "why": "Planting is done in steps, so a steps chart fits."
@@ -111,9 +111,9 @@
      "passage": "Task: Tell what you did on your last holiday, from start to end.",
      "stem": "Which plan fits best?",
      "options": [
-      "A web about one toy",
-      "A list of colours",
-      "A drawing of a cat",
+      "A web about one toy and its parts",
+      "A list of colours and shapes",
+      "A drawing of a cat and a dog",
       "A steps chart: first, next, last"
      ],
      "answer": 3,
@@ -397,10 +397,10 @@
     "passage": "Omar must write an argumentative essay on whether the city should ban cars from the old market streets. He has already read three articles and taken careful notes. His notes include facts about air quality, shop owners' opinions and the number of visitors each year. However, the notes are mixed together in the order he found them. He is not sure which reason is strongest or where the counterclaim should go. The essay is due on Thursday.",
     "stem": "Which prewriting strategy would help Omar most now?",
     "options": [
-     "Freewriting to find a topic",
-     "Brainstorming a list of new topics",
+     "Freewriting to find a topic that he would enjoy writing about",
+     "Brainstorming a list of new topics for his next essay on food",
      "Making an outline that orders his claim, reasons, evidence and counterclaim",
-     "Interviewing a friend about his favourite food"
+     "Interviewing a friend about his favourite food at the school canteen today"
     ],
     "answer": 2,
     "hint": "Omar already has a topic and facts. What is he missing?",
@@ -428,9 +428,9 @@
      "passage": "Noura must write a personal essay but has no idea what to write about.",
      "stem": "Which prewriting strategy fits best?",
      "options": [
-      "Making a detailed outline",
-      "Writing the conclusion first",
-      "Checking spelling",
+      "Making a detailed outline of the whole essay",
+      "Writing the conclusion first before writing anything else",
+      "Checking spelling and punctuation after writing",
       "Freewriting about memorable moments to discover a topic"
      ],
      "answer": 3,
@@ -441,9 +441,9 @@
      "stem": "Which strategy should he use next?",
      "options": [
       "Write research questions and look for answers in reliable sources",
-      "Draw a cover picture",
-      "Freewrite about his weekend",
-      "Write the final copy"
+      "Draw a cover picture with many colors for the report, then show it to the class",
+      "Freewrite about his weekend and the games he played",
+      "Write the final copy and hand it in to the teacher"
      ],
      "answer": 0,
      "why": "He needs facts, so research questions guide what to look for."
@@ -452,10 +452,10 @@
      "passage": "A class is writing a persuasive letter about a new playground. They have many ideas but want to choose the best three reasons.",
      "stem": "Which tool fits this step best?",
      "options": [
-      "A timeline of events",
+      "A timeline of events in the school year",
       "A chart ranking each reason with its evidence",
-      "A Venn diagram of two playgrounds",
-      "A web describing one swing"
+      "A Venn diagram of two school playgrounds",
+      "A web describing one swing in the school park"
      ],
      "answer": 1,
      "why": "Ranking reasons with evidence helps them choose the strongest support for persuasion."

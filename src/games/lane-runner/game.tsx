@@ -13,6 +13,8 @@ import type { GameProps, LivePadProps, PlayQuestion, PowerEffect, PowerUpId } fr
 import { PowerBar } from "../kit/power-bar";
 import { APPROACH_SECONDS, dashSpeed, gateProgress, moveLane, nearestOpen, startLane } from "./rules";
 import { shuffled, useFrame } from "./frame";
+import { RichInline } from "../../components/rich-inline";
+import { stripMarks } from "../../lib/inline-marks";
 
 interface Lane { label: string; text: string; correct: boolean }
 const lanesOf = (q: PlayQuestion): Lane[] => (q.type === "TRUE_FALSE" ? (q.options ?? []) : shuffled(q.options ?? [])).map((o) => ({ label: o.label, text: o.text, correct: o.correct }));
@@ -45,7 +47,7 @@ function Gate({ lane, i, blocked, state }: { lane: Lane; i: number; blocked: boo
   return (
     <div className={`mx-1 flex min-h-16 flex-col items-center justify-center rounded-xl px-1.5 py-1 text-center text-sm font-semibold shadow-md sm:text-base ${blocked ? "bg-slate-300 text-slate-500" : `${tile.bg} text-white`} ${state === "right" ? "ring-4 ring-emerald-300" : state === "wrong" ? "ring-4 ring-white" : state === "picked" ? "-translate-y-1 ring-4 ring-brand-navy" : ""} ${state === "dim" ? "opacity-40" : ""}`}>
       <span aria-hidden="true" className="text-xs opacity-90">{blocked ? "✕" : tile.shape}</span>
-      <span dir="ltr" lang="en" className={`leading-tight break-words ${blocked ? "line-through" : ""}`}>{lane.text}</span>
+      <span dir="ltr" lang="en" className={`leading-tight break-words ${blocked ? "line-through" : ""}`}><RichInline text={lane.text} /></span>
       {state === "right" && <span aria-hidden="true">✓</span>}
     </div>
   );
@@ -169,11 +171,11 @@ export default function LaneRunner({ questions, round, level }: GameProps) {
       <article className="rounded-3xl bg-white p-5 shadow-sm ring-1 ring-slate-200">
         {q.passage && (
           <details className="mb-3 rounded-2xl bg-slate-50 p-3 ring-1 ring-slate-200">
-            <summary className="cursor-pointer font-semibold text-brand-navy">📖 <span dir="ltr" lang="en">{q.passage.title}</span></summary>
-            <p dir="ltr" lang="en" className="mt-2 whitespace-pre-line leading-relaxed text-slate-800">{q.passage.text}</p>
+            <summary className="cursor-pointer font-semibold text-brand-navy">📖 <span dir="ltr" lang="en"><RichInline text={q.passage.title} /></span></summary>
+            <p dir="ltr" lang="en" className="mt-2 whitespace-pre-line leading-relaxed text-slate-800"><RichInline text={q.passage.text} /></p>
           </details>
         )}
-        <p dir="ltr" lang="en" className="text-xl font-semibold leading-relaxed text-slate-900">{q.stem}</p>
+        <p dir="ltr" lang="en" className="text-xl font-semibold leading-relaxed text-slate-900"><RichInline text={q.stem} /></p>
         {hint && <p className="mt-2 rounded-xl bg-amber-50 px-3 py-2 text-amber-900 ring-1 ring-amber-200"><span aria-hidden="true">💡 </span><span dir="ltr" lang="en">{hint}</span></p>}
       </article>
 
@@ -208,7 +210,7 @@ export default function LaneRunner({ questions, round, level }: GameProps) {
           </div>
         </div>
         <div className="absolute inset-x-0 bottom-0 h-1.5 bg-lime-300/60" aria-hidden="true"><div ref={meterRef} className="h-full origin-left bg-lime-600" /></div>
-        <p className="sr-only" aria-live="polite">{lanes[lane] ? t("Lane {n}", { n: lane + 1 }) : ""} <span lang="en">{lanes[lane]?.text}</span></p>
+        <p className="sr-only" aria-live="polite">{lanes[lane] ? t("Lane {n}", { n: lane + 1 }) : ""} <span lang="en">{stripMarks(lanes[lane]?.text ?? "")}</span></p>
       </div>
 
       {!done && (

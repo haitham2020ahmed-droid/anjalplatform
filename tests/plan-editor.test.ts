@@ -159,7 +159,7 @@ describe("Plan editor and suggested plans", () => {
 
   test("send, edit after sending (answers kept), pause, withdraw, duplicate", async () => {
     const id = await createDraft(repo, t4, { classId: class4, program: null, studentIds: [kids[1], kids[2]], title: "Group plan", sections: [{ skillId: skillA, count: 4 }, { skillId: skillB, count: 3 }] }, NOW);
-    const r = await sendPlan(repo, t4, id, NOW);
+    const r = await sendPlan(repo, t4, id, NOW, "CURRICULUM");
     assert.equal(r.sections, 2); assert.equal(r.students, 2);
     let p = await loadPlan(repo, t4, id);
     assert.equal(p.status, "SENT");
@@ -168,7 +168,7 @@ describe("Plan editor and suggested plans", () => {
     assert.deepEqual(JSON.parse(JSON.stringify(asg.questionIds)), p.doc.sections[0].questionIds, "the student gets exactly the teacher's questions");
     assert.deepEqual((await repo.findMany("AssignmentStudent", { assignmentId: a1 })).map((l) => s(l.studentId)).sort(), [kids[1], kids[2]]);
     assert.ok((await studentSkillPlans(repo, await studentActor(kids[1]))).some((x) => x.id === id));
-    await assert.rejects(sendPlan(repo, t4, id, NOW), ValidationError, "sent once");
+    await assert.rejects(sendPlan(repo, t4, id, NOW, "CURRICULUM"), ValidationError, "sent once");
 
     // a student answers the first question; the teacher then removes it: the answer stays recorded
     const q0 = p.doc.sections[0].questionIds[0];
@@ -255,14 +255,14 @@ describe("Plan editor and suggested plans", () => {
     const stu = await studentActor(kids[0]);
     await assert.rejects(loadPlan(repo, stu, id));
     await assert.rejects(createDraft(repo, t4, { classId: class4, program: "NAFS", sections: [] }, NOW), /Grade 6/);
-    await assert.rejects(sendProgramPlan(repo, t4, { classId: class4, program: "NAFS", picks: [{ studentId: kids[0], skillId: skillA }] }, NOW), /Grade 6/);
+    await assert.rejects(sendProgramPlan(repo, t4, { source: "CURRICULUM", classId: class4, program: "NAFS", picks: [{ studentId: kids[0], skillId: skillA }] }, NOW), /Grade 6/);
     const nafs = await startPlan(repo, t6, { classId: class6, program: "NAFS", studentIds: [], mode: "empty" }, NOW);
     assert.equal((await loadPlan(repo, t6, nafs.planId)).program, "NAFS");
     await deleteDraft(repo, t4, id, NOW);
   });
 
   test("an older plan sent before the editor opens with all its questions", async () => {
-    const r = await sendProgramPlan(repo, t4, { classId: class4, program: "MAP", title: "Old MAP plan", picks: [{ studentId: kids[2], skillId: skillB }] }, NOW);
+    const r = await sendProgramPlan(repo, t4, { source: "CURRICULUM", classId: class4, program: "MAP", title: "Old MAP plan", picks: [{ studentId: kids[2], skillId: skillB }] }, NOW);
     await repo.updateMany("SkillPlan", { id: r.planId }, { doc: null, status: "SENT" });
     const p = await loadPlan(repo, t4, r.planId);
     assert.equal(p.doc.sections.length, 1);

@@ -45,10 +45,10 @@
       "difficulty": 1,
       "stem": "Why was Mrs. Huda puzzled?",
       "options": [
-        "Students refused to visit the library.",
+        "Students refused to visit the library all week.",
         "The borrowing records showed nothing unusual.",
-        "The books came back with missing pages.",
-        "She had lost the key to the library."
+        "The books came back with missing pages and marks.",
+        "She had lost the key to the library door."
       ],
       "answer": "B",
       "why": "Books were vanishing, yet \"the borrowing records showed nothing unusual.\""

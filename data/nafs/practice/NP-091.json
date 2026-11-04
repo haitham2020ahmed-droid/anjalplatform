@@ -46,9 +46,9 @@
       "stem": "According to the passage, why did the Bedouin keep only certain horses for breeding?",
       "options": [
         "They needed horses that could travel far on little food and water.",
-        "They wanted horses that would win modern races.",
-        "They preferred horses that were tall and very heavy.",
-        "They wanted horses that would stay close to the wells."
+        "They wanted horses that would win modern races on sandy tracks.",
+        "They preferred horses that were tall and very heavy for the war.",
+        "They wanted horses that would stay close to the wells all year."
       ],
       "answer": "A",
       "why": "Paragraph 1 says families kept only horses that could travel long distances on little food and water."
@@ -109,9 +109,9 @@
       "difficulty": 3,
       "stem": "Which opinion is BEST supported by the passage?",
       "options": [
-        "Arabians are the fastest horses in short races.",
-        "Endurance riding is far too dangerous for horses.",
-        "Modern horses are less useful than desert horses.",
+        "Arabians are the fastest horses in all short races.",
+        "Endurance riding is far too dangerous for most horses.",
+        "Modern horses are less useful than the old desert horses.",
         "The Arabian's endurance comes from its long desert history."
       ],
       "answer": "D",
@@ -125,10 +125,10 @@
       "difficulty": 3,
       "stem": "Which information in the passage is the LEAST clear or complete?",
       "options": [
-        "Where the Arabian horse breed first developed",
-        "Who examines the horses at the checkpoints",
+        "Where the Arabian horse breed first developed long ago",
+        "Who examines the horses at the checkpoints in the race",
         "What counts as a \"safe rate\" for a horse's heartbeat",
-        "How far horse and rider may travel in one day"
+        "How far horse and rider may travel in one day or night"
       ],
       "answer": "C",
       "why": "The passage mentions a safe rate but never says what it is; the other details are stated clearly."
@@ -157,10 +157,10 @@
       "difficulty": 3,
       "stem": "Which is the best alternative title for the passage?",
       "options": [
-        "The Fastest Racehorses in the World",
+        "The Fastest Racehorses in the World Today",
         "Made for the Long Road: The Arabian Horse",
-        "How to Become a Horse Veterinarian",
-        "Bedouin Tents and Desert Wells"
+        "How to Become a Horse Veterinarian in Arabia",
+        "Bedouin Tents and Desert Wells in the Sand"
       ],
       "answer": "B",
       "why": "The passage is about the Arabian horse's endurance, which this title captures; the others focus on side details or speed."

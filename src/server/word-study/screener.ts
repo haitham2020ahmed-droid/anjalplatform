@@ -24,7 +24,7 @@ import { encodeSpeech } from "./speech-code";
 import { STRAND_BY_N, STRANDS, type Strand } from "./strands";
 
 export const START_STRAND = 3;
-export const PASS_PCT = 50;
+export const SCREENER_PASS_PCT = 50;
 export const MAX_FAILS_UP = 2;
 /** a student may start the screener again by themselves only after this many days */
 export const SELF_RETAKE_DAYS = 30;
@@ -84,8 +84,8 @@ export function nextStrand(done: { strand: number; pct: number }[], start = STAR
   if (!done.length) return start;
   const taken = new Set(done.map((x) => x.strand));
   const last = done[done.length - 1];
-  if (last.pct < PASS_PCT && last.strand > 1 && !taken.has(last.strand - 1) && last.strand <= start) return last.strand - 1;
-  const fails = done.filter((x) => x.pct < PASS_PCT).length;
+  if (last.pct < SCREENER_PASS_PCT && last.strand > 1 && !taken.has(last.strand - 1) && last.strand <= start) return last.strand - 1;
+  const fails = done.filter((x) => x.pct < SCREENER_PASS_PCT).length;
   if (fails >= MAX_FAILS_UP) return null;
   const top = Math.max(...done.map((x) => x.strand));
   // a failed start strand that has been checked below continues upward too (one fail so far)
@@ -100,7 +100,7 @@ export function summarize(strands: ScreenStrand[], start = START_STRAND): Screen
   const real = tally(items.filter((x) => x.real)), madeUp = tally(items.filter((x) => !x.real));
   const tested = done.map((x) => x.strand).sort((a, b) => a - b);
   const lowest = tested[0] ?? start;
-  const startPassed = (res[String(start)]?.pct ?? 0) >= PASS_PCT;
+  const startPassed = (res[String(start)]?.pct ?? 0) >= SCREENER_PASS_PCT;
   const assumed = startPassed ? STRANDS.map((x) => x.n).filter((n) => n < lowest) : [];
   const notMastered = tested.filter((n) => res[String(n)].status !== "MASTERED");
   return {

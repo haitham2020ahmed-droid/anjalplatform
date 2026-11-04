@@ -1,7 +1,8 @@
 "use client";
 import { useActionState } from "react";
-import { addPrerequisiteAction, linkStandardAction, updateSkillAction } from "../../actions";
+import { addPrerequisiteAction, linkQuestionsAction, linkStandardAction, updateSkillAction } from "../../actions";
 import { Combo } from "@/components/ui/combo";
+import type { QuestionCandidate } from "@/server/skills/suggest-questions";
 
 const input = "w-full rounded-lg border border-slate-300 px-3 py-2 focus:border-brand-teal focus:outline-none focus:ring-2 focus:ring-brand-teal/30";
 const btn = "rounded-lg bg-brand-navy px-4 py-2 font-semibold text-white hover:bg-brand-purple disabled:opacity-60";
@@ -27,6 +28,27 @@ export function StandardForm({ skillId }: { skillId: string }) {
       <input type="hidden" name="skillId" value={skillId} />
       <label className="block text-sm font-medium">Add a standard by code<input name="code" placeholder="RL.4.2" className={input} required /></label>
       <button disabled={p} className={btn}>Add standard</button> <Msg s={s} />
+    </form>
+  );
+}
+
+export function QuestionSuggestForm({ skillId, candidates }: { skillId: string; candidates: QuestionCandidate[] }) {
+  const [s, a, p] = useActionState(linkQuestionsAction, {});
+  return (
+    <form action={a} className="mt-2 space-y-2">
+      <input type="hidden" name="skillId" value={skillId} />
+      <ul className="max-w-3xl divide-y divide-slate-200 rounded-lg ring-1 ring-slate-200">
+        {candidates.map((q) => (
+          <li key={q.id} className="flex items-start gap-2 px-3 py-2 text-sm">
+            <input type="checkbox" name="qid" value={q.id} className="mt-1 h-4 w-4" />
+            <span>
+              <span>{q.stem}</span>
+              <span className="ms-2 text-xs text-slate-500">({q.skillName}{q.grade ? ` · G${q.grade}` : ""}{q.difficultyLevel ? ` · level ${q.difficultyLevel}` : ""})</span>
+            </span>
+          </li>
+        ))}
+      </ul>
+      <button disabled={p} className={btn}>Move ticked questions here</button> <Msg s={s} />
     </form>
   );
 }

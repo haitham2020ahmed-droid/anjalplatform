@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { AppShell } from "@/components/app-shell";
-import { AtAGlance, Callout, ReportHeader, ReportSection, ReportTable, SimpleBar } from "@/components/report-kit";
+import { AtAGlance, Callout, InfoTip, ReportHeader, ReportIntro, ReportSection, ReportSummary, ReportTable, SimpleBar } from "@/components/report-kit";
+import { GLOSSARY } from "@/lib/report-columns";
+import { departmentWeekSummary } from "@/lib/report-summaries";
 import { getT } from "@/i18n/server";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { departmentSummary } from "@/server/insights/department";
@@ -20,6 +22,7 @@ export default async function DepartmentPage() {
     <AppShell name={String(me.displayName)}>
       <ReportHeader back={{ href: "/admin", label: "Home" }} icon="🏫" title={`English department · week ${d.week}`} subtitle="Practice this week, accuracy, work, MAP and alerts for every class."
         who={t("Whole school")} when={`${d.from} → ${d.to}`} downloads={[{ href: "/api/department-export", label: "Excel", icon: "⬇", download: false }]} />
+      <ReportIntro text="Every class side by side this week: practice, accuracy, work, MAP and alerts." />
       <AtAGlance items={[
         { icon: "👩‍🎓", label: "Students", value: d.totals.students, meaning: t("{n} answers · {m} minutes this week", { n: d.totals.answers.toLocaleString("en"), m: d.totals.minutes.toLocaleString("en") }) },
         { icon: "🙋", label: "Practised this week", value: `${d.totals.students ? Math.round((100 * d.totals.active) / d.totals.students) : 0}%`, meaning: "of students answered at least one question", tone: d.totals.students && d.totals.active / d.totals.students < 0.5 ? "warn" : "good" },
@@ -39,7 +42,7 @@ export default async function DepartmentPage() {
       <ReportSection title="Class Comparison" icon="⚖️" hint="Practised (week): ▲ best class in green · under 50% in red.">
         <SimpleBar label="Practised this week" className="mb-5" items={d.classes.map((c) => ({ label: `G${c.grade} · ${c.className}`, value: c.activePct, band: c.activePct >= 80 ? "GOOD" : c.activePct >= 50 ? "OK" : "LOW" }))} />
         <ReportTable label="Class Comparison"
-          cols={[{ key: "c", label: "Class" }, { key: "t", label: "Teacher" }, { key: "s", label: "Students", num: true }, { key: "p", label: "Practised (week)", num: true }, { key: "a", label: "Answers", num: true }, { key: "m", label: "Minutes", num: true }, { key: "acc", label: "Accuracy", num: true }, { key: "d", label: "Tasks done", num: true }, { key: "l", label: "Late", num: true }, { key: "mt", label: "MAP tested", num: true }, { key: "o", label: "On track", num: true }, { key: "r", label: "At risk", num: true }, { key: "ao", label: "Alerts open", num: true }, { key: "h", label: "Handled", num: true }]}
+          cols={[{ key: "c", label: "Class" }, { key: "t", label: "Teacher" }, { key: "s", label: "Students", num: true, more: true }, { key: "p", label: "Practised (week)", num: true }, { key: "a", label: "Answers", num: true, more: true }, { key: "m", label: "Minutes", num: true, more: true }, { key: "acc", label: "Accuracy", num: true }, { key: "d", label: "Tasks done", num: true, more: true }, { key: "l", label: "Late", num: true, more: true }, { key: "mt", label: "MAP tested", num: true, more: true }, { key: "o", label: "On track", num: true, more: true }, { key: "r", label: "At risk", num: true }, { key: "ao", label: "Alerts open", num: true }, { key: "h", label: "Handled", num: true, more: true }]}
           rows={d.classes.map((c) => ({
             id: c.classId, flag: c.alertsOpen && (c.oldestOpenDays ?? 0) >= 7 ? "bad" : c.activePct < 50 ? "warn" : undefined,
             sort: { c: `${c.grade} ${c.className}`, p: c.activePct, acc: c.accuracy, ao: c.alertsOpen },
@@ -53,13 +56,14 @@ export default async function DepartmentPage() {
       <section className="mt-6 grid gap-4 md:grid-cols-3">
         {d.weakest.map((g) => (
           <div key={g.grade} className="rk-section rounded-3xl bg-white p-5 shadow-sm ring-1 ring-slate-200">
-            <h2 className="font-bold text-brand-navy">Grade {g.grade}: hardest skills <span className="text-xs font-normal text-slate-500">(last 30 days)</span></h2>
+            <h2 className="flex flex-wrap items-center gap-1 font-bold text-brand-navy">Grade {g.grade}: hardest skills <span className="text-xs font-normal text-slate-500">(last 30 days)</span> <InfoTip text={GLOSSARY["Hardest skills"]} /></h2>
             {!g.skills.length ? <p className="mt-2 text-sm text-slate-500">Not enough answers yet (20+ per skill).</p> : (
               <ol className="mt-2 space-y-1 text-sm">{g.skills.map((k) => <li key={k.skillId} className="flex justify-between gap-2"><span>{k.name}</span><span className={`tabular-nums font-semibold ${k.accuracy < 50 ? "text-red-700" : "text-amber-800"}`}>{k.accuracy}% · {k.students} st.</span></li>)}</ol>
             )}
           </div>
         ))}
       </section>
+      <ReportSummary summary={departmentWeekSummary(d)} />
       <p className="mt-4 text-sm text-slate-500 print:hidden">See every alert and what each teacher did: <Link href="/teacher/alerts?status=ALL" className="font-semibold text-brand-teal underline">Student alerts</Link> · Teachers: <Link href="/admin/teachers" className="font-semibold text-brand-teal underline">Teacher follow-up</Link></p>
     </AppShell>
   );

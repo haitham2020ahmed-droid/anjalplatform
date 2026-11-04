@@ -157,10 +157,10 @@
       "type": "MCQ",
       "stem": "Which is another suitable title for the passage?",
       "options": [
-        "Life in a Library in Berlin",
-        "Famous Greek Physicians",
+        "Life in a Library in Berlin Long Ago",
+        "Famous Greek Physicians of the Past",
         "A Forgotten Discovery About the Heart",
-        "How to Build a Hospital"
+        "How to Build a Hospital for the City"
       ],
       "answer": "C",
       "why": "The passage is about Ibn al-Nafis's discovery about the heart and lungs, which was forgotten for centuries."
@@ -173,9 +173,9 @@
       "type": "MCQ",
       "stem": "What is the main purpose of the passage?",
       "options": [
-        "to explain how to care for your heart and lungs",
-        "to describe the history of the city of Damascus",
-        "to compare Greek and Egyptian libraries",
+        "to explain how to care for your heart and lungs each day",
+        "to describe the history of the city of Damascus and its walls",
+        "to compare Greek and Egyptian libraries in the ancient world",
         "to show how a doctor's careful reasoning corrected an old mistake"
       ],
       "answer": "D",
@@ -189,10 +189,10 @@
       "type": "MCQ",
       "stem": "What is the main idea of paragraph 4?",
       "options": [
-        "William Harvey copied the work of Ibn al-Nafis.",
+        "William Harvey copied the work of Ibn al-Nafis word for word.",
         "His explanation was forgotten for centuries and then rediscovered.",
-        "Berlin has the largest library in the world.",
-        "European scientists never studied the heart."
+        "Berlin has the largest library in the world, with many books.",
+        "European scientists never studied the heart in those days."
       ],
       "answer": "B",
       "why": "Paragraph 4 explains that his work was “largely forgotten” until it was found in Berlin in 1924."
@@ -221,9 +221,9 @@
       "type": "MCQ",
       "stem": "According to the passage, what is the “pulmonary circulation”?",
       "options": [
-        "the movement of air in and out of the nose",
-        "the path of food through the stomach",
-        "the flow of blood through holes in the heart wall",
+        "the movement of air in and out of the nose and mouth",
+        "the path of food through the stomach and the gut",
+        "the flow of blood through holes in the heart wall to the legs",
         "the journey of blood from the heart to the lungs and back"
       ],
       "answer": "D",
@@ -301,10 +301,10 @@
       "type": "MCQ",
       "stem": "What led Ibn al-Nafis to reject the idea that blood passes through holes in the heart wall?",
       "options": [
-        "Ibn Sina asked him to correct Galen's book.",
-        "His students refused to believe Galen.",
+        "Ibn Sina asked him to correct Galen's book on the body.",
+        "His students refused to believe Galen and went away.",
         "He saw that the wall is solid, with no visible holes.",
-        "He read William Harvey's explanation."
+        "He read William Harvey's explanation of the blood."
       ],
       "answer": "C",
       "why": "Paragraph 3: “He pointed out that the wall … is solid and has no visible holes. Therefore, he argued…”"
@@ -349,9 +349,9 @@
       "type": "MCQ",
       "stem": "How was Ibn al-Nafis's explanation DIFFERENT from Galen's?",
       "options": [
-        "He said the heart has no left or right side at all.",
-        "He said blood does not travel anywhere in the body.",
-        "He said the holes in the wall were larger than Galen thought.",
+        "He said the heart has no left or right side at all, only one room.",
+        "He said blood does not travel anywhere in the body, but stays still.",
+        "He said the holes in the wall were larger than Galen thought they were.",
         "He said blood passes through the lungs, not through holes in the heart wall."
       ],
       "answer": "D",
@@ -365,9 +365,9 @@
       "type": "MCQ",
       "stem": "What was the effect of the discovery made in Berlin in 1924?",
       "options": [
-        "Hospitals stopped teaching about the heart.",
-        "William Harvey's work was forgotten.",
-        "Galen's idea became popular again.",
+        "Hospitals stopped teaching about the heart and the lungs for many years.",
+        "William Harvey's work was forgotten by all the doctors in Europe.",
+        "Galen's idea became popular again in the schools of medicine.",
         "People learned how early Ibn al-Nafis had described the blood's journey."
       ],
       "answer": "D",
@@ -397,10 +397,10 @@
       "type": "MCQ",
       "stem": "What does the phrase “how far ahead of his time” in paragraph 4 mean?",
       "options": [
-        "He always arrived early for his work.",
+        "He always arrived early for his work and left late at night each day.",
         "His ideas were much more advanced than those of people in his age.",
-        "He lived many years longer than other doctors.",
-        "He travelled farther than other physicians."
+        "He lived many years longer than other doctors in the city.",
+        "He travelled farther than other physicians to visit the sick."
       ],
       "answer": "B",
       "why": "The phrase is figurative: his understanding came centuries before others reached the same idea."
@@ -445,10 +445,10 @@
       "type": "MCQ",
       "stem": "According to the passage, which quality made Ibn al-Nafis's discovery possible?",
       "options": [
-        "having the largest library in Cairo",
+        "having the largest library in Cairo at that time",
         "trusting careful observation more than reputation",
-        "being the youngest doctor in Damascus",
-        "travelling to Greece to meet Galen"
+        "being the youngest doctor in Damascus in his day",
+        "travelling to Greece to meet Galen in person"
       ],
       "answer": "B",
       "why": "The last paragraph says he “trusted careful observation and reasoning more than reputation.”"
@@ -462,9 +462,9 @@
       "stem": "Which statement best expresses the writer's view of Galen and Ibn Sina?",
       "options": [
         "They were respected scholars, but they could still be wrong.",
-        "They were careless doctors whom nobody respected.",
-        "They were always right about every subject.",
-        "They copied their ideas from Ibn al-Nafis."
+        "They were careless doctors whom nobody respected at all.",
+        "They were always right about every subject they studied.",
+        "They copied their ideas from Ibn al-Nafis word for word."
       ],
       "answer": "A",
       "why": "The writer calls them famous and celebrated, yet shows that their idea about the heart was “completely wrong”."
@@ -526,9 +526,9 @@
       "stem": "Which title best describes the events of the passage?",
       "options": [
         "The Physician Who Questioned Galen",
-        "The Holes in the Heart Wall",
-        "A Library Lost in Berlin",
-        "Greek Medicine in Cairo"
+        "The Holes in the Heart Wall of the Body",
+        "A Library Lost in Berlin During a War",
+        "Greek Medicine in Cairo in the Past"
       ],
       "answer": "A",
       "why": "The central event is Ibn al-Nafis questioning Galen's idea and describing the true path of the blood."
@@ -556,10 +556,10 @@
       "type": "MCQ",
       "stem": "Based on the passage, what is the best way for students to follow Ibn al-Nafis's example?",
       "options": [
-        "Accept everything written in a famous book.",
+        "Accept everything written in a famous book as true without any question.",
         "Ask respectful questions and check the evidence before accepting an idea.",
-        "Argue with every teacher about every fact.",
-        "Ignore what earlier scholars have written."
+        "Argue with every teacher about every fact in the class, all the time.",
+        "Ignore what earlier scholars have written about the human body and the heart."
       ],
       "answer": "B",
       "why": "He respected earlier scholars but checked the evidence; he did not accept or reject ideas without reason."

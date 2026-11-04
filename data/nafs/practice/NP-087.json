@@ -45,10 +45,10 @@
       "difficulty": 1,
       "stem": "What type of text is this?",
       "options": [
-        "A poem",
-        "A news report",
+        "A poem about a boy and a bird",
+        "A news report about a school",
         "A short story with dialogue",
-        "A science article"
+        "A science article about stars"
       ],
       "answer": "C",
       "why": "It has characters, events and conversation in quotation marks."

@@ -45,6 +45,20 @@ export function skillTabOf(domain: unknown, code: unknown = ""): SkillTab {
   return "READING";
 }
 
+/**
+ * Teachers' other words for a skill, by skill family (the part of the skill code after "G4." / "G5." / "G6."):
+ * a search finds the skill by these too, e.g. "Characterization" -> Character Traits & Development.
+ */
+export const SKILL_SEARCH_ALIASES: Readonly<Record<string, readonly string[]>> = {
+  character: ["Characterization", "Characterisation", "Direct and Indirect Characterization", "Character Analysis"],
+};
+
+/** The extra search names of a skill code ("G5.character" -> ["Characterization", ...]; none for other skills). */
+export function skillAliases(code: unknown): readonly string[] {
+  const fam = String(code ?? "").replace(/^g\d+\./i, "").split("#")[0].toLowerCase();
+  return SKILL_SEARCH_ALIASES[fam] ?? [];
+}
+
 /** "Character Traits & Development" / "character traits and development" / "Author’s Purpose" → one search key. */
 export function skillSearchKey(text: unknown): string {
   return String(text ?? "").toLowerCase().replace(/&/g, " and ").replace(/[’‘'`´]/g, "").replace(/[^a-z0-9]+/g, " ").replace(/\s+/g, " ").trim();
@@ -58,7 +72,7 @@ export function skillMatches(k: { name: string; names?: readonly string[]; code?
   const want = skillSearchKey(q);
   if (!want) return true;
   const qw = want.split(" ").filter((w) => w !== "and");
-  const names = [k.name, ...(k.names ?? [])];
+  const names = [k.name, ...(k.names ?? []), ...skillAliases(k.code)];
   for (const n of names) {
     const key = skillSearchKey(n);
     if (key.includes(want)) return true;

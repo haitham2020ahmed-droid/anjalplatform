@@ -10,11 +10,13 @@ import { recordLevel } from "./student-level";
 import type { Repo, Row } from "../seeding/repo";
 import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
+import { requireSource } from "../assign/source";
 import { assertClassAccess } from "../teacher/assignments";
 import { accessibleClasses, assignQuestions } from "../teacher/assign";
 import { attachmentNodes, type AttachmentNode } from "./questions";
 import { bridgeOf } from "./bridge";
 import { fromDifficulty } from "./leveled-run";
+import { describePicks } from "../tests/map-source";
 
 const s = (v: unknown) => String(v ?? "");
 export type Level = "ABOVE" | "ON" | "BELOW";
@@ -89,6 +91,24 @@ function categoryPlaces(nodes: AttachmentNode[], categoryCode: string): Attachme
   return nodes.filter((n) => n.code === code || n.code.startsWith(`${code}.`));
 }
 
+export interface PlaceQuestionChoice { id: string; stem: string; typeLabel: string; level: Level | null }
+
+/** 🔎 r91 "I'll pick the questions": this Curriculum Map place's own linked, published, auto-marked questions
+ * (across whichever level nodes it has), for the teacher to search and tick in the ⭐ Assign window. */
+export async function placeQuestionChoices(repo: Repo, actor: Actor, categoryCode: string, q = ""): Promise<PlaceQuestionChoice[]> {
+  assertCan(actor, "assignments:create");
+  const places = categoryPlaces(await attachmentNodes(repo, actor.schoolId!), categoryCode);
+  if (!places.length) throw new ValidationError("That place is not on the Curriculum Map.");
+  const counts = await questionsOnNodes(repo, places.map((p) => p.id));
+  const byId = new Map<string, Level | null>();
+  for (const p of places) for (const id of counts.get(p.id) ?? []) if (!byId.has(id)) byId.set(id, (p.level as Level | null) ?? null);
+  const ids = [...byId.keys()];
+  if (!ids.length) return [];
+  const rows = await describePicks(repo, actor, ids);
+  const needle = s(q).trim().toLowerCase();
+  return rows.filter((r) => !needle || r.stem.toLowerCase().includes(needle)).map((r) => ({ id: r.id, stem: r.stem, typeLabel: r.typeLabel, level: byId.get(r.id) ?? null }));
+}
+
 /** What “assign by level” would do for this class and Curriculum Map category (changes nothing). */
 export async function previewMapAssign(repo: Repo, actor: Actor, classId: string, categoryCode: string): Promise<MapAssignPreview> {
   await assertClassAccess(repo, actor, classId);
@@ -109,8 +129,11 @@ export async function previewMapAssign(repo: Repo, actor: Actor, classId: string
  * Analyze Craft / Respond to Reading → one set per level, each student in the set of their level
  * (no level yet = On Level; a level with no questions falls back to On Level, then to any level).
  */
-export async function assignFromMap(repo: Repo, actor: Actor, input: { classId: string; categoryCode: string; studentIds?: string[]; dueAt?: Date | null; startAt?: Date | null; note?: string | null; maxQuestions?: number; mode?: "ADAPTIVE" | "BY_LEVEL"; targetCorrect?: number | null; silent?: boolean; curriculumPlanId?: string | null }, now = new Date()): Promise<MapAssignResult> {
+export async function assignFromMap(repo: Repo, actor: Actor, input: { classId: string; categoryCode: string; studentIds?: string[]; dueAt?: Date | null; startAt?: Date | null; note?: string | null; maxQuestions?: number; mode?: "ADAPTIVE" | "BY_LEVEL"; targetCorrect?: number | null; silent?: boolean; curriculumPlanId?: string | null; /** 🔎 r91 ("أنا هختار الأسئلة"): the teacher's own explicit pick — when given, every other rule below (levels,
+   * adaptive, the Review's own set) is skipped: exactly these questions, Fixed, same for every chosen student. */
+  questionIds?: string[]; /** r74: REQUIRED source */ source: string | null | undefined }, now = new Date()): Promise<MapAssignResult> {
   assertCan(actor, "assignments:create");
+  const source = requireSource(input.source);
   await assertClassAccess(repo, actor, input.classId);
   const places = categoryPlaces(await attachmentNodes(repo, actor.schoolId!), input.categoryCode);
   if (!places.length) throw new ValidationError("That place is not on the Curriculum Map.");
@@ -119,16 +142,25 @@ export async function assignFromMap(repo: Repo, actor: Actor, input: { classId: 
   const chosen = input.studentIds?.length ? all.filter((x) => input.studentIds!.includes(x.id)) : all;
   if (input.studentIds?.length && chosen.length !== new Set(input.studentIds).size) throw new ForbiddenError("You can only assign work to students in this class.");
   if (!chosen.length) throw new ValidationError("This class has no students yet.");
+  const base = `${places[0].unitTitle} · ${places[0].heading} · ${places[0].categoryLabel.replace(/^\d+-\s*/, "")}`;
+  // 🔎 r91: the teacher ticked exact questions themselves ("I'll pick the questions") — skip every other rule
+  if (input.questionIds?.length) {
+    const picked = [...new Set(input.questionIds)];
+    const r = await assignQuestions(repo, actor, {
+      classId: input.classId, studentIds: chosen.map((x) => x.id), questionIds: picked, track: "CURRICULUM", exactTitle: true, source, test: true,
+      title: base, dueAt: input.dueAt ?? null, startAt: input.startAt ?? null, note: input.note ?? null, silent: input.silent, curriculumPlanId: input.curriculumPlanId ?? null,
+    }, now);
+    return { groups: [{ level: null, students: chosen.length, questions: r.questions, assignmentId: r.assignmentId, usedLevel: null }], notes: ["🔎 Your own pick: the same questions for every student."] };
+  }
   const levels = await studentLevels(repo, chosen.map((x) => x.id));
   const counts = await questionsOnNodes(repo, places.map((p) => p.id));
   const max = Math.max(1, Math.min(50, input.maxQuestions ?? 20));
-  const base = `${places[0].unitTitle} · ${places[0].heading} · ${places[0].categoryLabel.replace(/^\d+-\s*/, "")}`;
   const notes: string[] = [];
   const groups: MapAssignResult["groups"] = [];
   const pick = (ids: string[]) => ids.slice(0, max);
   const send = async (level: Level | null, usedLevel: Level | null, students: string[], ids: string[]) => {
     const r = await assignQuestions(repo, actor, {
-      classId: input.classId, studentIds: students, questionIds: pick(ids), track: "CURRICULUM", exactTitle: true,
+      classId: input.classId, studentIds: students, questionIds: pick(ids), track: "CURRICULUM", exactTitle: true, source,
       title: `${base}${usedLevel ? ` (${LEVEL_NAMES[usedLevel]})` : ""}`, dueAt: input.dueAt ?? null, startAt: input.startAt ?? null, note: input.note ?? null, silent: input.silent, curriculumPlanId: input.curriculumPlanId ?? null,
     }, now);
     groups.push({ level, students: students.length, questions: Math.min(ids.length, max), assignmentId: r.assignmentId, usedLevel });
@@ -147,7 +179,7 @@ export async function assignFromMap(repo: Repo, actor: Actor, input: { classId: 
     if (mine) {
       if (!mine.length) throw new ValidationError("Your Review has no questions: add some on the Review page first.");
       const r = await assignQuestions(repo, actor, {
-        classId: input.classId, studentIds: chosen.map((x) => x.id), questionIds: mine, track: "CURRICULUM", exactTitle: true, title: base,
+        classId: input.classId, studentIds: chosen.map((x) => x.id), questionIds: mine, track: "CURRICULUM", exactTitle: true, source, title: base,
         dueAt: input.dueAt ?? null, startAt: input.startAt ?? null, note: input.note ?? null, silent: input.silent, curriculumPlanId: input.curriculumPlanId ?? null,
       }, now);
       groups.push({ level: null, students: chosen.length, questions: r.questions, assignmentId: r.assignmentId, usedLevel: null });
@@ -165,7 +197,7 @@ export async function assignFromMap(repo: Repo, actor: Actor, input: { classId: 
     if ((input.mode ?? "ADAPTIVE") === "ADAPTIVE" && (spread.size >= 2 || (input.targetCorrect ?? 0) > 0)) {
       const maxQ = Math.max(5, Math.min(60, input.maxQuestions ?? 20));
       const r = await assignQuestions(repo, actor, {
-        classId: input.classId, studentIds: chosen.map((x) => x.id), questionIds: ids, track: "CURRICULUM", exactTitle: true,
+        classId: input.classId, studentIds: chosen.map((x) => x.id), questionIds: ids, track: "CURRICULUM", exactTitle: true, source,
         title: `${base} (adaptive: Approaching → Meeting → Exceeding)`, adaptive: { maxQuestions: maxQ, targetCorrect: input.targetCorrect ?? null }, silent: input.silent, curriculumPlanId: input.curriculumPlanId ?? null,
         dueAt: input.dueAt ?? null, startAt: input.startAt ?? null, note: input.note ?? null,
       }, now);
@@ -195,8 +227,20 @@ export async function assignFromMap(repo: Repo, actor: Actor, input: { classId: 
     pool.push(...challenge.filter((id) => !pool.includes(id)), ...support.filter((id) => !pool.includes(id)));
     if (challenge.length) notes.push(`🚀 Challenge path: ${challenge.length} question(s) from Grade ${places[0].grade + 1} (same skill) for students who master Exceeding.`);
     if (support.length) notes.push(`🛟 Support path: ${support.length} question(s) from Grade ${places[0].grade - 1} (same skill) for students who struggle at Approaching.`);
+    // 🐛 fix (Oct 2026): ACS ("Analyze Craft and Structure") assignments now require real per-skill mastery
+    // (≥15 independent correct answers each, config/engine.ts) for the goal to be reached, not just a question
+    // count — see leveled-run.ts#analyzeCraftAllMastered. A small pool spread across many skills means a student
+    // will lean heavily on the cross-skill "borrow from the bank" fallback just to gather enough practice. Warn
+    // the teacher up front, the same way the Challenge/Support notes above already do — no new UI needed.
+    if (places[0].category === "ANALYZE_CRAFT_AND_STRUCTURE") {
+      const skillRows = pool.length ? await repo.findMany("Question", { id: { in: pool } }, { select: ["skillId"] }) : [];
+      const skillCount = new Set(skillRows.map((q) => s(q.skillId)).filter(Boolean)).size;
+      if (skillCount > 0 && pool.length / skillCount < 10) {
+        notes.push(`⚠️ This pool has ${pool.length} question(s) across ${skillCount} skill(s) — that is thin for Analyze Craft and Structure's real-mastery requirement. Students will likely need a lot of borrowed questions from elsewhere to reach mastery on every skill. Consider adding more questions to this pool.`);
+      }
+    }
     const r = await assignQuestions(repo, actor, {
-      classId: input.classId, studentIds: chosen.map((x) => x.id), questionIds: pool, track: "CURRICULUM", exactTitle: true,
+      classId: input.classId, studentIds: chosen.map((x) => x.id), questionIds: pool, track: "CURRICULUM", exactTitle: true, source,
       title: `${base} (adaptive: Approaching → Meeting → Exceeding)`, adaptive: { maxQuestions: Math.max(5, Math.min(60, input.maxQuestions ?? 20)), targetCorrect: input.targetCorrect ?? null }, silent: input.silent, curriculumPlanId: input.curriculumPlanId ?? null,
       dueAt: input.dueAt ?? null, startAt: input.startAt ?? null, note: input.note ?? null,
     }, now);
@@ -266,6 +310,8 @@ export async function giveTest(repo: Repo, actor: Actor, input: { classId: strin
     ...(input.kind === "PLACEMENT" ? { adaptive: { maxQuestions: want } } : {}),
     classId: input.classId, studentIds: input.studentIds, questionIds: input.kind === "PLACEMENT" ? ids : ids.slice(0, want), title, exactTitle: true,
     kind: input.kind === "PLACEMENT" ? "PLACEMENT" : "BENCHMARK", track: input.kind === "MAP_TEST" ? "MAP" : "CURRICULUM", dueAt: input.dueAt ?? null,
+    // r74: a placement / MAP practice TEST (no skill is assigned): its source from the context
+    source: input.kind === "MAP_TEST" ? "MAP" : "CURRICULUM",
   }, now);
   return { assignmentId: r.assignmentId, students: r.students, questions: r.questions };
 }

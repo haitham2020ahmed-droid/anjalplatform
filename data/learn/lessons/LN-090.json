@@ -423,10 +423,10 @@
      "passage": "The engineer checked the bridge, and wrote a report for the city.",
      "stem": "What is wrong?",
      "options": [
-      "A semicolon should replace the comma.",
+      "A semicolon should replace the comma between the parts.",
       "Remove the comma; the second part has no subject.",
-      "A comma is needed after 'report.'",
-      "Nothing is wrong."
+      "A comma is needed after the word 'report.'",
+      "Nothing is wrong with the sentence at all."
      ],
      "answer": 1,
      "why": "Wrote a report has no subject of its own. One subject with two verbs needs no comma."

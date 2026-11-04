@@ -203,8 +203,8 @@
      "passage": "The farmer opens the gate. His sheep walk out into the field. They eat the green grass all day.",
      "stem": "What is a field?",
      "options": [
-      "A small room in a house.",
-      "A busy street in a city.",
+      "A small room in a house for guests.",
+      "A busy street in a big city.",
       "A big shop that sells food.",
       "An open piece of land with grass."
      ],
@@ -444,9 +444,9 @@
      "stem": "What is a thermometer?",
      "options": [
       "A tool that measures how hot something is.",
-      "A medicine for a sore throat.",
-      "A bed in a hospital.",
-      "A drink that cools you down."
+      "A medicine for a sore throat or a cough.",
+      "A bed in a hospital for sick people.",
+      "A drink that cools you down in summer."
      ],
      "answer": 0,
      "why": "The nurse used it, then knew Hamad had a **fever**. It measures temperature."

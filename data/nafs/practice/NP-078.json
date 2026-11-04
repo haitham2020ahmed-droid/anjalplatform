@@ -141,10 +141,10 @@
       "difficulty": 1,
       "stem": "Which of the following events could really happen on a Saudi date farm?",
       "options": [
-        "A male palm tree grows a large harvest of dates.",
-        "A single bee carries enough pollen for a whole farm.",
+        "A male palm tree grows a large harvest of dates by itself.",
+        "A single bee carries enough pollen for a whole date farm.",
         "A farmer climbs a palm to place male flowers among female ones.",
-        "Bees make dates instead of honey in their hives."
+        "Bees make dates instead of honey in their hives each year."
       ],
       "answer": "C",
       "why": "Hand pollination is the traditional practice described in the passage; male palms bear no fruit, and the other events are impossible."

@@ -45,10 +45,10 @@
       "difficulty": 1,
       "stem": "Why does blue light reach our eyes from every part of the sky?",
       "options": [
-        "The sun gives off only blue light",
+        "The sun gives off only blue light in the sky",
         "Gas molecules scatter it in all directions",
-        "Blue light has the longest waves",
-        "The sea reflects blue into the air"
+        "Blue light has the longest waves of all the colours",
+        "The sea reflects blue into the air above it"
       ],
       "answer": "B",
       "why": "Blue light 'bounces in every direction across the sky' after hitting gas molecules."
@@ -61,9 +61,9 @@
       "difficulty": 2,
       "stem": "Which idea does the writer explain LAST?",
       "options": [
-        "What sunlight is made of",
-        "Who explained the scattering",
-        "Why the sky is not violet",
+        "What sunlight is made of and where it comes from",
+        "Who explained the scattering of light in the air",
+        "Why the sky is not violet in the middle of the day",
         "Why sunsets are often red and orange"
       ],
       "answer": "D",
@@ -125,9 +125,9 @@
       "difficulty": 3,
       "stem": "Which information in the passage is LEAST complete?",
       "options": [
-        "What sunlight is made of",
-        "Which gases are most common in air",
-        "Why sunsets look red and orange",
+        "What sunlight is made of and where it comes from",
+        "Which gases are most common in the air we breathe",
+        "Why sunsets look red and orange near the sea",
         "Why human eyes are more sensitive to blue"
       ],
       "answer": "D",

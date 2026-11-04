@@ -84,7 +84,7 @@ describe("My Work: finished work is recorded as Done", () => {
 
   test("finishing the practice → Done at once (in the answer's transaction), even below the target mastery", async () => {
     const me = kids[0];
-    const { assignmentId } = await assignSkill(repo, teacher, { classId, skillId: skill.a, studentIds: [me.studentId!], targetMastery: 95 }, tick(0));
+    const { assignmentId } = await assignSkill(repo, teacher, { source: "CURRICULUM", classId, skillId: skill.a, studentIds: [me.studentId!], targetMastery: 95 }, tick(0));
     const last = await finish(me, skill.a, (k) => k % 2 === 0);
     assert.ok(FINISH_REASONS.has(String(last.feedback.next.endReason)), String(last.feedback.next.endReason));
     // NOT waiting for the background refresh: the row is already Done
@@ -112,7 +112,7 @@ describe("My Work: finished work is recorded as Done", () => {
     const v = await startPractice(repo, me, skill.b, tick());
     const r1 = await submitAnswer(repo, me, { sessionId: v.sessionId, questionId: v.question!.questionId, response: "A" }, tick());
     // the teacher assigns the skill now; the student comes back to the same open session
-    const { assignmentId } = await assignSkill(repo, teacher, { classId, skillId: skill.b, studentIds: [me.studentId!] }, tick(0));
+    const { assignmentId } = await assignSkill(repo, teacher, { source: "CURRICULUM", classId, skillId: skill.b, studentIds: [me.studentId!] }, tick(0));
     const back = await startPractice(repo, me, skill.b, tick());
     assert.equal(back.sessionId, r1.view.sessionId, "the open session is resumed");
     assert.equal(s((await repo.findUnique("PracticeSession", { id: back.sessionId }))!.assignmentId), assignmentId, "and linked to the work");
@@ -130,7 +130,7 @@ describe("My Work: finished work is recorded as Done", () => {
     const legacy = await repo.create("Assignment", { classId, createdById: teacherRow.id, title: "Older work", target: "SKILL", skillIds: [skill.c4], targetMastery: 75, createdAt: tick(0) });
     await repo.create("AssignmentStudent", { assignmentId: legacy.id, studentId: me.studentId!, status: "NOT_STARTED", progress: 0 });
     // the same skill (Grade 5's copy) assigned too
-    const { assignmentId: g5 } = await assignSkill(repo, teacher, { classId, skillId: skill.c5, studentIds: [me.studentId!] }, tick(0));
+    const { assignmentId: g5 } = await assignSkill(repo, teacher, { source: "CURRICULUM", classId, skillId: skill.c5, studentIds: [me.studentId!] }, tick(0));
     const v = await startPractice(repo, me, skill.c4, tick());
     assert.equal(s((await repo.findUnique("PracticeSession", { id: v.sessionId }))!.assignmentId), s(legacy.id), "the exact skill's work is linked first");
     const last = await finish(me, skill.c4);
@@ -145,13 +145,13 @@ describe("My Work: finished work is recorded as Done", () => {
   test("question sets: a goal set whose questions run out, and a set with a deleted question, are Done when finished", async () => {
     const me = kids[3];
     // a goal of 10 correct answers but only 6 questions: the student answers them all, the set ends → Done
-    const goal = await assignQuestions(repo, teacher, { classId, studentIds: [me.studentId!], questionIds: qOf.set, adaptive: { maxQuestions: 6, targetCorrect: 10 }, title: "Goal place" }, tick(0));
+    const goal = await assignQuestions(repo, teacher, { source: "CURRICULUM", classId, studentIds: [me.studentId!], questionIds: qOf.set, adaptive: { maxQuestions: 6, targetCorrect: 10 }, title: "Goal place" }, tick(0));
     let qv = await startQuiz(repo, me, goal.assignmentId, tick());
     for (let k = 0; qv.question && k < 30; k++) ({ view: qv } = await submitQuizAnswer(repo, me, { assignmentId: goal.assignmentId, questionId: qv.question.questionId, response: "A" }, tick()));
     assert.equal(qv.ended, true);
     assert.equal((await row(goal.assignmentId, me.studentId!)).status, "COMPLETED", "finished goal set is Done");
     // a fixed set with one question deleted afterwards: the student can answer the rest and finish
-    const fixed = await assignQuestions(repo, teacher, { classId, studentIds: [me.studentId!], questionIds: qOf.set.slice(0, 3), title: "Three questions" }, tick(0));
+    const fixed = await assignQuestions(repo, teacher, { source: "CURRICULUM", classId, studentIds: [me.studentId!], questionIds: qOf.set.slice(0, 3), title: "Three questions" }, tick(0));
     await repo.updateMany("Question", { id: qOf.set[1] }, { deletedAt: tick(0) });
     qv = await startQuiz(repo, me, fixed.assignmentId, tick());
     assert.equal(qv.total, 2, "only questions that can still be answered");
@@ -163,14 +163,14 @@ describe("My Work: finished work is recorded as Done", () => {
 
   test("recomputeCompletion backfills finished work left open (bounded, lazy on My Work); paused work stays open", async () => {
     const me = kids[4];
-    const { assignmentId: done } = await assignSkill(repo, teacher, { classId, skillId: skill.b, studentIds: [me.studentId!] }, tick(0));
-    const { assignmentId: paused } = await assignSkill(repo, teacher, { classId, skillId: skill.a, studentIds: [me.studentId!] }, tick(0));
+    const { assignmentId: done } = await assignSkill(repo, teacher, { source: "CURRICULUM", classId, skillId: skill.b, studentIds: [me.studentId!] }, tick(0));
+    const { assignmentId: paused } = await assignSkill(repo, teacher, { source: "CURRICULUM", classId, skillId: skill.a, studentIds: [me.studentId!] }, tick(0));
     // as before the fix: a finished session whose status was never written, and a paused one
     await repo.create("PracticeSession", { studentId: me.studentId!, skillId: skill.b, assignmentId: done, mode: "ADAPTIVE_PRACTICE", startedAt: tick(), endedAt: tick(), endReason: "COMPLETED", questionCount: 20, correctCount: 9 });
     await repo.create("PracticeSession", { studentId: me.studentId!, skillId: skill.a, assignmentId: paused, mode: "ADAPTIVE_PRACTICE", startedAt: tick(), endedAt: tick(), endReason: "STUDENT_EXIT", questionCount: 3, correctCount: 1 });
     await repo.updateMany("AssignmentStudent", { studentId: me.studentId! }, { status: "IN_PROGRESS", progress: 0.4 });
     // a goal set that ended without its goal (its questions ran out), status never written
-    const goal = await assignQuestions(repo, teacher, { classId, studentIds: [me.studentId!], questionIds: qOf.set, adaptive: { maxQuestions: 6, targetCorrect: 10 }, title: "Old goal place" }, tick(0));
+    const goal = await assignQuestions(repo, teacher, { source: "CURRICULUM", classId, studentIds: [me.studentId!], questionIds: qOf.set, adaptive: { maxQuestions: 6, targetCorrect: 10 }, title: "Old goal place" }, tick(0));
     const set = (await repo.findUnique("Assignment", { id: goal.assignmentId }))!;
     await repo.create("PracticeSession", { studentId: me.studentId!, assessmentId: set.assessmentId, assignmentId: goal.assignmentId, mode: "TEACHER_QUIZ", startedAt: tick(), endedAt: tick(), endReason: "COMPLETED", questionCount: 6, correctCount: 6 });
     await repo.updateMany("AssignmentStudent", { assignmentId: goal.assignmentId, studentId: me.studentId! }, { status: "IN_PROGRESS", progress: 0.6 });
@@ -196,7 +196,7 @@ describe("My Work: finished work is recorded as Done", () => {
     const step0 = await nextStep(repo, none, tick());
     assert.ok(!["PRACTICE", "REVIEW"].includes(step0.kind), `no assigned skill → no skill suggestion (${step0.kind})`);
     if (step0.kind === "DONE") assert.equal(step0.href, null, "the section is hidden");
-    await assignSkill(repo, teacher, { classId, skillId: skill.b, studentIds: [none.studentId!] }, tick(0));
+    await assignSkill(repo, teacher, { source: "CURRICULUM", classId, skillId: skill.b, studentIds: [none.studentId!] }, tick(0));
     const mine = await assignedSkillIds(repo, none.studentId!, tick());
     assert.deepEqual([...mine.all], [skill.b]);
     const step = await nextStep(repo, none, tick());

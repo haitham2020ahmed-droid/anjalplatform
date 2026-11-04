@@ -53,10 +53,10 @@
      "check": {
       "stem": "In a boxing story, what is a bout?",
       "options": [
-       "a pair of boxing gloves",
+       "a pair of boxing gloves and shoes",
        "a match between two fighters",
-       "a coach's whistle",
-       "a crowd of fans"
+       "a coach's whistle and a stopwatch",
+       "a crowd of fans in a big hall"
       ],
       "answer": 1
      }
@@ -115,10 +115,10 @@
      "check": {
       "stem": "Which sentence uses \"emerge\" correctly?",
       "options": [
-       "She will emerge her lunch at noon.",
+       "She will emerge her lunch at noon in the park near school.",
        "The fighters will emerge from the tunnel when their names are called.",
-       "The radio emerge very loud music.",
-       "They emerged the ball into the net."
+       "The radio emerge very loud music at night, and all of us heard it.",
+       "They emerged the ball into the net during the last game of the year."
       ],
       "answer": 1
      }
@@ -305,10 +305,10 @@
      "check": {
       "stem": "Which sentence uses \"relieve\" correctly?",
       "options": [
-       "She relieved the stairs to the top floor.",
-       "The cake was relieve and sweet.",
+       "She relieved the stairs to the top floor of the house and sat down.",
+       "The cake was relieve and sweet and warm from the oven.",
        "Donating food can help relieve hunger in poor neighborhoods.",
-       "He relieved his shoes on the wrong feet."
+       "He relieved his shoes on the wrong feet this morning at school."
       ],
       "answer": 2
      }
@@ -337,9 +337,9 @@
       "stem": "Working under supervision means...",
       "options": [
        "someone in charge watches and guides you",
-       "you work completely alone",
-       "you work only at night",
-       "you are paid twice"
+       "you work completely alone all day long",
+       "you work only at night in a shop or a mill",
+       "you are paid twice each week for your work"
       ],
       "answer": 0
      }
@@ -400,9 +400,9 @@
      "check": {
       "stem": "What is a chrysalis?",
       "options": [
-       "a flower's sweet juice",
-       "a bird's nest",
-       "a spider's web",
+       "a flower's sweet juice that bees drink",
+       "a bird's nest built high in a tall tree",
+       "a spider's web spun in a dark corner of the barn",
        "the case where a caterpillar becomes a butterfly"
       ],
       "answer": 3
@@ -488,9 +488,9 @@
      "check": {
       "stem": "Which sentence uses \"crave\" correctly?",
       "options": [
-       "The book craved on the shelf all day.",
-       "He craved the door shut quietly.",
-       "The river craves very slowly downhill.",
+       "The book craved on the shelf all day long without a sound.",
+       "He craved the door shut quietly at night so no one woke up.",
+       "The river craves very slowly downhill to the sea in the spring.",
        "After weeks indoors, Hana craved fresh air and sunshine."
       ],
       "answer": 3
@@ -551,9 +551,9 @@
       "stem": "What is artillery?",
       "options": [
        "large guns used in battle",
-       "soft cotton thread",
-       "a box for buttons",
-       "a kind of blanket"
+       "soft cotton thread for sewing",
+       "a box for buttons and pins",
+       "a kind of wool blanket"
       ],
       "answer": 0
      }
@@ -637,10 +637,10 @@
      "check": {
       "stem": "Which sentence uses \"plunge\" correctly?",
       "options": [
-       "The quilt plunged a happy song.",
-       "He plunged his name on the paper.",
+       "The quilt plunged a happy song about spring.",
+       "He plunged his name on the paper with a pen.",
        "The needle plunged through the thick cloth.",
-       "She plunged softly about the weather."
+       "She plunged softly about the weather today."
       ],
       "answer": 2
      }
@@ -666,9 +666,9 @@
      "check": {
       "stem": "What does ripen mean?",
       "options": [
-       "to tear into pieces",
-       "to fold neatly",
-       "to fall asleep",
+       "to tear into small pieces of paper",
+       "to fold neatly in a drawer",
+       "to fall asleep after a long day",
        "to become fully ready, like fruit"
       ],
       "answer": 3
@@ -791,10 +791,10 @@
      "check": {
       "stem": "Which sentence uses \"circuit\" correctly?",
       "options": [
-       "He ate a circuit for breakfast.",
+       "He ate a circuit for breakfast with some milk and toast.",
        "Each year the family moved along the same circuit of farms.",
-       "The teacher circuit the homework quickly.",
-       "She felt very circuit after the long day."
+       "The teacher circuit the homework quickly and then went home.",
+       "She felt very circuit after the long day at school."
       ],
       "answer": 1
      }
@@ -880,10 +880,10 @@
      "check": {
       "stem": "If you answer hesitantly, you answer...",
       "options": [
-       "loudly and proudly",
+       "loudly and proudly, with a big smile",
        "slowly and unsure of yourself",
-       "in a foreign language",
-       "without any words"
+       "in a foreign language you know well",
+       "without any words, only with gestures"
       ],
       "answer": 1
      }
@@ -912,9 +912,9 @@
       "stem": "Which sentence uses \"savor\" correctly?",
       "options": [
        "He ate slowly to savor every bite of his mother's food.",
-       "She savored the broken chair out the window.",
-       "The rain savored the street all night.",
-       "He savored the bus because he was late."
+       "She savored the broken chair out the window with a loud crash.",
+       "The rain savored the street all night long, until the morning.",
+       "He savored the bus because he was late for the first class."
       ],
       "answer": 0
      }
@@ -1098,10 +1098,10 @@
      "check": {
       "stem": "Which sentence uses \"vehemently\" correctly?",
       "options": [
-       "The vehemently was on the table.",
-       "She bought a vehemently at the shop.",
+       "The vehemently was on the table next to the cup.",
+       "She bought a vehemently at the shop on the corner.",
        "She vehemently denied copying her sister's homework.",
-       "They vehemently the ball over the fence."
+       "They vehemently the ball over the fence into the yard."
       ],
       "answer": 2
      }
@@ -1248,10 +1248,10 @@
      "check": {
       "stem": "What is a scenario?",
       "options": [
-       "a measuring tool",
+       "a measuring tool for wood and cloth and string",
        "an imagined situation that might happen",
-       "a scientist's report card",
-       "a large crowd"
+       "a scientist's report card at school",
+       "a large crowd at a game or a show in town"
       ],
       "answer": 1
      }
@@ -1405,9 +1405,9 @@
      "check": {
       "stem": "Which sentence uses \"severe\" correctly?",
       "options": [
-       "She severe the door gently.",
-       "A severe of students walked in.",
-       "We severe lunch at noon.",
+       "She severe the door gently and walked out of the room.",
+       "A severe of students walked in with their bags.",
+       "We severe lunch at noon in the school hall.",
        "The cruel messages caused severe harm to the student."
       ],
       "answer": 3
@@ -1437,9 +1437,9 @@
      "check": {
       "stem": "A student who shows tolerance...",
       "options": [
-       "refuses to share",
-       "talks during tests",
-       "arrives late every day",
+       "refuses to share with the class",
+       "talks during tests and quizzes",
+       "arrives late every day to class",
        "accepts people who are different"
       ],
       "answer": 3
@@ -1472,10 +1472,10 @@
      "check": {
       "stem": "What is a flogging?",
       "options": [
-       "a school festival",
+       "a school festival with music",
        "a punishment by whipping",
-       "a kind of radio show",
-       "a mountain path"
+       "a kind of radio show at night",
+       "a mountain path with rocks"
       ],
       "answer": 1
      }
@@ -1676,10 +1676,10 @@
      "check": {
       "stem": "A resilient mattress...",
       "options": [
-       "breaks when touched",
+       "breaks when touched or pressed",
        "springs back after you press it",
-       "is very hot",
-       "has no shape at all"
+       "is very hot to sleep on",
+       "has no shape at all, like water"
       ],
       "answer": 1
      }
@@ -1769,9 +1769,9 @@
       "stem": "In \"civil rights,\" civil refers to...",
       "options": [
        "the rights of citizens in a society",
-       "space travel",
-       "farming tools",
-       "movie awards"
+       "space travel and rockets to the Moon",
+       "farming tools used in the fields",
+       "movie awards given each year"
       ],
       "answer": 0
      }
@@ -1858,9 +1858,9 @@
      "check": {
       "stem": "If a celebrity has influence, she...",
       "options": [
-       "has many cars",
-       "sings very well",
-       "never gives interviews",
+       "has many cars and a big house",
+       "sings very well on the stage",
+       "never gives interviews to anyone",
        "can change how others think or act"
       ],
       "answer": 3
@@ -1886,10 +1886,10 @@
      "check": {
       "stem": "Which sentence uses \"notoriety\" correctly?",
       "options": [
-       "She drank a glass of notoriety.",
-       "The notoriety barked at the mailman.",
+       "She drank a glass of notoriety with her lunch every day.",
+       "The notoriety barked at the mailman when he came to the door.",
        "The prankster gained notoriety after his rude video spread online.",
-       "We notorietied the cake."
+       "We notorietied the cake that we made for the party at school."
       ],
       "answer": 2
      }
@@ -2007,9 +2007,9 @@
       "stem": "Which sentence uses \"spectacular\" correctly?",
       "options": [
        "The sunset over the sea was spectacular.",
-       "He spectaculared the dishes.",
-       "The spectacular is in my pocket.",
-       "She spectacular her homework."
+       "He spectaculared the dishes after dinner.",
+       "The spectacular is in my pocket today.",
+       "She spectacular her homework before school."
       ],
       "answer": 0
      }
@@ -2159,10 +2159,10 @@
      "check": {
       "stem": "Which sentence uses \"grudgingly\" correctly?",
       "options": [
-       "The grudgingly was very heavy.",
-       "They grudgingly the boxes upstairs.",
+       "The grudgingly was very heavy to carry upstairs.",
+       "They grudgingly the boxes upstairs to the room.",
        "He grudgingly agreed to give up his Saturday to help.",
-       "A grudgingly flew past the window."
+       "A grudgingly flew past the window of the kitchen."
       ],
       "answer": 2
      }
@@ -2192,10 +2192,10 @@
      "check": {
       "stem": "In \"He sat on the stoop,\" a stoop is...",
       "options": [
-       "a city bus",
+       "a city bus that goes to town",
        "the front steps of a building",
-       "a kind of hat",
-       "a tall fence"
+       "a kind of hat with a wide brim",
+       "a tall fence around a yard"
       ],
       "answer": 1
      }
@@ -2219,10 +2219,10 @@
      "check": {
       "stem": "Which sentence uses \"impromptu\" correctly?",
       "options": [
-       "He impromptu the window open.",
-       "The impromptu ate all the bread.",
+       "He impromptu the window open with a stick.",
+       "The impromptu ate all the bread in the kitchen.",
        "With no notes, she gave an impromptu speech.",
-       "They impromptued to the park."
+       "They impromptued to the park after school."
       ],
       "answer": 2
      }
@@ -2281,9 +2281,9 @@
       "stem": "An involuntary action is one that...",
       "options": [
        "happens without your control",
-       "you plan carefully",
-       "you do for money",
-       "you do every Sunday"
+       "you plan carefully in advance",
+       "you do for money every day",
+       "you do every Sunday at church"
       ],
       "answer": 0
      }
@@ -2377,9 +2377,9 @@
       "stem": "What is the keystone of a plan?",
       "options": [
        "its most important part",
-       "its last page",
-       "its cheapest part",
-       "its title"
+       "its last page in the book",
+       "its cheapest part to buy",
+       "its title at the top"
       ],
       "answer": 0
      }
@@ -2461,9 +2461,9 @@
      "check": {
       "stem": "Which sentence uses \"lobbying\" correctly?",
       "options": [
-       "She was lobbying her soup until it was cold.",
-       "The lobbying fell off the shelf and broke.",
-       "He wore his warm lobbying to school.",
+       "She was lobbying her soup until it was cold and thick on the table.",
+       "The lobbying fell off the shelf in the hall and broke into three pieces.",
+       "He wore his warm lobbying to school in the winter every single day.",
        "The group spent months lobbying the council for a new animal shelter."
       ],
       "answer": 3
@@ -2492,10 +2492,10 @@
      "check": {
       "stem": "What is a bayonet?",
       "options": [
-       "a soldier's helmet",
-       "a school bell",
+       "a soldier's helmet made of steel",
+       "a school bell that rings loudly",
        "a blade attached to a rifle",
-       "a kind of army truck"
+       "a kind of army truck for roads"
       ],
       "answer": 2
      }
@@ -2611,9 +2611,9 @@
      "check": {
       "stem": "Which sentence uses \"integration\" correctly?",
       "options": [
-       "He integrationed his lunch quickly.",
-       "The integration barked at the cat.",
-       "She was very integration about the test.",
+       "He integrationed his lunch quickly before the bell rang at school.",
+       "The integration barked at the cat in the yard until it ran off.",
+       "She was very integration about the test on Friday and on Monday.",
        "School integration allowed students of all races to learn together."
       ],
       "answer": 3
@@ -2646,9 +2646,9 @@
      "check": {
       "stem": "If you groped for a door, you...",
       "options": [
-       "painted it carefully",
-       "slammed it shut",
-       "ran past it",
+       "painted it carefully with a brush",
+       "slammed it shut with a bang",
+       "ran past it without a glance",
        "felt for it with your hands"
       ],
       "answer": 3
@@ -2763,9 +2763,9 @@
       "stem": "Which sentence uses \"sentiment\" correctly?",
       "options": [
        "The thank-you card expressed a kind sentiment.",
-       "She sentimented the box onto the shelf.",
-       "The sentiment ran across the yard.",
-       "He was sentiment the window shut."
+       "She sentimented the box onto the high shelf in the closet.",
+       "The sentiment ran across the yard to the old gate.",
+       "He was sentiment the window shut with a bang."
       ],
       "answer": 0
      }
@@ -2916,10 +2916,10 @@
      "check": {
       "stem": "Which sentence uses \"vow\" correctly?",
       "options": [
-       "The vow flew over the rice field.",
+       "The vow flew over the rice field in the morning.",
        "She vowed to visit her grandmother every summer.",
-       "He vowed the soup with a spoon.",
-       "They were very vow after lunch."
+       "He vowed the soup with a spoon at lunch.",
+       "They were very vow after lunch on Friday."
       ],
       "answer": 1
      }
@@ -3073,10 +3073,10 @@
      "check": {
       "stem": "Which sentence uses \"retrieve\" correctly?",
       "options": [
-       "She retrieved happy all day long.",
-       "The retrieve was painted blue.",
+       "She retrieved happy all day long in the sun by the lake.",
+       "The retrieve was painted blue by the artist on Monday.",
        "The dog ran to retrieve the stick from the pond.",
-       "He felt very retrieve after dinner."
+       "He felt very retrieve after dinner at home with his family."
       ],
       "answer": 2
      }
@@ -3202,9 +3202,9 @@
       "stem": "In \"not by desert or merit of yours,\" desert means...",
       "options": [
        "what you have earned or deserve",
-       "a dry, sandy land",
-       "to leave someone alone",
-       "a sweet dish after dinner"
+       "a dry, sandy land with few plants",
+       "to leave someone alone in a hard time",
+       "a sweet dish after dinner at home"
       ],
       "answer": 0
      }
@@ -3260,9 +3260,9 @@
      "check": {
       "stem": "Which sentence uses \"merit\" correctly?",
       "options": [
-       "She merit the dishes after dinner.",
-       "The merit barked at the stranger.",
-       "He was very merit and fell asleep.",
+       "She merit the dishes after dinner was over.",
+       "The merit barked at the stranger by the gate.",
+       "He was very merit and fell asleep on the sofa.",
        "The prize was given for merit, not for luck."
       ],
       "answer": 3
@@ -3444,10 +3444,10 @@
      "check": {
       "stem": "Which sentence uses \"participate\" correctly?",
       "options": [
-       "She participated the cake into slices.",
+       "She participated the cake into slices for the party guests.",
        "Everyone in the class will participate in the science fair.",
-       "The participate is on the shelf.",
-       "He was very participate yesterday."
+       "The participate is on the shelf in the living room.",
+       "He was very participate yesterday at the school fair."
       ],
       "answer": 1
      }
@@ -3478,10 +3478,10 @@
      "check": {
       "stem": "In the poem, the children's \"plots\" are...",
       "options": [
-       "pieces of farmland",
-       "their school grades",
+       "pieces of farmland nearby",
+       "their school grades for the year",
        "their secret little plans",
-       "their bedtime stories"
+       "their bedtime stories at night"
       ],
       "answer": 2
      }
@@ -3592,10 +3592,10 @@
      "check": {
       "stem": "Which sentence uses \"deaf\" correctly?",
       "options": [
-       "She deafed the cookies in the oven.",
+       "She deafed the cookies in the oven until they were golden brown.",
        "Without English, Elena feels deaf to her children's conversations.",
-       "The deaf flew over the house.",
-       "He deaf his bicycle to school."
+       "The deaf flew over the house and landed on the old roof at night.",
+       "He deaf his bicycle to school with his brother and his sister."
       ],
       "answer": 1
      }

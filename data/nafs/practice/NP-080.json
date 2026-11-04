@@ -29,9 +29,9 @@
       "difficulty": 2,
       "stem": "Which sentence uses the word \"doubtful\" correctly?",
       "options": [
-        "She doubtful the ball into the net.",
-        "The doubtful scored three goals.",
-        "He ran doubtful across the field.",
+        "She doubtful the ball into the net at the game.",
+        "The doubtful scored three goals in the last match.",
+        "He ran doubtful across the field to the goal.",
         "The sky was dark, so a picnic seemed doubtful."
       ],
       "answer": "D",
@@ -157,9 +157,9 @@
       "difficulty": 3,
       "stem": "Which is the best alternative title for the story?",
       "options": [
-        "The Captain's Broken Wrist",
-        "A Day at the Football Museum",
-        "Coach Saleh Says Goodbye",
+        "The Captain's Broken Wrist and the Cup",
+        "A Day at the Football Museum in Riyadh",
+        "Coach Saleh Says a Sad Goodbye",
         "From Doubted Newcomer to Team Hero"
       ],
       "answer": "D",

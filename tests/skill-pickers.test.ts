@@ -52,7 +52,8 @@ describe("🧩 every skill in every skill picker", () => {
     teacher = await resolveActor(repo, (await repo.findUnique("User", { username: "demo.teacher.4a" }))!);
     schoolId = admin.schoolId!;
     classId = String((await accessibleClasses(repo, teacher))[0].id);
-    const gap = (await loadSkillSetsFile("gap-skill-sets.json")).map((x) => ({ ...x, questions: x.questions.slice(0, 2) }));
+    // the gap sets + the r73 / r74 new skills (2 questions each keep the test quick: the skills are created all the same)
+    const gap = [...await loadSkillSetsFile("gap-skill-sets.json"), ...await loadSkillSetsFile("new-skill-sets.json"), ...await loadSkillSetsFile("agreement-skill-sets.json")].map((x) => ({ ...x, questions: x.questions.slice(0, 2) }));
     const r = await addSkillSets(repo, schoolId, gap);
     assert.deepEqual(r.flatMap((x) => x.errors), []);
     const idx = await schoolSkillIndex(repo, schoolId);

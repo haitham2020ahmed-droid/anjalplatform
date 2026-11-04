@@ -78,8 +78,8 @@
     "stem": "How are frogs and fish different?",
     "options": [
      "Both live in water.",
-     "Both lay eggs.",
-     "Fish have legs.",
+     "Both lay eggs in water.",
+     "Fish have legs and arms.",
      "Only frogs go on land."
     ],
     "answer": 3,
@@ -118,8 +118,8 @@
      "passage": "A bus can carry many people. A car carries only a few people. Both have wheels.",
      "stem": "What is one difference?",
      "options": [
-      "Both have wheels.",
-      "Both are big.",
+      "Both have wheels and doors.",
+      "Both are big and heavy.",
       "A bus carries more people.",
       "A car has no wheels."
      ],
@@ -441,7 +441,7 @@
      "passage": "In her memoir, a doctor describes two professors from medical school. Professor Amal rarely gave praise; she pointed out every error, and students feared her rounds. Professor Nadia praised each small success and let students learn from their own mistakes. Years later, the doctor writes that she learned precision from Amal and confidence from Nadia, and that she needed both.",
      "stem": "What is the author's main point in comparing the professors?",
      "options": [
-      "Professor Amal was a better teacher than Nadia.",
+      "Professor Amal was a better teacher than Professor Nadia.",
       "Students learn best when they fear a teacher.",
       "Different teaching styles gave her different strengths.",
       "Professor Nadia never pointed out any mistakes."

@@ -980,7 +980,8 @@
    "Clauses and Complex Sentences",
    "Complex Sentences",
    "Independent and Dependent Clauses",
-   "Phrases and Clauses"
+   "Phrases and Clauses",
+   "Complex and Compound-Complex Sentences"
   ],
   "ritMin": 181,
   "ritMax": 210,
@@ -4459,7 +4460,8 @@
    "point-of-view"
   ],
   "skillNames": [
-   "Point of View and Perspective"
+   "Point of View and Perspective",
+   "Point of View: First, Second, Third Limited, Third Omniscient"
   ],
   "ritMin": 181,
   "ritMax": 220,
@@ -6420,5 +6422,166 @@
   "ritMax": null,
   "statementIds": [],
   "summary": "Enjoy jokes that play on two meanings of a word."
+ },
+ {
+  "code": "LN-223",
+  "title": "Agreement with compound subjects",
+  "subject": "LANGUAGE",
+  "goalArea": "Grammar and Usage",
+  "subtopic": "Phrases, Clauses, Agreement, Sentences",
+  "standards": [
+   "L.4.1",
+   "L.5.1",
+   "L.6.1"
+  ],
+  "families": [
+   "subject-verb-agreement"
+  ],
+  "skillNames": [
+   "Subject-Verb Agreement with Compound Subjects"
+  ],
+  "ritMin": 181,
+  "ritMax": 230,
+  "statementIds": [
+   "L-0206",
+   "L-0208"
+  ],
+  "summary": "Make the verb match a compound subject: and, or, nor, both, either and neither."
+ },
+ {
+  "code": "LN-224",
+  "title": "Word Choice and Tone",
+  "subject": "READING",
+  "goalArea": "Literary Text",
+  "subtopic": "Analyze Point of View, Features, and Structure",
+  "standards": [
+   "RL.4.4",
+   "RL.5.4",
+   "RL.6.4",
+   "RL.7.4"
+  ],
+  "families": [
+   "word-choice-tone"
+  ],
+  "skillNames": [
+   "Word Choice and Tone"
+  ],
+  "ritMin": 171,
+  "ritMax": 230,
+  "statementIds": [],
+  "summary": "Notice how an author's specific word choices create a feeling or tone."
+ },
+ {
+  "code": "LN-225",
+  "title": "Evaluate Argument and Claims",
+  "subject": "READING",
+  "goalArea": "Informational Text",
+  "subtopic": "Analyze Point of View, Purpose, Features, and Structure",
+  "standards": [
+   "RI.4.8",
+   "RI.5.8",
+   "RI.6.8",
+   "RI.7.8"
+  ],
+  "families": [
+   "evaluate-argument"
+  ],
+  "skillNames": [
+   "Evaluate Argument and Claims"
+  ],
+  "ritMin": 181,
+  "ritMax": 240,
+  "statementIds": [],
+  "summary": "Decide whether an author's claims are backed by real evidence or just assumptions."
+ },
+ {
+  "code": "LN-226",
+  "title": "Text Structure",
+  "subject": "READING",
+  "goalArea": "Informational Text",
+  "subtopic": "Analyze Point of View, Purpose, Features, and Structure",
+  "standards": [
+   "RI.4.5",
+   "RI.5.5",
+   "RI.6.5",
+   "RI.7.5"
+  ],
+  "families": [
+   "text-structure"
+  ],
+  "skillNames": [
+   "Text Structure"
+  ],
+  "ritMin": 171,
+  "ritMax": 230,
+  "statementIds": [],
+  "summary": "Name how a text is organized: cause-effect, problem-solution, compare-contrast or description."
+ },
+ {
+  "code": "LN-227",
+  "title": "Word Relationships (Part-Whole, Item-Category)",
+  "subject": "READING",
+  "goalArea": "Vocabulary",
+  "subtopic": "Vocabulary",
+  "standards": [
+   "L.4.5",
+   "L.5.5",
+   "L.6.5",
+   "L.7.5"
+  ],
+  "families": [
+   "word-relationships"
+  ],
+  "skillNames": [
+   "Word Relationships (Part-Whole, Item-Category)"
+  ],
+  "ritMin": 161,
+  "ritMax": 220,
+  "statementIds": [],
+  "summary": "Use part-whole and item-category relationships to complete word analogies."
+ },
+ {
+  "code": "LN-228",
+  "title": "Analyzing Figurative, Connotative, and Technical Language",
+  "subject": "READING",
+  "goalArea": "Vocabulary",
+  "subtopic": "Vocabulary",
+  "standards": [
+   "L.4.5",
+   "L.5.5",
+   "L.6.5"
+  ],
+  "families": [
+   "figurative-connotative-technical-language"
+  ],
+  "skillNames": [
+   "Analyzing Figurative, Connotative, and Technical Language"
+  ],
+  "ritMin": 191,
+  "ritMax": 230,
+  "statementIds": [],
+  "summary": "Tell apart literal, figurative, connotative and technical language, and explain how word choice shapes meaning and tone."
+ },
+ {
+  "code": "LN-229",
+  "title": "Analyzing Informational Text Elements",
+  "subject": "READING",
+  "goalArea": "Informational Text",
+  "subtopic": "Informational Text",
+  "standards": [
+   "RI.4.5",
+   "RI.5.5",
+   "RI.6.5"
+  ],
+  "families": [
+   "informational-text-elements"
+  ],
+  "skillNames": [
+   "Analyzing Informational Text Elements"
+  ],
+  "ritMin": 191,
+  "ritMax": 230,
+  "statementIds": [],
+  "summary": "Identify key details, supporting evidence, pertinent examples and text features in informational text."
  }
 ]

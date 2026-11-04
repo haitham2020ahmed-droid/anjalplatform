@@ -3,7 +3,8 @@ import { AppShell } from "@/components/app-shell";
 import { Section } from "@/components/page-header";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { can } from "@/server/auth/rbac";
-import { classReport, pollReport, POLL_LABELS, skillsReport, writingQueue, type SkillCell } from "@/server/readrise/dashboards";
+import { classReport, pollReport, POLL_LABELS, skillsReport, standardsReport, writingQueue, type SkillCell } from "@/server/readrise/dashboards";
+import { standardName } from "@/server/readrise/growth-words";
 import { assignableArticles } from "@/server/readrise/library";
 import { classArticles, teacherReadRiseClasses } from "@/server/readrise/teacher";
 import { ENGINE } from "@/server/readrise/engine";
@@ -18,6 +19,7 @@ import { btn, day, field, Flash, fmt, LevelHistogram, levelRange, RR_NOTE, Scale
 import { classGrowth, studentGrowthReport } from "@/server/readrise/growth-report";
 import { ClassGrowthTab, StudentGrowthView } from "./_components/growth";
 import { allowReadRiseRetakeAction, assignReadRiseAction, scoreReadRiseWritingAction, setReadRiseLevelAction, unassignReadRiseAction } from "./actions";
+import { AssignDates } from "@/components/assign/assign-dates";
 
 export const metadata = { title: "ReadRise" };
 
@@ -25,13 +27,14 @@ const TABS = [
   { key: "students", label: "👩‍🎓 Students" },
   { key: "growth", label: "📈 Growth" },
   { key: "skills", label: "🧠 Skills" },
+  { key: "standards", label: "📑 Standards" },
   { key: "polls", label: "🗳 Polls" },
   { key: "writing", label: "✍️ Scoring" },
   { key: "assign", label: "📌 Assign" },
 ] as const;
 type Tab = (typeof TABS)[number]["key"];
 const LINE_COLORS = ["#93c5fd", "#fdba74", "#86efac", "#c4b5fd", "#f9a8d4", "#a5f3fc", "#fcd34d", "#cbd5e1"];
-const pctTone = (c?: SkillCell) => (!c || c.pct === null ? "text-slate-300" : c.pct >= 75 ? "bg-emerald-50 text-emerald-800" : c.pct >= 50 ? "bg-amber-50 text-amber-900" : "bg-red-50 text-red-800");
+const pctTone = (c?: SkillCell) => (!c || c.pct === null ? "text-slate-500" : c.pct >= 75 ? "bg-emerald-50 text-emerald-800" : c.pct >= 50 ? "bg-amber-50 text-amber-900" : "bg-red-50 text-red-800");
 
 /** 🚀 ReadRise (teacher): the class dashboard — levels and growth, skills, polls, writing to score, assignments. */
 export default async function ReadRiseTeacher({ searchParams }: { searchParams: Promise<{ class?: string; tab?: string; msg?: string; student?: string }> }) {
@@ -45,7 +48,7 @@ export default async function ReadRiseTeacher({ searchParams }: { searchParams: 
   const studentId = typeof sp.student === "string" && /^[\w-]{1,64}$/.test(sp.student) ? sp.student : null;
   const header = (
     <ReportHeader back={{ href: "/teacher", label: "Home" }} icon="🚀" title="ReadRise"
-      subtitle={<>Every student reads the same articles at their own level; the level moves with first-try scores (75%+ up, under 50% down). <span className="text-xs text-slate-500">{RR_NOTE}</span></>}
+      subtitle={<>Every student reads the same articles at their own level; the level moves with first-try scores (3 of the last 4 at 75%+: up 50 · one score of 25% or less, or two in a row under 50%: down 100). Readings with 2+ answers too fast to be read do not count. <span className="text-xs text-slate-500">{RR_NOTE}</span></>}
       who={klass?.name} downloads={klass ? exportsOf({ kind: "readrise", classId: klass.id, period: "TERM", ...(studentId ? { studentId } : {}) }).map((d) => ({ ...d, label: d.label })) : []}
       filters={classes.length ? <nav aria-label="Class" className="flex flex-wrap gap-2">
         {classes.map((c) => <Link key={c.id} href={`/teacher/readrise?class=${c.id}&tab=${tab}`} className={chip(c.id === klass?.id)}>{c.name}{!c.own && <span className="ms-1 text-xs opacity-70">(view)</span>}</Link>)}
@@ -62,10 +65,11 @@ export default async function ReadRiseTeacher({ searchParams }: { searchParams: 
   }
   const canWrite = klass.own;
   // ⚡ the class summary and the open tab's data load at the same time (all of them only read)
-  const [r, growth, skills, polls, writing, assigned, library] = await Promise.all([
+  const [r, growth, skills, standards, polls, writing, assigned, library] = await Promise.all([
     classReport(repo, actor, klass.id),
     tab === "growth" ? classGrowth(repo, actor, klass.id) : null,
     tab === "skills" ? skillsReport(repo, actor, klass.id) : null,
+    tab === "standards" ? standardsReport(repo, actor, klass.id) : null,
     tab === "polls" ? pollReport(repo, actor, klass.id) : null,
     tab === "writing" ? writingQueue(repo, actor, klass.id, { scored: true }) : null,
     tab === "assign" ? classArticles(repo, actor, klass.id) : null,
@@ -111,9 +115,10 @@ export default async function ReadRiseTeacher({ searchParams }: { searchParams: 
       {tab === "students" && <StudentsTab r={r} canWrite={canWrite} classId={klass.id} t={t} />}
       {growth && <ClassGrowthTab g={growth} t={t} studentHref={(id) => `/teacher/readrise?class=${klass.id}&student=${id}`} assignHref={url("assign")} />}
       {skills && <SkillsTab data={skills} />}
+      {standards && <StandardsTab data={standards} />}
       {polls && <PollsTab rows={polls} />}
       {writing && <WritingTab q={writing} classId={klass.id} canWrite={canWrite} />}
-      {assigned && <AssignTab classId={klass.id} canWrite={canWrite && can(actor, "assignments:create")} assigned={assigned} library={library} />}
+      {assigned && <AssignTab classId={klass.id} canWrite={canWrite && can(actor, "assignments:create")} assigned={assigned} library={library} classes={classes.filter((c) => c.own)} />}
     </AppShell>
   );
 }
@@ -176,7 +181,7 @@ function StudentsTab({ r, canWrite, classId, t }: { r: Report; canWrite: boolean
                           <form action={setReadRiseLevelAction} className="space-y-1.5">
                             <input type="hidden" name="classId" value={classId} /><input type="hidden" name="studentId" value={x.studentId} />
                             <label className="block font-semibold">New ReadRise Level<input type="number" name="level" required min={ENGINE.min} max={ENGINE.max} step={10} defaultValue={x.level ?? ""} className={`${field} mt-1 block w-full`} /></label>
-                            <label className="block font-semibold">Reason<input name="reason" required minLength={3} maxLength={250} placeholder="e.g. MAP Lexile 820 in the winter test" className={`${field} mt-1 block w-full`} /></label>
+                            <label className="block font-semibold">Reason<input name="reason" required minLength={3} maxLength={250} placeholder="e.g. MAP reading 820 in the winter test" className={`${field} mt-1 block w-full`} /></label>
                             <button className="rounded-lg bg-brand-navy px-3 py-1.5 font-semibold text-white">Set level</button>
                           </form>
                           {(x.placed || x.placementOpen) && (
@@ -212,7 +217,7 @@ function SkillsTab({ data }: { data: Awaited<ReturnType<typeof skillsReport>> })
             <li key={k} className="grid grid-cols-[10rem_minmax(0,1fr)_6rem] items-center gap-3 text-sm">
               <span className="truncate font-semibold text-slate-700">{skillName(k)}</span>
               <span className="h-3 rounded-full bg-slate-100"><span className={`block h-3 rounded-full ${(c.pct ?? 0) >= 75 ? "bg-emerald-500" : (c.pct ?? 0) >= 50 ? "bg-amber-400" : "bg-red-400"}`} style={{ width: `${c.pct ?? 0}%` }} /></span>
-              <span className="text-right tabular-nums text-slate-700">{fmt(c.pct, "%")} <span className="text-xs text-slate-400">({c.correct}/{c.total})</span></span>
+              <span className="text-right tabular-nums text-slate-700">{fmt(c.pct, "%")} <span className="text-xs text-slate-600">({c.correct}/{c.total})</span></span>
             </li>
           ); })}
         </ul>
@@ -225,6 +230,40 @@ function SkillsTab({ data }: { data: Awaited<ReturnType<typeof skillsReport>> })
               <tr key={x.studentId} className="border-b last:border-0">
                 <td className="p-2 text-left font-semibold text-brand-navy">{x.name}</td>
                 {data.skills.map((k) => <td key={k} className={`p-2 tabular-nums ${pctTone(x.bySkill[k])}`} title={x.bySkill[k] ? `${x.bySkill[k].correct}/${x.bySkill[k].total}` : "no questions yet"}>{fmt(x.bySkill[k]?.pct ?? null, "%")}</td>)}
+                <td className={`p-2 font-semibold tabular-nums ${pctTone(x.total)}`}>{fmt(x.total.pct, "%")}</td>
+              </tr>
+            ))}</tbody>
+          </table>
+        </div>
+      </Section>
+    </div>
+  );
+}
+
+function StandardsTab({ data }: { data: Awaited<ReturnType<typeof standardsReport>> }) {
+  if (!data.standards.length) return <p className="rounded-2xl bg-white p-6 text-slate-600 ring-1 ring-slate-200">No first-try results yet.</p>;
+  const ranked = [...data.standards].sort((a, b) => (data.classByStandard[a].pct ?? 0) - (data.classByStandard[b].pct ?? 0));
+  return (
+    <div className="space-y-6">
+      <Section title="Class by standard" icon="📑" hint="First-try accuracy by CCSS Reading Anchor Standard (CCRA.R.1–6), weakest first. Several question skills can roll up into one standard.">
+        <ul className="space-y-2">
+          {ranked.map((k) => { const c = data.classByStandard[k]; return (
+            <li key={k} className="grid grid-cols-[14rem_minmax(0,1fr)_6rem] items-center gap-3 text-sm">
+              <span className="truncate font-semibold text-slate-700">{k} · {standardName(k)}</span>
+              <span className="h-3 rounded-full bg-slate-100"><span className={`block h-3 rounded-full ${(c.pct ?? 0) >= 75 ? "bg-emerald-500" : (c.pct ?? 0) >= 50 ? "bg-amber-400" : "bg-red-400"}`} style={{ width: `${c.pct ?? 0}%` }} /></span>
+              <span className="text-right tabular-nums text-slate-700">{fmt(c.pct, "%")} <span className="text-xs text-slate-600">({c.correct}/{c.total})</span></span>
+            </li>
+          ); })}
+        </ul>
+      </Section>
+      <Section title="Each student" icon="👩‍🎓">
+        <div className="relative overflow-x-auto">
+          <table className="w-full text-center text-sm">
+            <thead><tr className="border-b text-xs text-slate-500"><th className="p-2 text-left">Student</th>{data.standards.map((k) => <th key={k} className="p-2" title={standardName(k)}>{k}</th>)}<th className="p-2">All</th></tr></thead>
+            <tbody>{data.students.map((x) => (
+              <tr key={x.studentId} className="border-b last:border-0">
+                <td className="p-2 text-left font-semibold text-brand-navy">{x.name}</td>
+                {data.standards.map((k) => <td key={k} className={`p-2 tabular-nums ${pctTone(x.byStandard[k])}`} title={x.byStandard[k] ? `${x.byStandard[k].correct}/${x.byStandard[k].total}` : "no questions yet"}>{fmt(x.byStandard[k]?.pct ?? null, "%")}</td>)}
                 <td className={`p-2 font-semibold tabular-nums ${pctTone(x.total)}`}>{fmt(x.total.pct, "%")}</td>
               </tr>
             ))}</tbody>
@@ -277,13 +316,18 @@ function WritingTab({ q, classId, canWrite }: { q: Awaited<ReturnType<typeof wri
                 <p className="mt-2 text-sm text-slate-700"><b>Prompt:</b> {w.prompt}</p>
                 {w.checklist.length > 0 && <ul className="mt-1 list-disc ps-5 text-xs text-slate-500">{w.checklist.map((c) => <li key={c}>{c}</li>)}</ul>}
                 <p className="mt-2 whitespace-pre-line rounded-xl bg-slate-50 p-3 text-slate-900">{w.writing}</p>
+                {w.aiScore !== null && (
+                  <p className="mt-2 rounded-lg bg-indigo-50 p-2 text-xs text-indigo-900 ring-1 ring-indigo-200">
+                    🤖 <b>AI suggestion — check before saving:</b> {w.aiScore}/4{w.aiComment ? ` · "${w.aiComment}"` : ""}
+                  </p>
+                )}
                 {canWrite ? (
                   <form action={scoreReadRiseWritingAction} className="mt-3 flex flex-wrap items-end gap-3 text-sm">
                     <input type="hidden" name="classId" value={classId} /><input type="hidden" name="runId" value={w.runId} />
                     <fieldset className="flex gap-1"><legend className="mb-1 font-semibold">Score</legend>
-                      {[0, 1, 2, 3, 4].map((n) => <label key={n} className="cursor-pointer"><input type="radio" name="score" value={n} required className="peer sr-only" /><span className="block rounded-lg px-3 py-1.5 font-bold ring-1 ring-slate-300 peer-checked:bg-brand-navy peer-checked:text-white peer-focus-visible:ring-2 peer-focus-visible:ring-brand-teal">{n}</span></label>)}
+                      {[0, 1, 2, 3, 4].map((n) => <label key={n} className="cursor-pointer"><input type="radio" name="score" value={n} required defaultChecked={w.aiScore === n} className="peer sr-only" /><span className="block rounded-lg px-3 py-1.5 font-bold ring-1 ring-slate-300 peer-checked:bg-brand-navy peer-checked:text-white peer-focus-visible:ring-2 peer-focus-visible:ring-brand-teal">{n}</span></label>)}
                     </fieldset>
-                    <label className="flex min-w-[16rem] flex-1 flex-col gap-1 font-semibold">Comment (optional)<input name="comment" maxLength={1000} className={field} placeholder="One thing done well, one thing to improve" /></label>
+                    <label className="flex min-w-[16rem] flex-1 flex-col gap-1 font-semibold">Comment (optional)<input name="comment" maxLength={1000} defaultValue={w.aiComment ?? ""} className={field} placeholder="One thing done well, one thing to improve" /></label>
                     <button className={btn}>Save score</button>
                   </form>
                 ) : <p className="mt-2 text-xs text-slate-500">Only the class&apos;s teachers score.</p>}
@@ -303,7 +347,7 @@ function WritingTab({ q, classId, canWrite }: { q: Awaited<ReturnType<typeof wri
   );
 }
 
-function AssignTab({ classId, canWrite, assigned, library }: { classId: string; canWrite: boolean; assigned: Awaited<ReturnType<typeof classArticles>>; library: Awaited<ReturnType<typeof assignableArticles>> }) {
+function AssignTab({ classId, canWrite, assigned, library, classes }: { classId: string; canWrite: boolean; assigned: Awaited<ReturnType<typeof classArticles>>; library: Awaited<ReturnType<typeof assignableArticles>>; classes: { id: string; name: string }[] }) {
   const have = new Set(assigned.map((a) => a.articleId));
   const topics = [...new Set(library.map((a) => a.topic))].sort();
   return (
@@ -326,10 +370,22 @@ function AssignTab({ classId, canWrite, assigned, library }: { classId: string; 
         )}
       </Section>
       {canWrite ? (
-        <Section title="Assign articles" icon="➕" hint="Tick one or more published articles. Assigning again changes the due date.">
+        <Section title="Assign articles" icon="➕" hint="Tick one or more published articles — and, if you teach more than one class, one or more classes at once. Assigning again changes the due date.">
           {library.length === 0 ? <p className="text-sm text-slate-600">No published articles yet.</p> : (
             <form action={assignReadRiseAction} className="space-y-3">
-              <input type="hidden" name="classId" value={classId} />
+              {classes.length > 1 ? (
+                <fieldset data-testid="assign-classes">
+                  <legend className="text-sm font-semibold text-slate-700">Classes <span className="font-normal text-slate-500">(choose one or more)</span></legend>
+                  <div className="mt-1 flex flex-wrap gap-2 text-sm">
+                    {classes.map((c) => (
+                      <label key={c.id} className="cursor-pointer">
+                        <input type="checkbox" name="classIds" value={c.id} defaultChecked={c.id === classId} className="peer sr-only" />
+                        <span className="rounded-full px-3 py-1.5 font-semibold ring-1 ring-slate-300 peer-checked:bg-brand-teal peer-checked:text-white peer-checked:ring-0">{c.name}</span>
+                      </label>
+                    ))}
+                  </div>
+                </fieldset>
+              ) : <input type="hidden" name="classIds" value={classId} />}
               <div className="max-h-96 space-y-3 overflow-y-auto rounded-xl bg-slate-50 p-3 ring-1 ring-slate-200">
                 {topics.map((t) => (
                   <fieldset key={t}><legend className="text-xs font-bold uppercase tracking-wide text-slate-500">{t}</legend>
@@ -340,8 +396,8 @@ function AssignTab({ classId, canWrite, assigned, library }: { classId: string; 
                 ))}
               </div>
               <div className="flex flex-wrap items-end gap-3">
-                <label className="flex flex-col gap-1 text-sm font-semibold text-slate-700">Due date (optional)<input type="date" name="dueAt" className={field} /></label>
-                <button className={btn}>Assign to the class</button>
+                <AssignDates field={field} />
+                <button className={btn}>{classes.length > 1 ? "Assign" : "Assign to the class"}</button>
               </div>
             </form>
           )}

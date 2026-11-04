@@ -10,6 +10,8 @@ import { EmptyState } from "@/components/ui-kit";
 import type { MapSectionPage, MapSourceQuestion, MapSourceSection, MapSourceTree } from "@/server/tests/map-source";
 import { mapSectionAction, mapTreeAction } from "../actions";
 import { QuestionDrawer } from "@/components/tests/question-drawer";
+import { RichInline } from "@/components/rich-inline";
+import { stripMarks } from "@/lib/inline-marks";
 
 const LEVEL_LABEL: Record<string, string> = { ALL: "All", BELOW: "Approaching", ON: "Meeting", ABOVE: "Exceeding" };
 const LEVEL_CHIP: Record<string, string> = { BELOW: "bg-amber-50 text-amber-900 ring-amber-200", ON: "bg-sky-50 text-sky-900 ring-sky-200", ABOVE: "bg-violet-50 text-violet-900 ring-violet-200" };
@@ -149,9 +151,9 @@ function SectionBlock({ section, pickedIds, picked, onAdd, onRemove }: { section
               <ul className="grid gap-1">
                 {data.questions.map((q, i) => (
                   <li key={q.id} className="flex items-start gap-3 rounded-lg px-2 py-1.5 hover:bg-slate-50">
-                    <input type="checkbox" className="mt-1 h-5 w-5 shrink-0 accent-brand-teal" checked={pickedIds.has(q.id)} onChange={(e) => (e.target.checked ? onAdd([q]) : onRemove(q.id))} aria-label={t("Select question: {stem}", { stem: q.stem.slice(0, 80) })} />
+                    <input type="checkbox" className="mt-1 h-5 w-5 shrink-0 accent-brand-teal" checked={pickedIds.has(q.id)} onChange={(e) => (e.target.checked ? onAdd([q]) : onRemove(q.id))} aria-label={t("Select question: {stem}", { stem: stripMarks(q.stem).slice(0, 80) })} />
                     <span className="min-w-0 flex-1 text-sm">
-                      <button type="button" onClick={() => setViewAt(i)} className="block text-start text-slate-900 hover:underline" lang="en" dir="ltr" data-content>{q.stem}</button>
+                      <button type="button" onClick={() => setViewAt(i)} className="block text-start text-slate-900 hover:underline" lang="en" dir="ltr" data-content><RichInline text={q.stem} /></button>
                       <span className="mt-0.5 flex flex-wrap items-center gap-1.5 text-xs text-slate-500">
                         <span>{q.typeLabel}</span>
                         <span className={`rounded-full px-2 py-0.5 font-semibold ring-1 ${LEVEL_CHIP[q.level]}`}>{t(LEVEL_LABEL[q.level])}</span>

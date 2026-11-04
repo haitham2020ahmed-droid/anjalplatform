@@ -52,6 +52,8 @@ export const HOME_BY_ROLE: Record<Role, string> = {
 
 /** Validated session + actor for this request (memoised per request). */
 export const getActor = cache(async (): Promise<{ actor: Actor; user: Record<string, unknown> } | null> => {
+  // r86 black box: the page being opened, for the memory log (src/server/monitoring/memory.ts)
+  try { const { notePath } = await import("@/server/monitoring/memory"); notePath((await headers()).get("x-pathname")); } catch { /* not in a request */ }
   const token = (await cookies()).get(sessionCookieName(isProd))?.value;
   const v = await validateSession(repo, token, getAuthConfig());
   if (!v.ok) return null;

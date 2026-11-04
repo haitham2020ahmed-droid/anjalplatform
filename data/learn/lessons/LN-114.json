@@ -105,9 +105,9 @@
      "stem": "Why did the author write this?",
      "options": [
       "To teach facts about the sun",
-      "To make you laugh",
+      "To make you laugh a lot",
       "To get you to go outside",
-      "To tell a story"
+      "To tell a story about a sun"
      ],
      "answer": 0,
      "why": "The text gives facts about the sun, so the author wants to inform."
@@ -128,9 +128,9 @@
      "passage": "Our school needs a bigger playground. There is no space to run. Please help us ask for a new one!",
      "stem": "Why did the author write this?",
      "options": [
-      "To tell a story about a playground",
-      "To teach facts about schools",
-      "To describe a game children play",
+      "To tell a story about a playground in a village",
+      "To teach facts about schools in other countries",
+      "To describe a game children play at break",
       "To get readers to help ask for a bigger playground"
      ],
      "answer": 3,
@@ -183,9 +183,9 @@
     "passage": "Sea turtles lay their eggs on sandy beaches. A mother turtle crawls out of the sea at night and digs a hole with her back flippers. She lays about a hundred eggs, covers them with sand and returns to the water. About two months later, the baby turtles hatch and race toward the sea.",
     "stem": "What is the author's specific purpose?",
     "options": [
-     "To persuade people to visit beaches",
+     "To persuade people to visit beaches in summer",
      "To tell a funny story about a turtle",
-     "To compare turtles and fish",
+     "To compare turtles and fish in the sea",
      "To explain how sea turtles lay eggs and hatch"
     ],
     "answer": 3,
@@ -296,10 +296,10 @@
     "passage": "Every afternoon, students at our school throw away dozens of plastic water bottles. Most are used only once. If each student brought a refillable bottle, we could cut this waste almost completely. Refillable bottles are cheap, and there are already water fountains on every floor. I am asking the student council to start a Bring Your Bottle campaign next month, and I hope every class will join.",
     "stem": "What is the author's specific purpose?",
     "options": [
-     "To explain how plastic bottles are made",
-     "To describe the water fountains in the school",
+     "To explain how plastic bottles are made and then sent to shops",
+     "To describe the water fountains in the school and where they are",
      "To convince students to use refillable bottles and join a campaign",
-     "To tell a story about the student council"
+     "To tell a story about the student council and its president"
     ],
     "answer": 2,
     "hint": "Look at the last sentence. What exactly does the author ask for?",
@@ -410,9 +410,9 @@
     "stem": "What is the author's specific purpose in this passage?",
     "options": [
      "To honor the grandmother and show that knowledge comes in many forms",
-     "To explain how to predict a dust storm",
-     "To argue that schools are not useful",
-     "To list the plants that grow in the desert"
+     "To explain how to predict a dust storm before it reaches a village",
+     "To argue that schools are not useful for children in the desert towns",
+     "To list the plants that grow in the desert after the rains"
     ],
     "answer": 0,
     "hint": "Read the last two sentences. What point do the grandmother's skills prove?",
@@ -464,10 +464,10 @@
      "passage": "In 1960, a small country produced almost no fresh water of its own. Today, it supplies most of its drinking water from desalination and recycles much of its wastewater for farms. This change did not happen by chance. It took decades of planning, investment and public campaigns to save water.",
      "stem": "What is the purpose of the final two sentences?",
      "options": [
-      "To give the exact cost of desalination",
+      "To give the exact cost of building desalination plants",
       "To explain that the change came from deliberate effort",
-      "To describe how wastewater is cleaned",
-      "To suggest the change was lucky"
+      "To describe how wastewater is cleaned for reuse",
+      "To suggest the change was lucky and unplanned"
      ],
      "answer": 1,
      "why": "They tell readers the change came from planning, investment and campaigns, not by chance."

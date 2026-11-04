@@ -3,7 +3,7 @@
  * to one plain-language topic with ONE simple home activity. Every text here is an interface string (English source,
  * Arabic in src/i18n/ar.ts), never a level or tier word.
  */
-export interface HomeTopic { key: string; title: string; activity: string }
+export interface HomeTopic { key: string; title: string; activity: string; /** r79: the platform skill behind the topic (its practice is linked on the page) */ skillId?: string }
 
 export const HOME_TOPICS: readonly (HomeTopic & { match: RegExp })[] = [
   { key: "main-idea", match: /main idea|summar|central idea|key detail/i, title: "Finding the main idea", activity: "After reading a short story or article together, ask: “What is it mostly about?” Let your child answer in one sentence." },

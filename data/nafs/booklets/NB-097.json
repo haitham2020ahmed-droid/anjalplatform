@@ -173,9 +173,9 @@
       "type": "MCQ",
       "stem": "What is the main purpose of the text?",
       "options": [
-        "to tell the life story of a British scientist",
-        "to persuade readers to become pilots",
-        "to warn readers never to go outside during the summer",
+        "to tell the life story of a British scientist who named the clouds",
+        "to persuade readers to become pilots and fly aeroplanes through the clouds",
+        "to warn readers never to go outside during the hot summer or in the rain",
         "to explain how clouds form, how they are named and what they show about weather"
       ],
       "answer": "D",
@@ -189,10 +189,10 @@
       "type": "MCQ",
       "stem": "Which sentence best states the main idea of paragraph 3?",
       "options": [
-        "Latin is the most difficult language to learn.",
-        "All clouds are made entirely of ice crystals.",
+        "Latin is the most difficult language to learn for children.",
+        "All clouds are made entirely of ice crystals high in the sky.",
         "Luke Howard created a naming system for clouds that is still used today.",
-        "Stratus clouds are the most common clouds on sunny afternoons."
+        "Stratus clouds are the most common clouds on sunny afternoons in July."
       ],
       "answer": "C",
       "why": "Paragraph 3 explains how Howard's Latin names ended the confusion and are still relied on by meteorologists."
@@ -253,9 +253,9 @@
       "type": "MCQ",
       "stem": "Which list shows the stages of cloud formation in the correct order?",
       "options": [
-        "vapour condenses → water evaporates → air rises → a cloud forms",
-        "air rises → a cloud forms → water evaporates → vapour condenses",
-        "a cloud forms → vapour condenses → air rises → water evaporates",
+        "vapour condenses on specks → water evaporates → air rises and cools → a cloud forms",
+        "air rises and cools → a cloud forms → water evaporates → vapour condenses on specks",
+        "a cloud forms → vapour condenses on specks → moist air rises → water evaporates",
         "water evaporates → moist air rises and cools → vapour condenses on specks → a cloud forms"
       ],
       "answer": "D",
@@ -317,9 +317,9 @@
       "type": "MCQ",
       "stem": "In your opinion, what makes the reader want to keep reading after paragraph 1?",
       "options": [
-        "a list of the Latin names of clouds",
-        "a warning about dangerous storms",
-        "a story about the writer's childhood",
+        "a list of the Latin names of clouds that scientists use in their books",
+        "a warning about dangerous storms that are coming to the coast and the hills",
+        "a story about the writer's childhood and a rainy day on a farm near the sea",
         "the surprising fact that a cloud holds hundreds of tonnes of water yet floats"
       ],
       "answer": "D",
@@ -365,10 +365,10 @@
       "type": "MCQ",
       "stem": "According to paragraph 4, what can happen when warm, moist air rises very rapidly?",
       "options": [
-        "The air becomes too dry for clouds to form.",
-        "Cirrus clouds fall to the ground as fog.",
+        "The air becomes too dry for clouds to form in the sky.",
+        "Cirrus clouds fall to the ground as fog in the morning.",
         "A small cumulus cloud can grow into a towering storm cloud.",
-        "All the clouds in the sky disappear."
+        "All the clouds in the sky disappear at once."
       ],
       "answer": "C",
       "why": "Rapidly rising air can turn a small cumulus into a cumulonimbus “more than ten kilometres tall.”"
@@ -397,10 +397,10 @@
       "type": "MCQ",
       "stem": "What does the writer suggest by saying stratus clouds “can cover the entire sky like a blanket”?",
       "options": [
-        "They are warm and soft to touch.",
+        "They are warm and soft to touch, like wool.",
         "They spread evenly across the whole sky.",
-        "They appear only at night.",
-        "They are made of thick wool."
+        "They appear only at night in the dark sky.",
+        "They are made of thick wool from sheep."
       ],
       "answer": "B",
       "why": "The simile compares a flat grey layer of cloud to a blanket that covers everything evenly."
@@ -462,9 +462,9 @@
       "stem": "What most likely made the writer write this text?",
       "options": [
         "a wish to make readers curious about clouds and observe them closely",
-        "a plan to sell weather instruments",
-        "a belief that Latin should be taught in schools",
-        "a fear that clouds are disappearing"
+        "a plan to sell weather instruments in a new shop in town",
+        "a belief that Latin should be taught in schools around the world",
+        "a fear that clouds are disappearing from the sky every year"
       ],
       "answer": "A",
       "why": "The writer explains clouds and ends by inviting readers to “pause for a moment and observe it closely.”"
@@ -477,10 +477,10 @@
       "type": "MCQ",
       "stem": "In your opinion, which information in the text is MOST useful for keeping people safe?",
       "options": [
-        "that cumulus means “heap” in Latin",
-        "that Luke Howard was British",
+        "that cumulus means “heap” in the Latin language",
+        "that Luke Howard was a British man who named clouds",
         "that dark, swelling clouds warn of a possible storm",
-        "that clouds can look as soft as cotton"
+        "that clouds can look as soft as cotton in the sky"
       ],
       "answer": "C",
       "why": "Recognising storm clouds helps people avoid lightning, heavy rain and hail; the other facts are interesting but not about safety."
@@ -557,9 +557,9 @@
       "stem": "A class wants to keep an accurate record of the clouds for a month. Which plan is best?",
       "options": [
         "Photograph the sky at the same time each day and name the cloud type.",
-        "Draw the clouds from memory at the end of the month.",
-        "Look at the sky only on days when it rains.",
-        "Write down a cloud name chosen at random each day."
+        "Draw the clouds from memory at the end of the month in a notebook.",
+        "Look at the sky only on days when it rains hard, then write a note.",
+        "Write down a cloud name chosen at random each day of the month."
       ],
       "answer": "A",
       "why": "Regular, same-time observations named with Howard's system give a careful, reliable record."

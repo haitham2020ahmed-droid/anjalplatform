@@ -84,7 +84,7 @@ export function ClassGrowthPanel({ g }: { g: ClassGrowth }) {
     <div className="space-y-5">
       <section className="rounded-3xl bg-white p-5 ring-1 ring-slate-200">
         <h2 className="text-lg font-bold text-brand-navy">📈 {g.scope} · {g.year}</h2>
-        <p className="text-sm text-slate-600">Tests: {g.tests.map((t) => `${t.period} (${PERIOD_LABEL[t.period]})`).join(" → ")}. Scores are on the Diagnostic scale (On grade level = 60–84).</p>
+        <p className="text-sm text-slate-600">Tests: {g.tests.map((t) => `${t.period} (${PERIOD_LABEL[t.period]})`).join(" → ")}. Scores are on the Diagnostic scale (On grade level = {g.bands.on}–{g.bands.above - 1}).</p>
         <div className="mt-3 grid gap-3 sm:grid-cols-3">
           {PERIODS.map((p) => (
             <div key={p} className={`rounded-2xl p-4 ring-1 ${g.levels[p] ? "bg-slate-50 ring-slate-200" : "bg-slate-50/50 ring-slate-100 text-slate-400"}`}>

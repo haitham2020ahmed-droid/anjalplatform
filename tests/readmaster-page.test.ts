@@ -44,7 +44,10 @@ describe("⭐ ReadMaster: one page for everyone, open to all, counts only at own
     const o = await openArticle(repo, s, aid, { level });
     const items = await loadQuestionItems(repo, o.questions.map((q) => q.questionId));
     const resp = Object.fromEntries(items.map((i) => [i.questionId, (right ? i.options!.find((x) => x.correct) : i.options!.find((x) => !x.correct))!.label]));
-    return { open: o, result: await submitArticle(repo, s, aid, o.versionId, resp) };
+    // r85 audit (#6): a real per-question time is required for the answer to feed skill mastery at all (no real
+    // time → recordEngineAttempt is skipped, service.ts#submitArticle) — 20s each is well clear of a rapid guess.
+    const timing = { perQuestion: Object.fromEntries(items.map((i) => [i.questionId, 20_000])) };
+    return { open: o, result: await submitArticle(repo, s, aid, o.versionId, resp, new Date(), timing) };
   };
 
   before(async () => {
@@ -133,10 +136,13 @@ describe("⭐ ReadMaster: one page for everyone, open to all, counts only at own
     await assert.rejects(answerAll(s, g4u1, "BELOW", true), /already finished/, "counts once; no more reads after");
     const again = await openArticle(repo, s, g4u1);
     assert.deepEqual([again.done, again.result?.correct], [true, 1], "the finished article still opens to read");
-    // a higher level counts too
+    // a higher level counts too — but a failed STRETCH (a level above the student's own) never lowers the Lexile,
+    // only a weak score at or below their own level does (audit fix, Oct 2026 — see service.ts's `stretch` gate:
+    // every other adaptive mechanism on this platform, e.g. ReadRise's RRRun, follows the same "a harder try can
+    // raise the level, never lower it" rule). Counts once (not practice), score is recorded, Lexile just holds.
     const s2 = await user("test.student.004");
     const h = await answerAll(s2, g4other, "ABOVE", false);
-    assert.deepEqual([h.result.practice, h.result.lexileAfter - h.result.lexileBefore], [false, -30]);
+    assert.deepEqual([h.result.practice, h.result.lexileAfter - h.result.lexileBefore], [false, 0]);
     const rep = await studentReadMasterReport(repo, t1, sid);
     assert.deepEqual(rep.articles.map((a) => a.practice), [true, false]);
   });

@@ -7,6 +7,7 @@
 import type { Repo, Row } from "../seeding/repo";
 import { currentRows, ms, skillKeyIndex, studentSchool, viewOf, type StarView } from "./status";
 import { goalWeekStart, GOAL_SCOPE, type SkillGoal } from "./status-extras";
+import { isReviewWork } from "../practice/completion";
 
 const s = (v: unknown) => (v === null || v === undefined ? "" : String(v));
 const DAY = 86_400_000;
@@ -52,16 +53,18 @@ export async function studentStarsSummary(repo: Repo, studentId: string, now = n
 }
 
 /**
- * My Work never asks again for a skill already mastered: a plan's skill row (MAP, NAFS, RTI or Curriculum plan work)
- * whose skill is ⭐ shows Done with "Already mastered". Work the teacher assigned on purpose (a single Assign) stays.
+ * My Work: a skill row whose skill was already ⭐ when the work was set is a REVIEW (20 questions, 16 right to pass):
+ * flagged `review` for its label; it stays open until the review is done (never "Done" by itself any more).
  */
-export async function markMasteredWork<T extends { skillId: string | null; sourceKey: string; status: string }>(repo: Repo, studentId: string, rows: T[], byKey: Map<string, StarView>): Promise<T[]> {
-  const plan = rows.filter((r) => r.skillId && r.status !== "Done" && ["MAP", "NAFS", "RTI"].includes(r.sourceKey));
-  if (!plan.length || ![...byKey.values()].some((v) => v.status === "MASTERED")) return rows;
+export async function markMasteredWork<T extends { skillId: string | null; sourceKey: string; status: string; assignedAt?: string }>(repo: Repo, studentId: string, rows: T[], byKey: Map<string, StarView>): Promise<T[]> {
+  // owner 1 Nov 2026: a skill mastered BEFORE the work was set is never marked Done here any more — it is a 20-question
+  // REVIEW (practice/completion.ts): the row stays open with a "Review · 20 questions" label until the review is done
+  const open = rows.filter((r) => r.skillId && r.status !== "Done");
+  if (!open.length || ![...byKey.values()].some((v) => v.status === "MASTERED" || v.status === "NEXT_LEVEL")) return rows;
   const ix = await skillKeyIndex(repo, await studentSchool(repo, studentId));
   return rows.map((r) => {
-    if (!plan.includes(r)) return r;
+    if (!open.includes(r)) return r;
     const v = byKey.get(ix.keyOf.get(s(r.skillId)) ?? "");
-    return v?.status === "MASTERED" ? ({ ...r, status: "Done", note: "⭐ Already mastered", action: "Review" } as T) : r;
+    return isReviewWork(v ? { status: v.status, masteredAt: v.masteredAt } : null, r.assignedAt) ? ({ ...r, review: true } as T) : r;
   });
 }

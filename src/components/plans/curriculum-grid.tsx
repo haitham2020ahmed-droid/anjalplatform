@@ -1,6 +1,11 @@
 import Link from "next/link";
 import type { PlanGrid } from "@/server/curriculum-map/curriculum-plan";
 import { setUnitsAction } from "@/app/teacher/plans/actions";
+import { planHref } from "@/lib/plan-links";
+import { PlanA, PlanLinksNote, PlanQr } from "@/components/plans/plan-links";
+
+/** "G4.U2.TS1.ACS" → the Curriculum Map unit (staff link) */
+const unitOf = (code: string) => { const m = /^G(\d{1,2})\.U(\d{1,2})/i.exec(code); return m ? planHref({ kind: "curriculum-unit", grade: Number(m[1]), unit: Number(m[2]) }, "staff") : null; };
 
 const CELL = { COMPLETED: "bg-emerald-500", IN_PROGRESS: "bg-amber-300", STUCK: "bg-red-500", NOT_STARTED: "bg-slate-100" } as const;
 const WORD = { COMPLETED: "done", IN_PROGRESS: "working", STUCK: "stuck — needs help", NOT_STARTED: "not started" } as const;
@@ -75,12 +80,13 @@ export function CurriculumGrid({ g, canEdit }: { g: PlanGrid; canEdit: boolean }
 
       <section className="rounded-3xl bg-white p-5 shadow-sm ring-1 ring-slate-200">
         <h2 className="text-lg font-bold text-brand-navy">📋 Parts</h2>
+        <PlanLinksNote t={(x) => x} className="mt-2 inline-block" />
         {g.units.map((u) => (
           <div key={u} className="mt-3">
-            <p className="font-semibold text-slate-800">{u}</p>
+            <p className="flex items-center justify-between gap-2 font-semibold text-slate-800">{u}<PlanQr href={unitOf(g.items.find((x) => x.unit === u)?.code ?? "")} size={44} /></p>
             <ul className="mt-1 grid gap-1 text-sm md:grid-cols-2 lg:grid-cols-3">
               {g.items.filter((x) => x.unit === u).map((x) => (
-                <li key={x.id} className="flex items-center justify-between gap-2 rounded-lg bg-slate-50 px-3 py-1.5"><span className="min-w-0"><span className="block truncate text-slate-800">{x.category}</span><span className="block truncate text-xs text-slate-500">{x.set}</span></span><span className="shrink-0 text-xs tabular-nums text-slate-600">{x.done}/{g.students.length} done</span></li>
+                <li key={x.id} className="flex items-center justify-between gap-2 rounded-lg bg-slate-50 px-3 py-1.5"><span className="min-w-0"><span className="block truncate text-slate-800"><PlanA href={unitOf(x.code)}>{x.category}</PlanA></span><span className="block truncate text-xs text-slate-500">{x.set}</span></span><span className="shrink-0 text-xs tabular-nums text-slate-600">{x.done}/{g.students.length} done</span></li>
               ))}
             </ul>
           </div>

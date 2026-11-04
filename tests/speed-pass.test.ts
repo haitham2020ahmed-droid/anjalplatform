@@ -1,6 +1,6 @@
 /**
  * ⚡ Speed pass (same answers, fewer / smaller reads) — demo school in memory, never a real database:
- *   answer totals by GROUP BY · lessons of many skills in two reads · a teacher's classes read once per page
+ *   (round 4: the unused answerTotals was deleted — every report counts answers with practice-totals.ts) · lessons of many skills in two reads · a teacher's classes read once per page
  *   (fresh at once after a class change) · the four Curriculum Map level views share one read of the students' data.
  */
 import { before, describe, test } from "node:test";
@@ -13,7 +13,6 @@ import { DEMO_SCHOOL_CODE } from "../src/server/seeding/demo";
 import type { FindOptions, Repo, Row, Where } from "../src/server/seeding/repo";
 import { resolveActor } from "../src/server/auth/actor";
 import type { Actor } from "../src/server/auth/rbac";
-import { answerTotals } from "../src/server/insights/student-data";
 import { hasLesson, hasLessons } from "../src/server/lessons/run";
 import { accessibleClasses } from "../src/server/teacher/assign";
 import { evidenceLevels } from "../src/server/curriculum-map/evidence-level";
@@ -50,16 +49,6 @@ describe("speed pass: same answers, fewer reads", () => {
     for (const [i, ok] of [[0, true], [0, false], [0, true], [1, false]] as const) {
       await repo.create("QuestionAttempt", { studentId: ids[i], questionId: q.id, skillId: q.skillId, sessionId: ses.id, isCorrect: ok, response: {}, responseMs: 4000, difficultyB: 0, createdAt: new Date() } as Row);
     }
-  });
-
-  test("answer totals: two GROUP BY counts give what counting every answer gave", async () => {
-    const rows = await repo.findMany("QuestionAttempt", { studentId: { in: ids } }, { select: ["studentId", "isCorrect"] });
-    assert.ok(rows.length >= 4, "the answers were saved");
-    const want = new Map(ids.map((id) => [id, { answers: 0, correct: 0 }]));
-    for (const r of rows) { const o = want.get(s(r.studentId))!; o.answers++; if (r.isCorrect) o.correct++; }
-    const c = counting(repo);
-    assert.deepEqual(await answerTotals(c.repo, ids), want);
-    assert.equal(c.by.get("QuestionAttempt"), 2, "two grouped counts, no answer rows");
   });
 
   test("lessons of many skills: two reads, the same answer as one skill at a time", async () => {

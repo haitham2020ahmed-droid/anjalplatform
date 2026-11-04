@@ -6,6 +6,7 @@ import type { LLevel } from "@/lib/learn/format";
 import { openLessonAction, submitChecksAction } from "@/app/student/learn/actions";
 import { RichText, plain } from "./rich-text";
 import { speak, stopSpeaking } from "./speak";
+import { RichInline } from "@/components/rich-inline";
 
 type Step =
   | { type: "slide"; kicker: string; title: string; text: string; picture?: string }
@@ -97,9 +98,9 @@ export function LessonPlayer({ code, title, content, mode = "student", practiceH
     switch (step.type) {
       case "slide": case "proof": return `${step.title}. ${plain(step.text)}`;
       case "example": return `${content.example.sentences.map((x) => x.t).join(" ")} ${shown ? plain(content.example.explain) : ""}`;
-      case "together": return `${content.together.passage} ${content.together.stem} ${content.together.options.join(". ")}`;
-      case "evidence": return `${content.evidence.stem} ${content.evidence.sentences.join(" ")}`;
-      case "check": { const q = content.checks[step.n]; return `${q.passage} ${q.stem} ${q.options.join(". ")}`; }
+      case "together": return plain(`${content.together.passage} ${content.together.stem} ${content.together.options.join(". ")}`);
+      case "evidence": return plain(`${content.evidence.stem} ${content.evidence.sentences.join(" ")}`);
+      case "check": { const q = content.checks[step.n]; return plain(`${q.passage} ${q.stem} ${q.options.join(". ")}`); }
       default: return "";
     }
   };
@@ -168,17 +169,17 @@ export function LessonPlayer({ code, title, content, mode = "student", practiceH
       <>
         {kicker("Let’s try together")}
         <h2 className="mb-2 text-2xl text-ink">{t("Your turn (with help)")}</h2>
-        <div className={passage} lang="en" data-content data-reading><p>{q.passage}</p></div>
-        <p className="mt-3 font-bold" lang="en">{q.stem}</p>
+        <div className={passage} lang="en" data-content data-reading><p><RichInline text={q.passage} /></p></div>
+        <p className="mt-3 font-bold" lang="en"><RichInline text={q.stem} /></p>
         <div className="mt-2 grid gap-2">
           {q.options.map((o, k) => {
             const right = together.right && k === q.answer, wrong = together.wrong.includes(k) && !right;
             return <button key={k} type="button" disabled={together.right} onClick={() => setTogether((s) => (k === q.answer ? { ...s, right: true } : { ...s, wrong: [...s.wrong, k] }))}
-              lang="en" className={`min-h-12 rounded-2xl px-4 py-2.5 text-start ring-2 transition ${right ? OK : wrong ? NO : "bg-surface ring-line hover:ring-[var(--lr-lavender)]"}`}>{o}</button>;
+              lang="en" className={`min-h-12 rounded-2xl px-4 py-2.5 text-start ring-2 transition ${right ? OK : wrong ? NO : "bg-surface ring-line hover:ring-[var(--lr-lavender)]"}`}><RichInline text={o} /></button>;
           })}
         </div>
-        {together.right ? <p role="status" className={`mt-3 rounded-2xl px-4 py-3 ring-1 ${OK}`} lang="en">{q.good}</p>
-          : together.wrong.length > 0 && <p role="status" className={`mt-3 rounded-2xl px-4 py-3 ring-1 ${NO}`}>{t("Hint")}: <span lang="en">{q.hint}</span></p>}
+        {together.right ? <p role="status" className={`mt-3 rounded-2xl px-4 py-3 ring-1 ${OK}`} lang="en"><RichInline text={q.good} /></p>
+          : together.wrong.length > 0 && <p role="status" className={`mt-3 rounded-2xl px-4 py-3 ring-1 ${NO}`}>{t("Hint")}: <span lang="en"><RichInline text={q.hint} /></span></p>}
         {nav(!together.right)}
       </>
     );
@@ -195,16 +196,16 @@ export function LessonPlayer({ code, title, content, mode = "student", practiceH
       <>
         {kicker("Prove it from the text")}
         <h2 className="mb-2 text-2xl text-ink">{t("Point to the proof")}</h2>
-        <p className="font-bold" lang="en">{e.stem}</p>
+        <p className="font-bold" lang="en"><RichInline text={e.stem} /></p>
         <div className={`${passage} mt-3`} lang="en" data-content data-reading>
           <p>{e.sentences.map((x, k) => (
             <span key={k} role="button" tabIndex={0} aria-pressed={ev.picked.includes(k)} onClick={() => tap(k)} onKeyDown={(x2) => { if (x2.key === "Enter" || x2.key === " ") { x2.preventDefault(); tap(k); } }}
-              className={`cursor-pointer rounded px-0.5 transition-colors ${ev.picked.includes(k) ? HL_DET : ev.flash === k ? HL_MAIN : "hover:underline"}`}>{x} </span>
+              className={`cursor-pointer rounded px-0.5 transition-colors ${ev.picked.includes(k) ? HL_DET : ev.flash === k ? HL_MAIN : "hover:underline"}`}><RichInline text={x} /> </span>
           ))}</p>
         </div>
         <p className="mt-2 text-sm text-muted">{t("Tap a sentence to choose it. Tap again to unchoose.")}</p>
         {ev.done ? <p role="status" className={`mt-3 rounded-2xl px-4 py-3 ring-1 ${OK}`}>{t("Great proof! These sentences prove the answer.")}</p>
-          : ev.msg === "wrong" && <p role="status" className={`mt-3 rounded-2xl px-4 py-3 ring-1 ${NO}`} lang="en">{e.wrong}</p>}
+          : ev.msg === "wrong" && <p role="status" className={`mt-3 rounded-2xl px-4 py-3 ring-1 ${NO}`} lang="en"><RichInline text={e.wrong} /></p>}
         {nav(!ev.done)}
       </>
     );
@@ -214,15 +215,15 @@ export function LessonPlayer({ code, title, content, mode = "student", practiceH
       <>
         <p className="text-xs font-bold uppercase tracking-wider text-teal-ink">{t("Show what you know · {n} of {m}", { n: step.n + 1, m: content.checks.length })}</p>
         <h2 className="mb-2 text-2xl text-ink">{t("Check {n}", { n: step.n + 1 })}</h2>
-        <div className={passage} lang="en" data-content data-reading><p>{q.passage}</p></div>
-        <p className="mt-3 font-bold" lang="en">{q.stem}</p>
+        <div className={passage} lang="en" data-content data-reading><p><RichInline text={q.passage} /></p></div>
+        <p className="mt-3 font-bold" lang="en"><RichInline text={q.stem} /></p>
         <div className="mt-2 grid gap-2">
           {q.options.map((o, k) => (
             <button key={k} type="button" disabled={p !== null} onClick={() => setPicks((s) => s.map((x, j) => (j === step.n ? k : x)))}
-              lang="en" className={`min-h-12 rounded-2xl px-4 py-2.5 text-start ring-2 transition ${p !== null && k === q.answer ? OK : p === k ? NO : "bg-surface ring-line hover:ring-[var(--lr-lavender)]"}`}>{o}</button>
+              lang="en" className={`min-h-12 rounded-2xl px-4 py-2.5 text-start ring-2 transition ${p !== null && k === q.answer ? OK : p === k ? NO : "bg-surface ring-line hover:ring-[var(--lr-lavender)]"}`}><RichInline text={o} /></button>
           ))}
         </div>
-        {p !== null && <p role="status" className={`mt-3 rounded-2xl px-4 py-3 ring-1 ${p === q.answer ? OK : NO}`}>{p === q.answer ? t("Correct!") : t("Not this time. The green answer is right.")} <span lang="en">{q.why}</span></p>}
+        {p !== null && <p role="status" className={`mt-3 rounded-2xl px-4 py-3 ring-1 ${p === q.answer ? OK : NO}`}>{p === q.answer ? t("Correct!") : t("Not this time. The green answer is right.")} <span lang="en"><RichInline text={q.why} /></span></p>}
         {nav(p === null)}
       </>
     );

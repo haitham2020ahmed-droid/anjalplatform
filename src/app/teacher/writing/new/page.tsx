@@ -70,7 +70,11 @@ export default async function NewWritingTaskPage({ searchParams }: { searchParam
                 <div className="mt-2 grid gap-1 sm:grid-cols-2 lg:grid-cols-3">{students.map((s) => <label key={s.id} className="flex min-h-9 items-center gap-2"><input type="checkbox" name="studentIds" value={s.id} /> <bdi>{s.name}</bdi></label>)}</div>
               </details>
             </fieldset>
-            <label className="mt-3 block text-sm font-semibold">{t("Due date")}<input name="dueAt" type="datetime-local" required className={`${box} sm:w-72`} /></label>
+            <div className="mt-3 flex flex-wrap gap-3">
+              <label className="block text-sm font-semibold">{t("Start date")}<input name="startAt" type="date" className={`${box} sm:w-56`} dir="ltr" /></label>
+              <label className="block text-sm font-semibold">{t("End (due) date")}<input name="dueAt" type="datetime-local" required className={`${box} sm:w-72`} dir="ltr" /></label>
+            </div>
+            <p className="mt-1 text-xs text-slate-500">{t("Students see it from the start date.")}</p>
           </section>
           <button className="inline-flex min-h-12 items-center rounded-2xl bg-brand-navy px-6 font-semibold text-white hover:bg-brand-purple">{t("Assign the writing task")}</button>
         </form>

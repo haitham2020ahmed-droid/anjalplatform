@@ -237,9 +237,9 @@
      "stem": "How is the conflict resolved?",
      "options": [
       "The sandbags keep the water out, and the fields are safe.",
-      "The farmer and his family leave the farm.",
-      "The rain stops before it can begin.",
-      "The river floods all of the fields."
+      "The farmer and his family leave the farm and never come back.",
+      "The rain stops before it can begin to fall on the fields.",
+      "The river floods all of the fields and washes the barn away."
      ],
      "answer": 0,
      "why": "Their sandbags held back the river. In the morning, the fields were safe."
@@ -248,9 +248,9 @@
      "passage": "Nawaf broke his neighbour's window with his ball. He wanted to run away. Instead, he knocked on the door and told the truth. The neighbour thanked him for being honest, and Nawaf offered to help pay for the glass.",
      "stem": "What is Nawaf's main problem?",
      "options": [
-      "He cannot find his ball anywhere.",
-      "His neighbour is angry with his parents.",
-      "He does not like his neighbour.",
+      "He cannot find his ball anywhere in the garden.",
+      "His neighbour is angry with his parents about the noise at night.",
+      "He does not like his neighbour or his neighbour's dog.",
       "He broke a window and must decide whether to tell the truth."
      ],
      "answer": 3,
@@ -367,10 +367,10 @@
      "passage": "In a poem, the speaker writes: \"The wind pushed hard against my door, / It howled and shook the ground, / But I held on through all the storm, / And morning found me sound.\"",
      "stem": "How is the conflict in the poem resolved?",
      "options": [
-      "The speaker runs away from the storm.",
+      "The speaker runs away from the storm to a friend's house.",
       "The speaker survives the storm and is safe in the morning.",
-      "The wind blows the door away.",
-      "The storm never ends."
+      "The wind blows the door away and the house falls.",
+      "The storm never ends, and the speaker is still afraid."
      ],
      "answer": 1,
      "why": "\"I held on\" and \"morning found me sound\" show the speaker came through the storm safely."
@@ -462,7 +462,7 @@
      "options": [
       "Amira cannot do the schoolwork, so a teacher helps her study.",
       "Amira feels isolated and shy, and helping someone else gives her confidence.",
-      "Amira's family dislikes the city, so they move back to their town.",
+      "Amira's family dislikes the city, so they move back to their old town by the sea.",
       "The new student is unkind to Amira until a teacher steps in."
      ],
      "answer": 1,
@@ -472,10 +472,10 @@
      "passage": "The ship's engine failed far from shore. The captain wanted to wait for rescue, but the young engineer insisted she could repair it. They argued while the storm approached. Finally, the captain gave her one hour. She found a cracked fuel line, sealed it, and the engine roared back to life just as the first waves crashed over the deck.",
      "stem": "Which event intensifies the conflict?",
      "options": [
-      "The engine starts again just in time.",
-      "The engineer seals the cracked fuel line.",
+      "The engine starts again just in time to save the ship.",
+      "The engineer seals the cracked fuel line with some tape.",
       "The captain and the engineer argue as a storm approaches.",
-      "The captain gives her one hour to try."
+      "The captain gives her one hour to try to fix the engine."
      ],
      "answer": 2,
      "why": "The argument, with a storm approaching, raises the danger and the tension before anything is solved."
@@ -486,8 +486,8 @@
      "options": [
       "He accepts the truth and changes how he fishes.",
       "He proves the factory polluted the sea.",
-      "He forces the factory to close.",
-      "He stops fishing and sells his boat."
+      "He forces the factory to close down for a year.",
+      "He stops fishing and sells his boat to a friend."
      ],
      "answer": 0,
      "why": "He accepts the evidence and adapts by sailing to deeper waters. His thinking changes, and so do his actions."

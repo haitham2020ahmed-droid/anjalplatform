@@ -22,6 +22,10 @@ const read = (p: string) => readFileSync(join(ROOT, p), "utf8");
 
 describe("Teacher Home: shortcuts and a compact Needs attention", () => {
   const home = read("src/app/teacher/page.tsx");
+  // r94 follow-up: the compact row list (name · grade · reason · small button) was extracted into its own
+  // component so Home and the new /teacher/reports/needs-attention page share one copy — see
+  // src/components/teacher/needs-attention-list.tsx and report-catalog.ts's "needs-attention" ReportDef.
+  const naList = read("src/components/teacher/needs-attention-list.tsx");
 
   test("small shortcuts first: every tool the owner listed (NAFS only for Grade 6 teachers), ‹ › when they do not fit", () => {
     for (const [href, label] of [["/teacher/students", "My classes"], ["#find-skill", "Assign"], ["/teacher/progress", "Students' My Work"], ["/teacher/reports", "Reports"],
@@ -48,21 +52,22 @@ describe("Teacher Home: shortcuts and a compact Needs attention", () => {
   });
 
   test("compact Needs attention: one line per student (name · grade · reason · small button), 5 shown, Show all (N)", () => {
-    assert.match(home, /const FIRST_ROWS = 5;/);
-    assert.match(home, /ix >= FIRST_ROWS \? "hidden group-has-\[:checked\]\/na:flex" : "flex"/);
-    assert.match(home, /sum\.list\.length > FIRST_ROWS && /);
-    assert.match(home, /t\("Show all \(\{n\}\)", \{ n: sum\.list\.length \}\)/);
-    assert.match(home, /px-3 py-1 text-\[13px\] leading-5/, "small rows");
-    assert.match(home, /truncate/, "one line");
-    assert.match(home, /t\("Grade \{n\}", \{ n: gradeOf\.get\(r\.classId\)! \}\)/, "the grade");
-    assert.match(home, /const small = "inline-flex h-7 shrink-0[^"]*text-xs/, "small action button");
-    assert.match(home, /role="region" aria-label=\{t\("Needs attention"\)\} tabIndex=\{0\} className="max-h-\[15rem\] overflow-y-auto/, "the open list scrolls");
+    assert.match(home, /<NeedsAttentionList list=\{sum\.list\} gradeOf=\{gradeOf\} \/>/, "Home renders the shared list component");
+    assert.match(naList, /const FIRST_ROWS = 5;/);
+    assert.match(naList, /ix >= FIRST_ROWS \? "hidden group-has-\[:checked\]\/na:flex" : "flex"/);
+    assert.match(naList, /list\.length > FIRST_ROWS && /);
+    assert.match(naList, /t\("Show all \(\{n\}\)", \{ n: list\.length \}\)/);
+    assert.match(naList, /px-3 py-1 text-\[13px\] leading-5/, "small rows");
+    assert.match(naList, /truncate/, "one line");
+    assert.match(naList, /t\("Grade \{n\}", \{ n: gradeOf\.get\(r\.classId\)! \}\)/, "the grade");
+    assert.match(naList, /const small = "inline-flex h-7 shrink-0[^"]*text-xs/, "small action button");
+    assert.match(naList, /role="region" aria-label=\{t\("Needs attention"\)\} tabIndex=\{0\} className="max-h-\[15rem\] overflow-y-auto/, "the open list scrolls");
   });
 
   test("every link of the list goes to a real page", () => {
-    assert.match(home, /href=\{`\/teacher\/students\/\$\{r\.studentId\}\$\{r\.neverPractised \? "#start" : ""\}`\} className=\{small\}>\{t\("Open"\)\}/, "Open → the profile (its No practice yet part)");
-    assert.match(home, /\/teacher\/plans\?\$\{new URLSearchParams\(\[\["tab", "custom"\], \["classId", r\.classId\], \["who", "student"\], \["sid", r\.studentId\]/, "Create Plan → Plans, this student, the skills filled in");
-    assert.match(home, /href=\{`\/teacher\/students\/\$\{r\.studentId\}#skills`\}[^>]*>\{t\("\+\{n\} more"/, "+N more → the profile's skills");
+    assert.match(naList, /href=\{`\/teacher\/students\/\$\{r\.studentId\}\$\{r\.neverPractised \? "#start" : ""\}`\} className=\{small\}>\{t\("Open"\)\}/, "Open → the profile (its No practice yet part)");
+    assert.match(naList, /\/teacher\/plans\?\$\{new URLSearchParams\(\[\["tab", "custom"\], \["classId", r\.classId\], \["who", "student"\], \["sid", r\.studentId\]/, "Create Plan → Plans, this student, the skills filled in");
+    assert.match(naList, /href=\{`\/teacher\/students\/\$\{r\.studentId\}#skills`\}[^>]*>\{t\("\+\{n\} more"/, "+N more → the profile's skills");
     const profile = read("src/app/teacher/students/[studentId]/page.tsx");
     assert.match(profile, /id="start"/);
     assert.match(profile, /t\("No practice yet — assign a skill"\)/);

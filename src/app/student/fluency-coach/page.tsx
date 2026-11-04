@@ -2,7 +2,7 @@ import { FluencyMyReport } from "@/components/student/fluency-my-report";
 import Link from "next/link";
 import { AppShell } from "@/components/app-shell";
 import { getActor, repo, requireActor } from "@/server/auth/next";
-import { coachHome, coachSession, drillFor, PRACTICE_KINDS, type PracticeKind } from "@/server/fluency/coach";
+import { coachHome, coachSession, drillFor, MINUTE_MIN_WORDS, PRACTICE_KINDS, type PracticeKind } from "@/server/fluency/coach";
 import { SEASON_NAME } from "@/server/fluency/norms";
 import { FluencyCoachIcon } from "@/components/fluency/coach-icon";
 import { CoachReader } from "@/components/fluency/coach-reader";
@@ -11,6 +11,7 @@ import { DrillReader } from "@/components/fluency/drill-reader";
 import { MyPlanCard } from "@/components/fluency/my-plan";
 import { ProsodyBars, TrialChart, WcpmChart } from "@/components/fluency/charts";
 import { aiEnv } from "@/server/ai/env";
+import { DictationTab } from "@/components/dictation/dictation-tab";
 
 export const metadata = { title: "Fluency Coach" };
 const TONE = { BELOW: "bg-rose-100 text-rose-900", ON: "bg-sky-100 text-sky-900", ABOVE: "bg-emerald-100 text-emerald-900" } as const;
@@ -27,11 +28,13 @@ export default async function FluencyCoachPage({ searchParams }: { searchParams:
   const kind: PracticeKind | null = PRACTICE_KINDS.includes(sp.mode as PracticeKind) ? (sp.mode as PracticeKind) : sp.key ? "MINUTE" : null;
   const link = (key: string | null, m: PracticeKind) => `/student/fluency-coach?${key ? `key=${encodeURIComponent(key)}&` : ""}mode=${m}`;
   const live = home.enabled && home.ready;
-  const key = sp.key ? String(sp.key) : home.recommended;
+  // r4: the 1-minute check opens only on a passage long enough for a whole minute
+  const key = sp.key ? String(sp.key) : kind === "MINUTE" ? home.recommendedMinute : home.recommended;
   const session = live && kind && kind !== "DRILL" && key ? await coachSession(repo, actor, key, kind).catch(() => null) : null;
   const drill = live && kind === "DRILL" ? await drillFor(repo, actor) : null;
+  const dictation = live && sp.mode === "DICTATION";
   const rec = home.passages.find((p) => p.key === home.recommended);
-  const reading = Boolean(session || drill);
+  const reading = Boolean(session || drill || dictation);
   const g = home.goal;
 
   return (
@@ -48,6 +51,7 @@ export default async function FluencyCoachPage({ searchParams }: { searchParams:
       {!home.enabled ? <p className="rounded-2xl bg-white p-6 text-slate-600 ring-1 ring-slate-200">The Fluency Coach is switched off by your school.</p>
         : !home.ready ? <p className="rounded-2xl bg-white p-6 text-slate-600 ring-1 ring-slate-200">The Fluency Coach is not ready yet: your school needs to connect its AI key. Ask your teacher.</p>
         : drill ? <DrillReader grid={drill} />
+        : dictation ? <DictationTab />
         : session && !session.offered ? (
           <section className="space-y-4 rounded-3xl bg-white p-6 ring-1 ring-slate-200">
             <p className="text-lg font-semibold text-brand-navy">🚀 {session.reason}</p>
@@ -95,11 +99,12 @@ export default async function FluencyCoachPage({ searchParams }: { searchParams:
             <section>
               <h2 className="mb-3 text-lg font-bold text-brand-navy">Choose how to practise{rec ? <span className="text-sm font-normal text-slate-500"> · passage for you: <b>{rec.title}</b></span> : null}</h2>
               <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-                <Mode href={link(home.recommended, "MINUTE")} tone="from-brand-navy to-indigo-700" title="⏱ 1-minute check" text="Your official words correct per minute. Do two today with different passages and the coach uses the average." />
+                {home.recommendedMinute && <Mode href={link(home.recommendedMinute, "MINUTE")} tone="from-brand-navy to-indigo-700" title="⏱ 1-minute check" text="Your official words correct per minute. Do two today with different passages and the coach uses the average." />}
                 <Mode href={link(home.recommended, "PASSAGE")} tone="from-teal-500 to-emerald-500" title="📖 Whole passage" text="Read it all and get feedback on every word, then answer quick questions." />
                 <Mode href={link(home.recommended, "ECHO")} tone="from-sky-500 to-cyan-500" title="🦜 Echo reading" text="Listen to one sentence, then say it the same way. The coach compares your phrasing and voice." />
                 <Mode href={link(home.recommended, "PHRASED")} tone="from-violet-500 to-fuchsia-500" title="🎼 Phrased reading" text="Read in word groups with / and // marks. The marks fade as you get better." />
                 <Mode href={link(null, "DRILL")} tone="from-amber-400 to-orange-500" title="⚡ 1-minute word drill" text="Rows of words with your sound patterns. Beat your score!" />
+                <Mode href="/student/fluency-coach?mode=DICTATION" tone="from-indigo-500 to-violet-600" title="📝 Daily Dictation" text="Listen to today's item, type what you hear, and see exactly what to fix." />
                 {home.repeatedOffered
                   ? <Mode href={link(home.recommended, "REPEATED")} tone="from-rose-500 to-pink-500" title="🔁 Repeated reading" text="Read the same passage up to 5 times, with a new goal each time." />
                   : <Mode href={home.passages.find((p) => p.level === "ABOVE")?.key ? link(home.passages.find((p) => p.level === "ABOVE")!.key, "PASSAGE") : "/student/readmaster"} tone="from-emerald-500 to-lime-500" title="🚀 Wider reading" text="You read above level! Read new, harder passages and articles." />}
@@ -140,7 +145,7 @@ export default async function FluencyCoachPage({ searchParams }: { searchParams:
                     <li key={p.key} className="flex flex-wrap items-center justify-between gap-2 py-2">
                       <span className="min-w-0"><b className="text-slate-900">{p.title}</b> {p.key === home.recommended && <span className="ms-1 rounded-full bg-amber-100 px-2 py-0.5 text-xs font-bold text-amber-900">⭐ For you</span>}<span className="block text-xs text-slate-500">Grade {p.grade} · {p.words} words{p.lexile ? ` · ${p.lexile}L` : ""}</span></span>
                       <span className="flex flex-wrap gap-1.5">
-                        <Link href={link(p.key, "MINUTE")} className="rounded-lg bg-brand-navy px-3 py-1.5 text-sm font-semibold text-white hover:bg-brand-purple">⏱ 1 minute</Link>
+                        {p.words >= MINUTE_MIN_WORDS && <Link href={link(p.key, "MINUTE")} className="rounded-lg bg-brand-navy px-3 py-1.5 text-sm font-semibold text-white hover:bg-brand-purple">⏱ 1 minute</Link>}
                         {(["PASSAGE", "ECHO", "PHRASED", ...(home.repeatedOffered ? ["REPEATED"] : [])] as PracticeKind[]).map((m) => <Link key={m} href={link(p.key, m)} className="rounded-lg px-2.5 py-1.5 text-sm font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">{KIND_NAME[m]}</Link>)}
                       </span>
                     </li>

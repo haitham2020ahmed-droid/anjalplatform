@@ -20,7 +20,7 @@ const itemsOf = (v: unknown): PlanItem[] => { try { const x = typeof v === "stri
 /** at most this many drafts are listed at once */
 export const MAX_DRAFTS = 80;
 
-export interface MapDraftArea { name: string; icon: string; skills: string[] }
+export interface MapDraftArea { name: string; icon: string; skills: { id: string; name: string }[] }
 export interface MapDraft { id: string; studentId: string; studentName: string; subject: Subject; term: string; createdAt: string; areas: MapDraftArea[]; note: string | null }
 
 /** The class's MAP plan drafts waiting for the teacher (not sent, not dismissed), by student name. Read only. */
@@ -39,7 +39,9 @@ export async function mapDraftsForClass(repo: Repo, actor: Actor, classId: strin
     term: s(r.term), createdAt: iso(r.createdAt), note: r.note ? s(r.note) : null,
     areas: itemsOf(r.items).map((it) => {
       const g = groupOf(s(it.group));
-      return { name: g?.name ?? s(it.group), icon: g?.icon ?? "🗺️", skills: [...new Set((it.skillIds ?? []).map((id) => skillName.get(s(id)) ?? "").filter(Boolean))] };
+      const seen = new Set<string>();
+      const skills = (it.skillIds ?? []).map(s).filter((id) => skillName.has(id) && !seen.has(skillName.get(id)!) && seen.add(skillName.get(id)!)).map((id) => ({ id, name: skillName.get(id)! }));
+      return { name: g?.name ?? s(it.group), icon: g?.icon ?? "🗺️", skills };
     }),
   })).sort((a, b) => a.studentName.localeCompare(b.studentName) || a.subject.localeCompare(b.subject));
 }
@@ -56,7 +58,7 @@ async function ownDraft(repo: Repo, actor: Actor, planId: string): Promise<Row> 
 /** Send: the teacher pressed Send after the preview (the only way a draft reaches the student). */
 export async function sendMapDraft(repo: Repo, actor: Actor, planId: string, now = new Date()): Promise<{ sets: number; skipped: string[] }> {
   await ownDraft(repo, actor, planId);
-  const r = await sendPlans(repo, actor, [s(planId)], now);
+  const r = await sendPlans(repo, actor, [s(planId)], now, "MAP"); // r74: an automatic MAP draft: its source is MAP
   if (!r.sent) throw new ValidationError("Nothing could be sent: these areas have no questions yet.");
   return { sets: r.sets, skipped: r.skipped };
 }

@@ -125,9 +125,9 @@
       "difficulty": 3,
       "stem": "Which information in the story is the LEAST clear?",
       "options": [
-        "Who Reem recited for at home",
-        "How many breaths Ms. Nouf advised",
-        "What place Reem received",
+        "Who Reem recited for at home before the contest",
+        "How many breaths Ms. Nouf advised her to take slowly",
+        "What place Reem received at the end of the contest",
         "Whether Reem completed every practice step"
       ],
       "answer": "D",
@@ -141,10 +141,10 @@
       "difficulty": 2,
       "stem": "Which of these events could REALLY happen?",
       "options": [
-        "The microphone recites the verses for Reem.",
+        "The microphone recites the verses for Reem on the stage.",
         "A nervous student grows calmer after slow breaths.",
-        "The applause lifts Reem into the air.",
-        "Reem's certificate changes into a trophy."
+        "The applause lifts Reem into the air above the crowd.",
+        "Reem's certificate changes into a trophy in her hands."
       ],
       "answer": "B",
       "why": "Slow breathing really can help calm nerves, as it does for Reem; the other events are imaginary."

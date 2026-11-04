@@ -29,10 +29,10 @@
       "difficulty": 1,
       "stem": "Which sentence uses the word \"restore\" correctly, with the meaning used in the passage?",
       "options": [
-        "The restore was too heavy for the train to carry.",
-        "She restore her bag on the train yesterday.",
+        "The restore was too heavy for the train to carry up the hill.",
+        "She restore her bag on the train yesterday afternoon.",
         "Workers will restore the old fort so tourists can visit it.",
-        "Restore quickly because the station is closing now."
+        "Restore quickly because the station is closing now, please."
       ],
       "answer": "C",
       "why": "In the passage, \"restored\" means repaired to its earlier condition; only this sentence uses the verb that way."
@@ -93,10 +93,10 @@
       "difficulty": 2,
       "stem": "The writer says \"the desert slowly covered parts of the line.\" What does this expression suggest?",
       "options": [
-        "The desert built a new railway line.",
+        "The desert built a new railway line in the sand.",
         "The tracks were gradually buried and forgotten.",
-        "The trains drove more slowly in sand.",
-        "Sandstorms happened only once a year."
+        "The trains drove more slowly in sand than before.",
+        "Sandstorms happened only once a year on the line."
       ],
       "answer": "B",
       "why": "The expression describes the abandoned tracks being buried by sand over time."
@@ -142,9 +142,9 @@
       "stem": "Which information in the passage is the LEAST clear?",
       "options": [
         "Who attacked the railway during the war and why",
-        "When the railway construction began",
-        "How long the railway line was",
-        "Where the restored museum station is"
+        "When the railway construction began in the desert",
+        "How long the railway line was from end to end",
+        "Where the restored museum station is today"
       ],
       "answer": "A",
       "why": "The writer says the tracks were attacked many times but does not explain who did it or why."
@@ -158,9 +158,9 @@
       "stem": "Which is the BEST alternative title for the passage?",
       "options": [
         "Tracks Across the Desert: The Hejaz Railway",
-        "The Camels of the Syrian Desert",
-        "Building a Modern Airport in Medina",
-        "Why Trains Need Water"
+        "The Camels of the Syrian Desert and Their Riders",
+        "Building a Modern Airport in Medina Today",
+        "Why Trains Need Water to Run on Tracks"
       ],
       "answer": "A",
       "why": "The passage tells the history of the Hejaz Railway from its building to its museum today."

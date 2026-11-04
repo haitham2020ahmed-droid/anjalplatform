@@ -1,20 +1,29 @@
 /**
  * Removes questions that need a reading passage but have none (“According to the passage…” with no passage).
  *
- *  A question is flagged when ALL hold:
- *   - it has no passage (or its passage text is empty);
- *   - its wording refers to a text (lib/passage-detect: “according to the passage”, “in paragraph 3”,
- *     “what does the author mean”, “which detail from the text”, “based on the reading”…);
- *   - its skill is not a grammar, language-convention or spelling/word-study skill (those are never touched).
+ *  A question is flagged when its skill is not grammar/language-convention/spelling-word-study (those
+ *  are never touched) and ANY of:
+ *   - C: it HAS a passageId, but that passage no longer resolves to real text (deleted, never created,
+ *     or left blank) — unambiguous: the question itself names the passage it needs, so this never
+ *     depends on the stem's wording, and it is what used to slip past the old wording-only check;
+ *   - A: it has no passage at all, and its wording refers to a text (lib/passage-detect: “according to
+ *     the passage”, “in paragraph 3”, “what does the author mean”, “which detail from the text”,
+ *     “based on the reading”…);
+ *   - B: it has no passage at all, is a reading-comprehension skill, and asks about story content with
+ *     no text of its own embedded in the stem.
  *
  *  What happens to a flagged question:
  *   - never answered and not in a teacher's assignment → DELETED (backed up first, restorable);
  *   - answered by students before → ARCHIVED (hidden from students; their answer history is kept);
  *   - part of a set a teacher assigned → KEPT and listed for review (deleting it would break the assignment).
  *  Grades, units, skills, standards, curriculum, users, teachers and students are never changed.
+ *
+ *  This audit cleans up what already exists; it is not what keeps a newly-orphaned question (rule C)
+ *  from being served in the meantime — src/server/practice/items.ts applies that same rule-C check on
+ *  every load, so a dangling passageId can never reach a student even before a cleanup run.
  */
 import type { Repo, Row } from "../seeding/repo";
-import { passageReference } from "@/lib/passage-detect";
+import { isDanglingPassageRef, passageReference } from "@/lib/passage-detect";
 import { purgeQuestionRows } from "./question-delete";
 import type { QuestionBackup } from "./question-cleanup";
 
@@ -97,13 +106,18 @@ export async function findMissingPassageQuestions(repo: Repo): Promise<FlaggedQu
   const qs = await repo.findMany("Question", { deletedAt: null }, { select: ["id", "stem", "skillId", "passageId", "status", "standardId", "imageId"] });
   const passageIds = [...new Set(qs.map((q) => q.passageId).filter(Boolean).map(s))];
   const passages = passageIds.length ? await repo.findMany("ReadingPassage", { id: { in: passageIds } }, { select: ["id", "body"] }) : [];
-  const hasText = new Set(passages.filter((p) => s(p.body).trim()).map((p) => s(p.id)));
-  const noText = qs.filter((q) => !(q.passageId && hasText.has(s(q.passageId))));
+  const bodyOf = new Map(passages.map((p) => [s(p.id), s(p.body)]));
+  const noText = qs.filter((q) => isDanglingPassageRef(q.passageId ? s(q.passageId) : null, q.passageId ? bodyOf.get(s(q.passageId)) : null) || !q.passageId);
   if (!noText.length) return [];
   const allSkills = await repo.findMany("Skill", { id: { in: [...new Set(noText.map((q) => s(q.skillId)))] } }, { select: ["id", "name", "domain", "category", "curriculumId"] });
   const readingSkill = new Set(allSkills.filter((k) => s(k.domain) === "READING" && READING_CATEGORIES.has(s(k.category))).map((k) => s(k.id)));
-  // A: the wording refers to a text; B: a reading-comprehension question with no text of its own
-  const ruleOf = (q: Row): "A" | "B" | null => (passageReference(s(q.stem)) ? "A" : readingSkill.has(s(q.skillId)) && !embedsOwnText(s(q.stem)) && asksAboutStoryContent(s(q.stem)) ? "B" : null);
+  // C: the question HAS a passageId, but it does not resolve (deleted / never created / blank) — unambiguous,
+  //    no wording guess needed, so it is never missed just because the stem's wording doesn't match a pattern;
+  // A: the wording refers to a text with no passageId at all; B: a reading-comprehension question with no text of its own
+  const ruleOf = (q: Row): "A" | "B" | "C" | null =>
+    isDanglingPassageRef(q.passageId ? s(q.passageId) : null, q.passageId ? bodyOf.get(s(q.passageId)) : null) ? "C"
+    : passageReference(s(q.stem)) ? "A"
+    : readingSkill.has(s(q.skillId)) && !embedsOwnText(s(q.stem)) && asksAboutStoryContent(s(q.stem)) ? "B" : null;
   const candidates = noText.filter((q) => ruleOf(q));
   if (!candidates.length) return [];
   const skillIds = [...new Set(candidates.map((q) => s(q.skillId)))];
@@ -144,7 +158,9 @@ export async function findMissingPassageQuestions(repo: Repo): Promise<FlaggedQu
     return {
       id: s(q.id), text: s(q.stem), skill: s(k?.name ?? "—"), grade: lvl !== undefined && !Number.isNaN(lvl) ? lvl : null,
       standard: (q.standardId ? codeOf(q.standardId) : "") || primaryStd.get(s(q.skillId)) || "", status: s(q.status),
-      reason: ruleOf(q) === "A"
+      reason: ruleOf(q) === "C"
+        ? "Its linked passage has no text (left blank, or never filled in)"
+        : ruleOf(q) === "A"
         ? `No passage/text attached, but the question refers to one (“${passageReference(s(q.stem))}”)`
         : `Reading question about a story (${s(k?.name)}) with no passage/text to read`, action,
     };

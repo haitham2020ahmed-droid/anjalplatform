@@ -58,7 +58,13 @@ export default async function SubmissionsPage({ params, searchParams }: { params
             <tr key={r.studentId}>
               <td className="p-3 font-semibold text-brand-navy"><bdi>{r.name}</bdi></td>
               <td className="p-3"><span className={`rounded-full px-2.5 py-1 text-xs font-semibold ${PILL[r.status]}`}>{t(STATUS_LABEL[r.status])}</span></td>
-              <td className="p-3 tabular-nums">{r.status === "NOT_STARTED" ? "—" : r.words}</td>
+              <td className="p-3 tabular-nums">
+                {r.status === "NOT_STARTED" ? "—" : r.words}
+                {/* 🔧 improvement (Oct 2026): flag a submission far below the task's minimum (or the 15-word floor
+                    locked.ts::finishSubmission falls back to when no minWords is set) so a teacher scanning the
+                    queue doesn't grade an essentially-empty essay without noticing. */}
+                {r.status !== "NOT_STARTED" && r.words < (v.minWords ?? 15) && <span className="ms-1.5 rounded-full bg-red-100 px-2 py-0.5 text-xs font-semibold text-red-700">🔴 {t("Short submission")}</span>}
+              </td>
               <td className="p-3 text-xs">{when(r.submittedAt)}{r.late && <span className="ms-1 rounded bg-red-50 px-1 font-semibold text-red-700">{t("late")}</span>}</td>
               <td className="p-3 text-xs">
                 {r.leaves > 0 && <span className="me-2" title={t("Times the student left the page")}>🚪 {r.leaves}</span>}

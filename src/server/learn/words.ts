@@ -9,6 +9,7 @@
  * ✨ AI draft, saved through the same private-edit → admin approval flow as lessons).
  * One selection per request; bounded reads; the school's vocabulary rows are kept 5 minutes per school and grade.
  */
+import { LENGTH_PROMPT_RULE, LENGTH_REJECT_REASON, lengthCue } from "../../lib/length-cue";
 import type { Repo, Row } from "../seeding/repo";
 import { ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
@@ -19,6 +20,7 @@ import type { EnvLike } from "../ai/engine";
 import { checkWordCard, type WordCard } from "../../lib/learn/format";
 import { curriculumSelections, readWordFiles, selectionKey, selectionLabel, wordKey, type SelectionRef } from "./files";
 import { classTeacherIds, pickEdit, staffSchool, teacherIdOf, type EditSource } from "./edits";
+import { sweptWeakMap } from "../cache/idle";
 
 const s = (v: unknown) => String(v ?? "");
 const json = <T>(v: unknown, fb: T): T => { if (v === null || v === undefined || v === "") return fb; if (typeof v === "string") { try { return JSON.parse(v) as T; } catch { return fb; } } return v as T; };
@@ -30,7 +32,7 @@ export interface SelectionView { sel: SelectionRef; label: string; words: WordVi
 
 // ------------------------------------------------------------------ the school's own vocabulary rows (cached)
 
-const vocabCache = new WeakMap<object, Map<string, { at: number; p: Promise<Map<string, string[]>> }>>();
+const vocabCache = sweptWeakMap<{ at: number; p: Promise<Map<string, string[]>> }>("learn.words.vocabCache", 10 * 60_000);
 export function clearLearnWords(repo: Repo): void { vocabCache.delete(repo); }
 /** grade → (selection key → words) from the school's Lesson rows (unit number + lesson number). 4 reads, cached 5 min. */
 function schoolVocab(repo: Repo, schoolId: string, grade: number): Promise<Map<string, string[]>> {
@@ -199,6 +201,7 @@ const SYSTEM = [
   "example: one original sentence that fits the topic and uses the word. arabic: a short accurate Arabic meaning.",
   "synonyms / antonyms: 0-3 real ones each. family: real related word forms.",
   "check: a question about the word with 4 different options and the index (0-3) of the correct one.",
+  LENGTH_PROMPT_RULE,
   'Reply with JSON only: {"word":"…","pos":"…","meaning":"…","example":"…","arabic":"…","synonyms":[],"antonyms":[],"family":[],"check":{"stem":"…","options":["…","…","…","…"],"answer":0}}',
 ].join(" ");
 
@@ -219,6 +222,9 @@ export async function aiWordDraft(repo: Repo, actor: Actor, selKey: string, word
   const r = await callJson(repo, { schoolId, tool: "WORD", picked, items: 1 }, SYSTEM, user, (data) => {
     const c = { ...(data as Record<string, unknown>), word: w } as unknown as WordCard;
     const p = checkWordCard(c, w);
+    // 🎯 the check's correct option clearly the longest (students could guess it): asked again
+    const chk = (c as unknown as { check?: { options?: unknown; answer?: unknown } }).check;
+    if (Array.isArray(chk?.options) && lengthCue(chk.options.map(String), Number(chk.answer)).flagged) p.push(`check: ${LENGTH_REJECT_REASON}`);
     return p.length ? { ok: false, error: p.slice(0, 3).join("; ") } : { ok: true, value: c };
   }, 1);
   return r.ok ? { ok: true, card: r.value } : { ok: false, error: r.error || "The AI did not give a usable card. Write it yourself." };

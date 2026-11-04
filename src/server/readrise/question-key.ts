@@ -6,11 +6,12 @@
  */
 import type { Repo } from "../seeding/repo";
 import { modelVersion } from "../cache/bank-version";
+import { sweptWeakValue } from "../cache/idle";
 
 export interface KeyRow { band: string; number: number; answer: string; skill: string }
 
 const TTL = 60_000, MAX_ARTICLES = 5000, CHUNK = 500;
-const cache = new WeakMap<object, { v: string; at: number; rows: Map<string, KeyRow[]> }>();
+const cache = sweptWeakValue<{ v: string; at: number; rows: Map<string, KeyRow[]> }>("readrise.question-key.cache", 15 * 60_000);
 
 export async function questionKeys(repo: Repo, articleIds: string[]): Promise<Map<string, KeyRow[]>> {
   const ids = [...new Set(articleIds.map(String))];

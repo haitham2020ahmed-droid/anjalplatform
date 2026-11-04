@@ -54,10 +54,10 @@
     "passage": "In the book, a little bird is lost. It looks for its nest all alone. In the play, the bird sings a sad song. Then kids on the stage help it find the nest.",
     "stem": "What is different in the play?",
     "options": [
-     "The bird is lost.",
-     "The bird looks for its nest.",
+     "The bird is lost, and it cannot fly.",
+     "The bird looks for its nest in a tree.",
      "The bird sings, and kids help it.",
-     "The bird has a nest."
+     "The bird has a nest, and it is safe."
     ],
     "answer": 2,
     "hint": "That happens in the book too. What does the play have that the book does not?",
@@ -107,10 +107,10 @@
      "passage": "Dad plays a story for us. We do not see any pictures. We hear the wind blow. We hear a door bang. A man reads in a deep voice.",
      "stem": "What do we get from hearing the story?",
      "options": [
-      "Pictures of the people.",
+      "Pictures of the people in it.",
       "Sounds, like wind and a door.",
       "Big letters on a page.",
-      "Colours of the sky."
+      "Colours of the sky at night."
      ],
      "answer": 1,
      "why": "We **hear** the wind, the door and a deep voice. There are no pictures."
@@ -276,10 +276,10 @@
     "passage": "The short story \"Night Boat\" is told by a narrator who explains every thought of the young fisherman, Hamad, as he waits alone for his father's boat to return. In the radio drama, there is no narrator. Instead, listeners hear the slap of waves, the creak of the dock, and the slow ticking of Hamad's watch. Every few minutes, Hamad calls his father's name, and only the wind answers. Many listeners say the radio version feels more tense than the story.",
     "stem": "Why did the radio drama most likely add the sounds of waves and a ticking watch?",
     "options": [
-     "To explain the rules of fishing at night.",
+     "To explain the rules of fishing at night to young children.",
      "To let listeners feel the long, worried wait without a narrator.",
-     "Because the story is mostly about watches.",
-     "To make the story funny and light."
+     "Because the story is mostly about watches and clocks in a shop.",
+     "To make the story funny and light for young listeners."
     ],
     "answer": 1,
     "hint": "The radio drama has no narrator to explain Hamad's feelings. What do the sounds do instead?",
@@ -319,10 +319,10 @@
      "passage": "In the novel, the old teacher is described only as \"strict\". In the stage version, the actor speaks softly and pauses kindly before correcting students. Audiences see a teacher who is strict but also caring.",
      "stem": "How does the actor's choice affect the character?",
      "options": [
-      "It makes the teacher seem only cruel.",
+      "It makes the teacher seem only cruel and angry.",
       "It makes the teacher seem caring as well as strict.",
-      "It removes the teacher from the story.",
-      "It makes the teacher seem funny."
+      "It removes the teacher from the story entirely.",
+      "It makes the teacher seem funny and silly to all."
      ],
      "answer": 1,
      "why": "The soft voice and kind pauses add **care** to the word strict."
@@ -394,10 +394,10 @@
     "passage": "In the novel, the story of the old well is told through the memories of Grandfather Saeed, who jumps back and forth across sixty years. Readers often need to check the dates at the top of each chapter. The stage version solves this in a different way. When the play moves into the past, warm golden light floods the stage and a single oud plays; when it returns to the present, the light turns cool and blue and the music stops. Young actors play the past and older actors play the present, sometimes standing on the stage at the same time. Audiences follow the jumps easily, and many say the moment when young Saeed and old Saeed look at each other across the well is the most moving scene in the play, even though it never happens in the book.",
     "stem": "Which statement best explains how the stage version changes the experience of the story?",
     "options": [
-     "It removes the past so that the play happens only in the present.",
+     "It removes the past so that the play happens only in the present, with a single set of actors.",
      "It uses light, music and two sets of actors to make time jumps clear and to create a new emotional moment.",
-     "It follows the novel exactly, including the dates for each chapter.",
-     "It shows that the novel was too difficult for most readers to enjoy."
+     "It follows the novel exactly, including the dates for each chapter and every line of dialogue.",
+     "It shows that the novel was too difficult for most readers to enjoy, so the play makes it much simpler."
     ],
     "answer": 1,
     "hint": "Look at the tools the stage uses, and at the scene that is new. Which choice covers both?",
@@ -439,9 +439,9 @@
      "stem": "How does the audio ending differ in its approach?",
      "options": [
       "It lets listeners work out the lesson from the silence instead of stating it.",
-      "It adds a new, happier ending in which the box is full.",
-      "It states the lesson louder than the written version.",
-      "It changes the lesson from patience to honesty."
+      "It adds a new, happier ending in which the box is finally full of gold and gifts.",
+      "It states the lesson much louder than the written version does.",
+      "It changes the lesson from patience to honesty near the end."
      ],
      "answer": 0,
      "why": "The moral is **cut**, and silence invites listeners to reach it themselves."
@@ -450,9 +450,9 @@
      "passage": "A stage director moved the play's most famous speech from the middle to the very end. Critics noted that the speech, once a turning point, now sounded like a farewell, and the whole play felt sadder.",
      "stem": "What does this example show about adaptation?",
      "options": [
-      "Moving a speech never changes its meaning.",
-      "Directors are not allowed to change a play.",
-      "Critics prefer plays that follow the book closely.",
+      "Moving a speech never changes its meaning or its mood.",
+      "Directors are not allowed to change a play at all.",
+      "Critics prefer plays that follow the book closely, word for word.",
       "Changing the order of events can change the meaning and mood."
      ],
      "answer": 3,

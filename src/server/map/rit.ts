@@ -13,13 +13,16 @@ import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
 import { accessibleClasses } from "../teacher/assign";
 import { assertClassAccess } from "../teacher/assignments";
-import { NATIONAL_NORMS_SOURCE, NATIONAL_READING_NORMS } from "./national-norms";
+import { NATIONAL_NORMS_SOURCE, NATIONAL_LANGUAGE_NORMS, NATIONAL_READING_NORMS } from "./national-norms";
 
 const s = (v: unknown) => String(v ?? "");
 export type Season = "FALL" | "WINTER" | "SPRING";
 export const SEASONS: Season[] = ["FALL", "WINTER", "SPRING"];
 export const CLASS_BAND_RIT = 3;
 const MEAN = "MAP_READING_RIT_MEAN", SD = "MAP_READING_RIT_SD";
+// 🐛 r91 fix: Language Usage's own metric keys, stored and read separately from Reading's.
+const LANG_MEAN = "MAP_LANGUAGE_RIT_MEAN", LANG_SD = "MAP_LANGUAGE_RIT_SD";
+export type NormSubject = "READING" | "LANGUAGE";
 const iso = (v: unknown) => (v instanceof Date ? v.toISOString() : s(v));
 
 /** “Fall 2026” → FALL; otherwise from the test month (Aug–Nov fall, Dec–Feb winter, Mar–Jul spring). */
@@ -47,19 +50,34 @@ export function ensureNationalNorms(repo: Repo): Promise<void> {
   }
   return p;
 }
+// 🐛 fix (audit finding, Oct 2026 — "صف 11 كله ON غلط"): used to bail out entirely the moment ANY national-norm row
+// existed ("if (...count...) return"), so a school whose database was first seeded back when this table only had
+// grades 4-6 could NEVER get the newly-added grades (7-12, Language Usage 2-11, …) inserted later — every later
+// deploy's wider national-norms.ts table silently did nothing for them. Now checks what's already there and adds
+// only the grade/season/metric rows still missing, so expanding national-norms.ts in code actually reaches an
+// already-seeded school on its next deploy. Never touches a row that already exists (admin-edited ones included).
 async function insertNorms(repo: Repo): Promise<void> {
-  if (await repo.count("BenchmarkReference", { scope: "NATIONAL", metric: MEAN })) return;
+  const have = new Set((await repo.findMany("BenchmarkReference", { scope: "NATIONAL" }, { select: ["metric", "gradeLevel", "season"] })).map((r) => `${r.metric}|${r.gradeLevel}|${r.season}`));
   const rows: Row[] = [];
+  const add = (metric: string, grade: number, season: Season, value: number) => { if (!have.has(`${metric}|${grade}|${season}`)) rows.push({ scope: "NATIONAL", metric, gradeLevel: grade, season, value, source: NATIONAL_NORMS_SOURCE, importedAt: new Date() }); };
   for (const [g, bySeason] of Object.entries(NATIONAL_READING_NORMS)) for (const season of SEASONS) {
-    rows.push({ scope: "NATIONAL", metric: MEAN, gradeLevel: Number(g), season, value: bySeason[season].mean, source: NATIONAL_NORMS_SOURCE, importedAt: new Date() });
-    rows.push({ scope: "NATIONAL", metric: SD, gradeLevel: Number(g), season, value: bySeason[season].sd, source: NATIONAL_NORMS_SOURCE, importedAt: new Date() });
+    add(MEAN, Number(g), season, bySeason[season].mean);
+    add(SD, Number(g), season, bySeason[season].sd);
   }
-  await repo.createMany("BenchmarkReference", rows);
+  // 🐛 r91 fix: seed Language Usage's own norms too (previously only Reading was ever stored).
+  for (const [g, bySeason] of Object.entries(NATIONAL_LANGUAGE_NORMS)) for (const season of SEASONS) {
+    add(LANG_MEAN, Number(g), season, bySeason[season].mean);
+    add(LANG_SD, Number(g), season, bySeason[season].sd);
+  }
+  if (rows.length) await repo.createMany("BenchmarkReference", rows);
 }
 
-export async function nationalNorm(repo: Repo, grade: number, season: Season): Promise<{ mean: number; sd: number; source: string } | null> {
-  const rows = await repo.findMany("BenchmarkReference", { scope: "NATIONAL", gradeLevel: grade, season, metric: { in: [MEAN, SD] } });
-  const mean = rows.find((r) => r.metric === MEAN), sd = rows.find((r) => r.metric === SD);
+/** 🐛 r91 fix: `subject` picks Reading's or Language Usage's own norms (defaults to Reading — every pre-existing
+ * caller that never cared about the distinction keeps behaving exactly as before). */
+export async function nationalNorm(repo: Repo, grade: number, season: Season, subject: NormSubject = "READING"): Promise<{ mean: number; sd: number; source: string } | null> {
+  const [m, sdKey] = subject === "LANGUAGE" ? [LANG_MEAN, LANG_SD] : [MEAN, SD];
+  const rows = await repo.findMany("BenchmarkReference", { scope: "NATIONAL", gradeLevel: grade, season, metric: { in: [m, sdKey] } });
+  const mean = rows.find((r) => r.metric === m), sd = rows.find((r) => r.metric === sdKey);
   return mean && sd ? { mean: Number(mean.value), sd: Number(sd.value), source: s(mean.source) } : null;
 }
 
@@ -69,6 +87,11 @@ function phi(z: number): number {
   const erf = 1 - (((((1.061405429 * t - 1.453152027) * t) + 1.421413741) * t - 0.284496736) * t + 0.254829592) * t * Math.exp(-x * x);
   return z >= 0 ? (1 + erf) / 2 : (1 - erf) / 2;
 }
+/** 🐛 r91 fix ("3 معادلات نسبة مئوية مختلفة بتدي نتيجة مختلفة"): THE one shared estimated-percentile formula — was
+ * duplicated three more times (two different approximations) across map-plan.ts/map-test.ts/sim.ts/student-map.ts,
+ * so the same RIT could show a different band on different pages. Every one of those now calls this instead. */
+export const percentileFromNorm = (rit: number, n: { mean: number; sd: number } | null): number | null =>
+  n && n.sd > 0 ? Math.max(1, Math.min(99, Math.round(100 * phi((rit - n.mean) / n.sd)))) : null;
 export const bandOf = (pct: number) => (pct < 21 ? "Low" : pct <= 40 ? "LoAvg" : pct <= 60 ? "Avg" : pct <= 80 ? "HiAvg" : "High");
 
 export interface RitRow {
@@ -117,15 +140,19 @@ export async function ritView(repo: Repo, actor: Actor, opts: { grade?: number; 
   const term = opts.term && terms.includes(opts.term) ? opts.term : terms[0] ?? null;
   if (!term) return { ...empty, terms };
   const season = seasonOf(term);
-  // Reading: mean + SD (2025 norms). Language Usage: the grade-level mean from NWEA's Grade Report (Fall);
-  // its SD is not known here, so its percentile is NWEA's own from the file (never estimated)
-  const LANGUAGE_FALL_MEAN: Record<number, number> = { 4: 194.7, 5: 201.9, 6: 206.5 };
-  const norm = wantLanguage
-    ? (season === "FALL" && LANGUAGE_FALL_MEAN[grade] ? { mean: LANGUAGE_FALL_MEAN[grade], sd: 0, source: "NWEA 2025 norms · Language Usage grade-level mean (Grade Report, Fall)" } : null)
-    : await nationalNorm(repo, grade, season);
+  // 🐛 r91 fix: Reading and Language Usage now each read their own mean + SD (2025 norms), every season — the old
+  // ad-hoc "Language only has a Fall mean, no SD" substitution is gone now that both are properly stored.
+  const subj: NormSubject = wantLanguage ? "LANGUAGE" : "READING";
+  const norm = await nationalNorm(repo, grade, season, subj);
   // one result per student for the term (their most recent test in it)
   const best = new Map<string, Row>();
   for (const r of results.filter((x) => termOf(x) === term)) { const cur = best.get(s(r.studentId)); if (!cur || time(r) > time(cur)) best.set(s(r.studentId), r); }
+  // 🐛 r91 fix ("درجات قديمة بتتحسب بصف الطالب الحالي مش صفه وقت الاختبار"): each row's OWN stamped test-time grade
+  // (a promoted/retained student may differ from the grade this report is currently showing) gets its own norm —
+  // pre-fetched once per distinct grade needed, since `norm` above stays the page's selected grade for the summary.
+  const neededGrades = [...new Set([...best.values()].map((r) => Number(r.grade) || grade))];
+  const normByGrade = new Map<number, { mean: number; sd: number; source: string } | null>(neededGrades.includes(grade) ? [[grade, norm]] : []);
+  for (const g of neededGrades) if (!normByGrade.has(g)) normByGrade.set(g, await nationalNorm(repo, g, season, subj));
   const students = best.size ? await repo.findMany("Student", { id: { in: [...best.keys()] } }, { select: ["id", "userId"] }) : [];
   const users = students.length ? await repo.findMany("User", { id: { in: students.map((x) => x.userId) } }, { select: ["id", "displayName"] }) : [];
   const nameOf = new Map(students.map((x) => [s(x.id), s(users.find((u) => u.id === x.userId)?.displayName ?? "Student")]));
@@ -135,11 +162,12 @@ export async function ritView(repo: Repo, actor: Actor, opts: { grade?: number; 
   const avg = (xs: number[]) => Math.round((10 * xs.reduce((a, b) => a + b, 0)) / xs.length) / 10;
   const rows: RitRow[] = [...best.entries()].map(([sid, r]): RitRow => {
     const rit = Number(r.rit), cid = classOf.get(sid)!, classAvg = avg(byClass.get(cid)!);
+    const rowNorm = normByGrade.get(Number(r.grade) || grade) ?? null;
     let national: RitRow["national"] = null;
-    if (norm) {
+    if (rowNorm) {
       const imported = r.achievementPercentile !== null && r.achievementPercentile !== undefined;
-      const pct = imported ? Number(r.achievementPercentile) : norm.sd > 0 ? Math.max(1, Math.min(99, Math.round(100 * phi((rit - norm.mean) / norm.sd)))) : null;
-      national = { mean: norm.mean, diff: Math.round((rit - norm.mean) * 10) / 10, percentile: pct, estimated: !imported && pct !== null, band: pct === null ? null : bandOf(pct) };
+      const pct = imported ? Number(r.achievementPercentile) : percentileFromNorm(rit, rowNorm);
+      national = { mean: rowNorm.mean, diff: Math.round((rit - rowNorm.mean) * 10) / 10, percentile: pct, estimated: !imported && pct !== null, band: pct === null ? null : bandOf(pct) };
     }
     const diffClass = Math.round((rit - classAvg) * 10) / 10;
     const fall = results.filter((x) => s(x.studentId) === sid && seasonOf(x.termName, x.testDate) === "FALL" && x.projectedGrowth !== null && x.projectedGrowth !== undefined && time(x) <= time(r)).sort((a, b) => time(b) - time(a))[0];
@@ -194,13 +222,17 @@ export async function levelsFromClassAverage(repo: Repo, actor: Actor, classId: 
   return out;
 }
 
-/** Admins update the national norms (e.g. when NWEA publishes new ones). */
-export async function updateNationalNorms(repo: Repo, actor: Actor, entries: { grade: number; season: Season; mean: number; sd: number }[], source: string): Promise<void> {
+/** Admins update the national norms (e.g. when NWEA publishes new ones, or to add a grade that has no norms yet —
+ *  any grade level is accepted, not just 4–6; a grade/season/subject left out of `entries` simply keeps whatever
+ *  it had before (null if nothing was ever set), so a student of that grade shows "no national comparison" instead
+ *  of a guessed band. `subject` defaults to READING for callers that don't send it (kept source-compatible). */
+export async function updateNationalNorms(repo: Repo, actor: Actor, entries: { grade: number; season: Season; subject?: NormSubject; mean: number; sd: number }[], source: string): Promise<void> {
   assertCan(actor, "settings:school");
   if (!s(source).trim()) throw new ValidationError("Write where the norms come from (e.g. NWEA 2025 norms).");
   for (const e of entries) {
-    if (!(e.mean > 100 && e.mean < 350 && e.sd > 0 && e.sd < 60)) throw new ValidationError(`Grade ${e.grade} ${e.season}: mean or SD out of range.`);
-    for (const [metric, value] of [[MEAN, e.mean], [SD, e.sd]] as const) {
+    if (!(e.mean > 100 && e.mean < 350 && e.sd > 0 && e.sd < 60)) throw new ValidationError(`Grade ${e.grade} ${e.season} (${e.subject ?? "READING"}): mean or SD out of range.`);
+    const [meanKey, sdKey] = e.subject === "LANGUAGE" ? [LANG_MEAN, LANG_SD] : [MEAN, SD];
+    for (const [metric, value] of [[meanKey, e.mean], [sdKey, e.sd]] as const) {
       await repo.upsert("BenchmarkReference", { scope: "NATIONAL", metric, gradeLevel: e.grade, season: e.season }, { value, source: s(source).slice(0, 190), importedAt: new Date() }, { value, source: s(source).slice(0, 190), importedAt: new Date() });
     }
   }

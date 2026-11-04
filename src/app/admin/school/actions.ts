@@ -12,8 +12,9 @@ import { addClass, addGrade, addStudentsToClass, resetClassPasswords } from "@/s
 import { moveStudent } from "@/server/admin/users";
 import { transferClass } from "@/server/teacher/support";
 import type { QuickResult } from "@/server/admin/quick-students";
+import { setTeachersCanAddStudents } from "@/server/teacher/class-students";
 
-export type SchoolResult = { ok?: boolean; error?: string; message?: string; count?: number; result?: QuickResult };
+export type SchoolResult = { ok?: boolean; error?: string; message?: string; count?: number; result?: QuickResult; withdrawn?: number };
 const id = z.string().min(1).max(191);
 
 async function run(fn: () => Promise<Omit<SchoolResult, "ok" | "error">>): Promise<SchoolResult> {
@@ -28,6 +29,13 @@ async function run(fn: () => Promise<Omit<SchoolResult, "ok" | "error">>): Promi
   }
 }
 const ADMIN = { roles: ["SCHOOL_ADMIN", "SUPER_ADMIN"] as ("SCHOOL_ADMIN" | "SUPER_ADMIN")[], permission: "classes:manage" as const };
+
+/** The switch "Teachers can add students" (School page). */
+export async function teachersAddStudentsAction(f: FormData): Promise<void> {
+  const actor = await requireActor({ roles: ["SCHOOL_ADMIN", "SUPER_ADMIN"], permission: "students:manage" });
+  await setTeachersCanAddStudents(repo, actor, f.get("on") === "1");
+  revalidatePath("/admin/school");
+}
 
 export async function addGradeAction(level: number): Promise<SchoolResult> {
   const actor = await requireActor(ADMIN);
@@ -50,7 +58,14 @@ export async function addStudentsAction(classId: string, names: string): Promise
 
 export async function moveStudentToClassAction(studentUserId: string, classId: string): Promise<SchoolResult> {
   const actor = await requireActor(ADMIN);
-  return run(async () => { await moveStudent(repo, actor, id.parse(studentUserId), id.parse(classId)); return { message: "Student moved." }; });
+  return run(async () => {
+    const { withdrawn } = await moveStudent(repo, actor, id.parse(studentUserId), id.parse(classId));
+    // the count is rendered client-side via t(message, {n}) — never bake it into the message string, or it can
+    // never be found/translated in en.ts/ar.ts (one entry would have to cover every possible count).
+    return withdrawn > 0
+      ? { message: "Student moved. {n} open assignment(s) from the old class no longer show in their My Work (answers are kept).", withdrawn }
+      : { message: "Student moved." };
+  });
 }
 
 export async function changeTeacherAction(classId: string, teacherId: string, keepOld: boolean): Promise<SchoolResult> {

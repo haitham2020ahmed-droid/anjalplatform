@@ -1,14 +1,16 @@
 /**
  * 🔬 Question quality from the students' own answers (data-driven content decisions). Questions with enough
  * answers are flagged when their real difficulty does not fit their level, when they are guessed, or when an
- * option is never chosen.
+ * option is never chosen. 🎯 The answer-length clue (src/lib/length-cue.ts) is checked too: the correct choice clearly the
+ * longest of sentence-like choices (LONGEST_ANSWER; the whole bank's list is Admin → Questions → Answer-length check).
  */
 import type { Repo } from "../seeding/repo";
 import { assertCan, type Actor } from "../auth/rbac";
+import { lengthCueOf } from "../../lib/length-cue";
 
 const s = (v: unknown) => String(v ?? "");
 export const MIN_ANSWERS = 20;
-export type ItemFlag = "TOO_EASY" | "TOO_HARD" | "GUESSED" | "UNUSED_OPTION";
+export type ItemFlag = "TOO_EASY" | "TOO_HARD" | "GUESSED" | "UNUSED_OPTION" | "LONGEST_ANSWER";
 export interface ItemRow { id: string; stem: string; place: string | null; level: string | null; answers: number; correctPct: number; rapidPct: number; flags: ItemFlag[]; unused: string[] }
 
 /** Only recent answers count: keeps the scan bounded and reflects the questions as they are now. */
@@ -32,7 +34,7 @@ export async function itemQuality(repo: Repo, actor: Actor, minAnswers = MIN_ANS
   if (!ids.length) return { rows: [], checked: 0 };
   const [qs, opts, links] = await Promise.all([
     repo.findMany("Question", { id: { in: ids }, status: "PUBLISHED" }, { select: ["id", "stem", "difficultyLevel"] }),
-    repo.findMany("QuestionOption", { questionId: { in: ids } }, { select: ["questionId", "label"] }),
+    repo.findMany("QuestionOption", { questionId: { in: ids } }, { select: ["questionId", "label", "text", "isCorrect", "order"] }),
     repo.findMany("QuestionMapLink", { questionId: { in: ids } }, { select: ["questionId", "nodeId"] }),
   ]);
   // pass 2: the response only for multiple-choice questions with enough answers to judge unused options
@@ -59,6 +61,9 @@ export async function itemQuality(repo: Repo, actor: Actor, minAnswers = MIN_ANS
     const labels = opts.filter((o) => s(o.questionId) === s(q.id)).map((o) => s(o.label).toUpperCase());
     const unused = n >= 30 && labels.length >= 3 ? labels.filter((l) => !chosen.has(l)) : [];
     if (unused.length) flags.push("UNUSED_OPTION");
+    // 🎯 the correct answer is clearly the longest choice: students can guess it without reading
+    const mine = opts.filter((o) => s(o.questionId) === s(q.id)).sort((x, y) => Number(x.order) - Number(y.order));
+    if (mine.length >= 3 && lengthCueOf(mine.map((o) => ({ text: o.text, correct: o.isCorrect }))).flagged) flags.push("LONGEST_ANSWER");
     if (flags.length) rows.push({ id: s(q.id), stem: s(q.stem), place: node ? s(node.code) : null, level, answers: n, correctPct, rapidPct, flags, unused });
   }
   rows.sort((x, y) => y.flags.length - x.flags.length || y.answers - x.answers);

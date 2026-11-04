@@ -10,9 +10,14 @@
  * "Lexile"). Every query is bounded (one student, selected columns, `take`).
  */
 import type { Repo, Row } from "../seeding/repo";
+import type { Actor } from "../auth/rbac";
 import type { ReportSection } from "./family-reports";
 import { isLocked } from "../writing/locked";
-import { hasLevelWords } from "./family-words";
+import { fluencyGoalWords, gradeGoalWords, hasLevelWords } from "./family-words";
+import { practiceTotalsFor } from "../analytics/practice-totals";
+import { starBook } from "../skills/star-read";
+import { newStarKeys } from "../insights/star-keys";
+import { hiddenStarKeys } from "../teacher/queries";
 export { fluencyGoalWords, gradeGoalWords, hasLevelWords } from "./family-words";
 
 const s = (v: unknown) => String(v ?? "");
@@ -155,14 +160,20 @@ export function homeTips(focus: HomeFocus, words: string[] = []): string[] {
 export async function fluencyPlanSection(repo: Repo, studentId: string, grade: number, now = new Date()): Promise<ReportSection | null> {
   const { latestRemedial, readingEvidence, coldReads } = await import("../fluency/coach");
   const { reviewPlan } = await import("../fluency/remedial");
+  // 🐛 fix (audit finding, Oct 2026): this used to cap at the latest 30 FluencyPractice rows. A remedial plan is only
+  // ever stored on a passage-type reading (never on an ECHO/DRILL row), so a student doing a lot of echo/drill
+  // practice between passage reads could push the last plan-carrying row past this window — the parent would then
+  // see a stale/missing plan while the student's and teacher's (unbounded) views already showed the real one. Now
+  // unbounded, matching coachHome (coach.ts) and classFluencyView (class-view.ts).
   const [rows, checks] = await Promise.all([
-    repo.findMany("FluencyPractice", { studentId }, { select: ["mode", "practiceKind", "wcpm", "accuracy", "plan", "createdAt", "prosody", "expression", "trial"], orderBy: [{ field: "createdAt", dir: "desc" }], take: 30 }),
-    repo.findMany("FluencyCheck", { studentId }, { select: ["wcpm", "accuracy", "checkedAt"], orderBy: [{ field: "checkedAt", dir: "desc" }], take: 30 }),
+    repo.findMany("FluencyPractice", { studentId }, { select: ["mode", "practiceKind", "wcpm", "accuracy", "plan", "createdAt", "prosody", "expression", "trial"], orderBy: [{ field: "createdAt", dir: "desc" }] }),
+    repo.findMany("FluencyCheck", { studentId }, { select: ["wcpm", "accuracy", "checkedAt"], orderBy: [{ field: "checkedAt", dir: "desc" }] }),
   ]);
   if (!rows.length) return null;
   const stored = latestRemedial(rows);
   if (stored) {
-    const p = reviewPlan(stored, { grade, cold: coldReads(checks), readings: readingEvidence(rows), words: [], patterns: [] }, now);
+    // words/patterns omitted (undefined): a status-only re-check, not a fresh reading — keep the stored list.
+    const p = reviewPlan(stored, { grade, cold: coldReads(checks), readings: readingEvidence(rows) }, now);
     const latest = p.status.latest ?? p.baseline.wcpm;
     const left = p.goals.wcpm - latest;
     const lines = [
@@ -185,4 +196,63 @@ export async function fluencyPlanSection(repo: Repo, studentId: string, grade: n
     ...(minute ? [`Progress: the latest 1-minute reading was ${Number(minute.wcpm)} words correctly per minute${Number(plan.goal) - Number(minute.wcpm) > 0 ? ` · ${Number(plan.goal) - Number(minute.wcpm)} more to reach the goal` : " — the goal is reached!"}.`] : []),
     ...homeTips(focus, Array.isArray(plan.words) ? plan.words : []).map((x) => `At home: ${x}`),
   ] };
+}
+
+// ------------------------------------------------------------------ 💻 Platform performance (Family Report, page 4)
+
+/**
+ * 👪 "Student's performance on the platform" (owner request, Oct 2026): a fuller picture than the Family Report's
+ * own "Practice on the platform · last 30 days" tile — this term's writing, ReadRise, fluency, diagnostic test and
+ * overall practice/assignment activity, each in the same friendly words the weekly AUTO family report already uses
+ * (reusing the exact building blocks `autoContent()` combines: readRiseSection, fluencyPlanSection, writingSection,
+ * `parentReport()`'s practice/badges, `coachSummary()`'s latest fluency check, `studentDiagnosticReport()`).
+ * Every call is independently wrapped: one missing/failing signal (e.g. no diagnostic test taken) never drops the
+ * others. `actor` is passed straight through to the staff/family-access checks those functions already do — the
+ * caller (the Family Report page) has already confirmed access to this student before calling this.
+ */
+export async function platformPerformanceSections(repo: Repo, actor: Actor, studentId: string, grade: number, now = new Date()): Promise<ReportSection[]> {
+  const { parentReport } = await import("../insights/parent-report");
+  const { studentDiagnosticReport } = await import("../diagnostic/report");
+  const { coachSummary } = await import("../fluency/coach");
+  const [p, diag, flu, writing, readrise, plan] = await Promise.all([
+    parentReport(repo, actor, studentId, now).catch(() => null),
+    studentDiagnosticReport(repo, actor, studentId).catch(() => null),
+    coachSummary(repo, studentId).catch(() => null),
+    writingSection(repo, studentId).catch(() => null),
+    readRiseSection(repo, studentId, now).catch(() => null),
+    fluencyPlanSection(repo, studentId, grade, now).catch(() => null),
+  ]);
+  const sections: ReportSection[] = [];
+  if (p) {
+    // 📏 round 4: "this month" = the last 30 days, in THE one definition (practice-totals.ts), and the skills
+    // mastered = the ⭐ earned in those 30 days (by key, the hidden holder skill left out) — no longer the year's
+    // answers and the whole term's ⭐ under a "this month" heading
+    const from = new Date(now.getTime() - 30 * DAY);
+    const [tot, book] = await Promise.all([practiceTotalsFor(repo, studentId, from, now), starBook(repo, [studentId])]);
+    const stars = newStarKeys(book, studentId, from, now, await hiddenStarKeys(repo, book)).map((k) => book.nameOf(k));
+    sections.push({ heading: "Practice & assignments this month", icon: "💻", lines: [
+      `${tot.questions} question${tot.questions === 1 ? "" : "s"} answered${tot.accuracy !== null ? `, ${tot.accuracy}% correct` : ""} · ${tot.minutes} minutes of practice (last 30 days).`,
+      `Assigned work: ${p.practice.tasksDone} task${p.practice.tasksDone === 1 ? "" : "s"} done${p.practice.tasksLate ? `, ${p.practice.tasksLate} returned late` : ""}.`,
+      ...(stars.length ? [`Skills mastered in the last 30 days: ${stars.slice(0, 8).join(", ")}${stars.length > 8 ? ` and ${stars.length - 8} more` : ""}.`] : []),
+      ...(p.badges.length ? [`Badges earned: ${p.badges.map((b) => `${b.icon} ${b.name}`).join(", ")}.`] : []),
+    ] });
+  }
+  if (readrise) sections.push(readrise);
+  if (flu?.latest) sections.push({ heading: "Reading fluency check", icon: "🎙️", lines: [`${flu.latest.wcpm} words correct per minute (${flu.latest.date}) · ${fluencyGoalWords(flu.latest.level)}.`] });
+  if (plan) sections.push(plan);
+  if (writing) sections.push(writing);
+  if (diag) sections.push({ heading: "Diagnostic test", icon: "📝", lines: [
+    `${diag.title}: ${diag.pct}% · ${gradeGoalWords(diag.level)}${diag.readingLevel ? ` · reading level ${diag.readingLevel}` : ""}.`,
+    ...(diag.strengths.length ? [`Strong in: ${diag.strengths.slice(0, 3).join(", ")}.`] : []),
+    ...(diag.needs.length ? [`To work on: ${diag.needs.slice(0, 3).map((x) => x.label).join(", ")}.`] : []),
+  ] });
+  if (p && (p.strengths.length || p.practiseNext.length)) {
+    sections.push({ heading: "Strengths & next steps on the platform", icon: "🧭", lines: [
+      ...(p.strengths.length ? [`Strengths: ${p.strengths.join(", ")}.`] : []),
+      ...(p.practiseNext.length ? [`Next steps: ${p.practiseNext.join(", ")}.`] : []),
+    ] });
+  }
+  // the student reads this report too: never level / tier wording about them (same rule autoContent() follows)
+  const safe = (x: string) => !hasLevelWords(x);
+  return sections.map((x) => ({ ...x, lines: x.lines.filter(safe) })).filter((x) => x.lines.length);
 }

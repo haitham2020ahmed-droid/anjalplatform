@@ -29,10 +29,10 @@
       "difficulty": 2,
       "stem": "Which sentence is a command?",
       "options": [
-        "Who wants to write the main story?",
-        "Our class needs a newspaper.",
+        "Who wants to write the main story for the class?",
+        "Our class needs a newspaper for the whole school.",
         "Remember to check every fact before publishing.",
-        "What a wonderful title that is!"
+        "What a wonderful title that is for the front page!"
       ],
       "answer": "C",
       "why": "A command tells someone to do something; the others are a question, a statement and an exclamation."
@@ -157,9 +157,9 @@
       "difficulty": 1,
       "stem": "Which is the best alternative title for the story?",
       "options": [
-        "A Day in the Cafeteria",
-        "Lina's Camera Adventure",
-        "The Winter Break Trip",
+        "A Day in the Cafeteria at School",
+        "Lina's Camera Adventure by the Sea",
+        "The Winter Break Trip to the Hills",
         "Planning Our Class Newspaper"
       ],
       "answer": "D",

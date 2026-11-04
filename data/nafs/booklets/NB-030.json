@@ -174,9 +174,9 @@
       "stem": "What is the overall purpose of the passage?",
       "options": [
         "to explain how a river changes the land at each stage of its journey",
-        "to persuade readers to visit the Nile Delta",
-        "to tell a story about a family living by a river",
-        "to describe how wadis fill with water after rain"
+        "to persuade readers to visit the Nile Delta and see the farms there",
+        "to tell a story about a family living by a river in the hills far away",
+        "to describe how wadis fill with water after rain in the desert hills"
       ],
       "answer": "A",
       "why": "Most of the passage describes the three stages of a river and the landforms each stage creates."
@@ -189,10 +189,10 @@
       "type": "MCQ",
       "stem": "What is the main idea of paragraph 2?",
       "options": [
-        "Rivers begin only from melting snow.",
-        "Waterfalls are the most beautiful part of a river.",
+        "Rivers begin only from melting snow in the hills, and never from rain or springs.",
+        "Waterfalls are the most beautiful part of a river, and they are found near the sea.",
         "In the mountains, a fast river erodes the rock and cuts a V-shaped valley.",
-        "Pebbles are carried all the way to the sea."
+        "Pebbles are carried all the way to the sea by slow rivers in wide, flat plains."
       ],
       "answer": "C",
       "why": "The paragraph explains how the fast, steep upper river uses rocks as tools to erode a narrow V-shaped valley."
@@ -318,9 +318,9 @@
       "stem": "Why does the river drop its sediment when it meets the sea?",
       "options": [
         "It has slowed down so much that it lacks the energy to carry the load.",
-        "The sea is too deep for the sediment to sink.",
-        "Waterfalls stop the sediment from moving.",
-        "The sediment dissolves in salty water."
+        "The sea is too deep for the sediment to sink and settle at the bottom.",
+        "Waterfalls stop the sediment from moving any farther toward the sea.",
+        "The sediment dissolves in the salty water of the sea at once."
       ],
       "answer": "A",
       "why": "Paragraph 4 links the river's loss of energy on the flat plain to its dropping of the sediment."
@@ -398,9 +398,9 @@
       "stem": "The writer says rivers reshape the land “as patiently and powerfully as a sculptor carving stone”. What does this comparison suggest?",
       "options": [
         "Rivers work slowly but have great strength to change shapes.",
-        "Rivers are made of hard stone.",
-        "Artists often carve statues beside rivers.",
-        "Rivers change the land in a single day."
+        "Rivers are made of hard stone and are very strong, just like a rock.",
+        "Artists often carve statues of stone beside the rivers in the hills.",
+        "Rivers change the land in a single day, as fast as a sculptor does."
       ],
       "answer": "A",
       "why": "A sculptor works slowly and with force to shape stone; rivers likewise shape the land slowly but powerfully."
@@ -413,10 +413,10 @@
       "type": "MCQ",
       "stem": "In your opinion, why does the writer explain where the name “delta” comes from?",
       "options": [
-        "to show that the Greeks built the Nile Delta",
+        "to show that the Greeks built the Nile Delta long ago",
         "to help readers remember the shape of this landform",
-        "to prove that the Nile is the longest river",
-        "to explain how sediment is carried"
+        "to prove that the Nile is the longest river in the world",
+        "to explain how sediment is carried by the river"
       ],
       "answer": "B",
       "why": "Linking the name to the triangular Greek letter helps readers picture and remember the delta's shape."
@@ -429,10 +429,10 @@
       "type": "MCQ",
       "stem": "In your opinion, which feature of the writer's presentation makes the passage easiest to follow?",
       "options": [
-        "The writer uses many exclamatory sentences.",
-        "The writer tells the story of one family.",
+        "The writer uses many exclamatory sentences to show excitement.",
+        "The writer tells the story of one family who lives by a river.",
         "The writer explains each stage of the river in its own paragraph.",
-        "The writer lists every river in the world."
+        "The writer lists every river in the world in a long table."
       ],
       "answer": "C",
       "why": "Paragraphs 2, 3 and 4 each deal with one stage, so the reader can follow the river from start to finish."
@@ -445,9 +445,9 @@
       "type": "MCQ",
       "stem": "According to the passage, which is the MOST important benefit that rivers bring to people?",
       "options": [
-        "They make loud and impressive waterfalls.",
-        "They create curved lakes for people to swim in.",
-        "They cut deep valleys high in the mountains.",
+        "They make loud and impressive waterfalls in the mountains.",
+        "They create curved lakes for people to swim in during summer.",
+        "They cut deep valleys high in the mountains over time.",
         "They leave rich soil that has helped farmers grow food."
       ],
       "answer": "D",
@@ -493,10 +493,10 @@
       "type": "MCQ",
       "stem": "In your opinion, which information in the passage is the LEAST clear?",
       "options": [
-        "what erosion means",
+        "what erosion means in the passage",
         "how long it takes for an oxbow lake to form",
-        "how long the Nile is",
-        "where a river's journey begins"
+        "how long the Nile is in miles and feet",
+        "where a river's journey begins in the hills"
       ],
       "answer": "B",
       "why": "The writer says the loops “gradually” become curved but gives no time; the other points are clearly explained or given with numbers."
@@ -526,9 +526,9 @@
       "stem": "Which title best describes the ideas in the passage?",
       "options": [
         "Rivers: The Sculptors of the Land",
-        "The Driest Country on Earth",
-        "A Boat Trip Down the Nile",
-        "How to Catch River Fish"
+        "The Driest Country on Earth Today",
+        "A Boat Trip Down the Nile River",
+        "How to Catch River Fish with Nets"
       ],
       "answer": "A",
       "why": "The passage explains how rivers carve valleys, loops and deltas, and calls them “the great sculptors of our planet”."

@@ -171,7 +171,12 @@ export function LoadRunner({ packs, running, last }: { packs: RunnerPack[]; runn
                         {total > 0 ? (
                           <>
                             <div className="h-2.5 w-full overflow-hidden rounded-full bg-slate-200" role="progressbar" aria-label={t(p.title)} aria-valuemin={0} aria-valuemax={total} aria-valuenow={done}><div className="h-full bg-brand-teal transition-all" style={{ width: `${pct}%` }} /></div>
-                            <span className="mt-1 block text-xs text-slate-600">{t("{done} of {total} parts · {n} questions added", { done, total, n: l?.added ?? p.added })}</span>
+                            {done >= total ? (
+                              <span className="mt-1 inline-flex items-center gap-1 text-xs font-semibold text-emerald-700"><LineIcon name="check" className="inline-block h-3.5 w-3.5" />{t("Done")}</span>
+                            ) : (
+                              <span className={`mt-1 inline-block text-xs font-semibold ${done > 0 ? "text-amber-700" : "text-slate-500"}`}>{done > 0 ? t("In progress") : t("Not started")}</span>
+                            )}
+                            <span className="mt-0.5 block text-xs text-slate-600">{t("{done} of {total} parts · {n} questions added", { done, total, n: l?.added ?? p.added })}</span>
                           </>
                         ) : <span className="text-xs text-slate-500">{t("Not started")}</span>}
                       </td>

@@ -20,11 +20,17 @@ function resp(level: number, correct: boolean, i: number, extra: Partial<Respons
     at: new Date(NOW.getTime() - (100 - i) * 60_000).toISOString(), ...extra,
   };
 }
-function abilityOf(h: ResponseEvidence[]) {
-  return estimateAbilityEAP(h.map((r) => toWeighted(r, DEFAULT_ADAPTIVE)), { priorMean: 0, priorSD: 1, thetaMin: -3, thetaMax: 3, model: 2 });
+function abilityOf(h: ResponseEvidence[], now = NOW) {
+  return estimateAbilityEAP(h.map((r) => toWeighted(r, DEFAULT_ADAPTIVE, now)), { priorMean: 0, priorSD: 1, thetaMin: -3, thetaMax: 3, model: 2 });
 }
+// In production, theta is only ever re-estimated when a real event happens (a new answer, an admin remap) — always
+// with "now" = that event's own time, so an answer's age is always "time since it happened, as of the event that
+// just occurred", never "time since it happened, as of some later moment nothing touched this skill". The
+// "idle days" test below calls mastery() again with a later `now` but NO new answer — there was no new event, so
+// theta must stay exactly as it was last computed (anchored to NOW), and only computeMastery's OWN idle-decay
+// (decayFactor, floored) should see the later `now`.
 const mastery = (h: ResponseEvidence[], now = NOW) => {
-  const a = abilityOf(h);
+  const a = abilityOf(h, NOW);
   return computeMastery(h, a.theta, DEFAULT_MASTERY, DEFAULT_ADAPTIVE, now, a.se);
 };
 

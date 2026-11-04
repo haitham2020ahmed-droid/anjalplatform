@@ -157,10 +157,10 @@
       "difficulty": 1,
       "stem": "Which is the BEST alternative title for the passage?",
       "options": [
-        "How Eagles Hunt in the Desert at Night",
+        "How Eagles Hunt in the Desert at Night and Day",
         "A Bridge in the Sky: Bird Migration over Arabia",
-        "The Busy Fishing Ports of the Red Sea",
-        "Building New Cities in Saudi Arabia"
+        "The Busy Fishing Ports of the Red Sea Coast",
+        "Building New Cities in Saudi Arabia Each Year"
       ],
       "answer": "B",
       "why": "The whole passage explains how and why birds migrate over Arabia, which this title captures."

@@ -125,10 +125,10 @@
       "difficulty": 3,
       "stem": "Which information in the passage is the LEAST clear or complete?",
       "options": [
-        "What the caravans carried along the trade route",
+        "What the caravans carried along the trade route to the north",
         "What happened to the people of Hegra after the trade period",
-        "How the Nabataeans began carving each tomb",
-        "When Mada'in Salih joined the UNESCO list"
+        "How the Nabataeans began carving each tomb in the rocks",
+        "When Mada'in Salih joined the UNESCO list of sites in the world"
       ],
       "answer": "B",
       "why": "The passage never explains what happened to Hegra's people later; the other details are clearly stated."

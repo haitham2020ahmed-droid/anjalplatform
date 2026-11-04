@@ -75,10 +75,10 @@
     "passage": "Kids should eat breakfast every day. Breakfast gives you energy for the morning. Kids who eat breakfast can pay attention better in class. Eggs are white or brown.",
     "stem": "Which sentence is the BEST evidence for the claim?",
     "options": [
-     "Eggs are white or brown.",
+     "Eggs are white or brown, and some are blue.",
      "Kids who eat breakfast can pay attention better in class.",
-     "Kids should eat breakfast every day.",
-     "Some kids like toast."
+     "Kids should eat breakfast every day before they go to school.",
+     "Some kids like toast with jam and cheese."
     ],
     "answer": 1,
     "hint": "The claim is that kids should eat breakfast. Which fact shows WHY breakfast is good?",
@@ -218,7 +218,7 @@
      "options": [
       "It gives too many numbers about the water.",
       "It uses opinions and famous people instead of facts.",
-      "It explains how the water is tested in a lab.",
+      "It explains how the water is tested in a lab for hours.",
       "It shows a scientific study of athletes."
      ],
      "answer": 1,
@@ -295,10 +295,10 @@
     "passage": "Our town should close the public library. Last Tuesday, I visited at noon and saw only three people inside. My neighbour also told me that she prefers to read on her tablet. Clearly, nobody uses the library anymore. Besides, everyone has the internet at home now. The money saved could be used to build a new car park, which drivers have wanted for years.",
     "stem": "What is the main weakness in the author's argument?",
     "options": [
-     "The author gives too many statistics.",
+     "The author gives too many statistics about the library.",
      "The author bases a big conclusion on one short visit.",
-     "The author agrees that the library is useful.",
-     "The author explains the library's history."
+     "The author agrees that the library is useful for kids.",
+     "The author explains the library's history in great detail."
     ],
     "answer": 1,
     "hint": "How much evidence does the author give that nobody uses the library?",
@@ -329,9 +329,9 @@
      "stem": "What is wrong with this reasoning?",
      "options": [
       "It gives too much evidence about football matches.",
-      "It uses a careful study with many students.",
+      "It uses a careful study with many students from several schools.",
       "It assumes one thing caused another just because it came first.",
-      "It fairly shows both sides of the issue."
+      "It fairly shows both sides of the issue and gives numbers."
      ],
      "answer": 2,
      "why": "The wins came after the fruit sales, but that does not prove the fruit caused them. This is a false cause."
@@ -341,9 +341,9 @@
      "stem": "What kind of faulty reasoning is this?",
      "options": [
       "Either-or: it pretends there are only two choices",
-      "Attacking the person who disagrees",
-      "Using a strong study as evidence",
-      "Overgeneralization from a survey"
+      "Attacking the person who disagrees, not the idea itself",
+      "Using a strong study as evidence from a trusted source",
+      "Overgeneralization from a survey of only a few people"
      ],
      "answer": 0,
      "why": "Young people could have parks, clubs, libraries and more. The argument falsely gives only two options."
@@ -352,9 +352,9 @@
      "passage": "Mr. Saleh says we should save water, but he has a big garden, so his idea is wrong.",
      "stem": "Why is this reasoning invalid?",
      "options": [
-      "It gives too many facts about water.",
-      "It compares two gardens.",
-      "It uses numbers that are false.",
+      "It gives too many facts about water and gardens.",
+      "It compares two gardens in the town.",
+      "It uses numbers that are false or old.",
       "It attacks the person instead of his idea."
      ],
      "answer": 3,
@@ -407,10 +407,10 @@
     "passage": "Students should be allowed to use calculators in maths exams. Some teachers worry that calculators will stop students from learning basic arithmetic. This concern is understandable, since mental maths is an important skill. However, calculators are only allowed after students have shown they can do basic operations by hand, and research in several countries has found that students who use calculators wisely solve more complex problems. Others say calculators make tests too easy, but these people simply do not understand modern education.",
     "stem": "Which statement best evaluates how the author handles counterarguments?",
     "options": [
-     "The author ignores every opposing view and gives only reasons for calculators.",
+     "The author ignores every opposing view and gives only reasons for calculators in class.",
      "The author answers the first objection with reasons and research but dismisses the second without evidence.",
-     "The author uses strong research evidence to answer both of the objections.",
-     "The author agrees with the teachers that calculators should be banned from exams."
+     "The author uses strong research evidence to answer both of the objections raised by teachers in the debate.",
+     "The author agrees with the teachers that calculators should be banned from all exams in school."
     ],
     "answer": 1,
     "hint": "There are TWO opposing views. How does the author answer each one?",
@@ -449,9 +449,9 @@
      "passage": "Critics say the new park is a waste of money. These critics are just people who never go outside anyway.",
      "stem": "Why is this response to the counterargument weak?",
      "options": [
-      "It uses too much evidence about parks.",
-      "It agrees with the critics about the cost.",
-      "It explains the cost of the park carefully.",
+      "It uses too much evidence about parks and swings.",
+      "It agrees with the critics about the cost of the park.",
+      "It explains the cost of the park carefully and clearly.",
       "It attacks the critics instead of answering their point."
      ],
      "answer": 3,
@@ -461,10 +461,10 @@
      "passage": "Opponents of school gardens say they take time away from lessons. Yet in one district, students who worked in school gardens scored higher on science tests than students who did not, because they practised measuring, observing and recording data.",
      "stem": "What makes the author's rebuttal effective?",
      "options": [
-      "It ignores the opponents' concern about lessons.",
-      "It insults the opponents instead of answering them.",
+      "It ignores the opponents' concern about lessons and says nothing about it.",
+      "It insults the opponents instead of answering them politely.",
       "It answers the concern with evidence that gardens help learning.",
-      "It changes the topic to sports and outdoor games."
+      "It changes the topic to sports and outdoor games for children."
      ],
      "answer": 2,
      "why": "The author answers the worry about lost lesson time with a result showing gardens can help science learning."

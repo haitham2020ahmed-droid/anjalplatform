@@ -2,9 +2,13 @@
  * 🚀 ReadRise level engine (Achieve3000-like): the student's personal ReadRise Level and how it moves.
  *
  *  - Only FIRST-TRY activity scores count (the first scored reading of an article; re-reads never count).
- *  - Rolling window of the first-try scores since the last level change (any change resets it):
- *      3 of the last 4 ≥ 75% and the latest ≥ 75%  → +50 (cap 1500)
- *      2 of the last 3 < 50% and the latest < 50%  → −50 (floor 200)
+ *  - Rolling window of the first-try scores since the last level change (any change resets it) — owner r69: faster
+ *    DOWN, careful UP (a student placed far above their level, e.g. the old default start, is corrected quickly):
+ *      one first-try score ≤ 25%                   → −100 at once
+ *      two first-try scores in a row < 50%         → −100
+ *      3 of the last 4 ≥ 75% and the latest ≥ 75%  → +50 (unchanged)
+ *    never below 200 or above 1700; the reason is written in plain words (RRLevelChange) for the teacher.
+ *  - An UNRELIABLE run (2+ rapid answers, accuracy.ts) never takes part: no level move, no goal, no skill evidence.
  *  - A STRETCH reading (one version higher) joins the window only when it scored ≥ 75%: it can help a student
  *    move up and counts toward the weekly goal, but never lowers the level.
  *  - A teacher can set the level (source TEACHER). Every change is an RRLevelChange with a clear reason.
@@ -16,17 +20,22 @@ import type { Repo, Row } from "../seeding/repo";
 import { ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
 import { RR_LEVELS, RR_MAX, RR_MIN, defaultLevel } from "./level";
+import { articleRuns, countedTries, isUnreliableRun, rapidRead, scoredRun } from "./first-try";
 
 export const s = (v: unknown) => String(v ?? "");
 export const toDate = (v: unknown) => (v instanceof Date ? v : new Date(s(v)));
-export const ENGINE = { up: 75, down: 50, step: 50, max: 1500, min: 200 } as const;
+// 🐛 fix (audit finding, Oct 2026): `max` keeps a 100-point margin above RR_MAX (same margin as before: it was 1500
+// when RR_MAX was 1400) so ordinary reading-growth adjustments have room to move a student past the nearest version
+// level without clamping — now that RR_MAX is 1600 (level.ts), this had to move too, or a student placed at 1600
+// would get silently pulled back down to 1500 by the very next level-change calculation.
+export const ENGINE = { up: 75, down: 50, step: 50, max: 1700, min: 200, /** one score at or under this → down at once */ floor: 25, /** a step down */ downStep: 100 } as const;
 /** RRLevelChange rows with this reason prefix only record a teacher's retake permission (no level change). */
 export const RETAKE_REASON = "Placement retake allowed";
 const DAY = 86_400_000, WEEK = 7 * DAY, RIYADH = 3 * 3_600_000;
 
-/** Round to 10 and keep inside the engine's range (200–1500). */
+/** Round to 10 and keep inside the engine's range (200–1700). */
 export const clampEngine = (l: number) => Math.min(ENGINE.max, Math.max(ENGINE.min, Math.round(l / 10) * 10));
-/** The nearest of the 12 version levels to a measure (clamped to 300–1400). */
+/** The nearest of the 14 version levels to a measure (clamped to 300–1600). */
 export function nearestLevel(x: number): number {
   const c = Math.min(RR_MAX, Math.max(RR_MIN, x));
   return (RR_LEVELS as readonly number[]).reduce((best, l) => (Math.abs(l - c) < Math.abs(best - c) ? l : best), RR_MIN);
@@ -78,6 +87,32 @@ export async function ensureRRStudent(repo: Repo, studentId: string, now = new D
   return repo.upsert("RRStudent", { studentId }, { studentId, schoolId: s(st.schoolId), level: init.level, startLevel: init.level, source: init.source, placedAt: now }, {});
 }
 
+/**
+ * 🩹 fix (Oct 2026): ensureRRStudent() only ever runs its MAP lookup ONCE, the first time a student opens
+ * ReadRise — if their MAP Reading Lexile is imported LATER (after that first open), the row it already created
+ * stays on the grade-based guess (source DEFAULT) forever, since nothing ever re-checks it. Call this right after a
+ * MAP Reading score with a Lexile lands, so that specific gap closes automatically with no teacher action needed.
+ *
+ * Deliberately narrow: only touches a student whose RRStudent row is still source === "DEFAULT" (never had a real
+ * anchor — placement test, teacher override, or an earlier MAP import). A student already on MAP/PLACEMENT/TEACHER
+ * is left completely alone, even if this new MAP score differs — their level may already reflect real reading
+ * growth from practice since that anchor, and a fresh test score re-anchoring it would throw that away. If the
+ * student has no RRStudent row yet, there is nothing to backfill: ensureRRStudent() will pick this MAP score up
+ * correctly the first time they do open ReadRise, same as always.
+ */
+export async function backfillReadRiseFromMap(repo: Repo, studentId: string, mapLexile: number, now = new Date()): Promise<void> {
+  const rr = await repo.findUnique("RRStudent", { studentId });
+  if (!rr || s(rr.source) !== "DEFAULT") return;
+  const level = nearestLevel(mapLexile);
+  if (level === Number(rr.level)) return; // same rung already: nothing to change, no noise in the level history
+  await repo.updateMany("RRStudent", { studentId }, { level, startLevel: level, source: "MAP" });
+  await recordLevelChange(repo, {
+    studentId, schoolId: s(rr.schoolId), from: Number(rr.level), to: level,
+    reason: "MAP Reading Lexile imported after this student's placeholder grade-level start — level corrected to the real measure.",
+    now,
+  });
+}
+
 /** A teacher of the student's class, or a school admin of the student's school. Returns the Student row. */
 export async function assertStaffForStudent(repo: Repo, actor: Actor, studentId: string): Promise<Row> {
   const st = await repo.findUnique("Student", { id: studentId });
@@ -102,44 +137,89 @@ export async function levelChanges(repo: Repo, studentId: string): Promise<Row[]
 
 export interface LevelDecision { delta: number; reason: string | null }
 
-/** The level rule on the window of first-try scores since the last change (oldest → newest). */
+/**
+ * The level rule on the window of first-try scores since the last change (oldest → newest). Pure.
+ * Down first (≤ 25% once, or two in a row under 50%: −100), then up (3 of the last 4 at 75%+ with the latest
+ * 75%+: +50). The reason is in plain words for the teacher.
+ */
 export function levelDecision(scores: number[]): LevelDecision {
   if (!scores.length) return { delta: 0, reason: null };
   const latest = scores[scores.length - 1];
-  const last4 = scores.slice(-4), last3 = scores.slice(-3);
-  const high = last4.filter((x) => x >= ENGINE.up).length, low = last3.filter((x) => x < ENGINE.down).length;
+  if (latest <= ENGINE.floor) return { delta: -ENGINE.downStep, reason: `the first-try score on the last article was ${latest}% (${ENGINE.floor}% or lower), so the articles were too hard` };
+  const prev = scores.length >= 2 ? scores[scores.length - 2] : null;
+  if (prev !== null && latest < ENGINE.down && prev < ENGINE.down) return { delta: -ENGINE.downStep, reason: `the last two first-try scores were both under ${ENGINE.down}% (${prev}% and ${latest}%), so the articles were too hard` };
+  const last4 = scores.slice(-4);
+  const high = last4.filter((x) => x >= ENGINE.up).length;
   if (latest >= ENGINE.up && high >= 3) return { delta: ENGINE.step, reason: `${high} of the last ${last4.length} first-try scores were ${ENGINE.up}% or higher (latest ${latest}%)` };
-  if (latest < ENGINE.down && low >= 2) return { delta: -ENGINE.step, reason: `${low} of the last ${last3.length} first-try scores were under ${ENGINE.down}% (latest ${latest}%)` };
   return { delta: 0, reason: null };
 }
 
-/** Does this scored run take part in the level window? (first try; a stretch only when ≥ 75%) */
-export const countsForLevel = (r: Row) => r.firstTry === true && r.score !== null && r.score !== undefined && (r.stretch !== true || Number(r.score) >= ENGINE.up);
+/** A run marked Unreliable (2+ rapid answers: accuracy.ts). */
+const unreliableRun = (r: Row) => isUnreliableRun(r);
+
+/**
+ * Does this scored run take part in the level window? (first try, not Unreliable; a stretch only when ≥ 75%).
+ * Round 4 (owner): the SAME read-time rule as the skill evidence — a run read faster than RR_MIN_READ_SECONDS
+ * (first-try.ts) never counts for the level either. A stretch must also be in a NEW question band: callers that have
+ * the student's runs use countedTries (first-try.ts) before this.
+ */
+export const countsForLevel = (r: Row) => r.firstTry === true && r.score !== null && r.score !== undefined && !unreliableRun(r) && !rapidRead(r) && (r.stretch !== true || Number(r.score) >= ENGINE.up);
+
+/**
+ * The completion dates that count toward the weekly goal: counted first tries (a re-read never; a stretch only in a
+ * new band), reliable, scored 75%+.
+ */
+export function goalDates(runs: readonly Row[]): Date[] {
+  return countedTries(runs).filter((r) => scoredRun(r) && !unreliableRun(r) && Number(r.score) >= ENGINE.up).map((r) => toDate(r.completedAt));
+}
 
 /**
  * Runs after a first-try activity was scored (the run row already has its score and completedAt).
  * Applies the rule; returns the level before/after. Writes RRStudent (+ RRLevelChange when it moves).
  */
+// r85 audit (#3): applyFirstTryScore reads RRStudent.level/articlesDone, decides a new level from them, and used
+// to write RRStudent back unconditionally — two runs for the same student finishing within the same moment (e.g. a
+// stretch run and its base run, or a client retry) could both read the same stale row and the later write would
+// silently clobber the earlier one (a lost articlesDone increment, or a level move undone), while the level-change
+// audit row from the clobbered write stayed behind regardless. A few retries with the write conditioned on the
+// exact row we read (optimistic concurrency) makes a lost update detectable instead of silent: on a stale write we
+// just recompute from a fresh read, which is always safe here (studentId+level/articlesDone is the whole input).
+const CONCURRENT_RETRIES = 3;
 export async function applyFirstTryScore(repo: Repo, run: Row, now: Date): Promise<{ levelBefore: number; levelAfter: number; reason: string | null }> {
   const studentId = s(run.studentId);
-  const rr = await ensureRRStudent(repo, studentId, now);
-  const before = Number(rr.level);
-  const changes = await levelChanges(repo, studentId);
-  const since = changes.length ? toDate(changes[changes.length - 1].createdAt).getTime() : -Infinity;
-  const runs = (await repo.findMany("RRRun", { studentId, firstTry: true, score: { not: null } }))
-    .filter((r) => r.completedAt && toDate(r.completedAt).getTime() > since && countsForLevel(r))
-    .sort((a, b) => toDate(a.completedAt).getTime() - toDate(b.completedAt).getTime());
-  const dec = levelDecision(runs.map((r) => Number(r.score)));
-  // a stretch can only move the level up
-  const delta = run.stretch === true && dec.delta < 0 ? 0 : dec.delta;
-  const after = delta ? clampEngine(before + delta) : before;
-  const patch: Row = run.stretch === true ? {} : { articlesDone: Number(rr.articlesDone ?? 0) + 1 };
-  if (after !== before) {
-    patch.level = after;
-    await recordLevelChange(repo, { studentId, schoolId: s(rr.schoolId), from: before, to: after, reason: `${after > before ? "Up" : "Down"} ${Math.abs(after - before)}: ${dec.reason}`, now });
+  for (let attempt = 0; ; attempt++) {
+    const rr = await ensureRRStudent(repo, studentId, now);
+    const before = Number(rr.level);
+    const articlesDoneBefore = Number(rr.articlesDone ?? 0);
+    const changes = await levelChanges(repo, studentId);
+    const since = changes.length ? toDate(changes[changes.length - 1].createdAt).getTime() : -Infinity;
+    // only counted first tries (a stretch in the same band as the first read reuses its questions: never counted)
+    const runs = countedTries(await repo.findMany("RRRun", { studentId, firstTry: true, score: { not: null } }))
+      .filter((r) => r.completedAt && toDate(r.completedAt).getTime() > since && countsForLevel(r))
+      .sort((a, b) => toDate(a.completedAt).getTime() - toDate(b.completedAt).getTime());
+    const dec = levelDecision(runs.map((r) => Number(r.score)));
+    // a stretch can only move the level up. r85 audit (#4 — checked, not a bug): this guard looks like it could
+    // mask a legitimate down-adjustment, but `countsForLevel` above only lets a stretch run into `runs` when its
+    // OWN score is ≥ ENGINE.up (75), and this function is only ever called for a stretch run when its score is
+    // already ≥ 75 (student.ts) — so whenever `run.stretch === true` reaches this line, `dec.delta` can never be
+    // negative in practice; the `< 0` branch is unreachable. Left in place as a documented safety net, not removed.
+    const delta = run.stretch === true && dec.delta < 0 ? 0 : dec.delta;
+    const after = delta ? clampEngine(before + delta) : before;
+    const patch: Row = run.stretch === true ? {} : { articlesDone: articlesDoneBefore + 1 };
+    if (after !== before) patch.level = after;
+    if (!Object.keys(patch).length) return { levelBefore: before, levelAfter: after, reason: null };
+    // optimistic lock: only write if RRStudent still has the exact values we just read and decided from
+    const where: Row = { studentId };
+    if ("level" in patch) where.level = before;
+    if ("articlesDone" in patch) where.articlesDone = articlesDoneBefore;
+    const changed = await repo.updateMany("RRStudent", where, patch);
+    if (!changed) {
+      if (attempt >= CONCURRENT_RETRIES) throw new ValidationError("Could not save the reading result — please try again.");
+      continue; // another run for this student committed in between; re-read and recompute from the fresh row
+    }
+    if (after !== before) await recordLevelChange(repo, { studentId, schoolId: s(rr.schoolId), from: before, to: after, reason: `${after > before ? "Up" : "Down"} ${Math.abs(after - before)}: ${dec.reason}`, now });
+    return { levelBefore: before, levelAfter: after, reason: after !== before ? dec.reason : null };
   }
-  if (Object.keys(patch).length) await repo.updateMany("RRStudent", { studentId }, patch);
-  return { levelBefore: before, levelAfter: after, reason: after !== before ? dec.reason : null };
 }
 
 /** 👩‍🏫 A teacher (or school admin) sets a student's ReadRise Level (for the teacher pages). */
@@ -149,12 +229,21 @@ export async function setLevelByTeacher(repo: Repo, actor: Actor, studentId: str
   const to = clampEngine(level);
   const rr = await ensureRRStudent(repo, studentId, now);
   const from = Number(rr.level);
-  await repo.updateMany("RRStudent", { studentId }, { level: to, source: "TEACHER" });
+  // 🐛 round 4: a never-placed student (the working start: DEFAULT / MAP) — the teacher's level IS the start, so
+  // growth starts here (before: startLevel stayed the working start → a fake "growth −350")
+  const neverPlaced = s(rr.source) === "DEFAULT" || s(rr.source) === "MAP";
+  await repo.updateMany("RRStudent", { studentId }, neverPlaced ? { level: to, source: "TEACHER", startLevel: to, placedAt: now } : { level: to, source: "TEACHER" });
   await recordLevelChange(repo, { studentId, schoolId: s(rr.schoolId), from, to, reason: `Teacher set the level${reason.trim() ? `: ${reason.trim()}` : ""}`, now });
   return { from, to };
 }
 
 // ------------------------------------------------------------------ weeks, goals, projection (pure)
+
+/** The Riyadh calendar day (yyyy-mm-dd) of a moment — the same rule as analytics/practice.ts riyadhDay (that module
+ * is not imported here: it would pull the whole analytics graph into the ReadRise engine). */
+export const riyadhDay = (at: Date | string | number): string => new Date((typeof at === "number" ? at : toDate(at).getTime()) + RIYADH).toISOString().slice(0, 10);
+/** A week's label (mm-dd of its Sunday, Riyadh time) from its start (weekStart). */
+export const weekLabel = (start: number): string => riyadhDay(start).slice(5, 10);
 
 /** Start (ms, UTC) of the Sunday-based Riyadh week that contains `d`. */
 export function weekStart(d: Date): number {
@@ -254,15 +343,18 @@ export async function readRiseProjection(repo: Repo, firstTry: Row[], points: Le
 export async function studentReadRiseSummary(repo: Repo, studentId: string, now = new Date()): Promise<ReadRiseSummary | null> {
   const rr = await repo.findUnique("RRStudent", { studentId });
   if (!rr) return null;
-  const runs = await repo.findMany("RRRun", { studentId, firstTry: true, score: { not: null } }, { select: ["score", "stretch", "completedAt"] });
-  const main = runs.filter((r) => r.stretch !== true);
+  // an Unreliable run (2+ rapid answers) counts for nothing: not the average, the goal or the projection
+  const all = await repo.findMany("RRRun", { studentId, firstTry: true, score: { not: null } }, { select: ["studentId", "articleId", "band", "firstTry", "score", "stretch", "completedAt", "unreliable"] });
+  const runs = countedTries(all).filter((r) => !unreliableRun(r));
+  // round 4: ONE article definition (first-try.ts articleRuns): a reliable, scored, non-stretch first try
+  const main = articleRuns(all);
   const firstTryAvg = main.length ? Math.round(main.reduce((a, r) => a + Number(r.score), 0) / main.length) : null;
-  const g = goalStats(runs.filter((r) => Number(r.score) >= ENGINE.up && r.completedAt).map((r) => toDate(r.completedAt)), Number(rr.weeklyGoal), now);
+  const g = goalStats(goalDates(all), Number(rr.weeklyGoal), now);
   const { points } = await levelHistory(repo, studentId);
-  const placed = readRisePlaced(rr, (await repo.count("RRPlacement", { studentId, completedAt: { not: null } })) > 0);
+  const placed = readRisePlaced(rr, (await repo.count("RRPlacement", { studentId, completedAt: { not: null }, result: { not: null } })) > 0);
   return {
     level: Number(rr.level), startLevel: Number(rr.startLevel), source: s(rr.source), growth: Number(rr.level) - Number(rr.startLevel),
-    articlesDone: Number(rr.articlesDone ?? 0), firstTryAvg, weeklyGoal: g.goal, thisWeek: g.thisWeek, goalMet: g.met, streak: g.streak, weeksMet: g.weeksMet,
+    articlesDone: main.length, firstTryAvg, weeklyGoal: g.goal, thisWeek: g.thisWeek, goalMet: g.met, streak: g.streak, weeksMet: g.weeksMet,
     projected: await readRiseProjection(repo, main, points, s(rr.schoolId), now), placed, runs: runs.length,
   };
 }

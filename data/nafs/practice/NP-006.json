@@ -47,8 +47,8 @@
       "options": [
         "He was the main pilot who flew the shuttle.",
         "He was responsible for particular scientific tasks.",
-        "He designed the space shuttle Discovery.",
-        "He trained the other six astronauts."
+        "He designed the space shuttle Discovery for NASA.",
+        "He trained the other six astronauts on Earth."
       ],
       "answer": "B",
       "why": "The passage explains that a payload specialist is 'responsible for particular scientific tasks rather than flying the shuttle'."
@@ -78,9 +78,9 @@
       "stem": "How was the 2023 mission different from the 1985 mission?",
       "options": [
         "It travelled to the International Space Station.",
-        "It was the first Arab journey into space.",
-        "It launched aboard the shuttle Discovery.",
-        "It carried only one Saudi astronaut."
+        "It was the first Arab journey into space for the nation.",
+        "It launched aboard the shuttle Discovery from Florida.",
+        "It carried only one Saudi astronaut into orbit."
       ],
       "answer": "A",
       "why": "In 2023 Rayyanah Barnawi and Ali AlQarni travelled to the International Space Station; the 1985 flight was the first and used Discovery."
@@ -109,9 +109,9 @@
       "difficulty": 3,
       "stem": "Which opinion is best supported by the passage?",
       "options": [
-        "The 1985 mission was too short to be useful.",
-        "Space travel does not interest young Saudis.",
-        "Payload specialists matter more than pilots.",
+        "The 1985 mission was too short to be useful to anyone.",
+        "Space travel does not interest young Saudis very much.",
+        "Payload specialists matter more than pilots do on a mission.",
         "Prince Sultan's flight was a proud moment for Arabs."
       ],
       "answer": "D",
@@ -125,10 +125,10 @@
       "difficulty": 3,
       "stem": "In your opinion, which information in the passage is the LEAST clear or complete?",
       "options": [
-        "the date the shuttle was launched",
+        "the date the shuttle was launched into space and landed",
         "what the 2023 astronauts did on the space station",
-        "how long the 1985 mission lasted",
-        "where Discovery was launched from"
+        "how long the 1985 mission lasted in days and hours",
+        "where Discovery was launched from on that day"
       ],
       "answer": "B",
       "why": "The passage only says the 2023 astronauts travelled to the station, not what they did there; the date, length and place of the 1985 launch are all given."

@@ -61,10 +61,10 @@
     "passage": "History: Long ago, pearl divers in the Gulf sailed out every summer. They dived to the sea floor for oysters.\n\nStory: Salem tied the clip on his nose. 'Today I will find the biggest pearl!' he told his friend. Then he jumped into the warm sea.",
     "stem": "What do BOTH texts tell about?",
     "options": [
-     "A boy named Salem",
+     "A boy named Salem at school",
      "Diving into the sea for pearls",
      "A trip across the desert",
-     "Salem's best friend"
+     "Salem's best friend at school"
     ],
     "answer": 1,
     "hint": "Is that in BOTH texts? Find what the history text and the story both describe.",
@@ -92,10 +92,10 @@
      "passage": "Text A: In 1938, oil was found in large amounts at Dammam in Saudi Arabia.\n\nText B: Fahad's grandfather wiped the black oil from his hands and laughed. 'We found it!' he shouted.",
      "stem": "Which text is a story (fiction)?",
      "options": [
-      "Text A, because it has a date",
-      "Both texts are stories",
+      "Text A, because it has a date and a place name",
+      "Both texts are stories with made-up people",
       "Text B, because it has made-up talk and feelings",
-      "Neither text is a story"
+      "Neither text is a story because both are true"
      ],
      "answer": 2,
      "why": "Text A gives a real fact with a date. Text B has a character, his feelings and his words, so it is a story."
@@ -211,9 +211,9 @@
      "stem": "What does the history text give that the story does not?",
      "options": [
       "The reason the pearl trade fell",
-      "A man's sad feelings",
+      "A man's sad feelings about home",
       "Boats lying on the beach",
-      "Old Jassim's name"
+      "Old Jassim's name and age"
      ],
      "answer": 0,
      "why": "Only the history text explains why the trade fell: cheaper farmed pearls from Japan. The story shows feelings, not reasons."
@@ -409,10 +409,10 @@
     "passage": "History: For centuries, pearling was the main source of wealth for many towns on the Gulf coast. During the summer season, crews spent about four months at sea. Divers made dozens of dives a day, holding their breath for a minute or more, while pullers on deck hauled them up by rope. Most divers earned little. Many borrowed money from boat captains or merchants before the season, and some stayed in debt for years.\n\nStory: Hamad rose from the green water with his basket full, his lungs burning. On deck, the old puller grinned as Hamad cracked open the last oyster. Inside lay a pearl as large as a chickpea, glowing like the moon. The crew cheered and sang all the way home. 'This one,' the captain said, 'will pay every debt your family owes.'",
     "stem": "How does the story's portrayal of pearl diving compare with the history text?",
     "options": [
-     "Both texts suggest that most divers became wealthy from their work at sea.",
-     "The story gives more facts about the season's length than the history does.",
+     "Both texts suggest that most divers became wealthy from their work at sea, with fine houses.",
+     "The story gives more facts about the season's length than the history does, in numbers.",
      "Both show hard work, but the story centres on a rare lucky find, while the history shows most divers stayed poor.",
-     "The history text describes one diver's feelings, while the story gives only general facts."
+     "The history text describes one diver's feelings, while the story gives only general facts about the pearl trade."
     ],
     "answer": 2,
     "hint": "Check what each text says about money. Is the story's ending typical, according to the history text?",

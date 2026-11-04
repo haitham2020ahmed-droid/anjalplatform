@@ -9,7 +9,9 @@ for (const f of process.argv.slice(2)) {
   const a = JSON.parse(readFileSync(f, "utf8"));
   const problems: string[] = [];
   const vs = (a.versions ?? []) as { level: number; title: string; text: string }[];
-  if (vs.length !== 12) problems.push(`${vs.length} versions (need 12)`);
+  // 🩹 fix: hardcoded "12" was never updated when the ladder grew to 1500/1600 (RR_LEVELS.length === 14) — every
+  // valid 14-version article (the whole live library) was failing this check with a false "14 versions (need 12)".
+  if (vs.length !== RR_LEVELS.length) problems.push(`${vs.length} versions (need ${RR_LEVELS.length})`);
   let prev = -1;
   for (const lvl of RR_LEVELS) {
     const v = vs.find((x) => x.level === lvl);
@@ -41,10 +43,12 @@ for (const f of process.argv.slice(2)) {
     if (!band.prompt) problems.push(`${b}: prompt missing`);
     const kws = (band.keyWords ?? []) as { word: string; definition: string; example: string }[];
     if (kws.length !== 5) problems.push(`${b}: ${kws.length} key words (need 5)`);
-    const lo = b === "LOW" ? 300 : b === "MID" ? 700 : 1100;
+    // 🩹 fix: HIGH's own range grew from 1100–1400 (4 levels) to 1100–1600 (6) in the leveling overhaul, but this
+    // loop was never widened, so the top two HIGH levels (1500, 1600) never got checked for the key words at all.
+    const lo = b === "LOW" ? 300 : b === "MID" ? 700 : 1100, hi = b === "HIGH" ? 1600 : lo + 300;
     for (const k of kws) {
       if (!k.word || !k.definition || !k.example) problems.push(`${b}: key word needs word, definition, example`);
-      for (const lvl of [lo, lo + 100, lo + 200, lo + 300]) {
+      for (let lvl = lo; lvl <= hi; lvl += 100) {
         const v = vs.find((x) => x.level === lvl);
         if (v && k.word && !new RegExp(`\\b${k.word.toLowerCase().slice(0, Math.max(4, k.word.length - 2))}`, "i").test(v.text)) problems.push(`${b}: key word "${k.word}" not found in version ${lvl}`);
       }

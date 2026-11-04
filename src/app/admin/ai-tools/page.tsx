@@ -15,6 +15,7 @@ import { skillPickerList } from "@/server/skills/picker";
 import { SkillSearchSelect } from "@/components/skill-picker";
 import { coachSettingsAction, settingsAction, startToolAction, stopJobAction, testCoachAction, tickAction, weeklyAction } from "./actions";
 import { coachSettings, fluencyModel, plainFailure } from "@/server/fluency/coach";
+import { RichInline } from "@/components/rich-inline";
 
 export const metadata = { title: "AI tools" };
 const TABS = [["wizard", "🪄 Prepare a Skill"], ["tools", "🧰 Tools"], ["review", "✅ Review"], ["suspicious", "🔍 Suspicious questions"], ["log", "📜 Log"], ["settings", "⚙️ Settings"], ["guide", "📘 Guide"]] as const;
@@ -140,7 +141,7 @@ export default async function AiToolsPage({ searchParams }: { searchParams: Prom
             <p className="text-sm text-slate-600">From real student answers (no AI), questions with 10+ careful answers. Usually the answer key or the wording needs checking.</p>
             {rows.length === 0 ? <p className="mt-3 text-slate-600">No suspicious questions. ✅</p> : (
               <table className="mt-3 min-w-full text-left text-sm"><thead><tr className="border-b text-xs text-slate-500"><th className="py-2 pe-3">Question</th><th className="px-2">Answers</th><th className="px-2">Correct</th><th className="px-2">Strong students correct</th><th className="px-2">Key · most chosen wrong</th><th className="px-2">Why</th></tr></thead>
-                <tbody>{rows.map((r) => <tr key={r.id} className="border-b align-top last:border-0"><td className="max-w-md py-2 pe-3"><Link href={`/admin/questions/${r.id}`} className="font-medium text-brand-navy hover:underline">{r.stem}</Link></td><td className="px-2 tabular-nums">{r.answers}</td><td className="px-2 tabular-nums">{r.correctPct}%</td><td className="px-2 tabular-nums">{r.strongCorrectPct === null ? "—" : `${r.strongCorrectPct}% (${r.strongAnswers})`}</td><td className="px-2">{r.key} ({r.keyCount}){r.topWrong ? ` · ${r.topWrong.label} (${r.topWrong.count})` : ""}</td><td className="px-2 text-red-800">{r.reasons.join(" ")}</td></tr>)}</tbody></table>
+                <tbody>{rows.map((r) => <tr key={r.id} className="border-b align-top last:border-0"><td className="max-w-md py-2 pe-3"><Link href={`/admin/questions/${r.id}`} className="font-medium text-brand-navy hover:underline"><RichInline text={r.stem} /></Link></td><td className="px-2 tabular-nums">{r.answers}</td><td className="px-2 tabular-nums">{r.correctPct}%</td><td className="px-2 tabular-nums">{r.strongCorrectPct === null ? "—" : `${r.strongCorrectPct}% (${r.strongAnswers})`}</td><td className="px-2">{r.key} ({r.keyCount}){r.topWrong ? ` · ${r.topWrong.label} (${r.topWrong.count})` : ""}</td><td className="px-2 text-red-800">{r.reasons.join(" ")}</td></tr>)}</tbody></table>
             )}
           </section>
         );

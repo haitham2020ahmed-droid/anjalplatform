@@ -81,10 +81,10 @@
     "passage": "First, we dig a hole. Next, we put a seed in it. Then, we cover it with soil. Last, we give it water.",
     "stem": "What do we do after we put the seed in?",
     "options": [
-     "Dig a hole",
-     "Give it water",
+     "Dig a hole first",
+     "Give it some water",
      "Cover it with soil",
-     "Pick a flower"
+     "Pick a ripe flower"
     ],
     "answer": 2,
     "hint": "Find the seed sentence. Which sentence comes right after it?",
@@ -236,8 +236,8 @@
      "options": [
       "Pour the tea into cups",
       "Put mint leaves in a teapot",
-      "Wait five minutes",
-      "Wash the cups"
+      "Wait five minutes or more",
+      "Wash the cups and spoons"
      ],
      "answer": 1,
      "why": "Then put mint leaves in a teapot comes just before Pour the hot water."
@@ -418,10 +418,10 @@
     "passage": "On a clear morning in May 1953, two climbers stood on the summit of Mount Everest, the first people known to reach it. One of them, Tenzing Norgay, had grown up in the mountains of Nepal, carrying heavy loads for mountain expeditions as a young man. He had tried to climb Everest six times before and had failed each time. The other, Edmund Hillary, had been a beekeeper in New Zealand who climbed in his free time. In the weeks before their success, the team set up a chain of camps higher and higher up the mountain. Their final climb began at dawn from the highest camp, and they reached the top just before noon.",
     "stem": "Why does the author begin with the climbers on the summit before describing their earlier lives?",
     "options": [
-     "Because the climbers reached the top before they were born",
+     "Because the climbers reached the top before they were born in Nepal",
      "To grab attention with the key moment, then explain how they got there",
-     "To show the events in exact chronological order",
-     "To compare Nepal with New Zealand"
+     "To show the events in exact chronological order from day one",
+     "To compare Nepal with New Zealand and their tall mountains"
     ],
     "answer": 1,
     "hint": "Which event is told first, but happened last? What does starting there do for the reader?",
@@ -450,9 +450,9 @@
      "passage": "Ahmad's essay opens with the day he received his first patent for a water-saving tap. Then it returns to his childhood, when he watched his mother save every drop of water in a dry village. It follows him through school, his engineering degree and many failed designs, ending again on the day of the patent.",
      "stem": "How is the essay's sequence organized?",
      "options": [
-      "Strictly from childhood to the present",
-      "As a list of reasons for saving water",
-      "As a comparison of two inventions",
+      "Strictly from childhood to the present day, in strict time order from start to end",
+      "As a list of reasons for saving water in our homes and farms",
+      "As a comparison of two inventions from long ago and today",
       "It starts and ends at the same moment, with a flashback in between"
      ],
      "answer": 3,
@@ -463,9 +463,9 @@
      "stem": "Why does the author present these events in chronological order?",
      "options": [
       "To show how surgery became safer step by step",
-      "To compare doctors in Boston and Europe",
+      "To compare doctors in Boston and in Europe",
       "To argue that anesthesia is dangerous",
-      "To describe the tools surgeons use"
+      "To describe the tools surgeons use in hospitals"
      ],
      "answer": 0,
      "why": "The time order shows each advance building on the last, ending with the point that surgery became much safer."

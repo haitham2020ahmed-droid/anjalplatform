@@ -366,9 +366,9 @@
       "stem": "What do the coral-stone walls and the rawasheen have in common?",
       "options": [
         "Both help to keep the houses comfortable in the heat.",
-        "Both are painted green or blue for beauty.",
-        "Both were added to the houses in 2014.",
-        "Both were brought to Jeddah from Abha."
+        "Both are painted green or blue for beauty and for good luck.",
+        "Both were added to the houses in 2014 by workers.",
+        "Both were brought to Jeddah from Abha by ship."
       ],
       "answer": "A",
       "why": "The coral walls kept rooms cool, and the rawasheen let the sea breeze circulate through the house."
@@ -397,10 +397,10 @@
       "type": "MCQ",
       "stem": "What does Lina mean when she says “I felt as if the buildings were wearing lace”?",
       "options": [
-        "The buildings were covered in real cloth.",
+        "The buildings were covered in real cloth and thread.",
         "The fine wooden lattice looked delicate, like lace.",
-        "The buildings were decorated for a wedding.",
-        "The old lattice was falling apart."
+        "The buildings were decorated for a wedding in the town.",
+        "The old lattice was falling apart in her hands."
       ],
       "answer": "B",
       "why": "She compares the delicate wooden screens to lace fabric; it is figurative, not literal."
@@ -510,9 +510,9 @@
       "stem": "Which of the following events could really happen?",
       "options": [
         "A carpenter repairs an old wooden lattice by hand.",
-        "A house in Al-Balad walks down to the sea.",
-        "A camel flies to the roof of Nasseef House.",
-        "The coral walls grow back into a reef."
+        "A house in Al-Balad walks down to the sea by itself.",
+        "A camel flies to the roof of Nasseef House at night.",
+        "The coral walls grow back into a reef after the rain."
       ],
       "answer": "A",
       "why": "Craftsmen really do repair lattices by hand; the other events are impossible."

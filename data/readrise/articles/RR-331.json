@@ -1,0 +1,447 @@
+{
+  "code": "RR-331",
+  "title": "Latitude and Longitude: Finding Places on Earth",
+  "topic": "Geography",
+  "summary": "How an invisible grid of latitude and longitude lines lets anyone give any spot on Earth its own exact set of numbers, and how GPS uses that grid today.",
+  "poll": "I could find my own city on a globe using only latitude and longitude numbers.",
+  "versions": [
+    {
+      "level": 300,
+      "title": "Lines That Find Places",
+      "text": "Earth is big. We need a way to find one spot on it. People draw lines on a map. The lines make a grid.\n\nSome lines go side to side. We call them latitude lines. They tell how far north or south you are. The middle line is the equator.\n\nOther lines go up and down. We call them longitude lines. They tell how far east or west you are.\n\nEach line has a number. Two numbers can name one spot. No other spot has the same two numbers.\n\nLong ago, sailors looked at stars. Stars helped find one of the numbers. The other number was much harder to find.\n\nToday we use GPS. GPS talks to satellites. It finds your spot fast.\n\nOn a globe, lines cross each other. Each cross is one small square. Each square is one spot on Earth.\n\nMaps use this grid. Ships use it too. Planes use it to fly right."
+    },
+    {
+      "level": 400,
+      "title": "Lines That Find Places",
+      "text": "Earth is very big. How do we find one exact spot on it? People draw lines on maps and globes. The lines make a grid.\n\nSome lines run side to side. We call them lines of latitude. They tell us how far north or south a place is. The middle line is the equator.\n\nOther lines run from the top to the bottom. We call them lines of longitude. They tell us how far east or west a place is.\n\nEach line has its own number. Every place gets two numbers. One number is latitude. One number is longitude. No two places share the same pair.\n\nLong ago, sailors looked at stars at night. Stars helped them find one number. The other number was much harder to find. It needed a very good clock.\n\nToday we use small tools called GPS. A GPS tool talks to satellites. It finds two numbers in just seconds.\n\nOn a globe, lines cross each other. This makes a grid. Each small cross is one exact spot.\n\nMaps, ships, and planes use this grid. It helps people travel safely."
+    },
+    {
+      "level": 500,
+      "title": "Latitude and Longitude",
+      "text": "Earth is very big. How can we find one exact spot on it? People use lines drawn on maps and globes. These lines form a grid that covers the planet.\n\nSome lines circle the globe from side to side. They are called lines of latitude. They tell us how far north or south a place is. The line between the top and bottom is the equator. It sits at zero degrees.\n\nOther lines run from the North Pole to the South Pole. They are called lines of longitude. They tell us how far east or west a place is. One special line is the prime meridian. It also sits at zero degrees.\n\nEvery place on Earth gets its own pair of numbers. One number is latitude. One number is longitude. No two places share the same pair.\n\nLong ago, sailors studied the stars at night. This helped them find their latitude. Finding longitude was much harder. It needed a very good clock.\n\nToday we have small devices called GPS. A GPS device talks to satellites. It finds its own latitude and longitude in seconds.\n\nOn a globe, these lines cross each other. This forms a grid, much like graph paper. Each small crossing point is one exact spot.\n\nMaps, ships, and planes depend on this grid today. It lets people travel safely to any place."
+    },
+    {
+      "level": 600,
+      "title": "Latitude and Longitude",
+      "text": "Earth is very big, so how can anyone describe exactly where one spot is located? People rely on lines drawn across maps and globes. Together, these lines form a grid. The grid covers the whole planet.\n\nSome lines circle the globe from side to side. They are called lines of latitude. They measure how far north or south a place is. The line between the top and bottom is the equator. It sits at zero degrees latitude.\n\nOther lines run from the North Pole down to the South Pole. They are called lines of longitude. They measure how far east or west a place is. One line, the prime meridian, was chosen to sit at zero degrees.\n\nEvery place on Earth can be described with its own pair of numbers. One number is latitude. One number is longitude. Because no two places share the same pair, these numbers work much like an address.\n\nLong ago, sailors studied the stars at night to estimate their latitude. Longitude was much harder to measure. Sailors needed a clock accurate enough to use on a rocking ship.\n\nToday we have small devices called GPS receivers. A GPS receiver talks to satellites circling above Earth. It works out its own latitude and longitude within seconds.\n\nOn a globe, lines of latitude and lines of longitude cross one another. This forms a grid that looks much like graph paper. Each small crossing point marks one exact spot.\n\nMaps, ships, and airplanes all depend on this grid today. It lets people travel safely to any place they choose."
+    },
+    {
+      "level": 700,
+      "title": "Latitude and Longitude: Earth's Hidden Grid",
+      "text": "Earth is enormous, so how can anyone describe exactly where one spot is located? People rely on lines drawn across maps and globes. Together, these lines form a coordinate grid. The grid covers the whole planet.\n\nSome lines circle the globe from side to side. They are called lines of latitude. They measure how far north or south a place lies. The line between the top and bottom is the equator. It sits at zero degrees.\n\nOther lines stretch from the North Pole down to the South Pole. These are called lines of longitude. Each one measures how far east or west a place lies. One line, the prime meridian, was chosen to represent zero degrees.\n\nEvery place on Earth can be described using its own pair of coordinates. One number is latitude. One number is longitude. Because no two places ever share the same pair, these numbers work like a permanent address.\n\nFor many years, sailors, also called navigators, studied the stars at night to estimate their latitude. Longitude proved far harder to measure. It required a clock precise enough to keep correct time while rocking at sea.\n\nToday, we rely on small satellite receivers known as GPS. A GPS receiver talks to a network of orbiting satellites. It works out its own latitude and longitude within seconds.\n\nOn a globe, lines of latitude and lines of longitude cross everywhere. This forms a grid much like graph paper wrapped around a ball. Each small crossing marks one exact spot.\n\nMaps, ships, and airplanes all depend on this coordinate grid today. It lets people find their way safely to any place they choose."
+    },
+    {
+      "level": 800,
+      "title": "Latitude and Longitude: Earth's Hidden Grid",
+      "text": "Earth is enormous, so how can anyone describe exactly where one spot is located? People rely on a system of lines drawn across maps and globes. Together, these lines form a coordinate grid, which lets any location be pinpointed.\n\nSome lines circle the globe from side to side. They are called lines of latitude. They measure how far north or south a place lies. The line between the top and bottom is the equator. It sits at zero degrees latitude.\n\nOther lines stretch from the North Pole down to the South Pole. These are called lines of longitude. Each one measures how far east or west a place lies. One line, the prime meridian, was chosen to represent zero degrees.\n\nEvery place on Earth can be described using its own pair of coordinates, one for latitude and one for longitude. Because no two places ever share the same pair, these numbers work much like a permanent address.\n\nFor many years, sailors, also called navigators, carefully studied the stars at night to estimate their latitude. Longitude proved far harder to measure, because it required a clock precise enough to keep correct time even while rocking at sea.\n\nToday, we depend on small satellite receivers known as GPS, short for Global Positioning System. A GPS receiver talks to a network of orbiting satellites and works out its own exact latitude and longitude within seconds.\n\nOn a globe, lines of latitude and lines of longitude cross everywhere, forming a grid that looks much like graph paper wrapped around a ball. Each small crossing marks one exact spot somewhere on the planet.\n\nMaps, ships, and airplanes all depend heavily on this coordinate grid today, since it lets people navigate safely to whatever place they choose."
+    },
+    {
+      "level": 900,
+      "title": "Latitude and Longitude: Earth's Hidden Grid",
+      "text": "Earth is enormous, so how can anyone describe exactly where a single spot is located among billions of possible places? People rely on a system of lines drawn across maps and globes, and together, these lines form a coordinate grid, which lets any location be pinpointed.\n\nSome lines circle the globe from side to side, at steadily increasing distances from the center. They are called lines of latitude. They measure how far north or south a place lies. The line between the top and bottom is the equator. It sits at zero degrees latitude.\n\nOther lines stretch from the North Pole down to the South Pole, crossing every latitude line. These are called lines of longitude. Each one measures how far east or west a place lies. One line, the prime meridian, was chosen in the 1800s to represent zero degrees.\n\nEvery place on Earth, no matter how remote, can be described using its own unique pair of coordinates, one for latitude and one for longitude. Because no two places ever share the same pair, these numbers work much like a permanent address written in degrees.\n\nFor centuries, sailors, also called navigators, carefully studied the stars at night to estimate their latitude. Longitude proved far harder to measure, because it required a clock precise enough to keep correct time while rocking at sea.\n\nToday, we depend on small satellite receivers known as GPS, short for Global Positioning System. A GPS receiver talks to a network of orbiting satellites and works out its own exact latitude and longitude within seconds.\n\nOn a globe, lines of latitude and lines of longitude cross everywhere, forming a grid that looks much like graph paper wrapped tightly around a ball. Each small crossing marks one exact spot, no matter the distance from any city.\n\nMaps, ships, and airplanes all depend heavily on this coordinate grid today, since it lets people navigate safely to whatever place they choose."
+    },
+    {
+      "level": 1000,
+      "title": "Latitude and Longitude: Earth's Hidden Grid",
+      "text": "Earth is enormous, so how can anyone describe exactly where a single spot is located among billions of possible places scattered across it? People rely on a system of lines drawn across maps and globes, and together, these lines form a coordinate grid, which lets any location be pinpointed with remarkable precision.\n\nSome lines circle the globe from side to side, at steadily increasing distances from the center. They are called lines of latitude. They measure how far north or south a place lies. The line between the top and bottom is the equator. It sits at zero degrees latitude, while the poles sit at ninety degrees.\n\nOther lines stretch from the North Pole down to the South Pole, crossing every single latitude line. These are called lines of longitude. Each one measures how far east or west a place lies. One line, the prime meridian, was chosen in the 1800s to represent zero degrees, up to a hundred eighty degrees on either side.\n\nEvery place on Earth, no matter how remote, can be described using its own unique pair of coordinates, one for latitude and one for longitude. Because no two places ever share the same pair, these numbers work much like a permanent address written in degrees.\n\nFor centuries, sailors, also called navigators, carefully studied the stars at night to estimate their latitude. Longitude proved far harder to measure, because it required a clock precise enough to keep correct time while rocking at sea for months at a time.\n\nToday, we depend on accurate atomic clocks and small satellite receivers known as GPS, short for Global Positioning System. A GPS receiver talks to a network of orbiting satellites and works out its own exact latitude and longitude within seconds, almost anywhere on Earth.\n\nOn a globe, lines of latitude and lines of longitude cross everywhere, forming a grid that looks much like graph paper wrapped tightly around a ball. Each small crossing marks one exact spot, no matter the distance from any city or coast.\n\nMaps, ships, and airplanes all depend heavily on this coordinate grid today, since it lets people navigate safely to whatever place they choose, even across open ocean or desert."
+    },
+    {
+      "level": 1100,
+      "title": "Latitude and Longitude: The Grid That Maps the World",
+      "text": "Earth is vast, so how can anyone describe exactly where a single spot is located among billions of possible places? People rely on a system of lines drawn across maps and globes, and together, these lines form a coordinate grid, allowing any location to be pinpointed with real precision.\n\nSome lines circle the globe from side to side, at steadily increasing distances from the midpoint. They are called lines of latitude, and they measure how far north or south a place lies. The equator sits at zero degrees latitude, exactly between the top and bottom, while the poles sit at ninety degrees.\n\nLines of longitude, by contrast, stretch from the North Pole to the South Pole, intersecting every latitude line along the way. Each longitude line is also called a meridian, and it measures how far east or west a place lies. One meridian, the prime meridian, was officially chosen in 1884 to represent zero degrees, running through Greenwich, England.\n\nEvery place on Earth, no matter how remote, can be described using its own unique pair of coordinates. Because no two places ever share the same pair, these numbers work much like a permanent address written in degrees.\n\nFor centuries, navigators studied the stars and the sun to estimate their latitude fairly well. Longitude proved far harder to measure, because it required an extremely precise clock, called a chronometer, able to keep correct time while rocking at sea for months.\n\nToday, we depend on atomic clocks and small satellite receivers known as GPS, short for Global Positioning System. A GPS receiver talks to a network of orbiting satellites and calculates its own exact latitude and longitude within seconds, almost anywhere on the planet.\n\nOn a globe, lines of latitude and lines of longitude intersect everywhere, forming a grid that closely resembles graph paper wrapped around a sphere. Each intersection marks one exact spot on the planet.\n\nModern maps, ships, airplanes, and even smartphones all depend on this coordinate grid, since it gives navigators and travelers a level of navigational precision earlier sailors never had."
+    },
+    {
+      "level": 1200,
+      "title": "Latitude and Longitude: The Grid That Maps the World",
+      "text": "Earth is vast, so how can anyone describe exactly where a single spot is located among billions of places scattered across its surface? People rely on a system of lines drawn across maps and globes, and together, these lines form a coordinate grid, allowing any location to be pinpointed with real precision, often down to a matter of meters.\n\nSome lines circle the globe from side to side, at steadily increasing distances from the midpoint. They are called lines of latitude, and they measure how far north or south a given place lies. The equator sits at zero degrees latitude, exactly between the top and bottom, while the poles sit at ninety degrees, the farthest point achievable.\n\nLines of longitude, by contrast, stretch from the North Pole to the South Pole, intersecting every latitude line along the way. Each longitude line is also called a meridian, and it measures how far east or west a place lies. One meridian, the prime meridian, was officially chosen in 1884 to represent zero degrees, running through Greenwich, England.\n\nEvery place on Earth, no matter how remote, can be described using its own unique pair of coordinates, often subdivided into minutes and seconds for extra precision. Because no two places ever share the same pair, these numbers work much like a permanent address written in degrees.\n\nFor centuries, navigators studied the stars and the sun to estimate their latitude fairly well, using comparatively simple instruments. Longitude proved far harder to determine, because calculating it required an extremely precise clock, called a chronometer, able to keep correct time while rocking at sea for months.\n\nToday, we depend on atomic clocks and compact satellite receivers known as GPS, short for Global Positioning System. A GPS receiver talks to a network of orbiting satellites and calculates its own exact latitude and longitude within mere seconds, almost anywhere on the planet.\n\nOn a globe, lines of latitude and lines of longitude intersect everywhere, forming a grid that closely resembles graph paper stretched around a sphere. Each intersection marks one exact spot regardless of its distance from any city or coastline.\n\nModern maps, ships, airplanes, and even smartphones all depend heavily on this coordinate grid, since it gives navigators and travelers a degree of navigational precision earlier sailors could scarcely have imagined."
+    },
+    {
+      "level": 1300,
+      "title": "Latitude and Longitude: The Grid That Maps the World",
+      "text": "Earth is almost impossibly vast, so how can anyone describe exactly where a single spot is located among billions of possible places scattered across its surface? People rely on a system of lines drawn across maps and globes, and collectively, these lines form a coordinate grid covering the entire planet, enabling any location to be pinpointed with remarkable precision, frequently down to a matter of meters.\n\nSome lines circle the globe from side to side, at steadily increasing distances from the midpoint. They are called lines of latitude, and they measure how far north or south a given place lies relative to that midpoint. The equator sits at zero degrees latitude, exactly between the top and bottom, while the poles sit at ninety degrees, the farthest point achievable in either direction.\n\nLines of longitude, by contrast, stretch from the North Pole all the way to the South Pole, intersecting every latitude line along their path around the globe. Each longitude line is also called a meridian, and it measures how far east or west a particular place lies. One meridian, the prime meridian, was officially designated in 1884 to represent zero degrees, running through Greenwich, England, up to one hundred eighty degrees on the far side.\n\nEvery place on Earth, no matter how remote, can be described using its own unique pair of coordinates, often subdivided into minutes and seconds for additional precision. Because no two places ever share the exact same pair, these numbers function much like a permanent address written entirely in degrees rather than street names.\n\nFor centuries, navigators studied the stars and the sun to estimate their latitude fairly accurately, using comparatively simple instruments. Longitude proved considerably harder to determine, because calculating it accurately required an extremely precise clock, called a chronometer, able to keep correct time while rocking continuously at sea for months.\n\nToday, we depend on atomic clocks and compact satellite receivers known as GPS, short for Global Positioning System. A GPS receiver talks to a network of orbiting satellites and calculates its own exact latitude and longitude within mere seconds, almost anywhere on the planet, including remote deserts and open ocean.\n\nOn a globe, lines of latitude and lines of longitude intersect everywhere, forming a grid that closely resembles graph paper stretched around a sphere. Each intersection marks one exact spot regardless of its distance from any city, road, or coastline.\n\nModern maps, ships, airplanes, and even ordinary smartphones all depend heavily on this same coordinate grid, since it gives navigators and everyday travelers a degree of navigational precision earlier sailors could scarcely have imagined possible."
+    },
+    {
+      "level": 1400,
+      "title": "Latitude and Longitude: The Grid That Maps the World",
+      "text": "Earth is almost incomprehensibly vast, so how can anyone describe, with total confidence, exactly where a single spot is located among billions of possible places, from icy tundra to crowded metropolitan cities? People rely on a system of lines drawn across maps and globes, and collectively, these lines form a coordinate grid covering the entire planet, enabling any location to be pinpointed with remarkable precision, frequently down to a matter of individual meters.\n\nSome lines circle the globe from side to side, at steadily increasing distances from the midpoint. They are called lines of latitude, and they measure how far north or south a given place lies relative to that midpoint. The equator sits at zero degrees latitude, exactly between the top and bottom, while the poles sit at ninety degrees, the farthest point achievable in either direction.\n\nLines of longitude, by contrast, stretch from the North Pole all the way to the South Pole, intersecting every latitude line along their circuitous path around the globe. Each longitude line is also called a meridian, and it measures how far east or west a particular place lies. One meridian, the prime meridian, was officially designated in 1884 to represent zero degrees, running through Greenwich, England, up to one hundred eighty degrees on the far side of the world.\n\nEvery place on Earth, no matter how remote or inaccessible, can be described using its own unique pair of coordinates, often subdivided into minutes and seconds for additional, finer precision. Because no two places ever share the exact same pair, these numbers function much like a permanent address written entirely in degrees rather than street names.\n\nFor centuries, navigators meticulously studied the stars and the sun to estimate their latitude fairly accurately, using instruments such as the astrolabe. Longitude proved considerably more intractable to determine, because calculating it accurately required an extremely precise clock, called a chronometer, able to keep correct time while rocking continuously at sea for months on end.\n\nToday, we depend on atomic clocks and compact satellite receivers known as GPS, short for Global Positioning System. A GPS receiver communicates simultaneously with a network of orbiting satellites and calculates its own exact latitude and longitude within mere seconds, virtually anywhere on the planet, including remote deserts and open ocean.\n\nOn a globe, lines of latitude and lines of longitude intersect everywhere, forming a grid that closely resembles graph paper stretched tightly around a sphere. Each intersection marks one exact spot regardless of its distance from any city, road, or coastline.\n\nModern maps, ships, airplanes, and even ordinary smartphones all depend heavily on this same coordinate grid, since it gives navigators and everyday travelers a degree of navigational precision earlier sailors could scarcely have imagined within their lifetimes."
+    },
+    {
+      "level": 1500,
+      "title": "Latitude and Longitude: The Grid That Maps the World",
+      "text": "Earth is almost incomprehensibly vast, holding billions of distinct locations, so how can anyone describe, with total confidence, exactly where one spot is situated among this staggering multitude, from icy tundra to crowded metropolitan centers? People rely on a system of imaginary lines inscribed across maps and globes, and collectively, these lines constitute a coordinate grid spanning the entire planet, enabling any location to be pinpointed with extraordinary precision, frequently down to a matter of individual meters.\n\nSome lines encircle the globe from side to side, running parallel to one another at steadily increasing distances from the equatorial midpoint. These are designated lines of latitude, and they quantify how far north or south a place lies relative to that midpoint. The equator sits at zero degrees latitude, exactly between the uppermost and lowermost extremities, while the poles occupy ninety degrees, the farthest point achievable in either direction.\n\nLines of longitude, by contrast, extend from the North Pole all the way to the South Pole, intersecting every latitude line along their circuitous path around the globe. Each longitude line is also called a meridian, and it quantifies how far east or west a particular place lies. One meridian, the prime meridian, was officially designated in 1884 to represent zero degrees, running directly through Greenwich, England, up to one hundred eighty degrees on the far side.\n\nEvery place on Earth, however remote, can be characterized using its own unique pair of coordinates, frequently subdivided further into minutes and seconds for additional precision. Because no two places ever share the identical pair, these numbers function much like a permanent address expressed entirely in degrees rather than street names.\n\nFor centuries, navigators meticulously studied the stars and the sun to estimate their latitude with reasonable accuracy, using comparatively rudimentary instruments such as the astrolabe. Longitude proved considerably more intractable to determine, because calculating it with any accuracy required an exceptionally precise timekeeping device, termed a chronometer, capable of keeping correct time even while rocking continuously upon the open sea for months at a stretch.\n\nToday, we depend upon atomic clocks and compact satellite receivers known as GPS, an abbreviation for Global Positioning System. A GPS receiver communicates simultaneously with an extensive network of orbiting satellites and calculates its own exact latitude and longitude within mere seconds, virtually anywhere on the planet, including remote deserts and open ocean.\n\nUpon a globe, lines of latitude and lines of longitude intersect everywhere, forming a grid that closely resembles graph paper stretched around a sphere. Each intersection demarcates one exact spot, irrespective of its distance from any city, road, or coastline.\n\nModern maps, ships, airplanes, and even ordinary smartphones all depend heavily upon this identical coordinate grid, since it enables navigators and everyday travelers alike to find their way safely, with a degree of navigational precision earlier sailors could scarcely have imagined within their lifetimes."
+    },
+    {
+      "level": 1600,
+      "title": "Latitude and Longitude: The Grid That Maps the World",
+      "text": "Earth is almost incomprehensibly vast, holding billions of distinct and individually significant locations, so how can anyone describe, with total confidence, exactly where one particular spot is situated among this staggering multitude, ranging from icy tundra to densely crowded metropolitan centers? People rely on a system of imaginary lines inscribed across maps and globes, and collectively, these lines constitute a coordinate grid spanning the entire planet, enabling any location whatsoever to be pinpointed with extraordinary precision, frequently down to a matter of individual meters, a feat early mapmakers could never have achieved.\n\nSome lines encircle the globe from side to side, running parallel to one another at steadily increasing distances from the equatorial midpoint, and they are designated lines of latitude, quantifying how far north or south a given place lies relative to that midpoint, with the equator sitting at zero degrees latitude and the poles occupying ninety degrees, the farthest point achievable in either direction.\n\nLines of longitude, by contrast, extend from the North Pole all the way to the South Pole, intersecting every latitude line along their circuitous path around the circumference of the globe, and each longitude line, also called a meridian, quantifies how far east or west a particular place lies in relation to a fixed reference, namely the prime meridian, officially designated in 1884 to represent zero degrees and running directly through Greenwich, England, with every other meridian measured as an angular distance east or west of it, up to one hundred eighty degrees, where east and west converge.\n\nEvery place on Earth, however remote or inaccessible, can be characterized using its own unique pair of coordinates, frequently subdivided further into minutes and seconds for additional, finer-grained precision, and because no two places ever share the identical pair, these numbers function much like a permanent address expressed entirely in degrees rather than in conventional street names.\n\nFor centuries, navigators meticulously studied the stars and the sun to estimate their latitude with reasonable accuracy, relying on comparatively rudimentary instruments such as the astrolabe, yet longitude proved considerably more intractable to determine, because calculating it with any real accuracy required an exceptionally precise timekeeping device, termed a chronometer, capable of maintaining correct time even while rocking continuously upon the open sea for months at a stretch, through storms and calm alike.\n\nToday, we depend upon atomic clocks and compact satellite receivers known as GPS, an abbreviation for Global Positioning System, and a GPS receiver communicates simultaneously with an extensive network of orbiting satellites, calculating its own exact latitude and longitude within mere seconds, virtually anywhere on the planet, including remote deserts and open ocean far removed from any visible landmark whatsoever.\n\nUpon a globe, lines of latitude and lines of longitude intersect ubiquitously, forming a grid that closely resembles graph paper stretched tightly around a sphere, and each intersection demarcates one exact, unrepeatable spot somewhere on the entire planet, irrespective of its distance from any city, road, or coastline.\n\nModern maps, ships, airplanes, and even ordinary smartphones all depend heavily upon this identical coordinate grid, since it enables navigators and everyday travelers alike to find their way safely toward whatever destination they choose, with a degree of navigational precision that earlier sailors could scarcely have imagined possible within their entire lifetimes."
+    }
+  ],
+  "bands": {
+    "LOW": {
+      "keyWords": [
+        { "word": "latitude", "partOfSpeech": "noun", "definition": "a line that circles the globe and tells how far north or south a place is", "example": "The teacher showed us a map with latitude lines drawn on it." },
+        { "word": "longitude", "partOfSpeech": "noun", "definition": "a line that runs from pole to pole and tells how far east or west a place is", "example": "We used longitude to see how far our city is from the ocean." },
+        { "word": "equator", "partOfSpeech": "noun", "definition": "the line around the middle of the Earth, at zero degrees latitude", "example": "It is very hot in countries that sit near the equator." },
+        { "word": "grid", "partOfSpeech": "noun", "definition": "a pattern of lines that cross each other, like squares on paper", "example": "She drew a grid on her paper to make a game of tic-tac-toe." },
+        { "word": "globe", "partOfSpeech": "noun", "definition": "a round model of the Earth", "example": "He spun the globe and pointed to where he wanted to visit." }
+      ],
+      "questions": [
+        {
+          "stem": "What is this article mostly about?",
+          "options": [
+            "How sailors once built strong wooden boats for long trips",
+            "The grid of lines that helps us find exact spots on Earth",
+            "Why the equator always feels hot outside in the summer",
+            "How to draw a round globe at school with a pencil"
+          ],
+          "answer": "B",
+          "skill": "central-idea",
+          "why": "The article explains how latitude and longitude lines form a grid that helps people find any exact spot on Earth.",
+          "wrong": { "A": "Boats are not the topic of the article.", "C": "Heat at the equator is not discussed in the article.", "D": "Drawing a globe is not explained." }
+        },
+        {
+          "stem": "What do lines of latitude tell us about a place?",
+          "options": [
+            "How far east or west it is",
+            "How far north or south it is",
+            "How many people live there",
+            "How tall its mountains are"
+          ],
+          "answer": "B",
+          "skill": "detail",
+          "why": "The article says latitude lines tell how far north or south a place is.",
+          "wrong": { "A": "That is what longitude lines tell us.", "C": "Population is not part of latitude.", "D": "Mountain height is not mentioned." }
+        },
+        {
+          "stem": "Where exactly is the equator located on Earth?",
+          "options": [
+            "At the very top of the globe",
+            "At the very bottom of the globe",
+            "Exactly between the top and bottom",
+            "Only out in the open ocean"
+          ],
+          "answer": "C",
+          "skill": "detail",
+          "why": "The article says the equator is the line exactly between the top and bottom, at zero degrees.",
+          "wrong": { "A": "The North Pole is at ninety degrees, not zero.", "B": "The South Pole is also at ninety degrees.", "D": "The equator crosses land and ocean both." }
+        },
+        {
+          "stem": "Why was it hard for old sailors to find longitude?",
+          "options": [
+            "They were afraid of looking at the stars",
+            "The open ocean stayed much too calm",
+            "They needed a clock good enough to use at sea",
+            "Sailing ships had not been invented yet"
+          ],
+          "answer": "C",
+          "skill": "cause-effect",
+          "why": "The article says finding longitude was much harder because it needed a very good clock.",
+          "wrong": { "A": "Sailors used stars to help them, not feared them.", "B": "Calm seas are not mentioned as the problem.", "D": "Sailing ships are described as already in use." }
+        },
+        {
+          "stem": "In the article, a grid is best described as —",
+          "options": [
+            "a small sailing boat used by sailors",
+            "a tall, snowy mountain peak",
+            "a pattern of lines that cross each other",
+            "a bright star seen high in the sky"
+          ],
+          "answer": "C",
+          "skill": "vocabulary",
+          "why": "The article describes latitude and longitude lines crossing to form a grid, a pattern of crossing lines.",
+          "wrong": { "A": "A grid is not a boat.", "B": "A grid is not a mountain.", "D": "A grid is not a star." }
+        },
+        {
+          "stem": "Why can no two places on Earth share the same two numbers?",
+          "options": [
+            "Because famous places get special numbers of their own",
+            "Because every place has its own exact pair, like an address",
+            "Because the ocean never gets any numbers at all, only land does",
+            "Because the numbers change a little each day or week"
+          ],
+          "answer": "B",
+          "skill": "inference",
+          "why": "The article says every place gets two numbers that work like an address, and no two places share the same pair.",
+          "wrong": { "A": "Every place, not just famous ones, gets numbers.", "C": "The ocean also has latitude and longitude numbers.", "D": "The numbers for a place do not change daily." }
+        },
+        {
+          "stem": "What can you tell about GPS from the article?",
+          "options": [
+            "It only works when used on large ships at sea",
+            "It cannot work anywhere near the open ocean or sky",
+            "It never uses latitude or longitude numbers to find a place",
+            "It finds your exact spot much faster than old ways"
+          ],
+          "answer": "D",
+          "skill": "inference",
+          "why": "The article shows GPS finds your numbers in seconds, much faster than old methods like studying stars.",
+          "wrong": { "A": "The article mentions GPS devices generally, not only on ships.", "B": "GPS is shown working almost anywhere, including over oceans.", "C": "GPS finds latitude and longitude numbers." }
+        },
+        {
+          "stem": "How does the author mostly explain latitude and longitude?",
+          "options": [
+            "By explaining what each kind of line does and how they work together",
+            "By telling a made-up story about a lost sailor on the sea",
+            "By listing strict rules for drawing any new map of a land",
+            "By comparing several different kinds of old boats and maps used by sailors long ago"
+          ],
+          "answer": "A",
+          "skill": "text-structure",
+          "why": "The author describes what latitude lines do, what longitude lines do, and how together they pinpoint a spot.",
+          "wrong": { "B": "No story about a lost sailor is told.", "C": "No rules for drawing maps are given.", "D": "Boats are not compared in the article." }
+        }
+      ],
+      "prompt": "Explain what latitude lines do and what longitude lines do, using the word grid.",
+      "checklist": [
+        "I explained what latitude lines tell us.",
+        "I explained what longitude lines tell us.",
+        "I used the word grid."
+      ],
+      "modelAnswer": "Latitude lines circle the globe and tell how far north or south a place is, while longitude lines run from pole to pole and tell how far east or west a place is. Together, these two kinds of lines cross each other to form a grid, and each crossing point is one exact spot on Earth."
+    },
+    "MID": {
+      "keyWords": [
+        { "word": "coordinate", "partOfSpeech": "noun", "definition": "one of a pair of numbers that shows an exact position", "example": "The map app showed the coordinates of the restaurant we wanted to find." },
+        { "word": "degree", "partOfSpeech": "noun", "definition": "a unit used to measure latitude and longitude, or an angle", "example": "The temperature was measured in a different kind of degree than a map's degree." },
+        { "word": "satellite", "partOfSpeech": "noun", "definition": "an object that circles Earth in space and sends or receives signals", "example": "A weather satellite sent back pictures of the storm from space." },
+        { "word": "navigator", "partOfSpeech": "noun", "definition": "a person who finds the way from one place to another", "example": "The ship's navigator used the stars to guide the crew across the sea." },
+        { "word": "network", "partOfSpeech": "noun", "definition": "a group of connected things that work together", "example": "A network of roads connects the small towns to the big city." }
+      ],
+      "questions": [
+        {
+          "stem": "Which sentence best states the central idea of the article?",
+          "options": [
+            "GPS was invented only for use on large ships and not for phones or cars",
+            "Latitude and longitude form a grid that lets any place be pinpointed",
+            "Sailors in the past were often afraid of the sea and the big waves",
+            "The equator is the only important line on Earth, and all others are not needed"
+          ],
+          "answer": "B",
+          "skill": "central-idea",
+          "why": "The article explains how latitude and longitude together create a grid that gives every place its own exact coordinates.",
+          "wrong": { "A": "GPS is used by ships, planes, and travelers, not only ships.", "C": "Fear of the ocean is not discussed.", "D": "The prime meridian is also an important line." }
+        },
+        {
+          "stem": "According to the article, what does the prime meridian represent?",
+          "options": [
+            "The deepest part of the whole ocean",
+            "Ninety degrees of latitude near a pole",
+            "Zero degrees of longitude",
+            "The single hottest place on Earth"
+          ],
+          "answer": "C",
+          "skill": "detail",
+          "why": "The article states that the prime meridian is the special longitude line chosen to sit at zero degrees.",
+          "wrong": { "A": "Ocean depth is not discussed.", "B": "Ninety degrees latitude describes the poles.", "D": "Temperature is not mentioned regarding the meridian." }
+        },
+        {
+          "stem": "What does a GPS receiver do, according to the article?",
+          "options": [
+            "It talks to satellites to work out its latitude and longitude",
+            "It builds brand new roads across the land for cars and trucks",
+            "It prints fresh paper maps for travelers on a long trip",
+            "It slowly changes where the equator is located on the Earth"
+          ],
+          "answer": "A",
+          "skill": "detail",
+          "why": "The article says a GPS receiver talks to satellites and finds its own latitude and longitude quickly.",
+          "wrong": { "B": "Roads are not built by GPS devices.", "C": "Printing maps is not described.", "D": "The equator's location does not change." }
+        },
+        {
+          "stem": "In the article, the word navigator most nearly means —",
+          "options": [
+            "a person who studies only the weather",
+            "a person who draws pictures for a living",
+            "a person who constructs very tall buildings",
+            "a person who finds the way from place to place"
+          ],
+          "answer": "D",
+          "skill": "vocabulary",
+          "why": "The article discusses old sailors and navigators finding their way using latitude and longitude.",
+          "wrong": { "A": "Studying weather is unrelated to navigating.", "B": "Drawing is not the meaning of navigator.", "C": "Building is not related to navigating." }
+        },
+        {
+          "stem": "Why was finding longitude at sea so difficult for old sailors?",
+          "options": [
+            "Paper maps had simply not been invented yet in those years",
+            "It required an extremely accurate clock, which was hard to build",
+            "There were far too many fish swimming nearby, so ships were slow",
+            "Sailors were not permitted to look at the stars at night"
+          ],
+          "answer": "B",
+          "skill": "cause-effect",
+          "why": "The article explains that finding longitude needed a clock accurate enough to work on a rocking ship.",
+          "wrong": { "A": "Maps are discussed throughout the article.", "C": "Fish are not mentioned.", "D": "Stars were used to help find latitude, not forbidden." }
+        },
+        {
+          "stem": "Based on the article, why might a pilot rely on GPS rather than stars?",
+          "options": [
+            "Because stars are always more accurate than any GPS",
+            "Because airplanes are physically unable to see satellites",
+            "Because GPS does not work at all over open water",
+            "Because GPS gives exact coordinates quickly, even through clouds"
+          ],
+          "answer": "D",
+          "skill": "inference",
+          "why": "The article shows GPS calculates exact location within seconds, which is more reliable than depending on visible stars.",
+          "wrong": { "A": "The article presents GPS as the more precise modern method.", "B": "Airplanes use GPS, which depends on satellites.", "C": "GPS is shown working almost anywhere, including over oceans." }
+        },
+        {
+          "stem": "What can be inferred about why every place needs its own unique coordinates?",
+          "options": [
+            "So that oceans never need any coordinates at all",
+            "So that places can change location whenever they choose",
+            "So that only large, famous cities appear on maps",
+            "So that any location can be told apart from every other"
+          ],
+          "answer": "D",
+          "skill": "inference",
+          "why": "Since no two places share the same pair, the unique coordinates let every spot be clearly identified.",
+          "wrong": { "A": "Oceans have latitude and longitude too.", "B": "Locations stay fixed; their coordinates do not change.", "C": "Even remote, non-city places get coordinates." }
+        },
+        {
+          "stem": "How is the article mainly organized?",
+          "options": [
+            "It compares the flags used by different countries at sea for many years",
+            "It lists the dangers of ocean travel in time order, one storm after another",
+            "It tells a long story about a single sailor's journey",
+            "It explains each line, then how they work together, then their history"
+          ],
+          "answer": "D",
+          "skill": "text-structure",
+          "why": "The article moves from explaining latitude, to longitude, to coordinates, to history, to today's GPS use.",
+          "wrong": { "A": "Flags are not discussed.", "B": "Dangers of travel are not the focus.", "C": "No single sailor's story is told." }
+        }
+      ],
+      "prompt": "Explain how a GPS receiver finds an exact location. Use the words satellite and coordinate.",
+      "checklist": [
+        "I explained how GPS uses satellites.",
+        "I explained what a coordinate is.",
+        "I used evidence from the article."
+      ],
+      "modelAnswer": "A GPS receiver communicates with a network of satellites circling Earth, and using signals from several of them, it calculates its own exact coordinate, meaning its precise latitude and longitude. This lets the device find its location within seconds, which is much faster than the methods sailors once used, such as studying the stars."
+    },
+    "HIGH": {
+      "keyWords": [
+        { "word": "meridian", "partOfSpeech": "noun", "definition": "a line of longitude running from pole to pole", "example": "The prime meridian passes through Greenwich, England." },
+        { "word": "chronometer", "partOfSpeech": "noun", "definition": "a very accurate clock, especially one used for navigation at sea", "example": "Sailors once relied on a chronometer to calculate their longitude." },
+        { "word": "precision", "partOfSpeech": "noun", "definition": "the quality of being very exact and accurate", "example": "The engineer measured the part with great precision." },
+        { "word": "intersect", "partOfSpeech": "verb", "definition": "to cross or meet at a point", "example": "The two roads intersect near the old bridge." },
+        { "word": "navigational", "partOfSpeech": "adjective", "definition": "relating to the finding of a route or position", "example": "The ship's crew checked their navigational instruments before setting sail." }
+      ],
+      "questions": [
+        {
+          "stem": "Which statement best expresses the central idea of the article?",
+          "options": [
+            "Only sailors from past centuries ever needed latitude and longitude, and no one uses them today",
+            "The prime meridian is the single most important place on Earth, and every city lies on it",
+            "Latitude and longitude form a grid that GPS now lets us use with great precision",
+            "Atomic clocks are useful only for telling the time of day, and not for maps or GPS"
+          ],
+          "answer": "C",
+          "skill": "central-idea",
+          "why": "The article traces how latitude and longitude create a coordinate grid, how that grid was historically hard to use, and how GPS now makes it precise and fast.",
+          "wrong": { "A": "Modern travelers and GPS devices still depend on the same system.", "B": "The meridian is a reference line, not described as the most important place.", "D": "Atomic clocks are shown enabling GPS precision, not just telling time." }
+        },
+        {
+          "stem": "What does the article say made longitude historically difficult to calculate at sea?",
+          "options": [
+            "A complete absence of any maps showing latitude, so that sailors could not find their place on the sea",
+            "Sailors' flat refusal to use any mathematics on the ship, because they thought it was a waste of time",
+            "A lack of stars that sailors could ever see at night, since the sky over the sea was always full of clouds",
+            "The need for an extremely precise chronometer that could withstand a rocking ship"
+          ],
+          "answer": "D",
+          "skill": "detail",
+          "why": "The article explains that calculating longitude required a chronometer precise enough to keep time while rocking at sea.",
+          "wrong": { "A": "Maps and latitude lines are described as long-established.", "B": "Mathematics is implied as necessary, not refused.", "C": "Stars helped sailors find latitude, and were visible at sea." }
+        },
+        {
+          "stem": "According to the article, what role did the year 1884 play?",
+          "options": [
+            "It is when chronometers were formally banned from all ships at sea",
+            "It is when the prime meridian was officially designated at Greenwich",
+            "It is when GPS satellites were first launched into orbit around Earth",
+            "It is when the equator was first discovered by explorers on a ship"
+          ],
+          "answer": "B",
+          "skill": "detail",
+          "why": "The article states the prime meridian was officially designated in 1884, running through Greenwich, England.",
+          "wrong": { "A": "Chronometers were adopted for navigation, not banned.", "C": "GPS satellites are a much later, modern development.", "D": "The equator is not described as being 'discovered' in that year." }
+        },
+        {
+          "stem": "In the article, the word precision most nearly means —",
+          "options": [
+            "the quality of being very exact and accurate",
+            "the distance measured between two separate oceans",
+            "a particular type of signal sent by a satellite",
+            "the feeling of being completely lost at sea"
+          ],
+          "answer": "A",
+          "skill": "vocabulary",
+          "why": "The article repeatedly emphasizes how GPS and coordinates allow locations to be pinpointed with great precision, meaning exactness.",
+          "wrong": { "B": "Ocean distance is unrelated to the word's meaning.", "C": "Precision is a quality, not a type of signal itself.", "D": "Being lost is the opposite of what precision describes." }
+        },
+        {
+          "stem": "Why does a GPS receiver need to communicate with a network of satellites?",
+          "options": [
+            "Because only one single satellite exists in all of orbit around Earth",
+            "Because satellites must take turns passing above the equator each day",
+            "Because multiple satellite signals together calculate an exact position",
+            "Because one satellite alone would give the wrong time of day"
+          ],
+          "answer": "C",
+          "skill": "cause-effect",
+          "why": "The article describes GPS as communicating with a network, implying several satellite signals combine to pinpoint an exact position.",
+          "wrong": { "A": "The article refers to a network, meaning many satellites.", "B": "No such turn-taking over the equator is mentioned.", "D": "Time of day is not the function described for satellites." }
+        },
+        {
+          "stem": "What can be inferred about why coordinates are often divided into minutes and seconds?",
+          "options": [
+            "To decide exactly which country owns a given ocean or sea",
+            "To give an even more exact position than whole degrees alone",
+            "To measure how hot or cold a given location is on the map",
+            "To tell sailors on board precisely what time it is each day"
+          ],
+          "answer": "B",
+          "skill": "inference",
+          "why": "Since degrees alone cover large areas, subdividing into minutes and seconds allows for the extra precision the article emphasizes throughout.",
+          "wrong": { "A": "Ocean ownership is not discussed in the article.", "C": "Temperature is unrelated to coordinate precision.", "D": "Minutes and seconds here are units of angle, not clock time." }
+        },
+        {
+          "stem": "Which conclusion is best supported by the article's comparison of old and new navigation?",
+          "options": [
+            "Navigation has grown far more precise since the days of early sailors",
+            "GPS cannot ever work without a coastline nearby to guide the ships",
+            "Chronometers are no longer useful for any purpose at all",
+            "Stars were always more reliable than any modern satellite"
+          ],
+          "answer": "A",
+          "skill": "inference",
+          "why": "The article contrasts centuries of difficulty finding longitude with GPS finding exact coordinates within seconds almost anywhere, showing great improvement.",
+          "wrong": { "B": "GPS is shown working in remote deserts and open ocean, away from coastlines.", "C": "Chronometers are presented as a historical solution, not dismissed entirely.", "D": "GPS is presented as far more precise than star-based estimates." }
+        },
+        {
+          "stem": "How is the article mainly structured?",
+          "options": [
+            "It argues that GPS devices should fully replace paper maps",
+            "It tells a fictional story about one explorer who got lost",
+            "It lists several dangers that modern sailors still face today",
+            "It defines the two lines, then traces their history into modern GPS"
+          ],
+          "answer": "D",
+          "skill": "text-structure",
+          "why": "The article moves from defining the two kinds of lines, to how they intersect to form coordinates, to the historical struggle with longitude, to GPS today.",
+          "wrong": { "A": "The article does not argue against paper maps.", "B": "No fictional story is included.", "C": "Dangers to sailors are not listed." }
+        }
+      ],
+      "prompt": "Explain why determining longitude was historically much harder than determining latitude, and how modern technology solved that problem. Use the words chronometer and precision.",
+      "checklist": [
+        "I explained why longitude was hard to measure in the past.",
+        "I explained how GPS solved the problem.",
+        "I used chronometer and precision correctly."
+      ],
+      "modelAnswer": "Determining longitude was historically difficult because, unlike latitude, which navigators could estimate from the stars, it required an exceptionally accurate chronometer capable of keeping correct time even while a ship rocked on the open sea for months. Modern technology solved this problem with GPS, where a receiver communicates with a network of orbiting satellites and calculates an exact position with remarkable precision within seconds, something early navigators relying on a chronometer alone could never have achieved."
+    }
+  }
+}

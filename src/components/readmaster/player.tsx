@@ -5,6 +5,7 @@ import { AnswerInput, isAnswerReady, type AnswerValue } from "@/components/pract
 import type { ClientQuestion } from "@/server/practice/items";
 import type { ArticleResult } from "@/server/readmaster/service";
 import { AnswerFx, CelebrateFx } from "@/components/feedback-fx/answer-fx";
+import { RichInline } from "@/components/rich-inline";
 
 const RANK: Record<string, number> = { BELOW: 0, ON: 1, ABOVE: 2 };
 
@@ -40,9 +41,9 @@ export function ReadMasterPlayer({ articleId, versionId, questions, submit, prac
         const rv = result?.review.find((x) => x.questionId === q.questionId);
         return (
           <section key={q.questionId} className={`rounded-2xl bg-white p-5 ring-1 ${rv ? (rv.correct ? "animate-pop ring-2 ring-emerald-400" : "animate-shake ring-2 ring-red-300") : "ring-slate-200"}`}>
-            <p className="font-semibold text-slate-900">{i + 1}. {q.stem}</p>
+            <p className="font-semibold text-slate-900">{i + 1}. <RichInline text={q.stem} /></p>
             <div className="mt-3"><AnswerInput q={q} value={values[q.questionId] ?? null} onChange={(v) => { stamp(q.questionId); setValues((s) => ({ ...s, [q.questionId]: v })); }} disabled={Boolean(result) || busy || preview} /></div>
-            {rv && <p className={`mt-3 text-sm ${rv.correct ? "text-emerald-800" : "text-red-800"}`}>{rv.correct ? "✓ Correct." : `✗ The answer is: ${rv.correctAnswer}.`} {rv.why}</p>}
+            {rv && <p className={`mt-3 text-sm ${rv.correct ? "text-emerald-800" : "text-red-800"}`}>{rv.correct ? "✓ Correct." : <>✗ The answer is: <RichInline text={rv.correctAnswer} />.</>} <RichInline text={rv.why} /></p>}
           </section>
         );
       })}

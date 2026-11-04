@@ -6,6 +6,7 @@ import { apiActor, repo } from "@/server/auth/next";
 import { can } from "@/server/auth/rbac";
 import { ValidationError } from "@/server/curriculum-admin";
 import { stageImport, type ImportKind } from "@/server/imports/pipeline";
+import { withCappedBody, BodyTooLargeError } from "@/server/lib/capped-body";
 
 /** Upload a CSV/XLSX file for validation. Returns the staged job; nothing is saved to results yet. */
 export async function POST(req: Request) {
@@ -15,8 +16,12 @@ export async function POST(req: Request) {
   if (!actor) return NextResponse.json({ error: "Please sign in." }, { status: 401 });
   if (!can(actor, "imports:run")) return NextResponse.json({ error: "Only school admins can import." }, { status: 403 });
   const len = Number(h.get("content-length") ?? 0);
-  if (len > env.MAX_UPLOAD_MB * 1024 * 1024 + 64_000) return NextResponse.json({ error: `Files must be under ${env.MAX_UPLOAD_MB} MB.` }, { status: 413 });
-  const form = await req.formData();
+  const maxBytes = env.MAX_UPLOAD_MB * 1024 * 1024 + 64_000;
+  if (len > maxBytes) return NextResponse.json({ error: `Files must be under ${env.MAX_UPLOAD_MB} MB.` }, { status: 413 });
+  // r89: the Content-Length check above trusts the client; this enforces the same limit on the real bytes read
+  let form: FormData;
+  try { form = await withCappedBody(req, maxBytes).formData(); }
+  catch (e) { if (e instanceof BodyTooLargeError) return NextResponse.json({ error: `Files must be under ${env.MAX_UPLOAD_MB} MB.` }, { status: 413 }); throw e; }
   const file = form.get("file");
   const kind = String(form.get("kind")) as ImportKind;
   if (!(file instanceof File) || !["MAP_RESULTS", "EXTERNAL_RESULTS"].includes(kind)) return NextResponse.json({ error: "Choose a file and an import type." }, { status: 400 });

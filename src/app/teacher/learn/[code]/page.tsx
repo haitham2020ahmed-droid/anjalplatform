@@ -88,7 +88,7 @@ export default async function TeacherLessonPage({ params, searchParams }: { para
           {v.needs.length ? (
             <ul className="divide-y divide-line text-sm">{v.needs.map((n) => (
               <li key={n.studentId} className="flex flex-wrap items-center justify-between gap-2 py-1.5">
-                <span><bdi>{n.name}</bdi> <span className="text-muted">· {n.className} · <span lang="en">{n.skill}</span> <span dir="ltr">{n.score}%</span></span></span>
+                <span><bdi>{n.name}</bdi> <span className="text-muted">· {n.className} · <span lang="en">{n.skill}</span> · {t(n.word)} <span dir="ltr">{n.score}%</span></span></span>
                 <Link prefetch={false} href={`/teacher/learn/assign?${new URLSearchParams({ kind: "LESSON", ref: code, classId: n.classId, studentId: n.studentId })}`} className={btn}>⭐ {t("Assign")}</Link>
               </li>))}</ul>
           ) : <p className="text-sm text-muted">{t("None of your students is weak on these skills right now.")}</p>}

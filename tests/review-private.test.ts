@@ -113,13 +113,13 @@ describe("✏️ teacher copies are private", () => {
     const mine = await bankSearch(repo, A, { mine: true });
     assert.ok(mine.rows.some((r) => r.id === copyId), "A finds the copy under My edited copies");
     assert.equal((await bankSearch(repo, B, { mine: true })).total, 0);
-    const r = await assignTest(repo, A, { classId: classA, type: "REVIEW", title: "Private copy test", levelMode: "SAME", questions: { SAME: [copyId, original] } });
+    const r = await assignTest(repo, A, { source: "CURRICULUM", classId: classA, type: "REVIEW", title: "Private copy test", levelMode: "SAME", questions: { SAME: [copyId, original] } });
     assert.ok(r.testId);
     assert.equal((await loadQuestionItems(repo, [copyId])).length, 1, "the test's own questions load by id");
     await assert.rejects(editQuestionCopy(repo, B, { questionId: copyId, stem: "B's change" }), ForbiddenError);
     const tB = (await repo.findUnique("Teacher", { userId: B.userId }))!;
     const classB = s((await repo.findMany("ClassTeacher", { teacherId: tB.id }))[0].classId);
-    await assert.rejects(assignTest(repo, B, { classId: classB, type: "REVIEW", title: "x", levelMode: "SAME", questions: { SAME: [copyId] } }), ForbiddenError);
+    await assert.rejects(assignTest(repo, B, { source: "CURRICULUM", classId: classB, type: "REVIEW", title: "x", levelMode: "SAME", questions: { SAME: [copyId] } }), ForbiddenError);
   });
 
   test("copies made before the rule become private (idempotent), and are never deleted", async () => {

@@ -8,6 +8,7 @@ import { AutoClassify } from "./auto-classify";
 import { PageHeader } from "@/components/page-header";
 import { Combo } from "@/components/ui/combo";
 import { BankTabs } from "../bank-tabs";
+import { RichInline } from "@/components/rich-inline";
 
 export const metadata = { title: "Classify questions" };
 
@@ -45,7 +46,7 @@ export default async function UnclassifiedPage({ searchParams }: { searchParams:
                 <thead><tr className="border-b text-slate-500"><th className="py-2">{t("Question")}</th><th>{t("Place")}</th><th>{t("Skill")}</th></tr></thead>
                 <tbody>{rows.map((r) => (
                   <tr key={r.id} className="border-b align-top last:border-0">
-                    <td className="max-w-md py-2 pe-3"><Link href={`/admin/questions/${r.id}`} className="text-brand-navy hover:underline">{r.stem || r.id}</Link></td>
+                    <td className="max-w-md py-2 pe-3"><Link href={`/admin/questions/${r.id}`} className="text-brand-navy hover:underline">{r.stem ? <RichInline text={r.stem} /> : r.id}</Link></td>
                     <td className="pe-3"><code className="text-xs">{r.mapCode ?? "—"}</code></td>
                     <td className="py-1"><Combo name={`skill:${r.id}`} label={t("Skill")} defaultValue="" placeholder={t("Choose (Grade {g})", { g: r.grade })} options={byGrade.get(r.grade) ?? []} className="w-64" dir="ltr" /></td>
                   </tr>

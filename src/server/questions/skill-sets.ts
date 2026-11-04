@@ -9,6 +9,7 @@ import type { Actor } from "../auth/rbac";
 import { createSkill } from "../curriculum-manage";
 import { createDraft, saveMapArea } from "../admin/questions";
 import { libraryActor } from "../readmaster/library";
+import { attachmentNodes } from "../curriculum-map/questions";
 import { RIT_MEAN, RIT_SD, ritOf, THETA_PER_RIT } from "./bank-scope";
 import type { Grid, HotText, TwoPart } from "@/imports/questions/validate";
 import { normalizeSkillName } from "./skill-questions";
@@ -91,6 +92,13 @@ export interface SkillSet {
   skill: string; questions: SetQuestion[];
   /** gap sets: the skill's home grade, CCSS code and bank domain (Reading Informational Text, Vocabulary, …) */
   grade?: number; ccss?: string; domain?: string; mapArea?: string;
+  /**
+   * 🩹 (Oct 2026 stability audit) a Curriculum Map category whose Level children should take these questions
+   * too, so the set also counts toward that lesson's Skill-plan "ready" status — e.g. "G6.U2.SEL4.ACS" for an
+   * "Analyze Craft and Structure" category: each question goes to "<mapNodeCodeBase>.<BELOW|ON|ABOVE>" by its
+   * own level. Omit for a plain pooled skill (the previous, still-supported behaviour — no map placement).
+   */
+  mapNodeCodeBase?: string;
 }
 export interface SetResult { skill: string; skillsCreated: number; added: number; skipped: number; errors: string[] }
 
@@ -157,6 +165,16 @@ export async function addSkillSets(repo: Repo, schoolId: string, sets: SkillSet[
     const want = set.grade ? Math.max(4, Math.min(6, set.grade)) : 5;
     const home = grades.find((g) => Number(g.level) === want) ?? grades.find((g) => Number(g.level) === 5) ?? grades[0];
     const r: SetResult = { skill: set.skill, skillsCreated: 0, added: 0, skipped: 0, errors: [] };
+    // 🩹 (Oct 2026) a set tied to a Curriculum Map lesson: only place questions on it when all 3 Level nodes
+    // actually exist on this school (the map may not be seeded yet, e.g. a brand-new school or a test school)
+    // — otherwise the questions are still added to the pooled skill as before, just not placed on the map.
+    let mapBase: string | null = null;
+    if (set.mapNodeCodeBase) {
+      const codes = new Set((await attachmentNodes(repo, schoolId)).map((n) => n.code.toUpperCase()));
+      const want = ["BELOW", "ON", "ABOVE"].map((l) => `${set.mapNodeCodeBase}.${l}`.toUpperCase());
+      if (want.every((c) => codes.has(c))) mapBase = set.mapNodeCodeBase;
+      else r.errors.push(`${set.skill}: this school's Curriculum Map has no ${set.mapNodeCodeBase} yet (seed the map first) — the questions were added to the skill, just not placed on the map.`);
+    }
     let homeSkillId: string | null = null;
     let homeLevel: number | null = null;
     const found: { id: string; level: number }[] = [];
@@ -220,6 +238,9 @@ export async function addSkillSets(repo: Repo, schoolId: string, sets: SkillSet[
           skillId: homeSkillId, stem: q.stem, level, whyCorrect: q.why, ...fields,
           ...(q.passage ? { passageText: q.passageTitle ? `${q.passageTitle}\n\n${q.passage}` : q.passage } : {}),
           ...(std ? { standardCode: std } : {}),
+          // 🩹 (Oct 2026) a set tied to a Curriculum Map lesson (and the nodes exist on this school): place each
+          // question on its Level node too, so it also counts toward that lesson's Skill-plan "ready" status
+          ...(mapBase ? { mapNodeCode: `${mapBase}.${["BELOW", "ON", "ABOVE"].includes(s(q.level).toUpperCase()) ? s(q.level).toUpperCase() : "ON"}` } : {}),
         } as never, now, { deferAnalysis: true });
         made.push({ qid, data: {
           status: "PUBLISHED", publishedAt: now, reviewedById: actor.userId,

@@ -47,9 +47,9 @@
       "stem": "Read this sentence from paragraph 2: “Its eyesight is extraordinary: a falcon can spot a small animal from more than a kilometre away, long before a human would notice it.” What does “extraordinary” mean?",
       "options": [
         "far better than what is usual",
-        "weak and unreliable",
-        "similar to a human's",
-        "useful only at night"
+        "weak and unreliable, like an old man's",
+        "similar to a human's, but slower",
+        "useful only at night, in the dark"
       ],
       "answer": "A",
       "why": "The words after the colon explain the meaning: seeing a small animal from over a kilometre away is far beyond the usual."
@@ -157,9 +157,9 @@
       "type": "MCQ",
       "stem": "Which is another suitable title for the whole text?",
       "options": [
-        "The Peregrine Falcon's Record Dive",
-        "Festivals of the Arabian Desert",
-        "How to Build a Breeding Centre",
+        "The Peregrine Falcon's Record Dive in the Sky",
+        "Festivals of the Arabian Desert and Their Music",
+        "How to Build a Breeding Centre for Birds",
         "Falcons: Speed, Skill and Shared Heritage"
       ],
       "answer": "D",
@@ -173,10 +173,10 @@
       "type": "MCQ",
       "stem": "What is the main purpose of the text?",
       "options": [
-        "to persuade readers to buy a trained falcon",
+        "to persuade readers to buy a trained falcon from a farm",
         "to inform readers about falcons and why falconry matters",
-        "to describe one falconer's personal adventures",
-        "to compare falcons with other birds of prey"
+        "to describe one falconer's personal adventures in the sand",
+        "to compare falcons with other birds of prey in the world"
       ],
       "answer": "B",
       "why": "The writer gives facts about falcons, their training, their cultural value and the dangers they face."
@@ -190,9 +190,9 @@
       "stem": "What is the main idea of paragraph 1?",
       "options": [
         "Falconry was once needed for food and is still valued today",
-        "Falcons are the cleverest birds in Arabia",
-        "Poets wrote about falcons more than any other bird",
-        "Desert families no longer hunt for meat"
+        "Falcons are the cleverest birds in all of Arabia, and they know their names",
+        "Poets wrote about falcons more than any other bird in the desert",
+        "Desert families no longer hunt for meat at all, or use any hawks"
       ],
       "answer": "A",
       "why": "The paragraph moves from falconry's past role (finding meat) to its present value as a treasured tradition; the other choices are details or not stated."
@@ -317,9 +317,9 @@
       "type": "MCQ",
       "stem": "In your opinion, what most makes the reader want to keep reading this text?",
       "options": [
-        "a mystery that is solved at the end",
-        "long lists of festival rules",
-        "a conversation between two falconers",
+        "a mystery that is solved at the end of the text, with a surprise",
+        "long lists of festival rules and prizes that are given to winners",
+        "a conversation between two falconers in a tent in the desert",
         "surprising facts, such as the peregrine's dive speed"
       ],
       "answer": "D",
@@ -333,10 +333,10 @@
       "type": "MCQ",
       "stem": "Which evidence from paragraph 3 best shows that a falconer must be patient?",
       "options": [
-        "The falconer swings a bundle of feathers",
-        "The hood is made of leather",
+        "The falconer swings a bundle of feathers in a circle",
+        "The hood is made of leather and has a small tuft",
         "The falcon learns over weeks, and trust grows gradually",
-        "The glove protects the falconer's hand"
+        "The glove protects the falconer's hand from the claws"
       ],
       "answer": "C",
       "why": "Training that lasts “the following weeks” and trust that grows “gradually” show that the falconer must wait and keep trying."
@@ -365,10 +365,10 @@
       "type": "MCQ",
       "stem": "What is the effect of giving the falcon a reward of meat each time it returns?",
       "options": [
-        "It becomes afraid of the glove",
+        "It becomes afraid of the glove and the meat",
         "It learns to come back to the falconer",
-        "It stops hunting for itself",
-        "It no longer needs the hood"
+        "It stops hunting for itself in the wild",
+        "It no longer needs the hood on its head"
       ],
       "answer": "B",
       "why": "The reward teaches the falcon to fly back whenever the falconer swings the lure, and in this way trust grows."
@@ -381,9 +381,9 @@
       "type": "MCQ",
       "stem": "What do the hood, the glove and the lure have in common?",
       "options": [
-        "They are prizes given at festivals",
-        "They are used to feed the falcon",
-        "They contain small trackers",
+        "They are prizes given at festivals in the desert",
+        "They are used to feed the falcon at night",
+        "They contain small trackers that send a signal",
         "They help the falconer handle or train the bird"
       ],
       "answer": "D",
@@ -397,10 +397,10 @@
       "type": "MCQ",
       "stem": "What is your opinion of the way the writer organises the ideas?",
       "options": [
-        "The writer jumps between topics without any order",
-        "The ideas are given only as numbers and dates",
+        "The writer jumps between topics without any order or plan at all, so it is hard to read",
+        "The ideas are given only as numbers and dates, in a long list, with no clear topics",
         "Each paragraph has one clear topic, from the bird itself to its protection",
-        "The facts are told through a conversation"
+        "The facts are told through a conversation between two birds, so each idea is a story"
       ],
       "answer": "C",
       "why": "The paragraphs move in a clear order: history, body, training, culture, dangers and conclusion."
@@ -414,9 +414,9 @@
       "stem": "Why does the writer end the sentence about the peregrine falcon's dive with an exclamation mark?",
       "options": [
         "to show that the fact is surprising and impressive",
-        "to ask the reader a question",
-        "to give the reader an order",
-        "to show that the writer is angry"
+        "to ask the reader a question about the bird's dive",
+        "to give the reader an order about the dive of a falcon",
+        "to show that the writer is angry at the bird for diving"
       ],
       "answer": "A",
       "why": "The exclamation mark turns the sentence into an exclamatory sentence that expresses amazement at the falcon's speed."
@@ -445,9 +445,9 @@
       "type": "MCQ",
       "stem": "In your opinion, which plan would best protect wild falcons, based on the text?",
       "options": [
-        "catching young falcons from the wild to train them",
-        "clearing more desert land for building",
-        "keeping all falcons hooded at all times",
+        "catching young falcons from the wild to train them for sale",
+        "clearing more desert land for building new houses and roads",
+        "keeping all falcons hooded at all times, even when they fly",
         "using bred birds and releasing healthy falcons with trackers"
       ],
       "answer": "D",
@@ -461,10 +461,10 @@
       "type": "MCQ",
       "stem": "What do you think motivated the writer to write this text?",
       "options": [
-        "a wish to sell falconry equipment",
-        "worry that festivals are too crowded",
+        "a wish to sell falconry equipment to tourists",
+        "worry that festivals are too crowded every year",
         "admiration for falcons and pride in a tradition",
-        "a plan to teach desert cooking"
+        "a plan to teach desert cooking to children"
       ],
       "answer": "C",
       "why": "The writer praises falcons, describes the values falconry teaches and calls for protecting the birds."
@@ -525,10 +525,10 @@
       "type": "MCQ",
       "stem": "Which title best describes the ideas of the whole text?",
       "options": [
-        "Falcon Festivals Around the World",
-        "The Life of a Desert Hunter",
+        "Falcon Festivals Around the World Today",
+        "The Life of a Desert Hunter and His Bird",
         "The Falcon: A Bird of Pride and Heritage",
-        "Why Falcons Are Disappearing"
+        "Why Falcons Are Disappearing from Arabia"
       ],
       "answer": "C",
       "why": "The text is about the falcon and its importance in Arabian heritage; the other titles fit only part of it or not at all."
@@ -557,9 +557,9 @@
       "stem": "How can we keep the tradition of falconry alive for the future?",
       "options": [
         "Pass its skills and values to young people",
-        "Hold fewer falconry festivals",
-        "Take more falcons from the wild",
-        "Keep the old stories private"
+        "Hold fewer falconry festivals in the Kingdom",
+        "Take more falcons from the wild each year",
+        "Keep the old stories private in the family"
       ],
       "answer": "A",
       "why": "Paragraph 4 shows that the tradition lives on when fathers pass their skills to their sons and families keep the stories alive."

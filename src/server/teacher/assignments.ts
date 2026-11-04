@@ -1,13 +1,15 @@
 /**
  * Assignments: a teacher assigns skills (or a whole unit) to a class with a due date
  * and a target mastery. Each enrolled student gets an AssignmentStudent row and a
- * notification. Progress = share of target skills at or above the target mastery.
+ * notification. Progress = share of the target skills (by key) the student has ⭐ (the one skill status).
  */
 import type { Repo, Row } from "../seeding/repo";
 import { audit } from "../audit";
 import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
+import { requireSource } from "../assign/source";
 import { refreshQuestionSets, refreshSkillAssignments } from "./assign";
+import { starBook, starMastered, starNotStarted } from "../skills/star-read";
 
 export interface NewAssignment {
   classId: string;
@@ -16,7 +18,11 @@ export interface NewAssignment {
   skillIds?: string[];
   unitId?: string;
   dueAt: Date | null;
+  /** r68: students see it from this day (null: at once) */
+  startAt?: Date | null;
   targetMastery?: number;
+  /** r74: REQUIRED — MAP | NAFS | CURRICULUM | GRAMMAR | RTI */
+  source: string | null | undefined;
 }
 
 /** Teacher of the class, or an admin of the class's school. */
@@ -46,6 +52,7 @@ async function targetSkills(repo: Repo, a: Row): Promise<string[]> {
 
 export async function createAssignment(repo: Repo, actor: Actor, input: NewAssignment, now = new Date()): Promise<Row> {
   assertCan(actor, "assignments:create");
+  const source = requireSource(input.source);
   const klass = await assertClassAccess(repo, actor, input.classId);
   const title = input.title.replace(/\s+/g, " ").trim();
   if (!title || title.length > 191) throw new ValidationError("Give the assignment a title (under 191 characters).");
@@ -70,7 +77,7 @@ export async function createAssignment(repo: Repo, actor: Actor, input: NewAssig
   const teacher = await repo.findUnique("Teacher", { userId: actor.userId });
   if (!teacher) throw new ForbiddenError("Only teachers can create assignments.");
   const a = await repo.create("Assignment", {
-    classId: klass.id, createdById: teacher.id, title, target: input.target, unitId, skillIds, dueAt: input.dueAt, targetMastery, createdAt: now,
+    classId: klass.id, createdById: teacher.id, title, target: input.target, unitId, skillIds, dueAt: input.dueAt, ...(input.startAt ? { startAt: input.startAt } : {}), targetMastery, createdAt: now, source,
   });
   const members = await repo.findMany("ClassMembership", { classId: klass.id, leftAt: null });
   for (const m of members) {
@@ -107,7 +114,10 @@ export async function refreshAssignmentsBatch(repo: Repo, list: Row[], now = new
   await Promise.all([refreshSkillAssignments(repo, skill, null, now), refreshQuestionSets(repo, sets, null, now), refreshMultiSkill(repo, legacy, now)]);
 }
 
-/** Older multi-skill / unit assignments: progress = share of target skills at the target mastery. */
+/**
+ * Older multi-skill / unit assignments: progress = the share of the assignment's skill KEYS (every grade's copy of a
+ * skill is one skill) that are ⭐ (the ONE skill status, skills/star-read.ts); all ⭐ → COMPLETED (never moved back).
+ */
 async function refreshMultiSkill(repo: Repo, list: Row[], now: Date): Promise<void> {
   const withSkills: { a: Row; skills: string[] }[] = [];
   for (const a of list) {
@@ -117,9 +127,7 @@ async function refreshMultiSkill(repo: Repo, list: Row[], now: Date): Promise<vo
   if (!withSkills.length) return;
   const rows = await repo.findMany("AssignmentStudent", { assignmentId: { in: withSkills.map((x) => x.a.id) } });
   if (!rows.length) return;
-  const allSkills = [...new Set(withSkills.flatMap((x) => x.skills))];
-  const mastery = await repo.findMany("StudentSkillMastery", { studentId: { in: [...new Set(rows.map((r) => String(r.studentId)))] }, skillId: { in: allSkills } }, { select: ["studentId", "skillId", "score", "attempts"] });
-  const byKey = new Map(mastery.map((m) => [`${String(m.studentId)}|${String(m.skillId)}`, m]));
+  const book = await starBook(repo, [...new Set(rows.map((r) => String(r.studentId)))]);
   const byId = new Map(withSkills.map((x) => [String(x.a.id), x]));
   const writes: Promise<unknown>[] = [];
   for (const r of rows) {
@@ -127,13 +135,15 @@ async function refreshMultiSkill(repo: Repo, list: Row[], now: Date): Promise<vo
     if (!x) continue;
     if (r.status === "COMPLETED" || r.completedAt) continue; // finished work is never moved back
     const { a, skills } = x;
-    const target = Number(a.targetMastery ?? 75);
     const due = a.dueAt ? new Date(String(a.dueAt instanceof Date ? a.dueAt.toISOString() : a.dueAt)) : null;
-    const mine = skills.map((k) => byKey.get(`${String(r.studentId)}|${k}`)).filter(Boolean) as Row[];
-    const reached = mine.filter((m) => Number(m.score) >= target).length;
-    const progress = Math.round((reached / skills.length) * 1000) / 1000;
-    const started = mine.some((m) => Number(m.attempts) > 0);
-    const status = progress >= 1 ? "COMPLETED" : due && now > due ? "OVERDUE" : started ? "IN_PROGRESS" : "NOT_STARTED";
+    const keys = [...new Set(skills.map((k) => book.keyOf(k)))];
+    const stars = keys.map((k) => book.ofKey(String(r.studentId), k));
+    const reached = stars.filter((v) => starMastered(v)).length;
+    const progress = Math.round((reached / keys.length) * 1000) / 1000;
+    const started = stars.some((v) => !starNotStarted(v));
+    // the 30–50 rule's cap per skill: a skill at ⭐, or at 50 answers without mastery ("needs support"), is finished
+    const finished = stars.filter((v) => starMastered(v) || (v.status === "IN_PROGRESS" && v.needsSupport)).length;
+    const status = finished >= keys.length ? "COMPLETED" : due && now > due ? "OVERDUE" : started ? "IN_PROGRESS" : "NOT_STARTED";
     if (status === r.status && Math.abs(progress - Number(r.progress ?? 0)) <= 0.0005) continue;
     writes.push(repo.updateMany("AssignmentStudent", { assignmentId: a.id, studentId: r.studentId }, { status, progress, completedAt: status === "COMPLETED" ? now : null }));
   }

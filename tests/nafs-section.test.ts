@@ -288,7 +288,7 @@ describe("NAFS section", () => {
   test("pages: one center with six tabs; actions check the actor; page files export only page fields; new words translated", () => {
     const page = read("src/app/teacher/nafs/page.tsx");
     const center = read("src/server/nafs/center.ts");
-    for (const tab of ["Home", "Dashboard", "Practice", "Tests", "Question bank", "Marking", "Reports"]) { /* owner r67 */ assert.ok(center.includes(`"${tab}"`), tab); assert.ok(hasAr(tab), tab); }
+    for (const tab of ["Adaptive", "NAFS test", "Ministry booklets", "Reports", "Suggested plan", "Question bank", "Marking"]) { /* owner r69 */ assert.ok(center.includes(`"${tab}"`), tab); assert.ok(hasAr(tab), tab); }
     assert.ok(page.includes('"About NAFS"') && hasAr("About NAFS"), "About NAFS: a small link at the top");
     assert.match(page, /plans\?tab=nafs/, "Make a NAFS plan from these results");
     const actions = read("src/app/teacher/nafs/actions.ts");

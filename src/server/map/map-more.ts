@@ -13,11 +13,13 @@ import { assertClassAccess } from "../teacher/assignments";
 import { assertClassRead } from "../teacher/coordinators";
 import { assignQuestions } from "../teacher/assign";
 import { audit } from "../audit";
+import { cancelIndex } from "../student/cancelled-work";
 import { assertCanEditSharedCatalogue } from "../curriculum-manage";
 import { classMembers, studentNames } from "../insights/student-data";
 import { masterSkills } from "../skills/master";
 import { bandSettings, estimateRit, estimateRits, groupOf, groupPools, GROUPS, mapProfiles, orderAreas, pickBand, ritBand, type AreaProfile, type GroupKey, type MapProfile, type PlanItem, type Subject } from "./map-plan";
 import { BANK_MODELS, keptWhileUnchanged } from "../cache/kept";
+import { starBook, starMastered, starNeedsReview } from "../skills/star-read";
 
 const s = (v: unknown) => String(v ?? "");
 const time = (v: unknown) => new Date(v instanceof Date ? v.toISOString() : s(v)).getTime();
@@ -30,7 +32,7 @@ export const RETEST_PCT = 30;
 export interface MatrixRow { studentId: string; name: string; number: string; profile: MapProfile; estimate: number | null; retest: boolean; plan: "DRAFT" | "SENT" | null }
 export interface MatrixView { className: string; grade: number; subject: Subject; rows: MatrixRow[]; noScores: { id: string; name: string }[]; groups: { key: GroupKey; name: string; icon: string; focus: number; maintain: number; extend: number }[]; canEdit: boolean }
 
-export async function classMatrix(repo: Repo, actor: Actor, classId: string, subject: Subject, now = new Date()): Promise<MatrixView> {
+export async function classMatrix(repo: Repo, actor: Actor, classId: string, subject: Subject, now = new Date(), opts: { estimates?: boolean } = {}): Promise<MatrixView> {
   assertCan(actor, "reports:read");
   const klass = await assertClassRead(repo, actor, classId);
   let canEdit = true; try { await assertClassAccess(repo, actor, classId); } catch { canEdit = false; }
@@ -38,7 +40,9 @@ export async function classMatrix(repo: Repo, actor: Actor, classId: string, sub
   const ids = await classMembers(repo, classId);
   const [names, profiles, plans] = await Promise.all([studentNames(repo, ids), mapProfiles(repo, actor.schoolId!, ids, subject), repo.findMany("MapPlan", { classId, subject }, { select: ["studentId", "status", "term"] })]);
   const rows: MatrixRow[] = [];
-  const estimates = await estimateRits(repo, await groupPools(repo, actor.schoolId!, grade), ids, subject, now);
+  // ⚡ r79: the "Now (about)" estimate reads every answer of the class in 45 days and the grade's pools: only for the
+  // views that show it (the export), not the Results tab
+  const estimates = opts.estimates === false ? new Map<string, { rit: number; answers: number }>() : await estimateRits(repo, await groupPools(repo, actor.schoolId!, grade), ids, subject, now);
   for (const id of ids) {
     const p = profiles.get(id)!;
     if (!p.term) continue;
@@ -59,7 +63,7 @@ export async function classMatrix(repo: Repo, actor: Actor, classId: string, sub
 export interface PlanDoc {
   id: string; studentId: string; name: string; number: string; className: string; grade: number; subject: Subject; term: string; status: "DRAFT" | "SENT"; sentAt: string | null; dueAt: string | null; note: string | null;
   profile: MapProfile; estimate: number | null;
-  items: { group: GroupKey; name: string; icon: string; status: string | null; rit: number | null; band: string; skills: string[]; count: number; assignmentId: string | null; progress: number | null; done: boolean }[];
+  items: { group: GroupKey; name: string; icon: string; status: string | null; rit: number | null; band: string; skills: string[]; /** r79: the same skills with their ids (the printed plan links each one) */ skillRefs: { id: string; name: string }[]; count: number; assignmentId: string | null; progress: number | null; done: boolean }[];
 }
 
 /** May this actor read the student's MAP plan? Teachers/admins of the class, the student, the parent. */
@@ -83,12 +87,14 @@ async function docOf(repo: Repo, r: Row, now: Date): Promise<PlanDoc> {
   const subject = s(r.subject) as Subject, studentId = s(r.studentId);
   const [names, profiles, pk, bands] = await Promise.all([studentNames(repo, [studentId]), mapProfiles(repo, s(r.schoolId), [studentId], subject), groupPools(repo, s(r.schoolId), grade), bandSettings(repo, s(r.schoolId))]);
   const aIds = Array.isArray(r.assignmentIds) ? (r.assignmentIds as string[]) : typeof r.assignmentIds === "string" ? (JSON.parse(r.assignmentIds) as string[]) : [];
-  const [assignments, rows] = aIds.length ? await Promise.all([repo.findMany("Assignment", { id: { in: aIds } }, { select: ["id", "title"] }), repo.findMany("AssignmentStudent", { assignmentId: { in: aIds }, studentId })]) : [[] as Row[], [] as Row[]];
+  const [found, rows, ix] = aIds.length ? await Promise.all([repo.findMany("Assignment", { id: { in: aIds } }, { select: ["id", "title", "deletedAt", "testId", "curriculumPlanId"] }), repo.findMany("AssignmentStudent", { assignmentId: { in: aIds }, studentId }), cancelIndex(repo, s(r.schoolId))]) : [[] as Row[], [] as Row[], null];
+  // r78: a set cancelled on Assigned is not linked from the plan any more
+  const assignments = ix ? found.filter((a) => ix.live(a, studentId)) : found;
   const items = (((typeof r.items === "string" ? JSON.parse(r.items) : r.items) ?? []) as PlanItem[]).map((it) => {
     const g = groupOf(it.group);
     const a = assignments.find((x) => s(x.title).endsWith(g.name));
     const st = a ? rows.find((x) => x.assignmentId === a.id) : undefined;
-    return { group: it.group, name: g.name, icon: g.icon, status: it.status, rit: it.rit, band: ritBand(it.rit ?? it.low, bands).label, skills: it.skillIds.map((k) => pk.skills.get(k)?.name ?? "").filter(Boolean), count: it.count, assignmentId: a ? s(a.id) : null, progress: st ? Math.round(Number(st.progress) * 100) : null, done: s(st?.status) === "COMPLETED" };
+    return { group: it.group, name: g.name, icon: g.icon, status: it.status, rit: it.rit, band: ritBand(it.rit ?? it.low, bands).label, skills: it.skillIds.map((k) => pk.skills.get(k)?.name ?? "").filter(Boolean), skillRefs: it.skillIds.filter((k) => pk.skills.get(k)?.name).map((k) => ({ id: s(k), name: pk.skills.get(k)!.name })), count: it.count, assignmentId: a ? s(a.id) : null, progress: st ? Math.round(Number(st.progress) * 100) : null, done: s(st?.status) === "COMPLETED" };
   });
   const est = await estimateRit(repo, s(r.schoolId), studentId, subject, now);
   return { id: s(r.id), studentId, name: names.get(studentId)?.name ?? "Student", number: names.get(studentId)?.number ?? "", className: s(klass?.name), grade, subject, term: s(r.term), status: s(r.status) as "DRAFT" | "SENT", sentAt: iso(r.sentAt), dueAt: iso(r.dueAt), note: r.note ? s(r.note) : null, profile: profiles.get(studentId)!, estimate: est?.rit ?? null, items };
@@ -115,7 +121,7 @@ export async function myMap(repo: Repo, actor: Actor, now = new Date()): Promise
   const studentId = actor.studentId;
   const st = await repo.findUnique("Student", { id: studentId });
   const grade = Number((st?.gradeId ? await repo.findUnique("Grade", { id: st.gradeId }) : null)?.level ?? 0);
-  const [pk, mastery] = await Promise.all([groupPools(repo, actor.schoolId!, grade), repo.findMany("StudentSkillMastery", { studentId }, { select: ["skillId", "attempts", "correct", "score"] })]);
+  const [pk, book] = await Promise.all([groupPools(repo, actor.schoolId!, grade), starBook(repo, [studentId], actor.schoolId)]);
   // ⚡ the two subjects (and the sent plans) are read side by side, not one after another
   const one = async (subject: Subject): Promise<MySubject> => {
     const p = (await mapProfiles(repo, actor.schoolId!, [studentId], subject)).get(studentId)!;
@@ -123,12 +129,16 @@ export async function myMap(repo: Repo, actor: Actor, now = new Date()): Promise
     const next = new Map<GroupKey, string | null>();
     for (const g of GROUPS.filter((x) => x.subject === subject)) {
       const skills = [...pk.skills.values()].filter((k) => k.group === g.key).map((k) => k.id);
-      const m = mastery.filter((x) => skills.includes(s(x.skillId)) && Number(x.attempts) > 0);
-      const a = m.reduce((t, x) => t + Number(x.attempts), 0);
-      acc.set(g.key, a ? Math.round((100 * m.reduce((t, x) => t + Number(x.correct), 0)) / a) : null);
-      // next skill to practise: the weakest started one, else the first not started
-      const score = new Map(mastery.map((x) => [s(x.skillId), Number(x.score)]));
-      next.set(g.key, [...skills].sort((x, y) => (score.get(x) ?? -1) - (score.get(y) ?? -1))[0] ?? null);
+      // round 4: the goal area's number = the average STAR score of its started skills, each skill KEY once (the
+      // same stars as My Skills) — no longer the old engine's answer counters
+      const started = [...new Set(skills.map((id) => book.keyOf(id)))].map((k) => book.ofKey(studentId, k)).filter((v) => v.status !== "NOT_STARTED");
+      acc.set(g.key, started.length ? Math.round(started.reduce((t, v) => t + v.score, 0) / started.length) : null);
+      // next skill to practise (⭐ stars, by skill key): never a ⭐ skill; a 🔄 "needs review" one first, then the
+      // started one with the lowest star score, else the first not started
+      const open = skills.filter((id) => !starMastered(book.of(studentId, id)));
+      const review = (id: string) => (starNeedsReview(book.of(studentId, id)) ? 0 : 1);
+      const rank = (id: string) => { const v = book.of(studentId, id); return v.status === "NOT_STARTED" ? 1000 : v.score; };
+      next.set(g.key, [...open].sort((x, y) => review(x) - review(y) || rank(x) - rank(y))[0] ?? null);
     }
     const ordered = orderAreas(p, acc).map((a) => ({ ...a, accuracy: acc.get(a.group) ?? null, next: next.get(a.group) ?? null }));
     const est = p.term ? await estimateRit(repo, actor.schoolId!, studentId, subject, now) : null;
@@ -177,7 +187,7 @@ export async function sendCheck(repo: Repo, actor: Actor, classId: string, subje
       qids.push(...pick.ids.filter((_, i) => i % step === 0).slice(0, 4));
     }
     if (qids.length < 5) continue;
-    await assignQuestions(repo, actor, { classId, studentIds: group, questionIds: qids, title: `MAP check · ${subject === "READING" ? "Reading" : "Language Usage"}`, exactTitle: true, track: "MAP", dueAt: input.dueAt ?? null, note: "A short check: do your best, no hurry." }, now);
+    await assignQuestions(repo, actor, { classId, studentIds: group, questionIds: qids, title: `MAP check · ${subject === "READING" ? "Reading" : "Language Usage"}`, exactTitle: true, track: "MAP", dueAt: input.dueAt ?? null, note: "A short check: do your best, no hurry.", source: "MAP" }, now);
     sets++; students += group.length;
   }
   if (!sets) throw new ValidationError("Not enough questions linked to MAP goal areas for this grade yet.");

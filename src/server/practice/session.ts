@@ -16,11 +16,13 @@
 import { skillHistoryWithEvidence } from "./skill-evidence";
 import { hideLevels } from "../../lib/hide-levels";
 import { modelVersion } from "../cache/bank-version";
+import { sweptMap } from "../cache/idle";
+import { admitted } from "../lib/admission";
 import { resolveEngineConfig, ENGINE_VERSION, type AdaptiveConfig, type MasteryThresholds } from "../../config/engine";
 import { processAnswer } from "../../adaptive/engine";
 import { isRecentRepeat, markRepeats } from "../../adaptive/evidence";
 import { nextReview } from "../../mastery/review";
-import { bandFor } from "../../mastery/mastery";
+import { bandFor, withholdRaise } from "../../mastery/mastery";
 import { bandOfTheta, tutorFeedback, type TutorMessage } from "../../tutor/tutor";
 import { selectNextItem, type PrerequisiteStatus } from "../../adaptive/selector";
 import { isClassicErrorItem, scoreResponse } from "../../imports/questions/validate";
@@ -31,17 +33,23 @@ import type { Repo, Row } from "../seeding/repo";
 import { answerTexts, attemptMisconception, correctAnswerText, loadQuestionItems, loadSkillItems, studentAnswerText, toCandidate, toClientQuestion, whyChosenWrong, type ClientQuestion, type PracticeItem } from "./items";
 import { refreshAfterAnswer, refreshQuestionSets } from "../teacher/assign";
 import { allowedQuestions, answerState, keyed, withAnswer, type Allowed, type AnswerState, type KeyedQuestion } from "./no-repeat";
-import { ASSIGNMENT_MAX_QUESTIONS, ASSIGNMENT_MIN_QUESTIONS, assignedSkillAccess, coreCountsOf, countCoreAnswer, isFinishReason, lastPickedWorkFor, markDone, openWorkFor, workProgressOf, type DoneBy, type WorkProgress } from "./completion";
-import { correctOnNewText, effortFromCounts, guessResponse, isPassageSkill, newTextStar, isRapidGuess as isRapidAnswer, itemTimeStats, notifyGuessPause, seenPassages, SLOW_DOWN_MS, type GuessAction } from "./guessing";
+import { ASSIGNMENT_MAX_QUESTIONS, ASSIGNMENT_MIN_QUESTIONS, assignedSkillAccess, coreCountsOf, countCoreAnswer, isFinishReason, skillStarNow, reviewKeyOf, REVIEW_WORK_QUESTIONS, lastPickedWorkFor, markDone, openWorkFor, workProgressOf, type DoneBy, type WorkProgress } from "./completion";
+import { correctOnNewText, effortFromCounts, guessResponse, isInstantMisclick, isPassageSkill, newTextStar, isRapidGuess as isRapidAnswer, itemTimeStats, notifyGuessPause, seenPassages, SLOW_DOWN_MS, type GuessAction } from "./guessing";
+
+/** Nov 2026 ("أسئلة سهلة"): the question's own text (stem + its options), used to scale the rapid-guess threshold
+ * to a short standalone question instead of the flat default — see rapidGuessThresholdMs in guessing.ts. */
+function questionTextOf(item: Pick<PracticeItem, "stem" | "options">): string {
+  return [item.stem, ...(item.options ?? []).map((o) => o.text)].filter(Boolean).join(" ");
+}
 import { chosenQuestionIdsOfAssignment } from "../questions/skill-questions";
 import { applyPlacementResult } from "../curriculum-map/placement-result";
 import { adaptiveNext, STUCK_AFTER, type AdaptiveState } from "../curriculum-map/leveled-run";
-import { diagnosticNext, diagnosticOfAssessment, recordDiagnosticResult } from "../diagnostic/test";
+import { diagnosticNext, diagnosticOfAssessment, recordDiagnosticResult, recoverDiagnosticResult } from "../diagnostic/test";
 import { assertDiagnosticAccess } from "../diagnostic/window";
 import { finishWeeklyCheck, WEEKLY_CHECK_MARK } from "../student/weekly-check";
 import { withLock } from "../lib/key-lock";
 import { afterResponseSettled, runAfterResponse } from "../lib/after-response";
-import { onSkillAnswer } from "../skills/status";
+import { onSkillAnswer, displayScore, STAR_MIN_ANSWERS } from "../skills/status";
 import { cachedContentKeys, dedupeIds } from "../questions/fresh";
 import { choiceSeed, finishTimedOut, isTestAssignment, shuffleChoices, testEndsAt, testOrder, timeIsUp, unshuffleResponse } from "../tests/runtime";
 
@@ -67,6 +75,11 @@ export interface PracticeView {
   question: ClientQuestion | null;
   answered: number;
   correct: number;
+  /** r## (owner: "53 answered and it never stopped — explain the number"): rapid guesses (guessing.ts) inside
+   *  `answered` above — counted for nothing (not the 30/50 rule, not accuracy, not mastery). Lets the practice
+   *  screen explain the gap between "answered" and what actually moved the student toward Done, instead of the
+   *  number just looking stuck. */
+  guessCount: number;
   mastery: number;
   band: string;
   ended: boolean;
@@ -75,6 +88,9 @@ export interface PracticeView {
   work?: WorkProgress;
   /** r67: the practice is paused after too many rapid guesses (progress saved; it continues when the student comes back) */
   paused?: boolean;
+  /** ABOVE | ON | BELOW | null — never shown to the student by name (see lib/hide-levels); read only to decide
+   *  whether a long reading passage is offered in smaller chunks (components/passage/chunked-passage.tsx). */
+  studentLevel?: string | null;
 }
 
 export interface Feedback {
@@ -128,13 +144,12 @@ const d = (v: unknown) => (v instanceof Date ? v : new Date(String(v)));
  * Reference data read on every answer but rarely changed (engine settings, prerequisites, skill rows) is
  * kept in memory and reused only while no write to those tables has happened (modelVersion).
  */
-const refCache = new Map<string, { v: string; at: number; value: unknown }>();
+const refCache = sweptMap<string, { v: string; at: number; value: unknown }>("practice.ref", 15 * 60_000, 5000);
 async function cached<T>(key: string, models: string[], load: () => Promise<T>, maxAgeMs = Infinity): Promise<T> {
   const v = modelVersion(...models), now = Date.now();
   const hit = refCache.get(key);
   if (hit && hit.v === v && now - hit.at < maxAgeMs && now >= hit.at) return hit.value as T;
   const value = await load();
-  if (refCache.size > 20_000) refCache.clear();
   refCache.set(key, { v, at: now, value });
   return value;
 }
@@ -253,7 +268,8 @@ async function practiceItems(repo: Repo, skillId: string, assignmentId: unknown)
   // (the lesson's own questions were answered in the set itself) — only a skill assignment's picks restrict practice
   const a = assignmentId ? await repo.findUnique("Assignment", { id: String(assignmentId) }) : null;
   const ids = a && !a.assessmentId ? await chosenQuestionIdsOfAssignment(repo, String(assignmentId)) : null;
-  // r67: the teacher's own question count for skill work (exactly that many counted answers), else the 30–50 rule
+  // r91: the teacher's own required number of CORRECT answers (an extra bar on top of the 30–50 mastery rule, not
+  // a replacement for it — see completion.ts#countCoreAnswer)
   const count = a && !a.assessmentId && Number(a.questionCount) > 0 ? Math.min(ASSIGNMENT_MAX_QUESTIONS, Number(a.questionCount)) : null;
   if (ids?.length) {
     const items = await loadSkillItems(repo, skillId, { questionIds: ids });
@@ -306,13 +322,22 @@ async function finishSkill(repo: Repo, actor: Actor, studentId: string, skillId:
 
 async function startPracticeUnlocked(repo: Repo, actor: Actor, skillId: string, now = new Date(), random?: () => number, opts: StartOpts = {}): Promise<PracticeView> {
   const student = await ownStudent(repo, actor);
-  const skill = await assertSkillInCurriculum(repo, student, skillId, actor);
   const studentId = String(student.id);
   const [openRows, work] = await Promise.all([
     repo.findMany("PracticeSession", { studentId: student.id, skillId, endedAt: null }),
     // practice on an assigned skill counts toward it (also an older skillIds row or another grade's copy of the skill)
     openWorkFor(repo, studentId, skillId, now),
   ]);
+  // 🐛 L9 fix: assertSkillInCurriculum re-checks the student's curriculum access EVERY time this runs, against their
+  // CURRENT grade — so a student moved to a different grade/class mid-way through practising a skill (not formally
+  // "assigned", not a plan skill) would get "This skill is not part of your curriculum" just trying to continue work
+  // they legitimately started before the change. A recently-started, still-open session on this exact skill (the
+  // same resumability window used below) is accepted as already-granted access; only a genuinely NEW start is gated.
+  const resumable = openRows.some((r) => now.getTime() - d(r.startedAt).getTime() < SESSION_RESUME_MINUTES * 60_000 && r.currentQuestionId);
+  if (!resumable) {
+    const skill = await assertSkillInCurriculum(repo, student, skillId, actor);
+    void skill;
+  }
   // continuing a Curriculum Map lesson (its questions answered): the practice is part of that same assignment
   const lesson = opts.work ? await lessonWorkOf(repo, studentId, opts.work) : null;
   // no open work: practising again after the work was Done stays inside the teacher's picks (if there were any)
@@ -371,19 +396,21 @@ async function startPracticeUnlocked(repo: Repo, actor: Actor, skillId: string, 
     nextQuestionId: firstId, nextTargetB: first.targetB, reason: first.itemId || first.reasonCode === "NO_ITEM_IN_RANGE" ? first.reason : "No repeats: the unanswered question closest to the level.",
     reasonCode: first.itemId || first.reasonCode === "NO_ITEM_IN_RANGE" ? first.reasonCode : "POOL_EXHAUSTED", engineVersion: ENGINE_VERSION, createdAt: now,
   }));
-  void skill;
   return currentQuestion(repo, actor, String(session.id), now, { session, mastery });
 }
 
 export async function currentQuestion(repo: Repo, actor: Actor, sessionId: string, _now = new Date(), known?: { session: Row; mastery: Row | null; work?: WorkProgress | null }): Promise<PracticeView> {
   // `known`: the answer transaction already has the updated session and mastery (ownership checked there)
   const s = known ? known.session : await ownSession(repo, actor, sessionId);
-  const [skillRow, m, items, work] = await Promise.all([
+  const [skillRow, m, items, work, studentLevel] = await Promise.all([
     known ? cachedSkill(repo, String(s.skillId)) : repo.findUnique("Skill", { id: s.skillId }),
     known ? Promise.resolve(known.mastery) : repo.findUnique("StudentSkillMastery", { studentId: s.studentId, skillId: s.skillId }),
     s.currentQuestionId && !s.endedAt ? practiceItems(repo, String(s.skillId), s.assignmentId).then((x) => x.items) : Promise.resolve([] as PracticeItem[]),
     // the assigned work's own progress (answered x of 30/50, its accuracy): read only for a linked session
     known?.work !== undefined ? Promise.resolve(known.work) : s.assignmentId ? workOfSession(repo, s) : Promise.resolve(null),
+    // the student's own working level (never shown by name — see lib/hide-levels — only used to decide whether a
+    // long passage is offered in smaller chunks, see components/passage/chunked-passage.tsx)
+    repo.findUnique("StudentLevel", { studentId: s.studentId }),
   ]);
   const skill = skillRow!;
   let question: ClientQuestion | null = null;
@@ -393,9 +420,10 @@ export async function currentQuestion(repo: Repo, actor: Actor, sessionId: strin
   }
   return {
     sessionId: String(s.id), skillId: String(s.skillId), skillName: String(skill.name), question,
-    answered: Number(s.questionCount), correct: Number(s.correctCount),
+    answered: Number(s.questionCount), correct: Number(s.correctCount), guessCount: Number(s.guessCount ?? 0),
     mastery: Math.round(Number(m?.score ?? 0)), band: String(m?.band ?? "BEGINNING"),
     ended: Boolean(s.endedAt), endReason: s.endReason ? String(s.endReason) : null,
+    studentLevel: studentLevel ? String(studentLevel.level) : null,
     ...(work ? { work } : {}),
   };
 }
@@ -555,23 +583,34 @@ async function submitAnswerUnlocked(
   const workBefore = workRow && linkedAssignment ? await coreCountsOf(repo, linkedAssignment, studentId, workRow) : null;
   // practising again in a NEW session after the work was Done never changes its result
   const workFrozen = Boolean(workRow?.completedAt) && d(s.startedAt).getTime() > d(workRow!.completedAt).getTime();
-  // 🎲 r67: a rapid guess (under 3 s; the first question of a passage under a third of its reading time, timed from when
-  // the passage opened; a question's own time once it has 20 careful answers) counts for NOTHING (guessing.ts)
+  // 🎲 Nov 2026 redesign ("ليه السرعة تمنع الدرجة من غير تخمين فعلاً؟"): "fast" (the original r67 rule — under 3 s;
+  // the first question of a passage under a third of its reading time; a question's own time once it has 20
+  // careful answers) is now purely INFORMATIONAL — logged, shown to teachers, and used only to spot the real
+  // guessing pattern below (fast AND wrong, repeatedly). It no longer, by itself, zero-weights anything. The only
+  // thing that still does is a literal MISCLICK (isInstantMisclick, guessing.ts): an answer given in well under
+  // half a second — physically too fast to have read or decided anything, almost certainly an accidental tap.
   const passageOfId = (id: string): string | null => byId.get(id)?.passage ?? null;
   const firstOnPassage = Boolean(item.passage) && !sessionRows.some((r) => passageOfId(String(r.questionId)) === item.passage);
-  const rapid = isRapidAnswer(responseMs, { passageText: item.passageText, firstOnPassage, itemStats });
+  const rapid = isRapidAnswer(responseMs, { passageText: item.passageText, firstOnPassage, itemStats, questionText: questionTextOf(item) });
+  const misclick = isInstantMisclick(responseMs);
   const evidence: ResponseEvidence = {
     itemId: item.questionId, correct, credit: credit > 0 && credit < 1 ? credit : undefined, level: item.level,
     a: item.irt.a, b: item.irt.b, c: item.irt.c, responseMs, estimatedSeconds: item.estimatedSeconds, usedHint, at: now.toISOString(),
-    repeat: isRecentRepeat(history, item.questionId, now.toISOString()), rapid,
+    repeat: isRecentRepeat(history, item.questionId, now.toISOString()), rapid: misclick,
   };
-  // the graduated response (since the last pause): 3 of the last 5 → slow down · 5 of the last 10 → pause
+  // the graduated response (since the last pause): 3 of the last 5 fast-AND-WRONG → slow down · 5 of the last 10 →
+  // pause. Nov 2026 redesign: the pattern is fast-and-wrong now, not fast alone — a fast, correct answer never
+  // contributes to this any more; a true guess reveals itself by being wrong, not by being quick.
   const order = parseOrder(s.currentOrder);
   const guessFrom = Math.max(0, Number(order.guessFrom ?? 0));
-  const guessAction = guessResponse([...sessionRows.map((r) => Boolean(r.rapidGuess)), rapid].slice(guessFrom));
-  // answers that count (never a rapid guess): this session's, with this one
-  const counted = sessionRows.filter((r) => !r.rapidGuess).length + (rapid ? 0 : 1);
-  const guessCount = Number(s.guessCount ?? 0) + (rapid ? 1 : 0);
+  const fastWrong = rapid && !correct;
+  const guessAction = guessResponse([...sessionRows.map((r) => Boolean(r.rapidGuess) && !Boolean(r.isCorrect)), fastWrong].slice(guessFrom));
+  // answers that count toward the 30/50 progress goal: a misclick still "fills its slot" (as on MAP itself —
+  // leveled-run.ts and adaptive.ts both keep every answer in the running count, even though it weighs nothing in
+  // the estimate) instead of being skipped as if it never happened — Nov 2026 fix ("النقاط ما تزيدش... مايتحسبش").
+  const counted = sessionRows.length + 1;
+  // guessCount now tracks the fast-AND-WRONG pattern (session "Unreliable" flag), not fast alone
+  const guessCount = Number(s.guessCount ?? 0) + (fastWrong ? 1 : 0);
   // the questions that may come next: never one already attempted (any session, any copy of it — a missed one waits
   // in Second Chance); the engine below scores this answer exactly as before and only CHOOSES among these
   const answeredThisSession = Number(s.questionCount) + 1;
@@ -599,8 +638,8 @@ async function submitAnswerUnlocked(
   // the engine scores this answer exactly as before (ability, mastery, XP do not depend on the candidates) and
   // chooses the next question among the allowed ones only
   const step = processAnswer({ ...engineState, candidates: items.filter((i) => allowedSet.has(i.questionId)).map((i) => toCandidate(i, skillId)) }, evidence, cfg, now, random);
-  // a rapid guess changes nothing: ability stays where it was
-  const abilityNow = rapid ? { theta: ability.theta, se: ability.se } : step.ability;
+  // only a literal misclick changes nothing: ability stays where it was
+  const abilityNow = misclick ? { theta: ability.theta, se: ability.se } : step.ability;
 
   // decide what comes next (the questions of this session so far, and this one)
   let nextId = step.next.itemId && allowedSet.has(step.next.itemId) ? step.next.itemId : null;
@@ -608,8 +647,8 @@ async function submitAnswerUnlocked(
   // content gap (no new question within 2 levels of a student whose estimate fell after a few wrong answers:
   // NO_ITEM_IN_RANGE) or a prerequisite route after 3 wrong answers. None of these ends the practice any more: the
   // allowed question closest to the student's level comes next (the gap stays in the decision log for Bank Gaps,
-  // the prerequisite is only suggested in the log). Only an empty pool, the 30–50 rule, the teacher's count, the
-  // guessing pause or the student's own choice end it.
+  // the prerequisite is only suggested in the log). Only an empty pool, the 30–50 rule (the teacher's count is now
+  // an extra bar inside it, never a separate stopping point), the guessing pause or the student's own choice end it.
   if (!nextId && choose.ids.length) nextId = closestAllowed(items, choose, abilityNow.theta, item.questionId);
   let endReason: string | null = null;
   if (allowed.phase === "DONE") { nextId = null; endReason = "SKILL_FINISHED"; }
@@ -620,41 +659,65 @@ async function submitAnswerUnlocked(
   // The student's last SEEN score is the stored one; continue from it so numbers never jump between screens,
   // and apply the fairness rule against it: a wrong answer never raises mastery.
   const seenScore = prevMastery ? Number(prevMastery.score) : step.log.masteryBefore;
-  let mst: MasteryResult = step.mastery;
-  if (!correct && mst.score > seenScore) mst = { ...mst, score: seenScore, band: (prevMastery?.band as MasteryResult["band"]) ?? mst.band, isMastered: Boolean(prevMastery?.isMastered) };
-  // a rapid guess changes nothing: the mastery the student last saw stays
-  if (rapid && prevMastery) mst = { ...mst, score: Number(prevMastery.score), band: prevMastery.band as MasteryResult["band"], isMastered: Boolean(prevMastery.isMastered), components: { ...mst.components, cappedBy: "a rapid guess counts for nothing" } };
-  else if (rapid) mst = { ...mst, score: seenScore, isMastered: false };
+  // fairness rule (shared — mastery/mastery.ts#withholdRaise): a wrong answer never raises mastery
+  let mst: MasteryResult = withholdRaise(step.mastery, { score: seenScore, band: (prevMastery?.band as MasteryResult["band"]) ?? step.mastery.band, isMastered: Boolean(prevMastery?.isMastered) }, correct, "a wrong answer cannot raise mastery");
+  // Nov 2026 redesign: only a literal misclick changes nothing — the mastery the student last saw stays. A merely
+  // fast (but genuine) answer, right or wrong, now flows through exactly like any other answer.
+  if (misclick && prevMastery) mst = { ...mst, score: Number(prevMastery.score), band: prevMastery.band as MasteryResult["band"], isMastered: Boolean(prevMastery.isMastered), components: { ...mst.components, cappedBy: "an instant misclick counts for nothing" } };
+  else if (misclick) mst = { ...mst, score: seenScore, isMastered: false };
   // ⭐ r67 item 6: the star of a passage-based skill needs a correct answer on a NEW text in the final stretch; while new
   // texts remain it waits for one, else it is earned and marked "mastered on seen texts" for the teacher
-  const star = newTextStar({ passageSkill, turningStar: !rapid && mst.isMastered && !prevMastery?.isMastered, newTextCorrect: (correct && newText) || correctOnNewText(history.slice(-cfg.adaptive.recentWindow), passageOfId), unseenLeft: unseenLeft.length });
+  const star = newTextStar({ passageSkill, turningStar: !misclick && mst.isMastered && !prevMastery?.isMastered, newTextCorrect: (correct && newText) || correctOnNewText(history.slice(-cfg.adaptive.recentWindow), passageOfId), unseenLeft: unseenLeft.length });
   if (star === "HOLD") {
     const cap = Math.min(mst.score, cfg.mastery.bands.mastered - 1);
     mst = { ...mst, score: cap, band: bandFor(cap, cfg.mastery), isMastered: false, components: { ...mst.components, cappedBy: "the star needs a correct answer on a new text" } };
   } else if (star === "SEEN_TEXTS") mst = { ...mst, components: { ...mst.components, masteredOnSeenTexts: true } as MasteryResult["components"] };
-  const masteryData = rapid ? null : {
+  const masteryData = misclick ? null : {
     score: mst.score, band: mst.band, attempts: Number(prevMastery?.attempts ?? 0) + 1, correct: Number(prevMastery?.correct ?? 0) + (correct ? 1 : 0),
     maxLevelCorrect: mst.components.maxLevelCorrect, isMastered: mst.isMastered,
     masteredAt: mst.isMastered ? (prevMastery?.masteredAt ?? now) : null, lastPracticedAt: now, components: mst.components,
     ...nextReview(prevMastery, mst.isMastered, correct, now),
   };
-  const xp = rapid ? 0 : step.xp;
-  // 🎯 the 30–50 rule (completion.ts): this answer is the work's next core answer while the work is open (a rapid guess
-  // is not counted); the teacher's own count replaces the rule (exactly that many)
+  // Nov 2026 redesign: an instant misclick earns nothing at all (not even a participation coin — there was no real
+  // attempt to credit). Everything else, fast or not, earns the engine's normal reward.
+  const xp = misclick ? 0 : step.xp;
+  // 🏅 M7 fix: the practice-feedback card must not show "Mastered"/a 100% score before the dashboards would (My
+  // Skills/My Work/teacher views all gate the ⭐ MASTERED status on STAR_MIN_ANSWERS answered — status.ts#decideStatus).
+  // This caps only what's SHOWN to the student here; mst/masteryData (XP, celebration, the stored row) are untouched.
+  const displayAttempts = masteryData ? masteryData.attempts : Number(prevMastery?.attempts ?? 0);
+  const displayBand = displayAttempts < STAR_MIN_ANSWERS && mst.band === "MASTERED" ? "PROFICIENT" : mst.band;
+  const displayMasteryAfter = displayScore(Math.round(mst.score), displayAttempts);
+  // 🎯 the 30–50 rule (completion.ts): this answer is the work's next core answer while the work is open (only a
+  // literal misclick is not counted); r91: the teacher's own count is now an EXTRA bar (that many correct answers)
+  // on top of mastery, not a replacement for the 30–50 window — so it never shortens or lengthens that window by itself.
   const workOpen = Boolean(workBefore && !workFrozen && !workRow?.completedAt);
-  const coreNext = workBefore ? Math.min(ASSIGNMENT_MAX_QUESTIONS, workBefore.answered + (rapid ? 0 : 1)) : 0;
-  // mastered at (or after) the 30th answer: the work is Done and the session ends with a celebration
-  const masteredDone = workOpen && !rapid && !count && coreNext >= ASSIGNMENT_MIN_QUESTIONS && mst.isMastered;
-  // the 50th answer without mastery (or the teacher's count): the work is Done
-  const maxDone = workOpen && !rapid && coreNext >= (count ?? ASSIGNMENT_MAX_QUESTIONS);
+  const coreNext = workBefore ? Math.min(ASSIGNMENT_MAX_QUESTIONS, workBefore.answered + (misclick ? 0 : 1)) : 0;
+  const coreNextCorrect = workBefore ? workBefore.correct + (!misclick && correct ? 1 : 0) : 0;
+  const countMet = !count || coreNextCorrect >= count;
+  // mastered at (or after) the 30th answer, and (if the teacher set one) the required correct count also met: Done
+  // with a celebration
+  // ⭐ owner 1 Nov 2026: "mastered" here = the student's STAR of this skill (every copy, ≥ 30 counted practice answers
+  // + mastery — completion.ts skillStarNow), never the engine flag alone; checked only when the engine says mastered
+  // at 30+ (this answer counted as pending: it is saved in the transaction below)
+  // (any copy of the skill may carry the engine's mastery, so the check does not wait for THIS copy's flag; it runs
+  // only from the 30th counted answer, outside the transaction, and its result is passed to countCoreAnswer)
+  const starCheck = !misclick && ((workOpen && coreNext >= ASSIGNMENT_MIN_QUESTIONS) || (!workOpen && counted >= ASSIGNMENT_MIN_QUESTIONS));
+  const starNow = starCheck ? await skillStarNow(repo, studentId, skillId, mst.isMastered, 1) : false;
+  const masteredDone = workOpen && !misclick && coreNext >= ASSIGNMENT_MIN_QUESTIONS && starNow && countMet;
+  // the 50th answer without clearing both: the work is Done regardless (the student then chooses)
+  const maxDone = workOpen && !misclick && coreNext >= ASSIGNMENT_MAX_QUESTIONS;
   // r67: practice WITHOUT open work (the MAP plan, Skills, a Curriculum Map lesson continued, practising again): the
   // same 30–50 rule counted in this session — mastered at 30+ ends it with the celebration; at 50 the student chooses
   const sessionRule = !workOpen;
-  const sessionMastered = sessionRule && !rapid && counted >= ASSIGNMENT_MIN_QUESTIONS && mst.isMastered;
-  const sessionMax = sessionRule && !rapid && !sessionMastered && counted === ASSIGNMENT_MAX_QUESTIONS;
+  const sessionMastered = sessionRule && !misclick && counted >= ASSIGNMENT_MIN_QUESTIONS && starNow;
+  // r## hardening (owner: "a student answered 53 and it never stopped"): this used to fire only when `counted`
+  // landed on EXACTLY 50 (every other "done" check in this file — maxDone above, workGoalOf — uses >=). `counted`
+  // only ever rises by one at a time today, so this was never actually missed, but >= is the same safe invariant
+  // the rest of the file already uses, not a behavior change for the normal case.
+  const sessionMax = sessionRule && !misclick && !sessionMastered && counted >= ASSIGNMENT_MAX_QUESTIONS;
   if ((masteredDone || sessionMastered) && (!endReason || endReason === "COMPLETED")) { nextId = null; endReason = "WORK_MASTERED"; }
-  // the teacher's count reached: exactly that many — the work is Done and this practice ends
-  if (workOpen && count && maxDone && !endReason) { nextId = null; endReason = "COMPLETED"; }
+  // r91: reaching 50 without clearing mastery+count no longer force-ends the practice itself — same as the plain
+  // 30–50 rule, the work is marked Done (maxDone, below) and the student is offered "Stop for now" / "Keep practising".
   // ⏸ 5 guesses in the last 10: the practice pauses calmly — not ended, not a failed attempt; it continues with the
   // next question when the student comes back (the guess window starts again from here)
   const paused = guessAction === "PAUSE" && !endReason && Boolean(nextId);
@@ -674,6 +737,10 @@ async function submitAnswerUnlocked(
   // the linked work is Done by this answer (mastered at 30+, or 50 answers) or the practice is finished: every open
   // work of this skill is Done with it
   const doneWork = finished || masteredDone || maxDone ? [...new Set([...(linkedAssignment ? [linkedAssignment] : []), ...(await openWorkFor(repo, studentId, skillId, now))])] : [];
+  // 🔄 review work (the skill was ⭐ before the work was set): decided here, outside the transaction, only when this
+  // answer reaches the review's 20th counted answer; a passed review closes every open work of the skill with it
+  const reviewKey = workOpen && !misclick && workBefore && workBefore.answered < REVIEW_WORK_QUESTIONS && coreNext >= REVIEW_WORK_QUESTIONS && linkedAssignment ? await reviewKeyOf(repo, linkedAssignment, studentId) : false;
+  const reviewOthers = reviewKey ? (await openWorkFor(repo, studentId, skillId, now)).filter((id) => id !== linkedAssignment) : [];
 
   const attempt = await repo.transaction(async (tx) => {
     // guarded by the database: only one request can move the session past this question (two servers, double clicks)
@@ -686,16 +753,17 @@ async function submitAnswerUnlocked(
     });
     // the session's flag is copied to its answers (level, tier and intervention readers need no join)
     if (unreliableChanged) await tx.updateMany("QuestionAttempt", { sessionId: s.id }, { unreliable: effort.unreliable });
-    if (!rapid) await tx.upsert("StudentAbility", { studentId, scope: `SKILL:${skillId}` }, { skillId, theta: abilityNow.theta, thetaSE: abilityNow.se, responses: history.length + 1 },
+    if (!misclick) await tx.upsert("StudentAbility", { studentId, scope: `SKILL:${skillId}` }, { skillId, theta: abilityNow.theta, thetaSE: abilityNow.se, responses: history.length + 1 },
       { theta: abilityNow.theta, thetaSE: abilityNow.se, responses: history.length + 1 });
     if (masteryData) await tx.upsert("StudentSkillMastery", { studentId, skillId }, masteryData, masteryData);
     if (xp > 0) await tx.create("XpEvent", { studentId, points: xp, reason: mst.isMastered && !prevMastery?.isMastered ? "skill_mastered" : "practice", createdAt: now });
-    // 🎯 the work's core result: a careful answer counts while the work is open (mastered at 30+, the 50th, or the
-    // teacher's count makes it Done)
-    const core = workBefore && !workFrozen && linkedAssignment && !rapid
-      ? await countCoreAnswer(tx, linkedAssignment, studentId, { ...workBefore, stored: workRow!.coreAnswered === null || workRow!.coreAnswered === undefined ? null : Number(workRow!.coreAnswered), done: Boolean(workRow!.completedAt) }, correct, now, mst.isMastered, count)
+    // 🎯 the work's core result: a careful (not a literal misclick) answer counts while the work is open (mastered
+    // at 30+, the 50th, or the teacher's count makes it Done)
+    const core = workBefore && !workFrozen && linkedAssignment && !misclick
+      ? await countCoreAnswer(tx, linkedAssignment, studentId, { ...workBefore, stored: workRow!.coreAnswered === null || workRow!.coreAnswered === undefined ? null : Number(workRow!.coreAnswered), done: Boolean(workRow!.completedAt) }, correct, now, mst.isMastered, count, starCheck ? starNow : undefined, reviewKey)
       : null;
     if (doneWork.length) await markDone(tx, doneWork, studentId, now);
+    if (core?.justDone && reviewKey && reviewOthers.length) await markDone(tx, reviewOthers, studentId, now);
     return { row, core };
   });
   const core = attempt.core;
@@ -717,7 +785,7 @@ async function submitAnswerUnlocked(
     whyYoursIsWrong: correct ? null : whyChosenWrong(item, response),
     tip: item.explanation.tip,
     rapidGuess: rapid,
-    masteryBefore: Math.round(seenScore), masteryAfter: Math.round(mst.score), band: mst.band, xp,
+    masteryBefore: Math.round(seenScore), masteryAfter: displayMasteryAfter, band: displayBand, xp,
     next: { hasQuestion: Boolean(nextId), endReason, routeToSkillId: null, routeToSkillName: null },
     tutor: correct ? null : tutorFrom(item, response, abilityNow.theta, misconception, repeatedBefore + (misconception ? 1 : 0)),
     ...(workNow ? { work: workNow } : {}),
@@ -726,19 +794,39 @@ async function submitAnswerUnlocked(
   };
   // after the response: the decision log (reports, prerequisite suggestions, content gaps) and the assignment's
   // progress (the student does not wait; their home page refreshes statuses too). Completion itself was written above.
-  runAfterResponse("skills.status", () => onSkillAnswer(repo, studentId, skillId, now)); // ⭐ skill stars (skills/status.ts)
-  runAfterResponse("practice.decision_log", () => repo.create("AdaptiveDecisionLog", {
-    ...step.log, attemptId: attempt.row.id, nextQuestionId: nextId, responseCorrect: correct, createdAt: now,
-    newTheta: abilityNow.theta, masteryBefore: seenScore, masteryAfter: mst.score,
-    reason: (rapid ? "Rapid guess: counted for nothing. " : "") + (endReason === "COMPLETED" ? `${step.log.reason} Session complete.` : step.log.reason),
-  }));
-  // the work's status and progress for the lists (Not started → In progress …): after the response; not needed once
-  // the work is Done (it never moves back) or when this answer was not counted for it
-  if (linkedAssignment && !finished && !workNow?.justDone && workNow?.completion !== "DONE") runAfterResponse("practice.assignment_refresh", () => refreshAfterAnswer(repo, linkedAssignment, studentId, now, skillId || undefined));
+  // ⭐ skill stars (skills/status.ts), the decision log and — not needed once the work is Done (it never moves back) or
+  // when this answer was not counted for it — the work's status for the lists: all after the response, built from plain
+  // values only (r68: a queued task never keeps this answer's pool and history in memory)
+  queueAfterAnswer(repo, {
+    studentId, skillId, now, label: "practice.decision_log",
+    log: {
+      ...step.log, attemptId: attempt.row.id, nextQuestionId: nextId, responseCorrect: correct, createdAt: now,
+      newTheta: abilityNow.theta, masteryBefore: seenScore, masteryAfter: mst.score,
+      reason: (misclick ? "Instant misclick: counted for nothing. " : "") + (endReason === "COMPLETED" ? `${step.log.reason} Session complete.` : step.log.reason),
+    },
+    refreshAssignment: linkedAssignment && !finished && !workNow?.justDone && workNow?.completion !== "DONE" ? linkedAssignment : null,
+  });
   // the next screen comes from this answer's own results (no re-reading)
   const masteryRow = masteryData ? { studentId, skillId, ...masteryData } : prevMastery;
   const view = await currentQuestion(repo, actor, input.sessionId, now, { session: { ...s, ...sessionPatch }, mastery: masteryRow, work: workNow ? (({ justDone: _j, doneBy: _b, ...w }) => (void _j, void _b, w))(workNow) : null });
   return { feedback, view: paused ? { ...view, paused: true } : view };
+}
+
+/**
+ * The work after an answer's response (r68): its closures see only these plain values — a queued task never keeps the
+ * answer's pool, history and engine state in memory while it waits (a class rush queues thousands of them).
+ */
+function queueAfterAnswer(repo: Repo, x: { studentId: string; skillId: string; now: Date; label: string; log: Row; refreshAssignment?: string | null; noStars?: boolean }): void {
+  const { studentId, skillId, now, label, log, refreshAssignment } = x;
+  // ⭐ skill stars (skills/status.ts) — never for the Diagnostic Test (a test never changes a star)
+  if (!x.noStars) runAfterResponse("skills.status", () => onSkillAnswer(repo, studentId, skillId, now), { key: `skills.status|${studentId}|${skillId}` });
+  runAfterResponse(label, () => repo.create("AdaptiveDecisionLog", log));
+  if (refreshAssignment) runAfterResponse("practice.assignment_refresh", () => refreshAfterAnswer(repo, refreshAssignment, studentId, now, skillId || undefined), { key: `assignment_refresh|${refreshAssignment}|${studentId}` });
+}
+
+/** A set's status for the teacher and the work list, after the response (plain values only, as above). */
+function queueSetRefresh(repo: Repo, a: Row, studentId: string, now: Date): void {
+  runAfterResponse("quiz.status_refresh", () => refreshQuestionSets(repo, [a], [studentId], now), { key: `quiz.status_refresh|${String(a.id)}|${studentId}` });
 }
 
 /** The session's small JSON note (hint ladder, guess window). */
@@ -883,6 +971,28 @@ function blankFeedback(): Feedback {
   return { correct: false, credit: 0, yourAnswer: "", correctAnswer: "", whyCorrect: "", whyYoursIsWrong: null, tip: "", rapidGuess: false, masteryBefore: 0, masteryAfter: 0, band: "", xp: 0, next: { hasQuestion: false, endReason: "COMPLETED", routeToSkillId: null, routeToSkillName: null }, tutor: null };
 }
 
+/** A question of the set answered already: its saved result again and the current screen (nothing is written). */
+async function quizReplay(repo: Repo, a: Row, order: string[], s: Row, item: PracticeItem | null, diagnostic: boolean, questionId: string): Promise<{ feedback: Feedback; view: QuizView }> {
+  const view = await quizView(repo, a, order, s);
+  const base: Feedback = { ...blankFeedback(), replayed: true, next: { hasQuestion: Boolean(view.question), endReason: view.question ? null : "COMPLETED", routeToSkillId: null, routeToSkillName: null } };
+  // a test or the Diagnostic never shows right or wrong
+  if (!item || diagnostic || isTestAssignment(a)) return { feedback: base, view };
+  const [attempt] = await repo.findMany("QuestionAttempt", { sessionId: s.id, questionId }, { select: ["isCorrect", "partialCredit", "response", "rapidGuess"], orderBy: [{ field: "createdAt", dir: "desc" }], take: 1 });
+  if (!attempt) return { feedback: base, view };
+  let stored: unknown = attempt.response;
+  if (typeof stored === "string") { try { stored = JSON.parse(stored); } catch { stored = null; } }
+  const response = stored && typeof stored === "object" && "value" in stored ? (stored as { value: unknown }).value : stored;
+  const correct = Boolean(attempt.isCorrect);
+  const partial = attempt.partialCredit === null || attempt.partialCredit === undefined ? null : Number(attempt.partialCredit);
+  return {
+    feedback: { ...base, correct, credit: correct ? 1 : partial ?? 0, rapidGuess: Boolean(attempt.rapidGuess), yourAnswer: studentAnswerText(item, response), correctAnswer: correctAnswerText(item), whyCorrect: item.explanation.whyCorrect, whyYoursIsWrong: correct ? null : whyChosenWrong(item, response), tip: item.explanation.tip },
+    view,
+  };
+}
+
+/** The Diagnostic refuses an answer to a question it is not serving (a stale tab, a crafted request). */
+export const DIAGNOSTIC_NOT_SERVED = "This question is not the one your test is showing now. Please reload the page to continue.";
+
 /** Starts or resumes the student's question set (continues from the first unanswered question). */
 async function startQuizUnlocked(repo: Repo, actor: Actor, assignmentId: string, now = new Date()): Promise<QuizView> {
   const { a, order } = await quizContext(repo, actor, assignmentId, now);
@@ -899,13 +1009,27 @@ async function startQuizUnlocked(repo: Repo, actor: Actor, assignmentId: string,
     const set = await repo.findUnique("Assessment", { id: a.assessmentId });
     if (timeIsUp(set, s, now)) s = await finishTimedOut(repo, a, s, order.length, now);
   }
-  return quizView(repo, a, order, s);
+  const view = await quizView(repo, a, order, s);
+  // 🩹 the Diagnostic: a finished sitting whose result was never saved (the scoring failed after the last answer)
+  // is scored now (idempotent: an existing result is kept)
+  if (view.ended && view.testMode && !isTestAssignment(a)) await recoverDiagnosticResult(repo, String(a.assessmentId), String(a.id), actor.studentId!, s, true, now);
+  return view;
 }
 
 /** One answer: scored, saved (one attempt per question), counted toward mastery; returns feedback and the next question. */
 async function submitQuizAnswerUnlocked(repo: Repo, actor: Actor, input: { assignmentId: string; questionId: string; response: unknown }, now = new Date()): Promise<{ feedback: Feedback; view: QuizView }> {
   const { a, order } = await quizContext(repo, actor, input.assignmentId, now);
-  if (!order.includes(input.questionId)) throw new ValidationError("This question is not part of the assignment.");
+  if (!order.includes(input.questionId)) {
+    // 🩹 an adaptive set borrows a question from the cross-skill "bank" once its own pool is genuinely exhausted
+    // (leveled-run.ts#crossSkillPool) — that borrowed question is never in the assessment's own `order`, so it would
+    // otherwise be wrongly refused here. Accept it only when it is truly the one the adaptive engine itself is
+    // offering this student right now (re-derived server-side, never trusted from the client).
+    const early = await repo.findMany("PracticeSession", { studentId: actor.studentId!, assignmentId: a.id, mode: "TEACHER_QUIZ" });
+    const s0 = early[0];
+    const set0 = s0 ? await repo.findUnique("Assessment", { id: a.assessmentId }) : null;
+    const legitBorrow = s0 && set0?.isAdaptive ? (await adaptiveNext(repo, set0, order, String(s0.id), String(s0.studentId))).nextId : null;
+    if (!legitBorrow || legitBorrow !== input.questionId) throw new ValidationError("This question is not part of the assignment.");
+  }
   // Update 42B: the reads first (in parallel, outside the transaction), then one short transaction of writes guarded
   // by the session's answer count (a double click or a second server is still refused, its writes rolled back)
   const [sessions, set, items, diag] = await Promise.all([
@@ -931,7 +1055,15 @@ async function submitQuizAnswerUnlocked(repo: Repo, actor: Actor, input: { assig
     item ? cachedSkill(repo, skillId) : Promise.resolve(null), // cached for the ability read below
   ]);
   // one answer per question, in every set (goal sets too: a missed question waits in Second Chance, never comes back here)
-  if (sessionRows.some((x) => String(x.questionId) === input.questionId)) throw new ValidationError("You already answered this question.");
+  // r68: a repeat of an answer already saved (the player sends again after a lost reply, a double click): nothing is
+  // written; that answer's saved result comes back with the current screen (marked `replayed`) — never a dead end
+  if (sessionRows.some((x) => String(x.questionId) === input.questionId)) return quizReplay(repo, a, order, s, item ?? null, Boolean(diag), input.questionId);
+  // 📝 the Diagnostic: only the question the test is serving now may be answered (re-derived on the server, never
+  // trusted from the browser) — any other question of the pool is refused
+  if (diag) {
+    const served = await diagnosticNext(repo, diag, String(s.id), String(s.studentId));
+    if (served && served.nextId !== input.questionId) throw new ValidationError(DIAGNOSTIC_NOT_SERVED);
+  }
   if (!item) throw new ValidationError("This question is no longer available.");
   // a shuffled test: the student's choice letters are mapped back to the question's own before scoring
   const response = normalizeResponse(item, a.shuffle ? unshuffleResponse(item, input.response, choiceSeed(a, studentId, item.questionId)) : input.response);
@@ -951,33 +1083,42 @@ async function submitQuizAnswerUnlocked(repo: Repo, actor: Actor, input: { assig
     item.passage && sessionRows.length ? repo.findMany("Question", { id: { in: [...new Set(sessionRows.map((x) => String(x.questionId)))] }, passageId: item.passage }, { select: ["id"] }) : Promise.resolve([] as Row[]),
   ]);
   const sessionCorrect = sessionRows.filter((x) => String(x.skillId) === skillId && !x.rapidGuess).map((x) => Boolean(x.isCorrect));
-  // 🎲 r67: a rapid guess counts for nothing (guessing.ts) — not ability, mastery or accuracy
-  const rapid = isRapidAnswer(responseMs, { passageText: item.passageText, firstOnPassage: Boolean(item.passage) && !sessionPassages.length, itemStats });
+  // 🎲 Nov 2026 redesign (same as the main practice flow above, guessing.ts): "fast" is informational only; only a
+  // literal instant misclick counts for nothing — ability, mastery and accuracy all otherwise update normally,
+  // whatever the speed.
+  const rapid = isRapidAnswer(responseMs, { passageText: item.passageText, firstOnPassage: Boolean(item.passage) && !sessionPassages.length, itemStats, questionText: questionTextOf(item) });
+  const misclick = isInstantMisclick(responseMs);
   const evidence: ResponseEvidence = {
     itemId: item.questionId, correct, credit: credit > 0 && credit < 1 ? credit : undefined, level: item.level,
     a: item.irt.a, b: item.irt.b, c: item.irt.c, responseMs, estimatedSeconds: item.estimatedSeconds, usedHint: false, at: now.toISOString(),
-    repeat: isRecentRepeat(history, item.questionId, now.toISOString()), rapid,
+    repeat: isRecentRepeat(history, item.questionId, now.toISOString()), rapid: misclick,
   };
   const step = processAnswer({
     studentId, skillId, sessionId: String(s.id), mode: "PRACTICE", ability: { theta: ability.theta, se: ability.se }, prior: ability.prior, history,
     previousTargetB: null, candidates: [...byId.values()].map((i) => toCandidate(i, skillId)), prerequisites, sessionCorrect,
   }, evidence, cfg, now);
   const seenBefore = prevMastery ? Number(prevMastery.score) : step.log.masteryBefore;
-  let mst: MasteryResult = step.mastery;
-  if (!correct && mst.score > seenBefore) mst = { ...mst, score: seenBefore, band: (prevMastery?.band as MasteryResult["band"]) ?? mst.band, isMastered: Boolean(prevMastery?.isMastered) };
-  // a rapid guess changes nothing: the mastery the student last saw stays
-  if (rapid) mst = { ...mst, score: seenBefore, band: (prevMastery?.band as MasteryResult["band"]) ?? "BEGINNING", isMastered: Boolean(prevMastery?.isMastered) };
-  const masteryData = rapid ? null : {
+  // fairness rule (shared — mastery/mastery.ts#withholdRaise): a wrong answer never raises mastery
+  let mst: MasteryResult = withholdRaise(step.mastery, { score: seenBefore, band: (prevMastery?.band as MasteryResult["band"]) ?? step.mastery.band, isMastered: Boolean(prevMastery?.isMastered) }, correct, "a wrong answer cannot raise mastery");
+  // only a literal instant misclick changes nothing: the mastery the student last saw stays
+  if (misclick) mst = { ...mst, score: seenBefore, band: (prevMastery?.band as MasteryResult["band"]) ?? "BEGINNING", isMastered: Boolean(prevMastery?.isMastered) };
+  const masteryData = misclick ? null : {
     score: mst.score, band: mst.band, attempts: Number(prevMastery?.attempts ?? 0) + 1, correct: Number(prevMastery?.correct ?? 0) + (correct ? 1 : 0),
     maxLevelCorrect: mst.components.maxLevelCorrect, isMastered: mst.isMastered, masteredAt: mst.isMastered ? (prevMastery?.masteredAt ?? now) : null, lastPracticedAt: now, components: mst.components,
     ...nextReview(prevMastery, mst.isMastered, correct, now),
   };
   const answered = sessionRows.length + 1;
+  // 🏅 M7 fix (same as the adaptive-practice path above): don't show "Mastered"/100% in this quiz's feedback before
+  // the dashboards would (STAR_MIN_ANSWERS answered) — display only; mst/masteryData stay the real, uncapped values.
+  const displayAttemptsSet = masteryData ? masteryData.attempts : Number(prevMastery?.attempts ?? 0);
+  const displayBandSet = displayAttemptsSet < STAR_MIN_ANSWERS && mst.band === "MASTERED" ? "PROFICIENT" : mst.band;
+  const displayMasteryAfterSet = displayScore(Math.round(mst.score), displayAttemptsSet);
   // the graduated response to guessing (since the last pause); a test is never paused (its clock runs), only slowed
   const testing = String(set?.type ?? "") === "DIAGNOSTIC" || isTestAssignment(a);
   const qOrder = parseOrder(s.currentOrder);
-  const guessAction = guessResponse([...sessionRows.map((x) => Boolean(x.rapidGuess)), rapid].slice(Math.max(0, Number(qOrder.guessFrom ?? 0))));
-  const guessCount = Number(s.guessCount ?? 0) + (rapid ? 1 : 0);
+  const fastWrong = rapid && !correct;
+  const guessAction = guessResponse([...sessionRows.map((x) => Boolean(x.rapidGuess) && !Boolean(x.isCorrect)), fastWrong].slice(Math.max(0, Number(qOrder.guessFrom ?? 0))));
+  const guessCount = Number(s.guessCount ?? 0) + (fastWrong ? 1 : 0);
   const effort = effortFromCounts(answered, guessCount);
   const answeredIds = new Set([...sessionRows.map((x) => String(x.questionId)), item.questionId]);
   // fixed sets: the next question is known without reading again; adaptive sets and the Diagnostic read the new answer
@@ -992,9 +1133,11 @@ async function submitQuizAnswerUnlocked(repo: Repo, actor: Actor, input: { assig
       misconception, unreliable: effort.unreliable,
     });
     if (effort.unreliable !== Boolean(s.unreliable)) await tx.updateMany("QuestionAttempt", { sessionId: s.id }, { unreliable: effort.unreliable });
-    if (!rapid) await tx.upsert("StudentAbility", { studentId, scope: `SKILL:${skillId}` }, { skillId, theta: step.ability.theta, thetaSE: step.ability.se, responses: history.length + 1 },
+    // 📝 the Diagnostic Test is a test: it never writes the skill's ability or mastery (both feed the ⭐ and practice);
+    // its own placement writes (level, DOMAIN priors) are made by diagnostic/test.ts when it is scored
+    if (!misclick && !diag) await tx.upsert("StudentAbility", { studentId, scope: `SKILL:${skillId}` }, { skillId, theta: step.ability.theta, thetaSE: step.ability.se, responses: history.length + 1 },
       { theta: step.ability.theta, thetaSE: step.ability.se, responses: history.length + 1 });
-    if (masteryData) await tx.upsert("StudentSkillMastery", { studentId, skillId }, masteryData, masteryData);
+    if (masteryData && !diag) await tx.upsert("StudentSkillMastery", { studentId, skillId }, masteryData, masteryData);
     const after = await nextInSet(tx, a, order, String(s.id), studentId, { set, ...(fixed ? { answeredIds } : {}) });
     const goalSet = after.goal !== null;
     const done = goalSet ? !after.nextId : answered >= order.length || !after.nextId;
@@ -1019,13 +1162,16 @@ async function submitQuizAnswerUnlocked(repo: Repo, actor: Actor, input: { assig
   const goalSet = after.goal !== null;
   // after the response: the decision log of a set answer (θ BEFORE the answer for item calibration, mastery
   // before/after for growth; the next question follows the set, not the adaptive selector, so no route is made)
-  runAfterResponse("skills.status", () => onSkillAnswer(repo, studentId, skillId, now)); // ⭐ skill stars (skills/status.ts)
-  runAfterResponse("quiz.decision_log", () => repo.create("AdaptiveDecisionLog", {
-    ...step.log, attemptId: attempt.id, nextQuestionId: after.nextId, nextTargetB: null, responseCorrect: correct, createdAt: now,
-    masteryBefore: seenBefore, masteryAfter: mst.score,
-    reason: `${rapid ? "Rapid guess: counted for nothing. " : ""}Answer in an assigned set: ability and mastery updated; the next question follows the set.`,
-    reasonCode: "ASSIGNED_SET",
-  }));
+  queueAfterAnswer(repo, {
+    studentId, skillId, now, label: "quiz.decision_log",
+    log: {
+      ...step.log, attemptId: attempt.id, nextQuestionId: after.nextId, nextTargetB: null, responseCorrect: correct, createdAt: now,
+      masteryBefore: seenBefore, masteryAfter: mst.score,
+      reason: diag ? `${misclick ? "Instant misclick: counted for nothing. " : ""}Diagnostic Test answer: saved only (a test never changes ability, mastery or stars).` : `${misclick ? "Instant misclick: counted for nothing. " : ""}Answer in an assigned set: ability and mastery updated; the next question follows the set.`,
+      reasonCode: "ASSIGNED_SET",
+    },
+    noStars: Boolean(diag),
+  });
   // stuck: many answers without reaching the goal — the class's teachers are told once (after the response)
   if (goalSet && answered === STUCK_AFTER && !after.goal!.reached) {
     const goal = after.goal!;
@@ -1033,13 +1179,18 @@ async function submitQuizAnswerUnlocked(repo: Repo, actor: Actor, input: { assig
       const teachers = await repo.findMany("ClassTeacher", { classId: a.classId }, { select: ["teacherId"] });
       const tRows = teachers.length ? await repo.findMany("Teacher", { id: { in: teachers.map((x) => x.teacherId) } }, { select: ["userId"] }) : [];
       const me = await repo.findUnique("User", { id: (await repo.findUnique("Student", { id: studentId }))?.userId });
-      if (tRows.length) await repo.createMany("Notification", tRows.map((x) => ({ userId: x.userId, type: "PARENT_PROGRESS", title: `🆘 ${String(me?.displayName ?? "A student")} is stuck`, body: `${STUCK_AFTER} answers on “${hideLevels(String(a.title))}” and only ${goal.correct} of ${goal.target} correct. A short reteach may help.`, link: `/admin/student-file/${studentId}`, readAt: null, createdAt: now })));
+      // r97 fix: when the correct-answer target is already met, "only X of Y correct" is misleading (X ≥ Y) —
+      // the real reason is the mastery gate (e.g. Analyze Craft and Structure), not an answer-count shortfall.
+      const body = goal.correct >= goal.target
+        ? `${STUCK_AFTER} answers on “${hideLevels(String(a.title))}”: reached the correct-answer target but has not mastered every skill in this set yet. A short reteach may help.`
+        : `${STUCK_AFTER} answers on “${hideLevels(String(a.title))}” and only ${goal.correct} of ${goal.target} correct. A short reteach may help.`;
+      if (tRows.length) await repo.createMany("Notification", tRows.map((x) => ({ userId: x.userId, type: "PARENT_PROGRESS", title: `🆘 ${String(me?.displayName ?? "A student")} is stuck`, body, link: `/admin/student-file/${studentId}`, readAt: null, createdAt: now })));
     });
   }
   const feedback: Feedback = {
     correct, credit, yourAnswer: studentAnswerText(item, response), correctAnswer: correctAnswerText(item), whyCorrect: item.explanation.whyCorrect,
     whyYoursIsWrong: correct ? null : whyChosenWrong(item, response), tip: item.explanation.tip, rapidGuess: rapid,
-    masteryBefore: Math.round(seenBefore), masteryAfter: Math.round(mst.score), band: mst.band, xp: 0,
+    masteryBefore: Math.round(seenBefore), masteryAfter: displayMasteryAfterSet, band: displayBandSet, xp: 0,
     next: { hasQuestion: !patch.done, endReason: patch.goalNow ? "GOAL" : patch.done ? "COMPLETED" : null, routeToSkillId: null, routeToSkillName: null },
     tutor: correct ? null : tutorFrom(item, response, step.ability.theta, misconception, repeatedBefore + (misconception ? 1 : 0)),
     ...(patch.pausedNow || guessAction === "SLOW_DOWN" || (guessAction === "PAUSE" && testing) ? { guess: { action: patch.pausedNow ? "PAUSE" as const : "SLOW_DOWN" as const, waitMs: SLOW_DOWN_MS } } : {}),
@@ -1052,7 +1203,7 @@ async function submitQuizAnswerUnlocked(repo: Repo, actor: Actor, input: { assig
   const known = { attempts: attemptsNow, set, ...(String(set?.type ?? "") === "DIAGNOSTIC" ? {} : { next: after }), ...(nextItem && after.nextId === nextFixed ? { nextItem } : {}) };
   if (feedback.next.hasQuestion && !patch.goalNow) {
     // the set's status for the teacher and the work list: after the response
-    runAfterResponse("quiz.status_refresh", () => refreshQuestionSets(repo, [a], [actor.studentId!], now));
+    queueSetRefresh(repo, a, actor.studentId!, now);
   } else {
     // the work is done (last answer, or the goal reached): its status now, then its result (Weekly Check RIT,
     // Diagnostic analysis, Placement level)
@@ -1063,7 +1214,9 @@ async function submitQuizAnswerUnlocked(repo: Repo, actor: Actor, input: { assig
   if (String(a.curriculumPlanId ?? "") === WEEKLY_CHECK_MARK && !feedback.next.hasQuestion) await finishWeeklyCheck(repo, String(a.id), actor.studentId!, String(sNow.id), String(actor.schoolId), now);
   // 📝 the Diagnostic Test: analysed when the last answer is in; the student sees no right/wrong while testing
   if (diag) {
-    if (!feedback.next.hasQuestion) await recordDiagnosticResult(repo, diag, String(a.id), actor.studentId!, String(sNow.id), now);
+    // the answer is saved already: a failure here must not lose the result — it is scored again (recoverDiagnosticResult)
+    // when the student opens the test or their Diagnostic state is read
+    if (!feedback.next.hasQuestion) await recordDiagnosticResult(repo, diag, String(a.id), actor.studentId!, String(sNow.id), now).catch((e) => { console.error("diagnostic.record_failed", e); return null; });
     const blank: Feedback = { ...feedback, correct: false, credit: 0, correctAnswer: "", whyCorrect: "", whyYoursIsWrong: null, tip: "", masteryBefore: 0, masteryAfter: 0, xp: 0, tutor: null };
     return { feedback: blank, view: await quizView(repo, a, order, sNow, known) };
   }
@@ -1079,7 +1232,7 @@ async function submitQuizAnswerUnlocked(repo: Repo, actor: Actor, input: { assig
 /** Starts or resumes practice on a skill (a double click never opens two sessions). */
 export interface StartOpts { /** a Curriculum Map lesson's assignment this practice continues (its questions done) */ work?: string | null }
 export function startPractice(repo: Repo, actor: Actor, skillId: string, now = new Date(), random?: () => number, opts: StartOpts = {}): Promise<PracticeView> {
-  return withLock(`practice:${actor.userId}:${skillId}`, () => startPracticeUnlocked(repo, actor, skillId, now, random, opts));
+  return withLock(`practice:${actor.userId}:${skillId}`, () => admitted("answers", () => startPracticeUnlocked(repo, actor, skillId, now, random, opts)));
 }
 
 /** The student's own Curriculum Map lesson set (a question set on the CURRICULUM track) — or null. */
@@ -1116,7 +1269,9 @@ export async function lessonContinuation(repo: Repo, a: Row, studentId: string):
 /** One practice answer (a double click is answered once; a submit after the session ended is a no-op, not an error). */
 export function submitAnswer(repo: Repo, actor: Actor, input: { sessionId: string; questionId: string; response: unknown; usedHint?: boolean }, now = new Date(), random?: () => number): Promise<{ feedback: Feedback; view: PracticeView }> {
   return withLock(`practice-session:${input.sessionId}`, async () => {
-    try { return await submitAnswerUnlocked(repo, actor, input, now, random); }
+    // r68: at most ANSWER_CONCURRENCY answers are worked on at once per server (the others wait their turn): the memory
+    // of a class rush stays bounded (src/server/lib/admission.ts)
+    try { return await admitted("answers", () => submitAnswerUnlocked(repo, actor, input, now, random)); }
     catch (e) {
       // lost the race to another server or tab that ended the session: the same friendly no-op reply
       if (e instanceof ValidationError) {
@@ -1185,9 +1340,9 @@ async function storedAnswerReply(repo: Repo, s: Row, questionId: string, base: F
 }
 /** Starts or resumes the student's question set (continues from the first unanswered question). */
 export function startQuiz(repo: Repo, actor: Actor, assignmentId: string, now = new Date()): Promise<QuizView> {
-  return withLock(`quiz:${actor.userId}:${assignmentId}`, () => startQuizUnlocked(repo, actor, assignmentId, now));
+  return withLock(`quiz:${actor.userId}:${assignmentId}`, () => admitted("answers", () => startQuizUnlocked(repo, actor, assignmentId, now)));
 }
 /** One answer of a set (a double click is answered once). */
 export function submitQuizAnswer(repo: Repo, actor: Actor, input: { assignmentId: string; questionId: string; response: unknown }, now = new Date()): Promise<{ feedback: Feedback; view: QuizView }> {
-  return withLock(`quiz:${actor.userId}:${input.assignmentId}`, () => submitQuizAnswerUnlocked(repo, actor, input, now));
+  return withLock(`quiz:${actor.userId}:${input.assignmentId}`, () => admitted("answers", () => submitQuizAnswerUnlocked(repo, actor, input, now)));
 }

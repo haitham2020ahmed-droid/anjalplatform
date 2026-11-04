@@ -9,6 +9,8 @@ import { StatusChip } from "@/components/reports/family-report-view";
 import { newFamilyReportAction, prepareMonthlyReportsAction } from "./actions";
 import { getT } from "@/i18n/server";
 import { Combo } from "@/components/ui/combo";
+import { ReportIntro, ReportSummary } from "@/components/report-kit";
+import { familyReportsSummary } from "@/lib/report-summaries";
 
 export const metadata = { title: "Family Reports" };
 
@@ -31,6 +33,7 @@ export default async function FamilyReportsPage({ searchParams }: { searchParams
     <AppShell name={String(me.displayName)}>
       <PageHeader back={{ href: "/teacher/reports", label: "Reports" }} icon="👪" title="Family Reports"
         subtitle="Prepare a report with one click (the platform writes it from MAP, the Diagnostic, reading fluency and practice) or write your own. Check it, edit it, then send it: a school admin approves it before the family sees it." />
+      <ReportIntro text="The reports for families: what is a draft, waiting for approval, returned or approved." />
       {/* one weekly family page (the older "Weekly family summary" redirects here) and the monthly reports */}
       <div className="mb-4 flex flex-wrap items-center gap-2">
         <Link prefetch={false} href={`/teacher/family-reports/this-week${klass ? `?classId=${klass.id}` : ""}`} className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-teal-700 px-4 py-2 font-semibold text-white"><span aria-hidden="true">👪</span> {t("Family reports this week")}</Link>
@@ -70,6 +73,7 @@ export default async function FamilyReportsPage({ searchParams }: { searchParams
         ))}
         {!all.length && <li className="rounded-2xl bg-white p-6 text-slate-600 ring-1 ring-slate-200">No reports yet.</li>}
       </ul>
+      <ReportSummary summary={familyReportsSummary(reports, klass ? String(klass.id) : null)} />
     </AppShell>
   );
 }

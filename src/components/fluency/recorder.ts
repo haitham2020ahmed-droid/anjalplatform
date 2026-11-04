@@ -24,6 +24,7 @@ import type { CoachResult } from "@/server/fluency/coach";
 import { browserRecorderMime, HEARD_MS, meterLevel, openMicrophone, READING_MIC_CONSTRAINTS, recorderOptions, recorderTimeslice, rms } from "./audio-capture";
 import { prepareReading } from "./audio-wav";
 import { CALIBRATE_MS, levelVerdict, micFeedback, newLevelState, pushLevel, wantsNoiseSuppression, type LevelState, type MicFeedback } from "./voice-level";
+import { useT } from "@/i18n/client";
 
 export { pickRecorderMime } from "./audio-capture";
 
@@ -58,6 +59,17 @@ const AUTO_RETRIES = 1;
 /** the coach heard a voice but could not follow the words: the same recording is listened to again this many times */
 const UNCLEAR_RETRIES = 1;
 
+/**
+ * r4: one id per recording, sent with every retry of it: the server scores it once (a retry of a reading already
+ * scored gets the same result back — no second reading, trial, daily attempt or average).
+ */
+export function newRecordingId(): string {
+  try { if (typeof crypto !== "undefined" && typeof crypto.randomUUID === "function") return crypto.randomUUID(); } catch { /* older browser */ }
+  const hex = (n: number) => Array.from({ length: n }, () => Math.floor(Math.random() * 16).toString(16)).join("");
+  return `${hex(8)}-${hex(4)}-4${hex(3)}-a${hex(3)}-${hex(12)}`;
+}
+
+/** The recorder's messages (English keys; shown through t() — Arabic in ar.ts). */
 export const MSG = {
   silent: "We couldn't hear you — check the microphone and read a little louder.",
   unclear: "The coach heard your voice but could not follow every word. Send it again, or read again a little closer to the microphone.",
@@ -99,7 +111,8 @@ export function useCoachRecorder(opts: { limit: number; fields: () => Record<str
   const stoppedAt = useRef(0);
   const timer = useRef<number | null>(null);
   const waitTimer = useRef<number | null>(null);
-  const audio = useRef<{ blob: Blob; seconds: number; voiced: number; fields: Record<string, string> } | null>(null);
+  const t = useT();
+  const audio = useRef<{ blob: Blob; seconds: number; voiced: number; fields: Record<string, string>; requestId: string } | null>(null);
   const slow = useRef(0);   // how many times the coach ran out of time on this recording
   const tries = useRef(0);  // automatic resends after a lost connection / busy server
   const optsRef = useRef(opts); optsRef.current = opts;
@@ -164,7 +177,7 @@ export function useCoachRecorder(opts: { limit: number; fields: () => Record<str
   }
 
   function fail(text: string, resend: boolean) {
-    setStage("error"); setMsg(text); setCanResend(resend && audio.current !== null);
+    setStage("error"); setMsg(t(text)); setCanResend(resend && audio.current !== null);
     if (!resend) audio.current = null;
   }
 
@@ -261,7 +274,7 @@ export function useCoachRecorder(opts: { limit: number; fields: () => Record<str
       // the device cannot decode its own recording: the live meter decides, and the original file is sent
       if (heardByMeter !== null && heardByMeter < HEARD_MS && seconds >= 3) { fail(MSG.silent, false); return; }
     }
-    audio.current = { blob, seconds: Math.min(seconds, optsRef.current.limit), voiced, fields: optsRef.current.fields() };
+    audio.current = { blob, seconds: Math.min(seconds, optsRef.current.limit), voiced, fields: optsRef.current.fields(), requestId: newRecordingId() };
     slow.current = 0; tries.current = 0; unclear.current = 0;
     upload();
   }
@@ -274,6 +287,7 @@ export function useCoachRecorder(opts: { limit: number; fields: () => Record<str
     f.set("seconds", String(Math.max(1, Math.round(a.seconds))));
     f.set("voiced", String(Math.round(a.voiced * 10) / 10));
     if (unclear.current) f.set("attempt", String(unclear.current));
+    f.set("requestId", a.requestId);   // the same id on every retry of this recording
     const ext = a.blob.type === "audio/wav" ? "wav" : /mp4|m4a|aac/.test(a.blob.type) ? "m4a" : /ogg/.test(a.blob.type) ? "ogg" : "webm";
     f.set("audio", a.blob, `reading.${ext}`);
     setStage("sending"); setMsg(""); setCanResend(false);
@@ -295,6 +309,13 @@ export function useCoachRecorder(opts: { limit: number; fields: () => Record<str
         if (data.timeout && ++slow.current > 2) { fail(MSG.busy, true); return; }
         // the school's AI limit: wait in the queue, then send the same recording again
         let left = Number(data.seconds) || 30; setWait(left); setMsg(String(data.reason ?? "")); setStage("waiting");
+        if (waitTimer.current) window.clearInterval(waitTimer.current);
+        waitTimer.current = window.setInterval(() => { left--; setWait(left); if (left <= 0) { window.clearInterval(waitTimer.current!); waitTimer.current = null; upload(); } }, 1000);
+        return;
+      }
+      // r4: the server holds too much audio right now (503 "busy"): wait the few seconds it asks, then the same recording
+      if (x.status === 503 && data.busy) {
+        let left = Number(data.seconds) || 5; setWait(left); setMsg(String(data.reason ?? "")); setStage("waiting");
         if (waitTimer.current) window.clearInterval(waitTimer.current);
         waitTimer.current = window.setInterval(() => { left--; setWait(left); if (left <= 0) { window.clearInterval(waitTimer.current!); waitTimer.current = null; upload(); } }, 1000);
         return;

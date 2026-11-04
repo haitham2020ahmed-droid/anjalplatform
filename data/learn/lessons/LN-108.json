@@ -206,7 +206,7 @@
      "A kit lets you clean and cover a wound quickly.",
      "First aid kits are often red or white.",
      "Every home should have a first aid kit.",
-     "Kits can be bought in many shops."
+     "Kits can be bought in many shops and pharmacies."
     ],
     "answer": 0,
     "hint": "That sentence is the claim, a color, or not in the text. Which detail explains WHY a home needs a kit?",
@@ -236,8 +236,8 @@
      "options": [
       "Many families visit the beach in the holidays.",
       "It also helps keep children safe near pools and the sea.",
-      "Children should learn to swim.",
-      "The sea is blue."
+      "Children should learn to swim because it is fun and good.",
+      "The sea is blue and the sand is warm and soft."
      ],
      "answer": 1,
      "why": "Staying safe near water is a reason children should learn to swim."
@@ -350,9 +350,9 @@
      "passage": "The writer claims that learning a second language is good for the brain. She says it is fun to say hello in many languages. She notes that people who speak two languages often switch between tasks more easily. She adds that language classes are popular.",
      "stem": "Which detail best supports the writer's claim?",
      "options": [
-      "It is fun to say hello in many languages.",
-      "Language classes are popular.",
-      "Many languages exist in the world.",
+      "It is fun to say hello in many languages to friends and guests from other countries.",
+      "Language classes are popular with students in many schools.",
+      "Many languages exist in the world, and some are very old.",
       "People who speak two languages often switch between tasks more easily."
      ],
      "answer": 3,
@@ -363,9 +363,9 @@
      "stem": "Which sentence is evidence for the author's claim?",
      "options": [
       "Teachers reported students understood plant life cycles better.",
-      "The garden also has a bench.",
-      "School gardens help students learn science.",
-      "Gardens can be large or small."
+      "The garden also has a bench under a tree near the gate.",
+      "School gardens help students learn science in a fun and easy way.",
+      "Gardens can be large or small, and many have flowers."
      ],
      "answer": 0,
      "why": "The teachers' report is evidence that students learned science. The bench is not evidence."
@@ -374,10 +374,10 @@
      "passage": "Claim: Our town's new recycling program is working. Since it began, the amount of rubbish sent to the landfill has dropped by a quarter. More than half of homes now put out a recycling bin each week.",
      "stem": "Is the claim supported by evidence?",
      "options": [
-      "No, the writer only gives an opinion.",
+      "No, the writer only gives an opinion and no numbers or facts at all.",
       "Yes, the writer gives numbers about less rubbish and more recycling.",
-      "No, because recycling is hard.",
-      "Yes, because everyone likes recycling."
+      "No, because recycling is hard and takes too much time.",
+      "Yes, because everyone likes recycling and wants to do more."
      ],
      "answer": 1,
      "why": "Less landfill rubbish and more homes recycling are measured facts that support the claim."
@@ -433,10 +433,10 @@
     "passage": "In her memoir, a retired nurse argues that small acts of kindness help patients recover. She describes an older man who refused to eat until a young nurse sat with him and asked about his grandchildren; after that, he finished every meal. She recalls a frightened girl who stopped crying when a cleaner showed her how to fold a paper bird. She writes that hospital food was often cold, and that the night shifts were long. She also mentions a study in which patients who felt cared for by staff reported less pain. Kindness, she concludes, is not an extra; it is part of treatment.",
     "stem": "Which detail most directly supports the nurse's claim?",
     "options": [
-     "Hospital food was often cold.",
+     "Hospital food was often cold and not very tasty.",
      "Patients who felt cared for by staff reported less pain.",
-     "The night shifts were long.",
-     "The cleaner knew how to fold a paper bird."
+     "The night shifts were long and very tiring.",
+     "The cleaner knew how to fold a paper bird for the children."
     ],
     "answer": 1,
     "hint": "Some details are true about the hospital but do not show kindness helping patients. Which detail shows care leading to recovery?",
@@ -465,10 +465,10 @@
      "passage": "An article claims that all students learn better with tablets than with books. It reports that in one class of 25 students, test scores rose after tablets were introduced. The article gives no information about other classes or schools.",
      "stem": "Which statement best evaluates the support for the claim?",
      "options": [
-      "The claim is fully proven by the test scores.",
-      "The claim is unsupported because tablets are expensive.",
+      "The claim is fully proven by the test scores, so nobody could ever doubt it.",
+      "The claim is unsupported because tablets are expensive for schools.",
       "The evidence covers one class, so it cannot prove a claim about all students.",
-      "The evidence proves that books harm learning."
+      "The evidence proves that books harm learning in every school."
      ],
      "answer": 2,
      "why": "Results from one class of 25 students are too limited to support a claim about all students."
@@ -478,9 +478,9 @@
      "stem": "Which detail best supports the historian's claim?",
      "options": [
       "The journey went from over a month to a few days.",
-      "The stations were built of local stone.",
-      "Some stations still stand today.",
-      "The railway opened in 1908."
+      "The stations were built of local stone and wood.",
+      "Some stations still stand today near the sea.",
+      "The railway opened in 1908 near the coast."
      ],
      "answer": 0,
      "why": "The change in journey time directly shows how the railway changed travel."

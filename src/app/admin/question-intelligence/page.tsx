@@ -5,6 +5,7 @@ import { getActor, repo, requireActor } from "@/server/auth/next";
 import { coverage, intelligenceOverview, missingList, COVERAGE_TARGET } from "@/server/questions/intelligence";
 import { META_FIELDS, type MetaField } from "@/questions/intelligence";
 import { analyzeAction, confirmSkillAction, reanalyzeAllAction } from "./actions";
+import { RichInline } from "@/components/rich-inline";
 
 export const metadata = { title: "Question Intelligence" };
 const FLAG: Record<string, { label: string; tone: string }> = {
@@ -88,7 +89,7 @@ async function MissingTab({ schoolId, field, counts }: { schoolId: string; field
     <section className="mt-4 rounded-2xl bg-white p-4 ring-1 ring-slate-200">
       <div className="flex flex-wrap gap-2">{META_FIELDS.map((f) => <Link key={f.key} href={`/admin/question-intelligence?tab=missing&field=${f.key}`} className={`rounded-full px-3 py-1 text-xs font-semibold ring-1 ${f.key === field ? "bg-brand-navy text-white ring-brand-navy" : "bg-white ring-slate-200"}`}>{f.label} ({counts[f.key]})</Link>)}</div>
       <div className="rk-box rk-tall mt-3"><table className="w-full text-sm"><thead><tr><th className="py-2">Question</th><th>Skill</th><th>Status</th><th>Also missing</th><th /></tr></thead>
-        <tbody>{rows.map((r) => <tr key={r.id} className="border-b last:border-0"><td className="py-1.5 pe-2">{r.stem}</td><td className="text-xs">{r.skill}</td><td className="text-xs">{r.status}</td><td className="text-xs text-slate-500">{r.gaps.filter((g) => g !== field).join(", ") || "—"}</td><td><Link href={`/admin/questions/${r.id}`} className="text-xs font-semibold text-brand-teal underline">Edit</Link></td></tr>)}</tbody></table></div>
+        <tbody>{rows.map((r) => <tr key={r.id} className="border-b last:border-0"><td className="py-1.5 pe-2"><RichInline text={r.stem} /></td><td className="text-xs">{r.skill}</td><td className="text-xs">{r.status}</td><td className="text-xs text-slate-500">{r.gaps.filter((g) => g !== field).join(", ") || "—"}</td><td><Link href={`/admin/questions/${r.id}`} className="text-xs font-semibold text-brand-teal underline">Edit</Link></td></tr>)}</tbody></table></div>
       {!rows.length && <p className="mt-3 text-slate-600">No question is missing this. ✅</p>}
     </section>
   );

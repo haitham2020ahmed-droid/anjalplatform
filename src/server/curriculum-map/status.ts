@@ -6,6 +6,7 @@
 import type { Repo } from "../seeding/repo";
 import type { Actor } from "../auth/rbac";
 import { assertClassRead } from "../teacher/coordinators";
+import { cancelIndex, liveAssignmentWhere } from "../student/cancelled-work";
 
 const s = (v: unknown) => String(v ?? "");
 export type SectionState = "NOT_ASSIGNED" | "IN_PROGRESS" | "FINISHED" | "NEEDS_HELP";
@@ -17,7 +18,9 @@ const sectionOf = (code: string) => code.replace(/\.(BELOW|ON|ABOVE)$/, "");
 export async function sectionStatuses(repo: Repo, actor: Actor, classId: string): Promise<Map<string, SectionStatus>> {
   await assertClassRead(repo, actor, classId);
   const out = new Map<string, SectionStatus>();
-  const as = (await repo.findMany("Assignment", { classId, deletedAt: null }, { select: ["id", "assessmentId", "dueAt"] })).filter((a) => a.assessmentId);
+  // r78: a set cancelled on Assigned (for everyone, or for a student) is not counted
+  const ix = await cancelIndex(repo, actor.schoolId);
+  const as = (await repo.findMany("Assignment", liveAssignmentWhere({ classId }), { select: ["id", "assessmentId", "dueAt", "testId", "curriculumPlanId"] })).filter((a) => a.assessmentId && ix.live(a));
   if (as.length) {
     const aq = await repo.findMany("AssessmentQuestion", { assessmentId: { in: as.map((a) => a.assessmentId) } }, { select: ["assessmentId", "questionId"] });
     const links = aq.length ? await repo.findMany("QuestionMapLink", { questionId: { in: [...new Set(aq.map((x) => s(x.questionId)))] } }) : [];
@@ -25,7 +28,8 @@ export async function sectionStatuses(repo: Repo, actor: Actor, classId: string)
     const codeOfNode = new Map(nodes.map((n) => [s(n.id), sectionOf(s(n.code))]));
     const sectionsOfQ = new Map<string, Set<string>>();
     for (const l of links) { const c = codeOfNode.get(s(l.nodeId)); if (c) sectionsOfQ.set(s(l.questionId), new Set([...(sectionsOfQ.get(s(l.questionId)) ?? []), c])); }
-    const rows = await repo.findMany("AssignmentStudent", { assignmentId: { in: as.map((a) => a.id) } }, { select: ["assignmentId", "status"] });
+    const aOf = new Map(as.map((a) => [s(a.id), a]));
+    const rows = (await repo.findMany("AssignmentStudent", { assignmentId: { in: as.map((a) => a.id) } }, { select: ["assignmentId", "studentId", "status"] })).filter((r) => ix.live(aOf.get(s(r.assignmentId))!, s(r.studentId)));
     const acc = new Map<string, { done: number; total: number; late: number }>();
     for (const a of as) {
       const secs = new Set<string>();
@@ -41,9 +45,9 @@ export async function sectionStatuses(repo: Repo, actor: Actor, classId: string)
       out.set(c, { state: v.late > 0 ? "NEEDS_HELP" : v.total && v.done === v.total ? "FINISHED" : "IN_PROGRESS", done: v.done, total: v.total });
     }
   }
-  const rtr = await repo.findMany("RespondAssignment", { classId, deletedAt: null }, { select: ["id", "setCode", "dueAt"] });
+  const rtr = (await repo.findMany("RespondAssignment", { classId, deletedAt: null }, { select: ["id", "setCode", "dueAt"] })).filter((a) => ix.liveRef("RESPOND", s(a.id)));
   if (rtr.length) {
-    const rows = await repo.findMany("RespondAssignmentStudent", { assignmentId: { in: rtr.map((a) => a.id) } }, { select: ["assignmentId", "finishedAt"] });
+    const rows = (await repo.findMany("RespondAssignmentStudent", { assignmentId: { in: rtr.map((a) => a.id) } }, { select: ["assignmentId", "studentId", "finishedAt"] })).filter((r) => ix.liveRef("RESPOND", s(r.assignmentId), s(r.studentId)));
     const now = Date.now();
     for (const a of rtr) {
       const mine = rows.filter((r) => r.assignmentId === a.id), done = mine.filter((r) => r.finishedAt).length;

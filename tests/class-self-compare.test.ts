@@ -12,7 +12,8 @@ import type { SqliteRepo } from "../scripts/db/sqlite-repo";
 import { demoDatabase } from "./helpers/db";
 import { resolveActor } from "../src/server/auth/actor";
 import { ForbiddenError, type Actor } from "../src/server/auth/rbac";
-import { classMonth, monthCompare, monthLines, myMonth, myMonthMessage, peerCompare, peerRows, studentPeer, weeklySummary } from "../src/server/insights/class-compare";
+import { emptyTotals } from "../src/server/analytics/practice-totals";
+import { classMonth, monthCompare, monthLines, monthWindows, myMonth, myMonthMessage, peerCompare, peerRows, studentPeer, weeklySummary } from "../src/server/insights/class-compare";
 
 const ROOT = process.cwd();
 const read = (f: string) => readFileSync(join(ROOT, f), "utf8");
@@ -24,21 +25,27 @@ const files = (dir: string): string[] => readdirSync(join(ROOT, dir)).flatMap((f
 
 describe("📈 the class against itself (pure)", () => {
   test("this month against last month: stars, effort, time, skills improved and still weak", () => {
-    const names = new Map([["k1", "Inference"], ["k2", "Theme"]]);
-    const answers = (skillId: string, n: number, ok: number, d: number) => Array.from({ length: n }, (_, i) => ({ studentId: `s${i % 3}`, skillId, isCorrect: i < ok, createdAt: ago(d) }));
+    // round 4: the windows' numbers come from practice-totals.ts (passed in), the skill lists from the stars by KEY
+    const tot = (questions: number, correct: number, careful: number, minutes: number) => ({ ...emptyTotals(), questions, correct, careful, minutes });
+    const { ms } = monthWindows(NOW);
+    const star = (studentId: string, key: string, name: string, status: string, score: number, masteredAt: Date | null, startedAt: Date) =>
+      ({ studentId, key, skillId: `id-${key}`, name, status, score, masteredAt: masteredAt?.toISOString() ?? null, startedAt: startedAt.toISOString() });
     const m = monthCompare({
-      ids: ["s0", "s1", "s2"], skillNames: names, now: NOW,
-      attempts: [...answers("k1", 10, 4, 40), ...answers("k1", 10, 8, 5), ...answers("k2", 10, 4, 40), ...answers("k2", 10, 4, 5)],
-      stars: [{ masteredAt: ago(3) }, { masteredAt: ago(10) }, { masteredAt: ago(45) }],
-      sessions: [{ activeMs: 30 * 60_000, startedAt: ago(5) }, { activeMs: 10 * 60_000, startedAt: ago(40) }],
+      ids: ["s0", "s1", "s2"], windows: ms,
+      thisTotals: new Map([["s0", tot(10, 6, 10, 20)], ["s1", tot(10, 6, 10, 10)], ["s2", tot(0, 0, 0, 0)]]),
+      lastTotals: new Map([["s0", tot(10, 4, 10, 10)]]),
+      stars: [
+        star("s0", "k1", "Inference", "MASTERED", 95, ago(3), ago(50)), star("s1", "k1", "Inference", "MASTERED", 90, ago(10), ago(50)), star("s2", "k1", "Inference", "MASTERED", 92, ago(45), ago(50)),
+        star("s0", "k2", "Theme", "NEEDS_REVIEW", 40, null, ago(50)), star("s1", "k2", "Theme", "IN_PROGRESS", 30, null, ago(5)),
+      ],
     });
     assert.deepEqual([m.thisMonth.newStars, m.lastMonth.newStars], [2, 1]);
     assert.deepEqual([m.thisMonth.minutes, m.lastMonth.minutes], [30, 10]);
-    assert.deepEqual([m.thisMonth.answers, m.thisMonth.accuracy], [20, 60]);
-    assert.deepEqual(m.improved.map((k) => [k.name, k.from, k.to]), [["Inference", 40, 80]]);
-    assert.deepEqual(m.weak.map((k) => [k.name, k.accuracy, k.stillWeak]), [["Theme", 40, true]]);
+    assert.deepEqual([m.thisMonth.answers, m.thisMonth.accuracy, m.thisMonth.active], [20, 60, 2]);
+    assert.deepEqual(m.improved.map((k) => [k.name, k.from, k.to]), [["Inference", 33, 100]], "⭐ share of the class at the start → now");
+    assert.deepEqual(m.weak.map((k) => [k.name, k.accuracy, k.answers, k.stillWeak]), [["Theme", 30, 2, true]], "🔄 first; the ◐ star score; on it since before the month");
     assert.deepEqual(monthLines(m), [
-      "2 new stars this month (up from 1).", "Improved most: Inference (40% → 80%).", "Still to work on: Theme (40% correct).", "Practice: 30 minutes by 3 students (last month 10 minutes by 3).",
+      "2 new stars this month (up from 1).", "Improved most: Inference (⭐ 33% → 100% of the class).", "Still to work on: Theme (star score 30).", "Practice: 30 minutes by 2 students (last month 10 minutes by 1).",
     ]);
   });
 
@@ -52,7 +59,8 @@ describe("📈 the class against itself (pure)", () => {
     assert.equal(r.middle, 60);
     assert.deepEqual([row("a").position, row("c").position, row("e").position], ["below", "around", "above"]);
     assert.equal(row("a").fasterThan, 100, "the most new stars of the class");
-    assert.equal(row("a").sentence, "A is below the class middle and progressing faster than 100% of classmates this month ↑.");
+    assert.equal(row("a").sentence, "Below the class middle · progressing faster than 100% of classmates ↑");
+    assert.deepEqual(row("a").parts, { position: "Below the class middle", growth: "progressing faster than {n}% of classmates", vars: { n: 100 }, arrow: " ↑" });
     assert.deepEqual(r.encourage.map((x) => x.studentId), ["a", "b"], "weak but growing fast (most growth first)");
     assert.deepEqual(r.challenge.map((x) => x.studentId), ["e", "d"], "strong but flat (strongest first)");
   });
@@ -79,11 +87,16 @@ describe("📈 on the demo school: never across classes, never to students or pa
     const link = (await repo.findMany("ParentStudent", { studentId: sid }))[0];
     if (link) parent = await resolveActor(repo, (await repo.findUnique("User", { id: (await repo.findUnique("Parent", { id: link.parentId }))!.userId }))!);
     const skill = (await repo.findMany("Skill", {}, { take: 1 }))[0];
-    await repo.create("StudentSkillMastery", { studentId: sid, skillId: skill.id, score: 95, attempts: 20, correct: 19, isMastered: true, masteredAt: new Date(), updatedAt: new Date() });
+    // ⭐ stars (1 Nov 2026): "new stars" are SkillStatus ⭐ rows, the same as My Skills
+    const star = (studentId: unknown, skillId: unknown, skillKey: string) => repo.create("SkillStatus", { studentId, skillKey, level: 1, status: "MASTERED", skillId, answered: 30, correct: 28, score: 95, startedAt: new Date(), masteredAt: new Date(), updatedAt: new Date() });
+    await star(sid, skill.id, `skill:${s(skill.id)}`);
+    // the engine's old isMastered alone is NOT a star
+    const other2 = (await repo.findMany("Skill", {}, { take: 2 }))[1];
+    await repo.create("StudentSkillMastery", { studentId: sid, skillId: other2.id, score: 95, attempts: 20, correct: 19, isMastered: true, masteredAt: new Date(), updatedAt: new Date() });
     // the other class does much better: it must never show up in this class's report
     for (const m of await repo.findMany("ClassMembership", { classId: otherClass })) {
       const k = (await repo.findMany("Skill", {}, { take: 3 }))[2];
-      await repo.create("StudentSkillMastery", { studentId: m.studentId, skillId: k.id, score: 99, attempts: 30, correct: 30, isMastered: true, masteredAt: new Date(), updatedAt: new Date() });
+      await star(m.studentId, k.id, `skill:${s(k.id)}`);
     }
   });
 
@@ -130,5 +143,14 @@ describe("📈 on the demo school: never across classes, never to students or pa
     assert.match(mine, /myMonth\(repo, actor\)/);
     assert.match(read("src/app/teacher/reports/class/page.tsx"), /Never ranked against other classes/);
     assert.match(read("src/app/teacher/students/[studentId]/page.tsx"), /Compared with the class[\s\S]*Staff only/);
+  });
+
+  // r87: "each student against the class" was a raw 4-column table — simplified to one plain-language line per
+  // student (the ready-made `sentence` field) plus a colour-coded position pill, no numbers to compare by hand.
+  test("'each student against the class' is plain language + a colour-coded pill, not a raw numbers table", () => {
+    const page = read("src/app/teacher/reports/class/page.tsx");
+    assert.match(page, /r\.sentence/, "shows the plain-language sentence");
+    assert.match(page, /r\.position === "above".*r\.position === "below".*r\.position === "around"/, "colour-codes the three positions (+ the no-data case)");
+    assert.doesNotMatch(page, /ReportTable/, "no raw numbers table on this page any more");
   });
 });

@@ -65,9 +65,9 @@
     "passage": "Ali likes to draw. He is making a poster for his classmates. He wants them all to come to sports day.",
     "stem": "What should Ali put on his poster?",
     "options": [
-     "The name of his cat",
-     "What he ate for lunch",
-     "His favourite colour",
+     "The name of his cat and its color",
+     "What he ate for lunch today",
+     "His favourite colour and food",
      "The day and time of sports day"
     ],
     "answer": 3,
@@ -173,9 +173,9 @@
     "stem": "Which form of writing is best for this purpose?",
     "options": [
      "A colourful poster near the front gate",
-     "A private diary entry",
-     "A poem about cute animals",
-     "A science report on cats"
+     "A private diary entry kept at home",
+     "A poem about cute animals for children",
+     "A science report on cats and dogs"
     ],
     "answer": 0,
     "hint": "Would that form tell everyone who walks past the gate about the sale?",
@@ -279,7 +279,7 @@
     "passage": "Students at a primary school are writing a letter to the city council. They want to ask for a pedestrian crossing outside their school. Many students walk to school along a busy road. Cars there often drive fast, and there is no safe place to cross. Last month, a student was nearly hit by a car. The students want the council to understand why a crossing is needed.",
     "stem": "Which detail would be most appropriate to add to their letter?",
     "options": [
-     "Our football team won the cup last year.",
+     "Our football team won the cup last year at the stadium.",
      "About 300 students cross that road every morning.",
      "Our canteen sells very tasty sandwiches.",
      "Some students think the council is lazy."
@@ -335,7 +335,7 @@
      "stem": "Which detail is most useful for the visitors?",
      "options": [
       "Ahmed's uncle once fixed a car near the fort.",
-      "Ahmed's favourite school subject is maths.",
+      "Ahmed's favourite school subject is maths and science.",
       "The fort is open from 8 a.m. to 6 p.m., and entry is free.",
       "The gift shop's walls were painted last spring."
      ],
@@ -393,10 +393,10 @@
     "passage": "I am writing on behalf of the Grade 6 science club to invite you to speak at our Science Day on 14 March. Our members have been studying renewable energy, and your research on solar power has inspired many of us. Anyway, it would be super cool if you came and talked to us about your stuff. We would be honoured to welcome you, and we will gladly arrange transport from your office.",
     "stem": "One sentence in this letter to a university professor does not match the rest. Which revision fits the audience best?",
     "options": [
-     "So, like, could you maybe come and talk to us?",
-     "You have to come because we really want you to.",
+     "So, like, could you maybe come and talk to us sometime soon?",
+     "You have to come to our club because we really want you to.",
      "We would be grateful if you could share your work with our members.",
-     "Hey, your solar stuff is awesome, so drop by!"
+     "Hey, your solar stuff is awesome, so drop by whenever you like!"
     ],
     "answer": 2,
     "hint": "Does that revision sound like the rest of the letter? The other sentences are polite and formal.",
@@ -447,10 +447,10 @@
      "passage": "Objective: persuade parents to donate tools for a new school garden.",
      "stem": "Which detail best helps the writing meet its objective?",
      "options": [
-      "Some gardens in other countries grow only roses.",
+      "Some gardens in other countries grow only roses and tulips.",
       "The garden would let every class grow and study its own plants.",
-      "Some garden tools are made of steel or plastic.",
-      "The principal's office is near the garden area."
+      "Some garden tools are made of steel or plastic, and some of wood.",
+      "The principal's office is near the garden area behind the hall."
      ],
      "answer": 1,
      "why": "It gives parents a clear reason to donate: the garden helps every class learn."

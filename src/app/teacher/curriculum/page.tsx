@@ -48,7 +48,7 @@ export default async function TeacherCurriculumPage({ searchParams }: { searchPa
       <div className="flex flex-wrap items-center gap-2">
         {canAssign && k.questions > 0 && <StarAssign kind="SKILL" refId={k.id} classId={view!.classId} assignedId={stars.get(k.id) ?? null} defaultDue={due} track={map ? "MAP" : "NAFS"} label={k.name} />}
         {canAssign && <Link href={`/teacher/skill-assign?${new URLSearchParams({ skillId: k.id, classId: view!.classId })}`} className="rounded-lg px-3 py-1.5 text-sm font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal" title="Questions linked to the lesson, the same skill and the same standard; assign practice at each student’s level or a ready set">🔎 Questions from the bank</Link>}
-        {canAssign && (k.questions > 0 ? <AssignDialog skill={k} /> : <span className="rounded-lg bg-slate-100 px-3 py-1.5 text-sm text-slate-600">This skill has no questions yet.</span>)}
+        {canAssign && (k.questions > 0 ? <AssignDialog skill={k} assigned={!!k.openAssignments} /> : <span className="rounded-lg bg-slate-100 px-3 py-1.5 text-sm text-slate-600">This skill has no questions yet.</span>)}
       </div>
       <details className="w-full">
         <summary className="inline-flex min-h-11 cursor-pointer items-center rounded-lg px-3 text-sm font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">View questions ({k.questions})</summary>

@@ -64,6 +64,16 @@
       "level": 1400,
       "title": "Teaching Machines to Think: Artificial Intelligence",
       "text": "You speak to a phone, and it transcribes your words almost flawlessly, while a navigation application warns you about traffic before you even leave home. These machines appear intelligent, but their abilities originate in a process through which the computer has learned from experience rather than from an exhaustive list of rules.\n\nTraditionally, a computer executes precisely what it is instructed to do, and the instructions it follows constitute a program, and a step-by-step procedure for solving a particular problem is called an algorithm, so for many tasks, programmers compose every rule themselves.\n\nHowever, some tasks involve far too many rules to specify, because you can recognize a cat instantly, yet articulating every rule your brain applies to reach that decision is practically impossible.\n\nConsequently, engineers rely on a method called machine learning. Rather than writing the rules, they supply the computer with data, an enormous collection of examples, such as thousands of photographs, each accompanied by a label identifying it as \"cat\" or \"not cat.\" The computer then searches for patterns, such as pointed ears or whiskers, that appear repeatedly. Many of these systems employ a neural network, which is a structure of interconnected computational layers loosely inspired by the way cells in the brain communicate.\n\nThe computer subsequently generates a prediction about an unfamiliar photograph, and if the prediction is incorrect, it adjusts its internal calculations slightly and tries again. After thousands of attempts, it becomes remarkably accurate, and when a computer performs tasks that ordinarily require human reasoning, we call it artificial intelligence, or AI.\n\nAI assists people every day, since it translates sentences between languages, anticipates which roads will become congested, and helps physicians identify early indications of illness in medical images.\n\nNevertheless, AI has significant limitations. It understands only what its data teaches it, so if the examples are inaccurate or incomplete, the system can develop a bias, an unfair tendency to favor particular answers or groups over others. Furthermore, it does not genuinely comprehend the world or experience emotions the way people do. For these reasons, developing AI raises ethical questions about fairness, privacy, and accountability, and humans must continually evaluate its decisions.\n\nIn Saudi Arabia, a national authority for data and artificial intelligence, established in 2019, coordinates the kingdom's strategy, and many students are learning to write computer code."
+    },
+    {
+      "level": 1500,
+      "title": "Teaching Machines to Think: Artificial Intelligence",
+      "text": "You speak to a phone, and it transcribes your words almost flawlessly, while a navigation application warns you about traffic before you even leave home. These machines appear intelligent, but their abilities originate in a process through which the computer has learned from experience rather than from an exhaustive list of rules.\n\nTraditionally, a computer executes precisely what it is instructed to do, and the instructions it follows constitute a program, and a step-by-step procedure for solving a particular problem is called an algorithm, so for many tasks, programmers compose every rule themselves, explicitly and exhaustively.\n\nHowever, some tasks involve far too many rules to specify, because you can recognize a cat instantly, yet articulating every rule your brain applies to reach that decision is practically impossible.\n\nConsequently, engineers rely on a method called machine learning. Rather than writing the rules, they supply the computer with data, an enormous collection of examples, such as thousands of photographs, each accompanied by a label identifying it as \"cat\" or \"not cat.\" The computer then searches for patterns, such as pointed ears or whiskers, that appear repeatedly. Many of these systems employ a neural network, which is a structure of interconnected computational layers loosely inspired by the way cells in the brain communicate.\n\nThe computer subsequently generates a prediction about an unfamiliar photograph, and if the prediction is incorrect, it adjusts its internal calculations slightly and tries again. After thousands of attempts, it becomes remarkably accurate, and when a computer performs tasks that ordinarily require human reasoning, we call it artificial intelligence, or AI.\n\nAI assists people every day, since it translates sentences between languages, anticipates which roads will become congested, and helps physicians identify early indications of illness in medical images.\n\nNevertheless, AI has significant limitations. It understands only what its data teaches it, so if the examples are inaccurate or incomplete, the system can develop a bias, an unfair, systematic tendency to favor particular answers or groups over others. Furthermore, it does not genuinely comprehend the world or experience emotions the way people do. For these reasons, developing AI raises substantive ethical questions about fairness, privacy, and accountability, and humans must continually evaluate its generated decisions.\n\nWithin Saudi Arabia, a national authority dedicated to data and artificial intelligence, established in 2019, coordinates the kingdom's comprehensive national strategic approach, while increasing numbers of students across the entire country actively pursue computer programming education."
+    },
+    {
+      "level": 1600,
+      "title": "Teaching Machines to Think: Artificial Intelligence",
+      "text": "When a smartphone transcribes spoken words with near-flawless accuracy, or a navigation application anticipates traffic congestion before a journey has even commenced, these technological systems appear remarkably, even unsettlingly, intelligent; however, their operational capabilities originate not from an exhaustive catalog of explicitly programmed rules but from a sophisticated process through which the computational system has genuinely learned from accumulated empirical experience rather than predetermined instruction.\n\nConventionally, a computer executes precisely and exclusively what it has been explicitly instructed to perform, with such sequential instructions collectively constituting what is termed a program, while a systematic, sequential procedure specifically designed to resolve a particular computational problem is termed an algorithm; consequently, for numerous conventional tasks, programmers must compose every governing rule themselves, explicitly, exhaustively, and without exception.\n\nHowever, certain cognitively complex tasks involve such an overwhelming multiplicity of conceivable rules that explicit articulation becomes practically unfeasible, since the instantaneous human recognition of a cat, for instance, relies upon intuitive cognitive processes so deeply ingrained that explicitly enumerating every underlying neurological rule the brain employs in reaching that determination proves practically impossible for any human to accomplish.\n\nConsequently, engineers increasingly rely upon a computational methodology termed machine learning. Rather than manually composing explicit rules, they supply the computational system with extensive, often massive, quantities of data, vast collections of individually labeled examples, such as many thousands of photographs each explicitly designated as either \"cat\" or \"not cat.\" The computational system subsequently identifies recurring statistical patterns, such as pointed ears or whiskers, that consistently characterize the target category across numerous examples. Numerous such computational systems employ what is termed a neural network, an architectural structure comprising multiple interconnected computational layers loosely, and only metaphorically, inspired by the communicative processes occurring between biological neurons within the brain.\n\nThe computational system subsequently generates probabilistic predictions regarding entirely unfamiliar photographs, and whenever a given prediction proves demonstrably incorrect, the system incrementally adjusts its internal mathematical calculations and attempts the classification anew. Following many thousands of iterative attempts and corresponding adjustments, remarkable predictive accuracy gradually emerges, and whenever a computational system performs tasks ordinarily requiring sophisticated human cognitive reasoning, this emergent capability is formally designated artificial intelligence, or AI.\n\nAI systems assist human populations continuously throughout daily existence, translating sentences between linguistically disparate languages, anticipating with considerable accuracy which roadways will become congested, and assisting medical physicians in identifying subtle early indications of pathology within diagnostic medical imaging.\n\nNevertheless, artificial intelligence possesses significant, demonstrable inherent limitations that warrant careful consideration. Such systems comprehend exclusively what their underlying training data has taught them, meaning that inaccurate, incomplete, or unrepresentative examples can precipitate systematic bias, an unfair, statistically embedded tendency to favor particular outcomes or demographic groups disproportionately over others. Furthermore, artificial intelligence does not genuinely comprehend the surrounding world or experience subjective emotions in any manner analogous to authentic human experience. For these compelling and multifaceted reasons, the ongoing development of AI technology raises substantive ethical questions concerning fairness, privacy, and institutional accountability, necessitating continuous, rigorous human evaluation and oversight of its algorithmically generated decisions.\n\nWithin Saudi Arabia, a national regulatory authority dedicated specifically to data and artificial intelligence, formally established in 2019, coordinates the kingdom's comprehensive strategic approach to this rapidly evolving technological domain, while increasing numbers of students across the educational system actively pursue computer programming education in anticipation of its continued importance."
     }
   ],
   "bands": {
@@ -121,9 +131,9 @@
         {
           "stem": "What is a program?",
           "options": [
-            "A picture of a cat",
-            "A doctor's scan of the body",
-            "A road full of cars",
+            "A picture of a cat sitting by a window",
+            "A doctor's scan of the body in a hospital",
+            "A road full of cars and trucks in the city",
             "A list of steps a computer follows"
           ],
           "answer": "D",
@@ -155,9 +165,9 @@
         {
           "stem": "The computer looks for a pattern, like pointed ears. What does pattern mean here?",
           "options": [
-            "A loud noise",
-            "A fast car",
-            "A broken part",
+            "A loud noise that hurts your ears a lot",
+            "A fast car on the road in town now",
+            "A broken part inside a machine today",
             "Something that shows up again and again"
           ],
           "answer": "D",
@@ -172,10 +182,10 @@
         {
           "stem": "What does the computer do when its guess is wrong?",
           "options": [
-            "It stops working for good.",
-            "It asks a cat for help.",
+            "It stops working for good and shuts itself down.",
+            "It asks a cat for help with the next question.",
             "It changes its math a bit and tries again.",
-            "It deletes all of its data."
+            "It deletes all of its data and starts from zero."
           ],
           "answer": "C",
           "skill": "sequence",
@@ -243,7 +253,8 @@
         "I explained the steps the computer takes.",
         "I used at least two facts from the article.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "To learn to spot a cat, a computer is trained using lots of data, like thousands of labeled photos. It looks for a pattern, such as pointed ears, that shows up again and again. If it makes a mistake, it adjusts its math and tries again until it gets better."
     },
     "MID": {
       "keyWords": [
@@ -282,10 +293,10 @@
         {
           "stem": "Which sentence best states the main idea of the article?",
           "options": [
-            "Computers will soon replace all doctors.",
+            "Computers will soon replace all doctors, so hospitals will not need any people to treat patients.",
             "Computers can learn from many labeled examples, which lets AI help people, though it still needs checking.",
-            "Cats are the hardest animals for computers to see.",
-            "Map apps were the first kind of AI."
+            "Cats are the hardest animals for computers to see, which is why AI cannot ever be used in homes.",
+            "Map apps were the first kind of AI, and every other kind of AI was copied from them in later years by the engineers."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -299,10 +310,10 @@
         {
           "stem": "What is an algorithm?",
           "options": [
-            "A photo with a label",
-            "A kind of phone",
+            "A photo with a label on it, like an album",
+            "A kind of phone that is used by a bank",
             "A step-by-step plan for solving a problem",
-            "A mistake made by a computer"
+            "A mistake made by a computer when it runs"
           ],
           "answer": "C",
           "skill": "vocabulary",
@@ -368,9 +379,9 @@
           "stem": "Why does the author say it is almost impossible to explain every rule for recognizing a cat?",
           "options": [
             "To show why training with examples is needed",
-            "To prove that cats are dangerous",
-            "To say that people are not smart",
-            "To explain how maps work"
+            "To prove that cats are dangerous to small children",
+            "To say that people are not smart enough to see cats",
+            "To explain how maps work for ships at sea"
           ],
           "answer": "A",
           "skill": "author-purpose",
@@ -401,9 +412,9 @@
         {
           "stem": "Why must people always check the work of AI?",
           "options": [
-            "AI refuses to finish tasks.",
-            "AI cannot store pictures.",
-            "AI only works in Saudi Arabia.",
+            "AI refuses to finish tasks that people give it, because it gets tired",
+            "AI cannot store pictures or any other files in its memory",
+            "AI only works in Saudi Arabia and nowhere else in the world",
             "AI can learn wrong things if its data is wrong or unfair."
           ],
           "answer": "D",
@@ -421,7 +432,8 @@
         "I gave a clear reason.",
         "I used at least two details from the article.",
         "I explained how the details support my reason."
-      ]
+      ],
+      "modelAnswer": "People must check the work of AI because a computer only knows what its data teaches it, so if the data is wrong or unfair, the computer learns the wrong things. Even though AI can translate languages and predict which roads will be crowded, it can still recognize a pattern incorrectly and make a mistake. Checking its work makes sure the answers it gives are accurate before people trust them."
     },
     "HIGH": {
       "keyWords": [
@@ -461,9 +473,9 @@
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
             "Machine learning lets computers learn patterns from data, which makes AI useful but also raises limits and ethical concerns.",
-            "Neural networks are copies of the human brain.",
-            "Programmers no longer write algorithms.",
-            "AI understands the world better than people do."
+            "Neural networks are copies of the human brain, and they think exactly as people do, say the writers of the article.",
+            "Programmers no longer write algorithms, since machines do all of that work by themselves, without any help from people.",
+            "AI understands the world better than people do, and so it has no limits and no ethical concerns at all, the article says."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -562,10 +574,10 @@
         {
           "stem": "A hospital wants to use AI to help read medical scans. Based on the article, what would be the wisest plan?",
           "options": [
-            "Let the AI decide alone, since it is always accurate.",
-            "Avoid giving the AI any examples.",
+            "Let the AI decide alone, since it is always accurate and never makes a mistake in a scan.",
+            "Avoid giving the AI any examples of scans, so it learns on its own from nothing.",
             "Use the AI, but have doctors check its results and make sure its training data is complete.",
-            "Use only one scan to train it."
+            "Use only one scan to train it, since one picture is enough for the AI to learn."
           ],
           "answer": "C",
           "skill": "inference",
@@ -580,9 +592,9 @@
           "stem": "Why does the author include the paragraph about limits and ethical questions?",
           "options": [
             "To give a balanced view by showing that AI has risks as well as benefits",
-            "To persuade readers never to use AI",
-            "To explain how to write computer code",
-            "To describe the history of phones"
+            "To persuade readers never to use AI in their homes or at school again",
+            "To explain how to write computer code for a game on a screen",
+            "To describe the history of phones and how they changed the world"
           ],
           "answer": "A",
           "skill": "author-purpose",
@@ -599,7 +611,8 @@
         "I stated a clear position.",
         "I supported it with at least two pieces of evidence from the article.",
         "I explained how my evidence supports my position."
-      ]
+      ],
+      "modelAnswer": "I disagree that artificial intelligence should be allowed to make important decisions on its own. Machine learning only knows what its training data teaches it, so if that data contains bias or unfair patterns, the resulting decisions could be wrong in ways nobody notices right away. The article explains that AI can make mistakes when its data is flawed, which is exactly why people must always check its work, an ethical responsibility that disappears if a computer is left to decide alone. Because AI is a powerful tool but not a perfect judge, people should stay in charge of important decisions."
     }
   }
 }

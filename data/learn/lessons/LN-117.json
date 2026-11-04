@@ -127,10 +127,10 @@
      "passage": "Heading: Our Class Pet.\nWe have a fish named Bubbles.\nHeading: Our Class Trip.\nWe went to the farm.",
      "stem": "What is the part under Our Class Trip about?",
      "options": [
-      "Our fish",
-      "Our teacher",
+      "Our pet fish at home",
+      "Our teacher's car",
       "Going to the farm",
-      "Our lunch"
+      "Our lunch at school"
      ],
      "answer": 2,
      "why": "Under Our Class Trip, it says: We went to the farm."
@@ -364,8 +364,8 @@
      "passage": "Main text: Many families in hot countries now use solar panels on their roofs. The panels turn sunlight into electricity for lights and fans.\nSidebar, Try This: Place a dark cloth and a white cloth in the sun for one hour. Touch both. Which is warmer?",
      "stem": "What is the purpose of this sidebar?",
      "options": [
-      "To give the history of solar panels",
-      "To explain the cost of electricity",
+      "To give the history of solar panels and the sun",
+      "To explain the cost of electricity in most homes",
       "To give a simple activity about the sun's heat",
       "To list countries that use solar power"
      ],
@@ -423,8 +423,8 @@
     "passage": "Heading: Fighting the Locust Swarms.\nSubheading: A Plague on the Wind.\nDesert locusts can form swarms of millions of insects that travel long distances in a single day, eating crops as they go.\nSubheading: Watching from Above.\nToday, scientists use satellite images to find green areas where rain has fallen, because that is where locusts are likely to breed.\nSubheading: Stopping Swarms Early.\nTeams then visit those areas to treat young locusts before they can fly.\nSidebar, Voices from the Field: A farmer in Yemen remembers waking to find his entire field of sorghum gone in one morning.",
     "stem": "What is the most likely purpose of the sidebar?",
     "options": [
-     "To explain how satellites take pictures",
-     "To give the scientific name of the locust",
+     "To explain how satellites take pictures of the fields and farms",
+     "To give the scientific name of the locust and the group it belongs to",
      "To add a personal example that shows how serious the damage can be",
      "To list the steps teams follow to treat young locusts"
     ],
@@ -469,9 +469,9 @@
      "stem": "Why is the word dhow most likely printed in italics?",
      "options": [
       "To mark a special word from another language",
-      "To show it is the title of a book",
-      "To show it is the most important idea",
-      "To show it is a heading"
+      "To show it is the title of a long book",
+      "To show it is the most important idea in the text",
+      "To show it is a heading in the text"
      ],
      "answer": 0,
      "why": "Italics often mark a word from another language. Dhow is the name used in the region for traditional boats."

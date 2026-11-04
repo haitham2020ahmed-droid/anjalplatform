@@ -30,9 +30,9 @@
       "stem": "Which sentence uses the word \"frontier\" correctly?",
       "options": [
         "Soldiers guarded the frontier between the two lands.",
-        "She frontier her homework before dinner.",
-        "The frontier tasted sweet and fresh.",
-        "He spoke so frontier that everyone heard."
+        "She frontier her homework before dinner at home.",
+        "The frontier tasted sweet and fresh, like fruit from a tree.",
+        "He spoke so frontier that everyone in the room heard him."
       ],
       "answer": "A",
       "why": "A frontier is a border area between two regions; only the first sentence uses it as a noun with that meaning."
@@ -157,10 +157,10 @@
       "difficulty": 2,
       "stem": "Which is the best alternative title for the passage?",
       "options": [
-        "The First Emperor's Childhood",
+        "The First Emperor's Childhood and Early Life",
         "Two Thousand Years of China's Great Wall",
-        "How to Send Smoke Signals",
-        "Travel Tips for Visiting Beijing"
+        "How to Send Smoke Signals from a Hill Tower",
+        "Travel Tips for Visiting Beijing in the Spring"
       ],
       "answer": "B",
       "why": "The passage traces the wall's history, purpose and importance; the other titles cover details that are minor or not discussed."

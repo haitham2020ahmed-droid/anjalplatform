@@ -269,10 +269,10 @@
       "type": "MCQ",
       "stem": "Who tells the story?",
       "options": [
-        "Salma's mother",
+        "Salma's mother, who is in the story",
         "a narrator who is not a character",
-        "Salma",
-        "Umm Saad"
+        "Salma herself, the girl in the story",
+        "Umm Saad, the neighbour at the market"
       ],
       "answer": "B",
       "why": "The story uses “she” and “her” for Salma and never uses “I”, so it is told by a narrator outside the story."
@@ -285,10 +285,10 @@
       "type": "MCQ",
       "stem": "According to the story, when did the rain begin?",
       "options": [
-        "early in the morning",
+        "early in the morning, before breakfast",
         "shortly after the Asr prayer",
-        "after the Isha prayer",
-        "at sunset"
+        "after the Isha prayer in the night",
+        "at sunset, when the sun went down"
       ],
       "answer": "B",
       "why": "The first sentence: “The rain began shortly after the Asr prayer.” By sunset it had become a roar."
@@ -509,9 +509,9 @@
       "type": "MCQ",
       "stem": "Which of the following events could really happen?",
       "options": [
-        "The flood water speaks to Salma at night.",
-        "Rain falls only on Umm Saad's house.",
-        "Ships sail down the street to the sea.",
+        "The flood water speaks to Salma at night in her bed.",
+        "Rain falls only on Umm Saad's house and on no other.",
+        "Ships sail down the street to the sea after the flood.",
         "Neighbours share brooms to clean mud after a flood."
       ],
       "answer": "D",
@@ -525,10 +525,10 @@
       "type": "MCQ",
       "stem": "Which title best describes the events of the story?",
       "options": [
-        "A Journey to Riyadh",
-        "The Desert Race",
+        "A Journey to Riyadh by Car",
+        "The Desert Race of the Camels",
         "One Street, One Family",
-        "The Broken Window"
+        "The Broken Window in the Hall"
       ],
       "answer": "C",
       "why": "The neighbours act like one family during the flood."

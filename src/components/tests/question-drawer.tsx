@@ -11,6 +11,7 @@ import { useT } from "@/i18n/client";
 import { PassageText } from "@/components/passage-text";
 import { questionDetailAction } from "@/server/tests/question-detail-actions";
 import type { DetailOption, QuestionDetail } from "@/server/tests/question-detail";
+import { RichInline } from "@/components/rich-inline";
 
 const LEVEL_LABEL: Record<string, string> = { BELOW: "Approaching", ON: "Meeting", ABOVE: "Exceeding" };
 const LEVEL_CHIP: Record<string, string> = { BELOW: "bg-amber-50 text-amber-900 ring-amber-200", ON: "bg-sky-50 text-sky-900 ring-sky-200", ABOVE: "bg-violet-50 text-violet-900 ring-violet-200" };
@@ -101,15 +102,15 @@ function Detail({ d }: { d: QuestionDetail }) {
       </div>
       {d.section && <p className="text-xs font-semibold text-slate-500" lang="en" data-content>{d.section}</p>}
       <div lang="en" dir="ltr" className="grid gap-3">
-        <p className="text-lg font-semibold text-slate-900" data-content>{d.stem}</p>
+        <p className="text-lg font-semibold text-slate-900" data-content><RichInline text={d.stem} /></p>
         {d.image && <img src={d.image.url} alt={d.image.alt} className="max-h-64 w-auto rounded-xl ring-1 ring-slate-200" loading="lazy" />}
         <Answers d={d} />
       </div>
       <div className="rounded-xl bg-emerald-50 p-3 text-sm text-emerald-900 ring-1 ring-emerald-200">
         <p><span className="font-semibold">{t("Correct answer")}:</span> <span lang="en" dir="ltr" data-content>{d.answerText || "—"}</span></p>
-        {d.explanation.why && <p className="mt-1.5"><span className="font-semibold">{t("Why")}:</span> <span lang="en" data-content>{d.explanation.why}</span></p>}
-        {d.explanation.tip && <p className="mt-1.5"><span className="font-semibold">{t("Tip")}:</span> <span lang="en" data-content>{d.explanation.tip}</span></p>}
-        {d.hint && <p className="mt-1.5"><span className="font-semibold">{t("Hint")}:</span> <span lang="en" data-content>{d.hint}</span></p>}
+        {d.explanation.why && <p className="mt-1.5"><span className="font-semibold">{t("Why")}:</span> <span lang="en" data-content><RichInline text={d.explanation.why} /></span></p>}
+        {d.explanation.tip && <p className="mt-1.5"><span className="font-semibold">{t("Tip")}:</span> <span lang="en" data-content><RichInline text={d.explanation.tip} /></span></p>}
+        {d.hint && <p className="mt-1.5"><span className="font-semibold">{t("Hint")}:</span> <span lang="en" data-content><RichInline text={d.hint} /></span></p>}
       </div>
     </div>
   );
@@ -118,7 +119,7 @@ function Detail({ d }: { d: QuestionDetail }) {
     <div className="grid gap-5 lg:grid-cols-2">
       <section aria-label={t("Passage")} className="rounded-2xl bg-slate-50 p-4 ring-1 ring-slate-200 lg:max-h-[calc(100vh-8rem)] lg:overflow-y-auto" lang="en" dir="ltr">
         <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">📖 {t("Passage")}</p>
-        {d.passage.title && <h3 className="mt-1 text-lg font-bold text-brand-navy" data-content>{d.passage.title}</h3>}
+        {d.passage.title && <h3 className="mt-1 text-lg font-bold text-brand-navy" data-content><RichInline text={d.passage.title} /></h3>}
         <div data-content><PassageText text={d.passage.text} paraClassName="mt-3 whitespace-pre-line text-base leading-relaxed text-slate-800" headingClassName="mt-4 text-base font-bold text-brand-navy" /></div>
       </section>
       {question}
@@ -132,8 +133,8 @@ function OptionList({ options }: { options: DetailOption[] }) {
     <ul className="grid gap-1.5">
       {options.map((o, i) => (
         <li key={i} className={`rounded-xl px-3 py-2 ring-1 ${o.correct ? "bg-emerald-50 font-semibold text-emerald-900 ring-emerald-300" : "bg-white text-slate-800 ring-slate-200"}`}>
-          <span data-content>{o.label}. {o.text}</span>{o.correct && <span className="ms-1" aria-label={t("Correct answer")}> ✓</span>}
-          {o.why && <span className="mt-0.5 block text-xs font-normal text-slate-600" data-content>{o.why}</span>}
+          <span data-content>{o.label}. <RichInline text={o.text} /></span>{o.correct && <span className="ms-1" aria-label={t("Correct answer")}> ✓</span>}
+          {o.why && <span className="mt-0.5 block text-xs font-normal text-slate-600" data-content><RichInline text={o.why} /></span>}
         </li>
       ))}
     </ul>
@@ -144,8 +145,8 @@ function Answers({ d }: { d: QuestionDetail }) {
   const t = useT();
   if (d.twoPart) return (
     <div className="grid gap-3">
-      <div><p className="text-sm font-semibold text-slate-600">{t("Part A")}</p>{d.twoPart.a.stem && <p className="mb-1" data-content>{d.twoPart.a.stem}</p>}<OptionList options={d.twoPart.a.options} /></div>
-      <div><p className="text-sm font-semibold text-slate-600">{t("Part B")}</p><p className="mb-1" data-content>{d.twoPart.b.stem}</p><OptionList options={d.twoPart.b.options} /></div>
+      <div><p className="text-sm font-semibold text-slate-600">{t("Part A")}</p>{d.twoPart.a.stem && <p className="mb-1" data-content><RichInline text={d.twoPart.a.stem} /></p>}<OptionList options={d.twoPart.a.options} /></div>
+      <div><p className="text-sm font-semibold text-slate-600">{t("Part B")}</p><p className="mb-1" data-content><RichInline text={d.twoPart.b.stem} /></p><OptionList options={d.twoPart.b.options} /></div>
     </div>
   );
   if (d.options) return <OptionList options={d.options} />;
@@ -153,17 +154,17 @@ function Answers({ d }: { d: QuestionDetail }) {
   if (d.grid) return (
     <div className="overflow-x-auto"><table className="w-full text-sm">
       <thead><tr><th className="p-2 text-start" />{d.grid.columns.map((c) => <th key={c} className="p-2 text-center font-semibold text-slate-700" data-content>{c}</th>)}</tr></thead>
-      <tbody>{d.grid.rows.map((r, i) => <tr key={i} className="border-t border-slate-100"><td className="p-2" data-content>{r.text}</td>{d.grid!.columns.map((c) => <td key={c} className="p-2 text-center">{c === r.answer ? <span className="font-bold text-emerald-700" aria-label={t("Correct answer")}>✓</span> : <span className="text-slate-300">○</span>}</td>)}</tr>)}</tbody>
+      <tbody>{d.grid.rows.map((r, i) => <tr key={i} className="border-t border-slate-100"><td className="p-2" data-content><RichInline text={r.text} /></td>{d.grid!.columns.map((c) => <td key={c} className="p-2 text-center">{c === r.answer ? <span className="font-bold text-emerald-700" aria-label={t("Correct answer")}>✓</span> : <span className="text-slate-300">○</span>}</td>)}</tr>)}</tbody>
     </table></div>
   );
-  if (d.hot) return <p className="leading-relaxed">{d.hot.segments.map((x, i) => <span key={i} className={x.correct ? "rounded bg-emerald-100 px-0.5 font-semibold text-emerald-900" : ""} data-content>{x.text} </span>)}</p>;
+  if (d.hot) return <p className="leading-relaxed">{d.hot.segments.map((x, i) => <span key={i} className={x.correct ? "rounded bg-emerald-100 px-0.5 font-semibold text-emerald-900" : ""} data-content><RichInline text={x.text} /> </span>)}</p>;
   if (d.pairs) return <ul className="grid gap-1">{d.pairs.map((p, i) => <li key={i} className="flex flex-wrap gap-2 rounded-xl bg-white px-3 py-2 ring-1 ring-slate-200"><span data-content>{p.left}</span><span aria-hidden="true" className="text-slate-400">→</span><span className="font-semibold text-emerald-800" data-content>{p.right}</span></li>)}</ul>;
   if (d.order) return <ol className="grid gap-1">{d.order.map((x, i) => <li key={i} className="rounded-xl bg-white px-3 py-2 ring-1 ring-slate-200"><span className="font-semibold text-emerald-800">{i + 1}.</span> <span data-content>{x}</span></li>)}</ol>;
   if (d.errors) return (
     <div>
-      <p className="leading-relaxed">{d.errors.segments.map((x, i) => <span key={i} className={x.wrong ? "rounded bg-rose-100 px-0.5 font-semibold text-rose-900 line-through" : ""} data-content>{x.text} </span>)}</p>
+      <p className="leading-relaxed">{d.errors.segments.map((x, i) => <span key={i} className={x.wrong ? "rounded bg-rose-100 px-0.5 font-semibold text-rose-900 line-through" : ""} data-content><RichInline text={x.text} /> </span>)}</p>
       {d.errors.noError ? <p className="mt-1 text-sm text-emerald-800">{t("No error: the sentence is correct.")}</p>
-        : <ul className="mt-1 text-sm text-emerald-800">{d.errors.segments.filter((x) => x.wrong).map((x, i) => <li key={i}><span data-content>“{x.text}” → “{x.fix ?? "—"}”</span></li>)}</ul>}
+        : <ul className="mt-1 text-sm text-emerald-800">{d.errors.segments.filter((x) => x.wrong).map((x, i) => <li key={i}><span data-content>“<RichInline text={x.text} />” → “{x.fix ?? "—"}”</span></li>)}</ul>}
     </div>
   );
   if (d.answers) return <p className="text-sm"><span className="font-semibold">{t("Accepted answers")}:</span> <span data-content>{d.answers.join(" · ")}</span></p>;

@@ -30,7 +30,7 @@ function Snapshot({ s }: { s: MeetingSnapshot }) {
       </article>
       <article className={box}>
         <h3 className="font-bold text-brand-navy">🔻 Weakest skills</h3>
-        {s.weakSkills.length ? <ol className="mt-1 list-decimal space-y-1 ps-5 text-sm">{s.weakSkills.map((w) => <li key={w.skillId}><b>{w.name}</b> · average mastery {w.avgMastery} · {w.studentsBelow60} under 60</li>)}</ol> : <p className="text-sm text-slate-500">Not enough practice yet.</p>}
+        {s.weakSkills.length ? <ol className="mt-1 list-decimal space-y-1 ps-5 text-sm">{s.weakSkills.map((w) => <li key={w.skillId}><b>{w.name}</b> · {w.notMastered !== undefined ? <>⭐ {(w.started ?? 0) - w.notMastered} of {w.started} mastered{w.needsReview ? <> · 🔄 {w.needsReview} need review</> : null}</> : <>average score {w.avgMastery} · {w.studentsBelow60} under 60</>}</li>)}</ol> : <p className="text-sm text-slate-500">Not enough practice yet.</p>}
         <h3 className="mt-3 font-bold text-brand-navy">🚨 Open alerts ({s.alerts.total})</h3>
         <p className="text-sm text-slate-700">{Object.entries(s.alerts.byKind).map(([k, n]) => `${ALERT[k] ?? k}: ${n}`).join(" · ") || "None."}</p>
       </article>
@@ -84,7 +84,7 @@ export default async function DataMeetingPage({ searchParams }: { searchParams: 
             <Callout kind="help" items={[
               snap.refer.length ? <>{t("Refer for further evaluation")}: {snap.refer.join(", ")}</> : null,
               snap.overdueChecks.length ? <>{t("Overdue progress checks")}: {snap.overdueChecks.slice(0, 8).map((o) => o.name).join(", ")}</> : null,
-              snap.weakSkills[0] ? <>{t("Weakest skill")}: <b>{snap.weakSkills[0].name}</b> · {t("{n} students under 60", { n: snap.weakSkills[0].studentsBelow60 })}</> : null,
+              snap.weakSkills[0] ? <>{t("Weakest skill")}: <b>{snap.weakSkills[0].name}</b> · {snap.weakSkills[0].notMastered !== undefined ? t("{n} not mastered yet", { n: snap.weakSkills[0].notMastered }) : t("{n} students under 60", { n: snap.weakSkills[0].studentsBelow60 ?? 0 })}</> : null,
             ]} />
             <Callout kind="next" items={[
               t("Agree on who needs what, how, who owns it and when you review it (form below)."),

@@ -79,7 +79,7 @@ describe("student levels, assign by level, Placement and MAP tests, curriculum r
   test("assign by level: each student gets the questions of their level; empty levels fall back to On", async () => {
     const p = await previewMapAssign(repo, teacher, classId, "G4.U1.TS2.ACS");
     assert.deepEqual(p.levels.map((x) => [x.level, x.questions]), [["ABOVE", 3], ["ON", 3], ["BELOW", 0]]);
-    const r = await assignFromMap(repo, teacher, { classId, categoryCode: "G4.U1.TS2.ACS", mode: "BY_LEVEL" });
+    const r = await assignFromMap(repo, teacher, { source: "CURRICULUM", classId, categoryCode: "G4.U1.TS2.ACS", mode: "BY_LEVEL" });
     const g = new Map(r.groups.map((x) => [x.level, x]));
     assert.deepEqual([g.get("ABOVE")!.students, g.get("BELOW")!.students, g.get("ON")!.students], [3, 2, studentIds.length - 5]);
     assert.equal(g.get("BELOW")!.usedLevel, "ON");
@@ -89,13 +89,13 @@ describe("student levels, assign by level, Placement and MAP tests, curriculum r
     const stems = (await repo.findMany("Question", { id: { in: qs } })).map((x) => String(x.stem));
     assert.ok(stems.length === 3 && stems.every((x) => x.startsWith("Above question")));
     assert.match(String(aboveSet!.title), /Unit 1 · Text Set 2: Realistic Fiction · Analyze Craft and Structure \(Exceeding\)/);
-    const cv = await assignFromMap(repo, teacher, { classId, categoryCode: "G4.U1.TS2.CV" });
+    const cv = await assignFromMap(repo, teacher, { source: "CURRICULUM", classId, categoryCode: "G4.U1.TS2.CV" });
     assert.deepEqual(cv.groups.map((x) => [x.level, x.students, x.questions]), [[null, studentIds.length, 2]]);
-    await assert.rejects(assignFromMap(repo, teacher, { classId, categoryCode: "G4.U2.TS1.ACS" }), /no published questions/);
+    await assert.rejects(assignFromMap(repo, teacher, { source: "CURRICULUM", classId, categoryCode: "G4.U2.TS1.ACS" }), /no published questions/);
     // UI reorg access rules: a place of ANOTHER grade may be assigned to the teacher's own class (no longer
     // "This class is Grade 4"); this Grade 5 place simply has no published questions in this test
-    await assert.rejects(assignFromMap(repo, teacher, { classId, categoryCode: "G5.U1.TS1.ACS" }), /no published questions/);
-    await assert.rejects(assignFromMap(repo, other, { classId, categoryCode: "G4.U1.TS2.ACS" }), ForbiddenError);
+    await assert.rejects(assignFromMap(repo, teacher, { source: "CURRICULUM", classId, categoryCode: "G5.U1.TS1.ACS" }), /no published questions/);
+    await assert.rejects(assignFromMap(repo, other, { source: "CURRICULUM", classId, categoryCode: "G4.U1.TS2.ACS" }), ForbiddenError);
     // results on the map: a student answers their set
     await takeAll(await student(studentIds[0]), g.get("ABOVE")!.assignmentId, true);
     const res = await curriculumResults(repo, teacher, classId);

@@ -45,10 +45,10 @@
       "difficulty": 1,
       "stem": "Why must the solar panels at NEOM be cleaned regularly?",
       "options": [
-        "Seawater makes the panels rust quickly.",
-        "The robots need practice at cleaning.",
+        "Seawater makes the panels rust quickly in the heat.",
+        "The robots need practice at cleaning every day.",
         "Dust and sand reduce the electricity they make.",
-        "Clean panels make much less noise."
+        "Clean panels make much less noise in the desert."
       ],
       "answer": "C",
       "why": "The passage states that dust and sand settle on panels 'and reduce how much electricity they produce'."
@@ -94,8 +94,8 @@
       "stem": "The writer says 'sunshine has a weakness'. What is the purpose of this expression?",
       "options": [
         "to show that sunlight is harmful to people",
-        "to suggest that the sun is growing weaker",
-        "to explain why the region has clear skies",
+        "to suggest that the sun is growing weaker every year",
+        "to explain why the region has clear skies all year",
         "to introduce a problem with relying only on the sun"
       ],
       "answer": "D",
@@ -109,10 +109,10 @@
       "difficulty": 3,
       "stem": "Which opinion does the writer seem to support?",
       "options": [
-        "Saudi Arabia should stop building new cities.",
-        "Solar energy can never work in deserts.",
+        "Saudi Arabia should stop building any new cities.",
+        "Solar energy can never work in desert lands at all.",
         "Clean energy projects can benefit people and nature.",
-        "Oil is the cleanest source of energy we have."
+        "Oil is the cleanest source of energy that we have."
       ],
       "answer": "C",
       "why": "The writer reports that such projects can reduce pollution and create jobs, and hopes NEOM becomes an example for others."
@@ -126,9 +126,9 @@
       "stem": "In your opinion, which information in the passage is the LEAST clear or complete?",
       "options": [
         "how many jobs the project will create for young Saudis",
-        "why the region is suitable for solar energy",
-        "what happens when electricity splits water",
-        "why the panels need to be cleaned"
+        "why the region is suitable for solar energy and wind power",
+        "what happens when electricity splits water into gases",
+        "why the panels need to be cleaned by robots every week"
       ],
       "answer": "A",
       "why": "The passage only says the project could 'create new jobs' without saying how many or what kind; the other points are explained."

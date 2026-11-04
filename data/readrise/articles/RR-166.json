@@ -64,6 +64,16 @@
       "level": 1400,
       "title": "Living on the Moon: The Next Great Challenge",
       "text": "When you gaze at the Moon on a clear night, it appears remarkably close, yet establishing a permanent home there would represent one of the most demanding challenges in human history. Many scientists consider the goal achievable, and several space agencies are already developing ambitious plans for a lunar base where people could live, work, and conduct scientific research.\n\nThe Moon is approximately 384,000 kilometers from Earth, which means that a journey there requires roughly three days, and only twelve people have ever walked on its surface, all of them during NASA's Apollo missions, and the last of them returned to Earth in 1972, more than fifty years ago.\n\nBecause the Moon has essentially no atmosphere, there is no oxygen to breathe; consequently, outside their shelters astronauts must wear pressurized spacesuits, and every lunar shelter must be sealed securely so that its precious air cannot leak into the surrounding vacuum.\n\nThe Moon's gravity is only about one sixth as strong as Earth's, which means an astronaut could jump roughly six times as high; during extended missions, however, reduced gravity may gradually weaken muscles and bones, so settlers would need to follow a disciplined exercise routine every day.\n\nTemperatures fluctuate dramatically. In direct sunlight the ground can reach about 120 degrees Celsius, whereas at night it can plunge below minus 170 degrees, and because the Moon rotates slowly, each lunar day and night lasts approximately two Earth weeks.\n\nWithout a substantial atmosphere or a strong magnetic field, nothing protects the surface from the dangerous radiation that streams continuously from the Sun and from deep space, so settlers might therefore shield their shelters with thick layers of soil or construct them inside natural underground tunnels formed by ancient lava flows.\n\nThe lunar soil, called regolith, is a fine gray dust composed of sharp, jagged particles that were never smoothed by wind or water. Because it clings stubbornly to equipment, gradually erodes machinery, and could seriously injure a person's lungs if it were accidentally inhaled, engineers must design tools, suits, and filters that resist its damaging effects.\n\nFortunately, the Moon also offers valuable resources. Scientists have detected ice in permanently shadowed craters within the polar region surrounding the south pole. Settlers could melt this ice for drinking water and separate it into hydrogen and oxygen, which could supply breathable air as well as rocket fuel for further exploration.\n\nIn 2023, two Saudi astronauts traveled to the International Space Station, and perhaps one day a Saudi astronaut will help construct a permanent base on the Moon."
+    },
+    {
+      "level": 1500,
+      "title": "Living on the Moon: The Next Great Challenge",
+      "text": "The Moon lies about 384,000 kilometers from Earth, a distance that modern spacecraft can cross in roughly three days, yet despite decades of ambition, only twelve people have ever walked on its surface, all during the Apollo missions, with the final crew returning home in 1972, and any future effort to build a permanent lunar settlement will have to overcome a difficult set of challenges.\n\nThe Moon has no atmosphere at all, so it offers no breathable oxygen and no natural protection from the vacuum of space, meaning future settlers would need pressurized spacesuits for any trip outside and closely sealed shelters for everyday living. The Moon's gravity, roughly one-sixth that of Earth, would let a person jump about six times higher than on Earth, which sounds exciting, yet prolonged exposure to such weak gravity may slowly weaken human muscles and bones, so daily exercise would become an essential part of lunar life.\n\nTemperature swings on the Moon are extreme. Sunlit regions can reach roughly 120 degrees Celsius, while nighttime temperatures plunge below minus 170 degrees Celsius. Because each lunar day and each lunar night lasts about two Earth weeks, these harsh extremes now last far longer than anything on Earth. The Moon also lacks both an atmosphere and a protective magnetic field, so its surface is almost completely unshielded from harmful solar and cosmic radiation, a serious long-term health hazard for permanent inhabitants.\n\nTo address the radiation problem, planners have proposed shielding living quarters beneath thick layers of regolith, the fine, sharp lunar soil that has never been smoothed by wind or flowing water the way Earth's soil has. This same regolith is tricky for equipment and possibly harmful if inhaled, yet it could double as good radiation shielding when piled over habitats, a useful benefit. Another strategy involves building settlements inside natural underground lava tunnels, which would offer similar protection without requiring heavy excavation.\n\nAmong the Moon's most valuable resources is water ice, found hidden inside permanently shadowed polar craters near the lunar south pole, places so deeply shaded that sunlight never reaches their floors, and this ice could eventually be melted into drinking water or split into hydrogen and oxygen, providing both breathable air and rocket fuel for future missions. In 2023, two Saudi astronauts flew to the International Space Station, a milestone that has raised real hope that a Saudi astronaut might one day help build humanity's first permanent lunar base."
+    },
+    {
+      "level": 1600,
+      "title": "Living on the Moon: The Next Great Challenge",
+      "text": "The Moon lies approximately 384,000 kilometers from Earth, a distance that modern spacecraft can traverse in roughly three days, yet despite decades of ambitious spaceflight, only twelve individuals have ever actually walked upon its surface, all during the Apollo program, with the final crew returning home in 1972. Any future effort to establish a genuinely permanent lunar settlement would need to overcome a formidable combination of interlocking environmental obstacles.\n\nBecause the Moon possesses no atmosphere whatsoever, it offers neither breathable oxygen nor any natural protection from the surrounding vacuum of space, meaning that prospective settlers would require pressurized spacesuits for every excursion beyond shelter and carefully sealed, airtight habitats for ordinary daily living. The Moon's gravitational pull, measuring roughly one-sixth of Earth's, would allow a person to leap approximately six times higher than on Earth, an exhilarating physical prospect, yet prolonged exposure to such diminished gravity may gradually weaken human muscles and bones over time, making rigorous daily exercise an essential, non-negotiable component of any sustained lunar existence.\n\nTemperature fluctuations on the Moon are genuinely extreme: sunlit regions can reach approximately 120 degrees Celsius, while nighttime temperatures plunge to below minus 170 degrees Celsius, and because each lunar day and corresponding lunar night persists for roughly two full Earth weeks, these punishing thermal extremes endure for considerably longer stretches than anything experienced anywhere on Earth. Compounding this already severe danger, the Moon's simultaneous absence of both an atmosphere and a protective planetary magnetic field leaves its entire surface almost completely unshielded from harmful solar and cosmic radiation, posing a serious long-term health hazard to any would-be permanent inhabitants.\n\nTo address this persistent radiation problem, mission planners have proposed that future settlers shield their living quarters beneath thick accumulated layers of regolith, the fine, sharp, and jagged lunar soil that has never been smoothed, rounded, or weathered by wind or flowing water in the manner of ordinary terrestrial soil. This very same regolith, troublesome as it undeniably is for mechanical equipment and potentially hazardous if inhaled directly into human lungs, could nonetheless simultaneously function as effective radiation shielding when deliberately piled atop habitat structures. An alternative engineering strategy involves constructing settlements within naturally occurring underground lava tunnels, structures that would provide comparable protective benefits without necessitating extensive and costly excavation work.\n\nAmong the Moon's most scientifically and practically valuable resources is water ice, discovered concealed within permanently shadowed polar craters situated near the lunar south pole, regions so persistently shaded that direct sunlight never once reaches their crater floors. This frozen resource could eventually be melted to provide drinking water or chemically split into hydrogen and oxygen, simultaneously supplying breathable air and usable rocket propellant for future exploratory missions departing from a lunar base. In 2023, two Saudi astronauts successfully flew to the International Space Station, a historic milestone that has fueled considerable hope that a Saudi astronaut might one day contribute directly and meaningfully to the construction of humanity's first permanent lunar settlement."
     }
   ],
   "bands": {
@@ -206,10 +216,10 @@
         {
           "stem": "Why might Moon dust be a big problem for a base?",
           "options": [
-            "It makes the Moon very windy",
-            "It is soft and makes beds dirty",
+            "It makes the Moon very windy and cold at night",
+            "It is soft and makes the beds dirty in the base",
             "It is sharp, sticks to things, and hurts lungs",
-            "It melts in the hot sun"
+            "It melts in the hot sun and turns to water"
           ],
           "answer": "C",
           "skill": "inference",
@@ -223,10 +233,10 @@
         {
           "stem": "How does the article mostly tell its ideas?",
           "options": [
-            "As a story about one astronaut's trip",
+            "As a story about one astronaut's long trip to the Moon",
             "By telling problems on the Moon, then some good news",
-            "As a list of rocket parts",
-            "By comparing the Moon with the Sun"
+            "As a list of rocket parts and their jobs in space",
+            "By comparing the Moon with the Sun and the stars"
           ],
           "answer": "B",
           "skill": "text-structure",
@@ -243,7 +253,8 @@
         "I said yes or no clearly.",
         "I gave two reasons from the article.",
         "I used at least one key word."
-      ]
+      ],
+      "modelAnswer": "I would like to live on a Moon base, because low gravity would let me jump about six times as high as I can on Earth. I also like that scientists have found ice in deep craters, which astronauts could melt for drinking water at the base. Living there would still mean wearing a spacesuit outside and dealing with sharp, clinging dust."
     },
     "MID": {
       "keyWords": [
@@ -282,10 +293,10 @@
         {
           "stem": "What is the central idea of the article?",
           "options": [
-            "The Moon is too dangerous for anyone to ever visit",
+            "The Moon is too dangerous for anyone to ever visit, so nobody plans to go there.",
             "Living on the Moon is hard, but people are planning ways to do it",
-            "Saudi Arabia built the first base on the Moon",
-            "Moon dust is useful for building rockets"
+            "Saudi Arabia built the first base on the Moon, and people live there now.",
+            "Moon dust is useful for building rockets, so scientists carry it back to Earth."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -367,10 +378,10 @@
         {
           "stem": "Why might ice stay frozen in the craters near the south pole?",
           "options": [
-            "Because astronauts keep it in freezers",
-            "Because it is made of salt and sand",
+            "Because astronauts keep it in freezers on the base there",
+            "Because it is made of salt and sand, which stay frozen",
             "Because the craters are dark, so sunlight never warms them",
-            "Because the craters are full of air"
+            "Because the craters are full of air, which keeps it cold"
           ],
           "answer": "C",
           "skill": "inference",
@@ -401,10 +412,10 @@
         {
           "stem": "Why does the author end with the Saudi astronauts?",
           "options": [
-            "To show the trip takes three days",
+            "To show the trip to the Moon takes about three days",
             "To connect space travel to readers in Saudi Arabia",
-            "To explain how spacesuits work",
-            "To prove people already live on the Moon"
+            "To explain how spacesuits work in the cold of space",
+            "To prove people already live on the Moon today"
           ],
           "answer": "B",
           "skill": "author-purpose",
@@ -421,7 +432,8 @@
         "I named two dangers from the article.",
         "I explained a solution for each one.",
         "I used at least two key words correctly."
-      ]
+      ],
+      "modelAnswer": "One of the biggest dangers of living on the Moon is that there is no oxygen to breathe, so people would need to wear a spacesuit outside and keep their homes sealed tightly with air inside. Another danger is the wild swing in temperature, from scorching heat in sunlight to freezing cold at night, so a Moon base would need strong walls to handle both extremes. Settlers could also deal with harmful radiation by building near craters covered in thick layers of moon soil for protection."
     },
     "HIGH": {
       "keyWords": [
@@ -461,9 +473,9 @@
           "stem": "Which statement best expresses the central idea?",
           "options": [
             "Living on the Moon is a huge challenge, but its own resources could help make a base possible",
-            "The Apollo missions ended because the Moon has no gravity",
-            "Regolith is the most valuable resource on the Moon",
-            "Only Saudi astronauts plan to live on the Moon"
+            "The Apollo missions ended because the Moon has no gravity, so astronauts floated away",
+            "Regolith is the most valuable resource on the Moon, and nothing else can be used there",
+            "Only Saudi astronauts plan to live on the Moon, and no other country has such a plan"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -579,10 +591,10 @@
         {
           "stem": "How is the article mainly organized?",
           "options": [
-            "In time order from 1972 to today",
-            "As a comparison between Earth and Mars",
+            "In time order from 1972 to today, starting with the first astronaut on the Moon",
+            "As a comparison between Earth and Mars and their weather, size and distance",
             "As challenges of lunar life followed by resources that could help",
-            "As instructions for building a spacesuit"
+            "As instructions for building a spacesuit, with a list of the parts it needs"
           ],
           "answer": "C",
           "skill": "text-structure",
@@ -599,7 +611,8 @@
         "I chose a location and explained why.",
         "I addressed at least two dangers with solutions from the article.",
         "I used key words such as regolith, radiation, or shield correctly."
-      ]
+      ],
+      "modelAnswer": "I would build my Moon base near the polar region, close to the deep, dark craters where scientists have discovered ice, since that ice could be melted into drinking water and split into oxygen for the settlers. To protect against the harmful radiation that streams unblocked across the airless Moon, I would cover the base with thick layers of regolith, the fine moon soil, to act as a natural shield. I would also seal the base tightly against the wild day-and-night temperature swings, using these local resources to keep the settlers safe without needing to bring everything from Earth."
     }
   }
 }

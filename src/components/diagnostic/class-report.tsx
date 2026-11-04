@@ -2,8 +2,11 @@ import { NameList } from "@/components/name-list";
 import Link from "next/link";
 import type { ClassDiagnosticReport } from "@/server/diagnostic/report";
 import { STRAND_LABEL } from "@/server/diagnostic/standards";
-import { shareDiagnosticAction } from "@/app/diagnostic/actions";
+import { shareDiagnosticAction, resetDiagnosticAttemptAction } from "@/app/diagnostic/actions";
 import { gradeLabel } from "@/server/diagnostic/adaptive";
+import { RichInline } from "@/components/rich-inline";
+import { stripMarks } from "@/lib/inline-marks";
+import { withPrint } from "@/lib/print-href";
 
 export const heat = (p: number | null | undefined) => (p === null || p === undefined ? "bg-slate-50 text-slate-400" : p >= 75 ? "bg-emerald-100 text-emerald-900" : p >= 60 ? "bg-sky-100 text-sky-900" : p >= 40 ? "bg-amber-100 text-amber-900" : "bg-rose-100 text-rose-900");
 export const LEVEL_CHIP = { ABOVE: "bg-emerald-600 text-white", ON: "bg-sky-600 text-white", BELOW: "bg-rose-500 text-white" } as const;
@@ -17,7 +20,7 @@ export function DownloadBar({ testId, classId, studentId }: { testId: string; cl
   const b = "rounded-xl px-3.5 py-2 text-sm font-semibold ring-1";
   return (
     <div className="flex flex-wrap gap-2 print:hidden">
-      <a href={q("pdf")} className={`${b} bg-brand-navy text-white ring-brand-navy hover:bg-brand-purple`}>⬇ PDF report</a>
+      <a href={withPrint(q("pdf"))} target="_blank" rel="noopener" className={`${b} bg-brand-navy text-white ring-brand-navy hover:bg-brand-purple`}>⬇ PDF report</a>
       <a href={q("xlsx")} className={`${b} bg-white text-emerald-800 ring-emerald-300 hover:bg-emerald-50`}>⬇ Excel</a>
       {!studentId && <a href={q("csv")} className={`${b} bg-white text-slate-700 ring-slate-300 hover:bg-slate-50`}>⬇ CSV</a>}
     </div>
@@ -112,7 +115,17 @@ export function ClassDiagnosticView({ r, canShare, back }: { r: ClassDiagnosticR
                   {r.adaptive && <td className="border-b border-slate-100 px-1.5 text-center tabular-nums">{st.ritEstimate ?? "—"}</td>}
                   <td className="border-b border-slate-100 px-1.5 text-center tabular-nums">{st.rit ?? "—"}</td>
                   <td className={`border-b border-slate-100 px-1.5 text-center tabular-nums ${st.wcpm !== null && r.fluency.below.some((b) => b.id === st.id) ? "font-bold text-rose-700" : ""}`}>{st.wcpm ?? "—"}</td>
-                  <td className="border-b border-slate-100 px-1.5 text-end print:hidden"><Link href={`/diagnostic/${r.testId}/student/${st.id}`} className="whitespace-nowrap rounded-lg px-2 py-1 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">Report{st.shared ? " ✓" : ""}</Link></td>
+                  <td className="border-b border-slate-100 px-1.5 text-end print:hidden">
+                    <div className="flex items-center justify-end gap-1.5">
+                      <Link href={`/diagnostic/${r.testId}/student/${st.id}${r.classId ? `?classId=${encodeURIComponent(r.classId)}` : ""}`} className="whitespace-nowrap rounded-lg px-2 py-1 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">Report{st.shared ? " ✓" : ""}</Link>
+                      {canShare && st.total > 0 && (
+                        <form action={resetDiagnosticAttemptAction}>
+                          <input type="hidden" name="id" value={r.testId} /><input type="hidden" name="studentId" value={st.id} /><input type="hidden" name="back" value={back} />
+                          <button title="Clear this attempt so the student can retake the Diagnostic" className="whitespace-nowrap rounded-lg px-2 py-1 font-semibold text-amber-800 ring-1 ring-amber-300 hover:bg-amber-50">↻ Retake</button>
+                        </form>
+                      )}
+                    </div>
+                  </td>
                 </tr>
               ))}
             </tbody>
@@ -198,7 +211,9 @@ export function ClassDiagnosticView({ r, canShare, back }: { r: ClassDiagnosticR
         {!r.notTaken.length ? <p className="rounded-xl bg-emerald-50 px-4 py-3 text-emerald-900">✅ Every student has taken the test.</p> : (
           <table className="w-full text-sm">
             <thead><tr className="border-b border-slate-200 text-left text-slate-500"><th className="py-2">Student</th><th>Class</th><th>Status</th><th>Required action</th></tr></thead>
-            <tbody>{r.notTaken.map((x) => <tr key={x.id} className="border-b border-slate-100"><td className="py-2 font-medium">{x.name}</td><td>{x.className}</td><td><span className={`rounded-full px-2 py-0.5 text-xs font-bold ${x.status === "In progress" ? "bg-amber-100 text-amber-900" : "bg-slate-200 text-slate-700"}`}>{x.status}{x.answered ? ` · ${x.answered} answered` : ""}</span></td><td className="text-slate-700">{x.action}</td></tr>)}</tbody>
+            <tbody>{r.notTaken.map((x) => <tr key={x.id} className="border-b border-slate-100"><td className="py-2 font-medium">{x.name}</td><td>{x.className}</td><td><span className={`rounded-full px-2 py-0.5 text-xs font-bold ${x.status === "In progress" ? "bg-amber-100 text-amber-900" : x.status === "Not valid" ? "bg-rose-100 text-rose-900" : "bg-slate-200 text-slate-700"}`}>{x.status}{x.answered ? ` · ${x.answered} answered` : ""}</span></td><td className="text-slate-700">{x.action}{x.status === "Not valid" && canShare && (
+              <form action={resetDiagnosticAttemptAction} className="mt-1 print:hidden"><input type="hidden" name="id" value={r.testId} /><input type="hidden" name="studentId" value={x.id} /><input type="hidden" name="back" value={back} /><button title="Clear this attempt so the student can retake the Diagnostic" className="whitespace-nowrap rounded-lg px-2 py-1 text-xs font-semibold text-amber-800 ring-1 ring-amber-300 hover:bg-amber-50">↻ Retake</button></form>
+            )}</td></tr>)}</tbody>
           </table>
         )}
       </section>
@@ -219,7 +234,7 @@ export function ClassDiagnosticView({ r, canShare, back }: { r: ClassDiagnosticR
           {r.items.map((x) => (
             <div key={x.n} className={`flex items-start gap-2 rounded-lg px-2 py-1 ${x.answered && x.pct < 30 ? "bg-rose-50" : ""}`}>
               <span className="w-6 text-end tabular-nums text-slate-400">{x.n}</span>
-              <span className="min-w-0 flex-1 truncate" title={x.stem}><span className="font-mono text-xs text-brand-teal">{x.code}</span> {x.stem}</span>
+              <span className="min-w-0 flex-1 truncate" title={stripMarks(x.stem)}><span className="font-mono text-xs text-brand-teal">{x.code}</span> <RichInline text={x.stem} /></span>
               <span className={`w-12 rounded text-center text-xs font-bold tabular-nums ${heat(x.answered ? x.pct : null)}`}>{x.answered ? `${Math.round(x.pct)}%` : "—"}</span>
             </div>
           ))}

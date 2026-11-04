@@ -8,16 +8,19 @@
  *   SKIP        strong skills (mastery 75+, or ability well above grade with evidence): no basic practice
  *   FOUNDATION  a weak prerequisite of a target skill is practised FIRST (the knowledge graph says it is underneath)
  *   TARGET      the skills with the largest expected gain: need × importance × readiness
- *   REVIEW      a mastered skill whose spaced review is due
+ *   REVIEW      ⭐ stars (owner, 1 Nov 2026): a 🔄 "needs review" skill first, then a ⭐ skill whose review check is due
+ *               (SkillStatus reviewDueAt) — never the engine's old nextReviewAt
  *   STRETCH     a strong student also gets one harder, ready skill ahead of the class
  * Each step has a target difficulty (level 1–7 from the student's ability) and its reasons.
  *
+ * ⭐ "mastered" everywhere here is the skill's STAR by key (knowledge-graph.ts#skillStates): a ⭐ skill (or any copy of
+ * it) is never a step; the engine's score only orders the skills that are not ⭐.
  * `genericPath` is the old behaviour (first unmastered skill in curriculum order), kept for comparison and tests.
  */
-import { DEFAULT_MASTERY } from "../../config/engine";
 import { thetaToLevel } from "../../recommendations/recommend";
 import { misconceptionLabel } from "../../insights/misconceptions";
 import type { Repo, Row } from "../seeding/repo";
+import { cancelIndex } from "../student/cancelled-work";
 import { ancestors, loadGraph, skillStates, tested, weak, type Graph, type SkillState } from "./knowledge-graph";
 
 const s = (v: unknown) => String(v ?? "");
@@ -81,11 +84,19 @@ export function planFromContext(c: PathContext, len = 5): Omit<LearningPath, "st
   }
   cands.sort((a, b) => b.score - a.score);
   const steps: PathStep[] = [];
-  const has = (id: string) => steps.some((x) => x.skillId === id);
+  // copies of one skill (same star key) are one step
+  const keyOf = (id: string) => st(id).key ?? id;
+  const has = (id: string) => steps.some((x) => x.skillId === id || keyOf(x.skillId) === keyOf(id));
   const levelFor = (id: string, shift = 0) => thetaToLevel((st(id).theta ?? overall) + shift);
-  // one due review first (keeps mastered skills strong)
-  const review = [...c.reviewDue].find((id) => c.practicable.has(id));
-  if (review) steps.push({ skillId: review, name: g.nodes.get(review)?.name ?? "", action: "REVIEW", level: levelFor(review), score: 0, why: ["Mastered: a spaced review is due"] });
+  // reviews first: 🔄 "needs review" skills (up to two), then one ⭐ skill whose review check is due
+  let reviews = 0;
+  for (const id of c.reviewDue) {
+    if (reviews >= 2 || !c.practicable.has(id) || has(id)) continue;
+    const again = st(id).star === "NEEDS_REVIEW";
+    if (!again && steps.some((x) => x.action === "REVIEW" && st(x.skillId).star !== "NEEDS_REVIEW")) continue;
+    steps.push({ skillId: id, name: g.nodes.get(id)?.name ?? "", action: "REVIEW", level: levelFor(id), score: 0, why: [again ? "Needs review" : "Mastered: a spaced review is due"] });
+    reviews++;
+  }
   for (const cand of cands) {
     if (steps.length >= len) break;
     // the knowledge graph: weak prerequisites underneath come first
@@ -133,12 +144,11 @@ export async function pathContext(repo: Repo, studentId: string, now = new Date(
   const curId = s(cur.id);
   const graph = await memo(`graph:${curId}`, () => loadGraph(repo, curId));
   const ids = [...graph.nodes.keys()];
-  const [states, questions, units, logs, mastery, assignedRows] = await Promise.all([
+  const [states, questions, units, logs, assignedRows] = await Promise.all([
     skillStates(repo, studentId, ids),
     memo(`questions:${curId}`, () => ids.length ? repo.findMany("Question", { skillId: { in: ids }, status: "PUBLISHED", deletedAt: null }, { select: ["skillId", "mapInstructionalArea"] }) : Promise.resolve([] as Row[])),
     memo(`units:${curId}`, () => repo.findMany("Unit", { curriculumId: cur.id, deletedAt: null }, { select: ["id", "number"] })),
     repo.findMany("AdaptiveDecisionLog", { studentId, createdAt: { gte: new Date(now.getTime() - 14 * DAY) } }, { select: ["skillId", "masteryBefore", "masteryAfter"] }),
-    repo.findMany("StudentSkillMastery", { studentId, isMastered: true, nextReviewAt: { lte: now } }, { select: ["skillId"] }),
     repo.findMany("AssignmentStudent", { studentId }, { select: ["assignmentId", "status"] }),
   ]);
   const practicable = new Set(questions.map((q) => s(q.skillId)));
@@ -153,21 +163,32 @@ export async function pathContext(repo: Repo, studentId: string, now = new Date(
   const unitNo = new Map(units.map((u) => [s(u.id), Number(u.number)]));
   const unitOf = new Map<string, number>();
   for (const l of unitLinks) { const n = unitNo.get(s(l.unitId)) ?? 99; if (n < (unitOf.get(s(l.skillId)) ?? 99)) unitOf.set(s(l.skillId), n); }
-  // current unit: the first one not mostly proficient — the same thresholds as the student's curriculum page
-  // (proficient = the mastery band, "mostly" = under 70% of the unit's skills, rounded like its progress %)
-  const proficient = DEFAULT_MASTERY.bands.proficient;
+  // current unit: the first one whose skills are not mostly ⭐ (under 70% of the unit's skills, counted by skill key,
+  // rounded like a progress %) — stars, the same as My Skills
   const nums = [...new Set(units.map((u) => Number(u.number)))].sort((a, b) => a - b);
   let currentUnitNo = nums[nums.length - 1] ?? 1;
-  for (const n of nums) { const sk = [...unitOf.entries()].filter(([, u]) => u === n).map(([id]) => id); const prof = sk.filter((id) => (states.get(id)?.mastery ?? 0) >= proficient).length; if (!sk.length || Math.round((100 * prof) / sk.length) < CURRENT_UNIT_PROGRESS_PCT) { currentUnitNo = n; break; } }
+  for (const n of nums) {
+    const keys = new Map<string, boolean>();
+    for (const [id, u] of unitOf) if (u === n) { const x = states.get(id); keys.set(x?.key ?? id, Boolean(keys.get(x?.key ?? id)) || Boolean(x?.isMastered)); }
+    const prof = [...keys.values()].filter(Boolean).length;
+    if (!keys.size || Math.round((100 * prof) / keys.size) < CURRENT_UNIT_PROGRESS_PCT) { currentUnitNo = n; break; }
+  }
   const currentUnit = new Set([...unitOf.entries()].filter(([, u]) => u === currentUnitNo).map(([id]) => id));
   const velocity = new Map<string, { answers: number; gain: number }>();
   for (const l of logs) { if (l.masteryBefore === null || l.masteryAfter === null || l.masteryBefore === undefined) continue; const v = velocity.get(s(l.skillId)) ?? { answers: 0, gain: 0 }; v.answers++; v.gain += Number(l.masteryAfter) - Number(l.masteryBefore); velocity.set(s(l.skillId), v); }
   const open = assignedRows.filter((r) => r.status !== "COMPLETED").map((r) => s(r.assignmentId));
-  const asg = open.length ? await repo.findMany("Assignment", { id: { in: open } }, { select: ["skillId", "deletedAt"] }) : [];
-  const assigned = new Set(asg.filter((a) => a.skillId && !a.deletedAt).map((a) => s(a.skillId)));
+  // r78: cancelled on Assigned (for everyone or this student) = not assigned
+  const [asg, ix] = await Promise.all([open.length ? repo.findMany("Assignment", { id: { in: open } }, { select: ["id", "skillId", "deletedAt", "testId", "curriculumPlanId"] }) : Promise.resolve([] as Row[]), cancelIndex(repo, s(student!.schoolId))]);
+  const assigned = new Set(asg.filter((a) => a.skillId && ix.live(a, studentId)).map((a) => s(a.skillId)));
   const { actionWeights } = await import("../insights/learning-weights");
   const weights = await memo(`weights:${s(student!.schoolId)}`, () => actionWeights(repo, s(student!.schoolId)));
-  return { graph, states, practicable, weakArea, assigned, currentUnit, unitOf, currentUnitNo, velocity, reviewDue: new Set(mastery.map((m) => s(m.skillId))), weights };
+  // review due (stars): 🔄 first, then ⭐ whose review check is due (oldest first); one skill id per key
+  const t = now.getTime(), dueKeys = new Set<string>();
+  const due = [...states.entries()].filter(([, x]) => x.star === "NEEDS_REVIEW" || (x.isMastered && !!x.reviewDueAt && new Date(x.reviewDueAt).getTime() <= t))
+    .sort((a, b) => Number(b[1].star === "NEEDS_REVIEW") - Number(a[1].star === "NEEDS_REVIEW") || new Date(a[1].reviewDueAt ?? 0).getTime() - new Date(b[1].reviewDueAt ?? 0).getTime())
+    .filter(([id, x]) => practicable.has(id) && !dueKeys.has(x.key ?? id) && dueKeys.add(x.key ?? id))
+    .map(([id]) => id);
+  return { graph, states, practicable, weakArea, assigned, currentUnit, unitOf, currentUnitNo, velocity, reviewDue: new Set(due), weights };
 }
 
 /** The student's path (and how fast they are progressing: mastery points per week, last 14 days). */

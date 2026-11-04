@@ -21,25 +21,36 @@ import { hideLevels } from "../../lib/hide-levels";
 import { translate, type Lang } from "../../i18n";
 import { homeTopicFor } from "./family-week-words";
 import { hasLevelWords } from "./family-words";
-import { masteredSkills } from "./mastered-count";
-import type { FamilyContent, ReportSection } from "./family-reports";
+import { starBook, starLearning, starMastered, starNeedsReview } from "../skills/star-read";
+import type { StarView } from "../skills/status";
+import { adminUsers, type FamilyContent, type ReportSection } from "./family-reports";
+import { practiceTotals } from "../analytics/practice-totals";
 
 const s = (v: unknown) => String(v ?? "");
 const time = (v: unknown) => (v instanceof Date ? v.getTime() : v ? new Date(s(v)).getTime() : 0);
 const DAY = 86_400_000;
+// r97 fix: the same class of bug family-week.ts documents and corrects ("weekStart() returns Sunday 00:00
+// Riyadh time as a UTC instant… a raw UTC read is one day early for ~3h/day"). monthSpan's boundaries used raw
+// Date.UTC(year, month, 1) with no Riyadh offset, so practice in the ~3-hour window around local midnight on a
+// month-boundary day could be attributed to the wrong month in this parent-facing report.
+const RIYADH = 3 * 3_600_000;
 export const MONTHLY = "MONTHLY";
 
 export interface MonthSpan { key: string; from: Date; to: Date; label: string }
 const MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
-/** The month a report covers: in the first 7 days of a month the month that just ended, else the current month. */
+/** The month a report covers: in the first 7 days (Riyadh calendar date) of a month, the month that just ended;
+ * else the current month. */
 export function monthToReport(now: Date): MonthSpan {
-  const y = now.getUTCFullYear(), m = now.getUTCMonth();
-  const [yy, mm] = now.getUTCDate() <= 7 ? (m === 0 ? [y - 1, 11] : [y, m - 1]) : [y, m];
+  const local = new Date(now.getTime() + RIYADH);
+  const y = local.getUTCFullYear(), m = local.getUTCMonth();
+  const [yy, mm] = local.getUTCDate() <= 7 ? (m === 0 ? [y - 1, 11] : [y, m - 1]) : [y, m];
   return monthSpan(yy, mm);
 }
+/** `year`/`month` are Riyadh calendar components; the returned `from`/`to` are the UTC instants of Riyadh
+ * midnight on the 1st of this month and the 1st of the next, matching weekStart()'s convention. */
 export function monthSpan(year: number, month: number): MonthSpan {
-  const from = new Date(Date.UTC(year, month, 1)), to = new Date(Date.UTC(year, month + 1, 1));
+  const from = new Date(Date.UTC(year, month, 1) - RIYADH), to = new Date(Date.UTC(year, month + 1, 1) - RIYADH);
   return { key: `${year}-${String(month + 1).padStart(2, "0")}`, from, to, label: `${MONTHS[month]} ${year}` };
 }
 
@@ -81,43 +92,67 @@ export function monthlyContent(f: MonthFacts): FamilyContent {
   return { summary: en.summary, sections: en.sections, message: "", ar };
 }
 
-/** The facts of a month for these students (one class). */
+/** Students per step of monthFacts (512 MB server: a class is read 25 students at a time, no row cap). */
+const PART = 25;
+
+/** The facts of a month for these students (one class), 25 students at a time. */
 export async function monthFacts(repo: Repo, ids: string[], span: MonthSpan): Promise<Map<string, MonthFacts>> {
+  const out = new Map<string, MonthFacts>();
+  for (let i = 0; i < ids.length; i += PART) for (const [k, v] of await monthFactsPart(repo, ids.slice(i, i + PART), span)) out.set(k, v);
+  return out;
+}
+
+async function monthFactsPart(repo: Repo, ids: string[], span: MonthSpan): Promise<Map<string, MonthFacts>> {
   const out = new Map<string, MonthFacts>();
   if (!ids.length) return out;
   const inMonth = (v: unknown) => { const t = time(v); return t >= span.from.getTime() && t < span.to.getTime(); };
   const range = { gte: span.from, lt: span.to };
-  const [students, stars, attempts, sessions, runs, fluency, open] = await Promise.all([
-    repo.findMany("Student", { id: { in: ids } }, { select: ["id", "userId"] }),
-    repo.findMany("StudentSkillMastery", { studentId: { in: ids }, masteredAt: range }, { select: ["studentId", "skillId", "masteredAt"] }),
-    repo.findMany("QuestionAttempt", { studentId: { in: ids }, createdAt: range }, { select: ["studentId", "isCorrect", "createdAt"], take: 40000 }),
-    repo.findMany("PracticeSession", { studentId: { in: ids }, startedAt: range }, { select: ["studentId", "activeMs", "startedAt"] }),
+  // the month's last moment (span.to is the next month's first Riyadh midnight; span.from/to are already Riyadh instants)
+  const end = new Date(span.to.getTime() - 1);
+  const [students, book, totals, runs, fluency] = await Promise.all([
+    repo.findMany("Student", { id: { in: ids } }, { select: ["id", "userId", "schoolId"] }),
+    // ⭐ the ONE skill status (skills/star-read.ts): one batched read for the class, every student's own keys (no
+    // shared row cap — the old `take: ids.length * 12` on the engine table could leave later students with nothing)
+    starBook(repo, ids),
+    // 📏 round 4: answers / accuracy / minutes = THE one definition (practice-totals.ts) — no 40,000-answer cap
+    practiceTotals(repo, ids, span.from, end),
     repo.findMany("RRRun", { studentId: { in: ids }, completedAt: range }, { select: ["studentId", "articleId", "completedAt"] }).catch(() => [] as Row[]),
     repo.findMany("FluencyPractice", { studentId: { in: ids }, createdAt: range }, { select: ["studentId", "createdAt"] }).catch(() => [] as Row[]),
-    repo.findMany("StudentSkillMastery", { studentId: { in: ids }, isMastered: false }, { select: ["studentId", "skillId", "score", "attempts"], orderBy: [{ field: "score", dir: "asc" }], take: ids.length * 12 }),
   ]);
+  // per student: the keys that became ⭐ this month (masteredAt in the month — any source: practice, NAFS, ReadRise),
+  // the most recent first, and the next skills: 🔄 needs review, then ◐ in progress (never ⭐)
+  const repOf = (key: string, v: StarView) => v.skillId ?? book.ix.skillsOf.get(key)?.[0] ?? "";
+  const starsOf = new Map<string, { key: string; skillId: string }[]>(), nextOf = new Map<string, { key: string; skillId: string }[]>();
+  for (const id of ids) {
+    const mine = [...(book.byKey.get(id) ?? new Map<string, StarView>())].filter(([k, v]) => book.ix.skillsOf.has(k) && repOf(k, v));
+    starsOf.set(id, mine.filter(([, v]) => starMastered(v) && inMonth(v.masteredAt)).sort((a, b) => time(b[1].masteredAt) - time(a[1].masteredAt)).map(([k, v]) => ({ key: k, skillId: repOf(k, v) })));
+    nextOf.set(id, [
+      ...mine.filter(([, v]) => starNeedsReview(v)),
+      ...mine.filter(([, v]) => starLearning(v)).sort((a, b) => Number(b[1].needsSupport) - Number(a[1].needsSupport) || a[1].score - b[1].score),
+    ].slice(0, 8).map(([k, v]) => ({ key: k, skillId: repOf(k, v) })));
+  }
+  const named = [...starsOf.values(), ...nextOf.values()].flat();
   const [users, skills, arts] = await Promise.all([
     students.length ? repo.findMany("User", { id: { in: students.map((x) => s(x.userId)) } }, { select: ["id", "displayName"] }) : Promise.resolve([] as Row[]),
-    (stars.length || open.length) ? repo.findMany("Skill", { id: { in: [...new Set([...stars, ...open].map((r) => s(r.skillId)))] } }, { select: ["id", "name", "code"] }) : Promise.resolve([] as Row[]),
+    named.length ? repo.findMany("Skill", { id: { in: [...new Set(named.map((r) => r.skillId))] } }, { select: ["id", "name", "code"] }) : Promise.resolve([] as Row[]),
     runs.length ? repo.findMany("RRArticle", { id: { in: [...new Set(runs.map((r) => s(r.articleId)))] } }, { select: ["id", "title"] }).catch(() => [] as Row[]) : Promise.resolve([] as Row[]),
   ]);
   const userName = new Map(users.map((u) => [s(u.id), s(u.displayName)]));
-  const skillName = new Map(skills.filter((k) => !isHiddenSkill(k.code)).map((k) => [s(k.id), s(k.name)]));
+  const shownIds = new Set(skills.filter((k) => !isHiddenSkill(k.code)).map((k) => s(k.id)));
+  // a ⭐ / next skill is named by its KEY's shared name (the same name as My Skills), hidden holder skills never shown
+  const nameOfRef = (r: { key: string; skillId: string }) => (shownIds.has(r.skillId) ? book.nameOf(r.key) : "");
   const title = new Map(arts.map((a) => [s(a.id), s(a.title)]));
-  // stars counted with the reports' one "mastered" rule (mastered-count.ts) among the skills that changed this month
-  const stillMastered = await masteredSkills(repo, ids, [...new Set(stars.map((r) => s(r.skillId)))]);
   for (const st of students) {
     const id = s(st.id);
-    const a = attempts.filter((x) => s(x.studentId) === id), ss = sessions.filter((x) => s(x.studentId) === id && inMonth(x.startedAt));
-    const days = new Set([...a.map((x) => new Date(time(x.createdAt)).toISOString().slice(0, 10)), ...ss.filter((x) => Number(x.activeMs) > 0).map((x) => new Date(time(x.startedAt)).toISOString().slice(0, 10))]).size;
-    const ok = a.filter((x) => x.isCorrect === true || x.isCorrect === 1).length;
+    const tot = totals.get(id);
     out.set(id, {
       name: userName.get(s(st.userId)) || "Student",
-      mastered: [...new Set(stars.filter((r) => s(r.studentId) === id && stillMastered.get(id)?.has(s(r.skillId))).map((r) => skillName.get(s(r.skillId)) ?? "").filter(Boolean))],
-      days, minutes: Math.round(ss.reduce((t, x) => t + Math.min(Number(x.activeMs ?? 0), 3 * 3_600_000), 0) / 60_000), answers: a.length, accuracy: a.length >= 10 ? Math.round((100 * ok) / a.length) : null,
+      mastered: [...new Set((starsOf.get(id) ?? []).map(nameOfRef).filter(Boolean))],
+      // accuracy = right careful answers / careful answers (shown from 10 careful answers on)
+      days: tot?.activeDays ?? 0, minutes: tot?.minutes ?? 0, answers: tot?.questions ?? 0, accuracy: tot && tot.careful >= 10 ? tot.accuracy : null,
       articles: [...new Set(runs.filter((r) => s(r.studentId) === id).map((r) => title.get(s(r.articleId)) ?? "").filter(Boolean))],
       fluencyReadings: fluency.filter((r) => s(r.studentId) === id).length,
-      next: open.filter((r) => s(r.studentId) === id && Number(r.attempts ?? 0) > 0).map((r) => skillName.get(s(r.skillId)) ?? "").filter(Boolean).slice(0, 4),
+      next: [...new Set((nextOf.get(id) ?? []).map(nameOfRef).filter(Boolean))].slice(0, 4),
     });
   }
   return out;
@@ -141,6 +176,11 @@ async function classMonthly(repo: Repo, klass: Row, authorId: string, span: Mont
   if (!rows.length) return 0;
   await repo.createMany("FamilyReport", rows);
   await repo.create("Notification", { userId: authorId, type: "REPORT_APPROVAL", title: "📅 Monthly family reports to review", body: `${rows.length} report(s) for ${s(klass.name)} (${span.label}) are ready. Read each one, add your note, then send it for approval.`, link: `/teacher/family-reports?${new URLSearchParams({ status: "DRAFT", classId: s(klass.id) })}`, readAt: null, createdAt: now });
+  // 🔔 dual-notify: every school admin hears about these drafts AT THE SAME TIME as the teacher (not only once
+  // the teacher submits them), so a draft the teacher never acts on is still found and approved — admins can open
+  // it straight from "Reports to Approve" (its new "Drafts" tab) and approve it themselves (report-approvals/actions.ts).
+  const admins = await adminUsers(repo, s(klass.schoolId));
+  if (admins.length) await repo.createMany("Notification", admins.map((userId) => ({ userId, type: "REPORT_APPROVAL", title: "📅 Monthly family reports ready to review", body: `${rows.length} draft report(s) for ${s(klass.name)} (${span.label}) are ready. The teacher has not sent them yet — you can open and approve them now from Reports to Approve.`, link: "/admin/report-approvals?tab=drafts", readAt: null, createdAt: now })));
   return rows.length;
 }
 
@@ -156,7 +196,7 @@ async function classTeachers(repo: Repo, classIds: string[]): Promise<Map<string
 
 /** The daily job: in the first 7 days of a month, the month that ended, for every class of the school. */
 export async function generateMonthlyReports(repo: Repo, schoolId: string, now = new Date()): Promise<number> {
-  if (now.getUTCDate() > 7) return 0;
+  if (new Date(now.getTime() + RIYADH).getUTCDate() > 7) return 0;   // the Riyadh date (round 4)
   const span = monthToReport(now);
   const classes = await repo.findMany("Class", { schoolId, deletedAt: null }, { select: ["id", "name", "schoolId"] });
   const teacherOf = await classTeachers(repo, classes.map((c) => s(c.id)));
@@ -174,4 +214,4 @@ export async function prepareMonthlyReports(repo: Repo, actor: Actor, classId: s
 }
 
 /** Days left before the job writes next month's reports (for the Family Reports hint). */
-export const daysToMonthEnd = (now: Date) => Math.max(0, Math.ceil((monthSpan(now.getUTCFullYear(), now.getUTCMonth()).to.getTime() - now.getTime()) / DAY));
+export const daysToMonthEnd = (now: Date) => { const l = new Date(now.getTime() + RIYADH); return Math.max(0, Math.ceil((monthSpan(l.getUTCFullYear(), l.getUTCMonth()).to.getTime() - now.getTime()) / DAY)); };

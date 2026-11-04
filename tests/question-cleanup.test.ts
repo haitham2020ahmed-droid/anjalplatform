@@ -32,7 +32,7 @@ describe("one-time question bank cleanup (rehearsal)", () => {
     const img = await saveQuestionImage(repo, admin, PNG, "dot");
     await updateDraft(repo, admin, String(q.id), { ...(await getQuestion(repo, admin, String(q.id))).input, imageId: img.id, passageText: "A Story\n\nOnce upon a time." });
     const view = (await teacherCurriculum(repo, teacher))!;
-    await assignSkill(repo, teacher, { classId: view.classId, skillId });
+    await assignSkill(repo, teacher, { source: "CURRICULUM", classId: view.classId, skillId });
     const student = await resolveActor(repo, (await repo.findUnique("User", { id: (await repo.findUnique("Student", { id: view.students[0].id }))!.userId }))!);
     const items = await loadSkillItems(repo, skillId);
     let v = await startPractice(repo, student, skillId);

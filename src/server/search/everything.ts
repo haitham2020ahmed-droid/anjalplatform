@@ -15,6 +15,8 @@ import { searchablePagesFor } from "../../components/nav-items";
 import { modelVersion } from "../cache/bank-version";
 import { remember } from "../cache/lru";
 import { countQuestionsOfSkills, SKILL_SYNONYMS } from "../questions/skill-questions";
+import { sweptWeakMap } from "../cache/idle";
+import { stripMarks } from "../../lib/inline-marks";
 
 const s = (v: unknown) => String(v ?? "");
 export type HitKind = "SKILL" | "GRAMMAR" | "PLACE" | "ARTICLE" | "QUESTION" | "STUDENT" | "PAGE";
@@ -54,7 +56,7 @@ export function matchScore(words: string[], title: string, more = ""): number {
 }
 
 /** Published questions' stems per school (cached a minute; the bank changes rarely during a search). */
-const stemCache = new WeakMap<object, Map<string, { at: number; v: string; rows: Promise<Row[]> }>>();
+const stemCache = sweptWeakMap<{ at: number; v: string; rows: Promise<Row[]> }>("search.everything.stemCache", 2 * 60_000);
 function questionStems(repo: Repo, skillIds: string[], key: string): Promise<Row[]> {
   let m = stemCache.get(repo); if (!m) stemCache.set(repo, (m = new Map()));
   const v = modelVersion("Question"), hit = m.get(key);
@@ -138,8 +140,9 @@ async function searchOnce(repo: Repo, actor: Actor, raw: string): Promise<Search
   // questions (their stem)
   const skillName = new Map(skills.map((k) => [s(k.id), s(k.name)]));
   for (const r of stems) {
-    const sc = matchScore(words, s(r.stem).slice(0, 300));
-    if (sc) hits.push({ kind: "QUESTION", id: s(r.id), title: s(r.stem).replace(/\s+/g, " ").slice(0, 120), sub: skillName.get(s(r.skillId)) ?? "", href: `/teacher/preview?skillId=${s(r.skillId)}`, assignHref: teacher ? `/teacher/skill-assign?skillId=${s(r.skillId)}` : null, score: sc });
+    const plainStem = stripMarks(s(r.stem));
+    const sc = matchScore(words, plainStem.slice(0, 300));
+    if (sc) hits.push({ kind: "QUESTION", id: s(r.id), title: plainStem.replace(/\s+/g, " ").slice(0, 120), sub: skillName.get(s(r.skillId)) ?? "", href: `/teacher/preview?skillId=${s(r.skillId)}`, assignHref: teacher ? `/teacher/skill-assign?skillId=${s(r.skillId)}` : null, score: sc });
   }
 
   // the platform's own pages (the menu and the pages that left it)

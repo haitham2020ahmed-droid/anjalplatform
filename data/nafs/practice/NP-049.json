@@ -125,10 +125,10 @@
       "difficulty": 3,
       "stem": "Which information in the passage is the LEAST clear or complete?",
       "options": [
-        "Why polonium was given its name",
-        "In which city Marie Curie was born",
+        "Why polonium was given its name by the Curies",
+        "In which city Marie Curie was born as a child",
         "How the Curies discovered polonium and radium",
-        "When she won her second Nobel Prize"
+        "When she won her second Nobel Prize in science"
       ],
       "answer": "C",
       "why": "The passage says they discovered two elements but never explains how; the other facts are stated."

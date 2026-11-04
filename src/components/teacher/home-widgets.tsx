@@ -83,12 +83,20 @@ export function SkillFinder({ classGrade, noCurriculum, canAssign }: { classGrad
   const [rows, setRows] = useState<SkillFamily[] | null>(null);
   const [pending, start] = useTransition();
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  // Nov 2026 fix ("skills بيختفوا"): each keystroke fires its own search with nothing to cancel the one before it,
+  // so a slow older request could still resolve AFTER a newer one and overwrite its (correct) results with its own
+  // stale ones. A simple sequence number fixes it: only the reply matching the LATEST request we sent is applied.
+  const seq = useRef(0);
   const search = (e?: React.FormEvent, value?: string) => {
     e?.preventDefault();
     const v = (value ?? q).trim();
+    const mine = ++seq.current;
     if (v.length < 1) { setRows(null); return; }
     // one row per skill name (+ grammar or not), even if the server sends the same name twice
-    start(async () => { setRows(dedupeSkillsByName(await findSkillsAction(v, classGrade), (f) => (f.pick.grammar ? "GRAMMAR" : "READING"))); });
+    start(async () => {
+      const found = dedupeSkillsByName(await findSkillsAction(v, classGrade), (f) => (f.pick.grammar ? "GRAMMAR" : "READING"));
+      if (mine === seq.current) setRows(found); // a newer search started while this one was in flight: drop it
+    });
   };
   return (
     <section aria-labelledby="find-skill-h" className="mt-6 rounded-3xl bg-white p-5 shadow-card ring-1 ring-slate-200/80 sm:p-6">
@@ -100,7 +108,9 @@ export function SkillFinder({ classGrade, noCurriculum, canAssign }: { classGrad
       </form>
       {rows && rows.length === 0 && <div className="mt-4"><EmptyState compact icon="🔍" title="Nothing matches your search" text="Try another word, e.g. inference, theme, commas." /></div>}
       {rows && rows.length > 0 && (
-        <ul className="mt-4 divide-y divide-slate-100">
+        // Nov 2026 fix ("خلي كل شي يظهر"): the server no longer caps this list at 12, so it scrolls instead of
+        // growing the page without end — a normal scrollbar inside a fixed-height box, same as elsewhere on the site.
+        <ul className="mt-4 max-h-[36rem] divide-y divide-slate-100 overflow-y-auto">
           {rows.map((f) => {
             // one result per skill, no grade choice: the platform uses the class's own grade (or the nearest grade
             // that has questions) — the teacher only sees the skill and Assign

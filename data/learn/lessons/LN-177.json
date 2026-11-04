@@ -94,8 +94,8 @@
      "options": [
       "The rabbit is in the toy box.",
       "Sara has two toy rabbits.",
-      "The rabbit is at school.",
-      "Her brother is at school."
+      "The rabbit is at her school.",
+      "Her brother is at school now."
      ],
      "answer": 0,
      "why": "The story tells us her brother put the rabbit in the toy box. Sara does not know that."
@@ -116,9 +116,9 @@
      "passage": "A fox hid behind a bush. The little bird did not see it. The bird hopped closer and closer to the bush, singing happily.",
      "stem": "Why do we feel worried for the bird?",
      "options": [
-      "The bird has a sore throat.",
+      "The bird has a sore throat and cannot sing.",
       "We know the fox is there, but the bird does not.",
-      "The bush is full of sharp thorns.",
+      "The bush is full of sharp thorns and dry leaves.",
       "The bird is singing a song to the fox."
      ],
      "answer": 1,
@@ -179,10 +179,10 @@
     "passage": "For weeks, Fahad had been secretly saving his pocket money to buy his sister Huda a new set of paints for her birthday. He hid the box under his bed. Huda noticed that Fahad had stopped buying sweets after school. 'He must be saving for that silly video game,' she told her friend, rolling her eyes. That evening, when Fahad asked whether she liked blue or green better, Huda just shrugged and said, 'Why do you care?'",
     "stem": "What creates dramatic irony in this story?",
     "options": [
-     "Huda knows Fahad's secret but pretends she does not.",
+     "Huda knows Fahad's secret but pretends she does not know it, to be polite.",
      "Readers know Fahad is buying Huda a gift, but she thinks it is for a game.",
-     "Fahad does not know that Huda's birthday is coming.",
-     "Huda and Fahad both want the same video game."
+     "Fahad does not know that Huda's birthday is coming in July.",
+     "Huda and Fahad both want the same video game for their birthdays."
     ],
     "answer": 1,
     "hint": "Who knows about the paints: Huda, or the reader? What does Huda think the money is for?",
@@ -210,9 +210,9 @@
      "passage": "The school invited a speaker to give a talk about the importance of being on time. The whole school waited in the hall. The speaker arrived forty minutes late.",
      "stem": "What kind of irony is this?",
      "options": [
-      "Dramatic irony, because the reader knows a secret",
-      "No irony, because this is what we expected",
-      "A flashback to an earlier talk at the school",
+      "Dramatic irony, because the reader knows a secret that the people do not know",
+      "No irony, because this is what everyone expected to happen at the end",
+      "A flashback to an earlier talk at the school, before the story began",
       "Situational irony, because the opposite of the expected happens"
      ],
      "answer": 3,
@@ -224,8 +224,8 @@
      "options": [
       "Readers smile because they know Faris will soon be happy.",
       "Readers feel afraid that Faris will get hurt.",
-      "Readers are confused about who Faris is.",
-      "Readers feel angry with the grandfather."
+      "Readers are confused about who Faris is at first.",
+      "Readers feel angry with the grandfather for hiding it."
      ],
      "answer": 0,
      "why": "We know about the hidden bicycle, so Faris's sad words make us smile. We know a happy surprise is coming."
@@ -234,10 +234,10 @@
      "passage": "Mr. Salem was known as the most careful man in town. He taught road-safety classes every week. One morning, he was so busy reading a road-safety leaflet as he walked that he walked straight into a lamppost.",
      "stem": "Why is this an example of situational irony?",
      "options": [
-      "Mr. Salem does not know how to drive.",
-      "The reader knows something Mr. Salem does not.",
+      "Mr. Salem does not know how to drive a car or a bus.",
+      "The reader knows something Mr. Salem does not know yet.",
       "A safety teacher is hurt because of a safety leaflet.",
-      "Lampposts are dangerous for people who walk."
+      "Lampposts are dangerous for people who walk in the street."
      ],
      "answer": 2,
      "why": "We expect a safety teacher to be careful. Instead, a safety leaflet causes his accident. That is the opposite of what we expect."
@@ -456,9 +456,9 @@
      "passage": "For forty years, Aunt Laila kept a beautiful embroidered scarf wrapped in paper, saving it 'for a truly special day'. When her granddaughter's wedding finally came, she proudly unwrapped it. Moths had eaten holes all through it.",
      "stem": "What theme does the irony develop?",
      "options": [
-      "Scarves must be stored in strong boxes.",
+      "Scarves must be stored in strong boxes at home.",
       "Waiting for the perfect moment can mean missing joys.",
-      "Weddings are the most important days of all.",
+      "Weddings are the most important days of all in life.",
       "Grandmothers should give gifts more often."
      ],
      "answer": 1,

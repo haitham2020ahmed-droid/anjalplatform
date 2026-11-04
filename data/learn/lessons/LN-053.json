@@ -204,9 +204,9 @@
      "passage": "The wind blew the tent away.",
      "stem": "Which sentence is the passive voice of this one?",
      "options": [
-      "The tent blew the wind away.",
+      "The tent blew the wind away fast.",
       "The wind was blowing the tent.",
-      "The tent is blowing away.",
+      "The tent is blowing away in the wind.",
       "The tent was blown away by the wind."
      ],
      "answer": 3,
@@ -317,9 +317,9 @@
      "stem": "Which passive sentence keeps the same meaning?",
      "options": [
       "The gate was left open, and the goats escaped.",
-      "The goats left the gate open.",
-      "The gate left the goats open.",
-      "Someone was left open by the gate."
+      "The goats left the gate open, so they escaped.",
+      "The gate left the goats open, and the goats escaped.",
+      "Someone was left open by the gate, and the goats escaped."
      ],
      "answer": 0,
      "why": "The gate receives the action (was left). We still do not know who left it, just like in the original."
@@ -420,9 +420,9 @@
      "stem": "Which revision fixes the needless shift in voice?",
      "options": [
       "Maha planned the trip, and she booked the tickets as well.",
-      "The trip was planned, and Maha booked the tickets.",
+      "The trip was planned, and Maha booked the tickets herself.",
       "Maha planned the trip, and tickets were booked.",
-      "The trip and the tickets were planned by booking."
+      "The trip and the tickets were planned by booking them."
      ],
      "answer": 0,
      "why": "Both verbs are now active, with Maha as the doer. The other choices still mix voices or lose the meaning."
@@ -443,9 +443,9 @@
      "passage": "The company's statement said only that \"errors were made in the delivery schedule.\"",
      "stem": "What does the passive phrase \"errors were made\" suggest?",
      "options": [
-      "The customers made the errors.",
-      "No errors happened at all.",
-      "The deliveries arrived early.",
+      "The customers made the errors in the orders.",
+      "No errors happened at all on those days.",
+      "The deliveries arrived early to all of the shops.",
       "The company avoids saying who made the errors."
      ],
      "answer": 3,

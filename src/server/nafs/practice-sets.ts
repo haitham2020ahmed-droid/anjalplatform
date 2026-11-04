@@ -12,10 +12,11 @@
  */
 import { existsSync, readdirSync, readFileSync, statSync } from "node:fs";
 import { join } from "node:path";
+import { IdleBox } from "../cache/idle";
 import type { Repo } from "../seeding/repo";
 import { isDifficulty, isMoeCode, isNafsCode, domainOf, isProcess, type Difficulty, type NafsProcess } from "./framework";
 import { PRACTICE_FAMILY } from "./bank";
-import { loadBookletsInto, type Booklet, type BookletQuestion } from "./booklets";
+import { loadBookletsInto, loadedWith, setInfoOf, type Booklet, type BookletQuestion, type SetCatalog } from "./booklets";
 
 const s = (v: unknown) => String(v ?? "");
 export const PRACTICE_SETTING = "nafs.practiceSets";
@@ -29,9 +30,9 @@ export interface PracticeRead { valid: Booklet[]; invalid: { file: string; probl
 let dirOverride: string | null = null;
 let packDirHint: string | null = null;
 /** Tests: point the loader at a folder of small fixture sets (null = the default). */
-export function usePracticeDir(dir: string | null): void { dirOverride = dir; parsed = null; sigMemo = null; complete.clear(); }
+export function usePracticeDir(dir: string | null): void { dirOverride = dir; parsed.clear(); catalog.clear(); sigMemo = null; complete.clear(); }
 /** load-packs: when the packs read from another folder (tests), the sets are its "nafs-practice" sub-folder. */
-export function practicePackDir(dir: string | null): void { packDirHint = dir; parsed = null; sigMemo = null; complete.clear(); }
+export function practicePackDir(dir: string | null): void { packDirHint = dir; parsed.clear(); catalog.clear(); sigMemo = null; complete.clear(); }
 export const practiceDir = () => dirOverride ?? (packDirHint ? join(packDirHint, "nafs-practice") : join(process.cwd(), "data", "nafs", "practice"));
 
 export function practiceFiles(dir = practiceDir()): string[] {
@@ -88,12 +89,10 @@ export function checkPracticeSet(raw: unknown, file: string): { set: Booklet | n
   return { set: { file, code, title: s(b.title).trim().slice(0, 150), kind: kind as Booklet["kind"], genre: s(b.genre).trim().slice(0, 60), passage, questions: out.sort((a, z) => a.n - z.n) }, problems: [] };
 }
 
-let parsed: { sig: string; dir: string; read: PracticeRead } | null = null;
-/** Every practice set of the folder, checked (kept in memory until a file changes). */
-export function readPracticeSets(dir = practiceDir()): PracticeRead {
-  const sig = practiceSignature(dir);
-  if (!sig) return { valid: [], invalid: [], files: [] };
-  if (parsed && parsed.sig === sig && parsed.dir === dir) return parsed.read;
+// r68 memory: kept while used, released after 5 idle minutes
+const parsed = new IdleBox<{ sig: string; dir: string; read: PracticeRead }>("nafs.practice");
+/** Every practice set of the folder, read and checked now (nothing kept). */
+function scanPracticeSets(dir: string): PracticeRead {
   const files = practiceFiles(dir);
   const read: PracticeRead = { valid: [], invalid: [], files };
   const codes = new Set<string>();
@@ -106,8 +105,29 @@ export function readPracticeSets(dir = practiceDir()): PracticeRead {
     codes.add(r.set.code);
     read.valid.push(r.set);
   }
-  parsed = { sig, dir, read };
   return read;
+}
+/** Every practice set of the folder with its full text (loading them into a center). Kept until a file changes. */
+export function readPracticeSets(dir = practiceDir()): PracticeRead {
+  const sig = practiceSignature(dir);
+  if (!sig) return { valid: [], invalid: [], files: [] };
+  const kept = parsed.get();
+  if (kept && kept.sig === sig && kept.dir === dir) return kept.read;
+  const read = scanPracticeSets(dir);
+  parsed.set({ sig, dir, read });
+  return read;
+}
+
+/** 🧠 r84 memory: the sets' codes, titles, kinds, genres and question counts only (see bookletCatalog). */
+const catalog = new IdleBox<SetCatalog>("nafs.practice.catalog");
+export function practiceCatalog(dir = practiceDir()): SetCatalog | null {
+  const sig = practiceSignature(dir);
+  if (!sig) return null;
+  const kept = catalog.get();
+  if (kept && kept.sig === sig && kept.dir === dir) return kept;
+  const full = parsed.peek();
+  const read = full && full.sig === sig && full.dir === dir ? full.read : scanPracticeSets(dir);
+  return catalog.set({ sig, dir, list: read.valid.map(setInfoOf), files: read.files.length, invalid: read.invalid.length });
 }
 
 // ------------------------------------------------------------------ loading into a school's NAFS center
@@ -130,12 +150,13 @@ export async function loadNafsPracticeSets(repo: Repo, schoolId: string, byUserI
 
 /** How many practice-set questions the folder has and how many are in the school's center already. */
 export async function practiceCount(repo: Repo, schoolId: string, dir = practiceDir()): Promise<{ questions: number; inBank: number; files: number; invalid: number }> {
-  const r = readPracticeSets(dir);
-  const questions = r.valid.reduce((a, b) => a + b.questions.length, 0);
-  const codes = r.valid.map((b) => b.code);
+  const c = practiceCatalog(dir); // r84: the light catalog (no texts kept)
+  if (!c) return { questions: 0, inBank: 0, files: 0, invalid: 0 };
+  const questions = c.list.reduce((a, b) => a + b.questions, 0);
+  const codes = c.list.map((b) => b.code);
   let inBank = 0;
   for (let i = 0; i < codes.length; i += 400) inBank += await repo.count("NafsBankItem", { schoolId, booklet: { in: codes.slice(i, i + 400) } });
-  return { questions, inBank, files: r.files.length, invalid: r.invalid.length };
+  return { questions, inBank, files: c.files, invalid: c.invalid };
 }
 
 const running = new Map<string, Promise<PracticeLoad | null>>();
@@ -155,6 +176,7 @@ export function ensureNafsPracticeSets(repo: Repo, schoolId: string, byUserId: s
   const p = (async () => {
     const sig = practiceSignatureCached();
     if (!sig || complete.get(schoolId) === sig) return null;
+    if (await loadedWith(repo, schoolId, PRACTICE_SETTING, sig)) { complete.set(schoolId, sig); return null; } // r84 (see ensureNafsBooklets)
     const c = await practiceCount(repo, schoolId);
     if (!c.questions || c.inBank >= c.questions) { complete.set(schoolId, sig); return null; }
     return loadNafsPracticeSets(repo, schoolId, byUserId);

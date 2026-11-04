@@ -173,9 +173,9 @@
       "type": "MCQ",
       "stem": "What is the main purpose of the passage?",
       "options": [
-        "to explain how frogs lay eggs in streams",
-        "to describe the universities of the United States",
-        "to tell a story about animals fighting a fire",
+        "to explain how frogs lay eggs in streams and in ponds in spring and summer",
+        "to describe the universities of the United States of America and their students",
+        "to tell a story about animals fighting a fire in a forest on a hot day",
         "to show how one woman's tree-planting idea helped people and nature"
       ],
       "answer": "D",
@@ -189,10 +189,10 @@
       "type": "MCQ",
       "stem": "What is the main idea of paragraph 3?",
       "options": [
-        "Women in Kenya preferred firewood to any other kind of fuel.",
+        "Women in Kenya preferred firewood to any other kind of fuel they could use at home.",
         "Maathai saw that losing forests caused connected problems that trees could help solve.",
-        "Rainwater in Kenya always soaked deep into the ground.",
-        "Maathai thought that each problem needed a different solution."
+        "Rainwater in Kenya always soaked deep into the ground and filled all the streams.",
+        "Maathai thought that each problem needed a different solution from all of the others."
       ],
       "answer": "B",
       "why": "Paragraph 3 links forests to water, soil, firewood and food, and ends with “one simple solution … planting trees.”"
@@ -205,10 +205,10 @@
       "type": "MCQ",
       "stem": "According to paragraph 3, why did streams dry up when forests were cleared?",
       "options": [
-        "People drank all of the water from the streams.",
-        "The fig trees blocked the water from flowing.",
+        "People drank all of the water from the streams in the hills.",
+        "The fig trees blocked the water from flowing in the streams.",
         "Rainwater rushed away instead of soaking into the ground.",
-        "The weather in Kenya became much colder."
+        "The weather in Kenya became much colder in the high hills."
       ],
       "answer": "C",
       "why": "“When forests were cleared, rainwater rushed away instead of soaking into the ground, so streams dried up.”"
@@ -221,10 +221,10 @@
       "type": "MCQ",
       "stem": "What did the Green Belt Movement pay women for?",
       "options": [
-        "each kilometre they walked to find water",
+        "each kilometre they walked to find water and wood",
         "each seedling they grew and planted successfully",
-        "each piece of firewood they collected",
-        "each official they persuaded to join"
+        "each piece of firewood they collected for the home",
+        "each official they persuaded to join the project"
       ],
       "answer": "B",
       "why": "Paragraph 4: it “paid women a small amount for every seedling they grew and planted successfully.”"
@@ -237,10 +237,10 @@
       "type": "MCQ",
       "stem": "According to paragraph 5, why can caring for the environment help to build peace?",
       "options": [
-        "Trees make people too busy to argue.",
+        "Trees make people too busy to argue with each other.",
         "Communities often struggle over scarce land and water.",
-        "Peace prizes are given only for tree planting.",
-        "Forests keep soldiers away from villages."
+        "Peace prizes are given only for tree planting each year.",
+        "Forests keep soldiers away from villages in the country."
       ],
       "answer": "B",
       "why": "The committee explained that communities “often struggle over scarce land and water”."
@@ -285,10 +285,10 @@
       "type": "MCQ",
       "stem": "What did Maathai find when she returned to the stream of her childhood?",
       "options": [
-        "The stream was full of frog eggs again.",
+        "The stream was full of frog eggs again in spring.",
         "The fig tree was gone and the stream was dry.",
-        "A new school had been built beside it.",
-        "The fig tree had grown even larger."
+        "A new school had been built beside it by the town.",
+        "The fig tree had grown even larger than before."
       ],
       "answer": "B",
       "why": "Paragraph 1: “the fig tree had been cut down and the stream had dried up.”"
@@ -302,9 +302,9 @@
       "stem": "Why was Maathai's doctorate a special achievement?",
       "options": [
         "She was the first woman in East and Central Africa to earn one.",
-        "It was the first doctorate ever given in Kenya.",
-        "She earned it before she finished school.",
-        "It was awarded by the Nobel committee."
+        "It was the first doctorate ever given in Kenya to anyone.",
+        "She earned it before she finished school at the age of ten.",
+        "It was awarded by the Nobel committee in Oslo in 2004."
       ],
       "answer": "A",
       "why": "Paragraph 2: she “became the first woman in East and Central Africa to earn a doctorate.”"
@@ -318,9 +318,9 @@
       "stem": "Why did the movement most likely pay women only for seedlings that were planted successfully?",
       "options": [
         "to encourage them to care for the trees until they grew",
-        "to save money by paying for very few trees",
-        "to stop women from planting fruit trees",
-        "to make the work as difficult as possible"
+        "to save money by paying for very few trees each year",
+        "to stop women from planting fruit trees in the villages",
+        "to make the work as difficult as possible for the women"
       ],
       "answer": "A",
       "why": "Paying for success rewarded women for looking after the seedlings, not just putting them in the ground."
@@ -382,9 +382,9 @@
       "stem": "What do Maathai and the hummingbird in her story have in common?",
       "options": [
         "Both tackled a huge problem one small step at a time.",
-        "Both lived beside a stream near a fig tree.",
-        "Both waited for larger animals to help first.",
-        "Both won a prize for their hard work."
+        "Both lived beside a stream near a fig tree in Kenya.",
+        "Both waited for larger animals to help them first.",
+        "Both won a prize for their hard work in the forest."
       ],
       "answer": "A",
       "why": "The bird carried one beakful at a time; Maathai's movement planted one seedling at a time."
@@ -397,10 +397,10 @@
       "type": "MCQ",
       "stem": "What does the phrase “helped bring streams back to life” in paragraph 4 mean?",
       "options": [
-        "helped frogs return to the forests",
-        "helped people swim in the streams",
+        "helped frogs return to the forests and ponds",
+        "helped people swim in the streams every summer",
         "helped dried-up streams flow with water again",
-        "helped scientists study dead streams"
+        "helped scientists study dead streams and rivers"
       ],
       "answer": "C",
       "why": "Streams cannot really be alive; the phrase is figurative and means they began to flow again."
@@ -445,9 +445,9 @@
       "type": "MCQ",
       "stem": "In your opinion, what was the MAIN reason the Green Belt Movement succeeded?",
       "options": [
-        "It was run entirely by government officials.",
-        "It planted trees only in large cities.",
-        "It asked people to work without any reward.",
+        "It was run entirely by government officials and their workers in offices.",
+        "It planted trees only in large cities, along the streets and the parks.",
+        "It asked people to work without any reward for the whole year, in the forests.",
         "It solved real problems in women's lives and rewarded their work."
       ],
       "answer": "D",
@@ -525,9 +525,9 @@
       "type": "MCQ",
       "stem": "Which title best describes the events of the passage?",
       "options": [
-        "The Girl Who Collected Frog Eggs",
-        "Officials Who Planted Forests",
-        "A Fire in the Kenyan Hills",
+        "The Girl Who Collected Many Frog Eggs",
+        "Officials Who Planted Forests in Kenya",
+        "A Fire in the Kenyan Hills at Night",
         "The Woman Who Planted Millions of Trees"
       ],
       "answer": "D",

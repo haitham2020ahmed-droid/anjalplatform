@@ -115,8 +115,8 @@
      "stem": "What happened first?",
      "options": [
       "learned to swim",
-      "lost a tooth",
-      "went on a trip",
+      "lost a tooth at school",
+      "went on a trip to Taif",
       "joined the art club"
      ],
      "answer": 3,
@@ -203,10 +203,10 @@
      "passage": "Timeline: our school's history. 1995: The school opens with 100 students. 2005: A science lab is built. 2015: The school has 600 students. 2020: A new library opens.",
      "stem": "What happened between the science lab and the library?",
      "options": [
-      "The school opened.",
-      "A science lab was built.",
+      "The school opened its front doors.",
+      "A science lab was built at the school.",
       "The school reached 600 students.",
-      "A pool was built."
+      "A pool was built next to the gym."
      ],
      "answer": 2,
      "why": "The lab was 2005 and the library 2020. In **2015**, between them, the school reached 600 students."
@@ -228,9 +228,9 @@
      "stem": "Why could the shop with a fridge open only after 1950?",
      "options": [
       "Electricity had reached the town.",
-      "People liked oil lamps.",
-      "The town was very new.",
-      "Fridges were cheap in 1900."
+      "People still liked oil lamps.",
+      "The town was still very new.",
+      "Fridges were very cheap in 1900."
      ],
      "answer": 0,
      "why": "A fridge needs electricity, which came in **1950**."
@@ -395,7 +395,7 @@
      "Building began at the Sea Port end and moved west.",
      "Central Market opened two years before Old Town.",
      "The line was built from west to east, so Sea Port came last.",
-     "The whole line was already running by the year 2021."
+     "The whole line was already running by the year 2021 or earlier."
     ],
     "answer": 2,
     "hint": "Where did building start on the map? Which way did it move? Which station is left at the end?",

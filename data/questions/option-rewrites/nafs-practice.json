@@ -1,0 +1,2716 @@
+[
+ {
+  "stem": "Which opinion is best supported by the passage?",
+  "correct": "The desert is both a natural wonder and a resource.",
+  "replace": [
+   {
+    "old": "The Empty Quarter has no value for people.",
+    "new": "The Empty Quarter has no value for any people."
+   },
+   {
+    "old": "Only scientists should be allowed to visit.",
+    "new": "Only scientists should be allowed to visit it."
+   },
+   {
+    "old": "No animal could ever live in such a desert.",
+    "new": "No animal could ever live in such a hot desert."
+   }
+  ]
+ },
+ {
+  "stem": "Which sentence uses the word \"erosion\" correctly?",
+  "correct": "Strong waves caused erosion along the cliffs.",
+  "replace": [
+   {
+    "old": "She erosion the ball across the field.",
+    "new": "She erosion the ball across the field to her friend."
+   },
+   {
+    "old": "The erosion cake tasted very sweet.",
+    "new": "The erosion cake tasted very sweet and soft."
+   },
+   {
+    "old": "We erosion our homework every evening.",
+    "new": "We erosion our homework every evening after dinner."
+   }
+  ]
+ },
+ {
+  "stem": "Which information is the least clear in the passage?",
+  "correct": "Why she moved from mathematics to architecture",
+  "replace": [
+   {
+    "old": "Where Hadid was born",
+    "new": "Where Hadid was born as a child and went to school"
+   },
+   {
+    "old": "Which prize she won in 2004",
+    "new": "Which prize she won in 2004 and who gave it to her"
+   },
+   {
+    "old": "What inspired the Riyadh center",
+    "new": "What inspired the Riyadh center and who drew its plans"
+   }
+  ]
+ },
+ {
+  "stem": "Why did Grandfather take the radio down from the shelf?",
+  "correct": "The electricity in the neighborhood had failed.",
+  "replace": [
+   {
+    "old": "He wanted to sell it to a collector.",
+    "new": "He wanted to sell it to a collector in the city."
+   },
+   {
+    "old": "The narrator asked him to repair it.",
+    "new": "The narrator asked him to repair it for school."
+   },
+   {
+    "old": "Its brass knobs needed to be polished.",
+    "new": "Its brass knobs needed to be polished by hand."
+   }
+  ]
+ },
+ {
+  "stem": "Which sentence uses the word \"genuinely\" correctly?",
+  "correct": "She was genuinely pleased to see her friend.",
+  "replace": [
+   {
+    "old": "The genuinely was hidden in the box.",
+    "new": "The genuinely was hidden in the box under the bed."
+   },
+   {
+    "old": "He genuinely the door before leaving.",
+    "new": "He genuinely the door before leaving the house."
+   },
+   {
+    "old": "They ran genuinely of the classroom.",
+    "new": "They ran genuinely of the classroom to the yard."
+   }
+  ]
+ },
+ {
+  "stem": "What helped Ibn Battuta find work and friends wherever he went?",
+  "correct": "his knowledge of Islamic law and his curiosity",
+  "replace": [
+   {
+    "old": "his great wealth and his large army",
+    "new": "his great wealth and his large army of men"
+   },
+   {
+    "old": "his skill as the captain of a ship",
+    "new": "his skill as the captain of a big ship"
+   },
+   {
+    "old": "letters from the sultan of Morocco",
+    "new": "letters from the sultan of Morocco to the kings"
+   }
+  ]
+ },
+ {
+  "stem": "Which opinion is BEST supported by the passage?",
+  "correct": "Plants are essential to life because they release oxygen.",
+  "replace": [
+   {
+    "old": "Plants are less important than animals.",
+    "new": "Plants are less important than animals are for life on Earth."
+   },
+   {
+    "old": "Gardeners should grow vegetables in the shade.",
+    "new": "Gardeners should grow vegetables in the shade of tall trees."
+   },
+   {
+    "old": "Algae are more useful than any plant on land.",
+    "new": "Algae are more useful than any other plant that grows on land."
+   }
+  ]
+ },
+ {
+  "stem": "Which information is the LEAST clear in the passage?",
+  "correct": "How the beetles actually collect moisture",
+  "replace": [
+   {
+    "old": "How high some of the dunes rise",
+    "new": "How high some of the dunes rise in the middle"
+   },
+   {
+    "old": "How hot summer days can become",
+    "new": "How hot summer days can become in the desert"
+   },
+   {
+    "old": "Which countries the desert covers",
+    "new": "Which countries the desert covers on the map"
+   }
+  ]
+ },
+ {
+  "stem": "The writer says 'sunshine has a weakness'. What is the purpose of this expression?",
+  "correct": "to introduce a problem with relying only on the sun",
+  "replace": [
+   {
+    "old": "to suggest that the sun is growing weaker",
+    "new": "to suggest that the sun is growing weaker every year"
+   },
+   {
+    "old": "to explain why the region has clear skies",
+    "new": "to explain why the region has clear skies all year"
+   }
+  ]
+ },
+ {
+  "stem": "Which is the best alternative title for the passage?",
+  "correct": "The Woman Who Founded a Place of Learning",
+  "replace": [
+   {
+    "old": "The Merchants of Kairouan",
+    "new": "The Merchants of Kairouan and Fez"
+   },
+   {
+    "old": "Astronomy in the Ninth Century",
+    "new": "Astronomy in the Ninth Century in Egypt"
+   },
+   {
+    "old": "Maryam's Mosque in Fez",
+    "new": "Maryam's Mosque in Fez, a Place of Prayer"
+   }
+  ]
+ },
+ {
+  "stem": "Which sentence is a command?",
+  "correct": "Remember to check every fact before publishing.",
+  "replace": [
+   {
+    "old": "Who wants to write the main story?",
+    "new": "Who wants to write the main story for the class?"
+   },
+   {
+    "old": "Our class needs a newspaper.",
+    "new": "Our class needs a newspaper for the whole school."
+   },
+   {
+    "old": "What a wonderful title that is!",
+    "new": "What a wonderful title that is for the front page!"
+   }
+  ]
+ },
+ {
+  "stem": "The writer ends by saying islands 'remind us that the surface of our planet is still changing today.' What is the effect of this ending?",
+  "correct": "It leaves readers thinking about how active the Earth is.",
+  "replace": [
+   {
+    "old": "It shows that islands can speak to people.",
+    "new": "It shows that islands can speak to people on the shore."
+   },
+   {
+    "old": "It suggests that all islands will soon vanish.",
+    "new": "It suggests that all islands will soon vanish into the sea."
+   },
+   {
+    "old": "It explains how plants reach new islands.",
+    "new": "It explains how plants and birds reach new islands over time."
+   }
+  ]
+ },
+ {
+  "stem": "A student's large print takes too long. Based on the passage, which is the BEST solution?",
+  "correct": "Print a smaller version of the design",
+  "replace": [
+   {
+    "old": "Turn off the heated nozzle",
+    "new": "Turn off the heated nozzle of the printer"
+   },
+   {
+    "old": "Delete the slicer program",
+    "new": "Delete the slicer program from the computer"
+   },
+   {
+    "old": "Use a block of wood as filament",
+    "new": "Use a block of wood as filament in the printer"
+   }
+  ]
+ },
+ {
+  "stem": "Which is the best alternative title for the passage?",
+  "correct": "From Oyster to Gem: Pearls and Gulf Divers",
+  "replace": [
+   {
+    "old": "How to Open an Oyster Safely",
+    "new": "How to Open an Oyster Safely at Home"
+   },
+   {
+    "old": "The History of Japanese Pearl Farms",
+    "new": "The History of Japanese Pearl Farms and Divers"
+   },
+   {
+    "old": "Festivals and Museums of the Gulf",
+    "new": "Festivals and Museums of the Gulf and the Coast"
+   }
+  ]
+ },
+ {
+  "stem": "Which information in the passage is the LEAST clear or complete?",
+  "correct": "How the camel's body actually turns fat into energy",
+  "replace": [
+   {
+    "old": "Where the camel stores its fat",
+    "new": "Where the camel stores its fat and its water"
+   },
+   {
+    "old": "What protects the camel's eyes from sand",
+    "new": "What protects the camel's eyes from sand and wind"
+   },
+   {
+    "old": "Why the camel does not sink in sand",
+    "new": "Why the camel does not sink in soft sand or mud"
+   }
+  ]
+ },
+ {
+  "stem": "Which sentence uses the word \"frontier\" correctly?",
+  "correct": "Soldiers guarded the frontier between the two lands.",
+  "replace": [
+   {
+    "old": "She frontier her homework before dinner.",
+    "new": "She frontier her homework before dinner at home."
+   },
+   {
+    "old": "The frontier tasted sweet and fresh.",
+    "new": "The frontier tasted sweet and fresh, like fruit from a tree."
+   },
+   {
+    "old": "He spoke so frontier that everyone heard.",
+    "new": "He spoke so frontier that everyone in the room heard him."
+   }
+  ]
+ },
+ {
+  "stem": "Which information in the passage is the LEAST complete?",
+  "correct": "How fast glaciers are shrinking today",
+  "replace": [
+   {
+    "old": "What a fjord is",
+    "new": "What a fjord is and how it looks from the air"
+   },
+   {
+    "old": "What moraines are",
+    "new": "What moraines are and where they are found"
+   },
+   {
+    "old": "How snow turns into glacier ice",
+    "new": "How snow turns into glacier ice over many years"
+   }
+  ]
+ },
+ {
+  "stem": "Which statement best reflects the writer's viewpoint?",
+  "correct": "Conservation worked, but the oryx still needs protection.",
+  "replace": [
+   {
+    "old": "Hunting the oryx can safely be allowed again.",
+    "new": "Hunting the oryx can safely be allowed again soon."
+   },
+   {
+    "old": "The oryx no longer faces any danger at all.",
+    "new": "The oryx no longer faces any danger at all in the desert."
+   },
+   {
+    "old": "Zoos are better homes for oryx than the desert.",
+    "new": "Zoos are better homes for oryx than the desert is."
+   }
+  ]
+ },
+ {
+  "stem": "Which different ending would best fit the message of the story?",
+  "correct": "Months later, she helps another new student find a class.",
+  "replace": [
+   {
+    "old": "She returns to her old school the next day.",
+    "new": "She returns to her old school the very next day to see her friends."
+   },
+   {
+    "old": "She decides never to speak to Reem again.",
+    "new": "She decides never to speak to Reem again at lunch or at class."
+   },
+   {
+    "old": "She hides in the laboratory until evening.",
+    "new": "She hides in the laboratory until evening comes and the school closes."
+   }
+  ]
+ },
+ {
+  "stem": "Which sentence is EXCLAMATORY?",
+  "correct": "What a remarkable library it must have been!",
+  "replace": [
+   {
+    "old": "Baghdad stood beside the Tigris River.",
+    "new": "Baghdad stood beside the Tigris River long ago."
+   },
+   {
+    "old": "Read the book about al-Khwarizmi.",
+    "new": "Read the book about al-Khwarizmi tonight."
+   },
+   {
+    "old": "Did the scholars speak many languages?",
+    "new": "Did the scholars speak many languages in Baghdad?"
+   }
+  ]
+ },
+ {
+  "stem": "Which detail does the story leave LEAST clear?",
+  "correct": "How long the ant's grain would last for both of them",
+  "replace": [
+   {
+    "old": "Where the ant built her underground nest",
+    "new": "Where the ant built her underground nest in the field"
+   },
+   {
+    "old": "What the sparrow liked to do all day",
+    "new": "What the sparrow liked to do all day in the sun"
+   },
+   {
+    "old": "What happened to the field during the rain",
+    "new": "What happened to the field during the long rain"
+   }
+  ]
+ },
+ {
+  "stem": "Which is the best alternative title for the passage?",
+  "correct": "Two Thousand Years of China's Great Wall",
+  "replace": [
+   {
+    "old": "The First Emperor's Childhood",
+    "new": "The First Emperor's Childhood and Early Life"
+   },
+   {
+    "old": "How to Send Smoke Signals",
+    "new": "How to Send Smoke Signals from a Hill Tower"
+   },
+   {
+    "old": "Travel Tips for Visiting Beijing",
+    "new": "Travel Tips for Visiting Beijing in the Spring"
+   }
+  ]
+ },
+ {
+  "stem": "Who is the narrator of the story?",
+  "correct": "Faisal's older brother or sister",
+  "replace": [
+   {
+    "old": "Faisal's grandmother",
+    "new": "Faisal's grandmother, who lives on the farm"
+   },
+   {
+    "old": "Faisal's father",
+    "new": "Faisal's father, who works in the city"
+   },
+   {
+    "old": "A neighbour on the roof",
+    "new": "A neighbour on the roof next door"
+   }
+  ]
+ },
+ {
+  "stem": "Why are the oldest Hawaiian Islands farthest from the hot spot?",
+  "correct": "The Pacific Plate has carried them away over time.",
+  "replace": [
+   {
+    "old": "Waves have pushed them across the ocean.",
+    "new": "Waves have pushed them across the ocean over time."
+   },
+   {
+    "old": "The hot spot moves quickly toward the west.",
+    "new": "The hot spot moves quickly toward the west each year."
+   },
+   {
+    "old": "They were made from coral, not from lava.",
+    "new": "They were made from coral, not from lava, long ago."
+   }
+  ]
+ },
+ {
+  "stem": "Which information in the passage is the LEAST complete?",
+  "correct": "Why Earth's axis became tilted in the first place",
+  "replace": [
+   {
+    "old": "When Earth is nearest to the Sun",
+    "new": "When Earth is nearest to the Sun in the year"
+   },
+   {
+    "old": "How much Earth's axis is tilted",
+    "new": "How much Earth's axis is tilted from the vertical"
+   },
+   {
+    "old": "Why equator places have small changes",
+    "new": "Why places near the equator have small changes in weather"
+   }
+  ]
+ },
+ {
+  "stem": "Which information is the LEAST clear in the story?",
+  "correct": "what the words on the stone actually say",
+  "replace": [
+   {
+    "old": "what Lina did on the way home",
+    "new": "what Lina did on the way home from school"
+   },
+   {
+    "old": "which city the museum is in",
+    "new": "which city the museum is in on the map"
+   },
+   {
+    "old": "where the stone was first found",
+    "new": "where the stone was first found in the desert"
+   }
+  ]
+ },
+ {
+  "stem": "Who gives the advice about healthy eating in the passage?",
+  "correct": "Dr. Salma, the school doctor",
+  "replace": [
+   {
+    "old": "Hamad's mother",
+    "new": "Hamad's mother, who cooks lunch"
+   },
+   {
+    "old": "Hamad's teacher",
+    "new": "Hamad's teacher, who gives the lesson"
+   },
+   {
+    "old": "the shop owner",
+    "new": "the shop owner, who sells fruit"
+   }
+  ]
+ },
+ {
+  "stem": "Which of these events happened LAST?",
+  "correct": "Ibn Juzayy wrote down his account.",
+  "replace": [
+   {
+    "old": "He was made a judge in Delhi.",
+    "new": "He was made a judge in Delhi by the sultan."
+   },
+   {
+    "old": "He completed his pilgrimage.",
+    "new": "He completed his first pilgrimage to Mecca."
+   },
+   {
+    "old": "He left his home in Tangier.",
+    "new": "He left his home in Tangier as a young man."
+   }
+  ]
+ },
+ {
+  "stem": "What does the brain do with new memories AFTER first storing them in the hippocampus?",
+  "correct": "Moves important ones to other areas during sleep",
+  "replace": [
+   {
+    "old": "Deletes them to make space for more",
+    "new": "Deletes them all to make space for more new ones"
+   },
+   {
+    "old": "Keeps them only in the hippocampus",
+    "new": "Keeps them only in the hippocampus for the whole of life"
+   },
+   {
+    "old": "Sends them back to the eyes and ears",
+    "new": "Sends them back to the eyes and ears at night again"
+   }
+  ]
+ },
+ {
+  "stem": "Which information in the passage is LEAST complete?",
+  "correct": "Why human eyes are more sensitive to blue",
+  "replace": [
+   {
+    "old": "What sunlight is made of",
+    "new": "What sunlight is made of and where it comes from"
+   },
+   {
+    "old": "Which gases are most common in air",
+    "new": "Which gases are most common in the air we breathe"
+   },
+   {
+    "old": "Why sunsets look red and orange",
+    "new": "Why sunsets look red and orange near the sea"
+   }
+  ]
+ },
+ {
+  "stem": "The writer says new ideas \"travelled faster than ever before.\" What does this expression mean?",
+  "correct": "Ideas reached many people much more quickly.",
+  "replace": [
+   {
+    "old": "Ideas were carried by fast horses.",
+    "new": "Ideas were carried by fast horses and ships."
+   },
+   {
+    "old": "Scientists began to travel more often.",
+    "new": "Scientists began to travel more often to far lands."
+   },
+   {
+    "old": "Books were thrown from city to city.",
+    "new": "Books were thrown from city to city by strong men."
+   }
+  ]
+ },
+ {
+  "stem": "\"He clapped his hands like a delighted child.\" What does this simile show about Grandfather?",
+  "correct": "He was proud and happy, not upset, about losing.",
+  "replace": [
+   {
+    "old": "He was tired after such a long game.",
+    "new": "He was tired after such a long game of chess."
+   },
+   {
+    "old": "He was trying to hide that he felt angry.",
+    "new": "He was trying to hide that he felt angry inside."
+   },
+   {
+    "old": "He was confused about the rules of chess.",
+    "new": "He was confused about the rules of the chess game."
+   }
+  ]
+ },
+ {
+  "stem": "Why was Mrs. Huda puzzled?",
+  "correct": "The borrowing records showed nothing unusual.",
+  "replace": [
+   {
+    "old": "Students refused to visit the library.",
+    "new": "Students refused to visit the library all week."
+   },
+   {
+    "old": "The books came back with missing pages.",
+    "new": "The books came back with missing pages and marks."
+   },
+   {
+    "old": "She had lost the key to the library.",
+    "new": "She had lost the key to the library door."
+   }
+  ]
+ },
+ {
+  "stem": "Which is the BEST alternative title for the passage?",
+  "correct": "Routes That Carried Goods and Ideas",
+  "replace": [
+   {
+    "old": "The Life of a Silkworm",
+    "new": "The Life of a Silkworm and Its Cocoon"
+   },
+   {
+    "old": "Ships of the Indian Ocean",
+    "new": "Ships of the Indian Ocean and Their Sailors"
+   },
+   {
+    "old": "How to Make Paper at Home",
+    "new": "How to Make Paper at Home from Old Rags"
+   }
+  ]
+ },
+ {
+  "stem": "According to the passage, what must happen BEFORE snow can become glacier ice?",
+  "correct": "Layers of snow are pressed together.",
+  "replace": [
+   {
+    "old": "The glacier moves downhill.",
+    "new": "The glacier moves downhill to the sea."
+   },
+   {
+    "old": "A U-shaped valley forms.",
+    "new": "A U-shaped valley forms in the rock."
+   },
+   {
+    "old": "Moraines are left behind.",
+    "new": "Moraines are left behind on the ground."
+   }
+  ]
+ },
+ {
+  "stem": "Which information is the LEAST clear in the story?",
+  "correct": "Which city the merchant came from — it is not named.",
+  "replace": [
+   {
+    "old": "Where Salim worked — Hofuf's market is named.",
+    "new": "Where Salim worked — Hofuf's market is named in the story."
+   },
+   {
+    "old": "What the riddle was — it is quoted exactly.",
+    "new": "What the riddle was — it is quoted exactly in the story."
+   },
+   {
+    "old": "What prize was offered — ten coins are named.",
+    "new": "What prize was offered — ten coins are named in the story."
+   }
+  ]
+ },
+ {
+  "stem": "Which statement best expresses the writer's viewpoint?",
+  "correct": "Engineering has improved worshippers' safety and comfort.",
+  "replace": [
+   {
+    "old": "Cooling the mosque in summer is impossible.",
+    "new": "Cooling the mosque in summer is quite impossible."
+   },
+   {
+    "old": "Escalators are the only useful improvement.",
+    "new": "Escalators are the only useful improvement made."
+   },
+   {
+    "old": "Each expansion made the mosque harder to use.",
+    "new": "Each expansion made the mosque harder to use for all."
+   }
+  ]
+ },
+ {
+  "stem": "Which is the BEST alternative title for this letter?",
+  "correct": "Greetings from the Mountains of Abha",
+  "replace": [
+   {
+    "old": "The Cherry Trees of My Street",
+    "new": "The Cherry Trees of My Street in Spring"
+   },
+   {
+    "old": "How to Clean a Classroom",
+    "new": "How to Clean a Classroom After Lessons"
+   },
+   {
+    "old": "A Winter Holiday in Riyadh",
+    "new": "A Winter Holiday in Riyadh with My Family"
+   }
+  ]
+ },
+ {
+  "stem": "Which information in the passage is the LEAST complete?",
+  "correct": "How chlorophyll's energy joins water and carbon dioxide",
+  "replace": [
+   {
+    "old": "Where carbon dioxide enters the leaf",
+    "new": "Where carbon dioxide enters the leaf of a plant"
+   },
+   {
+    "old": "Which gas plants release into the air",
+    "new": "Which gas plants release into the air as they grow"
+   },
+   {
+    "old": "How water reaches the leaves",
+    "new": "How water reaches the leaves from the roots in a stem"
+   }
+  ]
+ },
+ {
+  "stem": "Which information in the passage is the LEAST clear?",
+  "correct": "how scholars calculated the size of the Earth",
+  "replace": [
+   {
+    "old": "who ruled when the House of Wisdom grew",
+    "new": "who ruled when the House of Wisdom grew bigger"
+   },
+   {
+    "old": "which river flows through Baghdad",
+    "new": "which river flows through Baghdad and past the walls"
+   },
+   {
+    "old": "where the word \"algebra\" comes from",
+    "new": "where the word “algebra” comes from in the Arabic language"
+   }
+  ]
+ },
+ {
+  "stem": "Which information is the LEAST clear in the story?",
+  "correct": "Exactly which moves led to checkmate in the end",
+  "replace": [
+   {
+    "old": "How Grandfather felt when he lost",
+    "new": "How Grandfather felt when he lost the game"
+   },
+   {
+    "old": "Where in the house the game was played",
+    "new": "Where in the house the game was played that day"
+   },
+   {
+    "old": "Who usually won the Friday chess games",
+    "new": "Who usually won the Friday chess games at home"
+   }
+  ]
+ },
+ {
+  "stem": "The writer calls the camel \"a trusted partner for desert travelers.\" What does this phrase suggest?",
+  "correct": "Travelers could depend on camels like a loyal friend.",
+  "replace": [
+   {
+    "old": "Camels made business deals with travelers.",
+    "new": "Camels made business deals with the travelers."
+   },
+   {
+    "old": "Travelers were afraid of their camels.",
+    "new": "Travelers were afraid of their camels in the dark."
+   },
+   {
+    "old": "Camels chose the routes for the travelers.",
+    "new": "Camels chose the routes for the travelers each day."
+   }
+  ]
+ },
+ {
+  "stem": "What type of text is this?",
+  "correct": "A short story with dialogue",
+  "replace": [
+   {
+    "old": "A poem",
+    "new": "A poem about a boy and a bird"
+   },
+   {
+    "old": "A news report",
+    "new": "A news report about a school"
+   },
+   {
+    "old": "A science article",
+    "new": "A science article about stars"
+   }
+  ]
+ },
+ {
+  "stem": "What type of text is this?",
+  "correct": "A letter to a newspaper editor",
+  "replace": [
+   {
+    "old": "A science report",
+    "new": "A report about science"
+   },
+   {
+    "old": "A poem about buses",
+    "new": "A poem about buses and trains"
+   }
+  ]
+ },
+ {
+  "stem": "According to the passage, why did the Bedouin keep only certain horses for breeding?",
+  "correct": "They needed horses that could travel far on little food and water.",
+  "replace": [
+   {
+    "old": "They wanted horses that would win modern races.",
+    "new": "They wanted horses that would win modern races on sandy tracks."
+   },
+   {
+    "old": "They preferred horses that were tall and very heavy.",
+    "new": "They preferred horses that were tall and very heavy for the war."
+   },
+   {
+    "old": "They wanted horses that would stay close to the wells.",
+    "new": "They wanted horses that would stay close to the wells all year."
+   }
+  ]
+ },
+ {
+  "stem": "Which title would best fit this passage?",
+  "correct": "Surprises in the Sands of Arabia",
+  "replace": [
+   {
+    "old": "How Oil Is Made Underground",
+    "new": "How Oil Is Made Underground in Arabia"
+   },
+   {
+    "old": "Camels of the World",
+    "new": "Camels of the World and Their Homes"
+   }
+  ]
+ },
+ {
+  "stem": "Which alternative ending would BEST fit the story's message?",
+  "correct": "They turn back but plan to return with more water",
+  "replace": [
+   {
+    "old": "They fly to the summit by helicopter",
+    "new": "They fly to the summit by helicopter in the morning"
+   },
+   {
+    "old": "The narrator never visits Abha again",
+    "new": "The narrator never visits Abha again after the trip"
+   },
+   {
+    "old": "The fog stays and the hike is forgotten",
+    "new": "The fog stays and the hike is forgotten by all"
+   }
+  ]
+ },
+ {
+  "stem": "Which sentence uses the word \"eerie\" correctly?",
+  "correct": "The empty house made an eerie sound at night.",
+  "replace": [
+   {
+    "old": "He eerie ran to the shop.",
+    "new": "He eerie ran to the shop on the corner of the street."
+   },
+   {
+    "old": "The eerie of the storm was loud.",
+    "new": "The eerie of the storm was loud and the wind was strong."
+   },
+   {
+    "old": "We eerie the tents before dark.",
+    "new": "We eerie the tents before dark, and then we ate dinner."
+   }
+  ]
+ },
+ {
+  "stem": "The class wants the garden to continue next year. Which is the best solution?",
+  "correct": "Use market money for seeds and keep the watering timetable.",
+  "replace": [
+   {
+    "old": "Ask only one student to do all the work.",
+    "new": "Ask only one student to do all of the work in the garden."
+   }
+  ]
+ },
+ {
+  "stem": "Which title best describes the whole passage?",
+  "correct": "Lost and Found: The Story of Hieroglyphs",
+  "replace": [
+   {
+    "old": "Greek Temples and Tombs",
+    "new": "Greek Temples and Tombs of the Old World"
+   },
+   {
+    "old": "The Soldiers of 1799",
+    "new": "The Soldiers of 1799 and Their Camps"
+   },
+   {
+    "old": "How to Make Papyrus at Home",
+    "new": "How to Make Papyrus at Home from Reeds"
+   }
+  ]
+ },
+ {
+  "stem": "The writer says white salt crystals may be seen \"sparkling on the leaves.\" What is the effect of this expression?",
+  "correct": "It helps the reader picture the salt shining in sunlight",
+  "replace": [
+   {
+    "old": "It warns readers that the leaves are dangerous",
+    "new": "It warns readers that the leaves are dangerous to touch"
+   }
+  ]
+ },
+ {
+  "stem": "Which different ending would best fit the message of the story?",
+  "correct": "Grandfather asks Reem to teach him her winning move.",
+  "replace": [
+   {
+    "old": "Grandfather hides the chessboard in anger.",
+    "new": "Grandfather hides the chessboard in anger at her."
+   },
+   {
+    "old": "Reem decides never to play chess again.",
+    "new": "Reem decides never to play chess again at home."
+   }
+  ]
+ },
+ {
+  "stem": "Which of the following events could really happen?",
+  "correct": "A fennec fox finds a beetle by listening to sounds under the sand.",
+  "replace": [
+   {
+    "old": "A fox drinks a whole lake to cool its body down.",
+    "new": "A fox drinks a whole lake in one night to cool its body down."
+   },
+   {
+    "old": "A Rüppell's fox tells a scientist about the heat.",
+    "new": "A Rüppell's fox tells a scientist about the heat in the desert."
+   },
+   {
+    "old": "A fennec fox flies above the dunes using its ears.",
+    "new": "A fennec fox flies above the dunes using its big, thin ears."
+   }
+  ]
+ },
+ {
+  "stem": "What was the result of Faisal telling the truth?",
+  "correct": "The teacher thanked him and accepted the work later.",
+  "replace": [
+   {
+    "old": "Omar was punished instead of him.",
+    "new": "Omar was punished instead of him by the teacher in the class."
+   }
+  ]
+ },
+ {
+  "stem": "In your opinion, which information in the passage is the LEAST clear or complete?",
+  "correct": "what the 2023 astronauts did on the space station",
+  "replace": [
+   {
+    "old": "the date the shuttle was launched",
+    "new": "the date the shuttle was launched into space and landed"
+   },
+   {
+    "old": "how long the 1985 mission lasted",
+    "new": "how long the 1985 mission lasted in days and hours"
+   },
+   {
+    "old": "where Discovery was launched from",
+    "new": "where Discovery was launched from on that day"
+   }
+  ]
+ },
+ {
+  "stem": "In your opinion, which information in the passage is the LEAST clear or complete?",
+  "correct": "how soot and gum were actually turned into ink",
+  "replace": [
+   {
+    "old": "which city Ibn Muqla worked in",
+    "new": "which city Ibn Muqla worked in as a young man and as a minister"
+   },
+   {
+    "old": "why an angled nib was useful",
+    "new": "why an angled nib was useful for writing the letters well"
+   }
+  ]
+ },
+ {
+  "stem": "Which detail does the story leave LEAST clear?",
+  "correct": "Why Lina was afraid of the water to begin with",
+  "replace": [
+   {
+    "old": "Who Lina's swimming coach was",
+    "new": "Who Lina's swimming coach was at the pool that summer"
+   }
+  ]
+ },
+ {
+  "stem": "Which opinion does the writer seem to support?",
+  "correct": "Clean energy projects can benefit people and nature.",
+  "replace": [
+   {
+    "old": "Saudi Arabia should stop building new cities.",
+    "new": "Saudi Arabia should stop building any new cities."
+   },
+   {
+    "old": "Solar energy can never work in deserts.",
+    "new": "Solar energy can never work in desert lands at all."
+   },
+   {
+    "old": "Oil is the cleanest source of energy we have.",
+    "new": "Oil is the cleanest source of energy that we have."
+   }
+  ]
+ },
+ {
+  "stem": "Which opinion is BEST supported by the passage?",
+  "correct": "The Arabian's endurance comes from its long desert history.",
+  "replace": [
+   {
+    "old": "Arabians are the fastest horses in short races.",
+    "new": "Arabians are the fastest horses in all short races."
+   },
+   {
+    "old": "Endurance riding is far too dangerous for horses.",
+    "new": "Endurance riding is far too dangerous for most horses."
+   },
+   {
+    "old": "Modern horses are less useful than desert horses.",
+    "new": "Modern horses are less useful than the old desert horses."
+   }
+  ]
+ },
+ {
+  "stem": "The writer says that \"slowly the irritation becomes a gem.\" What idea does this phrase express?",
+  "correct": "Something annoying can turn into something valuable.",
+  "replace": [
+   {
+    "old": "Oysters enjoy making pearls for the divers.",
+    "new": "Oysters enjoy making pearls for the divers to find."
+   },
+   {
+    "old": "Gems are formed in only a short time.",
+    "new": "Gems are formed in only a short time under the ground."
+   },
+   {
+    "old": "Pearls are a kind of illness in oysters.",
+    "new": "Pearls are a kind of illness that oysters get."
+   }
+  ]
+ },
+ {
+  "stem": "Which is the BEST alternative title for the passage?",
+  "correct": "A Bridge in the Sky: Bird Migration over Arabia",
+  "replace": [
+   {
+    "old": "How Eagles Hunt in the Desert at Night",
+    "new": "How Eagles Hunt in the Desert at Night and Day"
+   },
+   {
+    "old": "The Busy Fishing Ports of the Red Sea",
+    "new": "The Busy Fishing Ports of the Red Sea Coast"
+   },
+   {
+    "old": "Building New Cities in Saudi Arabia",
+    "new": "Building New Cities in Saudi Arabia Each Year"
+   }
+  ]
+ },
+ {
+  "stem": "Which of the following events could really happen?",
+  "correct": "A teacher studies how sound travels and builds a device.",
+  "replace": [
+   {
+    "old": "A man shouts loudly enough to be heard overseas.",
+    "new": "A man shouts loudly enough to be heard overseas by sailors."
+   },
+   {
+    "old": "A telephone in 1876 works with no wire or power.",
+    "new": "A telephone in 1876 works with no wire or power at all."
+   },
+   {
+    "old": "An operator hears a message before it is sent.",
+    "new": "An operator hears a message before it is sent by anyone."
+   }
+  ]
+ },
+ {
+  "stem": "In your opinion, which information in the passage is the LEAST clear or complete?",
+  "correct": "how studying the foxes may help us understand a hotter planet",
+  "replace": [
+   {
+    "old": "how long the fennec fox's ears can grow",
+    "new": "how long the fennec fox's ears can grow in a few years and why"
+   },
+   {
+    "old": "what kinds of food desert foxes eat",
+    "new": "what kinds of food desert foxes eat in the hot summer months"
+   },
+   {
+    "old": "where Rüppell's fox lives",
+    "new": "where Rüppell's fox lives in Africa and in Asia, and how many there are"
+   }
+  ]
+ },
+ {
+  "stem": "Which is the BEST alternative title for the passage?",
+  "correct": "Watching the Weather from Space",
+  "replace": [
+   {
+    "old": "The History of Riyadh",
+    "new": "The History of Riyadh in Time"
+   }
+  ]
+ },
+ {
+  "stem": "What was Prince Sultan's job as a payload specialist?",
+  "correct": "He was responsible for particular scientific tasks.",
+  "replace": [
+   {
+    "old": "He designed the space shuttle Discovery.",
+    "new": "He designed the space shuttle Discovery for NASA."
+   },
+   {
+    "old": "He trained the other six astronauts.",
+    "new": "He trained the other six astronauts on Earth."
+   }
+  ]
+ },
+ {
+  "stem": "Which sentence uses the word \"practical\" correctly?",
+  "correct": "The practical example helped us solve a real problem.",
+  "replace": [
+   {
+    "old": "She practical every morning before school.",
+    "new": "She practical every morning before school started."
+   },
+   {
+    "old": "The practical flew over the mountains.",
+    "new": "The practical flew over the mountains in the west."
+   },
+   {
+    "old": "We practical our lessons in the library.",
+    "new": "We practical our lessons in the library after lunch."
+   }
+  ]
+ },
+ {
+  "stem": "Why did the family sit in the car during the storm?",
+  "correct": "To shelter from the stinging sand.",
+  "replace": [
+   {
+    "old": "To drive back home to Riyadh.",
+    "new": "To drive back home to Riyadh before dark."
+   },
+   {
+    "old": "To sleep after a long day.",
+    "new": "To sleep for a while after a long day."
+   },
+   {
+    "old": "To watch the sunset together.",
+    "new": "To watch the sunset together in the quiet."
+   }
+  ]
+ },
+ {
+  "stem": "The writer says the idea 'may sound futuristic.' What does this phrase suggest?",
+  "correct": "The machine seems like something from the future",
+  "replace": [
+   {
+    "old": "The machine is very old and out of date",
+    "new": "The machine is very old and out of date now"
+   },
+   {
+    "old": "The machine is too noisy to use at home",
+    "new": "The machine is too noisy to use at home at night"
+   },
+   {
+    "old": "The machine is impossible to understand",
+    "new": "The machine is impossible to understand or use"
+   }
+  ]
+ },
+ {
+  "stem": "In your opinion, which information in the passage is the LEAST clear or complete?",
+  "correct": "how plants and animals reach a brand-new island",
+  "replace": [
+   {
+    "old": "what magma is made of and how it forms",
+    "new": "what magma is made of and how it forms deep down"
+   },
+   {
+    "old": "where the island of Surtsey is located",
+    "new": "where the island of Surtsey is located on the map"
+   },
+   {
+    "old": "in which year Surtsey first appeared",
+    "new": "in which year Surtsey first appeared above the sea"
+   }
+  ]
+ },
+ {
+  "stem": "Which information in the passage is the LEAST complete?",
+  "correct": "how long the pupa stays inside the chrysalis",
+  "replace": [
+   {
+    "old": "how a caterpillar grows larger",
+    "new": "how a caterpillar grows larger in the leaves each day"
+   },
+   {
+    "old": "what adult butterflies drink",
+    "new": "what adult butterflies drink from the flowers and the pools"
+   },
+   {
+    "old": "where eggs are usually laid",
+    "new": "where the eggs are usually laid, such as on a leaf or stem"
+   }
+  ]
+ },
+ {
+  "stem": "Which sentence uses the word 'valuable' correctly?",
+  "correct": "The old map is valuable because it shows forgotten trade routes.",
+  "replace": [
+   {
+    "old": "He valuable across the desert for many years.",
+    "new": "He valuable across the desert for many years on a camel."
+   },
+   {
+    "old": "The sultan valuabled him as a judge in Delhi.",
+    "new": "The sultan valuabled him as a judge in Delhi, in the north."
+   },
+   {
+    "old": "Valuable is the city where the traveller was born.",
+    "new": "Valuable is the city where the traveller was born long ago."
+   }
+  ]
+ },
+ {
+  "stem": "Which information in the passage is the LEAST complete?",
+  "correct": "How many new seedlings have survived so far",
+  "replace": [
+   {
+    "old": "The local name of the grey mangrove",
+    "new": "The local name of the grey mangrove tree in the area"
+   },
+   {
+    "old": "Which animals shelter among the roots",
+    "new": "Which animals shelter among the roots of the trees"
+   },
+   {
+    "old": "How the leaves get rid of extra salt",
+    "new": "How the leaves get rid of extra salt in the sun"
+   }
+  ]
+ },
+ {
+  "stem": "Which sentence is a command?",
+  "correct": "Check the satellite images before you travel.",
+  "replace": [
+   {
+    "old": "Satellites orbit high above the Earth.",
+    "new": "Satellites orbit high above the Earth every day."
+   },
+   {
+    "old": "What a powerful storm that was!",
+    "new": "What a powerful storm that was last night, it was huge!"
+   },
+   {
+    "old": "Can a satellite see through clouds?",
+    "new": "Can a satellite see through clouds, in the dark?"
+   }
+  ]
+ },
+ {
+  "stem": "According to the passage, what happens right AFTER warm, moist air rises and cools?",
+  "correct": "Water vapour condenses into tiny droplets.",
+  "replace": [
+   {
+    "old": "Rain soaks into the soil.",
+    "new": "Rain soaks into the soil, and then plants grow."
+   },
+   {
+    "old": "The sun warms the ocean surface.",
+    "new": "The sun warms the ocean surface and the air above it."
+   },
+   {
+    "old": "Streams carry water back to the sea.",
+    "new": "Streams carry water back to the sea, and then it rains."
+   }
+  ]
+ },
+ {
+  "stem": "Why does magma rise toward the surface?",
+  "correct": "It is lighter than the solid rock around it.",
+  "replace": [
+   {
+    "old": "Seawater pulls it upward from above.",
+    "new": "Seawater pulls it upward from above, into the hole."
+   },
+   {
+    "old": "It is colder than the rock around it.",
+    "new": "It is colder than the rock around it, so it floats."
+   },
+   {
+    "old": "New islands press down on it.",
+    "new": "New islands press down on it from above, so it moves."
+   }
+  ]
+ },
+ {
+  "stem": "The writer calls Ibn Sina \"an extraordinary student.\" What does the writer want to emphasize?",
+  "correct": "His unusual talent at a young age",
+  "replace": [
+   {
+    "old": "His poor marks at school",
+    "new": "His poor marks at school and in his class"
+   },
+   {
+    "old": "His love of long journeys",
+    "new": "His love of long journeys on a camel"
+   },
+   {
+    "old": "His dislike of medicine",
+    "new": "His dislike of medicine and its lessons"
+   }
+  ]
+ },
+ {
+  "stem": "What type of text is this?",
+  "correct": "A story told mostly through dialogue",
+  "replace": [
+   {
+    "old": "An encyclopedia article",
+    "new": "An encyclopedia article about a country"
+   },
+   {
+    "old": "A poem about mountains",
+    "new": "A poem about mountains and valleys"
+   },
+   {
+    "old": "A letter to a museum",
+    "new": "A letter to a museum or a library"
+   }
+  ]
+ },
+ {
+  "stem": "Which information in the passage is LEAST complete?",
+  "correct": "How doctors use the medical models they print",
+  "replace": [
+   {
+    "old": "What a slicer program does to a model",
+    "new": "What a slicer program does to a model in a printer"
+   },
+   {
+    "old": "What the filament in most printers is",
+    "new": "What the filament in most printers is made of at home"
+   },
+   {
+    "old": "How hot the printer's nozzle becomes",
+    "new": "How hot the printer's nozzle becomes when it works"
+   }
+  ]
+ },
+ {
+  "stem": "Why did Lama want to make a plan this year?",
+  "correct": "They overspent last year by shopping at the last minute.",
+  "replace": [
+   {
+    "old": "Grandmother asked them to write a list of gifts.",
+    "new": "Grandmother asked them to write a list of gifts for the family."
+   },
+   {
+    "old": "Huda had lost all of her pocket money.",
+    "new": "Huda had lost all of her pocket money on the way to the mall."
+   },
+   {
+    "old": "The shops would be closed before Eid.",
+    "new": "The shops would be closed before Eid, so they had no time to buy."
+   }
+  ]
+ },
+ {
+  "stem": "Which of these events could REALLY happen?",
+  "correct": "A nervous student grows calmer after slow breaths.",
+  "replace": [
+   {
+    "old": "The microphone recites the verses for Reem.",
+    "new": "The microphone recites the verses for Reem on the stage."
+   },
+   {
+    "old": "The applause lifts Reem into the air.",
+    "new": "The applause lifts Reem into the air above the crowd."
+   },
+   {
+    "old": "Reem's certificate changes into a trophy.",
+    "new": "Reem's certificate changes into a trophy in her hands."
+   }
+  ]
+ },
+ {
+  "stem": "Which of the following events could really have happened in the ninth century?",
+  "correct": "Students travelled far to learn from scholars in Fez.",
+  "replace": [
+   {
+    "old": "Fatima sent emails to invite new students.",
+    "new": "Fatima sent emails to invite new students from other lands."
+   },
+   {
+    "old": "Students flew to Fez by aeroplane.",
+    "new": "Students flew to Fez by aeroplane to visit the library."
+   },
+   {
+    "old": "The library printed thousands of books a day.",
+    "new": "The library printed thousands of books a day in the town."
+   }
+  ]
+ },
+ {
+  "stem": "Which is the BEST alternative title for the passage?",
+  "correct": "Rivers of Ice That Carve the Land",
+  "replace": [
+   {
+    "old": "Snowball Games in Winter",
+    "new": "Snowball Games in Winter Time"
+   },
+   {
+    "old": "Norway's Fishing Villages",
+    "new": "Norway's Fishing Villages by the Sea"
+   },
+   {
+    "old": "Why Rivers Flow to the Sea",
+    "new": "Why Rivers Flow Down to the Sea"
+   }
+  ]
+ },
+ {
+  "stem": "Which is the BEST alternative title for the passage?",
+  "correct": "Built for the Desert: How Camels Survive",
+  "replace": [
+   {
+    "old": "The History of Camel Races",
+    "new": "The History of Camel Races in Arabia"
+   },
+   {
+    "old": "Why Camels Are Afraid of Water",
+    "new": "Why Camels Are Afraid of Water and Rain"
+   },
+   {
+    "old": "A Journey to a Desert Well",
+    "new": "A Journey to a Desert Well by Night"
+   }
+  ]
+ },
+ {
+  "stem": "The writer says the girls \"glided through the water as easily as fish.\" What is the effect of this comparison?",
+  "correct": "It shows how smooth and skilled the swimmers looked.",
+  "replace": [
+   {
+    "old": "It shows that the pool was full of fish.",
+    "new": "It shows that the pool was full of fish and weeds."
+   },
+   {
+    "old": "It shows that the girls were afraid of water.",
+    "new": "It shows that the girls were afraid of the water."
+   },
+   {
+    "old": "It shows that the water was cold and dark.",
+    "new": "It shows that the water was cold and dark that day."
+   }
+  ]
+ },
+ {
+  "stem": "Which sentence uses the word \"restore\" correctly, with the meaning used in the passage?",
+  "correct": "Workers will restore the old fort so tourists can visit it.",
+  "replace": [
+   {
+    "old": "The restore was too heavy for the train to carry.",
+    "new": "The restore was too heavy for the train to carry up the hill."
+   },
+   {
+    "old": "She restore her bag on the train yesterday.",
+    "new": "She restore her bag on the train yesterday afternoon."
+   },
+   {
+    "old": "Restore quickly because the station is closing now.",
+    "new": "Restore quickly because the station is closing now, please."
+   }
+  ]
+ },
+ {
+  "stem": "Which feeling is MOST present in the story?",
+  "correct": "warm affection between a grandchild and a grandparent",
+  "replace": [
+   {
+    "old": "fear of storms and darkness",
+    "new": "fear of storms and darkness at night, and the unknown"
+   },
+   {
+    "old": "jealousy about an expensive gift",
+    "new": "jealousy about an expensive gift that a friend received"
+   },
+   {
+    "old": "anger at a broken machine",
+    "new": "anger at a broken machine that nobody in the house can fix"
+   }
+  ]
+ },
+ {
+  "stem": "Which is the best alternative title for the story?",
+  "correct": "From Doubted Newcomer to Team Hero",
+  "replace": [
+   {
+    "old": "The Captain's Broken Wrist",
+    "new": "The Captain's Broken Wrist and the Cup"
+   },
+   {
+    "old": "A Day at the Football Museum",
+    "new": "A Day at the Football Museum in Riyadh"
+   },
+   {
+    "old": "Coach Saleh Says Goodbye",
+    "new": "Coach Saleh Says a Sad Goodbye"
+   }
+  ]
+ },
+ {
+  "stem": "Which information in the passage is the LEAST clear or complete?",
+  "correct": "How a transformer actually changes the voltage",
+  "replace": [
+   {
+    "old": "Where the electricity's journey begins",
+    "new": "Where the electricity's journey begins and ends"
+   },
+   {
+    "old": "What the meter in a house measures",
+    "new": "What the meter in a house measures each month"
+   },
+   {
+    "old": "What carries the transmission lines",
+    "new": "What carries the transmission lines over the hills"
+   }
+  ]
+ },
+ {
+  "stem": "\"My first stitches wandered across the material like a confused ant.\" What is the effect of this simile?",
+  "correct": "It shows with humor how crooked the stitches were.",
+  "replace": [
+   {
+    "old": "It shows that ants damaged the dress.",
+    "new": "It shows that ants damaged the dress at the shop."
+   },
+   {
+    "old": "It shows that the stitches were very neat.",
+    "new": "It shows that the stitches were very neat and small."
+   },
+   {
+    "old": "It shows that the narrator feared insects.",
+    "new": "It shows that the narrator feared insects a lot."
+   }
+  ]
+ },
+ {
+  "stem": "Why did Ziyad design a watering timetable?",
+  "correct": "Some plants got too much water, others too little.",
+  "replace": [
+   {
+    "old": "Ms Noura gave it to him as a punishment.",
+    "new": "Ms Noura gave it to him as a punishment for class."
+   },
+   {
+    "old": "The school kitchen needed more compost.",
+    "new": "The school kitchen needed more compost for the soup."
+   },
+   {
+    "old": "He wanted to sell water at the market.",
+    "new": "He wanted to sell water at the market on Friday."
+   }
+  ]
+ },
+ {
+  "stem": "Which information is the LEAST clear in the passage?",
+  "correct": "How the argument between Bell and Gray was settled",
+  "replace": [
+   {
+    "old": "What materials Bell experimented with",
+    "new": "What materials Bell experimented with in his lab"
+   },
+   {
+    "old": "Who helped Bell with his experiments",
+    "new": "Who helped Bell with his experiments in Boston"
+   },
+   {
+    "old": "When Bell received his patent",
+    "new": "When Bell received his patent for the telephone in 1876"
+   }
+  ]
+ },
+ {
+  "stem": "Why must the solar panels at NEOM be cleaned regularly?",
+  "correct": "Dust and sand reduce the electricity they make.",
+  "replace": [
+   {
+    "old": "Seawater makes the panels rust quickly.",
+    "new": "Seawater makes the panels rust quickly in the heat."
+   },
+   {
+    "old": "The robots need practice at cleaning.",
+    "new": "The robots need practice at cleaning every day."
+   },
+   {
+    "old": "Clean panels make much less noise.",
+    "new": "Clean panels make much less noise in the desert."
+   }
+  ]
+ },
+ {
+  "stem": "Which information in the passage is the LEAST complete?",
+  "correct": "How groundwater later returns to the cycle",
+  "replace": [
+   {
+    "old": "What powers the water cycle",
+    "new": "What powers the water cycle each and every day"
+   },
+   {
+    "old": "What the word evaporation means",
+    "new": "What the word evaporation means in the passage"
+   },
+   {
+    "old": "Which forms precipitation can take",
+    "new": "Which forms precipitation can take, such as rain"
+   }
+  ]
+ },
+ {
+  "stem": "How did the narrator's feelings at the start differ from his feelings by midmorning?",
+  "correct": "Confident at first but ready to quit later",
+  "replace": [
+   {
+    "old": "Scared at first but bored later on",
+    "new": "Scared at first but bored later on in the day"
+   },
+   {
+    "old": "Tired at first but rested later on",
+    "new": "Tired at first but rested later on in the day"
+   },
+   {
+    "old": "Cold at first but angry later on",
+    "new": "Cold at first but angry later on in the day"
+   }
+  ]
+ },
+ {
+  "stem": "What type of text is this passage?",
+  "correct": "a story told mostly through dialogue",
+  "replace": [
+   {
+    "old": "a rhyming poem",
+    "new": "a rhyming poem about a boy"
+   },
+   {
+    "old": "a science report with charts",
+    "new": "a science report with charts and tables"
+   },
+   {
+    "old": "a letter to a friend",
+    "new": "a letter to a friend in another city"
+   }
+  ]
+ },
+ {
+  "stem": "Who tells the family that local farmers depend on the mountain mist?",
+  "correct": "the elderly café owner",
+  "replace": [
+   {
+    "old": "Lina's father",
+    "new": "Lina's father, a farmer"
+   },
+   {
+    "old": "Ziyad",
+    "new": "Ziyad, the older cousin"
+   },
+   {
+    "old": "Lina's mother",
+    "new": "Lina's mother, a teacher"
+   }
+  ]
+ },
+ {
+  "stem": "According to the passage, what happens to satellite data AFTER it is collected?",
+  "correct": "It is sent to computers that model the atmosphere.",
+  "replace": [
+   {
+    "old": "It is printed in newspapers straight away.",
+    "new": "It is printed in newspapers straight away each day."
+   },
+   {
+    "old": "It is stored on weather balloons and ships.",
+    "new": "It is stored on weather balloons and on ships."
+   },
+   {
+    "old": "It is checked by hand at ground stations.",
+    "new": "It is checked by hand at the ground stations."
+   }
+  ]
+ },
+ {
+  "stem": "Which information is the LEAST clear in the story?",
+  "correct": "Whether the dolphin was hurt before it stranded",
+  "replace": [
+   {
+    "old": "Where the story takes place",
+    "new": "Where the story takes place on the shore of the sea"
+   },
+   {
+    "old": "How Omar kept the dolphin wet",
+    "new": "How Omar kept the dolphin wet in the hot sun"
+   },
+   {
+    "old": "Who called the coastguard",
+    "new": "Who called the coastguard to the beach that day"
+   }
+  ]
+ },
+ {
+  "stem": "Why do bleached corals turn white?",
+  "correct": "Their white skeletons show through after the algae leave.",
+  "replace": [
+   {
+    "old": "Fish eat the colored parts of the coral.",
+    "new": "Fish eat the colored parts of the coral each day and night."
+   },
+   {
+    "old": "The cold water freezes on their surface.",
+    "new": "The cold water freezes on their surface in the winter."
+   }
+  ]
+ },
+ {
+  "stem": "Which opinion is best supported by the passage?",
+  "correct": "Better wing designs help both airlines and the planet.",
+  "replace": [
+   {
+    "old": "Modern airplanes no longer need any engines.",
+    "new": "Modern airplanes no longer need any engines to fly."
+   },
+   {
+    "old": "Wind tunnels are more important than pilots.",
+    "new": "Wind tunnels are more important than pilots are."
+   },
+   {
+    "old": "Flaps should stay open for the whole flight.",
+    "new": "Flaps should stay open for the whole of the flight."
+   }
+  ]
+ },
+ {
+  "stem": "The writer says a moving glacier \"acts like a gigantic piece of sandpaper.\" What does this comparison help readers understand?",
+  "correct": "The glacier scrapes and smooths the rock beneath it.",
+  "replace": [
+   {
+    "old": "The glacier is made of sand and paper.",
+    "new": "The glacier is made of sand and paper in layers."
+   },
+   {
+    "old": "The glacier moves very quickly across land.",
+    "new": "The glacier moves very quickly across the land."
+   },
+   {
+    "old": "The glacier is soft and easy to break.",
+    "new": "The glacier is soft and easy to break with a hand."
+   }
+  ]
+ },
+ {
+  "stem": "Which information in the passage is the LEAST complete?",
+  "correct": "Which diseases spread and how serious they were",
+  "replace": [
+   {
+    "old": "Which goods camels carried westward",
+    "new": "Which goods camels carried westward from the coast"
+   },
+   {
+    "old": "Which cities grew rich from trade",
+    "new": "Which cities grew rich from trade in the desert"
+   },
+   {
+    "old": "What Arabian merchants traded",
+    "new": "What Arabian merchants traded in the markets of Asia"
+   }
+  ]
+ },
+ {
+  "stem": "'Nothing replaces the feeling of a freshly cut qalam moving across paper.' What does this sentence show?",
+  "correct": "Artists feel a special connection to the traditional pen.",
+  "replace": [
+   {
+    "old": "Digital tablets are not allowed in calligraphy.",
+    "new": "Digital tablets are not allowed in calligraphy classes."
+   },
+   {
+    "old": "The qalam is much cheaper than other pens.",
+    "new": "The qalam is much cheaper than other kinds of pens."
+   },
+   {
+    "old": "Fresh reeds are easier to find than tablets.",
+    "new": "Fresh reeds are easier to find than tablets or screens."
+   }
+  ]
+ },
+ {
+  "stem": "'He expected to return within a year or two. Instead, he travelled for almost thirty years.' What is the effect of this contrast?",
+  "correct": "It stresses how surprisingly long his journey became.",
+  "replace": [
+   {
+    "old": "It shows that he disliked travelling.",
+    "new": "It shows that he disliked travelling from the start."
+   },
+   {
+    "old": "It explains why he became a judge.",
+    "new": "It explains why he became a judge in India."
+   },
+   {
+    "old": "It suggests that he got lost on his way home.",
+    "new": "It suggests that he got lost on his way back home."
+   }
+  ]
+ },
+ {
+  "stem": "Which information in the passage is the LEAST clear or complete?",
+  "correct": "What counts as a \"safe rate\" for a horse's heartbeat",
+  "replace": [
+   {
+    "old": "Where the Arabian horse breed first developed",
+    "new": "Where the Arabian horse breed first developed long ago"
+   },
+   {
+    "old": "Who examines the horses at the checkpoints",
+    "new": "Who examines the horses at the checkpoints in the race"
+   },
+   {
+    "old": "How far horse and rider may travel in one day",
+    "new": "How far horse and rider may travel in one day or night"
+   }
+  ]
+ },
+ {
+  "stem": "Which information in the passage is the LEAST clear or complete?",
+  "correct": "How the Curies discovered polonium and radium",
+  "replace": [
+   {
+    "old": "Why polonium was given its name",
+    "new": "Why polonium was given its name by the Curies"
+   },
+   {
+    "old": "In which city Marie Curie was born",
+    "new": "In which city Marie Curie was born as a child"
+   },
+   {
+    "old": "When she won her second Nobel Prize",
+    "new": "When she won her second Nobel Prize in science"
+   }
+  ]
+ },
+ {
+  "stem": "Why did Mr. Khalid ask the twins to stay after the lesson?",
+  "correct": "He saw that the vote was dividing the class.",
+  "replace": [
+   {
+    "old": "They had arrived late to his lesson.",
+    "new": "They had arrived late to his lesson that morning."
+   },
+   {
+    "old": "He wanted them to cancel the trip.",
+    "new": "He wanted them to cancel the trip to the camp."
+   },
+   {
+    "old": "He preferred the museum to the camp.",
+    "new": "He preferred the museum to the camp for the trip."
+   }
+  ]
+ },
+ {
+  "stem": "Which value does the story most strongly encourage?",
+  "correct": "careful planning so that we can share with others",
+  "replace": [
+   {
+    "old": "buying the most expensive gifts possible",
+    "new": "buying the most expensive gifts possible each year"
+   },
+   {
+    "old": "keeping all our money for ourselves",
+    "new": "keeping all our money for ourselves and no one else"
+   },
+   {
+    "old": "waiting until the last minute to shop",
+    "new": "waiting until the last minute to shop for a gift"
+   }
+  ]
+ },
+ {
+  "stem": "How was the 2023 mission different from the 1985 mission?",
+  "correct": "It travelled to the International Space Station.",
+  "replace": [
+   {
+    "old": "It was the first Arab journey into space.",
+    "new": "It was the first Arab journey into space for the nation."
+   },
+   {
+    "old": "It launched aboard the shuttle Discovery.",
+    "new": "It launched aboard the shuttle Discovery from Florida."
+   },
+   {
+    "old": "It carried only one Saudi astronaut.",
+    "new": "It carried only one Saudi astronaut into orbit."
+   }
+  ]
+ },
+ {
+  "stem": "Which sentence is a command?",
+  "correct": "Look at the globe and find the equator.",
+  "replace": [
+   {
+    "old": "Earth's axis is tilted.",
+    "new": "Earth's axis is tilted by a few degrees."
+   },
+   {
+    "old": "Why is January cold in Riyadh?",
+    "new": "Why is January so cold in Riyadh?"
+   },
+   {
+    "old": "What a hot afternoon it is!",
+    "new": "What a hot afternoon it is today!"
+   }
+  ]
+ },
+ {
+  "stem": "Which sentence is a COMMAND?",
+  "correct": "Try to fill half your plate with vegetables and fruit.",
+  "replace": [
+   {
+    "old": "Hamad nodded thoughtfully.",
+    "new": "Hamad nodded thoughtfully and began to eat his lunch."
+   },
+   {
+    "old": "These foods release their energy slowly.",
+    "new": "These foods release their energy slowly during the day."
+   },
+   {
+    "old": "Could you describe what you eat for breakfast?",
+    "new": "Could you describe what you eat for breakfast each day?"
+   }
+  ]
+ },
+ {
+  "stem": "Which opinion is best supported by the passage?",
+  "correct": "Prince Sultan's flight was a proud moment for Arabs.",
+  "replace": [
+   {
+    "old": "The 1985 mission was too short to be useful.",
+    "new": "The 1985 mission was too short to be useful to anyone."
+   },
+   {
+    "old": "Space travel does not interest young Saudis.",
+    "new": "Space travel does not interest young Saudis very much."
+   },
+   {
+    "old": "Payload specialists matter more than pilots.",
+    "new": "Payload specialists matter more than pilots do on a mission."
+   }
+  ]
+ },
+ {
+  "stem": "What was one effect of translating his book on numerals into Latin?",
+  "correct": "Hindu-Arabic numerals spread across Europe.",
+  "replace": [
+   {
+    "old": "Roman numerals became more popular.",
+    "new": "Roman numerals became more popular in Europe at once."
+   },
+   {
+    "old": "The House of Wisdom was closed.",
+    "new": "The House of Wisdom was closed by the caliph soon after."
+   },
+   {
+    "old": "Baghdad stopped teaching mathematics.",
+    "new": "Baghdad stopped teaching mathematics in its schools."
+   }
+  ]
+ },
+ {
+  "stem": "Which title would BEST fit this passage?",
+  "correct": "A Cup of History: Coffee in Arabia",
+  "replace": [
+   {
+    "old": "How to Grow Tea in the Desert",
+    "new": "How to Grow Tea in the Desert Sand"
+   },
+   {
+    "old": "The Ships of the Red Sea",
+    "new": "The Ships of the Red Sea and Gulf"
+   },
+   {
+    "old": "Famous Poets of Istanbul",
+    "new": "Famous Poets of Istanbul and Cairo"
+   }
+  ]
+ },
+ {
+  "stem": "The writer says the desert is 'far from empty.' What does this phrase suggest?",
+  "correct": "It holds more life and riches than its name suggests.",
+  "replace": [
+   {
+    "old": "It is very far away from every city.",
+    "new": "It is very far away from every city and town in the land."
+   },
+   {
+    "old": "Nobody has ever travelled into it.",
+    "new": "Nobody has ever travelled into it, and no one knows what is there."
+   },
+   {
+    "old": "It is becoming emptier every year.",
+    "new": "It is becoming emptier every year, as the sand grows."
+   }
+  ]
+ },
+ {
+  "stem": "Which sentence is a command?",
+  "correct": "Please inspect every bus before the new term.",
+  "replace": [
+   {
+    "old": "Is the bus safe for young students?",
+    "new": "Is the bus safe for young students to ride?"
+   },
+   {
+    "old": "The bus is often far too crowded.",
+    "new": "The bus is often far too crowded in the morning."
+   },
+   {
+    "old": "How dangerous that highway is!",
+    "new": "How dangerous that highway is for a bus!"
+   }
+  ]
+ },
+ {
+  "stem": "Which is the BEST solution the passage suggests for a drawer full of old phones?",
+  "correct": "Take them to a shop that accepts old devices.",
+  "replace": [
+   {
+    "old": "Bury them deep in the garden.",
+    "new": "Bury them deep in the garden under the soil."
+   },
+   {
+    "old": "Put them in the household bin.",
+    "new": "Put them in the household bin with the rubbish."
+   },
+   {
+    "old": "Break them open to remove the gold.",
+    "new": "Break them open to remove the gold inside them."
+   }
+  ]
+ },
+ {
+  "stem": "Which of these sentences is a COMMAND?",
+  "correct": "Carry a reusable bottle to school.",
+  "replace": [
+   {
+    "old": "Sea turtles eat jellyfish.",
+    "new": "Sea turtles eat jellyfish and small fish."
+   },
+   {
+    "old": "Do microplastics harm people?",
+    "new": "Do microplastics harm people in the sea?"
+   },
+   {
+    "old": "What a beautiful coral reef!",
+    "new": "What a beautiful coral reef it is!"
+   }
+  ]
+ },
+ {
+  "stem": "In your opinion, which information in the passage is the LEAST clear or complete?",
+  "correct": "how many jobs the project will create for young Saudis",
+  "replace": [
+   {
+    "old": "why the region is suitable for solar energy",
+    "new": "why the region is suitable for solar energy and wind power"
+   },
+   {
+    "old": "what happens when electricity splits water",
+    "new": "what happens when electricity splits water into gases"
+   },
+   {
+    "old": "why the panels need to be cleaned",
+    "new": "why the panels need to be cleaned by robots every week"
+   }
+  ]
+ },
+ {
+  "stem": "Which opinion is BEST supported by the passage?",
+  "correct": "Protected reserves are vital for the wolf's survival",
+  "replace": [
+   {
+    "old": "Wolves are a danger that should be removed",
+    "new": "Wolves are a danger that should be removed from the land"
+   },
+   {
+    "old": "More roads will help wolves find more food",
+    "new": "More roads will help wolves find more food in the desert"
+   },
+   {
+    "old": "The wolf will surely vanish within ten years",
+    "new": "The wolf will surely vanish within ten years from the land"
+   }
+  ]
+ },
+ {
+  "stem": "Which opinion is BEST supported by the passage?",
+  "correct": "We should not waste electricity, since much equipment is needed to deliver it.",
+  "replace": [
+   {
+    "old": "Electricity is free because it travels to our homes on its own.",
+    "new": "Electricity is free because it travels to our homes on its own, along the wires."
+   },
+   {
+    "old": "Power stations should be built inside every house to save time.",
+    "new": "Power stations should be built inside every house to save time, so wires are not needed."
+   },
+   {
+    "old": "Transmission lines are not needed because homes produce power.",
+    "new": "Transmission lines are not needed because homes produce power by themselves at night."
+   }
+  ]
+ },
+ {
+  "stem": "Which information in the passage is the LEAST clear?",
+  "correct": "Who attacked the railway during the war and why",
+  "replace": [
+   {
+    "old": "When the railway construction began",
+    "new": "When the railway construction began in the desert"
+   },
+   {
+    "old": "How long the railway line was",
+    "new": "How long the railway line was from end to end"
+   },
+   {
+    "old": "Where the restored museum station is",
+    "new": "Where the restored museum station is today"
+   }
+  ]
+ },
+ {
+  "stem": "What do Fatima and her sister Maryam have in common?",
+  "correct": "Both used their inheritance to found mosques.",
+  "replace": [
+   {
+    "old": "Both were born in the city of Fez.",
+    "new": "Both were born in the city of Fez in the same year."
+   },
+   {
+    "old": "Both taught astronomy at Al-Qarawiyyin.",
+    "new": "Both taught astronomy at Al-Qarawiyyin to students."
+   },
+   {
+    "old": "Both spent their money on comfort.",
+    "new": "Both spent their money on comfort and luxury."
+   }
+  ]
+ },
+ {
+  "stem": "Which sentence uses the word 'adapt' correctly?",
+  "correct": "Some plants adapt to dry weather by storing water in their leaves.",
+  "replace": [
+   {
+    "old": "The fox adapted its ears at the market yesterday.",
+    "new": "The fox adapted its ears at the market yesterday morning, near the shop."
+   },
+   {
+    "old": "She adapt the sand very loudly every morning.",
+    "new": "She adapt the sand very loudly every morning before she goes out to play."
+   },
+   {
+    "old": "We adapt the door so the cat could not come home.",
+    "new": "We adapt the door so the cat could not come home, and it was cold outside."
+   }
+  ]
+ },
+ {
+  "stem": "In your opinion, which information in the story is the LEAST clear or complete?",
+  "correct": "how Omar reacted when Faisal told the truth",
+  "replace": [
+   {
+    "old": "which subject the homework was for",
+    "new": "which subject the homework was for on that day"
+   },
+   {
+    "old": "what Faisal wrote on his checklist",
+    "new": "what Faisal wrote on his checklist before school"
+   },
+   {
+    "old": "what the teacher said to Faisal",
+    "new": "what the teacher said to Faisal at the start"
+   }
+  ]
+ },
+ {
+  "stem": "How are Lama and Huda different at the start of the story?",
+  "correct": "Lama thinks about cost; Huda thinks about pleasing people.",
+  "replace": [
+   {
+    "old": "Lama wants to spend much more money than Huda.",
+    "new": "Lama wants to spend much more money than Huda does."
+   },
+   {
+    "old": "Huda wants to buy sweets; Lama wants to skip Eid.",
+    "new": "Huda wants to buy sweets, while Lama wants to skip Eid."
+   },
+   {
+    "old": "Lama loves gardening; Huda prefers painting.",
+    "new": "Lama loves gardening, while Huda prefers painting at home."
+   }
+  ]
+ },
+ {
+  "stem": "Which is the BEST alternative title for the passage?",
+  "correct": "Tracks Across the Desert: The Hejaz Railway",
+  "replace": [
+   {
+    "old": "The Camels of the Syrian Desert",
+    "new": "The Camels of the Syrian Desert and Their Riders"
+   },
+   {
+    "old": "Building a Modern Airport in Medina",
+    "new": "Building a Modern Airport in Medina Today"
+   },
+   {
+    "old": "Why Trains Need Water",
+    "new": "Why Trains Need Water to Run on Tracks"
+   }
+  ]
+ },
+ {
+  "stem": "Which information is the LEAST clear in the passage?",
+  "correct": "How the Greek text helped Champollion read the signs",
+  "replace": [
+   {
+    "old": "When the Rosetta Stone was discovered",
+    "new": "When the Rosetta Stone was discovered by French soldiers"
+   },
+   {
+    "old": "What material papyrus was made from",
+    "new": "What material papyrus was made from in ancient times"
+   },
+   {
+    "old": "Who could read and write in ancient Egypt",
+    "new": "Who could read and write in ancient Egypt in those days"
+   }
+  ]
+ },
+ {
+  "stem": "Which event in the passage could really happen, not only in the imagination?",
+  "correct": "Fishermen tie their boats to iron rings before a storm.",
+  "replace": [
+   {
+    "old": "The storm shouts and weeps like a person.",
+    "new": "The storm shouts and weeps like a person at night."
+   },
+   {
+    "old": "The sea forgets what it did the night before.",
+    "new": "The sea forgets what it did the night before it came."
+   },
+   {
+    "old": "The wind plays a game with the ropes.",
+    "new": "The wind plays a game with the ropes all day long."
+   }
+  ]
+ },
+ {
+  "stem": "Which of the following events could really happen on a Saudi date farm?",
+  "correct": "A farmer climbs a palm to place male flowers among female ones.",
+  "replace": [
+   {
+    "old": "A male palm tree grows a large harvest of dates.",
+    "new": "A male palm tree grows a large harvest of dates by itself."
+   },
+   {
+    "old": "A single bee carries enough pollen for a whole farm.",
+    "new": "A single bee carries enough pollen for a whole date farm."
+   },
+   {
+    "old": "Bees make dates instead of honey in their hives.",
+    "new": "Bees make dates instead of honey in their hives each year."
+   }
+  ]
+ },
+ {
+  "stem": "Which information in the passage is the LEAST complete?",
+  "correct": "How microplastics may affect human health",
+  "replace": [
+   {
+    "old": "What microplastics are",
+    "new": "What microplastics are made of and where"
+   },
+   {
+    "old": "How individuals can help",
+    "new": "How individuals can help beaches"
+   }
+  ]
+ },
+ {
+  "stem": "Which information in the story is the LEAST clear?",
+  "correct": "Whether Reem completed every practice step",
+  "replace": [
+   {
+    "old": "Who Reem recited for at home",
+    "new": "Who Reem recited for at home before the contest"
+   },
+   {
+    "old": "How many breaths Ms. Nouf advised",
+    "new": "How many breaths Ms. Nouf advised her to take slowly"
+   },
+   {
+    "old": "What place Reem received",
+    "new": "What place Reem received at the end of the contest"
+   }
+  ]
+ },
+ {
+  "stem": "'No amount of money is more valuable than the safety of a child.' Why does the writer include this sentence?",
+  "correct": "To persuade readers that safety matters more than cost",
+  "replace": [
+   {
+    "old": "To explain how much a new bus costs",
+    "new": "To explain how much a new bus costs the school each year"
+   },
+   {
+    "old": "To complain about the price of bus tickets",
+    "new": "To complain about the price of bus tickets for students"
+   },
+   {
+    "old": "To show that the school has a lot of money",
+    "new": "To show that the school has a lot of money to spend"
+   }
+  ]
+ },
+ {
+  "stem": "Who is the narrator of this story?",
+  "correct": "One of the children in the family",
+  "replace": [
+   {
+    "old": "Omar",
+    "new": "Omar, the eldest son in the family"
+   },
+   {
+    "old": "The father",
+    "new": "The father, who drives the car on the trip"
+   },
+   {
+    "old": "The mother",
+    "new": "The mother, who prepares the meals each day"
+   }
+  ]
+ },
+ {
+  "stem": "Which is the best alternative title for the passage?",
+  "correct": "Made for the Long Road: The Arabian Horse",
+  "replace": [
+   {
+    "old": "The Fastest Racehorses in the World",
+    "new": "The Fastest Racehorses in the World Today"
+   },
+   {
+    "old": "How to Become a Horse Veterinarian",
+    "new": "How to Become a Horse Veterinarian in Arabia"
+   },
+   {
+    "old": "Bedouin Tents and Desert Wells",
+    "new": "Bedouin Tents and Desert Wells in the Sand"
+   }
+  ]
+ },
+ {
+  "stem": "Which sentence uses the word \"doubtful\" correctly?",
+  "correct": "The sky was dark, so a picnic seemed doubtful.",
+  "replace": [
+   {
+    "old": "She doubtful the ball into the net.",
+    "new": "She doubtful the ball into the net at the game."
+   },
+   {
+    "old": "The doubtful scored three goals.",
+    "new": "The doubtful scored three goals in the last match."
+   },
+   {
+    "old": "He ran doubtful across the field.",
+    "new": "He ran doubtful across the field to the goal."
+   }
+  ]
+ },
+ {
+  "stem": "Which idea does the writer explain LAST?",
+  "correct": "Why sunsets are often red and orange",
+  "replace": [
+   {
+    "old": "What sunlight is made of",
+    "new": "What sunlight is made of and where it comes from"
+   },
+   {
+    "old": "Who explained the scattering",
+    "new": "Who explained the scattering of light in the air"
+   },
+   {
+    "old": "Why the sky is not violet",
+    "new": "Why the sky is not violet in the middle of the day"
+   }
+  ]
+ },
+ {
+  "stem": "Which information in the passage is the LEAST clear or complete?",
+  "correct": "How only three types of cone let us see colours like yellow",
+  "replace": [
+   {
+    "old": "Which scientist first split sunlight with a prism",
+    "new": "Which scientist first split sunlight with a prism in a room"
+   },
+   {
+    "old": "What kind of light rod cells help us see in",
+    "new": "What kind of light rod cells help us see in at night, in the dark"
+   }
+  ]
+ },
+ {
+  "stem": "What was the EFFECT of Reem's careful plan?",
+  "correct": "The car park was redesigned to save the tree.",
+  "replace": [
+   {
+    "old": "The tree was moved to another street.",
+    "new": "The tree was moved to another street by the city."
+   },
+   {
+    "old": "The birds left the neighbourhood.",
+    "new": "The birds left the neighbourhood for the winter."
+   },
+   {
+    "old": "Uncle Saad stopped drinking coffee.",
+    "new": "Uncle Saad stopped drinking coffee in the morning."
+   }
+  ]
+ },
+ {
+  "stem": "Which is the best alternative title for the story?",
+  "correct": "Planning Our Class Newspaper",
+  "replace": [
+   {
+    "old": "A Day in the Cafeteria",
+    "new": "A Day in the Cafeteria at School"
+   },
+   {
+    "old": "Lina's Camera Adventure",
+    "new": "Lina's Camera Adventure by the Sea"
+   },
+   {
+    "old": "The Winter Break Trip",
+    "new": "The Winter Break Trip to the Hills"
+   }
+  ]
+ },
+ {
+  "stem": "The storm \"seemed to be gradually swallowing the sky.\" What does this phrase suggest?",
+  "correct": "The storm was huge and covered more sky as it came.",
+  "replace": [
+   {
+    "old": "The storm was making loud eating noises.",
+    "new": "The storm was making loud eating noises in the sky."
+   },
+   {
+    "old": "The sky was turning clear and blue.",
+    "new": "The sky was turning clear and blue after the rain."
+   },
+   {
+    "old": "The storm was moving away from the camp.",
+    "new": "The storm was moving away from the camp very fast."
+   }
+  ]
+ },
+ {
+  "stem": "Why were new gates, bridges and buildings constructed in the recent expansion?",
+  "correct": "so crowds could enter and leave more safely",
+  "replace": [
+   {
+    "old": "to make room for new shops",
+    "new": "to make room for new shops and cafes"
+   },
+   {
+    "old": "to store water for the cooling plants",
+    "new": "to store water for the cooling plants in summer"
+   },
+   {
+    "old": "to replace the old marble floors",
+    "new": "to replace the old marble floors with new tiles"
+   }
+  ]
+ },
+ {
+  "stem": "The writer says \"the desert slowly covered parts of the line.\" What does this expression suggest?",
+  "correct": "The tracks were gradually buried and forgotten.",
+  "replace": [
+   {
+    "old": "The desert built a new railway line.",
+    "new": "The desert built a new railway line in the sand."
+   },
+   {
+    "old": "The trains drove more slowly in sand.",
+    "new": "The trains drove more slowly in sand than before."
+   },
+   {
+    "old": "Sandstorms happened only once a year.",
+    "new": "Sandstorms happened only once a year on the line."
+   }
+  ]
+ },
+ {
+  "stem": "Which information in the passage is the LEAST clear or complete?",
+  "correct": "What happened to the people of Hegra after the trade period",
+  "replace": [
+   {
+    "old": "What the caravans carried along the trade route",
+    "new": "What the caravans carried along the trade route to the north"
+   },
+   {
+    "old": "How the Nabataeans began carving each tomb",
+    "new": "How the Nabataeans began carving each tomb in the rocks"
+   },
+   {
+    "old": "When Mada'in Salih joined the UNESCO list",
+    "new": "When Mada'in Salih joined the UNESCO list of sites in the world"
+   }
+  ]
+ },
+ {
+  "stem": "Which information in the passage is the LEAST complete?",
+  "correct": "How much stronger magnitude 7 is than magnitude 5",
+  "replace": [
+   {
+    "old": "What an emergency kit should contain",
+    "new": "What an emergency kit should contain for a family"
+   },
+   {
+    "old": "What the point above the focus is called",
+    "new": "What the point above the focus is called on the map"
+   },
+   {
+    "old": "What instruments measure earthquakes",
+    "new": "What instruments measure earthquakes in each country"
+   }
+  ]
+ },
+ {
+  "stem": "Which sentence uses the word \"precipitation\" correctly?",
+  "correct": "Heavy precipitation in the mountains filled the rivers.",
+  "replace": [
+   {
+    "old": "The precipitation ran quickly to catch the bus.",
+    "new": "The precipitation ran quickly to catch the bus at noon."
+   },
+   {
+    "old": "She precipitation her homework before dinner.",
+    "new": "She precipitation her homework before dinner each day."
+   },
+   {
+    "old": "The precipitation sun dried the wet clothes.",
+    "new": "The precipitation sun dried the wet clothes on the line."
+   }
+  ]
+ },
+ {
+  "stem": "Which is the best alternative title for the passage?",
+  "correct": "The Architect Who Would Not Give Up",
+  "replace": [
+   {
+    "old": "Famous Buildings of Riyadh",
+    "new": "Famous Buildings of Riyadh and Jeddah"
+   },
+   {
+    "old": "Zaha Hadid's Childhood Bedroom",
+    "new": "Zaha Hadid's Childhood Bedroom in Iraq"
+   },
+   {
+    "old": "Prizes for Mathematicians",
+    "new": "Prizes for Mathematicians Around the World"
+   }
+  ]
+ },
+ {
+  "stem": "Which information is the LEAST clear in the passage?",
+  "correct": "How much electricity one turbine can produce",
+  "replace": [
+   {
+    "old": "What the gearbox does to the rotation",
+    "new": "What the gearbox does to the rotation of the blades"
+   },
+   {
+    "old": "Why turbines are placed in open areas",
+    "new": "Why turbines are placed in open areas, far from towns"
+   },
+   {
+    "old": "What happens to turbines on calm days",
+    "new": "What happens to turbines on calm days with no wind"
+   }
+  ]
+ },
+ {
+  "stem": "Which information in the passage is the LEAST complete?",
+  "correct": "How a device knows that a packet is damaged",
+  "replace": [
+   {
+    "old": "What the number on each packet is for",
+    "new": "What the number on each packet is for in the network"
+   },
+   {
+    "old": "What a router does with each packet",
+    "new": "What a router does with each packet that it receives"
+   },
+   {
+    "old": "Why each packet carries an IP address",
+    "new": "Why each packet carries an IP address on its front"
+   }
+  ]
+ },
+ {
+  "stem": "Which of these could really have happened in ancient Egypt?",
+  "correct": "A young scribe copies texts onto pottery to practise.",
+  "replace": [
+   {
+    "old": "A scribe types tax records on a computer.",
+    "new": "A scribe types tax records on a computer in a temple."
+   },
+   {
+    "old": "A farmer reads Champollion's book.",
+    "new": "A farmer reads Champollion's book on the Nile."
+   },
+   {
+    "old": "A scribe sends a message by telephone.",
+    "new": "A scribe sends a message by telephone to the king."
+   }
+  ]
+ },
+ {
+  "stem": "Which information in the letter is the LEAST complete?",
+  "correct": "How many students ride Bus 14 compared with its seats",
+  "replace": [
+   {
+    "old": "What the school could do about seat belts",
+    "new": "What the school could do about seat belts on the bus"
+   },
+   {
+    "old": "What the writer thinks of the driver",
+    "new": "What the writer thinks of the driver of Bus 14"
+   },
+   {
+    "old": "Which bus the writer rides every day",
+    "new": "Which bus the writer rides every day to the school"
+   }
+  ]
+ },
+ {
+  "stem": "Why did the German geographer call the network the Silk Road?",
+  "correct": "Because valuable Chinese silk travelled west along it",
+  "replace": [
+   {
+    "old": "Because the roads were paved with silk cloth",
+    "new": "Because the roads were paved with silk cloth in the desert"
+   },
+   {
+    "old": "Because silk was the only product traded on it",
+    "new": "Because silk was the only product traded along the roads"
+   },
+   {
+    "old": "Because he worked as a silk merchant himself",
+    "new": "Because he worked as a silk merchant himself in Berlin"
+   }
+  ]
+ },
+ {
+  "stem": "Why does blue light reach our eyes from every part of the sky?",
+  "correct": "Gas molecules scatter it in all directions",
+  "replace": [
+   {
+    "old": "The sun gives off only blue light",
+    "new": "The sun gives off only blue light in the sky"
+   },
+   {
+    "old": "Blue light has the longest waves",
+    "new": "Blue light has the longest waves of all the colours"
+   },
+   {
+    "old": "The sea reflects blue into the air",
+    "new": "The sea reflects blue into the air above it"
+   }
+  ]
+ },
+ {
+  "stem": "Which is the best alternative title for the passage?",
+  "correct": "Four Stages of a Butterfly's Life",
+  "replace": [
+   {
+    "old": "How Bees Make Their Honey",
+    "new": "How Bees Make Their Honey in a Hive"
+   },
+   {
+    "old": "The Dangers of Desert Winds",
+    "new": "The Dangers of Desert Winds and Sand"
+   },
+   {
+    "old": "Caring for a Pet Lizard",
+    "new": "Caring for a Pet Lizard at Home"
+   }
+  ]
+ },
+ {
+  "stem": "According to the passage, what happens when germs slip past the body's barriers?",
+  "correct": "White blood cells take action against them.",
+  "replace": [
+   {
+    "old": "The skin forms a protective wall.",
+    "new": "The skin forms a protective wall around the body."
+   },
+   {
+    "old": "Mucus traps them inside the nose.",
+    "new": "Mucus traps them inside the nose and the throat."
+   },
+   {
+    "old": "Tears wash them away at once.",
+    "new": "Tears wash them away at once from the eyes."
+   }
+  ]
+ }
+]

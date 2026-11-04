@@ -99,9 +99,9 @@
      "stem": "How does Hala change?",
      "options": [
       "She starts to like carrots.",
-      "She stops eating soup.",
-      "She learns to cook.",
-      "She gets sick."
+      "She stops eating soup at home.",
+      "She learns to cook soup.",
+      "She gets sick of soup."
      ],
      "answer": 0,
      "why": "At first Hala did not like carrots. At the end, she asks for carrot soup."
@@ -110,9 +110,9 @@
      "passage": "Ali could not swim. He went to swim class every week. He tried hard. Now Ali can swim across the pool.",
      "stem": "What helped Ali change?",
      "options": [
-      "He got a new swimsuit.",
-      "He watched TV.",
-      "He stayed at home.",
+      "He got a new swimsuit and a hat.",
+      "He watched TV all day long.",
+      "He stayed at home all week.",
       "He went to class and tried hard."
      ],
      "answer": 3,
@@ -181,7 +181,7 @@
     "passage": "Lina was proud to be chosen to play the oud at the school concert. But at the first practice, her fingers slipped, and she played three wrong notes in front of everyone. Some students giggled, and her face turned red. That night she thought about giving up. Instead, the next day she asked her music teacher to help her practise every afternoon until the concert.",
     "stem": "How does the challenge change Lina's actions?",
     "options": [
-     "She stops playing the oud for good.",
+     "She stops playing the oud for good and sells it.",
      "She starts practising with her teacher every day.",
      "She asks another girl to play for her.",
      "She decides the concert is not important."
@@ -211,7 +211,7 @@
      "stem": "How does the challenge change Majed's thinking?",
      "options": [
       "He thinks bookshelves are useless.",
-      "He decides never to build again.",
+      "He decides never to build again after that.",
       "He learns that asking for help can be good.",
       "He thinks his brother is not helpful."
      ],
@@ -293,9 +293,9 @@
     "passage": "Bader cared about one thing on the football pitch: scoring as many goals as possible. When his coach asked him to help train the younger team for a month, he groaned. At first he only showed off his tricks, but the little ones kept missing the ball. Slowly, he began breaking each skill into small steps and cheering every small success. On the last day, when a shy eight-year-old scored her first goal, Bader shouted louder than he ever had for his own.",
     "stem": "How does Bader change over the course of the story?",
     "options": [
-     "He becomes more interested in scoring goals.",
-     "He learns that he is the best player on the team.",
-     "He decides that coaching is too difficult for him.",
+     "He becomes more interested in scoring goals than in anything else, even winning.",
+     "He learns that he is the best player on the team and the coach.",
+     "He decides that coaching is too difficult for him and gives up.",
      "He changes from caring only about himself to caring about the younger players."
     ],
     "answer": 3,
@@ -323,10 +323,10 @@
      "passage": "Rania believed that winning the spelling contest would make her happy. She studied alone and refused to help her friend Yasmin. When Rania won, she looked around for someone to celebrate with, but Yasmin had already gone home. The next week, Rania offered to quiz Yasmin before her history test.",
      "stem": "What does Rania's offer at the end show?",
      "options": [
-      "She wants to win another contest.",
+      "She wants to win another contest next year.",
       "She now values friendship more than winning alone.",
       "She is worried about her history test.",
-      "She thinks Yasmin is a better speller."
+      "She thinks Yasmin is a better speller than she is."
      ],
      "answer": 1,
      "why": "Winning alone left her with no one to celebrate. Offering to help Yasmin shows she now values friendship."
@@ -335,10 +335,10 @@
      "passage": "Ahmed was afraid of the dark and slept with a light on. During a camping trip, his group's torch broke. His little cousin began to cry, and Ahmed found himself telling her the names of the stars to calm her. By the end of the night, he was pointing out stars and had forgotten to be afraid.",
      "stem": "Which event is the turning point for Ahmed?",
      "options": [
-      "Ahmed sleeps with a light on.",
-      "Ahmed goes camping with his group.",
+      "Ahmed sleeps with a light on in his room.",
+      "Ahmed goes camping with his group in the desert.",
       "His cousin cries in the dark, and he comforts her.",
-      "Ahmed forgets to bring a blanket."
+      "Ahmed forgets to bring a blanket on the trip."
      ],
      "answer": 2,
      "why": "Comforting his cousin in the dark is what makes Ahmed forget his own fear."
@@ -349,8 +349,8 @@
      "options": [
       "He had a library card and a list of twenty books.",
       "He thought reading was a waste of time.",
-      "His teacher gave him a book.",
-      "The book was about a boy who sailed."
+      "His teacher gave him a book on the first day.",
+      "The book was about a boy who sailed to far lands."
      ],
      "answer": 0,
      "why": "The library card and long book list show that Salem now loves reading, unlike at the start."
@@ -407,9 +407,9 @@
     "stem": "Which statement best describes how Noura develops over the story?",
     "options": [
      "She learns to value her mother's quiet strength, which she once took for granted.",
-     "She decides to become a doctor like her mother.",
-     "She becomes more confident about studying at university.",
-     "She begins to feel angry that her mother works so hard."
+     "She decides to become a doctor like her mother as soon as she finishes school.",
+     "She becomes more confident about studying at university in another city.",
+     "She begins to feel angry that her mother works so hard every day."
     ],
     "answer": 0,
     "hint": "Compare how Noura sees her mother at the beginning with what she does in the final sentences.",
@@ -449,10 +449,10 @@
      "passage": "Hamad was the loudest voice in every group project, and he rarely listened. During a robotics competition, the team's machine failed, and Hamad's quick plan made it worse. A quiet teammate, Ziyad, suggested a small change. With little time left, Hamad nodded and let him try. The robot worked. At the next meeting, Hamad asked Ziyad to speak first.",
      "stem": "Which detail shows that Hamad's change is lasting, not just a single moment?",
      "options": [
-      "The team's machine failed.",
+      "The team's machine failed during the test.",
       "At the next meeting, he asked Ziyad to speak first.",
-      "His quick plan made it worse.",
-      "With little time left, he nodded."
+      "His quick plan made it worse for everyone.",
+      "With little time left, he nodded and stepped back."
      ],
      "answer": 1,
      "why": "Asking Ziyad to speak first at a later meeting shows the change continues after the competition."

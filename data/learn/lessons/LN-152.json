@@ -230,9 +230,9 @@
      "passage": "Jana saved her pocket money for weeks. She did not buy sweets or toys. On her mother's birthday, she gave her a beautiful scarf.",
      "stem": "Why did Jana save her money?",
      "options": [
-      "She wanted to buy sweets.",
-      "She wanted to buy a toy.",
-      "She did not like money.",
+      "She wanted to buy sweets for school.",
+      "She wanted to buy a toy for her cat.",
+      "She did not like money in her pocket.",
       "She wanted to buy her mother a gift."
      ],
      "answer": 3,
@@ -304,7 +304,7 @@
      "He is shy about his playing and does not want others to hear yet.",
      "He is angry with his cousins and wants them to leave.",
      "He has broken the oud and is afraid of being blamed.",
-     "He has stopped liking music and wants to forget it."
+     "He has stopped liking music and wants to forget it for good."
     ],
     "answer": 0,
     "hint": "Look for every clue: the closed door, hiding the oud, freezing when his uncle hears him. What do they show?",
@@ -334,9 +334,9 @@
      "passage": "Rayan finished first in the spelling contest. He shook hands with the other students and smiled. But as he walked off stage, he glanced at his best friend, who had gone out in the first round, and his smile faded.",
      "stem": "How does Rayan feel at the end?",
      "options": [
-      "Only proud of himself",
-      "Bored with the contest",
-      "Angry with his friend",
+      "Only proud of himself and happy",
+      "Bored with the contest and tired",
+      "Angry with his friend for winning",
       "Proud, but sorry for his friend"
      ],
      "answer": 3,
@@ -346,10 +346,10 @@
      "passage": "Kholoud volunteered to stay after school and clean the art room, even though no one asked her. The next day, she shyly asked the art teacher if she could join the advanced painting class.",
      "stem": "What is the most likely reason Kholoud cleaned the art room?",
      "options": [
-      "She was being punished.",
+      "She was being punished for being late to class.",
       "She hoped to show the teacher how much she cared about art.",
-      "She did not want to go home.",
-      "She wanted to find a lost pencil."
+      "She did not want to go home after the long day.",
+      "She wanted to find a lost pencil that had rolled under the tables."
      ],
      "answer": 1,
      "why": "She volunteered without being asked, then asked to join the painting class. She wanted to show her interest."
@@ -358,10 +358,10 @@
      "passage": "When his little sister broke his model plane, Majed opened his mouth to shout. Then he saw her face, full of fear, and he knelt down. \"It's okay,\" he said. \"We can fix it together.\"",
      "stem": "Why does Majed change his reaction?",
      "options": [
-      "He realises the plane is not broken.",
-      "He wants their mother to praise him.",
+      "He realises the plane is not broken after he looks at it.",
+      "He wants their mother to praise him for being kind.",
       "He sees that his sister is scared and wants to comfort her.",
-      "He did not really like the plane anyway."
+      "He did not really like the plane anyway, so he gave it up."
      ],
      "answer": 2,
      "why": "Seeing her fear makes him kneel and comfort her. He cares about her more than the plane."
@@ -413,10 +413,10 @@
     "passage": "Nawal told everyone she was glad her best friend, Ghada, had been chosen to captain the debate team. \"She deserves it,\" Nawal said at lunch, smiling a little too widely. That afternoon, she volunteered to research every argument for the next debate, staying in the library long after the others had gone home. When Ghada thanked her, Nawal waved it away. Later, alone in the empty classroom, she took out the captain's badge she had made for herself the summer before, looked at it for a long time, and then dropped it into the bin. The next morning, she was the first to arrive at practice.",
     "stem": "What best explains Nawal's feelings and actions?",
     "options": [
-     "She is jealous and plans to make Ghada fail as captain.",
+     "She is jealous and plans to make Ghada fail as captain, so she will not help her at all.",
      "She is disappointed not to be captain, but she chooses to let go and support her friend.",
      "She never wanted to be captain and is pleased that Ghada was chosen.",
-     "She is tired of debating and wants to leave the team soon."
+     "She is tired of debating and wants to leave the team soon after the vote."
     ],
     "answer": 1,
     "hint": "Compare what Nawal says with what she does when she is alone. What does the badge show? What does she do the next day?",
@@ -447,9 +447,9 @@
      "stem": "What does Mansour's visit to the harbour suggest?",
      "options": [
       "He is quietly grieving the loss of the boat and his memories of his grandfather.",
-      "He wants to take the boat out fishing one last time.",
+      "He wants to take the boat out fishing one last time before the new owner comes.",
       "He is checking that the boat is in good condition for the buyer.",
-      "He is happy that the family will finally sell the boat."
+      "He is happy that the family will finally sell the boat and move on."
      ],
      "answer": 0,
      "why": "His silence at dinner and his night in the boat, touching the seat, show quiet sadness about losing a link to his grandfather."
@@ -458,10 +458,10 @@
      "passage": "Aseel always arrived first at the science club, helped set up equipment, and stayed to clean up. When a new girl joined and the teacher praised her experiment, Aseel began arriving late. Then one day, the teacher asked Aseel to show the new girl how to use the microscope. Aseel was early again the next week.",
      "stem": "Why does Aseel start arriving late, then early again?",
      "options": [
-      "She becomes bored with science, then interested again.",
-      "Her bus schedule changes twice during the term.",
+      "She becomes bored with science, then interested again when the class does a new experiment.",
+      "Her bus schedule changes twice during the term, so she arrives at different times each week.",
       "She feels replaced when the new girl is praised, then valued again when the teacher trusts her.",
-      "She dislikes the new girl and wants to avoid her completely."
+      "She dislikes the new girl and wants to avoid her completely, so she stays away from class."
      ],
      "answer": 2,
      "why": "Her change follows the praise for the new girl, and she returns when the teacher shows trust in her. She needs to feel valued."

@@ -142,9 +142,9 @@
       "stem": "Which detail does the story leave LEAST clear?",
       "options": [
         "How long the ant's grain would last for both of them",
-        "Where the ant built her underground nest",
-        "What the sparrow liked to do all day",
-        "What happened to the field during the rain"
+        "Where the ant built her underground nest in the field",
+        "What the sparrow liked to do all day in the sun",
+        "What happened to the field during the long rain"
       ],
       "answer": "A",
       "why": "The story never tells us whether the stored grain was enough for both animals or for how long."

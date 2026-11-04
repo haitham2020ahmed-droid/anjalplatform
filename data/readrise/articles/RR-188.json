@@ -64,6 +64,16 @@
       "level": 1400,
       "title": "Ada Lovelace: The First Programmer",
       "text": "Ada Lovelace was born in London in 1815. Her father was the famous poet Lord Byron, although Ada never really knew him. Her mother was passionate about mathematics, so she ensured that Ada studied mathematics and science from an early age, even though very few girls received such a rigorous education during that period.\n\nAs a child, Ada was frequently ill and had to remain in bed for months at a time, yet her imagination never stopped working, and when she was approximately twelve, she systematically studied how birds fly and produced detailed plans for a flying machine of her own.\n\nWhen Ada was 17, she met an inventor named Charles Babbage, who had constructed part of a machine that could calculate, or perform arithmetic automatically. Ada was so fascinated by it that she wanted to understand every component, and the two soon became close friends who exchanged numerous letters about mathematics and machinery.\n\nLater, Babbage designed a considerably more powerful machine called the Analytical Engine, which was intended to follow instructions stored on punched cards, although it was never completed during his lifetime. An Italian engineer wrote an article about the engine in French, and Ada was asked to translate it into English; she did, but she also contributed her own extensive notes, which ended up approximately three times longer than the original article when they were published in 1843.\n\nIn one note, Ada wrote out precise instructions, step by step, demonstrating exactly how the engine could calculate a complicated series of numbers. Today, a careful sequence of steps like this is called an algorithm, and when it is written for a machine, it becomes a program, which is why many historians consider Ada the first computer programmer.\n\nAda was also a visionary who could imagine possibilities that others could not, and she suggested that one day such a machine might accomplish much more than arithmetic, and that it might even compose music, an idea that seemed extraordinary to her contemporaries.\n\nAda died young, at the age of 36, and although the Analytical Engine was never constructed, her ideas proved remarkably accurate once electronic computers appeared roughly a century later. Today, students around the world, including many in Saudi Arabia, learn to write programs, and a computer programming language is named Ada in her honor."
+    },
+    {
+      "level": 1500,
+      "title": "Ada Lovelace: The First Programmer",
+      "text": "Ada Lovelace entered the world in London during 1815. Her father was the renowned poet Lord Byron, although Ada scarcely knew him throughout her childhood. Her mother, however, possessed a genuine passion for mathematics, and this ensured that Ada received hard instruction in mathematics and science from an unusually early age. Few girls received such demanding educational opportunities during that particular historical period.\n\nAs a child, Ada suffered frequent, debilitating illnesses that confined her to bed for months at a stretch, yet her fertile imagination never ceased its restless operation; when she reached approximately twelve years of age, she studied avian flight patterns and subsequently produced detailed engineering plans for a flying machine fully of her own original design.\n\nWhen Ada reached the age of seventeen, she encountered an inventor named Charles Babbage, who had already constructed a functional portion of a bold machine capable of calculating, or automatically performing arithmetic operations. Ada found herself so fully fascinated by this device that she resolved to comprehend every individual component. The two soon developed a close, lasting friendship characterized by extensive correspondence concerning mathematics and mechanical engineering.\n\nLater, Babbage designed a more bold and powerful machine designated the Analytical Engine. This was intended to execute instructions stored upon punched cards. However, it unfortunately remained uncompleted throughout his entire lifetime. An Italian engineer composed an article describing this engine in French, and Ada was later commissioned to translate it into English; she dutifully completed this task, but also contributed her own extensive explanatory notes, which ultimately proved approximately three times lengthier than the original article when they were officially published in 1843.\n\nWithin one particular note, Ada carefully articulated precise, sequential instructions demonstrating exactly how the engine could calculate a particularly complicated mathematical series. Today, such a carefully ordered sequence of procedural steps is officially designated an algorithm. When such an algorithm is written for execution by a machine, it correspondingly becomes a program, which explains why many historians consider Ada to be the very first computer programmer in recorded history.\n\nAda also functioned as a genuine visionary, possessing the remarkable capacity to imagine future possibilities that eluded the comprehension of her peers, and she boldly suggested that such a machine might eventually accomplish more than mere arithmetic calculation, potentially even composing original music, a suggestion that struck her peers as fully great and implausible at the time.\n\nAda died tragically young, at merely thirty-six years of age. Although the Analytical Engine itself was never ultimately constructed during either of their lifetimes, her prescient ideas proved astonishingly accurate once functional electronic computers finally emerged roughly a century later. Today, students throughout the world, including large numbers across Saudi Arabia, routinely learn to write computer programs. A particular computer programming language bears the name Ada, honoring her basic and lasting contributions to the field."
+    },
+    {
+      "level": 1600,
+      "title": "Ada Lovelace: The First Programmer",
+      "text": "Ada Lovelace entered the world in London during the year 1815. Her father was the internationally renowned poet Lord Byron, although Ada scarcely knew him personally throughout her formative childhood years. Her mother, however, possessed a genuine and abiding passion for mathematics, and consequently ensured, with considerable deliberation, that Ada received rigorous instruction in mathematics and the natural sciences from an unusually early age, notwithstanding the inconvenient fact that remarkably few girls received such demanding educational opportunities during that particular restrictive historical period.\n\nAs a child, Ada suffered frequent, genuinely debilitating illnesses that confined her to bed for months at a continuous stretch, yet her remarkably fertile and irrepressible imagination never once ceased its restless intellectual operation; when she reached approximately twelve years of age, she systematically and methodically studied avian flight patterns in considerable detail and subsequently produced remarkably detailed engineering plans for a flying machine entirely of her own original conception and design.\n\nWhen Ada reached the age of seventeen, she first encountered an inventor named Charles Babbage, who had already successfully constructed a functional portion of an ambitious mechanical device capable of calculating, or automatically performing complex arithmetic operations without human intervention. Ada found herself so thoroughly and immediately fascinated by this remarkable device that she resolved firmly to comprehend every individual mechanical component, and the two soon developed a close, enduring intellectual friendship characterized by extensive, substantive correspondence concerning mathematics and mechanical engineering.\n\nSubsequently, Babbage designed a considerably more ambitious and mechanically powerful machine designated the Analytical Engine, which was specifically engineered to execute programmable instructions stored upon punched cards, although it unfortunately remained permanently uncompleted throughout the entirety of his lifetime. An Italian engineer composed a detailed article describing this engine in French, and Ada was subsequently commissioned to translate it faithfully into English; she dutifully completed this translation task, but additionally contributed her own extensive explanatory notes and annotations, which ultimately proved approximately three times lengthier than the original source article when they were formally published in 1843.\n\nWithin one particularly significant note, Ada meticulously and systematically articulated precise, sequential instructions demonstrating exactly how the engine could successfully calculate a particularly complicated mathematical series of numbers. Today, such a carefully ordered sequence of procedural steps is formally designated an algorithm, and when such an algorithm is specifically written for subsequent execution by a mechanical or electronic machine, it correspondingly becomes what we now call a program, which explains precisely why numerous historians and computer scientists consider Ada to be the very first computer programmer in all of recorded history.\n\nAda additionally functioned as a genuine intellectual visionary, possessing the remarkable and rare capacity to imagine future technological possibilities that entirely eluded the comprehension of her own contemporaries, and she boldly and prophetically suggested that such a machine might eventually accomplish considerably more than mere arithmetic calculation, potentially even composing original musical compositions, a suggestion that struck her contemporaries as thoroughly extraordinary and almost fantastically implausible at the time it was proposed.\n\nAda died tragically young, at merely thirty-six years of age, and although the Analytical Engine itself was never ultimately constructed during either of their respective lifetimes, her remarkably prescient theoretical ideas proved astonishingly accurate once fully functional electronic computers finally emerged roughly a century subsequently. Today, students throughout the entire world, including substantial and growing numbers across Saudi Arabia, routinely learn to write computer programs, and a particular, widely used computer programming language officially bears the name Ada, honoring in perpetuity her foundational and enduring contributions to the discipline of computer science."
     }
   ],
   "bands": {
@@ -104,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How to build a flying machine at home",
+            "How to build a flying machine at home with wood and cloth, step by step",
             "How Ada Lovelace wrote steps for a machine and became known as the first programmer",
-            "Why kids should stay in bed when they are sick",
-            "How to write music on a computer"
+            "Why kids should stay in bed when they are sick and rest all day long",
+            "How to write music on a computer and play it for a class at school with a few friends"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -243,7 +253,8 @@
         "I gave at least two reasons from the article.",
         "I used the word program correctly.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "People remember Ada Lovelace because she wrote a program, a list of step-by-step instructions, for a machine that was never even built. People also remember her because she imagined that such a machine could do more than math someday, even make music."
     },
     "MID": {
       "keyWords": [
@@ -282,10 +293,10 @@
         {
           "stem": "Which sentence best states the central idea?",
           "options": [
-            "Ada Lovelace was often sick as a child.",
+            "Ada Lovelace was often sick as a child, so she stayed at home all the time and learned little.",
             "Ada Lovelace's notes on Babbage's engine included the first program and showed great imagination.",
-            "Charles Babbage built the first working computer.",
-            "An Italian engineer wrote about machines in French."
+            "Charles Babbage built the first working computer, and it was finished in his own lifetime.",
+            "An Italian engineer wrote about machines in French, and Ada only read his old book and lost it."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -317,9 +328,9 @@
           "stem": "What was special about Ada's notes?",
           "options": [
             "They were much longer than the article and included step-by-step instructions",
-            "They were written in French",
-            "They were only a few short lines long and had no numbers",
-            "They described how to fly"
+            "They were written in French, and they were shorter than the main article",
+            "They were only a few short lines long and had no numbers or steps at all",
+            "They described how to fly a machine over the sea, and they were mostly drawings"
           ],
           "answer": "A",
           "skill": "detail",
@@ -384,10 +395,10 @@
         {
           "stem": "Babbage designed the engine, but Ada wrote the instructions. How were their roles different?",
           "options": [
-            "Babbage wrote music and Ada built machines",
+            "Babbage wrote music and Ada built machines, so their roles were the same",
             "Babbage planned the machine, while Ada showed how it could be told what to do",
-            "Both of them only translated articles",
-            "Ada designed the engine and Babbage translated it"
+            "Both of them only translated articles, and neither planned the machine",
+            "Ada designed the engine and Babbage translated it for the readers"
           ],
           "answer": "B",
           "skill": "compare",
@@ -421,7 +432,8 @@
         "I explained what Ada was asked to do.",
         "I explained what she added and why it mattered.",
         "I used at least two key words from the article."
-      ]
+      ],
+      "modelAnswer": "Ada was only asked to translate an article about Babbage's engine from French into English, but she went far beyond that task. She added her own notes, which ended up about three times longer than the original article, and in one note she wrote out clear, step-by-step instructions showing how the engine could calculate a special set of numbers. Because that list of instructions is a program, many people consider her notes, not just her translation, to be her true achievement."
     },
     "HIGH": {
       "keyWords": [
@@ -460,10 +472,10 @@
         {
           "stem": "Which statement best summarizes the article?",
           "options": [
-            "Ada Lovelace translated a French article and nothing more.",
-            "Babbage built the Analytical Engine with Ada's help.",
+            "Ada Lovelace translated a French article and nothing more, and she wrote no ideas of her own.",
+            "Babbage built the Analytical Engine with Ada's help, and the two of them finished it in one year.",
             "Through her published notes, Ada wrote the first algorithm for a machine and imagined uses beyond math.",
-            "Ada invented the punched card."
+            "Ada invented the punched card and used it to weave cloth in a factory, and the machine was never built."
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -545,10 +557,10 @@
         {
           "stem": "Why does the author call Ada a \"visionary\"?",
           "options": [
-            "Because she had excellent eyesight and could see very far away",
+            "Because she had excellent eyesight and could see very far away without any glasses at all",
             "Because she imagined machines that could do far more than arithmetic, such as composing music",
-            "Because she translated many articles",
-            "Because she lived a long life"
+            "Because she translated many articles into French for her teacher, her friends, and her family",
+            "Because she lived a long life and saw many things change in the world around her country"
           ],
           "answer": "B",
           "skill": "author-purpose",
@@ -563,9 +575,9 @@
           "stem": "Based on the article, what can you infer about how Ada's education shaped her work?",
           "options": [
             "Her early training in mathematics prepared her to understand and write instructions for Babbage's engine",
-            "Her education made her dislike machines",
-            "She learned everything from the Italian engineer",
-            "She never studied science"
+            "Her education made her dislike machines, so she refused to work with any engine or tool of Babbage",
+            "She learned everything from the Italian engineer, who taught her all her math at home",
+            "She never studied science or mathematics, and she wrote only poems and stories"
           ],
           "answer": "A",
           "skill": "inference",
@@ -599,7 +611,8 @@
         "I explained what Ada wrote and why it counts as a program.",
         "I used algorithm and visionary correctly.",
         "I connected her ideas to computers today."
-      ]
+      ],
+      "modelAnswer": "Ada Lovelace's work still matters today because, in her notes, she wrote out a step-by-step algorithm showing how Babbage's engine could calculate a set of numbers, which is why many people call her the first computer programmer even though the machine itself was never built. She was also a visionary, since she imagined that such a machine might one day do far more than math, even compose music, an idea that sounded impossible in her time but describes exactly what modern computers can do. Her early algorithm and her visionary thinking about what machines could become connect directly to the programs that run on every computer today."
     }
   }
 }

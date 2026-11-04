@@ -95,7 +95,11 @@ describe("1 · prerequisite routing (practice on the demo school)", () => {
     const sid = String((await repo.findUnique("Skill", { curriculumId: cur.id, code: "G4.theme" }))!.id);
     const items = await loadSkillItems(repo, sid, { wholePool: true });
     // the route's decision log is written after the response (as in production): wait for it before the next answer
-    const answerWrong = async (sessionId: string, q: ClientQuestion) => { const r = await submitAnswer(repo, omar, { sessionId, questionId: q.questionId, response: wrongFor(items.find((i) => i.questionId === q.questionId)!, q) }, later(30), rng); await afterResponseSettled(); return r; };
+    // r89 fix: 30 s was sometimes below the "first question on this passage" rapid-guess threshold (up to ~1/3 of a
+    // long passage's reading time, src/server/practice/guessing.ts), which silently dropped that answer from the
+    // wrong-answer streak (rapidGuess answers are excluded from sessionCorrect) and made the prerequisite route
+    // never fire. 240 s is comfortably above that threshold for any passage this skill's pool can contain.
+    const answerWrong = async (sessionId: string, q: ClientQuestion) => { const r = await submitAnswer(repo, omar, { sessionId, questionId: q.questionId, response: wrongFor(items.find((i) => i.questionId === q.questionId)!, q) }, later(240), rng); await afterResponseSettled(); return r; };
     let view = await startPractice(repo, omar, sid, later(0), rng);
     const routes = async () => (await repo.findMany("AdaptiveDecisionLog", { studentId: omar.studentId, skillId: sid, reasonCode: "PREREQ_ROUTE" }, { select: ["reason", "sessionId"] }));
     let n = 0;
@@ -125,6 +129,8 @@ describe("2 · the Diagnostic Test seeds practice (Test School)", () => {
       if (resumeAfter !== undefined && i === resumeAfter) resumedMs = Number((await repo.findMany("QuestionAttempt", { studentId: st.studentId!, questionId: it.questionId }))[0].responseMs);
       i++;
     }
+    // the decision logs are written after each response (r68: in the bounded after-response queue)
+    await afterResponseSettled();
     return { resumedMs };
   }
   before(async () => {
@@ -180,9 +186,13 @@ describe("2 · the Diagnostic Test seeds practice (Test School)", () => {
       assert.ok(l, "linked to its attempt");
       assert.ok(l.masteryBefore !== null && l.masteryAfter !== null);
     }
-    // θ before the answer: the first answer on a skill starts from the prior, and each log continues from the previous one
+    // round 3: the Diagnostic is a TEST — it never writes the skill's ability (nor its mastery or star), so every log of
+    // a skill starts from the same prior θ (before: each log continued from the previous answer's θ, i.e. the test was
+    // moving the practice ability); the placement's DOMAIN rows above are its only practice writes
     const sorted = [...logs].sort((x, y) => Number(x.id) - Number(y.id)).filter((l) => l.skillId === logs[0].skillId);
-    for (let i = 1; i < sorted.length; i++) assert.equal(Number(sorted[i].previousTheta), Number(sorted[i - 1].newTheta));
+    for (let i = 1; i < sorted.length; i++) assert.equal(Number(sorted[i].previousTheta), Number(sorted[0].previousTheta));
+    assert.equal((await repo.findMany("StudentAbility", { studentId: roster[0].id })).filter((r) => String(r.scope).startsWith("SKILL:")).length, 0, "no SKILL ability from the test");
+    assert.equal(await repo.count("StudentSkillMastery", { studentId: roster[0].id }), 0, "no mastery from the test");
   });
 
   test("a resumed test is timed from the resume, not from when the question was first shown", async () => {

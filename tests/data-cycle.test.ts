@@ -14,6 +14,7 @@ import { createDraft } from "../src/server/admin/questions";
 import { itemQuality } from "../src/server/admin/item-quality";
 import { interventionBoard } from "../src/server/teacher/intervention";
 import { parentSummary } from "../src/server/student/parent-summary";
+import { practiceTotalsFor } from "../src/server/analytics/practice-totals";
 import { recordLevel } from "../src/server/curriculum-map/student-level";
 import { demoDatabase } from "./helpers/db";
 
@@ -75,9 +76,14 @@ describe("📊→📋→⭐→📈 the data-driven cycle: plan results, question
     assert.deepEqual(r.unused, ["C", "D"]);
   });
 
-  test("🔁 spaced review: a skill mastered 3+ weeks ago and not practised since", async () => {
+  test("🔁 spaced review: a ⭐ skill whose review check is due (stars, 1 Nov 2026 — not the engine's isMastered)", async () => {
     const skill = (await repo.findMany("Skill", {}))[0];
     const old = new Date(Date.now() - 30 * 86_400_000);
+    // ⭐ the review flag reads the star: ⭐ mastered 30 days ago, its review check date passed
+    const { skillKeysFor } = await import("../src/server/skills/status");
+    const schoolId = String((await repo.findUnique("Student", { id: kids[3] }))!.schoolId);
+    const key = (await skillKeysFor(repo, schoolId, [String(skill.id)])).get(String(skill.id))!;
+    await repo.create("SkillStatus", { studentId: kids[3], skillKey: key, level: 1, status: "MASTERED", skillId: skill.id, answered: 30, correct: 28, score: 95, startedAt: old, masteredAt: old, reviewDueAt: new Date(Date.now() - 9 * 86_400_000), createdAt: old, updatedAt: old });
     await repo.upsert("StudentSkillMastery", { studentId_skillId: { studentId: kids[3], skillId: skill.id } } as never, { studentId: kids[3], skillId: skill.id, score: 0.95, band: "MASTERED", attempts: 20, correct: 19, isMastered: true, masteredAt: old, lastPracticedAt: old, updatedAt: old } as never, { isMastered: true, masteredAt: old, lastPracticedAt: old } as never).catch(async () => {
       await repo.create("StudentSkillMastery", { studentId: kids[3], skillId: skill.id, score: 0.95, band: "MASTERED", attempts: 20, correct: 19, maxLevelCorrect: 5, isMastered: true, masteredAt: old, lastPracticedAt: old, updatedAt: old });
     });
@@ -89,7 +95,11 @@ describe("📊→📋→⭐→📈 the data-driven cycle: plan results, question
 
   test("👪 the parent summary: practice, accuracy, the MAP goal and a tip from the data", async () => {
     const s = await parentSummary(repo, teacher, kids[0]);
-    assert.ok(s.answers30 >= 12);
+    // round 4: "This month" = THE one definition (practice-totals.ts): these answers are on a Curriculum Map question not
+    // linked to a skill yet (the hidden holder skill), which no practice number counts — the summary shows exactly that number
+    const tot = await practiceTotalsFor(repo, kids[0], new Date(Date.now() - 30 * 86_400_000), new Date());
+    assert.equal(s.answers30, tot.questions);
+    assert.equal(s.accuracy30, tot.accuracy);
     assert.equal(s.map?.rit, 170);
     assert.ok(s.tip.en.length > 10 && s.tip.ar.length > 10);
     assert.deepEqual(s.categories.map((c) => c.level), ["ABOVE"]);

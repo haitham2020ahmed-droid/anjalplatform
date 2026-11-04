@@ -125,9 +125,9 @@
       "difficulty": 3,
       "stem": "Which information is the LEAST clear in the passage?",
       "options": [
-        "When the Rosetta Stone was discovered",
-        "What material papyrus was made from",
-        "Who could read and write in ancient Egypt",
+        "When the Rosetta Stone was discovered by French soldiers",
+        "What material papyrus was made from in ancient times",
+        "Who could read and write in ancient Egypt in those days",
         "How the Greek text helped Champollion read the signs"
       ],
       "answer": "D",
@@ -142,9 +142,9 @@
       "stem": "Which of these could really have happened in ancient Egypt?",
       "options": [
         "A young scribe copies texts onto pottery to practise.",
-        "A scribe types tax records on a computer.",
-        "A farmer reads Champollion's book.",
-        "A scribe sends a message by telephone."
+        "A scribe types tax records on a computer in a temple.",
+        "A farmer reads Champollion's book on the Nile.",
+        "A scribe sends a message by telephone to the king."
       ],
       "answer": "A",
       "why": "Trainee scribes copied texts on pottery; telephones, computers and Champollion came thousands of years later."
@@ -157,10 +157,10 @@
       "difficulty": 3,
       "stem": "Which title best describes the whole passage?",
       "options": [
-        "Greek Temples and Tombs",
-        "The Soldiers of 1799",
+        "Greek Temples and Tombs of the Old World",
+        "The Soldiers of 1799 and Their Camps",
         "Lost and Found: The Story of Hieroglyphs",
-        "How to Make Papyrus at Home"
+        "How to Make Papyrus at Home from Reeds"
       ],
       "answer": "C",
       "why": "The passage tells how hieroglyphs were created, forgotten and finally understood again."

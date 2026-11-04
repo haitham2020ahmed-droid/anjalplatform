@@ -8,6 +8,7 @@ import { assignedSkills, assignmentReport, isAssignedSkill, placementRequired, s
 import { listNotifications, markAllRead, openNotification, unreadCount } from "../src/server/notifications";
 import { assignmentUpdatesSettled, startPractice, submitAnswer } from "../src/server/practice/session";
 import { loadSkillItems } from "../src/server/practice/items";
+import { afterResponseSettled } from "../src/server/lib/after-response";
 import { demoDatabase } from "./helpers/db";
 import { publishGrade4Bank } from "./helpers/practice";
 
@@ -42,10 +43,10 @@ describe("student: assigned skills only, notifications, report", () => {
   });
 
   test("the home page lists only assigned skills, with status, dates and a summary", async () => {
-    await assignSkill(repo, teacher, { classId, skillId: skillA, dueAt: new Date("2027-03-08T20:59:59Z"), note: "Focus on the clues." }, NOW);
-    await assignSkill(repo, teacher, { classId, skillId: skillB, studentIds: [student.studentId!] }, NOW);
-    await assignSkill(repo, teacher, { classId, skillId: skillC, studentIds: [classmate.studentId!] }, NOW); // not for our student
-    await assignSkill(repo, teacher, { classId, skillId: skillC, studentIds: [student.studentId!], startAt: new Date("2027-03-20T00:00:00Z") }, NOW);
+    await assignSkill(repo, teacher, { source: "CURRICULUM", classId, skillId: skillA, dueAt: new Date("2027-03-08T20:59:59Z"), note: "Focus on the clues." }, NOW);
+    await assignSkill(repo, teacher, { source: "CURRICULUM", classId, skillId: skillB, studentIds: [student.studentId!] }, NOW);
+    await assignSkill(repo, teacher, { source: "CURRICULUM", classId, skillId: skillC, studentIds: [classmate.studentId!] }, NOW); // not for our student
+    await assignSkill(repo, teacher, { source: "CURRICULUM", classId, skillId: skillC, studentIds: [student.studentId!], startAt: new Date("2027-03-20T00:00:00Z") }, NOW);
     const v = await assignedSkills(repo, student, NOW);
     assert.equal(v.items.length, 3);
     assert.deepEqual(new Set(v.items.map((i) => i.skillId)), new Set([skillA, skillB, skillC]));
@@ -98,6 +99,8 @@ describe("student: assigned skills only, notifications, report", () => {
     const b = home.items.find((x) => x.skillId === skillB)!;
     assert.equal(b.status, "COMPLETED", "completed skills stay visible");
     assert.equal(home.summary.completed, 1);
+    // ⭐ the report shows the star of the skill (written right after each answer's response)
+    await afterResponseSettled();
     const r = await assignmentReport(repo, student, b.assignmentId);
     assert.equal(r.status, "COMPLETED");
     // completed by the rule (≥ 10 answers and the target mastery) or by FINISHING the practice: every question of a

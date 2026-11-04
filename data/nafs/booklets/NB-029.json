@@ -189,10 +189,10 @@
       "type": "MCQ",
       "stem": "What is the main idea of paragraph 3?",
       "options": [
-        "Bab al-Mandab is the narrowest strait in the world.",
+        "Bab al-Mandab is the narrowest strait in the world, and ships pass through it each day.",
         "Several conditions work together to make the Red Sea saltier than most oceans.",
-        "The desert sun is extremely hot during the summer.",
-        "Rivers carry large amounts of fresh water into the Red Sea."
+        "The desert sun is extremely hot during the summer, and it dries the land around the sea.",
+        "Rivers carry large amounts of fresh water into the Red Sea from the hills in the north."
       ],
       "answer": "B",
       "why": "Paragraph 3 opens by saying the sea is “remarkably salty” and then lists the conditions that cause it. The paragraph says that no river flows in."
@@ -206,9 +206,9 @@
       "stem": "According to paragraph 3, why does the Red Sea's water mix only slowly with the open ocean?",
       "options": [
         "It is joined to the Indian Ocean only by a narrow strait.",
-        "It is too salty for the water to move.",
-        "No permanent river flows into it.",
-        "The desert sun heats its surface every day."
+        "It is too salty for the water to move out of the sea.",
+        "No permanent river flows into it from the nearby hills.",
+        "The desert sun heats its surface every day of the year."
       ],
       "answer": "A",
       "why": "The paragraph says the sea is joined to the Indian Ocean “only by a narrow strait … so its water mixes slowly”. The other details explain the saltiness, not the slow mixing."
@@ -221,10 +221,10 @@
       "type": "MCQ",
       "stem": "What type of text is this passage?",
       "options": [
-        "a personal narrative",
+        "a personal narrative about a trip",
         "an informational (expository) text",
-        "a friendly letter",
-        "a poem"
+        "a friendly letter to a cousin",
+        "a poem about a city and the sea"
       ],
       "answer": "B",
       "why": "It gives facts and explanations about a real place, organised by topic, without characters or a plot."
@@ -237,10 +237,10 @@
       "type": "MCQ",
       "stem": "Why are the Red Sea's coral reefs especially valuable to scientists?",
       "options": [
-        "They are the largest coral reefs in the world.",
-        "They are the reason the water looks reddish-brown.",
+        "They are the largest coral reefs in the world, and many people visit them.",
+        "They are the reason the water looks reddish-brown in the summer months.",
         "Many of them survive water temperatures that would harm corals elsewhere.",
-        "They are home to exactly 1,200 kinds of coral."
+        "They are home to exactly 1,200 kinds of coral that no other reef has."
       ],
       "answer": "C",
       "why": "Paragraph 4 says many of them “can survive water temperatures that would badly harm corals in other seas”."
@@ -271,7 +271,7 @@
       "options": [
         "It is saltier than most of the world's oceans.",
         "More than 1,200 kinds of fish live in it.",
-        "Its name may come from tiny living things.",
+        "Its name may come from tiny living things in the water.",
         "It still grows wider by about one centimetre every year."
       ],
       "answer": "D",
@@ -302,9 +302,9 @@
       "stem": "According to the passage, what caused the deep crack between Africa and Arabia?",
       "options": [
         "the Arabian Plate pulling away from the African Plate",
-        "seawater flooding into the desert",
-        "the desert sun drying and cracking the rock",
-        "a river cutting a valley through the land"
+        "seawater flooding into the desert from the north, in a great flood",
+        "the desert sun drying and cracking the rock for millions of years",
+        "a river cutting a valley through the land and splitting it in two"
       ],
       "answer": "A",
       "why": "Paragraph 2: “As the Arabian Plate pulled away from the African Plate, a deep crack opened between them.” The flooding came after the crack."
@@ -317,9 +317,9 @@
       "type": "MCQ",
       "stem": "Which pair of facts TOGETHER explains why the water of the Red Sea stays so salty?",
       "options": [
-        "The sea is long and narrow, and it lies between two continents.",
-        "Coral reefs grow in it, and many fish live there.",
-        "The sea is young, and it grows one centimetre a year.",
+        "The sea is long and narrow, and it lies between two continents in the south.",
+        "Coral reefs grow in it, and many fish live there all year round.",
+        "The sea is young, and it grows one centimetre a year in width.",
         "The sun removes water but leaves the salt, and little fresh water flows in."
       ],
       "answer": "D",
@@ -333,10 +333,10 @@
       "type": "MCQ",
       "stem": "Why are researchers studying the Red Sea's heat-tolerant reefs?",
       "options": [
-        "to find new places for tourists to dive",
-        "to discover how the sea got its name",
+        "to find new places for tourists to dive and to take photographs",
+        "to discover how the sea got its name in old Arabic books",
         "to learn how coral might survive as the oceans grow warmer",
-        "to measure how fast the sea is widening"
+        "to measure how fast the sea is widening, year after year"
       ],
       "answer": "C",
       "why": "Paragraph 4 says they hope the reefs “might reveal how coral could endure as the world's oceans grow warmer”."
@@ -397,10 +397,10 @@
       "type": "MCQ",
       "stem": "What does the writer mean by calling the Red Sea “a natural laboratory”?",
       "options": [
-        "Scientists have built laboratories under its water.",
-        "Its water is used to make medicines.",
+        "Scientists have built laboratories under its water in the south.",
+        "Its water is used to make medicines in factories on the coast, and also to cure sick people.",
         "It is a place where scientists can learn a great deal by studying nature.",
-        "It was created by scientists in an experiment."
+        "It was created by scientists in an experiment long ago, in a big laboratory by the sea."
       ],
       "answer": "C",
       "why": "It is a figurative phrase: like a laboratory, the sea lets scientists study and test ideas, but here nature itself has set up the “experiment”."
@@ -413,10 +413,10 @@
       "type": "MCQ",
       "stem": "What does the phrase “an ocean in its infancy” suggest about the Red Sea?",
       "options": [
-        "It is as small as a pond.",
+        "It is as small as a pond in a garden, so it is called young.",
         "It is at a very early stage of becoming an ocean.",
-        "It is full of baby fish.",
-        "It will soon disappear."
+        "It is full of baby fish and baby turtles, as in a nursery.",
+        "It will soon disappear from the map, as the land closes."
       ],
       "answer": "B",
       "why": "Infancy is the earliest stage of life, so the phrase describes the Red Sea as an ocean that is only just beginning."
@@ -430,9 +430,9 @@
       "stem": "In your opinion, why does the writer compare the Red Sea's growth to the growth of a fingernail?",
       "options": [
         "to help readers picture a slow speed that is hard to imagine",
-        "to show that the Red Sea is growing dangerously fast",
-        "to explain why fingernails grow in hot weather",
-        "to make the passage sound like a fairy tale"
+        "to show that the Red Sea is growing dangerously fast each year",
+        "to explain why fingernails grow faster in hot weather",
+        "to make the passage sound like a fairy tale for children"
       ],
       "answer": "A",
       "why": "One centimetre a year is hard to picture for a whole sea; comparing it to something familiar makes the idea clear."
@@ -445,9 +445,9 @@
       "type": "MCQ",
       "stem": "Based on the passage, which action would be MOST beneficial for the future of the Red Sea?",
       "options": [
-        "building more cities along its shores",
-        "removing its coral to study it in laboratories",
-        "allowing ships to dump waste far from the coast",
+        "building more cities along its shores and ports on the coast",
+        "removing its coral to study it in laboratories far away",
+        "allowing ships to dump waste far from the coast at night",
         "nations along its shores working together to protect it"
       ],
       "answer": "D",
@@ -461,10 +461,10 @@
       "type": "MCQ",
       "stem": "What most likely motivated the writer to write this passage?",
       "options": [
-        "a wish to warn readers that the Red Sea is dangerous",
+        "a wish to warn readers that the Red Sea is dangerous to swim in and to fish",
         "a wish to share an unusual sea with readers and encourage its protection",
-        "a wish to advertise diving trips",
-        "a wish to argue that the sea should be renamed"
+        "a wish to advertise diving trips to the Red Sea for tourists from many lands",
+        "a wish to argue that the sea should be renamed by the people of the coast"
       ],
       "answer": "B",
       "why": "The writer explains what makes the sea unusual and valuable, and ends by stressing the duty to protect it."
@@ -477,10 +477,10 @@
       "type": "MCQ",
       "stem": "Which statement best expresses the writer's viewpoint about the Red Sea?",
       "options": [
-        "It is too salty to be useful to anyone.",
-        "It is less interesting than the open ocean.",
+        "It is too salty to be useful to anyone who lives near it.",
+        "It is less interesting than the open ocean or other seas.",
         "It is an unusual and valuable sea that deserves protection.",
-        "It should be studied only by geologists."
+        "It should be studied only by geologists in big universities."
       ],
       "answer": "C",
       "why": "The writer calls it unusual, describes its “amazing variety of life”, and says protecting it is a duty."

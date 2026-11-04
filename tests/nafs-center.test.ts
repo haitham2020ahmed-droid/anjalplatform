@@ -308,12 +308,12 @@ describe("B. Tool 2 — the test builder's difficulty", () => {
 
 describe("C + D. the teacher's center and the student's NAFS icon", () => {
   test("teacher tabs in order + About NAFS link; Home summary; bubble sheets under Marking", async () => {
-    assert.deepEqual(CENTER_TABS.map((x) => x.label), ["Home", "Dashboard", "Practice", "Tests", "Question bank", "Marking", "Reports"]); // owner r67: Practice · Tests
+    assert.deepEqual(CENTER_TABS.map((x) => x.label), ["Adaptive", "NAFS test", "Ministry booklets", "Reports", "Suggested plan", "Question bank", "Marking"]); // owner r69
     for (const x of CENTER_TABS) assert.ok(hasAr(x.label), x.label);
     const page = read("src/app/teacher/nafs/page.tsx");
     assert.match(page, /tab=about/); assert.match(page, /canSeeNafs\(repo, actor\)/);
     assert.match(read("src/components/nafs/marking-tab.tsx"), /<SheetsTab/);
-    assert.match(read("src/components/nafs/reports-tab.tsx"), /Adaptive practice results/);
+    assert.match(read("src/components/nafs/adaptive-tab.tsx"), /Adaptive practice results/); // owner r69: adaptive results live in Adaptive → Report
     const h = await nafsHomeSummary(repo, g6);
     assert.ok(h.openPractice >= 1);
     assert.equal(h.byDifficulty[1] + h.byDifficulty[2] + h.byDifficulty[3], h.questions);

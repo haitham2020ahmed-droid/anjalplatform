@@ -125,10 +125,10 @@
       "difficulty": 3,
       "stem": "Which information is the LEAST clear in the passage?",
       "options": [
-        "What materials Bell experimented with",
+        "What materials Bell experimented with in his lab",
         "How the argument between Bell and Gray was settled",
-        "Who helped Bell with his experiments",
-        "When Bell received his patent"
+        "Who helped Bell with his experiments in Boston",
+        "When Bell received his patent for the telephone in 1876"
       ],
       "answer": "B",
       "why": "The passage says the two men argued for years but never explains how the argument ended."
@@ -142,9 +142,9 @@
       "stem": "Which of the following events could really happen?",
       "options": [
         "A teacher studies how sound travels and builds a device.",
-        "A man shouts loudly enough to be heard overseas.",
-        "A telephone in 1876 works with no wire or power.",
-        "An operator hears a message before it is sent."
+        "A man shouts loudly enough to be heard overseas by sailors.",
+        "A telephone in 1876 works with no wire or power at all.",
+        "An operator hears a message before it is sent by anyone."
       ],
       "answer": "A",
       "why": "Bell himself was a teacher who studied sound and built a device; the other events are impossible."

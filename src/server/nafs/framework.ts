@@ -200,6 +200,8 @@ export const MOE_STANDARDS: MoeStandard[] = [
   { code: "MOE.S13", n: 13, short: "S13", area: "EV", perBooklet: 3, text: "Proposes a title, a different ending and solutions to problems or ideas in the text.", nafs: ["NAFS.RC.MAIN", "NAFS.IAE.EVAL"], pirls: ["P3", "P4"], samples: ["Which title best describes the events?", "Suggest a different ending for the story. (short written answer)", "How can we solve …?"] },
 ];
 export const MOE_CODES = MOE_STANDARDS.map((x) => x.code);
+/** r77 (owner: "the text is cut off"): a short name (2–4 words) per Ministry standard, shown whole in tables; the full text on hover/tap. */
+export const MOE_LABEL: Record<string, string> = {"MOE.S01": "Synonyms & antonyms", "MOE.S02": "Word types", "MOE.S03": "Using words", "MOE.S04": "Purpose & main idea", "MOE.S05": "Details & text type", "MOE.S06": "Text parts & order", "MOE.S07": "Cause, effect & characters", "MOE.S08": "Compare & contrast", "MOE.S09": "Figurative language", "MOE.S10": "Giving an opinion", "MOE.S11": "Judging information", "MOE.S12": "Could it happen?", "MOE.S13": "Title, ending & solutions"};
 export const MOE_BY_CODE = new Map(MOE_STANDARDS.map((x) => [x.code, x]));
 export const isMoeCode = (c: unknown): c is string => MOE_BY_CODE.has(String(c ?? ""));
 /** The guide's booklet: 35 questions per text (3 per standard; S11 and S12 one each). */

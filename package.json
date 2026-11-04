@@ -26,6 +26,9 @@
     "db:ddl": "tsx scripts/db/gen-ddl.ts",
     "db:verify:offline": "tsx scripts/db/verify.ts",
     "db:verify:mysql": "tsx scripts/db/verify-mysql.ts",
+    "db:cleanup-stale-lessons": "tsx scripts/db/cleanup-stale-lessons.ts",
+    "db:list-map-questions": "tsx scripts/db/list-map-questions.ts",
+    "db:set-question-level": "tsx scripts/db/set-question-level.ts",
     "jobs:rollups": "tsx scripts/jobs/nightly-rollups.ts",
     "jobs:items": "tsx scripts/jobs/item-analysis.ts",
     "reports:browser": "playwright-core install chromium",
@@ -44,7 +47,8 @@
     "admin:create": "tsx scripts/admin/create-admin.ts",
     "jobs:learning": "tsx scripts/jobs/daily-learning.ts",
     "jobs:sort": "tsx scripts/jobs/sort-questions.ts",
-    "db:baseline:rebuild": "sh scripts/db/baseline-migration.sh --rebuild"
+    "db:baseline:rebuild": "sh scripts/db/baseline-migration.sh --rebuild",
+    "db:backup": "sh scripts/db/backup-db.sh"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",

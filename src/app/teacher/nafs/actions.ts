@@ -9,9 +9,13 @@ import { getT } from "@/i18n/server";
 import { assignNafsTestOnline, builderPractice, builderRows, buildNafsAutomatic, buildNafsFull, buildNafsMinistry, buildNafsSimulation, cleanDifficultyMix, createFullNafsPractice, moreForStandard, replaceNafsQuestion, saveFullNafsTest, type BuilderRow, type FullSettings, type MinistrySettings } from "@/server/nafs/build";
 import { createNafsPractice, deleteNafsPractice } from "@/server/nafs/practice";
 import { nafsBankPage, retagNafsQuestion, reviewNafsDraft, saveNafsQuestion, setNafsFamilyLink, setNafsHidden, type BankPage, type BankSource, type NafsQuestionInput } from "@/server/nafs/bank";
-import { deleteNafsTest, markWrittenAnswer, releaseNafsResults, saveNafsAnswers, saveNafsTest, updateNafsAssignment, type SaveTestInput } from "@/server/nafs/tests";
+import { changeNafsTime, deleteNafsTest, markWrittenAnswer, releaseNafsResults, saveNafsAnswers, saveNafsTest, updateNafsAssignment, type SaveTestInput } from "@/server/nafs/tests";
 import { generateNafsDrafts, type AiNafsInput } from "@/server/nafs/ai";
+import { assignBookletsTo } from "@/server/nafs/booklet-center";
+import type { BookletAssignState } from "@/components/nafs/booklet-assign";
 import type { SimulationSettings } from "@/server/nafs/framework";
+import { log } from "@/server/monitoring/log";
+import { logError } from "@/server/teacher/extras";
 
 /**
  * 🇸🇦 The NAFS section's actions. Every one asks the server again: the actor (teacher or admin), NAFS access (Grade 6
@@ -22,10 +26,39 @@ const STAFF = { roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"] as ("TEACHER" 
 const known = (e: unknown) => e instanceof ValidationError || e instanceof ForbiddenError;
 const str = (v: FormDataEntryValue | null) => String(v ?? "");
 const dateOf = (v: unknown, end = false): Date | null => { let t = String(v ?? "").trim(); if (!t) return null; if (/^\d{4}-\d{2}-\d{2}$/.test(t)) t += end ? "T23:59:59" : "T00:00:00"; const d = new Date(t); return Number.isNaN(d.getTime()) ? null : d; };
-async function wrap<T>(fn: () => Promise<T>): Promise<{ ok?: T; error?: string }> {
-  try { return { ok: await fn() }; } catch (e) { if (known(e)) { const { t } = await getT(); return { error: t((e as Error).message) }; } throw e; }
-}
 const back = (href: string, msg: string) => redirect(`${href}${href.includes("?") ? "&" : "?"}msg=${encodeURIComponent(msg)}`);
+/** Only a link inside the NAFS center is followed back (else the given default). */
+const inCenter = (href: string, fallback: string) => (href.startsWith("/teacher/nafs") && !href.startsWith("//") ? href : fallback);
+
+/**
+ * 🧯 r78 (owner: "after Assign a WHITE PAGE appears"): an action that throws shows Next.js's error page. Every NAFS
+ * action now ends on the teacher's page with a message, whatever fails:
+ *   - Next.js's own signals (redirect, not found) pass through — they ARE the answer;
+ *   - a known refusal (ValidationError / ForbiddenError) → its own text;
+ *   - anything else (the database, a timeout, a bug) → logged (server log + the school's error log) and a friendly line.
+ */
+const isNextControl = (e: unknown): boolean => {
+  const d = (e as { digest?: unknown } | null)?.digest;
+  return typeof d === "string" && (d.startsWith("NEXT_REDIRECT") || d.startsWith("NEXT_HTTP_ERROR_FALLBACK") || d === "NEXT_NOT_FOUND");
+};
+const FAILED = "Something went wrong — try again";
+async function messageOf(e: unknown, action: string): Promise<string> {
+  const { t } = await getT().catch(() => ({ t: (x: string) => x }));
+  if (known(e)) return t((e as Error).message);
+  log("error", "nafs.action.failed", { action, error: e instanceof Error ? e : String(e) });
+  void logError(repo, { source: "SERVER", message: `nafs ${action}: ${e instanceof Error ? e.message : String(e)}`, path: "/teacher/nafs" });
+  return t(FAILED);
+}
+/** A form action: `fn` ends with its own redirect; any error comes back to `ret()` as a message. */
+async function guard(action: string, ret: () => string, fn: () => Promise<void>): Promise<void> {
+  let msg: string;
+  try { await fn(); return; } catch (e) { if (isNextControl(e)) throw e; msg = await messageOf(e, action); }
+  back(ret(), msg);
+}
+/** A client-called action: its value, or { error } — never a thrown error (Next.js signals pass through). */
+async function wrap<T>(fn: () => Promise<T>, action = "call"): Promise<{ ok?: T; error?: string }> {
+  try { return { ok: await fn() }; } catch (e) { if (isNextControl(e)) throw e; return { error: await messageOf(e, action) }; }
+}
 
 // ------------------------------------------------------------------ bank
 
@@ -43,39 +76,47 @@ export async function saveQuestionAction(input: NafsQuestionInput): Promise<{ ok
 }
 
 export async function hideQuestionAction(form: FormData): Promise<void> {
-  const actor = await requireActor(STAFF);
   const hidden = str(form.get("hidden")) === "1";
-  const ret = str(form.get("back")) || "/teacher/nafs?tab=bank";
-  const { t } = await getT();
-  try { await setNafsHidden(repo, actor, str(form.get("id")), hidden); } catch (e) { if (known(e)) back(ret, t((e as Error).message)); throw e; }
-  revalidatePath("/teacher/nafs");
-  back(ret, t(hidden ? "Hidden from the NAFS bank (not deleted)." : "Shown in the NAFS bank again."));
+  const ret = inCenter(str(form.get("back")), "/teacher/nafs?tab=bank");
+  await guard("hideQuestion", () => ret, async () => {
+    const actor = await requireActor(STAFF);
+    const { t } = await getT();
+    await setNafsHidden(repo, actor, str(form.get("id")), hidden);
+    revalidatePath("/teacher/nafs");
+    back(ret, t(hidden ? "Hidden from the NAFS bank (not deleted)." : "Shown in the NAFS bank again."));
+  });
 }
 
 export async function retagAction(form: FormData): Promise<void> {
-  const actor = await requireActor(STAFF);
-  const ret = str(form.get("back")) || "/teacher/nafs?tab=bank";
-  const { t } = await getT();
-  try { await retagNafsQuestion(repo, actor, str(form.get("id")), str(form.get("code")), str(form.get("process")) || null, new Date(), form.has("standard") ? str(form.get("standard")) || null : undefined); } catch (e) { if (known(e)) back(ret, t((e as Error).message)); throw e; }
-  back(ret, t("Saved."));
+  const ret = inCenter(str(form.get("back")), "/teacher/nafs?tab=bank");
+  await guard("retag", () => ret, async () => {
+    const actor = await requireActor(STAFF);
+    const { t } = await getT();
+    await retagNafsQuestion(repo, actor, str(form.get("id")), str(form.get("code")), str(form.get("process")) || null, new Date(), form.has("standard") ? str(form.get("standard")) || null : undefined);
+    back(ret, t("Saved."));
+  });
 }
 
 export async function reviewDraftAction(form: FormData): Promise<void> {
-  const actor = await requireActor(STAFF);
-  const ret = str(form.get("back")) || "/teacher/nafs?tab=bank&src=DRAFT";
+  const ret = inCenter(str(form.get("back")), "/teacher/nafs?tab=bank&src=DRAFT");
   const approve = str(form.get("approve")) === "1";
-  const { t } = await getT();
-  try { await reviewNafsDraft(repo, actor, str(form.get("id")), approve); } catch (e) { if (known(e)) back(ret, t((e as Error).message)); throw e; }
-  back(ret, t(approve ? "Approved: the question can now be used in NAFS tests." : "Rejected: the draft is hidden (not deleted)."));
+  await guard("reviewDraft", () => ret, async () => {
+    const actor = await requireActor(STAFF);
+    const { t } = await getT();
+    await reviewNafsDraft(repo, actor, str(form.get("id")), approve);
+    back(ret, t(approve ? "Approved: the question can now be used in NAFS tests." : "Rejected: the draft is hidden (not deleted)."));
+  });
 }
 
 /** Admin: link / unlink a NAFS skill and a platform skill. */
 export async function linkFamilyAction(form: FormData): Promise<void> {
-  const actor = await requireActor({ roles: ["SCHOOL_ADMIN", "SUPER_ADMIN"] });
-  const { t } = await getT();
   const ret = "/teacher/nafs?tab=skills";
-  try { await setNafsFamilyLink(repo, actor, { code: str(form.get("code")), familyId: str(form.get("familyId")), linked: str(form.get("linked")) === "1" }); } catch (e) { if (known(e)) back(ret, t((e as Error).message)); throw e; }
-  back(ret, t("Saved."));
+  await guard("linkFamily", () => ret, async () => {
+    const actor = await requireActor({ roles: ["SCHOOL_ADMIN", "SUPER_ADMIN"] });
+    const { t } = await getT();
+    await setNafsFamilyLink(repo, actor, { code: str(form.get("code")), familyId: str(form.get("familyId")), linked: str(form.get("linked")) === "1" });
+    back(ret, t("Saved."));
+  });
 }
 
 /** The builder's "Add from the bank" list (a page at a time). */
@@ -150,28 +191,30 @@ export async function automaticAction(input: { codes: string[]; total?: number |
 
 /** "Give adaptive practice": the targets (or the questions chosen in the bank), the class / students, the limits. */
 export async function createPracticeAction(form: FormData): Promise<void> {
-  const actor = await requireActor({ ...STAFF, permission: "assignments:create" });
-  const ret = "/teacher/nafs?tab=practice";
-  const { t } = await getT();
-  let id = "";
-  try {
+  // r69: the Suggested plan's one-click assign comes back to the plan (r78: on success AND on any error)
+  const backTo = str(form.get("back"));
+  const plan = backTo.startsWith("/teacher/nafs?") ? backTo : null;
+  await guard("createPractice", () => plan ?? "/teacher/nafs?tab=adaptive", async () => {
+    const actor = await requireActor({ ...STAFF, permission: "assignments:create" });
+    const { t } = await getT();
     const r = await createNafsPractice(repo, actor, {
       title: str(form.get("title")), targets: form.getAll("target").map(String), questionIds: form.getAll("pick").map(String).filter(Boolean),
       classId: str(form.get("classId")), studentIds: form.getAll("sid").map(String).filter(Boolean),
       maxQuestions: str(form.get("max")) ? Number(form.get("max")) : null, timeLimitMin: str(form.get("minutes")) ? Number(form.get("minutes")) : null, dueAt: dateOf(form.get("dueAt"), true),
       difficulty: str(form.get("difficulty")) || null,
     });
-    id = r.id;
     revalidatePath("/teacher/nafs");
-    back(`${ret}&open=${encodeURIComponent(id)}`, t("Given to {n} student(s). They find it in their NAFS icon.", { n: r.students }));
-  } catch (e) { if (known(e)) back(ret, t((e as Error).message)); throw e; }
+    back(plan ?? `/teacher/nafs?tab=adaptive&sub=report&open=${encodeURIComponent(r.id)}`, t("Given to {n} student(s). They find it in their NAFS icon.", { n: r.students }));
+  });
 }
 
 export async function deletePracticeAction(form: FormData): Promise<void> {
-  const actor = await requireActor(STAFF);
-  const { t } = await getT();
-  try { await deleteNafsPractice(repo, actor, str(form.get("id"))); } catch (e) { if (known(e)) back("/teacher/nafs?tab=practice", t((e as Error).message)); throw e; }
-  back("/teacher/nafs?tab=practice", t("Practice removed."));
+  await guard("deletePractice", () => "/teacher/nafs?tab=adaptive", async () => {
+    const actor = await requireActor(STAFF);
+    const { t } = await getT();
+    await deleteNafsPractice(repo, actor, str(form.get("id")));
+    back("/teacher/nafs?tab=adaptive", t("Practice removed."));
+  });
 }
 
 // ------------------------------------------------------------------ "Complete NAFS test (all standards)"
@@ -250,58 +293,117 @@ export async function aiDraftsAction(input: AiNafsInput): Promise<{ ok?: { ids: 
 }
 
 export async function deleteTestAction(form: FormData): Promise<void> {
-  const actor = await requireActor(STAFF);
-  const { t } = await getT();
-  try { await deleteNafsTest(repo, actor, str(form.get("id"))); } catch (e) { if (known(e)) back("/teacher/nafs?tab=tests", t((e as Error).message)); throw e; }
-  back("/teacher/nafs?tab=tests", t("Test removed."));
+  await guard("deleteTest", () => "/teacher/nafs?tab=test", async () => {
+    const actor = await requireActor(STAFF);
+    const { t } = await getT();
+    await deleteNafsTest(repo, actor, str(form.get("id")));
+    back("/teacher/nafs?tab=test", t("Test removed."));
+  });
 }
 
 // ------------------------------------------------------------------ online, results
 
 export async function assignOnlineAction(form: FormData): Promise<void> {
-  const actor = await requireActor({ ...STAFF, permission: "assignments:create" });
   const testId = str(form.get("testId"));
   const ret = `/teacher/nafs/tests/${encodeURIComponent(testId)}`;
-  const { t } = await getT();
-  const who = str(form.get("who")) === "some" ? form.getAll("sid").map(String).filter(Boolean) : null;
-  if (who && !who.length) back(ret, t("Choose at least one student."));
-  try {
+  await guard("assignOnline", () => ret, async () => {
+    const actor = await requireActor({ ...STAFF, permission: "assignments:create" });
+    const { t } = await getT();
+    const who = str(form.get("who")) === "some" ? form.getAll("sid").map(String).filter(Boolean) : null;
+    if (who && !who.length) back(ret, t("Choose at least one student."));
     const r = await assignNafsTestOnline(repo, actor, { testId, classId: str(form.get("classId")), openAt: dateOf(form.get("openAt")), dueAt: dateOf(form.get("dueAt"), true), timeLimitMin: str(form.get("minutes")) ? Number(form.get("minutes")) : null, studentIds: who });
-    if (r.adaptive) back(`/teacher/nafs?tab=practice&open=${encodeURIComponent(r.practiceId ?? "")}`, t("Adaptive test given online to {n} student(s): each one starts at Medium and the questions adapt. Results are under Practice.", { n: r.students }));
+    if (r.adaptive) back(`/teacher/nafs?tab=adaptive&sub=report&open=${encodeURIComponent(r.practiceId ?? "")}`, t("Adaptive test given online to {n} student(s): each one starts at Medium and the questions adapt. Results are under Practice.", { n: r.students }));
     back(ret, t("Given online to {n} student(s). They find it in their NAFS icon.", { n: r.students }));
-  } catch (e) { if (known(e)) back(ret, t((e as Error).message)); throw e; }
+  });
+}
+
+/**
+ * r82 Ministry booklets (owner: "pressing Assign does nothing"): the assign panel (the list's sticky bar or an opened
+ * booklet's Assign) → the ticked booklets (1–10, field "b") with their Source (required, r74; NAFS preselected), the
+ * class(es), whole class or chosen students, dates, time and mode (Online / Paper). The answer comes back IN the panel
+ * (never a redirect that lands far from the button): "Given to N students — in their NAFS icon", the print links of
+ * Paper, or a readable message. A double press: the button is disabled while it runs and the press token makes the
+ * server return the first answer (nothing is given twice).
+ */
+export async function assignBookletsNowAction(_prev: BookletAssignState | null, form: FormData): Promise<BookletAssignState> {
+  const codes = form.getAll("b").map(String).filter(Boolean);
+  try {
+    const actor = await requireActor({ ...STAFF, permission: "assignments:create" });
+    const { t } = await getT();
+    if (!codes.length) return { ok: false, message: t("Choose at least one booklet.") };
+    const mode = str(form.get("mode")) === "PAPER" ? "PAPER" : "ONLINE";
+    const some = str(form.get("who")) === "some";
+    const sids = some ? form.getAll("sid").map(String).filter(Boolean) : [];
+    if (some && !sids.length) return { ok: false, message: t("Choose at least one student.") };
+    const classIds = form.getAll("classId").map(String).filter(Boolean);
+    if (mode === "ONLINE" && !classIds.length) return { ok: false, message: t("Choose a class.") };
+    const r = await assignBookletsTo(repo, actor, {
+      codes, classIds, studentIds: some ? sids : null, source: str(form.get("source")) || null, mode, token: str(form.get("token")) || null,
+      minutes: str(form.get("minutes")) ? Number(form.get("minutes")) : null, openAt: dateOf(form.get("openAt")), dueAt: dateOf(form.get("dueAt"), true),
+    });
+    revalidatePath("/teacher/nafs");
+    revalidatePath("/teacher/assigned");
+    if (r.mode === "PAPER") return { ok: true, message: t("{n} booklet(s) ready to print.", { n: r.booklets }), ready: r.tests, students: 0 };
+    return { ok: true, message: t("Given to {n} students — in their NAFS icon.", { n: r.students }), students: r.students, ready: [] };
+  } catch (e) {
+    if (isNextControl(e)) throw e;
+    return { ok: false, message: await messageOf(e, "assignBooklets") };
+  }
 }
 
 /** One assignment's time and open / due dates. */
 export async function updateAssignmentAction(form: FormData): Promise<void> {
-  const actor = await requireActor({ ...STAFF, permission: "assignments:create" });
   const testId = str(form.get("testId"));
   const ret = `/teacher/nafs/tests/${encodeURIComponent(testId)}`;
-  const { t } = await getT();
-  try { await updateNafsAssignment(repo, actor, { testId, classId: str(form.get("classId")), openAt: dateOf(form.get("openAt")), dueAt: dateOf(form.get("dueAt"), true), timeLimitMin: str(form.get("minutes")) ? Number(form.get("minutes")) : null }); }
-  catch (e) { if (known(e)) back(ret, t((e as Error).message)); throw e; }
-  back(ret, t("Saved."));
+  await guard("updateAssignment", () => ret, async () => {
+    const actor = await requireActor({ ...STAFF, permission: "assignments:create" });
+    const { t } = await getT();
+    await updateNafsAssignment(repo, actor, { testId, classId: str(form.get("classId")), openAt: dateOf(form.get("openAt")), dueAt: dateOf(form.get("dueAt"), true), timeLimitMin: str(form.get("minutes")) ? Number(form.get("minutes")) : null });
+    back(ret, t("Saved."));
+  });
+}
+
+/**
+ * ⏱ r69 live time during a timed NAFS test: minutes more / fewer for the class or one student, a new time limit,
+ * "end in N minutes", "end now", or no end time. The students' timers follow within a few seconds.
+ */
+export async function nafsTimeAction(form: FormData): Promise<void> {
+  const testId = str(form.get("testId")), classId = str(form.get("classId"));
+  const ret = `/teacher/nafs/tests/${encodeURIComponent(testId)}`;
+  const op = str(form.get("op"));
+  await guard("nafsTime", () => ret, async () => {
+    const actor = await requireActor({ ...STAFF, permission: "assignments:create" });
+    const { t } = await getT();
+    if (op === "limit") await changeNafsTime(repo, actor, { testId, classId, setMinutes: true, minutes: str(form.get("minutes")) ? Number(form.get("minutes")) : null });
+    else if (op === "endin") { const m = Math.round(Number(form.get("in"))); if (!Number.isFinite(m) || m < 1 || m > 600) back(ret, t("Choose the end time.")); await changeNafsTime(repo, actor, { testId, classId, setEnd: true, endsAt: new Date(Date.now() + m * 60_000) }); }
+    else if (op === "endnow") await changeNafsTime(repo, actor, { testId, classId, setEnd: true, endsAt: new Date() });
+    else if (op === "noend") await changeNafsTime(repo, actor, { testId, classId, setEnd: true, endsAt: null });
+    else await changeNafsTime(repo, actor, { testId, classId, shift: Number(form.get("shift")) * (str(form.get("sign")) === "-" ? -1 : 1), studentId: str(form.get("studentId")) || null });
+    back(ret, t("Time changed. The students' timers update in a few seconds."));
+  });
 }
 
 /** The marking queue: the teacher's rubric score (0 / 1 / 2) for one short written answer. */
 export async function markWrittenAction(form: FormData): Promise<void> {
-  const actor = await requireActor(STAFF);
-  const ret = str(form.get("back")) || "/teacher/nafs?tab=marking";
-  const { t } = await getT();
-  try { await markWrittenAnswer(repo, actor, { resultId: str(form.get("resultId")), index: Number(form.get("index")), score: Number(form.get("score")) }); }
-  catch (e) { if (known(e)) back(ret.startsWith("/teacher/nafs") ? ret : "/teacher/nafs?tab=marking", t((e as Error).message)); throw e; }
-  revalidatePath("/teacher/nafs");
-  redirect(ret.startsWith("/teacher/nafs") ? ret : "/teacher/nafs?tab=marking");
+  const ret = inCenter(str(form.get("back")), "/teacher/nafs?tab=marking");
+  await guard("markWritten", () => ret, async () => {
+    const actor = await requireActor(STAFF);
+    await markWrittenAnswer(repo, actor, { resultId: str(form.get("resultId")), index: Number(form.get("index")), score: Number(form.get("score")) });
+    revalidatePath("/teacher/nafs");
+    redirect(ret);
+  });
 }
 
 export async function releaseAction(form: FormData): Promise<void> {
-  const actor = await requireActor(STAFF);
   const testId = str(form.get("testId"));
   const release = str(form.get("release")) === "1";
   const ret = `/teacher/nafs/tests/${encodeURIComponent(testId)}`;
-  const { t } = await getT();
-  try { await releaseNafsResults(repo, actor, { testId, classId: str(form.get("classId")), release }); } catch (e) { if (known(e)) back(ret, t((e as Error).message)); throw e; }
-  back(ret, t(release ? "Results released: students see their score and the skills to practise." : "Results hidden from the students."));
+  await guard("release", () => ret, async () => {
+    const actor = await requireActor(STAFF);
+    const { t } = await getT();
+    await releaseNafsResults(repo, actor, { testId, classId: str(form.get("classId")), release });
+    back(ret, t(release ? "Results released: students see their score and the skills to practise." : "Results hidden from the students."));
+  });
 }
 
 /**

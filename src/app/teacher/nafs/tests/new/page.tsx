@@ -37,7 +37,7 @@ export default async function NewNafsTestPage({ searchParams }: { searchParams: 
   const settings = test?.settings && typeof test.settings === "object" ? (test.settings as Record<string, unknown>) : null;
   return (
     <AppShell name={String(me.displayName)}>
-      <PageHeader back={{ href: "/teacher/nafs?tab=tests", label: "Tests" }} icon="🇸🇦" title={test ? "Change the test" : "New NAFS test"}
+      <PageHeader back={{ href: "/teacher/nafs?tab=test", label: "NAFS test" }} icon="🇸🇦" title={test ? "Change the test" : "New NAFS test"}
         subtitle={t("1. Start from · 2. Options · 3. The questions — replace, remove, reorder or add any question before saving.")} />
       <NafsBuilder start={start} initialPurpose={sp.purpose === "PRACTICE" ? "PRACTICE" : "TEST"} initialCodes={initialCodes} initialShape={sp.shape === "BOOKLET" ? "BOOKLET" : "BALANCED"} initialAdd={sp.add === "AI" ? "AI" : sp.add === "BANK" ? "BANK" : null}
         initialClassId={classes.some((c) => c.id === sp.class) ? sp.class : null} maxQuestions={MAX_NAFS_QUESTIONS} maxMinutes={MAX_NAFS_MINUTES} simulation={SIMULATION_DEFAULT} ministry={MINISTRY_DEFAULT}

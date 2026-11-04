@@ -37,7 +37,7 @@ export interface MapSourceSection { code: string; category: string; label: strin
 export interface MapSourceSet { code: string; kind: string; number: number; heading: string; title: string; genre: string | null; keyWords: string[]; count: number; sections: MapSourceSection[] }
 export interface MapSourceUnit { unit: number; title: string; count: number; sets: MapSourceSet[] }
 export interface MapSourceTree { grades: number[]; grade: number | null; units: MapSourceUnit[] }
-export interface MapSourceQuestion { id: string; stem: string; type: string; typeLabel: string; level: QLevel; passageTitle: string | null; contentKey: string; section: string; code: string; skill?: string }
+export interface MapSourceQuestion { id: string; stem: string; type: string; typeLabel: string; level: QLevel; passageTitle: string | null; contentKey: string; section: string; code: string; skill?: string; usedBefore?: boolean }
 export interface MapSectionPage {
   code: string; label: string; total: number; page: number; pages: number;
   types: { code: string; label: string; count: number }[]; levels: { level: QLevel; count: number }[];
@@ -54,6 +54,14 @@ function staff(actor: Actor): void {
 export const sectionTitle = (label: string): string => s(label).replace(/^\s*\d+\s*-\s*/, "").trim();
 const sectionLabel = (n: AttachmentNode): string => [sectionTitle(n.categoryLabel), n.level ? LEVEL_TITLE[n.level] : null].filter(Boolean).join(" · ");
 const setCode = (n: AttachmentNode): string => n.code.split(".").slice(0, 3).join(".");
+/**
+ * 🔁 fix (Oct 2026, "خليها باسم الدرس مثل skill plan"): the curated lesson name (same lookup/source as
+ * lesson-details.ts#unitCards and mapSourceTree's own `title` just below), used wherever a Text Set/Selection used
+ * to print its raw, generic `heading` ("Text Set 1: Narrative Nonfiction") in a question/section list — falls back
+ * to the raw heading when this Text Set has no entry yet in the curated file (lesson-details.json).
+ */
+const setHeading = (n: Pick<AttachmentNode, "grade" | "sharedRead" | "setTitle" | "unitTitle" | "heading">): string =>
+  (lessonDetail(n.grade, n.sharedRead) ?? lessonDetail(n.grade, n.setTitle) ?? lessonAt(n.grade, n.unitTitle, n.heading))?.name ?? n.heading;
 
 /** The places the actor may use: a teacher's own grades only. */
 export async function allowedNodes(repo: Repo, actor: Actor): Promise<AttachmentNode[]> {
@@ -146,7 +154,7 @@ export async function mapSectionQuestions(repo: Repo, actor: Actor, input: { cod
   const page = Math.max(1, Math.min(pages, Math.round(Number(input.page) || 1)));
   const slice = input.all ? match.slice(0, MAX_PICKS) : match.slice((page - 1) * SECTION_PAGE, page * SECTION_PAGE);
   const items = await loadQuestionItems(repo, slice.map((q) => s(q.id)));
-  const label = `${node.heading} · ${sectionLabel(node)}`;
+  const label = `${setHeading(node)} · ${sectionLabel(node)}`;
   const questions = slice.flatMap((q) => {
     const it = items.find((x) => x.questionId === s(q.id));
     return it ? [{ id: s(q.id), stem: s(it.stem).slice(0, 220), type: s(q.typeCode), typeLabel: s(q.typeName) || s(q.typeCode), level: levelOf(q), passageTitle: it.passageTitle ?? null, contentKey: contentKey(it), section: label, code: node.code }] : [];
@@ -159,10 +167,17 @@ export async function mapSectionQuestions(repo: Repo, actor: Actor, input: { cod
   };
 }
 
-/** The picker rows of chosen questions (e.g. a saved draft's Curriculum Map picks), in the given order. */
-export async function describePicks(repo: Repo, actor: Actor, ids: string[]): Promise<MapSourceQuestion[]> {
+/**
+ * The picker rows of chosen questions (e.g. a saved draft's Curriculum Map picks), in the given order.
+ * `limit` (default MAX_PICKS = 60): how many of `ids` to describe. 🐛 fix (Oct 2026, "التنظيم"): the Review screens
+ * (review-control.ts) store and assign up to MAX_REVIEW (1000) questions, but this always silently truncated what
+ * it showed the teacher to the first 60 — so a Review past 60 questions looked incomplete/unorganized on screen
+ * even though every question was really there. Review now passes MAX_REVIEW here; every other caller (Assessments,
+ * search, generation, …) keeps the default 60 unchanged.
+ */
+export async function describePicks(repo: Repo, actor: Actor, ids: string[], limit: number = MAX_PICKS): Promise<MapSourceQuestion[]> {
   staff(actor);
-  const list = [...new Set((ids ?? []).map(s).filter(Boolean))].slice(0, MAX_PICKS);
+  const list = [...new Set((ids ?? []).map(s).filter(Boolean))].slice(0, limit);
   if (!list.length) return [];
   const [items, qs] = await Promise.all([loadQuestionItems(repo, list), repo.findMany("Question", { id: { in: list } }, { select: ["id", "typeId", "difficultyLevel", "skillId"] })]);
   const [types, skills] = qs.length ? await Promise.all([
@@ -182,8 +197,33 @@ export async function describePicks(repo: Repo, actor: Actor, ids: string[]): Pr
     const t = typeOf.get(s(q.typeId));
     const n = nodeOf.get(s(linkOf.get(id)?.nodeId));
     const skill = s(skillOf.get(s(q.skillId))?.name);
-    return [{ id, stem: s(it.stem).slice(0, 220), type: s(t?.code), typeLabel: s(t?.name ?? t?.code), level: (n?.level ?? fromDifficulty(Number(q.difficultyLevel ?? 4))) as QLevel, passageTitle: it.passageTitle ?? null, contentKey: contentKey(it), section: n ? `${n.heading} · ${sectionLabel(n)}` : skill ? `🧩 ${skill}` : "", code: n?.code ?? "", skill }];
+    return [{ id, stem: s(it.stem).slice(0, 220), type: s(t?.code), typeLabel: s(t?.name ?? t?.code), level: (n?.level ?? fromDifficulty(Number(q.difficultyLevel ?? 4))) as QLevel, passageTitle: it.passageTitle ?? null, contentKey: contentKey(it), section: n ? `${setHeading(n)} · ${sectionLabel(n)}` : skill ? `🧩 ${skill}` : "", code: n?.code ?? "", skill }];
   });
+}
+
+/**
+ * 🆕 r92 Review Builder ("اقترح اسئله لم تستخدم من قبل علي نفس الدرس"): which of these questions have already
+ * been ASSIGNED to students before, in a past Review (⭐ Assign on a Review place) anywhere in this school — not
+ * just sitting in a draft Review nobody has sent yet. "Used" = the question was part of a published TEACHER_QUIZ
+ * Assessment that a non-deleted, CURRICULUM-track Assignment actually sent out. The candidate ids are already
+ * scoped to one lesson/skill by the caller (sharedQuestions/setsQuestionIds/skillAddableIds), so this alone is
+ * enough to tell "new" from "used before" for that lesson — no extra schema needed.
+ */
+export async function usedQuestionIds(repo: Repo, ids: string[]): Promise<Set<string>> {
+  const list = [...new Set((ids ?? []).map(s).filter(Boolean))];
+  if (!list.length) return new Set();
+  const aqs = await repo.findMany("AssessmentQuestion", { questionId: { in: list } }, { select: ["questionId", "assessmentId"] });
+  if (!aqs.length) return new Set();
+  const assessmentIds = [...new Set(aqs.map((a) => s(a.assessmentId)))];
+  const quizzes = await repo.findMany("Assessment", { id: { in: assessmentIds }, type: "TEACHER_QUIZ" }, { select: ["id"] });
+  if (!quizzes.length) return new Set();
+  const quizIds = new Set(quizzes.map((a) => s(a.id)));
+  const sent = await repo.findMany("Assignment", { assessmentId: { in: [...quizIds] }, track: "CURRICULUM", deletedAt: null }, { select: ["assessmentId"] });
+  const sentIds = new Set(sent.map((a) => s(a.assessmentId)));
+  if (!sentIds.size) return new Set();
+  const used = new Set<string>();
+  for (const aq of aqs) if (sentIds.has(s(aq.assessmentId))) used.add(s(aq.questionId));
+  return used;
 }
 
 /**

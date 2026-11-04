@@ -560,6 +560,11 @@ async function completeRow(idx: CurriculumIndex, cells: Partial<Record<string, s
   const warnings: string[] = [], aiNeeds: string[] = [];
   if (!rr.question) return { warnings, aiNeeds };
   const get = (k: string) => String(cells[k] ?? "").trim();
+  // 🔓 fix (Oct 2026): an unrecognized "MAP Instructional Area" text used to be dropped silently (writeBatch's
+  // areaFromName(...) ?? null just skipped it) — the admin never learned their column wasn't understood, and the
+  // question fell through to automatic classification unannounced. Now it's a visible Preview warning.
+  const rawMapArea = get("mapArea");
+  if (rawMapArea && !areaFromName(rawMapArea)) warnings.push(`MAP Instructional Area “${rawMapArea}” was not recognized and will be ignored; the platform will classify this question automatically instead.`);
   // grade
   if (rr.grade === null && !get("grade")) {
     const g = gradeFromRow(idx, cells) ?? fileGrade;
@@ -1059,7 +1064,7 @@ async function commitChunk(repo: Repo, actor: Actor, jobId: string, opts: { publ
         postErrors.push({ message: `After the import, “${name}” did not finish for ${newIds.length} question(s): ${shortDbMessage(e)}` });
       }
     };
-    await step("MAP area", async () => { const { autoClassify } = await import("../map/question-areas"); await autoClassify(repo, schoolOf(actor), newIds, now); });
+    await step("MAP area", async () => { const { autoClassifyMapArea } = await import("../map/question-areas"); await autoClassifyMapArea(repo, schoolOf(actor), newIds, now); });
     // 🧭 map questions imported without a skill: their real skill from the map place / standard / wording (Update 39C)
     await step("skill from the map place", async () => { const { remapNewQuestions } = await import("../curriculum-map/remap-skills"); await remapNewQuestions(repo, schoolOf(actor), newIds, actor.userId, now); });
     // 🧠 question intelligence (it also tags each wrong option's misconception: tagOptions runs inside it, once)

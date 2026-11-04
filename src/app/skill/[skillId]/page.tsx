@@ -5,6 +5,7 @@ import { PageHeader } from "@/components/page-header";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { ForbiddenError } from "@/server/auth/rbac";
 import { skillHub } from "@/server/skills/hub";
+import { SkillStar, StarGlyph } from "@/components/skills/skill-star";
 
 export const metadata = { title: "Skill" };
 
@@ -87,15 +88,15 @@ export default async function SkillHubPage({ params }: { params: Promise<{ skill
             {!h.students.total ? <p className="mt-1 text-sm text-slate-600">No students in this grade in your classes.</p> : (
               <>
                 <div className="mt-3 flex h-3 overflow-hidden rounded-full bg-slate-100" role="img" aria-label={`${h.students.mastered} mastered, ${h.students.practising} practising, ${h.students.notStarted} not started`}>
-                  <span className="bg-emerald-500" style={{ width: `${pct(h.students.mastered)}%` }} /><span className="bg-amber-400" style={{ width: `${pct(h.students.practising)}%` }} />
+                  <span className="bg-amber-400" style={{ width: `${pct(h.students.mastered)}%` }} /><span className="bg-sky-400" style={{ width: `${pct(h.students.practising)}%` }} />
                 </div>
                 <dl className="mt-3 grid grid-cols-3 gap-2 text-center">
-                  {([["Mastered", h.students.mastered, "text-emerald-700"], ["Practising", h.students.practising, "text-amber-700"], ["Not started", h.students.notStarted, "text-slate-600"]] as const).map(([l, n, c]) => <div key={l} className="rounded-xl bg-slate-50 py-2"><dd className={`text-xl font-bold tabular-nums ${c}`}>{n}</dd><dt className="text-xs text-slate-500">{l}</dt></div>)}
+                  {([["Mastered", h.students.mastered, "text-amber-700", "MASTERED"], ["Practising", h.students.practising, "text-sky-700", "IN_PROGRESS"], ["Not started", h.students.notStarted, "text-slate-600", "NOT_STARTED"]] as const).map(([l, n, c, st]) => <div key={l} className="rounded-xl bg-slate-50 py-2"><dd className={`text-xl font-bold tabular-nums ${c}`}>{n}</dd><dt className="inline-flex items-center gap-1 text-xs text-slate-500"><StarGlyph status={st} size={12} />{l}</dt></div>)}
                 </dl>
-                {h.students.avg !== null && <p className="mt-2 text-xs text-slate-500">Average mastery of those who started: {h.students.avg}% · {h.assignments} assignment(s) of this skill</p>}
+                {h.students.avg !== null && <p className="mt-2 text-xs text-slate-500">Average star score of those who started: {h.students.avg} · {h.assignments} assignment(s) of this skill</p>}
                 {h.students.needHelp.length > 0 && (
-                  <div className="mt-3"><p className="text-sm font-medium text-slate-800">Struggling (under 50%)</p>
-                    <ul className="mt-1 space-y-1 text-sm">{h.students.needHelp.map((x) => <li key={x.id} className="flex justify-between gap-2"><Link href={`/teacher/students/${x.id}`} className="truncate text-brand-navy hover:underline">{x.name} <span className="text-xs text-slate-500">{x.className}</span></Link><span className="tabular-nums text-red-700">{x.score}%</span></li>)}</ul>
+                  <div className="mt-3"><p className="text-sm font-medium text-slate-800">Needs help (🔄 Needs review, needs support, or star score under 50)</p>
+                    <ul className="mt-1 space-y-1 text-sm">{h.students.needHelp.map((x) => <li key={x.id} className="flex justify-between gap-2"><Link href={`/teacher/students/${x.id}`} className="truncate text-brand-navy hover:underline">{x.name} <span className="text-xs text-slate-500">{x.className}</span></Link><span className="inline-flex items-center gap-1 tabular-nums text-red-700"><SkillStar info={{ status: x.status, score: x.score, needsSupport: x.needsSupport }} label={x.name} inLink={false} />{x.score}</span></li>)}</ul>
                   </div>
                 )}
               </>

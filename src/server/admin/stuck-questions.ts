@@ -1,9 +1,12 @@
 /**
  * 🛠 “Fix stuck questions” (owner, r67): ONE admin action for every question that is stuck in the bank — not under a
  * skill, a draft, or waiting for review. It runs on the school's own database in small batches (the page shows the
- * progress; the server never holds the bank in memory), never deletes anything, and is idempotent (a second run
+ * progress; the server never holds the bank in memory), never erases anything, and is idempotent (a second run
  * finds nothing new to do). Phases:
  *
+ *   0. passages  (r68) every question whose wording needs a passage / story / poem / chart / picture that is not
+ *                attached is removed from the platform: a SOFT delete by the admin delete rule (hidden everywhere,
+ *                students' answers kept; src/server/admin/missing-passage.ts). Listed in the report.
  *   1. classify  every question on a grade's hidden “Unclassified (Curriculum Map)” skill gets its real skill, by the
  *                platform's own link pass (src/server/questions/link-bank.ts — the same rules as Sort Questions):
  *                the skill named in the import file / tags, the question's standard → the same-grade skill linked to
@@ -29,6 +32,10 @@ import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
 import { LEVEL_TO_B } from "../../config/engine";
 import { isHiddenSkill } from "../skills/master";
 import { ritOf } from "../questions/bank-scope";
+import type { JobDef } from "../jobs/runner";
+import { memoryHigh } from "../monitoring/memory";
+
+const sleep = (ms: number) => new Promise<void>((r) => setTimeout(r, ms));
 
 const s = (v: unknown) => (v === null || v === undefined ? "" : String(v));
 const tagsOf = (v: unknown): Record<string, unknown> => {
@@ -42,13 +49,20 @@ const norm = (t: unknown) => s(t).replace(/\s+/g, " ").trim();
 export const CLASSIFY_BATCH = 100;
 export const PUBLISH_BATCH = 40;
 const LIST_CAP = 200;
+// 🛑 fix (Oct 2026, same production OOM as link-review-bulk.ts's AcceptConfident / AcceptAllGuesses): "Fix stuck
+// questions" and "Auto-classify" loop a batch at a time, up to thousands of times, with real DB writes in every
+// batch (soft-deletes, classifyPage's link pass, repairPublishPage's per-question transaction + publish) and no
+// pacing of their own. Each batch now checks memoryHigh() FIRST and, if the instance is already under pressure,
+// does nothing and asks the caller to pause BUSY_WAIT_MS before retrying the same cursor — same gate as
+// acceptConfidentBatch / acceptAllGuessesBatch.
+export const BUSY_WAIT_MS = 4_000;
 /** decisions at or above this are applied (standard, map place, import / tags, Respond to Reading); wording guesses (0.5) are not */
 export const FIX_LINK_THRESHOLD = 0.6;
 const REPORT_KEY = "questions.fixStuck.report";
 /** bump when the rules change: the background run happens once per version */
-export const AUTO_RUN_KEY = "questions.fixStuck.auto.r67";
+export const AUTO_RUN_KEY = "questions.fixStuck.auto.r68";
 
-export type Phase = "classify" | "repair" | "done";
+export type Phase = "passages" | "classify" | "repair" | "done";
 export interface Cursor { phase: Phase; after: string | null }
 export interface StuckItem { id: string; stem: string; reason: string }
 export interface StuckCounts { unclassified: number; drafts: number; waiting: number }
@@ -61,8 +75,13 @@ export interface FixReport {
   repaired: Record<string, number>; repairedQuestions: number;
   published: number;
   notPublished: StuckItem[]; notPublishedCount: number;
+  /** r68: removed because they need a passage / picture that is not attached (soft delete; first LIST_CAP) */
+  removedNoPassage?: number; removedList?: StuckItem[];
+  /** 🔧 fix (Oct 2026): a question's answer key was corrected here after students had already answered it under the
+   *  old (missing) key — surfaced so an admin notices their past scores were not retroactively changed. */
+  warnings?: string[];
 }
-export interface StepResult { cursor: Cursor; processed: number; report: FixReport }
+export interface StepResult { cursor: Cursor; processed: number; report: FixReport; waitMs: number }
 
 function adminOnly(actor: Actor): string {
   if (actor.role !== "SCHOOL_ADMIN" && actor.role !== "SUPER_ADMIN") throw new ForbiddenError("Only a school admin can fix the question bank.");
@@ -160,16 +179,25 @@ async function classifyPage(repo: Repo, schoolId: string, actorId: string | null
  * 🪄 One batch of classifying only (Classify Curriculum Questions → “Auto-classify”, with a progress bar): the same
  * rules as phase 1. Returns the cursor, how many were classified, those left with the reason, and how many remain.
  */
-export async function classifyStep(repo: Repo, schoolId: string, actorId: string | null, after: string | null, now = new Date()): Promise<{ next: string | null; processed: number; classified: number; left: StuckItem[]; remaining: number }> {
+export async function classifyStep(repo: Repo, schoolId: string, actorId: string | null, after: string | null, now = new Date()): Promise<{ next: string | null; processed: number; classified: number; left: StuckItem[]; remaining: number; waitMs: number }> {
+  // 🛑 fix (Oct 2026): pause this batch (same cursor, nothing done) when the instance is already low on memory —
+  // see BUSY_WAIT_MS above.
+  if (memoryHigh()) return { next: after, processed: 0, classified: 0, left: [], remaining: 0, waitMs: BUSY_WAIT_MS };
   const sk = await schoolSkills(repo, schoolId);
   const report = emptyReport("admin", { unclassified: 0, drafts: 0, waiting: 0 }, now);
   const r = await classifyPage(repo, schoolId, actorId, sk, after, report, now);
-  return { next: r.next, processed: r.processed, classified: report.classified, left: report.left, remaining: await unclassifiedCount(repo, schoolId) };
+  return { next: r.next, processed: r.processed, classified: report.classified, left: report.left, remaining: await unclassifiedCount(repo, schoolId), waitMs: 0 };
 }
 
 // ------------------------------------------------------------------ 2. repair
 
-export interface RepairResult { fixes: string[]; problem: string | null }
+export interface RepairResult {
+  fixes: string[]; problem: string | null;
+  /** 🔧 fix (Oct 2026): set when the "answer key" fix below actually flipped which choice is correct and students
+   *  had already answered this question under the old (missing) key — the number of those existing attempts, so
+   *  the caller can warn an admin that past scores were not retroactively changed. */
+  priorAttempts?: number;
+}
 
 const CHOICE = new Set(["MULTIPLE_CHOICE", "MULTI_SELECT", "DROPDOWN"]);
 
@@ -198,6 +226,7 @@ export async function repairQuestion(tx: Repo, q: Row, ctx: { typeCode: string |
     tx.findMany("QuestionExplanation", { questionId: id }, { select: ["id", "kind"] }),
   ]);
   const patch: Record<string, unknown> = {};
+  let priorAttempts: number | undefined;
 
   // the type: from the parts when it is missing
   let type = ctx.typeCode;
@@ -230,7 +259,15 @@ export async function repairQuestion(tx: Repo, q: Row, ctx: { typeCode: string |
         if (letters.length) for (const L of letters) { const byLabel = options.findIndex((o) => s(o.label).toUpperCase() === L); const i = byLabel >= 0 ? keep.indexOf(keep.find((x) => x.id === options[byLabel].id)!) : L.charCodeAt(0) - 65; if (i >= 0 && i < keep.length) want.add(i); }
         else { const i = keep.findIndex((o) => norm(o.text).toLowerCase() === k.toLowerCase()); if (i >= 0) want.add(i); }
       }
-      if (want.size && (type !== "MULTIPLE_CHOICE" && type !== "DROPDOWN" || want.size === 1)) { for (const i of want) keep[i].isCorrect = true; fixes.push("answer key"); }
+      if (want.size && (type !== "MULTIPLE_CHOICE" && type !== "DROPDOWN" || want.size === 1)) {
+        for (const i of want) keep[i].isCorrect = true;
+        fixes.push("answer key");
+        // 🔧 fix (Oct 2026): students may already have answered this question while it had no correct choice marked
+        // — count their attempts so the admin is warned that the key changed under them (their past scores are
+        // not changed by this repair).
+        const n = await tx.count("QuestionAttempt", { questionId: id });
+        if (n > 0) priorAttempts = n;
+      }
     }
     // a wrong choice without feedback: the platform's publish check asks for one — written from the key
     const right = keep.filter((o) => o.isCorrect);
@@ -272,8 +309,11 @@ export async function repairQuestion(tx: Repo, q: Row, ctx: { typeCode: string |
   }
 
   if (Object.keys(patch).length) await tx.updateMany("Question", { id }, { ...patch, updatedAt: now });
-  if (fixes.length) await tx.create("AuditLog", { actorId: null, action: "question.repair", entityType: "Question", entityId: id, after: { fixes: [...new Set(fixes)], via: "fix-stuck-questions" }, createdAt: now });
-  return { fixes: [...new Set(fixes)], problem: null };
+  // 🆕 feature (Oct 2026): record priorAttempts on the audit entry too (not just the return value) when the answer
+  // key changed under already-answered students — so the admin audit trail itself shows how many students were
+  // affected, without needing to cross-reference QuestionAttempt separately.
+  if (fixes.length) await tx.create("AuditLog", { actorId: null, action: "question.repair", entityType: "Question", entityId: id, after: { fixes: [...new Set(fixes)], via: "fix-stuck-questions", ...(priorAttempts !== undefined ? { priorAttempts } : {}) }, createdAt: now });
+  return { fixes: [...new Set(fixes)], problem: null, priorAttempts };
 }
 
 /** The editor's words for a publish problem, made plain. */
@@ -300,6 +340,9 @@ async function repairPublishPage(repo: Repo, actor: Actor, schoolId: string, sk:
   for (const q of page) {
     const r = await repo.transaction((tx) => repairQuestion(tx, q, { typeCode: codeOfType.get(s(q.typeId)) ?? null, typeIds, grade: sk.gradeOf.get(s(q.skillId)) ?? 0 }, now));
     if (r.fixes.length) { report.repairedQuestions++; for (const f of r.fixes) report.repaired[f] = (report.repaired[f] ?? 0) + 1; }
+    // 🔧 fix (Oct 2026): admin-visible warning when this repair changed the correct answer out from under students
+    // who had already answered the question (their past scores were not changed).
+    if (r.priorAttempts) { report.warnings = report.warnings ?? []; report.warnings.push(`Question ${s(q.id)}'s answer key was corrected after ${r.priorAttempts} student(s) had already answered it under the old key — their past scores were not changed.`); }
     if (r.problem) { no(q, r.problem); continue; }
     if (sk.hidden.includes(s(q.skillId)) && !onMap.has(s(q.id))) { no(q, "Not under a skill yet and not on the Curriculum Map: choose its skill first."); continue; }
     toPublish.push(s(q.id));
@@ -316,7 +359,22 @@ async function repairPublishPage(repo: Repo, actor: Actor, schoolId: string, sk:
 
 // ------------------------------------------------------------------ the run
 
-const emptyReport = (by: "admin" | "auto", before: StuckCounts, now: Date): FixReport => ({ startedAt: now.toISOString(), finishedAt: null, by, before, after: null, classified: 0, byVia: {}, left: [], leftCount: 0, repaired: {}, repairedQuestions: 0, published: 0, notPublished: [], notPublishedCount: 0 });
+const emptyReport = (by: "admin" | "auto", before: StuckCounts, now: Date): FixReport => ({ startedAt: now.toISOString(), finishedAt: null, by, before, after: null, classified: 0, byVia: {}, left: [], leftCount: 0, repaired: {}, repairedQuestions: 0, published: 0, notPublished: [], notPublishedCount: 0, removedNoPassage: 0, removedList: [], warnings: [] });
+
+// ------------------------------------------------------------------ 0. passages
+
+/** One batch: the questions of this page that need a missing passage are soft-deleted (the admin delete rule). */
+async function passagesPage(repo: Repo, actor: Actor, schoolId: string, after: string | null, report: FixReport, now: Date): Promise<{ next: string | null; processed: number }> {
+  const { missingPassagePage, removeMissingPassage } = await import("./missing-passage");
+  const r = await missingPassagePage(repo, schoolId, after);
+  if (r.items.length) {
+    const done = await removeMissingPassage(repo, actor, r.items.map((x) => x.id), now);
+    report.removedNoPassage = (report.removedNoPassage ?? 0) + done.removed;
+    report.removedList = report.removedList ?? [];
+    for (const x of r.items) if (report.removedList.length < LIST_CAP) report.removedList.push({ id: x.id, stem: x.stem.slice(0, 140), reason: x.reason });
+  }
+  return { next: r.next, processed: r.processed };
+}
 
 export async function lastFixReport(repo: Repo, schoolId: string): Promise<FixReport | null> {
   const row = (await repo.findMany("SchoolSetting", { schoolId, key: REPORT_KEY }, { take: 1 }))[0];
@@ -334,12 +392,23 @@ async function saveReport(repo: Repo, schoolId: string, r: FixReport, by: string
 export async function fixStuckStep(repo: Repo, actor: Actor, cursor: Cursor | null, opts: { by?: "admin" | "auto"; now?: Date } = {}): Promise<StepResult> {
   const schoolId = adminOnly(actor);
   const now = opts.now ?? new Date();
+  // 🛑 fix (Oct 2026): pause this batch (same cursor, nothing done) when the instance is already low on memory,
+  // instead of piling the soft-deletes / classify link pass / repair-and-publish transaction of a batch on top of
+  // an already-busy instance — see BUSY_WAIT_MS above. Cheap: no DB read, just a placeholder report (unused by the
+  // caller until the run is actually done).
+  if (memoryHigh()) return { cursor: cursor ?? { phase: "passages", after: null }, processed: 0, report: emptyReport(opts.by ?? "admin", { unclassified: 0, drafts: 0, waiting: 0 }, now), waitMs: BUSY_WAIT_MS };
   const sk = await schoolSkills(repo, schoolId);
   let report = cursor ? await lastFixReport(repo, schoolId) : null;
   if (!report || !cursor) report = emptyReport(opts.by ?? "admin", await stuckCounts(repo, schoolId), now);
-  let cur: Cursor = cursor ?? { phase: "classify", after: null };
+  let cur: Cursor = cursor ?? { phase: "passages", after: null };
   let processed = 0;
-  if (cur.phase === "classify") {
+  if (cur.phase === "passages") {
+    const r = await passagesPage(repo, actor, schoolId, cur.after, report, now);
+    processed = r.processed;
+    cur = r.next ? { phase: "passages", after: r.next } : { phase: "classify", after: null };
+    // reports already open on a removed question leave Flagged Questions too
+    if (!r.next) { const { sweepRemovedFlags } = await import("../questions/flags-removed"); await sweepRemovedFlags(repo, schoolId, now); }
+  } else if (cur.phase === "classify") {
     const r = await classifyPage(repo, schoolId, opts.by === "auto" ? null : actor.userId, sk, cur.after, report, now);
     processed = r.processed;
     cur = r.next ? { phase: "classify", after: r.next } : { phase: "repair", after: null };
@@ -350,7 +419,7 @@ export async function fixStuckStep(repo: Repo, actor: Actor, cursor: Cursor | nu
   }
   if (cur.phase === "done") { report.after = await stuckCounts(repo, schoolId); report.finishedAt = now.toISOString(); }
   await saveReport(repo, schoolId, report, opts.by === "auto" ? null : actor.userId);
-  return { cursor: cur, processed, report };
+  return { cursor: cur, processed, report, waitMs: 0 };
 }
 
 /** The whole run at once (the background job and tests). */
@@ -358,6 +427,10 @@ export async function fixStuckQuestions(repo: Repo, actor: Actor, opts: { by?: "
   let cursor: Cursor | null = null;
   for (let guard = 0; guard < 5000; guard++) {
     const r: StepResult = await fixStuckStep(repo, actor, cursor, opts);
+    // 🛑 fix (Oct 2026): this is the whole run in one call (no client to show a “waiting” message to) — when a
+    // batch paused itself for memory, just wait it out here and retry the same cursor, same as the job runner's
+    // memoryGate does for FIX_STUCK_JOB.
+    if (r.waitMs > 0) { await sleep(r.waitMs); continue; }
     if (r.cursor.phase === "done") return r.report;
     cursor = r.cursor;
   }
@@ -369,24 +442,47 @@ export async function fixStuckQuestions(repo: Repo, actor: Actor, opts: { by?: "
  * school's first admin (its report is on System check). Claims the key first, so it runs once even with two servers.
  */
 export async function fixStuckOnce(repo: Repo, now = new Date()): Promise<number> {
-  let n = 0;
-  for (const school of await repo.findMany("School", {}, { select: ["id"] })) {
-    const schoolId = s(school.id);
-    const admin = (await repo.findMany("User", { schoolId, role: "SCHOOL_ADMIN", isActive: true, deletedAt: null }, { select: ["id"], orderBy: [{ field: "createdAt", dir: "asc" }], take: 1 }))[0];
-    if (!admin) continue;
-    const claimed = await repo.create("SchoolSetting", { schoolId, key: AUTO_RUN_KEY, value: { startedAt: now.toISOString() }, updatedBy: null }).then(() => true, () => false);
-    if (!claimed) continue;
-    const actor: Actor = { userId: s(admin.id), role: "SCHOOL_ADMIN", schoolId };
-    const report = await fixStuckQuestions(repo, actor, { by: "auto", now });
-    await repo.upsert("SchoolSetting", { schoolId, key: AUTO_RUN_KEY }, { value: { finishedAt: new Date().toISOString(), published: report.published, classified: report.classified } }, { value: { finishedAt: new Date().toISOString(), published: report.published, classified: report.classified } });
-    n++;
-  }
-  return n;
+  const { runJobEverywhere } = await import("../jobs/runner");
+  return (await runJobEverywhere(repo, FIX_STUCK_JOB, { now })).filter((o) => o.ran).length;
 }
 
-let started: Promise<number> | null = null;
+const firstAdmin = async (repo: Repo, schoolId: string): Promise<string | null> =>
+  s((await repo.findMany("User", { schoolId, role: "SCHOOL_ADMIN", isActive: true, deletedAt: null }, { select: ["id"], orderBy: [{ field: "createdAt", dir: "asc" }], take: 1 }))[0]?.id) || null;
+
+/**
+ * 🛠 The same run as a light background job (src/server/jobs/runner.ts): one batch per step (100 to classify, 40 to
+ * repair and publish), the cursor saved after each, so a restart resumes; once per update (AUTO_RUN_KEY is its
+ * checkpoint row, claimed per school, so two servers never run it twice). Acts as the school's first admin; schools
+ * without an admin are left for a later start (as before).
+ */
+export const FIX_STUCK_JOB: JobDef<Cursor> = {
+  name: "fix-stuck",
+  version: AUTO_RUN_KEY,
+  stateKey: AUTO_RUN_KEY,
+  async schools(repo) {
+    const out: string[] = [];
+    for (const sc of await repo.findMany("School", {}, { select: ["id"], orderBy: [{ field: "id", dir: "asc" }] })) if (await firstAdmin(repo, s(sc.id))) out.push(s(sc.id));
+    return out;
+  },
+  async skip(repo, schoolId) {
+    // finished before the runner existed (the old mark: { finishedAt, published, classified })
+    const row = await repo.findUnique("SchoolSetting", { schoolId, key: AUTO_RUN_KEY });
+    const v = row ? (valueOf(row.value) as Record<string, unknown> | null) : null;
+    return Boolean(v && typeof v === "object" && v.finishedAt && v.version === undefined);
+  },
+  async step(repo, schoolId, cursor, _state, now) {
+    const admin = await firstAdmin(repo, schoolId);
+    if (!admin) return { cursor, done: true };
+    const r = await fixStuckStep(repo, { userId: admin, role: "SCHOOL_ADMIN", schoolId }, cursor, { by: "auto", now });
+    return { cursor: r.cursor.phase === "done" ? null : r.cursor, done: r.cursor.phase === "done", progress: { processed: r.processed } };
+  },
+  async finish(repo, schoolId) {
+    const r = await lastFixReport(repo, schoolId);
+    return { finishedAt: new Date().toISOString(), published: r?.published ?? 0, classified: r?.classified ?? 0 };
+  },
+};
+
 /** Once per server process (instrumentation): in the background, never throws. */
 export function fixStuckOnceInBackground(repo: Repo): Promise<number> {
-  started ??= fixStuckOnce(repo).catch(() => { started = null; return 0; });
-  return started;
+  return fixStuckOnce(repo).catch(() => 0);
 }

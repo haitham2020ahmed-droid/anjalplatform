@@ -104,10 +104,10 @@
      "passage": "Homework every night is too much. We get tired. We have no time to play.",
      "stem": "How does the author feel about homework every night?",
      "options": [
-      "The author loves it.",
+      "The author loves it more than play.",
       "The author thinks it is too much.",
-      "The author does it fast.",
-      "The author has no books."
+      "The author does it fast at home.",
+      "The author has no books at home."
      ],
      "answer": 1,
      "why": "The words too much and tired show the author does not like it."
@@ -129,9 +129,9 @@
      "stem": "What is the author's viewpoint?",
      "options": [
       "Long car trips are not fun.",
-      "Cars are fast.",
-      "Trips are short.",
-      "Hard seats are nice."
+      "Cars are fast and very fun.",
+      "Trips are short and quick.",
+      "Hard seats are nice to sit on."
      ],
      "answer": 0,
      "why": "Do not like, hard seats and lasts forever show the author does not enjoy long trips."
@@ -414,9 +414,9 @@
     "passage": "Visitors to the old quarter of the city usually come for an hour, take photographs of the carved wooden balconies, and leave. I understand why: the alleys are narrow, the summer heat is heavy, and there is no air-conditioned café on every corner. Yet the visitors who rush away miss what the photographs cannot hold. They miss the carpenter who has repaired the same balcony for forty years and can tell you which family once sat behind it. They miss the smell of cardamom coffee drifting from a doorway and the way the evening breeze moves through streets designed, centuries ago, to catch it. A photograph records a building; only time spent there reveals a neighbourhood.",
     "stem": "Which statement best describes the author's viewpoint and how it is conveyed?",
     "options": [
-     "The author dislikes tourists and blames them for damaging the old quarter.",
-     "The author thinks the heat makes the old quarter impossible to enjoy.",
-     "The author mainly wants the city to build cafés for visitors.",
+     "The author dislikes tourists and blames them for damaging the old quarter with their noise, their litter and their cars.",
+     "The author thinks the heat makes the old quarter impossible to enjoy at any time of the year.",
+     "The author mainly wants the city to build cafés for visitors and to widen all the narrow streets.",
      "The author, while admitting the discomforts, argues that the quarter must be experienced slowly to be understood."
     ],
     "answer": 3,
@@ -447,10 +447,10 @@
      "passage": "For years I complained about the early bus to school. It came before sunrise, the driver hummed old songs, and the seats were stiff. Last month the route was cancelled, and my father now drives me. The car is comfortable and quiet. I find myself, oddly, missing the humming.",
      "stem": "What does the final sentence reveal about the author's viewpoint?",
      "options": [
-      "The author still hates the bus and is glad it was cancelled.",
+      "The author still hates the bus and is glad it was cancelled for good, with no regrets.",
       "The author's feelings changed, and the author now values what once annoyed them.",
-      "The author wants a louder car.",
-      "The author was never bothered by the early bus."
+      "The author wants a louder car and a faster bus to ride in each morning.",
+      "The author was never bothered by the early bus and always liked it."
      ],
      "answer": 1,
      "why": "'Oddly, missing the humming' shows a shift: something the author complained about now feels valuable."

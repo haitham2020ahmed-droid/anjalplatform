@@ -12,6 +12,8 @@ import type { GameProps, LivePadProps, PlayQuestion, PowerEffect, PowerUpId } fr
 import { PowerBar } from "../kit/power-bar";
 import { bubbleAt, isSorting, layout, popOutcome, popTargets, RISE_SPEED, type Arena } from "./rules";
 import { shuffled, useFrame } from "./frame";
+import { RichInline } from "../../components/rich-inline";
+import { stripMarks } from "../../lib/inline-marks";
 
 /** a quick answer scores a little more (speed bonus fades over this many seconds) */
 const SPEED_SECONDS = 20;
@@ -27,7 +29,7 @@ const bubblesOf = (q: PlayQuestion): Bubble[] => shuffled(q.options ?? []).map((
 
 export function BubbleFace({ text, hue, size, state }: { text: string; hue: number; size: number; state: "float" | "popped" | "wrong" | "right" | "gone" | "picked" }) {
   const [fill, rim, ink] = HUES[hue % HUES.length];
-  const long = text.length > 12;
+  const long = stripMarks(text).length > 12;
   return (
     <span aria-hidden="true" className="relative grid h-full w-full place-items-center rounded-full text-center font-semibold leading-tight transition-[transform,opacity] duration-200"
       style={{
@@ -38,7 +40,7 @@ export function BubbleFace({ text, hue, size, state }: { text: string; hue: numb
         opacity: state === "popped" ? 0 : state === "gone" ? 0.25 : 1,
         outline: state === "right" ? "4px solid #10b981" : state === "wrong" ? "4px solid #f97316" : state === "picked" ? "4px dashed #db2777" : undefined, outlineOffset: 3,
       }}>
-      <span dir="ltr" lang="en" className="break-words">{text}</span>
+      <span dir="ltr" lang="en" className="break-words"><RichInline text={text} /></span>
       {state === "wrong" && <span className="absolute -top-1 -end-1 grid h-7 w-7 place-items-center rounded-full bg-orange-500 text-sm text-white">✗</span>}
       {state === "right" && <span className="absolute -top-1 -end-1 grid h-7 w-7 place-items-center rounded-full bg-emerald-500 text-sm text-white">✓</span>}
     </span>
@@ -163,12 +165,12 @@ export default function WordPop({ questions, round, level }: GameProps) {
       <article className="rounded-3xl bg-white p-5 shadow-sm ring-1 ring-slate-200">
         {q.passage && (
           <details className="mb-3 rounded-2xl bg-slate-50 p-3 ring-1 ring-slate-200">
-            <summary className="cursor-pointer font-semibold text-brand-navy">📖 <span dir="ltr" lang="en">{q.passage.title}</span></summary>
-            <p dir="ltr" lang="en" className="mt-2 whitespace-pre-line leading-relaxed text-slate-800">{q.passage.text}</p>
+            <summary className="cursor-pointer font-semibold text-brand-navy">📖 <span dir="ltr" lang="en"><RichInline text={q.passage.title} /></span></summary>
+            <p dir="ltr" lang="en" className="mt-2 whitespace-pre-line leading-relaxed text-slate-800"><RichInline text={q.passage.text} /></p>
           </details>
         )}
         <p className="text-sm font-semibold uppercase tracking-wide text-pink-700">🫧 {instruction}</p>
-        <p dir="ltr" lang="en" className="mt-1 text-xl font-semibold leading-relaxed text-slate-900">{q.stem}</p>
+        <p dir="ltr" lang="en" className="mt-1 text-xl font-semibold leading-relaxed text-slate-900"><RichInline text={q.stem} /></p>
         {hint && <p className="mt-2 rounded-xl bg-amber-50 px-3 py-2 text-amber-900 ring-1 ring-amber-200"><span aria-hidden="true">💡 </span><span dir="ltr" lang="en">{hint}</span></p>}
       </article>
 
@@ -184,7 +186,7 @@ export default function WordPop({ questions, round, level }: GameProps) {
           const state = done
             ? (done.wrong === b.label ? "wrong" : b.correct ? "right" : "gone")
             : gone ? "gone" : isPopped ? "popped" : "float";
-          const lbl = `${i + 1}. ${b.text}`;
+          const lbl = `${i + 1}. ${stripMarks(b.text)}`;
           return (
             <button key={b.label} ref={(el) => { els.current[i] = el; }} type="button" data-label={b.label}
               disabled={!!done || round.over || gone || isPopped} onClick={() => pop(b.label)} aria-label={lbl}
@@ -238,7 +240,7 @@ export function LivePad({ question, hidden, disabled, submit }: LivePadProps) {
           const gone = !sorting && hidden.includes(o.label);
           const on = popped.includes(o.label);
           return (
-            <button key={o.label} type="button" disabled={disabled || gone} onClick={() => tap(o.label)} aria-pressed={sorting ? on : undefined} aria-label={o.text}
+            <button key={o.label} type="button" disabled={disabled || gone} onClick={() => tap(o.label)} aria-pressed={sorting ? on : undefined} aria-label={stripMarks(o.text)}
               className={`wp-bob h-28 w-28 touch-manipulation rounded-full sm:h-32 sm:w-32 ${gone ? "invisible" : ""}`} style={{ animation: `wp-bob ${2.4 + (i % 3) * 0.4}s ease-in-out ${i * 0.3}s infinite` }}>
               <BubbleFace text={o.text} hue={i} size={112} state={on ? "picked" : "float"} />
             </button>

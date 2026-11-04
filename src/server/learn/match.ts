@@ -16,6 +16,7 @@ import { masterSkills, type MasterSkill } from "../skills/master";
 import { modelVersion } from "../cache/bank-version";
 import { remember } from "../cache/lru";
 import type { LessonMeta } from "./files";
+import { sweptWeakMap } from "../cache/idle";
 
 const s = (v: unknown) => String(v ?? "");
 export type MatchRule = "NAME" | "FAMILY" | "STANDARD" | "PARENT" | "ANCHOR";
@@ -53,7 +54,7 @@ export function lessonsForSkill(k: SkillKey, lessons: readonly LessonMeta[]): Ma
 // ------------------------------------------------------------------ the school's skills (master list + family codes)
 
 export interface LearnSkill extends MasterSkill { family: string | null }
-const cache = new WeakMap<object, Map<string, { v: string; at: number; p: Promise<LearnSkill[]> }>>();
+const cache = sweptWeakMap<{ v: string; at: number; p: Promise<LearnSkill[]> }>("learn.match.cache", 2 * 60_000);
 /** Forget the cached skills (tests, after an import). */
 export function clearLearnSkills(repo: Repo): void { cache.delete(repo); }
 

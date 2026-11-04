@@ -6,9 +6,15 @@
  */
 import { idsKey, sharedRead } from "../lib/shared-read";
 import type { Repo, Row } from "../seeding/repo";
-import { countGroups } from "../db/group-count";
-import { nationalNorm, seasonOf, type Season } from "../map/rit";
+import { nationalNorm, percentileFromNorm, seasonOf, type Season } from "../map/rit";
 import { bandOf as planBand } from "../map/personal-plan";
+import { cancelIndexForStudents, liveAssignmentWhere } from "../student/cancelled-work";
+import { loadAnswers, STAR_SOURCES, type AnswerSource } from "../analytics/practice";
+import { isInstantMisclick } from "../practice/guessing";
+import { isHiddenSkill } from "../skills/master";
+import { loadCalendar } from "../analytics/calendar";
+import { resolvePeriod } from "../../analytics/periods";
+import { schoolOfStudents } from "../skills/star-read";
 
 const s = (v: unknown) => String(v ?? "");
 const time = (v: unknown) => new Date(v instanceof Date ? v.toISOString() : s(v)).getTime();
@@ -62,7 +68,10 @@ export async function mapSummaries(repo: Repo, studentIds: string[], subject: Su
       let pct = r.achievementPercentile === null || r.achievementPercentile === undefined ? null : Number(r.achievementPercentile);
       if (pct === null) {
         const n = await norm(gradeOf.get(id) ?? 0, season);
-        if (n) { const z = (Number(r.rit) - n.mean) / n.sd; pct = Math.max(1, Math.min(99, Math.round(100 / (1 + Math.exp(-1.702 * z))))); }
+        // 🔧 fix (Oct 2026): this was an inlined copy of pctOfZ's logistic approximation (not even calling pctOfZ) —
+        // a third different formula from the true-normal-CDF percentileFromNorm (rit.ts), so the same RIT could show
+        // a different percentile here than on the MAP reports. Now calls the one shared formula.
+        if (n) pct = percentileFromNorm(Number(r.rit), n);
       }
       return { rit: Number(r.rit), term: s(r.termName) || season, season, date: time(r.testDate), percentile: pct };
     };
@@ -94,138 +103,151 @@ export async function mapSummaries(repo: Repo, studentIds: string[], subject: Su
   return out;
 }
 
-export interface PracticeStats { answers: number; correct: number; accuracy: number | null; week: { answers: number; minutes: number }; month: { answers: number; minutes: number }; totalMinutes: number; lastActive: string | null; recentAccuracy: number | null; recentAnswers: number;
+export interface PracticeStats { answers: number; correct: number; accuracy: number | null;
+  /** the careful answers behind `accuracy` (rapid guesses out) — so a group's accuracy is Σ correct ÷ Σ careful (round 4) */
+  careful: number; week: { answers: number; minutes: number }; month: { answers: number; minutes: number }; totalMinutes: number; lastActive: string | null; recentAccuracy: number | null; recentAnswers: number;
   /** the student's ability on the skills practised in the last 30 days (θ, 0 = grade level), weighted by answers; null with under 10 answers */
   recentTheta: number | null }
 
-/** Up to this many students, all-time answer totals are counted from the answers themselves (see answerTotals). */
-export const EXACT_ANSWER_COUNT_MAX = 60;
-
 /**
- * ONE definition of “answers” for every report (readiness I-19: the same student showed 607 on one page and 655 on
- * another): the number of saved answers (QuestionAttempt rows), all time, and how many were correct. Every answer is
- * counted: practice, assigned sets, lessons, Review my mistakes and the Diagnostic. For large groups (school-wide
- * scans, more than EXACT_ANSWER_COUNT_MAX students) the per-skill counters are summed instead (they count the same
- * answers except older review answers), so a school-wide job never reads every answer of the year.
+ * Practice of these students — 📏 the ONE definition of Questions / Accuracy / Minutes (analytics/practice-totals.ts,
+ * the same numbers as Practice and time): the sources that build the stars, rapid guesses out of accuracy, at most
+ * 5 minutes per answer, the hidden holder skill left out. "All time" = the school year (the school's calendar; the
+ * last 12 months without one); week = the last 7 days, month = the last 30 days. Every read is date-bounded.
+ * recentAnswers / recentAccuracy (the level evidence) count every bank answer of the last 30 days (careful answers only), as before.
+ * `opts.attempts` is accepted for older callers and no longer used (the totals read the answers 25 students at a time).
+ * `opts.recentOnly`: read only the last 30 days (for callers that need week / month / level / lastActive / θ — e.g.
+ * the level engine when a student starts a run): answers / correct / accuracy / totalMinutes are then the 30-day ones.
+ * lastActive = the last answer of ANY source (tests, lessons, ReadMaster included); older than the read window it
+ * falls back to the last practised date of the engine rows (a date only, never a status).
  */
-export async function answerTotals(repo: Repo, studentIds: string[]): Promise<Map<string, { answers: number; correct: number }> | null> {
-  if (!studentIds.length || studentIds.length > EXACT_ANSWER_COUNT_MAX) return null;
-  // ⚡ two GROUP BY counts (one row per student) instead of reading every answer of the year
-  const [all, right] = await Promise.all([
-    countGroups(repo, "QuestionAttempt", "studentId", { studentId: { in: studentIds } }),
-    countGroups(repo, "QuestionAttempt", "studentId", { studentId: { in: studentIds }, isCorrect: true }),
-  ]);
-  return new Map(studentIds.map((id) => [id, { answers: all.get(id) ?? 0, correct: right.get(id) ?? 0 }]));
-}
-
-/**
- * Practice of these students (all time; week = last 7 days, month = last 30). Rapid guesses are not counted in accuracy.
- * Bounded for large schools: only the last 30 days of answers are read; all-time totals come from the mastery rows.
- */
-/** `opts.attempts`: answers already loaded by the caller (any superset of the last 30 days of these students, with
- *  studentId, isCorrect, rapidGuess, createdAt) — filtered here, so the answers are not read twice (Update 40). */
-export async function practiceStats(repo: Repo, studentIds: string[], now = new Date(), opts: { attempts?: Row[] } = {}): Promise<Map<string, PracticeStats>> {
+export async function practiceStats(repo: Repo, studentIds: string[], now = new Date(), opts: { attempts?: Row[]; recentOnly?: boolean } = {}): Promise<Map<string, PracticeStats>> {
   if (!studentIds.length) return new Map();
+  const recentOnly = Boolean(opts.recentOnly);
   // ⚡ the same students' stats asked again while a page is built: read once (fresh after any write)
-  if (!opts.attempts) return new Map(await sharedRead(repo, `practiceStats|${Math.floor(now.getTime() / 60_000)}|${idsKey(studentIds)}`, PRACTICE_MODELS, 20_000, () => practiceStatsUncached(repo, studentIds, now, opts)));
-  return practiceStatsUncached(repo, studentIds, now, opts);
+  return new Map(await sharedRead(repo, `practiceStats|${recentOnly ? "30d" : "year"}|${Math.floor(now.getTime() / 60_000)}|${idsKey(studentIds)}`, PRACTICE_MODELS, 20_000, () => practiceStatsUncached(repo, studentIds, now, recentOnly)));
 }
-const PRACTICE_MODELS = ["QuestionAttempt", "PracticeSession", "StudentSkillMastery", "StudentAbility"];
+const PRACTICE_MODELS = ["QuestionAttempt", "NafsPracticeAnswer", "SkillEvidence", "PracticeSession", "StudentAbility", "Skill"];
 
-async function practiceStatsUncached(repo: Repo, studentIds: string[], now: Date, opts: { attempts?: Row[] }): Promise<Map<string, PracticeStats>> {
+async function practiceStatsUncached(repo: Repo, studentIds: string[], now: Date, recentOnly = false): Promise<Map<string, PracticeStats>> {
   const out = new Map<string, PracticeStats>();
-  const monthAgo = new Date(now.getTime() - 30 * 86_400_000);
-  const want = opts.attempts ? new Set(studentIds) : null;
-  const [attempts, sessions, mastery, abilities, exact] = await Promise.all([
-    opts.attempts ? Promise.resolve(opts.attempts.filter((a) => want!.has(s(a.studentId)) && time(a.createdAt) >= monthAgo.getTime()))
-      : repo.findMany("QuestionAttempt", { studentId: { in: studentIds }, createdAt: { gte: monthAgo } }, { select: ["studentId", "isCorrect", "rapidGuess", "createdAt"] }),
-    repo.findMany("PracticeSession", { studentId: { in: studentIds } }, { select: ["studentId", "activeMs", "startedAt"] }),
-    repo.findMany("StudentSkillMastery", { studentId: { in: studentIds } }, { select: ["studentId", "attempts", "correct", "lastPracticedAt"] }),
-    repo.findMany("StudentAbility", { studentId: { in: studentIds }, updatedAt: { gte: monthAgo } }, { select: ["studentId", "scope", "theta", "responses"] }),
-    answerTotals(repo, studentIds),
+  const ids = [...new Set(studentIds.map(s).filter(Boolean))];
+  const monthAgo = new Date(now.getTime() - 30 * 86_400_000), weekAgo = new Date(now.getTime() - 7 * 86_400_000);
+  let yearFrom = monthAgo;
+  if (!recentOnly) {
+    const schoolId = await schoolOfStudents(repo, ids);
+    const year = resolvePeriod("SCHOOL_YEAR", await loadCalendar(repo, schoolId || null), now);
+    yearFrom = year.from.getTime() < monthAgo.getTime() ? year.from : monthAgo;
+  }
+  // no upper bound before (answers up to now, clocks a little ahead included): read up to a day after `now`
+  const until = new Date(now.getTime() + 86_400_000);
+  const [totals, abilities] = await Promise.all([
+    windowTotals(repo, ids, yearFrom, until, { month: monthAgo.getTime(), week: weekAgo.getTime() }),
+    repo.findMany("StudentAbility", { studentId: { in: ids }, updatedAt: { gte: monthAgo } }, { select: ["studentId", "scope", "theta", "responses"] }),
   ]);
-  const week = now.getTime() - 7 * 86_400_000, month = monthAgo.getTime();
-  for (const id of studentIds) out.set(id, { answers: 0, correct: 0, accuracy: null, week: { answers: 0, minutes: 0 }, month: { answers: 0, minutes: 0 }, totalMinutes: 0, lastActive: null, recentAccuracy: null, recentAnswers: 0, recentTheta: null });
-  const recent = new Map<string, { n: number; c: number }>();
-  const last = new Map<string, number>();
-  for (const m of mastery) {
-    const st = out.get(s(m.studentId)); if (!st) continue;
-    st.answers += Number(m.attempts ?? 0); st.correct += Number(m.correct ?? 0);
-    const t = m.lastPracticedAt ? time(m.lastPracticedAt) : 0;
-    if (t > (last.get(s(m.studentId)) ?? 0)) last.set(s(m.studentId), t);
-  }
-  for (const a of attempts) {
-    const st = out.get(s(a.studentId)); if (!st) continue;
-    const t = time(a.createdAt);
-    if (t >= week) st.week.answers++;
-    if (t >= month) { st.month.answers++; if (!a.rapidGuess) { const r = recent.get(s(a.studentId)) ?? { n: 0, c: 0 }; r.n++; if (a.isCorrect) r.c++; recent.set(s(a.studentId), r); } }
-    if (t > (last.get(s(a.studentId)) ?? 0)) last.set(s(a.studentId), t);
-  }
-  for (const x of sessions) {
-    const st = out.get(s(x.studentId)); if (!st) continue;
-    const m = Number(x.activeMs ?? 0) / 60_000, t = time(x.startedAt);
-    st.totalMinutes += m; if (t >= week) st.week.minutes += m; if (t >= month) st.month.minutes += m;
-  }
   const theta = new Map<string, { w: number; sum: number }>();
   for (const a of abilities) {
     if (!s(a.scope).startsWith("SKILL:")) continue;
     const w = Math.max(1, Number(a.responses ?? 1)), t = theta.get(s(a.studentId)) ?? { w: 0, sum: 0 };
     t.w += w; t.sum += w * Number(a.theta); theta.set(s(a.studentId), t);
   }
-  if (exact) for (const [id, t] of exact) { const st = out.get(id); if (st) { st.answers = t.answers; st.correct = t.correct; } }
-  for (const [id, st] of out) {
-    st.accuracy = st.answers ? Math.round((st.correct / st.answers) * 100) : null;
-    const r = recent.get(id); st.recentAnswers = r?.n ?? 0; st.recentAccuracy = r && r.n ? Math.round((r.c / r.n) * 100) : null;
-    const th = theta.get(id); st.recentTheta = th && th.w >= 10 ? Math.round((th.sum / th.w) * 100) / 100 : null;
-    st.totalMinutes = Math.round(st.totalMinutes); st.week.minutes = Math.round(st.week.minutes); st.month.minutes = Math.round(st.month.minutes);
-    st.lastActive = last.has(id) ? new Date(last.get(id)!).toISOString() : null;
+  // last active before the read window: the engine rows' last practised date (a date only)
+  const older = ids.filter((id) => (totals.get(id)?.lastAny ?? null) === null);
+  if (older.length) {
+    for (const m of await repo.findMany("StudentSkillMastery", { studentId: { in: older }, lastPracticedAt: { not: null } }, { select: ["studentId", "lastPracticedAt"] })) {
+      const w = totals.get(s(m.studentId)), t = time(m.lastPracticedAt);
+      if (w && t && (w.lastAny === null || t > w.lastAny)) w.lastAny = t;
+    }
+  }
+  for (const id of studentIds) {
+    const x = totals.get(s(id)) ?? emptyWindows();
+    const th = theta.get(s(id));
+    out.set(id, {
+      answers: x.year.n, correct: x.year.c, accuracy: pctOf(x.year.c, x.year.careful), careful: x.year.careful,
+      week: { answers: x.week.n, minutes: Math.round(x.week.ms / 60_000) }, month: { answers: x.month.n, minutes: Math.round(x.month.ms / 60_000) },
+      totalMinutes: Math.round(x.year.ms / 60_000), lastActive: x.lastAny === null ? null : new Date(x.lastAny).toISOString(),
+      recentAccuracy: pctOf(x.level.c, x.level.careful), recentAnswers: x.level.careful,
+      recentTheta: th && th.w >= 10 ? Math.round((th.sum / th.w) * 100) / 100 : null,
+    });
+  }
+  return out;
+}
+
+const pctOf = (a: number, b: number) => (b ? Math.round((100 * a) / b) : null);
+interface Win { n: number; careful: number; c: number; ms: number }
+interface Windows { year: Win; month: Win; week: Win; level: Win; last: number | null; lastAny: number | null }
+const win = (): Win => ({ n: 0, careful: 0, c: 0, ms: 0 });
+const emptyWindows = (): Windows => ({ year: win(), month: win(), week: win(), level: win(), last: null, lastAny: null });
+// read at call time: practice.ts and this file import each other, so no module-level value from it here
+const isStarSource = (src: AnswerSource) => STAR_SOURCES.includes(src);
+/** the bank answers (QuestionAttempt) — the level engine's evidence, unchanged */
+const BANK_SOURCES: readonly AnswerSource[] = ["PRACTICE", "TESTS", "OTHER"];
+
+/**
+ * The practiceTotals rules (analytics/practice-totals.ts) applied in ONE pass for the windows practiceStats shows
+ * (school year, last 30 days, last 7 days): the star sources, a literal instant misclick out of accuracy (Nov 2026
+ * redesign — a merely fast but genuine answer counts in full now), ≤ 5 min per answer (loadAnswers caps it), the
+ * hidden holder skill left out; `level` = every bank answer of the last 30 days (the level evidence, left on the
+ * OLD rapid-guess-excludes rule on purpose — that system is calibrated on the old guess rate, not redesigned here);
+ * `lastAny` = the last answer of any source. 25 students at a time, only totals kept.
+ */
+async function windowTotals(repo: Repo, ids: string[], from: Date, to: Date, cut: { month: number; week: number }): Promise<Map<string, Windows>> {
+  const out = new Map<string, Windows>(ids.map((id) => [id, emptyWindows()]));
+  const hiddenOf = new Map<string, boolean>();
+  const fromT = from.getTime(), toT = to.getTime();
+  for (let i = 0; i < ids.length; i += 25) {
+    const answers = (await loadAnswers(repo, ids.slice(i, i + 25), from, to)).filter((a) => a.at >= fromT && a.at <= toT);
+    const unknown = [...new Set(answers.map((a) => a.skillId).filter((id) => id && !hiddenOf.has(id)))];
+    for (let j = 0; j < unknown.length; j += 500) {
+      for (const k of await repo.findMany("Skill", { id: { in: unknown.slice(j, j + 500) } }, { select: ["id", "code"] })) hiddenOf.set(s(k.id), isHiddenSkill(s(k.code)));
+    }
+    for (const a of answers) {
+      const w = out.get(a.studentId);
+      if (!w) continue;
+      const add = (x: Win, careful: boolean) => { x.n++; if (careful) { x.careful++; if (a.correct) x.c++; } x.ms += a.ms ?? 0; };
+      // last active: any answer of any source; the level evidence: every bank answer of the last 30 days (as before,
+      // the OLD "rapid" rule — not the new misclick rule)
+      if (w.lastAny === null || a.at > w.lastAny) w.lastAny = a.at;
+      if (a.at >= cut.month && BANK_SOURCES.includes(a.source)) add(w.level, !a.rapid);
+      if (!a.skillId || hiddenOf.get(a.skillId)) continue;
+      if (!isStarSource(a.source)) continue;
+      const careful = a.ms === null || !isInstantMisclick(a.ms);
+      add(w.year, careful);
+      if (a.at >= cut.month) add(w.month, careful);
+      if (a.at >= cut.week) add(w.week, careful);
+      if (w.last === null || a.at > w.last) w.last = a.at;
+    }
   }
   return out;
 }
 
 /**
- * The three practice numbers Data Health needs — lastActive, recentAnswers, recentAccuracy — computed exactly as
- * practiceStats does, from the answers the caller already loaded and the mastery rows' last-practised dates only
- * (practiceStats also reads every session, ability and the all-time totals). Update 40.
+ * The three practice numbers Data Health needs — lastActive, recentAnswers, recentAccuracy — EXACTLY as practiceStats
+ * gives them (round 2: one definition; the answers are read by practiceStats 25 students at a time, every source
+ * labelled, the holder skill out). `attempts` is accepted for older callers and no longer used.
  */
-export async function activityStats(repo: Repo, studentIds: string[], now: Date, attempts: Row[]): Promise<Map<string, Pick<PracticeStats, "lastActive" | "recentAnswers" | "recentAccuracy">>> {
+export async function activityStats(repo: Repo, studentIds: string[], now: Date, attempts: Row[] = []): Promise<Map<string, Pick<PracticeStats, "lastActive" | "recentAnswers" | "recentAccuracy">>> {
+  void attempts;
   const out = new Map<string, Pick<PracticeStats, "lastActive" | "recentAnswers" | "recentAccuracy">>();
   if (!studentIds.length) return out;
-  const month = now.getTime() - 30 * 86_400_000;
-  const mastery = await repo.findMany("StudentSkillMastery", { studentId: { in: studentIds } }, { select: ["studentId", "lastPracticedAt"] });
-  for (const id of studentIds) out.set(id, { lastActive: null, recentAnswers: 0, recentAccuracy: null });
-  const recent = new Map<string, { n: number; c: number }>();
-  const last = new Map<string, number>();
-  for (const m of mastery) {
-    if (!out.has(s(m.studentId))) continue;
-    const t = m.lastPracticedAt ? time(m.lastPracticedAt) : 0;
-    if (t > (last.get(s(m.studentId)) ?? 0)) last.set(s(m.studentId), t);
-  }
-  for (const a of attempts) {
-    if (!out.has(s(a.studentId))) continue;
-    const t = time(a.createdAt);
-    if (t < month) continue;
-    if (!a.rapidGuess) { const r = recent.get(s(a.studentId)) ?? { n: 0, c: 0 }; r.n++; if (a.isCorrect) r.c++; recent.set(s(a.studentId), r); }
-    if (t > (last.get(s(a.studentId)) ?? 0)) last.set(s(a.studentId), t);
-  }
-  for (const [id, st] of out) {
-    const r = recent.get(id); st.recentAnswers = r?.n ?? 0; st.recentAccuracy = r && r.n ? Math.round((r.c / r.n) * 100) : null;
-    st.lastActive = last.has(id) ? new Date(last.get(id)!).toISOString() : null;
-  }
+  const p = await practiceStats(repo, studentIds, now, { recentOnly: true });
+  for (const id of studentIds) { const x = p.get(id); out.set(id, { lastActive: x?.lastActive ?? null, recentAnswers: x?.recentAnswers ?? 0, recentAccuracy: x?.recentAccuracy ?? null }); }
   return out;
 }
 
 export interface WorkStats { done: number; pending: number; late: number; total: number }
 
 /** Assignments of these students (question sets, skills and Respond to Reading). Late = past due and not done. */
-export async function workStats(repo: Repo, studentIds: string[], now = new Date()): Promise<Map<string, WorkStats>> {
+export async function workStats(repo: Repo, studentIds: string[], now = new Date(), schoolId?: string | null): Promise<Map<string, WorkStats>> {
   const out = new Map<string, WorkStats>(studentIds.map((id) => [id, { done: 0, pending: 0, late: 0, total: 0 }]));
   if (!studentIds.length) return out;
-  const rows = await repo.findMany("AssignmentStudent", { studentId: { in: studentIds } });
-  const as = rows.length ? await repo.findMany("Assignment", { id: { in: [...new Set(rows.map((r) => s(r.assignmentId)))] } }, { select: ["id", "dueAt", "deletedAt"] }) : [];
-  const due = new Map(as.filter((a) => !a.deletedAt).map((a) => [s(a.id), a.dueAt ? time(a.dueAt) : null]));
+  // r78: cancelled on Assigned (for everyone or this student) = not counted
+  const [rows, ix] = await Promise.all([repo.findMany("AssignmentStudent", { studentId: { in: studentIds } }, { select: ["assignmentId", "studentId", "status"] }), cancelIndexForStudents(repo, studentIds, schoolId)]);
+  const as = rows.length ? await repo.findMany("Assignment", liveAssignmentWhere({ id: { in: [...new Set(rows.map((r) => s(r.assignmentId)))] } }), { select: ["id", "dueAt", "deletedAt", "testId", "curriculumPlanId"] }) : [];
+  const byId = new Map(as.map((a) => [s(a.id), a]));
+  const due = new Map(as.map((a) => [s(a.id), a.dueAt ? time(a.dueAt) : null]));
   for (const r of rows) {
-    if (!due.has(s(r.assignmentId))) continue;
+    if (!due.has(s(r.assignmentId)) || !ix.live(byId.get(s(r.assignmentId))!, s(r.studentId))) continue;
     const w = out.get(s(r.studentId))!; w.total++;
     const d = due.get(s(r.assignmentId));
     if (r.status === "COMPLETED") w.done++; else if (r.status === "OVERDUE" || (d !== null && d !== undefined && d < now.getTime())) w.late++; else w.pending++;
@@ -234,7 +256,7 @@ export async function workStats(repo: Repo, studentIds: string[], now = new Date
   const ra = rtr.length ? await repo.findMany("RespondAssignment", { id: { in: [...new Set(rtr.map((r) => s(r.assignmentId)))] } }, { select: ["id", "dueAt", "deletedAt"] }) : [];
   const rdue = new Map(ra.filter((a) => !a.deletedAt).map((a) => [s(a.id), a.dueAt ? time(a.dueAt) : null]));
   for (const r of rtr) {
-    if (!rdue.has(s(r.assignmentId))) continue;
+    if (!rdue.has(s(r.assignmentId)) || !ix.liveRef("RESPOND", s(r.assignmentId), s(r.studentId))) continue;
     const w = out.get(s(r.studentId))!; w.total++;
     const d = rdue.get(s(r.assignmentId));
     if (r.finishedAt) w.done++; else if (d !== null && d !== undefined && d < now.getTime()) w.late++; else w.pending++;

@@ -64,6 +64,16 @@
       "level": 1400,
       "title": "Black Holes: The Universe's Hidden Giants",
       "text": "On a clear night, thousands of stars glitter overhead, yet some of the most fascinating objects in the universe cannot be observed directly, because they emit no detectable light whatsoever. These concealed giants are black holes, and they rank among the most extreme phenomena that physicists and astronomers have ever investigated, challenging our understanding of space, time, and matter.\n\nA black hole is a region of space where gravity is so overwhelming that nothing can escape from it, not even light. Gravity, the invisible force that attracts objects toward one another, anchors you to the ground and keeps Earth traveling in a predictable orbit around the Sun. Since no light can leave a black hole, it appears completely black against the surrounding darkness of space, an absence rather than a visible object.\n\nMost black holes originate when a massive star, one containing approximately twenty times as much matter as our Sun or more, approaches the conclusion of its existence. After radiating energy for millions of years, the star exhausts its nuclear fuel and can no longer support its own tremendous weight. Its outer layers are hurled into space in a colossal explosion called a supernova, while its core collapses catastrophically inward. The remaining matter is compressed into an unimaginably small volume, which renders the object so extraordinarily dense that its gravitational influence becomes overwhelmingly intense.\n\nThe boundary surrounding a black hole is known as the event horizon, and anything that crosses it, including light, can never return, which is why scientists frequently characterize it as the point of no return.\n\nBecause black holes are fundamentally invisible, astronomers detect them by assembling indirect evidence. They meticulously track stars that race in orbit around a region that appears empty, and they analyze gas that spirals inward, accelerating and heating until it radiates brilliantly.\n\nAt the center of our own galaxy, the Milky Way, astronomers have identified a supermassive black hole designated Sagittarius A*, which contains approximately four million times as much matter as the Sun and powerfully influences the movements of the stars surrounding it.\n\nIn 2019, an international collaboration of scientists synchronized radio telescopes on several continents so that they functioned collectively like a single instrument as wide as Earth. Together, they produced the first image of the dark shadow of a black hole, located in a distant galaxy, and in 2022 they published a comparable photograph of Sagittarius A*, confirming predictions that physicists had formulated decades earlier.\n\nThere is no reason for alarm, however, because black holes are tremendously distant from Earth, and our Sun is far too small ever to become one; instead, it will eventually contract into a dim, compact object called a white dwarf."
+    },
+    {
+      "level": 1500,
+      "title": "Black Holes: The Universe's Hidden Giants",
+      "text": "A black hole is a region of space where gravity has become so overwhelmingly dense and powerful that nothing, not even light, can escape its pull once past a certain boundary. These extraordinary objects typically form from the collapse of massive stars, those with at least twenty times the mass of our Sun. When such a star exhausts its nuclear fuel, it can no longer sustain the internal pressure that previously held it together, and its outer layers are violently expelled in an explosion known as a supernova, while its core collapses inward upon itself, compressing into an object of extreme density.\n\nThe boundary surrounding a black hole, known as the event horizon, marks the point beyond which nothing can return. Once an object crosses this threshold, escape becomes impossible, regardless of its speed or power. Because black holes emit no light, astronomers cannot detect them directly. Instead, they must rely on indirect evidence, such as observing stars that orbit an invisible companion, or detecting the characteristic glow produced by superheated gas and matter spiraling inexorably into a black hole before disappearing beyond its horizon.\n\nAt the center of our own Milky Way galaxy lies Sagittarius A*, a supermassive black hole believed to contain the mass of roughly four million Suns compressed into a comparatively small region. In 2019, an international collaboration using the Event Horizon Telescope, a network of linked radio telescopes effectively functioning as a single instrument the size of Earth, produced the first-ever image capturing the shadow cast by a black hole, located in a distant galaxy. This achievement was followed in 2022 by a similarly groundbreaking image, this time of Sagittarius A* itself.\n\nNot every massive star culminates in a black hole, however. Our own Sun, for instance, lacks sufficient mass to ever collapse into one; instead, astronomers predict that it will eventually become a white dwarf, a comparatively modest and far less exotic stellar remnant. The contrast between these two possible fates underscores just how extraordinary and rare black holes truly are among the countless stars that populate the observable universe.\n\nEach new observation gathered by astronomers adds to a growing body of evidence confirming that black holes, however invisible and seemingly abstract, exert measurable and remarkably consistent effects on the matter and light surrounding them, effects precise enough to calculate a black hole's mass and location with considerable confidence.\n\nSuch discoveries remind us that even phenomena invisible to direct observation can still be studied rigorously, provided scientists develop sufficiently clever indirect methods of detection."
+    },
+    {
+      "level": 1600,
+      "title": "Black Holes: The Universe's Hidden Giants",
+      "text": "A black hole constitutes a region of space in which gravitational forces have become so overwhelmingly dense and powerful that nothing whatsoever, not even light itself, can escape beyond a certain threshold. Such extraordinary objects typically originate from the gravitational collapse of exceptionally massive stars, specifically those possessing at least twenty times the mass of our own Sun. When a star of this magnitude eventually exhausts its available nuclear fuel, it becomes incapable of sustaining the internal pressure that had previously counterbalanced its own gravity, and its outer layers are consequently expelled with tremendous violence in an explosive event known as a supernova, while its core simultaneously collapses inward upon itself, compressing into an object of almost unimaginable density.\n\nThe boundary encircling a black hole, formally designated the event horizon, demarcates the precise point beyond which return becomes physically impossible; once any object crosses this threshold, no conceivable velocity or propulsive force could permit its escape. Because black holes themselves emit no detectable light, astronomers are unable to observe them directly and must instead rely upon indirect evidence, such as monitoring the orbital motion of visible stars circling an otherwise invisible companion, or detecting the characteristic luminous glow produced as gas and matter spiral inward before vanishing permanently beyond the horizon.\n\nAt the very center of our own Milky Way galaxy resides Sagittarius A*, a supermassive black hole estimated to contain mass equivalent to roughly four million Suns, compressed into a region of comparatively modest spatial extent. In 2019, an international collaboration employing the Event Horizon Telescope, an extensive network of linked radio telescopes functioning collectively as a single instrument effectively the size of Earth, succeeded in producing the first-ever image capturing the shadow cast by a black hole, situated within a distant galaxy. This landmark achievement was subsequently followed in 2022 by an equally groundbreaking image, on this occasion depicting Sagittarius A* itself, a feat that astronomers worldwide had long considered essentially unattainable.\n\nNot every sufficiently massive star, however, culminates its existence as a black hole. Our own Sun, for instance, lacks the requisite mass ever to collapse into such an object; astronomers instead predict that it will eventually become a white dwarf, a comparatively modest and considerably less exotic form of stellar remnant. This contrast between two dramatically different stellar fates underscores precisely how extraordinary, and how statistically rare, black holes truly remain among the vast multitude of stars populating the observable universe.\n\nEach new observation gathered by astronomers studying these phenomena adds incrementally to an expanding body of evidence confirming that black holes, however invisible and conceptually abstract they may initially appear, nonetheless exert measurable and remarkably consistent gravitational effects upon the matter and light surrounding them, effects sufficiently precise to allow astronomers to calculate a given black hole's mass and approximate location with considerable scientific confidence, even in the complete absence of any directly visible signal from the object itself."
     }
   ],
   "bands": {
@@ -104,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How to find stars with your eyes",
+            "How to find stars with your eyes alone",
             "What black holes are and how we find them",
-            "Why the Sun is the biggest star",
-            "How rockets fly into space"
+            "Why the Sun is the biggest star we see",
+            "How rockets fly into space from the ground"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -138,9 +148,9 @@
         {
           "stem": "How does a black hole form?",
           "options": [
-            "Two small planets crash into each other.",
-            "The Sun gets too hot and melts.",
-            "A cloud of gas turns very cold.",
+            "Two small planets crash into each other in space.",
+            "The Sun gets too hot and slowly melts away.",
+            "A cloud of gas turns very cold and still.",
             "A huge star runs out of fuel and falls in on itself."
           ],
           "answer": "D",
@@ -207,7 +217,7 @@
           "stem": "What can you tell about black holes and people on Earth?",
           "options": [
             "We are safe because black holes are very far away.",
-            "A black hole will soon pull in the Earth.",
+            "A black hole will soon pull in the Earth and the Sun.",
             "Our Sun will become a black hole next year.",
             "People can see black holes with their eyes."
           ],
@@ -243,7 +253,8 @@
         "I explained what a black hole is.",
         "I told one way scientists find a black hole, using a fact from the article.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "A black hole is a place in space where gravity is so strong that nothing can escape, not even light. Scientists can still find one even though it is invisible by watching stars that orbit around an area that looks empty. They also look for hot gas that swirls toward the black hole and glows brightly."
     },
     "MID": {
       "keyWords": [
@@ -384,10 +395,10 @@
         {
           "stem": "How is our Sun different from the stars that become black holes?",
           "options": [
-            "It is much hotter than they are.",
-            "It has no gravity at all.",
+            "It is much hotter than they are, and it has more matter.",
+            "It has no gravity at all, so planets float away from it.",
             "It is much smaller and has far less matter.",
-            "It is in a different galaxy."
+            "It is in a different galaxy, far away from our own."
           ],
           "answer": "C",
           "skill": "compare",
@@ -421,7 +432,8 @@
         "I put the steps of how a black hole forms in the right order.",
         "I explained why black holes must be found with clues, using details from the article.",
         "I used at least two key words from the lesson correctly."
-      ]
+      ],
+      "modelAnswer": "A massive star shines for millions of years, but when it finally runs out of fuel, it can no longer support its own weight and begins to collapse. As it collapses, its matter is crushed into a very small space, which makes its gravity extremely strong and forms a black hole with an event horizon that nothing can cross and return from. Scientists must use clues to find black holes because no light can ever escape them, so instead they watch stars orbiting an area that seems empty or observe gas glowing brightly as it swirls toward the galaxy's hidden center."
     },
     "HIGH": {
       "keyWords": [
@@ -511,9 +523,9 @@
         {
           "stem": "The article says the collapsed matter becomes so dense that its gravity is intense. What does dense mean here?",
           "options": [
-            "Moving at a very high speed",
-            "Glowing with a bright light",
-            "Spread thinly across space",
+            "Moving at a very high speed in space",
+            "Glowing with a bright white light",
+            "Spread thinly across all of space",
             "Packed tightly into a small space"
           ],
           "answer": "D",
@@ -529,9 +541,9 @@
           "stem": "Why are astronomers able to detect black holes even though black holes give off no light?",
           "options": [
             "Black holes affect the stars and gas around them in ways that can be observed.",
-            "Black holes reflect sunlight back toward Earth.",
-            "Black holes make a sound that radio telescopes hear.",
-            "Black holes are always found next to bright planets."
+            "Black holes reflect sunlight back toward Earth, so astronomers can see the glow.",
+            "Black holes make a sound that radio telescopes hear from very far away.",
+            "Black holes are always found next to bright planets that light them up."
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -562,9 +574,9 @@
         {
           "stem": "What can the reader infer about the 2019 and 2022 images?",
           "options": [
-            "They show the inside of the black holes clearly.",
-            "They prove the Sun will become a black hole.",
-            "They were taken by astronauts close to the black holes.",
+            "They show the inside of the black holes clearly, with no dark parts at all, as a photo does.",
+            "They prove the Sun will become a black hole in a few years, so the images are a warning.",
+            "They were taken by astronauts close to the black holes in space, with a small camera.",
             "They show dark shadows outlined by glowing gas, not light from the black holes themselves."
           ],
           "answer": "D",
@@ -599,7 +611,8 @@
         "I explained at least two kinds of evidence astronomers use.",
         "I chose the most convincing evidence and gave a reason.",
         "I used precise vocabulary from the article and organized my answer in clear paragraphs."
-      ]
+      ],
+      "modelAnswer": "Astronomers rely on indirect evidence to confirm black holes exist, since a black hole itself emits no light at all. One kind of evidence is watching stars orbit around what otherwise looks like empty space, which suggests something supermassive and invisible is pulling on them with its gravity. Another kind is observing gas that becomes extremely dense and hot as it swirls toward a black hole, glowing brightly enough for telescopes to detect.\n\nI find the direct image produced in 2019, when scientists connected telescopes around the world to photograph the dark shadow of a black hole in a distant galaxy, the most convincing evidence of all. Unlike inferring a black hole's presence from the behavior of nearby stars or gas, this image let scientists actually detect the shadow where light disappears, which feels like the closest thing to truly seeing something that is, by definition, impossible to see directly."
     }
   }
 }

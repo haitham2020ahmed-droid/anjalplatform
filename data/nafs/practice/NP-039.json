@@ -61,10 +61,10 @@
       "difficulty": 1,
       "stem": "Who tells the family that local farmers depend on the mountain mist?",
       "options": [
-        "Lina's father",
-        "Ziyad",
+        "Lina's father, a farmer",
+        "Ziyad, the older cousin",
         "the elderly café owner",
-        "Lina's mother"
+        "Lina's mother, a teacher"
       ],
       "answer": "C",
       "why": "The café owner explained that farmers depend on the moisture to keep their terraces green."

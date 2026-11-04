@@ -110,6 +110,12 @@ export async function recordLevel(repo: Repo, e: LevelEvent): Promise<"CHANGED" 
     else if (teacherAt && now.getTime() - teacherAt < TEACHER_LEVEL_DAYS * 86_400_000 && from !== e.level) outcome = "KEPT_TEACHER";
     else if (outcome === "CHANGED" && from && !(await confirmsPending(repo, e.studentId, null, e.level, now))) { await recordPending(repo, e, from, now); return "PENDING"; }
   }
+  // 📝 a placement (the Diagnostic Test) never replaces a level the teacher chose by hand: the teacher's level is kept
+  // (the result stays in the Diagnostic reports, and the change is logged as KEPT_TEACHER for the teacher to see)
+  if (e.source === "PLACEMENT" && prev && String(prev.source) === "TEACHER") {
+    if (from !== e.level) outcome = "KEPT_TEACHER";
+    else return "SAME"; // the same level: the row stays the teacher's (a later placement must not take it over)
+  }
   if (outcome === "CHANGED" || outcome === "SAME")
     await repo.upsert("StudentLevel", { studentId: e.studentId }, { level: e.level, source: e.source, setById: e.setById ?? null, updatedAt: now }, { level: e.level, source: e.source, setById: e.setById ?? null, updatedAt: now });
   if (outcome !== "SAME")

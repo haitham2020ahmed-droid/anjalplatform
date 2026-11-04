@@ -64,6 +64,16 @@
       "level": 1400,
       "title": "How GPS Knows Where You Are",
       "text": "Imagine your family is driving to a city you have never visited, and your mother opens a navigation application on her phone, and a small blue dot immediately shows exactly where the car is traveling. How does the device determine your location so quickly and so accurately?\n\nThe explanation lies far above you in space. Approximately thirty satellites circle Earth at an altitude of roughly 20,000 kilometers, and each one, traveling at several kilometers per second, completes a journey around the planet twice a day. Together, these satellites constitute the Global Positioning System, or GPS, which the United States originally developed for military purposes and which now serves civilians throughout the world, alongside comparable systems operated by Europe, Russia, and China.\n\nEach satellite carries atomic clocks, which measure time by monitoring the extraordinarily regular vibrations of atoms; these instruments are so remarkably precise that they would lose less than a second over many thousands of years.\n\nEvery satellite continuously transmits a radio signal that functions like an electronic message, announcing, \"This is my position, and this is the exact time I sent this.\"\n\nYour phone contains a receiver, a small electronic component that collects these signals and measures how long each one needed to arrive. Although radio signals travel at the speed of light, they nevertheless require a tiny amount of time, so the longer the journey takes, the greater the distance to that particular satellite.\n\nThe phone repeats this calculation with at least four satellites, because three distances identify a position and the fourth corrects small inaccuracies in the phone's own, considerably less sophisticated clock. By comparing all the distances, it can calculate precisely where you are standing, and then it positions the blue dot on the map. Timing is absolutely critical, because an error of only a millionth of a second would place you approximately 300 meters away from your actual location; furthermore, since the signals are relatively weak by the time they reach the ground, tall buildings and thick concrete roofs can occasionally interrupt them.\n\nSurprisingly, your phone does not transmit anything back to the satellites; it only listens, which explains why a practically unlimited number of people can use the system simultaneously.\n\nToday, GPS guides automobiles, ships, and airplanes, helps ambulances reach emergencies efficiently, and allows farmers to steer tractors in perfectly straight rows. It is also exceptionally valuable in the desert, where the shifting sand dunes can appear identical in every direction."
+    },
+    {
+      "level": 1500,
+      "title": "How GPS Knows Where You Are",
+      "text": "Imagine your family is driving to a city you have never visited, and your mother opens a navigation application on her phone, and a small blue dot immediately shows exactly where the car is traveling. How does the device determine your location so quickly and so accurately?\n\nThe explanation lies far above you in space. Approximately thirty satellites circle Earth at an altitude of roughly 20,000 kilometers, and each one, traveling at several kilometers per second, completes a journey around the planet twice a day. Together, these satellites constitute the Global Positioning System, or GPS, which the United States originally developed for military purposes and which now serves civilians throughout the world, alongside comparable systems operated by Europe, Russia, and China.\n\nEach satellite carries atomic clocks, instruments that measure temporal intervals by monitoring the extraordinarily regular vibrations of atoms; these instruments are so remarkably precise that they would lose less than a second over many thousands of years.\n\nEvery satellite continuously transmits a radio signal that functions like an electronic message, announcing its precise position alongside the exact moment of transmission.\n\nYour phone contains a receiver, a small electronic component that collects these signals and measures how long each one needed to arrive. Although radio signals travel at the speed of light, they nevertheless require a tiny, measurable amount of time, so the longer the journey takes, the greater the distance to that particular satellite.\n\nThe phone repeats this calculation with at least four satellites, because three distances identify a position and the fourth corrects small inaccuracies in the phone's own, considerably less sophisticated clock. By comparing all the distances, it can calculate precisely where you are standing, and then it positions the blue dot on the map. Timing is absolutely critical, because an error of only a millionth of a second would place you approximately 300 meters away from your actual location; furthermore, since the signals are relatively weak by the time they reach the ground, tall buildings and thick concrete roofs can occasionally interrupt them.\n\nRemarkably, your phone does not transmit anything back toward the satellites; it merely receives transmitted signals, which explains why an effectively unlimited number of users can utilize the system simultaneously without interference.\n\nToday, GPS guides automobiles, ships, and airplanes, helps ambulances reach emergencies with considerably greater efficiency, and allows farmers to steer tractors in perfectly straight rows. It is also exceptionally valuable in the desert, where the shifting sand dunes can appear identical in every direction."
+    },
+    {
+      "level": 1600,
+      "title": "How GPS Knows Where You Are",
+      "text": "Picture a family traveling toward an entirely unfamiliar city while a navigation application displays a small indicator pinpointing the vehicle's precise geographic location with remarkable, almost instantaneous, immediacy. How does such a comparatively modest electronic device determine positional information with such extraordinary speed and accuracy?\n\nThe explanation resides far overhead, within the vast expanse of outer space. Approximately thirty satellites orbit Earth at an altitude of roughly 20,000 kilometers, each completing a full orbital revolution twice daily while traveling at considerable velocity. Collectively, these orbiting satellites constitute the Global Positioning System, or GPS, a sophisticated technology originally developed by the United States for military applications that now serves civilian populations across the entire world, operating alongside functionally comparable systems independently maintained by Europe, Russia, and China.\n\nEach individual satellite incorporates atomic clocks, highly specialized instruments that measure temporal intervals by continuously monitoring the extraordinarily regular oscillatory vibrations of atoms, achieving such remarkable precision that they would theoretically lose less than a single second across many thousands of consecutive years.\n\nEvery satellite continuously transmits a radio signal functioning essentially as a perpetual electronic broadcast, announcing with precision its exact orbital position alongside the exact chronological moment of transmission.\n\nA specialized receiver embedded within the phone collects these transmitted signals and measures with considerable precision the duration required for each to arrive from its originating satellite. Although radio signals propagate at the velocity of light, this transmission nevertheless requires a minute, measurable temporal interval, meaning that proportionally longer transit durations indicate correspondingly greater physical distances to the originating satellite.\n\nThe device systematically repeats this calculation utilizing signals derived from a minimum of four satellites, since three distinct distance measurements mathematically suffice to establish a precise position while the fourth measurement corrects minor inherent inaccuracies within the phone's considerably less sophisticated internal clock mechanism. By comparing these calculated distances through triangulation, the device determines one's precise geographic location and positions the visual indicator accordingly upon the displayed map. Timing precision proves absolutely critical throughout this entire process, since an error of merely one millionth of a second would displace the calculated position by approximately 300 meters from its actual location. Furthermore, because these radio signals arrive at ground level considerably attenuated and weakened, substantial physical structures such as tall buildings and thick concrete roofing can occasionally obstruct or interrupt their reception entirely.\n\nRemarkably, the receiving phone transmits absolutely nothing back toward the orbiting satellites; it merely receives and processes incoming signals passively, which explains precisely why an effectively unlimited number of users worldwide can utilize the system simultaneously without any interference whatsoever.\n\nContemporary applications of this satellite-based technology are extraordinarily extensive, guiding automobiles, maritime vessels, and aircraft across vast distances, enabling emergency ambulances to reach critical situations with considerably greater operational efficiency, and permitting agricultural workers to steer tractors along perfectly linear, precisely calculated rows. The technology proves particularly invaluable within arid desert environments, where shifting, wind-sculpted sand dunes can appear virtually indistinguishable from one another regardless of the direction one observes."
     }
   ],
   "bands": {
@@ -104,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How to draw a map of your town",
-            "Why phones need to be charged",
+            "How to draw a map of your town on paper with a ruler",
+            "Why phones need to be charged every night",
             "How GPS uses satellites to find where you are",
-            "How cars are built"
+            "How cars are built in a large factory"
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -155,10 +165,10 @@
         {
           "stem": "How does the phone tell how far away a satellite is?",
           "options": [
-            "It sends a call up and waits.",
-            "It looks up at the sky with a camera.",
+            "It sends a call up and waits there.",
+            "It looks up at the sky with its camera lens",
             "It checks how long the signal took to come.",
-            "It asks another phone."
+            "It asks another phone nearby for help"
           ],
           "answer": "C",
           "skill": "cause-effect",
@@ -172,8 +182,8 @@
         {
           "stem": "The article says each satellite sends out a signal. What is a signal?",
           "options": [
-            "A kind of clock",
-            "A big machine",
+            "A kind of clock face",
+            "A big flat machine",
             "A dot on a map",
             "A message sent out"
           ],
@@ -190,9 +200,9 @@
           "stem": "Why must the satellite clocks keep the time just right?",
           "options": [
             "So the phone can tell how far away each one is",
-            "So people know when to wake up",
-            "So the satellites do not crash",
-            "So the map has the right colors"
+            "So people know when to wake up in the morning",
+            "So the satellites do not crash into each other",
+            "So the map has the right colors on the screen"
           ],
           "answer": "A",
           "skill": "inference",
@@ -223,9 +233,9 @@
         {
           "stem": "Why does the author begin with a family driving to a new place?",
           "options": [
-            "To tell a funny story about a trip",
-            "To explain how to drive a car",
-            "To show that maps are not needed",
+            "To tell a funny story about a family trip",
+            "To explain how to drive a big car",
+            "To show that maps are not needed by anyone",
             "To connect GPS to something readers know"
           ],
           "answer": "D",
@@ -243,7 +253,8 @@
         "I explained what the satellites send.",
         "I used at least two facts from the article.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "Satellites in space send out a signal that gives their position and the exact time. My phone has a receiver that listens to these signals from at least four satellites. Then my phone uses the signals to figure out my location and puts a dot on the map."
     },
     "MID": {
       "keyWords": [
@@ -299,10 +310,10 @@
         {
           "stem": "What information does each satellite's signal carry?",
           "options": [
-            "The weather for the day",
+            "The weather for the day ahead",
             "Its position and the exact time",
-            "The phone's location",
-            "A picture of the road"
+            "The phone's location on the map",
+            "A picture of the road below"
           ],
           "answer": "B",
           "skill": "detail",
@@ -421,7 +432,8 @@
         "I gave a clear answer to the question.",
         "I supported my answer with at least two details from the article.",
         "I explained how time is connected to distance."
-      ]
+      ],
+      "modelAnswer": "Exact time is important for GPS because each satellite's accurate clock tells the receiver exactly when a signal was sent. Since radio signals travel at the speed of light, the phone measures how long the signal took to arrive and uses that time to calculate the distance to the satellite. Without extremely accurate clocks, the receiver could not figure out the distance correctly, and the dot on the map would land in the wrong place."
     },
     "HIGH": {
       "keyWords": [
@@ -545,10 +557,10 @@
         {
           "stem": "Why are atomic clocks essential to GPS rather than ordinary clocks?",
           "options": [
-            "Ordinary clocks cannot survive in space.",
+            "Ordinary clocks cannot survive in space, where it is cold.",
             "Tiny timing errors would cause large mistakes in position.",
-            "Atomic clocks are cheaper to build.",
-            "Ordinary clocks cannot send radio signals."
+            "Atomic clocks are cheaper to build than ordinary ones.",
+            "Ordinary clocks cannot send radio signals through the air."
           ],
           "answer": "B",
           "skill": "inference",
@@ -599,7 +611,8 @@
         "I stated a clear position.",
         "I supported it with at least two pieces of evidence from the article.",
         "I explained how my evidence supports my position."
-      ]
+      ],
+      "modelAnswer": "I agree that GPS is one of the most important inventions of modern times. About thirty satellites carry extremely precise atomic clocks that let a receiver calculate its exact distance from each one, and by comparing signals from at least four satellites at once, a simple phone can pinpoint a location almost anywhere on Earth. This technology now guides cars, ships, and airplanes, and it is especially valuable in places like the desert, where dunes can look the same in every direction, which shows how deeply GPS has changed everyday navigation."
     }
   }
 }

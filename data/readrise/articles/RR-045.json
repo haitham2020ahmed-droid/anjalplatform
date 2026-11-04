@@ -64,6 +64,16 @@
       "level": 1400,
       "title": "Saturn: The Ringed Giant",
       "text": "On a clear night, you might notice a brilliant point of light that shines steadily instead of twinkling, and it could very possibly be Saturn, which numerous astronomical observers consider the most magnificent planet in our solar system. Saturn is the sixth planet from the sun, and it orbits approximately ten times farther from the sun than Earth does.\n\nSaturn is the second largest planet, surpassed in size exclusively by Jupiter. Unlike Earth, Saturn does not possess a rocky surface; instead, it is a gas giant composed predominantly of hydrogen and helium, the two lightest elements in the universe. If a spacecraft attempted to land there, it would descend progressively deeper into increasingly dense clouds without ever encountering solid ground. Because these gases are extraordinarily light, Saturn has an exceptionally low average density, and consequently it is the only planet that could theoretically float in water, provided that anyone could locate a bathtub sufficiently enormous to contain it.\n\nSaturn is celebrated for its spectacular rings, which consist of billions of fragments of ice and rock that orbit the planet independently. Individual fragments range from minute particles of dust to enormous chunks approximately the size of a house. Although the rings extend an astonishing distance around the planet, in most locations they are only about as thick as a tall building is high.\n\nApproximately four hundred years ago, the Italian astronomer Galileo made an observation of Saturn through a primitive telescope, and although he could perceive that something was attached to the sides of the planet, he was unable to identify it, so he speculated that Saturn might possess two large ears. Several decades later, using considerably more sophisticated telescopes, other scientists determined that these mysterious formations were actually rings.\n\nSaturn has numerous moons, more than any other planet in the solar system. The largest, Titan, is even bigger than the planet Mercury and is enveloped by a thick, hazy atmosphere. Another moon, Enceladus, ejects geysers of icy water into space, suggesting that an extensive ocean may be concealed beneath its frozen exterior.\n\nBecause the planet rotates remarkably rapidly, a day on Saturn lasts only about ten and a half hours, whereas a year is extraordinarily long, since Saturn requires approximately twenty-nine Earth years to complete a single revolution around the sun.\n\nBetween 2004 and 2017, an interplanetary spacecraft designated Cassini circled Saturn and transmitted thousands of remarkable photographs and scientific measurements back to Earth, fundamentally transforming humanity's understanding of this distant, mysterious world."
+    },
+    {
+      "level": 1500,
+      "title": "Saturn: The Ringed Giant",
+      "text": "Saturn, the sixth planet from the Sun, orbits at a distance roughly ten times greater than Earth's own distance from our star, and it ranks as the second-largest planet in the solar system. As a gas giant composed overwhelmingly of hydrogen and helium, Saturn possesses remarkably low overall density. So low, in fact, that if a basin large enough could be found, the planet would theoretically float in water rather than sink.\n\nSaturn's most recognizable feature, its system of rings, consists not of a single solid structure but of billions of individual fragments of ice and rock, ranging enormously in size yet collectively spanning an immense width while remaining astonishingly thin. The astronomer Galileo first observed these rings around 1609, approximately four hundred years ago, though the optical instruments of his era were too limited for him to correctly interpret what he saw. He mistakenly described the rings as something resembling ears attached to the planet.\n\nAmong Saturn's many moons, two stand out for their scientific significance. Titan, the largest, exceeds even the planet Mercury in size and is enveloped in a hazy atmosphere that has intrigued researchers for decades. Enceladus, smaller but no less remarkable, ejects geysers of material from its surface, observations that have led scientists to suspect the presence of a hidden ocean beneath its icy crust.\n\nSaturn's own rotation is exceptionally rapid for a planet of its size, completing a full rotation in roughly ten and a half hours, while its orbit around the Sun, by contrast, spans approximately twenty-nine Earth years, a stark illustration of how a planet's rotational period and orbital period need bear no simple relationship to one another.\n\nScientific observation of Saturn advanced considerably with the Cassini spacecraft, which orbited the planet continuously from 2004 until 2017, gathering thirteen years of valuable data on its rings, moons, and atmospheric density, contributing enormously to our present understanding of this ringed giant.\n\nStudying Saturn's rings and moons continues to reshape scientific understanding of how planetary systems originally form and evolve, since the fragments composing the rings may represent material left over from the same primordial era that produced Saturn's many moons, including Titan and Enceladus alike.\n\nEach new observation of the planet's rings and moons adds further detail to a picture astronomers have been assembling for centuries, ever since Galileo's first imperfect glimpse.\n\nThe sheer scale of these discoveries, from a planet massive enough to dwarf Earth many times over to moons that may conceal oceans of their own, continues to reshape how scientists think about where else in the solar system conditions favorable to life might possibly exist."
+    },
+    {
+      "level": 1600,
+      "title": "Saturn: The Ringed Giant",
+      "text": "Saturn, recognized as the sixth planet in order of distance from the Sun, orbits at a distance approximately ten times greater than that separating Earth from our star, and it stands as the second-largest planet within the solar system. Classified as a gas giant composed predominantly of hydrogen and helium, Saturn exhibits an unusually low density, so markedly low, in fact, that were a basin of sufficient scale to exist, the planet would theoretically float upon water rather than sink beneath its surface.\n\nSaturn's most readily recognizable feature, its extensive ring system, is composed not of any single solid structure but rather of billions of discrete fragments of ice and rock, varying enormously in individual size yet collectively spanning an immense breadth while remaining, paradoxically, astonishingly thin in cross-section. The astronomer Galileo first directed his observations toward these rings around 1609, approximately four centuries ago, though the limited optical capabilities of his instruments prevented him from correctly interpreting the phenomenon; he consequently and mistakenly described the rings as structures resembling ears affixed to the planet's body.\n\nAmong Saturn's numerous satellites, two merit particular scientific attention. Titan, the largest among them, exceeds even the planet Mercury in overall size and is enveloped within a dense, hazy atmosphere that has captivated researchers investigating its composition for decades. Enceladus, considerably smaller yet no less consequential, periodically ejects geysers of material from fissures in its surface, observations that have led scientists to hypothesize the existence of a concealed ocean lying beneath its icy exterior crust.\n\nSaturn's own rotational behavior is exceptionally rapid relative to its substantial size, completing a full planetary day in a mere ten and a half hours, whereas its orbital period around the Sun spans approximately twenty-nine Earth years, a striking illustration of the fact that a planet's day and its year need bear no straightforward or proportional relationship to one another.\n\nScientific understanding of Saturn advanced considerably through the sustained observations of the Cassini spacecraft, which orbited the planet continuously from 2004 until 2017, accumulating thirteen years of detailed data concerning its rings, its moons, and the low density characteristic of its gaseous composition, contributions that have substantially enriched contemporary understanding of this singularly distinctive ringed giant.\n\nContinued study of Saturn's extensive rings and numerous moons has steadily reshaped scientific understanding of how planetary systems more broadly form and subsequently evolve over cosmic timescales, since the countless fragments composing the rings may well represent material left over from the very same formative era that ultimately produced Saturn's diverse moons, including both Titan and Enceladus, each offering scientists a distinct and valuable window into the planet's distant origins."
     }
   ],
   "bands": {
@@ -155,10 +165,10 @@
         {
           "stem": "Galileo used a telescope to look at Saturn. What is a telescope?",
           "options": [
-            "A map of the stars",
+            "A map of the stars that shows planets",
             "A tool that makes far things look closer",
-            "A kind of space ship",
-            "A book about planets"
+            "A kind of space ship that flies to the stars",
+            "A book about planets and the Sun"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -189,10 +199,10 @@
         {
           "stem": "Why did Galileo most likely think Saturn had ears?",
           "options": [
-            "He saw a drawing of Saturn with ears.",
-            "He heard sounds coming from Saturn.",
+            "He saw a drawing of Saturn with ears on it.",
+            "He heard sounds coming from Saturn in the night.",
             "His telescope could not show the rings clearly.",
-            "He was looking at the wrong planet."
+            "He was looking at the wrong planet in the sky."
           ],
           "answer": "C",
           "skill": "inference",
@@ -243,7 +253,8 @@
         "I named one fact about Saturn from the article.",
         "I explained why it surprised me.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "The fact that surprised me most is that Saturn could float in water. I never knew a planet could be light enough to float, since it does not even have a rocky surface like Earth. This made me realize that Saturn is mostly made of gas, which is why it is so surprisingly light for its huge size."
     },
     "MID": {
       "keyWords": [
@@ -367,9 +378,9 @@
         {
           "stem": "What does the story of Galileo and the \"ears\" suggest?",
           "options": [
-            "Saturn's rings have grown larger over time.",
-            "Early astronomers did not care about Saturn.",
-            "Galileo did not own a telescope.",
+            "Saturn's rings have grown larger over time as it got older",
+            "Early astronomers did not care about Saturn or its rings",
+            "Galileo did not own a telescope, so he could not look",
             "Better tools help scientists understand what they see."
           ],
           "answer": "D",
@@ -401,10 +412,10 @@
         {
           "stem": "Why does the author mention a bathtub big enough to hold Saturn?",
           "options": [
-            "To explain how astronauts take baths in space",
+            "To explain how astronauts take baths in space with little water",
             "To help readers picture how light Saturn is in a fun way",
-            "To show that scientists tested Saturn in water",
-            "To compare Saturn's rings to a bathtub"
+            "To show that scientists tested Saturn in water in a big tank",
+            "To compare Saturn's rings to a bathtub with a round edge"
           ],
           "answer": "B",
           "skill": "author-purpose",
@@ -421,7 +432,8 @@
         "I included three facts from the article about Saturn.",
         "I explained each fact in my own words.",
         "I organized my report with an opening and a closing sentence."
-      ]
+      ],
+      "modelAnswer": "As a scientist on the Cassini mission, I would love to share what we learned while orbiting Saturn. First, Saturn is a gas giant with no rocky surface at all, so a spacecraft trying to land would just sink into thick clouds. Second, its famous rings are made of billions of pieces of ice and rock that range from tiny dust grains to chunks as big as a house. Third, Saturn has more moons than any other planet, and its largest moon, Titan, is even bigger than the planet Mercury. These discoveries from our spacecraft have taught us more about Saturn than anyone ever knew before."
     },
     "HIGH": {
       "keyWords": [
@@ -579,10 +591,10 @@
         {
           "stem": "How is the paragraph about Galileo organized?",
           "options": [
-            "As a list of Saturn's moons",
+            "As a list of Saturn's moons and their sizes in order from the biggest",
             "In time order, from Galileo's first view to a later discovery",
             "As a problem followed by several unrelated solutions",
-            "As a comparison of Saturn and Jupiter"
+            "As a comparison of Saturn and Jupiter and their rings, side by side"
           ],
           "answer": "B",
           "skill": "text-structure",
@@ -599,7 +611,8 @@
         "I explained how at least two tools helped scientists learn about Saturn.",
         "I supported my explanation with specific evidence from the article.",
         "I organized my writing with a clear introduction, body, and conclusion."
-      ]
+      ],
+      "modelAnswer": "Over four hundred years, better and better tools have completely transformed our observation and understanding of Saturn. When Galileo first looked at Saturn through a simple telescope about four hundred years ago, he could only see that something odd was attached to its sides, and he mistakenly guessed the planet had two large ears. Centuries later, far more powerful telescopes let other scientists finally confirm that these were actually rings made of ice and rock. Then, from 2004 to 2017, the Cassini spacecraft flew directly to Saturn and sent back thousands of detailed pictures and measurements, revealing facts no telescope on Earth could ever have captured, such as the true size of its moon Titan. In conclusion, each new tool, from Galileo's telescope to the Cassini spacecraft, has let scientists see Saturn more clearly and accurately than the tool before it."
     }
   }
 }

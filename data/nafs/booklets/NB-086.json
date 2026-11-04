@@ -174,9 +174,9 @@
       "stem": "What is the main purpose of the passage?",
       "options": [
         "to show how a scholar's careful methods produced a famous map",
-        "to explain how satellites help us to make maps today",
-        "to describe the history of the island of Sicily",
-        "to persuade readers to become sailors or merchants"
+        "to explain how satellites help us to make maps today in cars",
+        "to describe the history of the island of Sicily and its kings",
+        "to persuade readers to become sailors or merchants at sea"
       ],
       "answer": "A",
       "why": "The passage describes al-Idrisi's life, his careful method and the famous map it produced."
@@ -205,10 +205,10 @@
       "type": "MCQ",
       "stem": "Why did King Roger II invite al-Idrisi to Palermo?",
       "options": [
-        "He needed an experienced captain for his ships.",
-        "He wanted someone to teach his children Arabic.",
+        "He needed an experienced captain for his ships at sea.",
+        "He wanted someone to teach his children Arabic and poetry.",
         "He wanted an accurate description of the whole known world.",
-        "He hoped to buy silver from North Africa."
+        "He hoped to buy silver from North Africa for his king."
       ],
       "answer": "C",
       "why": "Paragraph 3: “Roger wanted an accurate description of the whole known world, so he invited al-Idrisi.”"
@@ -253,9 +253,9 @@
       "type": "MCQ",
       "stem": "What did al-Idrisi do right AFTER studying in Córdoba?",
       "options": [
-        "He moved to the port town of Ceuta.",
-        "He engraved a map onto a silver disc.",
-        "He completed the Book of Roger.",
+        "He moved to the port town of Ceuta to work as a clerk.",
+        "He engraved a map onto a silver disc for the king.",
+        "He completed the Book of Roger in the city of Palermo.",
         "He travelled through North Africa, Spain and Asia Minor."
       ],
       "answer": "D",
@@ -413,8 +413,8 @@
       "type": "MCQ",
       "stem": "What does the phrase “replace guesswork with evidence” in paragraph 1 mean?",
       "options": [
-        "guess more quickly than other mapmakers",
-        "draw maps without writing any words",
+        "guess more quickly than other mapmakers could",
+        "draw maps without writing any words on them",
         "throw away all the old maps of the world",
         "use facts that can be checked instead of guesses"
       ],
@@ -462,9 +462,9 @@
       "stem": "What most likely motivated the writer to write about al-Idrisi?",
       "options": [
         "to show that sharing knowledge across cultures leads to great achievements",
-        "to complain that the silver map was not protected",
-        "to prove that modern maps are less accurate than old ones",
-        "to advertise a trip to the island of Sicily"
+        "to complain that the silver map was not protected in the palace of the king, and was lost",
+        "to prove that modern maps are less accurate than old ones are, in every part of the world",
+        "to advertise a trip to the island of Sicily for tourists and for young people"
       ],
       "answer": "A",
       "why": "The last paragraph says knowledge grows fastest “when people from different cultures share what they know.”"
@@ -477,10 +477,10 @@
       "type": "MCQ",
       "stem": "Which statement would the writer most likely AGREE with?",
       "options": [
-        "Old maps are always more beautiful than accurate ones.",
-        "Kings are the best judges of scientific work.",
+        "Old maps are always more beautiful than accurate ones are.",
+        "Kings are the best judges of scientific work in the world of old.",
         "Checking facts carefully matters more than telling exciting stories.",
-        "Travellers' stories should never be trusted."
+        "Travellers' stories should never be trusted, not even one time."
       ],
       "answer": "C",
       "why": "The writer praises al-Idrisi for refusing to “choose the most exciting story” and for his “respect for evidence”."
@@ -525,10 +525,10 @@
       "type": "MCQ",
       "stem": "Which title best describes the events of the passage?",
       "options": [
-        "The King Who Sailed Around the World",
-        "The Sailors Who Drew a Silver Map",
+        "The King Who Sailed Around the World in Ships",
+        "The Sailors Who Drew a Silver Map for the Sultan",
         "From Ceuta to Palermo: A Map Built on Evidence",
-        "Lost Monsters of the Twelfth Century"
+        "Lost Monsters of the Twelfth Century in the Sea"
       ],
       "answer": "C",
       "why": "It follows al-Idrisi from his birth in Ceuta to his evidence-based work in Palermo."

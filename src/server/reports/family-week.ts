@@ -10,9 +10,10 @@
  * plain-language topics (src/server/reports/family-week-words.ts), not skill codes. Everything shown is an interface
  * string (translated by t()) or the student's own data, so the page and the PDF read the same in both languages.
  *
- * Who: the student (their own week, /student/reports?view=family), the class's teacher and the school admin
+ * Who: the student (their own week, /student/reports?view=family), their linked parent (their own child only,
+ * the per-student PDF at /api/family-week?studentId=…), and the class's teacher and the school admin
  * (assertClassAccess) — the teacher previews each student in the student's format and downloads one PDF or a
- * class PDF (a page per student) to send by WhatsApp. No new role: parents get the page from the student or as a PDF.
+ * class PDF (a page per student) to send by WhatsApp.
  * Bounded: one class (≤ 60 students) per call, this week's rows only, batched `in` reads.
  */
 import type { Repo, Row } from "../seeding/repo";
@@ -20,9 +21,13 @@ import { ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
 import { assertClassAccess } from "../teacher/assignments";
 import { isHiddenSkill } from "../skills/master";
+import { cancelIndexForStudents, liveAssignmentWhere } from "../student/cancelled-work";
 import { weekStart } from "../student/weekly";
+import { practiceTotals } from "../analytics/practice-totals";
 import { hideLevels } from "../../lib/hide-levels";
 import { homeTopicFor, type HomeTopic } from "./family-week-words";
+import { starBook, starLearning, starMastered, starNeedsReview } from "../skills/star-read";
+import type { StarView } from "../skills/status";
 
 const s = (v: unknown) => String(v ?? "");
 const time = (v: unknown) => (v instanceof Date ? v.getTime() : v ? new Date(s(v)).getTime() : 0);
@@ -43,15 +48,25 @@ export interface FamilyWeek {
 export interface FamilyWeekBatch { classId: string; className: string; grade: number; week: string; items: FamilyWeek[] }
 
 const isAdmin = (a: Actor) => a.role === "SCHOOL_ADMIN" || a.role === "SUPER_ADMIN";
-const iso = (d: Date) => d.toISOString().slice(0, 10);
+// 🐛 fix: weekStart() (student/weekly.ts, r85 audit) returns Sunday 00:00 Riyadh time as a UTC instant — e.g.
+// 2026-10-10T21:00:00Z for the Riyadh calendar date 2026-10-11. A raw toISOString().slice(0,10) on that instant
+// prints the UTC calendar date (one day early), so the Riyadh offset is added back before formatting for display.
+const RIYADH = 3 * 3_600_000;
+const iso = (d: Date) => new Date(d.getTime() + RIYADH).toISOString().slice(0, 10);
 
-/** The current class of a student that this person may open (the student: their own). */
+/** The current class of a student that this person may open (the student: their own; a parent: their own child). */
 async function classOfStudent(repo: Repo, actor: Actor, studentId: string): Promise<Row> {
   const st = await repo.findUnique("Student", { id: studentId });
   if (!st || s(st.schoolId) !== s(actor.schoolId)) throw new ForbiddenError("Student not found.");
   const ms = await repo.findMany("ClassMembership", { studentId, leftAt: null }, { select: ["classId"] });
-  if (actor.role === "STUDENT") {
-    if (actor.studentId !== studentId) throw new ForbiddenError("Student not found.");
+  // 🐛 L11 fix: a PARENT calling familyWeek() for their own child always fell through to "Student not found" below —
+  // this branch only recognized STUDENT (self); the other branch (assertClassAccess) only ever allows staff
+  // (SUPER_ADMIN/SCHOOL_ADMIN/TEACHER) and explicitly rejects PARENT. The route (/api/family-week) and PDF export
+  // already anticipated a parent caller (see family-week-pdf.ts's `actor.role !== "PARENT"` check) — only this
+  // authorization check was missing.
+  if (actor.role === "STUDENT" || actor.role === "PARENT") {
+    const allowed = actor.role === "STUDENT" ? actor.studentId === studentId : (actor.parentChildIds?.has(studentId) ?? false);
+    if (!allowed) throw new ForbiddenError("Student not found.");
     const k = ms.length ? await repo.findUnique("Class", { id: ms[0].classId }) : null;
     return k ?? { id: "", name: "", gradeId: st.gradeId, schoolId: st.schoolId };
   }
@@ -91,22 +106,44 @@ export async function saveFamilyWeekNote(repo: Repo, actor: Actor, input: { stud
 async function buildWeeks(repo: Repo, ids: string[], klass: { className: string; classId: string; grade: number }, now: Date): Promise<FamilyWeek[]> {
   const since = weekStart(now);
   const inWeek = (v: unknown) => { const t = time(v); return t >= since.getTime() && t <= now.getTime(); };
-  const [students, done, sessions, runs, lessonRuns, attempts, mastery, nafs, notes] = await Promise.all([
-    repo.findMany("Student", { id: { in: ids } }, { select: ["id", "userId"] }),
+  const [students, done, sessions, runs, lessonRuns, attempts, book, nafs, notes, totals] = await Promise.all([
+    repo.findMany("Student", { id: { in: ids } }, { select: ["id", "userId", "schoolId"] }),
     repo.findMany("AssignmentStudent", { studentId: { in: ids }, status: "COMPLETED", completedAt: { gte: since } }, { select: ["studentId", "assignmentId", "completedAt"] }),
     repo.findMany("PracticeSession", { studentId: { in: ids }, startedAt: { gte: since } }, { select: ["studentId", "activeMs", "startedAt", "assignmentId", "mode", "correctCount"] }),
     repo.findMany("RRRun", { studentId: { in: ids }, completedAt: { gte: since } }, { select: ["studentId", "articleId", "readSeconds", "completedAt"] }),
     repo.findMany("LessonRun", { studentId: { in: ids }, finishedAt: { gte: since } }, { select: ["studentId", "skillId", "finishedAt"] }),
-    repo.findMany("QuestionAttempt", { studentId: { in: ids }, createdAt: { gte: since } }, { select: ["studentId", "skillId", "isCorrect", "rapidGuess", "createdAt"] }),
-    repo.findMany("StudentSkillMastery", { studentId: { in: ids }, isMastered: false }, { select: ["studentId", "skillId", "score"], orderBy: [{ field: "score", dir: "asc" }], take: ids.length * 8 }),
+    // "unreliable" (r85 audit) is selected and filtered below for the same reason every other reader of
+    // QuestionAttempt excludes it: a session with too many guesses backfills unreliable:true onto its rows even
+    // when one particular answer wasn't itself flagged rapidGuess — without it, that noise could pick the wrong
+    // "practise at home" topic for the family.
+    repo.findMany("QuestionAttempt", { studentId: { in: ids }, createdAt: { gte: since } }, { select: ["studentId", "skillId", "isCorrect", "rapidGuess", "unreliable", "createdAt"] }),
+    // ⭐ the ONE skill status of every student (one batched read, no shared row cap: every student gets their own
+    // skills — the old `take: ids.length * 8` on the engine table let a few students use up the whole class's rows)
+    starBook(repo, ids),
     repo.findMany("NafsResult", { studentId: { in: ids }, submittedAt: { gte: since } }, { select: ["studentId", "testId", "classId", "points", "maxPoints", "submittedAt"] }).catch(() => [] as Row[]),
     repo.findMany("FamilyWeekNote", { studentId: { in: ids }, week: iso(since) }, { select: ["studentId", "note"] }).catch(() => [] as Row[]), // a database without the table yet: no notes
+    // 📏 round 4: minutes = THE one definition (practice-totals.ts, ≤ 5 min per answer), the Riyadh week from Sunday
+    practiceTotals(repo, ids, since, now),
   ]);
-  const doneNow = done.filter((r) => inWeek(r.completedAt));
-  const aIds = [...new Set(doneNow.map((r) => s(r.assignmentId)))];
-  const assignments = aIds.length ? await repo.findMany("Assignment", { id: { in: aIds } }, { select: ["id", "title", "testId", "assessmentId"] }) : [];
+  const doneAll = done.filter((r) => inWeek(r.completedAt));
+  const aIds = [...new Set(doneAll.map((r) => s(r.assignmentId)))];
+  // r78: a task cancelled on Assigned is not one of the family's "tasks" (the answers stay; the task is not listed)
+  const [assignments, ix] = await Promise.all([
+    aIds.length ? repo.findMany("Assignment", liveAssignmentWhere({ id: { in: aIds } }), { select: ["id", "title", "testId", "assessmentId", "curriculumPlanId"] }) : Promise.resolve([] as Row[]),
+    cancelIndexForStudents(repo, ids),
+  ]);
+  const liveById = new Map(assignments.map((a) => [s(a.id), a]));
+  const doneNow = doneAll.filter((r) => liveById.has(s(r.assignmentId)) && ix.live(liveById.get(s(r.assignmentId))!, s(r.studentId)));
   const tests = assignments.filter((a) => a.testId);
-  const skillIds = [...new Set([...lessonRuns.map((r) => s(r.skillId)), ...attempts.map((a) => s(a.skillId)), ...mastery.map((m) => s(m.skillId))].filter(Boolean))];
+  // each student's 🔄 / ◐ skills (one per KEY), with the skill row that names it
+  const repOf = (key: string, v: StarView) => v.skillId ?? book.ix.skillsOf.get(key)?.[0] ?? "";
+  const openOf = new Map<string, { key: string; skillId: string }[]>();
+  for (const id of ids) {
+    const list = [...(book.byKey.get(id) ?? new Map<string, StarView>())].filter(([k, v]) => book.ix.skillsOf.has(k) && (starNeedsReview(v) || starLearning(v)) && repOf(k, v));
+    list.sort((a, b) => Number(starNeedsReview(b[1])) - Number(starNeedsReview(a[1])) || Number(b[1].needsSupport) - Number(a[1].needsSupport) || a[1].score - b[1].score);
+    openOf.set(id, list.slice(0, 8).map(([k, v]) => ({ key: k, skillId: repOf(k, v) })));
+  }
+  const skillIds = [...new Set([...lessonRuns.map((r) => s(r.skillId)), ...attempts.map((a) => s(a.skillId)), ...[...openOf.values()].flat().map((x) => x.skillId)].filter(Boolean))];
   const articleIds = [...new Set(runs.map((r) => s(r.articleId)))];
   const nafsLive = nafs.filter((r) => inWeek(r.submittedAt));
   const [users, skills, articles, testRows, aqs, released, nafsTests] = await Promise.all([
@@ -147,17 +184,24 @@ async function buildWeeks(repo: Repo, ids: string[], klass: { className: string;
       const max = Number(r.maxPoints) || 0;
       testsDone.push({ title: hideLevels(nafsTitle.get(s(r.testId)) || "NAFS"), pct: max ? Math.round((100 * Number(r.points)) / max) : 0, kind: "NAFS" });
     }
-    const minutes = Math.round((mineSessions.reduce((t, x) => t + Math.min(Number(x.activeMs ?? 0), 3 * 3_600_000), 0) + mineRuns.reduce((t, r) => t + Math.min(Number(r.readSeconds ?? 0), 3600) * 1000, 0)) / 60_000);
-    const days = new Set([...mineSessions.filter((x) => Number(x.activeMs) > 0).map((x) => iso(new Date(time(x.startedAt)))), ...mineAttempts.map((a) => iso(new Date(time(a.createdAt)))), ...mineRuns.map((r) => iso(new Date(time(r.completedAt))))]).size;
-    // things to practise: this week's hardest skills (3+ careful answers, under 70 %), then the skills not mastered yet
+    // the same minutes and days as This week (student/weekly.ts), not session time
+    const minutes = totals.get(id)?.minutes ?? 0;
+    const days = totals.get(id)?.activeDays ?? 0;
+    // things to practise: this week's hardest skills (3+ careful answers, under 70 %) that are not ⭐, then the 🔄 needs
+    // review and ◐ in progress skills (needs support / lowest score first) — never a ⭐ skill (one per key)
     const per = new Map<string, { n: number; ok: number }>();
-    for (const a of mineAttempts) { if (a.rapidGuess || !skillName.has(s(a.skillId))) continue; const o = per.get(s(a.skillId)) ?? { n: 0, ok: 0 }; o.n++; if (a.isCorrect) o.ok++; per.set(s(a.skillId), o); }
-    const hard = [...per].filter(([, o]) => o.n >= 3 && o.ok / o.n < 0.7).sort((a, b) => a[1].ok / a[1].n - b[1].ok / b[1].n).map(([k]) => skillName.get(k)!);
-    const open = mastery.filter((m) => s(m.studentId) === id && skillName.has(s(m.skillId))).map((m) => skillName.get(s(m.skillId))!);
+    for (const a of mineAttempts) { if (a.rapidGuess || a.unreliable || !skillName.has(s(a.skillId))) continue; const o = per.get(s(a.skillId)) ?? { n: 0, ok: 0 }; o.n++; if (a.isCorrect) o.ok++; per.set(s(a.skillId), o); }
+    const hard = [...per].filter(([k, o]) => o.n >= 3 && o.ok / o.n < 0.7 && !starMastered(book.of(id, k))).sort((a, b) => a[1].ok / a[1].n - b[1].ok / b[1].n).map(([k]) => k);
+    const open = (openOf.get(id) ?? []).filter((x) => skillName.has(x.skillId)).map((x) => x.skillId);
     const practise: HomeTopic[] = [];
-    for (const name of [...hard, ...open]) {
-      const t = homeTopicFor(name);
-      if (!practise.some((p) => p.key === t.key)) practise.push(t);
+    const keysUsed = new Set<string>();
+    for (const skillId of [...hard, ...open]) {
+      const key = book.keyOf(skillId);
+      if (keysUsed.has(key)) continue;
+      keysUsed.add(key);
+      const t = homeTopicFor(skillName.get(skillId)!);
+      // r79: the skill behind the topic — the printed page links it to the student's practice
+      if (!practise.some((p) => p.key === t.key)) practise.push({ ...t, skillId });
       if (practise.length >= 3) break;
     }
     if (practise.length < 2) for (const key of ["reading", "words"] as const) { const t = homeTopicFor(key); if (!practise.some((p) => p.key === t.key) && practise.length < 2) practise.push(t); }

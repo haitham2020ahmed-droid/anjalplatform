@@ -174,9 +174,9 @@
       "stem": "What is the main purpose of the story?",
       "options": [
         "to show that careful investigation is better than blaming people without proof",
-        "to teach readers how to dry dates on wooden racks",
-        "to describe the birds that live in Qassim",
-        "to explain how to use a tablet to film at night"
+        "to teach readers how to dry dates on wooden racks in the hot sun every year",
+        "to describe the birds that live in Qassim and the plants they eat",
+        "to explain how to use a tablet to film at night in the palm farm"
       ],
       "answer": "A",
       "why": "Reem's careful detective work proves that Grandfather's quick accusation was wrong."
@@ -189,10 +189,10 @@
       "type": "MCQ",
       "stem": "What is the main idea of paragraph 3?",
       "options": [
-        "Reem asks to visit the neighbour's house.",
-        "Reem and Nawaf are bored on the farm.",
+        "Reem asks to visit the neighbour's house with Nawaf.",
+        "Reem and Nawaf are bored on the farm and want to leave.",
         "Reem asks to look for evidence so that innocent boys are not accused.",
-        "Reem agrees that the neighbour's boys are thieves."
+        "Reem agrees that the neighbour's boys are thieves and tells Baba."
       ],
       "answer": "C",
       "why": "Reem feels uneasy and asks to investigate first so they do not “hurt innocent people”."
@@ -205,10 +205,10 @@
       "type": "MCQ",
       "stem": "Why did Grandfather first suspect the neighbour's boys?",
       "options": [
-        "He had seen them climbing the racks.",
+        "He had seen them climbing the racks in the garden at night.",
         "They played beside his wall every evening and were always hungry.",
-        "Reem told him they had taken the dates.",
-        "Their footprints were found in the flour."
+        "Reem told him they had taken the dates from the store room.",
+        "Their footprints were found in the flour near the racks in the yard."
       ],
       "answer": "B",
       "why": "Paragraph 2: “They play beside our wall every evening, and they are always hungry.”"
@@ -237,9 +237,9 @@
       "type": "MCQ",
       "stem": "Why was Nawaf's first recording disappointing?",
       "options": [
-        "The tablet's battery ran out.",
-        "Grandfather deleted the video.",
-        "The birds flew too fast to be seen.",
+        "The tablet's battery ran out before the birds came to the dates.",
+        "Grandfather deleted the video by mistake that night after dinner.",
+        "The birds flew too fast to be seen on the tablet in the dark.",
         "The night was so dark that the screen showed only black shadows."
       ],
       "answer": "D",
@@ -285,9 +285,9 @@
       "type": "MCQ",
       "stem": "Which clue showed Reem that the dates were always taken from ONE place?",
       "options": [
-        "the date stones that had been pecked clean",
-        "the footprints shaped like forks",
-        "the black shadows in the recording",
+        "the date stones that had been pecked clean beside the palm trunk",
+        "the footprints shaped like forks in the soft sand below",
+        "the black shadows in the recording from the night camera",
         "the dates always disappeared from the same corner of the racks"
       ],
       "answer": "D",
@@ -302,9 +302,9 @@
       "stem": "What made it possible for the birds to reach the dates?",
       "options": [
         "a narrow tear in the protective net that the wind had widened",
-        "the gate that the boys left open",
-        "the flour that attracted them to the racks",
-        "the light from Nawaf's tablet"
+        "the gate that the boys left open by mistake",
+        "the flour that attracted them to the racks in the sun",
+        "the light from Nawaf's tablet shining out into the night, past the net"
       ],
       "answer": "A",
       "why": "Paragraph 9: the birds “dropped through the torn net”."
@@ -365,10 +365,10 @@
       "type": "MCQ",
       "stem": "What was the effect of Reem's flour trick?",
       "options": [
-        "It frightened the birds away.",
+        "It frightened the birds away from the dates in the rack.",
         "It showed that no human had come near the racks.",
-        "It made the dates dry faster.",
-        "It broke Nawaf's tablet."
+        "It made the dates dry faster in the sun than before.",
+        "It broke Nawaf's tablet when it fell off the table."
       ],
       "answer": "B",
       "why": "The flour showed “not a single human footprint”, only tiny three-toed prints."
@@ -397,10 +397,10 @@
       "type": "MCQ",
       "stem": "What does the writer mean by “the flour told a surprising story”?",
       "options": [
-        "Reem wrote a story in the flour.",
+        "Reem wrote a story in the flour with her finger.",
         "The marks in the flour revealed unexpected information.",
-        "The flour made a strange noise.",
-        "Grandfather read a story about flour."
+        "The flour made a strange noise when it was poured.",
+        "Grandfather read a story about flour to the children."
       ],
       "answer": "B",
       "why": "The flour cannot really tell a story; the prints left in it gave surprising clues (personification)."
@@ -430,9 +430,9 @@
       "stem": "In your opinion, why does the writer give the reader clues such as the prints and the pecked stones before the birds appear?",
       "options": [
         "so readers can try to solve the mystery along with Reem",
-        "so the story becomes shorter",
-        "so readers learn how to bake with flour",
-        "so the ending is impossible to guess"
+        "so the story becomes shorter and easier to read for children",
+        "so readers learn how to bake with flour and eggs at home",
+        "so the ending is impossible to guess for any of the readers"
       ],
       "answer": "A",
       "why": "Clues let readers think like detectives and guess the answer before it is revealed."
@@ -461,10 +461,10 @@
       "type": "MCQ",
       "stem": "Why did Grandfather invite the neighbour's boys to share his best dates?",
       "options": [
-        "because he wanted them to guard the racks",
+        "because he wanted them to guard the racks at night",
         "because he wanted to make up for suspecting them unfairly",
         "because the birds had eaten all the other dates",
-        "because Reem asked him to sell the dates"
+        "because Reem asked him to sell the dates in the market"
       ],
       "answer": "B",
       "why": "He felt embarrassed about almost blaming them and wanted to show kindness."
@@ -478,9 +478,9 @@
       "stem": "Which feeling is MOST present in the last paragraph?",
       "options": [
         "embarrassment mixed with good humour",
-        "fear and anger",
-        "sadness and loneliness",
-        "jealousy and pride"
+        "fear and anger at the whole class",
+        "sadness and loneliness at home alone",
+        "jealousy and pride in her friends"
       ],
       "answer": "A",
       "why": "Grandfather laughs and shakes his head “in embarrassment”."

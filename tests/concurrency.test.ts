@@ -56,7 +56,10 @@ describe("simultaneous requests", () => {
     assert.equal((await repo.findMany("PracticeSession", { studentId: roster[0].id, assignmentId: aid })).length, 1);
     const it = (await loadQuestionItems(repo, [v1.question!.questionId]))[0];
     const tries = await Promise.allSettled([submitQuizAnswer(repo, sts[0], { assignmentId: aid, questionId: it.questionId, response: rightAnswer(it) }), submitQuizAnswer(repo, sts[0], { assignmentId: aid, questionId: it.questionId, response: rightAnswer(it) })]);
-    assert.equal(tries.filter((t) => t.status === "fulfilled").length, 1, "the second click is refused");
+    // r68: the second click is never counted — it gets the first answer's saved result back (a retry after a lost reply
+    // must not leave the player with an error)
+    const done = tries.filter((t) => t.status === "fulfilled").map((t) => (t as PromiseFulfilledResult<Awaited<ReturnType<typeof submitQuizAnswer>>>).value);
+    assert.equal(done.filter((r) => r.feedback.replayed).length, 1, "the second click is a replay");
     assert.equal((await repo.findMany("QuestionAttempt", { sessionId: v1.sessionId })).length, 1);
   });
 });

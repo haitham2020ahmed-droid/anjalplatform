@@ -125,10 +125,10 @@
       "difficulty": 3,
       "stem": "Which information is the LEAST clear in the story?",
       "options": [
-        "Where the story takes place",
+        "Where the story takes place on the shore of the sea",
         "Whether the dolphin was hurt before it stranded",
-        "How Omar kept the dolphin wet",
-        "Who called the coastguard"
+        "How Omar kept the dolphin wet in the hot sun",
+        "Who called the coastguard to the beach that day"
       ],
       "answer": "B",
       "why": "The story never says whether the dolphin was injured; the place (Al Wajh), the caller (his father) and the cap of water are all stated."

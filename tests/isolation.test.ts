@@ -87,7 +87,7 @@ describe("tenant isolation: school A can never reach school B", () => {
         [`${who}: masteryGrid(B class)`, () => masteryGrid(repo, a, B.classId, B.unitId)],
         [`${who}: assertClassAccess(B class)`, () => assertClassAccess(repo, a, B.classId)],
         [`${who}: classAssignments(B class)`, () => classAssignments(repo, a, B.classId, now)],
-        [`${who}: createAssignment(B class)`, () => createAssignment(repo, a, { classId: B.classId, skillId: B.skillId, title: "x", dueAt: new Date("2026-10-20") } as never, now)],
+        [`${who}: createAssignment(B class)`, () => createAssignment(repo, a, { source: "CURRICULUM", classId: B.classId, skillId: B.skillId, title: "x", dueAt: new Date("2026-10-20") } as never, now)],
         [`${who}: resolveAlert(B alert)`, () => resolveAlert(repo, a, B.alertId, "x")],
         [`${who}: exportReport student(B)`, () => exportReport({ repo, fontDir: "", brandingDir: "", now: () => now }, a, { kind: "student", studentId: B.studentId, format: "csv", locale: "en", period: "TERM" })],
         [`${who}: exportReport class(B)`, () => exportReport({ repo, fontDir: "", brandingDir: "", now: () => now }, a, { kind: "class", classId: B.classId, format: "csv", locale: "en", period: "TERM" })],

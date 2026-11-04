@@ -5,17 +5,23 @@
  *
  * Same rules as the school's reports (src/server/analytics/reports.ts): rapid guesses do not count; a standard is shown
  * from 5 answers; accuracy = correct / answered.
+ * ⭐ Stars (owner, 1 Nov 2026): "Skills mastered" = the ⭐ skills of every student counted by KEY (copies of a skill
+ * count once); "avg mastery" = the average STAR score of the skills students started (skills/star-read.ts) — the
+ * engine's StudentSkillMastery is not read.
  */
 import type { Period } from "../../analytics/periods";
 import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
 import type { Repo, Row } from "../seeding/repo";
 import { keptWhileUnchanged } from "../cache/kept";
+import { starBook } from "../skills/star-read";
+import { isHiddenSkill } from "../skills/master";
+import { hiddenStarKeys } from "../teacher/queries";
 
 const s = (v: unknown) => (v === null || v === undefined ? "" : String(v));
 const ms = (v: unknown) => (v instanceof Date ? v.getTime() : new Date(s(v)).getTime());
 const pct = (a: number, b: number) => (b ? Math.round((100 * a) / b) : null);
 const DAY = 86_400_000;
-const STUDENT_CHUNK = 150;
+const STUDENT_CHUNK = 25; // 📏 25 students at a time, only totals kept (512 MB server)
 const WEEKS = 10;
 
 export interface DashKpis { students: number; activeWeek: number; answers: number; accuracy: number | null; mastered: number; avgMastery: number | null }
@@ -39,7 +45,7 @@ export async function schoolDashboard(repo: Repo, actor: Actor, period: Period, 
   const schoolId = actor.schoolId;
   const day = Math.floor(now.getTime() / DAY);
   return keptWhileUnchanged(repo, `school-dash:${schoolId}:${period.name}:${period.from.toISOString()}:${day}`,
-    ["QuestionAttempt", "StudentSkillMastery", "ClassMembership", "Class", "Student", "Grade", "Question", "Standard"], 120_000,
+    ["QuestionAttempt", "SkillStatus", "ClassMembership", "Class", "Student", "Grade", "Question", "Standard", "Skill"], 120_000,
     () => build(repo, schoolId, period, now));
 }
 
@@ -62,14 +68,19 @@ async function build(repo: Repo, schoolId: string, period: Period, now: Date): P
   const byQuestion = new Map<string, { answers: number; correct: number; students: Set<string> }>();
   const masteryOf = new Map<string, number[]>();
   let mastered = 0;
+  const hiddenSkill = new Map<string, boolean>();
   for (let i = 0; i < ids.length; i += STUDENT_CHUNK) {
     const part = ids.slice(i, i + STUDENT_CHUNK);
-    const [rows, mast] = await Promise.all([
-      repo.findMany("QuestionAttempt", { studentId: { in: part }, createdAt: { gte: period.from, lte: period.to } }, { select: ["studentId", "questionId", "isCorrect", "rapidGuess", "createdAt"] }),
-      repo.findMany("StudentSkillMastery", { studentId: { in: part } }, { select: ["studentId", "score", "isMastered"] }),
+    const [rows, book] = await Promise.all([
+      repo.findMany("QuestionAttempt", { studentId: { in: part }, createdAt: { gte: period.from, lte: period.to } }, { select: ["studentId", "questionId", "skillId", "isCorrect", "rapidGuess", "createdAt"] }),
+      starBook(repo, part, schoolId),
     ]);
+    // the hidden Curriculum Map holder skill (questions not linked to a skill yet) is left out
+    const unknown = [...new Set(rows.map((a) => s(a.skillId)).filter((id) => id && !hiddenSkill.has(id)))];
+    for (let j = 0; j < unknown.length; j += 500) for (const k of await repo.findMany("Skill", { id: { in: unknown.slice(j, j + 500) } }, { select: ["id", "code"] })) hiddenSkill.set(s(k.id), isHiddenSkill(s(k.code)));
+    const hidden = await hiddenStarKeys(repo, book);
     for (const a of rows) {
-      if (a.rapidGuess) continue;
+      if (a.rapidGuess || hiddenSkill.get(s(a.skillId))) continue;
       const at = ms(a.createdAt);
       if (at < period.from.getTime() || at > period.to.getTime()) continue;
       const sid = s(a.studentId);
@@ -79,10 +90,11 @@ async function build(repo: Repo, schoolId: string, period: Period, now: Date): P
       const q = byQuestion.get(s(a.questionId)) ?? byQuestion.set(s(a.questionId), { answers: 0, correct: 0, students: new Set() }).get(s(a.questionId))!;
       q.answers++; if (a.isCorrect) q.correct++; q.students.add(sid);
     }
-    for (const m of mast) {
-      const sid = s(m.studentId);
-      (masteryOf.get(sid) ?? masteryOf.set(sid, []).get(sid)!).push(Number(m.score ?? 0));
-      if (m.isMastered) mastered++;
+    // ⭐ per student: the star score of each started skill (by key) and the ⭐ keys
+    for (const sid of part) {
+      const stars = [...(book.byKey.get(sid)?.values() ?? [])].filter((v) => v.status !== "NOT_STARTED" && !hidden.has(v.key));
+      if (stars.length) masteryOf.set(sid, stars.map((v) => v.score));
+      mastered += [...book.masteredKeys(sid)].filter((k) => !hidden.has(k)).length;
     }
   }
 
@@ -114,8 +126,10 @@ async function build(repo: Repo, schoolId: string, period: Period, now: Date): P
     return { answers, correct, activeWeek, avgMastery: m.length ? Math.round(m.reduce((a, b) => a + b, 0) / m.length) : null };
   };
   const whole = sum(ids);
+  // r72 audit: a class counts its current students once (no removed student, no double membership row)
+  const known = new Set(ids);
   const byClass = new Map<string, string[]>();
-  for (const mm of members) (byClass.get(s(mm.classId)) ?? byClass.set(s(mm.classId), []).get(s(mm.classId))!).push(s(mm.studentId));
+  for (const mm of members) { const sid = s(mm.studentId); if (!known.has(sid)) continue; const l = byClass.get(s(mm.classId)) ?? byClass.set(s(mm.classId), []).get(s(mm.classId))!; if (!l.includes(sid)) l.push(sid); }
   const classRows: DashClass[] = classes.map((c) => {
     const list = byClass.get(s(c.id)) ?? [];
     const x = sum(list);

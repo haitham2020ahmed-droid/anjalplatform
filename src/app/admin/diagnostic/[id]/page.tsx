@@ -6,6 +6,7 @@ import { diagnosticQuestions } from "@/server/diagnostic/test";
 import { STRAND_LABEL } from "@/server/diagnostic/standards";
 import { gradeLabel } from "@/server/diagnostic/adaptive";
 import { closeDiagnosticAction, openDiagnosticAction, swapQuestionAction } from "@/app/diagnostic/actions";
+import { RichInline } from "@/components/rich-inline";
 
 export const metadata = { title: "Diagnostic Test" };
 const LV = (n: number) => (n <= 3 ? "Approaching" : n === 4 ? "Meeting" : "Exceeding");
@@ -56,7 +57,7 @@ export default async function DiagnosticDetail({ params, searchParams }: { param
           {v.questions.map((q) => (
             <li key={q.id} className="flex flex-wrap items-start gap-3 py-2.5 text-sm">
               <span className="w-8 shrink-0 pt-0.5 text-end font-semibold tabular-nums text-slate-400">{q.n}</span>
-              <span className="min-w-0 flex-1"><span className="block text-slate-900">{q.stem}</span><span className="mt-0.5 block text-xs text-slate-500"><b className="font-mono text-brand-teal">{q.area.code}</b> {q.area.label} · {STRAND_LABEL[q.area.strand]} · {q.d !== undefined ? `difficulty ${gradeLabel(q.d)} (from Grade ${q.g})` : LV(q.level)} · {q.type}</span></span>
+              <span className="min-w-0 flex-1"><span className="block text-slate-900"><RichInline text={q.stem} /></span><span className="mt-0.5 block text-xs text-slate-500"><b className="font-mono text-brand-teal">{q.area.code}</b> {q.area.label} · {STRAND_LABEL[q.area.strand]} · {q.d !== undefined ? `difficulty ${gradeLabel(q.d)} (from Grade ${q.g})` : LV(q.level)} · {q.type}</span></span>
               <Link href={`/admin/questions/${q.id}`} className="rounded-lg px-2.5 py-1 text-xs font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">👁 Open</Link>
               {draft && <form action={swapQuestionAction}><input type="hidden" name="id" value={id} /><input type="hidden" name="questionId" value={q.id} /><input type="hidden" name="n" value={q.n} /><button className="rounded-lg bg-amber-100 px-2.5 py-1 text-xs font-semibold text-amber-900 ring-1 ring-amber-300 hover:bg-amber-200">{t.adaptive ? "🚫 Leave out" : "🔄 Swap"}</button></form>}
             </li>

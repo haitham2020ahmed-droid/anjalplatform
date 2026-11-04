@@ -6,6 +6,10 @@ import { getT } from "@/i18n/server";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { dataHealth } from "@/server/insights/level-story";
 import { shortPoolSkills } from "@/server/practice/short-pool";
+import { listAutoHidden } from "@/server/questions/auto-check";
+import { listImports } from "@/server/imports/pipeline";
+import { errorList } from "@/server/teacher/extras";
+import { openAlertCount } from "@/server/insights/alerts";
 
 export const metadata = { title: "Data Health" };
 
@@ -17,6 +21,15 @@ export default async function DataHealth({ searchParams }: { searchParams: Promi
   const v = await dataHealth(repo, actor);
   // 🕳 r67: skills whose questions ran out before the 30 practice asks for (the students saw Done)
   const short = await shortPoolSkills(repo, Object.keys(v.names)).catch(() => []);
+  const isAdmin = actor.role === "SCHOOL_ADMIN" || actor.role === "SUPER_ADMIN";
+  // 🩺 "needs a look" (admin only): a few other scattered alerts that already exist on their own pages, pulled
+  // together here so one visit says whether anything needs attention today — none of this touches student levels.
+  const [failedImports, hiddenQuestions, errors, openAlerts] = isAdmin ? await Promise.all([
+    listImports(repo, actor).then((js) => js.filter((j) => j.status === "FAILED")).catch(() => []),
+    listAutoHidden(repo, actor).catch(() => []),
+    errorList(repo, actor).catch(() => []),
+    openAlertCount(repo, actor).catch(() => 0),
+  ]) : [[], [], [], 0];
   const total = v.rows.reduce((t, r) => t + r.students, 0);
   const sum = (k: "noMap" | "noDiagnostic" | "inactive" | "noData") => v.rows.reduce((t, r) => t + r[k].length, 0);
   // never round a gap away (199 of 200 is 99.5%, not 100%): 100% only when nothing is missing (Update 39C)
@@ -73,6 +86,16 @@ export default async function DataHealth({ searchParams }: { searchParams: Promi
                 {actor.role === "TEACHER" ? <Link href="/teacher/messages" className="font-semibold text-brand-teal underline">{t("Ask for more questions")}</Link> : <Link href={`/admin/questions?status=PUBLISHED&skill=${encodeURIComponent(k.skillId)}`} className="font-semibold text-brand-teal underline">{t("Add questions")}</Link>}
               </li>
             ))}
+          </ul>
+        </Section>
+      )}
+      {isAdmin && (failedImports.length > 0 || hiddenQuestions.length > 0 || errors.length > 0 || openAlerts > 0) && (
+        <Section title={t("Needs a look")} icon="🔎" className="mb-6" hint={t("A few other things the platform already flags on their own pages, gathered here so nothing gets missed.")}>
+          <ul className="divide-y divide-slate-100 text-sm">
+            {openAlerts > 0 && <li className="flex flex-wrap items-center justify-between gap-2 py-2.5"><span>🚨 {t("{n} open student alerts", { n: openAlerts })}</span><Link href="/teacher/alerts" className="font-semibold text-brand-teal underline">{t("Open")} →</Link></li>}
+            {failedImports.length > 0 && <li className="flex flex-wrap items-center justify-between gap-2 py-2.5"><span>📥 {t("{n} failed imports", { n: failedImports.length })} <span className="text-slate-500">({failedImports.map((j) => String(j.fileName)).slice(0, 3).join(", ")}{failedImports.length > 3 ? "…" : ""})</span></span><Link href="/admin/imports" className="font-semibold text-brand-teal underline">{t("Open")} →</Link></li>}
+            {hiddenQuestions.length > 0 && <li className="flex flex-wrap items-center justify-between gap-2 py-2.5"><span>🙈 {t("{n} questions auto-hidden for a problem", { n: hiddenQuestions.length })}</span><Link href="/admin/questions?status=UNDER_REVIEW" className="font-semibold text-brand-teal underline">{t("Open")} →</Link></li>}
+            {errors.length > 0 && <li className="flex flex-wrap items-center justify-between gap-2 py-2.5"><span>⚠️ {t("{n} platform errors (last 30 days)", { n: errors.length })}</span><Link href="/admin/errors" className="font-semibold text-brand-teal underline">{t("Open")} →</Link></li>}
           </ul>
         </Section>
       )}

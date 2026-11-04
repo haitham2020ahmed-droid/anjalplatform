@@ -5,6 +5,7 @@ import { useT } from "@/i18n/client";
 import type { RemovedRow } from "@/server/questions/dedupe";
 import { fillHashesAction, findDuplicatesAction, missingHashesAction, removeDuplicatesAction, type ClientPlan } from "./actions";
 import { LineIcon } from "@/components/ui/line-icon";
+import { RichInline } from "@/components/rich-inline";
 
 /** questions per remove call (the server accepts 500) */
 const MAX_IDS = 400;
@@ -127,7 +128,7 @@ export function DuplicatesTool() {
             <details className="mt-3">
               <summary className="cursor-pointer font-semibold text-slate-700">{t("The groups (first 100)")}</summary>
               <ul className="mt-2 space-y-1 text-sm">{plan.groups.slice(0, 100).map((g) => (
-                <li key={g.keep} className="rounded-lg bg-slate-50 px-3 py-1.5"><Link href={`/admin/questions/${g.keep}`} className="font-medium text-brand-navy underline">{g.stem}</Link> <span className="text-slate-600">· G{g.grade} · {g.skill} · {t("keep 1 ({s}), remove {n}", { s: g.keepStatus.toLowerCase(), n: g.remove })}{g.answers ? ` · ${t("{n} answers move", { n: g.answers })}` : ""}</span></li>
+                <li key={g.keep} className="rounded-lg bg-slate-50 px-3 py-1.5"><Link href={`/admin/questions/${g.keep}`} className="font-medium text-brand-navy underline"><RichInline text={g.stem} /></Link> <span className="text-slate-600">· G{g.grade} · {g.skill} · {t("keep 1 ({s}), remove {n}", { s: g.keepStatus.toLowerCase(), n: g.remove })}{g.answers ? ` · ${t("{n} answers move", { n: g.answers })}` : ""}</span></li>
               ))}</ul>
             </details>
           )}
@@ -140,7 +141,7 @@ export function DuplicatesTool() {
           <p className="mt-1 text-sm text-slate-600">{t("These are NOT removed. Same wording with other choices or another answer, or the same question under different skills. Open them and decide.")}</p>
           <ul className="mt-3 space-y-2">{plan.review.map((g, i) => (
             <li key={i} className="rounded-xl bg-slate-50 p-3 ring-1 ring-slate-200">
-              <p className="text-sm"><span className={`me-2 rounded-full px-2 py-0.5 text-xs font-semibold ${g.reason === "OTHER_FAMILY" ? "bg-violet-100 text-violet-900" : "bg-amber-100 text-amber-900"}`}>{g.reason === "OTHER_FAMILY" ? t("Different skills") : t("Similar")}</span><span className="font-medium text-slate-900">{g.stem}</span></p>
+              <p className="text-sm"><span className={`me-2 rounded-full px-2 py-0.5 text-xs font-semibold ${g.reason === "OTHER_FAMILY" ? "bg-violet-100 text-violet-900" : "bg-amber-100 text-amber-900"}`}>{g.reason === "OTHER_FAMILY" ? t("Different skills") : t("Similar")}</span><span className="font-medium text-slate-900"><RichInline text={g.stem} /></span></p>
               <p className="mt-1 flex flex-wrap gap-2 text-sm">{g.questions.map((q) => <Link key={q.id} href={`/admin/questions/${q.id}`} className="rounded-lg bg-white px-2 py-1 ring-1 ring-slate-300 hover:ring-brand-teal">G{q.grade} · {q.skill} · {q.status.toLowerCase()}</Link>)}</p>
             </li>
           ))}</ul>

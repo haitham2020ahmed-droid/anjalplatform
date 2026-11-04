@@ -438,8 +438,8 @@
      "options": [
       "after \"letter\" and \"sent\"",
       "after \"Abha\", \"Arabia\" and \"10\"",
-      "after \"from\" and \"on\"",
-      "after \"June\" only"
+      "after \"from\", \"on\" and \"June\"",
+      "after \"June\" only, and nowhere else"
      ],
      "answer": 1,
      "why": "Commas separate the city from the country and the day from the year, with one after the country too: **from Abha, Saudi Arabia, on June 10, 2026.**"

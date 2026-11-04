@@ -36,8 +36,9 @@ export async function teacherReadRiseClasses(repo: Repo, actor: Actor): Promise<
     .sort((a, b) => a.grade - b.grade || a.name.localeCompare(b.name, undefined, { numeric: true }));
 }
 
-/** A class the actor teaches (or any class of an admin's school). */
-async function assertClassWrite(repo: Repo, actor: Actor, classId: string): Promise<Row> {
+/** A class the actor teaches (or any class of an admin's school). Exported so multi-class callers can validate
+ * every class BEFORE writing anything (all-or-nothing), instead of discovering a bad class mid-loop. */
+export async function assertClassWrite(repo: Repo, actor: Actor, classId: string): Promise<Row> {
   if (!isStaff(actor)) throw new ForbiddenError("Only teachers and admins can assign ReadRise articles.");
   assertCan(actor, "assignments:create");
   const c = (await accessibleClasses(repo, actor)).find((k) => s(k.id) === classId);
@@ -46,15 +47,19 @@ async function assertClassWrite(repo: Repo, actor: Actor, classId: string): Prom
 }
 
 /** Puts an article on a class's list (students still read the version of their own level). Re-assigning updates the due date. */
-export async function assignArticle(repo: Repo, actor: Actor, classId: string, articleId: string, dueAt: Date | null, now = new Date()): Promise<{ created: boolean }> {
+export async function assignArticle(repo: Repo, actor: Actor, classId: string, articleId: string, dueAt: Date | null, now = new Date(), startAt: Date | null = null): Promise<{ created: boolean }> {
   await assertClassWrite(repo, actor, classId);
   const a = await repo.findUnique("RRArticle", { id: articleId });
   const hidden = await hiddenArticleIds(repo, actor.schoolId);
   if (!a || !canView(actor, a, hidden) || a.status !== "PUBLISHED" || hidden.has(articleId)) throw new ValidationError("Choose a published article from the library.");
   if (dueAt && Number.isNaN(dueAt.getTime())) throw new ValidationError("The due date is not valid.");
+  if (startAt && dueAt && dueAt.getTime() < startAt.getTime()) throw new ValidationError("The end (due) date must be on or after the start date.");
   const have = await repo.findUnique("RRClassArticle", { classId, articleId });
-  await repo.upsert("RRClassArticle", { classId, articleId }, { classId, articleId, assignedById: actor.userId, dueAt, createdAt: now }, { dueAt });
+  // r68: the start date (students see it from that day); assigning again updates both dates
+  await repo.upsert("RRClassArticle", { classId, articleId }, { classId, articleId, assignedById: actor.userId, dueAt, ...(startAt ? { startAt } : {}), createdAt: now }, { dueAt, startAt });
   await audit(repo, { actorId: actor.userId, action: "readrise.assign", entityType: "RRClassArticle", entityId: `${classId}:${articleId}`, after: { dueAt: dueAt?.toISOString() ?? null }, at: now });
+  // 3 Nov 2026: assigning a cancelled article again brings it back for the class (its open cancels are restored)
+  if (have) await repo.updateMany("AssignmentCancel", { kind: "READRISE", refId: s(have.id), restoredAt: null }, { restoredAt: now, restoredById: actor.userId }).catch(() => 0);
   return { created: !have };
 }
 
@@ -62,6 +67,28 @@ export async function unassignArticle(repo: Repo, actor: Actor, classId: string,
   await assertClassWrite(repo, actor, classId);
   await repo.deleteMany("RRClassArticle", { classId, articleId });
   await audit(repo, { actorId: actor.userId, action: "readrise.unassign", entityType: "RRClassArticle", entityId: `${classId}:${articleId}`, at: now });
+}
+
+export interface AssignedClassRef { classId: string; className: string }
+
+/**
+ * 🚦 "Already assigned" badge on the Library catalog (owner request, Oct 2026): every article this teacher has
+ * assigned, and to which of their OWN classes — so the Library page can show "✓ Assigned — 6A" without the
+ * teacher opening the separate Assign tab just to check. Admins (no "my classes" here) and a teacher with no
+ * classes of their own get an empty map — the Library page then shows no badges, same as today.
+ */
+export async function assignedClassesByArticle(repo: Repo, actor: Actor): Promise<Map<string, AssignedClassRef[]>> {
+  if (actor.role !== "TEACHER") return new Map();
+  const mine = (await teacherReadRiseClasses(repo, actor)).filter((c) => c.own);
+  if (!mine.length) return new Map();
+  const links = await repo.findMany("RRClassArticle", { classId: { in: mine.map((c) => c.id) } }, { select: ["articleId", "classId"] });
+  const nameOf = new Map(mine.map((c) => [c.id, c.name]));
+  const out = new Map<string, AssignedClassRef[]>();
+  for (const l of links) {
+    const articleId = s(l.articleId), classId = s(l.classId);
+    out.set(articleId, [...(out.get(articleId) ?? []), { classId, className: nameOf.get(classId) ?? "" }]);
+  }
+  return out;
 }
 
 export interface ClassArticleRow { articleId: string; code: string; title: string; topic: string; dueAt: string | null; assignedAt: string; done: number; students: number }
@@ -108,7 +135,7 @@ export async function setStudentLevel(repo: Repo, actor: Actor, studentId: strin
   if (!isStaff(actor)) throw new ForbiddenError("Only teachers and admins can set a ReadRise Level.");
   if (!Number.isFinite(level) || level < ENGINE.min || level > ENGINE.max) throw new ValidationError(`Enter a ReadRise Level from ${ENGINE.min} to ${ENGINE.max}.`);
   const why = reason.trim();
-  if (why.length < 3) throw new ValidationError("Write a short reason for the change (for example: “MAP Lexile 820 in the winter test”).");
+  if (why.length < 3) throw new ValidationError("Write a short reason for the change (for example: “MAP reading 820 in the winter test”).");
   const r = await setLevelByTeacher(repo, actor, studentId, level, why.slice(0, 250), now);
   await audit(repo, { actorId: actor.userId, action: "readrise.level.teacher", entityType: "RRStudent", entityId: studentId, before: { level: r.from }, after: { level: r.to, reason: why.slice(0, 250) }, at: now });
   return r;

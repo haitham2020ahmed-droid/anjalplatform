@@ -59,8 +59,8 @@
     "passage": "Our class plants were dying. Nobody watered them on weekends. So we made a plan. Each Thursday, one student takes a plant home.",
     "stem": "How did the class solve the problem?",
     "options": [
-     "They threw the plants away.",
-     "They bought new plants.",
+     "They threw the plants away at the end.",
+     "They bought new plants for the room.",
      "Students take plants home each Thursday.",
      "They watered the plants at night."
     ],
@@ -111,9 +111,9 @@
      "passage": "The baby birds fell from their nest. They could not fly yet. Ahmed put them back gently in the nest.",
      "stem": "What did Ahmed do to fix the problem?",
      "options": [
-      "He kept the birds.",
-      "He taught them to fly.",
-      "He made a new tree.",
+      "He kept the birds in a cage.",
+      "He taught them to fly away.",
+      "He made a new tree for them.",
       "He put them back in the nest."
      ],
      "answer": 3,
@@ -225,9 +225,9 @@
      "stem": "Why is this NOT a problem-and-solution text?",
      "options": [
       "It never names a problem to fix.",
-      "It is about camels.",
+      "It is about camels and the desert.",
       "It has too many sentences.",
-      "It talks about cars."
+      "It talks about cars and trucks."
      ],
      "answer": 0,
      "why": "The text tells history in order. It never names a problem, so it is not problem and solution."
@@ -316,9 +316,9 @@
      "stem": "Why does the author mention the signs?",
      "options": [
       "To show that one solution did not work well",
-      "To explain how coral grows",
-      "To describe a cause of the problem",
-      "To give the main solution"
+      "To explain how coral grows in warm seas",
+      "To describe a cause of the problem for divers",
+      "To give the main solution to the problem"
      ],
      "answer": 0,
      "why": "The signs 'had little effect', which shows why a better solution, the buoys, was needed."
@@ -339,8 +339,8 @@
      "passage": "Sand dunes were moving onto the highway, covering it after every storm. Workers first cleared the sand with machines, but it returned within days. Later, they planted rows of desert shrubs and built low fences of palm fronds beside the road. The plants and fences slowed the wind and held the sand in place.",
      "stem": "Which statement best describes how this text is organised?",
      "options": [
-      "It compares sand and rocks.",
-      "It describes a storm in time order.",
+      "It compares sand and rocks in the desert.",
+      "It describes a storm in time order, hour by hour.",
       "It describes the kinds of desert plants.",
       "It gives a problem, a failed fix and a better fix."
      ],
@@ -398,10 +398,10 @@
     "passage": "Traffic noise is more than an annoyance. Studies have linked long-term exposure to loud traffic with poor sleep, stress, and difficulty concentrating in school. Cities have tried several responses. Tall concrete walls along highways block some sound, but they are expensive, and many residents dislike living behind them. Lower speed limits reduce noise as well, though drivers often ignore them unless the roads are monitored. A newer approach, special road surfaces that absorb sound, can lower noise noticeably without changing how people drive. Because such surfaces wear out after some years, they must be renewed, yet several cities now consider them the most practical first step.",
     "stem": "How does the author use the problem-and-solution structure to shape the reader's view?",
     "options": [
-     "By describing only one solution and ignoring the problem",
-     "By listing solutions in the order they were invented, without judging them",
+     "By describing only one solution and ignoring the problem that makes it needed in the town.",
+     "By listing solutions in the order they were invented, without judging how well any of them work.",
      "By showing the drawbacks of earlier solutions, then presenting sound-absorbing roads as the most practical",
-     "By arguing that traffic noise is not a serious problem"
+     "By arguing that traffic noise is not a serious problem and that people should simply learn to ignore it."
     ],
     "answer": 2,
     "hint": "Notice the words 'but' and 'though' after the first two solutions. How is the third solution described differently?",

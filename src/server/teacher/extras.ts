@@ -7,6 +7,7 @@
 import type { Repo, Row } from "../seeding/repo";
 import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
+import { sourceOfAssignment } from "../../lib/assign-source";
 import { audit } from "../audit";
 import { assertClassAccess } from "./assignments";
 import { assertClassRead, readableClasses } from "./coordinators";
@@ -19,6 +20,8 @@ import { shareParentReport } from "../insights/parent-report";
 import { weekStart } from "./classroom";
 import { cycleCalendarEvents } from "../assessment-cycle/status";
 import { schemaGap, SCHEMA_FIX } from "../db/schema-errors";
+import { starBook, starMastered, starWord } from "../skills/star-read";
+import { practiceTotals } from "../analytics/practice-totals";
 
 const s = (v: unknown) => String(v ?? "");
 const time = (v: unknown) => new Date(v instanceof Date ? v.toISOString() : s(v)).getTime();
@@ -100,12 +103,14 @@ export async function copyAssignment(repo: Repo, actor: Actor, assignmentId: str
   if (s(from.gradeId) !== s(to.gradeId)) throw new ValidationError("Copy only to a class of the same grade.");
   if (s(a.classId) === toClassId) throw new ValidationError("Choose another class.");
   const track = (s(a.track) || "CURRICULUM") as "CURRICULUM" | "MAP" | "NAFS";
+  // r74: the copy keeps the original's source (older rows: inferred once)
+  const source = sourceOfAssignment(a);
   let id: string;
-  if (a.skillId) id = (await assignSkill(repo, actor, { classId: toClassId, skillId: s(a.skillId), dueAt, note: a.note ? s(a.note) : null, track }, now)).assignmentId;
+  if (a.skillId) id = (await assignSkill(repo, actor, { classId: toClassId, skillId: s(a.skillId), dueAt, note: a.note ? s(a.note) : null, track, source }, now)).assignmentId;
   else if (a.assessmentId) {
     const set = await repo.findUnique("Assessment", { id: a.assessmentId });
     const qs = (await repo.findMany("AssessmentQuestion", { assessmentId: a.assessmentId })).sort((x, y) => Number(x.order) - Number(y.order)).map((x) => s(x.questionId));
-    id = (await assignQuestions(repo, actor, { classId: toClassId, questionIds: qs, title: s(a.title), exactTitle: true, track, dueAt, note: a.note ? s(a.note) : null, ...(set?.isAdaptive ? { adaptive: { maxQuestions: Number(set.maxQuestions) || qs.length } } : {}) }, now)).assignmentId;
+    id = (await assignQuestions(repo, actor, { classId: toClassId, questionIds: qs, title: s(a.title), exactTitle: true, track, dueAt, note: a.note ? s(a.note) : null, ...(set?.isAdaptive ? { adaptive: { maxQuestions: Number(set.maxQuestions) || qs.length } } : {}), source }, now)).assignmentId;
   } else throw new ValidationError("This kind of assignment cannot be copied.");
   await audit(repo, { actorId: actor.userId, action: "assignment.copy", entityType: "Assignment", entityId: id, after: { from: assignmentId, toClassId }, at: now });
   return id;
@@ -150,7 +155,7 @@ export { questionOfTheDay, answerQuestionOfTheDay } from "../motivation/qotd";
 
 // ------------------------------------------------------------------ 🏁 the class challenge (classes, never individuals)
 
-/** This week: average answers per student of each class of the grade (so big and small classes are fair). */
+/** This week: average careful answers per student of each class of the grade (so big and small classes are fair). */
 export async function classChallenge(repo: Repo, schoolId: string, gradeId: string, now = new Date()): Promise<{ classId: string; name: string; perStudent: number; rank: number }[]> {
   const classes = await repo.findMany("Class", { schoolId, gradeId, deletedAt: null }, { select: ["id", "name"] });
   if (classes.length < 2) return [];
@@ -158,7 +163,8 @@ export async function classChallenge(repo: Repo, schoolId: string, gradeId: stri
   const out = [];
   for (const c of classes) {
     const ids = await classMembers(repo, s(c.id));
-    const n = ids.length ? await repo.count("QuestionAttempt", { studentId: { in: ids }, createdAt: { gte: from } }) : 0;
+    // round 4: careful practice answers only (a rapid guess is not effort) — practice-totals.ts, 25 students at a time
+    const n = ids.length ? [...(await practiceTotals(repo, ids, from, now, { schoolId })).values()].reduce((t, x) => t + x.careful, 0) : 0;
     out.push({ classId: s(c.id), name: s(c.name), perStudent: ids.length ? Math.round((10 * n) / ids.length) / 10 : 0, rank: 0 });
   }
   out.sort((a, b) => b.perStudent - a.perStudent || a.name.localeCompare(b.name)).forEach((x, i) => { x.rank = i + 1; });
@@ -168,12 +174,15 @@ export async function classChallenge(repo: Repo, schoolId: string, gradeId: stri
 // ------------------------------------------------------------------ 📈 MAP growth report (after Winter / Spring)
 
 export interface GrowthRow { studentId: string; name: string; fall: number; latest: number; latestTerm: string; growth: number; projected: number | null; expected: number | null; met: boolean | null; pctOfGoal: number | null }
-export interface GrowthClass { classId: string; className: string; grade: number; rows: GrowthRow[]; tested: number; met: number; avgGrowth: number | null; avgProjected: number | null }
+/** `tested` = students with a Fall and a later score; `measured` = those of them with an expected growth (met / not
+ *  met known): "% met" is met / measured — a student without an NWEA projection is never counted as "not met" (r72). */
+export interface GrowthClass { classId: string; className: string; grade: number; rows: GrowthRow[]; tested: number; measured: number; met: number; avgGrowth: number | null; avgProjected: number | null }
 
-export async function growthReport(repo: Repo, actor: Actor, subject: Subject = "READING"): Promise<GrowthClass[]> {
+export async function growthReport(repo: Repo, actor: Actor, subject: Subject = "READING", opts: { classId?: string } = {}): Promise<GrowthClass[]> {
   assertCan(actor, "reports:read");
   if (actor.role === "STUDENT" || actor.role === "PARENT") throw new ForbiddenError();
-  const classes = (await readableClasses(repo, actor)).sort((a, b) => s(a.name).localeCompare(s(b.name)));
+  // r79: the MAP Reports tab shows one class: only its rows are read (not every class of the school for an admin)
+  const classes = (await readableClasses(repo, actor)).filter((c) => !opts.classId || s(c.id) === opts.classId).sort((a, b) => s(a.name).localeCompare(s(b.name)));
   // ⚡ Update 57: every class's students, grades, names and MAP rows in four reads (before: four per class, in turn)
   const classIds = classes.map((c) => s(c.id));
   const [members, gradeRows] = await Promise.all([
@@ -192,7 +201,7 @@ export async function growthReport(repo: Repo, actor: Actor, subject: Subject = 
   for (const m of maps) { const k = s(m.studentId); const l = mapsOf.get(k); if (l) l.push(m); else mapsOf.set(k, [m]); }
   const out: GrowthClass[] = [];
   for (const c of classes) {
-    const ids = membersOf.get(s(c.id)) ?? [];
+    const ids = [...new Set(membersOf.get(s(c.id)) ?? [])];
     const grade = levelOf.get(s(c.gradeId)) ?? 0;
     const rows: GrowthRow[] = [];
     for (const id of ids) {
@@ -209,7 +218,7 @@ export async function growthReport(repo: Repo, actor: Actor, subject: Subject = 
     }
     rows.sort((a, b) => Number(a.met !== false) - Number(b.met !== false) || a.growth - b.growth);
     const avg = (xs: number[]) => (xs.length ? Math.round((10 * xs.reduce((t, x) => t + x, 0)) / xs.length) / 10 : null);
-    out.push({ classId: s(c.id), className: s(c.name), grade, rows, tested: rows.length, met: rows.filter((r) => r.met).length, avgGrowth: avg(rows.map((r) => r.growth)), avgProjected: avg(rows.filter((r) => r.expected !== null).map((r) => r.expected!)) });
+    out.push({ classId: s(c.id), className: s(c.name), grade, rows, tested: rows.length, measured: rows.filter((r) => r.met !== null).length, met: rows.filter((r) => r.met === true).length, avgGrowth: avg(rows.map((r) => r.growth)), avgProjected: avg(rows.filter((r) => r.expected !== null).map((r) => r.expected!)) });
   }
   return out;
 }
@@ -247,8 +256,11 @@ export async function classVisit(repo: Repo, actor: Actor, teacherUserId: string
   const [plans, tickets, comments, week] = await Promise.all([
     repo.findMany("MapPlan", { classId: c.id }, { select: ["status"] }), repo.count("ExitTicket", { classId: c.id }),
     ids.length ? repo.count("WorkComment", { studentId: { in: ids }, authorId: tu.id }) : Promise.resolve(0),
-    ids.length ? repo.findMany("QuestionAttempt", { studentId: { in: ids }, createdAt: { gte: new Date(now.getTime() - 7 * DAY) } }, { select: ["studentId", "isCorrect"] }) : Promise.resolve([] as Row[]),
+    // round 4: the week's practice from practice-totals.ts — accuracy = right careful answers ÷ careful answers
+    practiceTotals(repo, ids, new Date(now.getTime() - 7 * DAY), now, { schoolId: s(actor.schoolId) || null }),
   ]);
+  const weekTot = [...week.values()];
+  const weekCareful = weekTot.reduce((t, x) => t + x.careful, 0), weekRight = weekTot.reduce((t, x) => t + x.correct, 0);
   const goal = (await repo.findMany("WeeklyGoal", { scope: "CLASS", ownerId: c.id, weekStart: weekStart(now) }))[0];
   const rh = (await repo.findMany("SchoolSetting", { schoolId: actor.schoolId, key: `rhythm.${s(c.id)}` }))[0];
   let rv: unknown = rh?.value ?? null; if (typeof rv === "string") { try { rv = JSON.parse(rv); } catch { rv = null; } }
@@ -261,7 +273,7 @@ export async function classVisit(repo: Repo, actor: Actor, teacherUserId: string
       alerts: { open: alerts.filter((a) => a.status === "OPEN").length, handled: alerts.filter((a) => a.status === "HANDLED").length, recent: alerts.sort((a, b) => time(b.createdAt) - time(a.createdAt)).slice(0, 8).map((a) => ({ name: names.get(s(a.studentId))?.name ?? "Student", title: s(a.kind).replace("_", " ").toLowerCase(), action: a.action ? s(a.action) : null, status: s(a.status) })) },
       plans: { draft: plans.filter((p) => p.status === "DRAFT").length, sent: plans.filter((p) => p.status === "SENT").length }, tickets, comments,
       goals: goal ? `${s(goal.title) || `${goal.target} ${s(goal.kind).toLowerCase()}`}` : null, rhythm: r?.days ? `${r.days} day(s) a week, ${r.minutes} min` : null,
-      activeWeek: new Set(week.map((w) => s(w.studentId))).size, accuracy: week.length ? Math.round((100 * week.filter((w) => w.isCorrect).length) / week.length) : null,
+      activeWeek: weekTot.filter((x) => x.questions > 0).length, accuracy: weekCareful ? Math.round((100 * weekRight) / weekCareful) : null,
     },
   };
 }
@@ -292,13 +304,14 @@ export async function backupSheets(repo: Repo, actor: Actor): Promise<{ name: st
   assertCan(actor, "reports:export");
   const students = await repo.findMany("Student", { schoolId: actor.schoolId });
   const ids = students.map((x) => s(x.id));
-  const [users, mem, classes, grades, maps, mastery, skills, asgRows, plans, alerts] = await Promise.all([
+  // ⭐ the "Skills" sheet is the stars (owner, 1 Nov 2026): one row per student × skill KEY (copies of a skill are one
+  // row), with the star word, the star score, the practice answers counted and the date of the ⭐
+  const [users, mem, classes, grades, maps, book, asgRows, plans, alerts] = await Promise.all([
     repo.findMany("User", { schoolId: actor.schoolId }, { select: ["id", "displayName", "username", "role"] }),
     ids.length ? repo.findMany("ClassMembership", { studentId: { in: ids }, leftAt: null }) : Promise.resolve([] as Row[]),
     repo.findMany("Class", { schoolId: actor.schoolId }), repo.findMany("Grade", { schoolId: actor.schoolId }),
     ids.length ? repo.findMany("MapResult", { studentId: { in: ids } }) : Promise.resolve([] as Row[]),
-    ids.length ? repo.findMany("StudentSkillMastery", { studentId: { in: ids } }) : Promise.resolve([] as Row[]),
-    repo.findMany("Skill", {}, { select: ["id", "name"] }),
+    starBook(repo, ids, s(actor.schoolId)),
     ids.length ? repo.findMany("AssignmentStudent", { studentId: { in: ids } }) : Promise.resolve([] as Row[]),
     repo.findMany("MapPlan", { schoolId: actor.schoolId }), repo.findMany("StudentAlert", { schoolId: actor.schoolId }),
   ]);
@@ -310,7 +323,9 @@ export async function backupSheets(repo: Repo, actor: Actor): Promise<{ name: st
   return [
     { name: "Students", rows: [["Student", "Student ID", "Username", "Grade", "Class"], ...students.map((x) => [nameOf.get(s(x.id))!, s(x.studentNumber), s(users.find((u) => u.id === x.userId)?.username), s(grades.find((g) => g.id === x.gradeId)?.level), classOf(s(x.id))])] },
     { name: "MAP results", rows: [["Student", "Student ID", "Term", "Subject", "Goal area", "RIT", "Percentile", "Projected growth", "Lexile", "Rapid guessing %", "Test date"], ...maps.map((m) => [nameOf.get(s(m.studentId)) ?? "", numOf.get(s(m.studentId)) ?? "", s(m.termName), s(m.subject), s(m.goalName), s(m.rit), s(m.achievementPercentile ?? ""), s(m.projectedGrowth ?? ""), s(m.lexile ?? ""), s(m.rapidGuessPct ?? ""), d(m.testDate)])] },
-    { name: "Skills", rows: [["Student", "Student ID", "Skill", "Answers", "Correct", "Mastery score", "Mastered", "Last practised"], ...mastery.map((m) => [nameOf.get(s(m.studentId)) ?? "", numOf.get(s(m.studentId)) ?? "", s(skills.find((k) => k.id === m.skillId)?.name), s(m.attempts), s(m.correct), String(Math.round(Number(m.score))), m.isMastered ? "yes" : "", d(m.lastPracticedAt)])] },
+    { name: "Skills", rows: [["Student", "Student ID", "Skill", "Status", "Star score", "Answered", "Mastered on"], ...ids.flatMap((sid) => [...(book.byKey.get(sid)?.values() ?? [])].filter((v) => v.status !== "NOT_STARTED")
+      .sort((a, b) => book.nameOf(a.key).localeCompare(book.nameOf(b.key)))
+      .map((v) => [nameOf.get(sid) ?? "", numOf.get(sid) ?? "", book.nameOf(v.key), starWord(v), String(v.score), String(v.answered), starMastered(v) ? d(v.masteredAt) : ""]))] },
     { name: "Assignments", rows: [["Student", "Student ID", "Class", "Assignment", "Due", "Status", "Progress %"], ...asgRows.map((r) => { const a = asg.find((x) => x.id === r.assignmentId); return [nameOf.get(s(r.studentId)) ?? "", numOf.get(s(r.studentId)) ?? "", s(classes.find((c) => c.id === a?.classId)?.name), s(a?.title), d(a?.dueAt), s(r.status), String(Math.round(Number(r.progress) * 100))]; })] },
     { name: "MAP plans", rows: [["Student", "Student ID", "Subject", "Term", "Status", "Sent"], ...plans.map((p) => [nameOf.get(s(p.studentId)) ?? "", numOf.get(s(p.studentId)) ?? "", s(p.subject), s(p.term), s(p.status), d(p.sentAt)])] },
     { name: "Alerts", rows: [["Date", "Student", "Reason", "Details", "Status", "What was done"], ...alerts.map((a) => [d(a.createdAt), nameOf.get(s(a.studentId)) ?? "", s(a.kind), s(a.detail), s(a.status), s(a.action)])] },

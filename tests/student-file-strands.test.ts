@@ -15,6 +15,7 @@ import type { Actor } from "../src/server/auth/rbac";
 import { buildStrands, languageStrands, STRANDS, strandLevel, strandOfSkill, trendOf } from "../src/server/insights/language-strands";
 import { masteredSkills, MASTERED_SCORE } from "../src/server/reports/mastered-count";
 import { studentFileInsights } from "../src/server/insights/student-file-insights";
+import { skillKeyIndex } from "../src/server/skills/status";
 
 const ROOT = process.cwd();
 const read = (f: string) => readFileSync(join(ROOT, f), "utf8");
@@ -82,7 +83,7 @@ describe("🧭 the student file on the demo school", () => {
     studentId = s((await repo.findMany("ClassMembership", { classId }))[0].studentId);
   });
 
-  test("mastered x of y comes from the ONE adapter (the skill stars, else engine mastery ≥ the Mastered band)", async () => {
+  test("mastered x of y comes from the ONE adapter: the skill stars only, counted by skill key", async () => {
     const st = (await repo.findUnique("Student", { id: studentId }))!;
     const cur = await repo.findMany("Curriculum", { gradeId: st.gradeId });
     const skills = (await repo.findMany("Skill", { curriculumId: { in: cur.map((c) => s(c.id)) } })).filter((k) => strandOfSkill(k) === "RL");
@@ -91,14 +92,19 @@ describe("🧭 the student file on the demo school", () => {
     await repo.create("StudentSkillMastery", { studentId, skillId: a.id, score: MASTERED_SCORE, attempts: 20, correct: 18, isMastered: false, updatedAt: now });
     await repo.create("StudentSkillMastery", { studentId, skillId: b.id, score: 70, attempts: 15, correct: 10, isMastered: true, updatedAt: now });
     await repo.create("StudentSkillMastery", { studentId, skillId: c.id, score: 30, attempts: 12, correct: 3, isMastered: false, updatedAt: now });
+    // ⭐ (stars unify, 1 Nov 2026) only the star decides: a ⭐, c ◐; b has the old engine flag but no star
+    const ix = await skillKeyIndex(repo, s(st.schoolId));
+    await repo.create("SkillStatus", { studentId, skillKey: ix.keyOf.get(s(a.id))!, level: 1, status: "MASTERED", skillId: a.id, answered: 30, correct: 28, score: 95, startedAt: now, masteredAt: now, createdAt: now, updatedAt: now, history: [] });
+    await repo.create("SkillStatus", { studentId, skillKey: ix.keyOf.get(s(c.id))!, level: 1, status: "IN_PROGRESS", skillId: c.id, answered: 12, correct: 3, score: 30, startedAt: now, createdAt: now, updatedAt: now, history: [] });
     const m = (await masteredSkills(repo, [studentId])).get(studentId)!;
-    assert.ok(m.has(s(a.id)) && m.has(s(b.id)) && !m.has(s(c.id)), "score ≥ the band, or the engine's flag");
+    assert.ok(m.has(s(a.id)) && !m.has(s(b.id)) && !m.has(s(c.id)), "the star only — never the engine's flag or score");
     const rows = await languageStrands(repo, studentId, now);
     const rl = rows.find((r) => r.key === "RL")!;
-    assert.equal(rl.mastered, 2);
-    assert.equal(rl.total, skills.filter((k) => k.isActive !== false && k.isActive !== 0).length);
+    assert.equal(rl.mastered, 1);
+    const active = skills.filter((k) => k.isActive !== false && k.isActive !== 0);
+    assert.equal(rl.total, new Set(active.map((k) => ix.keyOf.get(s(k.id)))).size, "y = the strand's skills counted by key");
     assert.equal(rl.next?.skillId, s(c.id), "the weakest practised skill is the next step");
-    assert.match(read("src/server/reports/mastered-count.ts"), /skillStatusesFor/, "reads the ONE skill status (stars) first");
+    assert.match(read("src/server/reports/mastered-count.ts"), /skillStatusesFor|starBook/, "reads the ONE skill status (stars)");
   });
 
   test("the file's insights: seven strands, the ReadRise level journey, the class comparison (staff)", async () => {
@@ -121,5 +127,14 @@ describe("🧭 the student file on the demo school", () => {
     assert.doesNotMatch(chart.replace(/\/\*[\s\S]*?\*\//g, ""), /Lexile/, "never called Lexile");
     assert.doesNotMatch(page.slice(page.indexOf('id="readrise"'), page.indexOf('id="skills"')), /Lexile/);
     assert.match(read("src/server/insights/language-strands.ts"), /TEACHER-FACING ONLY/);
+  });
+
+  // r87: of the six parallel calls that build the student file, this was the one with no .catch — an edge case
+  // in mistake detection, the prerequisite graph or the class comparison took the whole page down ("not working").
+  // It now degrades to an empty-but-valid StudentFileInsights shape like every other call in the same Promise.all.
+  test("studentFileInsights is never awaited unguarded: an edge case degrades the page, it does not crash it", () => {
+    const page = read("src/app/teacher/students/[studentId]/page.tsx");
+    assert.match(page, /studentFileInsights\(repo, actor, studentId,[\s\S]{0,120}?\.catch\(/, "the call has a .catch fallback");
+    assert.match(page, /EMPTY_INSIGHTS/, "and a typed empty-insights fallback value");
   });
 });

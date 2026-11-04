@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { absolutePlanPath } from "@/lib/plan-links";
 import { AppShell } from "@/components/app-shell";
 import { PageHeader } from "@/components/page-header";
 import { EmptyState } from "@/components/ui-kit";
@@ -61,7 +62,7 @@ export default async function WeekPage({ searchParams }: { searchParams: Promise
                     <ul className="mt-2 space-y-1.5">
                       {d.items.map((x) => (
                         <li key={`${x.kind}-${x.id}`}>
-                          <Link prefetch={false} href={x.href} className="block rounded-lg px-2 py-1.5 text-sm hover:bg-slate-50">
+                          <Link prefetch={false} href={absolutePlanPath(x.href) ?? x.href} data-plan-link="1" className="block rounded-lg px-2 py-1.5 text-sm hover:bg-slate-50 print:underline">
                             <span className={`me-1 rounded px-1.5 text-xs font-semibold ${x.kind === "DUE" ? "bg-orange-50 text-orange-800" : "bg-sky-50 text-sky-800"}`}>{t(x.kind === "DUE" ? "Due" : "Starts")}</span>
                             <span className="text-slate-800">{x.title}</span>
                           </Link>
@@ -79,7 +80,7 @@ export default async function WeekPage({ searchParams }: { searchParams: Promise
               <h2 id="due-h" className="text-lg font-semibold text-brand-navy">{t("Due this week")}</h2>
               {w.due.length === 0 ? <p className="mt-2 text-slate-500">{t("Nothing is due this week.")}</p> : (
                 <ul className="mt-2 space-y-2">{w.due.map((x) => (
-                  <li key={x.id}><Link prefetch={false} href={x.href} className="flex min-h-11 items-center justify-between gap-2 rounded-xl bg-slate-50 px-3 py-2 hover:bg-white hover:ring-1 hover:ring-brand-teal">
+                  <li key={x.id}><Link prefetch={false} href={absolutePlanPath(x.href) ?? x.href} data-plan-link="1" className="flex min-h-11 items-center justify-between gap-2 rounded-xl bg-slate-50 px-3 py-2 hover:bg-white hover:ring-1 hover:ring-brand-teal">
                     <span className="min-w-0"><span className="block truncate font-medium text-slate-900">{x.title}</span><span className="text-xs text-slate-500">{day(x.dueAt.slice(0, 10))}</span></span>
                     <span dir="ltr" className="shrink-0 text-sm font-semibold tabular-nums text-brand-navy">{x.done} / {x.total}</span>
                   </Link></li>

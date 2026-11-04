@@ -1,13 +1,21 @@
 import Link from "next/link";
 import { AppShell } from "@/components/app-shell";
 import { PageHeader } from "@/components/page-header";
+import { InfoTip } from "@/components/report-kit/info-tip";
 import { getT } from "@/i18n/server";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { readableClasses } from "@/server/teacher/coordinators";
 import { classTiers } from "@/server/tiers/views";
 import { strugglingSkills } from "@/server/tiers/struggling";
+import { quickSendSupportPlanAction } from "@/app/teacher/plans/editor-actions";
 
 export const metadata = { title: "Support plan" };
+
+/** Clarifies that this level is not a single test score: it only moves with MAP, weekly checks and the Diagnostic
+ * agreeing, and stays put for 14 days even then — a different, stricter basis than the "Needs support" label used
+ * on Student Skills or the drop/rise patterns on Early warning (r94: teachers compared the three screens and asked
+ * why they disagreed; they don't disagree, they measure different things). */
+const SUPPORT_LEVEL_RULE = "This level only changes when MAP, weekly checks and the Diagnostic agree, and stays for at least 14 days — it is not based on one test. \"Needs support\" on other pages (Student Skills, Early warning) can use a different measure.";
 
 /** The three support levels: the plain colour the teacher reads, with the usual RTI term kept beside it. */
 const SUPPORT_LEVEL = {
@@ -21,6 +29,8 @@ const SUPPORT_LEVEL = {
  * who needs support: name, colour (with the Tier term), struggling skills and "Create Plan" (a custom plan for that
  * student with those skills, sent with Review & Send). The platform still sets each level automatically every day.
  * Students never see any of this: their support skills arrive as normal work in My Work.
+ * r86: a second, optional "Send as-is" button sends that exact same suggested plan immediately (editor-actions.ts's
+ * quickSendSupportPlanAction) — a fast path for the clear-cut cases, kept beside (never replacing) "Create Plan".
  */
 export default async function SupportPlanPage({ searchParams }: { searchParams: Promise<{ classId?: string; class?: string }> }) {
   const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"] });
@@ -40,7 +50,7 @@ export default async function SupportPlanPage({ searchParams }: { searchParams: 
         subtitle={t("Students who need support and the skills they struggle with. The platform sets each level automatically from their results and tells you when it changes.")} />
 
       <section aria-label={t("What the levels mean")} className="mb-5 rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-200">
-        <h2 className="text-base font-semibold text-brand-navy">{t("What the levels mean")}</h2>
+        <h2 className="flex items-center gap-1 text-base font-semibold text-brand-navy">{t("What the levels mean")} <InfoTip text={SUPPORT_LEVEL_RULE} /></h2>
         <ul className="mt-2 grid gap-2 sm:grid-cols-3">
           {([1, 2, 3] as const).map((k) => (
             <li key={k} className={`rounded-xl px-3 py-2 text-sm ring-1 ${SUPPORT_LEVEL[k].tone}`}>
@@ -72,7 +82,20 @@ export default async function SupportPlanPage({ searchParams }: { searchParams: 
                     <td className="p-3"><Link href={`/teacher/students/${r.studentId}`} className="font-semibold text-brand-navy hover:underline"><bdi>{r.name}</bdi></Link></td>
                     <td className="p-3"><span className={`inline-block rounded-full px-2.5 py-0.5 text-xs font-semibold ring-1 ${lv.tone}`}>{lv.dot} {t(lv.plain)}</span><span className="mt-0.5 block text-xs text-slate-500">{lv.term} · <Link href={`/teacher/tiers/${r.studentId}`} className="underline">{t("Change")}</Link></span></td>
                     <td className="p-3 text-slate-700">{names.length ? names.join(" · ") : <span className="text-slate-500">{r.reason}</span>}</td>
-                    <td className="p-3 text-end"><Link href={plan} prefetch={false} className="inline-flex min-h-9 items-center rounded-lg bg-brand-navy px-3 text-sm font-semibold text-white hover:bg-brand-purple">{t("Create Plan")}</Link></td>
+                    <td className="p-3 text-end">
+                      <div className="flex flex-col items-end gap-1">
+                        <Link href={plan} prefetch={false} className="inline-flex min-h-9 items-center rounded-lg bg-brand-navy px-3 text-sm font-semibold text-white hover:bg-brand-purple">{t("Create Plan")}</Link>
+                        {ids.length > 0 && (
+                          <form action={quickSendSupportPlanAction}>
+                            <input type="hidden" name="classId" value={klass!.id} />
+                            <input type="hidden" name="sid" value={r.studentId} />
+                            {ids.map((id) => <input key={id} type="hidden" name="add" value={id} />)}
+                            <button className="inline-flex min-h-9 items-center rounded-lg bg-white px-3 text-sm font-semibold text-brand-navy ring-1 ring-slate-300 hover:bg-slate-50">{t("Send as-is")}</button>
+                            <span className="mt-0.5 block max-w-[10rem] text-end text-[11px] leading-tight text-slate-500">{t("Sends right away, no review")}</span>
+                          </form>
+                        )}
+                      </div>
+                    </td>
                   </tr>
                 );
               })}

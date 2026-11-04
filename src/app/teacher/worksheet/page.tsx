@@ -9,6 +9,8 @@ import { levelSheets, MAX_WORKSHEET, openWorksheet, pickerSkills, skillQuestions
 import { groupWorksheetIds, type GroupKey } from "@/server/map/map-plan";
 import { deleteWorksheetAction, saveWorksheetAction } from "./actions";
 import { SkillListPicker } from "@/components/skill-picker";
+import { RichInline } from "@/components/rich-inline";
+import { stripMarks } from "@/lib/inline-marks";
 
 export const metadata = { title: "Worksheets" };
 
@@ -74,7 +76,7 @@ export default async function WorksheetPage({ searchParams }: { searchParams: Pr
           </div>
           <details className="mb-5 rounded-2xl bg-white p-4 ring-1 ring-slate-200"><summary className="cursor-pointer font-semibold text-brand-navy">↕ Reorder or remove questions ({ids.length}/{MAX_WORKSHEET})</summary>
             <ol className="mt-2 space-y-1 text-sm">{v.ids.map((id, i) => { const q = v.blocks.flatMap((b) => b.questions).find((x) => x.id === id); return (
-              <li key={id} className="flex items-center gap-2"><span className="w-6 text-end text-slate-400">{i + 1}.</span><span className="flex-1 truncate">{q?.stem}</span>
+              <li key={id} className="flex items-center gap-2"><span className="w-6 text-end text-slate-400">{i + 1}.</span><span className="flex-1 truncate"><RichInline text={q?.stem} /></span>
                 <Link href={url({ ids: move(ids.indexOf(id), -1).join(",") })} aria-label="Move up" className="rounded px-2 ring-1 ring-slate-200">↑</Link>
                 <Link href={url({ ids: move(ids.indexOf(id), 1).join(",") })} aria-label="Move down" className="rounded px-2 ring-1 ring-slate-200">↓</Link>
                 <Link href={url({ ids: ids.filter((x) => x !== id).join(",") })} aria-label="Remove" className="rounded px-2 text-red-700 ring-1 ring-red-200">✕</Link></li>); })}</ol>
@@ -105,7 +107,7 @@ export default async function WorksheetPage({ searchParams }: { searchParams: Pr
             <form action="/teacher/worksheet" className="rounded-2xl bg-white p-4 ring-1 ring-slate-200">
               <input type="hidden" name="keep" value={keep.join(",")} /><input type="hidden" name="title" value={title} />
               <div className="flex items-center justify-between gap-2"><h2 className="font-bold text-brand-navy">Tick the Questions You Want</h2><button className="rounded-lg bg-brand-navy px-4 py-2 font-semibold text-white">＋ Add to the worksheet</button></div>
-              <ul className="mt-3 space-y-1 text-sm">{qs.map((q) => <li key={q.id} className="flex items-start gap-1"><PrintToggle id={q.id} stem={q.stem} className="mt-1.5" /><label className="flex items-start gap-2 rounded-lg px-2 py-1.5 hover:bg-slate-50"><input type="checkbox" name="q" value={q.id} defaultChecked={keep.includes(q.id)} className="mt-1" /><span><span className="me-1 rounded bg-slate-100 px-1 text-xs">{q.type.replace(/_/g, " ").toLowerCase()} · {q.level <= 2 ? "easier" : q.level >= 6 ? "harder" : "middle"}</span>{q.passage && <span className="me-1 text-xs text-sky-700">📖 {q.passage}</span>}{q.stem}</span></label></li>)}</ul>
+              <ul className="mt-3 space-y-1 text-sm">{qs.map((q) => <li key={q.id} className="flex items-start gap-1"><PrintToggle id={q.id} stem={stripMarks(q.stem)} className="mt-1.5" /><label className="flex items-start gap-2 rounded-lg px-2 py-1.5 hover:bg-slate-50"><input type="checkbox" name="q" value={q.id} defaultChecked={keep.includes(q.id)} className="mt-1" /><span><span className="me-1 rounded bg-slate-100 px-1 text-xs">{q.type.replace(/_/g, " ").toLowerCase()} · {q.level <= 2 ? "easier" : q.level >= 6 ? "harder" : "middle"}</span>{q.passage && <span className="me-1 text-xs text-sky-700">📖 {q.passage}</span>}<RichInline text={q.stem} /></span></label></li>)}</ul>
             </form>
           ) : <p className="rounded-2xl bg-white p-6 text-slate-600 ring-1 ring-slate-200">← Choose a skill to see its questions.</p>}
           <div className="mt-5 rounded-2xl bg-white p-4 ring-1 ring-slate-200">
@@ -131,16 +133,16 @@ function Sheet({ v, version, first, keyLabel }: { v: Awaited<ReturnType<typeof w
           {b.passage && <div className="mb-3 rounded-xl border border-slate-300 p-4"><h2 className="text-lg font-bold">{b.passage.title || "Read the text."}</h2><PassageText text={b.passage.text} paraClassName="mt-2 whitespace-pre-line leading-relaxed" headingClassName="mt-3 font-bold" /></div>}
           <ol className="space-y-4">{b.questions.map((q) => (
             <li key={q.id} className="break-inside-avoid">
-              <p className="font-semibold">{q.n}. {q.stem.replace(/_{3,}/g, "__________")}</p>
+              <p className="font-semibold">{q.n}. <RichInline text={q.stem.replace(/_{3,}/g, "__________")} /></p>
               {q.image && (
                 // eslint-disable-next-line @next/next/no-img-element
                 <img src={q.image.url} alt={q.image.alt} className="mt-1 max-h-60 w-auto" />
               )}
-              {q.options.length > 0 && <ul className="mt-1 grid gap-1 ps-5 sm:grid-cols-2">{q.options.map((o) => <li key={o.label}>{o.label}. {o.text}</li>)}</ul>}
+              {q.options.length > 0 && <ul className="mt-1 grid gap-1 ps-5 sm:grid-cols-2">{q.options.map((o) => <li key={o.label}>{o.label}. <RichInline text={o.text} /></li>)}</ul>}
               {q.type === "TRUE_FALSE" && <p className="mt-1 ps-5">True ☐ False ☐</p>}
-              {q.elements.length > 0 && <><p className="mt-1 ps-5 text-sm italic">Put in order (write 1, 2, 3…):</p><ul className="ps-5">{q.elements.map((e, k) => <li key={k}>___ {e}</li>)}</ul></>}
-              {q.left.length > 0 && <div className="mt-1 grid grid-cols-2 gap-4 ps-5"><ol className="list-decimal ps-4">{q.left.map((l, k) => <li key={k}>{l} ____</li>)}</ol><ol className="list-[upper-alpha] ps-4">{q.right.map((r, k) => <li key={k}>{r}</li>)}</ol></div>}
-              {q.segments.length > 0 && <p className="mt-1 ps-5">{q.segments.map((s, k) => <span key={k} className="me-1 border-b border-dotted border-slate-500">{s}</span>)}<br /><span className="text-sm italic">Find the mistake and write it correctly: ______________</span></p>}
+              {q.elements.length > 0 && <><p className="mt-1 ps-5 text-sm italic">Put in order (write 1, 2, 3…):</p><ul className="ps-5">{q.elements.map((e, k) => <li key={k}>___ <RichInline text={e} /></li>)}</ul></>}
+              {q.left.length > 0 && <div className="mt-1 grid grid-cols-2 gap-4 ps-5"><ol className="list-decimal ps-4">{q.left.map((l, k) => <li key={k}><RichInline text={l} /> ____</li>)}</ol><ol className="list-[upper-alpha] ps-4">{q.right.map((r, k) => <li key={k}><RichInline text={r} /></li>)}</ol></div>}
+              {q.segments.length > 0 && <p className="mt-1 ps-5">{q.segments.map((s, k) => <span key={k} className="me-1 border-b border-dotted border-slate-500"><RichInline text={s} /></span>)}<br /><span className="text-sm italic">Find the mistake and write it correctly: ______________</span></p>}
               {Array.from({ length: q.lines }).map((_, k) => <p key={k} className="mt-3 border-b border-slate-400">&nbsp;</p>)}
             </li>
           ))}</ol>
@@ -148,7 +150,7 @@ function Sheet({ v, version, first, keyLabel }: { v: Awaited<ReturnType<typeof w
       ))}
       <section className="mt-10 break-before-page border-t-2 border-dashed border-slate-400 pt-4 print:border-0">
         <h2 className="text-xl font-bold">Answer key · {v.title}{version === "B" ? " (B)" : ""}{keyLabel ? <span className="ms-2 text-sm font-normal">({keyLabel})</span> : null}</h2>
-        <ol className="mt-2 columns-2 gap-8 text-sm">{v.key.map((k) => <li key={k.n} className="break-inside-avoid">{k.n}. {k.answer}</li>)}</ol>
+        <ol className="mt-2 columns-2 gap-8 text-sm">{v.key.map((k) => <li key={k.n} className="break-inside-avoid">{k.n}. <RichInline text={k.answer} /></li>)}</ol>
       </section>
     </article>
   );

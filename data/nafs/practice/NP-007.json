@@ -45,9 +45,9 @@
       "difficulty": 2,
       "stem": "Why did Lama want to make a plan this year?",
       "options": [
-        "Grandmother asked them to write a list of gifts.",
-        "Huda had lost all of her pocket money.",
-        "The shops would be closed before Eid.",
+        "Grandmother asked them to write a list of gifts for the family.",
+        "Huda had lost all of her pocket money on the way to the mall.",
+        "The shops would be closed before Eid, so they had no time to buy.",
         "They overspent last year by shopping at the last minute."
       ],
       "answer": "D",
@@ -77,10 +77,10 @@
       "difficulty": 2,
       "stem": "How are Lama and Huda different at the start of the story?",
       "options": [
-        "Lama wants to spend much more money than Huda.",
+        "Lama wants to spend much more money than Huda does.",
         "Lama thinks about cost; Huda thinks about pleasing people.",
-        "Huda wants to buy sweets; Lama wants to skip Eid.",
-        "Lama loves gardening; Huda prefers painting."
+        "Huda wants to buy sweets, while Lama wants to skip Eid.",
+        "Lama loves gardening, while Huda prefers painting at home."
       ],
       "answer": "B",
       "why": "Lama worries about overspending, while Huda says she wants everyone to love their presents."
@@ -110,9 +110,9 @@
       "stem": "Which value does the story most strongly encourage?",
       "options": [
         "careful planning so that we can share with others",
-        "buying the most expensive gifts possible",
-        "keeping all our money for ourselves",
-        "waiting until the last minute to shop"
+        "buying the most expensive gifts possible each year",
+        "keeping all our money for ourselves and no one else",
+        "waiting until the last minute to shop for a gift"
       ],
       "answer": "A",
       "why": "The sisters' plan leaves money for sweets for the neighbours, and Lama says planning lets them 'share our happiness with more people'."

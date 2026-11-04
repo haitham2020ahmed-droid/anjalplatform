@@ -48,7 +48,7 @@ describe("🧭 adaptive learning path: the level carries over, with history, gua
   test("a student climbs Below → On → Above in an adaptive set; the next set starts at Above; the page shows it all", async () => {
     const sid = kids[0];
     await recordLevel(repo, { studentId: sid, level: "BELOW", source: "MAP_RIT", reason: "RIT 180" });
-    const r = await assignFromMap(repo, teacher, { classId, categoryCode: `G${grade}.U1.TS1.ACS`, studentIds: [sid] });
+    const r = await assignFromMap(repo, teacher, { source: "CURRICULUM", classId, categoryCode: `G${grade}.U1.TS1.ACS`, studentIds: [sid] });
     const a = (await repo.findMany("Assignment", { id: r.groups[0].assignmentId }))[0];
     const set = (await repo.findUnique("Assessment", { id: a.assessmentId }))!;
     const order = (await repo.findMany("AssessmentQuestion", { assessmentId: set.id })).map((x) => String(x.questionId));
@@ -94,7 +94,7 @@ describe("🧭 adaptive learning path: the level carries over, with history, gua
     assert.equal(n.length, 1);
     assert.equal(n[0].link, `/teacher/students/${sid}`);
     // a set answered with rapid guesses
-    const r = await assignFromMap(repo, teacher, { classId, categoryCode: `G${grade}.U1.TS1.ACS`, studentIds: [kids[3]] });
+    const r = await assignFromMap(repo, teacher, { source: "CURRICULUM", classId, categoryCode: `G${grade}.U1.TS1.ACS`, studentIds: [kids[3]] });
     const a = (await repo.findMany("Assignment", { id: r.groups[0].assignmentId }))[0];
     const set = (await repo.findUnique("Assessment", { id: a.assessmentId }))!;
     const order = (await repo.findMany("AssessmentQuestion", { assessmentId: set.id })).map((x) => String(x.questionId));
@@ -114,7 +114,7 @@ describe("🧭 adaptive learning path: the level carries over, with history, gua
   test("⚡ a student who guesses fast is not moved down for it: only careful answers move the level", async () => {
     const sid = kids[4];
     await recordLevel(repo, { studentId: sid, level: "ON", source: "MAP_RIT" });
-    const r = await assignFromMap(repo, teacher, { classId, categoryCode: `G${grade}.U1.TS1.ACS`, studentIds: [sid] });
+    const r = await assignFromMap(repo, teacher, { source: "CURRICULUM", classId, categoryCode: `G${grade}.U1.TS1.ACS`, studentIds: [sid] });
     const a = (await repo.findMany("Assignment", { id: r.groups[0].assignmentId }))[0];
     const set = (await repo.findUnique("Assessment", { id: a.assessmentId }))!;
     const order = (await repo.findMany("AssessmentQuestion", { assessmentId: set.id })).map((x) => String(x.questionId));

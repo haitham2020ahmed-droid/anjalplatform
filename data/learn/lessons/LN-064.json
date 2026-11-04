@@ -431,9 +431,9 @@
      "passage": "Teacher A: \"You must hand in the report by Sunday.\" Teacher B: \"You might want to hand in the report by Sunday.\"",
      "stem": "How is Teacher B different?",
      "options": [
-      "Teacher B is stricter.",
+      "Teacher B is stricter than Teacher A.",
       "Teacher B is talking about the past.",
-      "There is no difference.",
+      "There is no difference between the two teachers.",
       "Teacher B is gentler, so it sounds like advice."
      ],
      "answer": 3,

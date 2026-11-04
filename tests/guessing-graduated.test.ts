@@ -1,11 +1,14 @@
 /**
- * 🎲 r67 item 1 — rapid guesses count for nothing, and the platform answers guessing calmly, step by step
+ * 🎲 r67 item 1, redesigned Nov 2026 — speed alone no longer withholds credit; only a literal instant misclick does,
+ * and the real guessing signal is now a PATTERN (fast AND wrong, repeatedly), not fast alone
  * (demo school in memory; never a real database).
- *   · a rapid guess: under 3 s; the first question of a passage under a third of its reading time; a question with
- *     20+ careful answers: 10 % of their average time, capped at 10 s
- *   · it counts for nothing: no 30/50 count, no ability or mastery change, no accuracy, no coins (XP)
- *   · 1 guess → logged · 3 of the last 5 → "Take your time" and the next answer buttons wait 3 s · 5 of the last 10 →
- *     the practice pauses (progress saved, not ended, never a failure) and the teachers get ONE alert
+ *   · "fast" (under 3 s; the first question of a passage under a third of its reading time; a question with 20+
+ *     careful answers: 10 % of their average time, capped at 10 s) is now purely informational: logged, shown to
+ *     teachers, used only to spot the pattern below — it no longer zero-weights a correct (or even a wrong) answer.
+ *   · a literal MISCLICK (well under half a second — isInstantMisclick) is the only thing that still counts for
+ *     nothing: no 30/50 count, no ability or mastery change, no accuracy, no coins (XP).
+ *   · 3 of the last 5 fast-AND-WRONG answers → "Take your time" and the next answer buttons wait 3 s · 5 of the
+ *     last 10 → the practice pauses (progress saved, not ended, never a failure) and the teachers get ONE alert
  */
 import { before, describe, test } from "node:test";
 import assert from "node:assert/strict";
@@ -14,7 +17,7 @@ import { resolveActor } from "../src/server/auth/actor";
 import type { Actor } from "../src/server/auth/rbac";
 import { assignSkill, teacherCurriculum } from "../src/server/teacher/assign";
 import { startPractice, submitAnswer, type PracticeView } from "../src/server/practice/session";
-import { countsTowardWork, expectedReadingMs, guessResponse, isRapidGuess, ITEM_CAP_MS, passageWords, RAPID_GUESS_MS, rapidGuessThresholdMs, SLOW_DOWN_MS } from "../src/server/practice/guessing";
+import { countsTowardWork, expectedReadingMs, guessResponse, isInstantMisclick, isRapidGuess, ITEM_CAP_MS, MISCLICK_MS, passageWords, RAPID_GUESS_MS, rapidGuessThresholdMs, SLOW_DOWN_MS } from "../src/server/practice/guessing";
 import { afterResponseSettled } from "../src/server/lib/after-response";
 import { demoDatabase } from "./helpers/db";
 
@@ -41,6 +44,15 @@ describe("the rapid-guess rule (pure)", () => {
     assert.equal(rapidGuessThresholdMs({ itemStats: { answers: 25, avgMs: 15_000 }, passageText: passage, firstOnPassage: true }), 1500, "the question's own time replaces the default rules");
     assert.equal(countsTowardWork({ rapidGuess: true }), false);
     assert.equal(countsTowardWork({ rapidGuess: false }), true);
+  });
+
+  test("a literal misclick (well under half a second) is the only thing that still counts for nothing", () => {
+    assert.equal(MISCLICK_MS, 500);
+    assert.equal(isInstantMisclick(499), true);
+    assert.equal(isInstantMisclick(500), false);
+    // "fast" (3 s and under) no longer implies "counts for nothing" — most fast answers are well above the misclick floor
+    assert.equal(isRapidGuess(1000), true, "still flagged as fast, informationally");
+    assert.equal(isInstantMisclick(1000), false, "but not a misclick: it counts in full");
   });
 
   test("graduated response: 1 → logged, 3 of the last 5 → slow down, 5 of the last 10 → pause", () => {
@@ -79,27 +91,45 @@ describe("guessing in practice", () => {
     }
   });
 
-  test("a rapid guess counts for nothing: no count, no ability, no mastery, no coins — only logged", async () => {
+  // Nov 2026 redesign: a merely FAST but genuine correct answer now counts in full — mastery, ability, accuracy and
+  // the full XP reward, exactly like any other correct answer, even on the student's very first-ever attempt (no
+  // track record or grace window needed any more). Only a literal instant misclick (under MISCLICK_MS) still earns
+  // nothing at all.
+  test("a fast but genuine correct answer counts in full — no speed penalty any more", async () => {
     const me = kids[0];
-    const { assignmentId } = await assignSkill(repo, teacher, { classId, skillId, studentIds: [me.studentId!] }, tick(0));
+    const { assignmentId } = await assignSkill(repo, teacher, { source: "CURRICULUM", classId, skillId, studentIds: [me.studentId!] }, tick(0));
     let v: PracticeView = await startPractice(repo, me, skillId, tick(0));
-    // one careful answer first
-    let r = await submitAnswer(repo, me, { sessionId: v.sessionId, questionId: v.question!.questionId, response: "A" }, tick());
-    v = r.view;
     const before = { ability: await repo.findUnique("StudentAbility", { studentId: me.studentId, scope: `SKILL:${skillId}` }), mastery: await repo.findUnique("StudentSkillMastery", { studentId: me.studentId, skillId }), xp: await repo.count("XpEvent", { studentId: me.studentId }), row: (await repo.findMany("AssignmentStudent", { assignmentId, studentId: me.studentId }))[0] };
-    // a correct answer in 1 second
-    r = await submitAnswer(repo, me, { sessionId: v.sessionId, questionId: v.question!.questionId, response: "A" }, tick(1000));
+    // a correct answer in 500ms: fast (still logged as such) but not a misclick (500ms === MISCLICK_MS, not under it)
+    let r = await submitAnswer(repo, me, { sessionId: v.sessionId, questionId: v.question!.questionId, response: "A" }, tick(500));
+    v = r.view;
+    assert.equal(r.feedback.rapidGuess, true, "still logged as fast — informational only now");
+    assert.ok(r.feedback.xp > 0, "the full reward, not a reduced one");
+    assert.equal(r.feedback.guess ?? null, null, "a single fast CORRECT answer never contributes to the guessing pattern");
+    assert.ok(r.feedback.masteryAfter! >= r.feedback.masteryBefore!, "mastery moves normally");
+    const after = { ability: await repo.findUnique("StudentAbility", { studentId: me.studentId, scope: `SKILL:${skillId}` }), mastery: await repo.findUnique("StudentSkillMastery", { studentId: me.studentId, skillId }), xp: await repo.count("XpEvent", { studentId: me.studentId }), row: (await repo.findMany("AssignmentStudent", { assignmentId, studentId: me.studentId }))[0] };
+    assert.notEqual(Number(after.ability!.theta), Number(before.ability?.theta ?? 0), "ability updated normally");
+    assert.equal(Number(after.mastery!.attempts), Number(before.mastery?.attempts ?? 0) + 1, "mastery's attempt count moved");
+    assert.deepEqual([Number(after.row.coreAnswered), Number(after.row.coreCorrect)], [1, 1], "counts toward the 30/50 rule and accuracy, fully");
+    const att = (await repo.findMany("QuestionAttempt", { sessionId: v.sessionId }, { orderBy: [{ field: "id", dir: "asc" }] }));
+    assert.deepEqual(att.map((a) => Boolean(a.rapidGuess)), [true], "fast is still logged on the attempt, informationally");
+  });
+
+  test("a literal instant misclick still counts for nothing", async () => {
+    const me = kids[2];
+    const { assignmentId } = await assignSkill(repo, teacher, { source: "CURRICULUM", classId, skillId, studentIds: [me.studentId!] }, tick(0));
+    let v: PracticeView = await startPractice(repo, me, skillId, tick(0));
+    const before = { ability: await repo.findUnique("StudentAbility", { studentId: me.studentId, scope: `SKILL:${skillId}` }), mastery: await repo.findUnique("StudentSkillMastery", { studentId: me.studentId, skillId }), xp: await repo.count("XpEvent", { studentId: me.studentId }), row: (await repo.findMany("AssignmentStudent", { assignmentId, studentId: me.studentId }))[0] };
+    // a correct answer in 100ms: well under MISCLICK_MS — physically too fast to have read anything
+    const r = await submitAnswer(repo, me, { sessionId: v.sessionId, questionId: v.question!.questionId, response: "A" }, tick(100));
     assert.equal(r.feedback.rapidGuess, true);
-    assert.equal(r.feedback.xp, 0, "no coins");
-    assert.equal(r.feedback.guess ?? null, null, "one guess: only logged");
+    assert.equal(r.feedback.xp, 0, "no credit at all for a literal misclick — not even a participation coin");
     assert.equal(r.feedback.masteryAfter, r.feedback.masteryBefore, "mastery unchanged");
     const after = { ability: await repo.findUnique("StudentAbility", { studentId: me.studentId, scope: `SKILL:${skillId}` }), mastery: await repo.findUnique("StudentSkillMastery", { studentId: me.studentId, skillId }), xp: await repo.count("XpEvent", { studentId: me.studentId }), row: (await repo.findMany("AssignmentStudent", { assignmentId, studentId: me.studentId }))[0] };
-    assert.equal(Number(after.ability!.theta), Number(before.ability!.theta), "ability unchanged");
-    assert.deepEqual([Number(after.mastery!.score), Number(after.mastery!.attempts)], [Number(before.mastery!.score), Number(before.mastery!.attempts)], "mastery and its counts unchanged");
-    assert.equal(after.xp, before.xp);
-    assert.deepEqual([Number(after.row.coreAnswered), Number(after.row.coreCorrect)], [1, 1], "the 30/50 count and accuracy skip it");
-    const att = (await repo.findMany("QuestionAttempt", { sessionId: v.sessionId }, { orderBy: [{ field: "id", dir: "asc" }] }));
-    assert.deepEqual(att.map((a) => Boolean(a.rapidGuess)), [false, true], "logged on the attempt");
+    assert.equal(Number(after.ability?.theta ?? 0), Number(before.ability?.theta ?? 0), "ability unchanged");
+    assert.equal(after.mastery, null, "no mastery row was ever created by a misclick alone");
+    assert.equal(after.xp, before.xp, "no XP event at all");
+    assert.deepEqual([Number(after.row.coreAnswered ?? 0), Number(after.row.coreCorrect ?? 0)], [0, 0], "the 30/50 count and accuracy skip it");
   });
 
   test("3 guesses in the last 5 → take your time (3 s wait); 5 in the last 10 → a calm pause, one teacher alert, then it continues", async () => {

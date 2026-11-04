@@ -1,5 +1,7 @@
 import type { AreaStatus, Descriptor } from "@/server/map/map-plan";
 import type { PlanDoc } from "@/server/map/map-more";
+import { planHref, type PlanAudience } from "@/lib/plan-links";
+import { PlanA, PlanLinksNote, PlanQr } from "@/components/plans/plan-links";
 
 /** Colours and words shared by every MAP page (teacher, student, parent, print). */
 export const DESC_STYLE: Record<Descriptor, string> = { Low: "bg-red-100 text-red-800", LoAvg: "bg-orange-100 text-orange-800", Avg: "bg-slate-100 text-slate-700", HiAvg: "bg-teal-100 text-teal-800", High: "bg-emerald-100 text-emerald-800" };
@@ -13,8 +15,9 @@ export function StatusChip({ status }: { status: AreaStatus | null }) {
 }
 
 /** The plan as a printable document (teacher preview, the student's copy, the parent's copy). */
-export function PlanDocView({ d, forStudent = false }: { d: PlanDoc; forStudent?: boolean }) {
+export function PlanDocView({ d, forStudent = false, audience }: { d: PlanDoc; forStudent?: boolean; /** r79: who the printed links are for (default: student wording → student, else staff) */ audience?: PlanAudience }) {
   const p = d.profile;
+  const who: PlanAudience = audience ?? (forStudent ? "student" : "staff");
   return (
     <article className="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-slate-200 print:shadow-none print:ring-0">
       <header className="flex flex-wrap items-start justify-between gap-4 border-b border-slate-200 pb-4">
@@ -44,7 +47,10 @@ export function PlanDocView({ d, forStudent = false }: { d: PlanDoc; forStudent?
         </section>
       )}
       <section className="mt-5">
-        <h3 className="font-bold text-brand-navy">{forStudent ? "What I will practise" : "The plan"}</h3>
+        <div className="flex items-start justify-between gap-3">
+          <div><h3 className="font-bold text-brand-navy">{forStudent ? "What I will practise" : "The plan"}</h3><PlanLinksNote t={(x) => x} className="mt-1 inline-block" /></div>
+          <PlanQr href={planHref({ kind: "map-plan", id: d.id }, who)} size={52} />
+        </div>
         <ol className="mt-2 space-y-2">
           {d.items.map((it, i) => (
             <li key={it.group} className="rounded-xl bg-slate-50 p-3 ring-1 ring-slate-200 print:bg-white">
@@ -52,7 +58,7 @@ export function PlanDocView({ d, forStudent = false }: { d: PlanDoc; forStudent?
                 <p className="font-bold text-brand-navy">{i + 1}. {it.icon} {it.name} <span className="font-normal text-slate-600">· questions at RIT {it.band} and a little above · {it.count} questions</span></p>
                 {it.progress !== null && <span className={`rounded-full px-2 py-0.5 text-xs font-bold ${it.done ? "bg-emerald-100 text-emerald-800" : "bg-white text-slate-700 ring-1 ring-slate-200"}`}>{it.done ? "✅ Done" : `${it.progress}%`}</span>}
               </div>
-              <p className="mt-1 text-sm text-slate-700">Skills: {it.skills.length > 0 ? it.skills.join(" · ") : "all the skills of this area"}</p>
+              <p className="mt-1 text-sm text-slate-700">Skills: {(it.skillRefs ?? []).length > 0 ? it.skillRefs.map((k, j) => <span key={k.id}>{j ? " · " : ""}<PlanA href={planHref({ kind: "skill", id: k.id, from: "map" }, who)}>{k.name}</PlanA></span>) : it.skills.length > 0 ? it.skills.join(" · ") : "all the skills of this area"}</p>
             </li>
           ))}
         </ol>

@@ -39,10 +39,10 @@ describe("📘 Curriculum and 🗺️ MAP areas", () => {
     const view = (await teacherCurriculum(repo, teacher))!;
     const mapSkill = view.mapAreas[0].skills[0].id;
     const curSkill = view.units[0].skills.find((k) => k.id !== mapSkill)!.id;
-    const m = await assignSkill(repo, teacher, { classId: view.classId, skillId: mapSkill, studentIds: [student.studentId!], track: "MAP" });
-    const c = await assignSkill(repo, teacher, { classId: view.classId, skillId: curSkill, studentIds: [student.studentId!] });
+    const m = await assignSkill(repo, teacher, { source: "MAP", classId: view.classId, skillId: mapSkill, studentIds: [student.studentId!], track: "MAP" });
+    const c = await assignSkill(repo, teacher, { source: "CURRICULUM", classId: view.classId, skillId: curSkill, studentIds: [student.studentId!] });
     const qs = (await repo.findMany("Question", { skillId: mapSkill, status: "PUBLISHED" })).slice(0, 2).map((q) => String(q.id));
-    const set = await assignQuestions(repo, teacher, { classId: view.classId, questionIds: qs, studentIds: [student.studentId!], track: "MAP" });
+    const set = await assignQuestions(repo, teacher, { source: "MAP", classId: view.classId, questionIds: qs, studentIds: [student.studentId!], track: "MAP" });
     const tracks = new Map((await repo.findMany("Assignment", { id: { in: [m.assignmentId, c.assignmentId, set.assignmentId] } })).map((a) => [String(a.id), a.track]));
     assert.deepEqual([tracks.get(m.assignmentId), tracks.get(c.assignmentId), tracks.get(set.assignmentId)], ["MAP", "CURRICULUM", "MAP"]);
     const items = new Map((await assignedSkills(repo, student)).items.map((i) => [i.assignmentId, i.track]));

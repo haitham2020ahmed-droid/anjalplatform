@@ -71,10 +71,10 @@
     "passage": "Sami jumped into the pool. Splash! Water flew everywhere. His mom got wet and laughed.",
     "stem": "What does the word splash help you know?",
     "options": [
-     "The water was very cold.",
-     "Sami felt sad that day.",
+     "The water was very cold that day.",
+     "Sami felt sad about it that day.",
      "The sound of Sami hitting water.",
-     "Mom was angry with Sami."
+     "Mom was angry with Sami again."
     ],
     "answer": 2,
     "hint": "Say the word splash out loud. What does it sound like?",
@@ -113,9 +113,9 @@
      "stem": "Why does the writer say cried three times?",
      "options": [
       "To show the baby cried for a long time",
-      "To show the baby was happy",
-      "To show Mom was singing",
-      "To show the baby was asleep"
+      "To show the baby was happy all day",
+      "To show Mom was singing to the baby",
+      "To show the baby was asleep in bed"
      ],
      "answer": 0,
      "why": "Saying cried again and again shows the crying went on and on."
@@ -124,10 +124,10 @@
      "passage": "Crunch! Ali bit into the fresh apple.",
      "stem": "What does crunch tell you about the apple?",
      "options": [
-      "It was soft.",
+      "It was soft and wet.",
       "It was hard and crisp.",
-      "It was hot.",
-      "It was old."
+      "It was hot and sticky.",
+      "It was old and brown."
      ],
      "answer": 1,
      "why": "Crunch is the sound of biting something hard and crisp."
@@ -222,9 +222,9 @@
      "passage": "The wind blew and blew. It blew the sand across the road. It blew the hats off our heads. It blew all night long.",
      "stem": "What does the repetition of blew show?",
      "options": [
-      "The wind was gentle.",
-      "The wind stopped quickly.",
-      "The wind was not important.",
+      "The wind was gentle and soft.",
+      "The wind stopped quickly and left.",
+      "The wind was not important at all to them.",
       "The wind was strong and did not stop."
      ],
      "answer": 3,
@@ -325,9 +325,9 @@
      "stem": "What effect do the repeated sound words create?",
      "options": [
       "They make the scene feel exciting and lively.",
-      "They make the scene feel quiet.",
-      "They show the fireworks were broken.",
-      "They show the crowd was bored."
+      "They make the scene feel quiet and calm.",
+      "They show the fireworks were broken and silent.",
+      "They show the crowd was bored and sleepy."
      ],
      "answer": 0,
      "why": "Repeated bangs build up the noise and energy until the whole sky explodes."
@@ -336,10 +336,10 @@
      "passage": "In the poem, each part ends with the line, \"And the old tree stood.\" It stood through the storm. It stood through the drought. It stood when the village had gone.",
      "stem": "What does the refrain suggest about the tree?",
      "options": [
-      "It was very young.",
-      "It fell in the storm.",
+      "It was very young and had just been planted.",
+      "It fell down in the big storm last year.",
       "It is strong and lasts through everything.",
-      "It was cut down by the village."
+      "It was cut down by the people of the village."
      ],
      "answer": 2,
      "why": "The refrain returns after each hardship. The tree survives them all, so it seems strong and lasting."
@@ -348,10 +348,10 @@
      "passage": "Whoosh! The door flew open. Whoosh! Papers flew off the desk. Whoosh! The candle went out.",
      "stem": "What does the repeated word whoosh suggest?",
      "options": [
-      "A soft song",
+      "A soft song on the radio",
       "A strong wind rushing in",
-      "A cat running",
-      "A car horn"
+      "A cat running in the yard",
+      "A car horn in the street"
      ],
      "answer": 1,
      "why": "Whoosh sounds like rushing air. It opens doors, blows papers and puts out the candle."
@@ -403,10 +403,10 @@
     "passage": "On the last day of the school year, the principal stood before the graduating class. She put away her notes, looked at the rows of familiar faces, and spoke. \"We came here as children who could barely read. We leave as readers, writers and thinkers. We came here afraid of failing. We leave ready to try, to fail, and to try again.\" The hall was silent for a moment, and then the applause began.",
     "stem": "What is the effect of repeating \"We came here... We leave...\"?",
     "options": [
-     "It shows that the students are sad to leave school.",
+     "It shows that the students are sad to leave school and will miss their friends.",
      "It shows how much the students have grown, using a strong, memorable rhythm.",
-     "It shows that the principal forgot what to say.",
-     "It explains how the students travelled to the school."
+     "It shows that the principal forgot what to say in the speech.",
+     "It explains how the students travelled to the school every day."
     ],
     "answer": 1,
     "hint": "Compare what follows 'we came here' with what follows 'we leave'. What changed? How does the pattern sound when read aloud?",
@@ -438,9 +438,9 @@
      "stem": "What is the effect of the alliteration?",
      "options": [
       "The hard b sounds echo the loud crashing of the rocks.",
-      "The soft sounds make the scene peaceful.",
-      "It shows the mountain is small.",
-      "It shows the boulders were moving slowly."
+      "The soft sounds make the whole scene calm and peaceful.",
+      "It shows the mountain is small and not high.",
+      "It shows the boulders were moving slowly down."
      ],
      "answer": 0,
      "why": "The repeated hard b sound is loud and heavy, like rocks crashing down."
@@ -449,10 +449,10 @@
      "passage": "In the poem, the speaker says \"far, far away\" in the first line, \"far from home\" in the middle, and \"so far, so far\" in the last line.",
      "stem": "What does the repetition of far emphasize?",
      "options": [
-      "The speaker's love of travel",
-      "The speaker's fast journey",
+      "The speaker's love of travel and new places",
+      "The speaker's fast journey through the city",
       "The speaker's strong feeling of distance from home",
-      "The beauty of the place the speaker visits"
+      "The beauty of the place the speaker visits on the trip"
      ],
      "answer": 2,
      "why": "Far returns at the start, middle and end, keeping the distance from home in the reader's mind throughout the poem."

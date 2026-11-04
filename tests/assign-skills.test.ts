@@ -4,7 +4,8 @@ import assert from "node:assert/strict";
 import type { SqliteRepo } from "../scripts/db/sqlite-repo";
 import { resolveActor } from "../src/server/auth/actor";
 import { ForbiddenError, type Actor } from "../src/server/auth/rbac";
-import { MIN_ANSWERS_TO_COMPLETE, assignSkill, assignmentDetail, assignmentStatus, openAssignmentFor, teacherCurriculum, weeklyAssignments } from "../src/server/teacher/assign";
+import { MIN_ANSWERS_TO_COMPLETE, assignSkill, assignmentDetail, assignmentStatus, hasPriorSkillAssignment, openAssignmentFor, teacherCurriculum, weeklyAssignments } from "../src/server/teacher/assign";
+import { assignSkillByLevel } from "../src/server/teacher/skill-assign";
 import { classAssignments } from "../src/server/teacher/assignments";
 import { assignmentUpdatesSettled, startPractice, submitAnswer } from "../src/server/practice/session";
 import { loadSkillItems } from "../src/server/practice/items";
@@ -34,14 +35,16 @@ describe("⭐ Assign: teacher assigns a skill", () => {
     student = await resolveActor(repo, (await repo.findUnique("User", { id: st.userId }))!);
   });
 
-  test("status rules: only work done for the assignment counts", () => {
-    const base = { mastery: 0, target: 75, dueAt: null, now: NOW };
+  // ⭐ owner (1 Nov 2026): complete = the star for the skill's key is ⭐, or 50 counted answers (never "10 + 75 %")
+  test("status rules: ⭐ or 50 counted answers complete the work; progress = the star score", () => {
+    const base = { star: null, dueAt: null, now: NOW };
     assert.equal(assignmentStatus({ ...base, answered: 0 }).status, "NOT_STARTED");
-    assert.equal(assignmentStatus({ ...base, answered: 3, mastery: 40 }).status, "IN_PROGRESS");
-    assert.equal(assignmentStatus({ ...base, answered: MIN_ANSWERS_TO_COMPLETE - 1, mastery: 95 }).status, "IN_PROGRESS", "high mastery alone is not enough");
-    assert.deepEqual(assignmentStatus({ ...base, answered: MIN_ANSWERS_TO_COMPLETE, mastery: 80 }), { status: "COMPLETED", progress: 1 });
-    assert.equal(assignmentStatus({ ...base, answered: 2, dueAt: new Date("2027-02-01"), mastery: 10 }).status, "OVERDUE");
-    assert.ok(assignmentStatus({ ...base, answered: 9, mastery: 74 }).progress < 1);
+    assert.equal(assignmentStatus({ ...base, answered: 3, star: { mastered: false, score: 40 } }).status, "IN_PROGRESS");
+    assert.equal(assignmentStatus({ ...base, answered: 10, star: { mastered: false, score: 95 } }).status, "IN_PROGRESS", "10 answers at a high score is not ⭐");
+    assert.deepEqual(assignmentStatus({ ...base, answered: MIN_ANSWERS_TO_COMPLETE, star: { mastered: true, score: 92 } }), { status: "COMPLETED", progress: 1 });
+    assert.equal(assignmentStatus({ ...base, answered: 50, star: { mastered: false, score: 60 } }).status, "COMPLETED", "the 50-answer cap");
+    assert.equal(assignmentStatus({ ...base, answered: 2, dueAt: new Date("2027-02-01"), star: { mastered: false, score: 10 } }).status, "OVERDUE");
+    assert.equal(assignmentStatus({ ...base, answered: 9, star: { mastered: false, score: 74 } }).progress, 0.74);
   });
 
   test("the teacher's view: Grade → Unit → Skill → Standard, only their own classes", async () => {
@@ -54,7 +57,7 @@ describe("⭐ Assign: teacher assigns a skill", () => {
 
   test("assign to the entire class: every student gets a row and a notification", async () => {
     const before = await repo.count("Notification", { type: "NEW_ASSIGNMENT" });
-    const r = await assignSkill(repo, teacher, { classId, skillId, dueAt: new Date("2027-02-20T20:59:59Z"), note: "Read carefully." }, NOW);
+    const r = await assignSkill(repo, teacher, { source: "CURRICULUM", classId, skillId, dueAt: new Date("2027-02-20T20:59:59Z"), note: "Read carefully." }, NOW);
     assert.equal(r.students, students.length);
     assert.equal(await repo.count("AssignmentStudent", { assignmentId: r.assignmentId, status: "NOT_STARTED" }), students.length);
     assert.equal((await repo.count("Notification", { type: "NEW_ASSIGNMENT" })) - before, students.length);
@@ -64,24 +67,24 @@ describe("⭐ Assign: teacher assigns a skill", () => {
   });
 
   test("assign to selected students and to one student; never to students outside the class", async () => {
-    const two = await assignSkill(repo, teacher, { classId, skillId, studentIds: [students[0].id, students[1].id] }, NOW);
+    const two = await assignSkill(repo, teacher, { source: "CURRICULUM", classId, skillId, studentIds: [students[0].id, students[1].id] }, NOW);
     assert.equal(two.students, 2);
-    const one = await assignSkill(repo, teacher, { classId, skillId, studentIds: [students[2].id] }, NOW);
+    const one = await assignSkill(repo, teacher, { source: "CURRICULUM", classId, skillId, studentIds: [students[2].id] }, NOW);
     assert.equal(one.students, 1);
     const outsider = (await repo.findMany("ClassMembership", { classId: otherClassId }))[0].studentId as string;
-    await assert.rejects(assignSkill(repo, teacher, { classId, skillId, studentIds: [outsider] }, NOW), /only assign work to students in this class/);
-    await assert.rejects(assignSkill(repo, otherTeacher, { classId, skillId }, NOW), ForbiddenError, "another teacher's class");
-    await assert.rejects(assignSkill(repo, student, { classId, skillId }, NOW), ForbiddenError, "students cannot assign");
-    await assert.rejects(assignSkill(repo, teacher, { classId, skillId, dueAt: new Date("2020-01-01") }, NOW), /in the past/);
-    await assert.rejects(assignSkill(repo, teacher, { classId, skillId: "" }, NOW), /Choose a skill/);
-    await assert.rejects(assignSkill(repo, teacher, { classId, skillId, startAt: new Date("2027-03-01"), dueAt: new Date("2027-02-28") }, NOW), /after the start date/);
+    await assert.rejects(assignSkill(repo, teacher, { source: "CURRICULUM", classId, skillId, studentIds: [outsider] }, NOW), /only assign work to students in this class/);
+    await assert.rejects(assignSkill(repo, otherTeacher, { source: "CURRICULUM", classId, skillId }, NOW), ForbiddenError, "another teacher's class");
+    await assert.rejects(assignSkill(repo, student, { source: "CURRICULUM", classId, skillId }, NOW), ForbiddenError, "students cannot assign");
+    await assert.rejects(assignSkill(repo, teacher, { source: "CURRICULUM", classId, skillId, dueAt: new Date("2020-01-01") }, NOW), /in the past/);
+    await assert.rejects(assignSkill(repo, teacher, { source: "CURRICULUM", classId, skillId: "" }, NOW), /Choose a skill/);
+    await assert.rejects(assignSkill(repo, teacher, { source: "CURRICULUM", classId, skillId, startAt: new Date("2027-03-01"), dueAt: new Date("2027-02-28") }, NOW), /after the start date/);
     // UI reorg access rules: a skill of ANOTHER grade may be assigned to the teacher's own class (it used to be refused
     // with "this class's curriculum"); a removed skill is still refused
     const g5skill = (await teacherCurriculum(repo, otherTeacher))!.units[0].skills[0].id;
-    const cross = await assignSkill(repo, teacher, { classId, skillId: g5skill, studentIds: [students[0].id] }, NOW);
+    const cross = await assignSkill(repo, teacher, { source: "CURRICULUM", classId, skillId: g5skill, studentIds: [students[0].id] }, NOW);
     assert.equal(cross.students, 1);
     await repo.updateMany("Assignment", { id: cross.assignmentId }, { deletedAt: NOW }); // the next tests count this class's work
-    await assert.rejects(assignSkill(repo, teacher, { classId, skillId: "no-such-skill" }, NOW), /Choose an active skill/);
+    await assert.rejects(assignSkill(repo, teacher, { source: "CURRICULUM", classId, skillId: "no-such-skill" }, NOW), /Choose an active skill/);
   });
 
   test("practice links to the assignment and moves the student from Not Started to In Progress to Completed", async () => {
@@ -102,17 +105,19 @@ describe("⭐ Assign: teacher assigns a skill", () => {
     await assignmentUpdatesSettled();
     let row = (await repo.findMany("AssignmentStudent", { assignmentId: assignmentId!, studentId: student.studentId! }))[0];
     assert.equal(row.status, "IN_PROGRESS");
-    for (let i = 0; i < 25 && row.status !== "COMPLETED"; i++) {
+    // ⭐ rule: Done by the star (30+ answers and mastered) or at the 50th counted answer
+    for (let i = 0; i < 55 && row.status !== "COMPLETED"; i++) {
       await answerRight();
       await assignmentUpdatesSettled();
       row = (await repo.findMany("AssignmentStudent", { assignmentId: assignmentId!, studentId: student.studentId! }))[0];
     }
-    assert.equal(row.status, "COMPLETED", "enough correct answers reach the target mastery");
+    assert.equal(row.status, "COMPLETED", "the work is Done (⭐, 50 answers or the pool ran out)");
     assert.equal(Number(row.progress), 1);
     assert.ok(row.completedAt);
     const detail = await assignmentDetail(repo, teacher, assignmentId!, new Date(clock));
     const mine = detail.students.find((x) => x.studentId === student.studentId)!;
-    assert.ok(mine.answered >= MIN_ANSWERS_TO_COMPLETE && mine.accuracy === 100, JSON.stringify(mine));
+    // Done by ⭐, the 50th answer, or the skill's questions running out (the small test pool ends before 30)
+    assert.ok(mine.answered >= 10 && mine.accuracy === 100, JSON.stringify(mine));
   });
 
   test("weekly view and older views count the same statuses; overdue appears after the due date", async () => {
@@ -130,5 +135,49 @@ describe("⭐ Assign: teacher assigns a skill", () => {
     assert.deepEqual(await weeklyAssignments(repo, otherTeacher, week, NOW), [], "other teachers do not see them");
     assert.equal((await weeklyAssignments(repo, admin, week, NOW)).length, 3, "school admins see all classes");
     await assert.rejects(assignmentDetail(repo, otherTeacher, whole.id), ForbiddenError);
+  });
+});
+
+describe("⭐ Assign page: warn when a skill was already assigned to this class before", () => {
+  let repo: SqliteRepo;
+  let teacher: Actor;
+  let classId: string, skillId: string;
+  before(async () => {
+    ({ repo } = await demoDatabase());
+    await publishGrade4Bank(repo);
+    const actorFor = async (u: string) => resolveActor(repo, (await repo.findUnique("User", { username: u }))!);
+    teacher = await actorFor("demo.teacher.4a");
+    const view = (await teacherCurriculum(repo, teacher))!;
+    classId = view.classId;
+    for (const u of view.units) for (const k of u.skills) if (!skillId && (await loadSkillItems(repo, k.id)).length >= 12) skillId = k.id;
+  });
+
+  test("not assigned yet → false; after a ⭐ SKILL assignment (assignSkill) → true, and only for that class", async () => {
+    const otherClassId = (await teacherCurriculum(repo, await resolveActor(repo, (await repo.findUnique("User", { username: "demo.teacher.5a" }))!)))!.classId;
+    assert.equal(await hasPriorSkillAssignment(repo, classId, skillId), false);
+    await assignSkill(repo, teacher, { source: "CURRICULUM", classId, skillId }, NOW);
+    assert.equal(await hasPriorSkillAssignment(repo, classId, skillId), true, "assignSkill tags the Assignment with skillId");
+    assert.equal(await hasPriorSkillAssignment(repo, otherClassId, skillId), false, "the check is per class, not school-wide");
+  });
+
+  test("a soft-deleted assignment of the skill no longer counts as a prior assignment", async () => {
+    const r = await assignSkill(repo, teacher, { source: "CURRICULUM", classId, skillId }, NOW);
+    assert.equal(await hasPriorSkillAssignment(repo, classId, skillId), true);
+    await repo.updateMany("Assignment", { id: r.assignmentId }, { deletedAt: NOW });
+    // other assignments of the same skill to this class may remain from the previous test, so this alone does not
+    // guarantee false — the point here is only that a deleted row itself is excluded, checked via the count:
+    const rows = await repo.findMany("Assignment", { classId, skillId, deletedAt: null });
+    assert.ok(!rows.some((a) => a.id === r.assignmentId));
+  });
+
+  test("the main Assign page's own flow (assignSkillByLevel → assignQuestions, an ASSESSMENT target) also tags skillId", async () => {
+    const view = (await teacherCurriculum(repo, teacher))!;
+    let other = "";
+    for (const u of view.units) for (const k of u.skills) if (!other && k.id !== skillId && (await loadSkillItems(repo, k.id)).length >= 12) other = k.id;
+    assert.ok(other, "need a second skill with published questions for this check");
+    assert.equal(await hasPriorSkillAssignment(repo, classId, other), false);
+    const lv = await assignSkillByLevel(repo, teacher, { source: "CURRICULUM", classId, skillId: other, mode: "AUTOMATIC" }, NOW);
+    assert.ok(lv.groups.some((g) => g.students > 0));
+    assert.equal(await hasPriorSkillAssignment(repo, classId, other), true, "assignQuestions stores skillId when the caller passes one");
   });
 });

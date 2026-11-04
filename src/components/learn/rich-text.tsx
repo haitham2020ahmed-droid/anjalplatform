@@ -1,11 +1,14 @@
 import type { ReactNode } from "react";
+import { RichInline } from "@/components/rich-inline";
+import { stripMarks } from "@/lib/inline-marks";
 
 /**
- * Learn lesson text → elements (never raw HTML): paragraphs split by a blank line, **bold**, and numbered steps
+ * Learn lesson text → elements (never raw HTML): paragraphs split by a blank line, **bold** (and the other marks of
+ * lib/inline-marks.ts), and numbered steps
  * (lines starting "1. ", "2. " …) shown as the round-numbered steps of the lesson design.
  */
 export function inline(text: string): ReactNode[] {
-  return text.split(/(\*\*[^*]+\*\*)/g).filter(Boolean).map((part, i) => (part.startsWith("**") && part.endsWith("**") ? <b key={i}>{part.slice(2, -2)}</b> : <span key={i}>{part}</span>));
+  return [<RichInline key="t" text={text} />]; // **bold**, <u>underline</u>… (lib/inline-marks.ts)
 }
 
 export function RichText({ text, className = "" }: { text: string; className?: string }) {
@@ -33,4 +36,4 @@ export function RichText({ text, className = "" }: { text: string; className?: s
 }
 
 /** Plain text for 🔊 Listen (no stars, steps read as sentences). */
-export const plain = (text: string) => String(text ?? "").replace(/\*\*/g, "").replace(/^\d+\.\s+/gm, "").replace(/\s+/g, " ").trim();
+export const plain = (text: string) => stripMarks(String(text ?? "")).replace(/^\d+\.\s+/gm, "").replace(/\s+/g, " ").trim();

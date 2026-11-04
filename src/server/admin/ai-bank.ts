@@ -17,6 +17,7 @@
  *  - duplicates: against every question already in the skill and within the batch
  * Invalid questions are not saved; the reasons are reported.
  */
+import { LENGTH_REJECT_REASON, lengthCueOf } from "../../lib/length-cue";
 import { randomBytes } from "node:crypto";
 import { audit } from "../audit";
 import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
@@ -168,6 +169,8 @@ export function validateGenerated(raw: unknown[], ctx: { skillCode: string; stan
     if (correct.length !== 1) reasons.push(`needs exactly one correct answer (got ${correct.length})`);
     if (opts.some((o) => o && o.correct !== true && !(typeof o.rationale === "string" && o.rationale.trim()))) reasons.push("a wrong answer has no rationale");
     if (new Set(opts.map((o) => norm(String(o?.text ?? "")))).size !== opts.length) reasons.push("two answer choices are the same");
+    // 🎯 the correct answer clearly the longest choice: students could guess it without reading (src/lib/length-cue.ts)
+    if (correct.length === 1 && opts.length === 4 && lengthCueOf(opts.map((o) => ({ text: o?.text, correct: o?.correct }))).flagged) reasons.push(LENGTH_REJECT_REASON);
     if (typeof r.explanation !== "string" || !r.explanation.trim()) reasons.push("explanation missing");
     if (!COGNITIVE_LEVELS.includes(r.cognitiveLevel as never)) reasons.push(`cognitive level must be one of ${COGNITIVE_LEVELS.join(", ")}`);
     // mapping

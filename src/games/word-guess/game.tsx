@@ -13,6 +13,8 @@ import { useT } from "@/i18n/client";
 import type { GameProps, LivePadProps, PlayQuestion, PowerEffect, PowerUpId } from "../types";
 import { PowerBar } from "../kit/power-bar";
 import { guessSpeed, keyStates, liveGuessResponse, MAX_GUESSES, removeLetters, revealCount, scoreGuess, targetOf, validGuess, type LetterState } from "./logic";
+import { RichInline } from "../../components/rich-inline";
+import { stripMarks } from "../../lib/inline-marks";
 
 const ROWS = ["QWERTYUIOP", "ASDFGHJKL", "ZXCVBNM"];
 const CELL: Record<LetterState | "empty" | "typed" | "given", string> = {
@@ -169,13 +171,13 @@ export default function WordGuess({ questions, round }: GameProps) {
         <Art />
         <div className="min-w-0">
           <p className="text-sm font-semibold text-emerald-700">{t("Find the word ({n} letters)", { n: target.length })}</p>
-          <p dir="ltr" lang="en" className="text-lg font-semibold leading-snug text-slate-900 sm:text-xl">{q.stem}</p>
+          <p dir="ltr" lang="en" className="text-lg font-semibold leading-snug text-slate-900 sm:text-xl"><RichInline text={q.stem} /></p>
         </div>
       </article>
       {q.passage && (
         <details className="rounded-2xl bg-slate-50 p-3 ring-1 ring-slate-200">
-          <summary className="cursor-pointer font-semibold text-brand-navy">📖 <span dir="ltr" lang="en">{q.passage.title}</span></summary>
-          <p dir="ltr" lang="en" className="mt-2 whitespace-pre-line leading-relaxed text-slate-800">{q.passage.text}</p>
+          <summary className="cursor-pointer font-semibold text-brand-navy">📖 <span dir="ltr" lang="en"><RichInline text={q.passage.title} /></span></summary>
+          <p dir="ltr" lang="en" className="mt-2 whitespace-pre-line leading-relaxed text-slate-800"><RichInline text={q.passage.text} /></p>
         </details>
       )}
       {hint && <p className="rounded-xl bg-amber-50 px-3 py-2 text-amber-900 ring-1 ring-amber-200"><span aria-hidden="true">💡 </span><span dir="ltr" lang="en">{hint}</span></p>}
@@ -246,12 +248,12 @@ export function LivePad({ question, hidden, disabled, submit }: LivePadProps) {
         <p className="text-center text-sm text-slate-600">{t("One guess: pick the word, then send it.")}</p>
         <div dir="ltr" className="grid gap-2 sm:grid-cols-2">
           {shown.map((o) => {
-            const w = o.text.trim().toUpperCase(), on = pick === o.label;
+            const w = stripMarks(o.text).trim().toUpperCase(), on = pick === o.label;
             const sz = cellSize(Math.max(6, w.length)) * 0.75;
             return (
-              <button key={o.label} type="button" disabled={disabled} onClick={() => setPick(o.label)} aria-pressed={on} aria-label={o.text}
+              <button key={o.label} type="button" disabled={disabled} onClick={() => setPick(o.label)} aria-pressed={on} aria-label={stripMarks(o.text)}
                 className={`flex min-h-16 flex-wrap items-center justify-center gap-1 rounded-2xl p-3 ring-2 transition active:scale-[.98] ${on ? "bg-violet-50 ring-brand-purple" : "bg-white ring-slate-200 hover:ring-slate-300"}`}>
-                {/^[A-Z]+$/.test(w) ? w.split("").map((c, i) => <Cell key={i} ch={c} state={on ? "given" : "empty"} size={sz} />) : <span lang="en" className="text-lg font-semibold">{o.text}</span>}
+                {/^[A-Z]+$/.test(w) ? w.split("").map((c, i) => <Cell key={i} ch={c} state={on ? "given" : "empty"} size={sz} />) : <span lang="en" className="text-lg font-semibold"><RichInline text={o.text} /></span>}
               </button>
             );
           })}

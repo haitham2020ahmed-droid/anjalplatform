@@ -10,10 +10,11 @@ import { assignReadRiseAction } from "../../actions";
 import { ArticleActions, ArticleView } from "@/app/admin/readrise/_components/article-view";
 import { btn, field, Flash } from "@/app/admin/readrise/_components/ui";
 import { Combo } from "@/components/ui/combo";
+import { AssignDates } from "@/components/assign/assign-dates";
 
 export const metadata = { title: "ReadRise article" };
 
-/** 🚀 ReadRise (teacher): review one article (12 versions, questions per band); publish / delete own articles; assign it to a class. */
+/** 🚀 ReadRise (teacher): review one article (14 versions, questions per band); publish / delete own articles; assign it to a class. */
 export default async function ReadRiseArticleTeacher({ params, searchParams }: { params: Promise<{ articleId: string }>; searchParams: Promise<{ msg?: string }> }) {
   const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"], permission: "questions:read" });
   const me = (await getActor())!.user;
@@ -34,7 +35,7 @@ export default async function ReadRiseArticleTeacher({ params, searchParams }: {
           <label className="flex flex-col gap-1 text-sm font-semibold text-slate-700">Class
             <Combo name="classId" required label="Class" defaultValue={classes[0]?.id ?? ""} options={classes.map((c) => ({ value: c.id, label: c.name }))} className="min-w-52 font-normal" />
           </label>
-          <label className="flex flex-col gap-1 text-sm font-semibold text-slate-700">Due (optional)<input type="date" name="dueAt" className={field} /></label>
+          <AssignDates field={field} />
           <button className={btn}>Assign</button>
         </form>
       )}

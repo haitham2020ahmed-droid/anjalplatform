@@ -190,10 +190,10 @@
     "passage": "Mr. Fahad's class counted the birds that visited the school garden for one week. They made a bar graph of the results. Sunday: 4 birds. Monday: 6 birds. Tuesday: 12 birds. Wednesday: 5 birds. Thursday: 3 birds. On Tuesday morning, the students had put out a new water dish.",
     "stem": "What do the graph and the text suggest?",
     "options": [
-     "Birds did not like the new water dish.",
-     "The dish was put out on Thursday.",
+     "Birds did not like the new water dish at all.",
+     "The dish was put out on Thursday morning by a girl.",
      "The most birds came on the day the dish was put out.",
-     "The dish made fewer birds come."
+     "The dish made fewer birds come to the garden."
     ],
     "answer": 2,
     "hint": "Which day has the biggest number? What else happened on that day?",

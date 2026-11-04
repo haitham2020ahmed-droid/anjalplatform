@@ -31,8 +31,46 @@ function answerFor(it: PracticeItem, right: boolean): unknown {
   }
   if (it.type === "TRUE_FALSE") return right ? it.answer : !it.answer;
   if (it.type === "FILL_BLANK") return right ? it.answers![0] : "zzzz";
-  if (it.type === "ERROR_CORRECTION") return right ? { index: it.errorIndex, correction: it.correction } : { index: (it.errorIndex! + 1) % it.segments!.length, correction: "zz" };
+  // r94: normalizeResponse (src/server/practice/session.ts) never accepts a bare {index, correction} object — a
+  // classic single-error item wants a plain index (or {picks:[index]}), a modern multi-error/"No error"/typed-fix
+  // item wants {picks, none, fixes}. The old {index, correction} shape matched neither, so normalizeResponse threw
+  // and sim.ts's catch silently scored it wrong even under always:true — exactly the "one of 9 scored wrong" flake.
+  if (it.type === "ERROR_CORRECTION") {
+    const idxs = it.errorIndexes?.length ? it.errorIndexes : it.errorIndex !== undefined && it.errorIndex !== null ? [it.errorIndex] : [];
+    const corrs = it.corrections?.length ? it.corrections : it.correction ? [it.correction] : [];
+    if (!idxs.length) return right ? { picks: [], none: true } : { picks: [0] }; // a "No error" item
+    if (right) {
+      const fixes: Record<string, string> = {};
+      if (it.typeCorrection) idxs.forEach((k, n) => { fixes[String(k)] = corrs[n] ?? ""; });
+      return { picks: idxs, fixes };
+    }
+    const n = it.segments!.length;
+    const other = Array.from({ length: n }, (_, i) => i).find((i) => !idxs.includes(i));
+    if (other !== undefined) return { picks: [other] };
+    return { picks: idxs, fixes: it.typeCorrection ? Object.fromEntries(idxs.map((k) => [String(k), "zz"])) : {} };
+  }
   if (it.type === "MATCHING") { const m = Object.fromEntries(it.pairs!.map((p) => [p.left, p.right])); if (!right) { const ks = Object.keys(m); [m[ks[0]], m[ks[1]]] = [m[ks[1]], m[ks[0]]]; } return m; }
+  // r94: the MAP bank's manual-test pool can draw a TWO_PART / GRID / HOT_TEXT item (6+ answer types, update56); these
+  // carry no top-level .options/.sequence, so without this they fell through to `null` and scored wrong even under
+  // always:true — one of the 9 fixed items in "manual test …" (a random draw, so it only showed up some runs).
+  if (it.type === "TWO_PART") {
+    const a = it.twoPart!.partA.options.find((o) => o.correct === right) ?? it.twoPart!.partA.options[0];
+    const b = it.twoPart!.partB.options.find((o) => o.correct === right) ?? it.twoPart!.partB.options[0];
+    return { a: a.label, b: b.label };
+  }
+  if (it.type === "GRID") {
+    const g = it.grid!;
+    if (right) return { ...g.answer };
+    const bad: Record<string, string> = { ...g.answer };
+    for (const r of g.rows) { const other = g.columns.find((c) => c.id !== g.answer[r.id]); if (other) { bad[r.id] = other.id; break; } }
+    return bad;
+  }
+  if (it.type === "HOT_TEXT") {
+    const h = it.hotText!;
+    if (right) return h.correct;
+    const wrong = h.segments.find((s) => !h.correct.includes(s.id));
+    return wrong ? [wrong.id] : h.correct;
+  }
   if (it.sequence) return right ? it.sequence : [...it.sequence].reverse();
   return null;
 }

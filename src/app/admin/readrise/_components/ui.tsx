@@ -3,7 +3,7 @@
 /** 🚀 ReadRise staff pages — small shared pieces (server-rendered, no client JS). */
 import type { ReactNode } from "react";
 
-export const RR_NOTE = "ReadRise Level is an estimate on a Lexile-like scale, not an official Lexile measure.";
+export const RR_NOTE = "The ReadRise level is ReadRise's own reading level (an estimate from the reading checks and first-try scores).";
 export const btn = "rounded-xl bg-brand-navy px-4 py-2 text-sm font-semibold text-white hover:bg-brand-purple";
 export const btnGhost = "rounded-xl bg-white px-4 py-2 text-sm font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal";
 export const field = "rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm";
@@ -128,7 +128,7 @@ export function LevelHistogram({ buckets, title }: { buckets: { from: number; to
 export function levelRange(values: (number | null)[], band?: { low: number; high: number }): { min: number; max: number; ticks: number[] } {
   const vs = values.filter((v): v is number => v !== null);
   let lo = Math.min(...vs, band?.low ?? Infinity), hi = Math.max(...vs, band?.high ?? -Infinity);
-  if (!Number.isFinite(lo) || !Number.isFinite(hi)) { lo = 300; hi = 1400; }
+  if (!Number.isFinite(lo) || !Number.isFinite(hi)) { lo = 300; hi = 1600; }
   const min = Math.max(0, Math.floor((lo - 50) / 100) * 100), max = Math.ceil((hi + 50) / 100) * 100;
   const step = max - min > 800 ? 200 : 100;
   const ticks: number[] = [];

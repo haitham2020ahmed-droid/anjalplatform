@@ -29,10 +29,10 @@
       "difficulty": 1,
       "stem": "Who is the narrator of the story?",
       "options": [
-        "Faisal's grandmother",
-        "Faisal's father",
+        "Faisal's grandmother, who lives on the farm",
+        "Faisal's father, who works in the city",
         "Faisal's older brother or sister",
-        "A neighbour on the roof"
+        "A neighbour on the roof next door"
       ],
       "answer": "C",
       "why": "The narrator says 'My little brother Faisal', so the narrator is one of the children in the family."

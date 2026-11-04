@@ -47,9 +47,9 @@
       "stem": "Read this sentence from paragraph 5: “Perhaps the most sustainable cities of the future will borrow their best ideas from the past.” What does “sustainable” mean?",
       "options": [
         "able to last without harming the environment",
-        "full of very tall and modern towers",
-        "crowded with millions of people",
-        "built very quickly and very cheaply"
+        "full of very tall and modern towers and bridges",
+        "crowded with millions of people and cars",
+        "built very quickly and very cheaply by workers"
       ],
       "answer": "A",
       "why": "The text praises designs that need little energy, so a sustainable city can continue for a long time without damaging the environment."
@@ -173,10 +173,10 @@
       "type": "MCQ",
       "stem": "What is the main purpose of the text?",
       "options": [
-        "to persuade readers to move to Historic Jeddah",
-        "to tell the life story of a famous architect",
+        "to persuade readers to move to Historic Jeddah by the sea",
+        "to tell the life story of a famous architect in Egypt",
         "to explain how old houses stayed cool and what we can learn",
-        "to describe how coral reefs grow in the Red Sea"
+        "to describe how coral reefs grow in the Red Sea each year"
       ],
       "answer": "C",
       "why": "The text describes two traditional styles and ends by suggesting future cities borrow their ideas."
@@ -285,10 +285,10 @@
       "type": "MCQ",
       "stem": "According to paragraph 3, when did the warmth stored in the mud walls reach the inside of the rooms?",
       "options": [
-        "at noon, when the sun was strongest",
-        "early in the morning, before sunrise",
+        "at noon, when the sun was strongest in the sky",
+        "early in the morning, before sunrise, in cold air",
         "in the evening, as the desert air turned cold",
-        "only in the rainy season"
+        "only in the rainy season of the year"
       ],
       "answer": "C",
       "why": "The walls kept rooms cool “until evening, when the stored warmth was released inside just as the desert air turned cold.”"
@@ -317,10 +317,10 @@
       "type": "MCQ",
       "stem": "In your opinion, what makes the reader want to keep reading after paragraph 1?",
       "options": [
-        "a list of the dates when houses were built",
+        "a list of the dates when houses were built in the old town",
         "curiosity about how homes stayed cool with no electricity",
-        "a story about the writer's grandfather",
-        "a warning about the dangers of air conditioners"
+        "a story about the writer's grandfather and his old house",
+        "a warning about the dangers of air conditioners at home"
       ],
       "answer": "B",
       "why": "The writer says homes stayed cool without electricity, so readers want to know how."
@@ -349,10 +349,10 @@
       "type": "MCQ",
       "stem": "How was the main climate problem in Najd different from the problem in Jeddah?",
       "options": [
-        "Najd had heavy rain; Jeddah had sandstorms.",
-        "Najd had cold winters only; Jeddah had cold summers.",
+        "Najd had heavy rain; Jeddah had sandstorms and cold winds.",
+        "Najd had cold winters only; Jeddah had cold summers and snow.",
         "Najd had hot days and cold nights; Jeddah had heat with humidity.",
-        "Najd had strong sea breezes; Jeddah had no wind at all."
+        "Najd had strong sea breezes; Jeddah had no wind at all in summer."
       ],
       "answer": "C",
       "why": "Jeddah's challenge was “heat but also humidity,” while Najd had “blazing days followed by chilly nights.”"
@@ -365,9 +365,9 @@
       "type": "MCQ",
       "stem": "What was the effect of the thick mud walls absorbing heat very slowly?",
       "options": [
-        "The walls cracked every afternoon.",
-        "The rooms became hotter than the street at noon.",
-        "The houses needed large windows.",
+        "The walls cracked every afternoon in the hot sun.",
+        "The rooms became hotter than the street at noon, even in the winter.",
+        "The houses needed large windows to let in the air.",
         "The rooms stayed cool by day and became warmer at night."
       ],
       "answer": "D",
@@ -381,10 +381,10 @@
       "type": "MCQ",
       "stem": "What do the Jeddah roshan and the Najdi courtyard have in common?",
       "options": [
-        "Both are made of coral stone from the reef.",
+        "Both are made of coral stone from the reef near the coast.",
         "Both use shade and air to keep homes comfortable without machines.",
-        "Both were added to houses in 2014.",
-        "Both let families see the street without being seen."
+        "Both were added to houses in 2014 by the city council.",
+        "Both let families see the street without being seen by others."
       ],
       "answer": "B",
       "why": "The roshan brings in breeze and blocks sun; the courtyard collects cool night air and gives shade."
@@ -397,10 +397,10 @@
       "type": "MCQ",
       "stem": "What does the writer mean by saying the old houses “work with the local climate instead of fighting it”?",
       "options": [
-        "The builders liked to argue about the weather.",
-        "The houses were built only in mild climates.",
+        "The builders liked to argue about the weather and the sun.",
+        "The houses were built only in mild climates and in valleys.",
         "They make use of breeze and shade instead of machines.",
-        "The houses were destroyed by storms."
+        "The houses were destroyed by storms and wind."
       ],
       "answer": "C",
       "why": "Both styles take advantage of their climate, while modern machines try to defeat the heat using energy."

@@ -2,6 +2,7 @@
 import { useT } from "@/i18n/client";
 import { previewQuestions, type PickerValue } from "./helpers";
 import { useSkillQuestions } from "./load";
+import { RichInline } from "@/components/rich-inline";
 
 /**
  * "Preview as student": the first questions as the student will see them — the stem and the choices only
@@ -22,7 +23,7 @@ export function StudentPreview({ skillId, value, n = 3 }: { skillId: string; val
             {items.map((q, i) => (
               <li key={q.id} className="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-200">
                 <p className="text-xs font-semibold text-slate-500">{t("Question {n}", { n: i + 1 })}</p>
-                <p className="mt-1 text-slate-900" lang="en" dir="ltr" data-content>{q.stem}</p>
+                <p className="mt-1 text-slate-900" lang="en" dir="ltr" data-content><RichInline text={q.stem} /></p>
                 {q.choices?.length ? (
                   <ul className="mt-2 grid gap-1.5" lang="en" dir="ltr">
                     {q.choices.map((c, j) => <li key={j} className="flex min-h-11 items-center rounded-xl px-3 ring-1 ring-slate-300">{String.fromCharCode(65 + j)}. {c}</li>)}

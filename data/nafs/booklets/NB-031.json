@@ -141,9 +141,9 @@
       "type": "MCQ",
       "stem": "Which sentence is EXCLAMATORY?",
       "options": [
-        "Did the toys really reach Alaska?",
-        "Collect the plastic from the beach.",
-        "The toys floated for many years.",
+        "Did the toys really reach Alaska in the end?",
+        "Collect the plastic from the beach before noon.",
+        "The toys floated for many years in the sea.",
         "What an amazing journey those ducks made!"
       ],
       "answer": "D",
@@ -158,9 +158,9 @@
       "stem": "Which is another suitable title for the passage?",
       "options": [
         "The Hidden Rivers of the Ocean",
-        "How to Build a Cargo Ship",
-        "Bath Time for Ducks",
-        "The Coldest Place on Earth"
+        "How to Build a Cargo Ship for the Sea",
+        "Bath Time for Ducks and Geese",
+        "The Coldest Place on Earth in Winter"
       ],
       "answer": "A",
       "why": "The passage describes ocean currents, which it compares to “a river flowing within the ocean”; the toys are only an example."
@@ -189,10 +189,10 @@
       "type": "MCQ",
       "stem": "What is the main idea of paragraph 3?",
       "options": [
-        "Sea ice is found only near the North Pole and nowhere else.",
-        "Warm water always stays at the bottom of the deep sea.",
+        "Sea ice is found only near the North Pole and nowhere else in the world.",
+        "Warm water always stays at the bottom of the deep sea, and it never moves.",
         "Cold, salty water sinks and drives a slow worldwide flow of deep water.",
-        "A drop of water travels around the world in a year."
+        "A drop of water travels around the whole world in a single year or less."
       ],
       "answer": "C",
       "why": "The paragraph explains how cold, dense water sinks and spreads, creating the worldwide “conveyor belt”."
@@ -237,10 +237,10 @@
       "type": "MCQ",
       "stem": "According to paragraph 3, why is seawater near the poles especially salty?",
       "options": [
-        "Rivers carry large amounts of salt into it.",
-        "The wind blows salt from the nearby land into it.",
+        "Rivers carry large amounts of salt into it from the land.",
+        "The wind blows salt from the nearby land into it each day.",
         "When sea ice forms, much of the salt is left behind in the water.",
-        "Warm water rises from below and brings salt with it."
+        "Warm water rises from below and brings salt with it to the top."
       ],
       "answer": "C",
       "why": "“When sea ice forms, much of the salt is left behind in the water around it.”"
@@ -317,10 +317,10 @@
       "type": "MCQ",
       "stem": "Why did the floating toys become useful to scientists?",
       "options": [
-        "They proved that plastic sinks quickly in seawater.",
-        "They showed how violent storms damage cargo ships.",
+        "They proved that plastic sinks quickly in the seawater near the coast.",
+        "They showed how violent storms damage the cargo ships at sea.",
         "Their arrival places helped reveal the paths of ocean currents.",
-        "They were used to measure the temperature of the sea."
+        "They were used to measure the temperature of the sea in winter."
       ],
       "answer": "C",
       "why": "By recording where and when the toys appeared, scientists could trace the routes of the currents."
@@ -365,10 +365,10 @@
       "type": "MCQ",
       "stem": "What is the EFFECT of nutrients being carried up from the deep ocean?",
       "options": [
-        "The water near the surface becomes warmer.",
+        "The water near the surface becomes warmer in the sun, and the fish die.",
         "Tiny plants and animals are fed, creating rich fishing grounds.",
-        "The sea ice near the poles melts faster.",
-        "Plastic sinks to the bottom of the ocean."
+        "The sea ice near the poles melts faster than before, all year long.",
+        "Plastic sinks to the bottom of the ocean in a few days or weeks."
       ],
       "answer": "B",
       "why": "Paragraph 4: the nutrients “feed the tiny plants and animals at the base of the ocean food chain”, which makes fishing grounds rich."
@@ -381,9 +381,9 @@
       "type": "MCQ",
       "stem": "What do heat, nutrients and plastic have in common in this passage?",
       "options": [
-        "All three are made by people in factories.",
-        "All three are found only near the poles.",
-        "All three sink slowly to the ocean floor.",
+        "All three are made by people in factories and mills.",
+        "All three are found only near the poles of the Earth.",
+        "All three sink slowly to the ocean floor in the dark.",
         "All three can be carried long distances by currents."
       ],
       "answer": "D",
@@ -397,10 +397,10 @@
       "type": "MCQ",
       "stem": "Scientists compare the worldwide system of deep currents to “a giant conveyor belt”. What does this comparison suggest?",
       "options": [
-        "The currents are built by machines.",
+        "The currents are built by machines in the sea and kept clean.",
         "Water moves along a long, connected route in a slow, steady way.",
-        "The currents carry goods for shops.",
-        "The water moves extremely fast."
+        "The currents carry goods for shops across the ocean in ships.",
+        "The water moves extremely fast in the deep sea, as in a river."
       ],
       "answer": "B",
       "why": "A conveyor belt moves things steadily along a continuous loop; the deep currents move water slowly around the globe."
@@ -414,9 +414,9 @@
       "stem": "In your opinion, why does the writer begin the passage with the story of the bath toys?",
       "options": [
         "to catch the reader's interest with a surprising true event",
-        "to show that toys are dangerous",
-        "to prove that storms happen every January",
-        "to advertise plastic toys"
+        "to show that toys are dangerous for children at the sea",
+        "to prove that storms happen every January in the north",
+        "to advertise plastic toys to children and their parents"
       ],
       "answer": "A",
       "why": "A surprising real story makes readers curious before the scientific explanation begins, and the writer returns to it at the end."
@@ -445,10 +445,10 @@
       "type": "MCQ",
       "stem": "According to the passage, which is the MOST useful thing ordinary people can do about ocean pollution?",
       "options": [
-        "build bigger and stronger cargo ships",
-        "study the Gulf Stream in a laboratory",
+        "build bigger and stronger cargo ships for the sea",
+        "study the Gulf Stream in a laboratory on land",
         "avoid throwing plastic where it can reach the sea",
-        "move away from the coast to live inland"
+        "move away from the coast to live inland, far from sea"
       ],
       "answer": "C",
       "why": "The writer warns that what we throw away can travel to someone else's shore, so not letting plastic reach the sea helps most."
@@ -510,9 +510,9 @@
       "stem": "Which of the following events could really happen?",
       "options": [
         "A plastic bottle dropped in the sea near Japan washes up years later in America.",
-        "A rubber duck swims against a strong current back to its owner.",
-        "The Gulf Stream makes Ireland hotter than the Arabian desert.",
-        "A drop of water travels around the whole world in a single day."
+        "A rubber duck swims against a strong current back to its owner, in a day.",
+        "The Gulf Stream makes Ireland hotter than the Arabian desert in the summer.",
+        "A drop of water travels around the whole world in a single day or night."
       ],
       "answer": "A",
       "why": "Currents carry floating plastic thousands of kilometres over years, as the toys showed; the other events are impossible."

@@ -88,9 +88,9 @@
      "passage": "School starts at 7:30. Do not be late!",
      "stem": "What does the colon in 7:30 do?",
      "options": [
-      "starts a list",
-      "joins two sentences",
-      "ends the sentence",
+      "starts a list of many things",
+      "joins two sentences together",
+      "ends the sentence like a full stop",
       "separates the hour and minutes"
      ],
      "answer": 3,
@@ -100,10 +100,10 @@
      "passage": "It was raining; we stayed inside.",
      "stem": "What does the semicolon (;) do here?",
      "options": [
-      "starts a list",
+      "starts a list of things we need to buy",
       "joins two sentences that go together",
-      "shows a question",
-      "shows the time"
+      "shows a question to the reader",
+      "shows the time of day on a clock"
      ],
      "answer": 1,
      "why": "**It was raining** and **we stayed inside** are two short sentences. The semicolon joins them."
@@ -398,10 +398,10 @@
      "passage": "The museum was crowded ___ every school in the city had planned a visit that day.",
      "stem": "Which mark fits best, and why?",
      "options": [
-      "a comma, because the second part is a list",
+      "a comma, because the second part is a list of things",
       "a semicolon, because the parts are opposites",
       "a colon, because the second part explains the first",
-      "a question mark, because it asks why"
+      "a question mark, because the sentence asks why"
      ],
      "answer": 2,
      "why": "The second part explains **why** the museum was crowded, so a colon fits."
@@ -411,9 +411,9 @@
      "stem": "What is the problem with this sentence?",
      "options": [
       "The colon follows an incomplete sentence.",
-      "A semicolon should follow \"tyres\".",
-      "The list needs a question mark.",
-      "\"drive\" needs a capital letter."
+      "A semicolon should follow the word \"tyres\".",
+      "The list needs a question mark at the end.",
+      "\"drive\" needs a capital letter at the start."
      ],
      "answer": 0,
      "why": "\"We checked\" does not sound complete on its own, so no colon should follow it."

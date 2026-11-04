@@ -24,8 +24,17 @@ const time = (v: unknown) => new Date(v instanceof Date ? v.toISOString() : s(v)
 const DAY = 86_400_000;
 const parseIds = (v: unknown): string[] => (Array.isArray(v) ? (v as string[]) : typeof v === "string" ? (JSON.parse(v) as string[]) : []);
 
-/** Monday 00:00 UTC of the week of this date. */
-export function weekStart(d: Date): Date { const t = new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate())); t.setUTCDate(t.getUTCDate() - ((t.getUTCDay() + 6) % 7)); return t; }
+/** Sunday 00:00 Riyadh time (UTC+3) of the week of this date — same Sunday-start convention as
+ * readrise/engine.ts's weekStart and student/weekly.ts's weekStart (the Saudi school week, Sun–Thu).
+ * r86 audit: this used to compute the boundary with Monday-start (ISO week) math, the only place in the
+ * codebase that did — every WeeklyGoal row it keyed landed on a different week bucket than the Sunday-start
+ * convention used everywhere else. Now matches that convention exactly, with the same Riyadh offset handling. */
+const CLASSROOM_RIYADH = 3 * 3_600_000;
+export function weekStart(d: Date): Date {
+  const local = new Date(d.getTime() + CLASSROOM_RIYADH);
+  const midnight = Date.UTC(local.getUTCFullYear(), local.getUTCMonth(), local.getUTCDate());
+  return new Date(midnight - local.getUTCDay() * 86_400_000 - CLASSROOM_RIYADH);
+}
 
 async function myClassIds(repo: Repo, studentId: string): Promise<string[]> {
   return (await repo.findMany("ClassMembership", { studentId, leftAt: null }, { select: ["classId"] })).map((m) => s(m.classId));
@@ -70,7 +79,7 @@ export async function closeExitTicket(repo: Repo, actor: Actor, ticketId: string
 const ticketItems = (items: PracticeItem[]): PracticeItem[] => dedupeByContent(items, (i) => i.questionId, itemContentKeys);
 
 /** The open exit ticket of the student's class that the student has not answered yet. */
-export async function myExitTicket(repo: Repo, actor: Actor): Promise<{ id: string; title: string; questions: ClientQuestion[] } | null> {
+export async function myExitTicket(repo: Repo, actor: Actor): Promise<{ id: string; title: string; questions: ClientQuestion[]; level: string | null } | null> {
   const sid = student(actor);
   const classes = await myClassIds(repo, sid);
   if (!classes.length) return null;
@@ -78,7 +87,10 @@ export async function myExitTicket(repo: Repo, actor: Actor): Promise<{ id: stri
   for (const t of open) {
     if ((await repo.count("ExitTicketAnswer", { ticketId: t.id, studentId: sid })) > 0) continue;
     const items = ticketItems(await loadQuestionItems(repo, parseIds(t.questionIds)));
-    return { id: s(t.id), title: s(t.title), questions: items.map((i) => toClientQuestion(i, `${t.id}:${i.questionId}`)) };
+    // the student's own working level, read only to offer a long passage in smaller chunks (never shown by name —
+    // see lib/hide-levels — ChunkedPassage only turns chunking on for "BELOW")
+    const lvl = await repo.findUnique("StudentLevel", { studentId: sid });
+    return { id: s(t.id), title: s(t.title), questions: items.map((i) => toClientQuestion(i, `${t.id}:${i.questionId}`)), level: lvl ? s(lvl.level) : null };
   }
   return null;
 }
@@ -87,12 +99,13 @@ export async function myExitTicket(repo: Repo, actor: Actor): Promise<{ id: stri
  * 👀 Preview as student: one exit ticket exactly as the student gets it (the same questions, the same choice order),
  * for a student of the ticket's class. Reads only — nothing is answered or recorded.
  */
-export async function exitTicketForStudentPreview(repo: Repo, studentActor: Actor, ticketId: string): Promise<{ id: string; title: string; questions: ClientQuestion[] } | null> {
+export async function exitTicketForStudentPreview(repo: Repo, studentActor: Actor, ticketId: string): Promise<{ id: string; title: string; questions: ClientQuestion[]; level: string | null } | null> {
   const sid = student(studentActor);
   const t = await repo.findUnique("ExitTicket", { id: ticketId });
   if (!t || !(await myClassIds(repo, sid)).includes(s(t.classId))) return null;
   const items = ticketItems(await loadQuestionItems(repo, parseIds(t.questionIds)));
-  return { id: s(t.id), title: s(t.title), questions: items.map((i) => toClientQuestion(i, `${t.id}:${i.questionId}`)) };
+  const lvl = await repo.findUnique("StudentLevel", { studentId: sid });
+  return { id: s(t.id), title: s(t.title), questions: items.map((i) => toClientQuestion(i, `${t.id}:${i.questionId}`)), level: lvl ? s(lvl.level) : null };
 }
 
 export async function submitExitTicket(repo: Repo, actor: Actor, ticketId: string, responses: Record<string, unknown>, now = new Date()): Promise<{ correct: number; total: number; review: Graded[] }> {
@@ -139,8 +152,11 @@ async function weekAnswers(repo: Repo, studentIds: string[], from: Date): Promis
   if (!studentIds.length) return { n: 0, ms: 0, days: new Map() };
   const at = await repo.findMany("QuestionAttempt", { studentId: { in: studentIds }, createdAt: { gte: from } }, { select: ["studentId", "responseMs", "createdAt"] });
   const days = new Map<string, Set<string>>();
-  for (const a of at) { const k = s(a.studentId); const d = new Date(time(a.createdAt)).toISOString().slice(0, 10); days.set(k, (days.get(k) ?? new Set()).add(d)); }
-  return { n: at.length, ms: at.reduce((t, a) => t + Math.min(Number(a.responseMs ?? 0), 180_000), 0), days };
+  // 🔧 fix (Oct 2026): this bucketed each attempt's "day" from raw UTC, while weekStart() (above) buckets the
+  // WEEK boundary in Riyadh time (UTC+3) — for ~21:00–23:59 UTC (00:00–02:59 Riyadh) an attempt landed on the
+  // wrong calendar day here, inflating/undercounting the weekly rhythm's distinct practice-day count.
+  for (const a of at) { const k = s(a.studentId); const d = new Date(time(a.createdAt) + CLASSROOM_RIYADH).toISOString().slice(0, 10); days.set(k, (days.get(k) ?? new Set()).add(d)); }
+  return { n: at.length, ms: at.reduce((t, a) => t + Math.min(Number(a.responseMs ?? 0), 5 * 60_000), 0), days };
 }
 
 export async function setStudentGoal(repo: Repo, actor: Actor, kind: GoalKind, target: number, now = new Date()): Promise<void> {
@@ -206,7 +222,9 @@ export async function studentWeek(repo: Repo, actor: Actor, now = new Date()): P
     const cls = await repo.findUnique("Class", { id: c });
     if (g && !klass) { const p = await goalProgress(repo, s(g.kind) as GoalKind, await classMembers(repo, c), ws); klass = { kind: s(g.kind) as GoalKind, target: Number(g.target), progress: p, title: g.title ? s(g.title) : null, done: p >= Number(g.target), className: s(cls?.name) }; }
     const r = await classRhythm(repo, actor.schoolId!, c);
-    if (r && !rhythm) rhythm = { ...r, daysDone: w.days.get(sid)?.size ?? 0, className: s(cls?.name) };
+    // 🔧 fix (Oct 2026): defensive cap so the displayed fraction can never exceed the goal (e.g. "5 / 3"),
+    // even on an edge case the timezone fix above doesn't catch.
+    if (r && !rhythm) rhythm = { ...r, daysDone: Math.min(w.days.get(sid)?.size ?? 0, r.days), className: s(cls?.name) };
   }
   // reminder: from Wednesday, once a week, when the practice days are behind
   const dow = (now.getUTCDay() + 6) % 7;   // Monday 0
@@ -309,9 +327,14 @@ export async function reportQuestionProblem(repo: Repo, actor: Actor, questionId
 }
 
 export interface FlagRow { questionId: string; stem: string; skill: string; count: number; reasons: string[]; notes: string[]; lastAt: string; ids: string[] }
-export async function flagList(repo: Repo, actor: Actor, status: "OPEN" | "FIXED" | "DISMISSED" = "OPEN"): Promise<FlagRow[]> {
+/**
+ * The flag list (admins). r68: a question that was deleted, hidden or archived never stays in “To check” — its open
+ * reports are resolved as REMOVED first (src/server/questions/flags-removed.ts) and listed under “Removed”.
+ */
+export async function flagList(repo: Repo, actor: Actor, status: "OPEN" | "FIXED" | "DISMISSED" | "REMOVED" = "OPEN"): Promise<FlagRow[]> {
   assertCan(actor, "questions:review");
   if (actor.role !== "SCHOOL_ADMIN" && actor.role !== "SUPER_ADMIN") throw new ForbiddenError("Admins check flagged questions.");
+  if (status === "OPEN" && actor.schoolId) { const { sweepRemovedFlags } = await import("../questions/flags-removed"); await sweepRemovedFlags(repo, actor.schoolId); }
   const rows = await repo.findMany("QuestionFlag", { schoolId: actor.schoolId, status });
   const qids = [...new Set(rows.map((r) => s(r.questionId)))];
   const qs = qids.length ? await repo.findMany("Question", { id: { in: qids } }, { select: ["id", "stem", "skillId"] }) : [];

@@ -327,8 +327,8 @@ export async function saveMapArea(repo: Repo, schoolId: string, ids: string[], i
     // cleared in the editor: back to the automatic area
     await repo.updateMany("Question", { id: { in: ids }, mapAreaSource: { in: ["ADMIN", "IMPORT"] } }, { mapAreaSource: null });
   }
-  const { autoClassify } = await import("../map/question-areas");
-  await autoClassify(repo, schoolId, ids, now);
+  const { autoClassifyMapArea } = await import("../map/question-areas");
+  await autoClassifyMapArea(repo, schoolId, ids, now);
   // 🧭 a Curriculum-Map question saved without a skill gets its real skill from the map place (Update 39C)
   { const { remapNewQuestions } = await import("../curriculum-map/remap-skills"); await remapNewQuestions(repo, schoolId, ids, null, now).catch(() => 0); }
   { const { tagOptions } = await import("../insights/misconception-tags"); await tagOptions(repo, { questionIds: ids }).catch(() => 0); }

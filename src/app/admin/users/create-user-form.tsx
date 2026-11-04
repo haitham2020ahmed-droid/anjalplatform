@@ -48,7 +48,7 @@ export function CreateUserForm({ grades, classes, teacherOnly = false, onDone }:
         {role !== "TEACHER" && <label className={label}>{t("Email (optional)")}<input name="email" type="email" maxLength={254} className={field} /></label>}
         {role === "STUDENT" && (
           <>
-            <label className={label}>{t("Student number")}<input name="studentNumber" required maxLength={32} className={field} /></label>
+            <label className={label}>{t("Student number (optional)")}<input name="studentNumber" maxLength={32} placeholder={t("Empty: given automatically")} className={field} /></label>
             <label className={label}>{t("Grade")}
               <select name="gradeLevel" value={grade} onChange={(e) => setGrade(Number(e.target.value))} className={field}>{grades.map((g) => <option key={g} value={g}>{t("Grade {n}", { n: g })}</option>)}</select>
             </label>
@@ -107,12 +107,12 @@ export function CreateUserForm({ grades, classes, teacherOnly = false, onDone }:
         )}
         <div className="flex flex-wrap items-center gap-3 sm:col-span-2">
           <button disabled={pending} className={`${BTN_PRIMARY} disabled:opacity-60`}>{pending ? t("Saving…") : teacherOnly ? t("Create teacher") : t("Create account")}</button>
-          {state.error && <span role="alert" className="rounded-lg bg-red-50 px-3 py-1.5 text-sm text-red-700">{t(state.error)}</span>}
+          {state.error && <span role="alert" className="rounded-lg bg-red-50 px-3 py-1.5 text-sm text-red-700"><bdi>{t(state.error)}</bdi>{state.href && <> <a href={state.href} className="font-semibold underline">{t("Open this account")}</a></>}</span>}
         </div>
       </form>
       {state.ok && state.temporaryPassword && (
         <p role="status" className="mt-3 rounded-xl bg-amber-50 p-4 ring-1 ring-amber-200">
-          {state.message ? <>{t(state.message)} </> : null}{t("First password (shown only now):")} <code className="select-all rounded bg-white px-2 py-1 font-mono font-bold">{state.temporaryPassword}</code>
+          {state.message ? <>{t(state.message)} </> : null}{state.studentNumber ? <>{t("Student number")}: <b className="font-mono">{state.studentNumber}</b>. </> : null}{t("First password (shown only now):")} <code className="select-all rounded bg-white px-2 py-1 font-mono font-bold">{state.temporaryPassword}</code>
         </p>
       )}
     </div>

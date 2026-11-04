@@ -1,0 +1,20 @@
+[
+ {
+  "stem": "tele means “far” and scope means “see.” What is a telescope?",
+  "correct": "an instrument for seeing things far away",
+  "replace": [
+   {
+    "old": "a message sent from far away",
+    "new": "a message sent from far away by a bird"
+   },
+   {
+    "old": "a sound heard from far away",
+    "new": "a sound heard from far away at night"
+   },
+   {
+    "old": "a small picture of something near",
+    "new": "a small picture of something near the eye"
+   }
+  ]
+ }
+]

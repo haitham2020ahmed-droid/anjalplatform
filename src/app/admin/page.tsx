@@ -17,7 +17,8 @@ import { teacherFollowupForHome, type teacherFollowup } from "@/server/insights/
 import { ADMIN_TOOLS, ALL_TOOLS_HREF } from "@/components/admin-tools";
 import { adminMayUse } from "@/server/admin/tools";
 import { LineIcon, type LineIconName } from "@/components/ui/line-icon";
-import { urgentUnhandledCount } from "@/server/insights/early-warning";
+import { urgentUnhandledCount, urgentCount } from "@/server/insights/early-warning";
+import { schoolWeekInReview } from "@/server/insights/week-in-review";
 
 export const metadata = { title: "Administration" };
 
@@ -75,6 +76,12 @@ export default async function AdminHome() {
         <Link prefetch={false} href={ALL_TOOLS_HREF} className={shortcut}>{ico("tools")}{t("All Admin Tools")}</Link>
       </section>
 
+      {/* Week in Review (new): 3 headline numbers for the whole school, this rolling week. One slim card, no
+         links, so it stays out of the way — a loader shaped the same so nothing jumps when it arrives. */}
+      <Suspense fallback={<WeekLoading label={t("Loading…")} />}>
+        <WeekInReviewCard actor={actor} now={now} t={t} />
+      </Suspense>
+
       <Suspense fallback={<BlockLoading label={t("Loading…")} title={t("Teacher follow-up")} />}>
         <FollowUp follow={follow} now={now} t={t} />
       </Suspense>
@@ -90,9 +97,18 @@ export default async function AdminHome() {
 function GlanceLoading({ label }: { label: string }) {
   return (
     <div role="status" aria-label={label} className="animate-pulse motion-reduce:animate-none">
-      <div className="grid grid-cols-2 gap-3 lg:grid-cols-4" aria-hidden="true">
-        {[0, 1, 2, 3].map((i) => <div key={i} className="h-[6.25rem] rounded-[1.25rem] bg-surface p-4 ring-1 ring-line"><div className="h-8 w-16 rounded bg-surface-2" /><div className="mt-4 h-3 w-24 rounded bg-surface-2" /></div>)}
+      <div className="grid grid-cols-2 gap-3 lg:grid-cols-5" aria-hidden="true">
+        {[0, 1, 2, 3, 4].map((i) => <div key={i} className="h-[6.25rem] rounded-[1.25rem] bg-surface p-4 ring-1 ring-line"><div className="h-8 w-16 rounded bg-surface-2" /><div className="mt-4 h-3 w-24 rounded bg-surface-2" /></div>)}
       </div>
+    </div>
+  );
+}
+/** Loader shaped like the Week in Review card (one slim row, 3 numbers). */
+function WeekLoading({ label }: { label: string }) {
+  return (
+    <div role="status" aria-label={label} className="mt-5 animate-pulse rounded-xl bg-surface px-3 py-2 shadow-card ring-1 ring-line motion-reduce:animate-none" aria-hidden="true">
+      <div className="mb-2 h-3 w-32 rounded bg-surface-2" />
+      <div className="grid grid-cols-3 gap-2">{[0, 1, 2].map((i) => <div key={i} className="h-8 rounded bg-surface-2" />)}</div>
     </div>
   );
 }
@@ -108,10 +124,11 @@ function BlockLoading({ label, title }: { label: string; title: string }) {
 
 /** The school at a glance (4 numbers) and what waits for the admin's decision (≤ 3 chips, most urgent first). */
 async function Glance({ actor, now, follow, t }: { actor: Actor; now: Date; follow: Promise<{ rows: Follow }>; t: TFn }) {
-  const [c, short, urgentOld, conn, f] = await Promise.all([
+  const [c, short, urgentOld, urgentNow, conn, f] = await Promise.all([
     adminHomeCounts(repo, actor, now),
     mapShortAreas(repo, actor), // the kept answer; never built while the admin waits
     urgentUnhandledCount(repo, actor.schoolId!, now).catch(() => 0), // early warning: urgent, not handled for 7+ days
+    urgentCount(repo, actor, now).catch(() => 0), // early warning: urgent right now, whole school (audit r94-follow-up)
     connectionsKept(repo, actor), // the kept check (it builds the MAP pools): never built while the admin waits
     follow,
   ]);
@@ -131,11 +148,15 @@ async function Glance({ actor, now, follow, t }: { actor: Actor; now: Date; foll
     { href: "/admin/teachers", label: "Teachers", value: String(f.rows.length), icon: "teacher" as LineIconName },
     { href: "/admin/users", label: "Students", value: String(c.students), icon: "users" as LineIconName },
     { href: "/admin/analytics", label: "Activity this week", value: c.students ? `${Math.round((100 * practised) / c.students)}%` : "—", icon: "growth" as LineIconName },
+    { href: "/teacher/reports/early-warning", label: "Early warning", value: String(urgentNow), icon: "alert" as LineIconName, alert: urgentNow > 0 },
     { href: attention[0]?.href ?? "/admin/report-approvals", label: "Pending approvals", value: String(pending), icon: "clock" as LineIconName, alert: pending > 0 },
   ];
+  // one-line daily summary (audit r94-follow-up): numbers already computed above, whole-school, no new tracking.
+  const dailySummary = t("Today: {students} students, {urgent} need urgent attention, {pending} approval(s) pending.", { students: c.students, urgent: urgentNow, pending });
   return (
     <>
-      <section aria-label={t("School at a glance")} className="grid grid-cols-2 gap-3 lg:grid-cols-4">
+      <p className="mb-3 text-sm text-ink-2">{dailySummary}</p>
+      <section aria-label={t("School at a glance")} className="grid grid-cols-2 gap-3 lg:grid-cols-5">
         {cards.map((x) => (
           <Link key={x.label} prefetch={false} href={x.href} className="rounded-[1.25rem] bg-surface p-4 shadow-card ring-1 ring-line hover:ring-brand-teal">
             <span className="flex items-center justify-between"><span dir="ltr" className={`font-display text-[2.25rem] leading-none tabular-nums ${x.alert ? "text-amber-700" : "text-ink"}`}>{x.value}</span><span aria-hidden="true" className="grid h-9 w-9 place-items-center rounded-xl bg-surface-2 text-ink-2 ring-1 ring-line"><LineIcon name={x.icon} className="h-[18px] w-[18px]" /></span></span>
@@ -149,6 +170,21 @@ async function Glance({ actor, now, follow, t }: { actor: Actor; now: Date; foll
         </section>
       )}
     </>
+  );
+}
+
+/** 3 headline numbers for the whole school, this rolling week (same window as "Activity this week" above). */
+async function WeekInReviewCard({ actor, now, t }: { actor: Actor; now: Date; t: TFn }) {
+  const wk = await schoolWeekInReview(repo, actor, now).catch(() => ({ questions: 0, minutes: 0, skills: 0 }));
+  return (
+    <section aria-label={t("This week, the school")} className="mt-5 rounded-xl bg-surface px-3 py-2 shadow-card ring-1 ring-line">
+      <h2 className="mb-1 flex items-center gap-2 text-sm font-semibold text-ink"><LineIcon name="growth" className="h-4 w-4 text-muted" />{t("This week, the school")}</h2>
+      <div className="grid grid-cols-3 gap-2 text-center" dir="ltr">
+        <div><span className="block font-display text-lg leading-none tabular-nums text-ink">{wk.questions}</span><span className="block text-xs text-ink-2">{t("Questions answered")}</span></div>
+        <div><span className="block font-display text-lg leading-none tabular-nums text-ink">{wk.minutes}</span><span className="block text-xs text-ink-2">{t("Minutes practised")}</span></div>
+        <div><span className="block font-display text-lg leading-none tabular-nums text-ink">{wk.skills}</span><span className="block text-xs text-ink-2">{t("Skills practised")}</span></div>
+      </div>
+    </section>
   );
 }
 

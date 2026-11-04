@@ -15,6 +15,7 @@ import type { Repo, Row } from "../seeding/repo";
 import { audit } from "../audit";
 import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
+import { requireSource } from "../assign/source";
 import { assertClassAccess } from "../teacher/assignments";
 import { accessibleClasses, assignQuestions, assignSkill, MAX_TEST_SET_QUESTIONS, openAssignmentFor, refreshQuestionSets } from "../teacher/assign";
 import { skillPickerList } from "../skills/picker";
@@ -211,6 +212,8 @@ export interface AssignTestInput {
   templateId?: string | null;
   /** points per question (questionId → points); missing questions count 1 point */
   marks?: Record<string, number> | null;
+  /** r74: REQUIRED — the Source chosen in the Assign window (MAP | NAFS | CURRICULUM | GRAMMAR | RTI) */
+  source?: string | null;
 }
 
 /** Highest points one question may carry. */
@@ -262,6 +265,7 @@ async function testTeacher(repo: Repo, actor: Actor, classId: string): Promise<R
 export async function assignTest(repo: Repo, actor: Actor, input: AssignTestInput, now = new Date()): Promise<{ testId: string; students: number; sets: number }> {
   staff(actor);
   assertCan(actor, "assignments:create");
+  const source = requireSource(input.source);
   const klass = await assertClassAccess(repo, actor, s(input.classId)); // teacher: own classes only
   const type = asTestType(input.type);
   const title = s(input.title).replace(/\s+/g, " ").trim().slice(0, 150) || autoTestName(type, await schoolWeek(repo, s(klass.schoolId), now));
@@ -317,7 +321,7 @@ export async function assignTest(repo: Repo, actor: Actor, input: AssignTestInpu
     for (const g of groups) {
       const r = await assignQuestions(repo, actor, {
         classId: s(klass.id), studentIds: g.students, questionIds: qOf(g.key), title: g.key === "SAME" ? title : `${title} (${LEVEL_NAME[g.key]})`, exactTitle: true,
-        startAt: openAt, dueAt, curriculumPlanId: TEST_MARK, silent: true, track: type === "MAP" ? "MAP" : "CURRICULUM", test: true,
+        startAt: openAt, dueAt, curriculumPlanId: TEST_MARK, silent: true, track: type === "MAP" ? "MAP" : "CURRICULUM", test: true, source,
       }, now);
       made.push(r.assignmentId);
     }
@@ -422,6 +426,37 @@ export async function teacherTests(repo: Repo, actor: Actor, classId?: string): 
   });
 }
 
+/**
+ * 🚫 r87 (owner: "اداه حذف... الغاء نهائى او تظل محفوظه"): a sent test's "stays saved" choice — the exact same
+ * SOFT cancel already used for every other kind of assigned work (src/server/teacher/assigned.ts#cancelAssignment,
+ * kind "TEST"): My Tests and the Assigned page hide it at once, nothing is deleted, and it can be Undone from the
+ * Assigned page. No new mechanism needed here, just a teacher-facing name for it.
+ */
+export async function withdrawTest(repo: Repo, actor: Actor, testId: string, now = new Date()): Promise<void> {
+  const { cancelAssignment } = await import("../teacher/assigned");
+  await cancelAssignment(repo, actor, "TEST", testId, null, now);
+}
+
+/**
+ * 🗑 r87: the PERMANENT choice — the test (and the question sets it made) disappear from Assessments, My Tests and
+ * Assigned for good, no Undo. Sets `deletedAt` on the TeacherTest and its Assignment sets, the exact same column
+ * `teacherTests` above (and every other read of these two tables) already filters out — this is not a new kind of
+ * deletion, just the existing "won't come back from here" rollback path (used when a test fails half-made, above)
+ * made available for a finished one too. AssignmentStudent rows and every answer a student already gave are never
+ * touched, so nothing a student did is lost — only the test itself stops being reachable.
+ */
+export async function deleteTestPermanently(repo: Repo, actor: Actor, testId: string, now = new Date()): Promise<{ title: string }> {
+  assertCan(actor, "assignments:create");
+  const t = await repo.findUnique("TeacherTest", { id: testId });
+  if (!t || t.deletedAt) throw new ValidationError("Test not found.");
+  await assertClassAccess(repo, actor, s(t.classId));
+  const sets = await repo.findMany("Assignment", { testId, deletedAt: null }, { select: ["id"] });
+  if (sets.length) await repo.updateMany("Assignment", { id: { in: sets.map((x) => s(x.id)) } }, { deletedAt: now });
+  await repo.updateMany("TeacherTest", { id: testId }, { deletedAt: now });
+  await audit(repo, { actorId: actor.userId, action: "test.delete_permanent", entityType: "TeacherTest", entityId: testId, before: { title: s(t.title), classId: s(t.classId) }, at: now });
+  return { title: s(t.title) };
+}
+
 // ------------------------------------------------------------------ 5. results by skill + Reteach
 
 export interface SkillResult { skillId: string; name: string; grade: number; questions: number; avgPct: number | null; below: { id: string; name: string; pct: number }[] }
@@ -455,7 +490,13 @@ export async function testResults(repo: Repo, actor: Actor, testId: string, now 
     sets.length ? repo.findMany("AssessmentQuestion", { assessmentId: { in: sets.map((a) => s(a.assessmentId)) } }, { select: ["assessmentId", "questionId"] }) : Promise.resolve([] as Row[]),
   ]);
   const attempts = sessions.length ? await inBatches(sessions.map((x) => s(x.id)), 300, (c) => repo.findMany("QuestionAttempt", { sessionId: { in: c } }, { select: ["sessionId", "questionId", "isCorrect"] })) : [];
-  const qIds = [...new Set(aqs.map((x) => s(x.questionId)))];
+  const qIdsAll = [...new Set(aqs.map((x) => s(x.questionId)))];
+  // 🐛 r91 fix: a question deleted/unpublished after the test was assigned is silently skipped by the student's
+  // own quiz player (session.ts#quizContext), so it should never count in this report's total/points either —
+  // otherwise the student is marked wrong for a question they were never shown.
+  const liveIds = qIdsAll.length ? new Set((await inBatches(qIdsAll, 500, (c) => repo.findMany("Question", { id: { in: c }, status: "PUBLISHED", deletedAt: null }, { select: ["id"] }))).map((q) => s(q.id))) : new Set<string>();
+  const aqsLive = aqs.filter((x) => liveIds.has(s(x.questionId)));
+  const qIds = [...liveIds];
   const qRows = qIds.length ? await inBatches(qIds, 500, (c) => repo.findMany("Question", { id: { in: c } }, { select: ["id", "skillId"] })) : [];
   // one question bank: each question counts for the test's own skill of its family
   const repOf = await familyRepresentatives(repo, s(actor.schoolId), qRows.map((q) => s(q.skillId)), { ids: json<string[]>(t.skillIds, []) });
@@ -470,7 +511,7 @@ export async function testResults(repo: Repo, actor: Actor, testId: string, now 
   const setOf = new Map(sets.map((a) => [s(a.id), a]));
   const marks = json<Record<string, number> | null>(t.marks, null);
   const qsOfSet = new Map<string, string[]>();
-  for (const x of aqs) { const l = qsOfSet.get(s(x.assessmentId)) ?? []; l.push(s(x.questionId)); qsOfSet.set(s(x.assessmentId), l); }
+  for (const x of aqsLive) { const l = qsOfSet.get(s(x.assessmentId)) ?? []; l.push(s(x.questionId)); qsOfSet.set(s(x.assessmentId), l); }
   const out: StudentResult[] = rows.map((r) => {
     const a = setOf.get(s(r.assignmentId))!;
     const qs = qsOfSet.get(s(a.assessmentId)) ?? [];
@@ -522,7 +563,7 @@ export async function testResults(repo: Repo, actor: Actor, testId: string, now 
  * Work with the existing assignSkill (own classes only — assignSkill checks), unless the student already has it open;
  * students who left the class are skipped.
  */
-export async function assignReteach(repo: Repo, actor: Actor, input: { classId: string; note: string; track: "MAP" | "NAFS" | "CURRICULUM"; skills: { skillId: string; below: { id: string; name: string }[] }[] }, now = new Date()): Promise<{ assigned: number; who: Set<string>; skipped: Set<string> }> {
+export async function assignReteach(repo: Repo, actor: Actor, input: { classId: string; note: string; track: "MAP" | "NAFS" | "CURRICULUM"; /** r74: the source of the reteach work (its context: the test's / game's) */ source: string; skills: { skillId: string; below: { id: string; name: string }[] }[] }, now = new Date()): Promise<{ assigned: number; who: Set<string>; skipped: Set<string> }> {
   assertCan(actor, "assignments:create");
   const members = new Set((await repo.findMany("ClassMembership", { classId: input.classId, leftAt: null }, { select: ["studentId"] })).map((m) => s(m.studentId)));
   let assigned = 0;
@@ -536,7 +577,7 @@ export async function assignReteach(repo: Repo, actor: Actor, input: { classId: 
       if (!(await openAssignmentFor(repo, st.id, k.skillId, now))) need.push(st.id);
     }
     if (!need.length) continue;
-    await assignSkill(repo, actor, { classId: input.classId, skillId: k.skillId, studentIds: need, note: input.note, track: input.track }, now);
+    await assignSkill(repo, actor, { classId: input.classId, skillId: k.skillId, studentIds: need, note: input.note, track: input.track, source: input.source }, now);
     assigned++;
     for (const id of need) who.add(id);
   }
@@ -555,7 +596,7 @@ export async function reteach(repo: Repo, actor: Actor, testId: string, now = ne
   const type = r.test.type;
   const note = `Reteach: ${r.test.title}`;
   const track = type === "MAP" ? "MAP" : type === "NAFS" ? "NAFS" : "CURRICULUM";
-  const { assigned, who, skipped } = await assignReteach(repo, actor, { classId: r.test.classId, note, track, skills: r.skills }, now);
+  const { assigned, who, skipped } = await assignReteach(repo, actor, { classId: r.test.classId, note, track, source: track, skills: r.skills }, now);
   await repo.updateMany("TeacherTest", { id: testId }, { reteachAt: now });
   await audit(repo, { actorId: actor.userId, action: "test.reteach", entityType: "TeacherTest", entityId: testId, after: { assigned, students: who.size, skipped: skipped.size } });
   return { assigned, students: who.size, skipped: [...skipped] };
@@ -708,7 +749,12 @@ export async function testReview(repo: Repo, actor: Actor, assignmentId: string,
     repo.findMany("PracticeSession", { assignmentId, studentId, mode: "TEACHER_QUIZ" }, { select: ["id"] }),
     repo.findUnique("Student", { id: studentId }),
   ]);
-  const order = aqs.sort((x, y) => Number(x.order) - Number(y.order)).map((x) => s(x.questionId));
+  const orderAll = aqs.sort((x, y) => Number(x.order) - Number(y.order)).map((x) => s(x.questionId));
+  // 🐛 r91 fix: same live-question filter as the student's own quiz player (session.ts#quizContext) — a question
+  // deleted/unpublished after the test was assigned was never shown to the student, so it shouldn't appear here
+  // as an unanswered/wrong item either.
+  const liveIds = orderAll.length ? new Set((await repo.findMany("Question", { id: { in: orderAll }, status: "PUBLISHED", deletedAt: null }, { select: ["id"] })).map((q) => s(q.id))) : new Set<string>();
+  const order = orderAll.filter((id) => liveIds.has(id));
   const attempts = ses.length ? await repo.findMany("QuestionAttempt", { sessionId: ses[0].id }, { select: ["questionId", "response", "isCorrect"] }) : [];
   const [items, user, skills] = await Promise.all([loadQuestionItems(repo, order), st ? repo.findUnique("User", { id: st.userId }) : Promise.resolve(null), repo.findMany("Question", { id: { in: order } }, { select: ["id", "skillId"] })]);
   const skillRows = skills.length ? await repo.findMany("Skill", { id: { in: [...new Set(skills.map((x) => s(x.skillId)))] } }, { select: ["id", "name"] }) : [];

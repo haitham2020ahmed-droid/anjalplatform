@@ -2,6 +2,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { BOX_EVENT, readBox, writeBox, type BoxItem } from "./print-box-store";
+import { RichInline } from "@/components/rich-inline";
 
 /** 🖨 The print box in the header (next to the bell): its questions, print as they are or in 3 levels. */
 export function PrintBox() {
@@ -34,7 +35,7 @@ export function PrintBox() {
           <div className="flex items-center justify-between"><p className="text-base font-bold text-brand-navy">🖨 Print box · {items.length}</p>{items.length > 0 && <button type="button" onClick={() => writeBox([])} className="text-xs font-semibold text-slate-500 underline">Empty</button>}</div>
           {!items.length ? <p className="mt-2 text-slate-600">Press <b>🖨 +</b> next to any question (Question Bank, Preview, Worksheets) to collect questions here, then print them — as they are or in 3 levels.</p> : (
             <>
-              <ol className="mt-2 max-h-56 space-y-1 overflow-y-auto">{items.map((x, i) => <li key={x.id} className="flex items-start gap-2 rounded-lg bg-slate-50 px-2 py-1"><span className="text-slate-400">{i + 1}.</span><span className="line-clamp-2 flex-1">{x.stem}</span><button type="button" onClick={() => writeBox(items.filter((y) => y.id !== x.id))} aria-label="Remove" className="text-red-600">✕</button></li>)}</ol>
+              <ol className="mt-2 max-h-56 space-y-1 overflow-y-auto">{items.map((x, i) => <li key={x.id} className="flex items-start gap-2 rounded-lg bg-slate-50 px-2 py-1"><span className="text-slate-400">{i + 1}.</span><span className="line-clamp-2 flex-1"><RichInline text={x.stem} /></span><button type="button" onClick={() => writeBox(items.filter((y) => y.id !== x.id))} aria-label="Remove" className="text-red-600">✕</button></li>)}</ol>
               <input value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Worksheet title (optional)" maxLength={120} className="mt-3 w-full rounded-lg border border-slate-300 px-2 py-1.5" />
               <div className="mt-3 grid gap-2">
                 <button type="button" onClick={() => go(false)} className="rounded-xl bg-brand-navy px-4 py-2 font-semibold text-white hover:bg-brand-purple">🖨 Print these questions</button>

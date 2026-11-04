@@ -93,9 +93,9 @@
       "difficulty": 2,
       "stem": "The writer says the idea 'may sound futuristic.' What does this phrase suggest?",
       "options": [
-        "The machine is very old and out of date",
-        "The machine is too noisy to use at home",
-        "The machine is impossible to understand",
+        "The machine is very old and out of date now",
+        "The machine is too noisy to use at home at night",
+        "The machine is impossible to understand or use",
         "The machine seems like something from the future"
       ],
       "answer": "D",
@@ -126,9 +126,9 @@
       "stem": "Which information in the passage is LEAST complete?",
       "options": [
         "How doctors use the medical models they print",
-        "What a slicer program does to a model",
-        "What the filament in most printers is",
-        "How hot the printer's nozzle becomes"
+        "What a slicer program does to a model in a printer",
+        "What the filament in most printers is made of at home",
+        "How hot the printer's nozzle becomes when it works"
       ],
       "answer": "A",
       "why": "Doctors are mentioned in one short phrase with no explanation; the others are explained."
@@ -157,9 +157,9 @@
       "difficulty": 3,
       "stem": "A student's large print takes too long. Based on the passage, which is the BEST solution?",
       "options": [
-        "Turn off the heated nozzle",
-        "Delete the slicer program",
-        "Use a block of wood as filament",
+        "Turn off the heated nozzle of the printer",
+        "Delete the slicer program from the computer",
+        "Use a block of wood as filament in the printer",
         "Print a smaller version of the design"
       ],
       "answer": "D",

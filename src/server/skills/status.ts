@@ -33,6 +33,8 @@ import { PLACE_ALIASES } from "../curriculum-map/remap-skills";
 import { modelVersion } from "../cache/bank-version";
 import { remember } from "../cache/lru";
 import { isHiddenSkill } from "./master";
+import { sweptWeakMap } from "../cache/idle";
+import { isRapidGuess } from "../practice/guessing";
 
 const s = (v: unknown) => (v === null || v === undefined ? "" : String(v));
 export const ms = (v: unknown): number => (v === null || v === undefined || v === "" ? 0 : v instanceof Date ? v.getTime() : new Date(String(v)).getTime() || 0);
@@ -190,7 +192,7 @@ export interface SkillKeyIndex {
   /** skill id → grade */
   gradeOf: Map<string, number>;
 }
-const keyCache = new WeakMap<object, Map<string, { v: string; at: number; p: Promise<SkillKeyIndex> }>>();
+const keyCache = sweptWeakMap<{ v: string; at: number; p: Promise<SkillKeyIndex> }>("skills.status.keyCache", 2 * 60_000);
 const KEY_MODELS = ["Skill", "SkillFamily", "SkillStandard", "Standard", "Curriculum", "Grade"];
 
 /** Every skill of the school with its key. Cached per school until a skill table changes (at most a minute). */
@@ -360,29 +362,99 @@ const PRACTICE_MODES = new Set(["ADAPTIVE_PRACTICE", "TEACHER_QUIZ"]);
 /** Assignment marks of tests and checks (tests/runtime TEST_MARK, the Weekly Check) — never counted. */
 const TEST_MARKS = new Set(["TEST", "WEEKLY_CHECK"]);
 
+/**
+ * Of some practice-session ids, the ones that are SKILL PRACTICE (may count toward ⭐): a practice mode, and not a
+ * test / Weekly Check / review check / "Re-check:" assignment, nor the Diagnostic Test (a session or assignment whose
+ * Assessment is of type DIAGNOSTIC — read from the data, so the Diagnostic assignments made before this rule are
+ * left out too). The one rule shared by the stars (countedAnswers) and
+ * the Practice and time report (analytics/practice.ts), so both always agree. Batched (500 ids per query).
+ */
+export async function practiceSessionIds(repo: Repo, sessionIds: readonly string[]): Promise<Set<string>> {
+  const sids = [...new Set(sessionIds.map(s).filter(Boolean))];
+  if (!sids.length) return new Set();
+  const sessions: Row[] = [];
+  for (let i = 0; i < sids.length; i += 500) sessions.push(...(await repo.findMany("PracticeSession", { id: { in: sids.slice(i, i + 500) } }, { select: ["id", "mode", "assignmentId", "assessmentId"] })));
+  const aids = [...new Set(sessions.map((x) => s(x.assignmentId)).filter(Boolean))];
+  const as: Row[] = [], checks: Row[] = [];
+  for (let i = 0; i < aids.length; i += 500) {
+    const part = aids.slice(i, i + 500);
+    const [a, c] = await Promise.all([
+      repo.findMany("Assignment", { id: { in: part } }, { select: ["id", "testId", "curriculumPlanId", "title", "assessmentId"] }),
+      repo.findMany("SkillReviewCheck", { assignmentId: { in: part } }, { select: ["assignmentId"] }),
+    ]);
+    as.push(...a); checks.push(...c);
+  }
+  // 📝 the Diagnostic Test is a test: its sets (Assessment type DIAGNOSTIC) never count
+  const setIds = [...new Set([...sessions.map((x) => s(x.assessmentId)), ...as.map((a) => s(a.assessmentId))].filter(Boolean))];
+  const diagnostic = new Set<string>();
+  for (let i = 0; i < setIds.length; i += 500) for (const x of await repo.findMany("Assessment", { id: { in: setIds.slice(i, i + 500) }, type: "DIAGNOSTIC" }, { select: ["id"] })) diagnostic.add(s(x.id));
+  const bad = new Set([...as.filter((a) => a.testId || TEST_MARKS.has(s(a.curriculumPlanId)) || s(a.title).startsWith("Re-check: ") || diagnostic.has(s(a.assessmentId))).map((a) => s(a.id)), ...checks.map((c) => s(c.assignmentId))]);
+  return new Set(sessions.filter((x) => PRACTICE_MODES.has(s(x.mode)) && !bad.has(s(x.assignmentId)) && !diagnostic.has(s(x.assessmentId))).map((x) => s(x.id)));
+}
+
 export interface CountedAnswers { answered: number; correct: number; at: number[] }
 /**
  * The student's answers that count for a key: skill practice of ANY copy of the skill (practice, assigned work, MAP
  * plan, free practice, Curriculum Map question sets), not rapid guesses; never tests / checks / review checks /
- * Learn checks / lessons / ReadMaster / games. `since` (ms): only answers after it.
+ * Learn checks / lessons / ReadMaster / games. NAFS practice and ReadRise article questions (r69) count too.
+ * `since` (ms): only answers after it.
  */
 export async function countedAnswers(repo: Repo, studentId: string, skillIds: readonly string[], since = 0): Promise<CountedAnswers> {
   if (!skillIds.length) return { answered: 0, correct: 0, at: [] };
-  const rows = await repo.findMany("QuestionAttempt", { studentId, skillId: { in: [...skillIds] }, rapidGuess: false }, { select: ["sessionId", "isCorrect", "source", "createdAt"] });
-  const mine = rows.filter((r) => !s(r.source) && (!since || ms(r.createdAt) > since));
-  if (!mine.length) return { answered: 0, correct: 0, at: [] };
-  const sids = [...new Set(mine.map((r) => s(r.sessionId)))];
-  const sessions: Row[] = [];
-  for (let i = 0; i < sids.length; i += 500) sessions.push(...(await repo.findMany("PracticeSession", { id: { in: sids.slice(i, i + 500) } }, { select: ["id", "mode", "assignmentId"] })));
-  const aids = [...new Set(sessions.map((x) => s(x.assignmentId)).filter(Boolean))];
-  const [as, checks] = aids.length ? await Promise.all([
-    repo.findMany("Assignment", { id: { in: aids } }, { select: ["id", "testId", "curriculumPlanId", "title"] }),
-    repo.findMany("SkillReviewCheck", { assignmentId: { in: aids } }, { select: ["assignmentId"] }),
-  ]) : [[], []] as Row[][];
-  const bad = new Set([...as.filter((a) => a.testId || TEST_MARKS.has(s(a.curriculumPlanId)) || s(a.title).startsWith("Re-check: ")).map((a) => s(a.id)), ...checks.map((c) => s(c.assignmentId))]);
-  const ok = new Set(sessions.filter((x) => PRACTICE_MODES.has(s(x.mode)) && !bad.has(s(x.assignmentId))).map((x) => s(x.id)));
+  const [rows, nafs0, rr] = await Promise.all([
+    repo.findMany("QuestionAttempt", { studentId, skillId: { in: [...skillIds] }, rapidGuess: false }, { select: ["sessionId", "isCorrect", "source", "createdAt", "unreliable"] }),
+    nafsPracticeAnswers(repo, studentId, skillIds, since),
+    readRisePracticeAnswers(repo, studentId, skillIds, since),
+  ]);
+  // owner r69: ReadRise question answers (careful ones of reliable runs) count as practice too
+  const nafs: CountedAnswers = { answered: nafs0.answered + rr.answered, correct: nafs0.correct + rr.correct, at: [...nafs0.at, ...rr.at].sort((a, b) => a - b) };
+  // r68 accuracy: answers of an Unreliable session (> 20 % rapid guesses) never count toward a star
+  const mine = rows.filter((r) => !s(r.source) && !r.unreliable && (!since || ms(r.createdAt) > since));
+  if (!mine.length) return nafs;
+  const ok = await practiceSessionIds(repo, mine.map((r) => s(r.sessionId)));
   const counted = mine.filter((r) => ok.has(s(r.sessionId)));
-  return { answered: counted.length, correct: counted.filter((r) => Boolean(r.isCorrect)).length, at: counted.map((r) => ms(r.createdAt)).sort((a, b) => a - b) };
+  return {
+    answered: counted.length + nafs.answered, correct: counted.filter((r) => Boolean(r.isCorrect)).length + nafs.correct,
+    at: [...counted.map((r) => ms(r.createdAt)), ...nafs.at].sort((a, b) => a - b),
+  };
+}
+
+/** how many of the student's newest NAFS practice answers are read for a star (bounded) */
+export const NAFS_STAR_TAKE = 400;
+/**
+ * 🇸🇦 NAFS practice counts toward the star too (owner r68 "practice from ANY source"): its answers live in the NAFS
+ * tables (NafsPracticeAnswer, read only here — the NAFS center itself is not touched), each a platform question whose
+ * skill is known. Rapid guesses (< 3 s) never count, like everywhere. NAFS TESTS never count (NafsResult is not read).
+ */
+export async function nafsPracticeAnswers(repo: Repo, studentId: string, skillIds: readonly string[], since = 0): Promise<CountedAnswers> {
+  const none: CountedAnswers = { answered: 0, correct: 0, at: [] };
+  if (!skillIds.length) return none;
+  try {
+    const rows = await repo.findMany("NafsPracticeAnswer", { studentId, ...(since ? { at: { gt: new Date(since) } } : {}) }, { select: ["questionId", "correct", "ms", "at"], orderBy: [{ field: "at", dir: "desc" }], take: NAFS_STAR_TAKE });
+    const real = rows.filter((r) => !isRapidGuess(Number(r.ms ?? 0)));
+    if (!real.length) return none;
+    const qs = await repo.findMany("Question", { id: { in: [...new Set(real.map((r) => s(r.questionId)))] }, skillId: { in: [...skillIds] } }, { select: ["id"] });
+    if (!qs.length) return none;
+    const mine = new Set(qs.map((q) => s(q.id)));
+    const hit = real.filter((r) => mine.has(s(r.questionId)));
+    return { answered: hit.length, correct: hit.filter((r) => Boolean(r.correct)).length, at: hit.map((r) => ms(r.at)).sort((a, b) => a - b) };
+  } catch { return none; } // an older database without the NAFS tables: nothing to add
+}
+
+/** how many of the student's newest ReadRise answers on a skill are read for a star (bounded) */
+export const READRISE_STAR_TAKE = 400;
+/**
+ * 🚀 ReadRise practice evidence (owner r69): each ReadRise question answer is saved as skill evidence by its question
+ * type (SkillEvidence source READRISE, practice/skill-evidence.ts feedReadRise) — only careful answers of reliable runs
+ * (rapid guesses and Unreliable runs are never saved). Read only here; bounded.
+ */
+export async function readRisePracticeAnswers(repo: Repo, studentId: string, skillIds: readonly string[], since = 0): Promise<CountedAnswers> {
+  const none: CountedAnswers = { answered: 0, correct: 0, at: [] };
+  if (!skillIds.length) return none;
+  try {
+    const rows = await repo.findMany("SkillEvidence", { studentId, source: "READRISE", skillId: { in: [...skillIds] }, ...(since ? { createdAt: { gt: new Date(since) } } : {}) }, { select: ["credit", "createdAt"], orderBy: [{ field: "createdAt", dir: "desc" }], take: READRISE_STAR_TAKE });
+    return { answered: rows.length, correct: rows.filter((r) => Number(r.credit) >= 1).length, at: rows.map((r) => ms(r.createdAt)).sort((a, b) => a - b) };
+  } catch { return none; }
 }
 
 /** The engine's mastery for a key: the best score of the student's rows of its skills, mastered if one is. */
@@ -453,7 +525,9 @@ export async function refreshSkillStatus(repo: Repo, studentId: string, skillId:
     ...(d.justMastered ? { masteredAt: now, reviewDueAt: new Date(now.getTime() + REVIEW_AFTER_DAYS * DAY), needsSupportAt: null, celebratedAt: null } : {}),
     ...(d.justNeedsSupport ? { needsSupportAt: now } : {}),
   };
-  if (prev) await repo.updateMany("SkillStatus", { id: prev.id }, data);
+  // guarded: written only if the row's status did not change since it was read (a review settled meanwhile — e.g.
+  // 🔄 written by the 20th answer of review work — is never overwritten by an older refresh)
+  if (prev) { if ((await repo.updateMany("SkillStatus", { id: prev.id, status: s(prev.status) }, data)) === 0) return { key, status: s(prev.status) as StarStatus, justMastered: false, justNeedsSupport: false, answered: cnt.answered, level }; }
   else {
     try { await repo.create("SkillStatus", { studentId, skillKey: key, level, createdAt: now, ...data }); }
     catch { await repo.updateMany("SkillStatus", { studentId, skillKey: key, level }, data); } // a second request won the race
@@ -478,6 +552,11 @@ async function onStarEarned(repo: Repo, studentId: string, skillId: string, leve
   const { awardCoins, COINS } = await import("../motivation/coins");
   // the same refId as the existing "skill mastered" coins: a star and that rule never pay twice for one skill
   await awardCoins(repo, studentId, "mastered", COINS.mastered, level > 1 ? `${skillId}:L${level}` : skillId, { note: "New star", now });
+  // owner (1 Nov 2026): a ⭐ closes the skill's open alerts (every copy of the skill) — no old alert stays on a mastered skill
+  const school = await studentSchool(repo, studentId);
+  const key = school ? (await skillKeyIndex(repo, school)).keyOf.get(skillId) : undefined;
+  const ids = key && school ? (await skillKeyIndex(repo, school)).skillsOf.get(key) ?? [] : [];
+  await repo.updateMany("InterventionAlert", { studentId, skillId: { in: [...new Set([skillId, ...ids])] }, resolvedAt: null }, { resolvedAt: now });
 }
 
 /** 50 answers without mastery: one alert to the class's teachers (the RTI plan then suggests the student + skill). */

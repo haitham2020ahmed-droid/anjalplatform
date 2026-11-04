@@ -4,7 +4,13 @@
  *
  *   MAP        each student's lowest MAP sub-areas → their weakest skills there (suggestMapPlan)
  *   NAFS       Grade 6 only: the latest NAFS test's results, else the NAFS areas (suggestNafsPlan)
- *   RTI        Support: each student's struggling skills (mastery under 60 after 5+ answers)
+ *   RTI        Support: each Tier 2/3 student's focus skill, as the daily support-tier rules decided it (MAP,
+ *              weekly checks, fluency and the Diagnostic together — see ../tiers/rules.ts#decideTier), plus a
+ *              couple more skills they are struggling with on the platform. A student the rules have not yet
+ *              screened at all (the daily job has not run for them) falls back to the platform struggling-skills
+ *              read alone; a student the rules confirm Tier 1 is left out — the richer evidence already cleared
+ *              them, so a single mastery dip should not override that (the same stability the rules apply
+ *              everywhere else: ../tiers/rules.ts's dwell-time and two-source-corroboration rules).
  *   Custom     the weakest skills of the chosen students on the platform (perf-suggest.ts)
  *   Curriculum empty: the teacher adds lessons of the Curriculum Map
  */
@@ -13,15 +19,18 @@ import type { Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
 import { assertClassAccess } from "../teacher/assignments";
 import { strugglingSkills } from "../tiers/struggling";
+import { tierRows } from "../tiers/views";
 import type { Program } from "./program";
 import { assertProgramFitsGrade, createDraft, type PlanSource, type SectionSpec } from "./editor";
 import { suggestMapPlan, type MapSubject } from "./map-suggest";
 import { suggestNafsPlan } from "./nafs-suggest";
-import { sourceOf, suggestPlans, weakestSkillsFor } from "./perf-suggest";
+import { excellingSkillsFor, sourceOf, suggestPlans, weakestSkillsFor } from "./perf-suggest";
 
 const s = (v: unknown) => String(v ?? "");
 
-export interface StartInput { classId: string; program: Program | null; studentIds: string[]; mode: "suggested" | "empty"; subject?: MapSubject; title?: string | null }
+// ⚡ Enrichment: additive-only, kept out of the Program type (`null`, same safe bucket as Custom) so it never
+// touches AssignSource/source-tags/the RTI-tier system — just this one extra flag, checked before the others.
+export interface StartInput { classId: string; program: Program | null; studentIds: string[]; mode: "suggested" | "empty"; subject?: MapSubject; title?: string | null; enrichment?: boolean }
 
 /** The platform's sections for a new plan of this program (empty list = nothing to suggest yet). */
 export async function suggestedSections(repo: Repo, actor: Actor, input: StartInput): Promise<{ sections: SectionSpec[]; source: PlanSource | null }> {
@@ -31,6 +40,10 @@ export async function suggestedSections(repo: Repo, actor: Actor, input: StartIn
   const all = (await repo.findMany("ClassMembership", { classId: klass.id, leftAt: null }, { select: ["studentId"] })).map((m) => s(m.studentId));
   const who = input.studentIds.length ? input.studentIds : all;
   const scoped = (ids: string[]) => (ids.length >= who.length ? null : ids);
+  if (input.enrichment) {
+    const e = await excellingSkillsFor(repo, actor, input.classId, input.studentIds, 4);
+    return { sections: e.sections.map((k) => ({ skillId: k.skillId, count: k.count, lesson: k.lesson, level: k.level, reason: k.reason })), source: e.source };
+  }
   if (input.program === "MAP") {
     const sug = await suggestMapPlan(repo, actor, { classId: input.classId, studentIds: input.studentIds, subject: input.subject });
     return {
@@ -46,13 +59,23 @@ export async function suggestedSections(repo: Repo, actor: Actor, input: StartIn
     };
   }
   if (input.program === "RTI") {
-    const weak = await strugglingSkills(repo, who);
+    // 🧭 the real support-tier evidence first (MAP + checks + fluency + Diagnostic, already decided daily by
+    // ../tiers/rules.ts#decideTier and stored on StudentTier) — never a bare mastery-score read on its own.
+    const [tiers, weak] = await Promise.all([tierRows(repo, who), strugglingSkills(repo, who)]);
     const by = new Map<string, { name: string; ids: string[]; scores: number[] }>();
-    for (const [st, list] of weak) for (const k of list) { const x = by.get(k.id) ?? { name: k.name, ids: [], scores: [] }; x.ids.push(st); x.scores.push(k.score); by.set(k.id, x); }
+    const add = (id: string, name: string, st: string, score?: number) => { const x = by.get(id) ?? { name, ids: [], scores: [] }; if (!x.ids.includes(st)) x.ids.push(st); if (score !== undefined) x.scores.push(score); by.set(id, x); };
+    for (const t of tiers) {
+      // a confirmed Tier 1 (the rules have evidence and cleared them) is left out — a single mastery dip should not
+      // override that; a student the rules have not screened at all yet (no StudentTier row) still falls through,
+      // since the platform struggling-skills read below is the only signal there is until the daily job reaches them
+      if (t.computed && t.tier < 2) continue;
+      if (t.focusSkillId) add(t.focusSkillId, t.focusSkill ?? "Skill", t.studentId);
+      for (const k of weak.get(t.studentId) ?? []) add(k.id, k.name, t.studentId, k.score);
+    }
     const top = [...by].sort((a, b) => b[1].ids.length - a[1].ids.length || a[1].name.localeCompare(b[1].name)).slice(0, 8);
     return {
       sections: top.map(([id, x]) => ({ skillId: id, count: 10, studentIds: scoped(x.ids.sort()), lesson: true, level: "BELOW", reason: "Struggling skill" })),
-      source: top.length ? { reason: "Struggling skills (mastery under 60 after 5 or more answers).", sources: ["Mastery"], rows: [] } : null,
+      source: top.length ? { reason: "Each Tier 2/3 student's focus skill (the daily support-tier rules: MAP, checks, fluency and the Diagnostic together), plus other skills they are struggling with on the platform.", sources: ["Tiers", "Mastery"], rows: [] } : null,
     };
   }
   if (input.program === "CURRICULUM") return { sections: [], source: null };
@@ -68,7 +91,7 @@ export async function startPlan(repo: Repo, actor: Actor, input: StartInput, now
     const klass = await assertClassAccess(repo, actor, input.classId);
     assertProgramFitsGrade(input.program, Number((await repo.findUnique("Grade", { id: klass.gradeId }))?.level ?? 0));
   }
-  const planId = await createDraft(repo, actor, { classId: input.classId, program: input.program, studentIds: input.studentIds, title: input.title, sections: sug.sections, suggested: sug.sections.length > 0, source: sug.source }, now);
+  const planId = await createDraft(repo, actor, { classId: input.classId, program: input.program, studentIds: input.studentIds, title: input.title, sections: sug.sections, suggested: sug.sections.length > 0, source: sug.source, enrichment: input.enrichment }, now);
   return { planId, empty: sug.sections.length === 0 };
 }
 

@@ -1,12 +1,15 @@
 /**
  * 🏫 The school's AI dashboard data: trends (weekly snapshots), growth predictions and risk by grade, learning
  * outcomes, intervention effectiveness, and how well the platform's own models work (continuous learning).
+ * ⭐ outcomes.mastered (owner, 1 Nov 2026) = the ⭐ skills of the school's students counted by KEY (skills/star-read.ts),
+ * not the engine's isMastered rows. (trend.mastered stays the AbilitySnapshot average the engine records.)
  */
 import type { Repo, Row } from "../seeding/repo";
 import { interventionImpact } from "../insights/interventions";
 import { recommendationStats } from "../insights/recommendation-log";
 import { riskModel } from "./risk";
 import { actionWeights } from "../insights/learning-weights";
+import { starBook } from "../skills/star-read";
 
 const s = (v: unknown) => String(v ?? "");
 const time = (v: unknown) => new Date(v instanceof Date ? v.toISOString() : s(v)).getTime();
@@ -27,7 +30,7 @@ export async function schoolAi(repo: Repo, schoolId: string, now = new Date()): 
   const [snaps, profiles, mastered, weekly, interventions, advice, risk, actions, aw] = await Promise.all([
     ids.length ? repo.findMany("AbilitySnapshot", { studentId: { in: ids }, scope: "PROFILE", takenOn: { gte: new Date(now.getTime() - 70 * 86_400_000) } }, { select: ["takenOn", "theta", "mastery"] }) : Promise.resolve([] as Row[]),
     ids.length ? repo.findMany("StudentProfile", { studentId: { in: ids } }, { select: ["studentId", "predictedReading", "goalReading", "goalChance", "riskScore", "practiceDays14"] }) : Promise.resolve([] as Row[]),
-    ids.length ? repo.count("StudentSkillMastery", { studentId: { in: ids }, isMastered: true }) : Promise.resolve(0),
+    ids.length ? starBook(repo, ids, schoolId).then((book) => ids.reduce((n, id) => n + book.masteredKeys(id).size, 0)) : Promise.resolve(0),
     ids.length ? repo.findMany("WeeklyCheck", { studentId: { in: ids }, createdAt: { gte: new Date(now.getTime() - 30 * 86_400_000) } }, { select: ["ritBefore", "ritAfter", "completedAt"] }) : Promise.resolve([] as Row[]),
     interventionImpact(repo, schoolId), recommendationStats(repo, ids, now), riskModel(repo, schoolId), actionWeights(repo, schoolId),
     repo.findMany("PredictionModel", { schoolId, kind: "ACTION_WEIGHTS" }, { select: ["metrics"] }),

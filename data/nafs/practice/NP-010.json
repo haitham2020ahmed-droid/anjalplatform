@@ -45,10 +45,10 @@
       "difficulty": 1,
       "stem": "Why did Ziyad design a watering timetable?",
       "options": [
-        "Ms Noura gave it to him as a punishment.",
+        "Ms Noura gave it to him as a punishment for class.",
         "Some plants got too much water, others too little.",
-        "The school kitchen needed more compost.",
-        "He wanted to sell water at the market."
+        "The school kitchen needed more compost for the soup.",
+        "He wanted to sell water at the market on Friday."
       ],
       "answer": "B",
       "why": "The story says he had noticed 'some plants were receiving too much water while others were gradually drying out'."
@@ -160,7 +160,7 @@
         "Use market money for seeds and keep the watering timetable.",
         "Let the plants grow without water all summer.",
         "Cover the corner with concrete to keep it tidy.",
-        "Ask only one student to do all the work."
+        "Ask only one student to do all of the work in the garden."
       ],
       "answer": "A",
       "why": "Buying seeds with the earnings and following the timetable continues what made the garden succeed; the other ideas would destroy it."

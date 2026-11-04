@@ -13,7 +13,7 @@ export async function assignCopilotQuestionsAction(f: FormData): Promise<void> {
   const studentIds = String(f.get("studentIds") ?? "").split(",").filter(Boolean).slice(0, 60);
   let msg: string;
   try {
-    const r = await assignQuestions(repo, actor, { classId, questionIds, studentIds: studentIds.length ? studentIds : undefined, title: String(f.get("title") ?? "Copilot practice").slice(0, 120) });
+    const r = await assignQuestions(repo, actor, { classId, questionIds, studentIds: studentIds.length ? studentIds : undefined, title: String(f.get("title") ?? "Copilot practice").slice(0, 120), source: String(f.get("source") ?? "") });
     msg = `✅ ${r.questions} question(s) assigned to ${r.students} student(s).`;
   } catch (e) { if (!(e instanceof ValidationError || e instanceof ForbiddenError)) throw e; msg = e.message; }
   redirect(`/teacher/ai?class=${encodeURIComponent(classId)}&msg=${encodeURIComponent(msg)}`);

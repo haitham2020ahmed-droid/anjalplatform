@@ -4,7 +4,8 @@ import { repo, requireActor } from "@/server/auth/next";
 import { ForbiddenError } from "@/server/auth/rbac";
 import { ValidationError } from "@/server/curriculum-admin";
 import { aiEnv } from "@/server/ai/env";
-import { approveAiDraft, assignReteach, createTask, dismissAiDraft, requestAiDraft, scoreResearchAnswers, scoreSubmission, type TaskKind } from "@/server/teacher/writing";
+import { startOfDay } from "@/lib/assign-dates";
+import { approveAiDraft, assignReteach, cancelTask, createTask, dismissAiDraft, requestAiDraft, scoreResearchAnswers, scoreSubmission, type TaskKind } from "@/server/teacher/writing";
 
 const STAFF = { roles: ["TEACHER", "SCHOOL_ADMIN"] as ("TEACHER" | "SCHOOL_ADMIN")[], permission: "assignments:create" as const };
 const str = (f: FormData, k: string) => String(f.get(k) ?? "");
@@ -28,7 +29,7 @@ export async function createTaskAction(f: FormData): Promise<void> {
   const msg = await run(async () => {
     const id = await createTask(repo, actor, {
       classId, kind: (f.get("kind") === "READ_ALOUD" ? "READ_ALOUD" : "WRITE") as TaskKind, title: str(f, "title"), prompt: str(f, "prompt"), passage: str(f, "passage") || null,
-      minWords: Number(f.get("minWords")) || null, dueAt: f.get("dueAt") ? new Date(`${str(f, "dueAt")}T20:59:00Z`) : null,
+      minWords: Number(f.get("minWords")) || null, dueAt: f.get("dueAt") ? new Date(`${str(f, "dueAt")}T20:59:00Z`) : null, startAt: startOfDay(f.get("startAt")),
       genre: str(f, "genre") || "FREE", staged: f.get("staged") === "1", aiFeedback: f.get("aiFeedback") === "1", skillId: str(f, "skillId") || null, sources, research,
     });
     to = `/teacher/writing?classId=${classId}&task=${id}&msg=${encodeURIComponent("✓ Sent. Students were notified.")}`;
@@ -51,8 +52,10 @@ export async function scoreAction(f: FormData): Promise<void> {
 export async function approveAiAction(f: FormData): Promise<void> {
   const actor = await requireActor(STAFF);
   const msg = await run(async () => {
+    const quotes = f.getAll("hQuote").map(String), fixes = f.getAll("hFix").map(String);
     const r = await approveAiDraft(repo, actor, str(f, "taskId"), str(f, "studentId"), {
       scores: prefixed(f, "s."), strengths: prefixed(f, "strength."), nextSteps: prefixed(f, "next."), codes: f.getAll("code").map(String).filter(Boolean),
+      highlights: quotes.map((quote, i) => ({ quote, fix: fixes[i] ?? "" })),
       summary: str(f, "summary"), comment: str(f, "comment") || null, moves: f.getAll("move").map(String).filter(Boolean),
     });
     return r === "REVISE" ? "✓ Approved. The student sees the feedback and revises." : "✓ Approved and scored. The student can see it.";
@@ -81,11 +84,41 @@ export async function researchScoreAction(f: FormData): Promise<void> {
   redirect(back(f, msg));
 }
 
+/**
+ * ⏸ r87 (owner: "اداه حذف... الغاء نهائى او تظل محفوظه"): the task's "stays saved" choice — the same soft cancel
+ * every other kind of assigned work already uses (src/server/teacher/assigned.ts#cancelAssignment); undoable from
+ * the Assigned page, nothing here is deleted. The existing "Cancel task" below stays the PERMANENT choice: it
+ * already never comes back (no Undo), while submitted/scored work is kept — exactly what "delete permanently"
+ * means here, with none of a student's actual work at risk either way.
+ */
+export async function withdrawTaskAction(f: FormData): Promise<void> {
+  const actor = await requireActor(STAFF);
+  const classId = str(f, "classId");
+  let msg: string;
+  try {
+    const { cancelAssignment } = await import("@/server/teacher/assigned");
+    await cancelAssignment(repo, actor, str(f, "kind") === "READ_ALOUD" ? "FLUENCY" : "WRITING", str(f, "taskId"), null);
+    msg = "✓ Stopped: the work left the students' lists. Work already given is kept, and you can undo this from Assigned.";
+  } catch (e) { if (e instanceof ValidationError || e instanceof ForbiddenError) msg = e.message; else throw e; }
+  redirect(`/teacher/writing?classId=${classId}&msg=${encodeURIComponent(msg)}`);
+}
+
+export async function cancelTaskAction(f: FormData): Promise<void> {
+  const actor = await requireActor(STAFF);
+  const classId = str(f, "classId");
+  let msg: string;
+  try {
+    const r = await cancelTask(repo, actor, str(f, "taskId"));
+    msg = `✓ “${r.title}” was deleted. Work already submitted or scored stays in the history.`;
+  } catch (e) { if (e instanceof ValidationError || e instanceof ForbiddenError) msg = e.message; else throw e; }
+  redirect(`/teacher/writing?classId=${classId}&msg=${encodeURIComponent(msg)}`);
+}
+
 export async function reteachAction(f: FormData): Promise<void> {
   const actor = await requireActor(STAFF);
   const ids = f.getAll("studentIds").map(String).filter(Boolean);
   const msg = await run(async () => {
-    const r = await assignReteach(repo, actor, { taskId: str(f, "taskId"), skillId: str(f, "skillId"), studentIds: ids.length ? ids : undefined });
+    const r = await assignReteach(repo, actor, { taskId: str(f, "taskId"), skillId: str(f, "skillId"), studentIds: ids.length ? ids : undefined, source: String(f.get("source") ?? "") });
     return `✓ Assigned to ${r.students} student${r.students === 1 ? "" : "s"}.`;
   });
   redirect(back(f, msg));

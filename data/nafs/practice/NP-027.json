@@ -45,10 +45,10 @@
       "difficulty": 1,
       "stem": "Why did Mr. Khalid ask the twins to stay after the lesson?",
       "options": [
-        "They had arrived late to his lesson.",
-        "He wanted them to cancel the trip.",
+        "They had arrived late to his lesson that morning.",
+        "He wanted them to cancel the trip to the camp.",
         "He saw that the vote was dividing the class.",
-        "He preferred the museum to the camp."
+        "He preferred the museum to the camp for the trip."
       ],
       "answer": "C",
       "why": "He \"noticed the growing tension between the classmates\" and said a trip should bring the class together."

@@ -10,12 +10,15 @@
  *                      depends on." + Assign Key Details. Uses knowledge-graph.ts diagnose().
  * Staff only (callers check access). Queries are bounded: one read of the wrong answers for a whole class, the
  * grade's graph (2 queries) and the mastery + recent answers of the students (2 queries).
+ * ⭐ Stars (owner, 1 Nov 2026): a prerequisite the student has ⭐ on (any copy — by KEY, skills/star-read.ts) is never
+ * "the real gap", and a ⭐ skill is never the struggling skill; `isMastered` of a state is the STAR, not the engine's.
  */
 import type { Repo, Row } from "../seeding/repo";
 import { MISCONCEPTION_BY_CODE } from "../../insights/misconceptions";
 import { buildGraph, diagnose, MISCONCEPTION_ROOT, type Graph, type SkillState } from "../graph/knowledge-graph";
 import { ForbiddenError, type Actor } from "../auth/rbac";
 import { assertClassRead } from "../teacher/coordinators";
+import { starBook, starMastered, type StarBook } from "../skills/star-read";
 
 const s = (v: unknown) => String(v ?? "");
 const DAY = 86_400_000;
@@ -76,15 +79,20 @@ export async function latestWrong(repo: Repo, studentIds: string[], now = new Da
 
 export interface RootCause { skillId: string; skillName: string; prereqId: string; prereqName: string; prereqMastery: number | null; sentence: string }
 
+/** ⭐ the state's STAR (set by statesFrom with stars / graph statesFor); a state without a star is never "starred". */
+const starred = (st: SkillState | undefined) => st?.star === "MASTERED" || st?.star === "NEXT_LEVEL";
+
 /** Pure: for every skill the student struggles with, the weak prerequisite underneath (deepest first). */
 export function rootCausesFrom(g: Graph, states: Map<string, SkillState>, limit = 3): RootCause[] {
   const out: RootCause[] = [];
   const seen = new Set<string>();
-  const struggling = [...states.entries()].filter(([id]) => g.nodes.has(id)).sort((a, b) => a[1].mastery - b[1].mastery);
+  // ⭐ a skill with a star is not struggling, and a prerequisite with a star is never the gap
+  const struggling = [...states.entries()].filter(([id, st]) => g.nodes.has(id) && !starred(st)).sort((a, b) => a[1].mastery - b[1].mastery);
   for (const [skillId] of struggling) {
     const d = diagnose(g, states, skillId);
     if (d.verdict !== "PREREQUISITE" || !d.causes.length) continue;
-    const c = d.causes[0];
+    const c = d.causes.find((x) => !starred(states.get(x.skillId)));
+    if (!c) continue;
     if (seen.has(`${c.skillId}|${skillId}`)) continue;
     seen.add(`${c.skillId}|${skillId}`);
     out.push({ skillId, skillName: d.skillName, prereqId: c.skillId, prereqName: c.name, prereqMastery: c.mastery,
@@ -94,8 +102,12 @@ export function rootCausesFrom(g: Graph, states: Map<string, SkillState>, limit 
   return out;
 }
 
-/** Skill states for the root-cause check from 2 reads (mastery rows + the latest answers), not one read per skill. */
-export function statesFrom(mastery: Row[], recent: Row[]): Map<string, SkillState> {
+/**
+ * Skill states for the root-cause check from 2 reads (mastery rows + the latest answers), not one read per skill.
+ * With `stars` (the page's star book + the student), `isMastered` is the skill's ⭐ (by key); every graph skill the
+ * student has ⭐ on gets a state too, so a ⭐ prerequisite without an engine row is never read as a gap.
+ */
+export function statesFrom(mastery: Row[], recent: Row[], stars?: { book: StarBook; studentId: string; skillIds?: Iterable<string> }): Map<string, SkillState> {
   const per = new Map<string, Row[]>();
   for (const r of recent) { const l = per.get(s(r.skillId)) ?? []; if (l.length < 10) l.push(r); per.set(s(r.skillId), l); }
   const out = new Map<string, SkillState>();
@@ -103,8 +115,11 @@ export function statesFrom(mastery: Row[], recent: Row[]): Map<string, SkillStat
     const id = s(m.skillId), l = per.get(id) ?? [], wrong = l.filter((r) => !(r.isCorrect === true || r.isCorrect === 1));
     const c = new Map<string, number>(); for (const w of wrong) if (w.misconception) c.set(s(w.misconception), (c.get(s(w.misconception)) ?? 0) + 1);
     const top = [...c.entries()].sort((a, b) => b[1] - a[1])[0];
-    out.set(id, { mastery: Number(m.score ?? 0), attempts: Number(m.attempts ?? 0), theta: null, recentErrors: wrong.length, recentAnswers: l.length, misconception: top && top[1] >= 2 ? top[0] : null, isMastered: m.isMastered === true || m.isMastered === 1 });
+    const v = stars ? stars.book.of(stars.studentId, id) : null;
+    // round 4: the mastery % shown ("The real gap is Key Details (52%)") is the STAR score (by key), not the engine's
+    out.set(id, { mastery: v && v.status !== "NOT_STARTED" ? v.score : Number(m.score ?? 0), attempts: Number(m.attempts ?? 0), theta: null, recentErrors: wrong.length, recentAnswers: l.length, misconception: top && top[1] >= 2 ? top[0] : null, isMastered: v ? starMastered(v) : m.isMastered === true || m.isMastered === 1, ...(v ? { star: v.status } : {}) });
   }
+  if (stars?.skillIds) for (const id of stars.skillIds) if (!out.has(id) && starMastered(stars.book.of(stars.studentId, id))) out.set(id, { mastery: stars.book.of(stars.studentId, id).score, attempts: 0, theta: null, recentErrors: 0, recentAnswers: 0, misconception: null, isMastered: true, star: stars.book.of(stars.studentId, id).status });
   return out;
 }
 
@@ -123,11 +138,14 @@ export async function studentRootCauses(repo: Repo, studentId: string, limit = 3
   const st = await repo.findUnique("Student", { id: studentId });
   const g = st?.gradeId ? await gradeGraph(repo, s(st.gradeId)) : null;
   if (!g) return [];
-  const [mastery, recent] = await Promise.all([
-    repo.findMany("StudentSkillMastery", { studentId }, { select: ["skillId", "score", "attempts", "isMastered"] }),
+  const graphIds = [...g.nodes.keys()];
+  const [mastery, recent, book] = await Promise.all([
+    // only the rows of the grade's graph skills (round 4: not every skill row of the student)
+    graphIds.length ? repo.findMany("StudentSkillMastery", { studentId, skillId: { in: graphIds } }, { select: ["skillId", "score", "attempts"] }) : Promise.resolve([] as Row[]),
     repo.findMany("QuestionAttempt", { studentId }, { select: ["skillId", "isCorrect", "misconception"], orderBy: [{ field: "createdAt", dir: "desc" }], take: 300 }),
+    starBook(repo, [studentId], s(st?.schoolId)),
   ]);
-  return rootCausesFrom(g, statesFrom(mastery, recent), limit);
+  return rootCausesFrom(g, statesFrom(mastery, recent, { book, studentId, skillIds: g.nodes.keys() }), limit);
 }
 
 /** The Learn lesson / skill for a class-wide mistake: the grade's skill of the mistake's foundation family. */
@@ -153,11 +171,13 @@ export async function classErrors(repo: Repo, actor: Actor, classId: string, now
   if (actor.role !== "TEACHER" && actor.role !== "SCHOOL_ADMIN" && actor.role !== "SUPER_ADMIN") throw new ForbiddenError();
   const klass = await assertClassRead(repo, actor, classId);
   const ids = [...new Set((await repo.findMany("ClassMembership", { classId, leftAt: null }, { select: ["studentId"] })).map((m) => s(m.studentId)))];
-  const [students, wrongBy, g, mastery, recent] = await Promise.all([
+  const g = await gradeGraph(repo, s(klass.gradeId));
+  const graphIds = g ? [...g.nodes.keys()] : [];
+  const [students, wrongBy, mastery, recent] = await Promise.all([
     ids.length ? repo.findMany("Student", { id: { in: ids } }, { select: ["id", "userId"] }) : Promise.resolve([] as Row[]),
     latestWrong(repo, ids, now),
-    gradeGraph(repo, s(klass.gradeId)),
-    ids.length ? repo.findMany("StudentSkillMastery", { studentId: { in: ids } }, { select: ["studentId", "skillId", "score", "attempts", "isMastered"] }) : Promise.resolve([] as Row[]),
+    // round 4: only the skill rows the root-cause check needs (the grade's graph skills), not every row of the class
+    ids.length && graphIds.length ? repo.findMany("StudentSkillMastery", { studentId: { in: ids }, skillId: { in: graphIds } }, { select: ["studentId", "skillId", "score", "attempts"] }) : Promise.resolve([] as Row[]),
     ids.length ? repo.findMany("QuestionAttempt", { studentId: { in: ids }, createdAt: { gte: new Date(now.getTime() - 60 * DAY) } }, { select: ["studentId", "skillId", "isCorrect", "misconception"], orderBy: [{ field: "createdAt", dir: "desc" }], take: 20000 }) : Promise.resolve([] as Row[]),
   ]);
   const users = students.length ? await repo.findMany("User", { id: { in: students.map((x) => s(x.userId)) } }, { select: ["id", "displayName"] }) : [];
@@ -174,11 +194,12 @@ export async function classErrors(repo: Repo, actor: Actor, classId: string, now
   const classWide = classWidePatterns(codes, ids.length).map((p) => ({ ...p, lesson: rootSkillOf(g, p.code) }));
   const gaps = new Map<string, ClassRootGap & { sum: number; n: number }>();
   if (g) {
+    const book = await starBook(repo, ids, s(klass.schoolId));
     const mBy = new Map<string, Row[]>(), rBy = new Map<string, Row[]>();
     for (const m of mastery) { if (!g.nodes.has(s(m.skillId))) continue; const l = mBy.get(s(m.studentId)) ?? []; l.push(m); mBy.set(s(m.studentId), l); }
     for (const r of recent) { const l = rBy.get(s(r.studentId)) ?? []; if (l.length < 300) l.push(r); rBy.set(s(r.studentId), l); }
     for (const id of ids) {
-      const c = rootCausesFrom(g, statesFrom(mBy.get(id) ?? [], rBy.get(id) ?? []), 1)[0];
+      const c = rootCausesFrom(g, statesFrom(mBy.get(id) ?? [], rBy.get(id) ?? [], { book, studentId: id, skillIds: g.nodes.keys() }), 1)[0];
       if (!c) continue;
       const e = gaps.get(c.prereqId) ?? { prereqId: c.prereqId, prereqName: c.prereqName, skillName: c.skillName, students: [], avgMastery: null, sum: 0, n: 0 };
       e.students.push(id);

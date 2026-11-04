@@ -13,6 +13,16 @@ import { BTN_SECONDARY } from "@/components/ui-kit";
 import { getT } from "@/i18n/server";
 import { safeIfBehind } from "@/server/db/schema-errors";
 import { myTests, type MyTests } from "@/server/map/sim";
+import { mapPracticeSkills, type MapPracticeView } from "@/server/student/map-practice";
+import { MapPracticeSkills } from "@/components/student/map-practice-skills";
+import { studentYearPlan } from "@/server/map/year-plan-share";
+import { StudentYearPlanView } from "@/components/map/student-year-plan";
+// 🆕 feature (Oct 2026): RIT growth-over-time chart on the student's own dashboard — reuses the same RitChart/
+// RitLegend SVG the Family Report uses. combinedRitHistory() merges BOTH official NWEA scores (MapResult) and
+// the platform's own internal practice MAP test (MapSimSession) — a student who has only ever taken the
+// platform's own test still sees their trend, not an empty section (familyReport() alone only reads MapResult).
+import { combinedRitHistory } from "@/server/map/map-reports";
+import { RitChart, RitLegend } from "@/components/map/report-ui";
 
 export const metadata = { title: "My MAP" };
 
@@ -21,12 +31,28 @@ export const metadata = { title: "My MAP" };
  * bars, my goal and the points still needed, strengths and things to grow — numbers and friendly words only), then
  * "Your MAP practice" (the MAP rows of My Work, programWork) and my MAP plan from my teacher (PDF).
  */
-export default async function StudentMapPage({ searchParams }: { searchParams: Promise<{ preview?: string }> }) {
-  const { actor, me, preview } = await studentPage((await searchParams).preview, () => requireActor({ roles: ["STUDENT"] }));
+export default async function StudentMapPage({ searchParams }: { searchParams: Promise<{ preview?: string; tab?: string }> }) {
+  const sp = await searchParams;
+  const { actor, me, preview } = await studentPage(sp.preview, () => requireActor({ roles: ["STUDENT"] }));
   const sid = actor.studentId!;
-  const [{ t }, m, work, tests] = await Promise.all([
+  // 🗓️ r68: the class's Year plan, once the teacher sent it (one row): its own tab
+  const year = await safeIfBehind("student.map.year", () => studentYearPlan(repo, actor), null);
+  if (year && sp.tab === "year") {
+    const { t } = await getT();
+    return (
+      <AppShell name={String(me.displayName)}><PreviewFrame preview={preview}>
+        <ReportHeader back={{ href: "/student", label: "My Work" }} icon="🗺️" title="My MAP" subtitle={t("Your MAP scores, your goal and your MAP practice.")} who={String(me.displayName)} />
+        <MapTabs year t={t} />
+        <StudentYearPlanView p={year} t={t} />
+      </PreviewFrame></AppShell>
+    );
+  }
+  const [{ t }, m, work, tests, practised, history] = await Promise.all([
     getT(), myMap(repo, actor).catch((): MyMap => ({ subjects: [], plans: [] })), programWork(repo, sid, "MAP"),
     safeIfBehind("student.map.tests", myTests(repo, actor), { windows: [], warmupDone: false } as MyTests),
+    safeIfBehind("student.map.practice", () => mapPracticeSkills(repo, sid), { areas: [], total: 0, counts: { MASTERED: 0, LEARNING: 0, REVIEW: 0, NOT_STARTED: 0 } } as MapPracticeView),
+    // 🆕 feature (Oct 2026): best-effort — no scores yet (either table) should never break My MAP
+    safeIfBehind("student.map.history", combinedRitHistory(repo, sid), [] as Awaited<ReturnType<typeof combinedRitHistory>>),
   ]);
   // 🧭 the MAP Test card: a test open for me (Start / Continue), or my latest result (my RIT)
   const openTests = tests.windows.filter((w) => w.open).flatMap((w) => w.sessions.filter((x) => x.status !== "DONE").map((x) => ({ w, x })));
@@ -37,6 +63,7 @@ export default async function StudentMapPage({ searchParams }: { searchParams: P
       <ReportHeader back={{ href: "/student", label: "My Work" }} icon="🗺️" title="My MAP" subtitle={t("Your MAP scores, your goal and your MAP practice.")} who={String(me.displayName)}>
         <Link prefetch={false} href={`/map-report/study-plan/${sid}`} className={BTN_SECONDARY}>📑 {t("My Study Plan")}</Link>
       </ReportHeader>
+      {year && <MapTabs year={false} t={t} />}
 
       {(openTests.length > 0 || results.length > 0) && (
         <section aria-labelledby="map-test-h" data-testid="map-test-card" className="mb-5 rounded-3xl bg-gradient-to-r bg-linear-to-r from-sky-50 to-white p-5 ring-1 ring-sky-200">
@@ -62,12 +89,32 @@ export default async function StudentMapPage({ searchParams }: { searchParams: P
 
       <MapDashboard cards={cards} />
 
+      {/* 🆕 feature (Oct 2026): growth-over-time — the student's RIT across every past MAP window (not just the
+          latest), one small chart per subject that has 2+ points, from EITHER official NWEA scores or the
+          platform's own practice test (combinedRitHistory already filters to subjects with 2+ points). */}
+      {history.length > 0 && (
+        <section aria-labelledby="map-history-h" className="mt-4 rounded-3xl bg-white p-5 shadow-card ring-1 ring-slate-200/80 sm:p-6">
+          <h2 id="map-history-h" className="text-xl font-semibold text-brand-navy">📈 {t("My growth over time")}</h2>
+          <div className="mt-3 grid gap-5 md:grid-cols-2">
+            {history.map((x) => (
+              <div key={x.subject}>
+                <p className="text-sm font-semibold text-slate-600">{t(x.name)}</p>
+                <RitChart points={x.points} first={t("Me")} />
+                <RitLegend first={t("Me")} approx={x.points.some((p) => p.national !== null && !p.nationalExact)} />
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
       <Callout kind="meaning" className="mt-4" items={[
         t("RIT is my MAP score. It grows as I learn — like a height chart for reading."),
         t("My goal is the score my teacher hopes I reach by Spring."),
       ]} />
 
-      <ProgramWorkList id="map-practice" items={work} title="Your MAP practice" program="MAP" />
+      {/* the MAP work the teacher assigned (only when there is some), then every MAP skill I practised (never empty words) */}
+      {work.length > 0 && <ProgramWorkList id="map-work" items={work} title="My MAP work" program="MAP" />}
+      <MapPracticeSkills v={practised} />
 
       {m.plans.length > 0 && (
         <section aria-labelledby="map-plan-h" className="mt-6 rounded-3xl bg-white p-5 shadow-card ring-1 ring-slate-200/80 sm:p-6">
@@ -85,5 +132,16 @@ export default async function StudentMapPage({ searchParams }: { searchParams: P
         </section>
       )}
     </PreviewFrame></AppShell>
+  );
+}
+
+/** The MAP page's two tabs once the Year plan was sent: My MAP · Year plan. */
+function MapTabs({ year, t }: { year: boolean; t: (s: string) => string }) {
+  const tab = (on: boolean) => `inline-flex min-h-10 items-center rounded-full px-4 text-sm font-semibold ${on ? "bg-brand-navy text-white" : "bg-white text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal"}`;
+  return (
+    <nav aria-label={t("My MAP")} className="mb-4 flex flex-wrap gap-2" data-testid="map-tabs">
+      <Link prefetch={false} href="/student/map" aria-current={!year ? "page" : undefined} className={tab(!year)}>🗺️ {t("My MAP")}</Link>
+      <Link prefetch={false} href="/student/map?tab=year" aria-current={year ? "page" : undefined} className={tab(year)}>🗓️ {t("Year plan")}</Link>
+    </nav>
   );
 }

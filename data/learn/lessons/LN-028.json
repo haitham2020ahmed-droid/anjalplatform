@@ -315,10 +315,10 @@
      "passage": "\"Come on, kids, let's go see the camels!\" Grandpa called, grabbing his hat.",
      "stem": "Why is informal language fine in this sentence from a story?",
      "options": [
-      "Stories must always use slang.",
+      "Stories must always use slang and street words.",
       "It shows how a real grandfather might talk to his family.",
-      "The writer forgot to use formal words.",
-      "Informal words are more correct."
+      "The writer forgot to use formal words in the whole story.",
+      "Informal words are more correct than formal ones."
      ],
      "answer": 1,
      "why": "Dialogue shows how characters really speak. Grandpa sounds warm and excited."
@@ -339,7 +339,7 @@
      "passage": "Report sentence: We got a lot of info from the guide.",
      "stem": "Which revision is the most formal?",
      "options": [
-      "We got loads and loads of info from the guide.",
+      "We got loads and loads of info from the tour guide.",
       "We received a great deal of information from the guide.",
       "The guide gave us tons of really cool facts.",
       "We got, like, a whole lot of info from him."
@@ -394,10 +394,10 @@
     "passage": "The family gathered in the courtyard as the evening air finally cooled. Grandmother poured the coffee with careful, practised hands while the younger cousins sat in respectful silence. Then Uncle Saad arrived, swinging a bag of fresh dates. \"Well, well, who let all these sleepy faces in here?\" he boomed. \"Come on, grab a date before I eat 'em all myself!\" The cousins burst out laughing, and even Grandmother smiled as the stiff quiet melted into chatter. For the rest of the evening, the courtyard was loud and warm.",
     "stem": "Why does the author give Uncle Saad informal speech while the narration stays formal?",
     "options": [
-     "To show he does not know how to speak correctly",
-     "To show that the cousins are afraid of him",
+     "To show he does not know how to speak correctly in front of others",
+     "To show that the cousins are afraid of him and keep quiet around him",
      "To show his joking nature and how he makes the gathering relaxed",
-     "To show that the evening is ending soon"
+     "To show that the evening is ending soon and people are going home"
     ],
     "answer": 2,
     "hint": "Look at how the room changes after he speaks. What does his way of talking do to the others?",
@@ -429,8 +429,8 @@
      "options": [
       "Hey everyone, what's up? Let's get this party started!",
       "Respected guests, teachers and families, welcome to this proud day.",
-      "OK so, um, thanks for coming, I guess. Let's just start.",
-      "Yo, graduates! We did it, finally! Make some noise!"
+      "OK so, um, thanks for coming, I guess. Let's just start already.",
+      "Yo, graduates! We did it, finally! Make some noise for us!"
      ],
      "answer": 1,
      "why": "The occasion is formal and the audience includes officials, so a respectful, formal register fits."
@@ -439,9 +439,9 @@
      "passage": "Dear Librarian, I am researching the history of the pearl trade in the Gulf. I would be grateful for any books on this topic. Anyway, gimme whatever you've got, it's due Thursday lol.",
      "stem": "Which revision of the last sentence best keeps the register consistent?",
      "options": [
-      "Any books would be totally awesome, thanks a lot!!",
-      "Anyway, just send me whatever stuff you have by Thursday.",
-      "Gimme the books before Thursday, please, it's urgent.",
+      "Any books would be totally awesome, thanks a lot!! It would really help me.",
+      "Anyway, just send me whatever stuff you have by Thursday, if you can find any.",
+      "Gimme the books before Thursday, please, it's urgent, I really need them now.",
       "My project is due on Thursday, so any help before then would be appreciated."
      ],
      "answer": 3,
@@ -452,9 +452,9 @@
      "stem": "What is the most likely reason the author uses two different varieties of English?",
      "options": [
       "To highlight the difference between the villagers and the outsider",
-      "To make the book harder to read",
-      "Because the author could not decide on one style",
-      "To show that technical language is always better"
+      "To make the book harder to read for young students",
+      "Because the author could not decide on one style to use.",
+      "To show that technical language is always better than other kinds."
      ],
      "answer": 0,
      "why": "Contrasting varieties of speech shows who belongs to the village and who is an outsider."

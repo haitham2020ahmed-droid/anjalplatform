@@ -16,7 +16,7 @@ export default async function ReadRiseImportTeacher({ searchParams }: { searchPa
   return (
     <AppShell name={String(me.displayName)}>
       <PageHeader back={{ href: "/teacher/readrise/library", label: "ReadRise Library" }} icon="📥" title="Import a ReadRise Article"
-        subtitle="Write your own article at 12 levels with the Excel template. It is imported as a draft for your school.">
+        subtitle="Write your own article at 14 levels with the Excel template. It is imported as a draft for your school.">
         <ReadRiseTabs items={TEACHER_TABS} current="/teacher/readrise/import" />
       </PageHeader>
       <Flash msg={sp.msg} />

@@ -8,6 +8,7 @@
  */
 import { RR_SKILLS } from "./import";
 import { RR_MAX, RR_MIN } from "./level";
+import { normalisedSkill, tallyAnswers, type QuestionsOf, type TallyQuestion } from "./first-try";
 import { ENGINE, PROJECTION_MIN_DAYS, PROJECTION_MIN_RUNS, projectLevel, weekStart, type LevelPoint } from "./engine";
 
 const DAY = 86_400_000, WEEK = 7 * DAY;
@@ -73,21 +74,25 @@ export function parseAnswers(v: unknown): Record<string, string> {
   return raw && typeof raw === "object" ? (raw as Record<string, string>) : {};
 }
 
-export interface AnsweredRun { articleId: string; band: string; answers: unknown; at?: number }
+export interface AnsweredRun { studentId?: string; articleId: string; band: string; answers: unknown; answerMs?: unknown; rapid?: number[]; at?: number }
 export type AnswerKey = Map<string, { answer: string; skill: string }>;
 export const keyOf = (articleId: string, band: string, n: number | string) => `${articleId}|${band}|${n}`;
 
-/** Each answer of the runs as { skill, ok } in run order. */
+/** An answer key (article|band|number → answer, skill) as the ONE tally's question lookup (questions 1–8). */
+export function answerKeyLookup(key: AnswerKey): QuestionsOf {
+  return (articleId, band) => {
+    const out: TallyQuestion[] = [];
+    for (let n = 1; n <= 8; n++) { const q = key.get(keyOf(articleId, band, n)); if (q) out.push({ number: n, answer: q.answer, skill: q.skill }); }
+    return out;
+  };
+}
+
+/**
+ * Each careful answer of the runs as { skill, ok } in run order — round 4: through the ONE tally (first-try.ts
+ * tallyAnswers): rapid answers out, unanswered out, the skill normalised to its question type.
+ */
 function answerList(runs: AnsweredRun[], key: AnswerKey): { skill: string; ok: boolean }[] {
-  const out: { skill: string; ok: boolean }[] = [];
-  for (const r of runs) {
-    const a = parseAnswers(r.answers);
-    for (let n = 1; n <= 8; n++) {
-      const q = key.get(keyOf(r.articleId, r.band, n));
-      if (q) out.push({ skill: q.skill, ok: String(a[String(n)] ?? "").toUpperCase() === q.answer });
-    }
-  }
-  return out;
+  return tallyAnswers(runs, answerKeyLookup(key)).map((a) => ({ skill: normalisedSkill(a.type), ok: a.ok }));
 }
 
 /** Accuracy by question skill (central idea, detail, inference, vocabulary, structure, cause/effect …), known skills first. */

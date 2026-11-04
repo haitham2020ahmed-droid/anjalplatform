@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { AppShell } from "@/components/app-shell";
-import { EmptyState, ReportHeader, ReportSection } from "@/components/report-kit";
+import { EmptyState, ReportHeader, ReportIntro, ReportSection, ReportSummary } from "@/components/report-kit";
+import { errorsSummary } from "@/lib/report-summaries";
 import { RepeatedMistakes } from "@/components/teacher/repeated-mistakes";
 import { InsightActions } from "@/components/teacher/insight-actions";
 import { getActor, repo, requireActor } from "@/server/auth/next";
@@ -37,6 +38,7 @@ export default async function ErrorsReport({ searchParams }: { searchParams: Pro
     <AppShell name={String(me.displayName)}>
       <ReportHeader back={{ href: "/teacher/reports", label: "Reports" }} icon="🔍" title="Mistakes and root causes" who={klass ? <bdi>{klass.name}</bdi> : undefined}
         subtitle="What each student gets wrong, in plain words, and the real gap underneath." />
+      <ReportIntro text="The mistakes your students make most often and the weaker skill underneath them." />
       {!klass || !v ? <EmptyState icon="🏫" title="You do not teach any class yet." /> : (
         <>
           <ReportSection title="Re-teach to the whole class" icon="📣" hint={t("Mistakes shared by 40% or more of the class.")}>
@@ -83,6 +85,7 @@ export default async function ErrorsReport({ searchParams }: { searchParams: Pro
           <ReportSection title="Repeated mistakes" icon="🧡" hint={t("Skills where a student answered the same question wrong twice.")}>
             <RepeatedMistakes rows={repeated} canAssign={teacher} />
           </ReportSection>
+          <ReportSummary summary={errorsSummary(v, !teacher)} />
           {teacher && repeated.length > 0 && <AssignSkillHost classId={v.classId} className={v.className} students={[...names].map(([id, name]) => ({ id, name })).sort((a, b) => a.name.localeCompare(b.name))} />}
         </>
       )}

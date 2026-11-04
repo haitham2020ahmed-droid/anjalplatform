@@ -12,7 +12,13 @@ import type { Repo, Row } from "../seeding/repo";
 import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
 import { assertClassRead, coordinatorGrades, readableClasses } from "../teacher/coordinators";
 import { gradeAreaSkills } from "../map/recommend";
+import { cancelIndex, liveAssignmentWhere } from "../student/cancelled-work";
 import { intensityFor, reconcileStatus, tiersOf } from "./student-status";
+import { starBook, starMastered, starNeedsHelp } from "../skills/star-read";
+import { hiddenStarKeys } from "../teacher/queries";
+import type { StarStatus } from "../skills/status";
+import { practiceTotals, type PracticeTotals } from "../analytics/practice-totals";
+import { weekStart } from "../student/weekly";
 import { classMembers, levelsOf, mapSummaries, practiceStats, studentNames, workStats, type Level, type MapSummary, type PracticeStats, type Subject, type WorkStats } from "./student-data";
 
 const s = (v: unknown) => String(v ?? "");
@@ -46,7 +52,9 @@ export interface ProgressRow {
   map: MapSummary | null; status: ReturnType<typeof statusOf>["status"]; statusWhy: string; intensity: Intensity | null;
   /** where the intensity label comes from: "Tier 2" or the MAP test with its season and date ("Fall MAP · 2026-09-15") */
   intensityFrom: string | null;
-  level: Level | null; categories: Record<string, Level>; practice: PracticeStats; work: WorkStats; weakest: string[]; mastered: number; needsWork: number;
+  level: Level | null; categories: Record<string, Level>; practice: PracticeStats; work: WorkStats; weakest: string[];
+  /** ⭐ skills mastered and 🔄 skills needing work (needs review, or in progress needing support), counted by skill KEY */
+  mastered: number; needsWork: number;
 }
 export interface StudentTrend { weeks: (number | null)[]; trend: Trend | null; consistency: "Steady" | "Uneven" | null; sd: number | null; change: ReturnType<typeof changeOf>; percentile: number | null }
 export interface ClassProgress {
@@ -56,30 +64,44 @@ export interface ClassProgress {
   stats: { mean: number | null; sd: number | null; spread: string; improved: number; declined: number; maintained: number; levels: { level: string; count: number; pct: number }[] };
 }
 
-/** Weekly accuracy (last 6 weeks, oldest first; null = fewer than 5 answers that week) and the 4-week change. */
-async function weeklyAccuracy(repo: Repo, ids: string[], now: Date): Promise<Map<string, { weeks: (number | null)[]; last4: number | null; prev4: number | null }>> {
+/**
+ * Weekly accuracy (last 6 weeks, oldest first; null = fewer than 5 careful answers that week) and the 4-week change.
+ * 📏 round 4: THE one definition (practice-totals.ts: skill practice + NAFS + ReadRise, rapid guesses out, the hidden
+ * holder skill out) — ONE read of the last 8 Riyadh school weeks (Sunday → Saturday, the current one so far),
+ * bucketed by week, 25 students at a time.
+ */
+async function weeklyAccuracy(repo: Repo, ids: string[], now: Date, schoolId: string | null = null): Promise<Map<string, { weeks: (number | null)[]; last4: number | null; prev4: number | null }>> {
   const out = new Map<string, { weeks: (number | null)[]; last4: number | null; prev4: number | null }>();
   if (!ids.length) return out;
-  const since = now.getTime() - 56 * 86_400_000;
-  const rows = (await repo.findMany("QuestionAttempt", { studentId: { in: ids }, createdAt: { gte: new Date(since) } }, { select: ["studentId", "isCorrect", "createdAt"] })).filter((a) => time(a.createdAt) >= since);
-  const pct = (list: Row[]) => (list.length >= 5 ? Math.round((100 * list.filter((a) => a.isCorrect).length) / list.length) : null);
+  const W = 7 * 86_400_000;
+  const thisWeek = weekStart(now).getTime();
+  // week index: 0 = this Riyadh week, 1 = last week, … (from Sunday 00:00 Riyadh)
+  const bucket = (at: number) => { const w = Math.floor((thisWeek - weekStart(new Date(at)).getTime() + W / 2) / W); return w >= 0 && w < 8 ? String(w) : null; };
+  const totals = await practiceTotals(repo, ids, new Date(thisWeek - 7 * W), now, { schoolId, bucket });
+  const pct = (c: number, n: number) => (n >= 5 ? Math.round((100 * c) / n) : null);
+  const sum = (b: PracticeTotals["buckets"], ws: number[]) => ws.reduce((o, w) => { const x = b?.[String(w)]; return { c: o.c + (x?.correct ?? 0), n: o.n + (x?.careful ?? 0) }; }, { c: 0, n: 0 });
   for (const id of ids) {
-    const mine = rows.filter((a) => s(a.studentId) === id);
-    const ago = (a: Row) => Math.floor((now.getTime() - time(a.createdAt)) / (7 * 86_400_000));
-    const weeks = [5, 4, 3, 2, 1, 0].map((w) => pct(mine.filter((a) => ago(a) === w)));
-    out.set(id, { weeks, last4: pct(mine.filter((a) => ago(a) < 4)), prev4: pct(mine.filter((a) => ago(a) >= 4 && ago(a) < 8)) });
+    const b = totals.get(id)?.buckets;
+    const weeks = [5, 4, 3, 2, 1, 0].map((w) => { const x = b?.[String(w)]; return pct(x?.correct ?? 0, x?.careful ?? 0); });
+    const l4 = sum(b, [0, 1, 2, 3]), p4 = sum(b, [4, 5, 6, 7]);
+    out.set(id, { weeks, last4: pct(l4.c, l4.n), prev4: pct(p4.c, p4.n) });
   }
   return out;
 }
 
-async function masteryCounts(repo: Repo, ids: string[], _schoolId: string | null): Promise<Map<string, { mastered: number; needsWork: number }>> {
+/**
+ * “Skills mastered / need work” per student from the ONE star system (SkillStatus, the same stars as Student Skills),
+ * counted by skill KEY (copies of a skill count once): mastered = ⭐ (Mastered or Next level); need work = 🔄 Needs
+ * review, or ◐ In progress with the needs-support flag (50 answers without mastery). One batched read.
+ */
+async function masteryCounts(repo: Repo, ids: string[], schoolId: string | null): Promise<Map<string, { mastered: number; needsWork: number }>> {
   const out = new Map(ids.map((id) => [id, { mastered: 0, needsWork: 0 }]));
   if (!ids.length) return out;
-  const rows = await repo.findMany("StudentSkillMastery", { studentId: { in: ids } }, { select: ["studentId", "attempts", "isMastered"] });
-  for (const r of rows) {
-    const o = out.get(s(r.studentId)); if (!o) continue;
-    // “mastered” = the adaptive engine's mastery decision (the same flag the teacher views use)
-    if (r.isMastered) o.mastered++; else if (Number(r.attempts ?? 0) >= 3) o.needsWork++;
+  const book = await starBook(repo, ids, schoolId);
+  const hidden = await hiddenStarKeys(repo, book); // the Curriculum Map holder skill is never counted
+  for (const id of ids) {
+    const o = out.get(id)!;
+    for (const v of book.byKey.get(id)?.values() ?? []) { if (hidden.has(v.key)) continue; if (starMastered(v)) o.mastered++; else if (starNeedsHelp(v)) o.needsWork++; }
   }
   return out;
 }
@@ -130,7 +152,7 @@ export async function classProgress(repo: Repo, actor: Actor, classId: string, s
   const week = now.getTime() - 7 * 86_400_000;
   let canAssign = false;
   if (actor.role === "TEACHER") { const t = await repo.findUnique("Teacher", { userId: actor.userId }); canAssign = Boolean(t && (await repo.findUnique("ClassTeacher", { classId, teacherId: t.id }))); }
-  const wk = await weeklyAccuracy(repo, ids, now);
+  const wk = await weeklyAccuracy(repo, ids, now, actor.schoolId ?? null);
   const accs = rows.map((r) => r.practice.accuracy).filter((x): x is number => x !== null);
   const trends: Record<string, StudentTrend> = {};
   for (const r of rows) {
@@ -153,7 +175,8 @@ export async function classProgress(repo: Repo, actor: Actor, classId: string, s
 
 // ------------------------------------------------------------------ one student
 
-export interface PlanArea { area: string; rit: number | null; skills: { id: string; name: string; mastery: number | null; assigned: boolean }[] }
+/** ⭐ each skill with its star (status) and star score (mastery; null = ☆ not started); ⭐ skills are left out of the plan */
+export interface PlanArea { area: string; rit: number | null; skills: { id: string; name: string; mastery: number | null; status: StarStatus; assigned: boolean }[] }
 export interface StudentProgress {
   row: ProgressRow; classId: string; className: string; grade: number; subject: Subject;
   plan: { intensity: Intensity | null; startLevel: Level; why: string; areas: PlanArea[] };
@@ -181,13 +204,14 @@ export async function studentProgress(repo: Repo, actor: Actor, studentId: strin
   const allAreas = await gradeAreaSkills(repo, actor.schoolId!, grade);
   const subjOf = new Map((allAreas.length ? await repo.findMany("MapGoalArea", { id: { in: allAreas.map((a) => a.areaId) } }, { select: ["id", "subject"] }) : []).map((a) => [s(a.id), s(a.subject)]));
   const areas = allAreas.filter((a) => (subject === "READING" ? /read/i : /lang/i).test(subjOf.get(a.areaId) ?? ""));
-  const [mastery, open] = await Promise.all([
-    repo.findMany("StudentSkillMastery", { studentId }, { select: ["skillId", "score"] }),
+  const [book, open, ix] = await Promise.all([
+    starBook(repo, [studentId], actor.schoolId),
     repo.findMany("AssignmentStudent", { studentId }, { select: ["assignmentId", "status"] }),
+    cancelIndex(repo, actor.schoolId),
   ]);
   const openIds = open.filter((o) => o.status !== "COMPLETED").map((o) => s(o.assignmentId));
-  const openSkills = new Set(openIds.length ? (await repo.findMany("Assignment", { id: { in: openIds }, deletedAt: null }, { select: ["skillId"] })).map((a) => s(a.skillId)) : []);
-  const mOf = new Map(mastery.map((m) => [s(m.skillId), Math.round(Number(m.score))]));
+  // r78: a cancelled assignment is not "assigned" any more
+  const openSkills = new Set(openIds.length ? (await repo.findMany("Assignment", liveAssignmentWhere({ id: { in: openIds } }), { select: ["id", "skillId", "testId", "curriculumPlanId"] })).filter((a) => ix.live(a, studentId)).map((a) => s(a.skillId)) : []);
   const goals = row.map?.goals ?? [];
   const goalAreaIds = new Set(goals.map((g) => g.areaId).filter(Boolean));
   const ranked = goals.length
@@ -195,7 +219,11 @@ export async function studentProgress(repo: Repo, actor: Actor, studentId: strin
     : areas.map((a) => ({ a, rit: null as number | null }));
   const planAreas: PlanArea[] = ranked.slice(0, goals.length ? 2 : 3).map(({ a, rit }) => ({
     area: a.area, rit,
-    skills: a.skills.map((k) => ({ id: k.id, name: k.name, mastery: mOf.get(k.id) ?? null, assigned: openSkills.has(k.id) })).sort((x, y) => (x.mastery ?? -1) - (y.mastery ?? -1) || x.name.localeCompare(y.name)).slice(0, 4),
+    // ⭐ never a skill the student already has the star on (by key); 🔄 first, then the lowest star score; copies once
+    skills: a.skills.map((k) => { const v = book.of(studentId, k.id); return { id: k.id, key: v.key, name: k.name, mastery: v.status === "NOT_STARTED" ? null : v.score, status: v.status, assigned: openSkills.has(k.id) }; })
+      .filter((x, i, all) => !starMastered(x) && all.findIndex((y) => y.key === x.key) === i)
+      .sort((x, y) => Number(y.status === "NEEDS_REVIEW") - Number(x.status === "NEEDS_REVIEW") || (x.mastery ?? -1) - (y.mastery ?? -1) || x.name.localeCompare(y.name)).slice(0, 4)
+      .map(({ key: _k, ...x }) => x),
   })).filter((x) => x.skills.length);
   const pct = row.map?.latest?.percentile ?? null;
   const startLevel: Level = row.level ?? (pct === null ? "ON" : pct < 41 ? "BELOW" : pct > 60 ? "ABOVE" : "ON");
@@ -205,7 +233,7 @@ export async function studentProgress(repo: Repo, actor: Actor, studentId: strin
   const history = logs.map((l) => { const a = (l.after ?? {}) as Record<string, unknown>, b = (l.before ?? {}) as Record<string, unknown>; return { at: new Date(time(l.createdAt)).toISOString(), category: a.category ? s(a.category) : null, from: b.level ? s(b.level) : null, to: s(a.level), source: s(a.source), outcome: s(a.outcome) }; });
   const mapPoints = (await repo.findMany("MapResult", { studentId })).filter((r) => !r.goalName && (subject === "READING" ? /read/i : /language/i).test(s(r.subject))).sort((a, b) => time(a.testDate) - time(b.testDate)).map((r) => ({ term: s(r.termName), rit: Number(r.rit) }));
   const asg = await repo.findMany("AssignmentStudent", { studentId });
-  const aRows = asg.length ? await repo.findMany("Assignment", { id: { in: asg.map((x) => x.assignmentId) }, deletedAt: null }, { select: ["id", "title", "dueAt", "createdAt"] }) : [];
+  const aRows = asg.length ? (await repo.findMany("Assignment", liveAssignmentWhere({ id: { in: asg.map((x) => x.assignmentId) } }), { select: ["id", "title", "dueAt", "createdAt", "testId", "curriculumPlanId"] })).filter((a) => ix.live(a, studentId)) : [];
   const recent = aRows.sort((a, b) => time(b.createdAt) - time(a.createdAt)).slice(0, 8).map((a) => ({ title: s(a.title), status: s(asg.find((x) => x.assignmentId === a.id)?.status), dueAt: a.dueAt ? new Date(time(a.dueAt)).toISOString() : null }));
   let canAssign = false;
   if (actor.role === "TEACHER") { const t = await repo.findUnique("Teacher", { userId: actor.userId }); canAssign = Boolean(t && (await repo.findUnique("ClassTeacher", { classId: klass.id, teacherId: t.id }))); }
@@ -249,13 +277,14 @@ export async function teacherAlerts(repo: Repo, actor: Actor, now = new Date()):
   }
   // assigned work not started by its due date (last 30 days)
   const asg = await repo.findMany("AssignmentStudent", { studentId: { in: ids }, status: { in: ["NOT_STARTED", "OVERDUE"] } }, { select: ["studentId", "assignmentId", "progress"] });
-  const as = asg.length ? await repo.findMany("Assignment", { id: { in: [...new Set(asg.map((a) => s(a.assignmentId)))] }, deletedAt: null }, { select: ["id", "title", "dueAt"] }) : [];
+  const ix = await cancelIndex(repo, actor.schoolId);
+  const as = asg.length ? await repo.findMany("Assignment", liveAssignmentWhere({ id: { in: [...new Set(asg.map((a) => s(a.assignmentId)))] } }), { select: ["id", "title", "dueAt", "testId", "curriculumPlanId"] }) : [];
   const late = new Map(as.filter((a) => a.dueAt && time(a.dueAt) < now.getTime() && time(a.dueAt) > now.getTime() - 30 * 86_400_000).map((a) => [s(a.id), a]));
   const count = new Map<string, { n: number; title: string; at: number }>();
-  for (const r of asg) { const a = late.get(s(r.assignmentId)); if (!a || Number(r.progress ?? 0) > 0) continue; const c = count.get(s(r.studentId)) ?? { n: 0, title: s(a.title), at: time(a.dueAt) }; c.n++; count.set(s(r.studentId), c); }
+  for (const r of asg) { const a = late.get(s(r.assignmentId)); if (!a || Number(r.progress ?? 0) > 0 || !ix.live(a, s(r.studentId))) continue; const c = count.get(s(r.studentId)) ?? { n: 0, title: s(a.title), at: time(a.dueAt) }; c.n++; count.set(s(r.studentId), c); }
   const rtr = await repo.findMany("RespondAssignmentStudent", { studentId: { in: ids }, finishedAt: null });
   const ra = rtr.length ? await repo.findMany("RespondAssignment", { id: { in: [...new Set(rtr.map((r) => s(r.assignmentId)))] }, deletedAt: null }) : [];
-  for (const r of rtr) { const a = ra.find((x) => x.id === r.assignmentId); if (!a?.dueAt || time(a.dueAt) >= now.getTime() || time(a.dueAt) < now.getTime() - 30 * 86_400_000) continue; const c = count.get(s(r.studentId)) ?? { n: 0, title: s(a.title), at: time(a.dueAt) }; c.n++; count.set(s(r.studentId), c); }
+  for (const r of rtr) { const a = ra.find((x) => x.id === r.assignmentId); if (!a?.dueAt || !ix.liveRef("RESPOND", s(a.id), s(r.studentId)) || time(a.dueAt) >= now.getTime() || time(a.dueAt) < now.getTime() - 30 * 86_400_000) continue; const c = count.get(s(r.studentId)) ?? { n: 0, title: s(a.title), at: time(a.dueAt) }; c.n++; count.set(s(r.studentId), c); }
   for (const [id, c] of count) out.push({ kind: "NOT_STARTED", studentId: id, name: nameOf(id), className: classOf.get(id) ?? "", detail: c.n === 1 ? `Did not start “${c.title.replace(/\s*\((?:adaptive[^)]*|(?:Below|On|Above) Level|Approaching|Meeting|Exceeding)\)/g, "")}” by its due date.` : `${c.n} tasks not started by their due date.`, at: new Date(c.at).toISOString() });
   const order: Record<AlertKind, number> = { AT_RISK: 0, DROPPED: 1, NOT_STARTED: 2 };
   return out.sort((a, b) => order[a.kind] - order[b.kind] || a.name.localeCompare(b.name));
@@ -267,6 +296,14 @@ export interface GradeSummary { grade: number; classes: { classId: string; class
 
 /** Admin (every grade) or a grade coordinator (their grades): each class in numbers. */
 export async function gradeSummary(repo: Repo, actor: Actor, subject: Subject = "READING", now = new Date()): Promise<GradeSummary[]> {
+  return (await gradeSummaryWithRows(repo, actor, subject, now)).grades;
+}
+
+/**
+ * The grade summary AND each student's row (practice, work, status) it was counted from — the department summary
+ * reuses these numbers instead of reading every student's practice again (round 4, 512 MB server).
+ */
+export async function gradeSummaryWithRows(repo: Repo, actor: Actor, subject: Subject = "READING", now = new Date()): Promise<{ grades: GradeSummary[]; rows: Map<string, ProgressRow> }> {
   assertCan(actor, "reports:read");
   if (actor.role !== "SCHOOL_ADMIN" && actor.role !== "SUPER_ADMIN" && actor.role !== "TEACHER") throw new ForbiddenError();
   const grades = await coordinatorGrades(repo, actor);
@@ -295,18 +332,20 @@ export async function gradeSummary(repo: Repo, actor: Actor, subject: Subject = 
     for (const c of classes) {
       const ids = membersOf.get(s(c.id)) ?? [];
       const rows = ids.map((id) => byId.get(id)!).filter(Boolean).sort((a, b) => a.name.localeCompare(b.name));
-      const answers = rows.reduce((t, r) => t + r.practice.answers, 0), correct = rows.reduce((t, r) => t + r.practice.correct, 0);
+      // 📏 round 4: class accuracy = right careful answers ÷ careful answers (the practice-totals.ts rules each student's
+      // practiceStats already follows) — no longer right answers ÷ ALL answers (rapid guesses pulled it down)
+      const careful = rows.reduce((t, r) => t + (r.practice.careful ?? 0), 0), correct = rows.reduce((t, r) => t + r.practice.correct, 0);
       const levels: Record<Level | "NONE", number> = { BELOW: 0, ON: 0, ABOVE: 0, NONE: 0 };
       for (const r of rows) levels[r.level ?? "NONE"]++;
       list.push({
         classId: s(c.id), className: s(c.name), teacher: teacherOf.get(s(c.id)) || "—", students: rows.length, tested: rows.filter((r) => r.map).length,
         avgFall: avg(rows.filter((r) => r.map?.fall).map((r) => r.map!.fall!.rit)), avgTarget: avg(rows.filter((r) => r.map?.springTarget).map((r) => r.map!.springTarget!)),
         onTrack: rows.filter((r) => r.status === "ON_TRACK" || r.status === "MET").length, atRisk: rows.filter((r) => r.status === "AT_RISK" || r.status === "MISSED").length,
-        activeWeek: rows.filter((r) => r.practice.lastActive && time(r.practice.lastActive) >= week).length, accuracy: answers ? Math.round((correct / answers) * 100) : null,
+        activeWeek: rows.filter((r) => r.practice.lastActive && time(r.practice.lastActive) >= week).length, accuracy: careful ? Math.round((correct / careful) * 100) : null,
         done: rows.reduce((t, r) => t + r.work.done, 0), late: rows.reduce((t, r) => t + r.work.late, 0), levels,
       });
     }
     out.push({ grade: Number(g.level), classes: list });
   }
-  return out;
+  return { grades: out, rows: new Map(perGrade.flat().map((r) => [r.studentId, r])) };
 }

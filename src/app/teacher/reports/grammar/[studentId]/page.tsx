@@ -1,12 +1,15 @@
 import Link from "next/link";
 import { AppShell } from "@/components/app-shell";
 import { fmtNum, fmtPct, pctTone, WindowChips, windowText } from "@/components/reports/report-ui";
-import { AtAGlance, Callout, ReportHeader, ReportSection, ReportTable, SimpleBar, toneOfPct } from "@/components/report-kit";
+import { AtAGlance, Callout, ReportHeader, ReportIntro, ReportSection, ReportSummary, ReportTable, SimpleBar, toneOfPct } from "@/components/report-kit";
+import { grammarStudentSummary } from "@/lib/report-summaries";
 import { getT } from "@/i18n/server";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { ForbiddenError } from "@/server/auth/rbac";
 import { studentGrammarReport } from "@/server/reports/grammar-report";
 import { windowOf } from "@/server/reports/report-access";
+import { RichInline } from "@/components/rich-inline";
+import { SkillStar } from "@/components/skills/skill-star";
 
 export const metadata = { title: "Grammar results · student" };
 
@@ -28,10 +31,11 @@ export default async function StudentGrammarPage({ params, searchParams }: { par
         subtitle="Each grammar skill of this student, the errors they make and their latest answers."
         who={<><bdi className="font-semibold">{r.name}</bdi> · {t("Grade {n}", { n: r.grade })}</>} when={windowText(t, days)}
         filters={<WindowChips days={days} href={(d) => `/teacher/reports/grammar/${studentId}?days=${d}`} />} />
+      <ReportIntro text="This student's grammar skills, the mistakes they make and their latest answers." />
       <AtAGlance items={[
         { icon: "✍️", label: "Answers", value: r.summary.answers, meaning: t("{n} rapid guesses left out of accuracy", { n: r.summary.rapid }), tone: r.summary.rapid ? "warn" : "neutral" },
         { icon: "🎯", label: "Accuracy", value: fmtPct(r.summary.accuracy), meaning: "of careful answers were right", tone: toneOfPct(r.summary.accuracy) },
-        { icon: "📈", label: "Avg mastery", value: fmtNum(r.summary.avgMastery), meaning: "0–100: how well the skills are learned" },
+        { icon: "⭐", label: "Avg star score", value: fmtNum(r.summary.avgMastery), meaning: "0–100: the star score of the skills started" },
         { icon: "🔁", label: "Skills to reteach", value: r.summary.reteach, meaning: r.summary.reteach ? "skills this student needs help with" : "nothing to reteach right now", tone: r.summary.reteach ? "bad" : "good" },
       ]} />
       <div className="space-y-5">
@@ -44,16 +48,16 @@ export default async function StudentGrammarPage({ params, searchParams }: { par
             r.skills.find((k) => k.reteach) ? <>{t("Reteach")} <b>{r.skills.find((k) => k.reteach)!.name}</b>{r.errors[0]?.fix ? <> — {r.errors[0].fix}</> : null}</> : t("Keep practising: no skill needs reteaching now."),
           ]} />
         </div>
-        <ReportSection title="Skills" icon="🧩" hint="Weakest first. Reteach = 5+ careful answers and accuracy under 60% (or under 70% while mastery is still under 40).">
+        <ReportSection title="Skills" icon="🧩" hint="Weakest first. Reteach = 5+ careful answers and accuracy under 60% (or under 70% while the skill is 🔄 Needs review or needs support). A ⭐ skill is never flagged.">
           {r.skills.length ? (
             <>
               <SimpleBar items={r.skills.map((k) => ({ label: k.name, value: k.accuracy, note: t("{n} answers", { n: k.answers }) }))} className="mb-5" />
               <ReportTable label="Skills"
-                cols={[{ key: "s", label: "Skill" }, { key: "a", label: "Answers", num: true }, { key: "acc", label: "Accuracy", num: true }, { key: "r", label: "Rapid", num: true }, { key: "m", label: "Mastery", num: true }, { key: "re", label: "Reteach" }]}
+                cols={[{ key: "s", label: "Skill" }, { key: "a", label: "Answers", num: true }, { key: "acc", label: "Accuracy", num: true }, { key: "r", label: "Rapid", num: true, more: true }, { key: "m", label: "Star", num: true }, { key: "re", label: "Reteach" }]}
                 rows={r.skills.map((k) => ({
                   id: k.skillId, flag: k.reteach ? "bad" : undefined, sort: { acc: k.accuracy, r: k.rapid, m: k.mastery, re: k.reteach ? 1 : 0 },
                   cells: { s: k.name, a: k.answers, acc: <span className={`font-semibold ${pctTone(k.accuracy)}`}>{fmtPct(k.accuracy)}</span>, r: k.rapid || "—",
-                    m: <>{fmtNum(k.mastery)}{k.band ? <span className="ms-1 text-xs text-slate-500">{k.band.toLowerCase()}</span> : null}</>,
+                    m: <span className="inline-flex items-center gap-1.5"><SkillStar info={k} t={t} label={k.name} />{fmtNum(k.mastery)}</span>,
                     re: k.reteach ? <span className="rounded-full bg-red-100 px-2 py-0.5 text-xs font-bold text-red-800">! Reteach</span> : "—" },
                 }))} />
             </>
@@ -65,10 +69,11 @@ export default async function StudentGrammarPage({ params, searchParams }: { par
         <ReportSection title="Latest answers" icon="🕘">
           {r.recent.length ? (
             <ul className="divide-y divide-slate-100">{r.recent.map((a, i) => (
-              <li key={i} className="py-2 text-sm"><span className={a.correct ? "text-emerald-700" : "text-red-700"}>{a.correct ? "✓" : "✗"}</span> <span className="text-slate-500">{a.at} · {a.skill}</span>{a.rapid && <span className="ms-1 rounded bg-amber-100 px-1 text-xs text-amber-900">rapid</span>}<p className="text-slate-800">{a.stem}</p>{a.error && <p className="text-xs text-slate-500">{a.error}</p>}</li>
+              <li key={i} className="py-2 text-sm"><span className={a.correct ? "text-emerald-700" : "text-red-700"}>{a.correct ? "✓" : "✗"}</span> <span className="text-slate-500">{a.at} · {a.skill}</span>{a.rapid && <span className="ms-1 rounded bg-amber-100 px-1 text-xs text-amber-900">rapid</span>}<p className="text-slate-800"><RichInline text={a.stem} /></p>{a.error && <p className="text-xs text-slate-500">{a.error}</p>}</li>
             ))}</ul>
           ) : <p className="text-slate-600">No answers in this window.</p>}
         </ReportSection>
+        <ReportSummary summary={grammarStudentSummary(r, studentId, null)} />
         <p className="print:hidden"><Link href={`/teacher/students/${studentId}`} className="inline-flex min-h-10 items-center font-semibold text-brand-teal hover:underline">Open the student page →</Link></p>
       </div>
     </AppShell>

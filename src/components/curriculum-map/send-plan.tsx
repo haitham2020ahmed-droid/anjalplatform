@@ -2,7 +2,9 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { useT } from "@/i18n/client";
+import { useT, useLang } from "@/i18n/client";
+import { SourceSelect } from "@/components/assign/source-select";
+import type { AssignSource } from "@/lib/assign-source";
 import { BTN } from "@/components/ui-kit/tokens";
 import type { SendPreview, SendScopeKind, SendScopeResult } from "@/server/curriculum-map/send-scope";
 import { Combo } from "@/components/ui/combo";
@@ -14,7 +16,7 @@ const BTN_LIGHT = `${BTN} bg-white text-brand-navy ring-1 ring-slate-300 hover:b
 export interface SendClass { id: string; name: string; students: { id: string; name: string }[] }
 export interface SendUnit { code: string; n: number; lessons: { code: string; name: string }[] }
 export interface ScopeInput { grade: number; kind: SendScopeKind; codes?: string[] | null; classIds?: string[] }
-export interface ScopeSendInput extends ScopeInput { studentIds?: string[] | null; exclude?: string[] | null; resend?: boolean; dueAt?: string | null; startAt?: string | null }
+export interface ScopeSendInput extends ScopeInput { source?: string | null; studentIds?: string[] | null; exclude?: string[] | null; resend?: boolean; dueAt?: string | null; startAt?: string | null }
 type PreviewFn = (input: ScopeInput) => Promise<{ ok: true; preview: SendPreview } | { ok: false; message: string }>;
 type SendFn = (input: ScopeSendInput) => Promise<{ ok: boolean; message: string; result?: SendScopeResult }>;
 
@@ -40,6 +42,7 @@ const KINDS: { k: SendScopeKind; label: string }[] = [
  */
 export function SendPlanHost({ grade, units, classes, preview, send }: { grade: number; units: SendUnit[]; classes: SendClass[]; preview: PreviewFn; send: SendFn }) {
   const t = useT();
+  const lang = useLang();
   const router = useRouter();
   const [open, setOpen] = useState(false);
   const [step, setStep] = useState<1 | 2 | 3 | 4>(1);
@@ -47,11 +50,15 @@ export function SendPlanHost({ grade, units, classes, preview, send }: { grade: 
   const [selection, setSelection] = useState(units[0]?.lessons[0]?.code ?? "");
   const [unit, setUnit] = useState(units[0]?.code ?? "");
   const [several, setSeveral] = useState<string[]>([]);
-  const [classIds, setClassIds] = useState<string[]>(classes.length === 1 ? [classes[0].id] : []);
+  const [rawClassIds, setClassIds] = useState<string[]>(classes.length === 1 ? [classes[0].id] : []);
+  // only the classes shown for THIS grade count (a class ticked under another grade's tab is never sent)
+  const classIds = rawClassIds.filter((id) => classes.some((c) => c.id === id));
   const [someStudents, setSomeStudents] = useState(false);
   const [picked, setPicked] = useState<string[]>([]);
   const [startAt, setStartAt] = useState("");
   const [dueAt, setDueAt] = useState("");
+  // r74: the required Source (always empty when the window opens)
+  const [source, setSource] = useState<AssignSource | "">("");
   const [pv, setPv] = useState<SendPreview | null>(null);
   const [exclude, setExclude] = useState<string[]>([]);
   const [resend, setResend] = useState(false);
@@ -65,7 +72,7 @@ export function SendPlanHost({ grade, units, classes, preview, send }: { grade: 
       if (d.kind === "SELECTION" && d.codes?.[0]) setSelection(d.codes[0]);
       if (d.kind === "UNIT" && d.codes?.[0]) setUnit(d.codes[0]);
       if (d.kind) setKind(d.kind);
-      setStep(d.kind ? 2 : 1); setPv(null); setExclude([]); setResend(false); setError(null); setDone(null); setOpen(true);
+      setStep(d.kind ? 2 : 1); setPv(null); setExclude([]); setResend(false); setError(null); setDone(null); setSource(""); setOpen(true);
     };
     window.addEventListener(EVENT, on);
     return () => window.removeEventListener(EVENT, on);
@@ -82,9 +89,19 @@ export function SendPlanHost({ grade, units, classes, preview, send }: { grade: 
   const scopeOk = kind === "PLAN" || codes.filter(Boolean).length > 0;
   const oneClass = classIds.length === 1 ? classes.find((c) => c.id === classIds[0]) ?? null : null;
   const studentIds = oneClass && someStudents ? picked : null;
-  const whoOk = classIds.length > 0 && (!studentIds || studentIds.length > 0) && (!startAt || !dueAt || startAt <= dueAt);
+  const whoOk = classIds.length > 0 && (!studentIds || studentIds.length > 0) && (!startAt || !dueAt || startAt <= dueAt) && Boolean(source);
   const flip = (xs: string[], x: string) => (xs.includes(x) ? xs.filter((y) => y !== x) : [...xs, x]);
   const scope: ScopeInput = { grade, kind, codes, classIds };
+  // Oct 2026 ("عايز اشوف النسخه pdf الا هتروح للطالب بعد ما احدد قبل ما اعمل assign"): the exact student-facing PDF
+  // (same look as "⬇ Full curriculum map (PDF)"), narrowed to this Send window's own scope (step 1's unit/selection
+  // codes — PLAN sends none, meaning "the whole grade") and this Preview's unticked parts — opens in a new tab, read
+  // only, nothing is sent by opening it.
+  const previewPdfHref = () => {
+    const p = new URLSearchParams({ grade: String(grade), copy: "student", lang, scope: "1" });
+    if (kind !== "PLAN") p.set("codes", codes.filter(Boolean).join(","));
+    if (exclude.length) p.set("exclude", exclude.join(","));
+    return `/api/curriculum-map-pdf?${p.toString()}`;
+  };
 
   const toPreview = async () => {
     setBusy(true); setError(null);
@@ -95,7 +112,7 @@ export function SendPlanHost({ grade, units, classes, preview, send }: { grade: 
   const doSend = async () => {
     setBusy(true); setError(null);
     try {
-      const r = await send({ ...scope, studentIds, exclude, resend, dueAt: dueAt || null, startAt: startAt || null });
+      const r = await send({ ...scope, studentIds, exclude, resend, dueAt: dueAt || null, startAt: startAt || null, source: source || null });
       if (r.ok) { setDone(r); setStep(4); router.refresh(); } else setError(r.message);
     } catch { setError(t("Something went wrong. Please try again.")); }
     finally { setBusy(false); }
@@ -186,13 +203,19 @@ export function SendPlanHost({ grade, units, classes, preview, send }: { grade: 
                 <label className="block"><span className="text-sm font-semibold text-slate-700">{t("Start date")}</span><input type="date" value={startAt} onChange={(e) => setStartAt(e.target.value)} className={input} /></label>
                 <label className="block"><span className="text-sm font-semibold text-slate-700">{t("Due date")}</span><input type="date" value={dueAt} min={startAt || undefined} onChange={(e) => setDueAt(e.target.value)} className={input} /></label>
               </div>
+              <SourceSelect t={t} value={source} onChange={setSource} field={input} />
             </div>
           ))}
 
           {step === 3 && pv && (
             <div>
-              <p className="font-semibold text-brand-navy" data-content lang="en">{pv.title}</p>
-              <p className="mt-0.5 text-sm text-slate-600">{t("{n} selections · {m} parts · {q} questions · {w} writing tasks", { n: pv.totals.selections, m: pv.totals.sections, q: pv.totals.questions, w: pv.totals.writing })}</p>
+              <div className="flex flex-wrap items-start justify-between gap-2">
+                <div>
+                  <p className="font-semibold text-brand-navy" data-content lang="en">{pv.title}</p>
+                  <p className="mt-0.5 text-sm text-slate-600">{t("{n} selections · {m} parts · {q} questions · {w} writing tasks", { n: pv.totals.selections, m: pv.totals.sections, q: pv.totals.questions, w: pv.totals.writing })}</p>
+                </div>
+                <Link href={previewPdfHref()} target="_blank" prefetch={false} className={`${BTN_LIGHT} shrink-0`}>👁 {t("Preview the student PDF")}</Link>
+              </div>
               <ol className="mt-3 space-y-3">
                 {pv.selections.map((sel) => (
                   <li key={sel.code} className="rounded-2xl bg-slate-50 p-3 ring-1 ring-slate-200">

@@ -49,9 +49,10 @@ describe("🧠 Update 32: misconceptions, repeats, review, decay (pure rules)", 
     assert.equal(isRecentRepeat([{ itemId: "q1", at: at(0) }, ...spaced], "q1", at(5)), false, "12 answers and 5 days later: retention, counts in full");
     assert.equal(isRecentRepeat([{ itemId: "q1", at: at(0) }], "q1", at(1)), true);
     const ev = { itemId: "q", correct: true, level: 4, a: 1, b: 0, c: 0, responseMs: 30_000, estimatedSeconds: 45, usedHint: false, at: at(0) };
-    assert.equal(evidenceWeight({ ...ev, repeat: true }, DEFAULT_ADAPTIVE), 0.5);
-    assert.equal(evidenceWeight({ ...ev, usedHint: true }, DEFAULT_ADAPTIVE), 0.5);
-    assert.equal(evidenceWeight(ev, DEFAULT_ADAPTIVE), 1);
+    const now0 = new Date(at(0)); // fixed "now" matching ev.at: this test is about repeat/hint weighting, not recency decay (evidence.ts#evidenceWeight)
+    assert.equal(evidenceWeight({ ...ev, repeat: true }, DEFAULT_ADAPTIVE, now0), 0.5);
+    assert.equal(evidenceWeight({ ...ev, usedHint: true }, DEFAULT_ADAPTIVE, now0), 0.5);
+    assert.equal(evidenceWeight(ev, DEFAULT_ADAPTIVE, now0), 1);
   });
 
   test("spaced review: 2 weeks after mastery, then 6, then 12; a wrong review keeps it due; losing mastery clears it", () => {

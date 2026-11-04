@@ -11,10 +11,15 @@ import { studentNames } from "@/server/insights/student-data";
 import { worksheetView, MAX_WORKSHEET, type SheetView } from "@/server/teacher/worksheet";
 import { ESTIMATE_NOTE, MANUAL_RANGE, AUTO_RANGE, SUBJECT_NAME, groupsOf, studentItems, testDetail, testPool, testReport, type TestDetail } from "@/server/map/map-test";
 import type { GroupKey, Subject } from "@/server/map/map-plan";
-import { excludeAction, itemOpAction, updateMapTestAction } from "./test-actions";
+import { excludeAction, itemOpAction, mapTimeAction, updateMapTestAction } from "./test-actions";
+import { LiveTimePanel } from "@/components/live-time-panel";
+import { PendingButton } from "@/components/pending-button";
 import { draftsAction, recalibrateAction } from "../map-test/actions";
 import { mapTestHref } from "./href";
 import { STATUS_CHIP, STATUS_LABEL } from "./test-tab";
+import { RichInline } from "@/components/rich-inline";
+import { stripMarks } from "@/lib/inline-marks";
+import { withPrint } from "@/lib/print-href";
 
 type SP = Record<string, string | string[] | undefined>;
 const one = (v: string | string[] | undefined) => (Array.isArray(v) ? v[0] : v) ?? "";
@@ -45,7 +50,7 @@ export async function MapTestPage({ actor, t, id, sp }: { actor: Actor; t: TFn; 
     <>
       <ReportHeader back={{ href: `/teacher/map-center?${new URLSearchParams({ tab: "test", subject })}`, label: "MAP Test" }} icon="🧭" title={d.v.title}
         subtitle={`${t(d.v.kind === "AUTO" ? "Automatic MAP test (simulates MAP Growth)" : "Manual test")} · ${t(SUBJECT_NAME[subject])}`}
-        downloads={[{ href: dl("xlsx"), label: "Excel", icon: "📊" }, { href: dl("pdf"), label: "PDF", icon: "📄" }]}
+        downloads={[{ href: dl("xlsx"), label: "Excel", icon: "📊" }, { href: withPrint(dl("pdf")), label: "PDF", icon: "📄" }]}
         filters={d.v.subjects.length > 1 ? <div className="flex gap-2">{d.v.subjects.map((x) => <Link key={x} href={href({ subject: x })} className={`inline-flex min-h-10 items-center rounded-full px-4 text-sm font-semibold ${x === subject ? "bg-brand-navy text-white" : "bg-white ring-1 ring-slate-200"}`}>{t(SUBJECT_NAME[x])}</Link>)}</div> : undefined}>
         {d.v.kind === "MANUAL" && <Link href={`${mapTestHref(id)}/preview`} className={BTN_SOFT}>👁 {t("Preview as students see it")}</Link>}
         {d.v.kind === "MANUAL" && <Link href={href({ view: "print" })} className={BTN_SOFT}>🖨 {t("Print with answer key")}</Link>}
@@ -94,7 +99,7 @@ export async function MapTestPage({ actor, t, id, sp }: { actor: Actor; t: TFn; 
       {picked && (
         <ReportSection id="student-items" title="Items this student got" icon="🔎" hint={picked.name}>
           <ol className="grid gap-1 text-sm">{picked.items.map((it) => (
-            <li key={it.n} className="flex flex-wrap gap-2 border-b py-1 last:border-0"><span className="w-8 tabular-nums text-slate-500">{it.n}.</span><span className={it.correct ? "text-emerald-700" : "text-red-700"}>{it.correct ? "✓" : "✗"}</span><span className="text-xs text-slate-600">{t(it.areaName)} · RIT {it.rit} · {it.seconds}s{it.rapid ? ` · ⚡ ${t("rapid")}` : ""}</span><span className="min-w-0 flex-1">{it.stem}</span></li>
+            <li key={it.n} className="flex flex-wrap gap-2 border-b py-1 last:border-0"><span className="w-8 tabular-nums text-slate-500">{it.n}.</span><span className={it.correct ? "text-emerald-700" : "text-red-700"}>{it.correct ? "✓" : "✗"}</span><span className="text-xs text-slate-600">{t(it.areaName)} · RIT {it.rit} · {it.seconds}s{it.rapid ? ` · ⚡ ${t("rapid")}` : ""}</span><span className="min-w-0 flex-1"><RichInline text={it.stem} /></span></li>
           ))}</ol>
         </ReportSection>
       )}
@@ -129,7 +134,7 @@ export async function MapTestPage({ actor, t, id, sp }: { actor: Actor; t: TFn; 
         {!r.items.length ? <p className="text-sm text-slate-600">{t("No answers yet.")}</p> : (
           <div className="overflow-x-auto"><table className="min-w-full text-start text-sm">
             <thead><tr className="border-b text-xs text-slate-500"><th className="py-2 pe-2 text-start">#</th><th className="px-2 text-start">{t("Goal area")}</th><th className="px-2 text-start">RIT</th><th className="px-2 text-start">{t("Answers")}</th><th className="px-2 text-start">{t("Correct")}</th><th className="px-2 text-start">{t("Most chosen wrong answer")}</th><th className="px-2 text-start">{t("Question")}</th></tr></thead>
-            <tbody>{r.items.slice(0, 120).map((x) => <tr key={x.questionId} className="border-b align-top last:border-0"><td className="py-1.5 pe-2 tabular-nums">{x.n}</td><td className="px-2">{t(x.areaName)}</td><td className="px-2 tabular-nums">{x.rit}</td><td className="px-2 tabular-nums">{x.answered}</td><td className={`px-2 tabular-nums ${x.pct !== null && x.pct < 40 ? "font-semibold text-red-700" : ""}`}>{x.pct === null ? "—" : `${x.pct}%`}</td><td className="px-2">{x.topWrong ? `${x.topWrong} (${x.topWrongCount})` : "—"}</td><td className="px-2 text-slate-700">{x.stem}</td></tr>)}</tbody>
+            <tbody>{r.items.slice(0, 120).map((x) => <tr key={x.questionId} className="border-b align-top last:border-0"><td className="py-1.5 pe-2 tabular-nums">{x.n}</td><td className="px-2">{t(x.areaName)}</td><td className="px-2 tabular-nums">{x.rit}</td><td className="px-2 tabular-nums">{x.answered}</td><td className={`px-2 tabular-nums ${x.pct !== null && x.pct < 40 ? "font-semibold text-red-700" : ""}`}>{x.pct === null ? "—" : `${x.pct}%`}</td><td className="px-2">{x.topWrong ? `${x.topWrong} (${x.topWrongCount})` : "—"}</td><td className="px-2 text-slate-700"><RichInline text={x.stem} /></td></tr>)}</tbody>
           </table></div>
         )}
       </ReportSection>
@@ -204,9 +209,10 @@ async function Details({ t, d }: { t: TFn; d: TestDetail }) {
           </div>
         </details>
       )}
+      {d.canEdit && !d.v.draft && d.status !== "closed" && <LiveTimePanel t={t} action={mapTimeAction} hidden={{ id: d.v.id }} minutes={d.v.minutes} endsAt={d.v.closesAt} extra={d.extra} roster={roster.flatMap((c) => c.students)} untimedAllowed />}
       {d.v.draft && d.canEdit && (
         <form action={updateMapTestAction} className="mt-3 print:hidden"><input type="hidden" name="id" value={d.v.id} /><input type="hidden" name="part" value="publish" />
-          <button className={BTN_MAIN}>✅ {t("Assign online (graded automatically)")}</button>
+          <PendingButton className={BTN_MAIN} icon="✅" label="Assign online (graded automatically)" pendingLabel="Assigning…" />
           <span className="ms-2 text-xs text-slate-500">{t("Students see it in My Work and in My MAP from the open date.")}</span>
         </form>
       )}
@@ -228,7 +234,7 @@ function ManualItems({ t, d, editable, pool, area }: { t: TFn; d: TestDetail; ed
       <ol className="grid gap-2">{d.items.map((x, i) => (
         <li key={x.id} className="flex flex-wrap items-start gap-2 rounded-xl bg-slate-50 px-3 py-2 text-sm">
           <span className="w-7 tabular-nums font-semibold text-slate-500">{x.n}.</span>
-          <span className="min-w-0 flex-1"><span className="text-xs text-slate-500">{t(x.name)} · RIT {x.rit}</span><span className="block">{x.stem.slice(0, 220)}</span></span>
+          <span className="min-w-0 flex-1"><span className="text-xs text-slate-500">{t(x.name)} · RIT {x.rit}</span><span className="block">{stripMarks(x.stem).slice(0, 220)}</span></span>
           {editable && <span className="flex gap-1 print:hidden">{op("up", "Up", x.id, i === 0)}{op("down", "Down", x.id, i === d.items.length - 1)}{op("replace", "Replace", x.id)}{op("remove", "Remove", x.id)}</span>}
         </li>
       ))}</ol>
@@ -241,7 +247,7 @@ function ManualItems({ t, d, editable, pool, area }: { t: TFn; d: TestDetail; ed
           {shown && (
             <ul className="max-h-[28rem] overflow-y-auto rounded-xl ring-1 ring-slate-200">{shown.items.map((q) => (
               <li key={q.id} className="flex items-start gap-2 border-b px-3 py-2 text-sm last:border-0">
-                <span className="w-16 shrink-0 text-xs tabular-nums text-slate-500">RIT {q.rit}</span><span className="min-w-0 flex-1">{q.stem}</span>
+                <span className="w-16 shrink-0 text-xs tabular-nums text-slate-500">RIT {q.rit}</span><span className="min-w-0 flex-1"><RichInline text={q.stem} /></span>
                 {q.inTest ? <span className="text-xs text-emerald-700">✓ {t("in the test")}</span> : <form action={itemOpAction}><input type="hidden" name="id" value={d.v.id} /><input type="hidden" name="op" value="add" /><input type="hidden" name="area" value={shown.key} /><input type="hidden" name="questionId" value={q.id} /><button className={small}>＋ {t("Add")}</button></form>}
               </li>
             ))}</ul>
@@ -279,7 +285,7 @@ function AutoPool({ t, d, editable, pool, area }: { t: TFn; d: TestDetail; edita
           <ul className="max-h-[28rem] overflow-y-auto rounded-xl ring-1 ring-slate-200">{shown.items.map((q) => (
             <li key={q.id} className="flex items-start gap-2 border-b px-3 py-2 text-sm last:border-0">
               <label className="inline-flex shrink-0 items-center gap-1 text-xs"><input type="checkbox" name="exclude" value={q.id} defaultChecked={q.excluded} disabled={!editable} /> {t("Take out")}</label>
-              <span className="w-16 shrink-0 text-xs tabular-nums text-slate-500">RIT {q.rit}</span><span className={`min-w-0 flex-1 ${q.excluded ? "text-slate-400 line-through" : ""}`}>{q.stem}</span>
+              <span className="w-16 shrink-0 text-xs tabular-nums text-slate-500">RIT {q.rit}</span><span className={`min-w-0 flex-1 ${q.excluded ? "text-slate-400 line-through" : ""}`}><RichInline text={q.stem} /></span>
             </li>
           ))}</ul>
           {shown.total > shown.items.length && <p className="mt-1 text-xs text-slate-500">{t("Showing the first {n} (easiest first).", { n: shown.items.length })}</p>}
@@ -311,8 +317,8 @@ async function PrintView({ actor, t, d }: { actor: Actor; t: TFn; d: TestDetail 
             {b.passage && <div className="mb-3 rounded-xl border border-slate-300 p-4"><h2 className="text-lg font-bold">{b.passage.title || "Read the text."}</h2><PassageText text={b.passage.text} paraClassName="mt-2 whitespace-pre-line leading-relaxed" headingClassName="mt-3 font-bold" /></div>}
             <ol className="space-y-4">{b.questions.map((q) => (
               <li key={q.id} className="break-inside-avoid">
-                <p className="font-semibold">{q.n + o}. {q.stem.replace(/_{3,}/g, "__________")}</p>
-                {q.options.length > 0 && <ul className="mt-1 grid gap-1 ps-5 sm:grid-cols-2">{q.options.map((op) => <li key={op.label}>{op.label}. {op.text}</li>)}</ul>}
+                <p className="font-semibold">{q.n + o}. <RichInline text={q.stem.replace(/_{3,}/g, "__________")} /></p>
+                {q.options.length > 0 && <ul className="mt-1 grid gap-1 ps-5 sm:grid-cols-2">{q.options.map((op) => <li key={op.label}>{op.label}. <RichInline text={op.text} /></li>)}</ul>}
                 {q.type === "TRUE_FALSE" && <p className="mt-1 ps-5">True ☐ False ☐</p>}
                 {q.elements.length > 0 && <ul className="mt-1 ps-5">{q.elements.map((e, k) => <li key={k}>___ {e}</li>)}</ul>}
                 {q.segments.length > 0 && <p className="mt-1 ps-5">{q.segments.map((sg, k) => <span key={k} className="me-1 border-b border-dotted border-slate-500">{sg}</span>)}</p>}

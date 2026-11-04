@@ -62,6 +62,7 @@ export const ADAPTIVE_LIMITS: Record<keyof AdaptiveConfig, { min: number; max: n
   repeatWeight: { min: 0, max: 1, label: "Weight of a repeated question (already answered before)" },
   noRepeatWindow: { min: 0, max: 50, int: true, label: "Questions before one may repeat" },
   topK: { min: 1, max: 10, int: true, label: "Random choice among the best questions" },
+  thetaHalfLifeDays: { min: 0, max: 180, int: true, label: "Ability recency half-life (days; 0 = no decay)" },
 };
 
 export interface EngineSettings {

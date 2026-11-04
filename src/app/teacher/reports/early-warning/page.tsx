@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { AppShell } from "@/components/app-shell";
-import { AtAGlance, ReportHeader, ReportSection, SimpleBar, Sparkline, EmptyState, type Glance } from "@/components/report-kit";
+import { AtAGlance, ReportHeader, ReportIntro, ReportSection, ReportSummary, SimpleBar, Sparkline, EmptyState, type Glance } from "@/components/report-kit";
+import { earlyWarningSummary } from "@/lib/report-summaries";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { getT } from "@/i18n/server";
 import { reportHref } from "@/reports/links";
@@ -9,8 +10,14 @@ import { PATTERN_ARROW, PATTERN_NAME, SEVERITY_ICON, SEVERITY_NAME, type Severit
 import { handleEarlyWarningAction } from "./actions";
 import { Combo } from "@/components/ui/combo";
 import { InsightActions } from "@/components/teacher/insight-actions";
+import { InfoTip } from "@/components/report-kit/info-tip";
+import { recordEarlyWarningView } from "@/server/insights/teacher-followup";
 
 export const metadata = { title: "Early warning" };
+
+/** Clarifies this screen's own basis (trend direction over time, not a single accuracy %), since "Student Skills"
+ * and "Support plan" use different measures for "needs support" / "weak" — r94 audit. */
+const EARLY_WARNING_RULE = "This page flags a direction of travel (a drop, a swing, no progress) across two or more results over time — not a single accuracy percentage. \"Needs support\" on Student Skills or Support plan can use a different measure.";
 
 type SP = { classId?: string; gradeId?: string; teacherId?: string; severity?: string; msg?: string };
 const QUICK = ["Talked with the student", "Called / messaged the parent", "Reteaching in a small group", "Sent easier practice", "Made a support plan"];
@@ -30,6 +37,7 @@ export default async function EarlyWarningPage({ searchParams }: { searchParams:
   const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"], permission: "reports:read" });
   const me = (await getActor())!.user;
   const { t } = await getT();
+  await recordEarlyWarningView(repo, actor);
   const sp = await searchParams;
   const severity = sp.severity === "URGENT" || sp.severity === "WATCH" || sp.severity === "GOOD" ? sp.severity : null;
   const v = await earlyWarning(repo, actor, { classId: sp.classId || null, gradeId: sp.gradeId || null, teacherId: sp.teacherId || null, severity });
@@ -47,6 +55,9 @@ export default async function EarlyWarningPage({ searchParams }: { searchParams:
     { label: "Good news", value: v.counts.GOOD, icon: SEVERITY_ICON.GOOD, tone: "good", meaning: t("A big rise or back on track"), href: link({ severity: "GOOD" }) },
   ];
   if (v.isAdmin) glance.push({ label: "Urgent not handled 7+ days", value: v.unhandled.length, icon: "⏳", tone: v.unhandled.length ? "bad" : "good", meaning: t("Nobody marked them handled for a week") });
+  // nothing at all to show (no rows, no drops, no group moves, no admin unhandled list): a plain explanation
+  // beats a grid of zero tiles — this is the normal state for a class with no trend data yet, not a crash.
+  const nothingFlagged = v.classes.length > 0 && !v.rows.length && !v.dropping.length && !v.moves.length && (!v.isAdmin || !v.unhandled.length);
 
   return (
     <AppShell name={String(me.displayName)}>
@@ -55,6 +66,8 @@ export default async function EarlyWarningPage({ searchParams }: { searchParams:
         subtitle="Level movements of every student — drops, rises, up-down swings — and the serious problems that need action now."
         downloads={v.classId || school ? [{ href: files("xlsx"), label: "Excel" }, { href: files("pdf"), label: "PDF file" }] : []} />
       {sp.msg && <p role="status" className="mb-4 rounded-xl bg-teal-50 px-4 py-3 text-teal-900 ring-1 ring-teal-200 print:hidden">{sp.msg}</p>}
+      <ReportIntro text="Students whose results dropped, rose or swung, with the ones who need action now first." />
+      <p className="mb-4 flex items-center gap-1 text-sm text-slate-600 print:hidden">{t("How this is different from other reports")} <InfoTip text={EARLY_WARNING_RULE} /></p>
 
       {v.isAdmin ? (
         <form method="get" className="mb-4 flex flex-wrap items-end gap-2 print:hidden">
@@ -67,6 +80,10 @@ export default async function EarlyWarningPage({ searchParams }: { searchParams:
       ) : null /* a teacher switches the class in the report bar on top */}
 
       {!v.classes.length ? <EmptyState icon="🏫" title="You do not teach any class yet." /> : (
+        <>
+        {nothingFlagged ? (
+          <EmptyState icon="✅" title="No students currently flagged" text="Nothing to show yet. A pattern needs at least two results over time (MAP, checks, tests or practice) for a measure — it will fill in as the class takes tests and practises on the platform." />
+        ) : (
         <>
           <AtAGlance items={glance} />
           <div className="grid gap-5 lg:grid-cols-2">
@@ -112,7 +129,10 @@ export default async function EarlyWarningPage({ searchParams }: { searchParams:
               <ul className="space-y-3">{v.rows.map((r) => <StudentRow key={r.studentId} r={r} t={t} school={school} keep={base} />)}</ul>
             )}
           </ReportSection>
+        </>
+        )}
           <p className="text-xs text-slate-500">{t("Updated {date}. The school is checked every 3 hours.", { date: v.scannedAt.slice(0, 16).replace("T", " ") })}</p>
+          <ReportSummary summary={earlyWarningSummary(v)} />
         </>
       )}
       <datalist id="ew-quick">{QUICK.map((q) => <option key={q} value={t(q)} />)}</datalist>

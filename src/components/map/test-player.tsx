@@ -1,11 +1,17 @@
 "use client";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { AnswerInput, isAnswerReady, type AnswerValue } from "@/components/practice/answer-input";
 import { PassageText } from "@/components/passage-text";
 import { useT } from "@/i18n/client";
 import type { TestScreen } from "@/server/map/sim";
-import { answerTestAction } from "@/app/student/map-test/actions";
+import { answerTestAction, mapTestTimeAction } from "@/app/student/map-test/actions";
+import { RichInline } from "@/components/rich-inline";
+
+/** How often the timer asks whether the teacher changed the time (ms). */
+const POLL_MS = 20_000;
+/** A countdown shows when the test is timed, or when its end is this close. */
+const SHOW_WITHIN_MS = 3 * 3_600_000;
 
 /**
  * The MAP Test screen (automatic and manual tests): one question at a time, no going back, no right / wrong, no
@@ -19,6 +25,45 @@ export function TestPlayer({ initial }: { initial: TestScreen }) {
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const q = sc.question;
+  // ⏱ r69 live time: the timer follows the teacher's changes (a light poll — "same" costs the server nothing); at 0
+  // the test is finished with the answers given
+  const [left, setLeft] = useState<number | null>(null);
+  const [changed, setChanged] = useState(false);
+  const scRef = useRef(sc);
+  useEffect(() => { scRef.current = sc; }, [sc]);
+  const endsAt = sc.endsAt ?? null;
+  useEffect(() => {
+    if (!endsAt || sc.done) { setLeft(null); return; }
+    let fired = false;
+    const tick = () => {
+      const ms = Math.max(0, new Date(endsAt).getTime() - Date.now());
+      setLeft(ms);
+      if (ms === 0 && !fired) {
+        fired = true;
+        void mapTestTimeAction({ sessionId: sc.sessionId, windowId: sc.windowId, stamp: sc.stamp, up: true }).then((r) => { if (r && "screen" in r) setSc(r.screen); }).catch(() => { fired = false; });
+      }
+    };
+    tick();
+    const id = setInterval(tick, 1000);
+    return () => clearInterval(id);
+  }, [endsAt, sc.done, sc.sessionId, sc.windowId, sc.stamp]);
+  useEffect(() => {
+    if (!sc.windowId || sc.done) return;
+    const id = setInterval(async () => {
+      if (document.visibilityState === "hidden") return;
+      const cur = scRef.current;
+      try {
+        const r = await mapTestTimeAction({ sessionId: cur.sessionId, windowId: cur.windowId, stamp: cur.stamp });
+        if (!r || !("screen" in r)) return;
+        if (r.screen.endsAt !== cur.endsAt) setChanged(true);
+        // keep the question on screen (and the student's answer): only the time and the end move
+        setSc((was) => (r.screen.done ? r.screen : { ...was, endsAt: r.screen.endsAt, stamp: r.screen.stamp, timed: r.screen.timed }));
+      } catch { /* a weak connection: the next poll tries again */ }
+    }, POLL_MS);
+    return () => clearInterval(id);
+  }, [sc.windowId, sc.done]);
+  const showTimer = left !== null && (sc.timed || left <= SHOW_WITHIN_MS);
+  const clock = left === null ? "" : `${Math.floor(left / 3_600_000) ? `${Math.floor(left / 3_600_000)}:` : ""}${String(Math.floor((left % 3_600_000) / 60_000)).padStart(Math.floor(left / 3_600_000) ? 2 : 1, "0")}:${String(Math.floor((left % 60_000) / 1000)).padStart(2, "0")}`;
   const send = async () => {
     if (!q) return;
     setBusy(true); setError(null);
@@ -64,15 +109,17 @@ export function TestPlayer({ initial }: { initial: TestScreen }) {
         </div>
         <div className="flex items-center gap-3">
           <div className="h-2.5 w-48 overflow-hidden rounded-full bg-slate-200" role="progressbar" aria-valuemin={0} aria-valuemax={sc.total} aria-valuenow={sc.n - 1} aria-label={t("Progress")}><div className="h-full bg-brand-teal transition-all" style={{ width: `${Math.round((100 * (sc.n - 1)) / sc.total)}%` }} /></div>
+          {showTimer && <span className={`rounded-full px-3 py-1 font-bold tabular-nums ${left! < 5 * 60_000 ? "bg-rose-100 text-rose-800" : "bg-slate-100 text-slate-800"}`} aria-live="polite" dir="ltr">⏱ {clock}</span>}
           <Link href="/student/map-test" className="rounded-lg px-3 py-1.5 text-sm font-semibold text-slate-600 ring-1 ring-slate-300">⏸ {t("Pause")}</Link>
         </div>
       </header>
+      {changed && <p role="status" className="mt-4 rounded-2xl bg-sky-50 px-5 py-2 text-sm font-semibold text-sky-900 ring-1 ring-sky-200">⏱ {t("Your teacher changed the time.")}</p>}
       {sc.warning && <p role="alert" className="mt-4 rounded-2xl bg-amber-100 px-5 py-3 text-lg font-semibold text-amber-900 ring-1 ring-amber-300">{t(sc.warning)}</p>}
       {q && (
         <div className={["mt-6 grid gap-8", q.passage ? "lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]" : ""].join(" ")}>
           {q.passage && (
             <article className="max-h-[70vh] overflow-y-auto rounded-2xl bg-white p-6 ring-1 ring-slate-200 lg:sticky lg:top-4" aria-label={t("Reading passage")}>
-              <h2 className="text-xl font-bold text-brand-navy">{q.passage.title}</h2>
+              <h2 className="text-xl font-bold text-brand-navy"><RichInline text={q.passage.title} /></h2>
               <PassageText text={q.passage.text} />
             </article>
           )}
@@ -81,11 +128,11 @@ export function TestPlayer({ initial }: { initial: TestScreen }) {
               // eslint-disable-next-line @next/next/no-img-element
               <img src={q.image.url} alt={q.image.alt} className="mb-4 max-h-[50vh] w-auto max-w-full rounded-xl bg-white ring-1 ring-slate-200" />
             )}
-            {q.type !== "DROPDOWN" && q.type !== "FILL_BLANK" && <p className="text-xl font-medium leading-relaxed text-slate-900">{q.stem}</p>}
+            {q.type !== "DROPDOWN" && q.type !== "FILL_BLANK" && <p className="text-xl font-medium leading-relaxed text-slate-900"><RichInline text={q.stem} /></p>}
             <div className="mt-5"><AnswerInput key={q.questionId} q={q} value={value} onChange={setValue} disabled={busy} /></div>
             {error && <p role="alert" className="mt-4 rounded-lg bg-red-50 px-3 py-2 text-red-700">{error}</p>}
             <button type="button" onClick={() => void send()} disabled={busy || !isAnswerReady(q, value)} className="mt-6 rounded-xl bg-brand-navy px-8 py-3 text-lg font-semibold text-white disabled:opacity-50">{busy ? t("Saving…") : sc.n === sc.total ? `${t("Finish")} ✓` : `${t("Next")} ▶`}</button>
-            <p className="mt-3 text-sm text-slate-500">{t("You cannot go back to a question. Take your time: there is no time limit.")}</p>
+            <p className="mt-3 text-sm text-slate-500">{t(sc.timed ? "You cannot go back to a question. Watch the timer: when it reaches 0, the test ends with your answers so far." : "You cannot go back to a question. Take your time: there is no time limit.")}</p>
           </div>
         </div>
       )}

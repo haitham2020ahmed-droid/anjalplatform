@@ -88,9 +88,9 @@
      "stem": "What does the lamp stand for?",
      "options": [
       "Grandpa and the family's memories of him",
-      "a power cut",
-      "a new house",
-      "a long night"
+      "a power cut that lasted all night",
+      "a new house for the family to buy",
+      "a long night without any sleep at all"
      ],
      "answer": 0,
      "why": "The lamp reminds them of Grandpa, and they tell his stories near it."
@@ -111,10 +111,10 @@
      "passage": "Layla's door was always open. Friends came in to talk, and new students sat with her at lunch.",
      "stem": "What does the open door stand for?",
      "options": [
-      "a broken lock",
-      "a cold room",
+      "a broken lock that nobody could fix",
+      "a cold room with no heater",
       "Layla being welcoming and friendly",
-      "a windy day"
+      "a windy day outside the house"
      ],
      "answer": 2,
      "why": "Friends come in and new students sit with her. The open door shows she welcomes everyone."
@@ -170,10 +170,10 @@
     "passage": "When Dalal's family moved to the city, she brought a small pot of mint from her grandmother's garden in the village. At first the plant drooped in the new flat, and Dalal felt just as tired and homesick. She moved it to a sunny window and watered it every morning. Slowly, new leaves appeared. By the end of the school year, the mint was strong and green, and Dalal had made two good friends at her new school.",
     "stem": "What does the mint plant most likely stand for?",
     "options": [
-     "Dalal's love of cooking",
-     "the city's parks",
+     "Dalal's love of cooking for her family",
+     "the city's parks and green gardens",
      "Dalal settling into her new life",
-     "her grandmother's cooking"
+     "her grandmother's cooking at home"
     ],
     "answer": 2,
     "hint": "The text never talks about cooking or parks. Look at what happens to the plant AND to Dalal at the same time.",
@@ -200,10 +200,10 @@
      "passage": "The bird had lived in a cage all its life. When Talal opened the door, it waited, then flew high over the trees. Talal smiled; he had just finished his last exam, and the long summer stretched ahead.",
      "stem": "What does the bird flying away most likely stand for?",
      "options": [
-      "Talal's pet running away",
+      "Talal's pet running away home",
       "freedom and new possibilities",
-      "the end of the trees",
-      "a coming storm"
+      "the end of the tall trees",
+      "a coming storm and rain"
      ],
      "answer": 1,
      "why": "Talal has just finished his exams and has a free summer ahead. Like the bird, he feels free."
@@ -224,9 +224,9 @@
      "passage": "Mariam's old school bag was patched in three places. Her mother offered to buy a new one, but Mariam said no. It had been with her since her first day of school, through every test and every success.",
      "stem": "What does the bag stand for to Mariam?",
      "options": [
-      "being poor",
+      "being poor and hungry",
       "her wish for a new bag",
-      "her mother's sewing",
+      "her mother's sewing machine",
       "her journey through school"
      ],
      "answer": 3,
@@ -336,10 +336,10 @@
      "passage": "After the fire, only the stone fireplace remained standing in the middle of the ruined farmhouse. The family gathered beside it and began to plan how they would rebuild.",
      "stem": "What does the fireplace most likely symbolise?",
      "options": [
-      "the danger of fire",
-      "the family's loss of everything",
+      "the danger of fire inside the house at night",
+      "the family's loss of everything they once owned",
       "the family's strength and a place to start again",
-      "the cold winter ahead"
+      "the cold winter that is coming for them"
      ],
      "answer": 2,
      "why": "The fireplace survived, and the family gathers there to plan rebuilding. It stands for strength and a new start."
@@ -397,8 +397,8 @@
     "options": [
      "It is valuable wood that the family plans to sell.",
      "It stands for the family's lasting roots across generations.",
-     "It shows that the land is too dry for farming.",
-     "It represents the developer's plan for the new road."
+     "It shows that the land is much too dry for farming.",
+     "It represents the developer's plan for the new road and houses."
     ],
     "answer": 1,
     "hint": "The family refuses to sell, and the text never says the land is too dry. What does the tree share with the family over many years?",
@@ -453,9 +453,9 @@
      "stem": "What theme does the mended net best support?",
      "options": [
       "Steady persistence through endless problems.",
-      "Fishing is a difficult job.",
-      "Nets are expensive to replace.",
-      "The sea is dangerous at night."
+      "Fishing is a difficult job for most people.",
+      "Nets are expensive to replace in the shops.",
+      "The sea is dangerous at night for small boats."
      ],
      "answer": 0,
      "why": "“The holes keep returning, but so does he” shows a man who never gives up, however often the problem returns."

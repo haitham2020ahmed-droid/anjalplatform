@@ -35,7 +35,7 @@ describe("manual levels on assign", () => {
   test("ticked students get the set at their chosen level; the others do not get it", async () => {
     const chosen = [{ studentId: roster[0].id, level: "BELOW" as const }, { studentId: roster[1].id, level: "ABOVE" as const }, { studentId: roster[2].id, level: "ON" as const }];
     await setStudentLevels(repo, teacher, classId, chosen);
-    const r = await assignFromMap(repo, teacher, { classId, categoryCode: "G4.U1.TS2.ACS", studentIds: chosen.map((c) => c.studentId), mode: "ADAPTIVE", targetCorrect: 10 });
+    const r = await assignFromMap(repo, teacher, { source: "CURRICULUM", classId, categoryCode: "G4.U1.TS2.ACS", studentIds: chosen.map((c) => c.studentId), mode: "ADAPTIVE", targetCorrect: 10 });
     const aid = r.groups[0].assignmentId;
     assert.equal(await repo.count("AssignmentStudent", { assignmentId: aid }), 3, "only the three ticked students");
     for (const c of chosen) {

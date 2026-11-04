@@ -7,6 +7,7 @@
  * each text: its measured level vs the student's level).
  */
 import Link from "next/link";
+import { RR_PERIOD_NAME, RR_PERIODS } from "@/server/readrise/windows";
 import { Section } from "@/components/page-header";
 import { AtAGlance } from "@/components/report-kit";
 import type { TFn } from "@/i18n";
@@ -29,7 +30,7 @@ function SkillBars({ skills, t }: { skills: { skill: string; pct: number | null;
         <li key={k.skill} className="grid grid-cols-[9rem_minmax(0,1fr)_6rem] items-center gap-3 text-sm">
           <span className="truncate font-semibold text-slate-700">{t(skillLabel(k.skill))}</span>
           <span className="h-3 rounded-full bg-slate-100"><span className={`block h-3 rounded-full ${pctBar(k.pct)}`} style={{ width: `${k.pct ?? 0}%` }} /></span>
-          <span className="text-end tabular-nums text-slate-700">{fmt(k.pct, "%")} <span className="text-xs text-slate-400">({k.correct}/{k.total})</span></span>
+          <span className="text-end tabular-nums text-slate-700">{fmt(k.pct, "%")} <span className="text-xs text-slate-600">({k.correct}/{k.total})</span></span>
         </li>
       ))}
     </ul>
@@ -65,6 +66,8 @@ export function StudentGrowthView({ g, t, backHref }: { g: StudentGrowthReport; 
         { icon: "🔭", label: "Projected end of year", value: proj ? proj.mid : "—", meaning: proj ? t("range {low}–{high} · {conf}", { low: proj.low, high: proj.high, conf: t(CONF_LEVEL[proj.confidence]) }) : t("Needs 4 first-try readings over 2 weeks"), tone: "info" },
         { icon: "📚", label: "Words read", value: g.wordsRead.toLocaleString("en-US"), meaning: t("{n} readings · {w} a week (8 weeks)", { n: g.readings, w: g.avgPerWeek ?? 0 }), tone: "neutral" },
         { icon: "🧗", label: "Stretch success", value: fmt(g.stretch.pct, "%"), meaning: t("{n} of {m} stretch readings at 75%+", { n: g.stretch.succeeded, m: g.stretch.tried }), tone: (g.stretch.pct ?? 0) >= 75 ? "good" : "neutral" },
+        { icon: "🗓️", label: "Reading checks", value: RR_PERIODS.map((p) => g.checks[p]?.level ?? "—").join(" → "), meaning: RR_PERIODS.map((p) => t(RR_PERIOD_NAME[p])).join(" → "), tone: "info" },
+        ...(g.unreliableRuns ? [{ icon: "⚡", label: "Unreliable readings", value: g.unreliableRuns, meaning: t("2+ answers too fast to be read: the level did not move"), tone: "bad" as const }] : []),
       ]} />
 
       <div className="grid gap-6 xl:grid-cols-2">
@@ -159,7 +162,7 @@ export function ClassGrowthTab({ g, t, studentHref, assignHref }: { g: ClassGrow
           <ul className="space-y-4">
             {g.weaknesses.map((w) => (
               <li key={w.skill} className="rounded-xl p-3 ring-1 ring-slate-200">
-                <p className="font-semibold text-brand-navy">{t(skillLabel(w.skill))} <span className="ms-2 tabular-nums text-red-700">{fmt(w.cell.pct, "%")}</span> <span className="text-xs text-slate-400">({w.cell.correct}/{w.cell.total})</span></p>
+                <p className="font-semibold text-brand-navy">{t(skillLabel(w.skill))} <span className="ms-2 tabular-nums text-red-700">{fmt(w.cell.pct, "%")}</span> <span className="text-xs text-slate-600">({w.cell.correct}/{w.cell.total})</span></p>
                 {w.struggling.length > 0 && <p className="mt-1 text-sm text-slate-700">{t("Under 60%")}: {w.struggling.slice(0, 12).map((x) => `${x.name} (${x.pct}%)`).join(", ")}</p>}
                 <p className="mt-1 text-sm text-slate-700">{t("Suggested articles")}: {w.suggested.length ? w.suggested.map((a) => `${a.title} (${t("{n} questions", { n: a.questions })})`).join(" · ") : "—"}</p>
               </li>

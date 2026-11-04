@@ -1,0 +1,618 @@
+{
+  "code": "RR-330",
+  "title": "Maps: Representing the World on Paper",
+  "topic": "Geography",
+  "summary": "How mapmakers turn the round Earth into flat, useful maps using projections, symbols, legends, scale, and different map types.",
+  "poll": "A map does not need to be perfectly accurate to still be useful.",
+  "versions": [
+    {
+      "level": 300,
+      "title": "What Is a Map?",
+      "text": "What is a map? It is a flat picture of a place. You can hold it in your hands.\n\nEarth is not flat. Earth is round like a ball. So how do you draw it on flat paper?\n\nMap makers must stretch some parts. This is why shapes can look odd near the top.\n\nA map needs marks. Small pictures stand for real things. A tiny tree might mean a forest.\n\nThese small pictures are called symbols. A map has a key. The key tells what each symbol means.\n\nA map also has a scale. A scale shows how big real places are. One inch on the map may stand for many miles.\n\nThere are many kinds of maps. One kind shows countries. One kind shows hills and rivers. One kind shows roads for cars."
+    },
+    {
+      "level": 400,
+      "title": "What Is a Map?",
+      "text": "What is a map? A map is a flat picture of a place. You can hold it in your hands or look at it on a screen.\n\nEarth is not flat, though. Earth is round like a ball. So how do people draw a round ball onto flat paper?\n\nMap makers have to stretch some parts a little. This is why some shapes look strange near the top of a map.\n\nA map needs marks to make sense. Small pictures stand in for real things. A tiny tree might mean a forest.\n\nThese small pictures are called symbols. Every map has a key, and the key tells you what each symbol means.\n\nA map also has a scale. A scale tells you how big real places truly are. One small inch on a map might stand for many real miles.\n\nThere are many kinds of maps. One kind shows countries and their borders. Another kind shows hills and rivers. A road map shows roads for cars."
+    },
+    {
+      "level": 500,
+      "title": "Turning a Round Earth into a Flat Map",
+      "text": "What is a map? A map is a flat picture of a place, and you can hold it in your hands or look at it on a screen.\n\nEarth is not flat, though. Earth is round like a ball, so how do people draw a round ball onto flat paper?\n\nMap makers have to stretch some parts a little bit. This is why some shapes look strange near the top and bottom of a map.\n\nA map needs marks to make sense. Small pictures stand in for real things on the ground. A tiny picture of a tree might mean a whole forest.\n\nThese small pictures are called symbols. Every good map has a key, and the key tells you exactly what each symbol means.\n\nA map also has something called a scale. A scale tells you how big real places truly are. One small inch on a map might stand for many real miles of land.\n\nThere are many kinds of maps. One kind of map shows countries and their borders. Another kind shows hills, mountains, and rivers. A road map shows the roads that cars use to travel."
+    },
+    {
+      "level": 600,
+      "title": "Turning a Round Earth into a Flat Map",
+      "text": "What is a map? A map is a flat picture of a place, and you can hold it in your hands or look at it on a screen.\n\nEarth is not flat, though; Earth is round like a ball, so how do people draw a round ball onto flat paper?\n\nMap makers have to stretch some parts of the world a little bit. This is why some shapes look strange near the top and bottom of many maps.\n\nA map needs marks to make sense to the person reading it. Small pictures stand in for real things on the ground, and a tiny picture of a tree might mean a whole forest.\n\nThese small pictures are called symbols. Every good map has a key, and the key tells you exactly what each symbol on the map means.\n\nA map also has something called a scale. A scale tells you how big real places truly are compared with the paper map. One small inch on a map might stand for many real miles of land.\n\nThere are many different kinds of maps. One kind of map shows countries and their borders. Another kind shows hills, mountains, and rivers. A road map shows the roads that cars and trucks use to travel."
+    },
+    {
+      "level": 700,
+      "title": "Maps: Representing the World on Paper",
+      "text": "What is a map? A map is a flat drawing that represents a real place, and you can hold one in your hands or view it on a screen.\n\nEarth, however, is not flat at all. Earth is shaped like a sphere, so mapmakers face a real challenge when drawing a round planet onto flat paper.\n\nMapmakers must stretch certain parts of the world a little. This is why some shapes look a bit odd, especially near the top and bottom of many maps.\n\nA map also needs clear marks to make sense to its reader. Small pictures, called symbols, stand in for real things on the ground, such as a tiny tree symbol standing for a whole forest.\n\nEvery good map includes a legend, sometimes called a key, which tells the reader exactly what each symbol on the map means.\n\nA map likewise needs a scale, which tells the reader how a short distance on paper compares with a much longer distance in the real world.\n\nMaps also come in several types. A political map shows countries and the borders between them. A physical map instead shows natural features, such as mountains and rivers. A road map focuses on highways and streets."
+    },
+    {
+      "level": 800,
+      "title": "Maps: Representing the World on Paper",
+      "text": "What is a map? A map is a flat drawing that represents a real place, and you can hold one in your hands or view it on a screen.\n\nEarth, however, is not flat at all. Earth is shaped like a sphere, so mapmakers face a real challenge when drawing a round planet onto flat paper.\n\nTo solve this challenge, mapmakers use a method called a projection, which turns the round surface of Earth into a flat image. Every projection causes a little distortion, meaning that some shapes end up slightly stretched, especially near the top and bottom of the map.\n\nA map also needs clear marks to make sense to its reader. Small pictures, called symbols, stand in for real things on the ground, such as a tiny tree symbol standing for a whole forest.\n\nEvery good map includes a legend, sometimes called a key, which tells the reader exactly what each symbol on the map means.\n\nA map likewise needs a scale, which tells the reader how a short distance on paper compares with a much longer distance in the real world. A scale might show that one inch on the map equals ten real miles.\n\nMaps also come in several types. A political map shows countries and the borders between them. A physical map instead shows natural features, such as mountains and rivers. A road map focuses on highways and streets."
+    },
+    {
+      "level": 900,
+      "title": "Maps: Representing the World on Paper",
+      "text": "What is a map? A map is a flat drawing that represents a real place, and a person can hold one in their hands or view it on a screen.\n\nEarth, however, is not flat at all. Earth is shaped like a sphere, so mapmakers face a genuine challenge when they attempt to draw a round planet onto flat paper.\n\nTo solve this challenge, mapmakers use a method called a projection, which turns the round surface of Earth into a flat image. Every projection causes a certain amount of distortion, meaning that some shapes end up slightly stretched or squeezed, especially near the top and bottom edges of the map.\n\nA map also needs clear marks to make sense to its reader. Small pictures, called symbols, stand in for real things on the ground, such as a tiny tree symbol that represents an entire forest or a small tent symbol that represents a campground.\n\nEvery good map includes a legend, sometimes called a key, which tells the reader exactly what each symbol on the map actually means.\n\nA map likewise needs a scale, which tells the reader how a short distance measured on paper compares with a much longer distance in the real world. A scale might show that one inch on the map equals ten real miles of actual land.\n\nMaps also come in several distinct types. A political map shows countries, states, and the borders drawn between them. A physical map instead shows natural features, such as mountains, deserts, and rivers. A road map focuses specifically on the highways and streets that drivers use every day."
+    },
+    {
+      "level": 1000,
+      "title": "Maps: Representing the World on Paper",
+      "text": "What is a map? A map is a flat drawing that represents a real place, and a person can hold one in their hands or view it on a screen whenever it is needed.\n\nEarth, however, is not flat at all; Earth is shaped like a sphere, so mapmakers face a genuine challenge whenever they attempt to draw a round planet onto flat paper.\n\nTo solve this challenge, mapmakers use a method called a projection, which turns the round surface of Earth into a flat image. Every projection causes a certain amount of distortion, meaning that some shapes end up slightly stretched or squeezed, especially near the top and bottom edges of the map, where the round surface curves away most sharply.\n\nA map also needs clear marks to make sense to its reader. Small pictures, called symbols, stand in for real things on the ground, such as a tiny tree symbol that represents an entire forest or a small tent symbol that represents a campground.\n\nEvery good map includes a legend, sometimes called a key, which tells the reader exactly what each symbol on the map actually means, so that nobody has to guess.\n\nA map likewise needs a scale, which tells the reader how a short distance measured on paper compares with a much longer distance in the real world. A scale might show that one inch on the map equals ten real miles of actual land, allowing a reader to estimate real distances quickly.\n\nMaps also come in several distinct types. A political map shows countries, states, and the borders drawn between them. A physical map instead shows natural features, such as mountains, deserts, and rivers, usually using color to show elevation. A road map focuses specifically on the highways and streets that drivers rely on every day."
+    },
+    {
+      "level": 1100,
+      "title": "Maps: Representing the World on Paper",
+      "text": "What is a map? A map is a flat drawing that represents a real place, and a person can hold one in their hands or view it on a screen whenever it is needed.\n\nEarth, however, is not flat at all; Earth is shaped like a sphere, so a cartographer, a person who designs maps for a living, faces a genuine challenge whenever attempting to draw a round planet onto flat paper.\n\nTo solve this challenge, cartographers use a method called a projection, which turns the round surface of Earth into a flat image. Every projection causes a certain amount of distortion, meaning that some shapes end up slightly stretched or squeezed, especially near the top and bottom edges of the map, where the round surface curves away most sharply.\n\nA map also needs clear marks to make sense to its reader. Small pictures, called symbols, stand in for real things on the ground, such as a tiny tree symbol that represents an entire forest or a small tent symbol that represents a campground.\n\nEvery good map includes a legend, sometimes called a key, which tells the reader exactly what each symbol on the map actually means, so that nobody has to guess.\n\nA map likewise needs a scale, which tells the reader how a short distance measured on paper compares with a much longer distance in the real world, allowing anyone to estimate real distances fairly quickly.\n\nMany maps are also marked with a grid of lines called latitude and longitude, which lets a reader pinpoint almost any exact location using two simple numbers.\n\nMaps also come in several distinct types. A political map shows countries, states, and the borders drawn between them. A physical map instead shows natural features, such as mountains and rivers, usually using color to show elevation. A road map focuses specifically on the highways that drivers rely on every day."
+    },
+    {
+      "level": 1200,
+      "title": "Maps: Representing the World on Paper",
+      "text": "What is a map? A map is a flat drawing that represents a real place, and a person can hold one in their hands or view it on a screen whenever it happens to be needed.\n\nEarth, however, is not flat at all; Earth is shaped like a sphere, so a cartographer, a person who designs maps professionally, faces a genuine challenge whenever attempting to draw a round planet onto flat paper.\n\nTo solve this challenge, cartographers rely on a method called a projection, which converts the round surface of Earth into a flat image. Every projection introduces a certain amount of distortion, meaning that some shapes end up slightly stretched or squeezed, particularly near the top and bottom edges of the map, where the round surface curves away most sharply from the flat plane.\n\nA map also requires clear marks to make sense to its reader. Small pictures, called symbols, stand in for real things on the ground, such as a tiny tree symbol that represents an entire forest or a small tent symbol that represents a campground.\n\nEvery good map includes a legend, sometimes called a key, which tells the reader exactly what each symbol on the map actually means, so that nobody is left to guess.\n\nA map likewise requires a scale, which tells the reader how a short distance measured on paper compares with a much longer distance in the real world, allowing anyone to estimate real distances fairly quickly and accurately.\n\nMany maps are also marked with a grid of lines called latitude and longitude, which lets a reader pinpoint almost any exact location on Earth using only two simple numbers.\n\nMaps also come in several distinct types, each suited to a different purpose. A political map shows countries, states, and the borders drawn between them. A physical map instead shows natural features, such as mountains and rivers, usually using color to indicate elevation. A road map focuses specifically on the highways that drivers rely on every day."
+    },
+    {
+      "level": 1300,
+      "title": "Maps: Representing the World on Paper",
+      "text": "What is a map? A map is a flat drawing that represents a real place, and a person can hold one in their hands or view it on a screen whenever it happens to be needed for a particular purpose.\n\nEarth, however, is not flat at all; Earth is shaped like a sphere, so a cartographer, a person who designs maps professionally, faces a genuine and persistent challenge whenever attempting to draw a round planet onto flat paper.\n\nTo solve this challenge, cartographers rely on a method called a projection, which converts the round surface of Earth into a flat image. Every projection introduces a certain amount of distortion, meaning that some shapes end up slightly stretched or squeezed, particularly near the top and bottom edges of the map, where the round surface curves away most sharply from the flat plane beneath it.\n\nA map also requires clear marks to make sense to its reader. Small pictures, called symbols, stand in for real things on the ground, such as a tiny tree symbol that represents an entire forest or a small tent symbol that represents a campground somewhere nearby.\n\nEvery good map includes a legend, sometimes called a key, which tells the reader exactly what each symbol on the map actually represents, so that nobody is left guessing at its meaning.\n\nA map likewise requires a scale, which tells the reader how a short distance measured on paper compares with a much longer distance in the real world, allowing anyone to estimate real distances fairly quickly and with reasonable accuracy.\n\nMany maps are also marked with a grid of lines called latitude and longitude, which lets a reader pinpoint almost any exact location on Earth using only two simple numbers, a system that has been used by sailors and explorers for centuries.\n\nMaps also come in several distinct types, each suited to a different purpose. A political map shows countries, states, and the borders drawn carefully between them. A physical map instead shows natural features, such as mountains and rivers, usually using color to indicate elevation clearly. A road map focuses specifically on the highways that drivers depend on every single day."
+    },
+    {
+      "level": 1400,
+      "title": "Maps: Representing the World on Paper",
+      "text": "What is a map? A map is a flat drawing that represents a real place, and a person can hold one in their hands or view it on a screen whenever it happens to be needed for some particular purpose.\n\nEarth, however, is not flat at all; Earth is shaped like a sphere, so a cartographer, a person who designs maps professionally, faces a genuine and persistent challenge whenever attempting to render a round planet onto flat paper.\n\nTo solve this challenge, cartographers rely on a mathematical method called a projection, which converts the round surface of Earth into a flat image. Every projection introduces a certain amount of distortion, meaning that some shapes end up slightly stretched or squeezed, particularly near the top and bottom edges of the map, where the round surface curves away most sharply from the flat plane beneath it. No single projection can preserve shape, size, and distance all at once, so cartographers must choose whichever trade-off suits their particular purpose.\n\nA map also requires clear marks to make sense to its reader. Small pictures, called symbols, stand in for real things on the ground, such as a tiny tree symbol that represents an entire forest or a small tent symbol that represents a campground somewhere nearby.\n\nEvery good map includes a legend, sometimes called a key, which tells the reader exactly what each symbol on the map actually represents, so that nobody is left guessing at its intended meaning.\n\nA map likewise requires a scale, which tells the reader how a short distance measured on paper compares with a much longer distance in the real world, allowing anyone to estimate real distances fairly quickly and with reasonable accuracy.\n\nMany maps are also marked with a grid of lines called latitude and longitude, which lets a reader pinpoint almost any exact location on Earth using only two simple numbers, a system that sailors and explorers have relied upon for centuries to navigate across open, featureless oceans.\n\nMaps also come in several distinct types, each suited to a different purpose. A political map shows countries, states, and the borders drawn carefully between them. A physical map instead shows natural features, such as mountains and rivers, usually using color to indicate elevation clearly and precisely. A road map focuses specifically on the highways that drivers depend on every single day of their lives, often ignoring natural features almost entirely in favor of clarity.\n\nToday, digital maps on phones and computers still rely on these same basic ideas, even though a satellite and a computer now handle the underlying projection automatically, instantly, and without any visible effort on the part of the user."
+    },
+    {
+      "level": 1500,
+      "title": "Maps: Representing the World on Paper",
+      "text": "What exactly is a map? A map is a flat representation that depicts a real place, and a person can hold one physically in their hands or view it digitally on a screen whenever it happens to be needed for some particular purpose.\n\nEarth, however, is not flat in the slightest; Earth is shaped like a sphere, so a cartographer, an individual who designs maps professionally, faces a genuine and persistent challenge whenever attempting to render a round planet onto flat paper.\n\nTo address this challenge, cartographers rely upon a mathematical method called a projection, which converts the round surface of Earth into a flat image. Every projection introduces a certain degree of distortion, meaning that some shapes end up slightly stretched or squeezed, particularly near the top and bottom edges of the map, where the round surface curves away most sharply from the flat plane beneath it. No single projection can simultaneously preserve shape, size, and distance, so cartographers must deliberately choose whichever trade-off best suits their particular purpose.\n\nA map also requires clearly defined marks to make sense to its reader. Small pictures, called symbols, stand in for real things on the ground, such as a tiny tree symbol that represents an entire forest or a small tent symbol that represents a campground somewhere nearby.\n\nEvery well-made map includes a legend, sometimes called a key, which tells the reader precisely what each symbol on the map actually represents, so that nobody is left guessing at its intended meaning.\n\nA map likewise requires a scale, which tells the reader how a short distance measured on paper compares with a much longer distance in the real world, allowing anyone to estimate real distances fairly quickly and with reasonable accuracy.\n\nMany maps are also marked with a grid of lines called latitude and longitude, which lets a reader pinpoint almost any exact location on Earth using only two simple numbers, a system that sailors and explorers have relied upon for centuries to navigate across open, otherwise featureless oceans.\n\nMaps also come in several distinct types, each one suited to a somewhat different purpose. A political map shows countries, states, and the borders drawn carefully between them, often in contrasting colors. A physical map instead shows natural features, such as mountains, deserts, and rivers, typically using color to indicate elevation clearly and precisely. A road map focuses specifically on the highways and streets that drivers depend on every single day of their lives, often ignoring natural features almost entirely in favor of absolute clarity.\n\nToday, digital maps displayed on phones and computers still rely fundamentally on these same underlying ideas, even though a constellation of satellites and a powerful computer now handle the underlying projection automatically, instantly, and without any visible effort whatsoever on the part of the user, who simply expects the correct location to appear within a fraction of a second."
+    },
+    {
+      "level": 1600,
+      "title": "Maps: Representing the World on Paper",
+      "text": "What exactly is a map? A map is a flat representation that depicts a real place, and a person can hold one physically in their hands or view it digitally on a screen whenever it happens to be needed for some particular purpose, however mundane or significant that purpose might be.\n\nEarth, however, is not flat in the slightest; Earth is shaped like a sphere, so a cartographer, an individual who designs maps professionally, faces a genuine and persistent challenge whenever attempting to render a thoroughly round planet onto perfectly flat paper.\n\nTo address this longstanding challenge, cartographers rely upon a mathematical method called a projection, which converts the round surface of Earth into a flat image through careful calculation. Every projection introduces a certain degree of distortion, meaning that some shapes end up slightly stretched or squeezed, particularly near the top and bottom edges of the map, where the round surface curves away most sharply from the flat plane beneath it. No single projection can simultaneously preserve shape, size, and distance with perfect fidelity, so cartographers must deliberately choose whichever trade-off best suits their particular purpose at hand.\n\nA map also requires clearly defined marks to make sense to its reader. Small pictures, called symbols, stand in for real things on the ground, such as a tiny tree symbol that represents an entire forest or a small tent symbol that represents a campground situated somewhere nearby.\n\nEvery well-made map includes a legend, sometimes called a key, which tells the reader precisely what each symbol on the map actually represents, so that nobody is ever left guessing at its intended meaning.\n\nA map likewise requires a scale, which tells the reader how a short distance measured on paper compares with a considerably longer distance in the real world, allowing anyone to estimate real distances fairly quickly and with reasonable accuracy, even without any specialized tools.\n\nMany maps are also marked with a grid of lines called latitude and longitude, which lets a reader pinpoint almost any exact location on Earth using only two simple numbers, a system that sailors and explorers have relied upon for centuries in order to navigate across open, otherwise featureless oceans.\n\nMaps also come in several distinct types, each one suited to a somewhat different purpose. A political map shows countries, states, and the borders drawn carefully between them, often rendered in contrasting colors for clarity. A physical map instead shows natural features, such as mountains, deserts, and rivers, typically using color to indicate elevation clearly and precisely. A road map focuses specifically on the highways and streets that drivers depend on every single day of their lives, often ignoring natural features almost entirely in favor of absolute clarity.\n\nToday, digital maps displayed on phones and computers still rely fundamentally on these same underlying ideas, even though a constellation of orbiting satellites and a powerful computer now handle the underlying projection automatically, instantly, and without any visible effort whatsoever on the part of the user, who simply expects the correct location to appear within a fraction of a second, rarely pausing to consider the centuries of mathematical refinement that made such instant accuracy possible."
+    }
+  ],
+  "bands": {
+    "LOW": {
+      "keyWords": [
+        {
+          "word": "symbol",
+          "partOfSpeech": "noun",
+          "definition": "a small picture or mark that stands for something else",
+          "example": "A heart symbol on the card meant love."
+        },
+        {
+          "word": "key",
+          "partOfSpeech": "noun",
+          "definition": "a list on a map that tells what each symbol means",
+          "example": "We checked the key to find out what the star symbol stood for."
+        },
+        {
+          "word": "scale",
+          "partOfSpeech": "noun",
+          "definition": "a part of a map that shows how map distances compare to real distances",
+          "example": "Using the scale, we figured out the pool was fifty real steps long."
+        },
+        {
+          "word": "round",
+          "partOfSpeech": "adjective",
+          "definition": "shaped like a ball or a circle",
+          "example": "The orange on the table was perfectly round."
+        },
+        {
+          "word": "forest",
+          "partOfSpeech": "noun",
+          "definition": "a large area covered with many trees",
+          "example": "We saw a deer run through the forest behind our house."
+        }
+      ],
+      "questions": [
+        {
+          "stem": "What is this article mostly about?",
+          "options": [
+            "How to build and set up a small camping tent in the desert",
+            "How maps use symbols, a key, and a scale to show real places",
+            "Why Earth happens to have so many mountains and rivers",
+            "How a person should drive a car using a road map"
+          ],
+          "answer": "B",
+          "skill": "central-idea",
+          "why": "The article explains how maps use symbols, a key, and a scale to show a real place on flat paper.",
+          "wrong": {
+            "A": "Tents are mentioned only as a tiny map symbol.",
+            "C": "Mountains and rivers are just one kind of map, not the main idea.",
+            "D": "Driving is not explained in this article."
+          }
+        },
+        {
+          "stem": "Why do mapmakers have to stretch some parts of the world?",
+          "options": [
+            "Because every single country wants a much bigger map",
+            "Because most rivers are simply too long to draw",
+            "Because good drawing paper is too expensive to waste",
+            "Because Earth is round, not flat, like paper maps"
+          ],
+          "answer": "D",
+          "skill": "detail",
+          "why": "The article says Earth is round, so drawing it on flat paper makes some shapes look odd.",
+          "wrong": {
+            "A": "Country size is not the reason given.",
+            "B": "River length is not mentioned as a cause.",
+            "C": "Paper cost is not discussed in the article."
+          }
+        },
+        {
+          "stem": "What does a key on a map tell you?",
+          "options": [
+            "What each symbol on the map actually means",
+            "How many miles you have personally traveled",
+            "What the weather will probably be like outside",
+            "How old the map is"
+          ],
+          "answer": "A",
+          "skill": "detail",
+          "why": "The article says a map's key tells you exactly what each symbol means.",
+          "wrong": {
+            "B": "A scale, not a key, helps with distance.",
+            "C": "Weather is not shown by a key.",
+            "D": "A map's age is not mentioned."
+          }
+        },
+        {
+          "stem": "A map shows a tiny tree symbol next to a town. What can you guess is near that town?",
+          "options": [
+            "A desert",
+            "An ocean",
+            "A forest",
+            "A mountain made of ice"
+          ],
+          "answer": "C",
+          "skill": "inference",
+          "why": "The article says a tiny tree symbol can stand for a whole forest.",
+          "wrong": {
+            "A": "A tree symbol does not suggest a desert.",
+            "B": "An ocean would likely use a different symbol.",
+            "D": "Ice mountains are not connected to a tree symbol."
+          }
+        },
+        {
+          "stem": "If a map has no scale at all, what might be hard to do?",
+          "options": [
+            "Name the countries shown on the map",
+            "Figure out real distances between places",
+            "Find the key printed on the map",
+            "Tell what color the map happens to be"
+          ],
+          "answer": "B",
+          "skill": "inference",
+          "why": "Since a scale compares map distance to real distance, a map without one makes real distances hard to figure out.",
+          "wrong": {
+            "A": "Country names do not depend on a scale.",
+            "C": "Finding the key does not need a scale.",
+            "D": "Color is not related to a scale."
+          }
+        },
+        {
+          "stem": "In the article, a symbol on a map is —",
+          "options": [
+            "a tall kind of mountain",
+            "just another word for scale",
+            "a real tree growing straight out of the paper",
+            "a small picture that stands for a real thing"
+          ],
+          "answer": "D",
+          "skill": "vocabulary",
+          "why": "The article describes symbols as small pictures that stand in for real things on the ground.",
+          "wrong": {
+            "A": "A symbol is not a kind of mountain.",
+            "B": "Scale and symbol are two different map tools.",
+            "C": "A symbol is a picture, not a real tree."
+          }
+        },
+        {
+          "stem": "How does the author organize this article?",
+          "options": [
+            "By explaining one map problem, then its symbols, key, and scale",
+            "By telling a long story about one explorer's exciting trip",
+            "By comparing the weather found in two different countries",
+            "By giving detailed driving directions to just one city"
+          ],
+          "answer": "A",
+          "skill": "text-structure",
+          "why": "The article moves from the round-Earth problem to symbols, keys, scale, and finally different kinds of maps.",
+          "wrong": {
+            "B": "No explorer's story is told.",
+            "C": "Weather is not compared.",
+            "D": "No driving directions are given."
+          }
+        },
+        {
+          "stem": "Why does a map need a scale?",
+          "options": [
+            "So you always know exactly what each symbol means",
+            "So the finished map simply looks more colorful",
+            "So you know how real distances compare to the map",
+            "So the whole map can fold up into a small size"
+          ],
+          "answer": "C",
+          "skill": "cause-effect",
+          "why": "A scale lets readers compare a short distance on paper with a much longer real-world distance.",
+          "wrong": {
+            "A": "The key, not the scale, explains symbols.",
+            "B": "Color is not the purpose of a scale.",
+            "D": "Folding is not related to a scale."
+          }
+        }
+      ],
+      "prompt": "Imagine you are making a map of your school. Describe one symbol you would use and what it would mean.",
+      "checklist": [
+        "I described one map symbol.",
+        "I explained what the symbol means.",
+        "I used the word key or symbol in my answer."
+      ],
+      "modelAnswer": "I would use a small book symbol to show where the library is on my school map. I would put this symbol in the key so that anyone reading the map would know exactly what it means, even if they had never visited the school before."
+    },
+    "MID": {
+      "keyWords": [
+        {
+          "word": "sphere",
+          "partOfSpeech": "noun",
+          "definition": "a shape that is perfectly round in every direction, like a ball",
+          "example": "A basketball is a good example of a sphere."
+        },
+        {
+          "word": "challenge",
+          "partOfSpeech": "noun",
+          "definition": "a difficult problem that takes effort or skill to solve",
+          "example": "Fitting all the furniture into the small room was a real challenge."
+        },
+        {
+          "word": "stretch",
+          "partOfSpeech": "verb",
+          "definition": "to pull something so it becomes longer or more spread out than it was",
+          "example": "She had to stretch the fabric to cover the whole table."
+        },
+        {
+          "word": "distance",
+          "partOfSpeech": "noun",
+          "definition": "how far apart two places are",
+          "example": "The distance between the two towns is about twenty miles."
+        },
+        {
+          "word": "scale",
+          "partOfSpeech": "noun",
+          "definition": "a ratio that compares a distance on a map to the matching real-world distance",
+          "example": "On this map's scale, one centimeter stands for one real kilometer."
+        }
+      ],
+      "questions": [
+        {
+          "stem": "Which sentence best states the central idea of this article?",
+          "options": [
+            "Every single map in the whole world uses the exact same projection and has no distortion anywhere on it at all.",
+            "Maps are only ever useful for drivers who need simple directions to one specific road.",
+            "A legend is honestly the only part of any map that really matters to its reader.",
+            "Mapmakers use projections, symbols, legends, and scales together to turn Earth's round surface into a useful flat map."
+          ],
+          "answer": "D",
+          "skill": "central-idea",
+          "why": "The article explains several tools, including projections, symbols, legends, and scale, that together make flat maps useful.",
+          "wrong": {
+            "A": "The article says every projection causes some distortion.",
+            "B": "Maps are useful for far more than driving directions.",
+            "C": "The legend is important, but it is not the only part discussed."
+          }
+        },
+        {
+          "stem": "What does a map projection do?",
+          "options": [
+            "It converts the round surface of Earth into a flat image.",
+            "It removes all distortion from a map completely and perfectly.",
+            "It measures real distances in exact miles on the ground.",
+            "It draws symbols for forests and campgrounds on a map."
+          ],
+          "answer": "A",
+          "skill": "detail",
+          "why": "The article defines a projection as a method for turning Earth's round surface into a flat image.",
+          "wrong": {
+            "B": "The article says every projection still causes some distortion.",
+            "C": "A scale, not a projection, relates to real distances.",
+            "D": "Symbols are a separate part of a map."
+          }
+        },
+        {
+          "stem": "Where does distortion usually show up most on a map?",
+          "options": [
+            "Exactly at the very center of the map",
+            "Near the top and bottom edges of the map",
+            "Only on road maps, never on any other kind",
+            "Only inside the legend box itself"
+          ],
+          "answer": "B",
+          "skill": "detail",
+          "why": "The article says distortion is especially noticeable near the top and bottom edges of a map.",
+          "wrong": {
+            "A": "The center is usually the most accurate part, not the distorted part.",
+            "C": "Distortion can appear on any projected map, not just road maps.",
+            "D": "The legend box is not where distortion appears."
+          }
+        },
+        {
+          "stem": "If a mapmaker wants the clearest possible road map, what might they choose to leave out?",
+          "options": [
+            "The legend and the key shown on the edge of the map",
+            "The printed scale found at the bottom of the map",
+            "Natural features like hills, unrelated to roads",
+            "The name of the country being shown at the top"
+          ],
+          "answer": "C",
+          "skill": "inference",
+          "why": "A road map focuses on highways and streets, so unrelated natural features are often left out for clarity.",
+          "wrong": {
+            "A": "A legend is still needed to explain road symbols.",
+            "B": "A scale remains useful even on a road map.",
+            "D": "A country's name is not described as something left out."
+          }
+        },
+        {
+          "stem": "Why might two different maps of the same country look slightly different in shape?",
+          "options": [
+            "One of the two maps must simply be drawn incorrectly.",
+            "Only physical maps can show a country's true real shape.",
+            "Countries actually change their shape slightly every year.",
+            "They were likely made using two different projections."
+          ],
+          "answer": "D",
+          "skill": "inference",
+          "why": "Since every projection causes a different kind of distortion, two projections can shape the same country differently.",
+          "wrong": {
+            "A": "A different projection does not mean a map is incorrect.",
+            "B": "All map types are affected by projection choices, not just physical maps.",
+            "C": "Countries do not actually change shape from year to year."
+          }
+        },
+        {
+          "stem": "In the article, distortion means —",
+          "options": [
+            "a stretching or squeezing of shapes",
+            "a particular kind of map symbol",
+            "just another name for a legend",
+            "the true, exact real size of a country"
+          ],
+          "answer": "A",
+          "skill": "vocabulary",
+          "why": "The article describes distortion as shapes becoming slightly stretched or squeezed.",
+          "wrong": {
+            "B": "A symbol is a different map element entirely.",
+            "C": "A legend is a separate part of a map.",
+            "D": "Distortion changes how a size looks, not the real size itself."
+          }
+        },
+        {
+          "stem": "Why does the author explain projections before describing symbols, legends, and scale?",
+          "options": [
+            "To prove once and for all that symbols matter more than projections",
+            "To first explain the basic challenge of flattening a round Earth",
+            "To tell a long, detailed story about one mapmaker's childhood",
+            "To compare the total populations of two neighboring countries"
+          ],
+          "answer": "B",
+          "skill": "author-purpose",
+          "why": "Explaining the round-to-flat challenge first helps readers understand why maps need the other tools described next.",
+          "wrong": {
+            "A": "The article does not rank symbols above projections.",
+            "C": "No childhood story is told.",
+            "D": "Populations are not compared."
+          }
+        },
+        {
+          "stem": "How are a political map and a physical map similar?",
+          "options": [
+            "Both only ever show roads and highways, never rivers, borders or mountains.",
+            "Both completely ignore the real shape of Earth and show only flat squares.",
+            "Both are kinds of maps that use symbols, a legend, and a scale.",
+            "Both were first invented in the exact same year by the same mapmaker."
+          ],
+          "answer": "C",
+          "skill": "compare",
+          "why": "Despite showing different information, both map types rely on symbols, a legend, and a scale to work.",
+          "wrong": {
+            "A": "Only a road map focuses mainly on roads.",
+            "B": "Both are still affected by Earth's shape, through projection choices.",
+            "D": "No single invention year is given for either map type."
+          }
+        }
+      ],
+      "prompt": "Explain why a flat map of the world can never be perfectly accurate. Use at least one key word from the article.",
+      "checklist": [
+        "I explained that Earth is a sphere.",
+        "I explained the challenge of making a flat map.",
+        "I used at least one key word, such as stretch or distance."
+      ],
+      "modelAnswer": "A flat map of the world can never be perfectly accurate because Earth is a sphere, and turning a sphere into a flat shape is a real challenge. Mapmakers must stretch or squeeze some parts of the world to fit it onto paper, so some distances and shapes always end up slightly distorted."
+    },
+    "HIGH": {
+      "keyWords": [
+        {
+          "word": "cartographer",
+          "partOfSpeech": "noun",
+          "definition": "a person whose job is to design and draw maps",
+          "example": "The museum hired a cartographer to create a detailed historical map of the old city."
+        },
+        {
+          "word": "projection",
+          "partOfSpeech": "noun",
+          "definition": "a mathematical method for turning a round surface into a flat map",
+          "example": "Different projections make Greenland look very different sizes on a world map."
+        },
+        {
+          "word": "distortion",
+          "partOfSpeech": "noun",
+          "definition": "a change that makes something's shape, size, or position slightly inaccurate",
+          "example": "The curved mirror at the fair created a funny distortion of our faces."
+        },
+        {
+          "word": "legend",
+          "partOfSpeech": "noun",
+          "definition": "a list on a map, also called a key, that explains what each symbol means",
+          "example": "I checked the legend to see what the dotted line on the trail map represented."
+        },
+        {
+          "word": "latitude",
+          "partOfSpeech": "noun",
+          "definition": "one of a set of imaginary lines, used with longitude, that help locate a place on Earth",
+          "example": "Our teacher showed us how to find a city's latitude on the classroom globe."
+        }
+      ],
+      "questions": [
+        {
+          "stem": "Which statement best captures the central idea of the article?",
+          "options": [
+            "Modern satellites have completely eliminated the need for map projections, so cartographers do not make any trade-offs now, since every map is perfect and shows no distortion at all, ever.",
+            "Every cartographer throughout history has used the exact same single projection, so maps from every country, every century, and every culture look alike and never change at all.",
+            "Cartographers must make deliberate trade-offs when turning Earth's round surface into a flat map, using tools like projections, symbols, legends, scale, and coordinate grids despite unavoidable distortion.",
+            "Latitude and longitude were invented only after digital maps already existed, so earlier sailors and travelers had no way to describe any place on Earth at all, even with a compass and a chart."
+          ],
+          "answer": "C",
+          "skill": "central-idea",
+          "why": "The article's main point is that cartographers balance several tools and trade-offs to make useful, if imperfect, flat maps.",
+          "wrong": {
+            "A": "Satellites still rely on projection math; they have not removed the need for it.",
+            "B": "The article describes different projections, not one single universal choice.",
+            "D": "Latitude and longitude long predate digital maps."
+          }
+        },
+        {
+          "stem": "According to the article, why can no single projection be perfect?",
+          "options": [
+            "Because a projection cannot preserve shape, size, and distance all at the same time.",
+            "Because cartographers have not yet discovered the correct mathematical method.",
+            "Because paper is too delicate to hold an accurate map.",
+            "Because satellites interfere equally with every possible projection."
+          ],
+          "answer": "A",
+          "skill": "detail",
+          "why": "The article states directly that no projection can preserve shape, size, and distance simultaneously.",
+          "wrong": {
+            "B": "The issue is a mathematical limit, not a lack of discovery.",
+            "C": "Paper quality is not the reason given.",
+            "D": "Satellites are not described as interfering with projections."
+          }
+        },
+        {
+          "stem": "What do latitude and longitude lines let a reader do?",
+          "options": [
+            "Measure the exact temperature of a location at any time",
+            "Count the number of symbols shown on a map or a chart",
+            "Calculate a country's total population from its borders",
+            "Pinpoint almost any exact location using two numbers"
+          ],
+          "answer": "D",
+          "skill": "detail",
+          "why": "The article explains that this grid of lines lets a reader pinpoint almost any location using two numbers.",
+          "wrong": {
+            "A": "Temperature is not measured using these lines.",
+            "B": "Counting symbols is unrelated to latitude and longitude.",
+            "C": "Population is not calculated from these lines."
+          }
+        },
+        {
+          "stem": "What can be inferred about why road maps often leave out natural features like mountains?",
+          "options": [
+            "Natural features are too difficult for any cartographer to draw well.",
+            "Leaving them out keeps the map focused and clear for drivers.",
+            "Mountains do not exist in most countries that have many roads.",
+            "Road maps are not permitted to use any color at all."
+          ],
+          "answer": "B",
+          "skill": "inference",
+          "why": "Since road maps focus specifically on highways, leaving out unrelated features helps keep them clear and easy to read.",
+          "wrong": {
+            "A": "Difficulty of drawing is not the reason suggested.",
+            "C": "Mountains exist in many countries with extensive road networks.",
+            "D": "The article does not ban color on road maps."
+          }
+        },
+        {
+          "stem": "Why might a digital map app rarely mention 'projection' to its everyday users?",
+          "options": [
+            "Digital maps do not actually use any projection at all in their software or screens.",
+            "Projections were abandoned entirely once satellites were launched.",
+            "Only paper maps have ever needed a projection in the first place.",
+            "The underlying math still happens, but it is handled automatically and invisibly."
+          ],
+          "answer": "D",
+          "skill": "inference",
+          "why": "The article says digital maps still rely on projection math, even though satellites and computers now handle it automatically and invisibly.",
+          "wrong": {
+            "A": "Digital maps still rely on projection math underneath.",
+            "B": "Projections were not abandoned; they are still used, just hidden from view.",
+            "C": "Digital maps use projections too, not only paper maps."
+          }
+        },
+        {
+          "stem": "In the article, a cartographer is someone who —",
+          "options": [
+            "sails across oceans guided only by the stars",
+            "professionally designs and creates maps",
+            "measures a country's exact total population",
+            "installs the satellites that orbit Earth"
+          ],
+          "answer": "B",
+          "skill": "vocabulary",
+          "why": "The article defines a cartographer as a person who designs maps professionally.",
+          "wrong": {
+            "A": "Sailors, not cartographers, are described as using the stars.",
+            "C": "Population counting is not a cartographer's role in this article.",
+            "D": "Installing satellites is not part of a cartographer's job here."
+          }
+        },
+        {
+          "stem": "Why does the author end the article by discussing digital maps on phones and computers?",
+          "options": [
+            "To connect centuries-old mapmaking ideas to a tool most readers already use today",
+            "To argue that paper maps are now completely useless to travelers, since phones are better",
+            "To explain exactly how satellites are physically built and sent up into the sky",
+            "To compare the price of paper maps with digital maps in the shops"
+          ],
+          "answer": "A",
+          "skill": "author-purpose",
+          "why": "Ending with digital maps shows readers that the same old mapmaking ideas are still at work in tools they use every day.",
+          "wrong": {
+            "B": "The article never claims paper maps are useless.",
+            "C": "Satellite construction details are not given.",
+            "D": "Prices are not compared."
+          }
+        },
+        {
+          "stem": "How is the challenge a cartographer faces similar to the way a time zone system handles Earth's shape?",
+          "options": [
+            "Both were invented at the exact same global conference.",
+            "Both rely only on satellites for all of their information.",
+            "Both solve a problem created by Earth's round, non-flat shape.",
+            "Both ignore longitude completely when doing their work."
+          ],
+          "answer": "C",
+          "skill": "compare",
+          "why": "A cartographer's projection problem and a time-zone system both exist because Earth is a sphere rather than flat.",
+          "wrong": {
+            "A": "No shared conference is mentioned.",
+            "B": "Neither system depends only on satellites; both existed long before them.",
+            "D": "Longitude is central to both projections and time zones, not ignored."
+          }
+        }
+      ],
+      "prompt": "Would you rather use a map that keeps shapes accurate or one that keeps distances accurate, even though no map can do both perfectly? Defend your choice using evidence from the article.",
+      "checklist": [
+        "I stated a clear choice.",
+        "I used evidence from the article about projections or distortion.",
+        "I used at least one key word, such as cartographer or distortion."
+      ],
+      "modelAnswer": "I would rather use a map that keeps distances accurate, because I care more about knowing how far apart places really are than about their exact shapes. The article explains that a cartographer cannot design a projection that preserves shape, size, and distance all at once, so some distortion is unavoidable, and I would simply choose the kind of distortion that affects me least."
+    }
+  }
+}

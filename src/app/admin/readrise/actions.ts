@@ -52,7 +52,7 @@ export async function importReadRiseAction(f: FormData): Promise<void> {
     const r = await importArticleJson(repo, actor, json, { schoolId: actor.schoolId, publish: f.get("publish") === "1" });
     if (!r.ok) throw new ValidationError(`Not imported: ${r.errors.slice(0, 3).map((e) => `${e.where}: ${e.message}`).join(" · ")}`);
     revalidatePath(back);
-    target = `${back}/${r.articleId}?msg=${encodeURIComponent(`${r.created ? "Imported" : "Updated"} as ${r.status === "PUBLISHED" ? "published" : "a draft"}. Check the 12 versions${r.status === "DRAFT" ? ", then publish" : ""}.`)}`;
+    target = `${back}/${r.articleId}?msg=${encodeURIComponent(`${r.created ? "Imported" : "Updated"} as ${r.status === "PUBLISHED" ? "published" : "a draft"}. Check the 14 versions${r.status === "DRAFT" ? ", then publish" : ""}.`)}`;
   } catch (e) { target = `${importPage}?msg=${encodeURIComponent(msgOf(e))}`; }
   redirect(target);
 }

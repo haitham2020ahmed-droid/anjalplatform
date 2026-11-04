@@ -205,10 +205,10 @@
       "type": "MCQ",
       "stem": "Why did Hamad want to make a jar quickly?",
       "options": [
-        "His grandfather needed jars to sell.",
+        "His grandfather needed jars to sell in the market.",
         "The exhibition would open in just six days.",
-        "The clay was about to run out.",
-        "He was going home the next day."
+        "The clay was about to run out in the workshop.",
+        "He was going home the next day on a train."
       ],
       "answer": "B",
       "why": "Paragraph 2: his teacher's exhibition “would open in just six days.”"
@@ -269,10 +269,10 @@
       "type": "MCQ",
       "stem": "Who tells the story?",
       "options": [
-        "Hamad himself, using “I”",
+        "Hamad himself, using “I” and “my” words",
         "a narrator outside the story, using “he”",
-        "Abu Saleh",
-        "Hamad's teacher"
+        "Abu Saleh, the potter of the town",
+        "Hamad's teacher, using “I” and “we”"
       ],
       "answer": "B",
       "why": "The narrator refers to Hamad as “he” and is not a character in the story, so it is a third-person narrator."
@@ -285,10 +285,10 @@
       "type": "MCQ",
       "stem": "According to paragraph 7, what did Hamad bring to the exhibition?",
       "options": [
-        "a perfect water jar",
-        "a bowl made by his grandfather",
+        "a perfect water jar made by the best potter",
+        "a bowl made by his grandfather in the workshop",
         "the cracked jar with an explanation card",
-        "photographs of the workshop"
+        "photographs of the workshop and the potter at work"
       ],
       "answer": "C",
       "why": "He “displayed the cracked one, together with a card that explained precisely why it had failed.”"
@@ -302,9 +302,9 @@
       "stem": "Why did Hamad put the jar in the blazing sunlight?",
       "options": [
         "He wanted it to dry quickly before the exhibition.",
-        "His grandfather had told him to do so.",
-        "He wanted the sun to change its colour.",
-        "The workshop was too crowded with jars."
+        "His grandfather had told him to do so a week ago.",
+        "He wanted the sun to change its colour to red.",
+        "The workshop was too crowded with jars and clay."
       ],
       "answer": "A",
       "why": "A week seemed “impossibly long” with the exhibition three days away, so he tried to dry it faster."
@@ -382,9 +382,9 @@
       "stem": "What do Abu Saleh's words in paragraph 3 and paragraph 6 have in common?",
       "options": [
         "Both warn that clay cannot be rushed.",
-        "Both praise Hamad's first jar.",
-        "Both describe the market.",
-        "Both are angry."
+        "Both praise Hamad's first jar at the shop.",
+        "Both describe the busy market.",
+        "Both are angry with Hamad's work."
       ],
       "answer": "A",
       "why": "“It will never be hurried” and “Clay remembers every hurry” express the same idea."
@@ -493,10 +493,10 @@
       "type": "MCQ",
       "stem": "In your opinion, which information in the story is the LEAST clear?",
       "options": [
-        "where Abu Saleh's workshop is",
-        "why the jar cracked",
+        "where Abu Saleh's workshop is in the town",
+        "why the jar cracked in the oven at the workshop",
         "how Hamad's classmates reacted to his display",
-        "what Hamad decided to make"
+        "what Hamad decided to make for the show"
       ],
       "answer": "C",
       "why": "The story mentions visitors and his teacher, but not his classmates; the other details are stated clearly."

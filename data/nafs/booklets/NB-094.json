@@ -173,10 +173,10 @@
       "type": "MCQ",
       "stem": "What is the main message of the story?",
       "options": [
-        "Living near the mountains is better than living in Riyadh.",
-        "Students should never trust their own measurements.",
+        "Living near the mountains is better than living in the city of Riyadh, in every way.",
+        "Students should never trust their own measurements in a science class or at home.",
         "Patience and careful observation are rewarded, even when nothing seems to happen.",
-        "Thunderstorms are the most exciting kind of weather."
+        "Thunderstorms are the most exciting kind of weather for young scientists to watch."
       ],
       "answer": "C",
       "why": "Khalid waits through weeks of zeros, measures the storm accurately and learns that “a long record of zeros was just as valuable as one exciting storm.”"
@@ -190,9 +190,9 @@
       "stem": "What is the main idea of paragraph 3?",
       "options": [
         "Grandfather encourages Khalid to wait patiently because desert rain is rare and precious.",
-        "Grandfather explains how to build a better rain gauge.",
-        "Grandfather complains that the weather has changed since he was young.",
-        "Grandfather and Khalid drink sweet tea every evening on the roof."
+        "Grandfather explains how to build a better rain gauge from a bottle and a ruler.",
+        "Grandfather complains that the weather has changed a great deal since he was young.",
+        "Grandfather and Khalid drink sweet tea together every evening on the roof of the house."
       ],
       "answer": "A",
       "why": "Grandfather says “Patience, my son,” remembers waiting for rain as a boy, and explains why rain is precious."
@@ -205,9 +205,9 @@
       "type": "MCQ",
       "stem": "Why did Khalid NOT check the gauge during the storm?",
       "options": [
-        "He was too sleepy to climb the stairs.",
-        "His father had locked the door to the roof.",
-        "He was afraid the rain would ruin his journal.",
+        "He was too sleepy to climb the stairs to the roof at night, so he stayed in bed.",
+        "His father had locked the door to the roof before the storm began that evening.",
+        "He was afraid the rain would ruin his journal and his pen, so he stayed in.",
         "He remembered the warning not to go onto a roof during a thunderstorm."
       ],
       "answer": "D",
@@ -253,10 +253,10 @@
       "type": "MCQ",
       "stem": "Which of these events happened FIRST?",
       "options": [
-        "Grandfather told Khalid to be patient.",
-        "Khalid read the water level twice.",
+        "Grandfather told Khalid to be patient and wait for the rain.",
+        "Khalid read the water level twice in the morning and wrote it down.",
         "Khalid stuck a paper ruler along the side of the bottle.",
-        "Mr Saleh showed the official report."
+        "Mr Saleh showed the official report to the class at the school."
       ],
       "answer": "C",
       "why": "Khalid built the gauge in paragraph 1, before all the other events."
@@ -269,9 +269,9 @@
       "type": "MCQ",
       "stem": "From whose point of view is the story told?",
       "options": [
-        "Khalid's, using “I” and “my”",
-        "Mr Saleh's, as the class teacher",
-        "Grandfather's, as he remembers his childhood",
+        "Khalid's, using “I” and “my” to tell the whole story from the start",
+        "Mr Saleh's, as the class teacher who watched the work each day",
+        "Grandfather's, as he remembers his childhood in the desert village",
         "a narrator outside the story who describes Khalid's actions and feelings"
       ],
       "answer": "D",
@@ -302,9 +302,9 @@
       "stem": "Why did Khalid groan when Mr Saleh first announced the project?",
       "options": [
         "He believed the weather in Riyadh never did anything interesting.",
-        "He did not have a plastic bottle at home.",
-        "He wanted to study the weather in Abha instead.",
-        "He disliked writing in journals every day."
+        "He did not have a plastic bottle at home for the project.",
+        "He wanted to study the weather in Abha instead of Riyadh.",
+        "He disliked writing in journals every day after school lessons."
       ],
       "answer": "A",
       "why": "Paragraph 1: he groaned “because in Riyadh the weather seemed to do nothing interesting at all.”"
@@ -317,10 +317,10 @@
       "type": "MCQ",
       "stem": "In your opinion, what makes the reader want to keep reading after paragraph 2?",
       "options": [
-        "the description of how to cut a plastic bottle",
-        "the list of Khalid's school subjects",
+        "the description of how to cut a plastic bottle in half",
+        "the list of Khalid's school subjects and his marks",
         "the hope that a rare storm will finally fill the gauge",
-        "the explanation of how thunder is formed"
+        "the explanation of how thunder is formed in the sky"
       ],
       "answer": "C",
       "why": "After weeks of zeros and Khalid's doubts, the reader wonders whether the rain will ever come."
@@ -333,10 +333,10 @@
       "type": "MCQ",
       "stem": "How would you describe Khalid's feelings as he “raced up the stairs” at dawn?",
       "options": [
-        "calm and bored",
+        "calm and bored, as if it were an ordinary morning",
         "excited but worried that the gauge was damaged",
-        "angry that the storm had stopped",
-        "sad that he had missed the rain"
+        "angry that the storm had stopped so early",
+        "sad that he had missed the rain in the night"
       ],
       "answer": "B",
       "why": "His heart was “pounding with a mixture of hope and dread”: hope for a reading, fear that the wind had ruined the gauge."
@@ -381,9 +381,9 @@
       "type": "MCQ",
       "stem": "What do Grandfather and Mr Saleh have in common in the story?",
       "options": [
-        "Both experienced dramatic storms in Abha.",
-        "Both measure rainfall with plastic bottles.",
-        "Both complain about the dry weather.",
+        "Both experienced dramatic storms in Abha last winter.",
+        "Both measure rainfall with plastic bottles every day.",
+        "Both complain about the dry weather in the city.",
         "Both guide Khalid to value patient, careful observation."
       ],
       "answer": "D",
@@ -430,9 +430,9 @@
       "stem": "In your opinion, why does the writer include Grandfather's memory of waiting for rain as a boy?",
       "options": [
         "to show that rain has always been precious and worth waiting for",
-        "to explain how rain gauges were made long ago",
-        "to prove that it rained more in the past",
-        "to show that Grandfather disliked the rain"
+        "to explain how rain gauges were made long ago by hand in the village",
+        "to prove that it rained more in the past than it does today",
+        "to show that Grandfather disliked the rain and the mud as a boy"
       ],
       "answer": "A",
       "why": "His memory of the neighbourhood rushing out to celebrate shows how valued rain is and supports his advice to be patient."
@@ -461,9 +461,9 @@
       "type": "MCQ",
       "stem": "What most likely made the writer write this story?",
       "options": [
-        "a wish to explain how thunder is formed",
-        "a plan to compare the weather of Abha and Riyadh",
-        "a belief that homemade equipment is useless",
+        "a wish to explain how thunder is formed in the sky",
+        "a plan to compare the weather of Abha and Riyadh in a table",
+        "a belief that homemade equipment is useless in science",
         "a wish to show that real science needs patience and accuracy"
       ],
       "answer": "D",
@@ -478,9 +478,9 @@
       "stem": "Which feeling is most present in the story as a whole?",
       "options": [
         "impatience that slowly turns into pride",
-        "fear that turns into anger",
-        "jealousy that turns into sadness",
-        "boredom that never changes"
+        "fear that slowly turns into anger",
+        "jealousy that turns into deep sadness",
+        "boredom that never changes at all"
       ],
       "answer": "A",
       "why": "Khalid is impatient and discouraged at first, but ends the story with “a glow of pride.”"
@@ -493,10 +493,10 @@
       "type": "MCQ",
       "stem": "In your opinion, which information in the story is the LEAST clear?",
       "options": [
-        "why Khalid could not check the gauge during the storm",
-        "how Khalid made a funnel for his gauge",
+        "why Khalid could not check the gauge during the storm that night",
+        "how Khalid made a funnel for his gauge from a plastic bottle",
         "what rainfall Khalid's classmates recorded on the night of the storm",
-        "what the official report said about northern Riyadh"
+        "what the official report said about northern Riyadh after the storm"
       ],
       "answer": "C",
       "why": "The story never mentions the other students' readings; the other points are clearly explained."
@@ -525,9 +525,9 @@
       "type": "MCQ",
       "stem": "Which title best describes the events of the story?",
       "options": [
-        "Lost in the Storm",
-        "A Holiday in the Mountains",
-        "Grandfather's Secret Recipe",
+        "Lost in the Storm on the Mountain",
+        "A Holiday in the Mountains with Friends",
+        "Grandfather's Secret Recipe for Bread",
         "The Night the Gauge Finally Filled"
       ],
       "answer": "D",

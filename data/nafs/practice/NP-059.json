@@ -45,9 +45,9 @@
       "difficulty": 1,
       "stem": "What type of text is this?",
       "options": [
-        "An encyclopedia article",
-        "A poem about mountains",
-        "A letter to a museum",
+        "An encyclopedia article about a country",
+        "A poem about mountains and valleys",
+        "A letter to a museum or a library",
         "A story told mostly through dialogue"
       ],
       "answer": "D",
@@ -125,10 +125,10 @@
       "difficulty": 3,
       "stem": "Which information is the LEAST clear in the story?",
       "options": [
-        "what Lina did on the way home",
+        "what Lina did on the way home from school",
         "what the words on the stone actually say",
-        "which city the museum is in",
-        "where the stone was first found"
+        "which city the museum is in on the map",
+        "where the stone was first found in the desert"
       ],
       "answer": "B",
       "why": "Lina asks what the stone says, but no one ever tells her; the other details are given."

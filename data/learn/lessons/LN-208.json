@@ -234,9 +234,9 @@
      "passage": "Instead of being generous with his toys, the boy was stingy and refused to share.",
      "stem": "What does stingy mean?",
      "options": [
-      "Kind",
-      "Funny",
-      "Sleepy",
+      "Kind and very generous",
+      "Funny and full of jokes",
+      "Sleepy and very slow",
       "Not willing to share"
      ],
      "answer": 3,
@@ -399,10 +399,10 @@
     "passage": "In her early years as a scientist, Dr. Salma was known for being impetuous. She would announce a new theory before finishing her experiments, and twice she had to withdraw a paper after other researchers found mistakes. Over time, however, she became famously deliberate. She tested each idea for months, checked every result with colleagues, and published only when she was certain. Her later work, slow as it was, changed how doctors treat burns. Younger scientists now ask her for advice on patience.",
     "stem": "Based on the clues, what does impetuous mean?",
     "options": [
-     "Careful and patient",
+     "Careful and patient in everything he does",
      "Acting quickly without thinking things through",
-     "Famous and admired",
-     "Unwilling to share ideas"
+     "Famous and admired by people all over town",
+     "Unwilling to share ideas with other people in a group"
     ],
     "answer": 1,
     "hint": "Look at what she did in her early years. Then find the word that 'however' sets against impetuous.",
@@ -433,8 +433,8 @@
      "options": [
       "Short and to the point",
       "Long and repetitive",
-      "Loud and angry",
-      "Funny and lively"
+      "Loud and always angry",
+      "Funny and full of life"
      ],
      "answer": 0,
      "why": "'Whereas' sets concise against rambling for over an hour with repetition, so concise means short and clear."

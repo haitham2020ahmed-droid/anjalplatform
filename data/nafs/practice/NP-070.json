@@ -93,10 +93,10 @@
       "difficulty": 2,
       "stem": "What was the EFFECT of Reem's careful plan?",
       "options": [
-        "The tree was moved to another street.",
+        "The tree was moved to another street by the city.",
         "The car park was redesigned to save the tree.",
-        "The birds left the neighbourhood.",
-        "Uncle Saad stopped drinking coffee."
+        "The birds left the neighbourhood for the winter.",
+        "Uncle Saad stopped drinking coffee in the morning."
       ],
       "answer": "B",
       "why": "After the letter and signatures, 'the car park was redesigned so that the tree could remain'."

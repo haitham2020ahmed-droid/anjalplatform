@@ -10,10 +10,10 @@ const kindOf = (v: unknown): StarKind => (v === "LESSON" ? "LESSON" : "SKILL");
 const TRACKS = new Set(["CURRICULUM", "MAP", "NAFS", "GRAMMAR"]);
 
 /** ☆ → ★ quick assign (src/server/assign/star.ts). */
-export async function starAssignAction(input: { kind: string; ref: string; classId: string; dueAt?: string | null; track?: string | null; excludeMastered?: boolean }): Promise<{ ok: true; id: string; already: boolean } | { ok: false; message: string }> {
+export async function starAssignAction(input: { kind: string; ref: string; classId: string; dueAt?: string | null; startAt?: string | null; track?: string | null; excludeMastered?: boolean; source?: string | null }): Promise<{ ok: true; id: string; already: boolean } | { ok: false; message: string }> {
   const actor = await requireActor({ roles: ["TEACHER"], permission: "assignments:create" });
   try {
-    const r = await starAssign(repo, actor, { kind: kindOf(input?.kind), ref: String(input?.ref ?? ""), classId: String(input?.classId ?? ""), dueAt: input?.dueAt ?? null, track: TRACKS.has(String(input?.track)) ? (String(input.track) as Track) : null, excludeMastered: input?.excludeMastered === true });
+    const r = await starAssign(repo, actor, { kind: kindOf(input?.kind), ref: String(input?.ref ?? ""), classId: String(input?.classId ?? ""), dueAt: input?.dueAt ?? null, startAt: input?.startAt ?? null, track: TRACKS.has(String(input?.track)) ? (String(input.track) as Track) : null, excludeMastered: input?.excludeMastered === true, source: input?.source ?? null });
     return { ok: true, id: r.id, already: r.already };
   } catch (e) { if (known(e)) return { ok: false, message: (e as Error).message }; throw e; }
 }

@@ -173,10 +173,10 @@
       "type": "MCQ",
       "stem": "What is the main purpose of the text?",
       "options": [
-        "to persuade readers to live on the very top floors",
+        "to persuade readers to live on the very top floors of towers",
         "to explain how a safety device made tall buildings possible",
-        "to tell the full life story of Elisha Otis",
-        "to compare the cities of Dubai and Jeddah"
+        "to tell the full life story of Elisha Otis and his family",
+        "to compare the cities of Dubai and Jeddah and their towers"
       ],
       "answer": "B",
       "why": "The text moves from the problem of stairs to Otis's brake and on to modern skyscrapers."
@@ -206,9 +206,9 @@
       "stem": "According to paragraph 1, why were very few early buildings taller than five or six storeys?",
       "options": [
         "People refused to climb many flights of stairs.",
-        "Cities had laws against tall buildings.",
-        "There was no glass for high windows.",
-        "Builders were afraid of strong winds."
+        "Cities had laws against tall buildings in the old days.",
+        "There was no glass for high windows in those days.",
+        "Builders were afraid of strong winds up high."
       ],
       "answer": "A",
       "why": "“People simply refused to climb dozens of flights of stairs, so upper floors were inconvenient and difficult to rent.”"
@@ -302,9 +302,9 @@
       "stem": "Why did Otis order his assistant to cut the rope in front of a crowd?",
       "options": [
         "He wanted people to believe his brake worked.",
-        "The rope was old and needed replacing.",
-        "He wanted to test a new axe.",
-        "The crowd asked him to stop the show."
+        "The rope was old and needed replacing soon.",
+        "He wanted to test a new axe on the rope.",
+        "The crowd asked him to stop the show early."
       ],
       "answer": "A",
       "why": "Paragraph 3: “Otis knew that a clever invention is useless if nobody believes in it.”"
@@ -349,9 +349,9 @@
       "type": "MCQ",
       "stem": "How did the top floors of buildings change after elevators became trusted?",
       "options": [
-        "They became harder to rent.",
-        "They were turned into storage rooms.",
-        "They were removed from most buildings.",
+        "They became harder to rent to families.",
+        "They were turned into storage rooms for boxes.",
+        "They were removed from most buildings in the city.",
         "They went from least wanted to most valuable."
       ],
       "answer": "D",
@@ -462,9 +462,9 @@
       "stem": "What most likely motivated the writer to write this text?",
       "options": [
         "a wish to show how an unnoticed device changed cities",
-        "a plan to sell tickets for elevator rides",
-        "a belief that all stairs are dangerous",
-        "a wish to criticise very tall buildings"
+        "a plan to sell tickets for elevator rides in tall hotels",
+        "a belief that all stairs are dangerous for small children",
+        "a wish to criticise very tall buildings in big cities"
       ],
       "answer": "A",
       "why": "The writer reminds readers to remember Otis “the next time you step into an elevator without a second thought.”"
@@ -525,10 +525,10 @@
       "type": "MCQ",
       "stem": "Which title best describes the ideas in the text?",
       "options": [
-        "The Rope That Fell",
-        "Stairs Forever",
+        "The Rope That Fell Down the Hill",
+        "Stairs Forever and Ever",
         "Safety First, Then Higher",
-        "A Store in New York"
+        "A Store in New York City"
       ],
       "answer": "C",
       "why": "The text shows that safety came first, and only then could buildings grow taller."

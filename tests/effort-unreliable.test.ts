@@ -1,7 +1,8 @@
 /**
- * 📉 r67 item 2 — every session's effort for the teacher, and "Unreliable" sessions (demo school in memory; never a
- * real database):
- *   · effort = careful answers / all answers (rapid guesses are not careful)
+ * 📉 r67 item 2, redesigned Nov 2026 — every session's effort for the teacher, and "Unreliable" sessions (demo
+ * school in memory; never a real database):
+ *   · effort = careful answers / all answers; a "guess" is now fast AND wrong, repeatedly — never a merely fast
+ *     but genuinely correct answer (that counts as careful, exactly like any other correct answer)
  *   · more than 20 % guesses → the session is Unreliable: the flag is kept on the session and copied to its answers,
  *     so its answers never move the student's level (level evidence), tier or intervention numbers
  *   · teacher reports show it: Practice Analytics (class, skills, one student's sessions) and the student page's
@@ -58,8 +59,10 @@ describe("Unreliable sessions in practice and in the teacher's reports", () => {
   test("a session over 20 % guesses is Unreliable: flagged with its answers, and left out of the level", async () => {
     const me = kids[0];
     let v: PracticeView = await startPractice(repo, me, skillId, tick(0));
-    // 6 answers, 2 of them guesses (33 %)
-    for (const ms of [30_000, 1000, 30_000, 30_000, 1000, 30_000]) v = (await submitAnswer(repo, me, { sessionId: v.sessionId, questionId: v.question!.questionId, response: "A" }, tick(ms))).view;
+    // 6 answers, 2 of them fast AND wrong (33 %) — "B" is wrong (the key is "A")
+    for (const [ms, resp] of [[30_000, "A"], [1000, "B"], [30_000, "A"], [30_000, "A"], [1000, "B"], [30_000, "A"]] as const) {
+      v = (await submitAnswer(repo, me, { sessionId: v.sessionId, questionId: v.question!.questionId, response: resp }, tick(ms))).view;
+    }
     const sess = (await repo.findUnique("PracticeSession", { id: v.sessionId }))!;
     assert.deepEqual([Number(sess.questionCount), Number(sess.guessCount), Boolean(sess.unreliable)], [6, 2, true]);
     const att = await repo.findMany("QuestionAttempt", { sessionId: v.sessionId });
@@ -69,29 +72,32 @@ describe("Unreliable sessions in practice and in the teacher's reports", () => {
     assert.equal(th.get(me.studentId!), undefined, "no level evidence from an Unreliable session");
   });
 
-  test("a careful session stays reliable and counts for the level", async () => {
+  test("a session with fast but genuinely correct answers stays reliable and counts for the level", async () => {
     const me = kids[1];
     let v: PracticeView = await startPractice(repo, me, skillId, tick(0));
+    // every answer correct ("A"), one of them fast (1s) — under the old design this alone made the session
+    // Unreliable; under the new design a fast CORRECT answer never contributes to the guessing pattern at all
     for (let k = 0; k < 6; k++) v = (await submitAnswer(repo, me, { sessionId: v.sessionId, questionId: v.question!.questionId, response: "A" }, tick(k === 2 ? 1000 : 30_000))).view;
     const sess = (await repo.findUnique("PracticeSession", { id: v.sessionId }))!;
-    assert.deepEqual([Number(sess.guessCount), Boolean(sess.unreliable)], [1, false], "1 of 6 (17 %) is still reliable");
+    assert.deepEqual([Number(sess.guessCount), Boolean(sess.unreliable)], [0, false], "a fast but correct answer is never a guess any more");
     assert.ok((await levelThetas(repo, [me.studentId!], tick(0))).get(me.studentId!), "its careful answers count for the level");
   });
 
   test("teacher reports: effort for the class, each skill and student, and one student's sessions", async () => {
     const a = await practiceAnalytics(repo, teacher, { classId, from: new Date(T0.getTime() - 86_400_000), to: tick(0) });
     assert.equal(a.totals.unreliable, 1);
-    assert.equal(a.totals.effort, Math.round((100 * 9) / 12), "9 careful answers of 12");
+    // 12 answers total, 2 fast-and-wrong (the first session); accuracy now counts every answer that isn't a
+    // literal misclick, so the 2 wrong answers lower it (10 correct of 12), not just "careful" ones
+    assert.equal(a.totals.effort, Math.round((100 * 10) / 12), "10 of 12 were not part of the guessing pattern");
     const sk = a.skills.find((k) => k.skillId === skillId)!;
-    assert.equal(sk.effort, 75);
-    // accuracy counts careful answers only (every answer here was right)
-    assert.equal(sk.accuracy, 100);
+    assert.equal(sk.effort, Math.round((100 * 10) / 12));
+    assert.equal(sk.accuracy, Math.round((100 * 10) / 12), "accuracy now counts every genuine answer, right or wrong");
     const guesser = a.students.find((x) => x.id === kids[0].studentId)!;
-    assert.deepEqual([guesser.effort, guesser.unreliable], [67, 1]);
+    assert.deepEqual([guesser.effort, guesser.unreliable], [Math.round((100 * 4) / 6), 1]);
     const one = await practiceAnalytics(repo, teacher, { classId, from: new Date(T0.getTime() - 86_400_000), to: tick(0), studentId: kids[0].studentId! });
     assert.equal(one.sessions.length, 1);
-    assert.deepEqual([one.sessions[0].answers, one.sessions[0].effort, one.sessions[0].unreliable], [6, 67, true]);
+    assert.deepEqual([one.sessions[0].answers, one.sessions[0].effort, one.sessions[0].unreliable], [6, Math.round((100 * 4) / 6), true]);
     const e = await studentEffort(repo, kids[0].studentId!, 30, tick(0));
-    assert.deepEqual([e.effort, e.unreliableSessions, e.sessions], [67, 1, 1]);
+    assert.deepEqual([e.effort, e.unreliableSessions, e.sessions], [Math.round((100 * 4) / 6), 1, 1]);
   });
 });

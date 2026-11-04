@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { SuggestionView } from "@/server/ai/jobs";
 import { reviewAction } from "@/app/admin/ai-tools/actions";
+import { RichInline } from "@/components/rich-inline";
 
 const KIND: Record<string, [string, string]> = {
   KEY_ERROR: ["❗ Wrong answer key", "bg-red-100 text-red-800"], MULTIPLE_CORRECT: ["❗ More than one correct", "bg-red-100 text-red-800"],
@@ -25,7 +26,7 @@ export function ReviewTable({ rows, back, sample }: { rows: SuggestionView[]; ba
             <input type="checkbox" name="ids" value={r.id} defaultChecked={sample || r.kind === "TAG" || r.kind === "READING_LEVEL"} aria-label="Select" className="mt-1 h-4 w-4" />
             <div className="min-w-0 flex-1">
               <span className={`me-2 inline-block rounded-full px-2 py-0.5 text-xs font-bold ${KIND[r.kind]?.[1] ?? "bg-slate-100"}`}>{KIND[r.kind]?.[0] ?? r.kind}</span>
-              {r.stem && <span className="font-medium text-slate-900">{r.stem}</span>}
+              {r.stem && <span className="font-medium text-slate-900"><RichInline text={r.stem} /></span>}
               <p className="mt-1 text-sm text-slate-700">{r.detail}</p>
               {r.kind === "DUPLICATE" && <p className="mt-1 text-xs text-slate-500">Kept: “{String(r.data.keepStem ?? "")}”</p>}
               {typeof r.data.suggestion === "string" && r.data.suggestion && <p className="mt-1 text-xs text-slate-500">💡 {r.data.suggestion}</p>}

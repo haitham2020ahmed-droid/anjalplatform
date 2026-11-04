@@ -57,7 +57,7 @@
      "Sara has a cat and Huda.",
      "Sara and Huda each have a cat.",
      "Sara has Huda and a cat.",
-     "Sara and a cat have Huda."
+     "Sara and a cat have Huda too."
     ],
     "answer": 1,
     "hint": "Which words repeat? Join the two names with and.",
@@ -83,8 +83,8 @@
      "passage": "The sun is hot. The sand is hot.",
      "stem": "Which sentence joins them?",
      "options": [
-      "The sun is sand and hot.",
-      "The hot sun is sand.",
+      "The sun is sand and hot too.",
+      "The hot sun is the sand there.",
       "The sun and hot is sand.",
       "The sun and the sand are hot."
      ],

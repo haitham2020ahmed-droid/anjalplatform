@@ -1,11 +1,14 @@
 /**
  * Every recommendation the platform shows is SAVED with its reasons, and checked 7 days later:
  *   followed?  the student practised the skill after it was recommended
- *   outcome    IMPROVED (mastery +5 or more) · SAME · DROPPED (−5 or more) · NOT_FOLLOWED
+ *   outcome    IMPROVED (⭐ earned on the skill since the recommendation — the ONE star system, by skill key — or the
+ *              engine score +5 or more) · SAME · DROPPED (score −5 or more) · NOT_FOLLOWED
+ * masteryAtRec / masteryAfter keep the engine SCORE (0–100); they are a score, never a status.
  * This closes the learning loop: the school can see whether the platform's advice works.
  */
 import type { Recommendation } from "../../recommendations/recommend";
 import type { Repo } from "../seeding/repo";
+import { starBook, starMastered, type StarBook } from "../skills/star-read";
 
 const DAY = 86_400_000;
 export const EVALUATE_AFTER_DAYS = 7;
@@ -53,6 +56,15 @@ async function evaluateBatch(repo: Repo, now: Date, limit: number): Promise<{ ev
     repo.findMany("StudentSkillMastery", { studentId: { in: students }, skillId: { in: skills } }, { select: ["studentId", "skillId", "score"] }),
   ]);
   const score = new Map(mastery.map((m) => [`${s(m.studentId)}|${s(m.skillId)}`, Number(m.score)]));
+  // ⭐ the stars of these students, one batched read per school (a skill key belongs to its school)
+  const schoolOf = new Map((await repo.findMany("Student", { id: { in: students } }, { select: ["id", "schoolId"] })).map((x) => [s(x.id), s(x.schoolId)]));
+  const books = new Map<string, StarBook>();
+  for (const sc of new Set(schoolOf.values())) books.set(sc, await starBook(repo, students.filter((id) => schoolOf.get(id) === sc), sc));
+  const earned = (studentId: string, skillId: string, at: number) => {
+    const b = books.get(schoolOf.get(studentId) ?? ""); if (!b) return false;
+    const v = b.of(studentId, skillId);
+    return starMastered(v) && t(v.masteredAt) >= at;
+  };
   // answer times per student and skill, sorted once
   const times = new Map<string, number[]>();
   for (const a of attempts) { const k = `${s(a.studentId)}|${s(a.skillId)}`; const l = times.get(k); if (l) l.push(t(a.createdAt)); else times.set(k, [t(a.createdAt)]); }
@@ -62,7 +74,7 @@ async function evaluateBatch(repo: Repo, now: Date, limit: number): Promise<{ ev
     const at = t(r.createdAt);
     const first = (times.get(key) ?? []).find((x) => x >= at);
     const after = score.get(key) ?? 0, was = Number(r.masteryAtRec ?? 0);
-    const outcome = first === undefined ? "NOT_FOLLOWED" : after - was >= 5 ? "IMPROVED" : was - after >= 5 ? "DROPPED" : "SAME";
+    const outcome = first === undefined ? "NOT_FOLLOWED" : earned(s(r.studentId), s(r.skillId), at) || after - was >= 5 ? "IMPROVED" : was - after >= 5 ? "DROPPED" : "SAME";
     if (first !== undefined) followed++;
     if (outcome === "IMPROVED") improved++;
     await repo.updateMany("Recommendation", { id: r.id }, { evaluatedAt: now, followedAt: first !== undefined ? new Date(first) : null, masteryAfter: after, outcome });

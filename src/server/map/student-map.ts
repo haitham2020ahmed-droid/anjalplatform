@@ -15,7 +15,8 @@ import { accessibleClasses } from "../teacher/assign";
 import { assertClassAccess } from "../teacher/assignments";
 import { createUser } from "../admin/users";
 import { draftPlansFor, type AutoPlans } from "./map-auto";
-import { bandOf, ensureNationalNorms, nationalNorm, seasonOf } from "./rit";
+import { bandOf, ensureNationalNorms, nationalNorm, percentileFromNorm, seasonOf } from "./rit";
+import { backfillReadRiseFromMap } from "../readrise/engine";
 
 const s = (v: unknown) => String(v ?? "");
 // “Fall Percentile (optional)” → “fallpercentile”: the template's own headers must always be recognised
@@ -190,7 +191,7 @@ export function fromNweaCdf(table: string[][]): { table: string[][]; term: strin
 }
 const SUBJECT_NAME = { READING: "Reading", LANGUAGE_USAGE: "Language Usage" } as const;
 
-export interface MapImportResult { imported: number; skipped: number; errors: { row: number; message: string }[]; term: string; created: { name: string; username: string; password: string }[]; /** students of the file not found on the platform (check their Student ID) */ unmatched?: { number: string; name: string }[]; /** individual plan drafts made from these scores */ plans?: AutoPlans }
+export interface MapImportResult { imported: number; skipped: number; errors: { row: number; message: string }[]; term: string; created: { name: string; username: string; password: string }[]; /** students of the file not found on the platform (check their Student ID) — `classes` set means the name was NOT auto-added because it already matches a student of one of these OTHER classes (ambiguous), so it's not "missing", just not auto-creatable here */ unmatched?: { number: string; name: string; classes?: string[] }[]; /** individual plan drafts made from these scores */ plans?: AutoPlans }
 
 /**
  * A student in the MAP file who is not on the platform yet: created in this class (teachers: their own class).
@@ -211,7 +212,7 @@ async function createStudentFromMap(repo: Repo, actor: Actor, classId: string, n
 }
 
 /** Imports Fall RIT + Spring projection. Teachers: their own classes' students only; admins: the whole school. */
-export async function importMapScores(repo: Repo, actor: Actor, table: string[][], fallYear: number, now = new Date(), opts: { createInClassId?: string; term?: { name: string; date: Date }; wholeFile?: boolean } = {}): Promise<MapImportResult> {
+export async function importMapScores(repo: Repo, actor: Actor, table: string[][], fallYear: number, now = new Date(), opts: { createInClassId?: string; term?: { name: string; date: Date }; wholeFile?: boolean; /** the teacher confirmed, by hand, that this ONE name (ambiguous — it also matches a student of another of their classes) should be added as a genuinely new, separate student here anyway */ forceCreateName?: string } = {}): Promise<MapImportResult> {
   assertCan(actor, "assignments:create");
   if (!(fallYear >= 2000 && fallYear <= 2100)) throw new ValidationError("Choose the year of the Fall test (e.g. 2026).");
   // NWEA's own export: converted, its term taken from the file; it covers whole grades without classes,
@@ -252,15 +253,30 @@ export async function importMapScores(repo: Repo, actor: Actor, table: string[][
   const created: MapImportResult["created"] = [];
   // students this actor may update
   const classes = await accessibleClasses(repo, actor);
-  const members = classes.length ? await repo.findMany("ClassMembership", { classId: { in: classes.map((k) => k.id) }, leftAt: null }, { select: ["studentId"] }) : [];
+  const members = classes.length ? await repo.findMany("ClassMembership", { classId: { in: classes.map((k) => k.id) }, leftAt: null }, { select: ["studentId", "classId"] }) : [];
+  const classNameOf = new Map(classes.map((k) => [s(k.id), s(k.name)]));
+  // a student's class, for the "already in another of your classes" hint below (first membership is enough for a hint)
+  const classOfStudent = new Map<string, string>();
+  for (const m of members) { const sid = s(m.studentId); if (!classOfStudent.has(sid)) classOfStudent.set(sid, classNameOf.get(s(m.classId)) || ""); }
   const allowed = new Set(members.map((m) => s(m.studentId)));
-  const students = allowed.size ? await repo.findMany("Student", { id: { in: [...allowed] } }, { select: ["id", "userId", "studentNumber"] }) : [];
+  const students = allowed.size ? await repo.findMany("Student", { id: { in: [...allowed] } }, { select: ["id", "userId", "studentNumber", "gradeId"] }) : [];
   const users = students.length ? await repo.findMany("User", { id: { in: students.map((x) => x.userId) } }, { select: ["id", "username", "displayName"] }) : [];
+  // 🐛 r91 fix ("درجات قديمة بتتحسب بصف الطالب الحالي"): each student's CURRENT grade, stamped onto the rows this
+  // import creates (their grade at test time, best available) — a file's own "Grade" column wins when given (rowGrade below).
+  const gradeRows = students.length ? await repo.findMany("Grade", { id: { in: [...new Set(students.map((x) => s(x.gradeId)))] } }, { select: ["id", "level"] }) : [];
+  const currentGradeOf = new Map(students.map((st) => [s(st.id), Number(gradeRows.find((g) => g.id === st.gradeId)?.level ?? 0) || null]));
   const byKey = new Map<string, string>();
   // names, as a fallback when the file's number is not the platform's (e.g. NWEA IDs): “AALBAQSHI, AHMED” = “Ahmed Aalbaqshi”
   const nameKey = (n: string) => n.toLowerCase().replace(/[^a-z0-9\u0600-\u06ff ]+/g, " ").split(/\s+/).filter(Boolean).sort().join(" ");
-  const byName = new Map<string, string | null>();
-  for (const st of students) { const u = users.find((x) => x.id === st.userId); if (!u) continue; const k = nameKey(s(u.displayName)); byName.set(k, byName.has(k) ? null : s(st.id)); }
+  // every accessible student under this name (normally 1 — more than 1 means the exact same name exists in
+  // 2+ of the teacher's own classes, which the "not found" message below calls out by name, so there's no need
+  // to go hunting for it by hand)
+  const byName = new Map<string, { id: string; className: string }[]>();
+  for (const st of students) {
+    const u = users.find((x) => x.id === st.userId); if (!u) continue;
+    const k = nameKey(s(u.displayName));
+    const list = byName.get(k) ?? []; list.push({ id: s(st.id), className: classOfStudent.get(s(st.id)) || "" }); byName.set(k, list);
+  }
   const gradeCol = header.findIndex((h) => h === "grade" || h === "grd");
   const classGrade = opts.createInClassId ? Number((await repo.findUnique("Grade", { id: (await repo.findUnique("Class", { id: opts.createInClassId }))?.gradeId }))?.level ?? 0) : 0;
   for (const st of students) {
@@ -276,6 +292,11 @@ export async function importMapScores(repo: Repo, actor: Actor, table: string[][
   // readiness S-12: the same student twice in one file (same term and subject) is a problem row, not “last one wins”
   const inFile = new Map<string, number>();
   const cell = (r: string[], ix: number) => (ix >= 0 ? s(r[ix]).trim() : "");
+  // Some reports (NWEA's Class Profile) have no Student ID column at all, so every row's number is blank — that's
+  // expected there, and a name-only match is the best we can do. In a file that DOES carry real numbers (the
+  // platform's own template, a CSV), a single blank number is more likely a data-entry slip, so that one row still
+  // requires a number before it's allowed to mint a new account — only a file with no numbers anywhere skips that.
+  const anyNumberInFile = table.slice(at + 1).some((r) => !!cell(r, c.number).trim());
   const ritOf = (raw: string, what: string): number | null => { if (!raw) return null; const n = Number(raw); if (!Number.isInteger(n) || n < 100 || n > 350) throw new ValidationError(`${what} “${raw}” must be a whole number from 100 to 350.`); return n; };
   for (let i = at + 1; i < table.length; i++) {
     const r = table[i]; const rowNo = i + 1;
@@ -301,18 +322,36 @@ export async function importMapScores(repo: Repo, actor: Actor, table: string[][
       const readRapid = rapidOf(cell(r, c.rapid)), langRapid = rapidOf(cell(r, c.langRapid));
       let sid = byKey.get(key.toLowerCase());
       const fullName = nameCol >= 0 ? s(r[nameCol]).replace(/\s+/g, " ").trim() : "";
-      if (!sid && fullName) { const hit = byName.get(nameKey(fullName)); if (hit) sid = hit; }   // same student, other number: no duplicate
+      const nk = fullName ? nameKey(fullName) : "";
+      // 2+ hits for this name means it's ambiguous: the exact same name exists in 2+ of the teacher's own
+      // classes (e.g. "Ali Hussain" in both 5A and 6A) — never auto-create in that case, or we'd mint a true
+      // duplicate of someone who already exists; only a name that matches NO existing student at all is new.
+      const hits = nk ? (byName.get(nk) ?? []) : [];
+      // the teacher's own one-click confirmation for exactly this name overrides the ambiguity check — they've
+      // seen the "already in another class" warning and said, by hand, that this one is a genuinely different student
+      const forced = !!(opts.forceCreateName && nk && nk === nameKey(opts.forceCreateName));
+      if (!sid && hits.length === 1 && !forced) sid = hits[0].id;   // one unambiguous match (same student, other number): no duplicate
       const rowGrade = gradeCol >= 0 ? Number(cell(r, gradeCol)) : 0;
       if (!sid && opts.createInClassId && rowGrade && classGrade && rowGrade !== classGrade) throw new ValidationError(`${fullName || key} is in Grade ${rowGrade} in the file, but this class is Grade ${classGrade}: import them from their own class.`);
-      if (!sid && opts.createInClassId && key && fullName) {
+      // A report with no Student ID column (e.g. NWEA's Class Profile) has an empty `key` for every row — a
+      // student number isn't required to add someone this way, only a name that matches nobody already on record
+      // (or, for the one forced name, that the teacher has now confirmed by hand is a genuinely different student).
+      if (!sid && opts.createInClassId && fullName && (!hits.length || forced) && (key || !anyNumberInFile)) {
+        if (key) {
+          // a student number IS given (e.g. the platform's own template): still guard against colliding with one
+          // that already exists under a different name/class, same as before.
+          const taken = (await repo.findMany("Student", { schoolId: actor.schoolId, studentNumber: key }))[0];
+          if (taken?.deletedAt) throw new ValidationError(`Student number ${key} belongs to an archived student: bring them back with the roster import (Admin → Import users).`);
+          if (taken) throw new ValidationError(`Student number ${key} already belongs to a student of another class.`);
+        }
         // a new student: added to the platform in this class, then their scores are saved below
-        const taken = (await repo.findMany("Student", { schoolId: actor.schoolId, studentNumber: key }))[0];
-        if (taken?.deletedAt) throw new ValidationError(`Student number ${key} belongs to an archived student: bring them back with the roster import (Admin → Import users).`);
-        if (taken) throw new ValidationError(`Student number ${key} already belongs to a student of another class.`);
         const n = await createStudentFromMap(repo, actor, opts.createInClassId, key, fullName);
-        sid = n.id; byKey.set(key.toLowerCase(), n.id); created.push({ name: fullName, username: n.username, password: n.password });
+        sid = n.id; if (key) byKey.set(key.toLowerCase(), n.id); byName.set(nk, [{ id: n.id, className: "" }]); created.push({ name: fullName, username: n.username, password: n.password });
       }
-      if (!sid && (nwea || opts.wholeFile)) { notInClasses++; unmatched.push({ number: key, name: fullName }); continue; }   // a grade-wide file: other classes' students are expected
+      // a grade-wide file: other classes' students are expected. `hits` here means the name is ambiguous (ties
+      // to 2+ of the teacher's OWN classes) — pass those class names along so the summary message can say exactly
+      // where the student already is, instead of the teacher having to search for the name themselves.
+      if (!sid && (nwea || opts.wholeFile)) { notInClasses++; unmatched.push({ number: key, name: fullName, ...(hits.length > 1 ? { classes: [...new Set(hits.map((h) => h.className).filter(Boolean))] } : {}) }); continue; }
       if (!sid) throw new ValidationError(`Student “${key}” was not found in your classes${opts.createInClassId ? " (write the Student Name to add them)" : " (import from one class to add new students)"}.`);
       const subjectsHere = (["READING", "LANGUAGE_USAGE"] as const).filter((sub) => (sub === "READING" ? readRit : langRit) !== null || goals.some((x) => x.g.subject === sub));
       const twice = subjectsHere.filter((sub) => inFile.has(`${sid}|${sub}`));
@@ -332,8 +371,14 @@ export async function importMapScores(repo: Repo, actor: Actor, table: string[][
         // the comprehensive data file's extras (error, growth, descriptors …)
         const ex = cdf?.extras.get(`${key.toLowerCase()}|${subject}`);
         const more = ex ? { ritSE: ex.ritSE, growthPercentile: ex.growthPercentile, observedGrowth: ex.observedGrowth, conditionalGrowthIndex: ex.conditionalGrowthIndex, metProjectedGrowth: ex.metProjectedGrowth, testMinutes: ex.testMinutes, lexileLow: subject === "READING" ? ex.lexileLow : null, lexileHigh: subject === "READING" ? ex.lexileHigh : null, typicalGrowth: ex.typicalGrowth, proficiency: ex.proficiency } : {};
-        if (rit !== null) await repo.create("MapResult", { studentId: sid, testDate, subject: name, goalName: null, rit, achievementPercentile: keep(pct, "achievementPercentile"), projectedGrowth: keep(growth, "projectedGrowth"), lexile: subject === "READING" ? keep(lexile, "lexile") : null, rapidGuessPct: keep(rapid, "rapidGuessPct"), termName: term, importedAt: now, ...more });
-        for (const x of subjGoals) { const gx = ex?.goals[GOAL_GROUP[x.g.code]]; await repo.create("MapResult", { studentId: sid, testDate, subject: name, goalName: s(x.g.area!.name), goalAreaId: s(x.g.area!.id), rit: x.rit, termName: term, importedAt: now, ...(gx ? { descriptor: gx.descriptor, ritSE: gx.se } : {}) }); }
+        const gradeAtTest = rowGrade || currentGradeOf.get(sid) || null; // 🐛 r91 fix: file's own Grade column wins, else the student's current grade
+        const keptLexile = subject === "READING" ? keep(lexile, "lexile") : null;
+        if (rit !== null) await repo.create("MapResult", { studentId: sid, testDate, subject: name, goalName: null, rit, grade: gradeAtTest, achievementPercentile: keep(pct, "achievementPercentile"), projectedGrowth: keep(growth, "projectedGrowth"), lexile: keptLexile, rapidGuessPct: keep(rapid, "rapidGuessPct"), termName: term, importedAt: now, ...more });
+        // 🩹 Oct 2026 fix: a Reading Lexile landing here may be the first REAL one this student has ever had — if
+        // their ReadRise level is still on the grade-based guess (source DEFAULT), correct it now automatically
+        // instead of leaving it stuck until someone notices (see engine.ts#backfillReadRiseFromMap for the full why).
+        if (rit !== null && subject === "READING" && keptLexile !== null) await backfillReadRiseFromMap(repo, sid, Number(keptLexile), now);
+        for (const x of subjGoals) { const gx = ex?.goals[GOAL_GROUP[x.g.code]]; await repo.create("MapResult", { studentId: sid, testDate, subject: name, goalName: s(x.g.area!.name), goalAreaId: s(x.g.area!.id), rit: x.rit, grade: gradeAtTest, termName: term, importedAt: now, ...(gx ? { descriptor: gx.descriptor, ritSE: gx.se } : {}) }); }
       }
       imported++; touched.add(sid);
     } catch (e) {
@@ -440,11 +485,12 @@ export async function studentMap(repo: Repo, actor: Actor): Promise<StudentMap> 
   let rit: StudentMap["rit"] = null;
   if (latest && g) {
     const season = seasonOf(latest.termName, latest.testDate);
-    const n = await nationalNorm(repo, g.grade, season);
+    const n = await nationalNorm(repo, Number(latest.grade) || g.grade, season); // 🐛 r91 fix: this test's own grade, not the student's current one
     if (n) {
+      // 🐛 r91 fix: was its own tanh approximation (disagreed with rit.ts's erf-based one near band edges) — now
+      // the one shared formula, so a student's own "My MAP" page shows the same band as the teacher's RIT report.
       const imported = latest.achievementPercentile !== null && latest.achievementPercentile !== undefined;
-      const z = (Number(latest.rit) - n.mean) / n.sd;
-      const pct = imported ? Number(latest.achievementPercentile) : Math.max(1, Math.min(99, Math.round(100 * (0.5 * (1 + Math.tanh(0.7978845608 * (z + 0.044715 * z ** 3)))))));
+      const pct = imported ? Number(latest.achievementPercentile) : (percentileFromNorm(Number(latest.rit), n) ?? 50);
       rit = { value: Number(latest.rit), term: s(latest.termName) || season, percentile: pct, estimated: !imported, band: bandOf(pct), nationalMean: n.mean, diff: Number(latest.rit) - n.mean };
     }
   }

@@ -76,7 +76,7 @@
     "passage": "Our class planted a tree. First, we dug a hole. Then we put the small tree in. We gave it water. My friend Huda wore a green hat. Now the tree is growing.",
     "stem": "Which is the best summary?",
     "options": [
-     "Huda wore a green hat when the class went outside.",
+     "Huda wore a green hat when the whole class went outside.",
      "We dug a big hole in the ground and put a hat in.",
      "The class planted a tree and watered it, and it is growing.",
      "Trees need lots of water to grow tall and green."
@@ -108,9 +108,9 @@
      "passage": "Snow fell all night. In the morning, the town was white. The schools were closed. Kids made snowmen in the park.",
      "stem": "Which is the best summary?",
      "options": [
-      "Kids made snowmen in the park.",
+      "Kids made snowmen in the park all morning.",
       "Snow closed schools, and kids played in it.",
-      "The park was full of white snowmen.",
+      "The park was full of white snowmen and kids.",
       "Snow is cold, and it is white too."
      ],
      "answer": 1,
@@ -122,7 +122,7 @@
      "options": [
       "Ants live in groups, and each ant has a job.",
       "The queen is the ant that lays eggs.",
-      "Some ants go out to find food.",
+      "Some ants go out to find food for the nest.",
       "Ants are very small, and they are fun."
      ],
      "answer": 0,
@@ -134,7 +134,7 @@
      "options": [
       "The kitchen smells good when Grandma bakes.",
       "Grandma mixes flour and water in a bowl.",
-      "Bread is soft, and it is good to eat.",
+      "Bread is soft, and it is good to eat with honey.",
       "Grandma mixes, rests and bakes dough to make bread."
      ],
      "answer": 3,
@@ -223,7 +223,7 @@
      "passage": "Recycling paper saves trees. It also uses less water and energy than making new paper. Many schools now have blue bins for paper. Students can help by putting used paper in these bins.",
      "stem": "Which is the best summary?",
      "options": [
-      "Many schools now have blue bins where students put their used paper.",
+      "Many schools now have blue bins where students put their used paper after class.",
       "Recycling paper is the most fun job at school, and I love doing it.",
       "Paper is made from trees, so we should never use any paper at all.",
       "Recycling paper saves resources, and students can help by using recycling bins."
@@ -249,7 +249,7 @@
      "options": [
       "Before the 1400s, books were copied by hand, which took months.",
       "The printing press made books faster to produce and easier for people to own.",
-      "Printing presses were heavy machines invented in the 1900s.",
+      "Printing presses were heavy machines invented in the 1900s by factory workers.",
       "Copying books by hand is a slow and boring job that nobody liked."
      ],
      "answer": 1,
@@ -306,8 +306,8 @@
     "passage": "In 1953, Edmund Hillary from New Zealand and Tenzing Norgay from Nepal set out to climb Mount Everest. Many teams before them had failed. The two men climbed through deep snow and thin air, carrying heavy oxygen tanks. Tenzing had climbed on Everest several times before and knew the mountain well. On 29 May, they finally reached the top, becoming the first people known to stand on the highest point on Earth. They stayed only about fifteen minutes before starting down.",
     "stem": "Which is the best summary of the passage?",
     "options": [
-     "Hillary and Tenzing carried heavy oxygen tanks through deep snow and thin air on their way up the mountain.",
-     "Climbing mountains is the most exciting sport in the world, and everyone should try to climb Everest.",
+     "Hillary and Tenzing carried heavy oxygen tanks through deep snow and thin air on their way up the mountain, step by step.",
+     "Climbing mountains is the most exciting sport in the world, and everyone should try to climb Everest one day.",
      "After many failed attempts by others, Hillary and Tenzing became the first known climbers to reach the top of Everest in 1953.",
      "Many teams tried to climb Everest in 1953, and Hillary reached the top alone after Tenzing turned back."
     ],
@@ -421,10 +421,10 @@
     "passage": "Growing up in a poor village in Malawi, William Kamkwamba had to leave school at fourteen because his family could not pay the fees. A severe drought had destroyed the crops, and many families went hungry. Determined to keep learning, William borrowed science books from a small library. In one book, he saw a picture of a windmill and realised it could produce electricity. Using a broken bicycle, plastic pipes and scraps of metal, he built a windmill that powered lights in his family's home. Neighbours laughed at first, but they soon came to see the spinning blades. Later, his windmills helped pump water for crops, and William went on to finish his education.",
     "stem": "Which is the best objective summary of the passage?",
     "options": [
-     "William Kamkwamba was a brilliant boy who deserved much more help from his village and from his unfair school, which treated him badly.",
+     "William Kamkwamba was a brilliant boy who deserved much more help from his village and from his unfair school, which treated him badly and never gave him a chance.",
      "After leaving school because of poverty, William Kamkwamba taught himself from library books and built windmills that brought power to his home and water to crops.",
-     "William built a windmill out of a broken bicycle, plastic pipes and scraps of metal, and his neighbours laughed at it at first.",
-     "A drought in Malawi destroyed crops, so William stopped reading and left his village to work in a city."
+     "William built a windmill out of a broken bicycle, plastic pipes and scraps of metal, and his neighbours laughed at it at first, but he kept on working.",
+     "A drought in Malawi destroyed crops, so William stopped reading and left his village to work in a city, where he found a job in a factory and sent money home."
     ],
     "answer": 1,
     "hint": "Which choice covers the beginning, the middle and the end, without opinions?",

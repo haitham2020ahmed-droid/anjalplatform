@@ -11,6 +11,8 @@ import { readableClasses } from "./coordinators";
 import { studentNames } from "../insights/student-data";
 import { fluencyBands, fluencyLevel, fluencyRubricText, prescriptionFor, WCPM_BENCHMARK } from "../diagnostic/standards";
 import { fluencySeason, isSeason, normView, SEASON_NAME, type Season } from "../fluency/norms";
+import { coldReads, latestRemedial, readingEvidence } from "../fluency/coach";
+import { asRemedialPlan, buildRemedialPlan, type FocusArea } from "../fluency/remedial";
 import { audit } from "../audit";
 import { levelConflicts } from "../insights/level-story";
 import { loadQuestionItems } from "../practice/items";
@@ -77,6 +79,36 @@ export async function saveFluency(repo: Repo, actor: Actor, classId: string, ent
     n++;
   }
   return n;
+}
+
+/**
+ * 🧭 Teacher override of a student's remedial fluency plan (feature, Oct 2026): `buildRemedialPlan`'s own
+ * `force`/`methodSet` options already existed but nothing in the app ever called them with a teacher's choice —
+ * every plan only ever moved by the fully-automatic review. This lets a teacher lock the plan onto a focus area
+ * and/or a method set (Plan A/B), or clear both back to "AUTO" to return to the automatic review. The chosen plan
+ * is written into the same place every other reader already looks (the `remedial` field of the latest
+ * FluencyPractice row that carries one — see `latestRemedial` in fluency/coach.ts) so the student's My Plan, the
+ * teacher's class view and the parent report all pick it up immediately.
+ */
+export async function overrideRemedialPlan(repo: Repo, actor: Actor, classId: string, studentId: string, input: { force: FocusArea | "AUTO"; methodSet: "A" | "B" | "AUTO" }, now = new Date()): Promise<void> {
+  assertCan(actor, "assignments:create");
+  await assertClassAccess(repo, actor, classId);
+  const members = new Set((await repo.findMany("ClassMembership", { classId, leftAt: null }, { select: ["studentId"] })).map((m) => s(m.studentId)));
+  if (!members.has(studentId)) throw new ForbiddenError("This student is not in the class.");
+  const student = await repo.findUnique("Student", { id: studentId });
+  const grade = Number((await repo.findUnique("Grade", { id: student?.gradeId }))?.level ?? 0);
+  const rows = (await repo.findMany("FluencyPractice", { studentId }, { select: ["id", "plan", "wcpm", "accuracy", "prosody", "expression", "practiceKind", "mode", "trial", "createdAt"], orderBy: [{ field: "createdAt", dir: "desc" }] }));
+  const stored = latestRemedial(rows);
+  if (!stored) throw new ValidationError("This student does not have a reading plan yet — ask them to read a passage in Fluency Coach first.");
+  const target = rows.find((r) => asRemedialPlan(json<{ remedial?: unknown } | null>(r.plan, null)?.remedial))!;
+  const checks = await repo.findMany("FluencyCheck", { studentId }, { select: ["wcpm", "accuracy", "checkedAt"] });
+  const ev = { grade, cold: coldReads(checks), readings: readingEvidence(rows) };
+  const next = buildRemedialPlan(ev, now, { force: input.force === "AUTO" ? undefined : input.force, methodSet: input.methodSet === "AUTO" ? undefined : input.methodSet, decision: "NEW" });
+  if (!next) throw new ValidationError("A plan could not be built from this student's readings.");
+  next.status.teacher += input.force === "AUTO" && input.methodSet === "AUTO" ? " Reset to automatic by the teacher." : " Set by the teacher.";
+  const planJson = json<Record<string, unknown> | null>(target.plan, null) ?? {};
+  await repo.updateMany("FluencyPractice", { id: target.id }, { plan: { ...planJson, remedial: next } });
+  await audit(repo, { actorId: actor.userId, action: "fluency.remedial_override", entityType: "Student", entityId: studentId, before: { focus: stored.focus, methodSet: stored.methodSet }, after: { focus: next.focus, methodSet: next.methodSet }, at: now });
 }
 
 // ------------------------------------------------------------------ 🛟 support groups

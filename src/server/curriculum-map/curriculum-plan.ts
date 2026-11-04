@@ -12,6 +12,7 @@ import { assertClassAccess } from "../teacher/assignments";
 import { DEFAULT_TARGET_CORRECT } from "../teacher/assign";
 import { assignFromMap } from "./levels";
 import { withLock } from "../lib/key-lock";
+import { hiddenWorkKeys, placeCancelled } from "../student/cancelled-work";
 import { planPlaces, isUnitOpen, openUnitsOf, unitDatesOf } from "./plans";
 
 const s = (v: unknown) => String(v ?? "");
@@ -75,6 +76,9 @@ async function openPlanItemUnlocked(repo: Repo, actor: Actor, planId: string, it
   const aids = ids(item.assignmentIds);
   if (aids.length) {
     const mine = await repo.findMany("AssignmentStudent", { assignmentId: { in: aids }, studentId: actor.studentId }, { select: ["assignmentId"] });
+    // 🚫 owner r68: a part the teacher cancelled does not open again
+    const hidden = await hiddenWorkKeys(repo, actor.studentId, s(plan.schoolId)).catch(() => new Set<string>());
+    if (hidden.has(`plan:${s(plan.id)}`) || placeCancelled(aids, mine.map((m) => s(m.assignmentId)), hidden)) throw new ValidationError("Your teacher cancelled this part of the plan.");
     if (mine.length) return `/quiz/${s(mine[0].assignmentId)}`;
     if (plan.kind === "CURRICULUM") {
       // a student who joined the class later: added to the class's set
@@ -88,7 +92,7 @@ async function openPlanItemUnlocked(repo: Repo, actor: Actor, planId: string, it
   const creator = plan.createdById ? await repo.findUnique("User", { id: plan.createdById }) : null;
   const teacher = creator ? await resolveActor(repo, creator) : null;
   if (!teacher) throw new ValidationError("Ask your teacher to send the plan again.");
-  const r = await assignFromMap(repo, teacher, { classId: s(plan.classId), categoryCode: s(item.code), mode: "ADAPTIVE", targetCorrect: Number(plan.targetCorrect) || DEFAULT_TARGET_CORRECT, silent: true, curriculumPlanId: s(plan.id), note: "Curriculum plan" }, now);
+  const r = await assignFromMap(repo, teacher, { classId: s(plan.classId), categoryCode: s(item.code), mode: "ADAPTIVE", targetCorrect: Number(plan.targetCorrect) || DEFAULT_TARGET_CORRECT, silent: true, curriculumPlanId: s(plan.id), note: "Curriculum plan", source: "CURRICULUM" }, now);
   const made = r.groups.map((g) => g.assignmentId);
   await repo.updateMany("SkillPlanItem", { id: item.id }, { assignmentIds: made });
   const mine = await repo.findMany("AssignmentStudent", { assignmentId: { in: made }, studentId: actor.studentId }, { select: ["assignmentId"] });

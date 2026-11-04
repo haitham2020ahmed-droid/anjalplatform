@@ -4,7 +4,10 @@
  *
  * The level is chosen automatically and never shown: the teacher's choice in the assignment → the latest MAP RIT of the
  * lesson's subject (≤190 → 1, 191–210 → 2, 211–225 → 3, ≥226 → 4) → the platform level (mastery band) of the skills
- * the lesson explains (lowest → 1 … highest → 4) → 2. Every read is bounded; new tables go through safeIfBehind.
+ * the lesson explains (lowest → 1 … highest → 4) → 2 (the engine's band is the lesson's difficulty only, never shown).
+ * ⭐ "For you" suggestions (owner, 1 Nov 2026) follow the stars of My Skills by skill key: 🔄 "needs review" skills
+ * first, then the weakest started ones — never a skill the student has ⭐ on (any copy of it).
+ * Every read is bounded; new tables go through safeIfBehind.
  */
 import type { Repo, Row } from "../seeding/repo";
 import { ForbiddenError, type Actor } from "../auth/rbac";
@@ -16,6 +19,7 @@ import { lessonCatalog, lessonFile, type LessonMeta } from "./files";
 import { classTeacherIds, hiddenCodes, lessonLevelFor } from "./edits";
 import { learnSkills, matchSkills, type LearnSkill } from "./match";
 import { RAPID_GUESS_MS } from "../practice/guessing";
+import { starBook, starMastered, starNeedsReview } from "../skills/star-read";
 
 const s = (v: unknown) => String(v ?? "");
 const iso = (v: unknown) => (v === null || v === undefined || v === "" ? null : new Date(v instanceof Date ? v.getTime() : s(v)).toISOString());
@@ -68,11 +72,12 @@ export interface StudentLearnHome { forYou: ForYou[]; areas: { subject: "READING
 export async function studentLearnHome(repo: Repo, actor: Actor): Promise<StudentLearnHome> {
   const { sid, schoolId } = studentOf(actor);
   const none = [] as Row[];
-  const [catalog, assigned, progress, weak] = await Promise.all([
+  const [catalog, assigned, progress, weak, book] = await Promise.all([
     visibleCatalog(repo, schoolId),
     safeIfBehind("learn.assigned", () => repo.findMany("LearnAssignee", { studentId: sid, kind: "LESSON" }, { select: ["ref", "dueAt", "status", "createdAt"], orderBy: [{ field: "createdAt", dir: "desc" }], take: 100 }), none),
     safeIfBehind("learn.progress", () => repo.findMany("LearnProgress", { studentId: sid, kind: "LESSON" }, { select: ["ref", "finishedAt", "openedAt"], take: 500 }), none),
     repo.findMany("StudentSkillMastery", { studentId: sid, attempts: { gte: 3 } }, { select: ["skillId", "score"], orderBy: [{ field: "score", dir: "asc" }], take: 40 }),
+    starBook(repo, [sid], schoolId),
   ]);
   const byCode = new Map(catalog.map((l) => [l.code, l]));
   const done = new Set(progress.filter((p) => p.finishedAt).map((p) => s(p.ref)));
@@ -85,10 +90,15 @@ export async function studentLearnHome(repo: Repo, actor: Actor): Promise<Studen
     seen.add(l.code);
     forYou.push({ code: l.code, title: l.title, goalArea: l.goalArea, assigned: true, dueAt: iso(a.dueAt), done: s(a.status) === "DONE" || done.has(l.code), started: started.has(l.code) });
   }
-  // suggested: lessons for the weakest skills (lesson ↔ skill by name, family, standards)
-  if (weak.length && catalog.length) {
+  // suggested: lessons for 🔄 "needs review" skills first, then the weakest started skills (the engine's score only
+  // orders them) — never a ⭐ skill (by key); lesson ↔ skill by name, family, standards
+  const review = [...(book.byKey.get(sid) ?? new Map()).entries()].filter(([, v]) => starNeedsReview(v)).map(([key, v]) => v.skillId ?? book.ix.skillsOf.get(key)?.[0] ?? "").filter(Boolean);
+  if ((weak.length || review.length) && catalog.length) {
     const skills = await learnSkills(repo, schoolId);
-    const weakSkills = weak.map((w) => skills.find((k) => k.id === s(w.skillId))).filter((k): k is LearnSkill => Boolean(k) && !isHiddenSkill(k!.code));
+    const keysSeen = new Set<string>();
+    const weakSkills = [...review, ...weak.map((w) => s(w.skillId))].map((id) => skills.find((k) => k.id === id))
+      .filter((k): k is LearnSkill => Boolean(k) && !isHiddenSkill(k!.code) && !starMastered(book.of(sid, k!.id)))
+      .filter((k) => { const key = book.keyOf(k.id); if (keysSeen.has(key)) return false; keysSeen.add(key); return true; });
     const m = matchSkills(weakSkills, catalog);
     let added = 0;
     for (const k of weakSkills) {

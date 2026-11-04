@@ -81,10 +81,10 @@
     "passage": "The old car coughed in the morning. It made loud noises. It shook and stopped. Dad had to start it again.",
     "stem": "What does “the old car coughed” mean?",
     "options": [
-     "The car was sick in bed.",
+     "The car was sick in bed and the doctor came to see it.",
      "The car made rough noises and did not start well.",
-     "The car drove very fast.",
-     "The car was new."
+     "The car drove very fast down the long road.",
+     "The car was new and looked very shiny."
     ],
     "answer": 1,
     "hint": "A car cannot be sick in bed! What do the other sentences say the car did?",
@@ -111,9 +111,9 @@
      "passage": "Mona's smile was sunshine. Everyone in the room felt happy when she came in.",
      "stem": "What does “Mona's smile was sunshine” mean?",
      "options": [
-      "Her smile was hot.",
-      "She stood in the sun.",
-      "Her smile was yellow.",
+      "Her smile was hot like the sun in summer.",
+      "She stood in the sun all day at the beach.",
+      "Her smile was yellow, like a bright flower.",
       "Her smile made people feel happy."
      ],
      "answer": 3,
@@ -124,9 +124,9 @@
      "stem": "What does “the leaves danced” mean?",
      "options": [
       "The leaves moved around in the wind.",
-      "The leaves had a party.",
-      "The leaves fell in a pile.",
-      "The leaves were green."
+      "The leaves had a party in the garden.",
+      "The leaves fell in a pile on the ground.",
+      "The leaves were green and very shiny."
      ],
      "answer": 0,
      "why": "Leaves cannot really dance. They went up, down and round: they moved around in the wind."
@@ -220,9 +220,9 @@
      "stem": "What is the effect of “grumbled angrily”?",
      "options": [
       "It makes the thunder sound threatening, like an angry person.",
-      "It tells us the goats were angry.",
-      "It shows the weather was calm.",
-      "It explains how thunder is made."
+      "It tells us the goats were angry with the farmer.",
+      "It shows the weather was calm and the sky was clear that day.",
+      "It explains how thunder is made in the clouds above."
      ],
      "answer": 0,
      "why": "Thunder cannot really be angry. The personification makes it sound threatening, and the goats running away agree."
@@ -243,9 +243,9 @@
      "passage": "For Grandfather, the old date palm was a history book. Under its shade he told us stories of every season the family had lived through.",
      "stem": "What does the metaphor “the old date palm was a history book” mean?",
      "options": [
-      "The tree had pages and words.",
-      "Grandfather read books under the tree.",
-      "The tree was old and falling down.",
+      "The tree had pages and words printed on its trunk.",
+      "Grandfather read books under the tree every day.",
+      "The tree was old and falling down in the wind.",
       "The tree reminded Grandfather of the family's past."
      ],
      "answer": 3,
@@ -331,9 +331,9 @@
      "stem": "What does the metaphor suggest?",
      "options": [
       "Her project was almost complete, but one key part was missing.",
-      "Hind built a puzzle for her project.",
-      "Hind lost a piece of her model.",
-      "Hind's plant was part of a game."
+      "Hind built a puzzle for her project with her sister.",
+      "Hind lost a piece of her model on the way to school.",
+      "Hind's plant was part of a game she played with her friends."
      ],
      "answer": 0,
      "why": "She had everything except the explanation. Like a puzzle missing one piece, the project was not quite complete."
@@ -342,10 +342,10 @@
      "passage": "The old library had stood on the corner for a hundred years. Its windows watched over the street, and its heavy doors welcomed anyone who wanted to read.",
      "stem": "What is the effect of the personification?",
      "options": [
-      "It makes the library seem frightening.",
+      "It makes the library seem frightening to all of the children.",
       "It makes the library seem like a kind guardian of the town.",
-      "It shows that the library had cameras.",
-      "It shows that the library was closing."
+      "It shows that the library had cameras for safety.",
+      "It shows that the library was closing for the day."
      ],
      "answer": 1,
      "why": "“Watched over” and “welcomed” are caring human actions. The library seems like a kind protector."

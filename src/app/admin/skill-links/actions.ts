@@ -49,7 +49,7 @@ export async function sortBatchAction(after: string | null, apply: boolean): Pro
 
 import { aiEnv } from "@/server/ai/env";
 import {
-  acceptConfidentBatch, acceptGroup, aiProgress, confidentCount, improveGuessesBatch, reviewGroupRows,
+  acceptAllGuessesBatch, acceptConfidentBatch, acceptGroup, aiProgress, confidentCount, guessedCount, improveGuessesBatch, reviewGroupRows,
   type AcceptBatchResult, type AiBatchResult, type AiProgress, type GroupPage,
 } from "@/server/questions/link-review-bulk";
 
@@ -78,6 +78,14 @@ export async function confidentCountAction(): Promise<Out<number>> {
 export async function acceptConfidentAction(after: string | null): Promise<Out<AcceptBatchResult>> {
   const actor = await requireActor({ roles: ["SCHOOL_ADMIN", "SUPER_ADMIN"], permission: "curriculum:edit" });
   return guard(() => acceptConfidentBatch(repo, actor, str(after)));
+}
+export async function guessedCountAction(): Promise<Out<number>> {
+  const actor = await requireActor({ roles: ["SCHOOL_ADMIN", "SUPER_ADMIN"], permission: "curriculum:edit" });
+  return guard(() => guessedCount(repo, actor));
+}
+export async function acceptAllGuessesAction(after: string | null): Promise<Out<AcceptBatchResult>> {
+  const actor = await requireActor({ roles: ["SCHOOL_ADMIN", "SUPER_ADMIN"], permission: "curriculum:edit" });
+  return guard(() => acceptAllGuessesBatch(repo, actor, str(after)));
 }
 export async function groupRowsAction(label: string, page: number): Promise<Out<GroupPage>> {
   const actor = await requireActor({ roles: ["SCHOOL_ADMIN", "SUPER_ADMIN"], permission: "curriculum:edit" });

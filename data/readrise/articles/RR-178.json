@@ -64,6 +64,16 @@
       "level": 1400,
       "title": "How Cameras Capture Light",
       "text": "Click! In less than a second, your smartphone saves a photograph of your cat resting on the garden wall, but how does a camera actually accomplish that? The simplest explanation is that a camera is a device specifically designed for capturing light and recording it.\n\nWhen sunlight illuminates the cat, it bounces off the animal in all directions, which scientists describe as reflection, and some of that reflected light travels in straight lines into the camera.\n\nA camera is essentially a darkened box, and light can only enter through a small opening in the front called the aperture; a wider aperture allows more light to enter, while a narrower one admits less, which becomes especially important when you take photographs in dim conditions.\n\nAt the aperture is a lens, which is a curved piece of transparent glass or plastic, and as light passes through it, the lens bends, or refracts, the rays so that they converge at a single point, bringing the image into precise focus. Interestingly, the image that forms inside is inverted, which means it is upside down, although the camera automatically corrects its orientation before you ever see it.\n\nBehind the lens is the shutter, which functions like a miniature door that remains closed until you press the button; it then opens and shuts in a fraction of a second, and the duration it remains open, called the exposure, determines how much light reaches the back of the camera.\n\nTraditional cameras used photographic film, a strip coated with chemicals that changed when light struck them; today, a smartphone contains a digital sensor instead, which is covered with millions of microscopic squares called pixels. Each pixel measures how much light reaches it and converts that quantity into a number, and collectively these numbers construct the complete picture. Because modern sensors contain tens of millions of pixels, contemporary photographs can record astonishingly fine detail, although insufficient illumination still produces grainier, less distinct images.\n\nYour eye operates in a remarkably similar way, because its lens focuses light onto the retina, a sensitive layer at the back of the eye.\n\nApproximately one thousand years ago, an Arab scientist named Ibn al-Haytham systematically investigated light, and his influential writings on optics explained how light enters a darkened room through a small hole and produces an upside-down picture on the opposite wall."
+    },
+    {
+      "level": 1500,
+      "title": "How Cameras Capture Light",
+      "text": "At its core, a camera functions as a carefully engineered dark box, a device purpose-built to capture and permanently record light. When light reflects off any subject, a cat sitting in a sunbeam, for instance, it scatters outward in countless directions. Only a small portion of that scattered light happens to travel directly into the camera through a narrow opening called the aperture. A wider aperture admits considerably more light, which proves especially useful in dim conditions, while a narrower aperture admits noticeably less.\n\nOnce light enters through the aperture, it encounters the lens, a precisely curved piece of transparent glass or plastic. It is specifically shaped to refract, or bend, the incoming light rays so that they converge together at a single, well-defined point. This careful bending of light is essential to producing a sharp image rather than a hopelessly blurry one. Curiously, the resulting image formed inside the camera is inverted, meaning it appears completely upside down relative to the original scene. The camera must subsequently correct this orientation internally before displaying the final photograph.\n\nPositioned directly behind the lens sits the shutter, a tiny mechanical door that remains firmly closed until the photographer deliberately triggers it, at which point it opens and closes again within a mere fraction of a second. The length of time the shutter remains open is called the exposure, and this duration directly controls how much total light ultimately reaches the camera's sensor or film.\n\nTraditional cameras relied on photographic film, a thin strip coated with light-sensitive chemicals that physically changed when struck by light. Modern cameras instead use a digital sensor covered with millions of microscopic pixels, each one individually measuring the intensity of light striking it and converting that measurement into a numerical value, with all these countless values collectively assembling the complete final image. Contemporary sensors containing tens of millions of pixels can capture remarkably fine visual detail, although photographs taken in particularly dim lighting conditions tend to appear noticeably grainier overall.\n\nRemarkably, the human eye operates according to broadly similar optical principles. Inside the eye, a flexible lens focuses incoming light directly onto the retina, a specialized light-sensitive layer lining the back of the eye that plays a functional role roughly comparable to photographic film or a digital sensor. Approximately a thousand years ago, the pioneering Arab scientist Ibn al-Haytham systematically studied light and optics in considerable detail, and he successfully explained precisely how light entering through a small hole in an otherwise completely dark room produces a clearly inverted image on the opposite wall, a foundational discovery now widely recognized as the earliest known description of the basic pinhole-camera principle."
+    },
+    {
+      "level": 1600,
+      "title": "How Cameras Capture Light",
+      "text": "At its fundamental core, a camera functions as a carefully engineered dark box, a precisely designed device purpose-built specifically to capture and permanently record incoming light. When light reflects off any given subject, a cat sitting contentedly in a warm sunbeam, for instance, it scatters outward in countless different directions simultaneously, and only a comparatively small portion of that widely scattered light happens to travel directly into the camera through a narrow adjustable opening called the aperture. A considerably wider aperture admits substantially more light, which proves especially valuable under dim lighting conditions, while a correspondingly narrower aperture admits noticeably less light overall.\n\nOnce admitted through the aperture, incoming light subsequently encounters the lens, a precisely curved piece of transparent glass or plastic specifically shaped to refract, meaning to bend, the incoming light rays so that they converge together smoothly at a single, sharply defined focal point. This careful, deliberate bending of light proves absolutely essential to producing a genuinely sharp photographic image rather than a hopelessly blurry and indistinct one. Curiously, the resulting image initially formed inside the camera body is inverted, meaning it appears completely upside down relative to the actual original scene being photographed, and the camera's internal systems must subsequently correct this inverted orientation before ultimately displaying the finished photograph to the viewer.\n\nPositioned directly behind the lens assembly sits the shutter, a remarkably tiny mechanical door that remains firmly and securely closed until the photographer deliberately triggers it, at which precise moment it opens and then closes again within a mere, almost imperceptible fraction of a second. The total length of time during which the shutter remains open is formally termed the exposure, and this precise duration directly and decisively controls how much total light ultimately reaches the camera's underlying sensor or physical film.\n\nTraditional cameras relied exclusively on photographic film, a thin flexible strip coated throughout with light-sensitive chemicals that physically and permanently changed composition when struck directly by incoming light. Modern cameras instead employ a digital sensor densely covered with millions upon millions of microscopic pixels, each one individually measuring the precise intensity of light striking its particular location and subsequently converting that measurement into a corresponding numerical value, with all these countless accumulated values collectively assembling the complete final digital image. Contemporary sensors containing tens of millions of individual pixels can capture remarkably fine visual detail with considerable fidelity, although photographs captured under particularly dim lighting conditions nevertheless tend to appear noticeably grainier and less refined overall.\n\nRemarkably, the human eye itself operates according to broadly similar underlying optical principles governing light and image formation. Inside the eye, a flexible internal lens focuses incoming light precisely onto the retina, a specialized light-sensitive layer lining the rear interior surface of the eye that plays a functional role roughly comparable to photographic film or a modern digital sensor. Approximately a thousand years ago, the pioneering Arab scientist Ibn al-Haytham systematically and rigorously studied light and optics in considerable empirical detail, and he successfully explained precisely how light entering through a small hole within an otherwise completely dark room reliably produces a clearly inverted image projected onto the opposite wall, a foundational scientific discovery now widely and rightly recognized as among the earliest known descriptions of the basic pinhole-camera principle underlying all subsequent photographic technology."
     }
   ],
   "bands": {
@@ -105,9 +115,9 @@
           "stem": "What is this article mostly about?",
           "options": [
             "How a camera catches light to make a picture",
-            "How to take care of a pet cat",
-            "Why phones need batteries",
-            "How to draw a picture of your family"
+            "How to take care of a pet cat at home",
+            "Why phones need batteries to work all day",
+            "How to draw a picture of your family and friends"
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -206,10 +216,10 @@
         {
           "stem": "Why does the author say your eye works a lot like a camera?",
           "options": [
-            "To tell readers to rest their eyes",
-            "To show that eyes can take photos you can print",
+            "To tell readers to rest their eyes after a long time of reading",
+            "To show that eyes can take photos you can print later",
             "To help readers connect cameras to something they already know",
-            "To explain why cats have big eyes"
+            "To explain why cats have big eyes that shine at night"
           ],
           "answer": "C",
           "skill": "author-purpose",
@@ -243,7 +253,8 @@
         "I told the steps in order, from the light to the picture.",
         "I used at least two key words from the article.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "First, light bounces off an object and travels into the camera through the aperture. Next, the lens bends the light so the rays come into focus at one sharp spot. Then the shutter opens for a moment, and the sensor's pixels measure the light to build the image."
     },
     "MID": {
       "keyWords": [
@@ -282,10 +293,10 @@
         {
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
-            "Phones take better pictures than old cameras.",
+            "Phones take better pictures than old cameras, so people no longer need big camera parts.",
             "A camera's parts work together to catch reflected light and record it as a picture.",
-            "Ibn al-Haytham invented the phone camera.",
-            "Pixels are made of film."
+            "Ibn al-Haytham invented the phone camera, and he used it to photograph the night sky.",
+            "Pixels are made of film, which is why digital cameras need to be loaded with rolls."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -333,10 +344,10 @@
         {
           "stem": "How did old cameras record a picture differently from phones?",
           "options": [
-            "Old cameras had no lens",
+            "Old cameras had no lens at all, only a tiny hole in a dark box",
             "Old cameras used film with chemicals, while phones use a sensor with pixels",
-            "Old cameras needed no light at all",
-            "Phones use film and old cameras used pixels"
+            "Old cameras needed no light at all to take a picture of anything",
+            "Phones use film and old cameras used pixels to record the picture in them"
           ],
           "answer": "B",
           "skill": "compare",
@@ -421,7 +432,8 @@
         "I named at least two ways a camera and an eye are alike.",
         "I used key words such as lens, aperture, or retina.",
         "I organized my answer with clear sentences."
-      ]
+      ],
+      "modelAnswer": "A camera and the human eye are alike in two ways. Both have a lens that bends light so it comes into focus, and both let light in through a small opening, since a camera uses an aperture while an eye has a similar opening that controls how much light gets in. A camera also has a sensor covered in pixels, which works much like the retina at the back of the eye, because both surfaces capture the light and turn it into a picture."
     },
     "HIGH": {
       "keyWords": [
@@ -461,9 +473,9 @@
           "stem": "Which statement best summarizes the article?",
           "options": [
             "A camera controls and focuses reflected light, then records it on film or as digital numbers.",
-            "Ibn al-Haytham built the first smartphone.",
-            "Every photo forms right side up.",
-            "Cameras work only in bright sunlight."
+            "Ibn al-Haytham built the first smartphone, and it took pictures with a large lens and a battery.",
+            "Every photo forms right side up, because the lens in a camera turns the picture around once.",
+            "Cameras work only in bright sunlight, and they cannot take any pictures indoors or at night."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -529,9 +541,9 @@
           "stem": "How does a digital sensor record a picture differently from film?",
           "options": [
             "Its pixels turn the amount of light into numbers, while film uses chemicals that change in light",
-            "It needs no light, while film needs a lot",
-            "It uses the retina, while film uses a lens",
-            "It records sound instead of light"
+            "It needs no light to take a picture, while film needs a lot of bright light and a flash to work",
+            "It uses the retina like a human eye does, while film uses only a lens and a mirror",
+            "It records sound instead of light, so it stores music in the same way as a radio"
           ],
           "answer": "A",
           "skill": "compare",
@@ -562,10 +574,10 @@
         {
           "stem": "Why does the author end with Ibn al-Haytham?",
           "options": [
-            "To give step-by-step directions for using a camera",
+            "To give step-by-step directions for using a camera on a bright and sunny day outside",
             "To show that the science behind cameras is very old and came partly from Arab scholarship",
-            "To argue that phones are harmful",
-            "To describe each part of the human eye and how the retina senses light"
+            "To argue that phones are harmful to young people and should be kept away from school",
+            "To describe each part of the human eye and how the retina senses light and colour in the dark"
           ],
           "answer": "B",
           "skill": "author-purpose",
@@ -599,7 +611,8 @@
         "I explained the steps in the correct order.",
         "I used refract, exposure, and digital correctly.",
         "I explained ideas clearly for a younger reader."
-      ]
+      ],
+      "modelAnswer": "When you take a photo, light first reflects off an object and enters the camera through a small opening called the aperture. The lens bends, or refracts, this light so the rays meet and come into focus, forming a sharp image instead of a blurry one. Then the shutter opens for a very short exposure, letting just enough light reach the sensor, which is covered with millions of tiny pixels. Each pixel measures the light that hits it, and together they combine into a digital photo that your phone can save and share."
     }
   }
 }

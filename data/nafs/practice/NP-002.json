@@ -93,10 +93,10 @@
       "difficulty": 3,
       "stem": "'Nothing replaces the feeling of a freshly cut qalam moving across paper.' What does this sentence show?",
       "options": [
-        "Digital tablets are not allowed in calligraphy.",
+        "Digital tablets are not allowed in calligraphy classes.",
         "Artists feel a special connection to the traditional pen.",
-        "The qalam is much cheaper than other pens.",
-        "Fresh reeds are easier to find than tablets."
+        "The qalam is much cheaper than other kinds of pens.",
+        "Fresh reeds are easier to find than tablets or screens."
       ],
       "answer": "B",
       "why": "The words 'nothing replaces the feeling' express the artists' personal attachment to the reed pen, not a rule or a price."
@@ -126,9 +126,9 @@
       "stem": "In your opinion, which information in the passage is the LEAST clear or complete?",
       "options": [
         "what material the qalam was made from",
-        "which city Ibn Muqla worked in",
+        "which city Ibn Muqla worked in as a young man and as a minister",
         "how soot and gum were actually turned into ink",
-        "why an angled nib was useful"
+        "why an angled nib was useful for writing the letters well"
       ],
       "answer": "C",
       "why": "The passage names the ingredients but says recipes were guarded, so the method of making ink is never explained; the other facts are stated."

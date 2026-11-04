@@ -7,6 +7,7 @@ import { closeTicketAction } from "../../week/actions";
 import Link from "next/link";
 import { ITEM_PREVIEW } from "@/server/student/preview-as";
 import { getT } from "@/i18n/server";
+import { RichInline } from "@/components/rich-inline";
 
 export const metadata = { title: "Exit ticket results" };
 
@@ -30,7 +31,7 @@ export default async function ExitResultsPage({ params, searchParams }: { params
       <section className="grid gap-3 md:grid-cols-3">
         {r.questions.map((q, i) => (
           <div key={q.id} className="rounded-2xl bg-white p-4 ring-1 ring-slate-200">
-            <p className="text-sm text-slate-600">{i + 1}. {q.stem}</p>
+            <p className="text-sm text-slate-600">{i + 1}. <RichInline text={q.stem} /></p>
             <p className={`mt-2 text-3xl font-bold ${q.pct === null ? "text-slate-400" : q.pct >= 70 ? "text-emerald-700" : q.pct >= 50 ? "text-amber-700" : "text-red-700"}`}>{q.pct === null ? "—" : `${q.pct}%`}</p>
             <p className="text-xs text-slate-500">{q.answered} answers</p>
           </div>

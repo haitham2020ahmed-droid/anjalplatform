@@ -1,3 +1,4 @@
+import { stripMarks } from "./inline-marks";
 /**
  * “Possible missing passage”: does a question's wording refer to a text that should be shown with it?
  * Used as a WARNING only (list badge, filter, editor hint, import warning); never to reject.
@@ -28,7 +29,7 @@ const PATTERNS: RegExp[] = [
 const SELF_CONTAINED = /\b(?:read the sentence|in (?:the|this) sentence|the underlined (?:word|phrase)|in the following sentence|complete the sentence)\b/i;
 
 export function needsPassage(stem: string): boolean {
-  const t = String(stem ?? "");
+  const t = stripMarks(String(stem ?? "")); // "the <u>underlined</u> word" is read as plain text
   if (!t.trim()) return false;
   if (SELF_CONTAINED.test(t) && !PATTERNS.slice(0, 4).some((p) => p.test(t))) return false;
   return PATTERNS.some((p) => p.test(t));
@@ -39,7 +40,7 @@ export const possibleMissingPassage = (stem: string, hasPassage: boolean) => !ha
 
 /** The words that show the question refers to a text (for logs and reports), or null. */
 export function passageReference(stem: string): string | null {
-  const t = String(stem ?? "");
+  const t = stripMarks(String(stem ?? ""));
   if (!needsPassage(t)) return null;
   for (const p of PATTERNS) { const m = t.match(p); if (m) return m[0]; }
   return null;
@@ -61,7 +62,20 @@ const STRONG: RegExp[] = [
 ];
 const OWN_TEXT = /["“][^"”]{40,}["”]/;
 export function definitelyNeedsPassage(stem: string): boolean {
-  const t = String(stem ?? "").trim();
+  const t = stripMarks(String(stem ?? "")).trim();
   if (!t || t.length >= 260 || OWN_TEXT.test(t)) return false;
   return STRONG.some((p) => p.test(t));
+}
+
+/**
+ * A question whose passageId is SET but does not resolve to a passage with real text: the row was
+ * never created, or left blank. The FK is ON DELETE SET NULL, so a deleted passage clears the id
+ * instead of leaving it dangling; the real-world case here is a passage row with empty/blank text.
+ * Unlike needsPassage()/passageReference() (wording guesses), this is unambiguous — the question
+ * itself says it needs this exact passage — so it is used both to flag such questions for cleanup
+ * and, at serving time, to keep them from ever reaching a student, independent of any wording
+ * heuristic and regardless of how the dangling reference happened.
+ */
+export function isDanglingPassageRef(passageId: string | null | undefined, resolvedBody: string | null | undefined): boolean {
+  return Boolean(passageId) && !String(resolvedBody ?? "").trim();
 }

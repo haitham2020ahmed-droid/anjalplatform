@@ -1,10 +1,10 @@
 "use server";
 import { redirect } from "next/navigation";
-import { after } from "next/server";
 import { repo, requireActor } from "@/server/auth/next";
 import { ForbiddenError } from "@/server/auth/rbac";
 import { ValidationError } from "@/server/curriculum-admin";
 import { aiEnv } from "@/server/ai/env";
+import { runAfterResponse } from "@/server/lib/after-response";
 import { draftForSubmission, savePlan, saveWriting, submitResearch } from "@/server/teacher/writing";
 
 const prefixed = (f: FormData, p: string) => { const o: Record<string, string> = {}; for (const [k, v] of f.entries()) if (k.startsWith(p)) o[k.slice(p.length)] = String(v); return o; };
@@ -19,10 +19,13 @@ export async function saveWritingAction(f: FormData): Promise<void> {
     if (submit && r.stage === "DRAFT") msg = "✅ Draft sent! Your teacher will give feedback, then you revise.";
     if (submit && r.stage === "FINAL") msg = "✅ Final version sent to your teacher!";
     if (r.ai) {
-      // 🤖 the AI feedback draft (for the teacher to check) is made after the reply, so the student does not wait
+      // 🤖 r90 (stability audit, Oct 2026): the AI feedback draft (for the teacher to check) is made after the
+      // reply, so the student does not wait — but this used to go through next/server's own after(), which has
+      // no concurrency cap, unlike the project's own bounded queue every other deferred AI call uses (ReadRise's
+      // writing score, readrise/student.ts). A whole class submitting writing in the same minute could otherwise
+      // fire an unbounded burst of simultaneous AI calls. Now it shares the same AFTER_CONCURRENCY-limited queue.
       const studentId = actor.studentId!;
-      const job = () => draftForSubmission(repo, id, studentId, aiEnv()).then(() => undefined, () => undefined);
-      if (typeof after === "function") after(job); else await job();
+      runAfterResponse("writing.ai_feedback", () => draftForSubmission(repo, id, studentId, aiEnv()).then(() => undefined, () => undefined), { key: `writing.ai_feedback|${id}` });
     }
   } catch (e) { if (e instanceof ValidationError || e instanceof ForbiddenError) msg = `⚠️ ${e.message}`; else throw e; }
   go(id, msg);

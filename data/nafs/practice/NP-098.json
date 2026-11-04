@@ -109,10 +109,10 @@
       "difficulty": 3,
       "stem": "Which opinion is BEST supported by the passage?",
       "options": [
-        "Plants are less important than animals.",
-        "Gardeners should grow vegetables in the shade.",
+        "Plants are less important than animals are for life on Earth.",
+        "Gardeners should grow vegetables in the shade of tall trees.",
         "Plants are essential to life because they release oxygen.",
-        "Algae are more useful than any plant on land."
+        "Algae are more useful than any other plant that grows on land."
       ],
       "answer": "C",
       "why": "The passage says nearly all the oxygen animals and people breathe was released by plants and similar organisms."
@@ -125,10 +125,10 @@
       "difficulty": 3,
       "stem": "Which information in the passage is the LEAST complete?",
       "options": [
-        "Where carbon dioxide enters the leaf",
+        "Where carbon dioxide enters the leaf of a plant",
         "How chlorophyll's energy joins water and carbon dioxide",
-        "Which gas plants release into the air",
-        "How water reaches the leaves"
+        "Which gas plants release into the air as they grow",
+        "How water reaches the leaves from the roots in a stem"
       ],
       "answer": "B",
       "why": "The passage says the plant uses the energy to combine them but does not explain how this happens."

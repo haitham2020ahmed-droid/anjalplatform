@@ -205,9 +205,9 @@
       "type": "MCQ",
       "stem": "Why did Jana suggest buying more fish?",
       "options": [
-        "She thought the fish were sick from the cold.",
-        "She wanted a bigger tank.",
-        "Ms. Hessa had asked her to.",
+        "She thought the fish were sick from the cold water.",
+        "She wanted a bigger tank for the classroom.",
+        "Ms. Hessa had asked her to buy them on Friday.",
         "She thought the fish were lonely and needed company."
       ],
       "answer": "D",
@@ -445,10 +445,10 @@
       "type": "MCQ",
       "stem": "In your opinion, which action in the story was MOST helpful in solving the problem?",
       "options": [
-        "Jana's idea of buying more fish",
+        "Jana's idea of buying more fish for the tank",
         "testing the water with the hydrometer",
-        "Reem calling Jana anxiously",
-        "checking the temperature"
+        "Reem calling Jana anxiously on the phone",
+        "checking the temperature of the water"
       ],
       "answer": "B",
       "why": "The hydrometer test revealed that the water was too salty, which led to the real cause."
@@ -526,9 +526,9 @@
       "stem": "Which title best describes the events of the story?",
       "options": [
         "The Mystery of the Salty Tank",
-        "The Shrimp Who Ran Away",
-        "A Trip to the Fish Market",
-        "The Broken Hydrometer"
+        "The Shrimp Who Ran Far Away",
+        "A Trip to the Big Fish Market",
+        "The Broken Old Hydrometer"
       ],
       "answer": "A",
       "why": "The story is about solving the puzzle of why the aquarium water became too salty."

@@ -4,7 +4,8 @@ import { ForbiddenError } from "@/server/auth/rbac";
 import { ValidationError } from "@/server/curriculum-admin";
 import { ReportBusyError } from "@/reports/pdf";
 import { reportDeps } from "@/server/reports/runtime";
-import { contentDisposition, RateLimitedError } from "@/server/reports/service";
+import { reportFileResponse } from "@/server/reports/file-response";
+import { RateLimitedError } from "@/server/reports/service";
 import { exportFamilyWeek } from "@/server/reports/family-week-pdf";
 
 export const runtime = "nodejs";
@@ -25,8 +26,9 @@ export async function GET(req: Request) {
   const studentId = actor.role === "STUDENT" ? actor.studentId : sid && ID.test(sid) ? sid : null;
   const classId = actor.role !== "STUDENT" && cid && ID.test(cid) ? cid : null;
   try {
-    const file = await exportFamilyWeek(reportDeps(), actor, { studentId, classId: studentId ? null : classId, lang });
-    return new NextResponse(Buffer.from(file.bytes), { headers: { "Content-Type": file.contentType, "Content-Disposition": contentDisposition(file.filename), "Content-Length": String(file.bytes.length), "Cache-Control": "no-store, private", "X-Content-Type-Options": "nosniff" } });
+    // 🖨 r85: signin=0 leaves out the class sign-in QR + code (a class print by its teacher has it by default)
+    const file = await exportFamilyWeek(reportDeps(), actor, { studentId, classId: studentId ? null : classId, lang, signin: q.get("signin") !== "0" });
+    return reportFileResponse(req, file); // r84: a print page (default) or a file
   } catch (e) {
     if (e instanceof ValidationError) return new NextResponse(e.message, { status: 422 });
     if (e instanceof RateLimitedError) return new NextResponse(e.message, { status: 429, headers: { "Retry-After": String(e.retryAfterSeconds) } });

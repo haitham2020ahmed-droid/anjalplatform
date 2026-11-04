@@ -70,7 +70,7 @@ describe("the 30–50 rule and plan skills of another grade", () => {
 
   test("mastered by question 30 (or as soon as mastered after it) → Done, the session ends with a celebration", async () => {
     const me = kids[0];
-    const { assignmentId } = await assignSkill(repo, teacher, { classId, skillId: skill.master, studentIds: [me.studentId!] }, tick(0));
+    const { assignmentId } = await assignSkill(repo, teacher, { source: "CURRICULUM", classId, skillId: skill.master, studentIds: [me.studentId!] }, tick(0));
     let v: PracticeView = await startPractice(repo, me, skill.master, tick());
     assert.deepEqual([v.work?.answered, v.work?.of], [0, 30]);
     let doneAt = 0;
@@ -103,7 +103,7 @@ describe("the 30–50 rule and plan skills of another grade", () => {
 
   test("not mastered → goes on by itself up to 50 → Done, and the student chooses Stop for now / Keep practising", async () => {
     const me = kids[1];
-    const { assignmentId } = await assignSkill(repo, teacher, { classId, skillId: skill.long, studentIds: [me.studentId!] }, tick(0));
+    const { assignmentId } = await assignSkill(repo, teacher, { source: "CURRICULUM", classId, skillId: skill.long, studentIds: [me.studentId!] }, tick(0));
     let v: PracticeView = await startPractice(repo, me, skill.long, tick());
     let right = 0;
     for (let k = 1; k <= ASSIGNMENT_MAX_QUESTIONS; k++) {
@@ -138,7 +138,7 @@ describe("the 30–50 rule and plan skills of another grade", () => {
 
   test("running out of fresh questions (no-repeat) ends the session and the work is Done", async () => {
     const me = kids[2];
-    const { assignmentId } = await assignSkill(repo, teacher, { classId, skillId: skill.small, studentIds: [me.studentId!] }, tick(0));
+    const { assignmentId } = await assignSkill(repo, teacher, { source: "CURRICULUM", classId, skillId: skill.small, studentIds: [me.studentId!] }, tick(0));
     let v: PracticeView = await startPractice(repo, me, skill.small, tick());
     let last = null as Awaited<ReturnType<typeof submitAnswer>> | null;
     for (let k = 0; k < 20 && v.question; k++) { last = await submitAnswer(repo, me, { sessionId: v.sessionId, questionId: v.question.questionId, response: "B" }, tick()); v = last.view; }

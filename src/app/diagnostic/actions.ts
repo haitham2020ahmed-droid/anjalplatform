@@ -3,12 +3,14 @@ import { redirect } from "next/navigation";
 import { repo, requireActor } from "@/server/auth/next";
 import { ForbiddenError } from "@/server/auth/rbac";
 import { ValidationError } from "@/server/curriculum-admin";
-import { buildAllDiagnostics, buildDiagnostic, closeDiagnostic, openDiagnostic, swapDiagnosticQuestion } from "@/server/diagnostic/test";
+import { buildAllDiagnostics, buildDiagnostic, closeDiagnostic, openDiagnostic, resetDiagnosticAttempt, swapDiagnosticQuestion } from "@/server/diagnostic/test";
 import { shareDiagnosticResults } from "@/server/diagnostic/report";
 import { draftReflection, type Reflection } from "@/server/diagnostic/reflection";
 import { aiEnv } from "@/server/ai/env";
+import { endOfDay, startOfDay } from "@/lib/assign-dates";
 
-const day = (v: FormDataEntryValue | null, end = false) => { const x = String(v ?? ""); return /^\d{4}-\d{2}-\d{2}$/.test(x) ? new Date(`${x}T${end ? "23:59:59" : "00:00:00"}`) : null; };
+// a date input is a Riyadh school day (UTC+3): open at 00:00, close at the end of the day (23:59:59) — not the server's UTC
+const day = (v: FormDataEntryValue | null, end = false) => { const x = String(v ?? ""); return /^\d{4}-\d{2}-\d{2}$/.test(x) ? (end ? endOfDay(x) : startOfDay(x)) : null; };
 const msg = (path: string, m: string) => `${path}${path.includes("?") ? "&" : "?"}msg=${encodeURIComponent(m)}`;
 async function run(back: string, fn: () => Promise<string>): Promise<never> {
   let to: string;
@@ -57,6 +59,15 @@ export async function shareDiagnosticAction(f: FormData): Promise<void> {
     const n = await shareDiagnosticResults(repo, actor, { testId: String(f.get("testId")), studentIds: ids, shared, note });
     return msg(back, !shared ? `Stopped sharing ${n} report(s).` : actor.role === "TEACHER" ? `📨 Sent ${n} report(s) to the school admin for approval. The families see them once approved.` : `Shared with ${n} student(s) and their families.`);
   });
+}
+
+/** 🐛 r91 fix ("لو النتيجة Invalid مفيش طريقة يعيد الطالب الاختبار"): clears one student's Diagnostic attempt
+ * (an invalid, rapid-guessed result most of all) so they can retake it and the new attempt is actually recorded. */
+export async function resetDiagnosticAttemptAction(f: FormData): Promise<void> {
+  const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"], permission: "assignments:create" });
+  const back = String(f.get("back") || "/admin/diagnostic");
+  const id = String(f.get("id")), studentId = String(f.get("studentId"));
+  await run(back, async () => { await resetDiagnosticAttempt(repo, actor, id, studentId); return msg(back, "The attempt was reset. The student can take the Diagnostic again."); });
 }
 
 /** 🪞 Draft the reflection (Findings & Discussion) of the class analysis; the teacher edits it. */

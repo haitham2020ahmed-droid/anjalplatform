@@ -170,9 +170,9 @@
     "passage": "Rashid had wanted to join the school chess club all year, but he was too shy to ask. Every lunchtime, he stood by the door of the club room and watched the games. On Monday, the club leader, Fares, noticed him. 'We need one more player for the tournament,' Fares said. 'Do you play?' Rashid's cheeks went red, but he nodded and stepped inside.",
     "stem": "What will Rashid most likely do next?",
     "options": [
-     "Run away and never go back to the club.",
-     "Tell Fares that he hates chess.",
-     "Join the football team instead.",
+     "Run away and never go back to the chess club or the school.",
+     "Tell Fares that he hates chess and wants to quit.",
+     "Join the football team instead of the chess club.",
      "Play chess with the club, maybe in the tournament."
     ],
     "answer": 3,
@@ -203,10 +203,10 @@
      "passage": "Maha always reads the instructions twice before she starts any project. Today her teacher gave the class a new science kit with a thick booklet inside.",
      "stem": "What will Maha most likely do?",
      "options": [
-      "Throw the booklet away.",
+      "Throw the booklet away without looking.",
       "Start building without reading.",
       "Read the instructions carefully first.",
-      "Ask to go home early."
+      "Ask to go home early from the club."
      ],
      "answer": 2,
      "why": "Maha 'always' reads instructions twice. Characters usually act the way they always do."
@@ -333,8 +333,8 @@
      "passage": "Before bed, Fahad filled a glass bottle with water right to the top, screwed the cap on tight and put it in the freezer. He wanted ice-cold water for his hike in the morning.",
      "stem": "What will most likely happen?",
      "options": [
-      "The bottle will be empty in the morning.",
-      "The water will stay warm all night.",
+      "The bottle will be empty in the morning, too.",
+      "The water will stay warm all night long.",
       "The water will freeze and may crack the bottle.",
       "The bottle will float in the freezer."
      ],
@@ -404,8 +404,8 @@
     "passage": "For three years, Tariq had saved every riyal he earned helping at his uncle's shop. The money was for one thing: a professional camera, the kind real photographers used. He had already chosen the model and checked the price twice. On Thursday, he finally had enough. That same evening, their elderly neighbour, Abu Fahd, knocked on the door. His car had broken down, and without it he could not drive his wife to her weekly hospital appointments. The repair would cost almost exactly what Tariq had saved. Tariq said nothing during dinner. Later, his mother found him sitting on the roof, holding the envelope of money and looking at the light in Abu Fahd's window. Earlier that year, Tariq had been the first to volunteer when the mosque collected food for families in need, and he had once walked an hour to return a wallet he found in the street.",
     "stem": "Which prediction is best supported by the evidence?",
     "options": [
-     "Tariq will buy the camera tomorrow and forget all about Abu Fahd.",
-     "Tariq will ask Abu Fahd to pay him back with extra money.",
+     "Tariq will buy the camera tomorrow and forget all about Abu Fahd and his problem.",
+     "Tariq will ask Abu Fahd to pay him back with extra money soon.",
      "Tariq will probably use his savings to help Abu Fahd, even if he must wait.",
      "Tariq will tell his mother he only wants a cheaper camera now."
     ],
@@ -454,7 +454,7 @@
      "options": [
       "It will be Khalil's last match, and his knee may cause trouble.",
       "The club will win enough money to build a new stadium.",
-      "Khalil will become the team's new coach next season.",
+      "Khalil will become the team's new coach next season, after he stops playing.",
       "The team will go on to play a hundred more matches."
      ],
      "answer": 0,

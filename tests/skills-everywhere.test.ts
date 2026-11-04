@@ -1,5 +1,5 @@
 /**
- * 🔎 Every platform skill (/tmp/qs/allskills.json → tests/fixtures/all-skills.json, 145 names) is findable everywhere,
+ * 🔎 Every platform skill (/tmp/qs/allskills.json → tests/fixtures/all-skills.json, 148 names; r73 added Complex and Compound-Complex Sentences and Point of View: First, Second, Third Limited, Third Omniscient; r74 Subject-Verb Agreement with Compound Subjects) is findable everywhere,
  * on the demo school after the gap sets are loaded: the Question Bank search (a skill's name lists that skill's
  * questions) and its skill filter, the teacher test builder's skill picker and search, the assign lists (Assignments →
  * New, Curriculum by grade, Assign a skill), the Skills page — whatever the case, "&" / "and" or apostrophe.
@@ -35,7 +35,8 @@ describe("🔎 every skill is findable everywhere", () => {
     teacher = await resolveActor(repo, (await repo.findUnique("User", { username: "demo.teacher.4a" }))!);
     schoolId = admin.schoolId!;
     // the gap sets (2 questions each keep the test quick: the skills are created all the same)
-    const gap = (await loadSkillSetsFile("gap-skill-sets.json")).map((x) => ({ ...x, questions: x.questions.slice(0, 2) }));
+    // the gap sets + the r73 / r74 new skills (2 questions each keep the test quick: the skills are created all the same)
+    const gap = [...await loadSkillSetsFile("gap-skill-sets.json"), ...await loadSkillSetsFile("new-skill-sets.json"), ...await loadSkillSetsFile("agreement-skill-sets.json")].map((x) => ({ ...x, questions: x.questions.slice(0, 2) }));
     const r = await addSkillSets(repo, schoolId, gap);
     assert.deepEqual(r.flatMap((x) => x.errors), []);
     const idx = await schoolSkillIndex(repo, schoolId);
@@ -52,8 +53,8 @@ describe("🔎 every skill is findable everywhere", () => {
     }
   });
 
-  test("the 145 names; those the demo school has (all but the two school-supplied MAP sets) are active", async () => {
-    assert.equal(NAMES.length, 145);
+  test("the 148 names; those the demo school has (all but the two school-supplied MAP sets) are active", async () => {
+    assert.equal(NAMES.length, 148);
     const missing = NAMES.filter((n) => !present.some((x) => x.name === n));
     assert.deepEqual(missing.sort(), ["Persuasive Techniques", "Rhetorical Questions"], "only the school-supplied sets are not in the demo school");
     const idx = await schoolSkillIndex(repo, schoolId);

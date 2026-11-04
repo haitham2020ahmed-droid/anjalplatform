@@ -46,10 +46,10 @@
       "type": "MCQ",
       "stem": "Read this sentence from paragraph 2: “The water was so transparent that I could distinguish the shadows of fish gliding over the sand far below.” What does “transparent” mean?",
       "options": [
-        "deep and dark",
-        "warm and calm",
+        "deep and dark, like the night",
+        "warm and calm, like the air",
         "clear enough to see through",
-        "full of waves"
+        "full of waves, like the sea"
       ],
       "answer": "C",
       "why": "Noura could see shadows on the sand far below, so the water must have been clear enough to see through."
@@ -301,10 +301,10 @@
       "type": "MCQ",
       "stem": "What caused Noura's fear to start loosening in paragraph 4?",
       "options": [
-        "Hamad laughing at her",
+        "Hamad laughing at her fear in the pool",
         "her uncle's calm words about patience",
-        "the warm sunshine",
-        "seeing her cousins dive"
+        "the warm sunshine on the water and sand",
+        "seeing her cousins dive in with joy"
       ],
       "answer": "B",
       "why": "Paragraph 4 begins: “His calm words loosened something that had been knotted inside me for years.”"
@@ -525,9 +525,9 @@
       "type": "MCQ",
       "stem": "Which title best describes the events of the story?",
       "options": [
-        "The Turtle Who Talked",
-        "Lost on the Road to Umluj",
-        "Hamad's Big Mistake",
+        "The Turtle Who Talked to the Girl",
+        "Lost on the Road to Umluj in a Storm",
+        "Hamad's Big Mistake at the School",
         "The Girl Who Learned to Float"
       ],
       "answer": "D",

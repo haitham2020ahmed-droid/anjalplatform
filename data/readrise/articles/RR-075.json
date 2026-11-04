@@ -64,6 +64,16 @@
       "level": 1400,
       "title": "Learning to Code",
       "text": "A computer is an extraordinarily fast machine, yet it is incapable of thinking independently, so people must tell it precisely what to do. The instructions they compose are called code, and they are written in a programming language that possesses its own specialized vocabulary and its own strict grammatical regulations, which are collectively known as syntax.\n\nA computer follows code exactly as it is written, executing every instruction in a particular order called a sequence. If the sequence is incorrect, the result will inevitably be incorrect as well, because a computer cannot interpret what the programmer intended; its logic is entirely literal.\n\nA set of steps that solves a problem is called an algorithm, and people use algorithms continually without recognizing them. Preparing a cup of tea is one illustration: you boil the water, place a tea bag in a cup, and subsequently pour in the water. Programming transforms everyday procedures like this into unambiguous instructions that a computer can reliably follow.\n\nMany beginners start with a block-based language such as Scratch, which was developed at a university in the United States. Because each block represents a single instruction and the blocks interlock like puzzle pieces, students cannot make spelling or punctuation errors. Afterward, many learners progress to typed languages such as Python, in which the syntax must be absolutely exact, since a single missing symbol can prevent an entire program from operating.\n\nCode also depends on several fundamental concepts. A loop repeats instructions, which makes a program shorter and considerably more efficient, whereas a conditional statement enables a program to make decisions, as in \"If the player touches the wall, then the game is over.\"\n\nMistakes in code are called bugs, and the methodical process of identifying and correcting them is called debugging. In 1947, engineers collaborating with the computer scientist Grace Hopper discovered an actual moth trapped inside a computer, and they documented it as a \"bug.\" Because programs rarely function perfectly on the initial attempt, persistence is one of a programmer's most valuable characteristics.\n\nLearning to code strengthens general problem-solving abilities as well, because programmers learn to decompose an intimidating challenge into smaller, manageable components and resolve them systematically. Educational systems in numerous countries, including Saudi Arabia, now incorporate coding into their curricula, since these abilities are valuable in mathematics, science, and a remarkable variety of future occupations."
+    },
+    {
+      "level": 1500,
+      "title": "Learning to Code",
+      "text": "A computer is an extraordinarily fast machine, yet it is incapable of thinking independently, so people must tell it precisely what to do. The instructions they compose are called code, and they are written in a programming language that possesses its own specialized vocabulary and its own strict grammatical regulations, which are collectively known as syntax.\n\nA computer follows code exactly as it is written, executing every instruction in a particular order called a sequence. If the sequence is incorrect, the result will inevitably be incorrect as well, because a computer cannot interpret what the programmer intended; its logic is entirely literal.\n\nA set of steps that solves a problem is called an algorithm, and people use algorithms continually without recognizing them. Preparing a cup of tea is one illustration: you boil the water, place a tea bag in a cup, and subsequently pour in the water. Programming transforms everyday procedures like this into unambiguous instructions that a computer can reliably follow.\n\nMany beginners start with a block-based language such as Scratch, which was developed at a university in the United States. Because each block represents a single instruction and the blocks interlock like puzzle pieces, students cannot make spelling or punctuation errors. Afterward, many learners progress to typed languages such as Python, in which the syntax must be absolutely exact, since a single missing symbol can prevent an entire program from operating.\n\nProgramming additionally depends upon several fundamentally powerful conceptual constructs. A loop repeats a given sequence of steps, rendering a program both considerably shorter and more computationally efficient, whereas a conditional statement enables a program to make autonomous decisions, exemplified by constructs such as \"if the player touches the wall, then the game concludes.\"\n\nMistakes in code are called bugs, and the methodical process of identifying and correcting them is called debugging. In 1947, engineers collaborating with the computer scientist Grace Hopper discovered an actual moth trapped inside a computer, and they documented it as a \"bug.\" Because programs rarely function perfectly on the initial attempt, persistence is one of a programmer's most valuable characteristics.\n\nLearning to code additionally strengthens general problem-solving capabilities considerably, since programmers systematically learn to decompose an intimidating, complex challenge into smaller, more manageable constituent components and subsequently resolve each individually. Educational institutions across numerous countries, including Saudi Arabia, now incorporate coding instruction into their curricula, recognizing that these transferable abilities prove genuinely valuable across mathematics, science, and numerous future occupational pathways."
+    },
+    {
+      "level": 1600,
+      "title": "Learning to Code",
+      "text": "A computer constitutes an extraordinarily rapid computational machine, yet it remains fundamentally and permanently incapable of independent, autonomous thought, necessitating that human programmers specify with absolute precision exactly what sequential actions it must undertake. These meticulously precise instructions are collectively termed code, composed within a specialized programming language possessing its own specialized technical vocabulary and rigorous, unforgiving grammatical conventions, collectively designated as syntax.\n\nA computer executes code with absolute, unwavering literalness, performing each individual instruction in a particular sequential order termed a sequence. Should this underlying sequence contain even a minor error, the resultant computational output will inevitably prove erroneous as a direct consequence, since a computer fundamentally and categorically cannot interpret, infer, or intuit what a human programmer genuinely intended to accomplish; its underlying operational logic remains entirely and unforgivingly literal in every conceivable circumstance.\n\nA systematic, ordered set of sequential steps specifically designed to resolve a particular computational problem is termed an algorithm, and individuals routinely employ informal algorithms continuously throughout daily existence without necessarily recognizing them explicitly as such. Preparing a simple cup of tea exemplifies this universal phenomenon with considerable clarity: one boils water to the appropriate temperature, positions a tea bag carefully within a cup, and subsequently pours the heated water over it. Programming systematically transforms such mundane, everyday procedural sequences into unambiguous, mathematically precise instructions that a computer can reliably and consistently execute without deviation.\n\nMany beginning programmers commence their formal education with a block-based programming language such as Scratch, originally developed at a prominent American university specifically for educational purposes. Because each individual programming block represents a single discrete computational instruction and these interlocking blocks connect analogously to interlocking puzzle pieces, beginning students cannot inadvertently commit spelling or punctuation errors during the construction of their programs. Subsequently, many learners progress toward more sophisticated typed programming languages such as Python, within which syntactic precision must be absolutely and unforgivingly exact, since even a single missing symbol can prevent an entire complex program from executing successfully.\n\nProgramming additionally depends fundamentally upon several conceptually powerful structural constructs. A loop mechanism repeats a given sequence of instructional steps, rendering a program both considerably shorter in length and substantially more computationally efficient overall, whereas a conditional statement enables a program to make genuinely autonomous logical decisions, exemplified precisely by constructs such as \"if the player touches the wall, then the game concludes immediately.\"\n\nErrors embedded inadvertently within code are universally termed bugs, and the methodical, highly systematic process of identifying and subsequently correcting such embedded errors is termed debugging. In 1947, engineers collaborating alongside the pioneering computer scientist Grace Hopper discovered an actual physical moth trapped within a computer's delicate mechanical relay components, subsequently documenting this curious incident using the now-famous term \"bug.\" Because complex programs quite rarely function entirely flawlessly upon an initial attempt, sustained persistence represents unquestionably one of a programmer's most genuinely valuable professional characteristics throughout their career.\n\nLearning to code additionally strengthens general cognitive problem-solving capabilities considerably and measurably, since programmers systematically learn to decompose an intimidating, multifaceted challenge into smaller, considerably more manageable constituent components and subsequently resolve each individual component methodically. Educational institutions across numerous countries worldwide, including Saudi Arabia specifically, now incorporate structured coding instruction directly into their standard curricula, recognizing explicitly that these highly transferable cognitive abilities prove genuinely valuable across mathematics, the natural sciences, and an extraordinarily wide variety of future occupational pathways."
     }
   ],
   "bands": {
@@ -223,9 +233,9 @@
         {
           "stem": "What can you tell about coders from the part about bugs?",
           "options": [
-            "They never make any mistakes.",
-            "They stop when they find a bug.",
-            "They only write code for robots.",
+            "They never make any mistakes in their work.",
+            "They stop when they find a bug in the code.",
+            "They only write code for robots and toys.",
             "Fixing mistakes is part of their job."
           ],
           "answer": "D",
@@ -243,7 +253,8 @@
         "I wrote at least four steps.",
         "My steps are in the right order.",
         "Each step is clear enough for someone to follow."
-      ]
+      ],
+      "modelAnswer": "First, wet your toothbrush under the water. Next, add toothpaste to the brush. Then, brush every part of your teeth for two minutes. Finally, rinse your mouth and put the toothbrush away, just like following code in order."
     },
     "MID": {
       "keyWords": [
@@ -282,10 +293,10 @@
         {
           "stem": "Which sentence best states the central idea of the article?",
           "options": [
-            "Computers are smarter than people.",
-            "Only adults can learn to write code.",
+            "Computers are smarter than people, and soon they will think for us.",
+            "Only adults can learn to write code, so children should wait.",
             "Coding means giving a computer exact steps, and it teaches problem solving.",
-            "Scratch is the only programming language that people use today."
+            "Scratch is the only programming language that people use today, and all coders learn it."
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -421,7 +432,8 @@
         "My steps are in a clear sequence.",
         "I included a loop that repeats something.",
         "I included an 'if ... then' condition."
-      ]
+      ],
+      "modelAnswer": "My algorithm for a simple game is: first, the player moves around the screen. Then, loop this step again and again until the player touches a coin or a wall. If the player touches a coin, then add one point to the score. If the player touches the wall, then the game is over."
     },
     "HIGH": {
       "keyWords": [
@@ -461,9 +473,9 @@
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
             "Coding needs exact instructions, and learning it builds problem-solving habits.",
-            "Computers will soon be able to guess what programmers mean.",
-            "Typed languages are always better than block-based languages.",
-            "Debugging is only needed by beginners."
+            "Computers will soon be able to guess what programmers mean, so coding will need no steps.",
+            "Typed languages are always better than block-based languages, and so beginners should avoid blocks.",
+            "Debugging is only needed by beginners, and so expert coders never have bugs in their work."
           ],
           "answer": "A",
           "skill": "central-idea",
@@ -528,10 +540,10 @@
         {
           "stem": "Why does the article call persistence one of a programmer's most valuable qualities?",
           "options": [
-            "Programmers must type very quickly.",
+            "Programmers must type very quickly all day long.",
             "Programs rarely work perfectly on the first attempt.",
-            "Computers refuse to run short programs.",
-            "Loops take a long time to write."
+            "Computers refuse to run short programs of any kind.",
+            "Loops take a long time to write and to read."
           ],
           "answer": "B",
           "skill": "inference",
@@ -599,7 +611,8 @@
         "I explained at least two coding skills from the article.",
         "I connected them to another school subject.",
         "I gave a specific example."
-      ]
+      ],
+      "modelAnswer": "Two skills from coding, decomposing problems and persistence, can help in math class just as much as they help in programming. When I face a hard word problem, I decompose it into smaller steps the same way a coder breaks a big program into an algorithm, which makes the logic behind the problem much easier to follow. Persistence matters too, because just like debugging a program that has a bug, I have to keep checking my math work step by step until I find my mistake and fix it, rather than giving up after the first wrong answer."
     }
   }
 }

@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { z } from "zod";
 import { assertSameOrigin, clientIp, sessionCookie } from "@/server/auth/http";
 import { env } from "@/lib/env";
+import { safeNext } from "@/lib/safe-next";
 import { login } from "@/server/auth/login";
 import { getAuthConfig, HOME_BY_ROLE, isProd, repo } from "@/server/auth/next";
 import type { Role } from "@/server/auth/rbac";
@@ -16,8 +17,7 @@ const LoginSchema = z.object({
 /** Relative redirects only: behind Render's proxy the request URL carries an internal host. */
 const go = (to: string) => new NextResponse(null, { status: 303, headers: { Location: to, "Cache-Control": "no-store" } });
 const back = (error: string, username: string, next = "") => go(`/login?${new URLSearchParams({ error, ...(username ? { u: username.slice(0, 100) } : {}), ...(next ? { next } : {}) })}`);
-/** Only an internal path is followed after sign-in (never another site: “//x”, “/\x”, “http:”). */
-const safeNext = (v: unknown): string => { const t = String(v ?? ""); return /^\/(?![\/\\])[^\s]*$/.test(t) && t.length <= 300 && !t.startsWith("/login") && !t.startsWith("/api") ? t : ""; };
+/** Only an internal path is followed after sign-in (never another site: “//x”, “/\x”, “http:”) — src/lib/safe-next.ts. */
 
 /**
  * Sign in by a plain form POST to a fixed address (not a Server Action): a sign-in page left open

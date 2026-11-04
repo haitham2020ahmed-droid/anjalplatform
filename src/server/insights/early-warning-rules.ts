@@ -69,7 +69,10 @@ export interface MeasureDef {
 export const MEASURES: Record<MeasureKey, MeasureDef> = {
   LEVEL: { label: "Level group", say: "level group", step: 1, big: 2, unit: "group", recentDays: 42, flat: false, min: 0, max: 2 },
   SKILLS: { label: "Skill average", say: "skill average", step: 8, big: 15, unit: "pct", recentDays: 21, flat: false, min: 0, max: 100 },
-  READRISE: { label: "ReadRise level", say: "ReadRise level", step: 100, big: 200, unit: "rr", recentDays: 42, flat: true, min: 300, max: 1400 },
+  // max was 1400 (the old ReadRise ceiling, see level.ts); kept in sync now that level.ts's RR_MAX is 1600, since
+  // this range is handed to the trend chart as its axis bounds — left stale, a student's point above 1400 would
+  // just clip off the top of their own chart.
+  READRISE: { label: "ReadRise level", say: "ReadRise level", step: 100, big: 200, unit: "rr", recentDays: 42, flat: true, min: 300, max: 1600 },
   MAP: { label: "MAP RIT", say: "MAP RIT", step: 3, big: 6, unit: "rit", recentDays: 120, flat: false, min: 160, max: 260 },
   CHECKS: { label: "Progress checks", say: "progress checks", step: 10, big: 20, unit: "pct", recentDays: 42, flat: false, min: 0, max: 100 },
   WEEKLY: { label: "Weekly checks", say: "weekly checks", step: 10, big: 20, unit: "pct", recentDays: 42, flat: false, min: 0, max: 100 },

@@ -43,7 +43,7 @@ function Message({ r }: { r: SchoolResult | null }) {
   const t = useT();
   if (!r) return null;
   if (r.error) return <p role="alert" className="mt-3 rounded-xl bg-red-50 px-4 py-2 text-red-800 ring-1 ring-red-200">{t(r.error)}</p>;
-  if (r.message) return <p role="status" className="mt-3 rounded-xl bg-teal-50 px-4 py-2 text-teal-900 ring-1 ring-teal-200">✓ {t(r.message)}</p>;
+  if (r.message) return <p role="status" className="mt-3 rounded-xl bg-teal-50 px-4 py-2 text-teal-900 ring-1 ring-teal-200">✓ {t(r.message, r.withdrawn ? { n: r.withdrawn } : undefined)}</p>;
   return null;
 }
 

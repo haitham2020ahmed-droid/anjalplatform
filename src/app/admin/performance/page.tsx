@@ -68,7 +68,7 @@ export default async function PerformancePage() {
           <h2 className="text-xl font-bold text-brand-navy">Skills Needing the Most Work</h2>
           <ul className="mt-2 divide-y rounded-2xl bg-white ring-1 ring-slate-200">
             {p.weakSkills.length === 0 && <li className="p-4 text-sm text-slate-600">Not enough practice yet.</li>}
-            {p.weakSkills.map((k) => <li key={k.name + k.grade} className="flex items-center justify-between gap-3 p-3 text-sm"><span>G{k.grade} · {k.name} <span className="text-slate-500">({k.students} students)</span></span><span className={`font-semibold tabular-nums ${tone(k.avgMastery)}`}>{k.avgMastery}%</span></li>)}
+            {p.weakSkills.map((k) => <li key={k.name + k.grade} className="flex items-center justify-between gap-3 p-3 text-sm"><span>G{k.grade} · {k.name} <span className="text-slate-500">({k.students} students · {k.mastered} ⭐)</span></span><span className={`font-semibold tabular-nums ${tone(k.avgMastery)}`}>{k.avgMastery}%</span></li>)}
           </ul>
         </section>
         <section>

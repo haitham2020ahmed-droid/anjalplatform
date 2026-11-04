@@ -105,9 +105,9 @@
      "stem": "What is the moral?",
      "options": [
       "Help others, and they will help you.",
-      "Mud is wet.",
-      "Mice are fast.",
-      "Seeds are small."
+      "Mud is wet and sticky in the rain.",
+      "Mice are fast and very small.",
+      "Seeds are small and grow into plants."
      ],
      "answer": 0,
      "why": "Ant helped Mouse, and later Mouse helped Ant. Helping others brings help back."
@@ -218,10 +218,10 @@
      "passage": "Rakan forgot his homework three days in a row because he played games late at night. On the third day, he could not go on the class trip. That evening, he finished his homework before turning on any game.",
      "stem": "What lesson does Rakan learn?",
      "options": [
-      "Games are boring.",
-      "Class trips are long.",
+      "Games are boring and slow.",
+      "Class trips are long and tiring.",
       "Do your work first, then play.",
-      "Teachers are strict."
+      "Teachers are strict and loud."
      ],
      "answer": 2,
      "why": "Rakan missed the trip because he played first. At the end he does homework before games."
@@ -230,10 +230,10 @@
      "passage": "A crow found a piece of bread. A fox said, \"What a beautiful voice you must have! Sing for me.\" The proud crow opened her beak to sing, and the bread fell. The fox ate it and ran away.",
      "stem": "What is the moral of this fable?",
      "options": [
-      "Crows sing beautifully.",
+      "Crows sing beautifully when they are in the trees.",
       "Be careful of people who praise you to get something.",
-      "Foxes are always hungry.",
-      "Bread is good to eat."
+      "Foxes are always hungry in the winter months.",
+      "Bread is good to eat with cheese and honey."
      ],
      "answer": 1,
      "why": "The fox praised the crow only to get her bread. The moral warns us about praise that has a hidden aim."
@@ -242,9 +242,9 @@
      "passage": "Jana was sure she could finish her art project in one night. She waited until the day before it was due. At midnight, the paint was still wet and the poster was only half done. Next term, she started her project two weeks early.",
      "stem": "What message does the author want readers to learn?",
      "options": [
-      "Painting is messy.",
-      "Art projects are too hard.",
-      "Posters need bright colours.",
+      "Painting is messy, so you should wear old clothes.",
+      "Art projects are too hard for young students.",
+      "Posters need bright colours to look good.",
       "Plan ahead and do not leave work to the last minute."
      ],
      "answer": 3,
@@ -301,9 +301,9 @@
     "passage": "Faisal was the best player on his school team, and he knew it. In every match he kept the ball to himself, even when his teammates were open. In the first half of the final, the other team surrounded him, and his side did not score once. At half-time, he finally passed to Bader, who passed to Omar, who scored. After the match, Faisal said, \"We won because all of us played, not just me.\"",
     "stem": "What lesson does Faisal learn?",
     "options": [
-     "Taking photos is more fun than playing.",
-     "Teams should always have a captain.",
-     "Winning is the only thing that matters.",
+     "Taking photos is more fun than playing in the game.",
+     "Teams should always have a captain who gives orders.",
+     "Winning is the only thing that matters in a game.",
      "A team does better when everyone gets a chance to help."
     ],
     "answer": 3,
@@ -345,9 +345,9 @@
      "stem": "What lesson does Hessa learn?",
      "options": [
       "Being honest is better than pretending.",
-      "Back covers tell the whole story.",
-      "Teachers ask hard questions.",
-      "Reading at night is tiring."
+      "Back covers tell the whole story of a book.",
+      "Teachers ask hard questions in class.",
+      "Reading at night is tiring for the eyes."
      ],
      "answer": 0,
      "why": "Pretending caused trouble, so Hessa read the book and told the truth."
@@ -415,10 +415,10 @@
     "passage": "Mariam was certain that she could make bread as good as her grandmother's without the long kneading her grandmother insisted on. She mixed the dough quickly, left it for half the time, and put it in the oven. What came out was flat and hard, and her little brother used it as a plate. The following week, she stood beside her grandmother and kneaded until her arms ached, watching how the dough changed under her hands. When the loaf rose golden and soft, Mariam understood that some things cannot be rushed. Her grandmother only said, \"Now you know the bread.\"",
     "stem": "What lesson does Mariam learn by the end of the story?",
     "options": [
-     "Machines should never be used in a kitchen.",
+     "Machines should never be used in a busy kitchen at any time.",
      "Real skill comes from patient practice, not from shortcuts.",
-     "Grandmothers are always right about everything.",
-     "Cooking is too difficult for young people."
+     "Grandmothers are always right about everything in life.",
+     "Cooking is too difficult for young people to learn."
     ],
     "answer": 1,
     "hint": "That choice is too broad or not shown. Look at what Mariam does differently in the final sentences.",
@@ -446,9 +446,9 @@
      "passage": "A wealthy merchant hid his gold under a stone in his garden and visited it every night. A thief watched him and took the gold. The merchant wept, but his neighbour said, \"Put a stone in the hole and visit it every night. You never used the gold, so the stone will serve you just as well.\"",
      "stem": "What is the moral of this fable?",
      "options": [
-      "Gardens are a safe place for gold.",
+      "Gardens are a safe place for gold and silver.",
       "Thieves always get caught in the end.",
-      "Neighbours give the best advice.",
+      "Neighbours give the best advice to a farmer.",
       "Wealth that is never used has no real value."
      ],
      "answer": 3,
@@ -458,10 +458,10 @@
      "passage": "Ibrahim was chosen to lead the science club and began giving orders at once. Members stopped coming. One afternoon, a quiet girl suggested an experiment he had dismissed, and the club voted for it. To his surprise, it was the best project of the year. At the next meeting, Ibrahim began by asking, \"What does everyone think?\"",
      "stem": "Which statement best expresses the lesson Ibrahim learns?",
      "options": [
-      "Science clubs need more members.",
-      "Quiet people always have the best ideas.",
+      "Science clubs need more members to join each year.",
+      "Quiet people always have the best ideas in a science club.",
       "A good leader listens to others instead of only giving orders.",
-      "Experiments should be chosen by voting."
+      "Experiments should be chosen by voting in the club."
      ],
      "answer": 2,
      "why": "His orders drove members away. At the end he starts by asking for others' ideas, which shows the lesson."
@@ -471,9 +471,9 @@
      "stem": "Which moral does the fable best support?",
      "options": [
       "Even the small and weak can repay kindness.",
-      "Lions are the kings of animals.",
-      "Hunters set clever traps.",
-      "Mice have very sharp teeth."
+      "Lions are the kings of all the animals in the forest.",
+      "Hunters set clever traps in the forest.",
+      "Mice have very sharp teeth for biting."
      ],
      "answer": 0,
      "why": "The lion doubted the mouse could help, but the tiny mouse repaid his kindness by freeing him."

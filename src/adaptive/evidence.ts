@@ -21,13 +21,26 @@ export function isRapidGuess(r: Pick<ResponseEvidence, "responseMs" | "estimated
   return r.responseMs < threshold;
 }
 
-export function evidenceWeight(r: ResponseEvidence, cfg: AdaptiveConfig): number {
+/**
+ * `now`: pass it ONLY when computing the θ/ability estimate (toWeighted below) — that applies the recency decay
+ * described on AdaptiveConfig#thetaHalfLifeDays. Leave it out (as mastery.ts's own evidenceWeight calls do) to get
+ * the plain weight with no decay: mastery.ts already has its own, separately-tuned, floored idle-decay
+ * (`computeMastery`'s `decayFactor`, floor 0.85) and its own short recency window on `recentAccuracy`
+ * (`RECENCY_HALF_LIFE` = 6 responses) — stacking the θ decay on top of those as well would let a long-idle skill's
+ * effectiveN (and therefore its mastery gates) collapse toward zero instead of fading gently to that floor.
+ */
+export function evidenceWeight(r: ResponseEvidence, cfg: AdaptiveConfig, now?: Date): number {
   let w = 1;
   // r67: a rapid guess counts for nothing (weight 0, whatever an older school setting says)
   if (isRapidGuess(r, cfg)) return 0;
   if (r.usedHint) w *= cfg.hintWeight;
   if (r.repeat) w *= cfg.repeatWeight ?? 0.5;
   if (r.sourceWeight !== undefined) w *= Math.max(0, Math.min(1, r.sourceWeight));
+  // 🐛 fix (audit finding, Oct 2026): recency decay on the θ-estimate evidence itself — see AdaptiveConfig#thetaHalfLifeDays.
+  if (now && cfg.thetaHalfLifeDays > 0) {
+    const ageDays = (now.getTime() - new Date(r.at).getTime()) / 86_400_000;
+    w *= Math.pow(0.5, Math.max(0, ageDays) / cfg.thetaHalfLifeDays);
+  }
   return w;
 }
 
@@ -57,12 +70,12 @@ export function isRecentRepeat(history: { itemId: string; at: string }[], itemId
   return false;
 }
 
-export function toWeighted(r: ResponseEvidence, cfg: AdaptiveConfig): WeightedResponse {
+export function toWeighted(r: ResponseEvidence, cfg: AdaptiveConfig, now: Date = new Date()): WeightedResponse {
   return {
     a: r.a,
     b: r.b,
     c: r.c,
     credit: r.credit ?? (r.correct ? 1 : 0),
-    weight: evidenceWeight(r, cfg),
+    weight: evidenceWeight(r, cfg, now),
   };
 }

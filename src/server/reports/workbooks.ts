@@ -52,7 +52,7 @@ const PROGRESS_COLS: Col[] = [
   { h: "Level", w: 12, m: "The student's confirmed overall level (Approaching / Meeting / Exceeding).", tones: LEVEL_TONES },
   { h: "Answers", k: "int", w: 10, m: "Practice questions answered." },
   { h: "Correct", k: "int", w: 10, m: "Of those, answered correctly." },
-  { h: "Accuracy %", k: "int", w: 11, m: "Correct ÷ answers × 100 (the bar shows it from 0 to 100).", bar: true },
+  { h: "Accuracy %", k: "int", w: 11, m: "Correct ÷ careful answers × 100, rapid guesses not counted (the bar shows it from 0 to 100).", bar: true },
   { h: "Skills mastered", k: "int", w: 10, m: "Skills at Mastered." },
   { h: "Skills needing work", k: "int", w: 11, m: "Skills below Proficient with enough answers." },
   { h: "Minutes this week", k: "int", w: 10, m: "Practice minutes this week." },
@@ -124,7 +124,7 @@ const DEPT_COLS: Col[] = [
   { h: "Practised %", k: "int", w: 11, m: "Practised this week ÷ students × 100.", bar: true },
   { h: "Answers this week", k: "int", w: 11, m: "Practice answers this week." },
   { h: "Minutes this week", k: "int", w: 11, m: "Practice minutes this week." },
-  { h: "Accuracy %", k: "int", w: 11, m: "Share of this week's answers that were right.", bar: true },
+  { h: "Accuracy %", k: "int", w: 11, m: "Share of this school year's careful practice answers that were right (rapid guesses not counted).", bar: true },
   { h: "Tasks done", k: "int", w: 9, m: "Assignments completed." },
   { h: "Late", k: "int", w: 8, m: "Assignments past their due date." },
   { h: "MAP tested", k: "int", w: 10, m: "Students with a MAP Growth result." },
@@ -136,9 +136,9 @@ const DEPT_COLS: Col[] = [
 ];
 const WEAK_COLS: Col[] = [
   { h: "Grade", k: "int", w: 8, m: "The grade." },
-  { h: "Skill", w: 40, m: "One of the grade's hardest skills this week." },
-  { h: "Accuracy %", k: "int", w: 12, m: "Share of answers that were right.", bar: true },
-  { h: "Answers", k: "int", w: 10, m: "Answers to this skill." },
+  { h: "Skill", w: 40, m: "One of the grade's hardest skills in the last 30 days." },
+  { h: "Accuracy %", k: "int", w: 12, m: "Share of careful practice answers that were right (last 30 days).", bar: true },
+  { h: "Answers", k: "int", w: 10, m: "Careful practice answers to this skill." },
   { h: "Students", k: "int", w: 10, m: "Students who answered it." },
 ];
 

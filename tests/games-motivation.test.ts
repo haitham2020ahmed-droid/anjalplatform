@@ -87,7 +87,7 @@ describe("Games Part 3: motivation", () => {
       const q = await repo.create("Question", { ...rest, externalRef: `MOTIV-${lv}-${i}`, stem: `${String(rest.stem)} (L${lv}.${i})`, difficultyLevel: lv });
       for (const [m, rows] of [["QuestionOption", opts], ["QuestionAnswer", answers], ["QuestionExplanation", expl]] as const) for (const r of rows) { const { id: _x, ...copy } = r; void _x; await repo.create(m, { ...copy, questionId: q.id }); }
     }
-    await assignSkill(repo, t4, { classId: class4, skillId: skill }, NOW);
+    await assignSkill(repo, t4, { source: "CURRICULUM", classId: class4, skillId: skill }, NOW);
     await repo.upsert("StudentLevel", { studentId: a }, { studentId: a, level: "BELOW", source: "TEACHER", setById: null }, { level: "BELOW" });
     await repo.upsert("StudentLevel", { studentId: b }, { studentId: b, level: "ON", source: "TEACHER", setById: null }, { level: "ON" });
     await repo.upsert("StudentLevel", { studentId: c }, { studentId: c, level: "ABOVE", source: "TEACHER", setById: null }, { level: "ABOVE" });
@@ -231,7 +231,7 @@ describe("Games Part 3: motivation", () => {
     assert.equal(s2.certificates, 0); assert.equal(s2.newCoins, 0, "never twice");
     assert.equal(await syncRewards(repo, a, new Date(NOW.getTime() + 2000)), null, "throttled between events");
     // a plan finished
-    const plan = await assignPlan(repo, t4, { classId: class4, studentIds: [b], type: "CUSTOM", skillIds: [skill], title: "Bridge plan" }, NOW);
+    const plan = await assignPlan(repo, t4, { source: "CURRICULUM", classId: class4, studentIds: [b], type: "CUSTOM", skillIds: [skill], title: "Bridge plan" }, NOW);
     await repo.updateMany("AssignmentStudent", { studentId: b, assignmentId: { in: plan.assignmentIds } }, { status: "COMPLETED", progress: 1, completedAt: NOW });
     const sb = (await syncRewards(repo, b, NOW, { force: true }))!;
     assert.ok(sb.certificates >= 1 && sb.newCoins >= COINS.plan + COINS.work);

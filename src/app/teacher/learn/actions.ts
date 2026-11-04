@@ -8,6 +8,7 @@ import { getT } from "@/i18n/server";
 import { leaves, setLeaf, type LevelKey, type LLevel, type WordCard } from "@/lib/learn/format";
 import { closeReport, decideEdit, hasLevelWord, lessonLevelFor, reportProblem, restoreOriginal, saveLessonEdit, saveWordEdit, setLessonHidden, teacherIdOf } from "@/server/learn/edits";
 import { assignLearn, type AssignTarget } from "@/server/learn/teacher";
+import { assignDatesOf } from "@/lib/assign-dates";
 import { aiWordDraft, findSelection, selectionWords } from "@/server/learn/words";
 import { changeAuto, keepAuto, setAutoSwitch, undoAuto } from "@/server/learn/auto";
 
@@ -70,12 +71,13 @@ export async function assignAction(d: FormData): Promise<void> {
   const ref = f(d, "ref");
   const back = safeBack(f(d, "back"), `/teacher/learn/assign?${new URLSearchParams({ kind, ref })}`);
   return run(back, async () => {
-    const due = f(d, "dueAt");
+    const dates = assignDatesOf(d);
+    if (dates.error) throw new ValidationError(dates.error);
     const sel = kind === "WORDS" ? findSelection(ref) : null;
     if (kind === "WORDS" && !sel) throw new ValidationError("Unknown selection.");
     const r = await assignLearn(repo, actor, {
       kind, ref, title: sel ? `Grade ${sel.grade} · Unit ${sel.unit} · ${sel.name}` : undefined, classId: f(d, "classId"), target: (f(d, "target") || "CLASS") as AssignTarget,
-      groupLevel: f(d, "groupLevel") || null, studentIds: d.getAll("studentIds").map(String), level: Number(f(d, "level")) || null, dueAt: due ? new Date(`${due}T23:59:00`) : null,
+      groupLevel: f(d, "groupLevel") || null, studentIds: d.getAll("studentIds").map(String), level: Number(f(d, "level")) || null, dueAt: dates.dueAt, startAt: dates.startAt,
     });
     const { t } = await getT();
     return t("Assigned to {n} student(s).", { n: r.students }) + (r.already ? ` ${t("{n} already had it.", { n: r.already })}` : "");

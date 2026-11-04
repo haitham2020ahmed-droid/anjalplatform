@@ -173,10 +173,10 @@
       "type": "MCQ",
       "stem": "What is the main purpose of the story?",
       "options": [
-        "to explain how to win a science fair prize",
+        "to explain how to win a science fair prize at school with a new idea",
         "to show how a mistake, studied carefully, can lead to real learning",
-        "to teach readers how to build a cupboard",
-        "to describe a family's kitchen"
+        "to teach readers how to build a cupboard from wood and nails at home",
+        "to describe a family's kitchen and its old table in the city flat"
       ],
       "answer": "B",
       "why": "The last sentence states the lesson: “a mistake, investigated carefully, can become the beginning of genuine understanding.”"
@@ -237,9 +237,9 @@
       "type": "MCQ",
       "stem": "Why did the soil in Majed's pot smell sour?",
       "options": [
-        "It was too old.",
-        "Majed added sugar to it.",
-        "It was kept near the window.",
+        "It was too old and had no seeds in it.",
+        "Majed added sugar to it every single day.",
+        "It was kept near the window in the sun.",
         "It never had a chance to dry out."
       ],
       "answer": "D",
@@ -269,10 +269,10 @@
       "type": "MCQ",
       "stem": "Who are the two main characters in the story?",
       "options": [
-        "Ms Huda and Majed",
+        "Ms Huda and Majed, the new pupil",
         "Majed and his twin sister, Lulwa",
-        "Lulwa and Ms Huda",
-        "Majed and his father"
+        "Lulwa and Ms Huda, their teacher",
+        "Majed and his father, the farmer"
       ],
       "answer": "B",
       "why": "The story follows the twins, Majed and Lulwa, and their bean plants."
@@ -301,10 +301,10 @@
       "type": "MCQ",
       "stem": "According to Lulwa, what caused Majed's plant to become weak?",
       "options": [
-        "It received too much sunlight through the cupboard door.",
+        "It received too much sunlight through the cupboard door and dried.",
         "It used up its seed's food and could not make more without light.",
-        "It was planted too deep in the soil to reach the air.",
-        "The warm cupboard made its roots grow too quickly."
+        "It was planted too deep in the soil to reach the air above.",
+        "The warm cupboard made its roots grow too quickly for it."
       ],
       "answer": "B",
       "why": "Paragraph 9: it used up its stored food and “without sunlight, it couldn't manufacture any more food.”"
@@ -349,10 +349,10 @@
       "type": "MCQ",
       "stem": "How was Majed's plant DIFFERENT from Lulwa's after about two weeks?",
       "options": [
-        "Majed's plant had four broad green leaves; Lulwa's was yellow.",
-        "Majed's plant had flowers; Lulwa's had none.",
+        "Majed's plant had four broad green leaves; Lulwa's was yellow and small.",
+        "Majed's plant had flowers; Lulwa's had none, but it was tall and straight.",
         "Majed's plant was drooping and weak; Lulwa's was green, straight and strong.",
-        "Both plants looked exactly the same."
+        "Both plants looked exactly the same, with strong green stems and wide leaves."
       ],
       "answer": "C",
       "why": "Paragraph 7 contrasts the plant that “leaned feebly” with the one that “stood straight and strong”."
@@ -365,10 +365,10 @@
       "type": "MCQ",
       "stem": "What was the effect of Lulwa's explanation in paragraph 9 on Majed?",
       "options": [
-        "He became angry and threw his plant away.",
+        "He became angry and threw his plant away in the bin.",
         "He realised his experiment had taught them something important.",
-        "He decided to stop doing science.",
-        "He asked Ms Huda for a new seed."
+        "He decided to stop doing science for good and join the art club.",
+        "He asked Ms Huda for a new seed to start the test again."
       ],
       "answer": "B",
       "why": "Paragraph 10: a slow smile spread across his face and he said the experiment “actually taught us something important.”"
@@ -430,9 +430,9 @@
       "stem": "In your opinion, why does the writer let the reader see Majed's tall plant on the fifth morning before showing the problem?",
       "options": [
         "to make readers think, like Majed, that his plan might be working",
-        "to prove that darkness helps plants grow",
-        "to show that Lulwa was wrong",
-        "to explain how to measure plants"
+        "to prove that darkness helps plants grow faster than light does",
+        "to show that Lulwa was wrong about the plant and the light",
+        "to explain how to measure plants with a ruler in the class"
       ],
       "answer": "A",
       "why": "The early success creates surprise when the plant weakens, so readers learn the lesson together with Majed."
@@ -445,10 +445,10 @@
       "type": "MCQ",
       "stem": "In your opinion, what was the MOST helpful thing Lulwa did for her brother?",
       "options": [
-        "She grew a taller plant than his.",
+        "She grew a taller plant than his, to show him how it is done.",
         "She explained calmly why his plant failed and suggested a new project.",
-        "She told Ms Huda about his mistake.",
-        "She moved his plant to the windowsill without asking."
+        "She told Ms Huda about his mistake in front of the whole class.",
+        "She moved his plant to the windowsill without asking him first, and it grew."
       ],
       "answer": "B",
       "why": "Her kind explanation and suggestion turned his disappointment into a successful project."
@@ -477,9 +477,9 @@
       "type": "MCQ",
       "stem": "How do Majed's feelings change during the story?",
       "options": [
-        "from worried, to calm, to sad",
-        "from sad, to angry, to bored",
-        "from hopeful, to confident, to angry",
+        "from worried, to calm, to sad and lonely",
+        "from sad, to angry, to bored and tired",
+        "from hopeful, to confident, to angry at Lulwa",
         "from confident, to disappointed, to hopeful"
       ],
       "answer": "D",
@@ -510,9 +510,9 @@
       "stem": "Which of the following events could really happen?",
       "options": [
         "A bean plant grown in the dark becomes tall, pale and weak.",
-        "A bean plant grows a hundred leaves overnight.",
-        "A bean plant talks to the twins about its needs.",
-        "A bean plant grows well with no water at all."
+        "A bean plant grows a hundred leaves overnight in a pot.",
+        "A bean plant talks to the twins about its needs at night.",
+        "A bean plant grows well with no water at all for weeks."
       ],
       "answer": "A",
       "why": "Plants grown without light often stretch tall and pale while they use up the food in their seeds; the other events are impossible."

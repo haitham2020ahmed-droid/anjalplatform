@@ -74,8 +74,7 @@ async function swapLock(repo: Repo, row: LockRow, expected: string, token: strin
 async function lockRow(repo: Repo, schoolId: string): Promise<LockRow> {
   let row = await readLock(repo, schoolId);
   if (!row) {
-    try { await repo.create("SchoolSetting", { schoolId, key: LOCK_KEY, value: { until: 0 }, updatedBy: FREE }); }
-    catch { /* another request made it first */ }
+    await (await import("../jobs/runner")).claimSetting(repo, schoolId, LOCK_KEY, { until: 0 }, FREE); // another request may make it first
     row = await readLock(repo, schoolId);
   }
   return row!;

@@ -176,9 +176,9 @@
     "passage": "The Kingdom Centre in Riyadh is one of the city's best-known buildings. It is about 300 metres tall. Near the top, there is a huge opening shaped like an upside-down arch. A sky bridge crosses this opening, and visitors can look down at the city from it. At night, the building glows with coloured lights.",
     "stem": "How is this text organised?",
     "options": [
-     "It gives a problem and a solution.",
-     "It tells steps in order.",
-     "It compares two buildings.",
+     "It gives a problem and then a solution.",
+     "It tells steps in order from first to last.",
+     "It compares two buildings in the same city.",
      "It describes the features of one building."
     ],
     "answer": 3,
@@ -235,7 +235,7 @@
       "To tell how coral is made",
       "To warn people about sharks",
       "To help readers picture the reef",
-      "To explain how to swim"
+      "To explain how to swim in the sea"
      ],
      "answer": 2,
      "why": "The details of fish, sea fans and shrimp help the reader picture the reef."
@@ -291,10 +291,10 @@
     "passage": "The date palm is one of the most useful trees in Arabia. Its tall, rough trunk can grow about twenty metres high. At the top, long feathery leaves called fronds spread out like a crown. Among the fronds hang heavy bunches of dates, which change from green to yellow or red, and then to brown as they ripen. At the foot of the tree, small shoots called offshoots grow from the base, and farmers use them to plant new palms.",
     "stem": "How does the author organise the description of the date palm?",
     "options": [
-     "By telling the history of date farming",
-     "By comparing it to other trees",
+     "By telling the history of date farming in the Kingdom over many years",
+     "By comparing it to other trees that grow in the desert",
      "By describing its parts from the trunk to the top and back to the base",
-     "By explaining how to cook dates"
+     "By explaining how to cook dates in a pot or an oven at home"
     ],
     "answer": 2,
     "hint": "Follow where each sentence takes your eyes: the trunk, the top, the fruit, then below the tree.",
@@ -402,9 +402,9 @@
     "stem": "How does the author's description structure serve the purpose of the passage?",
     "options": [
      "It describes the station from outside to inside, building to the idea that its design solves the problem of weightlessness.",
-     "It tells the history of space travel in time order.",
-     "It argues that astronauts should not live in space.",
-     "It compares the station with other buildings on Earth."
+     "It tells the history of space travel in time order, from the first rocket flights to the stations of today.",
+     "It argues that astronauts should not live in space because it is dangerous, and it costs far too much money for a country.",
+     "It compares the station with other buildings on Earth, such as houses, schools, hospitals and tall towers."
     ],
     "answer": 0,
     "hint": "The passage moves from the outside to the inside. What does the last sentence say all the details have in common?",

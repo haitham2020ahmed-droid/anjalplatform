@@ -78,9 +78,9 @@
     "passage": "Tamer wanted to go to the park. He put on his shoes. Then he looked out the window. It was raining hard. Tamer took off his shoes and sat down with a book.",
     "stem": "Why is the sentence \"It was raining hard\" important?",
     "options": [
-     "It tells us Tamer likes books.",
+     "It tells us Tamer likes books and stories.",
      "It shows why Tamer did not go to the park.",
-     "It tells us Tamer has new shoes.",
+     "It tells us Tamer has new shoes and a coat.",
      "It shows that the park is far away."
     ],
     "answer": 1,
@@ -223,10 +223,10 @@
      "passage": "Hamad left the gate open when he came home. The next morning, the goats were gone. He spent the whole day finding them in the hills.",
      "stem": "Why is the first sentence important to the plot?",
      "options": [
-      "It describes Hamad's house.",
+      "It describes Hamad's house and his garden.",
       "It causes the problem of the missing goats.",
-      "It shows that Hamad loves goats.",
-      "It tells how the story ends."
+      "It shows that Hamad loves goats very much.",
+      "It tells how the story ends for him."
      ],
      "answer": 1,
      "why": "Leaving the gate open let the goats escape. The rest of the story follows from it."
@@ -236,9 +236,9 @@
      "stem": "What does the sentence \"The night was dark and still\" add?",
      "options": [
       "It sets a quiet, mysterious mood before the scratching.",
-      "It shows why Rashid wanted a kitten.",
-      "It tells how the problem is solved.",
-      "It explains where the kitten came from."
+      "It shows why Rashid wanted a kitten for his birthday.",
+      "It tells how the problem is solved in the end.",
+      "It explains where the kitten came from and who owns it."
      ],
      "answer": 0,
      "why": "The dark, still night makes the scratching sound more mysterious."
@@ -248,7 +248,7 @@
      "stem": "What does the last sentence show?",
      "options": [
       "Leen's brother is on the football team.",
-      "The tryouts were very hard.",
+      "The tryouts were very hard for the new players.",
       "Leen's brother has changed his mind about her.",
       "Leen is still too small for football."
      ],
@@ -302,7 +302,7 @@
     "passage": "Old Mariam sat on her doorstep every afternoon, watching the children walk home from school. Most of them hurried past without looking up. One day, a boy named Talal tripped and scattered his books across the road. Mariam got up slowly and helped him gather them, then handed him a cup of cold water. The next afternoon, Talal stopped to say hello. Soon, he was stopping every day, and so were his friends. By the end of the year, Mariam's doorstep had become the busiest spot on the street.",
     "stem": "What does the sentence \"Most of them hurried past without looking up\" contribute to the story?",
     "options": [
-     "It explains why the children were late for school each day.",
+     "It explains why the children were late for school each day of the week.",
      "It shows that Mariam does not like children walking past.",
      "It shows Mariam's loneliness, which makes the ending more meaningful.",
      "It describes the road and the books that Talal dropped."
@@ -362,7 +362,7 @@
       "To explain who lives in the house and why they left.",
       "To build a quiet, empty mood that makes the sound surprising.",
       "To show that the old piano is broken and out of tune.",
-      "To tell the reader how the story will end."
+      "To tell the reader how the story will end in the last part."
      ],
      "answer": 1,
      "why": "The silence and dust make the house feel empty, so the note from upstairs is a surprise."
@@ -475,10 +475,10 @@
      "passage": "Sara's first painting was a grey sea under a grey sky. Then her family moved to the coast. Months later, she painted the same sea again, now full of blue, green and silver light.",
      "stem": "What does comparing the two paintings show?",
      "options": [
-      "Sara has run out of grey paint for her pictures.",
+      "Sara has run out of grey paint, so she used other colors for her pictures.",
       "Sara's view of the sea, and perhaps of life, has brightened.",
-      "Sara has never seen the real sea in her life.",
-      "The family moved because Sara painted."
+      "Sara has never seen the real sea in her whole life.",
+      "The family moved to a new city because Sara painted."
      ],
      "answer": 1,
      "why": "The change from grey to bright colours shows a change in how Sara sees the sea, suggesting her mood has lifted."

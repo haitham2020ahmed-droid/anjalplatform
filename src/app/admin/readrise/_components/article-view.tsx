@@ -1,8 +1,9 @@
-/** 🚀 ReadRise article review (admin and teacher): 12 versions side by side, key words / questions / prompt per band. */
+/** 🚀 ReadRise article review (admin and teacher): 14 versions side by side, key words / questions / prompt per band. */
 import type { ArticleDetail } from "@/server/readrise/library";
 import { BAND_RANGE, BANDS } from "@/server/readrise/import";
 import { deleteReadRiseAction, setReadRiseHiddenAction, setReadRiseLexileAction, setReadRiseStatusAction } from "../actions";
 import { btn, btnGhost, RR_NOTE, SourcePill, StatusPill } from "./ui";
+import { RichInline } from "@/components/rich-inline";
 
 const BAND_STYLE = {
   LOW: { head: "bg-orange-50 text-orange-900", ring: "ring-orange-200" },
@@ -58,7 +59,7 @@ export function ArticleView({ a, base }: { a: ArticleDetail; base: string }) {
 
       <section aria-labelledby="versions-h">
         <div className="flex flex-wrap items-end justify-between gap-2">
-          <h2 id="versions-h" className="text-lg font-semibold text-brand-navy">📚 12 versions side by side</h2>
+          <h2 id="versions-h" className="text-lg font-semibold text-brand-navy">📚 14 versions side by side</h2>
           <p className="text-xs text-slate-500">{RR_NOTE} Scroll sideways to compare.</p>
         </div>
         <div className="mt-3 overflow-x-auto rounded-2xl bg-white ring-1 ring-slate-200">
@@ -117,17 +118,23 @@ export function ArticleView({ a, base }: { a: ArticleDetail; base: string }) {
                   <h3 className="mt-4 font-semibold text-slate-800">Written answer</h3>
                   <p className="mt-1 rounded-xl bg-amber-50 p-3 text-sm text-slate-800 ring-1 ring-amber-200">{d.prompt || "—"}</p>
                   {d.checklist.length > 0 && <ul className="mt-2 list-disc ps-5 text-xs text-slate-600">{d.checklist.map((c) => <li key={c}>{c}</li>)}</ul>}
+                  {d.modelAnswer ? (
+                    <><h3 className="mt-4 font-semibold text-slate-800">💡 Model answer (students see this after they submit theirs)</h3>
+                    <p className="mt-1 whitespace-pre-line rounded-xl bg-indigo-50 p-3 text-sm text-slate-800 ring-1 ring-indigo-200">{d.modelAnswer}</p></>
+                  ) : (
+                    <p className="mt-3 text-xs text-slate-400">No model answer yet.</p>
+                  )}
                 </div>
                 <div>
                   <h3 className="font-semibold text-slate-800">Questions</h3>
                   <ol className="mt-2 space-y-3 text-sm">
                     {d.questions.map((q) => (
                       <li key={q.id} className="rounded-xl ring-1 ring-slate-200 p-3">
-                        <p className="font-semibold text-slate-900">{q.number}. {q.stem} <span className="ms-1 rounded-full bg-slate-100 px-2 py-0.5 text-[11px] font-semibold text-slate-600">{skillName(q.skill)}</span></p>
+                        <p className="font-semibold text-slate-900">{q.number}. <RichInline text={q.stem} /> <span className="ms-1 rounded-full bg-slate-100 px-2 py-0.5 text-[11px] font-semibold text-slate-600">{skillName(q.skill)}</span></p>
                         <ul className="mt-1 grid gap-1 sm:grid-cols-2">
-                          {q.options.map((o, j) => { const L = "ABCD"[j]; const ok = L === q.answer; return <li key={L} className={`rounded-lg px-2 py-1 ${ok ? "bg-teal-50 font-semibold text-teal-900 ring-1 ring-teal-200" : "text-slate-700"}`}>{L}. {o}{ok ? " ✓" : ""}</li>; })}
+                          {q.options.map((o, j) => { const L = "ABCD"[j]; const ok = L === q.answer; return <li key={L} className={`rounded-lg px-2 py-1 ${ok ? "bg-teal-50 font-semibold text-teal-900 ring-1 ring-teal-200" : "text-slate-700"}`}>{L}. <RichInline text={o} />{ok ? " ✓" : ""}</li>; })}
                         </ul>
-                        {q.rationale?.[q.answer] && <p className="mt-1 text-xs text-slate-500">Why: {q.rationale[q.answer]}</p>}
+                        {q.rationale?.[q.answer] && <p className="mt-1 text-xs text-slate-500">Why: <RichInline text={q.rationale[q.answer]} /></p>}
                       </li>
                     ))}
                   </ol>

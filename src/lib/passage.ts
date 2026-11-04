@@ -2,6 +2,8 @@
  * Reading passages, parsed: paragraphs (blank lines between them, or a line of their own), section headings
  * written as “## Heading”, and text features written as “FIG: Diagram | Title | content”.
  */
+import { stripMarks } from "./inline-marks";
+
 export type PassageBlock = { kind: "h" | "p"; text: string } | { kind: "fig"; text: string; figKind: string; title: string };
 /**
  * Text features written as “FIG: Diagram | Title | content” (also Map, Photo, Graph, Timeline, Sidebar, Chart,
@@ -25,4 +27,4 @@ export function passageBlocks(text: string): PassageBlock[] {
 }
 
 /** The passage without heading marks (for read-aloud): a feature is read as “Diagram: title. content”. */
-export const plainPassage = (text: string) => String(text ?? "").replace(/^#{1,3}\s+/gm, "").replace(/^\s*FIG:\s*([^|]*?)\s*\|\s*([^|]*?)\s*\|\s*(.+)$/gim, "$1: $2. $3").replace(/\s*→\s*/g, ", then ");
+export const plainPassage = (text: string) => stripMarks(String(text ?? "")).replace(/^#{1,3}\s+/gm, "").replace(/^\s*FIG:\s*([^|]*?)\s*\|\s*([^|]*?)\s*\|\s*(.+)$/gim, "$1: $2. $3").replace(/\s*→\s*/g, ", then ");

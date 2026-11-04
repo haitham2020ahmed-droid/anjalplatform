@@ -12,6 +12,7 @@ import { useT } from "@/i18n/client";
 import type { GameProps, LivePadProps, PlayQuestion, PowerEffect, PowerUpId } from "../types";
 import { PowerBar } from "../kit/power-bar";
 import { buildSpeed, checkOrder, isSentencePieces, lockNext, moveInLine, orderResponse, scramble, type Tile } from "./logic";
+import { RichInline } from "../../components/rich-inline";
 
 const TILE_BG = ["bg-orange-400", "bg-amber-400", "bg-rose-400", "bg-orange-500", "bg-amber-500", "bg-rose-500", "bg-orange-300", "bg-amber-300"];
 
@@ -174,12 +175,12 @@ export default function WordBuilder({ questions, round }: GameProps) {
       </div>
       <article className="flex items-center gap-3 rounded-3xl bg-white p-4 shadow-sm ring-1 ring-slate-200 sm:p-5">
         <Art />
-        <p dir="ltr" lang="en" className="min-w-0 text-lg font-semibold leading-snug text-slate-900 sm:text-xl">{q.stem}</p>
+        <p dir="ltr" lang="en" className="min-w-0 text-lg font-semibold leading-snug text-slate-900 sm:text-xl"><RichInline text={q.stem} /></p>
       </article>
       {q.passage && (
         <details className="rounded-2xl bg-slate-50 p-3 ring-1 ring-slate-200">
-          <summary className="cursor-pointer font-semibold text-brand-navy">📖 <span dir="ltr" lang="en">{q.passage.title}</span></summary>
-          <p dir="ltr" lang="en" className="mt-2 whitespace-pre-line leading-relaxed text-slate-800">{q.passage.text}</p>
+          <summary className="cursor-pointer font-semibold text-brand-navy">📖 <span dir="ltr" lang="en"><RichInline text={q.passage.title} /></span></summary>
+          <p dir="ltr" lang="en" className="mt-2 whitespace-pre-line leading-relaxed text-slate-800"><RichInline text={q.passage.text} /></p>
         </details>
       )}
       {hint && <p className="rounded-xl bg-amber-50 px-3 py-2 text-amber-900 ring-1 ring-amber-200"><span aria-hidden="true">💡 </span><span dir="ltr" lang="en">{hint}</span></p>}

@@ -49,10 +49,10 @@
     "passage": "Nora's garden is busy. Bees fly around the flowers. Birds drink from a small bowl. The grass is green.",
     "stem": "Nora writes: Many animals visit my garden. Which detail from the text supports this?",
     "options": [
-     "The grass is green.",
+     "The grass is green and long.",
      "Bees fly around the flowers.",
-     "Nora has a garden.",
-     "Flowers are pretty."
+     "Nora has a garden at home.",
+     "Flowers are pretty and sweet."
     ],
     "answer": 1,
     "hint": "Which sentence tells about an animal?",
@@ -78,10 +78,10 @@
      "passage": "Text: Sami ran fast. He was first in the race. Everyone clapped.\n\nIdea: Sami won the race.",
      "stem": "Which detail is the best evidence?",
      "options": [
-      "Everyone clapped.",
-      "Sami ran.",
+      "Everyone clapped and cheered.",
+      "Sami ran with his friends.",
       "He was first in the race.",
-      "It was a race."
+      "It was a race at school."
      ],
      "answer": 2,
      "why": "Being first shows that Sami won."
@@ -157,10 +157,10 @@
     "passage": "Source: The Arabian oryx disappeared from the wild in the 1970s. People began to protect the animals in reserves. Scientists raised young oryx and released them into safe areas. Today, there are many more oryx in the wild. The oryx has long, straight horns.",
     "stem": "A student writes: People helped the Arabian oryx come back. Which evidence best supports this?",
     "options": [
-     "The oryx has long, straight horns.",
-     "The oryx disappeared from the wild in the 1970s.",
+     "The oryx has long, straight horns and a white coat.",
+     "The oryx disappeared from the wild in the 1970s because of hunting.",
      "Scientists raised young oryx and released them into safe areas.",
-     "Oryx live in Arabia."
+     "Oryx live in Arabia, where there are deserts and hills."
     ],
     "answer": 2,
     "hint": "Which detail shows people DOING something to help?",
@@ -266,10 +266,10 @@
     "passage": "Story: When the storm knocked out the power, the whole street went dark. Layla's younger brothers began to cry. Layla found a flashlight in the kitchen drawer and gathered them on the sofa. She told them stories about their grandmother's village until they laughed. When their parents came home, both boys were asleep, and Layla was still holding the light.",
     "stem": "A student claims: Layla is responsible and caring. Which evidence best supports this claim?",
     "options": [
-     "The storm knocked out the power.",
+     "The storm knocked out the power in the whole town for many hours that night.",
      "Layla gathered her crying brothers and told them stories until they laughed.",
-     "The whole street went dark.",
-     "Their grandmother lived in a village."
+     "The whole street went dark, and the neighbors came out to look.",
+     "Their grandmother lived in a village far away from the city."
     ],
     "answer": 1,
     "hint": "Which detail shows Layla's actions toward her brothers?",
@@ -297,9 +297,9 @@
      "passage": "Claim: Recycling helps protect wildlife.\n\nEvidence: The article says, \"Many sea turtles mistake plastic bags for jellyfish and swallow them.\"",
      "stem": "Which explanation best links the evidence to the claim?",
      "options": [
-      "Jellyfish are soft sea animals that float in the water.",
-      "Turtles live in the sea and lay eggs on beaches.",
-      "Plastic bags are cheap and easy to carry home.",
+      "Jellyfish are soft sea animals that float in the water all day, with long arms.",
+      "Turtles live in the sea and lay their eggs on beaches at night.",
+      "Plastic bags are cheap and easy to carry home from the shop.",
       "Recycling bags keeps them out of the sea, where turtles could swallow them."
      ],
      "answer": 3,
@@ -310,9 +310,9 @@
      "stem": "Which evidence is the strongest?",
      "options": [
       "The park is very nice, and everyone says it is beautiful.",
-      "Many people in many countries like to visit parks.",
+      "Many people in many countries like to visit parks in their free time.",
       "Since the park opened, a town survey shows daily walkers have doubled.",
-      "My friend went there once and said it was fun."
+      "My friend went there once and said it was fun and very nice."
      ],
      "answer": 2,
      "why": "It is specific, uses a number and comes from a survey."
@@ -321,10 +321,10 @@
      "passage": "Claim: The boy was scared of the dog.\n\nQuote: \"he hid behind his mother\"",
      "stem": "Which sentence blends the quote most smoothly?",
      "options": [
-      "The boy was scared. \"he hid behind his mother\"",
+      "The boy was scared. \"he hid behind his mother\" when he saw the big dog.",
       "The boy's fear is clear when \"he hid behind his mother\" as the dog came closer.",
-      "Here is a quote from the story: \"he hid behind his mother.\"",
-      "Quote: \"he hid behind his mother.\" That is the end of my answer."
+      "Here is a quote from the story about the boy: \"he hid behind his mother.\"",
+      "Quote: \"he hid behind his mother.\" That is the end of my answer about the boy."
      ],
      "answer": 1,
      "why": "The quote is part of the student's own sentence and connects to the claim."
@@ -380,10 +380,10 @@
     "passage": "Article: Many families now spend more time indoors than ever before. In one national survey, children reported spending less than an hour a day outside, far less than their parents did at the same age. Doctors warn that too little outdoor time is linked to poorer sleep and weaker eyesight. Some schools have responded by holding lessons in their courtyards and gardens. Teachers at these schools report that students seem calmer and more focused after outdoor lessons. However, the article notes that more research is needed to know whether outdoor lessons improve test scores.",
     "stem": "A student argues: Schools should hold more lessons outdoors because it benefits students' health and learning. Which pair of evidence gives the most relevant and sufficient support?",
     "options": [
-     "Families spend more time indoors, and some schools have courtyards.",
-     "More research is needed, and children spend less than an hour outside.",
+     "Families spend more time indoors, and some schools have courtyards where children can sit and talk during the day, but they rarely use them for lessons.",
+     "More research is needed, and children spend less than an hour outside on most school days of the week, in many towns.",
      "Doctors link low outdoor time to poor sleep and weak eyesight, and teachers say students are calmer and more focused after outdoor lessons.",
-     "Parents spent more time outside, and schools have gardens."
+     "Parents spent more time outside as children, and schools have gardens where children can grow flowers and fruit."
     ],
     "answer": 2,
     "hint": "The claim has two parts: health and learning. Which pair supports both?",
@@ -436,9 +436,9 @@
      "stem": "What is the biggest problem with the evidence?",
      "options": [
       "It is not an exact quote from the story.",
-      "It is far too long to use in an essay.",
+      "It is far too long to use in a short essay.",
       "It only shows the starting opinion, not the change.",
-      "It comes from the wrong chapter of the book."
+      "It comes from the wrong chapter near the end of the book."
      ],
      "answer": 2,
      "why": "To prove a change, the writer needs evidence from early AND later in the story."

@@ -28,11 +28,12 @@ import { areaOfStandard, CONTENT_SKILLS, MOE_AREAS, MOE_BY_CODE, MOE_STANDARDS, 
 import { loadNafsQuestions, nafsIndex, type NafsEntry, type NafsKind, type NafsQuestion } from "./bank";
 import { cleanScores, getNafsTest, gradeAnswers, json, markOf, nafsClasses, type Answer, type NafsClass } from "./tests";
 import { GRACE_MS } from "./student";
+import { classLine, MIN_ANSWERS, roundPct, strengthsWeaknesses, type ClassLine, type NoneWhy } from "./strengths";
 
 const s = (v: unknown) => String(v ?? "");
 const d = (v: unknown): Date | null => (v === null || v === undefined || v === "" ? null : v instanceof Date ? v : new Date(String(v)));
-/** Exact → whole percent (halves up). */
-export const roundPct = (sum: number, n: number): number | null => (n ? Math.floor((100 * sum) / n + 0.5 + 1e-9) : null);
+/** Exact → whole percent (halves up): the ONE rule, in strengths.ts. */
+export { roundPct };
 const pct = (a: number, b: number) => roundPct(a, b);
 /** Under this a skill is one to practise / reteach (also the NAFS plan's threshold). */
 export const MASTERY_PCT = 70;
@@ -177,7 +178,7 @@ function summarize(items: ItemMeta[], resp: Resp[], classes: NafsClass[], cuts: 
   const counts = (code: string) => { const o = { MASTERED: 0, DEVELOPING: 0, SUPPORT: 0, FEW: 0 } as Record<Level, number>; for (const id of students) { const c = cells[id][code]; if (c) o[c.level]++; } return o; };
   const standards: StandardRow[] = MOE_STANDARDS.filter((x) => st.pooled.has(x.code)).map((x) => { const p = st.pooled.get(x.code)!; return { key: x.code, name: `${x.short} ${x.text}`, short: x.short, text: x.text, area: x.area, questions: p.questions, pct: p.pct, n: p.n, counts: counts(x.code) }; });
   const dimRows = (m: Map<string, Exact & { questions: number }>, keys: string[], name: (k: string) => string): DimRow[] => keys.filter((k) => m.has(k)).map((k) => ({ key: k, name: name(k), questions: m.get(k)!.questions, pct: m.get(k)!.pct, n: m.get(k)!.n }));
-  const ranked = standards.filter((x) => x.pct !== null && x.n > 0).sort((a, b) => (b.pct ?? 0) - (a.pct ?? 0) || a.short.localeCompare(b.short));
+  const ranked = standards.filter((x) => x.pct !== null && x.n >= MIN_ANSWERS).sort((a, b) => (b.pct ?? 0) - (a.pct ?? 0) || a.short.localeCompare(b.short));
   const pick = (l: StandardRow[]) => l.slice(0, Math.min(3, Math.max(1, Math.floor(l.length / 2)))).map((x) => x.key);
   const studentDims: Summary["studentDims"] = {};
   for (const id of students) {
@@ -229,7 +230,13 @@ async function planSkillMap(repo: Repo, schoolId: string): Promise<Map<string, s
 // ------------------------------------------------------------------ one test
 
 export interface ItemRow { n: number; id: string; stem: string; skill: string; code: string; process: NafsProcess; standard: string | null; kind: NafsKind; key: number; counts: number[]; blank: number; answered: number; pct: number | null; topWrong: number | null; topWrongCount: number; d: number | null; upper: number | null; lower: number | null; pending: number; flags: string[] }
-export interface StudentRow {
+/** r70: what every NAFS student row shows (strengths.ts: one rule): right + wrong = the scored answers. */
+export interface StudentLine { right: number; wrong: number; finished: boolean; strength: string | null; weakness: string | null; strengthWhy: NoneWhy | null; weaknessWhy: NoneWhy | null }
+const lineOf = (cells: Record<string, StudentStd> | undefined): Pick<StudentLine, "strength" | "weakness" | "strengthWhy" | "weaknessWhy"> => {
+  const sw = strengthsWeaknesses(cells ?? {});
+  return { strength: sw.top, weakness: sw.weak, strengthWhy: sw.topWhy, weaknessWhy: sw.weakWhy };
+};
+export interface StudentRow extends StudentLine {
   id: string; name: string; className: string; classId: string; source: string; correct: number; total: number; pct: number; points: number; maxPoints: number; pending: number;
   domains: Partial<Record<NafsDomain, number | null>>; skills: Record<string, number | null>; processes: Record<NafsProcess, number | null>; blanks: number;
   standards: Record<string, StudentStd>; areas: Record<string, number | null>; texts: Record<string, number | null>;
@@ -241,9 +248,13 @@ export interface NafsReport {
   domains: { code: NafsDomain; name: string; pct: number | null }[];
   skills: { code: string; name: string; domain: NafsDomain; questions: number; pct: number | null; below: string[] }[];
   processes: { code: NafsProcess; name: string; questions: number; pct: number | null }[];
-  students: StudentRow[]; notTaken: { id: string; name: string; className: string }[];
+  students: StudentRow[];
+  /** not handed in: `started` = began online and did not finish */
+  notTaken: { id: string; name: string; className: string; started: boolean }[];
   items: ItemRow[];
   summary: Summary;
+  /** r70: the class line (average of the students' scores, finished of the roster, strongest / weakest standard) */
+  cls: ClassLine;
 }
 
 /** Online answers past the time (+ grace) that were never handed in are graded as they are. */
@@ -284,15 +295,17 @@ export async function nafsTestReport(repo: Repo, actor: Actor, testId: string, c
   const sum = summarize(items, resp, classes, cuts, planSkills);
   const students: StudentRow[] = graded.map(({ r, a, g }) => {
     const id = s(r.studentId), dims = sum.studentDims[id];
+    const scored = g.credit.filter((c) => c !== null).length;
     return {
       id, name: nameOf.get(id) ?? "Student", className: className.get(s(r.classId)) ?? "", classId: s(r.classId), source: s(r.source),
+      right: g.correct, wrong: scored - g.correct, finished: true, ...lineOf(sum.cells[id]),
       correct: g.correct, total: n, pct: dims?.overall.pct ?? 0, points: g.points, maxPoints: g.maxPoints, pending: g.pending,
       blanks: key.filter((k, i) => k >= 0 && (a[i] === null || a[i] === undefined)).length,
       skills: dims?.skills ?? {}, processes: dims?.processes ?? ({ P1: null, P2: null, P3: null, P4: null }), domains: dims?.domains ?? {},
       standards: sum.cells[id] ?? {}, areas: dims?.areas ?? {}, texts: dims?.texts ?? {},
     };
   }).sort((a, b) => a.name.localeCompare(b.name));
-  const avg = (vals: (number | null | undefined)[]) => { const v = vals.filter((x): x is number => typeof x === "number"); return v.length ? Math.round(v.reduce((a, b) => a + b, 0) / v.length) : null; };
+  const avg = (vals: (number | null | undefined)[]) => { const v = vals.filter((x): x is number => typeof x === "number"); return v.length ? roundPct(v.reduce((a, b) => a + b, 0), v.length * 100) : null; };
   const totals = graded.map(({ g }) => g.credit.reduce<number>((a, c) => a + (c ?? 0), 0));
   const itemRows: ItemRow[] = items.map((it, i) => {
     const counts = [0, 0, 0, 0];
@@ -313,6 +326,8 @@ export async function nafsTestReport(repo: Repo, actor: Actor, testId: string, c
   });
   const roster = classes.reduce((a, c) => { const g = given.find((x) => x.classId === c.id); const who = json<unknown>(g?.studentIds, null); return a + (Array.isArray(who) && who.length ? who.length : c.students.length); }, 0);
   const codes = [...new Set(items.map((x) => x.code))];
+  const startedIds = new Set(rows.filter((r) => !r.submittedAt).map((r) => s(r.studentId)));
+  const notTaken = classes.flatMap((c) => { const g = given.find((x) => x.classId === c.id); const who = json<unknown>(g?.studentIds, null); const list = Array.isArray(who) && who.length ? c.students.filter((x) => (who as unknown[]).map(s).includes(x.id)) : c.students; return list.filter((x) => !students.some((st) => st.id === x.id)).map((x) => ({ id: x.id, name: x.name, className: c.name, started: startedIds.has(x.id) })); });
   return {
     test: { id: t.id, title: t.title, questions: n, minutes: t.timeLimitMin }, classes: all.map((c) => ({ id: c.id, name: c.name })), classId: classId ?? null,
     taken: students.length, roster, avgPct: avg(students.map((x) => x.pct)), avgPoints: students.length ? Math.round((100 * students.reduce((a, x) => a + x.points, 0)) / students.length) / 100 : null, maxPoints: Math.round(marks.reduce((a, b) => a + b, 0) * 100) / 100,
@@ -321,8 +336,9 @@ export async function nafsTestReport(repo: Repo, actor: Actor, testId: string, c
     skills: CONTENT_SKILLS.filter((k) => codes.includes(k.code)).map((k) => ({ code: k.code, name: k.name, domain: k.domain, questions: items.filter((x) => x.code === k.code).length, pct: sum.skillRows.find((x) => x.key === k.code)?.pct ?? null, below: students.filter((st) => (st.skills[k.code] ?? 100) < MASTERY_PCT).map((st) => st.name) })),
     processes: PROCESSES.map((p) => ({ code: p, name: PROCESS_NAME[p], questions: items.filter((x) => x.process === p).length, pct: sum.processRows.find((x) => x.key === p)?.pct ?? null })),
     students,
-    notTaken: classes.flatMap((c) => { const g = given.find((x) => x.classId === c.id); const who = json<unknown>(g?.studentIds, null); const list = Array.isArray(who) && who.length ? c.students.filter((x) => (who as unknown[]).map(s).includes(x.id)) : c.students; return list.filter((x) => !students.some((st) => st.id === x.id)).map((x) => ({ id: x.id, name: x.name, className: c.name })); }),
+    notTaken,
     items: itemRows, summary: sum,
+    cls: classLine(students.map((x) => ({ pct: x.pct, finished: true })), Object.fromEntries(sum.standards.map((x) => [x.key, { pct: x.pct, n: x.n }])), Math.max(roster, students.length)),
   };
 }
 
@@ -331,8 +347,10 @@ export async function nafsTestReport(repo: Repo, actor: Actor, testId: string, c
 export interface AcrossReport {
   classes: { id: string; name: string }[]; classId: string | null;
   tests: { id: string; title: string; date: string; taken: number; pct: number | null; questions: number }[];
-  students: { id: string; name: string; className: string; tests: number; pct: number | null; n: number; standards: Record<string, StudentStd>; skills: Record<string, number | null>; processes: Record<NafsProcess, number | null>; areas: Record<string, number | null>; texts: Record<string, number | null> }[];
+  students: (StudentLine & { id: string; name: string; className: string; tests: number; pct: number | null; n: number; standards: Record<string, StudentStd>; skills: Record<string, number | null>; processes: Record<NafsProcess, number | null>; areas: Record<string, number | null>; texts: Record<string, number | null> })[];
   summary: Summary; pending: number;
+  /** r70: the class line (finished = students with at least one NAFS test handed in, of the roster) */
+  cls: ClassLine;
 }
 /** Every NAFS result of the classes (the last 40 tests at most) together: the same views as one test, pooled. */
 export async function nafsAcrossReport(repo: Repo, actor: Actor, classId?: string | null, cutsIn?: Partial<Cuts> | null): Promise<AcrossReport> {
@@ -341,7 +359,8 @@ export async function nafsAcrossReport(repo: Repo, actor: Actor, classId?: strin
   const all = await nafsClasses(repo, actor);
   const classes = classId ? all.filter((c) => c.id === classId) : all;
   if (classId && !classes.length) throw new ForbiddenError("Class not found.");
-  const empty = (): AcrossReport => ({ classes: all.map((c) => ({ id: c.id, name: c.name })), classId: classId ?? null, tests: [], students: [], summary: summarize([], [], classes, cuts, new Map()), pending: 0 });
+  const roster = classes.reduce((a, c) => a + c.students.length, 0);
+  const empty = (): AcrossReport => ({ classes: all.map((c) => ({ id: c.id, name: c.name })), classId: classId ?? null, tests: [], students: [], summary: summarize([], [], classes, cuts, new Map()), pending: 0, cls: classLine([], {}, roster) });
   if (!classes.length) return empty();
   const rows = await repo.findMany("NafsResult", { classId: { in: classes.map((c) => c.id) }, submittedAt: { not: null } }, { select: ["testId", "classId", "studentId", "answers", "writtenScores", "submittedAt"], orderBy: [{ field: "submittedAt", dir: "desc" }], take: 5000 });
   const testIds = [...new Set(rows.map((r) => s(r.testId)))].slice(0, 40);
@@ -353,6 +372,7 @@ export async function nafsAcrossReport(repo: Repo, actor: Actor, classId?: strin
   const resp: Resp[] = [];
   let pending = 0;
   const testRows: AcrossReport["tests"] = [];
+  const counts = new Map<string, { right: number; scored: number }>();
   for (const t of tests) {
     const ids = json<string[]>(t.questionIds, []);
     const its = itemsOf(s(t.id), ids, qs, idx, json<Record<string, number> | null>(t.marks, null));
@@ -364,6 +384,7 @@ export async function nafsAcrossReport(repo: Repo, actor: Actor, classId?: strin
       const g = gradeAnswers(key, marks, json<Answer[]>(r.answers, []), cleanScores(r.writtenScores, key));
       pending += g.pending;
       resp.push({ studentId: s(r.studentId), classId: s(r.classId), credit: new Map(its.map((it, i) => [it.key, g.credit[i]])) });
+      const cn = counts.get(s(r.studentId)) ?? { right: 0, scored: 0 }; cn.right += g.correct; cn.scored += g.credit.filter((c) => c !== null).length; counts.set(s(r.studentId), cn);
       for (const c of g.credit) if (c !== null) { sum += c; n++; }
     }
     const first = mine.map((r) => d(r.submittedAt)!.getTime()).sort((a, b) => a - b)[0];
@@ -373,9 +394,11 @@ export async function nafsAcrossReport(repo: Repo, actor: Actor, classId?: strin
   const nameOf = new Map(classes.flatMap((c) => c.students.map((x) => [x.id, { name: x.name, className: c.name }] as const)));
   const students = [...new Set(resp.map((r) => r.studentId))].map((id) => {
     const dims = sum.studentDims[id];
-    return { id, name: nameOf.get(id)?.name ?? "Student", className: nameOf.get(id)?.className ?? "", tests: new Set(rows.filter((r) => s(r.studentId) === id).map((r) => s(r.testId))).size, pct: dims?.overall.pct ?? null, n: dims?.overall.n ?? 0, standards: sum.cells[id] ?? {}, skills: dims?.skills ?? {}, processes: dims?.processes ?? ({ P1: null, P2: null, P3: null, P4: null }), areas: dims?.areas ?? {}, texts: dims?.texts ?? {} };
+    const cn = counts.get(id) ?? { right: 0, scored: 0 };
+    return { id, right: cn.right, wrong: cn.scored - cn.right, finished: true, ...lineOf(sum.cells[id]), name: nameOf.get(id)?.name ?? "Student", className: nameOf.get(id)?.className ?? "", tests: new Set(rows.filter((r) => s(r.studentId) === id).map((r) => s(r.testId))).size, pct: dims?.overall.pct ?? null, n: dims?.overall.n ?? 0, standards: sum.cells[id] ?? {}, skills: dims?.skills ?? {}, processes: dims?.processes ?? ({ P1: null, P2: null, P3: null, P4: null }), areas: dims?.areas ?? {}, texts: dims?.texts ?? {} };
   }).sort((a, b) => a.name.localeCompare(b.name));
-  return { classes: all.map((c) => ({ id: c.id, name: c.name })), classId: classId ?? null, tests: testRows.sort((a, b) => a.date.localeCompare(b.date)), students, summary: sum, pending };
+  const cls = classLine(students.map((x) => ({ pct: x.pct, finished: true })), Object.fromEntries(sum.standards.map((x) => [x.key, { pct: x.pct, n: x.n }])), Math.max(roster, students.length));
+  return { classes: all.map((c) => ({ id: c.id, name: c.name })), classId: classId ?? null, tests: testRows.sort((a, b) => a.date.localeCompare(b.date)), students, summary: sum, pending, cls };
 }
 
 // ------------------------------------------------------------------ trend and per student
@@ -507,6 +530,10 @@ function summarySections(sum: Summary, students: { id: string; name: string; cla
   ];
 }
 
+/** r70: the columns every NAFS student table leads with (score, right, wrong, finished, top strength, top weakness). */
+const LINE_COLUMNS: Column[] = [{ key: "pct", label: "Score", kind: "pct" }, { key: "right", label: "Right", kind: "int" }, { key: "wrong", label: "Wrong", kind: "int" }, { key: "finished", label: "Finished", kind: "text" }, { key: "strength", label: "Top strength", kind: "latin" }, { key: "weakness", label: "Top weakness", kind: "latin" }];
+const lineCells = (x: StudentLine & { pct: number | null }): TableRow => ({ pct: x.pct, right: x.right, wrong: x.wrong, finished: x.finished ? "Yes" : "No", strength: x.strength ? MOE_BY_CODE.get(x.strength)?.short ?? x.strength : "—", weakness: x.weakness ? MOE_BY_CODE.get(x.weakness)?.short ?? x.weakness : "—" });
+
 export function nafsReportDoc(r: NafsReport, base: Pick<ReportDoc, "branding" | "generatedAt" | "generatedBy">): ReportDoc {
   const scope = r.classId ? r.classes.find((c) => c.id === r.classId)?.name ?? "" : "All my Grade 6 classes";
   const sum = r.summary;
@@ -516,21 +543,21 @@ export function nafsReportDoc(r: NafsReport, base: Pick<ReportDoc, "branding" | 
     meta: [{ label: "Test", value: r.test.title, isolate: "auto" }, { label: "Group", value: scope, isolate: "auto" }, { label: "Questions", value: String(r.test.questions) }, { label: "Cut-offs", value: `${sum.cuts.hi}% / ${sum.cuts.lo}%` }],
     sections: [
       { type: "kpis", title: "Summary", items: [
-        { label: "Taken", value: `${r.taken} / ${r.roster}`, kind: "latin", glance: true }, { label: "Average", value: r.avgPct, kind: "pct", glance: true, hint: "share of questions answered correctly" },
+        { label: "Finished", value: `${r.cls.finished} / ${r.cls.of}`, kind: "latin", glance: true }, { label: "Class average", value: r.cls.average, kind: "pct", glance: true, hint: "the average of the students' scores (each student once)" },
         { label: "Average marks", value: r.avgPoints === null ? "—" : `${r.avgPoints} / ${r.maxPoints}`, kind: "latin" },
-        { label: "Strongest standards", value: sum.strongest.map(name).join(" · ") || "—", kind: "latin", glance: true }, { label: "Weakest standards", value: sum.weakest.map(name).join(" · ") || "—", kind: "latin", glance: true },
+        { label: "Strongest standard", value: r.cls.strongest ? name(r.cls.strongest) : "—", kind: "latin", glance: true }, { label: "Weakest standard", value: r.cls.weakest ? name(r.cls.weakest) : "—", kind: "latin", glance: true },
         { label: "Written answers to mark", value: r.pending, kind: "int" },
       ] },
       { type: "bars", title: "Ministry standards", items: sum.standards.map((x) => ({ label: x.short, value: x.pct ?? 0, isolate: "latin" as const })), max: 100, kind: "pct" },
       { type: "table", id: "students", title: "Students", sheet: "Students", empty: "No results yet.",
-        columns: [{ key: "name", label: "Student", kind: "name", width: 2.2 }, { key: "className", label: "Class", kind: "latin", nowrap: true }, { key: "pct", label: "Score", kind: "pct" }, { key: "marks", label: "Marks", kind: "latin", nowrap: true }, { key: "pending", label: "To mark", kind: "int" },
+        columns: [{ key: "name", label: "Student", kind: "name", width: 2.2 }, { key: "className", label: "Class", kind: "latin", nowrap: true }, ...LINE_COLUMNS, { key: "marks", label: "Marks", kind: "latin", nowrap: true }, { key: "pending", label: "To mark", kind: "int" },
           ...PROCESSES.map((p) => ({ key: p, label: p, kind: "pct" as const, nowrap: true })), ...MOE_AREAS.map((a) => ({ key: `area_${a.code}`, label: a.name, kind: "pct" as const })), { key: "INFO", label: "Informational", kind: "pct" as const }, { key: "LIT", label: "Literary", kind: "pct" as const }, { key: "source", label: "From", kind: "text" as const }],
-        rows: r.students.map((x) => ({ name: x.name, className: x.className, pct: x.pct, marks: `${x.points} / ${x.maxPoints}`, pending: x.pending, ...x.processes, ...Object.fromEntries(MOE_AREAS.map((a) => [`area_${a.code}`, x.areas[a.code] ?? null])), INFO: x.texts.INFO ?? null, LIT: x.texts.LIT ?? null, source: x.source === "ONLINE" ? "Online" : x.source === "SHEET" ? "Bubble sheet" : "Typed" })) },
+        rows: r.students.map((x) => ({ name: x.name, className: x.className, ...lineCells(x), marks: `${x.points} / ${x.maxPoints}`, pending: x.pending, ...x.processes, ...Object.fromEntries(MOE_AREAS.map((a) => [`area_${a.code}`, x.areas[a.code] ?? null])), INFO: x.texts.INFO ?? null, LIT: x.texts.LIT ?? null, source: x.source === "ONLINE" ? "Online" : x.source === "SHEET" ? "Bubble sheet" : "Typed" })) },
       ...summarySections(sum, r.students),
       { type: "table", id: "items", title: "Item analysis", sheet: "Items", empty: "—", note: "% correct, discrimination D = upper 27% − lower 27%, the most chosen wrong option, flags to review.",
         columns: [{ key: "n", label: "#", kind: "int", width: 0.4 }, { key: "standard", label: "Standard", kind: "latin", nowrap: true }, { key: "skill", label: "Skill", kind: "text" }, { key: "process", label: "Process", kind: "latin" }, { key: "key", label: "Key", kind: "latin" }, { key: "pct", label: "Correct", kind: "pct" }, { key: "d", label: "D", kind: "dec" }, { key: "A", label: "A", kind: "int" }, { key: "B", label: "B", kind: "int" }, { key: "C", label: "C", kind: "int" }, { key: "D", label: "D (option)", kind: "int" }, { key: "blank", label: "Blank", kind: "int" }, { key: "top", label: "Most chosen wrong", kind: "latin" }, { key: "flags", label: "Review", kind: "text", width: 2.5 }, { key: "stem", label: "Question", kind: "text", width: 3 }],
         rows: r.items.map((x): TableRow => ({ n: x.n, standard: x.standard ? name(x.standard) : "—", skill: x.skill, process: x.process, key: x.kind === "WRITTEN" ? "Written" : LETTERS[x.key] ?? "—", pct: x.pct, d: x.d, A: x.counts[0], B: x.counts[1], C: x.counts[2], D: x.counts[3], blank: x.blank, top: x.topWrong === null ? "—" : `${LETTERS[x.topWrong]} (${x.topWrongCount})`, flags: x.flags.join("; ") || "—", stem: x.stem })) },
-      { type: "table", id: "missing", title: "Not taken yet", sheet: "Not taken", empty: "Everyone has taken the test.", columns: [{ key: "name", label: "Student", kind: "name", width: 2 }, { key: "className", label: "Class", kind: "latin" }], rows: r.notTaken.map((x) => ({ name: x.name, className: x.className })) },
+      { type: "table", id: "missing", title: "Not finished", sheet: "Not finished", empty: "Everyone has finished the test.", columns: [{ key: "name", label: "Student", kind: "name", width: 2 }, { key: "className", label: "Class", kind: "latin" }, { key: "state", label: "Finished", kind: "text" }], rows: r.notTaken.map((x) => ({ name: x.name, className: x.className, state: x.started ? "No (started)" : "No (not started)" })) },
     ],
   };
 }
@@ -544,8 +571,8 @@ export function nafsAcrossDoc(r: AcrossReport, base: Pick<ReportDoc, "branding" 
     sections: [
       { type: "table", id: "tests", title: "Trend across tests", sheet: "Trend", empty: "No results yet.", columns: [{ key: "title", label: "Test", kind: "text", width: 2.5 }, { key: "date", label: "Date", kind: "date" }, { key: "taken", label: "Taken", kind: "int" }, { key: "questions", label: "Questions", kind: "int" }, { key: "pct", label: "Class %", kind: "pct" }], rows: r.tests.map((x) => ({ title: x.title, date: x.date.slice(0, 10), taken: x.taken, questions: x.questions, pct: x.pct })) },
       { type: "table", id: "students", title: "Students (all tests)", sheet: "Students", empty: "No results yet.",
-        columns: [{ key: "name", label: "Student", kind: "name", width: 2.2 }, { key: "className", label: "Class", kind: "latin", nowrap: true }, { key: "tests", label: "Tests", kind: "int" }, { key: "pct", label: "Overall", kind: "pct" }, { key: "n", label: "Items", kind: "int" }, ...PROCESSES.map((p) => ({ key: p, label: p, kind: "pct" as const, nowrap: true })), ...MOE_AREAS.map((a) => ({ key: `area_${a.code}`, label: a.name, kind: "pct" as const })), { key: "INFO", label: "Informational", kind: "pct" as const }, { key: "LIT", label: "Literary", kind: "pct" as const }],
-        rows: r.students.map((x) => ({ name: x.name, className: x.className, tests: x.tests, pct: x.pct, n: x.n, ...x.processes, ...Object.fromEntries(MOE_AREAS.map((a) => [`area_${a.code}`, x.areas[a.code] ?? null])), INFO: x.texts.INFO ?? null, LIT: x.texts.LIT ?? null })) },
+        columns: [{ key: "name", label: "Student", kind: "name", width: 2.2 }, { key: "className", label: "Class", kind: "latin", nowrap: true }, { key: "tests", label: "Tests finished", kind: "int" }, ...LINE_COLUMNS.filter((c) => c.key !== "finished"), { key: "n", label: "Items", kind: "int" }, ...PROCESSES.map((p) => ({ key: p, label: p, kind: "pct" as const, nowrap: true })), ...MOE_AREAS.map((a) => ({ key: `area_${a.code}`, label: a.name, kind: "pct" as const })), { key: "INFO", label: "Informational", kind: "pct" as const }, { key: "LIT", label: "Literary", kind: "pct" as const }],
+        rows: r.students.map((x) => ({ name: x.name, className: x.className, tests: x.tests, ...lineCells(x), n: x.n, ...x.processes, ...Object.fromEntries(MOE_AREAS.map((a) => [`area_${a.code}`, x.areas[a.code] ?? null])), INFO: x.texts.INFO ?? null, LIT: x.texts.LIT ?? null })) },
       ...summarySections(sum, r.students),
     ],
   };

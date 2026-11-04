@@ -68,7 +68,7 @@ describe("Gemini TTS provider", () => {
     const picked = pickTtsProvider(GEM, { fetchImpl: f });
     assert.ok(picked.ok);
     if (!picked.ok) return;
-    assert.equal(picked.provider.voice, `gemini-2.5-flash-preview-tts:${DEFAULT_GEMINI_VOICE}`);
+    assert.equal(picked.provider.voice, `gemini-2.5-flash-preview-tts:${DEFAULT_GEMINI_VOICE}:t3`);
     const r = await picked.provider.synthesize("The fox ran home.", { speed: "slow" });
     await picked.provider.synthesize("The fox ran home.");
     assert.equal(calls.length, 2);
@@ -89,7 +89,7 @@ describe("Gemini TTS provider", () => {
     assert.deepEqual(geminiTtsBody("Hi.", "Puck", ""), { contents: [{ parts: [{ text: "Hi." }] }], generationConfig: { responseModalities: ["AUDIO"], speechConfig: { voiceConfig: { prebuiltVoiceConfig: { voiceName: "Puck" } } } } });
     assert.match(geminiStyle({ GEMINI_TTS_STYLE: "" }, "slow"), /slowly/, "Slow is slow even with an empty school style");
     assert.equal(geminiStyle({ GEMINI_TTS_STYLE: "" }, "normal"), "");
-    assert.ok(geminiProvider({ GEMINI_API_KEY: "k", GEMINI_TTS_VOICE: "Puck" }).voice.endsWith(":Puck"));
+    assert.ok(geminiProvider({ GEMINI_API_KEY: "k", GEMINI_TTS_VOICE: "Puck" }).voice.includes(":Puck:"));
   });
 
   test("the Gemini key is read through aiEnv(), never process.env directly", () => {
@@ -128,7 +128,7 @@ describe("cache: once per text + voice + speed", () => {
     assert.equal(calls.length, 2, "slow is its own recording");
     assert.equal(await repo.count("TtsAudio", {}), 2);
     const tk = (await speechKey(text))!;
-    const both = await findSpeechAudio(repo, tk, `gemini-2.5-flash-preview-tts:${DEFAULT_GEMINI_VOICE}`);
+    const both = await findSpeechAudio(repo, tk, `gemini-2.5-flash-preview-tts:${DEFAULT_GEMINI_VOICE}:t3`);
     assert.ok(both.normal && both.slow);
     assert.equal(both.normal!.key, tk);
     // only the text went to the provider; nothing about who listened is stored

@@ -1,12 +1,14 @@
 "use client";
 import { useRef, useState, type FormEvent } from "react";
 
-type Result = { ok: boolean; message: string; created: { name: string; username: string; password: string }[] };
+type Result = { ok: boolean; message: string; created: { name: string; username: string; password: string }[]; ambiguous?: { name: string; classes: string[] }[] };
 
 /** 📥 MAP scores import on the page; new students' sign-ins are shown once (and can be downloaded). */
-export function MapImportBox({ classId, className, run }: { classId: string | null; className: string | null; run: (f: FormData) => Promise<Result> }) {
+export function MapImportBox({ classId, className, run, confirmAmbiguous }: { classId: string | null; className: string | null; run: (f: FormData) => Promise<Result>; confirmAmbiguous?: (f: FormData, name: string) => Promise<Result> }) {
   const [busy, setBusy] = useState(false);
+  const [confirming, setConfirming] = useState<string | null>(null);
   const [res, setRes] = useState<Result | null>(null);
+  const [file, setFile] = useState<File | null>(null);   // kept so a later "add anyway" click can reuse the same bytes, without asking to re-upload
   const form = useRef<HTMLFormElement>(null);
   const send = async (e: FormEvent) => {
     e.preventDefault();
@@ -14,7 +16,15 @@ export function MapImportBox({ classId, className, run }: { classId: string | nu
     setBusy(true); setRes(null);
     const r = await run(new FormData(form.current));
     setBusy(false); setRes(r);
-    if (r.ok) form.current.reset();
+    if (r.ok) form.current.reset();   // the File object itself survives in `file` state, so "add anyway" below still works
+  };
+  const addAnyway = async (name: string) => {
+    if (!confirmAmbiguous || !file || !form.current) return;
+    setConfirming(name);
+    const fd = new FormData(form.current);
+    fd.set("file", file);
+    const r = await confirmAmbiguous(fd, name);
+    setConfirming(null); setRes(r);
   };
   const csv = (rows: Result["created"]) => URL.createObjectURL(new Blob(["\ufeffName,Username,Temporary password\n" + rows.map((r) => [r.name, r.username, r.password].map((c) => `"${c.replace(/"/g, '""')}"`).join(",")).join("\n")], { type: "text/csv" }));
   return (
@@ -25,10 +35,26 @@ export function MapImportBox({ classId, className, run }: { classId: string | nu
       <div className="mt-3 flex flex-wrap items-end gap-3 text-sm">
         <a href={`/api/map-scores-template${classId ? `?classId=${classId}` : ""}`} className="rounded-xl bg-white px-3 py-2 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">⬇ Template</a>
         <label className="flex flex-col">Fall of year<input type="number" name="year" min={2000} max={2100} defaultValue={new Date().getFullYear()} className="w-28 rounded-xl border border-slate-300 px-3 py-2" /></label>
-        <label className="flex flex-col">File (template, NWEA CSV export, or ASG report PDF)<input type="file" name="file" accept=".csv,.xlsx,.pdf" required className="text-sm" /></label>
+        <label className="flex flex-col">File (template, NWEA CSV export, or ASG report PDF)<input type="file" name="file" accept=".csv,.xlsx,.pdf" required className="text-sm" onChange={(e) => { setFile(e.target.files?.[0] ?? null); setRes(null); }} /></label>
         <button disabled={busy} className="rounded-xl bg-brand-navy px-5 py-2.5 font-semibold text-white hover:bg-brand-purple disabled:opacity-60">{busy ? "Importing…" : "Import"}</button>
       </div>
       {res && <p role="status" className={`animate-pop mt-3 rounded-xl px-3 py-2 text-sm ${res.ok ? "bg-teal-50 text-teal-900" : "bg-red-50 text-red-800"}`}>{res.message}</p>}
+      {res && res.ambiguous && res.ambiguous.length > 0 && classId && confirmAmbiguous && (
+        <div className="mt-3 rounded-2xl bg-white p-4 ring-1 ring-amber-300">
+          <p className="font-bold text-amber-900">⚠️ These names already match a student of another of your classes — not added here, to avoid a duplicate</p>
+          <ul className="mt-2 divide-y divide-slate-100 text-sm">
+            {res.ambiguous.map((u) => (
+              <li key={u.name} className="flex flex-wrap items-center justify-between gap-2 py-2">
+                <span><bdi>{u.name}</bdi> <span className="text-slate-500">— already in {u.classes.join(", ")}</span></span>
+                <button type="button" disabled={confirming === u.name} onClick={() => addAnyway(u.name)} className="rounded-lg bg-amber-100 px-3 py-1.5 font-semibold text-amber-900 ring-1 ring-amber-300 hover:bg-amber-200 disabled:opacity-60">
+                  {confirming === u.name ? "Adding…" : "➕ Add as a new student anyway"}
+                </button>
+              </li>
+            ))}
+          </ul>
+          <p className="mt-2 text-xs text-slate-500">Only click this once you've checked it's really a different student with the same name, not the one already in that other class.</p>
+        </div>
+      )}
       {res && res.created.length > 0 && (
         <div className="mt-3 rounded-2xl bg-white p-4 ring-1 ring-amber-300">
           <div className="flex flex-wrap items-center justify-between gap-2">

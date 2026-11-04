@@ -111,6 +111,10 @@ const isConfig = (m: string) => /not valid|did not accept|not found|not set up|n
  * Sends one request and validates the JSON reply; when invalid, asks again (with what was wrong) up to `retries`
  * times. Rate limits, outages and configuration problems stop the batch (stop: true) with a clear message.
  */
+const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+/** Short backoff before a retry after a transient outage (503 / timeout / network blip) — these usually clear in a second or two. */
+const DOWN_BACKOFF_MS = 1500;
+
 export async function callJson<T>(repo: Repo, ctx: { schoolId: string; tool: string; picked: Extract<Picked, { ok: true }>; items: number }, system: string, user: unknown, validate: Validator<T>, retries = 2): Promise<CallResult<T>> {
   assertNoStudentData(user);
   let body = JSON.stringify(user, null, 1), lastError = "";
@@ -130,7 +134,16 @@ export async function callJson<T>(repo: Repo, ctx: { schoolId: string; tool: str
       else {
         const code = isRate(m) ? "RATE_LIMIT" : isDown(m) ? "DOWN" : isConfig(m) ? "CONFIG" : "ERROR";
         await log(repo, ctx, false, Date.now() - started, `${code}: ${m}`);
-        if (code !== "ERROR") return { ok: false, error: code === "RATE_LIMIT" ? "The AI provider's limit was reached. The tool waits and continues by itself." : m, stop: true };
+        if (code === "RATE_LIMIT") return { ok: false, error: "The AI provider's limit was reached. The tool waits and continues by itself.", stop: true };
+        if (code === "CONFIG") return { ok: false, error: m, stop: true };
+        if (code === "DOWN") {
+          // a transient outage (503 / timeout / network blip): wait a moment and try again with the SAME request,
+          // rather than giving up on the first hiccup — only stop once every retry has also failed
+          lastError = m;
+          if (attempt < retries) await sleep(DOWN_BACKOFF_MS * (attempt + 1));
+          else return { ok: false, error: m, stop: true };
+          continue; // keep the original body: this wasn't a bad reply, nothing to correct
+        }
         lastError = m;
       }
     }

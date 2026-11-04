@@ -30,7 +30,9 @@ export function FamilyWeekPage({ w, t, lang }: { w: FamilyWeek; t: TFn; lang: La
       <section className="fw-sec"><h3>{t("Tasks I finished")}</h3>{list(w.tasks, "No tasks finished yet this week.")}</section>
       <section className="fw-sec"><h3>{t("ReadRise articles I read")}</h3>{list(w.articles, "No articles yet this week.")}</section>
       <section className="fw-sec"><h3>{t("Lessons I learned")}</h3>{list(w.lessons, "No lessons yet this week.")}</section>
-      <section className="fw-sec"><h3>{t("My tests")}</h3>{w.tests.length ? <ul>{w.tests.map((x, i) => <li key={i}><bdi>{x.title}</bdi> · <span className="fw-score" dir="ltr">{x.pct}%</span></li>)}</ul> : <p className="fw-none">{t("No test results this week.")}</p>}</section>
+      <section className="fw-sec"><h3>{t("My tests")}</h3>{w.tests.length ? <ul>{w.tests.map((x, i) => <li key={i}><bdi>{x.title}</bdi> · <span className="fw-score" dir="ltr">{x.pct}%</span></li>)}</ul> : <p className="fw-none">{t("No test results this week.")}</p>}
+        {w.tests.some((x) => x.kind === "NAFS") && <p className="fw-hint">{t("NAFS scores here are from practice the school wrote in the style of the real exam — they show how ready your child is, not an official exam result.")}</p>}
+      </section>
       <section className="fw-sec"><h3>{t("Things to practise at home")}</h3>
         <ul className="fw-home">{w.practise.map((p) => <li key={p.key}><b>{t(p.title)}</b>{t("At home:")} {t(p.activity)}</li>)}</ul>
       </section>

@@ -1,10 +1,13 @@
 import Link from "next/link";
 import type { StudentHome } from "@/server/student/student-home";
-import { EmptyState, StatusPill } from "@/components/ui-kit";
+import { EmptyState, SourceTag, StatusPill } from "@/components/ui-kit";
 import type { TFn } from "@/i18n";
-import { groupMyWork, type TypeGroup, type WorkGroups } from "@/lib/my-work-groups";
+import { groupMyWork, tabGroups, SHOW_FIRST, type TabGroup, type TypeGroup, type WorkGroups } from "@/lib/my-work-groups";
 import { SkillStar } from "@/components/skills/skill-star";
+import { MasteryMeter } from "@/components/skills/mastery-meter";
 import type { StarInfo } from "@/lib/skill-stars";
+import { WORK_KIND_LABEL } from "@/lib/work-kinds";
+import { SourceChips } from "./my-work-list";
 
 type Row = StudentHome["work"][number];
 const STATUS: Record<Row["status"], "NOT_STARTED" | "IN_PROGRESS" | "DONE"> = { "Not started": "NOT_STARTED", "In progress": "IN_PROGRESS", Done: "DONE" };
@@ -30,14 +33,32 @@ export function WorkRing({ done, total, label }: { done: number; total: number; 
 
 /** One compact row: the title, its status and due date, one button. */
 function CompactCard({ r, t }: { r: Row; t: TFn }) {
+  const star = (r as Row & { star?: StarInfo }).star;
+  // a small "stars filled x/5" meter toward mastery, shown for every skill row (including a brand-new one with no
+  // star data yet, or an in-progress one whose score hasn't been computed yet) so the 5 dots are always there to
+  // show progress consistently — starting empty (0/5) rather than disappearing. Non-skill work (r.kind set) never
+  // shows it: there is no mastery concept for a test/writing/lesson row.
+  const meter = !r.kind;
   return (
     <li data-testid="my-work-row" data-source={r.reteach ? "RETEACH" : r.sourceKey} data-kind={r.kind ?? "SKILL"} className="flex items-center gap-2 rounded-xl bg-white px-3 py-2 ring-1 ring-slate-200">
       <div className="min-w-0 flex-1">
-        <p className="flex items-center gap-1.5 truncate text-sm font-semibold text-brand-navy">{(r as Row & { star?: StarInfo }).star && <SkillStar info={(r as Row & { star?: StarInfo }).star!} who="student" t={t} label={r.skill} />}<bdi className="truncate">{r.skill}</bdi></p>
+        <p className="flex items-center gap-1.5 truncate text-sm font-semibold text-brand-navy">{star && <SkillStar info={star} who="student" t={t} label={r.skill} />}<bdi className="truncate">{r.skill}</bdi></p>
         <div className="mt-0.5 flex flex-wrap items-center gap-1.5 text-xs">
+          {r.kind
+            ? <SourceTag source={r.sourceKey} label={t(WORK_KIND_LABEL[r.kind])} />
+            : r.reteach
+              ? <SourceTag source="CUSTOM" label={t("Reteach")} />
+              : (r.sources?.length ?? 0) > 1
+                ? <SourceChips sources={r.sources!} t={t} />
+                : r.sourceKey === "RTI"
+                  ? <SourceTag source="CUSTOM" label={t("Practice")} />
+                  : <SourceTag source={r.sourceKey} icon />}
           <StatusPill status={STATUS[r.status]} />
+          {(r as Row & { review?: boolean }).review && r.status !== "Done" && <span data-testid="review-work" className="rounded-full bg-sky-50 px-2 py-0.5 font-semibold text-sky-800 ring-1 ring-sky-200">🔄 {t("Review · 20 questions")}</span>}
+          {meter && <MasteryMeter score={typeof star?.score === "number" ? star.score : 0} answered={star?.answered ?? 0} />}
           {r.overdue && r.status !== "Done" && <span className="rounded-full bg-red-50 px-2 py-0.5 font-semibold text-red-700 ring-1 ring-red-200">{t("Late")}</span>}
           {r.dueAt && r.status !== "Done" && !r.overdue && <span className="text-slate-600">📅 {t("Due {date}", { date: day(r.dueAt) })}</span>}
+          {r.awaitingReview && <span className="rounded-full bg-amber-50 px-2 py-0.5 font-semibold text-amber-800 ring-1 ring-amber-200">{t("Sent, waiting for the score")}</span>}
         </div>
       </div>
       <Link prefetch={false} href={r.href} className="shrink-0 rounded-lg px-3 py-1.5 text-sm font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">{t(r.action)}</Link>
@@ -60,42 +81,107 @@ function TypeBlock({ g, t }: { g: TypeGroup<Row>; t: TFn }) {
   );
 }
 
-function TimeBlock({ g, t }: { g: WorkGroups<Row>; t: TFn }) {
+/** 📂 One My Work tab section ("Extra Practice"): collapsed by default (same accordion pattern as the 3 main
+ * sections), a flat list of its rows inside, same compact cards, "Show all" past SHOW_FIRST. */
+function TabBlock({ g, t }: { g: TabGroup<Row>; t: TFn }) {
+  const first = g.rows.slice(0, SHOW_FIRST), more = g.rows.slice(SHOW_FIRST);
   return (
-    <section data-testid="work-time" data-time={g.time} aria-label={t(g.label)} className="space-y-3">
-      <h2 className="text-base font-bold text-brand-navy">{t(g.label)} <span className="font-normal text-slate-500">({g.total})</span></h2>
-      {g.types.map((x) => <TypeBlock key={x.type} g={x} t={t} />)}
-    </section>
+    <details data-testid="work-tab" data-tab={g.tab} className="space-y-1.5 rounded-2xl bg-sky-50/60 p-3 ring-1 ring-sky-100">
+      <summary className="flex min-h-10 cursor-pointer items-center gap-1.5 text-base font-bold text-brand-navy">
+        <span aria-hidden="true">📂</span>{t(g.label)} <span className="font-normal text-slate-500">({g.rows.length})</span>
+      </summary>
+      {g.rows.length > 0 ? (
+        <div className="mt-2 space-y-1.5">
+          <ul className="grid gap-1.5 sm:grid-cols-2">{first.map((r) => <CompactCard key={r.assignmentId} r={r} t={t} />)}</ul>
+          {more.length > 0 && (
+            <details className="mt-1.5">
+              <summary className="flex min-h-10 cursor-pointer items-center text-sm font-semibold text-brand-navy">{t("Show all ({n})", { n: g.rows.length })}</summary>
+              <ul className="mt-1.5 grid gap-1.5 sm:grid-cols-2">{more.map((r) => <CompactCard key={r.assignmentId} r={r} t={t} />)}</ul>
+            </details>
+          )}
+        </div>
+      ) : (
+        <p className="mt-2 text-sm text-slate-500">{t("Nothing here right now.")}</p>
+      )}
+    </details>
   );
 }
 
 /**
- * 📋 My Work, organised: Due this week · Later · Done (folded), each split by type with small headers; compact
- * cards; at most 6 per type group, the rest under "Show all". Calm and mobile-first; students never see level words.
+ * 📋 One of the 3 main sections (This week / Needs Catch-up), as a collapsible accordion — the same native
+ * <details>/<summary> disclosure already used everywhere else in this file (TypeBlock's "Show all", DoneBlock).
+ * `open` controls which sections start expanded: This week open, Needs Catch-up collapsed.
  */
-export function MyWorkGroups({ rows, t, now = new Date() }: { rows: readonly Row[]; t: TFn; now?: Date }) {
-  const [week, later, done] = groupMyWork(rows, now);
-  if (!week.total && !later.total) {
+function SectionBlock({ g, t, open, tone }: { g: WorkGroups<Row>; t: TFn; open: boolean; tone: "navy" | "amber" }) {
+  const ring = tone === "amber" ? "bg-amber-50/60 ring-amber-100" : "bg-white ring-slate-200";
+  const text = tone === "amber" ? "text-amber-900" : "text-brand-navy";
+  const icon = tone === "amber" ? "⏰" : "📅";
+  return (
+    <details data-testid="work-section" data-section={g.section} open={open} className={`rounded-2xl p-3 ring-1 ${ring}`}>
+      <summary className={`flex min-h-10 cursor-pointer items-center gap-2 text-base font-bold ${text}`}>
+        <span aria-hidden="true">{icon}</span>{t(g.label)} <span className="font-normal text-slate-500">({g.total})</span>
+      </summary>
+      {g.total > 0
+        ? <div className="mt-2 space-y-3">{g.types.map((x) => <TypeBlock key={x.type} g={x} t={t} />)}</div>
+        : <p className="mt-2 text-sm text-slate-500">{t("Nothing here right now.")}</p>}
+    </details>
+  );
+}
+
+/**
+ * 📋 My Work, organised (Oct 2026 restructure): exactly 3 sections — This week (open), Needs Catch-up (collapsed),
+ * Extra Practice (collapsed) — plus a minimal "Done" line at the very bottom (not a 4th equal section: completed
+ * work is still reachable, just out of the way). Each section split by type with small headers; compact cards; at
+ * most 6 per type group, the rest under "Show all". Calm and mobile-first; students never see level words.
+ * ⭐ Rows needing attention (overdue, or a skill in progress with low mastery) surface first inside their group
+ * (src/lib/my-work-groups.ts byPriority — applied by the page before this component ever sees the rows).
+ * A plain "search my work" box (a GET form, same pattern as the rest of the admin lists — no client JS) appears
+ * once there is enough work to be worth searching; the page re-renders filtered by ?q=.
+ */
+export function MyWorkGroups({ rows, t, now = new Date(), query = "", totalAll }: { rows: readonly Row[]; t: TFn; now?: Date; query?: string; totalAll?: number }) {
+  const [thisWeek, catchup, done] = groupMyWork(rows, now);
+  const tabs = tabGroups(rows);
+  const tabTotal = tabs.reduce((n, g) => n + g.rows.length, 0);
+  const showSearch = (totalAll ?? rows.length) > SHOW_FIRST;
+  if (!thisWeek.total && !catchup.total && !tabTotal && !query) {
     return (
       <>
         <EmptyState compact icon={done.total ? "🎉" : "🌈"} title={done.total ? "No work right now — great job!" : "Nothing here yet"} text="Your teacher will add work here soon. Pick something to read!" />
-        {done.total > 0 && <DoneBlock g={done} t={t} />}
+        {done.total > 0 && <DoneFooter g={done} t={t} />}
       </>
     );
   }
   return (
     <div className="space-y-6">
-      {week.total > 0 && <TimeBlock g={week} t={t} />}
-      {later.total > 0 && <TimeBlock g={later} t={t} />}
-      {done.total > 0 && <DoneBlock g={done} t={t} />}
+      {showSearch && (
+        <form method="get" className="flex flex-wrap items-center gap-2" aria-label={t("Search my work")}>
+          <input type="search" name="q" defaultValue={query} placeholder={t("Search my work")} aria-label={t("Search my work")} data-testid="my-work-search"
+            className="min-h-11 flex-1 rounded-xl border border-slate-300 px-3 py-2 text-sm text-brand-navy placeholder:text-slate-400 focus:border-brand-teal focus:outline-none" />
+          <button type="submit" className="min-h-11 rounded-xl bg-brand-navy px-4 py-2 text-sm font-semibold text-white">{t("Search")}</button>
+          {query && <Link href="/student/work" className="text-sm font-semibold text-brand-teal hover:underline">{t("Clear")}</Link>}
+        </form>
+      )}
+      {query && !thisWeek.total && !catchup.total && !done.total && !tabTotal
+        ? <EmptyState compact icon="🔍" title="No matches" text="Try a different word, or clear the search." />
+        : <>
+            <SectionBlock g={thisWeek} t={t} open tone="navy" />
+            <SectionBlock g={catchup} t={t} open={false} tone="amber" />
+            {tabs.map((g) => <TabBlock key={g.tab} g={g} t={t} />)}
+            {done.total > 0 && <DoneFooter g={done} t={t} />}
+          </>}
     </div>
   );
 }
 
-function DoneBlock({ g, t }: { g: WorkGroups<Row>; t: TFn }) {
+/**
+ * ✅ Done: a minimal, low-prominence footer line — a student can still open it to see completed work, but it
+ * deliberately does NOT read as a 4th section alongside This week / Needs Catch-up / Extra Practice (the user's
+ * "only 3 sections" spec). Plain text link + native <details>, no colored card, no icon badge of its own weight.
+ */
+function DoneFooter({ g, t }: { g: WorkGroups<Row>; t: TFn }) {
   return (
-    <details id="my-work-done" data-testid="work-time" data-time="DONE" className="rounded-2xl bg-emerald-50/60 p-3 ring-1 ring-emerald-100">
-      <summary className="flex min-h-10 cursor-pointer items-center gap-2 font-semibold text-emerald-900"><span aria-hidden="true">✅</span>{t("Done ({n})", { n: g.total })}</summary>
+    <details id="my-work-done" data-testid="work-section" data-section="DONE" className="border-t border-slate-200 pt-2">
+      <summary className="inline-flex min-h-10 cursor-pointer items-center gap-1.5 text-sm font-semibold text-slate-500 hover:text-slate-700">✓ {t("Done ({n})", { n: g.total })}</summary>
       <div className="mt-2 space-y-3">{g.types.map((x) => <TypeBlock key={x.type} g={x} t={t} />)}</div>
     </details>
   );

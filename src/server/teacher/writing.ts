@@ -22,6 +22,7 @@
 import { feedWriting, safeFeed } from "../practice/skill-evidence";
 import type { Repo, Row } from "../seeding/repo";
 import { safeIfBehind } from "../db/schema-errors";
+import { audit } from "../audit";
 import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
 import { assertClassAccess } from "./assignments";
@@ -40,9 +41,10 @@ import {
   citesSource, cleanResearch, cleanSources, researchTotal, scoreResearch, studentView, teacherScoreResearch,
   type ResearchAnswers, type ResearchQuestion, type ResearchQuestionView, type Source,
 } from "../writing/research";
-import { draftAiFeedback, readDraft, type AiDraft, type AiOutcome } from "../writing/ai-feedback";
+import { MAX_HIGHLIGHTS, draftAiFeedback, readDraft, type AiDraft, type AiHighlight, type AiOutcome } from "../writing/ai-feedback";
 import { CODE_FAMILIES, WRITING_ERROR_CODES, reteachFor, skillsForFamilies, type ReteachRow, type ReteachSkill } from "../writing/reteach";
 import { assignedIds, isAssignedTo, isLocked, lockedStatus, scoreMax, type LockedStatus } from "../writing/locked";
+import { startedBy } from "../../lib/assign-dates";
 
 const s = (v: unknown) => String(v ?? "");
 const time = (v: unknown) => new Date(v instanceof Date ? v.toISOString() : s(v)).getTime();
@@ -81,7 +83,7 @@ const staged = (t: Row) => s(t.kind) === "WRITE" && bool(t.staged);
 // ------------------------------------------------------------------ the teacher: create
 
 export interface CreateTaskInput {
-  classId: string; kind: TaskKind; title: string; prompt: string; passage?: string | null; minWords?: number | null; dueAt?: Date | null;
+  classId: string; kind: TaskKind; title: string; prompt: string; passage?: string | null; minWords?: number | null; dueAt?: Date | null; /** r68: students see it from this day */ startAt?: Date | null;
   genre?: string | null; staged?: boolean; sources?: unknown; research?: unknown; aiFeedback?: boolean; skillId?: string | null;
 }
 
@@ -108,7 +110,7 @@ export async function createTask(repo: Repo, actor: Actor, input: CreateTaskInpu
   }
   const t = await repo.create("WritingTask", {
     schoolId: actor.schoolId!, classId: input.classId, createdById: actor.userId, kind: write ? "WRITE" : "READ_ALOUD", title: title.slice(0, 191), prompt: prompt.slice(0, 5000),
-    passage: s(input.passage).trim().slice(0, 20000) || null, minWords: write && input.minWords ? Math.max(10, Math.min(1000, Math.round(input.minWords))) : null, dueAt: input.dueAt ?? null,
+    passage: s(input.passage).trim().slice(0, 20000) || null, minWords: write && input.minWords ? Math.max(10, Math.min(1000, Math.round(input.minWords))) : null, dueAt: input.dueAt ?? null, ...(input.startAt ? { startAt: input.startAt } : {}),
     genre, skillId, staged: write && Boolean(input.staged), sources: sources.length ? sources : null, research: research.length ? research : null, aiFeedback: write && Boolean(input.aiFeedback),
     createdAt: now, deletedAt: null,
   });
@@ -145,6 +147,21 @@ export async function classTasks(repo: Repo, actor: Actor, classId: string): Pro
     submitted: subs.filter((x) => x.taskId === t.id && x.status !== "DRAFT").length, scored: subs.filter((x) => x.taskId === t.id && x.status === "SCORED").length, members: assignedIds(t, memberIds).length,
     aiPending: subs.filter((x) => x.taskId === t.id && x.aiStatus === "PENDING").length,
   })).sort((a, b) => b.createdAt.localeCompare(a.createdAt));
+}
+
+/**
+ * ✖ Cancel a writing/reading-aloud task (a soft delete, like cancelAssignment): it disappears from the class's
+ * task list and every student's work list; work already submitted or scored stays in the history untouched. Only
+ * the class's teacher or a school admin; kept in the audit log.
+ */
+export async function cancelTask(repo: Repo, actor: Actor, taskId: string, now = new Date()): Promise<{ title: string }> {
+  assertCan(actor, "assignments:create");
+  const t = await repo.findUnique("WritingTask", { id: taskId });
+  if (!t || t.deletedAt) throw new ForbiddenError("Task not found.");
+  await assertClassAccess(repo, actor, s(t.classId));
+  await repo.updateMany("WritingTask", { id: taskId, deletedAt: null }, { deletedAt: now });
+  await audit(repo, { actorId: actor.userId, action: "writing.cancel_task", entityType: "WritingTask", entityId: taskId, before: { title: s(t.title), classId: s(t.classId) }, after: { deletedAt: now.toISOString() }, at: now });
+  return { title: s(t.title) };
 }
 
 export interface SubmissionView {
@@ -294,7 +311,22 @@ export async function scoreSubmission(
   return out;
 }
 
-export interface AiApproval { scores: Record<string, unknown>; strengths?: Record<string, string>; nextSteps?: Record<string, string>; codes?: string[]; summary?: string; comment?: string | null; moves?: string[] }
+export interface AiApproval {
+  scores: Record<string, unknown>; strengths?: Record<string, string>; nextSteps?: Record<string, string>; codes?: string[]; summary?: string; comment?: string | null; moves?: string[];
+  /** the inline essay highlights (quote + fix), teacher-edited: add, remove or change any before approving */
+  highlights?: { quote: unknown; fix: unknown }[];
+}
+/** Cleans the teacher's edited highlight list: trims, drops empty quotes, caps length and count. */
+function cleanHighlights(highlights: { quote: unknown; fix: unknown }[] | undefined): AiHighlight[] {
+  if (!highlights) return [];
+  const out: AiHighlight[] = [];
+  for (const h of highlights) {
+    const quote = s(h.quote).replace(/\s+/g, " ").trim().slice(0, 160);
+    const fix = s(h.fix).replace(/\s+/g, " ").trim().slice(0, 160);
+    if (quote && out.length < MAX_HIGHLIGHTS) out.push({ quote, fix });
+  }
+  return out;
+}
 /** The teacher approves the AI draft (with their edits): its scores and comment become the feedback the student sees. */
 export async function approveAiDraft(repo: Repo, actor: Actor, taskId: string, studentId: string, edit: AiApproval, now = new Date()): Promise<"REVISE" | "SCORED"> {
   const { t, sub } = await scorable(repo, actor, taskId, studentId);
@@ -306,8 +338,9 @@ export async function approveAiDraft(repo: Repo, actor: Actor, taskId: string, s
   const traits = Object.fromEntries(rubric.traits.map((tr) => [tr.key, { score: clean[tr.key], strength: txt(edit.strengths?.[tr.key], draft.traits[tr.key]?.strength ?? ""), nextStep: txt(edit.nextSteps?.[tr.key], draft.traits[tr.key]?.nextStep ?? "") }]));
   const keep = edit.codes ? cleanCodes(edit.codes) : draft.conventions.map((c) => c.code);
   const conventions = [...draft.conventions.filter((c) => keep.includes(c.code)), ...keep.filter((c) => !draft.conventions.some((x) => x.code === c)).map((code) => ({ code, example: "" }))];
+  const highlights = edit.highlights !== undefined ? cleanHighlights(edit.highlights) : (draft.highlights ?? []);
   const summary = txt(edit.summary, draft.summary).slice(0, 400);
-  const final: AiDraft = { traits, conventions, summary, at: now.toISOString(), by: "TEACHER" };
+  const final: AiDraft = { traits, conventions, highlights, summary, at: now.toISOString(), by: "TEACHER" };
   const comment = s(edit.comment).trim() || summary;
   return applyScore(repo, actor, t, sub, clean, comment, now, { aiDraft: final, aiStatus: "APPROVED" }, edit.moves);
 }
@@ -353,11 +386,11 @@ export async function scoreResearchAnswers(repo: Repo, actor: Actor, taskId: str
 // ------------------------------------------------------------------ the teacher: reteach and the class's writing errors
 
 /** Assigns a reteach skill (from a weak trait or a frequent error) with the normal skill assignment. */
-export async function assignReteach(repo: Repo, actor: Actor, input: { taskId: string; skillId: string; studentIds?: string[] }, now = new Date()): Promise<{ assignmentId: string; students: number }> {
+export async function assignReteach(repo: Repo, actor: Actor, input: { taskId: string; skillId: string; studentIds?: string[]; /** r74: REQUIRED source */ source?: string | null }, now = new Date()): Promise<{ assignmentId: string; students: number }> {
   assertCan(actor, "assignments:create");
   const t = await loadTask(repo, input.taskId);
   await assertClassAccess(repo, actor, s(t.classId));
-  return assignSkill(repo, actor, { classId: s(t.classId), skillId: input.skillId, studentIds: input.studentIds, note: `Reteach after the writing task “${s(t.title).slice(0, 120)}”.` }, now);
+  return assignSkill(repo, actor, { classId: s(t.classId), skillId: input.skillId, studentIds: input.studentIds, note: `Reteach after the writing task “${s(t.title).slice(0, 120)}”.`, source: input.source }, now);
 }
 
 export interface WritingErrorRow { code: string; label: string; fix: string; count: number; students: number; skills: ReteachSkill[] }
@@ -390,8 +423,9 @@ export async function classWritingErrors(repo: Repo, actor: Actor, classId: stri
 export async function myTasks(repo: Repo, actor: Actor): Promise<(TaskSummary & { status: SubmissionView["status"]; stage: Stage | null; total: number | null; max: number; lockedStatus: LockedStatus | null; timeLimitMin: number | null })[]> {
   if (actor.role !== "STUDENT" || !actor.studentId) throw new ForbiddenError();
   const cls = (await repo.findMany("ClassMembership", { studentId: actor.studentId, leftAt: null }, { select: ["classId"] })).map((m) => m.classId);
-  const tasks = (cls.length ? await safeIfBehind("writing.mine", repo.findMany("WritingTask", { classId: { in: cls }, deletedAt: null }, { select: ["id", "kind", "genre", "staged", "title", "dueAt", "createdAt", "locked", "rubric", "studentIds", "timeLimitMin", "research", "sources"] }), [] as Row[]) : [])
-    .filter((t) => isAssignedTo(t, actor.studentId!));
+  const tasks = (cls.length ? await safeIfBehind("writing.mine", repo.findMany("WritingTask", { classId: { in: cls }, deletedAt: null }, { select: ["id", "kind", "genre", "staged", "title", "dueAt", "startAt", "createdAt", "locked", "rubric", "studentIds", "timeLimitMin", "research", "sources"] }), [] as Row[]) : [])
+    // r68: a task with a start date shows from that day
+    .filter((t) => isAssignedTo(t, actor.studentId!) && startedBy(t.startAt));
   const subs = tasks.length ? await repo.findMany("WritingSubmission", { taskId: { in: tasks.map((t) => t.id) }, studentId: actor.studentId }, { select: ["taskId", "status", "scores", "stage", "startedAt", "submitMode", "text"] }) : [];
   return tasks.map((t) => {
     const sub = subs.find((x) => x.taskId === t.id);
@@ -484,7 +518,9 @@ export async function saveWriting(repo: Repo, actor: Actor, taskId: string, text
   const data: Record<string, unknown> = { text: body, status: "DRAFT", submittedAt: null, updatedAt: now };
   if (submit) {
     if (t.minWords && words(body) < Number(t.minWords)) throw new ValidationError(`Write at least ${t.minWords} words (you have ${words(body)}).`);
-    if (words(body) < 3) throw new ValidationError("Write your answer first.");
+    // 🔧 fix (Oct 2026): 3 words let near-empty submissions ("idk" + 2 words) count as "written" on tasks
+    // the teacher left without a minWords; raise the fallback floor to 15 words. Unaffected when minWords IS set.
+    if (words(body) < 15) throw new ValidationError("Write your answer first.");
     const genre = genreOf(t);
     if (checklistRequired(genre)) {
       const c = checkChecklist(genre, opts.checklist);
@@ -530,4 +566,4 @@ export async function recording(repo: Repo, actor: Actor, taskId: string, studen
   return { bytes: sub.audio as Uint8Array, type: s(sub.audioType) || "audio/webm" };
 }
 
-export type { Trait, Rubric, Genre, CheckItem, Organizer, Source, ResearchQuestion, ResearchQuestionView, ResearchAnswers, AiDraft, ReteachRow };
+export type { Trait, Rubric, Genre, CheckItem, Organizer, Source, ResearchQuestion, ResearchQuestionView, ResearchAnswers, AiDraft, AiHighlight, ReteachRow };

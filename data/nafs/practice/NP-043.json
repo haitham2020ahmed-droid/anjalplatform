@@ -109,10 +109,10 @@
       "difficulty": 3,
       "stem": "Which opinion is BEST supported by the passage?",
       "options": [
-        "Electricity is free because it travels to our homes on its own.",
-        "Power stations should be built inside every house to save time.",
+        "Electricity is free because it travels to our homes on its own, along the wires.",
+        "Power stations should be built inside every house to save time, so wires are not needed.",
         "We should not waste electricity, since much equipment is needed to deliver it.",
-        "Transmission lines are not needed because homes produce power."
+        "Transmission lines are not needed because homes produce power by themselves at night."
       ],
       "answer": "C",
       "why": "The passage shows that generators, transformers, towers, lines and meters are all needed, which supports using electricity carefully."
@@ -125,10 +125,10 @@
       "difficulty": 3,
       "stem": "Which information in the passage is the LEAST clear or complete?",
       "options": [
-        "Where the electricity's journey begins",
+        "Where the electricity's journey begins and ends",
         "How a transformer actually changes the voltage",
-        "What the meter in a house measures",
-        "What carries the transmission lines"
+        "What the meter in a house measures each month",
+        "What carries the transmission lines over the hills"
       ],
       "answer": "B",
       "why": "The passage says transformers raise or lower voltage but never explains how they do it; the other points are stated."

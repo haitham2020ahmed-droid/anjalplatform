@@ -9,6 +9,8 @@ import { QuestionEditor } from "../../question-editor";
 import { useT } from "@/i18n/client";
 import { commitImportAction, importRowAction, importSelectAllAction } from "../../../actions";
 import { LineIcon } from "@/components/ui/line-icon";
+import { RichInline } from "@/components/rich-inline";
+import { stripMarks } from "@/lib/inline-marks";
 
 type Skill = Parameters<typeof QuestionEditor>[0]["skills"][number];
 type Filter = PreviewFilter;
@@ -139,8 +141,8 @@ export function ImportPreview({ job, skills, standards, canPublish }: { job: Imp
                     <td className="p-2"><input type="checkbox" aria-label={`Import row ${r.rowNumber}`} checked={willImport(r) || (r.selected && r.status === "INVALID")} disabled={!editable || r.status === "INVALID" || pending} onChange={(e) => patch(r.id, e.target.checked && isDup ? { selected: true, decision: "FORCE" } : { selected: e.target.checked })} /></td>
                     <td className="py-2 pe-2 tabular-nums">{r.rowNumber}</td>
                     <td className="pe-2">
-                      <p className="font-medium text-brand-navy">{i?.stem || <span className="text-slate-500">(no question text)</span>}</p>
-                      <p className="text-xs text-slate-500">{TYPE[i?.type ?? ""] ?? "Unknown type"}{i?.options?.length ? `: ${i.options.map((o) => `${o.label}) ${o.text}`).join("  ")}` : ""}</p>
+                      <p className="font-medium text-brand-navy">{i?.stem ? <RichInline text={i.stem} /> : <span className="text-slate-500">(no question text)</span>}</p>
+                      <p className="text-xs text-slate-500">{TYPE[i?.type ?? ""] ?? "Unknown type"}{i?.options?.length ? `: ${i.options.map((o) => `${o.label}) ${stripMarks(o.text)}`).join("  ")}` : ""}</p>
                       <p className="text-xs"><span className="font-semibold">Answer:</span> {answerOf(i)}</p>
                       {m.passage && <p className="text-xs text-slate-500">With a reading passage ({m.passageWords ?? m.passage.split(/\s+/).length} words)</p>}
                     </td>

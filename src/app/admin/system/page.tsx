@@ -4,7 +4,8 @@ import { PageHeader, Section } from "@/components/page-header";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { lastFixReport } from "@/server/admin/stuck-questions";
 import { FixReportView } from "@/components/admin/fix-report";
-import { countsLine, migrationReport } from "@/server/skills/status-extras";
+import { countsLine, migrationReport, STARS_JOB } from "@/server/skills/status-extras";
+import { jobState } from "@/server/jobs/runner";
 import { runStarsMigrationAction } from "./actions";
 import { getT } from "@/i18n/server";
 import { systemCheckNow } from "@/server/admin/system-check-run";
@@ -23,6 +24,8 @@ export default async function SystemCheckPage() {
   const actor = await requireActor({ roles: ["SCHOOL_ADMIN", "SUPER_ADMIN"] });
   const me = (await getActor())!.user;
   const [{ t }, r, fix, stars] = await Promise.all([getT(), systemCheckNow(), actor.schoolId ? lastFixReport(repo, actor.schoolId).catch(() => null) : Promise.resolve(null), actor.schoolId ? migrationReport(repo, actor.schoolId).catch(() => null) : Promise.resolve(null)]);
+  // r68: the stars job running in the background (queued by the button or after an update): its progress
+  const starsJob = actor.schoolId ? await jobState<string>(repo, STARS_JOB, actor.schoolId).catch(() => null) : null;
   const c = r.check;
   const seen = schemaGapsSeen(24 * 3_600_000);
   const missing = c ? c.missingTables.length + c.missingColumns.length + c.missingEnumValues.length + c.missingIndexes.length : 0;
@@ -77,6 +80,7 @@ export default async function SystemCheckPage() {
       <Section title="Skill stars" icon="⭐" className="mb-5" hint={t("Every student's status for every skill, computed from the practice data (⭐ only when 30+ questions and mastery were truly met). Safe to run again: nothing changes twice.")}>
         <p data-testid="stars-counts" className="font-semibold text-brand-navy" dir="ltr">{stars ? countsLine(stars.counts) : t("Not computed yet (it runs by itself after the first start).")}</p>
         {stars && <p className="text-xs text-slate-500">{t("{n} students · {k} skills · last run {date}", { n: stars.students, k: stars.universe, date: stars.at.slice(0, 16).replace("T", " ") })}</p>}
+        {starsJob && !starsJob.done && <p role="status" data-testid="stars-job" className="text-xs font-semibold text-brand-teal">{t("Computing in the background: {n} students done so far.", { n: Number(starsJob.progress?.students ?? 0) })}</p>}
         <form action={runStarsMigrationAction} className="mt-2"><button className="rounded-lg bg-brand-navy px-4 py-2 text-sm font-semibold text-white">⭐ {t("Compute skill stars again")}</button></form>
       </Section>
       {c && <p className="text-xs text-muted">{t("Checked {t} tables in {ms} ms.", { t: c.liveTables, ms: r.ms })}</p>}

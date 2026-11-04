@@ -6,6 +6,8 @@ import { ClassProfileView } from "@/components/map/class-profile-view";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { ForbiddenError } from "@/server/auth/rbac";
 import { classProfile } from "@/server/map/nwea-reports";
+import { ReportIntro, ReportSummary } from "@/components/report-kit";
+import { classProfileSummary } from "@/lib/report-summaries";
 
 export const metadata = { title: "MAP Class Profile" };
 
@@ -23,7 +25,7 @@ export default async function ClassProfilePage({ params, searchParams }: { param
     <AppShell name={String(me.displayName)}>
       <ReportToolbar back={{ href: `/teacher/map-reports?classId=${classId}`, label: "MAP Reports" }} base={base} subject={subject}
         extra={d.terms.length > 1 ? <>{d.terms.slice(0, 6).map((t) => <Link key={t} href={`${base}?${new URLSearchParams({ subject, term: t })}`} className={`rounded-full px-3 py-1.5 text-sm font-semibold ${t === d.term ? "bg-teal-600 text-white" : "bg-white ring-1 ring-slate-300"}`}>{t}</Link>)}</> : null} />
-      <div className="mx-auto max-w-6xl"><ClassProfileView d={d} /></div>
+      <div className="mx-auto max-w-6xl"><ReportIntro text="The class's MAP Growth results: how many were tested, the class against the national mean, and the goal areas." /><ClassProfileView d={d} /><ReportSummary summary={classProfileSummary(d)} /></div>
     </AppShell>
   );
 }

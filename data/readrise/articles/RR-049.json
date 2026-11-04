@@ -64,6 +64,16 @@
       "level": 1400,
       "title": "The Sun: A Star Up Close",
       "text": "On a cloudless day, the Sun shines brilliantly and provides both illumination and warmth, yet you should never look directly at it, because its intense radiance can permanently damage the delicate tissues of your eyes.\n\nThe Sun is a star, and it is the nearest star to Earth, appearing considerably larger and brighter than the stars visible at night only because those stars are unimaginably distant.\n\nThe Sun is an enormous sphere of incandescent gas, composed predominantly of hydrogen and helium, and it is so massive that more than one million Earths could fit inside it, while its gravitational attraction holds all eight planets in their orbits.\n\nThe Sun is approximately 150 million kilometers from Earth, so even sunlight, which travels faster than anything else in the universe, requires about eight minutes to complete the journey.\n\nThe center of the Sun, called the core, reaches roughly 15 million degrees Celsius. There, hydrogen nuclei collide so violently that they combine to form helium, a process called nuclear fusion that releases an extraordinary quantity of energy. This energy gradually migrates outward for many thousands of years before it reaches the photosphere, the luminous visible surface, whose temperature is approximately 5,500 degrees Celsius, and from there it streams into space as electromagnetic radiation, including the visible light and warmth that we experience.\n\nThe Sun's surface is anything but tranquil. Powerful magnetic forces twist the superheated gas and generate sunspots, darker patches that are considerably cooler than the surrounding region. The Sun also releases a continuous stream of electrically charged particles known as the solar wind, and when these particles encounter Earth, our planet's magnetic field channels them toward the polar regions, where they make the atmosphere shimmer with colorful lights called an aurora.\n\nEarth travels around the Sun in a path called an orbit, and each complete revolution requires one year. Astronomers estimate that the Sun is about 4.6 billion years old and that it contains sufficient hydrogen to continue shining for approximately five billion more years. Plants depend on sunlight to manufacture food through photosynthesis, and the Sun's heat maintains temperatures suitable for living organisms.\n\nSaudi Arabia receives abundant sunshine throughout the year, which makes solar power an increasingly significant renewable source of energy for the kingdom. The Sakaka solar plant in the northern region, for instance, employs vast fields of photovoltaic panels to convert sunlight into electricity."
+    },
+    {
+      "level": 1500,
+      "title": "The Sun: A Star Up Close",
+      "text": "The Sun is a star, the one nearest to Earth, and it is so enormous that more than one million Earths could fit inside it. Composed almost entirely of hydrogen and helium gas, the Sun lies approximately one hundred fifty million kilometers from our planet, a distance so vast that light itself, traveling at its tremendous constant speed, still requires about eight minutes to complete the journey.\n\nDeep within the Sun's core, temperatures reach approximately fifteen million degrees Celsius, hot enough to drive nuclear fusion, the process by which hydrogen atoms combine to form helium, releasing enormous quantities of energy in the process. This energy does not escape instantly. Remarkably, it can take many thousands of years merely to travel from the core to the photosphere, the Sun's visible surface layer, which itself registers a comparatively cooler temperature of roughly five thousand five hundred degrees Celsius. Once it reaches the photosphere, this energy streams outward into space as radiation, eventually reaching Earth as sunlight and warmth.\n\nSunspots, visible as darker patches on the Sun's surface, mark regions where concentrated magnetic activity has temporarily cooled the surrounding gas. This same magnetic activity generates the solar wind, a continuous stream of charged particles flowing outward from the Sun. When this wind interacts with Earth's own magnetic field, it produces the spectacular glowing displays known as the aurora, typically visible near the planet's poles.\n\nEarth completes one full orbit around the Sun every year, a cycle so fundamental that it defines our very concept of a calendar year. The Sun itself is estimated to be about four and a half billion years old, and scientists calculate that it possesses enough remaining fuel to continue burning for roughly another five billion years before its eventual transformation.\n\nSaudi Arabia has begun harnessing the Sun's power directly through facilities such as the Sakaka solar plant, which generates renewable electricity by capturing sunlight, a practical application of the same star that has sustained life on Earth for billions of years.\n\nScientists continue to study the Sun closely not merely out of curiosity but because solar activity, including the magnetic disturbances linked to sunspots, can directly affect satellites, power grids, and communication systems on Earth, making careful solar observation a matter of considerable practical importance.\n\nEven small variations in the Sun's activity can ripple outward to affect conditions across the entire solar system, underscoring just how central this single star remains to everything that orbits it."
+    },
+    {
+      "level": 1600,
+      "title": "The Sun: A Star Up Close",
+      "text": "The Sun is properly classified as a star, specifically the one situated nearest to Earth, and its scale is so immense that more than one million Earths could theoretically be accommodated within its volume. Composed almost entirely of hydrogen and helium in gaseous form, the Sun lies at a distance of approximately one hundred fifty million kilometers from our planet, a separation so vast that light itself, propagating at its characteristic constant velocity, nevertheless requires roughly eight minutes to complete the intervening journey.\n\nDeep within the Sun's innermost core, temperatures attain approximately fifteen million degrees Celsius, sufficient to sustain nuclear fusion, the process whereby hydrogen atoms combine to form helium while releasing prodigious quantities of energy in the process. This liberated energy does not escape instantaneously; remarkably, it may require many thousands of years merely to migrate from the core outward to the photosphere, the Sun's visible surface layer, which itself registers a comparatively more modest temperature of roughly five thousand five hundred degrees Celsius. Having finally reached the photosphere, this energy subsequently streams outward into the surrounding vacuum of space in the form of radiation, eventually arriving at Earth as both sunlight and warmth.\n\nSunspots, observable as conspicuously darker patches distributed across the Sun's surface, demarcate regions where intensified magnetic activity has temporarily cooled the surrounding gaseous material. This identical magnetic activity simultaneously generates the solar wind, a continuous, outward-flowing stream of charged particles emanating from the Sun. When this wind subsequently interacts with Earth's own protective magnetic field, it produces the spectacular luminous displays known as the aurora, phenomena typically confined to regions near the planet's magnetic poles.\n\nEarth completes a single full orbit around the Sun over the course of approximately one year, a cyclical period so fundamental to terrestrial experience that it underlies our very conception of a calendar year. The Sun itself is currently estimated to be approximately four and a half billion years of age, and astrophysicists calculate that it retains sufficient remaining nuclear fuel to continue its present activity for roughly another five billion years before undergoing its eventual stellar transformation.\n\nSaudi Arabia has, in recent years, begun harnessing the Sun's prodigious energy output directly, through facilities such as the Sakaka solar plant, which generates substantial quantities of renewable electricity by capturing incident sunlight, representing a practical, technologically mediated application of the very star that has sustained life on Earth continuously for billions of years.\n\nScientists continue to study the Sun with considerable rigor not merely out of abstract scientific curiosity but precisely because solar activity, including the magnetic disturbances closely linked to sunspots, can directly and significantly affect satellites, power grids, and communication systems operating on Earth, a dependency that renders careful, sustained solar observation a matter of considerable practical and economic importance to modern technological societies."
     }
   ],
   "bands": {
@@ -104,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How to draw the Sun with crayons",
+            "How to draw the Sun with crayons and paint",
             "What the Sun is and how it helps life on Earth",
-            "Why the stars come out only at night",
-            "How people first flew into space"
+            "Why the stars come out only at night in winter",
+            "How people first flew into space in rockets"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -155,9 +165,9 @@
         {
           "stem": "The article says Earth moves in a path around the Sun called an orbit. What is an orbit?",
           "options": [
-            "A dark spot on the Sun",
-            "A tool for looking at stars",
-            "A trip that takes eight minutes",
+            "A dark spot on the Sun that moves across it",
+            "A tool for looking at the stars at night from home",
+            "A trip that takes eight minutes by light from the Sun",
             "The path something takes around another thing in space"
           ],
           "answer": "D",
@@ -172,10 +182,10 @@
         {
           "stem": "What happens when tiny bits of gas join deep inside the Sun?",
           "options": [
-            "The Sun gets smaller and darker.",
+            "The Sun gets smaller and darker as the gas joins",
             "They make energy that comes out as light and heat.",
-            "They turn into dark spots.",
-            "They make Earth move faster."
+            "They turn into dark spots on the face of the Sun",
+            "They make Earth move faster around the Sun"
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -206,10 +216,10 @@
         {
           "stem": "Why does a sunspot look dark?",
           "options": [
-            "It is a hole in the Sun.",
-            "It is a cloud in front of the Sun.",
+            "It is a hole in the Sun that goes down to the core.",
+            "It is a cloud in front of the Sun that blocks light.",
             "It is a little cooler than the rest of the Sun.",
-            "It is a shadow made by Earth."
+            "It is a shadow made by Earth when it passes by."
           ],
           "answer": "C",
           "skill": "inference",
@@ -224,9 +234,9 @@
           "stem": "Why does the author tell about solar farms in Saudi Arabia at the end?",
           "options": [
             "To show one way people use the Sun's energy",
-            "To warn readers not to visit farms",
-            "To explain why the Sun has spots",
-            "To tell how long one orbit takes"
+            "To warn readers not to visit farms in the desert",
+            "To explain why the Sun has spots on its face",
+            "To tell how long one orbit around the Sun takes"
           ],
           "answer": "A",
           "skill": "author-purpose",
@@ -243,7 +253,8 @@
         "I named two ways the Sun helps us.",
         "I used facts from the article.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "The Sun helps life on Earth in two important ways. First, plants use sunlight to make the food they need to grow. Second, the Sun's heat keeps our planet warm enough for living things, like people and animals, to survive."
     },
     "MID": {
       "keyWords": [
@@ -282,10 +293,10 @@
         {
           "stem": "Which sentence best states the main idea of the article?",
           "options": [
-            "The Sun is the largest star in the whole universe.",
+            "The Sun is the largest star in the whole universe, and it is the hottest star of all, too.",
             "The Sun is our nearest star, and the energy it makes in its core supports life on Earth.",
-            "Sunspots are the most important part of the Sun.",
-            "Solar farms were invented in Saudi Arabia."
+            "Sunspots are the most important part of the Sun, and they give us all the light we get.",
+            "Solar farms were invented in Saudi Arabia, and they are used for farming in the desert."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -352,8 +363,8 @@
           "options": [
             "A huge amount of energy is released as light and heat.",
             "Hydrogen turns into water and falls as rain.",
-            "Earth's year gets longer and longer.",
-            "Sunspots grow until they cover the Sun."
+            "Earth's year gets longer and longer as the Sun burns",
+            "Sunspots grow until they cover the whole Sun at night"
           ],
           "answer": "A",
           "skill": "cause-effect",
@@ -368,9 +379,9 @@
           "stem": "Sunlight travels faster than anything else, yet it still needs about eight minutes to reach Earth. What does this tell you?",
           "options": [
             "The Sun is extremely far from Earth.",
-            "Sunlight slows down near Earth.",
-            "The Sun is smaller than Earth.",
-            "Light only moves at night."
+            "Sunlight slows down when near Earth.",
+            "The Sun is much smaller than Earth.",
+            "Light only moves at night time."
           ],
           "answer": "A",
           "skill": "inference",
@@ -401,9 +412,9 @@
         {
           "stem": "How does the article organize its information?",
           "options": [
-            "It tells a story about an astronaut's trip to the Sun.",
-            "It compares the Sun with the Moon in every paragraph.",
-            "It lists problems the Sun causes and how to fix them.",
+            "It tells a story about an astronaut's long trip to the Sun and back to Earth again in a rocket.",
+            "It compares the Sun with the Moon in every single paragraph of the whole article.",
+            "It lists the problems the Sun causes and how people can fix them one by one in turn, for every country.",
             "It describes the Sun, explains how it makes energy, and then shows how that energy affects Earth."
           ],
           "answer": "D",
@@ -421,7 +432,8 @@
         "I explained what happens in the Sun's core.",
         "I used at least two details from the article.",
         "I told how the energy reaches or helps Earth."
-      ]
+      ],
+      "modelAnswer": "In the Sun's core, where the temperature reaches about 15 million degrees Celsius, tiny particles of hydrogen crash together so forcefully that they join and form helium through a process called fusion, which releases a tremendous amount of energy. That energy then gradually moves outward from the core until it finally escapes from the Sun as light and heat. After traveling about 150 million kilometers, this energy reaches Earth as sunlight and warmth, keeping our planet warm enough for living things."
     },
     "HIGH": {
       "keyWords": [
@@ -460,9 +472,9 @@
         {
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
-            "The Sun's surface is calm and never changes.",
-            "Saudi Arabia was the first country to use solar power.",
-            "Auroras are the most important effect of the Sun.",
+            "The Sun's surface is calm and never changes, so we can look at it all day without any problem for our eyes.",
+            "Saudi Arabia was the first country to use solar power, in a small town near the Red Sea, long ago.",
+            "Auroras are the most important effect of the Sun, so the article is mostly about the lights in the sky.",
             "The Sun, our nearest star, produces energy through fusion, and that energy shapes conditions on Earth."
           ],
           "answer": "D",
@@ -512,9 +524,9 @@
           "stem": "The article says the Sun's surface is 'anything but calm.' What does this phrase suggest?",
           "options": [
             "The surface is very active and changing.",
-            "The surface is quiet and still.",
-            "The surface is completely frozen.",
-            "The surface is hidden from view."
+            "The surface is quiet and still, like a calm lake.",
+            "The surface is completely frozen, like a block of ice.",
+            "The surface is hidden from view by thick clouds."
           ],
           "answer": "A",
           "skill": "vocabulary",
@@ -546,9 +558,9 @@
           "stem": "The article says energy takes many thousands of years to travel from the core to the photosphere. What can you infer?",
           "options": [
             "The light we see today began its journey inside the Sun long ago.",
-            "The Sun will stop shining in a few years.",
-            "Light travels slowly once it leaves the Sun.",
-            "Fusion happens on the surface, not in the core."
+            "The Sun will stop shining in a few years, because it is running out of fuel.",
+            "Light travels slowly once it leaves the Sun and passes through space.",
+            "Fusion happens on the surface, not in the core, where it is cooler."
           ],
           "answer": "A",
           "skill": "inference",
@@ -579,10 +591,10 @@
         {
           "stem": "Why does the author end with the Sakaka solar plant?",
           "options": [
-            "To argue that the Sun is dangerous",
-            "To explain how sunspots form",
+            "To argue that the Sun is dangerous and that people should hide from it all day",
+            "To explain how sunspots form on the face of the Sun each year",
             "To connect the science of the Sun to a real, renewable use of its energy",
-            "To compare the Sun with other stars"
+            "To compare the Sun with other stars that are larger and brighter"
           ],
           "answer": "C",
           "skill": "author-purpose",
@@ -599,7 +611,8 @@
         "I stated a clear position.",
         "I supported it with at least two pieces of evidence from the article.",
         "I explained how my evidence supports my position."
-      ]
+      ],
+      "modelAnswer": "I agree that the Sun is the most important object in our sky. The article explains that fusion in its core releases a tremendous amount of energy that eventually escapes as light and heat, and the Sun's warmth is what keeps our planet warm enough for living things to survive at all. Beyond providing warmth, the article also notes that plants use sunlight to make food, and Saudi Arabia now even converts sunlight into electricity through solar farms, which shows that practically every form of life and much of modern technology ultimately depends on the Sun's energy."
     }
   }
 }

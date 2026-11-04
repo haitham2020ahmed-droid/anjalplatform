@@ -29,9 +29,9 @@
       "difficulty": 2,
       "stem": "Which sentence is a command?",
       "options": [
-        "Is the bus safe for young students?",
-        "The bus is often far too crowded.",
-        "How dangerous that highway is!",
+        "Is the bus safe for young students to ride?",
+        "The bus is often far too crowded in the morning.",
+        "How dangerous that highway is for a bus!",
         "Please inspect every bus before the new term."
       ],
       "answer": "D",
@@ -47,8 +47,8 @@
       "options": [
         "A letter to a newspaper editor",
         "A short adventure story",
-        "A science report",
-        "A poem about buses"
+        "A report about science",
+        "A poem about buses and trains"
       ],
       "answer": "A",
       "why": "It begins 'Dear Editor', ends 'Yours sincerely' and asks the newspaper to publish it."
@@ -93,10 +93,10 @@
       "difficulty": 2,
       "stem": "'No amount of money is more valuable than the safety of a child.' Why does the writer include this sentence?",
       "options": [
-        "To explain how much a new bus costs",
-        "To complain about the price of bus tickets",
+        "To explain how much a new bus costs the school each year",
+        "To complain about the price of bus tickets for students",
         "To persuade readers that safety matters more than cost",
-        "To show that the school has a lot of money"
+        "To show that the school has a lot of money to spend"
       ],
       "answer": "C",
       "why": "This strong sentence answers people who say the changes are too expensive and persuades readers to act."
@@ -125,10 +125,10 @@
       "difficulty": 3,
       "stem": "Which information in the letter is the LEAST complete?",
       "options": [
-        "What the school could do about seat belts",
-        "What the writer thinks of the driver",
+        "What the school could do about seat belts on the bus",
+        "What the writer thinks of the driver of Bus 14",
         "How many students ride Bus 14 compared with its seats",
-        "Which bus the writer rides every day"
+        "Which bus the writer rides every day to the school"
       ],
       "answer": "C",
       "why": "The writer says the bus is overcrowded but never gives numbers, so readers cannot judge how serious it is."

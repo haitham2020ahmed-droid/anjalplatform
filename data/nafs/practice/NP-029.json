@@ -45,10 +45,10 @@
       "difficulty": 1,
       "stem": "Why were new gates, bridges and buildings constructed in the recent expansion?",
       "options": [
-        "to make room for new shops",
-        "to store water for the cooling plants",
+        "to make room for new shops and cafes",
+        "to store water for the cooling plants in summer",
         "so crowds could enter and leave more safely",
-        "to replace the old marble floors"
+        "to replace the old marble floors with new tiles"
       ],
       "answer": "C",
       "why": "The passage says they were built \"so that crowds could enter and leave more safely.\""
@@ -109,10 +109,10 @@
       "difficulty": 3,
       "stem": "Which statement best expresses the writer's viewpoint?",
       "options": [
-        "Cooling the mosque in summer is impossible.",
+        "Cooling the mosque in summer is quite impossible.",
         "Engineering has improved worshippers' safety and comfort.",
-        "Escalators are the only useful improvement.",
-        "Each expansion made the mosque harder to use."
+        "Escalators are the only useful improvement made.",
+        "Each expansion made the mosque harder to use for all."
       ],
       "answer": "B",
       "why": "The writer ends by saying these features \"allow vast numbers of people to worship in comfort and safety.\""

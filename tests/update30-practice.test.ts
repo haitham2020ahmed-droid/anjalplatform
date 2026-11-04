@@ -5,7 +5,8 @@ import { resolveActor } from "../src/server/auth/actor";
 import { ForbiddenError, type Actor } from "../src/server/auth/rbac";
 import { seedTestEnvironment } from "../src/server/seeding/test-env";
 import { teacherRoster } from "../src/server/teacher/assign";
-import { atSchool, practiceAnalytics, riyadhDay } from "../src/server/analytics/practice";
+import { atSchool, practiceAnalytics, riyadhDay, riyadhRange } from "../src/server/analytics/practice";
+import { skillKeysFor } from "../src/server/skills/status";
 import { demoDatabase } from "./helpers/db";
 
 describe("📊 Practice analytics (IXL-style), fake answers", () => {
@@ -31,7 +32,11 @@ describe("📊 Practice analytics (IXL-style), fake answers", () => {
     await answer(ids[1], qa[0], "2026-10-05T07:00:00Z", false);
     await answer(ids[2], qa[0], "2026-10-05T07:10:00Z", false);
     await answer(ids[3], qa[0], "2026-09-01T07:10:00Z", true);
-    await repo.create("StudentSkillMastery", { studentId: ids[0], skillId: skillA, score: 92, band: "MASTERED", attempts: 8, correct: 5, isMastered: true, masteredAt: new Date("2026-10-04T07:00:00Z"), updatedAt: new Date() });
+    // the OLD mastery table must NOT drive the report any more: a mastered row there for skill B is ignored …
+    await repo.create("StudentSkillMastery", { studentId: ids[0], skillId: skillB, score: 92, band: "MASTERED", attempts: 8, correct: 5, isMastered: true, masteredAt: new Date("2026-10-04T07:00:00Z"), updatedAt: new Date() });
+    // … the stars (SkillStatus) do: ⭐ on skill A inside the range
+    const keyA = (await skillKeysFor(repo, String((await repo.findUnique("Student", { id: ids[0] }))!.schoolId), [skillA])).get(skillA)!;
+    await repo.create("SkillStatus", { studentId: ids[0], skillKey: keyA, level: 1, status: "MASTERED", skillId: skillA, answered: 30, correct: 28, score: 100, startedAt: new Date("2026-10-04T06:00:00Z"), masteredAt: new Date("2026-10-04T07:00:00Z") });
   });
 
   test("school time is Sunday–Thursday 07:00–14:00 in Riyadh", () => {
@@ -46,15 +51,41 @@ describe("📊 Practice analytics (IXL-style), fake answers", () => {
     assert.equal(a.totals.questions, 12);
     assert.equal(a.totals.activeStudents, 3);
     assert.deepEqual([a.totals.schoolQuestions, a.totals.homeQuestions], [10, 2]);
-    assert.equal(a.totals.mastered, 1);
+    assert.equal(a.totals.newStars, 1, "⭐ from SkillStatus, not the old mastery table");
+    assert.equal(a.sources.find((x) => x.source === "PRACTICE")!.questions, 12);
     assert.deepEqual(a.days.map((d) => [d.day, d.questions]), [["2026-10-04", 10], ["2026-10-05", 2]]);
     assert.equal(a.skills[0].skillId, skillA);
+    assert.equal(a.skills[0].stars.mastered, 1, "one of the students who practised skill A has ⭐");
     const s0 = a.students.find((x) => x.id === ids[0])!;
     assert.equal(s0.minutes, Math.round((9 * 30_000 + 5 * 60_000) / 60_000), "one answer capped at 5 minutes");
     const dA = s0.detail.find((d) => d.skillId === skillA)!;
     assert.equal(dA.change, 60, "first five answers 40% → last five 100%");
     assert.equal(dA.mastered, true);
+    assert.equal(dA.masteredInRange, true);
+    assert.equal(s0.detail.find((d) => d.skillId === skillB)!.mastered, false, "the old StudentSkillMastery row is ignored");
     assert.equal(a.trouble[0].missedBy, 3, "missed by students 0, 1 and 2");
+  });
+
+  test("Riyadh days: a calendar range starts and ends at Riyadh midnight", () => {
+    const r = riyadhRange(new Date("2026-10-01T00:00:00Z"), new Date("2026-10-01T23:59:59.999Z"));
+    assert.equal(r.from.toISOString(), "2026-09-30T21:00:00.000Z");
+    assert.equal(riyadhDay(r.from), "2026-10-01");
+    assert.equal(riyadhDay(r.to), "2026-10-01");
+  });
+
+  test("tests and checks are not practice: they show under their own view", async () => {
+    const sid = ids[4];
+    const q = (await repo.findMany("Question", { status: "PUBLISHED", skillId: skillA }, { select: ["id", "skillId"] }))[0];
+    const ses = await repo.create("PracticeSession", { studentId: sid, mode: "DIAGNOSTIC", startedAt: new Date("2026-10-06T07:00:00Z") });
+    await repo.create("QuestionAttempt", { sessionId: ses.id, studentId: sid, questionId: q.id, skillId: q.skillId, response: {}, isCorrect: true, responseMs: 20_000, difficultyB: 0, createdAt: new Date("2026-10-06T07:00:00Z") });
+    const range = { classId, from: new Date("2026-10-01T00:00:00Z"), to: new Date("2026-10-08T23:59:59Z") };
+    const p = await practiceAnalytics(repo, teacher, range);
+    assert.equal(p.totals.questions, 12, "the Diagnostic answer is not practice");
+    assert.equal(p.sources.find((x) => x.source === "TESTS")!.questions, 1);
+    const tv = await practiceAnalytics(repo, teacher, { ...range, view: "tests" });
+    assert.equal(tv.totals.questions, 1);
+    const all = await practiceAnalytics(repo, teacher, { ...range, view: "all" });
+    assert.equal(all.totals.questions, 13);
   });
 
   test("one student, and only the teacher's classes", async () => {

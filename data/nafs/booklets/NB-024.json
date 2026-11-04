@@ -46,10 +46,10 @@
       "type": "MCQ",
       "stem": "Read this sentence from paragraph 2: “Webb, in contrast, was designed to detect infrared light, a kind of light that human eyes cannot see”. What does “detect” mean?",
       "options": [
-        "to produce",
+        "to produce a lot",
         "to notice or sense",
-        "to destroy",
-        "to repair"
+        "to destroy it all",
+        "to repair a tool"
       ],
       "answer": "B",
       "why": "Webb was built to notice a kind of light that our eyes cannot see."
@@ -334,9 +334,9 @@
       "stem": "In your opinion, why is the first sentence, “When we look at a distant star, we are actually looking into the past,” an effective opening?",
       "options": [
         "Its surprising idea makes readers curious to learn more.",
-        "It gives the exact distance to the nearest star.",
-        "It explains how the sunshield works.",
-        "It tells readers the date of Webb's launch."
+        "It gives the exact distance to the nearest star in miles.",
+        "It explains how the sunshield works in space.",
+        "It tells readers the date of Webb's launch into space."
       ],
       "answer": "A",
       "why": "The surprising claim makes readers wonder how it can be true, so they keep reading; it does not give distances, dates or sunshield details."
@@ -398,9 +398,9 @@
       "stem": "What does the comparison “folded like a giant paper toy” suggest about the telescope?",
       "options": [
         "It was carefully folded into a much smaller shape.",
-        "It was made mostly of paper.",
-        "It was a toy rather than a real telescope.",
-        "It could be folded only once."
+        "It was made mostly of paper, like a toy kite",
+        "It was a toy rather than a real telescope for scientists",
+        "It could be folded only once before launch"
       ],
       "answer": "A",
       "why": "The comparison shows how the large telescope was folded neatly, like folded paper, to fit inside the rocket and then opened again."
@@ -431,8 +431,8 @@
       "options": [
         "to show that Webb was built near a sports club",
         "to help readers picture sizes that are hard to imagine",
-        "to prove that the telescope is very light",
-        "to suggest that the images are blurry"
+        "to prove that the telescope is very light and small",
+        "to suggest that the images are blurry and unclear"
       ],
       "answer": "B",
       "why": "Familiar objects help readers imagine an unusually large shield and an unusually small patch of sky."

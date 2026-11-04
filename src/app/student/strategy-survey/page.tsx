@@ -4,7 +4,7 @@ import { getActor, repo, requireActor } from "@/server/auth/next";
 import { myStrategySurvey, PHASE_LABEL, PHASES, STRATEGY_ITEMS, STRATEGY_LABEL } from "@/server/surveys/strategy";
 import { submitStrategySurveyAction } from "./actions";
 
-export const metadata = { title: "Reading Strategy Survey" };
+export const metadata = { title: "My Reading Strategies" };
 
 /** 🧭 The Reading Strategy Survey: 18 short situations — pick what a good reader would do. Once per term, no marks. */
 export default async function StrategySurveyPage({ searchParams }: { searchParams: Promise<{ msg?: string; done?: string }> }) {
@@ -16,7 +16,7 @@ export default async function StrategySurveyPage({ searchParams }: { searchParam
     <AppShell name={String(me.displayName)}>
       <header className="mb-6 rounded-3xl bg-white p-6 ring-1 ring-slate-200">
         <p className="text-4xl" aria-hidden="true">🧭</p>
-        <h1 className="mt-1 text-2xl font-bold text-brand-navy">Reading Strategy Survey</h1>
+        <h1 className="mt-1 text-2xl font-bold text-brand-navy">My Reading Strategies</h1>
         <p className="mt-1 text-slate-700">What do good readers do before, during and after reading? Read each question and choose the best answer. There are no marks — this helps your teacher plan reading groups.</p>
         <p className="mt-1 text-sm text-slate-500">{mine.term}{mine.openedByTeacher ? " · Your teacher asked your class to take it." : ""}</p>
       </header>

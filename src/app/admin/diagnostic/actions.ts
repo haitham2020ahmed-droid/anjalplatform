@@ -5,8 +5,10 @@ import { repo, requireActor } from "@/server/auth/next";
 import { ForbiddenError } from "@/server/auth/rbac";
 import { ValidationError } from "@/server/curriculum-admin";
 import { setDiagnosticWindow } from "@/server/diagnostic/window";
+import { endOfDay, startOfDay } from "@/lib/assign-dates";
 
-const day = (v: FormDataEntryValue | null, end = false) => { const x = String(v ?? ""); return /^\d{4}-\d{2}-\d{2}$/.test(x) ? new Date(`${x}T${end ? "23:59:59" : "00:00:00"}`) : null; };
+// a date input is a Riyadh school day (UTC+3): open at 00:00, close at the end of the day (23:59:59) — not the server's UTC
+const day = (v: FormDataEntryValue | null, end = false) => { const x = String(v ?? ""); return /^\d{4}-\d{2}-\d{2}$/.test(x) ? (end ? endOfDay(x) : startOfDay(x)) : null; };
 
 /** 🗓️ Open / close / schedule one grade's Diagnostic (school admin only — checked again in setDiagnosticWindow). */
 export async function setDiagnosticWindowAction(f: FormData): Promise<void> {

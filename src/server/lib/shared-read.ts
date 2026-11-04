@@ -5,8 +5,9 @@
  * process gives fresh data at once. Bounded: a few entries per database.
  */
 import { modelVersion } from "../cache/bank-version";
+import { sweptWeakMap } from "../cache/idle";
 
-const store = new WeakMap<object, Map<string, { at: number; p: Promise<unknown> }>>();
+const store = sweptWeakMap<{ at: number; p: Promise<unknown> }>("lib.shared-read.store", 15 * 60_000);
 const MAX = 48;
 
 /** A short, stable fingerprint of a list of ids (order-free). */

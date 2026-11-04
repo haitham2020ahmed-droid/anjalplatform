@@ -125,9 +125,9 @@
       "difficulty": 2,
       "stem": "Which information is the least clear in the passage?",
       "options": [
-        "Where Hadid was born",
-        "Which prize she won in 2004",
-        "What inspired the Riyadh center",
+        "Where Hadid was born as a child and went to school",
+        "Which prize she won in 2004 and who gave it to her",
+        "What inspired the Riyadh center and who drew its plans",
         "Why she moved from mathematics to architecture"
       ],
       "answer": "D",
@@ -157,10 +157,10 @@
       "difficulty": 3,
       "stem": "Which is the best alternative title for the passage?",
       "options": [
-        "Famous Buildings of Riyadh",
-        "Zaha Hadid's Childhood Bedroom",
+        "Famous Buildings of Riyadh and Jeddah",
+        "Zaha Hadid's Childhood Bedroom in Iraq",
         "The Architect Who Would Not Give Up",
-        "Prizes for Mathematicians"
+        "Prizes for Mathematicians Around the World"
       ],
       "answer": "C",
       "why": "The passage follows Hadid's whole career and her refusal to give up; the other titles focus on one small detail or something not covered."

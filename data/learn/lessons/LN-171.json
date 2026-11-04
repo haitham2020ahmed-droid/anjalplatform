@@ -85,10 +85,10 @@
     "passage": "Sara lost her cat. She looked under the bed. She looked in the garden. Then she heard a meow from the toy box. The cat was asleep inside it. Sara laughed.",
     "stem": "Which is the best summary of the story?",
     "options": [
-     "Sara looked under the bed.",
+     "Sara looked under the bed and behind the door.",
      "Sara lost her cat and then found it asleep in the toy box.",
-     "The cat likes to play with toys.",
-     "Sara has a big garden."
+     "The cat likes to play with toys all day long.",
+     "Sara has a big garden with a swing and many red flowers."
     ],
     "answer": 1,
     "hint": "That is only one small part. Which answer tells the problem AND how the story ends?",
@@ -117,9 +117,9 @@
      "passage": "Hamad planted a seed. He gave it water every day. Soon a small green plant came up. Hamad was proud.",
      "stem": "Which is the best summary?",
      "options": [
-      "Hamad likes cold water.",
+      "Hamad likes cold water in the summer.",
       "The plant was small and green.",
-      "Hamad was sad all day.",
+      "Hamad was sad all day at school.",
       "Hamad cared for a seed, and it grew."
      ],
      "answer": 3,
@@ -141,8 +141,8 @@
      "passage": "A baby bird fell from its nest. Yusuf found it on the grass. He and his father put it back in the nest. Soon the mother bird came back.",
      "stem": "Which is the best summary?",
      "options": [
-      "The grass was soft.",
-      "Mother birds fly fast.",
+      "The grass was soft and the sun was warm that day.",
+      "Mother birds fly fast and far to find food.",
       "Yusuf and his dad put a fallen bird back in its nest.",
       "Yusuf found a baby bird and kept it as a pet."
      ],
@@ -208,8 +208,8 @@
     "passage": "Faisal wanted to win the school reading prize. He read every evening, but by the end of the month he was still three books behind his friend Majid. One night Faisal noticed Majid's little sister struggling with a hard book. He sat beside her and helped her sound out the words. When the prize was announced, Majid won. Faisal did not mind, because Majid's sister had just finished her first book on her own, and she thanked him for his help.",
     "stem": "Which is the best summary of the story?",
     "options": [
-     "Faisal read every evening for a whole month.",
-     "Majid's little sister found a hard book at home.",
+     "Faisal read every evening for a whole month before the contest.",
+     "Majid's little sister found a hard book at home one day.",
      "Faisal lost the prize but was happy he helped a girl learn to read.",
      "Majid won because he was the best reader in the school."
     ],
@@ -328,9 +328,9 @@
     "stem": "Which best summarizes this scene?",
     "options": [
      "Grandfather gives Hassan a treasured boat, and Hassan promises to keep it safe.",
-     "Hassan thinks the wooden boat is too old to keep.",
-     "Grandfather's father sailed with the pearl divers.",
-     "Hassan learns how to carve a wooden boat."
+     "Hassan thinks the wooden boat is too old to keep, so he gives it back to his grandfather.",
+     "Grandfather's father sailed with the pearl divers when he was a young man.",
+     "Hassan learns how to carve a wooden boat from his uncle in the workshop."
     ],
     "answer": 0,
     "hint": "That is only one speech, or something that does not happen. What happens from the start of the scene to the end?",
@@ -359,10 +359,10 @@
      "passage": "A line from a poem: 'The desert night is wide and deep, a blanket stitched with stars.'",
      "stem": "Which is the best paraphrase of the line?",
      "options": [
-      "People in the desert sleep under warm blankets.",
-      "Someone sewed stars onto a blanket.",
+      "People in the desert sleep under warm wool blankets.",
+      "Someone sewed stars onto a blanket for the night.",
       "At night, the desert sky is huge and covered with stars.",
-      "The desert is a deep hole in the ground."
+      "The desert is a deep hole in the ground full of sand."
      ],
      "answer": 2,
      "why": "The 'blanket stitched with stars' is figurative. It means the wide night sky full of stars. The other choices read the words literally."
@@ -371,10 +371,10 @@
      "passage": "My little brother cried when we left our old house.\nHe held the door and would not go.\n\nNow he runs through our new garden,\nAnd calls the lemon tree his own.",
      "stem": "Which best summarizes the poem?",
      "options": [
-      "The family's new house has a lemon tree.",
+      "The family's new house has a lemon tree in the yard.",
       "A boy who was sad to move learns to love his new home.",
       "A boy cries because he does not like lemons.",
-      "The speaker's brother likes to hold doors."
+      "The speaker's brother likes to hold doors for people."
      ],
      "answer": 1,
      "why": "Stanza 1: the brother is sad to leave. Stanza 2: he is happy in the new garden. The summary joins both stanzas."
@@ -490,8 +490,8 @@
      "options": [
       "The speaker counts boxes and hates the new street and the grey door.",
       "The speaker hates a new home at first, but a neighbour's kindness changes that.",
-      "Fahad gives the speaker dates and a ball in spring.",
-      "The speaker is unfair to the people on the new street."
+      "Fahad gives the speaker dates and a ball in spring, but the speaker still hates the street.",
+      "The speaker is unfair to the people on the new street and never changes."
      ],
      "answer": 1,
      "why": "The poem shifts from unhappy (stanza 1) to at home (stanza 2), and Fahad's kindness causes the change. Calling the speaker 'unfair' is a judgment, not a summary."
@@ -500,10 +500,10 @@
      "passage": "MAHA: (pointing at the map) The shortest path goes over the hill.\nZAID: It's steep, and we have the heavy water bottles.\nMAHA: But we'll lose an hour on the valley road!\nZAID: (sitting down on his bag) Then go. I'll take the valley.\n(Maha looks at the hill, then at Zaid. She sighs and picks up one of his bottles.)\nMAHA: Fine. The valley. But you carry the map.",
      "stem": "Which best summarizes this scene?",
      "options": [
-      "Maha and Zaid get lost because they do not have a map.",
-      "Zaid is lazy and refuses to help carry the bottles.",
+      "Maha and Zaid get lost because they do not have a map or a phone.",
+      "Zaid is lazy and refuses to help carry the bottles up the hill.",
       "Maha and Zaid disagree about the route, and Maha agrees to take the valley.",
-      "Maha wants to walk over the hill because it is the shortest way."
+      "Maha wants to walk over the hill because it is the shortest way to the camp."
      ],
      "answer": 2,
      "why": "The scene's conflict is the route, and it ends with Maha giving in. Calling Zaid 'lazy' is a judgment, and the hill choice is only the beginning."

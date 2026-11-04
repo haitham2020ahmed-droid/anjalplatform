@@ -70,9 +70,9 @@
     "stem": "How do the first two sentences and the last three sentences go together?",
     "options": [
      "The first part asks a question, and the last part answers it.",
-     "Both parts tell about the same sunny day in class.",
+     "Both parts tell about the same sunny day in class, with the same children.",
      "The first part tells a problem, and the last part tells how it was fixed.",
-     "The last part tells a new problem with the plant."
+     "The last part tells a new problem with the plant and the pot."
     ],
     "answer": 2,
     "hint": "What was wrong at first? What did the class do about it?",
@@ -101,9 +101,9 @@
      "stem": "How do the parts go together?",
      "options": [
       "A question, then the answer",
-      "A problem, then a fix",
-      "Two different animals",
-      "A list of colors"
+      "A problem, then a good fix",
+      "Two different kinds of animals",
+      "A list of colors and shapes"
      ],
      "answer": 0,
      "why": "The first sentence asks a question. The next sentences answer it."
@@ -112,9 +112,9 @@
      "passage": "The road was full of holes. Cars bumped and shook. Workers came and filled the holes. Now the road is smooth.",
      "stem": "What does the second part of the text do?",
      "options": [
-      "It asks a question.",
-      "It tells about cars.",
-      "It tells a new problem.",
+      "It asks a question to the reader.",
+      "It tells about cars and trucks on roads.",
+      "It tells a new problem to solve.",
       "It tells how the problem was fixed."
      ],
      "answer": 3,
@@ -124,10 +124,10 @@
      "passage": "Lions and house cats are both cats. But lions are big and live in the wild. House cats are small and live with people.",
      "stem": "What does this text do?",
      "options": [
-      "Tells the steps to look after a cat in order",
+      "Tells the steps to look after a cat in order each day",
       "Tells how lions and house cats are alike and different",
-      "Asks a question about where lions live",
-      "Tells a problem that house cats have"
+      "Asks a question about where lions live in the wild",
+      "Tells a problem that house cats have with their food"
      ],
      "answer": 1,
      "why": "It says they are both cats (alike), then shows how they are different."
@@ -180,9 +180,9 @@
     "stem": "How does the third sentence relate to the first two sentences?",
     "options": [
      "It gives a solution to the problem they describe.",
-     "It gives an example of a hot day.",
-     "It describes a new problem.",
-     "It compares two buses."
+     "It gives an example of a very hot day in July.",
+     "It describes a new problem for the bus drivers.",
+     "It compares two buses and shows which is faster."
     ],
     "answer": 0,
     "hint": "Look for the clue words at the start of the third sentence: To solve this.",
@@ -208,10 +208,10 @@
      "passage": "Plants need sunlight to make food. For example, a bean plant kept in a dark cupboard turns pale and weak. A bean plant on a sunny windowsill grows green and strong.",
      "stem": "How do the second and third sentences relate to the first?",
      "options": [
-      "They tell a problem and a solution.",
+      "They tell a problem and then a solution that fixes it.",
       "They give examples that show the first sentence is true.",
-      "They tell steps in time order.",
-      "They give a different opinion."
+      "They tell steps in time order, one after the other.",
+      "They give a different opinion from the first sentence."
      ],
      "answer": 1,
      "why": "For example shows the bean plants are examples of plants needing sunlight."
@@ -220,10 +220,10 @@
      "passage": "The town's old market was crowded and had no shade. As a result, fewer people shopped there in summer. Shop owners lost money each year.",
      "stem": "What does the second sentence do?",
      "options": [
-      "It gives a solution.",
-      "It asks a question.",
+      "It gives a solution to the problem in the text.",
+      "It asks a question about the problem in the text.",
       "It tells a result of the problem in the first sentence.",
-      "It describes a different market."
+      "It describes a different market in another town far away."
      ],
      "answer": 2,
      "why": "As a result shows the second sentence tells an effect of the crowded, shadeless market."
@@ -233,8 +233,8 @@
      "stem": "How do the second and third sentences relate to the first?",
      "options": [
       "They give examples of shark attacks.",
-      "They tell steps in order.",
-      "They repeat the first sentence.",
+      "They tell steps in order, one by one.",
+      "They repeat the first sentence word for word.",
       "They give facts that show a different side."
      ],
      "answer": 3,
@@ -291,10 +291,10 @@
     "passage": "Many coastal cities face a growing problem: beaches are washing away. Strong waves and rising seas carry sand out to the ocean faster than it returns. One solution is to build stone walls that break the waves before they reach the shore. Another is to pump sand from the seabed back onto the beach. Some cities also plant grasses on the dunes, because their roots hold the sand in place. Each solution has costs, so planners often combine more than one.",
     "stem": "Which best describes how this passage is organized?",
     "options": [
-     "Sequence: it tells events in time order.",
+     "Sequence: it tells events in time order, day by day.",
      "Problem and solution: it describes a problem and ways to fix it.",
-     "Description: it describes what beaches look like.",
-     "Compare and contrast: it compares two cities."
+     "Description: it describes what beaches look like in the summer.",
+     "Compare and contrast: it compares two big cities."
     ],
     "answer": 1,
     "hint": "Look at the words problem, One solution and Another. What pattern runs through the passage?",
@@ -459,10 +459,10 @@
      "passage": "In an article about desert locusts, the first section describes what a locust looks like. The second explains why swarms form after heavy rain. The third describes how teams stop swarms early. The last section warns that swarms may become more common as weather patterns change.",
      "stem": "What is the role of the third section in the article as a whole?",
      "options": [
-      "It describes a cause of swarms.",
+      "It describes a cause of swarms, such as wet weather and food.",
       "It presents a solution to the problem described before it.",
-      "It describes the insect's body.",
-      "It gives the history of locusts."
+      "It describes the insect's body, wings and legs.",
+      "It gives the history of locusts in the old days."
      ],
      "answer": 1,
      "why": "After the article explains why swarms form, the third section tells how teams stop them: a solution."

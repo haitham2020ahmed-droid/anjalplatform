@@ -7,6 +7,7 @@
  */
 import type { Repo, Row } from "../seeding/repo";
 import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
+import { audit } from "../audit";
 import { ValidationError } from "../curriculum-admin";
 import { attachmentNodes } from "../curriculum-map/questions";
 import { notifyTeachers, recordLevel } from "../curriculum-map/student-level";
@@ -34,22 +35,30 @@ const MANUAL = new Set(["SHORT_ANSWER"]);
 export type Period = "BOY" | "MOY" | "EOY";
 export const PERIODS: Period[] = ["BOY", "MOY", "EOY"];
 export const PERIOD_LABEL: Record<Period, string> = { BOY: "Beginning of Year", MOY: "Middle of Year", EOY: "End of Year" };
-/** The window of the date: Aug–Nov BOY · Dec–Feb MOY · Mar–Jul EOY. */
+/** Riyadh time (UTC+3, no daylight saving): the school's calendar day, whatever the server's clock (Render runs in UTC). */
+const RIYADH_MS = 3 * 3_600_000;
+/** the date as Riyadh's wall clock, read with the getUTC… getters */
+const riyadh = (now: Date) => new Date(now.getTime() + RIYADH_MS);
+/** "YYYY-MM-DD" of the Riyadh day the instant falls on */
+export const riyadhDay = (v: Date | null) => (v ? riyadh(v).toISOString().slice(0, 10) : null);
+/** The window of the date (Riyadh calendar): Aug–Nov BOY · Dec–Feb MOY · Mar–Jul EOY. */
 export function periodOf(now = new Date()): Period {
-  const m = now.getUTCMonth();
+  const m = riyadh(now).getUTCMonth();
   return m >= 7 && m <= 10 ? "BOY" : m === 11 || m <= 1 ? "MOY" : "EOY";
 }
 export const asPeriod = (v: unknown): Period => (PERIODS.includes(String(v ?? "").toUpperCase() as Period) ? (String(v).toUpperCase() as Period) : "BOY");
-/** The first day of the period window the date is in (Aug 1 · Dec 1 · Mar 1, UTC). */
+/** The first moment of the period window the date is in (Aug 1 · Dec 1 · Mar 1, 00:00 Riyadh). */
 export function periodStart(now = new Date()): Date {
-  const y = now.getUTCFullYear(), m = now.getUTCMonth(), p = periodOf(now);
-  if (p === "BOY") return new Date(Date.UTC(y, 7, 1));
-  if (p === "MOY") return new Date(Date.UTC(m === 11 ? y : y - 1, 11, 1));
-  return new Date(Date.UTC(y, 2, 1));
+  const r = riyadh(now);
+  const y = r.getUTCFullYear(), m = r.getUTCMonth(), p = periodOf(now);
+  const at = (yy: number, mm: number) => new Date(Date.UTC(yy, mm, 1) - RIYADH_MS);
+  if (p === "BOY") return at(y, 7);
+  if (p === "MOY") return at(m === 11 ? y : y - 1, 11);
+  return at(y, 2);
 }
 
-/** "2026-2027" from August on, else "2025-2026". */
-export const schoolYear = (now = new Date()) => { const y = now.getUTCFullYear(); return now.getUTCMonth() >= 7 ? `${y}-${y + 1}` : `${y - 1}-${y}`; };
+/** "2026-2027" from August on (Riyadh calendar), else "2025-2026". */
+export const schoolYear = (now = new Date()) => { const r = riyadh(now); const y = r.getUTCFullYear(); return r.getUTCMonth() >= 7 ? `${y}-${y + 1}` : `${y - 1}-${y}`; };
 const bandsOf = (t: Row | null) => { const b = (typeof t?.bands === "string" ? JSON.parse(s(t.bands)) : t?.bands) as { above?: number; on?: number } | null; return { above: Number(b?.above) || DEFAULT_BANDS.above, on: Number(b?.on) || DEFAULT_BANDS.on }; };
 export const levelForPct = (pct: number, bands = DEFAULT_BANDS): "ABOVE" | "ON" | "BELOW" => (pct >= bands.above ? "ABOVE" : pct >= bands.on ? "ON" : "BELOW");
 /** a stable pseudo-random order (no Math.random): the same pool gives the same test */
@@ -210,8 +219,33 @@ export async function diagnosticNext(repo: Repo, assessmentId: string, sessionId
   if (!x) return null;
   const answers = await answersOf(repo, sessionId);
   const start = await startOf(repo, x.t, sessionId, studentId);
-  const design = await studentDesign(repo, x.t, x.design, studentId);
+  const design = await servableDesign(repo, assessmentId, await studentDesign(repo, x.t, x.design, studentId), answers);
   return { nextId: nextItem(design, answers, start, studentId, await freshAllow(repo, assessmentId, design, answers, sessionId, studentId)), total: design.blueprint.length };
+}
+
+/** live (published, not deleted) questions of a frozen design, kept while the bank is unchanged in this process */
+const liveCache = new Map<string, { v: string; at: number; ids: Set<string> }>();
+/**
+ * 🩹 The frozen design minus the questions that can no longer be served (unpublished or deleted since the test was
+ * built: the quiz could not load them, so the student saw "🎉 You finished" with no result saved). The questions
+ * this student already answered stay (their answers keep their slots). The same filter is used when the test is
+ * scored, so "finished" and "scored" always agree.
+ */
+async function servableDesign(repo: Repo, assessmentId: string, design: Design, answers: { id: string }[]): Promise<Design> {
+  const ids = design.items.map((q) => q.id);
+  const v = `${bankVersion()}|${modelVersion("Question")}|${ids.length}`;
+  let hit = liveCache.get(assessmentId);
+  // re-read at most once a minute (a question unpublished by another server process)
+  if (!hit || hit.v !== v || Date.now() - hit.at > 60_000) {
+    const live = new Set<string>();
+    for (let i = 0; i < ids.length; i += 500) for (const q of await repo.findMany("Question", { id: { in: ids.slice(i, i + 500) }, status: "PUBLISHED", deletedAt: null }, { select: ["id"] })) live.add(s(q.id));
+    hit = { v, at: Date.now(), ids: live };
+    remember(liveCache, assessmentId, hit, 64);
+  }
+  const done = new Set(answers.map((a) => a.id));
+  const live = hit.ids;
+  if (design.items.every((q) => live.has(q.id))) return design;
+  return { ...design, items: design.items.filter((q) => live.has(q.id) || done.has(q.id)) };
 }
 
 /**
@@ -475,7 +509,8 @@ export async function swapDiagnosticQuestion(repo: Repo, actor: Actor, id: strin
     const items = ds.items.filter((q) => q.id !== questionId);
     if (me && items.filter((q) => q.st === me.st).length < ds.blueprint.filter((a) => strandOfAnchor(a) === me.st).length) throw new ValidationError("This strand would have too few questions left. Add questions to the bank first.");
     await repo.deleteMany("AssessmentQuestion", { assessmentId: t.assessmentId, questionId });
-    await repo.updateMany("DiagnosticTest", { id }, { design: { blueprint: ds.blueprint, items } });
+    // every other field of the design (the focus form …) is kept
+    await repo.updateMany("DiagnosticTest", { id }, { design: { ...ds, items } });
     designCache.clear(); focusCache.clear();
     return "";
   }
@@ -529,10 +564,12 @@ async function ensureClassAssignmentUnlocked(repo: Repo, t: Row, klass: Row, act
   }
   const lead = (await repo.findMany("ClassTeacher", { classId: klass.id }, { select: ["teacherId", "isLead"] })).sort((a, b) => Number(Boolean(b.isLead)) - Number(Boolean(a.isLead)))[0];
   if (!lead || !members.length) return false;
-  const a = await repo.create("Assignment", { classId: klass.id, createdById: lead.teacherId, title: s(t.title), target: "ASSESSMENT", track: "CURRICULUM", assessmentId: t.assessmentId, startAt: opensAt, dueAt: closesAt, note: `${PERIOD_LABEL[asPeriod(t.period)]} Diagnostic Test`, createdAt: now });
+  const a = await repo.create("Assignment", { classId: klass.id, createdById: lead.teacherId, title: s(t.title), target: "ASSESSMENT", track: "CURRICULUM", assessmentId: t.assessmentId, startAt: opensAt, dueAt: closesAt, note: `${PERIOD_LABEL[asPeriod(t.period)]} Diagnostic Test`, createdAt: now, source: "CURRICULUM" });
   await repo.createMany("AssignmentStudent", members.map((studentId) => ({ assignmentId: a.id, studentId, status: "NOT_STARTED", progress: 0 })));
   const users = await repo.findMany("Student", { id: { in: members } }, { select: ["userId"] });
-  await repo.createMany("Notification", users.map((u) => ({ userId: u.userId, type: "NEW_ASSIGNMENT", title: "📝 Your Diagnostic Test is ready", body: `${s(t.title)}: about ${DIAGNOSTIC_SIZE} questions. Take your time and do your best — there is no score shown until your teacher shares your report.`, link: `/quiz/${s(a.id)}`, readAt: null, createdAt: now })));
+  // 🔧 fix (Oct 2026): this spelled out the internal question count (DIAGNOSTIC_SIZE) in student-facing text;
+  // reworded to avoid the specific number, matching map-notify.ts's deliberately number-free notification style.
+  await repo.createMany("Notification", users.map((u) => ({ userId: u.userId, type: "NEW_ASSIGNMENT", title: "📝 Your Diagnostic Test is ready", body: `${s(t.title)}: take your time and do your best — there is no score shown until your teacher shares your report.`, link: `/quiz/${s(a.id)}`, readAt: null, createdAt: now })));
   void actorUserId;
   return true;
 }
@@ -557,7 +594,7 @@ export async function listDiagnostics(repo: Repo, actor: Actor): Promise<Diagnos
   for (const t of tests.sort((a, b) => s(b.year).localeCompare(s(a.year)) || Number(a.grade) - Number(b.grade) || PERIODS.indexOf(asPeriod(a.period)) - PERIODS.indexOf(asPeriod(b.period)))) {
     const aids = (await repo.findMany("Assignment", { assessmentId: t.assessmentId, deletedAt: null }, { select: ["id"] })).map((a) => a.id);
     const students = aids.length ? await repo.count("AssignmentStudent", { assignmentId: { in: aids } }) : 0;
-    out.push({ id: s(t.id), grade: Number(t.grade), year: s(t.year), period: asPeriod(t.period), form: designOf(t)?.form === "focus" ? "focus" : "full", title: s(t.title), status: s(t.status), questions: designOf(t)?.blueprint.length ?? await repo.count("AssessmentQuestion", { assessmentId: t.assessmentId }), adaptive: isAdaptive(t), pool: designOf(t)?.items.length ?? 0, opensAt: d(t.opensAt)?.toISOString().slice(0, 10) ?? null, closesAt: d(t.closesAt)?.toISOString().slice(0, 10) ?? null, bands: bandsOf(t), students, finished: await repo.count("DiagnosticScore", { diagnosticId: t.id }) });
+    out.push({ id: s(t.id), grade: Number(t.grade), year: s(t.year), period: asPeriod(t.period), form: designOf(t)?.form === "focus" ? "focus" : "full", title: s(t.title), status: s(t.status), questions: designOf(t)?.blueprint.length ?? await repo.count("AssessmentQuestion", { assessmentId: t.assessmentId }), adaptive: isAdaptive(t), pool: designOf(t)?.items.length ?? 0, opensAt: riyadhDay(d(t.opensAt)), closesAt: riyadhDay(d(t.closesAt)), bands: bandsOf(t), students, finished: await repo.count("DiagnosticScore", { diagnosticId: t.id }) });
   }
   return out;
 }
@@ -625,7 +662,25 @@ export async function myDiagnostic(repo: Repo, actor: Actor, now = new Date()): 
   ]);
   const ses = sessions[0];
   const answered = ses ? await repo.count("QuestionAttempt", { sessionId: ses.id }) : 0;
-  return { id: s(t.id), title: s(t.title), href: `/quiz/${s(a.id)}`, status: res ? "DONE" : answered ? "STARTED" : "TODO", answered, total, shared: Boolean(res?.sharedAt) };
+  // 🩹 an ended sitting without a saved result (the scoring failed after the last answer): scored now
+  const got = res ?? (ses?.endedAt ? await recoverDiagnosticResult(repo, s(t.assessmentId), s(a.id), actor.studentId, ses, true, now) : null);
+  return { id: s(t.id), title: s(t.title), href: `/quiz/${s(a.id)}`, status: got ? "DONE" : answered ? "STARTED" : "TODO", answered, total, shared: Boolean(got?.sharedAt) };
+}
+
+/**
+ * 🐛 r91 fix ("double-submit ممكن يطلع error بدل ما يتجاهله بهدوء"): the check-then-create in recordDiagnosticResult/
+ * recordAdaptiveResult below is not inside one transaction, so a duplicate final-answer request (a double click, a
+ * retried network call) can pass the `done` check twice; the schema's unique (diagnosticId, studentId) then rejects
+ * the SECOND create. Caught here instead of surfacing as an unhandled exception — the second request just gets back
+ * the row the first one already wrote, exactly as the `done` early-return above was always meant to behave.
+ */
+async function createScoreOrExisting(repo: Repo, diagnosticId: string, studentId: string, data: Row): Promise<Row> {
+  try { return await repo.create("DiagnosticScore", data); }
+  catch (e) {
+    const row = (await repo.findMany("DiagnosticScore", { diagnosticId, studentId }))[0];
+    if (row) return row;
+    throw e;
+  }
 }
 
 /**
@@ -657,7 +712,7 @@ export async function recordDiagnosticResult(repo: Repo, assessmentId: string, a
   const times = attempts.map((a) => d(a.createdAt)!.getTime());
   const minutes = Math.round(attempts.reduce((m, a) => m + Math.min(Number(a.responseMs ?? 0), 300_000), 0) / 60_000) || Math.round((Math.max(...times) - Math.min(...times)) / 60_000);
   const rapid = attempts.filter((a) => a.rapidGuess).length;
-  const row = await repo.create("DiagnosticScore", {
+  const row = await createScoreOrExisting(repo, s(t.id), studentId, {
     diagnosticId: t.id, studentId, assignmentId, correct, total: order.length, pct, level,
     byStandard: [...stdMap.values()].sort((a, b) => a.code.localeCompare(b.code)), byStrand: [...strandMap].map(([strand, v]) => ({ strand, ...v })),
     rapid, minutes, completedAt: now, sharedAt: null, teacherNote: null,
@@ -669,12 +724,30 @@ export async function recordDiagnosticResult(repo: Repo, assessmentId: string, a
   if (!invalid) {
     await recordLevel(repo, { studentId, level, source: "PLACEMENT", reason: `Diagnostic Test ${pct}%`, answers: order.length, now });
     // practice priors by domain (estimated from the answers and the questions' levels)
-    const scored = order.map((id) => { const q = pool.get(id); const area = q?.area ?? areaOfCategory("READING", grade); return { anchor: area.anchor, strand: area.strand, d: difficultyOf(grade, q?.level ?? 4), correct: Boolean(answered.get(id)!.isCorrect) }; });
+    // rapid guesses weigh nothing in the estimates (effort-moderated scoring, as the old placement check)
+    const scored = order.map((id) => { const q = pool.get(id); const area = q?.area ?? areaOfCategory("READING", grade); return { anchor: area.anchor, strand: area.strand, d: difficultyOf(grade, q?.level ?? 4), correct: Boolean(answered.get(id)!.isCorrect), weight: answered.get(id)!.rapidGuess ? 0 : 1 }; });
     await writeDomainAbilities(repo, studentId, grade, scored, estimate(scored, grade).theta);
   }
   const name = s((await repo.findUnique("User", { id: (await repo.findUnique("Student", { id: studentId }))?.userId }))?.displayName) || "A student";
   await notifyTeachers(repo, studentId, invalid ? `⚡ ${name}'s Diagnostic is invalid — re-test` : `📝 ${name} finished the Diagnostic`, invalid ? `${rapid} of ${order.length} answers were rapid guesses (too fast to read). The result (${pct}%) is not used for the level or the support tier. Talk with the student and re-test.` : `${correct}/${order.length} (${pct}%) · ${level.charAt(0)}${level.slice(1).toLowerCase()} Level.${rapid >= order.length * 0.2 ? ` ⚡ ${rapid} answers were too fast — the result may be lower than their real level.` : ""}`, now);
   return row;
+}
+
+/**
+ * 🩹 Recovery: a finished Diagnostic sitting (its session ended, or no question left) with no saved result — the
+ * scoring failed after the last answer was saved (a crash, a lost connection to the database). Scored now, when the
+ * student opens the test again or their Diagnostic state is read. Idempotent (recordDiagnosticResult returns the
+ * existing result; createScoreOrExisting guards a race). Never throws: a failure is retried on the next read.
+ */
+export async function recoverDiagnosticResult(repo: Repo, assessmentId: string, assignmentId: string, studentId: string, session: Row | null | undefined, finished?: boolean, now = new Date()): Promise<Row | null> {
+  if (!session || !assessmentId || !(finished ?? Boolean(session.endedAt))) return null;
+  try {
+    const t = (await repo.findMany("DiagnosticTest", { assessmentId }, { select: ["id"] }))[0];
+    if (!t) return null;
+    const have = (await repo.findMany("DiagnosticScore", { diagnosticId: t.id, studentId }))[0];
+    if (have) return have;
+    return await recordDiagnosticResult(repo, assessmentId, assignmentId, studentId, s(session.id), now);
+  } catch { return null; }
 }
 
 /** The practice domain (Skill.domain) a Diagnostic anchor measures. */
@@ -702,9 +775,10 @@ export function toPracticeTheta(thetaGrade: number, grade: number): number {
  * from), on the practice θ scale. Like the legacy placement check, the newest placement replaces the domain estimate
  * (practice itself never writes DOMAIN rows; it keeps its own SKILL rows).
  */
-export async function writeDomainAbilities(repo: Repo, studentId: string, grade: number, rows: { anchor: string; strand: Strand; d: number; correct: boolean }[], overallTheta: number): Promise<void> {
-  const byDomain = new Map<string, { d: number; correct: boolean }[]>();
-  for (const r of rows) { const k = domainOfAnchor(r.anchor, r.strand); if (k === "WRITING") continue; byDomain.set(k, [...(byDomain.get(k) ?? []), { d: r.d, correct: r.correct }]); }
+export async function writeDomainAbilities(repo: Repo, studentId: string, grade: number, rows: { anchor: string; strand: Strand; d: number; correct: boolean; weight?: number }[], overallTheta: number): Promise<void> {
+  const byDomain = new Map<string, { d: number; correct: boolean; weight?: number }[]>();
+  // a rapid guess (weight 0) is no evidence of the area
+  for (const r of rows) { const k = domainOfAnchor(r.anchor, r.strand); if (k === "WRITING" || r.weight === 0) continue; byDomain.set(k, [...(byDomain.get(k) ?? []), { d: r.d, correct: r.correct }]); }
   const scale = (LEVEL_TO_B[5] - LEVEL_TO_B[4]) * 3;
   for (const [domain, list] of byDomain) {
     const e = estimate(list, overallTheta, 0.6); // leans on the overall estimate when the area has few answers
@@ -726,15 +800,19 @@ export async function diagnosticOfAssessment(repo: Repo, assessmentId: string): 
  * level, and the estimated MAP Reading RIT.
  */
 async function recordAdaptiveResult(repo: Repo, t: Row, assignmentId: string, studentId: string, sessionId: string, now: Date): Promise<Row | null> {
-  const design = await studentDesign(repo, t, designOf(t)!, studentId);
   const answers = await answersOf(repo, sessionId);
+  // the same servable design the quiz served from (diagnosticNext): finished there = scored here
+  const design = await servableDesign(repo, s(t.assessmentId), await studentDesign(repo, t, designOf(t)!, studentId), answers);
   const start = await startOf(repo, t, sessionId, studentId);
   if (replay(design, answers).open.length && nextItem(design, answers, start, studentId, await freshAllow(repo, s(t.assessmentId), design, answers, sessionId, studentId))) return null;
   const grade = Number(t.grade);
   const byId = new Map(design.items.map((q) => [q.id, q]));
   const rows = answers.filter((a) => byId.has(a.id)).map((a) => ({ ...a, q: byId.get(a.id)! }));
-  const overall = estimate(rows.map((r) => ({ d: r.q.d, correct: r.correct })), start);
-  const part = (list: typeof rows) => { const e = estimate(list.map((r) => ({ d: r.q.d, correct: r.correct })), overall.theta, 0.6); return { correct: list.filter((r) => r.correct).length, total: list.length, theta: e.theta, score: scoreOf(e.theta, grade), gl: gradeLabel(e.theta) }; };
+  // rapid guesses weigh nothing in the estimates (overall, skill, strand, MAP area — effort-moderated scoring, as the
+  // old placement check did); they still count in correct / total and in the validity rule (30 %+ rapid → invalid)
+  const ev = (list: typeof rows) => list.map((r) => ({ d: r.q.d, correct: r.correct, weight: r.rapid ? 0 : 1 }));
+  const overall = estimate(ev(rows), start);
+  const part = (list: typeof rows) => { const e = estimate(ev(list), overall.theta, 0.6); return { correct: list.filter((r) => r.correct).length, total: list.length, theta: e.theta, score: scoreOf(e.theta, grade), gl: gradeLabel(e.theta) }; };
   const anchors = [...new Set(rows.map((r) => r.q.a))];
   const byStandard = anchors.map((a) => { const area = areaOfStandard(codeFor(a, grade)) ?? areaOfCategory("READING", grade); return { code: codeFor(a, grade), label: area.label, strand: area.strand, anchor: a, ...part(rows.filter((r) => r.q.a === a)) }; }).sort((x, y) => x.code.localeCompare(y.code, undefined, { numeric: true }));
   const byStrand = (["LIT", "INFO", "VOCAB", "LANG", "FOUND"] as Strand[]).filter((st) => rows.some((r) => r.q.st === st)).map((st) => ({ strand: st, ...part(rows.filter((r) => r.q.st === st)) }));
@@ -763,7 +841,7 @@ async function recordAdaptiveResult(repo: Repo, t: Row, assignmentId: string, st
   const correct = rows.filter((r) => r.correct).length;
   const minutes = Math.round(answers.reduce((m, a) => m + Math.min(a.ms, 300_000), 0) / 60_000) || Math.round((Math.max(...answers.map((a) => a.at)) - Math.min(...answers.map((a) => a.at))) / 60_000);
   const rapid = answers.filter((a) => a.rapid).length;
-  const row = await repo.create("DiagnosticScore", {
+  const row = await createScoreOrExisting(repo, s(t.id), studentId, {
     diagnosticId: t.id, studentId, assignmentId, correct, total: rows.length, pct, level, byStandard, byStrand, rapid, minutes,
     theta: overall.theta, thetaSE: overall.se, ritEstimate: rit, byArea, completedAt: now, sharedAt: null, teacherNote: null,
   });
@@ -772,9 +850,50 @@ async function recordAdaptiveResult(repo: Repo, t: Row, assignmentId: string, st
   if (!invalid) {
     await recordLevel(repo, { studentId, level, source: "PLACEMENT", reason: `Diagnostic Test · reading at ${gradeLabel(overall.theta)} (score ${pct})`, answers: rows.length, now });
     // practice priors by domain, on the practice θ scale
-    await writeDomainAbilities(repo, studentId, grade, rows.map((r) => ({ anchor: r.q.a, strand: r.q.st, d: r.q.d, correct: r.correct })), overall.theta);
+    await writeDomainAbilities(repo, studentId, grade, rows.map((r) => ({ anchor: r.q.a, strand: r.q.st, d: r.q.d, correct: r.correct, weight: r.rapid ? 0 : 1 })), overall.theta);
   }
   const name = s((await repo.findUnique("User", { id: (await repo.findUnique("Student", { id: studentId }))?.userId }))?.displayName) || "A student";
   await notifyTeachers(repo, studentId, invalid ? `⚡ ${name}'s Diagnostic is invalid — re-test` : `📝 ${name} finished the Diagnostic`, invalid ? `${rapid} of ${rows.length} answers were rapid guesses (too fast to read). The result (score ${pct}) is not used for the level or the support tier. Talk with the student and re-test.` : `Reading at ${gradeLabel(overall.theta)} · score ${pct} · ${level.charAt(0)}${level.slice(1).toLowerCase()} Level${rit ? ` · about RIT ${rit}` : ""}.${rapid >= rows.length * 0.2 ? ` ⚡ ${rapid} answers were too fast — the result may be lower than their real level.` : ""}`, now);
   return row;
+}
+
+/**
+ * 🐛 r91 fix ("لو النتيجة Invalid مفيش طريقة يعيد الطالب الاختبار"): recordDiagnosticResult/recordAdaptiveResult
+ * above return the EXISTING DiagnosticScore as soon as one exists (even an invalid, rapid-guessed one), so a
+ * student who retakes properly never got a new result recorded. This clears one student's attempt at one
+ * Diagnostic — their DiagnosticScore, and the quiz session + answers behind it — so their NEXT attempt starts
+ * clean and is recorded for real. (An INVALID result never set the student's level or practice priors in the
+ * first place — see the `if (!invalid)` guards above — so there is nothing to undo there; a VALID result's level
+ * stays as recorded unless the retake finishes and overwrites it, exactly like a fresh placement always would.)
+ */
+export async function resetDiagnosticAttempt(repo: Repo, actor: Actor, diagnosticId: string, studentId: string, now = new Date()): Promise<void> {
+  assertCan(actor, "assignments:create");
+  const t = await repo.findUnique("DiagnosticTest", { id: diagnosticId });
+  if (!t) throw new ValidationError("That Diagnostic was not found.");
+  // 🔒 only the test's own school, and only a student the actor may read (teacher: their classes; admin: their school)
+  if (s(t.schoolId) !== s(actor.schoolId)) throw new ForbiddenError("Diagnostic not found.");
+  const st = await repo.findUnique("Student", { id: studentId });
+  if (!st || st.deletedAt || s(st.schoolId) !== s(actor.schoolId)) throw new ForbiddenError("Student not found.");
+  if (actor.role !== "SCHOOL_ADMIN" && actor.role !== "SUPER_ADMIN") {
+    if (actor.role !== "TEACHER") throw new ForbiddenError("You can only reset your own students' Diagnostic.");
+    const { readableClasses } = await import("../teacher/coordinators");
+    const mine = new Set((await readableClasses(repo, actor)).map((c) => s(c.id)));
+    const theirs = await repo.findMany("ClassMembership", { studentId, leftAt: null }, { select: ["classId"] });
+    if (!theirs.some((m) => mine.has(s(m.classId)))) throw new ForbiddenError("This student is not in your classes.");
+  }
+  const score = (await repo.findMany("DiagnosticScore", { diagnosticId, studentId }))[0];
+  const assignments = t.assessmentId ? await repo.findMany("Assignment", { assessmentId: t.assessmentId, deletedAt: null }) : [];
+  const sessions = assignments.length ? await repo.findMany("PracticeSession", { studentId, assignmentId: { in: assignments.map((a) => s(a.id)) }, mode: "TEACHER_QUIZ" }) : [];
+  if (!score && !sessions.length) throw new ValidationError("This student has no Diagnostic attempt to reset.");
+  if (sessions.length) {
+    await repo.deleteMany("QuestionAttempt", { sessionId: { in: sessions.map((x) => s(x.id)) } });
+    await repo.deleteMany("PracticeSession", { id: { in: sessions.map((x) => s(x.id)) } });
+  }
+  if (score) await repo.deleteMany("DiagnosticScore", { id: s(score.id) });
+  // 🔧 fix (Oct 2026): this cleared the quiz data but left the student's AssignmentStudent row for this Diagnostic
+  // assignment as COMPLETED (progress 1, completedAt set), so "My Work" still showed it done and never offered the
+  // retake — only THIS student's row(s) on the SAME diagnostic assignments are touched, never other students' or
+  // other assignments' rows.
+  if (assignments.length) await repo.updateMany("AssignmentStudent", { studentId, assignmentId: { in: assignments.map((a) => s(a.id)) } }, { status: "NOT_STARTED", completedAt: null, progress: 0 });
+  await audit(repo, { actorId: actor.userId, action: "diagnostic.reset_attempt", entityType: "DiagnosticTest", entityId: s(diagnosticId), after: { studentId, hadScore: Boolean(score) }, at: now });
 }

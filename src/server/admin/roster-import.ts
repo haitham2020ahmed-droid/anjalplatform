@@ -5,7 +5,7 @@
  *   role            STUDENT | TEACHER | PARENT | SCHOOL_ADMIN
  *   username        login name (lowercase letters, digits, . _ -)
  *   display_name    full name (Arabic or English)
- *   student_number  students: school-issued number
+ *   student_number  students: school-issued number (empty for a new student: the next free number, AJ26-001 …)
  *   grade           students: grade level (4, 5, 6 …)
  *   class           students: their class; teachers: classes taught, separated by ";"
  *   email           optional
@@ -23,7 +23,7 @@
  * returned once as a credentials CSV and stored only as hashes.
  */
 import { createHash } from "node:crypto";
-import { withdrawOldClassWork } from "./student-move";
+import { withdrawOldClassWork, addNewClassWork } from "./student-move";
 import { parseCsv, toCsv } from "../../imports/csv";
 import { readXlsx } from "../../imports/xlsx";
 import { audit } from "../audit";
@@ -36,7 +36,8 @@ import { studentPasswordIsUsername } from "./student-cards";
 import { assertCan, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
 import type { Repo, Row } from "../seeding/repo";
-import { cleanName, cleanUsername, MANAGED_ROLES, schoolOf, type ManagedRole } from "./users";
+import { cleanName, cleanUsername, holderHref, holderText, MANAGED_ROLES, schoolOf, studentNumberClash, studentNumberHolder, usernameHolder, type ManagedRole } from "./users";
+import { nextNumbers } from "./quick-students";
 
 export const ROSTER_COLUMNS = ["role", "username", "display_name", "student_number", "grade", "class", "email", "title", "parent_of", "relationship"] as const;
 type Col = (typeof ROSTER_COLUMNS)[number];
@@ -46,6 +47,8 @@ export interface RosterProblem {
   line: number;
   column: string;
   message: string;
+  /** the account the row clashes with (Users, removed / inactive shown): open it to restore or check it */
+  href?: string;
 }
 
 export interface RosterLine {
@@ -55,6 +58,7 @@ export interface RosterLine {
   username: string;
   displayName: string;
   email: string | null;
+  /** null for a new student without a number: the next free number is given at import */
   studentNumber: string | null;
   grade: number | null;
   classes: string[]; // class names
@@ -85,10 +89,15 @@ export function readRosterFile(fileName: string, bytes: Uint8Array): string[][] 
   throw new ValidationError("Upload a .csv or .xlsx file.");
 }
 
+/** ⚡ r91: three STUDENT example rows (not one) — the repeated shape makes it obvious, without a word of English,
+ *  that every student is its own row underneath, as many as needed; TEACHER and PARENT stay as one example each,
+ *  clearly after all the students, since most imports are students only. */
 export function rosterTemplateCsv(): string {
   return toCsv([
     [...ROSTER_COLUMNS],
     ["STUDENT", "s.4001", "Layan Ahmed", "4001", "4", "4A", "", "", "", ""],
+    ["STUDENT", "s.4002", "Omar Khalid", "4002", "4", "4A", "", "", "", ""],
+    ["STUDENT", "s.4003", "Sara Nasser", "4003", "4", "4A", "", "", "", ""],
     ["TEACHER", "t.huda", "Huda Salem", "", "", "4A;4B", "huda@example.edu.sa", "Miss", "", ""],
     ["PARENT", "p.4001", "Ahmed Ali", "", "", "", "", "", "4001", "father"],
   ]);
@@ -124,6 +133,8 @@ export async function planRoster(repo: Repo, actor: Actor, fileName: string, byt
   const lines: RosterLine[] = [];
   const newClasses = new Map<string, { name: string; grade: number }>(); // key: upper-case name
   const seenUser = new Set<string>(), seenNumber = new Set<string>(), seenEmail = new Set<string>();
+  // clashes with accounts the admin may not see (archived / inactive): described after the loop (a few reads, clashes only)
+  const clashes: { problem: RosterProblem; kind: "number" | "email"; value: string }[] = [];
 
   rows.slice(1).forEach((r, i) => {
     const line = i + 2;
@@ -143,7 +154,11 @@ export async function planRoster(repo: Repo, actor: Actor, fileName: string, byt
     if (existing && existing.role !== role && (MANAGED_ROLES as readonly string[]).includes(role)) bad("role", `Existing user is a ${String(existing.role)}; roles cannot be changed by import.`);
     const email = get("email").toLowerCase() || null;
     if (email && !EMAIL.test(email)) bad("email", "Email address is not valid.");
-    if (email && (seenEmail.has(email) || users.some((u) => u.email === email && u.username !== username))) bad("email", "Email address is already used.");
+    if (email && seenEmail.has(email)) bad("email", "Email address appears more than once in the file.");
+    else if (email) {
+      const holder = users.find((u) => u.email === email && u.username !== username);
+      if (holder) { bad("email", "Email address is already used."); if (holder.schoolId === schoolId) clashes.push({ problem: problems[problems.length - 1], kind: "email", value: String(holder.username) }); }
+    }
     if (email) seenEmail.add(email);
 
     let studentNumber: string | null = null, grade: number | null = null;
@@ -151,13 +166,16 @@ export async function planRoster(repo: Repo, actor: Actor, fileName: string, byt
     for (const c of classNames) if (!CLASS_NAME.test(c)) bad("class", `"${c}" is not a valid class name.`);
     if (role === "STUDENT") {
       studentNumber = get("student_number");
-      if (!STUDENT_NO.test(studentNumber)) bad("student_number", "Student number is required (letters, digits and dashes).");
+      const mine = existing ? students.find((s) => s.userId === existing.id) : undefined;
+      if (!studentNumber) studentNumber = mine ? String(mine.studentNumber) : null; // empty: theirs, or a new one at import
+      if (studentNumber === null) { /* given at import */ }
+      else if (!STUDENT_NO.test(studentNumber)) bad("student_number", "Student number: letters, digits and dashes only (or leave it empty for a new student).");
       else if (seenNumber.has(studentNumber)) bad("student_number", "Student number appears more than once in the file.");
       else {
         const other = students.find((s) => s.studentNumber === studentNumber);
-        if (other && other.userId !== existing?.id) bad("student_number", `Student number ${studentNumber} belongs to another student.`);
+        if (other && other.userId !== existing?.id) { bad("student_number", `Student number ${studentNumber} belongs to another student.`); clashes.push({ problem: problems[problems.length - 1], kind: "number", value: studentNumber }); }
       }
-      seenNumber.add(studentNumber);
+      if (studentNumber) seenNumber.add(studentNumber);
       grade = Number(get("grade"));
       if (!grades.some((g) => Number(g.level) === grade)) bad("grade", `Grade "${get("grade")}" does not exist in this school.`);
       if (classNames.length > 1) bad("class", "A student belongs to one class.");
@@ -189,6 +207,13 @@ export async function planRoster(repo: Repo, actor: Actor, fileName: string, byt
     });
   });
 
+  for (const c of clashes) {
+    // "Student number 1 is used by Sara Ali (4A, removed on 2026-10-01)" + a link to that account — never a hidden clash
+    const h = c.kind === "number" ? await studentNumberHolder(repo, schoolId, c.value) : await usernameHolder(repo, c.value);
+    if (!h) continue;
+    if (c.kind === "number") { const e = studentNumberClash(h, c.value); c.problem.message = e.message; c.problem.href = e.href; }
+    else { c.problem.message = `Email address is already used by ${holderText(h)}.`; c.problem.href = holderHref(h); }
+  }
   if (!currentYear && newClasses.size) problems.push({ line: 1, column: "class", message: "Set up the current academic year before creating classes by import." });
   const knownClass = (c: string) => liveClasses.some((x) => String(x.name).toLowerCase() === c.toLowerCase()) || newClasses.has(c.toUpperCase());
   const numbersInFile = new Set(lines.filter((l) => l.role === "STUDENT").map((l) => l.studentNumber));
@@ -255,6 +280,10 @@ export async function applyRoster(repo: Repo, actor: Actor, fileName: string, by
       classesCreated++;
     }
     const studentIdByNumber = new Map((await tx.findMany("Student", { schoolId })).map((s) => [String(s.studentNumber), String(s.id)]));
+    // new students without a number: the next free numbers of the school's series
+    const numberless = plan.lines.filter((l) => l.role === "STUDENT" && !l.existingUserId && !l.studentNumber);
+    const fresh = nextNumbers([...studentIdByNumber.keys(), ...plan.lines.map((l) => l.studentNumber ?? "")], numberless.length, now.getUTCFullYear());
+    numberless.forEach((l, i) => { l.studentNumber = fresh[i]; });
     const order: ManagedRole[] = ["SCHOOL_ADMIN", "TEACHER", "STUDENT", "PARENT"];
     for (const l of [...plan.lines].sort((a, b) => order.indexOf(a.role) - order.indexOf(b.role))) {
       let userId = l.existingUserId;
@@ -286,6 +315,7 @@ export async function applyRoster(repo: Repo, actor: Actor, fileName: string, by
           await withdrawOldClassWork(tx, sid, open.map((m) => String(m.classId)), target);
           if (await tx.findUnique("ClassMembership", { classId: target, studentId: sid })) await tx.updateMany("ClassMembership", { classId: target, studentId: sid }, { leftAt: null, joinedAt: now });
           else await tx.create("ClassMembership", { classId: target, studentId: sid, joinedAt: now });
+          await addNewClassWork(tx, sid, target); // catch them up on the class's already-open work
         }
       }
       if (l.role === "TEACHER") {

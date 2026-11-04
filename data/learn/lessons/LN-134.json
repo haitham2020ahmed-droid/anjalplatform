@@ -93,10 +93,10 @@
      "passage": "Join the running club! Everyone in Grade 4 has joined. Don't be the only one left out!",
      "stem": "Which trick does this sign use?",
      "options": [
-      "A funny joke",
+      "A funny joke or riddle",
       "Everyone is doing it",
-      "A price list",
-      "A true story"
+      "A price list of items",
+      "A true story of a girl"
      ],
      "answer": 1,
      "why": "Everyone has joined and don't be left out push you to do what others do."
@@ -215,9 +215,9 @@
      "passage": "Is it fair that the youngest students never get to use the football field? Is it fair that they always wait? Of course not. Let's share the field by giving each grade a day.",
      "stem": "How does the speaker try to persuade the listeners?",
      "options": [
-      "By telling a funny story",
-      "By listing the rules of football",
-      "By describing the weather",
+      "By telling a funny story about a goalkeeper",
+      "By listing the rules of football for the team",
+      "By describing the weather on the day of the match",
       "By asking questions with an obvious answer"
      ],
      "answer": 3,
@@ -339,8 +339,8 @@
      "options": [
       "It gives too many facts about the cream.",
       "It uses exciting words but gives no real facts.",
-      "It only quotes a doctor.",
-      "It says too few people use it."
+      "It only quotes a doctor in a long white coat.",
+      "It says too few people use it every day."
      ],
      "answer": 1,
      "why": "Ultimate, revolutionary, perfect and amazing are glittering words. The ad never says what the cream contains or does."
@@ -392,10 +392,10 @@
     "passage": "Some members of the council want to delay the new library. These are the same people who have never cared about our children's future. They talk about 'budgets' and 'careful planning' while our young people sit at home with nothing to read. Do we really want leaders who are so short-sighted? Vote for the library plan on Thursday and show that our town still believes in learning.",
     "stem": "Which technique does the writer use most clearly against the opponents?",
     "options": [
-     "Testimonial",
+     "Testimonial from a famous person",
      "Name-calling and attacks on character",
-     "Statistics and expert data",
-     "Bandwagon"
+     "Statistics and expert data from studies",
+     "Bandwagon: everyone is joining in"
     ],
     "answer": 1,
     "hint": "Look at what the writer says about the people who want a delay. Is it about their reasons, or about them?",

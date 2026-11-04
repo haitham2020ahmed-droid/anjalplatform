@@ -6,15 +6,19 @@
  *   NOT_TESTED  no MAP score in the latest term
  *   GUESSING    platform: ≥ 30% of the last 30 days' answers were rapid guesses (10+ answers)
  *   INACTIVE    platform: no answer for 10 days
+ *   REVIEW      ⭐ stars (owner, 1 Nov 2026): a skill whose star is 🔄 Needs review, or ⭐ whose review check is due
+ *               (StarView.reviewDueAt passed) — one per skill KEY; never the engine's old isMastered / masteredAt
  */
 import type { Repo } from "../seeding/repo";
 import { assertCan, type Actor } from "../auth/rbac";
 import { accessibleClasses } from "./assign";
+import { starBook, starMastered, starNeedsReview } from "../skills/star-read";
+import type { StarView } from "../skills/status";
 
 const s = (v: unknown) => String(v ?? "");
 const t = (v: unknown) => new Date(v instanceof Date ? v.toISOString() : s(v)).getTime();
 export type Flag = "URGENT" | "RETEST" | "BEGINNER" | "NOT_TESTED" | "GUESSING" | "INACTIVE" | "REVIEW";
-/** 🔁 spaced review: a skill mastered at least this many days ago and not practised since */
+/** 🔁 spaced review: kept for callers; the review date itself is the star's reviewDueAt (skills/status.ts) */
 export const REVIEW_AFTER_DAYS = 21;
 export interface InterventionRow { studentId: string; name: string; className: string; classId: string; flags: { flag: Flag; detail: string }[]; reviewSkills: { id: string; name: string }[] }
 
@@ -26,11 +30,15 @@ export async function interventionBoard(repo: Repo, actor: Actor, now = new Date
   const counts: Record<Flag, number> = { URGENT: 0, RETEST: 0, BEGINNER: 0, NOT_TESTED: 0, GUESSING: 0, INACTIVE: 0, REVIEW: 0 };
   if (!ids.length) return { rows: [], counts, term: null };
   const since = new Date(now.getTime() - 30 * 86_400_000);
-  const reviewBefore = now.getTime() - REVIEW_AFTER_DAYS * 86_400_000;
   const tm = (v: unknown) => (v ? new Date(v instanceof Date ? v.toISOString() : s(v)).getTime() : 0);
-  const mastered = (await repo.findMany("StudentSkillMastery", { studentId: { in: ids }, isMastered: true }, { select: ["studentId", "skillId", "masteredAt", "lastPracticedAt"] }))
-    .filter((m) => tm(m.masteredAt) && tm(m.masteredAt) < reviewBefore && tm(m.lastPracticedAt) < reviewBefore);
-  const reviewSkillRows = mastered.length ? await repo.findMany("Skill", { id: { in: [...new Set(mastered.map((m) => s(m.skillId)))] } }, { select: ["id", "name"] }) : [];
+  // ⭐ review due = 🔄 Needs review, or ⭐ with its review check date passed (one per key)
+  const book = await starBook(repo, ids, s(actor.schoolId ?? classes[0]?.schoolId));
+  const mastered: { studentId: string; skillId: string; name: string; v: StarView }[] = [];
+  for (const sid of ids) for (const v of (book.byKey.get(sid) ?? new Map<string, StarView>()).values()) {
+    const due = starNeedsReview(v) || (starMastered(v) && tm(v.reviewDueAt) > 0 && tm(v.reviewDueAt) <= now.getTime());
+    const skillId = v.skillId ?? book.ix.skillsOf.get(v.key)?.[0];
+    if (due && skillId) mastered.push({ studentId: sid, skillId, name: book.nameOf(v.key), v });
+  }
   const [students, results, attempts] = await Promise.all([
     repo.findMany("Student", { id: { in: ids } }, { select: ["id", "userId"] }),
     repo.findMany("MapResult", { studentId: { in: ids } }),
@@ -58,8 +66,10 @@ export async function interventionBoard(repo: Repo, actor: Actor, now = new Date
     if (att.length >= 10 && rapid / att.length >= 0.3) flags.push({ flag: "GUESSING", detail: `Platform: ${Math.round((100 * rapid) / att.length)}% of ${att.length} answers were rapid guesses` });
     const last = att.reduce((x, a) => Math.max(x, t(a.createdAt)), 0);
     if (!last || now.getTime() - last > 10 * 86_400_000) flags.push({ flag: "INACTIVE", detail: last ? `No practice for ${Math.floor((now.getTime() - last) / 86_400_000)} days` : "No practice in the last 30 days" });
-    const due = mastered.filter((m) => s(m.studentId) === sid).map((m) => ({ id: s(m.skillId), name: s(reviewSkillRows.find((k) => k.id === m.skillId)?.name), weeks: Math.floor((now.getTime() - tm(m.masteredAt)) / (7 * 86_400_000)) }));
-    if (due.length) flags.push({ flag: "REVIEW", detail: `Review due: ${due.slice(0, 3).map((d) => `${d.name} (mastered ${d.weeks} wk ago)`).join(", ")}${due.length > 3 ? ` +${due.length - 3}` : ""}` });
+    // 🔄 first, then the oldest review date
+    const due = mastered.filter((m) => m.studentId === sid).sort((a, b) => Number(starNeedsReview(b.v)) - Number(starNeedsReview(a.v)) || tm(a.v.reviewDueAt) - tm(b.v.reviewDueAt))
+      .map((m) => ({ id: m.skillId, name: m.name, review: starNeedsReview(m.v), weeks: Math.floor((now.getTime() - tm(m.v.masteredAt)) / (7 * 86_400_000)) }));
+    if (due.length) flags.push({ flag: "REVIEW", detail: `Review due: ${due.slice(0, 3).map((d) => d.review ? `${d.name} (Needs review)` : `${d.name} (mastered ${d.weeks} wk ago)`).join(", ")}${due.length > 3 ? ` +${due.length - 3}` : ""}` });
     for (const f of new Set(flags.map((f) => f.flag))) counts[f]++;
     if (flags.length) rows.push({ studentId: sid, name, className: s(klass.name), classId: s(klass.id), flags, reviewSkills: due.map((d) => ({ id: d.id, name: d.name })) });
   }

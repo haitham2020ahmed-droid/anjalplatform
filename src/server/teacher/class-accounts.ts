@@ -24,7 +24,8 @@ import { ValidationError } from "../curriculum-admin";
 import type { Repo, Row } from "../seeding/repo";
 import { cleanName, cleanUsername } from "../admin/users";
 import { readRosterFile } from "../admin/roster-import";
-import { nextNumbers } from "../admin/quick-students";
+import { freeStudentNumbers } from "../admin/quick-students";
+import { addNewClassWork } from "../admin/student-move";
 import { assertClassAccess } from "./assignments";
 import { remember } from "../cache/lru";
 
@@ -46,12 +47,7 @@ export async function ownClass(repo: Repo, actor: Actor, classId: string): Promi
   return assertClassAccess(repo, actor, classId);
 }
 
-/** Free student numbers (AJ26-001 …) for new students: only this year's series is read, not the whole table. */
-async function freshNumbers(repo: Repo, schoolId: string, n: number, now: Date): Promise<string[]> {
-  const prefix = `AJ${String(now.getUTCFullYear() % 100).padStart(2, "0")}-`;
-  const used = await repo.findMany("Student", { schoolId, studentNumber: { contains: prefix } }, { select: ["studentNumber"] });
-  return nextNumbers(used.map((x) => s(x.studentNumber)), n, now.getUTCFullYear());
-}
+const freshNumbers = freeStudentNumbers;
 
 interface NewStudent { username: string; name: string; number: string; hash: string }
 
@@ -63,6 +59,7 @@ async function createStudents(repo: Repo, actor: Actor, klass: Row, list: NewStu
       const u = await tx.create("User", { username: x.username, displayName: x.name, email: null, role: "STUDENT", schoolId, passwordHash: x.hash, mustChangePassword: false, isActive: true, createdAt: now, updatedAt: now });
       const st = await tx.create("Student", { userId: u.id, schoolId, gradeId: klass.gradeId, studentNumber: x.number, createdAt: now });
       await tx.create("ClassMembership", { classId: klass.id, studentId: st.id, joinedAt: now });
+      await addNewClassWork(tx, s(st.id), s(klass.id)); // catch them up on the class's already-open work
       made.push({ userId: s(u.id), studentId: s(st.id), username: x.username });
     }
     return made;

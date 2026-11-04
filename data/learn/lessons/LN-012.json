@@ -105,9 +105,9 @@
      "passage": "___ It has big ears. It has a long trunk. It is very heavy.",
      "stem": "Which is the best topic sentence?",
      "options": [
-      "I like the zoo.",
-      "Trunks are long.",
-      "Mice are small.",
+      "I like the zoo on holidays.",
+      "Trunks are long and strong.",
+      "Mice are small and quiet.",
       "An elephant is a big animal."
      ],
      "answer": 3,
@@ -117,10 +117,10 @@
      "passage": "___ We swim in the sea. We build sandcastles. We collect shells.",
      "stem": "Which is the best topic sentence?",
      "options": [
-      "Shells are white.",
+      "Shells are white and small.",
       "The beach is a fun place.",
-      "The sea is wet.",
-      "My bag is red."
+      "The sea is wet and salty.",
+      "My bag is red and very big."
      ],
      "answer": 1,
      "why": "Swimming, sandcastles and shells all show the beach is fun."
@@ -177,8 +177,8 @@
     "stem": "Which is the best topic sentence for this paragraph?",
     "options": [
      "Plastic bottles are made from oil.",
-     "The eco club meets on Thursdays.",
-     "Paper comes from trees.",
+     "The eco club meets on Thursdays after school.",
+     "Paper comes from trees in forests.",
      "Our school has found many ways to recycle."
     ],
     "answer": 3,
@@ -206,10 +206,10 @@
      "passage": "Faisal is writing a paragraph about why camels are useful to desert people.",
      "stem": "Which is the best topic sentence?",
      "options": [
-      "Camels have very long eyelashes.",
+      "Camels have very long eyelashes and thick, soft fur on their backs.",
       "For centuries, camels have helped desert people survive.",
-      "Animals live all over the world.",
-      "Do you like camels?"
+      "Animals live all over the world in many places.",
+      "Do you like camels, or do you prefer horses?"
      ],
      "answer": 1,
      "why": "It matches the subject exactly: why camels are useful to desert people."
@@ -231,9 +231,9 @@
      "stem": "Which is the best topic sentence?",
      "options": [
       "Riyadh has many interesting places to visit.",
-      "The world has many large cities.",
-      "Riyadh has very tall towers.",
-      "My cousin lives in Jeddah."
+      "The world has many large cities and towns.",
+      "Riyadh has very tall towers and buildings.",
+      "My cousin lives in Jeddah near the sea."
      ],
      "answer": 0,
      "why": "It covers the towers, parks, zoo and museums. The others are too big, too small or off topic."
@@ -319,10 +319,10 @@
      "passage": "Details: Wind towers caught breezes and sent them into rooms. Thick mud walls kept the heat out. Narrow lanes kept streets shaded.",
      "stem": "Which topic sentence covers all the details?",
      "options": [
-      "Wind towers caught breezes.",
+      "Wind towers caught breezes in summer.",
       "Mud is made from earth and water.",
       "Old Gulf towns were built to stay cool.",
-      "Old towns had narrow lanes."
+      "Old towns had narrow lanes and walls."
      ],
      "answer": 2,
      "why": "Towers, walls and lanes are all ways the towns stayed cool. The other choices cover one detail or none."
@@ -331,10 +331,10 @@
      "passage": "Sara is writing a paragraph to persuade her class to drink more water.",
      "stem": "Which is the best topic sentence for her purpose?",
      "options": [
-      "Water is made of hydrogen and oxygen.",
+      "Water is made of hydrogen and oxygen joined together.",
       "Drinking more water can help us think and feel better.",
-      "Some people drink tea in the morning.",
-      "Water covers most of Earth's surface."
+      "Some people drink tea in the morning with breakfast.",
+      "Water covers most of Earth's surface, including the seas."
      ],
      "answer": 1,
      "why": "It gives a reason to drink more water, which matches her purpose to persuade."
@@ -404,8 +404,8 @@
     "options": [
      "The Hijri calendar has twelve months, just like the solar calendar.",
      "Because the Hijri calendar follows the moon, its months move through the seasons.",
-     "Many different calendars are used around the world today.",
-     "Ramadan is the ninth month of the Hijri calendar."
+     "Many different calendars are used around the world today by people.",
+     "Ramadan is the ninth month of the Hijri calendar, and it comes after Shaban."
     ],
     "answer": 1,
     "hint": "Is that choice too broad, too narrow or off target? The paragraph explains a cause and its effect.",
@@ -447,9 +447,9 @@
      "stem": "Which sentence would best introduce this paragraph?",
      "options": [
       "Moving sand dunes are a constant challenge for desert road builders.",
-      "Palm trees grow well in desert oases.",
-      "Roads connect cities across the whole Kingdom.",
-      "Fences can be made of many different materials."
+      "Palm trees grow well in desert oases, where there is water.",
+      "Roads connect cities across the whole Kingdom and carry many cars.",
+      "Fences can be made of many different materials, such as wood and metal."
      ],
      "answer": 0,
      "why": "The paragraph describes a problem (buried roads) and solutions (fences and trees). This sentence names that challenge."
@@ -458,10 +458,10 @@
      "passage": "Details: Volunteers collected mangrove seeds at low tide. They planted seedlings in shallow, muddy water. Years later, the young trees shelter fish and birds.",
      "stem": "Which topic sentence is most precise?",
      "options": [
-      "Nature is very important for everyone.",
-      "Mangroves are a kind of tree.",
+      "Nature is very important for everyone who lives on our planet Earth.",
+      "Mangroves are a kind of tree that grows in salty water.",
       "Volunteers have helped bring mangrove forests back to the coast.",
-      "Some people volunteer at weekends."
+      "Some people volunteer at weekends and holidays in the town."
      ],
      "answer": 2,
      "why": "It names the topic and the controlling idea: volunteers restoring mangroves. The others are too broad, too narrow or off target."

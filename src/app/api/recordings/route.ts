@@ -5,6 +5,7 @@ import { apiActor, repo } from "@/server/auth/next";
 import { ForbiddenError } from "@/server/auth/rbac";
 import { ValidationError } from "@/server/curriculum-admin";
 import { MAX_AUDIO, recording, saveRecording } from "@/server/teacher/writing";
+import { withCappedBody, BodyTooLargeError } from "@/server/lib/capped-body";
 
 export const runtime = "nodejs";
 
@@ -25,12 +26,18 @@ export async function POST(req: Request) {
   const actor = await apiActor();
   if (!actor || actor.role !== "STUDENT") return NextResponse.json({ error: "Forbidden" }, { status: 403 });
   try { assertSameOrigin({ origin: req.headers.get("origin"), referer: req.headers.get("referer") }, env.APP_URL); } catch { return NextResponse.json({ error: "Open the platform at its own address and try again." }, { status: 403 }); }
-  if (Number(req.headers.get("content-length") ?? 0) > MAX_AUDIO + 100_000) return NextResponse.json({ error: "The recording is too long." }, { status: 413 });
+  const maxBytes = MAX_AUDIO + 100_000;
+  if (Number(req.headers.get("content-length") ?? 0) > maxBytes) return NextResponse.json({ error: "The recording is too long." }, { status: 413 });
   try {
-    const f = await req.formData();
+    // r89: the Content-Length check above trusts the client; this enforces the same limit on the real bytes read
+    const f = await withCappedBody(req, maxBytes).formData();
     const file = f.get("audio");
     if (!(file instanceof Blob)) return NextResponse.json({ error: "No recording." }, { status: 400 });
     await saveRecording(repo, actor, String(f.get("task") ?? ""), new Uint8Array(await file.arrayBuffer()), file.type || "audio/webm");
     return NextResponse.json({ ok: true });
-  } catch (e) { if (e instanceof ValidationError || e instanceof ForbiddenError) return NextResponse.json({ error: e.message }, { status: 400 }); throw e; }
+  } catch (e) {
+    if (e instanceof BodyTooLargeError) return NextResponse.json({ error: "The recording is too long." }, { status: 413 });
+    if (e instanceof ValidationError || e instanceof ForbiddenError) return NextResponse.json({ error: e.message }, { status: 400 });
+    throw e;
+  }
 }

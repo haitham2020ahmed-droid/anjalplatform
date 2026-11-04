@@ -116,9 +116,9 @@
      "stem": "What does \"Maha is a star\" mean?",
      "options": [
       "She is very good and stands out.",
-      "She lives in the sky.",
-      "She is far away.",
-      "She shines at night."
+      "She lives in the sky above the town.",
+      "She is far away from her school.",
+      "She shines at night in the dark sky."
      ],
      "answer": 0,
      "why": "Stars stand out in the sky. Maha stands out because she helps everyone."
@@ -129,7 +129,7 @@
      "options": [
       "They were clean.",
       "They were small.",
-      "They were wet.",
+      "They were wet and soft.",
       "They were very cold."
      ],
      "answer": 3,
@@ -182,9 +182,9 @@
     "passage": "Every afternoon, our street turns into a river of cars. Parents drive slowly toward the school gates. The cars move one after another in a long, winding line. Nobody can cross until the flow finally stops. By four o'clock, the street is quiet again.",
     "stem": "What does the writer mean by \"a river of cars\"?",
     "options": [
-     "The street is flooded with water.",
-     "Cars are washed in the river.",
-     "The street is near a river.",
+     "The street is flooded with water after rain.",
+     "Cars are washed in the river by men.",
+     "The street is near a river in the city.",
      "A long line of cars moves along the street."
     ],
     "answer": 3,
@@ -213,10 +213,10 @@
      "passage": "For the new students, Ms. Hind was a lighthouse. Whenever they felt lost in the big school, they looked for her, and she showed them the way.",
      "stem": "What does the metaphor say about Ms. Hind?",
      "options": [
-      "She is very tall.",
+      "She is very tall and very strong.",
       "She guides people who feel lost.",
-      "She works near the sea.",
-      "She turns on the lights."
+      "She works near the sea in a port.",
+      "She turns on the lights at night."
      ],
      "answer": 1,
      "why": "A lighthouse guides ships. Ms. Hind guided students who felt lost."
@@ -237,8 +237,8 @@
      "passage": "Our garden is a library of smells. Mint grows by the door, jasmine climbs the wall, and the lemon tree fills the air.",
      "stem": "What does \"a library of smells\" mean?",
      "options": [
-      "The garden has many books.",
-      "The garden is very quiet.",
+      "The garden has many books to read in it.",
+      "The garden is very quiet and calm.",
       "The garden has many different smells.",
       "The garden is a place to study."
      ],
@@ -327,9 +327,9 @@
      "stem": "What does the metaphor suggest about the souq?",
      "options": [
       "It was the centre that kept the town alive.",
-      "It was a hospital for sick people.",
-      "It was very noisy at night.",
-      "It was the oldest building in town."
+      "It was a hospital for sick people in town.",
+      "It was very noisy at night, so nobody slept.",
+      "It was the oldest building in the old town."
      ],
      "answer": 0,
      "why": "A heart is the centre that pumps blood to the body. The souq was the centre that sent people, goods and news across the town."
@@ -350,9 +350,9 @@
      "passage": "Anger is a fire, my father says. If you feed it with harsh words, it grows until it burns everything near you. But if you leave it without fuel, it slowly dies out.",
      "stem": "What is the father's message?",
      "options": [
-      "Fires are dangerous in the home.",
-      "Angry people should shout to feel better.",
-      "Harsh words help to calm anger.",
+      "Fires are dangerous in the home and the shop.",
+      "Angry people should shout to feel better inside.",
+      "Harsh words help to calm anger down quickly.",
       "Anger grows if you add to it but fades if you don't."
      ],
      "answer": 3,
@@ -405,10 +405,10 @@
     "passage": "In the age of smartphones, attention has become the most valuable crop on the planet. Apps and websites are the farmers, and they compete to harvest every minute of our day. Bright alerts and endless videos are their tools, designed to keep us scrolling. The harvest is sold to advertisers, who pay for the chance to show us their products. Yet unlike wheat or dates, our attention cannot grow back once it has been spent. Learning to protect it may be one of the most important skills of our time.",
     "stem": "What does the author suggest by comparing attention to a crop?",
     "options": [
-     "Farmers spend too much time on their phones.",
-     "Apps help us grow our own food more easily.",
+     "Farmers spend too much time on their phones instead of working in the fields.",
+     "Apps help us grow our own food more easily at home or in a small garden.",
      "Our time is a valuable resource that companies collect and profit from.",
-     "Advertisers want people to work on farms."
+     "Advertisers want people to work on farms and grow food for their stores."
     ],
     "answer": 2,
     "hint": "A crop is grown, harvested and sold. Who harvests our attention, and who buys it?",
@@ -437,9 +437,9 @@
      "stem": "What does the metaphor suggest about the Silk Road?",
      "options": [
       "It was a network that spread ideas and information.",
-      "It used early computers for trade.",
-      "It was a fast way to travel.",
-      "It was invented recently."
+      "It used early computers for trade between the cities.",
+      "It was a fast way to travel from city to city.",
+      "It was invented recently by a group of engineers."
      ],
      "answer": 0,
      "why": "The internet connects people and spreads information. The Silk Road spread inventions, languages and ideas between communities."

@@ -110,8 +110,8 @@
      "passage": "Apples grow on trees. They can be red, green or yellow. ___",
      "stem": "Which is the best ending for the report?",
      "options": [
-      "I have a red bag for school.",
-      "Trees are tall and have leaves.",
+      "I have a red bag for school today.",
+      "Trees are tall and have many leaves.",
       "It is very hot and sunny today.",
       "Apples are a tasty and healthy fruit."
      ],
@@ -211,8 +211,8 @@
      "passage": "Introduction: Have you ever wondered how a tiny seed becomes a giant tree? This report explains how trees grow.",
      "stem": "What does this introduction do well?",
      "options": [
-      "It gives the conclusion first.",
-      "It lists every fact in the report.",
+      "It gives the conclusion first, before anything else.",
+      "It lists every fact in the report, one after the other.",
       "It tells a story about the writer's family.",
       "It catches interest with a question and names the topic."
      ],
@@ -282,10 +282,10 @@
     "passage": "___ First, the city has many large solar farms that turn sunlight into electricity. Second, new buildings must use special glass and insulation that keep heat out, so they need less air conditioning. In addition, a new metro system lets thousands of people travel without cars, which reduces air pollution. Finally, the city plans to plant millions of trees to provide shade and cooler air.",
     "stem": "Which topic sentence best fits the blank at the start of this paragraph?",
     "options": [
-     "Solar farms are very large.",
+     "Solar farms are very large, and they cover many miles of desert.",
      "The city is working in several ways to save energy and protect the environment.",
-     "Many people like to travel by metro.",
-     "Trees are beautiful in every season."
+     "Many people like to travel by metro to their work and schools each day.",
+     "Trees are beautiful in every season of the year, and birds love to sing in them."
     ],
     "answer": 1,
     "hint": "Read all the supporting sentences. What one idea do they all explain?",
@@ -338,9 +338,9 @@
      "passage": "Paragraph topic sentence: Coral reefs are home to many living things.",
      "stem": "Which sentence best supports this topic sentence?",
      "options": [
-      "Coral reefs are found in warm, shallow seas.",
-      "Many tourists visit coral reefs every year.",
-      "Reefs can be damaged by pollution.",
+      "Coral reefs are found in warm, shallow seas around the world.",
+      "Many tourists visit coral reefs every year to swim and take photos.",
+      "Reefs can be damaged by pollution from boats and factories.",
       "Thousands of kinds of fish, crabs and sea stars live among the coral."
      ],
      "answer": 3,
@@ -438,9 +438,9 @@
      "stem": "Which revision makes the strongest conclusion?",
      "options": [
       "Desalination turns seawater into fresh water, so it will matter more as populations in dry regions grow.",
-      "Desalination is a long and difficult word to spell, so I chose it.",
-      "I hope you enjoyed reading my report about water and desalination.",
-      "In this report, I wrote many sentences about water and the sea."
+      "Desalination is a long and difficult word to spell, so I chose it as the title of my report for school.",
+      "I hope you enjoyed reading my report about water and desalination, and I thank you.",
+      "In this report, I wrote many sentences about water, the sea, and the ships that cross it."
      ],
      "answer": 0,
      "why": "It synthesizes the main idea and explains why the topic matters."
@@ -449,9 +449,9 @@
      "passage": "Report sentence: The Asir mountains get way more rain than most places in Saudi Arabia, so lots of plants grow there and it's super green.",
      "stem": "Which revision best fits an objective, formal report?",
      "options": [
-      "Asir is totally the greenest place in the whole country ever.",
-      "Asir gets way more rain than anywhere, so it's super green.",
-      "I love Asir because it's green and the weather is nice and cool.",
+      "Asir is totally the greenest place in the whole country ever, and everyone just loves it so much.",
+      "Asir gets way more rain than anywhere, so it's super green and awesome.",
+      "I love Asir because it's green and the weather is nice and cool, so you should go.",
       "Because Asir receives more rainfall than most of the country, it supports thick plant life."
      ],
      "answer": 3,

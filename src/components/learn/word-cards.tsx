@@ -4,6 +4,7 @@ import { useT } from "@/i18n/client";
 import type { WordCard } from "@/lib/learn/format";
 import { submitWordsAction } from "@/app/student/learn/actions";
 import { speak } from "./speak";
+import { RichInline } from "@/components/rich-inline";
 
 export interface WordItem { key: string; word: string; card: WordCard | null; partial: { meaning: string; arabic: string; example: string; pos: string } | null; source: string }
 const chip = "rounded-full bg-surface-2 px-2.5 py-0.5 text-sm ring-1 ring-line";
@@ -40,11 +41,11 @@ export function WordCardView({ w, children }: { w: WordItem; children?: React.Re
       {c && (
         <details className="rounded-xl bg-surface-2 px-3 py-2 ring-1 ring-line">
           <summary className="cursor-pointer font-semibold text-ink">{t("Quick check")}</summary>
-          <p className="mt-2 font-semibold" lang="en">{c.check.stem}</p>
+          <p className="mt-2 font-semibold" lang="en"><RichInline text={c.check.stem} /></p>
           <div className="mt-2 grid gap-1.5" lang="en">
             {c.check.options.map((o, k) => (
               <button key={k} type="button" disabled={pick !== null} onClick={() => setPick(k)}
-                className={`min-h-11 rounded-xl px-3 py-2 text-start ring-2 ${pick !== null && k === c.check.answer ? "bg-emerald-50 text-emerald-900 ring-emerald-300" : pick === k ? "bg-rose-50 text-rose-900 ring-rose-300" : "bg-surface ring-line"}`}>{o}</button>
+                className={`min-h-11 rounded-xl px-3 py-2 text-start ring-2 ${pick !== null && k === c.check.answer ? "bg-emerald-50 text-emerald-900 ring-emerald-300" : pick === k ? "bg-rose-50 text-rose-900 ring-rose-300" : "bg-surface ring-line"}`}><RichInline text={o} /></button>
             ))}
           </div>
           {pick !== null && <p role="status" className="mt-2 text-sm font-semibold">{pick === c.check.answer ? t("Correct!") : t("Not this time. The green answer is right.")}</p>}
@@ -85,11 +86,11 @@ export function WordPractice({ sel, questions, preview = false, answers }: { sel
           const r = res?.answers.find((a) => a.word === q.word);
           return (
             <li key={q.word}>
-              <p className="font-semibold" lang="en"><span dir="ltr">{i + 1}.</span> {q.stem}</p>
+              <p className="font-semibold" lang="en"><span dir="ltr">{i + 1}.</span> <RichInline text={q.stem} /></p>
               <div className="mt-2 grid gap-1.5 sm:grid-cols-2" lang="en">
                 {q.options.map((o, k) => (
                   <button key={k} type="button" disabled={Boolean(res)} onClick={() => setPicks((p) => ({ ...p, [q.word]: k }))}
-                    className={`min-h-11 rounded-xl px-3 py-2 text-start ring-2 ${r && k === r.answer ? "bg-emerald-50 text-emerald-900 ring-emerald-300" : r && picks[q.word] === k ? "bg-rose-50 text-rose-900 ring-rose-300" : picks[q.word] === k ? "bg-surface-2 ring-brand-teal" : "bg-surface ring-line"}`}>{o}</button>
+                    className={`min-h-11 rounded-xl px-3 py-2 text-start ring-2 ${r && k === r.answer ? "bg-emerald-50 text-emerald-900 ring-emerald-300" : r && picks[q.word] === k ? "bg-rose-50 text-rose-900 ring-rose-300" : picks[q.word] === k ? "bg-surface-2 ring-brand-teal" : "bg-surface ring-line"}`}><RichInline text={o} /></button>
                 ))}
               </div>
             </li>

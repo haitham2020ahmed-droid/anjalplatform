@@ -94,9 +94,9 @@
      "stem": "What does the picture add?",
      "options": [
       "What the cake looks like",
-      "Who ate the cake",
-      "Where Sam lives",
-      "What time it is"
+      "Who ate the cake last night",
+      "Where Sam lives in town",
+      "What time it is in the day"
      ],
      "answer": 0,
      "why": "Only the picture shows the cake is tall with pink flowers."
@@ -117,10 +117,10 @@
      "passage": "The words say: It was a big day for Ali. The picture shows Ali in a new uniform at the door of a school.",
      "stem": "What does the picture tell us about the big day?",
      "options": [
-      "It is Ali's birthday.",
+      "It is Ali's birthday party day.",
       "It is Ali's first day at school.",
-      "Ali is going on a trip.",
-      "Ali is sick at home."
+      "Ali is going on a trip to the sea.",
+      "Ali is sick at home in his bed."
      ],
      "answer": 1,
      "why": "The new uniform and the school door show it is his first day at school."
@@ -227,8 +227,8 @@
      "passage": "The words say: Hamad said he would clean his room. The picture shows Hamad pushing all his toys under the bed while his mother watches from the door.",
      "stem": "What does the picture show that the words do not?",
      "options": [
-      "Hamad cleaned every corner of his room very carefully.",
-      "Hamad's mother is happily helping him to tidy his room.",
+      "Hamad cleaned every corner of his room very carefully and slowly.",
+      "Hamad's mother is happily helping him to tidy his room today.",
       "Hamad has no toys at all, so his room is already clean.",
       "Hamad is hiding the mess instead of cleaning, and his mother sees it."
      ],
@@ -315,9 +315,9 @@
      "stem": "What effect does the picture have?",
      "options": [
       "It creates suspense and humour, because Omar cannot see the wave.",
-      "It shows that Omar built his castle far from the sea.",
-      "It proves the sandcastle will win a prize.",
-      "It shows Omar is afraid of the sea."
+      "It shows that Omar built his castle far from the sea, on dry sand.",
+      "It proves the sandcastle will win a prize at the contest.",
+      "It shows Omar is afraid of the sea and wants to go home."
      ],
      "answer": 0,
      "why": "The reader sees the wave, but Omar does not. This difference makes the scene tense and funny."
@@ -397,10 +397,10 @@
     "passage": "The words read: \"The village was quiet, as it had always been; nothing ever changed.\" The image, however, shows the village from high above. Bulldozers are lined up at its edge, and a long new road cuts through the palm groves toward the old houses. The colours of the houses are soft and golden, while the machines are painted in harsh, bright yellow. In the bottom corner, an old man sits by his door, his back to the machines, drinking tea. A small girl beside him is staring straight at them.",
     "stem": "How does the image relate to the words, and what is the effect?",
     "options": [
-     "It agrees with the words, showing a peaceful village where nothing changes.",
+     "It agrees with the words, showing a peaceful village where nothing ever changes or goes wrong.",
      "It contrasts with the words, suggesting that big change is coming even though the old man has not noticed.",
      "It adds a funny detail, showing the machines are toys that the girl is playing with.",
-     "It agrees with the words by showing the old man and the girl enjoying a quiet afternoon."
+     "It agrees with the words by showing the old man and the girl enjoying a quiet afternoon together in the garden."
     ],
     "answer": 1,
     "hint": "The words claim nothing changes. What do the bulldozers, the road and the girl's stare suggest?",
@@ -429,9 +429,9 @@
      "passage": "The words say: \"I'm the bravest knight in the land!\" The image shows the knight standing on a chair, sword raised, while a tiny mouse looks up at him from the floor.",
      "stem": "What does the contrast between the words and the image create?",
      "options": [
-      "Fear, because the knight is in danger",
-      "Sadness, because the knight is alone",
-      "Respect, because the knight is truly brave",
+      "Fear, because the knight is in danger of a dragon",
+      "Sadness, because the knight is alone in the castle",
+      "Respect, because the knight is truly brave and strong",
       "Humour, because the \"brave\" knight is scared of a mouse"
      ],
      "answer": 3,
@@ -441,10 +441,10 @@
      "passage": "Words: The family moved to the coast that summer. Image: the first half of the book is drawn in dusty browns; on this page, for the first time, the sea fills the background in deep blue and turquoise, and the children's clothes are bright.",
      "stem": "What does the change of colour suggest?",
      "options": [
-      "The family has gone to sleep.",
-      "The artist ran out of brown paint.",
+      "The family has gone to sleep for the night.",
+      "The artist ran out of brown paint on that day.",
       "A new, more hopeful chapter in the family's life",
-      "The story has moved into the past."
+      "The story has moved into the past, long ago."
      ],
      "answer": 2,
      "why": "Switching from dusty browns to bright sea colours marks a fresh, hopeful start."
@@ -454,8 +454,8 @@
      "stem": "What meaning does the image's framing add?",
      "options": [
       "The new student feels unnoticed, despite the words",
-      "The new student is famous",
-      "The classroom is very bright",
+      "The new student is famous in the whole school already",
+      "The classroom is very bright and cheerful",
       "Everyone is happy to see the new student"
      ],
      "answer": 0,

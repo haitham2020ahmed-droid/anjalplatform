@@ -157,10 +157,10 @@
       "type": "MCQ",
       "stem": "Which is another suitable title for the story?",
       "options": [
-        "A Busy Day in the Kitchen",
-        "Huda's Warning Comes True",
+        "A Busy Day in the Kitchen at Home",
+        "Huda's Warning Comes True at Last",
         "A Bigger Family, A Bigger Heart",
-        "The Blue Banner"
+        "The Blue Banner Over the Door"
       ],
       "answer": "C",
       "why": "The story ends with the family growing bigger “with even more love”; Huda's warning turns out to be wrong."
@@ -174,9 +174,9 @@
       "stem": "What is the main purpose of the story?",
       "options": [
         "to show how a girl's worry about a new baby turns into joy",
-        "to teach readers how to prepare food for guests",
-        "to describe what happens inside a hospital",
-        "to explain why newborn babies grip fingers"
+        "to teach readers how to prepare food for guests at home",
+        "to describe what happens inside a hospital at night",
+        "to explain why newborn babies grip fingers tightly"
       ],
       "answer": "A",
       "why": "The story follows Sara from her secret worry to her happiness at the end."
@@ -189,9 +189,9 @@
       "type": "MCQ",
       "stem": "What is the main idea of paragraph 3?",
       "options": [
-        "Sara ties ribbons around the bags of dates.",
-        "Huda comes to help Sara prepare for the guests.",
-        "Mama reads Sara a story at bedtime.",
+        "Sara ties ribbons around the bags of dates for the guests at home.",
+        "Huda comes to help Sara prepare for the guests at the house.",
+        "Mama reads Sara a story at bedtime every single night, in her room.",
         "Sara secretly fears she will be forgotten once the baby arrives."
       ],
       "answer": "D",
@@ -205,10 +205,10 @@
       "type": "MCQ",
       "stem": "How did Sara help to prepare for the guests?",
       "options": [
-        "She hung the banner above the door.",
+        "She hung the banner above the door of the house.",
         "She filled bags with dates and chocolate.",
-        "She cooked the chicken kabsa.",
-        "She served the Arabic coffee."
+        "She cooked the chicken kabsa for the guests.",
+        "She served the Arabic coffee to the elders."
       ],
       "answer": "B",
       "why": "Grandmother gave her a basket to fill bags with dates and chocolate; Baba hung the banner and the aunt brought the coffee."
@@ -238,9 +238,9 @@
       "stem": "Why was Sara secretly worried?",
       "options": [
         "Huda had warned that older children are forgotten when a baby arrives.",
-        "She feared the guests would not like the sweets.",
-        "She thought Yousef would cry all night.",
-        "Mama had already stopped reading with her."
+        "She feared the guests would not like the sweets that she made for them.",
+        "She thought Yousef would cry all night and keep her awake in the room.",
+        "Mama had already stopped reading with her at night, so she felt sad."
       ],
       "answer": "A",
       "why": "Paragraph 3 says Huda had warned her that nobody notices the older children anymore."
@@ -301,9 +301,9 @@
       "type": "MCQ",
       "stem": "Why did Grandmother laugh delightedly in paragraph 4?",
       "options": [
-        "Sara dropped the basket of bags.",
-        "Baba nearly fell from the ladder.",
-        "The car arrived exactly on time.",
+        "Sara dropped the basket of bags on the garden path.",
+        "Baba nearly fell from the ladder in the yard.",
+        "The car arrived exactly on time at the door.",
         "Yousef gripped Sara's finger as if he knew her."
       ],
       "answer": "D",
@@ -318,9 +318,9 @@
       "stem": "In your opinion, what makes the reader want to keep reading after paragraph 3?",
       "options": [
         "wanting to know whether Huda's warning will come true",
-        "wanting to learn how Grandmother makes kabsa",
-        "wanting to know what colour the car is",
-        "wanting to find out where Huda lives"
+        "wanting to learn how Grandmother makes kabsa for guests",
+        "wanting to know what colour the car is at the end",
+        "wanting to find out where Huda lives in the city"
       ],
       "answer": "A",
       "why": "Sara's secret worry raises a question that the reader wants answered."
@@ -349,10 +349,10 @@
       "type": "MCQ",
       "stem": "How is Sara's mood in paragraph 3 different from her mood in paragraph 6?",
       "options": [
-        "excited in paragraph 3; worried in paragraph 6",
+        "excited in paragraph 3; worried in paragraph 6 about the baby",
         "worried in paragraph 3; relieved and happy in paragraph 6",
-        "angry in paragraph 3; jealous in paragraph 6",
-        "calm in paragraph 3; nervous in paragraph 6"
+        "angry in paragraph 3; jealous in paragraph 6 of the baby",
+        "calm in paragraph 3; nervous in paragraph 6 about the guests"
       ],
       "answer": "B",
       "why": "The “cloud of worry” in paragraph 3 disappears completely in paragraph 6."
@@ -381,9 +381,9 @@
       "type": "MCQ",
       "stem": "What do Grandmother, the aunt and Baba have in common in paragraph 2?",
       "options": [
-        "Each brings food for the guests.",
-        "Each is worried about Sara.",
-        "Each drives to the hospital.",
+        "Each brings food for the guests to the house.",
+        "Each is worried about Sara and her new baby.",
+        "Each drives to the hospital to see the baby.",
         "Each prepares something for the celebration."
       ],
       "answer": "D",

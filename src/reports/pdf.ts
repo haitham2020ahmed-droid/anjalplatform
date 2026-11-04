@@ -1,5 +1,7 @@
 /**
  * HTML → PDF with headless Chromium (playwright-core).
+ * r84: OFF by default — only with PDF_ENGINE=server (src/server/reports/runtime.ts). By default the same HTML is sent as
+ * a print page the user's browser saves as a PDF (src/reports/print-page.ts): no Chromium in the 512 MB server.
  *
  * Why a browser engine: Arabic needs contextual shaping (joined letters, lam-alef),
  * the Unicode bidirectional algorithm for mixed Arabic/English lines, and right-to-
@@ -17,6 +19,7 @@
  */
 import type { ReportDoc } from "./model";
 import { footerTemplate } from "./html";
+import { memoryHigh } from "../server/monitoring/memory";
 
 export interface PdfRenderer {
   /** opts.footer false: no page-number footer (a one-page certificate) */
@@ -39,7 +42,7 @@ export interface ChromiumOptions {
   /** Extra Chromium flags, e.g. ["--no-sandbox"] when the container cannot provide a sandbox. */
   args?: string[];
   /**
-   * Close Chromium after this long without a render (default 60 s; 0 = keep it open). A headless Chromium holds
+   * Close Chromium after this long without a render (default 15 s since r70; 0 = keep it open). A headless Chromium holds
    * 100+ MB of the server's memory (512 MB plan) even when idle; it starts again in about a second on the next PDF.
    */
   idleCloseMs?: number;
@@ -78,11 +81,13 @@ export class Semaphore {
 }
 
 type Browser = import("playwright-core").Browser;
+/** r81: the server's memory (RSS, MB) under which Chromium may start on the 512 MB plan (PDF_START_MB overrides). */
+export const PDF_START_MB = Math.round((Number(process.env.WEB_MEMORY_MB) || 512) * 0.62);
 
 export function chromiumRenderer(opts: ChromiumOptions = {}): PdfRenderer {
   const gate = new Semaphore(opts.concurrency ?? 2);
   let browser: Promise<Browser> | null = null;
-  const idleMs = opts.idleCloseMs ?? 60_000;
+  const idleMs = opts.idleCloseMs ?? 15_000; // r70: was 60 s — Chromium gives its memory back sooner
   let idleTimer: ReturnType<typeof setTimeout> | null = null;
   const stopIdle = () => { if (idleTimer) { clearTimeout(idleTimer); idleTimer = null; } };
   const closeBrowser = async () => {
@@ -111,7 +116,7 @@ export function chromiumRenderer(opts: ChromiumOptions = {}): PdfRenderer {
       const { chromium } = await import(/* webpackIgnore: true */ "playwright-core"); // loaded on the first PDF only (Update 42A)
       return chromium.launch({
         executablePath: opts.executablePath || undefined,
-        args: ["--disable-dev-shm-usage", "--no-first-run", "--disable-extensions", ...(opts.args ?? [])],
+        args: ["--disable-dev-shm-usage", "--no-first-run", "--disable-extensions", "--no-zygote", "--renderer-process-limit=1", "--disable-gpu", ...(opts.args ?? [])],
       });
     })();
     return browser;
@@ -119,6 +124,10 @@ export function chromiumRenderer(opts: ChromiumOptions = {}): PdfRenderer {
 
   return {
     async render(html, doc, fontStack, ropts) {
+      // r70: starting Chromium (100+ MB) while the server is near its memory limit would crash it for every student —
+      // the teacher is asked to try again in a minute instead (a browser already running is used normally)
+      // r81: Chromium needs ~150–200 MB of the same container — start it only while the server uses under PDF_START_MB
+      if (!browser && memoryHigh(Number(process.env.PDF_START_MB) || PDF_START_MB)) throw new ReportBusyError();
       const release = await gate.acquire(opts.queueTimeoutMs ?? 30_000);
       stopIdle();
       let b: Browser;

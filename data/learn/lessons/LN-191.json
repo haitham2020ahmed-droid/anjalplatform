@@ -337,9 +337,9 @@
      "passage": "Faisal misplaced his house keys. He looked in his bag, his pockets and under the sofa, but he could not find them.",
      "stem": "What does misplaced mean?",
      "options": [
-      "Put in the right place.",
-      "Placed again.",
-      "Bought new ones.",
+      "Put in exactly the right place.",
+      "Placed again in a new row.",
+      "Bought new ones from a shop.",
       "Put somewhere wrong and lost."
      ],
      "answer": 3,
@@ -425,8 +425,8 @@
      "options": [
       "Information that is false or wrong.",
       "Information that is very old.",
-      "Information shared again.",
-      "Information about schools."
+      "Information shared again and again.",
+      "Information about schools and teachers."
      ],
      "answer": 0,
      "why": "**mis-** means wrongly. The principal said the claim was **false**."
@@ -435,9 +435,9 @@
      "passage": "The weather in the mountains is unpredictable. One minute the sky is clear, and the next minute a storm rolls in without warning.",
      "stem": "What does unpredictable mean?",
      "options": [
-      "Always the same.",
-      "Very cold and wet.",
-      "Easy to forecast.",
+      "Always the same, day after day, at noon.",
+      "Very cold and wet in winter.",
+      "Easy to forecast every day.",
       "Not able to be known ahead of time."
      ],
      "answer": 3,
@@ -447,10 +447,10 @@
      "passage": "At first, the council planned to cut down the old trees to widen the road. After hundreds of families asked them to reconsider, they met again and chose a different route.",
      "stem": "What does reconsider mean?",
      "options": [
-      "Agree immediately.",
-      "Forget about something.",
+      "Agree with someone immediately, without any doubt.",
+      "Forget about something that happened last week.",
       "Think about again, possibly to change a decision.",
-      "Refuse to listen."
+      "Refuse to listen to what other people say."
      ],
      "answer": 2,
      "why": "**re-** means again. They **met again** and changed the plan."

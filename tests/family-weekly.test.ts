@@ -5,6 +5,8 @@
  * Download PDF one / all — one file, a page per student). Demo school in memory — never a real database.
  */
 import { before, describe, test } from "node:test";
+import { practiceTotalsFor } from "../src/server/analytics/practice-totals";
+import { weekStart } from "../src/server/student/weekly";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
@@ -63,7 +65,7 @@ describe("👪 weekly family report", () => {
     await repo.create("LessonRun", { studentId: sid, schoolId: student.schoolId, skillId: skill.id, phase: "DONE", log: [], startedAt: new Date("2026-10-13T10:00:00Z"), finishedAt: new Date("2026-10-13T10:20:00Z"), updatedAt: NOW });
     // a teacher test finished this week: 2 of 3 right
     const qs = (await repo.findMany("Question", { skillId: skill.id, status: "PUBLISHED" }, { select: ["id"], take: 3 })).map((q) => s(q.id));
-    const r = await assignTest(repo, teacher, { classId, type: "QUIZ", title: "Quiz 1 (Below Level)", levelMode: "SAME", questions: { SAME: qs } }, new Date("2026-10-12T07:00:00Z"));
+    const r = await assignTest(repo, teacher, { source: "CURRICULUM", classId, type: "QUIZ", title: "Quiz 1 (Below Level)", levelMode: "SAME", questions: { SAME: qs } }, new Date("2026-10-12T07:00:00Z"));
     const ta = (await repo.findMany("Assignment", { testId: r.testId }))[0];
     await repo.updateMany("AssignmentStudent", { assignmentId: ta.id, studentId: sid }, { status: "COMPLETED", completedAt: new Date("2026-10-13T11:00:00Z") });
     await repo.create("PracticeSession", { studentId: sid, skillId: skill.id, mode: "TEACHER_QUIZ", assignmentId: ta.id, correctCount: 2, questionCount: 3, startedAt: new Date("2026-10-13T10:50:00Z") });
@@ -79,7 +81,9 @@ describe("👪 weekly family report", () => {
     const w = await familyWeek(repo, student, sid, NOW);
     assert.equal(w.week, "2026-10-11");
     assert.deepEqual(w.tasks, ["Main Idea practice"], "this week's tasks only, level word removed");
-    assert.ok(w.minutes >= 25, `minutes ${w.minutes}`);
+    // round 4: minutes = practice-totals.ts (≤ 5 min per answer, the Riyadh week) — not the sessions' activeMs any more
+    const tot = await practiceTotalsFor(repo, sid, weekStart(NOW), NOW);
+    assert.ok(w.minutes > 0 && w.minutes === tot.minutes, `minutes ${w.minutes} = ${tot.minutes}`);
     assert.deepEqual(w.articles, ["Turtles of the Red Sea"]);
     assert.equal(w.lessons.length, 1);
     const quiz = w.tests.find((x) => x.kind === "TEST")!;

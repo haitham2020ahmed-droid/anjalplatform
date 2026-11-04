@@ -190,9 +190,9 @@
       "stem": "What is the main idea of paragraph 4?",
       "options": [
         "Grandmother compares the short train delay with the hardships of travelling by camel.",
-        "Grandmother explains how to look after camels.",
-        "The narrator tells Grandmother that she is hungry.",
-        "Grandmother asks the train driver how long they must wait."
+        "Grandmother explains how to look after camels in the desert, step by step.",
+        "The narrator tells Grandmother that she is hungry and tired and wants to go home.",
+        "Grandmother asks the train driver how long they must wait here for the next train."
       ],
       "answer": "A",
       "why": "Grandmother describes her father's three-week camel journey to help the narrator see that their delay is small."
@@ -205,10 +205,10 @@
       "type": "MCQ",
       "stem": "Why did the train stop in the middle of the desert?",
       "options": [
-        "The engine had broken down.",
-        "Camels were standing on the tracks.",
+        "The engine had broken down in the heat of the day.",
+        "Camels were standing on the tracks and would not move.",
         "Strong winds had blown sand across the rails ahead.",
-        "The driver was waiting for other passengers."
+        "The driver was waiting for other passengers to arrive."
       ],
       "answer": "C",
       "why": "Paragraph 3: “strong winds during the night had blown sand across the rails ahead”."
@@ -301,10 +301,10 @@
       "type": "MCQ",
       "stem": "What caused the narrator to feel embarrassed in paragraph 5?",
       "options": [
-        "The baby threw the puzzle at her.",
+        "The baby threw the puzzle at her, and everybody on the train turned to look at her.",
         "She realised her impatience was small compared with her great-grandfather's hardships.",
-        "Grandmother scolded her loudly in front of everyone.",
-        "She had forgotten her ticket."
+        "Grandmother scolded her loudly in front of everyone because she had been late to the station.",
+        "She had forgotten her ticket and could not get on the train with the family."
       ],
       "answer": "B",
       "why": "After Grandmother's question, she felt embarrassed about losing patience over a short delay."
@@ -349,10 +349,10 @@
       "type": "MCQ",
       "stem": "How is the narrator's attitude to delays different at the end of the story compared with paragraph 4?",
       "options": [
-        "At first she enjoys delays; at the end she hates them.",
-        "At first she is calm; at the end she is angry.",
+        "At first she enjoys delays and likes to wait; at the end she hates them and wants to leave at once.",
+        "At first she is calm and quiet; at the end she is angry with the driver and the other passengers.",
         "At first her patience is draining away; at the end she uses Grandmother's question to wait more calmly.",
-        "There is no difference in her attitude."
+        "There is no difference in her attitude, because she is the same at the beginning and at the end."
       ],
       "answer": "C",
       "why": "In paragraph 4 she is losing patience; in paragraph 8 the question “usually helps me wait more calmly”."
@@ -365,10 +365,10 @@
       "type": "MCQ",
       "stem": "What was the effect of watching the maintenance team at work?",
       "options": [
-        "The passengers became angrier.",
+        "The passengers became angrier at the delay and shouted.",
         "Even the businessman put away his phone to watch them.",
-        "The narrator fell asleep.",
-        "The baby started crying again."
+        "The narrator fell asleep in her seat, and so she missed it.",
+        "The baby started crying again, even more loudly than before."
       ],
       "answer": "B",
       "why": "Paragraph 6: “Even the businessman put away his phone to watch them.”"
@@ -382,9 +382,9 @@
       "stem": "How was her great-grandfather's journey DIFFERENT from the narrator's journey?",
       "options": [
         "His took weeks on camels and had dangerous water shortages; hers took one day by train.",
-        "His was by aeroplane; hers was by car.",
-        "His was shorter than hers.",
-        "His had no stops; hers had many."
+        "His was by aeroplane over the sea; hers was by car along the coast, in the heat of the day.",
+        "His was shorter than hers, and it took only a few days by sea and by road to get there.",
+        "His had no stops along the way; hers had many stops for food, rest and prayer on the road."
       ],
       "answer": "A",
       "why": "He travelled nearly three weeks by camel and once waited four days for water; she travelled in a warm carriage with tea."
@@ -413,10 +413,10 @@
       "type": "MCQ",
       "stem": "What does “pushed the sand aside in long golden waves” describe?",
       "options": [
-        "the sea near Al-Jouf",
+        "the sea near Al-Jouf and its waves",
         "the way the machine moved the sand off the rails",
-        "a sandstorm blowing toward the train",
-        "the dunes seen from the aeroplane"
+        "a sandstorm blowing toward the train and the tracks",
+        "the dunes seen from the aeroplane above the desert"
       ],
       "answer": "B",
       "why": "The machine pushed sand away in long curves that looked like waves."
@@ -429,10 +429,10 @@
       "type": "MCQ",
       "stem": "In your opinion, why does the writer let Grandmother end her story with a question instead of an order?",
       "options": [
-        "because Grandmother did not know the answer",
+        "because Grandmother did not know the answer herself and was too tired",
         "to make the narrator think for herself and reach the lesson on her own",
-        "to show that Grandmother was angry",
-        "because the narrator asked her to"
+        "to show that Grandmother was angry with the narrator that evening",
+        "because the narrator asked her to stop telling the long story"
       ],
       "answer": "B",
       "why": "A question invites the narrator to compare the two situations and understand by herself."
@@ -445,9 +445,9 @@
       "type": "MCQ",
       "stem": "In your opinion, what was the MOST helpful thing a passenger did during the delay?",
       "options": [
-        "making impatient phone calls",
-        "groaning with irritation",
-        "complaining to the driver",
+        "making impatient phone calls to his friends and family",
+        "groaning with irritation at the driver and the delay",
+        "complaining to the driver about the long delay",
         "entertaining a crying baby so his mother could rest"
       ],
       "answer": "D",
@@ -461,10 +461,10 @@
       "type": "MCQ",
       "stem": "Which message is the writer MOST LIKELY sharing?",
       "options": [
-        "Trains are always slower than aeroplanes.",
+        "Trains are always slower than aeroplanes, so people should never use them.",
         "Comparing our problems with harder times can help us be patient and helpful.",
-        "Travellers should never take long journeys.",
-        "Sand should be cleared by hand only."
+        "Travellers should never take long journeys because the desert is too hot.",
+        "Sand should be cleared by hand only, because machines can break the track."
       ],
       "answer": "B",
       "why": "Grandmother's comparison makes the narrator calmer and more helpful."
@@ -493,9 +493,9 @@
       "type": "MCQ",
       "stem": "In your opinion, which information is the LEAST clear in the story?",
       "options": [
-        "where the train stopped",
-        "why the train stopped",
-        "how long the delay lasted",
+        "where the train stopped on the way to Hofuf",
+        "why the train stopped on the way to Hofuf",
+        "how long the delay lasted on the way to Hofuf",
         "how the maintenance team knew where the sand was"
       ],
       "answer": "D",

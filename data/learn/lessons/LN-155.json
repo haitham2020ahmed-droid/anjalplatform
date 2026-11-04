@@ -106,10 +106,10 @@
      "passage": "Ali woke up. He ate his bread. He walked to school with his sister.",
      "stem": "What kind of story is this?",
      "options": [
-      "Make-believe",
-      "A poem",
+      "Make-believe with animals",
+      "A poem with short lines",
       "It could really happen",
-      "A song"
+      "A song with a nice tune"
      ],
      "answer": 2,
      "why": "Everything in it could happen in real life."
@@ -173,10 +173,10 @@
     "passage": "Kareem's grandfather kept bees on the farm. Every spring, Kareem helped him check the hives, wearing a white suit and a net over his face. One morning, Kareem noticed that a hive was very quiet. His grandfather explained that the queen bee had died. Together, they moved a new queen into the hive, and by the end of the week, the bees were busy again.",
     "stem": "What kind of story is this?",
     "options": [
-     "Fantasy, because the bees talk to Kareem",
-     "A poem, because it has lines that rhyme",
+     "Fantasy, because the bees talk to Kareem at night",
+     "A poem, because it has lines that rhyme at the end",
      "Realistic fiction, because everything could really happen",
-     "Fantasy, because Kareem can fly over the farm"
+     "Fantasy, because Kareem can fly over the farm on a bee"
     ],
     "answer": 2,
     "hint": "Look for anything that could NOT happen in real life. Is there anything impossible, like a talking animal?",
@@ -284,9 +284,9 @@
     "stem": "Which feature of poetry does the poet use most to describe the sea?",
     "options": [
      "The poet compares the sea to a giant who moves, sleeps and sings.",
-     "Every line of the poem asks the reader a question.",
-     "The poem gives scientific facts about how waves form.",
-     "The poem tells about characters solving a problem."
+     "Every line of the poem asks the reader a question about it.",
+     "The poem gives scientific facts about how waves form and move.",
+     "The poem tells about characters solving a problem together."
     ],
     "answer": 0,
     "hint": "Look at how the sea is described. Is it called something else? What does \"he\" do?",
@@ -328,9 +328,9 @@
      "passage": "Rain on the roof, / Rain on the street, / Rain on the flowers / And rain on my feet.",
      "stem": "Which feature does the poem use?",
      "options": [
-      "A plot with a problem",
-      "Talking animals",
-      "Facts and numbers",
+      "A plot with a problem and an end",
+      "Talking animals and birds",
+      "Facts and numbers about weather",
       "Repetition of the word \"rain\""
      ],
      "answer": 3,
@@ -407,10 +407,10 @@
     "passage": "My grandfather's hands were maps. / Every line on them was a road / he had walked to feed us. / Every scar was a river / he had crossed in the dark. / I used to laugh at how rough they were. / Now, when I hold my own son's hand, / soft as a new leaf, / I understand / what those roads cost. / I trace them in my memory, / and I am not laughing.",
     "stem": "Which statement best describes how the poem develops its meaning?",
     "options": [
-     "It uses a regular rhyme and beat to tell a funny story about a grandfather's hands.",
+     "It uses a regular rhyme and beat to tell a funny story about a grandfather's hands and his old tools.",
      "It uses a metaphor of hands as maps, then shifts as the speaker grows up and understands the sacrifice.",
-     "It lists facts about how hands change as people grow older.",
-     "It is a fantasy story in which a grandfather's hands turn into real maps."
+     "It lists facts about how hands change as people grow older, with numbers and dates for each age.",
+     "It is a fantasy story in which a grandfather's hands turn into real maps of a faraway land."
     ],
     "answer": 1,
     "hint": "Look at the comparison at the start, then at the shift near the end. How has the speaker's attitude changed?",
@@ -464,7 +464,7 @@
       "Fantasy, because animals talk and act like people",
       "A poem, because it has rhyme and stanzas",
       "Realistic fiction, because it could happen",
-      "Free verse, because it has line breaks"
+      "Free verse, because it has line breaks and no rhyme"
      ],
      "answer": 0,
      "why": "A fox and a crow cannot really talk or plan tricks. That makes it fantasy (this kind, with a lesson, is called a fable)."

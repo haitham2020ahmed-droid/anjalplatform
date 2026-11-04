@@ -64,6 +64,16 @@
       "level": 1400,
       "title": "Decoding the Food Label",
       "text": "Pick up almost any package of food in your kitchen and turn it over, and somewhere on the back or side you will discover a label that explains precisely what is inside the food you are about to eat, and learning to interpret it is an invaluable skill that can safeguard your health throughout your life.\n\nThe front of a package frequently displays colorful illustrations and appealing descriptions like \"natural,\" which manufacturers deliberately design to attract shoppers but which can occasionally be misleading. The back, however, is where the genuine facts are printed. In Saudi Arabia, food labels must be written in Arabic, and numerous products include English translations as well.\n\nBegin with the serving size, because every number on the label describes a single serving. For instance, a bag of chips might contain two servings, so a person who finishes the entire bag will actually consume twice the quantities that are listed.\n\nNext, examine the calories, which measure the energy that food provides to your body, and then investigate the nutrients, including sugar, fat, protein, and fiber, as well as salt, which is typically listed under the scientific name sodium. Your body requires a certain amount of these nutrients, but regularly consuming excessive sugar or sodium over many years can damage your cardiovascular system and teeth, which is why nutrition experts consistently recommend moderation.\n\nAfter that, examine the ingredients list carefully. Ingredients are invariably arranged in descending order by weight, from the largest quantity to the smallest, so if sugar appears near the beginning of the list, the product contains a considerable amount of it.\n\nBe aware that sugar frequently hides under alternative names, such as syrup, honey, or chemical terminology ending in \"ose,\" like glucose and fructose, so a single product may contain several varieties of sugar even when the word itself never appears, which means the combined quantity can be considerably larger than shoppers anticipate.\n\nSome people have a serious allergy to foods such as nuts or milk, which can make them dangerously ill, so manufacturers are required to highlight each allergen whenever such foods are included.\n\nLabels also display an expiry date, which indicates when the food will no longer retain its optimal quality or remain safe to consume.\n\nFinally, compare two similar snacks side by side, because the product containing less sugar and sodium is generally the healthier and more responsible choice for your long-term wellbeing."
+    },
+    {
+      "level": 1500,
+      "title": "Decoding the Food Label",
+      "text": "Learning to read a food label properly is one of the most practical skills a person can develop, since the information printed there, rather than the colorful marketing on the front of the box, reveals what is really inside the food a person is about to eat. In Saudi Arabia, food labels must be printed in Arabic, though numerous products additionally include English translations for international shoppers.\n\nThe front of most packages displays attractive illustrations alongside persuasive descriptions such as natural, phrases that manufacturers deliberately design to attract shoppers' attention. Such claims can occasionally prove misleading, since they are not independently verified facts but marketing language chosen specifically to sell the product. The genuine nutritional facts are instead printed on the back or side of the package, where a careful reader can find what truly matters.\n\nEvery number appearing on a food label describes a single serving, a detail easily overlooked. A bag of chips, for example, might contain two full servings rather than one, meaning that a person who eats the entire bag actually consumes twice the quantities listed on the label, including twice the calories, sugar, and sodium.\n\nBeyond serving size, shoppers should examine the calories, which measure the energy a food provides to the body, alongside key nutrients such as sugar, fat, protein, and fiber, with salt typically listed under its scientific name, sodium. The body genuinely needs moderate amounts of these nutrients, but consistently consuming excessive sugar or sodium over many years can seriously damage the heart and teeth, which explains why nutrition experts consistently recommend moderation rather than total avoidance.\n\nThe ingredients list deserves particularly careful attention, since ingredients are always arranged in descending order by weight, from the largest quantity present down to the smallest. If sugar appears near the very beginning of this list, the product almost certainly contains a substantial amount of it. Complicating matters further, sugar frequently hides under alternative names such as syrup, honey, or chemical terms ending in ose, including glucose and fructose. A single product may therefore contain several different varieties of sugar even when the word sugar itself never explicitly appears anywhere on the label.\n\nFood labels also serve a key safety function for people with allergies, since any allergen present, such as nuts or milk, must be clearly highlighted, protecting those who could become dangerously ill from accidental exposure. Finally, every label displays an expiry date indicating when the food will no longer retain its best quality or remain safe to eat, making the comparison of two similar snacks side by side, choosing whichever contains less sugar and sodium overall, a genuinely healthier and more informed choice."
+    },
+    {
+      "level": 1600,
+      "title": "Decoding the Food Label",
+      "text": "Learning to interpret a food label correctly and thoroughly represents one of the most practical and genuinely useful skills a person can cultivate, since the information printed there, rather than the colorful marketing imagery adorning the front of the package, reveals precisely what is actually contained within the food a person is about to consume. In Saudi Arabia, food labels must be printed in Arabic, although numerous products additionally include English translations intended for international shoppers.\n\nThe front of most commercial packages displays attractive illustrations alongside persuasive descriptive language such as natural, phrases that manufacturers deliberately and strategically design to attract shoppers' immediate attention but that can occasionally prove genuinely misleading, since such promotional claims are not independently verified scientific facts but rather marketing language carefully chosen specifically to sell the product more effectively. The genuine nutritional facts are instead printed on the back or side of the package, where a sufficiently careful reader can locate what actually matters nutritionally.\n\nEvery single number appearing anywhere on a food label describes precisely one serving, a frequently overlooked detail with significant consequences. A bag of chips, for example, might contain two complete servings rather than merely one, meaning that a person who consumes the entire bag actually ends up eating twice the quantities explicitly listed on the label, including twice the calories, sugar, and sodium originally stated.\n\nBeyond simple serving size, careful shoppers should additionally examine the calories, which measure the energy a given food provides to the human body, alongside key nutrients such as sugar, fat, protein, and fiber, with salt typically listed under its precise scientific name, sodium. The human body genuinely requires moderate amounts of these various nutrients, but consistently consuming excessive sugar or sodium over the course of many years can seriously and progressively damage the heart and teeth, which explains why nutrition experts consistently and emphatically recommend moderation rather than complete avoidance of these substances.\n\nThe ingredients list deserves particularly careful and sustained attention, since ingredients are invariably arranged in strict descending order by weight, proceeding from the largest quantity present down systematically to the smallest. If sugar appears near the very beginning of this ordered list, the product almost certainly contains a substantial quantity of it. Complicating matters considerably further, sugar frequently conceals itself under alternative names such as syrup, honey, or chemical terminology ending in ose, including glucose and fructose, meaning that a single product may contain several entirely different varieties of sugar even when the specific word sugar itself never explicitly appears anywhere on the printed label.\n\nFood labels additionally serve a critical, potentially life-saving safety function for individuals with allergies, since any allergen present, such as nuts or milk, must be clearly and conspicuously highlighted, protecting those who could otherwise become dangerously ill following accidental exposure. Finally, every properly printed label displays an expiry date indicating precisely when the food will no longer retain its optimal quality or remain safe to eat, making the deliberate comparison of two broadly similar snacks side by side, ultimately choosing whichever option contains less sugar and sodium overall, a genuinely healthier and considerably more informed consumer choice."
     }
   ],
   "bands": {
@@ -104,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How to cook a healthy meal",
-            "Why sugar is in every food",
+            "How to cook a healthy meal for the whole family",
+            "Why sugar is in every food we buy",
             "How to read a food label to make good choices",
-            "How food boxes are made"
+            "How food boxes are made in a plant"
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -155,10 +165,10 @@
         {
           "stem": "A bag of chips holds two servings. Sara eats the whole bag. What is true?",
           "options": [
-            "She ate half a serving",
+            "She ate half a serving of the chips",
             "She ate twice the amount for one serving",
-            "She ate no salt at all",
-            "She ate the same as one serving"
+            "She ate no salt at all from the bag",
+            "She ate the same as one single serving"
           ],
           "answer": "B",
           "skill": "inference",
@@ -243,7 +253,8 @@
         "I named at least two parts of a food label.",
         "I explained how each part helps me choose.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "I would check the serving size on the label first, because all the numbers only describe one serving, not the whole bag. I would also look at the sugar listed in the ingredients, because if sugar is near the top of the list, the food has a lot of it, and I want to choose the healthy snack."
     },
     "MID": {
       "keyWords": [
@@ -284,7 +295,7 @@
           "options": [
             "Food packages should not have pictures on the front.",
             "Reading the facts on a label helps people choose healthier food.",
-            "Everyone should stop eating chips.",
+            "Everyone should stop eating chips and other snacks for good, starting today.",
             "Labels are only useful for people with allergies."
           ],
           "answer": "B",
@@ -421,7 +432,8 @@
         "I gave clear steps in order.",
         "I used the words calories and sodium correctly.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "First, check the serving size so you know what all the numbers on the label describe. Next, look at the calories, which measure the energy the food gives your body, and check nutrients like sugar and sodium, since too much of either over time can harm your heart. Finally, compare two snacks side by side, and choose the one with less sugar and sodium for the healthier choice."
     },
     "HIGH": {
       "keyWords": [
@@ -562,10 +574,10 @@
         {
           "stem": "Read the sentence: \"nutrition experts consistently recommend moderation.\" What does moderation mean?",
           "options": [
-            "Eating only one kind of food",
+            "Eating only one kind of food each day",
             "Eating reasonable amounts, not too much",
-            "Never eating sugar or salt",
-            "Eating as much as you want"
+            "Never eating sugar or salt in any meal",
+            "Eating as much as you want at every meal"
           ],
           "answer": "B",
           "skill": "vocabulary",
@@ -579,9 +591,9 @@
         {
           "stem": "Why does the author begin by asking readers to pick up a package and turn it over?",
           "options": [
-            "To explain how packages are made",
-            "To show that most packages are empty",
-            "To list the foods found in a kitchen",
+            "To explain how packages are made in a big factory",
+            "To show that most packages are empty when you buy them from a shop",
+            "To list the foods found in a kitchen cupboard at home",
             "To connect the topic to something readers can do right away"
           ],
           "answer": "D",
@@ -599,7 +611,8 @@
         "I clearly stated whether I agree or disagree.",
         "I used at least three details from the article.",
         "I organized my answer in clear, complete sentences."
-      ]
+      ],
+      "modelAnswer": "I disagree that the front of a package is enough to judge a food, because the article shows the front can be misleading with bright pictures and words like \"natural\" that do not tell you the real facts. The back of the label lists ingredients in descending order from largest to smallest amount, so if sugar is near the top, you are about to consume a lot of it, which the front never shows. The label also warns about allergens like nuts or milk and reminds shoppers to eat certain foods only in moderation, information that a pretty front picture simply cannot provide."
     }
   }
 }

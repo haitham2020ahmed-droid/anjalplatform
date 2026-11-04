@@ -16,6 +16,7 @@ import { ListenButton } from "../listen-button";
 import { plainPassage } from "@/lib/passage";
 import { LessonPassage } from "./lesson-passage";
 import { Organizer } from "./organizer";
+import { RichInline } from "@/components/rich-inline";
 
 type Err = { error: string };
 type Actions = {
@@ -109,7 +110,7 @@ export function LessonPlayer({ initial, actions, listHref }: { initial: LessonVi
                     <legend className="sr-only">Choose the clue sentence</legend>
                     {view.model.sentences.map((x, i) => (
                       <label key={i} className={`flex gap-2 rounded-xl border-2 px-3 py-2 ${pick === i ? "border-brand-teal bg-brand-teal/10" : "border-slate-200"}`}>
-                        <input type="radio" name="clue" checked={pick === i} onChange={() => setPick(i)} className="mt-1 accent-brand-teal" /><span>{x}</span>
+                        <input type="radio" name="clue" checked={pick === i} onChange={() => setPick(i)} className="mt-1 accent-brand-teal" /><span><RichInline text={x} /></span>
                       </label>
                     ))}
                   </fieldset>
@@ -118,8 +119,8 @@ export function LessonPlayer({ initial, actions, listHref }: { initial: LessonVi
               ) : (
                 <div className="mt-2 space-y-2">
                   <p className={`font-semibold ${view.model.correct ? "text-teal-800" : "text-amber-800"}`}>{view.model.correct ? "✓ Yes! That sentence is a clue." : "Good try. The highlighted sentences are the clues."}</p>
-                  <p><span className="font-semibold text-brand-navy">Answer: </span>{view.model.answer}</p>
-                  <p><span className="font-semibold text-brand-navy">Why: </span>{view.model.why}</p>
+                  <p><span className="font-semibold text-brand-navy">Answer: </span><RichInline text={view.model.answer} /></p>
+                  <p><span className="font-semibold text-brand-navy">Why: </span><RichInline text={view.model.why} /></p>
                   <button type="button" disabled={pending} onClick={() => run(() => actions.begin(view.runId), (r) => adopt(r.view))} className="rounded-xl bg-brand-navy px-6 py-2.5 font-semibold text-white">Start trying with help →</button>
                 </div>
               )}
@@ -156,11 +157,11 @@ export function LessonPlayer({ initial, actions, listHref }: { initial: LessonVi
                 <div className="min-w-0">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   {shown.image && <img src={shown.image.url} alt={shown.image.alt} className="mb-4 max-h-[40vh] w-auto max-w-full rounded-xl ring-1 ring-slate-200" />}
-                  {shown.type !== "DROPDOWN" && shown.type !== "FILL_BLANK" && <p className="text-xl font-medium leading-relaxed text-slate-900">{shown.stem}</p>}
+                  {shown.type !== "DROPDOWN" && shown.type !== "FILL_BLANK" && <p className="text-xl font-medium leading-relaxed text-slate-900"><RichInline text={shown.stem} /></p>}
                   <ListenButton text={[shown.stem, ...(shown.options ?? []).map((o) => `${o.label}. ${o.text}`)].join(". ")} label="Listen to the question" className="mt-2" />
                   <div className="mt-4"><AnswerInput q={shown} value={value} onChange={setValue} disabled={Boolean(feedback) || pending} /></div>
                   {!feedback && hints.length > 0 && (
-                    <div className="mt-4 space-y-2">{hints.map((h) => <p key={h.level} className="rounded-lg border border-amber-300 bg-amber-50 p-3 text-amber-950">💡 <span className="font-semibold">Hint {h.level}:</span> {h.text}</p>)}</div>
+                    <div className="mt-4 space-y-2">{hints.map((h) => <p key={h.level} className="rounded-lg border border-amber-300 bg-amber-50 p-3 text-amber-950">💡 <span className="font-semibold">Hint {h.level}:</span> <RichInline text={h.text} /></p>)}</div>
                   )}
                   {!feedback && (
                     <div className="mt-5 flex flex-wrap gap-3">

@@ -4,7 +4,8 @@ import { ForbiddenError } from "@/server/auth/rbac";
 import { ValidationError } from "@/server/curriculum-admin";
 import { ReportBusyError } from "@/reports/pdf";
 import { reportDeps } from "@/server/reports/runtime";
-import { contentDisposition, RateLimitedError } from "@/server/reports/service";
+import { reportFileResponse } from "@/server/reports/file-response";
+import { RateLimitedError } from "@/server/reports/service";
 import { exportDiagnostic } from "@/server/diagnostic/export";
 
 export const runtime = "nodejs";
@@ -22,7 +23,7 @@ export async function GET(req: Request) {
   if (!testId) return new NextResponse("Missing test.", { status: 422 });
   try {
     const file = await exportDiagnostic(reportDeps(), actor, { testId, classId: id("classId"), studentId: id("studentId"), format });
-    return new NextResponse(Buffer.from(file.bytes), { headers: { "Content-Type": file.contentType, "Content-Disposition": contentDisposition(file.filename), "Content-Length": String(file.bytes.length), "Cache-Control": "no-store, private", "X-Content-Type-Options": "nosniff" } });
+    return reportFileResponse(req, file); // r84: a print page (default) or a file
   } catch (e) {
     if (e instanceof ValidationError) return new NextResponse(e.message, { status: 422 });
     if (e instanceof RateLimitedError) return new NextResponse(e.message, { status: 429, headers: { "Retry-After": String(e.retryAfterSeconds) } });

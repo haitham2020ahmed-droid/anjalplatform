@@ -18,6 +18,7 @@ import { loadQuestionItems } from "../practice/items";
 import { recordGameMisses } from "../second-chance/service";
 import { randomInt } from "node:crypto";
 import { openChallengesFor } from "./live-challenge";
+import { roomByCode } from "./rooms";
 
 const s = (v: unknown) => String(v ?? "");
 const t = (v: unknown) => (v ? new Date(v instanceof Date ? v.toISOString() : s(v)).getTime() : 0);
@@ -73,7 +74,10 @@ export async function createGame(repo: Repo, actor: Actor, input: { title: strin
   for (let round = 0; picked.length < Math.min(count, pool.length); round++) for (const list of bySkill.values()) if (list[round] && picked.length < count) picked.push(list[round]);
   const seconds = Math.max(10, Math.min(60, input.seconds ?? 20));
   let code = "";
-  for (let i = 0; i < 20 && !code; i++) { const c = String(randomInt(100000, 1000000)); /* unguessable PIN */ if (!(await repo.findMany("LiveGame", { code: c })).some((g) => g.status !== "FINISHED")) code = c; }
+  // 🐛 L3 fix: this only checked the LEGACY LiveGame table for a code collision — a rare (~1 in 900,000) but real
+  // clash with a currently-open Live Challenge room (held in memory, a separate system — rooms.ts) was possible.
+  // Check both so a freshly-created game can never collide with a room that's live right now.
+  for (let i = 0; i < 20 && !code; i++) { const c = String(randomInt(100000, 1000000)); /* unguessable PIN */ if (!roomByCode(c) && !(await repo.findMany("LiveGame", { code: c })).some((g) => g.status !== "FINISHED")) code = c; }
   if (!code) throw new ValidationError("Please try again.");
   const title = s(input.title).replace(/\s+/g, " ").trim() || "Live game";
   const g = await repo.create("LiveGame", { schoolId: actor.schoolId, classId: input.classId || null, hostId: actor.userId, code, title: title.slice(0, 191), questionIds: picked, status: "LOBBY", currentIndex: -1, secondsPerQuestion: seconds, createdAt: now });

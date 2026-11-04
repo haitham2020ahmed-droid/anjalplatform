@@ -14,6 +14,7 @@
  */
 import type { Repo } from "../seeding/repo";
 import { modelVersion } from "../cache/bank-version";
+import { sweptWeakValue } from "../cache/idle";
 
 const s = (v: unknown) => String(v ?? "");
 
@@ -45,7 +46,7 @@ export function levelFor(rit: number, studentGrade: number): "BELOW" | "ON" | "A
 /** "201–210" */
 export const ritBand = (rit: number) => { const lo = Math.floor((rit - 1) / 10) * 10 + 1; return `${lo}–${lo + 9}`; };
 
-const mapCache = new WeakMap<object, { v: string; at: number; p: Promise<Set<string>> }>();
+const mapCache = sweptWeakValue<{ v: string; at: number; p: Promise<Set<string>> }>("questions.bank-scope.mapCache", 2 * 60_000);
 /** Every Curriculum Map question id (never part of the bank's level classification). */
 export function mapLinkedQuestionIds(repo: Repo): Promise<Set<string>> {
   const v = modelVersion("QuestionMapLink"), hit = mapCache.get(repo);
@@ -55,7 +56,7 @@ export function mapLinkedQuestionIds(repo: Repo): Promise<Set<string>> {
   return p;
 }
 
-const gradeCache = new WeakMap<object, { v: string; at: number; m: Map<string, number> }>();
+const gradeCache = sweptWeakValue<{ v: string; at: number; m: Map<string, number> }>("questions.bank-scope.gradeCache", 10 * 60_000);
 /** The grade of each skill row (0 when unknown). Cached per write of Skill / Curriculum / Grade. */
 export async function skillGrades(repo: Repo, skillIds: readonly string[]): Promise<Map<string, number>> {
   const v = modelVersion("Skill", "Curriculum", "Grade");

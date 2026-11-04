@@ -1,19 +1,33 @@
 /**
- * 🚀 ReadRise Level — an ESTIMATE on a Lexile-like scale (about 300–1400), not an official Lexile measure.
+ * 🚀 ReadRise Level — an ESTIMATE on a Lexile-like scale (about 300–1600), not an official Lexile measure.
  *
  * From the public Flesch–Kincaid grade (sentence length + syllables per word), mapped onto the familiar
  * Lexile-style range with a gently flattening curve, fitted on reference texts (a very simple text ≈ 280, a typical
  * Grade 4–5 informational paragraph ≈ 900, a dense high-school science paragraph ≈ 1350):
  *   level ≈ 370 + 76·FKGL − 0.6·FKGL²   (FKGL clamped to −3…18)
  * The fit is re-checked against students' results over time (texts that their readers find much harder or easier).
- * The 12 version levels are 300, 400 … 1400. An official measure (licensed analyzer) can be stored per version and
+ * 🐛 fix (audit finding, Oct 2026): the scale used to stop at 1400 with NO placement content above it, so a strong
+ * reader (real Lexile bands for Grades 9–12 run well above 1400) had no harder passage to be tested against once
+ * they reached the top — any pass there, lucky guess or not, became their final, unverifiable result. Two new rungs
+ * (1500, 1600), with real placement passages, give the test somewhere left to go for the ablest readers.
+ * The 14 version levels are 300, 400 … 1600. An official measure (licensed analyzer) can be stored per version and
  * then wins. Pure functions only.
  */
 import { analyzeText } from "../../reading/prl";
 
-export const RR_LEVELS = [300, 400, 500, 600, 700, 800, 900, 1000, 1100, 1200, 1300, 1400] as const;
+export const RR_LEVELS = [300, 400, 500, 600, 700, 800, 900, 1000, 1100, 1200, 1300, 1400, 1500, 1600] as const;
 export type RRBand = "LOW" | "MID" | "HIGH";
-export const RR_MIN = 300, RR_MAX = 1400;
+export const RR_MIN = 300, RR_MAX = 1600;
+/**
+ * The levels a full ReadRise ARTICLE (the daily reading library, imported via the Excel template in import.ts) is
+ * written for. ✨ (decision, Oct 2026): extended to the full 300…1600 scale, matching the placement-test fix above —
+ * every article is now written 14 times, not 12, and all 200 existing articles got new 1500/1600 versions written
+ * (see data/readrise/articles/*.json) so a student measured that high has real daily content, not just a fallback
+ * to the nearest lower version. The HIGH band (level.ts/import.ts BAND_LEVELS) now spans 1100–1600, so the same
+ * HIGH-band key words, questions and prompt must work for the 1500/1600 versions too (kept in mind when writing
+ * them — see each article's HIGH-band material).
+ */
+export const LIBRARY_LEVELS = RR_LEVELS;
 
 /** Estimated ReadRise Level of a prose text (rounded to 10). */
 export function estimateLevel(text: string): number {
@@ -21,7 +35,11 @@ export function estimateLevel(text: string): number {
   if (st.wordCount < 20) return RR_MIN;
   const fk = Math.min(18, Math.max(-3, 0.39 * st.avgSentenceLength + 11.8 * st.avgSyllablesPerWord - 15.59));
   const lvl = 370 + 76 * fk - 0.6 * fk * fk;
-  return Math.round(Math.min(1500, Math.max(100, lvl)) / 10) * 10;
+  // 🐛 fix (audit finding, Oct 2026): was hard-capped at 1500 — stale from when RR_MAX was 1400 (a 100-point margin
+  // above it, matching import.ts's LEVEL_TOLERANCE). Left at 1500 after RR_MAX became 1600, a genuinely advanced
+  // 1600-level text would have measured as "only" 1500, 100 points below its own target — right at the edge of
+  // import.ts's tolerance rather than comfortably inside it. The cap now tracks RR_MAX the same way.
+  return Math.round(Math.min(RR_MAX + 100, Math.max(100, lvl)) / 10) * 10;
 }
 
 /** The question band of a version level. */
@@ -36,9 +54,15 @@ export function versionFor(studentLevel: number, available: number[]): number {
   return pick;
 }
 
-/** A sensible start when there is no placement or MAP Lexile yet: the middle of the grade's band. */
+/**
+ * A sensible start when there is no placement or MAP Lexile yet: the middle of the grade's band.
+ * 🐛 fix (audit finding, Oct 2026): grades 9–12 all started at the SAME 1050, regardless of grade — well under their
+ * real published Lexile bands (Gr9–10 ≈ 1050–1335, Gr11–12 ≈ 1185–1385), so an 11th/12th grader's placement test
+ * started far below their likely true level, making the 1400-ceiling problem (see placement.ts) worse for exactly
+ * the students most likely to hit it. Now every grade band gets its own starting point.
+ */
 export function defaultLevel(grade: number): number {
-  return grade <= 3 ? 550 : grade === 4 ? 750 : grade === 5 ? 850 : grade === 6 ? 950 : 1050;
+  return grade <= 3 ? 550 : grade === 4 ? 750 : grade === 5 ? 850 : grade === 6 ? 950 : grade <= 8 ? 1050 : grade <= 10 ? 1150 : 1250;
 }
 
 /** Target words per version (shorter for low levels). */

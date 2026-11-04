@@ -28,7 +28,7 @@ export default async function ReadRiseLibraryAdmin({ searchParams }: { searchPar
   return (
     <AppShell name={String(me.displayName)}>
       <PageHeader back={{ href: "/admin", label: "Admin" }} icon="🚀" title="ReadRise Library"
-        subtitle={<>Every article is written at 12 levels (300 … 1400); each student reads the version of their ReadRise Level. Platform articles can be hidden for your school; your school&apos;s own articles are imported, reviewed and published here. <span className="text-xs text-slate-500">{RR_NOTE}</span></>}>
+        subtitle={<>Every article is written at 14 levels (300 … 1600); each student reads the version of their ReadRise Level. Platform articles can be hidden for your school; your school&apos;s own articles are imported, reviewed and published here. <span className="text-xs text-slate-500">{RR_NOTE}</span></>}>
         <ReadRiseTabs items={ADMIN_TABS} current="/admin/readrise" />
       </PageHeader>
       <Flash msg={sp.msg} />

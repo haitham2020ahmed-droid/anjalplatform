@@ -400,9 +400,9 @@
     "stem": "Which choice best names the topic of the passage?",
     "options": [
      "How animals use Earth's magnetism to navigate",
-     "Sea turtles",
-     "Earth's magnetic field",
-     "Homing pigeons on cloudy days"
+     "Sea turtles and their nests on the beach",
+     "Earth's magnetic field and why it protects the planet",
+     "Homing pigeons flying on cloudy days in winter"
     ],
     "answer": 0,
     "hint": "One choice fits only one example, and one is so broad it fits a science text about compasses. Which covers every part?",
@@ -431,10 +431,10 @@
      "passage": "In many countries, old trains, ships and factories are now museums. A former power station in London houses a famous art gallery. In Jeddah, old coral-stone houses have become places to learn about history. Instead of tearing down old buildings, cities are finding them new purposes.",
      "stem": "Which choice best names the topic?",
      "options": [
-      "Art galleries",
-      "Life in Jeddah",
+      "Art galleries and museums",
+      "Life in Jeddah long ago",
       "Giving old buildings new uses",
-      "Trains and ships"
+      "Trains and ships in the port"
      ],
      "answer": 2,
      "why": "Every example shows an old building or machine given a new use. The other choices fit only one part."
@@ -443,10 +443,10 @@
      "passage": "A single honeybee visits hundreds of flowers on one trip. Other insects, birds and even bats carry pollen too. Without them, many crops such as almonds, apples and melons would produce much less food. Some farmers rent beehives during the flowering season to make sure their crops are pollinated.",
      "stem": "Which choice best names the topic?",
      "options": [
-      "Honeybees",
+      "Honeybees and their honey",
       "Pollinators and food crops",
-      "Farming",
-      "Bats"
+      "Farming in the desert",
+      "Bats that live in caves"
      ],
      "answer": 1,
      "why": "The passage is about animals that pollinate and why crops need them. Honeybees and bats are only examples; farming is too broad."
@@ -455,9 +455,9 @@
      "passage": "The first maps were drawn on clay tablets and animal skins. Later, sailors and travelers added coastlines and roads. Printing made maps cheap enough for many people to own. Today, satellites and phones show maps that update every second.",
      "stem": "Which choice best names the topic?",
      "options": [
-      "Satellites",
+      "Satellites and rockets",
       "Sailors and travelers",
-      "Printing in Europe",
+      "Printing in Europe long ago",
       "How maps changed over time"
      ],
      "answer": 3,

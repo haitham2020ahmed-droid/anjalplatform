@@ -1,5 +1,6 @@
 import type { TFn } from "@/i18n";
 import { MOE_AREAS, MOE_BOOKLET_MODEL, MOE_CITATION, MOE_GOALS, MOE_OPTION_STYLES, MOE_STANDARDS, MOE_TARGETS, NAFS_DOMAINS, NAFS_FACTS, NAFS_SAMPLE, NAFS_SKILLS, NAFS_SOURCES, PROCESS_TARGET, PROCESSES, PROCESS_NAME, SKILL_BY_CODE } from "@/server/nafs/framework";
+import { RichInline } from "@/components/rich-inline";
 
 const CARD = "rounded-2xl bg-surface p-5 shadow-card ring-1 ring-line";
 
@@ -86,9 +87,9 @@ export function AboutTab({ t }: { t: TFn }) {
         </section>
         <section className={CARD}>
           <h2 className="text-lg font-semibold text-ink">{t("Sample official-style item")}</h2>
-          <p className="mt-2 text-ink" lang="en" dir="ltr">{NAFS_SAMPLE.stem}</p>
+          <p className="mt-2 text-ink" lang="en" dir="ltr"><RichInline text={NAFS_SAMPLE.stem} /></p>
           <ol className="mt-2 grid grid-cols-2 gap-1.5 text-sm" lang="en" dir="ltr">
-            {NAFS_SAMPLE.options.map((o, i) => <li key={o} className={`rounded-lg px-3 py-1.5 ring-1 ${i === NAFS_SAMPLE.correct ? "bg-emerald-50 text-emerald-900 ring-emerald-200" : "bg-surface-2 text-ink-2 ring-line"}`}><b>{"ABCD"[i]}.</b> {o}</li>)}
+            {NAFS_SAMPLE.options.map((o, i) => <li key={o} className={`rounded-lg px-3 py-1.5 ring-1 ${i === NAFS_SAMPLE.correct ? "bg-emerald-50 text-emerald-900 ring-emerald-200" : "bg-surface-2 text-ink-2 ring-line"}`}><b>{"ABCD"[i]}.</b> <RichInline text={o} /></li>)}
           </ol>
         </section>
       </div>

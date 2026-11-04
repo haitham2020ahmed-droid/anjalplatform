@@ -157,10 +157,10 @@
       "difficulty": 3,
       "stem": "Which is the BEST solution the passage suggests for a drawer full of old phones?",
       "options": [
-        "Bury them deep in the garden.",
-        "Put them in the household bin.",
+        "Bury them deep in the garden under the soil.",
+        "Put them in the household bin with the rubbish.",
         "Take them to a shop that accepts old devices.",
-        "Break them open to remove the gold."
+        "Break them open to remove the gold inside them."
       ],
       "answer": "C",
       "why": "The passage says many shops and phone companies accept old devices for recycling."

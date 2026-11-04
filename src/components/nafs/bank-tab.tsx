@@ -8,6 +8,7 @@ import { paragraphsOf } from "@/server/nafs/student";
 import { setChoices } from "@/server/nafs/build";
 import { Combo } from "@/components/ui/combo";
 import { hideQuestionAction, retagAction, reviewDraftAction } from "@/app/teacher/nafs/actions";
+import { RichInline } from "@/components/rich-inline";
 
 const SOURCES: { key: BankSource; label: string }[] = [{ key: "ALL", label: "All" }, { key: "PLATFORM", label: "Platform" }, { key: "OWN", label: "The school's" }, { key: "DRAFT", label: "AI drafts to review" }, { key: "HIDDEN", label: "Hidden" }];
 const SEL = "min-h-10 rounded-lg bg-surface px-2 text-sm ring-1 ring-line";
@@ -63,7 +64,7 @@ export async function BankTab({ actor, t, sp }: { actor: Actor; t: TFn; sp: Reco
               {paragraphsOf(view.q.passage.text).map((p, i) => <p key={i} className="mt-2 text-sm leading-relaxed text-ink-2"><span className="me-2 text-xs font-bold text-muted">{i + 1}</span>{p}</p>)}
             </div>
           )}
-          <p className="mt-3 font-semibold text-ink" lang="en" dir="ltr">{view.q.stem}</p>
+          <p className="mt-3 font-semibold text-ink" lang="en" dir="ltr"><RichInline text={view.q.stem} /></p>
           {view.q.kind === "WRITTEN" ? (
             <div className="mt-2 rounded-xl bg-surface-2 p-3 text-sm ring-1 ring-line">
               <p className="text-xs font-semibold text-muted">{t("Short written answer · scored by the teacher (0 / 1 / 2)")}</p>
@@ -72,7 +73,7 @@ export async function BankTab({ actor, t, sp }: { actor: Actor; t: TFn; sp: Reco
             </div>
           ) : (
             <ol className="mt-2 grid gap-1.5 sm:grid-cols-2" lang="en" dir="ltr">
-              {view.q.options.map((o, i) => <li key={i} className={`rounded-lg px-3 py-1.5 text-sm ring-1 ${i === view.q.correct ? "bg-emerald-50 font-semibold text-emerald-900 ring-emerald-200" : "bg-surface-2 text-ink-2 ring-line"}`}><b>{"ABCD"[i]}.</b> {o}</li>)}
+              {view.q.options.map((o, i) => <li key={i} className={`rounded-lg px-3 py-1.5 text-sm ring-1 ${i === view.q.correct ? "bg-emerald-50 font-semibold text-emerald-900 ring-emerald-200" : "bg-surface-2 text-ink-2 ring-line"}`}><b>{"ABCD"[i]}.</b> <RichInline text={o} /></li>)}
             </ol>
           )}
           {view.q.explanation && <p className="mt-2 text-sm text-ink-2" lang="en" dir="ltr">💡 {view.q.explanation}</p>}
@@ -93,7 +94,7 @@ export async function BankTab({ actor, t, sp }: { actor: Actor; t: TFn; sp: Reco
               <li key={r.id} className="flex flex-wrap items-center justify-between gap-3 py-3">
                 {r.kind === "MCQ" && !r.draft && !r.hidden && <input type="checkbox" name="pick" value={r.id} form="pickform" className="h-5 w-5 shrink-0" aria-label={t("Tick for adaptive practice")} />}
                 <div className="min-w-0 flex-1">
-                  <p className="text-ink" lang="en" dir="ltr">{r.stem}</p>
+                  <p className="text-ink" lang="en" dir="ltr"><RichInline text={r.stem} /></p>
                   <p className="mt-0.5 flex flex-wrap gap-1.5 text-xs">
                     <span className={`max-w-full truncate rounded-full px-2 py-0.5 font-semibold ring-1 ${r.standard ? "bg-indigo-50 text-indigo-900 ring-indigo-200" : "bg-amber-50 text-amber-900 ring-amber-200"}`} title={r.standard ? codeName(r.standard, t) : undefined}>{r.standard ? codeName(r.standard, t) : t("No standard")}</span>
                     <span className={`rounded-full px-2 py-0.5 font-semibold ring-1 ${r.difficulty === 1 ? "bg-emerald-50 text-emerald-900 ring-emerald-200" : r.difficulty === 3 ? "bg-rose-50 text-rose-900 ring-rose-200" : "bg-sky-50 text-sky-900 ring-sky-200"}`}>{t(DIFFICULTY_NAME[r.difficulty])}</span>

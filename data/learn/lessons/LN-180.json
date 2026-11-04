@@ -57,10 +57,10 @@
     "passage": "Lucas came from a cool, rainy town in Scotland to visit his friend Fahad in Riyadh. In July, he stepped outside. 'It's like an oven!' he cried. Fahad smiled. 'This is just a normal summer day.'",
     "stem": "Why do Lucas and Fahad feel differently about the heat?",
     "options": [
-     "Fahad is feeling sick today.",
-     "Lucas loves very hot weather.",
+     "Fahad is feeling sick today after the long trip to the desert.",
+     "Lucas loves very hot weather more than anyone.",
      "Lucas comes from a cool place, but Fahad lives in Riyadh.",
-     "It is winter in Riyadh."
+     "It is winter in Riyadh, so the days are cold."
     ],
     "answer": 2,
     "hint": "Look at where each boy comes from. What is 'normal' for each of them?",
@@ -87,10 +87,10 @@
      "passage": "Yuki is from Japan. At home, her family takes off their shoes before going inside. When she visited Sara's house in Jeddah, she took off her shoes at the door too.",
      "stem": "Why did Yuki take off her shoes?",
      "options": [
-      "Her shoes were wet.",
+      "Her shoes were wet from the rain.",
       "It is what her family does at home.",
-      "Sara asked her to.",
-      "She wanted to run."
+      "Sara asked her to when she came in.",
+      "She wanted to run in the garden."
      ],
      "answer": 1,
      "why": "In Yuki's home, people take off their shoes before going in. Her culture shapes what she does."
@@ -99,9 +99,9 @@
      "passage": "Ahmed's grandmother always says, 'A guest must be offered coffee and dates.' When the new neighbour knocked on the door, Ahmed ran to make coffee.",
      "stem": "Why did Ahmed make coffee?",
      "options": [
-      "He was very thirsty.",
-      "The neighbour asked for tea.",
-      "It was breakfast time.",
+      "He was very thirsty after school.",
+      "The neighbour asked for tea and sweets.",
+      "It was breakfast time at home.",
       "His family welcomes guests with coffee."
      ],
      "answer": 3,
@@ -112,9 +112,9 @@
      "stem": "Why does Leo think the camel looks strange?",
      "options": [
       "He has never seen camels where he comes from.",
-      "Camels are very rare in the desert.",
-      "Rakan told him a funny joke.",
-      "The camel is sick and tired."
+      "Camels are very rare in the desert today.",
+      "Rakan told him a funny joke about camels earlier.",
+      "The camel is sick and tired of walking."
      ],
      "answer": 0,
      "why": "Camels are new to Leo, so he compares one to a horse. Rakan grew up near camels, so he knows what a hump is."
@@ -171,9 +171,9 @@
     "stem": "Why does Emma look for a chair and a fork?",
     "options": [
      "At home in England, she usually eats at a table with a fork.",
-     "She does not like the taste of rice and lamb.",
-     "She hurt her right hand at school that day.",
-     "Nora's family asked her to bring her own fork."
+     "She does not like the taste of rice and lamb at dinner.",
+     "She hurt her right hand at school that day while playing.",
+     "Nora's family asked her to bring her own fork and a chair."
     ],
     "answer": 0,
     "hint": "Is that in the text? Think about where Emma comes from and how she is used to eating.",
@@ -204,8 +204,8 @@
      "passage": "During Ramadan, Khalid did not eat or drink from dawn until sunset. His friend Tom, visiting from Australia, asked, 'Aren't you hungry all day?' Khalid smiled. 'A little. But fasting helps me remember people who have no food, and iftar with my family is the best part of the day.'",
      "stem": "What shapes Khalid's point of view about fasting?",
      "options": [
-      "He is not allowed to eat at school.",
-      "He does not enjoy eating food.",
+      "He is not allowed to eat at school at all.",
+      "He does not enjoy eating any food.",
       "His faith and family give fasting meaning.",
       "Tom told him that he should fast."
      ],
@@ -228,9 +228,9 @@
      "passage": "Rain had not fallen in Hessa's town for months. When dark clouds finally came, she ran outside with her family to stand in the first drops, laughing. Her cousin Amira, who lives in London, stayed inside. 'It's only rain,' she said, puzzled.",
      "stem": "Why does Hessa celebrate the rain while Amira does not?",
      "options": [
-      "Amira is afraid of storms.",
-      "Hessa has never seen clouds.",
-      "Hessa's family has no water at home to drink.",
+      "Amira is afraid of storms and thunder at night.",
+      "Hessa has never seen clouds in her whole life.",
+      "Hessa's family has no water at home to drink or wash.",
       "Rain is rare where Hessa lives, but common in London."
      ],
      "answer": 3,
@@ -287,8 +287,8 @@
     "passage": "When I arrived in Tokyo for the student exchange, the first thing I noticed was the silence. On the train, hundreds of people stood close together, yet no one spoke on the phone. At home in Riyadh, a crowded train would hum with greetings and laughter. My host father bowed when he met me, and I almost reached out to hug him, as I do with my uncles. That evening, my host mother served dinner in small separate bowls, one for each person. I thought of our big shared trays at home and felt, for a moment, very far away. Then my host brother quietly passed me his last piece of fish, and I understood that kindness can be quiet too.",
     "stem": "How does the narrator's background shape what is noticed in Tokyo?",
     "options": [
-     "The narrator notices only things that are the same as in Riyadh.",
-     "The narrator pays attention to the food and nothing else.",
+     "The narrator notices only things that are exactly the same as they are in Riyadh.",
+     "The narrator pays attention to the food and nothing else in the city.",
      "The narrator dislikes everything about Tokyo and wants to leave.",
      "The narrator notices differences from home: silence, bowing, separate bowls."
     ],
@@ -333,9 +333,9 @@
      "stem": "What caused Daniel's problem?",
      "options": [
       "The coffee was much too hot to drink.",
-      "Majed wanted to play a joke on him.",
+      "Majed wanted to play a joke on him at dinner.",
       "He did not know the custom for saying 'enough'.",
-      "His host did not like him very much."
+      "His host did not like him very much at all."
      ],
      "answer": 2,
      "why": "Daniel did not know that shaking the cup means 'enough'. The host kept pouring to be generous. The misunderstanding came from different customs."
@@ -347,7 +347,7 @@
       "She thinks apples taste better than dates.",
       "She compares them with the tall date palms she knows.",
       "She has visited many apple orchards before.",
-      "She wants to move to Lebanon to grow apples."
+      "She wants to move to Lebanon to grow apples with her aunt."
      ],
      "answer": 1,
      "why": "In Al-Ahsa, date palms are tall and must be climbed. So Nadia notices how short apple trees are. Her home shapes what surprises her."
@@ -403,7 +403,7 @@
     "passage": "My neighbour, Mrs. Clarke, invited me for tea at five. In my village, an invitation for five means 'sometime in the late afternoon', so I arrived at twenty to six, carrying a large tray of kabsa. My mother always said that a guest should never arrive with empty hands. Mrs. Clarke opened the door and glanced at her watch. On her table were two cups, a small teapot and a plate of six biscuits. I remember thinking, sadly, that she must not have much to share. We talked politely, and at exactly half past six she stood up and thanked me for coming. Only later, when my friend James explained that here, arriving on time is a sign of respect, and that six biscuits for two people was a generous welcome, did I understand. The next week, I knocked at five o'clock exactly. She opened the door, smiling, and on her table was a small pot of rice, made to share.",
     "stem": "How does the narrator's cultural background shape his first view of Mrs. Clarke?",
     "options": [
-     "He admires her for being so punctual and careful with her time.",
+     "He admires her for being so punctual and careful with her time and her work every day.",
      "Judging by his own customs of time and generosity, he wrongly sees her as ungenerous.",
      "He believes she dislikes kabsa and is angry with him for bringing it.",
      "He thinks she is rude because she did not greet him in his own language."
@@ -465,7 +465,7 @@
      "stem": "What does this passage suggest about culture and point of view?",
      "options": [
       "All people from Bedouin families love camping.",
-      "Turki has completely forgotten his family.",
+      "Turki has completely forgotten his family and his home.",
       "Culture shapes people, but individuals can still differ.",
       "Robots are an old part of Bedouin tradition."
      ],

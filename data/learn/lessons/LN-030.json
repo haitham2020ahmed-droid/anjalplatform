@@ -88,8 +88,8 @@
      "options": [
       "Thank you all for listening to me today.",
       "Hello, today I will talk about my trip to the sea.",
-      "The water was very blue and warm.",
-      "Goodbye, everyone, see you tomorrow."
+      "The water was very blue and warm in July.",
+      "Goodbye, everyone, see you all tomorrow at school."
      ],
      "answer": 1,
      "why": "A talk starts with hello and the topic."
@@ -99,9 +99,9 @@
      "stem": "What should Mona do?",
      "options": [
       "Speak slowly and look at the class.",
-      "Speak faster.",
-      "Look at the floor more.",
-      "Stop talking."
+      "Speak faster and look at the teacher.",
+      "Look at the floor more and speak quietly.",
+      "Stop talking when the class laughs at her."
      ],
      "answer": 0,
      "why": "Speaking slowly and looking at people helps them listen."
@@ -169,10 +169,10 @@
     "passage": "Talk plan: Saudi coffee. Hook: In many Saudi homes, the first thing a guest receives is a small cup of coffee. Point 1: Coffee beans are lightly roasted and mixed with cardamom. Point 2: The host pours coffee into small cups with no handles and serves guests from the right. Point 3: A guest gently shakes the cup to say no more, thank you. Conclusion: Coffee is a sign of welcome and respect.",
     "stem": "Which visual would best support Point 2?",
     "options": [
-     "A map of coffee farms",
+     "A map of coffee farms in many faraway countries around the world",
      "A photo of a host pouring coffee into small cups for guests",
-     "A chart of coffee prices",
-     "A photo of cardamom pods"
+     "A chart of coffee prices in shops over many years",
+     "A photo of cardamom pods in a jar on a shelf"
     ],
     "answer": 1,
     "hint": "Read Point 2 again. What is it about?",
@@ -199,10 +199,10 @@
      "passage": "Hind is planning a talk about recycling. She wants a strong hook.",
      "stem": "Which hook is best?",
      "options": [
-      "My talk today is about recycling at school.",
-      "Recycling is a long word with many letters.",
+      "My talk today is about recycling at school and why it matters.",
+      "Recycling is a long word with many letters, and it is hard to spell.",
       "Did you know one recycled can saves enough energy to run a TV for hours?",
-      "Thank you for listening to my talk on recycling."
+      "Thank you for listening to my talk on recycling at our school."
      ],
      "answer": 2,
      "why": "A surprising fact makes listeners curious. The others are plain or belong at the end."
@@ -211,10 +211,10 @@
      "passage": "Talk plan: 1. Conclusion: Exercise keeps us healthy. 2. Point: Exercise makes the heart strong. 3. Introduction and hook. 4. Point: Exercise helps us sleep.",
      "stem": "What is wrong with this plan?",
      "options": [
-      "It has too many points.",
+      "It has too many points for one page.",
       "The parts are in the wrong order.",
-      "It has no conclusion.",
-      "It has no topic."
+      "It has no conclusion at the end.",
+      "It has no topic at the start."
      ],
      "answer": 1,
      "why": "The introduction should come first and the conclusion last."
@@ -223,8 +223,8 @@
      "passage": "Khalid practised his talk. His friend said, \"I could not hear you at the back, and you spoke very fast.\"",
      "stem": "What should Khalid change?",
      "options": [
-      "Use more slides",
-      "Add more facts",
+      "Use more slides and pictures",
+      "Add more facts and numbers",
       "Speak louder and slow down",
       "Shorten his conclusion"
      ],
@@ -279,9 +279,9 @@
     "stem": "Which advice would help Faisal most?",
     "options": [
      "Use fewer words on each slide, face the audience, and use signposts between points",
-     "Add more facts to his slides",
-     "Choose a different topic",
-     "Speak faster so the talk ends sooner"
+     "Add more facts to his slides so that every page is full of words and numbers",
+     "Choose a different topic that is easier and shorter for the class",
+     "Speak faster so the talk ends sooner and nobody gets bored in the hall"
     ],
     "answer": 0,
     "hint": "Find the problems in the text: the slide, where he looks, and how he moves between slides.",
@@ -322,9 +322,9 @@
      "passage": "Speaker: \"Some plants store water in thick leaves. … Now, ___, let's look at how desert animals find water.\"",
      "stem": "Which signpost best fits the blank?",
      "options": [
-      "in conclusion",
+      "in conclusion to this talk",
       "moving on to my second point",
-      "for example",
+      "for example, take the sea",
       "thank you for listening"
      ],
      "answer": 1,
@@ -334,9 +334,9 @@
      "passage": "Jana's slide about rainforests shows one large photo of a rainforest and the words: Home to more than half of land animal and plant species.",
      "stem": "Why is this a strong slide?",
      "options": [
-      "It has many paragraphs.",
-      "It uses tiny text.",
-      "It has no picture.",
+      "It has many long paragraphs of text.",
+      "It uses tiny text that is hard to read.",
+      "It has no picture and many numbers.",
       "It has one clear image and one key fact."
      ],
      "answer": 3,
@@ -422,8 +422,8 @@
      "stem": "Which part of her plan should she remove or change?",
      "options": [
       "The funny cartoon unrelated to lunch",
-      "The survey of 200 students",
-      "The quotes from teachers",
+      "The survey of 200 students at school",
+      "The quotes from teachers and parents",
       "Her request for a longer break"
      ],
      "answer": 0,
@@ -434,9 +434,9 @@
      "stem": "What technique does the speaker use in the last two sentences?",
      "options": [
       "Telling a personal story",
-      "Using a call to action",
+      "Using a call to action again",
       "Answering a possible objection",
-      "Giving a definition"
+      "Giving a definition of a word"
      ],
      "answer": 2,
      "why": "The speaker predicts the objection (no time) and answers it, which makes the argument stronger."
@@ -445,9 +445,9 @@
      "passage": "A speaker is giving a talk to Grade 5 students about saving water. He plans to show a slide with a complex graph of national water use over fifty years.",
      "stem": "Which change would best fit his audience?",
      "options": [
-      "Add more lines and numbers to the same graph",
-      "Read every number on the graph aloud, slowly",
-      "Remove all visuals and just talk to them",
+      "Add more lines and numbers to the same graph so it shows every detail",
+      "Read every number on the graph aloud, slowly, from the top to the bottom",
+      "Remove all visuals and just talk to them for the whole presentation",
       "Show a simple picture comparing water used by a short and a long shower"
      ],
      "answer": 3,

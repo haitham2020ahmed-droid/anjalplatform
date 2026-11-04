@@ -109,10 +109,10 @@
       "difficulty": 3,
       "stem": "Which opinion is best supported by the passage?",
       "options": [
-        "Modern airplanes no longer need any engines.",
+        "Modern airplanes no longer need any engines to fly.",
         "Better wing designs help both airlines and the planet.",
-        "Wind tunnels are more important than pilots.",
-        "Flaps should stay open for the whole flight."
+        "Wind tunnels are more important than pilots are.",
+        "Flaps should stay open for the whole of the flight."
       ],
       "answer": "B",
       "why": "The passage says improved wings let planes carry more passengers \"while consuming less fuel,\" which benefits airlines and the environment."

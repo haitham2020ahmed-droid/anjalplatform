@@ -16,8 +16,9 @@ const s = (v: unknown) => String(v ?? "");
 export type PlanLevel = "BELOW" | "ON" | "ABOVE";
 export const PLAN_LEVELS: readonly PlanLevel[] = ["BELOW", "ON", "ABOVE"];
 export const isPlanLevel = (v: unknown): v is PlanLevel => (PLAN_LEVELS as readonly unknown[]).includes(v);
-/** most questions in one plan section (one assignment: assign.ts MAX_SET_QUESTIONS) */
-export const MAX_SECTION_QUESTIONS = 50;
+/** most questions in one plan section (one assignment: assign.ts MAX_SET_QUESTIONS). Raised from 50 → 200
+ *  (Oct 2026, "خليه مفتوح") — keep in sync with assign.ts MAX_SET_QUESTIONS and skill-picker/helpers.ts MAX_PICKED. */
+export const MAX_SECTION_QUESTIONS = 200;
 /** at most this many students' histories are read for the fresh order (a class) */
 const MAX_SEEN_STUDENTS = 40;
 

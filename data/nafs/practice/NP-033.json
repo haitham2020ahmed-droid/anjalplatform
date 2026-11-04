@@ -29,10 +29,10 @@
       "difficulty": 2,
       "stem": "Which sentence uses the word \"precipitation\" correctly?",
       "options": [
-        "The precipitation ran quickly to catch the bus.",
+        "The precipitation ran quickly to catch the bus at noon.",
         "Heavy precipitation in the mountains filled the rivers.",
-        "She precipitation her homework before dinner.",
-        "The precipitation sun dried the wet clothes."
+        "She precipitation her homework before dinner each day.",
+        "The precipitation sun dried the wet clothes on the line."
       ],
       "answer": "B",
       "why": "Precipitation is water falling from clouds as rain, snow or hail, so heavy precipitation can fill rivers."
@@ -62,9 +62,9 @@
       "stem": "According to the passage, what happens right AFTER warm, moist air rises and cools?",
       "options": [
         "Water vapour condenses into tiny droplets.",
-        "Rain soaks into the soil.",
-        "The sun warms the ocean surface.",
-        "Streams carry water back to the sea."
+        "Rain soaks into the soil, and then plants grow.",
+        "The sun warms the ocean surface and the air above it.",
+        "Streams carry water back to the sea, and then it rains."
       ],
       "answer": "A",
       "why": "Cooler air cannot hold as much vapour, so the vapour condenses into droplets that form clouds."
@@ -125,10 +125,10 @@
       "difficulty": 3,
       "stem": "Which information in the passage is the LEAST complete?",
       "options": [
-        "What powers the water cycle",
-        "What the word evaporation means",
+        "What powers the water cycle each and every day",
+        "What the word evaporation means in the passage",
         "How groundwater later returns to the cycle",
-        "Which forms precipitation can take"
+        "Which forms precipitation can take, such as rain"
       ],
       "answer": "C",
       "why": "The passage says some water becomes groundwater stored in rock but does not explain how it moves on from there."

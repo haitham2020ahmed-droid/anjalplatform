@@ -35,13 +35,13 @@ export default async function ReadRiseArticle({ params }: { params: Promise<{ ar
     <AppShell name={String(me.displayName)}>
       <p><Link href="/student/readrise" className="inline-flex min-h-10 items-center gap-1.5 text-sm font-medium text-slate-500 hover:text-brand-teal"><ReadRiseIcon size={20} /> ‹ ReadRise</Link></p>
       {error || !page ? (
-        <p className="mt-6 rounded-2xl bg-white p-5 text-lg text-slate-700 ring-1 ring-slate-200">{error ?? "Article not found."} <Link href="/student/readrise" className="text-brand-teal underline">Back to the library</Link></p>
+        <p className="mt-6 rounded-2xl bg-white p-5 text-lg text-slate-700 ring-1 ring-slate-200">{t(error ?? "Article not found.")} <Link href="/student/readrise" className="text-brand-teal underline">{t("Back to the library")}</Link></p>
       ) : (
         <div className="mx-auto max-w-3xl">
           <header className="mt-2">
             {page.topic && <p className="text-sm font-semibold uppercase tracking-wide text-brand-teal">{page.topic}</p>}
-            <h1 className="text-3xl font-bold leading-tight text-brand-navy">{page.run?.title || page.title}</h1>
-            <p className="mt-1 flex flex-wrap items-center gap-2 text-sm text-slate-600">{access.placed ? <>My level <LevelBadge level={page.level} size="sm" /> · </> : null}about {page.minutes} min</p>
+            <h1 lang="en" className="text-3xl font-bold leading-tight text-brand-navy">{page.run?.title || page.title}</h1>
+            <p className="mt-1 flex flex-wrap items-center gap-2 text-sm text-slate-600">{access.placed ? <>{t("My level")} <LevelBadge level={page.level} size="sm" /> · </> : null}{t("about {n} min", { n: page.minutes })}</p>
           </header>
           <ReadRiseReader page={page} />
         </div>

@@ -51,10 +51,10 @@
     "passage": "Our class wrote a report about the parts of a plant. We wrote about the roots, the stem, the leaves and the flower. We want readers to see where each part is.",
     "stem": "Which picture would help the report most?",
     "options": [
-     "A photo of our teacher",
+     "A photo of our teacher in the classroom",
      "A plant drawing with each part labelled",
-     "A map of the town",
-     "A picture of a red car"
+     "A map of the town and its roads",
+     "A picture of a red car on the road"
     ],
     "answer": 1,
     "hint": "Does that picture show the parts of a plant?",
@@ -79,9 +79,9 @@
      "passage": "Hind wrote about how a butterfly grows: egg, caterpillar, chrysalis, butterfly.",
      "stem": "Which picture would help most?",
      "options": [
-      "A photo of a bee",
-      "A picture of a cake",
-      "A map of Africa",
+      "A photo of a bee on a pink flower",
+      "A picture of a cake with candles",
+      "A map of Africa with its countries",
       "Pictures of each stage in order"
      ],
      "answer": 3,
@@ -93,7 +93,7 @@
      "options": [
       "A photo of his shoes",
       "A map with the path on it",
-      "A drawing of a fish",
+      "A drawing of a big fish",
       "A picture of the moon"
      ],
      "answer": 1,
@@ -103,9 +103,9 @@
      "passage": "Our class counted our pets. We have 8 cats, 5 fish and 3 birds.",
      "stem": "Which picture would help most?",
      "options": [
-      "A photo of one cat",
-      "A drawing of our school",
-      "A picture of a tree",
+      "A photo of one cat on a sofa",
+      "A drawing of our school and its yard",
+      "A picture of a tall tree",
       "A chart of how many of each pet"
      ],
      "answer": 3,
@@ -196,10 +196,10 @@
      "passage": "A report explains how the parts of the human eye work together.",
      "stem": "Which visual would best support it?",
      "options": [
-      "A map of a hospital",
-      "A timeline of eye doctors",
+      "A map of a hospital building",
+      "A timeline of famous eye doctors",
       "A labelled diagram of the eye",
-      "A graph of glasses sales"
+      "A graph of glasses sales by year"
      ],
      "answer": 2,
      "why": "A labelled diagram shows each **part** of the eye."
@@ -209,8 +209,8 @@
      "stem": "Which visual would best support them?",
      "options": [
       "Numbered drawings of each fold",
-      "A photo of a real ship",
-      "A map of the sea",
+      "A photo of a real ship at sea",
+      "A map of the sea and islands",
       "A chart of paper colours"
      ],
      "answer": 0,
@@ -296,10 +296,10 @@
      "passage": "A report says that the number of students in the school's reading club grew every year from 2019 to 2024.",
      "stem": "Which visual would best support this?",
      "options": [
-      "A photo of the club's room",
+      "A photo of the club's room in school",
       "A line graph of members each year",
-      "A diagram of a computer",
-      "A map of the school"
+      "A diagram of a computer room",
+      "A map of the school building"
      ],
      "answer": 1,
      "why": "A line graph shows how a number **changes over time**."

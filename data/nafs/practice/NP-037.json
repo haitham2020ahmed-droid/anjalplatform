@@ -29,10 +29,10 @@
       "difficulty": 1,
       "stem": "Which sentence uses the word \"erosion\" correctly?",
       "options": [
-        "She erosion the ball across the field.",
-        "The erosion cake tasted very sweet.",
+        "She erosion the ball across the field to her friend.",
+        "The erosion cake tasted very sweet and soft.",
         "Strong waves caused erosion along the cliffs.",
-        "We erosion our homework every evening."
+        "We erosion our homework every evening after dinner."
       ],
       "answer": "C",
       "why": "Erosion is a noun meaning the wearing away of land, so waves can cause erosion of cliffs."
@@ -61,9 +61,9 @@
       "difficulty": 1,
       "stem": "According to the passage, what must happen BEFORE snow can become glacier ice?",
       "options": [
-        "The glacier moves downhill.",
-        "A U-shaped valley forms.",
-        "Moraines are left behind.",
+        "The glacier moves downhill to the sea.",
+        "A U-shaped valley forms in the rock.",
+        "Moraines are left behind on the ground.",
         "Layers of snow are pressed together."
       ],
       "answer": "D",
@@ -94,9 +94,9 @@
       "stem": "The writer says a moving glacier \"acts like a gigantic piece of sandpaper.\" What does this comparison help readers understand?",
       "options": [
         "The glacier scrapes and smooths the rock beneath it.",
-        "The glacier is made of sand and paper.",
-        "The glacier moves very quickly across land.",
-        "The glacier is soft and easy to break."
+        "The glacier is made of sand and paper in layers.",
+        "The glacier moves very quickly across the land.",
+        "The glacier is soft and easy to break with a hand."
       ],
       "answer": "A",
       "why": "Sandpaper rubs and smooths surfaces, just as rocks in the glacier's base scrape and polish the bedrock."
@@ -125,9 +125,9 @@
       "difficulty": 3,
       "stem": "Which information in the passage is the LEAST complete?",
       "options": [
-        "What a fjord is",
-        "What moraines are",
-        "How snow turns into glacier ice",
+        "What a fjord is and how it looks from the air",
+        "What moraines are and where they are found",
+        "How snow turns into glacier ice over many years",
         "How fast glaciers are shrinking today"
       ],
       "answer": "D",
@@ -157,10 +157,10 @@
       "difficulty": 3,
       "stem": "Which is the BEST alternative title for the passage?",
       "options": [
-        "Snowball Games in Winter",
-        "Norway's Fishing Villages",
+        "Snowball Games in Winter Time",
+        "Norway's Fishing Villages by the Sea",
         "Rivers of Ice That Carve the Land",
-        "Why Rivers Flow to the Sea"
+        "Why Rivers Flow Down to the Sea"
       ],
       "answer": "C",
       "why": "It sums up the main idea: glaciers are moving ice that erodes and reshapes landscapes."

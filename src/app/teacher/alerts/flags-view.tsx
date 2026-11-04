@@ -5,6 +5,7 @@ import { repo } from "@/server/auth/next";
 import { interventionBoard, type Flag } from "@/server/teacher/intervention";
 import { InsightActions } from "@/components/teacher/insight-actions";
 import { assignReviewAction } from "../intervention/actions";
+import { SourceSelect } from "@/components/assign/source-select";
 
 export const FLAG_META: Record<Flag, { icon: string; label: string; tone: string; what: string }> = {
   URGENT: { icon: "🔴", label: "Urgent support", tone: "bg-red-100 text-red-900 ring-red-200", what: "MAP 10th percentile or below" },
@@ -44,7 +45,7 @@ export async function FlagsView({ actor, t, flag, classId }: { actor: Actor; t: 
               {r.flags.map((f, i) => <span key={i} className={`rounded-full px-2.5 py-0.5 text-xs font-semibold ring-1 ${FLAG_META[f.flag].tone}`}>{FLAG_META[f.flag].icon} <span data-content lang="en">{f.detail}</span></span>)}
               {r.reviewSkills.length > 0 && (
                 <form action={assignReviewAction}><input type="hidden" name="classId" value={r.classId} /><input type="hidden" name="studentId" value={r.studentId} />{r.reviewSkills.map((k) => <input key={k.id} type="hidden" name="skillId" value={k.id} />)}
-                  <button className="rounded-full bg-brand-navy px-2.5 py-0.5 text-xs font-bold text-white hover:bg-brand-purple">⭐ {t("Assign review")}</button></form>
+                  <span className="inline-flex items-center gap-1"><SourceSelect t={t} compact /><button className="rounded-full bg-brand-navy px-2.5 py-0.5 text-xs font-bold text-white hover:bg-brand-purple">⭐ {t("Assign review")}</button></span></form>
               )}
             </div>
             <InsightActions t={t} target={{ classId: r.classId, studentId: r.studentId, skillId: r.reviewSkills[0]?.id ?? null }} className="mt-3" />

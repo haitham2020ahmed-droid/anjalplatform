@@ -189,9 +189,9 @@
       "type": "MCQ",
       "stem": "Which sentence best states the main idea of paragraph 2?",
       "options": [
-        "Sand and soil stay hot all night long, unlike roads.",
-        "Cities are hottest at noon, when the sun is strongest.",
-        "Asphalt roads are more useful than roads made of sand.",
+        "Sand and soil stay hot all night long, unlike the roads in the city.",
+        "Cities are hottest at noon, when the sun is at its strongest and brightest.",
+        "Asphalt roads are more useful than roads made of sand and small stones.",
         "Hard, dark city surfaces store the sun's heat and release it at night."
       ],
       "answer": "D",
@@ -205,10 +205,10 @@
       "type": "MCQ",
       "stem": "According to paragraph 2, why is the difference between a city and the land around it usually greatest at night?",
       "options": [
-        "Cars and factories work harder after dark.",
-        "Breezes stop blowing as soon as the sun sets.",
+        "Cars and factories work harder after dark in the city.",
+        "Breezes stop blowing as soon as the sun sets over the city.",
         "City surfaces give back stored heat while open land cools fast.",
-        "Air conditioners are switched off late in the evening."
+        "Air conditioners are switched off late in the evening in the city."
       ],
       "answer": "C",
       "why": "After sunset the surfaces “gradually release the stored heat,” while sand and soil “lose their heat much more rapidly.”"
@@ -253,9 +253,9 @@
       "type": "MCQ",
       "stem": "Which idea does the writer discuss immediately AFTER explaining how plants cool their surroundings?",
       "options": [
-        "how cool roofs reflect sunlight",
-        "why the city feels warmer at night",
-        "what a temperature map looks like",
+        "how cool roofs reflect sunlight back to the sky and cool the city",
+        "why the city feels warmer at night than the land around it does",
+        "what a temperature map looks like when it is made from space",
         "the harm that extra heat does to people and power supplies"
       ],
       "answer": "D",
@@ -270,9 +270,9 @@
       "stem": "Which of these is NOT given in paragraph 3 as a factor that makes a city hotter?",
       "options": [
         "light-coloured pavements that reflect sunlight",
-        "tall buildings that block breezes",
-        "waste heat from air conditioners",
-        "a shortage of trees and plants"
+        "tall buildings that block breezes in the street",
+        "waste heat from air conditioners in the buildings",
+        "a shortage of trees and plants in the city centre"
       ],
       "answer": "A",
       "why": "Light-coloured pavements appear in paragraph 5 as a solution, not as a cause. The other three are listed in paragraph 3."
@@ -285,10 +285,10 @@
       "type": "MCQ",
       "stem": "How does the writer organise the information in the text?",
       "options": [
-        "as a story told in the order that events happened",
-        "as a comparison of two named cities, point by point",
+        "as a story told in the order that events happened to the writer in a year",
+        "as a comparison of two named cities, point by point, in a table of facts",
         "by explaining what the problem is, its causes, its effects and its solutions",
-        "as a list of questions from readers with short answers"
+        "as a list of questions from readers with short answers from experts in cities"
       ],
       "answer": "C",
       "why": "Paragraph 1 defines the problem, 2–3 give causes, 4 gives effects and 5 gives solutions."
@@ -301,10 +301,10 @@
       "type": "MCQ",
       "stem": "According to paragraph 3, what causes plants to cool the air around them?",
       "options": [
-        "Their leaves block the wind.",
+        "Their leaves block the wind that blows in the city.",
         "They release water vapour, a process that absorbs heat.",
-        "They grow only in cool countryside areas.",
-        "Their roots keep the soil from becoming dry."
+        "They grow only in cool countryside areas, far from cities.",
+        "Their roots keep the soil from becoming dry in the summer."
       ],
       "answer": "B",
       "why": "Plants “draw water from the soil and release it through their leaves as vapour, a process that absorbs heat.”"
@@ -365,10 +365,10 @@
       "type": "MCQ",
       "stem": "According to paragraph 4, what is one effect of hotter neighbourhoods on power stations during heatwaves?",
       "options": [
-        "They have to close until the weather cools.",
+        "They have to close until the weather cools down again, for some weeks.",
         "They face enormous pressure because people use more electricity.",
-        "They produce less pollution than usual.",
-        "They are moved outside the city."
+        "They produce less pollution than usual in the hot summer months.",
+        "They are moved outside the city to the desert, far from the people."
       ],
       "answer": "B",
       "why": "Hotter neighbourhoods “need more electricity for air conditioning,” which “puts enormous pressure on power stations during heatwaves.”"
@@ -429,10 +429,10 @@
       "type": "MCQ",
       "stem": "In your opinion, why does the writer place the terms “urban heat island” and “cool roofs” in quotation marks?",
       "options": [
-        "to show that someone is speaking them aloud",
+        "to show that someone is speaking them aloud in the text, as in a talk",
         "to mark them as special terms that are being introduced and explained",
-        "to show that the writer disagrees with these terms",
-        "to show that they are the titles of books"
+        "to show that the writer disagrees with these terms and ideas completely",
+        "to show that they are the titles of books or films that are famous"
       ],
       "answer": "B",
       "why": "Each term is new to the reader and is explained in the same sentence, so the quotation marks highlight special vocabulary."
@@ -461,10 +461,10 @@
       "type": "MCQ",
       "stem": "What most likely made the writer write this text?",
       "options": [
-        "a wish to sell reflective paint to families",
+        "a wish to sell reflective paint to families who live in hot cities and towns, to make money",
         "a wish to help readers understand why cities overheat and how this can be improved",
-        "a belief that people should stop building cities",
-        "a plan to describe a favourite camping place"
+        "a belief that people should stop building cities at all, in any country of the world",
+        "a plan to describe a favourite camping place in the desert"
       ],
       "answer": "B",
       "why": "The writer explains causes and harms and then encourages readers with practical solutions and a call to care for trees."
@@ -477,10 +477,10 @@
       "type": "MCQ",
       "stem": "Which feeling is most present in the final paragraph?",
       "options": [
-        "fear that the problem can never be solved",
-        "sadness about the trees that cities have lost",
+        "fear that the problem can never be solved by anyone",
+        "sadness about the trees that cities have lost over the years",
         "optimism that small changes can make a big difference",
-        "anger at drivers and factory owners"
+        "anger at drivers and factory owners who pollute the air"
       ],
       "answer": "C",
       "why": "The writer calls the effect of “a few changes” remarkable and says each of us can contribute, which shows optimism."
@@ -493,9 +493,9 @@
       "type": "MCQ",
       "stem": "In your opinion, which information is the LEAST clear in the text?",
       "options": [
-        "why dark surfaces become hot during the day",
-        "how trees help to cool a street",
-        "what a green roof is",
+        "why dark surfaces become hot during the day and warm at night",
+        "how trees help to cool a street in the summer sun",
+        "what a green roof is and how it is built on a house",
         "how many degrees warmer a city usually is than the countryside"
       ],
       "answer": "D",
@@ -510,9 +510,9 @@
       "stem": "Which of the following events could really happen?",
       "options": [
         "A thermometer on a city street shows a higher temperature at midnight than one on a nearby farm.",
-        "A black roof stays cooler in the summer sun than a white roof beside it.",
-        "A single tree lowers the temperature of a whole city by twenty degrees.",
-        "Bare sand in the desert stays warmer at night than city asphalt."
+        "A black roof stays cooler in the summer sun than a white roof beside it, all day and all night.",
+        "A single tree lowers the temperature of a whole city by twenty degrees at noon on a hot day.",
+        "Bare sand in the desert stays warmer at night than the asphalt in a large city does."
       ],
       "answer": "A",
       "why": "The text explains that cities release stored heat at night while open land cools quickly. The other events contradict the text."

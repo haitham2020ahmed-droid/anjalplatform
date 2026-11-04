@@ -11,7 +11,10 @@
  *       READRISE  each article question → its skill (RR_SKILL_MAP), weight 0.5, chance floor 0.25 (4 options),
  *                 difficulty = the article version against the grade's On-level band; an item far easier than the
  *                 student's current ability counts half again (easy LOW-band questions cannot inflate a level);
- *                 a run read in under 45 s is a rapid run and is left out
+ *                 a run read in under 45 s is a rapid run and is left out; owner r69: an Unreliable run (2+
+ *                 rapid answers) feeds nothing and a single rapid answer is left out; a question without a type gets
+ *                 one from its stem; the touched skills' stars are refreshed by the skill-status hook after the
+ *                 response (readrise/student.ts → skills/status.ts onSkillAnswer)
  *       VOCAB     word review (meaning of a looked-up word, shown in its context sentence) → the grade's
  *                 Concept Vocabulary skill, else its Context Clues skill, weight 0.3
  *       WRITING   the teacher's rubric score (only after grading) → the genre's writing skill, weight 0.4; the
@@ -24,7 +27,7 @@ import type { Repo, Row } from "../seeding/repo";
 import type { ResponseEvidence } from "../../types/domain";
 import { markRepeats, toWeighted } from "../../adaptive/evidence";
 import { estimateAbilityEAP } from "../../adaptive/irt";
-import { computeMastery } from "../../mastery/mastery";
+import { computeMastery, withholdRaise } from "../../mastery/mastery";
 import { resolveEngineConfig, type AdaptiveConfig, type MasteryThresholds } from "../../config/engine";
 import type { PracticeItem } from "./items";
 import { log } from "../monitoring/log";
@@ -51,8 +54,10 @@ export const RR_SKILL_MAP: Record<string, string[]> = {
   sequence: ["sequence", "plot-events"],
   "text-structure": ["text-structure", "problem-solution", "cause-effect", "compare-contrast", "sequence"],
 };
-/** a ReadRise run read faster than this is a rapid run (its answers are left out) */
-export const RR_MIN_READ_SECONDS = 45;
+/** a ReadRise run read faster than this is a rapid run (its answers are left out) — round 4: the ONE value lives in
+ * readrise/first-try.ts, where the ReadRise level uses the same rule */
+export { RR_MIN_READ_SECONDS } from "../readrise/first-try";
+import { RR_MIN_READ_SECONDS } from "../readrise/first-try";
 /** ReadRise Level points per logit when a ReadRise version is placed on the grade scale (≈ one grade ≈ 0.75 logit) */
 export const RR_POINTS_PER_LOGIT = 190;
 
@@ -77,13 +82,17 @@ export const firstFamily = (fam: Map<string, string>, list: string[] | undefined
 export async function skillHistoryWithEvidence(repo: Repo, studentId: string, skillId: string, items: Map<string, PracticeItem>, window = 60): Promise<ResponseEvidence[]> {
   const [rows, ext] = await Promise.all([
     repo.findMany("QuestionAttempt", { studentId, skillId }, {
-      select: ["questionId", "isCorrect", "partialCredit", "difficultyB", "responseMs", "usedHint", "createdAt", "source", "rapidGuess"],
+      select: ["questionId", "isCorrect", "partialCredit", "difficultyB", "responseMs", "usedHint", "createdAt", "source", "rapidGuess", "unreliable"],
       orderBy: [{ field: "createdAt", dir: "desc" }, { field: "id", dir: "desc" }], take: window,
     }),
     repo.findMany("SkillEvidence", { studentId, skillId }, { select: ["source", "refId", "credit", "difficultyB", "guessC", "weight", "createdAt"], orderBy: [{ field: "createdAt", dir: "desc" }], take: window }),
   ]);
-  // r67: a rapid guess counts for nothing — not ability, not mastery, not accuracy: left out of the history
-  const bank = markRepeats(rows.reverse().filter((r) => !r.rapidGuess).map((r) => {
+  // r67: a rapid guess counts for nothing — not ability, not mastery, not accuracy: left out of the history.
+  // r85 audit: `unreliable` (a whole session flagged >20% guesses — session.ts) MUST be excluded here too, the same
+  // way status.ts/level-evidence.ts/tiers.ts/growth-report.ts already do — without it, an answer from an Unreliable
+  // session that wasn't itself a rapid guess still fed theta/mastery/item-selection in full, even though the
+  // star/⭐ system for the exact same skill already refuses to count any answer from that session.
+  const bank = markRepeats(rows.reverse().filter((r) => !r.rapidGuess && !r.unreliable).map((r) => {
     const it = items.get(s(r.questionId));
     const w = ATTEMPT_SOURCE_WEIGHT[s(r.source)];
     return {
@@ -143,12 +152,13 @@ export async function recordSkillEvidence(repo: Repo, studentId: string, items: 
     const history = await skillHistoryWithEvidence(repo, studentId, skillId, byId);
     const dom = await repo.findUnique("StudentAbility", { studentId, scope: `DOMAIN:${s(skill.domain)}` });
     const prior = { mean: dom ? Number(dom.theta) : cfg.adaptive.priorMean, sd: cfg.adaptive.priorSD };
-    const est = estimateAbilityEAP(history.map((r) => toWeighted(r, cfg.adaptive)), { priorMean: prior.mean, priorSD: prior.sd, thetaMin: cfg.adaptive.thetaMin, thetaMax: cfg.adaptive.thetaMax, model: cfg.adaptive.model });
+    const est = estimateAbilityEAP(history.map((r) => toWeighted(r, cfg.adaptive, now)), { priorMean: prior.mean, priorSD: prior.sd, thetaMin: cfg.adaptive.thetaMin, thetaMax: cfg.adaptive.thetaMax, model: cfg.adaptive.model });
     let mst = computeMastery(history, est.theta, cfg.mastery, cfg.adaptive, now, est.se);
     const prev = await repo.findUnique("StudentSkillMastery", { studentId, skillId });
-    // fairness: evidence with no correct answer never raises a score the student sees
+    // fairness rule (shared — mastery/mastery.ts#withholdRaise): evidence with no correct answer never raises a
+    // score the student sees
     const anyRight = fresh.some((i) => i.skillId === skillId && i.credit > 0);
-    if (prev && !anyRight && mst.score > Number(prev.score)) mst = { ...mst, score: Number(prev.score), band: s(prev.band) as typeof mst.band, isMastered: Boolean(prev.isMastered) };
+    if (prev) mst = withholdRaise(mst, { score: Number(prev.score), band: s(prev.band) as typeof mst.band, isMastered: Boolean(prev.isMastered) }, anyRight, "no correct answer in this evidence");
     const responses = history.length;
     await repo.upsert("StudentAbility", { studentId, scope: `SKILL:${skillId}` }, { skillId, theta: est.theta, thetaSE: est.se, responses }, { theta: est.theta, thetaSE: est.se, responses });
     const data = { score: mst.score, band: mst.band, maxLevelCorrect: mst.components.maxLevelCorrect, isMastered: mst.isMastered, masteredAt: mst.isMastered ? (prev?.masteredAt ?? now) : null, lastPracticedAt: now, components: { ...mst.components, external: true } };
@@ -166,10 +176,21 @@ export async function safeFeed(what: string, f: () => Promise<unknown>): Promise
 // ------------------------------------------------------------------ the feeds
 
 /** ReadRise: a scored run's questions → their skills (difficulty from the version level vs the grade's On band). */
-export async function feedReadRise(repo: Repo, runId: string, now = new Date()): Promise<number> {
+export async function feedReadRise(repo: Repo, runId: string, now = new Date(), onSkills?: (skillIds: string[]) => void): Promise<number> {
   const run = await repo.findUnique("RRRun", { id: runId });
   if (!run || run.score === null || run.score === undefined) return 0;
+  // round 4 (owner): ONLY the first try counts — a re-read is practice and never feeds ⭐; a stretch feeds only when
+  // its question band differs from the first read's (new questions; the same band reuses the questions shown)
+  if (run.firstTry !== true && run.firstTry !== 1) return 0;
+  if (run.stretch === true || run.stretch === 1) {
+    const base = (await repo.findMany("RRRun", { studentId: run.studentId, articleId: run.articleId, stretch: false, firstTry: true }, { select: ["band"], take: 1 }))[0];
+    if (!base || s(base.band) === s(run.band)) return 0;
+  }
   if (Number(run.readSeconds ?? 0) > 0 && Number(run.readSeconds) < RR_MIN_READ_SECONDS) return 0; // a rapid run
+  // owner r69: an Unreliable run (2+ rapid answers) feeds nothing; a single rapid answer is left out
+  if (run.unreliable === true || run.unreliable === 1) return 0;
+  const { storedRapid, questionTypeOf } = await import("../readrise/accuracy");
+  const rapid = new Set(storedRapid(run.answerMs));
   const qs = await repo.findMany("RRQuestion", { articleId: run.articleId, band: run.band });
   if (!qs.length) return 0;
   const answers = (typeof run.answers === "string" ? JSON.parse(run.answers) : run.answers ?? {}) as Record<string, string>;
@@ -181,14 +202,17 @@ export async function feedReadRise(repo: Repo, runId: string, now = new Date()):
   const b = (Number(run.versionLevel) - mid) / RR_POINTS_PER_LOGIT;
   const items: EvidenceItem[] = [];
   for (const q of qs) {
-    const skillId = firstFamily(family, RR_SKILL_MAP[s(q.skill).toLowerCase()]);
-    if (!skillId) continue;
+    // the question's type (a question without one gets it from its stem: accuracy.ts)
+    const skillId = firstFamily(family, RR_SKILL_MAP[s(q.skill).toLowerCase()] ?? RR_SKILL_MAP[questionTypeOf(q)]);
+    if (!skillId || rapid.has(Number(q.number))) continue;
     const chosen = answers[String(q.number)];
     if (chosen === undefined || chosen === null || chosen === "") continue;
     const n = Array.isArray(q.options) ? q.options.length : (() => { try { return (JSON.parse(s(q.options)) as unknown[]).length; } catch { return 4; } })();
     items.push({ skillId, source: "READRISE", refId: `${runId}:${Number(q.number)}`, credit: String(chosen).toUpperCase() === s(q.answer).toUpperCase() ? 1 : 0, b, c: n >= 2 ? Math.min(0.5, 1 / n) : 0.25 });
   }
-  return recordSkillEvidence(repo, s(run.studentId), items, now);
+  const saved = await recordSkillEvidence(repo, s(run.studentId), items, now);
+  if (saved && onSkills) onSkills([...new Set(items.map((i) => i.skillId))]);
+  return saved;
 }
 
 /**

@@ -1,7 +1,7 @@
 /**
  * 🚀 ReadRise — article import (JSON in data/readrise/FORMAT.md format, or the Excel template).
  *
- *   validateArticle(json)      strict checks (12 levels 300–1400, per band 5 key words + 8 questions with 4 options
+ *   validateArticle(json)      strict checks (14 levels 300–1600, per band 5 key words + 8 questions with 4 options
  *                              and an A–D answer + a prompt) and, per version, the estimated ReadRise Level and word
  *                              count against the target (warnings, with a hint for the writer)
  *   importArticleJson(...)     upserts RRArticle / RRVersion / RRQuestion / RRPrompt by code (school-scoped;
@@ -13,19 +13,26 @@
  *
  * "ReadRise Level" is an estimate on a Lexile-like scale, never an official Lexile measure.
  */
+import { inferQuestionType, normalizeQuestionType } from "./question-type";
 import type { Repo, Row } from "../seeding/repo";
 import { can, ForbiddenError, type Actor } from "../auth/rbac";
 import { audit } from "../audit";
 import { analyzeText } from "../../reading/prl";
 import { readPart, readXlsx, readZipEntries } from "../../imports/xlsx";
 import { workbookXlsx, type Sheet } from "../../imports/questions/template-files";
-import { estimateLevel, RR_LEVELS, targetWords, type RRBand } from "./level";
+import { estimateLevel, LIBRARY_LEVELS, targetWords, type RRBand } from "./level";
 
 export const BANDS: readonly RRBand[] = ["LOW", "MID", "HIGH"];
-export const BAND_RANGE: Record<RRBand, string> = { LOW: "300–600", MID: "700–1000", HIGH: "1100–1400" };
-export const BAND_LEVELS: Record<RRBand, number[]> = { LOW: [300, 400, 500, 600], MID: [700, 800, 900, 1000], HIGH: [1100, 1200, 1300, 1400] };
+// ✨ (decision, Oct 2026): HIGH widened to include the new 1500/1600 rungs (level.ts) rather than adding a 4th band
+// — no new RRBand value, no schema change; the HIGH band's key words/questions/prompt must now also hold up for
+// the 1500/1600 versions, same as they already had to for 1100–1400.
+export const BAND_RANGE: Record<RRBand, string> = { LOW: "300–600", MID: "700–1000", HIGH: "1100–1600" };
+export const BAND_LEVELS: Record<RRBand, number[]> = { LOW: [300, 400, 500, 600], MID: [700, 800, 900, 1000], HIGH: [1100, 1200, 1300, 1400, 1500, 1600] };
 export const RR_SKILLS = ["central-idea", "detail", "inference", "vocabulary", "text-structure", "author-purpose", "cause-effect", "sequence", "compare"] as const;
-export const RR_TOPICS = ["Science", "Animals", "Space", "Earth", "Health", "Technology", "History", "People", "Environment", "Sports"] as const;
+// 🩹 (Oct 2026) added "Arts & Culture", "Geography" (new nonfiction topics, 30 articles each) and "Fiction" (new
+// content type, 100 articles — the library's first fiction, kept as a topic value rather than a new schema field
+// since topic is already an unconstrained string everywhere; no DB/schema change needed for either addition).
+export const RR_TOPICS = ["Science", "Animals", "Space", "Earth", "Health", "Technology", "History", "People", "Environment", "Sports", "Arts & Culture", "Geography", "Fiction"] as const;
 export const PLATFORM_PREFIX = "RR-";
 export const EXAMPLE_MARK = "[Example]";
 /** Estimated level further than this from the version's level → a warning. */
@@ -34,7 +41,7 @@ const MAX_TEXT = 20_000;
 
 export interface KeyWordJson { word: string; partOfSpeech?: string; definition: string; example: string }
 export interface QuestionJson { stem: string; options: string[]; answer: string; skill: string; why?: string; wrong?: Record<string, string> }
-export interface BandJson { keyWords: KeyWordJson[]; questions: QuestionJson[]; prompt: string; checklist?: string[] }
+export interface BandJson { keyWords: KeyWordJson[]; questions: QuestionJson[]; prompt: string; checklist?: string[]; /** ✍️ owner r##: a curated strong answer, shown to the student only after they submit their own */ modelAnswer?: string }
 export interface VersionJson { level: number; title: string; text: string; officialLexile?: number | null }
 export interface ArticleJson { code: string; title: string; topic: string; summary?: string; poll: string; versions: VersionJson[]; bands: Record<RRBand, BandJson> }
 
@@ -100,15 +107,19 @@ export function validateArticle(input: unknown, locate: Locate = () => undefined
 
   // ---- versions
   const rawVersions = Array.isArray(a.versions) ? (a.versions as unknown[]) : [];
-  if (!Array.isArray(a.versions)) err("version", "Versions are missing: an article needs 12 versions (levels 300, 400 … 1400).");
-  else if (rawVersions.length !== 12) err("version", `The article has ${rawVersions.length} version${rawVersions.length === 1 ? "" : "s"}; it needs exactly 12 (levels 300, 400 … 1400).`);
+  // 🐛 fix (Oct 2026): was hardcoded to 12 — a leftover from before LIBRARY_LEVELS grew to 14 (300…1600). An
+  // article correctly written with all 14 versions was rejected here (never imported), so it silently never
+  // reached the library. Now reads the count from LIBRARY_LEVELS so it can never drift from it again.
+  const NEEDED_VERSIONS = LIBRARY_LEVELS.length;
+  if (!Array.isArray(a.versions)) err("version", `Versions are missing: an article needs ${NEEDED_VERSIONS} versions (levels 300, 400 … 1600).`);
+  else if (rawVersions.length !== NEEDED_VERSIONS) err("version", `The article has ${rawVersions.length} version${rawVersions.length === 1 ? "" : "s"}; it needs exactly ${NEEDED_VERSIONS} (levels 300, 400 … 1600).`);
   const versions: VersionJson[] = [];
   const seen = new Set<number>();
   for (const [i, rv] of rawVersions.entries()) {
     const v = (rv && typeof rv === "object" ? rv : {}) as Record<string, unknown>;
     const level = Number(str(v.level));
     const key = Number.isFinite(level) && level ? `version:${level}` : `version:#${i + 1}`;
-    if (!(RR_LEVELS as readonly number[]).includes(level)) { err(key, `Level “${str(v.level) || "(empty)"}” is not a ReadRise version level. Use 300, 400 … 1400.`); continue; }
+    if (!(LIBRARY_LEVELS as readonly number[]).includes(level)) { err(key, `Level “${str(v.level) || "(empty)"}” is not a ReadRise version level. Use 300, 400 … 1600.`); continue; }
     if (seen.has(level)) { err(key, `Level ${level} appears twice.`); continue; }
     seen.add(level);
     const vt = str(v.title), text = typeof v.text === "string" ? v.text.replace(/\r\n?/g, "\n").trim() : "";
@@ -120,7 +131,7 @@ export function validateArticle(input: unknown, locate: Locate = () => undefined
     if (off !== null && (!Number.isInteger(off) || off < 0 || off > 2000)) err(key, "Official Lexile must be a whole number from 0 to 2000 (or empty).");
     versions.push({ level, title: vt || title, text, ...(off !== null && Number.isInteger(off) ? { officialLexile: off } : {}) });
   }
-  if (Array.isArray(a.versions) && rawVersions.length === 12) for (const l of RR_LEVELS) if (!seen.has(l)) err("version", `Level ${l} is missing.`);
+  if (Array.isArray(a.versions) && rawVersions.length === NEEDED_VERSIONS) for (const l of LIBRARY_LEVELS) if (!seen.has(l)) err("version", `Level ${l} is missing.`);
   versions.sort((x, y) => x.level - y.level);
   let prevEst = -Infinity, prevLevel = 0;
   for (const v of versions) {
@@ -165,10 +176,13 @@ export function validateArticle(input: unknown, locate: Locate = () => undefined
       const q = (rq && typeof rq === "object" ? rq : {}) as Record<string, unknown>;
       const key = `q:${b}:${i + 1}`;
       const stem = str(q.stem), options = Array.isArray(q.options) ? (q.options as unknown[]).map(str) : [];
-      const answer = str(q.answer).toUpperCase(), skill = str(q.skill).toLowerCase().replace(/[\s_]+/g, "-"), why = str(q.why);
+      const answer = str(q.answer).toUpperCase(), why = str(q.why);
+      // owner r69: the question type — a known spelling ("main idea" → central-idea), else, when empty, from the stem (deterministic)
+      let skill = normalizeQuestionType(q.skill) ?? str(q.skill).toLowerCase().replace(/[\s_]+/g, "-");
       if (!stem) err(key, "Question text is required.");
       if (options.length !== 4 || options.some((o) => !o)) err(key, "Needs exactly 4 answer choices (A, B, C, D), none empty.");
       if (!/^[ABCD]$/.test(answer)) err(key, `Answer must be A, B, C or D (found “${str(q.answer) || "(empty)"}”).`);
+      if (!skill && stem) { skill = inferQuestionType(stem); warn(key, `No skill given: set to “${skill}” from the question.`); }
       if (!skill) err(key, `Skill is required (${RR_SKILLS.join(", ")}).`);
       else if (!(RR_SKILLS as readonly string[]).includes(skill)) err(key, `Skill “${str(q.skill)}” is not known. Use one of: ${RR_SKILLS.join(", ")}.`);
       if (!why) warn(key, "No explanation (Why): students see why the answer is right after the quiz.");
@@ -182,7 +196,9 @@ export function validateArticle(input: unknown, locate: Locate = () => undefined
     else if (prompt.length > 2000) err(`prompt:${b}`, "The prompt is too long (2,000 characters at most).");
     const checklist = (Array.isArray(band.checklist) ? (band.checklist as unknown[]) : typeof band.checklist === "string" ? band.checklist.split("|") : []).map(str).filter(Boolean);
     if (prompt && !checklist.length) warn(`prompt:${b}`, "No checklist: add what a strong answer includes (students see it; teachers score with it).");
-    bands[b] = { keyWords, questions, prompt, checklist };
+    // ✍️ owner r##: optional — not every article has one yet; no error/warning when it is missing
+    const modelAnswer = str(band.modelAnswer);
+    bands[b] = { keyWords, questions, prompt, checklist, ...(modelAnswer ? { modelAnswer } : {}) };
   }
 
   if (errors.length) return { article: null, errors, warnings, checks };
@@ -239,7 +255,7 @@ export async function importArticleJson(repo: Repo, actor: Actor | null, json: u
         // an empty rationale is left out (stored as NULL, as before)
         return { articleId: id, band: b, number: i + 1, stem: q.stem, options: q.options, answer: q.answer, skill: q.skill, ...(Object.keys(rationale).length ? { rationale } : {}) };
       })));
-      await tx.createMany("RRPrompt", BANDS.map((b) => ({ articleId: id, band: b, prompt: art.bands[b].prompt, checklist: art.bands[b].checklist ?? [], keyWords: art.bands[b].keyWords })));
+      await tx.createMany("RRPrompt", BANDS.map((b) => ({ articleId: id, band: b, prompt: art.bands[b].prompt, checklist: art.bands[b].checklist ?? [], keyWords: art.bands[b].keyWords, modelAnswer: art.bands[b].modelAnswer ?? null })));
       return id;
     }
     for (const ver of art.versions) {
@@ -256,7 +272,7 @@ export async function importArticleJson(repo: Repo, actor: Actor | null, json: u
         const data: Row = { stem: q.stem, options: q.options, answer: q.answer, skill: q.skill, rationale: Object.keys(rationale).length ? rationale : null };
         await tx.upsert("RRQuestion", { articleId: id, band: b, number: i + 1 }, data, data);
       }
-      const p: Row = { prompt: band.prompt, checklist: band.checklist ?? [], keyWords: band.keyWords };
+      const p: Row = { prompt: band.prompt, checklist: band.checklist ?? [], keyWords: band.keyWords, modelAnswer: band.modelAnswer ?? null };
       await tx.upsert("RRPrompt", { articleId: id, band: b }, p, p);
     }
     return id;
@@ -279,26 +295,26 @@ const validations = (...v: string[]) => `<dataValidations count="${v.length}">${
 
 /** The downloadable Excel template: one article per file. */
 export function templateWorkbook(): Uint8Array {
-  const levelRows = RR_LEVELS.map((l) => { const t = targetWords(l); return [String(l), l <= 600 ? "LOW" : l <= 1000 ? "MID" : "HIGH", `${t.min}–${t.max} words`]; });
+  const levelRows = LIBRARY_LEVELS.map((l) => { const t = targetWords(l); return [String(l), l <= 600 ? "LOW" : l <= 1000 ? "MID" : "HIGH", `${t.min}–${t.max} words`]; });
   const instructions: Sheet = {
     name: "Instructions", widths: [26, 110],
     rows: [
       ["ReadRise article template"],
-      ["One article per file. The same article is written 12 times, from level 300 (easiest) to 1400 (hardest). Every version teaches the same facts."],
+      ["One article per file. The same article is written 14 times, from level 300 (easiest) to 1600 (hardest). Every version teaches the same facts."],
       [""],
       ["Step", "What to do"],
       ["1.", "Article sheet: write the Code (letters, digits, dashes; codes starting with RR- are kept for the platform library), the Title, the Topic, a one-sentence Summary and a Poll statement students agree or disagree with before and after reading."],
-      ["2.", "Versions sheet: write a Title and the Text for each of the 12 levels. Separate paragraphs with a blank line (Alt+Enter twice in a cell). Keep each version near its target word count (table below)."],
+      ["2.", "Versions sheet: write a Title and the Text for each of the 14 levels. Separate paragraphs with a blank line (Alt+Enter twice in a cell). Keep each version near its target word count (table below)."],
       ["3.", "KeyWords sheet: 5 key words per band (LOW, MID, HIGH), each with part of speech, a kid-friendly definition and a NEW example sentence. The word must appear in every version of its band."],
       ["4.", "Questions sheet: 8 questions per band. Write the question, four choices A–D, the correct letter, the skill and why the answer is right. Mix skills: at least 1 central idea, 2 details, 2 inference, 1 vocabulary, 1 text structure or author's purpose, 1 cause–effect / sequence / compare."],
       ["5.", "Prompts sheet: one short written-answer prompt per band, with a checklist of what a strong answer includes (separate the lines with |)."],
       ["6.", "Upload the file in ReadRise → Import. The preview shows, for each version, the estimated ReadRise Level against the target (✓ or ⚠ with a hint), and every problem with its sheet and row. Nothing is saved until you click Import."],
-      ["7.", "The article is imported as a DRAFT. Open it, check the 12 versions side by side, then Publish (teachers without the publish permission ask an admin)."],
+      ["7.", "The article is imported as a DRAFT. Open it, check the 14 versions side by side, then Publish (teachers without the publish permission ask an admin)."],
       ["", `Rows that start with ${EXAMPLE_MARK} are examples: they are ignored. You may delete them.`],
       ["", "The ReadRise Level is an estimate on a Lexile-like scale (sentence length and word length). It is NOT an official Lexile measure; an official Lexile can be added per version on the review page."],
       ["", "If the estimate is too high: make sentences shorter and use simpler, shorter words. If it is too low: join ideas into longer sentences and use richer, more precise words."],
       [""],
-      ["Bands", "LOW = versions 300–600 · MID = versions 700–1000 · HIGH = versions 1100–1400. Each band has its own key words, questions and prompt, and they must work for every version in the band."],
+      ["Bands", "LOW = versions 300–600 · MID = versions 700–1000 · HIGH = versions 1100–1600. Each band has its own key words, questions and prompt, and they must work for every version in the band."],
       ["Skills", RR_SKILLS.join(", ")],
       ["Topics", RR_TOPICS.join(", ")],
       [""],
@@ -313,7 +329,7 @@ export function templateWorkbook(): Uint8Array {
   };
   const versions: Sheet = {
     name: "Versions", headerStyle: true, freeze: true, widths: [16, 30, 110], numericCols: new Set([0]),
-    rows: [VERSION_HEAD, [`${EXAMPLE_MARK} 300`, "Life in an Oasis", "An oasis is a green place in the desert. It has water.\n\nPalm trees grow there. People come to drink and rest."], ...RR_LEVELS.map((l) => [String(l), "", ""])],
+    rows: [VERSION_HEAD, [`${EXAMPLE_MARK} 300`, "Life in an Oasis", "An oasis is a green place in the desert. It has water.\n\nPalm trees grow there. People come to drink and rest."], ...LIBRARY_LEVELS.map((l) => [String(l), "", ""])],
   };
   const kwRows = BANDS.flatMap((b) => Array.from({ length: 5 }, () => [b, "", "", "", ""]));
   const keyWords: Sheet = {
@@ -469,5 +485,5 @@ export async function importArticleFile(repo: Repo, actor: Actor, name: string, 
 export function templateJson(): ArticleJson {
   const q = (): QuestionJson => ({ stem: "", options: ["", "", "", ""], answer: "A", skill: "detail", why: "" });
   const band = (): BandJson => ({ keyWords: Array.from({ length: 5 }, () => ({ word: "", partOfSpeech: "", definition: "", example: "" })), questions: Array.from({ length: 8 }, q), prompt: "", checklist: [""] });
-  return { code: "", title: "", topic: "", summary: "", poll: "", versions: RR_LEVELS.map((level) => ({ level, title: "", text: "" })), bands: { LOW: band(), MID: band(), HIGH: band() } };
+  return { code: "", title: "", topic: "", summary: "", poll: "", versions: LIBRARY_LEVELS.map((level) => ({ level, title: "", text: "" })), bands: { LOW: band(), MID: band(), HIGH: band() } };
 }

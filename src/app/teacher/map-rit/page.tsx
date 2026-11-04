@@ -4,7 +4,7 @@ import { getActor, repo, requireActor } from "@/server/auth/next";
 import { can } from "@/server/auth/rbac";
 import { classLevels } from "@/server/curriculum-map/levels";
 import { nationalNorm, ritView, SEASONS } from "@/server/map/rit";
-import { enterRitAction, importMapScoresInline, levelsFromRitAction, updateNormsAction } from "../map-rit-actions";
+import { addNormGradeAction, confirmAmbiguousMapStudent, enterRitAction, importMapScoresInline, levelsFromRitAction, updateNormsAction } from "../map-rit-actions";
 import { MapImportBox } from "@/components/map/import-box";
 import { PageHeader } from "@/components/page-header";
 
@@ -15,7 +15,7 @@ const VS: Record<string, [string, string]> = { ABOVE: ["Above class average", "t
 const signed = (n: number) => (n > 0 ? `+${n}` : String(n));
 
 /** 🗺️ MAP Reading RIT: ranking against the national average and the class average (Grades 4–6). */
-export default async function MapRitPage({ searchParams }: { searchParams: Promise<{ grade?: string; classId?: string; term?: string; msg?: string; subject?: string }> }) {
+export default async function MapRitPage({ searchParams }: { searchParams: Promise<{ grade?: string; classId?: string; term?: string; msg?: string; subject?: string; extraGrades?: string }> }) {
   const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"], permission: "reports:read" });
   const me = (await getActor())!.user;
   const sp = await searchParams;
@@ -24,7 +24,19 @@ export default async function MapRitPage({ searchParams }: { searchParams: Promi
   const isAdmin = actor.role !== "TEACHER";
   const roster = v.classId ? await classLevels(repo, actor, v.classId) : null;
   const ritOf = new Map(v.rows.map((r) => [r.studentId, r.rit]));
-  const norms = isAdmin && can(actor, "settings:school") ? await Promise.all([4, 5, 6].map(async (g) => ({ g, s: await Promise.all(SEASONS.map(async (se) => ({ se, n: await nationalNorm(repo, g, se) }))) }))) : null;
+  // 🐛 fix (audit finding, Oct 2026): was hardcoded to [4, 5, 6] and Reading only, so a grade outside 4–6 (e.g.
+  // Grade 11, which already has real MAP scores on the platform) could never get a national norm — `bandOf` in
+  // personal-plan.ts then silently showed every such student as "On level" instead of a real percentile. Every
+  // grade that actually has a class (v.grades, from ritView's own accessibleClasses — at least 4/5/6 always shown
+  // even with none yet) now gets its own row, for both subjects.
+  // ✨ feature (requested, Oct 2026): `extraGrades` (?extraGrades=7,8) adds rows for a grade with no class yet
+  // (e.g. preparing ahead of a grade the school is about to open) — see addNormGradeAction's "Add a grade" box below.
+  const extraGrades = (sp.extraGrades ?? "").split(",").map(Number).filter((n) => Number.isInteger(n) && n > 0);
+  const gradeList = [...new Set([4, 5, 6, ...v.grades, ...extraGrades])].sort((a, b) => a - b);
+  const norms = isAdmin && can(actor, "settings:school") ? await Promise.all(gradeList.map(async (g) => ({
+    g,
+    s: await Promise.all(SEASONS.map(async (se) => ({ se, reading: await nationalNorm(repo, g, se, "READING"), language: await nationalNorm(repo, g, se, "LANGUAGE") }))),
+  }))) : null;
   const link = (p0: Record<string, string | number | null | undefined>) => { const p = { ...p0, subject: subject === "LANGUAGE" ? "language" : undefined }; return `/teacher/map-rit?${new URLSearchParams(Object.entries(p).filter(([, x]) => x !== null && x !== undefined && x !== "").map(([k, x]) => [k, String(x)]))}`; };
   const pill = (on: boolean) => `rounded-full px-4 py-1.5 text-sm font-semibold ${on ? "bg-brand-navy text-white" : "bg-white ring-1 ring-slate-200"}`;
   const box = "rounded-lg border border-slate-300 px-3 py-2";
@@ -35,7 +47,7 @@ export default async function MapRitPage({ searchParams }: { searchParams: Promi
           <Link href="/teacher/alerts?view=flags" className="rounded-xl bg-white px-4 py-2 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">🚨 Intervention</Link></PageHeader>
       {sp.msg && <p role="status" className="mt-4 rounded-xl bg-teal-50 px-4 py-3 text-teal-900 ring-1 ring-teal-200">{sp.msg}</p>}
       {v.canEdit && (
-        <MapImportBox classId={v.classId} className={v.classes.find((c) => c.id === v.classId)?.name ?? null} run={importMapScoresInline} />
+        <MapImportBox classId={v.classId} className={v.classes.find((c) => c.id === v.classId)?.name ?? null} run={importMapScoresInline} confirmAmbiguous={confirmAmbiguousMapStudent} />
       )}
       <nav aria-label="Subject" className="mt-4 flex flex-wrap gap-2">
         {([["READING", "📖 Reading"], ["LANGUAGE", "✍️ Language Usage"]] as const).map(([k, l]) => <Link key={k} href={`/teacher/map-rit?${new URLSearchParams({ ...(v.classId ? { classId: v.classId } : v.grade ? { grade: String(v.grade) } : {}), ...(k === "LANGUAGE" ? { subject: "language" } : {}) })}`} aria-current={subject === k ? "page" : undefined} className={`rounded-full px-4 py-1.5 text-sm font-bold ${subject === k ? "bg-emerald-600 text-white" : "bg-white text-brand-navy ring-1 ring-slate-200"}`}>{l}</Link>)}
@@ -112,17 +124,38 @@ export default async function MapRitPage({ searchParams }: { searchParams: Promi
       {norms && (
         <form action={updateNormsAction} className="mt-8 rounded-2xl bg-white p-5 ring-1 ring-slate-200">
           <h2 className="text-lg font-bold text-brand-navy">National Averages (NWEA Norms) · Admins</h2>
-          <p className="text-sm text-slate-600">Mean RIT and standard deviation for Reading. Update them when NWEA publishes new norms.</p>
-          <table className="mt-3 text-sm">
-            <thead><tr className="text-slate-500"><th className="pe-4 text-left">Grade</th>{SEASONS.map((se) => <th key={se} className="px-2 text-left">{se.charAt(0) + se.slice(1).toLowerCase()} (mean / SD)</th>)}</tr></thead>
-            <tbody>{norms.map(({ g, s }) => (
-              <tr key={g}><td className="pe-4 font-semibold">{g}</td>{s.map(({ se, n }) => (
-                <td key={se} className="px-2 py-1"><input name={`mean:${g}:${se}`} type="number" step="0.1" defaultValue={n?.mean} aria-label={`Grade ${g} ${se} mean`} className="w-20 rounded-md border border-slate-300 px-2 py-1" /> / <input name={`sd:${g}:${se}`} type="number" step="0.1" defaultValue={n?.sd} aria-label={`Grade ${g} ${se} SD`} className="w-16 rounded-md border border-slate-300 px-2 py-1" /></td>
-              ))}</tr>
-            ))}</tbody>
-          </table>
-          <label className="mt-3 flex flex-col text-sm">Source<input name="source" required defaultValue={norms[0].s[0].n?.source ?? ""} className={`${box} max-w-xl`} /></label>
+          <p className="text-sm text-slate-600">Mean RIT and standard deviation, Reading and Language Usage, for every grade with students. Update them when NWEA publishes new norms, or fill in a grade that's missing one (e.g. a grade above 6) — leave a box empty to leave that grade/season/subject with no national comparison rather than guess at a number.</p>
+          <div className="mt-3 overflow-x-auto">
+            <table className="text-sm">
+              <thead><tr className="text-slate-500"><th className="pe-4 text-left">Grade</th>{SEASONS.flatMap((se) => [
+                <th key={`${se}-r`} className="whitespace-nowrap px-2 text-left">{se.charAt(0) + se.slice(1).toLowerCase()} 📖 Reading (mean / SD)</th>,
+                <th key={`${se}-l`} className="whitespace-nowrap px-2 text-left">{se.charAt(0) + se.slice(1).toLowerCase()} ✍️ Language (mean / SD)</th>,
+              ])}</tr></thead>
+              <tbody>{norms.map(({ g, s }) => (
+                <tr key={g}><td className="pe-4 font-semibold">{g}</td>{s.flatMap(({ se, reading, language }) => [
+                  <td key={`${se}-r`} className="whitespace-nowrap px-2 py-1"><input name={`mean:READING:${g}:${se}`} type="number" step="0.1" defaultValue={reading?.mean} aria-label={`Grade ${g} ${se} Reading mean`} className="w-16 rounded-md border border-slate-300 px-1 py-1" /> / <input name={`sd:READING:${g}:${se}`} type="number" step="0.1" defaultValue={reading?.sd} aria-label={`Grade ${g} ${se} Reading SD`} className="w-14 rounded-md border border-slate-300 px-1 py-1" /></td>,
+                  <td key={`${se}-l`} className="whitespace-nowrap px-2 py-1"><input name={`mean:LANGUAGE:${g}:${se}`} type="number" step="0.1" defaultValue={language?.mean} aria-label={`Grade ${g} ${se} Language mean`} className="w-16 rounded-md border border-slate-300 px-1 py-1" /> / <input name={`sd:LANGUAGE:${g}:${se}`} type="number" step="0.1" defaultValue={language?.sd} aria-label={`Grade ${g} ${se} Language SD`} className="w-14 rounded-md border border-slate-300 px-1 py-1" /></td>,
+                ])}</tr>
+              ))}</tbody>
+            </table>
+          </div>
+          <label className="mt-3 flex flex-col text-sm">Source<input name="source" required defaultValue={norms[0]?.s[0]?.reading?.source ?? norms[0]?.s[0]?.language?.source ?? ""} className={`${box} max-w-xl`} /></label>
           <button className="mt-4 rounded-xl bg-brand-navy px-5 py-2 font-semibold text-white hover:bg-brand-purple">Save national averages</button>
+        </form>
+      )}
+      {/* ✨ feature (requested, Oct 2026): a grade with no class yet (e.g. a grade the school is about to open) never
+       * appears via v.grades, so there's no row to fill in for it above. This separate form (a different server
+       * action, so it can't be nested inside the "Save national averages" form) adds an empty row for any grade
+       * 1–13; it's remembered via `extraGrades` in the URL only, not saved anywhere — once real numbers are entered
+       * and saved for that grade, nationalNorm() finds them on its own regardless of whether it's still listed here. */}
+      {norms && (
+        <form action={addNormGradeAction} className="mt-4 flex flex-wrap items-end gap-3 rounded-2xl bg-white p-5 ring-1 ring-slate-200">
+          <input type="hidden" name="extraGrades" value={extraGrades.join(",")} />
+          <label className="flex flex-col text-sm">
+            Add a grade (no class yet)
+            <input type="number" name="grade" min={1} max={13} placeholder="e.g. 7" className={`${box} w-32`} />
+          </label>
+          <button className="rounded-xl bg-brand-navy px-5 py-2 font-semibold text-white hover:bg-brand-purple">➕ Add a grade</button>
         </form>
       )}
     </AppShell>

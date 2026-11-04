@@ -7,6 +7,7 @@ import { BTN_PRIMARY, BTN_SECONDARY } from "@/components/ui-kit/tokens";
 import type { SortReviewItem } from "@/server/questions/link-bank-run";
 import { sortBatchAction } from "./actions";
 
+const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 type Phase = "idle" | "checking" | "preview" | "running" | "done";
 interface Tally { total: number; processed: number; linked: number; review: number }
 const ZERO: Tally = { total: 0, processed: 0, linked: 0, review: 0 };
@@ -25,6 +26,7 @@ export function SortQuestions() {
   const [preview, setPreview] = useState<Tally>(ZERO);
   const [review, setReview] = useState<SortReviewItem[]>([]);
   const [error, setError] = useState<string | null>(null);
+  const [note, setNote] = useState<string | null>(null);
 
   async function loop(apply: boolean): Promise<Tally | null> {
     let after: string | null = null;
@@ -34,6 +36,9 @@ export function SortQuestions() {
       const r = await sortBatchAction(after, apply);
       if (r.error || !r.result) { setError(r.error ?? t("Something went wrong. Try again.")); return null; }
       const b = r.result;
+      // 🛑 fix (Oct 2026): the server pauses a batch (same cursor, nothing done) when it is low on memory, instead
+      // of doing more work on top of an already-busy instance — wait it out here, same as bulk-review.tsx.
+      if (b.waitMs > 0) { setNote(t("Waiting a moment for the server…")); await sleep(b.waitMs); setNote(null); continue; }
       sum = { total: after === null ? b.total : sum.total, processed: sum.processed + b.processed, linked: sum.linked + b.linked, review: sum.review + b.review };
       if (apply && items.length < SHOW_REVIEW) items.push(...b.reviewItems.slice(0, SHOW_REVIEW - items.length));
       setTally(sum);
@@ -45,13 +50,13 @@ export function SortQuestions() {
   }
 
   async function check() {
-    setError(null); setTally(ZERO); setPhase("checking");
+    setError(null); setTally(ZERO); setNote(null); setPhase("checking");
     const sum = await loop(false);
     if (!sum) return setPhase("idle");
     setPreview(sum); setPhase("preview");
   }
   async function run() {
-    setError(null); setTally({ ...ZERO, total: preview.total }); setPhase("running");
+    setError(null); setTally({ ...ZERO, total: preview.total }); setNote(null); setPhase("running");
     const sum = await loop(true);
     if (!sum) return setPhase("preview");
     setPhase("done");
@@ -76,6 +81,7 @@ export function SortQuestions() {
           <div className="mt-2 h-3 w-full overflow-hidden rounded-full bg-slate-100" aria-hidden="true"><div className="h-full rounded-full bg-brand-teal transition-all" style={{ width: `${pct}%` }} /></div>
         </div>
       )}
+      {note && <p role="status" className="mt-2 text-sm text-slate-600">{t(note)}</p>}
 
       {phase === "preview" && (
         preview.total === 0 ? (

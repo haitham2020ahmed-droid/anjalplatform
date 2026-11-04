@@ -78,10 +78,10 @@
     "passage": "Rana and her dad went to the fish market early in the morning. The sun was just coming up. Men sold big fish from boats. Rana held her dad's hand.",
     "stem": "Where does the story happen?",
     "options": [
-     "At school",
-     "At home",
+     "At a school in town",
+     "At home in the kitchen",
      "At the fish market",
-     "In a park"
+     "In a park by a lake"
     ],
     "answer": 2,
     "hint": "Look for a place word. Where did Rana and her dad go?",
@@ -190,10 +190,10 @@
     "passage": "The bell rang and the doors burst open. Children ran across the yard, laughing and shouting. Some played football on the dusty field, while others shared snacks under the shade of a big tree. A teacher stood near the gate with a whistle around her neck. In ten minutes, they would all go back to their classrooms.",
     "stem": "Where does this story take place?",
     "options": [
-     "In a sports stadium",
+     "In a sports stadium at night",
      "In a schoolyard during break",
      "In a park on the weekend",
-     "At a busy market"
+     "At a busy market in the city"
     ],
     "answer": 1,
     "hint": "Look for clues: who is there? What do they do? Where will they go next?",
@@ -221,10 +221,10 @@
      "passage": "The wind whistled through the tent all night. In the morning, Faisal opened the flap and saw orange sand dunes in every direction. His uncle was already making coffee over a small fire.",
      "stem": "Which detail best shows where Faisal is?",
      "options": [
-      "His uncle was making coffee.",
-      "The wind whistled all night.",
+      "His uncle was making coffee in a small pot.",
+      "The wind whistled all night long outside.",
       "He saw orange sand dunes in every direction.",
-      "He opened the flap in the morning."
+      "He opened the flap of the tent in the morning."
      ],
      "answer": 2,
      "why": "Sand dunes in every direction show that Faisal is camping in the desert."
@@ -453,9 +453,9 @@
      "stem": "What does the setting reveal about Nadia?",
      "options": [
       "She values learning even though getting it is hard.",
-      "She lives in a large city with many schools.",
-      "She does not like going to school.",
-      "She wants to own a television."
+      "She lives in a large city with many good schools.",
+      "She does not like going to school every day.",
+      "She wants to own a television for her room."
      ],
      "answer": 0,
      "why": "The long walk and the lack of services make school hard to reach, yet she treasures her books."
@@ -477,8 +477,8 @@
      "stem": "How does the setting affect Ahmad?",
      "options": [
       "It makes him want to ride right away.",
-      "It makes him feel cold and wet.",
-      "It has no effect on his plans.",
+      "It makes him feel cold and wet all day.",
+      "It has no effect on his plans for the day.",
       "The extreme heat makes him change his plans."
      ],
      "answer": 3,

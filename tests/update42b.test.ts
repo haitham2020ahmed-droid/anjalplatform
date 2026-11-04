@@ -8,7 +8,10 @@
  *    session — now each is served once, so the practice part is shorter and the later lesson starts from that history;
  *    RE-RECORDED again for the school's fresh-questions rule (src/server/questions/fresh.ts, record with
  *    tests/helpers/record-update42b.ts): the lesson now gives questions the student never attempted first, so its
- *    items differ from #17 on — the practice and the set are unchanged, and the engine's math is the same)
+ *    items differ from #17 on — the practice and the set are unchanged, and the engine's math is the same;
+ *    RE-RECORDED again (Nov 2026 guessing redesign — src/server/practice/guessing.ts): a merely fast (not a literal
+ *    instant misclick) answer now counts in full toward ability/mastery instead of being zero-weighted, so the
+ *    adaptive engine's own choices diverge from here on — a deliberate behavior change, not a regression)
  *  - work after the response: it does not run before the answer returns, it always runs afterwards, a failure is
  *    logged and never reaches the student
  *  - an answer's transaction only writes; the reads are done before it, in parallel
@@ -98,7 +101,13 @@ describe("Update 42B · same results, less waiting", () => {
       view = r.view;
     }
     assert.ok(maxTx <= 5, `writes only inside the transaction (session move, attempt, ability, mastery, XP): ${maxTx}`);
-    assert.ok(maxAll <= 16, `one answer with warm caches: ${maxAll} calls`);
+    // r89: budget bumped 16 → 17 for the one extra read currentQuestion() always does — the student's own StudentLevel
+    // row (src/server/practice/session.ts, "chunked passage" feature) — a real, already-shipped +1 query, not a leak
+    // Nov 2026 fix #2: bumped 17 → 18 for one more extra read, generalCarefulRecord() — the student's own recent
+    // careful-answer record across every skill, needed so a brand-new skill can still be judged "fluent, not
+    // guessing" from the student's general track record (guessing.ts#isGenerallyFluentStudent) — also a real,
+    // intentional +1 query, not a leak.
+    assert.ok(maxAll <= 18, `one answer with warm caches: ${maxAll} calls`);
     await afterResponseSettled();
     const logs = await raw.findMany("AdaptiveDecisionLog", { sessionId: view.sessionId });
     assert.equal(logs.filter((l) => l.attemptId).length, 4, "every answer's decision log was written after its response");

@@ -19,6 +19,7 @@ export const ADMIN_TABS = [
 ];
 export const TEACHER_TABS = [
   { href: "/teacher/readrise", label: "📈 My class" },
+  { href: "/teacher/readrise/report", label: "📋 Report" },
   { href: "/teacher/readrise/library", label: "📚 Library" },
   { href: "/teacher/readrise/import", label: "📥 Import" },
 ];

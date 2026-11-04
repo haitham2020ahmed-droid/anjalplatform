@@ -6,15 +6,17 @@ import type { Repo, Row } from "../seeding/repo";
 import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
 import { readableClasses } from "../teacher/coordinators";
 import { studentNames } from "../insights/student-data";
-import { areaOfStandard, STRAND_LABEL, type Strand } from "./standards";
+import { areaOfStandard, cellPct as cellPctOf, STRAND_LABEL, testBands, type Strand } from "./standards";
 import { asPeriod, codeFor, PERIODS, schoolYear, type Period } from "./test";
+import { isInvalidResult } from "../curriculum-map/level-evidence";
 
 const s = (v: unknown) => String(v ?? "");
 const json = <T>(v: unknown, dflt: T): T => { if (v === null || v === undefined || v === "") return dflt; if (typeof v !== "string") return v as T; try { return JSON.parse(v) as T; } catch { return dflt; } };
 const r1 = (x: number) => Math.round(x * 10) / 10;
 const avg = (xs: number[]) => (xs.length ? r1(xs.reduce((a, b) => a + b, 0) / xs.length) : null);
 type Cell = { correct: number; total: number; score?: number };
-const cellPct = (x: Cell) => (typeof x.score === "number" ? x.score : x.total ? r1((100 * x.correct) / x.total) : 0);
+/** the same cell rule as the Diagnostic report (the adaptive score when there is one, else % correct) */
+const cellPct = (x: Cell) => cellPctOf(x);
 type Level = "ABOVE" | "ON" | "BELOW";
 
 /** one finished Diagnostic of one student */
@@ -90,23 +92,41 @@ export function summarizeGrowth(rows: GrowthInput[], anchorLabel: (a: string) =>
 async function inputsFor(repo: Repo, tests: Row[], ids: string[], names: Map<string, { name: string }>, sharedOnly = false): Promise<GrowthInput[]> {
   if (!tests.length || !ids.length) return [];
   const scores = await repo.findMany("DiagnosticScore", { diagnosticId: { in: tests.map((t) => t.id) }, studentId: { in: ids } });
-  return scores.filter((r) => !sharedOnly || r.sharedAt).map((r) => {
-    const t = tests.find((x) => x.id === r.diagnosticId)!;
+  // r85 audit: a DiagnosticScore with 30%+ rapid-guess answers is "invalid" everywhere else in the codebase
+  // (test.ts skips recordLevel/priors for it; tiers.ts, weekly-plan.ts, insights/alerts.ts all exclude it) — this
+  // growth panel (and the family/weekly reports built from it) used to still fold the invalid score into the class
+  // mean, the BOY→MOY delta and the "did not grow" list, showing a fabricated drop/spike from guessed answers.
+  const testOf = new Map(tests.map((t) => [s(t.id), t]));
+  const at = (r: Row) => { const v = r.completedAt; const t = v instanceof Date ? v.getTime() : v ? new Date(s(v)).getTime() : 0; return Number.isFinite(t) ? t : 0; };
+  // one result per student and period: the newest VALID one (never the first one in database order)
+  const best = new Map<string, Row>();
+  for (const r of scores) {
+    if ((sharedOnly && !r.sharedAt) || isInvalidResult(Number(r.rapid ?? 0), Number(r.total ?? 0))) continue;
+    const t = testOf.get(s(r.diagnosticId)); if (!t) continue;
+    const k = `${s(r.studentId)}|${asPeriod(t.period)}`, cur = best.get(k);
+    if (!cur || at(r) > at(cur)) best.set(k, r);
+  }
+  return [...best.values()].map((r) => {
+    const t = testOf.get(s(r.diagnosticId))!;
     return { studentId: s(r.studentId), name: names.get(s(r.studentId))?.name ?? "Student", period: asPeriod(t.period), pct: Number(r.pct), level: s(r.level) as Level, byStrand: json(r.byStrand, []), byStandard: json(r.byStandard, []) };
   });
 }
 
-/** the tests of the grade for the year (latest year with a test when none is given), one per period */
-async function yearTests(repo: Repo, schoolId: string, grade: number, year?: string | null): Promise<{ year: string; tests: Row[] }> {
+/**
+ * The tests of the grade for the year (latest year with a test when none is given). `all`: every test of the year
+ * (the results are read from all of them — the newest valid result per period wins); `tests`: one per period to list.
+ */
+async function yearTests(repo: Repo, schoolId: string, grade: number, year?: string | null): Promise<{ year: string; tests: Row[]; all: Row[] }> {
   const all = (await repo.findMany("DiagnosticTest", { schoolId, grade })).filter((t) => s(t.status) !== "DRAFT");
   const y = year || [...new Set(all.map((t) => s(t.year)))].sort().reverse()[0] || schoolYear();
   const tests = all.filter((t) => s(t.year) === y).sort((a, b) => PERIODS.indexOf(asPeriod(a.period)) - PERIODS.indexOf(asPeriod(b.period)));
-  // one test per period (the first built)
   const seen = new Set<string>();
-  return { year: y, tests: tests.filter((t) => { const p = asPeriod(t.period); if (seen.has(p)) return false; seen.add(p); return true; }) };
+  return { year: y, all: tests, tests: tests.filter((t) => { const p = asPeriod(t.period); if (seen.has(p)) return false; seen.add(p); return true; }) };
 }
 
-export interface ClassGrowth extends GrowthSummary { grade: number; year: string; scope: string; classId: string | null; classes: { id: string; name: string }[]; tests: { period: Period; id: string; title: string }[] }
+export interface ClassGrowth extends GrowthSummary { grade: number; year: string; scope: string; classId: string | null; classes: { id: string; name: string }[]; tests: { period: Period; id: string; title: string }[];
+  /** the level bands of the year's latest test (its edited bands, else 85 / 65) — “On grade level = on – above−1” */
+  bands: { above: number; on: number } }
 
 /** The growth panel of a class of the teacher (or, for admins and coordinators, the whole grade when classId is empty). */
 export async function classGrowth(repo: Repo, actor: Actor, input: { grade: number; classId?: string | null; year?: string | null }): Promise<ClassGrowth> {
@@ -119,31 +139,40 @@ export async function classGrowth(repo: Repo, actor: Actor, input: { grade: numb
   const scope = input.classId ? mine.filter((c) => c.id === input.classId) : whole ? mine : [mine[0]];
   if (!scope.length) throw new ForbiddenError("This class is not yours.");
   const ids = [...new Set((await repo.findMany("ClassMembership", { classId: { in: scope.map((c) => s(c.id)) }, leftAt: null }, { select: ["studentId"] })).map((m) => s(m.studentId)))];
-  const { year, tests } = await yearTests(repo, s(actor.schoolId), input.grade, input.year);
+  const { year, tests, all } = await yearTests(repo, s(actor.schoolId), input.grade, input.year);
   const names = await studentNames(repo, ids);
-  const sum = summarizeGrowth(await inputsFor(repo, tests, ids, names), (a) => areaOfStandard(codeFor(a, input.grade))?.label ?? a);
-  return { ...sum, grade: input.grade, year, scope: whole ? `Grade ${input.grade} · all classes` : s(scope[0].name), classId: whole ? null : s(scope[0].id), classes: mine.map((c) => ({ id: s(c.id), name: s(c.name) })), tests: tests.map((t) => ({ period: asPeriod(t.period), id: s(t.id), title: s(t.title) })) };
+  const sum = summarizeGrowth(await inputsFor(repo, all, ids, names), (a) => areaOfStandard(codeFor(a, input.grade))?.label ?? a);
+  return { ...sum, grade: input.grade, year, scope: whole ? `Grade ${input.grade} · all classes` : s(scope[0].name), classId: whole ? null : s(scope[0].id), classes: mine.map((c) => ({ id: s(c.id), name: s(c.name) })), tests: tests.map((t) => ({ period: asPeriod(t.period), id: s(t.id), title: s(t.title) })), bands: testBands(all[all.length - 1]?.bands) };
 }
 
-/** One student's growth this year (staff of their class; the student or their parent see shared results only). */
-export async function studentGrowth(repo: Repo, actor: Actor, studentId: string, year?: string | null): Promise<(StudentGrowth & { year: string; strands: GrowthSummary["strands"]; standards: GrowthSummary["standards"] }) | null> {
+/**
+ * One student's growth this year (staff of ANY of their classes; the student or their parent see shared results only).
+ * `classId`: the class the report was opened from (used when the student is in it).
+ */
+export async function studentGrowth(repo: Repo, actor: Actor, studentId: string, year?: string | null, classId?: string | null): Promise<(StudentGrowth & { year: string; strands: GrowthSummary["strands"]; standards: GrowthSummary["standards"] }) | null> {
   const st = await repo.findUnique("Student", { id: studentId });
   if (!st || s(st.schoolId) !== s(actor.schoolId)) throw new ForbiddenError("Student not found.");
   const family = actor.role === "STUDENT" || actor.role === "PARENT";
   if (actor.role === "STUDENT" && actor.studentId !== studentId) throw new ForbiddenError("Student not found.");
   if (actor.role === "PARENT" && !actor.parentChildIds?.has(studentId)) throw new ForbiddenError("Student not found.");
-  const m = (await repo.findMany("ClassMembership", { studentId, leftAt: null }))[0];
+  const memberIds = (await repo.findMany("ClassMembership", { studentId, leftAt: null })).map((m) => s(m.classId));
+  let usable = memberIds;
   if (!family) {
     assertCan(actor, "reports:read");
-    if (actor.role === "TEACHER" && !(await readableClasses(repo, actor)).some((c) => m && c.id === m.classId)) throw new ForbiddenError("This student is not in your classes.");
+    if (actor.role === "TEACHER") {
+      const readable = new Set((await readableClasses(repo, actor)).map((c) => s(c.id)));
+      usable = memberIds.filter((id) => readable.has(id));
+      if (!usable.length) throw new ForbiddenError("This student is not in your classes.");
+    }
   }
-  const klass = m ? await repo.findUnique("Class", { id: m.classId }) : null;
+  const klassId = classId && usable.includes(s(classId)) ? s(classId) : usable[0] ?? null;
+  const klass = klassId ? await repo.findUnique("Class", { id: klassId }) : null;
   const g = klass ? await repo.findUnique("Grade", { id: klass.gradeId }) : null;
   if (!g) return null;
   const grade = Number(g.level);
-  const { year: y, tests } = await yearTests(repo, s(actor.schoolId), grade, year);
+  const { year: y, all } = await yearTests(repo, s(actor.schoolId), grade, year);
   const names = await studentNames(repo, [studentId]);
-  const sum = summarizeGrowth(await inputsFor(repo, tests, [studentId], names, family), (a) => areaOfStandard(codeFor(a, grade))?.label ?? a);
+  const sum = summarizeGrowth(await inputsFor(repo, all, [studentId], names, family), (a) => areaOfStandard(codeFor(a, grade))?.label ?? a);
   const me = sum.students[0];
   return me ? { ...me, year: y, strands: sum.strands, standards: sum.standards } : null;
 }

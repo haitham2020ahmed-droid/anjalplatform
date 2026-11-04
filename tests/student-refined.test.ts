@@ -31,8 +31,8 @@ const hasAr = (x: string) => (UI_STRINGS as readonly string[]).includes(x) && /[
 const LEVEL_WORDS = /\b(Below|On|Above) Level\b|\bTier\b|LEVEL_LABEL|Hardest|level=\{/;
 
 describe("student home: tiles, each page once", () => {
-  test("the main tiles: My Work, MAP, Curriculum Map, Second Chance, ReadMaster / ReadRise, Fluency Coach, Writing, My Tests", () => {
-    assert.deepEqual(STUDENT_HOME_TILES.map((x) => x.label), ["My Work", "MAP", "Curriculum Map", "Second Chance", "ReadMaster / ReadRise", "Fluency Coach", "Writing", "My Tests"]);
+  test("the main tiles: My Work, My Plans (owner r82), MAP, Curriculum Map, Second Chance, ReadMaster / ReadRise, Fluency Coach, Writing, My Tests", () => {
+    assert.deepEqual(STUDENT_HOME_TILES.map((x) => x.label), ["My Work", "My Plans", "MAP", "Curriculum Map", "Second Chance", "ReadMaster / ReadRise", "Fluency Coach", "Writing", "My Tests"]);
     assert.equal(new Set(STUDENT_HOME_TILES.map((x) => x.href)).size, STUDENT_HOME_TILES.length, "no tile twice");
     assert.ok(!STUDENT_HOME_TILES.some((x) => /respond/i.test(x.href + x.label)), "no Respond to Reading tile");
     for (const x of STUDENT_HOME_TILES) {
@@ -96,7 +96,7 @@ describe("Curriculum Map → the student's own study plan", () => {
   test("only my plans; the newest of my own grade by default; a switcher when there are several", async () => {
     assert.deepEqual((await studentStudyPlans(repo, student)).plans, [], "nothing sent yet → the friendly empty page");
     const cur = await sendCurriculumPlan(repo, teacher, { classId }, new Date("2026-09-01T08:00:00Z"));
-    const unit = await sendMapPlan(repo, teacher, { grade: 4, unitCode: "G4.U1", classId, studentIds: [sid] }, new Date("2026-09-20T08:00:00Z"));
+    const unit = await sendMapPlan(repo, teacher, { source: "CURRICULUM", grade: 4, unitCode: "G4.U1", classId, studentIds: [sid] }, new Date("2026-09-20T08:00:00Z"));
     await repo.updateMany("SkillPlan", { id: cur.planId }, { createdAt: new Date("2026-09-01T08:00:00Z") });
     await repo.updateMany("SkillPlan", { id: unit.planId }, { createdAt: new Date("2026-09-20T08:00:00Z") });
     let mine = await studentStudyPlans(repo, student);

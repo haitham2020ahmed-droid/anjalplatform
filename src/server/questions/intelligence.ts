@@ -51,7 +51,12 @@ async function passageText(repo: Repo, qs: Row[]): Promise<Map<string, string>> 
  * Analyses questions not analysed yet (or the given ones). Returns what was filled and how many suggestions were made.
  * Bounded: `limit` questions per run (the daily job and the admin button repeat it).
  */
-export async function analyzeQuestions(repo: Repo, schoolId: string, opts: { questionIds?: string[]; limit?: number; force?: boolean } = {}, now = new Date()): Promise<{ analysed: number; dokFilled: number; suggestions: number; misconceptions: number; literacyTagged?: number }> {
+export async function analyzeQuestions(repo: Repo, schoolId: string, opts: { questionIds?: string[]; limit?: number; force?: boolean; actor?: Actor } = {}, now = new Date()): Promise<{ analysed: number; dokFilled: number; suggestions: number; misconceptions: number; literacyTagged?: number }> {
+  // r86: an optional actor-level gate, same rule as confirmMetadata/confirmSkillMetadata below — callers with no
+  // user in the loop (the nightly job in insights/daily.ts, the post-import analysis) keep working unchanged by
+  // simply not passing `opts.actor`; a caller that DOES pass one (the admin page action) gets the same
+  // "questions:review" + same-school check those functions already enforce, as defense-in-depth below the page gate.
+  if (opts.actor) { assertCan(opts.actor, "questions:review"); if (opts.actor.schoolId && opts.actor.schoolId !== schoolId) throw new ForbiddenError("Not your school"); }
   let skills: SchoolSkill[], questions: Row[];
   if (opts.questionIds) {
     // only these questions (an edit or an import): never read the whole bank
@@ -292,7 +297,9 @@ export async function findDuplicateGroups(repo: Repo, schoolId: string): Promise
 }
 
 /** Puts the duplicate candidates in the admin review queue (approve = archive the newer copy). Returns how many are new. */
-export async function queueDuplicates(repo: Repo, schoolId: string, now = new Date()): Promise<number> {
+export async function queueDuplicates(repo: Repo, schoolId: string, now = new Date(), actor?: Actor): Promise<number> {
+  // r86: same optional actor-level gate as analyzeQuestions above — unset for background callers, enforced when passed.
+  if (actor) { assertCan(actor, "questions:review"); if (actor.schoolId && actor.schoolId !== schoolId) throw new ForbiddenError("Not your school"); }
   const groups = await findDuplicateGroups(repo, schoolId);
   const open = await repo.findMany("AiSuggestion", { schoolId, tool: "DUPLICATE" }, { select: ["data"] });
   const seen = new Set(open.map((o) => { const d = (typeof o.data === "string" ? JSON.parse(o.data) : o.data ?? {}) as Record<string, unknown>; return `${s(d.keep)}|${s(d.remove)}`; }));

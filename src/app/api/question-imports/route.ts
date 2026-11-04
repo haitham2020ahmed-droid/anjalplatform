@@ -7,8 +7,9 @@ import { apiActor, repo } from "@/server/auth/next";
 import { can, ForbiddenError } from "@/server/auth/rbac";
 import { ValidationError } from "@/server/curriculum-admin";
 import { analyzeImport, ImportFileError, shortDbMessage } from "@/server/admin/question-import";
-import { ensureGrammarSkills, grammarTable, readGrammarWorkbook } from "@/server/grammar/grammar";
+import { ensureGrammarSkills, ensureSimpleGrammarSkills, grammarSimpleTable, grammarTable, readGrammarWorkbook } from "@/server/grammar/grammar";
 import { log } from "@/server/monitoring/log";
+import { withCappedBody, BodyTooLargeError } from "@/server/lib/capped-body";
 
 export const runtime = "nodejs";
 export const maxDuration = 300;
@@ -41,13 +42,15 @@ export async function POST(req: Request) {
   let defaultMapCode: string | undefined;
   let grammarGrade = 0;
   try {
-    const form = await req.formData();
+    // r89: declared Content-Length is client-supplied and unenforced; cap the actual bytes read too
+    const form = await withCappedBody(req, MAX_IMPORT_BYTES + 64_000).formData();
     file = form.get("file");
     grammarGrade = [4, 5, 6].includes(Number(form.get("grammarGrade"))) ? Number(form.get("grammarGrade")) : 0;
     if (form.get("target") === "CURRICULUM") target = "CURRICULUM";
     const place = String(form.get("place") ?? "").trim().toUpperCase();
     if (/^G\d+\.[A-Z0-9.]+$/.test(place)) { defaultMapCode = place; target = "CURRICULUM"; }
-  } catch {
+  } catch (e) {
+    if (e instanceof BodyTooLargeError) return reply({ error: "The file is larger than 50 MB. Split it into smaller files.", stage: "upload" }, 413);
     return reply({ error: "The upload was interrupted or is not a file. Choose the file again and retry.", stage: "upload" }, 400);
   }
   if (!(file instanceof File) || !file.size) return reply({ error: "Choose a CSV or Excel (.xlsx) file to upload.", stage: "upload" }, 400);
@@ -58,10 +61,14 @@ export async function POST(req: Request) {
     const bytes = new Uint8Array(await file.arrayBuffer());
     let jobId: string;
     if (grammarGrade) {
-      // 🔤 the Grammar bank: its skills first (created or updated), then its questions through the normal preview
+      // 🔤 the Grammar bank: the strict format's skills first (created or updated); the simple format matches
+      // the grade's EXISTING skills by name, creating a plain one only for a name that has none yet — so a
+      // grade starting from zero (Grade 5, Grade 6…) still gets one. Either format places its skills on the
+      // Curriculum Map too, spread across the grade's live Units/Lessons.
       const wb = readGrammarWorkbook(bytes);
-      await ensureGrammarSkills(repo, actor, wb, grammarGrade);
-      const table = grammarTable(wb, grammarGrade);
+      let table: string[][];
+      if (wb.format === "simple") { await ensureSimpleGrammarSkills(repo, actor, wb, grammarGrade); table = grammarSimpleTable(wb, grammarGrade); }
+      else { await ensureGrammarSkills(repo, actor, wb, grammarGrade); table = grammarTable(wb, grammarGrade); }
       if (table.length < 2) return reply({ error: `The Grammar file has no Grade ${grammarGrade} questions.`, stage: "file" }, 422);
       jobId = await analyzeImport(repo, actor, { fileName: `Grammar Grade ${grammarGrade} - ${file.name}`, bytes, target: "BANK", table });
     } else jobId = await analyzeImport(repo, actor, { fileName: file.name, bytes, target, defaultMapCode });

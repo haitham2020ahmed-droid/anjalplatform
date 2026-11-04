@@ -35,5 +35,6 @@ export function reportHref(r: Partial<ReportRequest> & Pick<ReportRequest, "kind
   if (r.days) q.set("days", String(r.days));
   if (r.gradeId) q.set("gradeId", r.gradeId);
   if (r.teacherId) q.set("teacherId", r.teacherId);
+  if (r.format === "pdf") q.set("print", "1"); // r84: a print page the browser saves as a PDF (the print window opens once)
   return `/api/reports?${q.toString()}`;
 }

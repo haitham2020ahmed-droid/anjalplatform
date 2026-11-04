@@ -6,7 +6,9 @@
 export type BadgeMetric =
   | "correct" | "mastered" | "tasks" | "levelUps" | "streak" | "articles" | "writing" | "growth" | "words" | "practiceTests"
   // Games Part 3
-  | "rrArticles" | "grammarMastered" | "liveWins" | "liveGames" | "qotdCorrect" | "qotdAnswered" | "plans" | "coinsEarned";
+  | "rrArticles" | "grammarMastered" | "liveWins" | "liveGames" | "qotdCorrect" | "qotdAnswered" | "plans" | "coinsEarned"
+  // consistency (not score): distinct days practised in the last 21 days — rewards showing up regularly, not raw ability
+  | "consistentDays";
 
 export interface BadgeDef {
   code: string; icon: string; name: string; description: string; metric: BadgeMetric; target: number;
@@ -44,6 +46,9 @@ export const BADGES: BadgeDef[] = [
   { code: "daily-thinker", icon: "☀️", name: "Daily Thinker", description: "Answer 5 Questions of the Day.", metric: "qotdAnswered", target: 5, tint: "#fb923c" },
   { code: "plan-finisher", icon: "🗂️", name: "Plan Finisher", description: "Finish every part of a plan.", metric: "plans", target: 1, tint: "#2563eb", unlocks: "star-glasses" },
   { code: "coin-collector", icon: "🪙", name: "Coin Collector", description: "Earn 300 coins.", metric: "coinsEarned", target: 300, tint: "#b45309" },
+  // r88: rewards showing up regularly (distinct days in the last 3 weeks), not a top score — a student who practises
+  // a little most days earns this just as fast as a student who answers the most questions.
+  { code: "steady-practice", icon: "🗓️", name: "Steady Practice", description: "Practise on 10 different days within any 3 weeks.", metric: "consistentDays", target: 10, tint: "#0d9488" },
 ];
 
 export const badgeByCode = (code: string | null | undefined): BadgeDef | null => (code ? BADGES.find((b) => b.code === code) ?? null : null);

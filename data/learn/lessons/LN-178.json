@@ -205,9 +205,9 @@
      "stem": "What does the first stage direction tell us?",
      "options": [
       "Where the scene happens and what Khalid is doing",
-      "What Grandpa says when he arrives",
-      "How the play will end",
-      "Why the plane is so late"
+      "What Grandpa says when he arrives at the house",
+      "How the play will end for the whole family",
+      "Why the plane is so late at the airport"
      ],
      "answer": 0,
      "why": "It gives the setting (a busy airport) and shows Khalid waiting with a sign for his grandfather."
@@ -218,7 +218,7 @@
      "options": [
       "She is proud of herself.",
       "She is sleepy and bored.",
-      "She is laughing at a joke.",
+      "She is laughing at a funny joke.",
       "She is nervous about the vase."
      ],
      "answer": 3,
@@ -230,7 +230,7 @@
      "options": [
       "Faisal reads a long poem aloud.",
       "The bell rings and the students leave.",
-      "The teacher leaves the classroom.",
+      "The teacher leaves the classroom early.",
       "No one raises a hand to read."
      ],
      "answer": 1,
@@ -406,7 +406,7 @@
     "passage": "(The family majlis. Evening. FATHER reads a newspaper. AMAL, sixteen, stands holding a letter behind her back.)\nAMAL: Baba, can I ask you something?\nFATHER: (not lowering the newspaper) Mm.\nAMAL: (taking a deep breath) The university in Jeddah accepted me. For medicine.\n(A long pause. FATHER slowly folds the newspaper and sets it on the table.)\nFATHER: Jeddah is far.\nAMAL: (quickly) I know. I can stay with Aunt Mariam. I'll call every day. I-\nFATHER: (raising a hand; she stops) Your grandmother wanted to be a doctor. There was no school for her.\n(He stands, walks to the shelf and takes down an old, worn medical book. He holds it out to her.)\nFATHER: She would want you to have this.",
     "stem": "How do the stage directions develop Father's response?",
     "options": [
-     "They show Father is angry, since he will not look at Amal at any point.",
+     "They show Father is angry, since he will not look at Amal at any point of the scene.",
      "They show Father ignores the news and simply goes on reading his paper.",
      "They show Father is confused about where Jeddah is and why she would go.",
      "They show a shift from distraction to full attention, ending in a gesture of support."

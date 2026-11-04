@@ -28,6 +28,7 @@ import { myTasks } from "../teacher/writing";
 import { MINUTES } from "../tiers/weekly-plan";
 import type { MyMap } from "../map/map-more";
 import { readRisePlaced } from "../readrise/engine";
+import { isCancelledForStudent } from "./cancelled-work";
 
 const s = (v: unknown) => String(v ?? "");
 const time = (v: unknown): number => (v instanceof Date ? v.getTime() : v ? new Date(String(v)).getTime() : 0);
@@ -67,6 +68,9 @@ export async function lastActivity(repo: Repo, actor: Actor, now = new Date()): 
   if (rr[0]) cands.push({ kind: "READRISE", at: time(rr[0].startedAt), row: rr[0] });
   const best = cands.sort((a, b) => b.at - a.at)[0];
   if (!best) return null;
+  // 🚫 owner r68: work the teacher cancelled is never "where you left off" (the hero showed a cancelled Curriculum Map
+  // Review with Continue): its open session is skipped (the cached cancels, no extra read when nothing is cancelled)
+  if (best.row.assignmentId && (await isCancelledForStudent(repo, sid, actor.schoolId, s(best.row.assignmentId)))) return null;
   const at = new Date(best.at).toISOString();
   if (best.kind === "READRISE") {
     const a = await repo.findUnique("RRArticle", { id: s(best.row.articleId) });

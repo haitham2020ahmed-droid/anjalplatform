@@ -9,6 +9,7 @@ import { computeTiers, setTierManually, unlockTier } from "../src/server/tiers/t
 import { classTiers, schoolTierSummary, studentTierProgress } from "../src/server/tiers/views";
 import { dataMeetingSnapshot, listDataMeetings, saveDataMeeting } from "../src/server/tiers/data-meeting";
 import { evidenceLevels, withFluency } from "../src/server/curriculum-map/evidence-level";
+import { suggestedSections } from "../src/server/plans/start";
 import { demoDatabase } from "./helpers/db";
 
 const DAY = 86_400_000;
@@ -202,6 +203,42 @@ describe("🧭 support tiers on the Test School", () => {
     assert.deepEqual([out.pct, out.passed], [100, true]);
     const p = await studentTierProgress(repo, teacher, sid, later);
     assert.ok(p.points.some((x) => x.sets === 100) && p.points.some((x) => x.weekly === 50));
+    // r86: the teacher is told right away that the re-check came back (and passed) — they don't have to come back
+    // to the Support plan page on their own to notice.
+    assert.ok(r2.recheckOutcomesNotified >= 1, JSON.stringify(r2));
+    const notes = await repo.findMany("Notification", { userId: teacher.userId, type: "TIER_CHANGE", createdAt: { gte: new Date(later.getTime() + 3_600_000 - 1000) } });
+    const outcomeNote = notes.find((n) => String(n.body).includes("passed the re-check"));
+    assert.ok(outcomeNote, "a re-check-outcome notification was created");
+    assert.match(String(outcomeNote!.link), /^\/teacher\/plans\/support/);
+  });
+
+  test("reteach outcome: a missed (never taken) re-check still notifies the teacher, worded as a check-in, not a pass/fail", async () => {
+    const sid = ids[3] ?? ids[0];
+    const klass = (await repo.findUnique("Class", { id: classId }))!;
+    const cur = (await repo.findMany("Curriculum", { gradeId: klass.gradeId, isActive: true }))[0];
+    const skills = await repo.findMany("Skill", { curriculumId: cur.id, deletedAt: null });
+    const types = new Set((await repo.findMany("QuestionType", {})).filter((t) => t.isAutoScored !== false && t.code !== "SHORT_ANSWER").map((t) => String(t.id)));
+    let skill = skills[1] ?? skills[0];
+    for (const k of skills) { const q = await repo.findMany("Question", { skillId: k.id, status: "PUBLISHED", deletedAt: null }); if (q.filter((x) => types.has(String(x.typeId))).length >= 8) { skill = k; break; } }
+    await repo.create("StudentSkillMastery", { studentId: sid, skillId: skill.id, score: 25, attempts: 8, correct: 2, lastPracticedAt: ago(2), band: "BEGINNING" });
+    await repo.updateMany("StudentTier", { studentId: sid }, { since: ago(30) });
+    await repo.create("WeeklyCheck", { studentId: sid, week: "2026-09-27", assignmentId: "wk-m0", correct: 4, total: 10, completedAt: ago(12), createdAt: ago(12) });
+    await repo.create("WeeklyCheck", { studentId: sid, week: "2026-10-04", assignmentId: "wk-m", correct: 4, total: 10, completedAt: ago(5), createdAt: ago(5) });
+    const r = await computeTiers(repo, schoolId, NOW);
+    assert.ok(r.routed >= 1, JSON.stringify(r));
+    // let the re-check's due date pass with no attempt at all
+    const route = (await repo.findMany("TierChange", { studentId: sid, source: "RETEACH" }))[0];
+    const ev = (typeof route.evidence === "string" ? JSON.parse(route.evidence) : route.evidence) as { recheck: { dueAt: string } };
+    const wayLater = new Date(new Date(ev.recheck.dueAt).getTime() + DAY);
+    const r2 = await computeTiers(repo, schoolId, wayLater);
+    assert.ok(r2.rechecksEvaluated >= 1);
+    const done = (await repo.findMany("TierChange", { studentId: sid, source: "RETEACH" }))[0];
+    const out = ((typeof done.evidence === "string" ? JSON.parse(done.evidence) : done.evidence) as { outcome: { missed: boolean } }).outcome;
+    assert.equal(out.missed, true);
+    assert.ok(r2.recheckOutcomesNotified >= 1, JSON.stringify(r2));
+    const notes = await repo.findMany("Notification", { userId: teacher.userId, type: "TIER_CHANGE", createdAt: { gte: new Date(wayLater.getTime() - 1000) } });
+    const missedNote = notes.find((n) => String(n.body).includes("didn't take the re-check"));
+    assert.ok(missedNote, "a missed-recheck notification was created, worded as a check-in rather than a failing grade");
   });
 
   test("placement with fluency: borderline On + weak fluency → Below; strong fluency keeps the level; `why` lists the sources", async () => {
@@ -239,5 +276,28 @@ describe("🧭 support tiers on the Test School", () => {
     const grade = (await classTiers(repo, teacher, classId, NOW)).grade;
     const team = await dataMeetingSnapshot(repo, admin, { gradeLevel: grade }, NOW);
     assert.ok(team.students > ids.length);
+  });
+
+  test("an RTI plan suggestion uses each Tier 2/3 student's real focus skill (the support-tier rules), never a bare mastery dip for a confirmed Tier 1", async () => {
+    const [t1, t2, unscreened] = ids.slice(8, 11);
+    const klass = (await repo.findUnique("Class", { id: classId }))!;
+    const cur = (await repo.findMany("Curriculum", { gradeId: klass.gradeId, isActive: true }))[0];
+    const skills = await repo.findMany("Skill", { curriculumId: cur.id, deletedAt: null });
+    const [skillA, skillB, skillC] = skills;
+    // confirmed Tier 1 by the real rules (locked out from matching the RTI suggestion), even though a mastery score
+    // alone would look like "struggling" — a single dip should not override evidence-based clearance
+    await repo.upsert("StudentTier", { studentId: t1 }, { studentId: t1, schoolId, tier: 1, source: "AUTO", locked: false, reason: "Tier 1: on track.", focusSkillId: null, since: ago(20), reviewAt: null, monitorEveryDays: 0 }, { tier: 1, source: "AUTO", locked: false, reason: "Tier 1: on track.", focusSkillId: null, since: ago(20), reviewAt: null, monitorEveryDays: 0 });
+    await repo.create("StudentSkillMastery", { studentId: t1, skillId: skillA.id, score: 30, attempts: 8, correct: 2, lastPracticedAt: ago(2), band: "BEGINNING" });
+    // confirmed Tier 2, with its own focus skill from the real rules
+    await repo.upsert("StudentTier", { studentId: t2 }, { studentId: t2, schoolId, tier: 2, source: "AUTO", locked: false, reason: "Tier 2: low fluency.", focusSkillId: skillB.id, since: ago(20), reviewAt: null, monitorEveryDays: 14 }, { tier: 2, source: "AUTO", locked: false, reason: "Tier 2: low fluency.", focusSkillId: skillB.id, since: ago(20), reviewAt: null, monitorEveryDays: 14 });
+    // not yet screened at all (no StudentTier row): the platform struggling-skills read is the only signal there is
+    // (an earlier test in this file already ran computeTiers for the whole school, so clear the row it wrote)
+    await repo.deleteMany("StudentTier", { studentId: unscreened });
+    await repo.create("StudentSkillMastery", { studentId: unscreened, skillId: skillC.id, score: 35, attempts: 6, correct: 2, lastPracticedAt: ago(2), band: "BEGINNING" });
+    const sug = await suggestedSections(repo, teacher, { classId, program: "RTI", studentIds: [t1, t2, unscreened], mode: "suggested" });
+    assert.ok(sug.sections.some((k) => k.skillId === skillB.id && (k.studentIds ?? []).includes(t2)), "Tier 2's own focus skill is suggested");
+    assert.ok(sug.sections.some((k) => k.skillId === skillC.id && (k.studentIds ?? []).includes(unscreened)), "not-yet-screened falls back to the platform struggling-skills read");
+    assert.ok(!sug.sections.some((k) => (k.studentIds ?? []).includes(t1)), "a confirmed Tier 1 is never suggested, even with a low mastery score");
+    assert.ok(sug.source?.sources.includes("Tiers"), "the suggestion names the support-tier rules as a source");
   });
 });

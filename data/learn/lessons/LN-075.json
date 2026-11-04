@@ -99,9 +99,9 @@
      "passage": "Look at the sky. The moon is full tonight. Can you see it?",
      "stem": "Which sentence tells a fact?",
      "options": [
-      "Look at the sky.",
-      "Can you see it?",
-      "Look up!",
+      "Look at the sky now.",
+      "Can you see it up there?",
+      "Look up at the sky!",
       "The moon is full tonight."
      ],
      "answer": 3,
@@ -111,10 +111,10 @@
      "passage": "Please line up at the door.",
      "stem": "What does this sentence do?",
      "options": [
-      "It asks a question.",
+      "It asks a question about it.",
       "It tells someone to do something.",
-      "It tells a fact.",
-      "It shows a feeling."
+      "It tells a fact about a thing.",
+      "It shows a feeling of joy or fear."
      ],
      "answer": 1,
      "why": "**Please line up** tells the class what to do. It is a command."
@@ -321,9 +321,9 @@
      "passage": "If you heat ice, it melts.",
      "stem": "Is this sentence real or imagined?",
      "options": [
-      "imagined, because it uses would",
-      "imagined, because it uses if",
-      "real, because ice cannot melt",
+      "imagined, because it uses the word would in it",
+      "imagined, because it uses the word if",
+      "real, because ice cannot melt in the sun",
       "real, because it is a fact that always happens"
      ],
      "answer": 3,

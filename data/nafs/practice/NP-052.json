@@ -93,9 +93,9 @@
       "difficulty": 3,
       "stem": "\"He clapped his hands like a delighted child.\" What does this simile show about Grandfather?",
       "options": [
-        "He was tired after such a long game.",
-        "He was trying to hide that he felt angry.",
-        "He was confused about the rules of chess.",
+        "He was tired after such a long game of chess.",
+        "He was trying to hide that he felt angry inside.",
+        "He was confused about the rules of the chess game.",
         "He was proud and happy, not upset, about losing."
       ],
       "answer": "D",
@@ -125,10 +125,10 @@
       "difficulty": 3,
       "stem": "Which information is the LEAST clear in the story?",
       "options": [
-        "How Grandfather felt when he lost",
-        "Where in the house the game was played",
+        "How Grandfather felt when he lost the game",
+        "Where in the house the game was played that day",
         "Exactly which moves led to checkmate in the end",
-        "Who usually won the Friday chess games"
+        "Who usually won the Friday chess games at home"
       ],
       "answer": "C",
       "why": "The story says only 'Three moves later' and never describes those moves; the other details are stated clearly."
@@ -157,9 +157,9 @@
       "difficulty": 2,
       "stem": "Which different ending would best fit the message of the story?",
       "options": [
-        "Grandfather hides the chessboard in anger.",
+        "Grandfather hides the chessboard in anger at her.",
         "Reem says she won only because he was tired.",
-        "Reem decides never to play chess again.",
+        "Reem decides never to play chess again at home.",
         "Grandfather asks Reem to teach him her winning move."
       ],
       "answer": "D",

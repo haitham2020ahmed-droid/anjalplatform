@@ -46,9 +46,9 @@
       "type": "MCQ",
       "stem": "Read this sentence from paragraph 4: “One of them, al-Rabadha, was excavated by archaeologists from King Saud University.” What does “excavated” mean?",
       "options": [
-        "built again from new stone",
-        "photographed from the air",
-        "closed to all visitors",
+        "built again from new stone and mud",
+        "photographed from the air by a plane",
+        "closed to all visitors for a year",
         "carefully dug up to find remains"
       ],
       "answer": "D",
@@ -174,9 +174,9 @@
       "stem": "What is the main purpose of the passage?",
       "options": [
         "to explain how a historic road helped pilgrims and why it matters",
-        "to give directions for driving from Kufa to Makkah today",
-        "to persuade readers to become archaeologists one day",
-        "to describe the whole life story of Harun al-Rashid"
+        "to give directions for driving from Kufa to Makkah today by car",
+        "to persuade readers to become archaeologists one day in the future",
+        "to describe the whole life story of Harun al-Rashid and his sons"
       ],
       "answer": "A",
       "why": "The passage describes the road's water system, stations, decline and present importance."
@@ -237,9 +237,9 @@
       "type": "MCQ",
       "stem": "Why is the road named after Zubaidah?",
       "options": [
-        "She was the first pilgrim to travel along it.",
-        "She was born in the city of Kufa in Iraq.",
-        "She discovered the remains of al-Rabadha.",
+        "She was the first pilgrim to travel along it to Mecca.",
+        "She was born in the city of Kufa in Iraq long ago.",
+        "She discovered the remains of al-Rabadha in the sand.",
         "She paid for its wells, reservoirs and resting places."
       ],
       "answer": "D",
@@ -253,9 +253,9 @@
       "type": "MCQ",
       "stem": "Which of these events happened LAST?",
       "options": [
-        "The Abbasid caliphs improved the track.",
-        "People used the track long before Islam.",
-        "Sand buried many walls and filled reservoirs.",
+        "The Abbasid caliphs improved the track with new wells.",
+        "People used the track long before Islam, as traders did.",
+        "Sand buried many walls and filled reservoirs on the route.",
         "The road joined Saudi Arabia's tentative UNESCO list."
       ],
       "answer": "D",
@@ -334,9 +334,9 @@
       "stem": "Based on the passage, how would you describe Zubaidah?",
       "options": [
         "generous and caring towards travellers",
-        "proud and careless with money",
-        "curious about pottery and coins",
-        "afraid of the desert"
+        "proud and careless with her money",
+        "curious about pottery and old coins",
+        "afraid of the desert and the wind"
       ],
       "answer": "A",
       "why": "She spent a fortune on water and resting places for strangers and also funded a canal for Makkah."

@@ -74,9 +74,9 @@
     "stem": "Which detail supports the idea that milk is good for you?",
     "options": [
      "My sister likes cold milk.",
-     "Milk is white.",
+     "Milk is white and creamy.",
      "It helps your bones grow strong.",
-     "Milk comes in a box."
+     "Milk comes in a box or a bottle."
     ],
     "answer": 2,
     "hint": "Does that sentence tell how milk is good for you?",
@@ -106,7 +106,7 @@
      "options": [
       "They give us shade.",
       "Trees are tall.",
-      "Birds sing.",
+      "Birds sing in trees.",
       "I climb trees."
      ],
      "answer": 0,
@@ -128,9 +128,9 @@
      "passage": "Our teacher is kind. She helps us when we are stuck. She smiles at us. She listens to our ideas.",
      "stem": "Which detail supports the idea that the teacher is kind?",
      "options": [
-      "She has a blue pen.",
-      "She is tall.",
-      "She drives a car.",
+      "She has a blue pen on her desk.",
+      "She is tall and has long arms.",
+      "She drives a car to the school.",
       "She helps us when we are stuck."
      ],
      "answer": 3,
@@ -232,9 +232,9 @@
      "stem": "Which detail best supports the main idea?",
      "options": [
       "Other bees guard the entrance to the hive.",
-      "Honey tastes sweet.",
-      "Bees can sting.",
-      "Flowers have nectar."
+      "Honey tastes sweet and a little sticky.",
+      "Bees can sting people and animals.",
+      "Flowers have nectar inside them."
      ],
      "answer": 0,
      "why": "Guarding the hive is one job bees do as part of the team."
@@ -302,10 +302,10 @@
     "passage": "When Ibrahim joined the school's robotics team, he could barely hold a screwdriver steady. The first robot he helped build fell apart during testing. Instead of quitting, he stayed after school every day to practise wiring and coding. He asked older students to explain what he did not understand. The team's practice room was on the second floor. By the end of the year, Ibrahim was the one teaching new members how to build a robot that worked.",
     "stem": "Which detail best shows how Ibrahim grew through hard work?",
     "options": [
-     "The team's practice room was on the second floor.",
+     "The team's practice room was on the second floor of the school.",
      "He stayed after school every day to practise wiring and coding.",
-     "When Ibrahim joined, he was new to the team.",
-     "The robot was built by the whole team."
+     "When Ibrahim joined, he was new to the team and to the school.",
+     "The robot was built by the whole team over the summer."
     ],
     "answer": 1,
     "hint": "The main idea is about growth through hard work. Which choice shows an ACTION of hard work?",
@@ -336,9 +336,9 @@
      "stem": "How does the detail about people refusing to ride the buses shape the main idea?",
      "options": [
       "It shows one action led many people to stand together for fairness.",
-      "It explains how buses work.",
-      "It shows that Rosa Parks was arrested.",
-      "It tells the year the protest began."
+      "It explains how buses work and how much they cost to ride in the city.",
+      "It shows that Rosa Parks was arrested by the police.",
+      "It tells the year the protest began and who led it."
      ],
      "answer": 0,
      "why": "The bus protest shows how her single act grew into a group effort, which shapes the idea that standing up for fairness can bring change."
@@ -359,10 +359,10 @@
      "passage": "Before the first hospital opened in the village, families travelled two days to see a doctor. A local teacher started collecting donations door to door. After four years, enough money had been raised. The hospital still serves the village today.",
      "stem": "Which detail best shows the teacher's determination?",
      "options": [
-      "The hospital still serves the village today.",
+      "The hospital still serves the village and towns today.",
       "Families travelled two days to see a doctor.",
       "She collected donations door to door for four years.",
-      "The village is far from the city."
+      "The village is far from the city and the sea."
      ],
      "answer": 2,
      "why": "Collecting for four years shows determination. The travel time explains the need, not the teacher's quality."
@@ -465,9 +465,9 @@
      "stem": "Which detail best develops the central idea that a shared hardship can bring people closer?",
      "options": [
       "Neighbours who had not spoken for years began to share tools and meals.",
-      "The drought lasted a long time.",
-      "An elder proposed a watering schedule.",
-      "The rains eventually returned."
+      "The drought lasted a long time, and the wells in the village ran dry.",
+      "An elder proposed a watering schedule for the village fields each week.",
+      "The rains eventually returned in the autumn and the fields turned green."
      ],
      "answer": 0,
      "why": "Former strangers sharing tools and meals is direct evidence that the hardship brought them closer."
@@ -476,9 +476,9 @@
      "passage": "The percussionist Evelyn Glennie had lost most of her hearing by the age of twelve. She was born in Scotland. Rather than give up music, she learned to sense sound as vibration, often performing barefoot to feel it through the floor. She went on to become one of the world's best-known solo percussionists.",
      "stem": "Which detail most directly shows Glennie's refusal to let hearing loss stop her?",
      "options": [
-      "She was born in Scotland.",
-      "She lost most of her hearing by the age of twelve.",
-      "She performs in many concert halls.",
+      "She was born in Scotland, in a small farming village near the sea.",
+      "She lost most of her hearing by the age of twelve, after a long illness.",
+      "She performs in many concert halls around the world each year.",
       "She learned to sense sound as vibration, often performing barefoot."
      ],
      "answer": 3,

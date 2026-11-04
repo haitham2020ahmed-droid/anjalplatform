@@ -44,7 +44,8 @@ COPY --from=build --chown=node:node /app/node_modules/playwright-core ./node_mod
 # PDF text extraction for the question-bank importer (server external package, see next.config.ts)
 COPY --from=build --chown=node:node /app/node_modules/pdfjs-dist ./node_modules/pdfjs-dist
 COPY --chown=node:node assets ./assets
-# safe heap limit (~70% of the container's memory, or of WEB_MEMORY_MB): scripts/start.mjs, Update 42A
+# safe V8 flags for the container (r68: heap = memory − 210 MB, at most 70% → 302 MB on 512 MB; semi-space 8 MB up to 1 GB;
+# WEB_MEMORY_MB or the cgroup limit decide): scripts/start.mjs (NODE_OPTIONS flags win)
 COPY --chown=node:node scripts/start.mjs ./scripts/start.mjs
 # Chromium headless shell for PDF reports, with its system libraries (same version as playwright-core)
 RUN node node_modules/playwright-core/cli.js install --with-deps --only-shell chromium \
@@ -60,7 +61,9 @@ CMD ["node", "scripts/start.mjs", "--standalone"]
 # ----------------------------------------------------------------------- jobs
 FROM deps AS jobs
 ENV NODE_ENV=production
-RUN apt-get update && apt-get install -y --no-install-recommends tini && rm -rf /var/lib/apt/lists/*
+# default-mysql-client: gives `mysqldump` for scripts/db/backup-db.sh (the backup Cron Job runs this image
+# with its command overridden to `sh scripts/db/backup-db.sh` — see render.yaml and docs/BACKUP-AND-RESTORE.md)
+RUN apt-get update && apt-get install -y --no-install-recommends tini default-mysql-client && rm -rf /var/lib/apt/lists/*
 COPY --from=build /app/node_modules/.prisma ./node_modules/.prisma
 COPY --chown=node:node . .
 USER node

@@ -286,9 +286,9 @@
     "stem": "The writer wants to add one more detail that fits the mood of this scene. Which is best?",
     "options": [
      "Far away, a camel shifted in the sand and gave a low, sleepy grunt.",
-     "A loud radio blasted music from a passing truck.",
-     "Everyone argued loudly about where to go next.",
-     "The camp was big."
+     "A loud radio blasted music from a passing truck on the road nearby.",
+     "Everyone argued loudly about where to go next in the camp.",
+     "The camp was big, with many tents and fires and cars."
     ],
     "answer": 0,
     "hint": "Look at the details the writer already used. Are they loud and busy, or quiet and calm?",
@@ -315,10 +315,10 @@
      "passage": "Draft: The bird was pretty.",
      "stem": "Which revision gives the clearest picture?",
      "options": [
-      "The bird that I saw this morning was very, very pretty.",
-      "The bird was pretty and nice.",
+      "The bird that I saw this morning was very, very pretty and nice.",
+      "The bird was pretty and nice to look at in the garden.",
       "A small green parrot with a bright red beak perched on the wire.",
-      "There was a bird."
+      "There was a bird on the wire, and it was there for a while."
      ],
      "answer": 2,
      "why": "It names the kind of bird and gives exact colours and an action."
@@ -327,9 +327,9 @@
      "passage": "Draft: I walked into the hospital waiting room. I was nervous.",
      "stem": "Which revision best shows the feeling with sensory detail?",
      "options": [
-      "I walked into the room and felt nervous.",
-      "The room was a room with chairs.",
-      "I was very, very nervous.",
+      "I walked into the room and felt very nervous about the test.",
+      "The room was a room with chairs and tables in it.",
+      "I was very, very nervous and I felt very scared too.",
       "My hands felt cold and damp as I listened to the clock tick."
      ],
      "answer": 3,
@@ -339,10 +339,10 @@
      "passage": "A student describes a busy football match.",
      "stem": "Which detail adds best to the mood?",
      "options": [
-      "A single leaf drifted down in the silence.",
+      "A single leaf drifted down in the silence of the field.",
       "Thousands of fans roared as the ball hit the net.",
-      "The empty stadium was dark.",
-      "Everyone sat quietly and read."
+      "The empty stadium was dark and very still.",
+      "Everyone sat quietly and read their books."
      ],
      "answer": 1,
      "why": "A roaring crowd matches an exciting, busy match."
@@ -394,10 +394,10 @@
     "passage": "The night before the exam, Faisal could not sleep. The ceiling fan turned with a slow, uneven click. Every few minutes, a car passed and its headlights crawled across the wall like a searching eye. His sheets felt too warm, then too cold, and he turned his pillow again and again. In his mind, the questions lined up like strangers waiting to be let in. He had studied for weeks.",
     "stem": "The writer wants to revise the last sentence so it fits the imagery of the paragraph. Which revision is best?",
     "options": [
-     "He had studied for weeks and felt totally fine and relaxed.",
-     "He had studied for weeks, and the sun shone brightly on a happy morning.",
+     "He had studied for weeks and felt totally fine and relaxed, so he went to sleep early and woke up smiling.",
+     "He had studied for weeks, and the sun shone brightly on a happy morning in the park.",
      "He had studied for weeks, yet the pile of notebooks on his desk seemed to stare back at him in the dark.",
-     "He had studied for many weeks, which is a long time to study."
+     "He had studied for many weeks, which is a long time to study for any test at all."
     ],
     "answer": 2,
     "hint": "Does that revision continue the restless, uneasy mood? Look at how the other sentences make objects seem to watch or wait.",
@@ -426,9 +426,9 @@
      "stem": "Which revision uses the most precise verb to create an image?",
      "options": [
       "The old man shuffled down the dusty road, leaning on his cane.",
-      "The old man walked very, very slowly down the road.",
-      "The old man went down the road in a slow way.",
-      "The old man, who was old, walked down the road."
+      "The old man walked very, very slowly down the road to town.",
+      "The old man went down the road in a slow way, alone.",
+      "The old man, who was old, walked down the long road."
      ],
      "answer": 0,
      "why": "\"Shuffled\" and the details of dust and a cane show exactly how he moved."
@@ -437,10 +437,10 @@
      "passage": "A writer describes a grandmother's kitchen to show warm memories of childhood.",
      "stem": "Which detail best supports this purpose?",
      "options": [
-      "The fridge was a large white box.",
+      "The fridge was a large white box with a handle on the front.",
       "The scent of saffron rice still reminds me of her laughter.",
-      "The kitchen measured four metres across.",
-      "The kitchen had a tiled floor."
+      "The kitchen measured four metres across and three metres long.",
+      "The kitchen had a tiled floor and a small round window."
      ],
      "answer": 1,
      "why": "A smell tied to a loved person's laughter creates a warm memory."

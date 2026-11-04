@@ -79,10 +79,10 @@
     "passage": "Our class made a graph. We drew a bar for each pet. Cats had a tall bar. Fish had a short bar.",
     "stem": "The root graph means write or draw. What is a graph?",
     "options": [
-     "A song about pets",
+     "A song about pets and farms",
      "A drawing that shows numbers",
-     "A pet shop",
-     "A long story"
+     "A pet shop in the market",
+     "A long story with many pages"
     ],
     "answer": 1,
     "hint": "graph means write or draw. What did the class draw?",
@@ -122,9 +122,9 @@
      "stem": "What does a telescope help you do?",
      "options": [
       "See things that are far away",
-      "Hear music",
-      "Write a letter",
-      "Carry a bag"
+      "Hear music on the radio",
+      "Write a letter to a friend",
+      "Carry a heavy bag to school"
      ],
      "answer": 0,
      "why": "tele means far. The moon is far away, and the telescope helped Sami see it."
@@ -133,9 +133,9 @@
      "passage": "The root photo means light. Dad took a photo of us at the beach in the bright sun.",
      "stem": "What is a photo?",
      "options": [
-      "A kind of lamp",
-      "A beach toy",
-      "A loud sound",
+      "A kind of lamp for a desk",
+      "A beach toy for sand games",
+      "A loud sound from a car",
       "A picture made with light"
      ],
      "answer": 3,
@@ -218,10 +218,10 @@
      "passage": "Before the race, a judge will inspect every bicycle. She looks carefully at the brakes, the tyres and the chain.",
      "stem": "Using the root spect (look), what does inspect mean?",
      "options": [
-      "To ride fast",
+      "To ride very fast",
       "To look at closely",
-      "To fix quickly",
-      "To paint"
+      "To fix it quickly",
+      "To paint a wall"
      ],
      "answer": 1,
      "why": "spect means look, and the judge looks carefully at each part."
@@ -231,9 +231,9 @@
      "stem": "Using the root dict (say), what is a dictation?",
      "options": [
       "Words said aloud for others to write",
-      "A list of new books",
-      "A story told with pictures",
-      "A quiz with no words"
+      "A list of new books for the class",
+      "A story told with pictures and few words",
+      "A quiz with no words, only numbers"
      ],
      "answer": 0,
      "why": "dict means say. The teacher says the sentences and the students write them."
@@ -297,10 +297,10 @@
     "passage": "Doctors told Hessa's grandfather that his knee problem was chronic. It had started years ago, and it still hurt him almost every day. Unlike a cold, which goes away in a week, his pain kept coming back. Now he swims three times a week to keep the joint moving. He says the water makes him feel younger.",
     "stem": "The Greek root chron means time. What does chronic mean?",
     "options": [
-     "Very sudden",
+     "Very sudden and sharp",
      "Lasting a long time",
-     "Easy to cure",
-     "Caused by water"
+     "Easy to cure quickly",
+     "Caused by dirty water"
     ],
     "answer": 1,
     "hint": "chron means time. How long has the knee problem lasted?",
@@ -327,10 +327,10 @@
      "passage": "Geologists climbed the cliff to collect rock samples. They wanted to learn how the layers of stone had formed over millions of years.",
      "stem": "Using geo (earth) and -logist (one who studies), what is a geologist?",
      "options": [
-      "A person who climbs mountains",
-      "A person who sells stones",
+      "A person who climbs mountains and tall rocks",
+      "A person who sells stones in a small shop",
       "A scientist who studies the earth and its rocks",
-      "A person who builds walls"
+      "A person who builds walls and old houses"
      ],
      "answer": 2,
      "why": "geo means earth, and -logist means one who studies. They study rocks and how the earth formed."
@@ -450,9 +450,9 @@
      "stem": "Using a- (without) and path (feeling), what does apathy mean?",
      "options": [
       "Lack of interest or concern",
-      "Strong anger",
-      "Great excitement",
-      "Deep sadness"
+      "Strong anger at other people",
+      "Great excitement and joy",
+      "Deep sadness about a loss"
      ],
      "answer": 0,
      "why": "a (without) + path (feeling): few voted and most did not care, showing a lack of interest."

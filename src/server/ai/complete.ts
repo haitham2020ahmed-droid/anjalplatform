@@ -132,8 +132,8 @@ export async function saveCompletion(repo: Repo, schoolId: string, q: QItem, nee
   t.aiFilled = { fields: [...new Set([...prev, ...filled])], at: now.toISOString(), review: filled.includes("answer") || Boolean((t.aiFilled as { review?: boolean } | undefined)?.review) };
   if (left.length) t.aiNeeds = left; else delete t.aiNeeds;
   await repo.updateMany("Question", { id: q.id }, { ...patch, tags: t, updatedAt: now });
-  const { autoClassify } = await import("../map/question-areas");
-  await autoClassify(repo, schoolId, [q.id], now);
+  const { autoClassifyMapArea } = await import("../map/question-areas");
+  await autoClassifyMapArea(repo, schoolId, [q.id], now);
   bumpBankVersion();
   return filled;
 }

@@ -76,7 +76,7 @@ describe("📘 Send from the Curriculum Map (scope → preview → send)", () =>
     await assert.rejects(buildSendPreview(repo, teacher, { grade: 5, kind: "PLAN" }), ForbiddenError, "a Grade 4 teacher cannot send Grade 5");
     await assert.rejects(buildSendPreview(repo, teacher5, { grade: 4, kind: "PLAN" }), ForbiddenError);
     await assert.rejects(buildSendPreview(repo, teacher, { grade: 4, kind: "PLAN" }, [classB]), ForbiddenError, "not the teacher's class");
-    await assert.rejects(sendScope(repo, teacher, { grade: 4, kind: "SELECTION", codes: ["G4.U1.TS1"], classIds: [classB] }), ForbiddenError);
+    await assert.rejects(sendScope(repo, teacher, { source: "CURRICULUM", grade: 4, kind: "SELECTION", codes: ["G4.U1.TS1"], classIds: [classB] }), ForbiddenError);
     await assert.rejects(buildSendPreview(repo, student, { grade: 4, kind: "PLAN" }), ForbiddenError);
     assert.equal((await buildSendPreview(repo, admin, { grade: 5, kind: "UNIT", codes: ["G5.U1"] })).grade, 5);
     const g5 = (await repo.findMany("Grade", { schoolId: admin.schoolId, level: 5 }))[0];
@@ -84,12 +84,12 @@ describe("📘 Send from the Curriculum Map (scope → preview → send)", () =>
     await assert.rejects(buildSendPreview(repo, admin, { grade: 4, kind: "PLAN" }, [class5]), ValidationError, "a Grade 5 class does not get the Grade 4 plan");
     assert.ok((await sendTargets(repo, teacher)).every((c) => c.grade === 4));
     // students in one class only
-    await assert.rejects(sendScope(repo, admin, { grade: 4, kind: "SELECTION", codes: ["G4.U1.TS1"], classIds: [classA, classB], studentIds: [studentsA[0]] }), ValidationError);
+    await assert.rejects(sendScope(repo, admin, { source: "CURRICULUM", grade: 4, kind: "SELECTION", codes: ["G4.U1.TS1"], classIds: [classA, classB], studentIds: [studentsA[0]] }), ValidationError);
   });
 
   test("sending makes the plan and the writing task for the chosen class only; unticked parts stay out", async () => {
     const before = new Set((await repo.findMany("Assignment", {})).map((a) => s(a.id)));
-    const r = await sendScope(repo, teacher, { grade: 4, kind: "SELECTION", codes: ["G4.U1.TS1"], classIds: [classA], exclude: ["G4.U1.TS1.CV"], dueAt: new Date("2026-11-01T23:59:59") });
+    const r = await sendScope(repo, teacher, { source: "CURRICULUM", grade: 4, kind: "SELECTION", codes: ["G4.U1.TS1"], classIds: [classA], exclude: ["G4.U1.TS1.CV"], dueAt: new Date("2026-11-01T23:59:59") });
     assert.equal(r.classes.length, 1);
     assert.equal(r.parts, 1, "only Analyze Craft and Structure (Vocabulary unticked, Review not ready)");
     assert.equal(r.writing, 1, "the Respond to Reading writing task");
@@ -117,10 +117,10 @@ describe("📘 Send from the Curriculum Map (scope → preview → send)", () =>
     assert.deepEqual(sec.CONCEPT_VOCABULARY.sentTo, []);
 
     // nothing new when only sent parts are chosen
-    await assert.rejects(sendScope(repo, teacher, { grade: 4, kind: "SELECTION", codes: ["G4.U1.TS1"], classIds: [classA], exclude: ["G4.U1.TS1.CV"] }), /already sent/);
+    await assert.rejects(sendScope(repo, teacher, { source: "CURRICULUM", grade: 4, kind: "SELECTION", codes: ["G4.U1.TS1"], classIds: [classA], exclude: ["G4.U1.TS1.CV"] }), /already sent/);
     // the unit: the sent parts are skipped, Vocabulary goes now
     const before = await repo.count("SkillPlanItem", {});
-    const u = await sendScope(repo, teacher, { grade: 4, kind: "UNIT", codes: ["G4.U1"], classIds: [classA] });
+    const u = await sendScope(repo, teacher, { source: "CURRICULUM", grade: 4, kind: "UNIT", codes: ["G4.U1"], classIds: [classA] });
     assert.equal(u.alreadySent, 2);
     const items = (await repo.findMany("SkillPlanItem", { planId: u.classes[0].planId! })).map((i) => s(i.code));
     assert.ok(items.includes("G4.U1.TS1.CV") && !items.includes("G4.U1.TS1.ACS"));
@@ -128,11 +128,11 @@ describe("📘 Send from the Curriculum Map (scope → preview → send)", () =>
     assert.equal((await repo.findMany("RespondAssignment", { classId: classA, setCode: "G4.U1.TS1.RTR" })).length, 1, "the writing task is not sent twice");
 
     // Send again
-    const again = await sendScope(repo, teacher, { grade: 4, kind: "SELECTION", codes: ["G4.U1.TS1"], classIds: [classA], exclude: ["G4.U1.TS1.CV", "G4.U1.TS1.RTR"], resend: true });
+    const again = await sendScope(repo, teacher, { source: "CURRICULUM", grade: 4, kind: "SELECTION", codes: ["G4.U1.TS1"], classIds: [classA], exclude: ["G4.U1.TS1.CV", "G4.U1.TS1.RTR"], resend: true });
     assert.equal(again.parts, 1); assert.equal(again.alreadySent, 0);
 
     // an admin sends the same selection to both classes: class A skips it, class B gets it
-    const both = await sendScope(repo, admin, { grade: 4, kind: "SELECTION", codes: ["G4.U1.TS1"], classIds: [classA, classB], exclude: ["G4.U1.TS1.RTR"] });
+    const both = await sendScope(repo, admin, { source: "CURRICULUM", grade: 4, kind: "SELECTION", codes: ["G4.U1.TS1"], classIds: [classA, classB], exclude: ["G4.U1.TS1.RTR"] });
     const [a, b] = [both.classes.find((c) => c.classId === classA)!, both.classes.find((c) => c.classId === classB)!];
     assert.equal(a.parts, 0); assert.equal(a.alreadySent, 2); assert.equal(a.planId, null);
     assert.equal(b.parts, 2); assert.ok(b.planId);

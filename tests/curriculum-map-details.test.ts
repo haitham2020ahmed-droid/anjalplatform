@@ -20,8 +20,10 @@ import { demoDatabase } from "./helpers/db";
 const details = allLessonDetails();
 
 describe("Curriculum Map lesson details (the school's own summary)", () => {
-  test("18 / 18 / 23 lessons for Grades 4 / 5 / 6, and every name is on the map", () => {
-    assert.deepEqual(["4", "5", "6"].map((g) => Object.keys(details[g]).length), [18, 18, 23]);
+  test("18 / 18 / 26 lessons for Grades 4 / 5 / 6, and every name is on the map", () => {
+    // Grade 6 Unit 1: "The Lost Island" added (23 → 24 Selections; data/curriculum-map/lesson-details.json
+    // already has its entry). Then "Mother to Son" (Unit 2) and "Shakespeare in Harlem" (Unit 3) added: 24 → 26.
+    assert.deepEqual(["4", "5", "6"].map((g) => Object.keys(details[g]).length), [18, 18, 26]);
     const map = parseCurriculumMap(readFileSync("data/curriculum-map/source.txt", "utf8"));
     for (const g of map) {
       const names = g.units.flatMap((u) => u.sets.map((s) => (s.sharedRead ?? s.title).replace(/^“|”$/g, "")));
@@ -44,8 +46,8 @@ describe("Curriculum Map lesson details (the school's own summary)", () => {
   test("Grade 6: name, genre, skills and the booklets' vocabulary (no Text Idea)", () => {
     for (const l of Object.values(details["6"])) {
       assert.equal(l.textIdea, null);
-      // the school booklets have no vocabulary box for this one selection
-      if (l.name !== "Who Is the Real Hero?") assert.ok(l.vocabulary.length >= 4, `6 ${l.name}: vocabulary`);
+      // the school booklets have no vocabulary box for this one selection; "Mother to Son" has only 3 words
+      if (l.name !== "Who Is the Real Hero?" && l.name !== "Mother to Son") assert.ok(l.vocabulary.length >= 4, `6 ${l.name}: vocabulary`);
       assert.ok(l.readingSkills.length >= 1, l.name);
     }
   });
@@ -100,12 +102,12 @@ describe("Send the curriculum plan", () => {
   test("a teacher sends only to their own classes and their own students", async () => {
     const targets = await sendTargets(repo, teacher);
     assert.ok(targets.length && !targets.some((c) => c.id === otherClassId));
-    await assert.rejects(sendMapPlan(repo, teacher, { grade: 4, unitCode: "G4.U1", classId: otherClassId }), ForbiddenError);
+    await assert.rejects(sendMapPlan(repo, teacher, { source: "CURRICULUM", grade: 4, unitCode: "G4.U1", classId: otherClassId }), ForbiddenError);
     const stranger = String((await repo.findMany("ClassMembership", { classId: otherClassId }))[0].studentId);
-    await assert.rejects(sendMapPlan(repo, teacher, { grade: 4, unitCode: "G4.U1", classId, studentIds: [stranger] }), ForbiddenError);
+    await assert.rejects(sendMapPlan(repo, teacher, { source: "CURRICULUM", grade: 4, unitCode: "G4.U1", classId, studentIds: [stranger] }), ForbiddenError);
     const sid = students[0];
     const before = await repo.count("Assignment", {});
-    const r = await sendMapPlan(repo, teacher, { grade: 4, unitCode: "G4.U1", classId, studentIds: [sid] });
+    const r = await sendMapPlan(repo, teacher, { source: "CURRICULUM", grade: 4, unitCode: "G4.U1", classId, studentIds: [sid] });
     assert.equal(r.parts, 1, "only parts with questions are sent");
     assert.equal(r.students, 1);
     const made = (await repo.findMany("Assignment", {})).slice(before);
@@ -118,7 +120,7 @@ describe("Send the curriculum plan", () => {
     const sv = await studentCurriculumLessons(repo, st);
     assert.equal(sv.units.length, 6);
     // an admin may send to any class of the school
-    const ra = await sendMapPlan(repo, admin, { grade: 4, unitCode: null, classId: otherClassId });
+    const ra = await sendMapPlan(repo, admin, { source: "CURRICULUM", grade: 4, unitCode: null, classId: otherClassId });
     assert.equal(ra.parts, 1);
   });
 });

@@ -2,9 +2,13 @@
  * 🔄 Rewards sync (Games Part 3): brings one student's coins, badges and automatic certificates up to date from
  * their OWN learning records — READ ONLY on learning data (the adaptive engine, levels and mastery are never written).
  *
- *   My Work skill finished (AssignmentStudent COMPLETED)  → coins (once per assignment)
- *   skill mastered (the school's mastered rule)            → coins (once per skill)
- *   moved up a level (AuditLog level.change, up)          → coins + certificate (once per change)
+ *   My Work skill finished (AssignmentStudent COMPLETED)  → coins (once per assignment; completion follows the ⭐ /
+ *                                                            50-answers rule, teacher/assign.ts)
+ *   ⭐ skill mastered                                       → NOT here: the star's own coins (skills/status.ts
+ *                                                            onStarEarned, once per skill and level) — never paid twice
+ *   moved up a level (AuditLog level.change, up)          → coins + certificate (once per change) — never a
+ *                                                            PLACEMENT change (the Diagnostic Test sets the level)
+ *   a test (the Diagnostic Test, a teacher-built test)     → nothing: tests never pay coins / certificates
  *   every part of a plan finished                          → coins + certificate (once per plan)
  *   badges                                                 → re-checked (studentBadges saves new ones)
  *
@@ -12,7 +16,6 @@
  * the daily job for students active in the last day and a half (bounded). Every read is one student's rows.
  */
 import type { Repo, Row } from "../seeding/repo";
-import { ladderSettings } from "../curriculum-map/ladder-settings";
 import { CATEGORY_NAME, type Category } from "../curriculum-map/student-level";
 import { studentSkillPlans } from "../curriculum-map/plans";
 import { COINS, insertLedger, recomputeCoins, type CoinReason } from "./coins";
@@ -36,7 +39,26 @@ export function levelUps(rows: Row[]): { id: string; at: number; level: string; 
   for (const r of rows) {
     const a = json(r.after), b = json(r.before);
     if (a.outcome !== "CHANGED" || !b.level || !(s(a.level) in RANK) || !(s(b.level) in RANK)) continue;
+    // a placement (the Diagnostic Test) is a measurement, not a level earned: no coins, no certificate
+    if (s(a.source) === "PLACEMENT") continue;
     if (RANK[s(a.level)] > RANK[s(b.level)]) out.push({ id: s(r.id), at: ms(r.createdAt), level: s(a.level), category: a.category ? s(a.category) : null });
+  }
+  return out;
+}
+
+/**
+ * Of these assignment ids, the TESTS: the Diagnostic Test (its Assessment is of type DIAGNOSTIC — read from the data,
+ * so assignments made before this rule are covered) and teacher-built tests (testId / the TEST mark). Batched.
+ */
+export async function testAssignments(repo: Repo, assignmentIds: readonly string[]): Promise<Set<string>> {
+  const ids = [...new Set(assignmentIds.filter(Boolean))];
+  const out = new Set<string>();
+  for (let i = 0; i < ids.length; i += 500) {
+    const rows = await repo.findMany("Assignment", { id: { in: ids.slice(i, i + 500) } }, { select: ["id", "assessmentId", "testId", "curriculumPlanId"] });
+    for (const a of rows) if (a.testId || s(a.curriculumPlanId) === "TEST") out.add(s(a.id));
+    const sets = [...new Set(rows.map((a) => s(a.assessmentId)).filter(Boolean))];
+    const diag = sets.length ? new Set((await repo.findMany("Assessment", { id: { in: sets }, type: "DIAGNOSTIC" }, { select: ["id"] })).map((x) => s(x.id))) : new Set<string>();
+    for (const a of rows) if (diag.has(s(a.assessmentId))) out.add(s(a.id));
   }
   return out;
 }
@@ -55,19 +77,22 @@ export async function syncRewards(repo: Repo, studentId: string, now = new Date(
   const since = new Date(last === null ? now.getTime() - FIRST_LOOKBACK_DAYS * DAY : last - 2 * DAY);
   const certSince = last === null ? now.getTime() - FIRST_CERT_DAYS * DAY : last - 2 * DAY;
   const actor = { userId: s(st.userId), role: "STUDENT" as const, schoolId, studentId };
-  const [done, mastery, rules, audits, paid, plans] = await Promise.all([
-    repo.findMany("AssignmentStudent", { studentId, status: "COMPLETED" }, { select: ["assignmentId"], take: 3000 }),
-    repo.findMany("StudentSkillMastery", { studentId }, { select: ["skillId", "attempts", "correct"], take: 3000 }),
-    ladderSettings(repo, schoolId),
+  const [done, audits, paid, plans] = await Promise.all([
+    repo.findMany("AssignmentStudent", { studentId, status: "COMPLETED" }, { select: ["assignmentId", "coreAnswered", "progress"], take: 3000 }),
     repo.findMany("AuditLog", { entityType: "Student", entityId: studentId, action: "level.change", createdAt: { gte: since } }, { select: ["id", "before", "after", "createdAt"], take: 500 }),
     repo.findMany("CoinLedger", { studentId, reason: { in: ["work", "mastered", "levelup", "plan"] } }, { select: ["reason", "refId"], take: 8000 }),
     studentSkillPlans(repo, actor).catch(() => [] as Awaited<ReturnType<typeof studentSkillPlans>>),
   ]);
   const have = new Set(paid.map((p) => `${s(p.reason)}|${s(p.refId)}`));
+  const tests = await testAssignments(repo, done.map((x) => s(x.assignmentId)));
   const due: { reason: CoinReason; refId: string; amount: number; note: string }[] = [];
   const add = (reason: CoinReason, refId: string, amount: number, note: string) => { if (!have.has(`${reason}|${refId}`)) { have.add(`${reason}|${refId}`); due.push({ reason, refId, amount, note }); } };
-  for (const d of done) add("work", s(d.assignmentId), COINS.work, "My Work skill finished");
-  for (const m of mastery) if (Number(m.attempts) >= rules.masteredMin && (Number(m.correct) / Math.max(1, Number(m.attempts))) * 100 >= rules.masteredPct) add("mastered", s(m.skillId), COINS.mastered, "Skill mastered");
+  // work coins only for work actually done: a skill already ⭐ before it was assigned is Done at once with no answers
+  // (the student never repeats a mastered skill) and earns no work coins (older rows without the counter still pay)
+  // a test (the Diagnostic Test, a teacher-built test) is never "work finished": no coins (owner rule)
+  for (const d of done) if (!tests.has(s(d.assignmentId)) && (d.coreAnswered === null || d.coreAnswered === undefined || Number(d.coreAnswered) > 0)) add("work", s(d.assignmentId), COINS.work, "My Work skill finished");
+  // (owner, 1 Nov 2026) no "Skill mastered" coins from the old "10 answers at 80 %" rule: the ⭐ coins are paid by the
+  // star itself (skills/status.ts onStarEarned), once per skill and level
   const ups = levelUps(audits);
   for (const u of ups) add("levelup", u.id, COINS.levelup, `Moved up to ${LEVEL_NAME[u.level]}`);
   const finished = plans.filter((p) => p.places > 0 && p.done >= p.places);

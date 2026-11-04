@@ -123,10 +123,10 @@
      "passage": "The baby was tired. Mom sang a soft song. The baby fell asleep.",
      "stem": "What happened after Mom sang?",
      "options": [
-      "The baby cried.",
+      "The baby cried a lot.",
       "The baby fell asleep.",
-      "Mom went out.",
-      "The baby ate."
+      "Mom went out to shop.",
+      "The baby ate some rice."
      ],
      "answer": 1,
      "why": "Mom sang a soft song, and the baby fell asleep."
@@ -190,10 +190,10 @@
     "passage": "Last winter, heavy rains fell on the hills near our town for three days. The dry ground could not soak up so much water at once. As a result, water rushed down into the valley and flooded several roads. Schools closed for two days, and workers cleared mud from the streets. Now the town is building channels to carry rainwater away safely.",
     "stem": "Why did the roads flood?",
     "options": [
-     "Workers cleared mud from the streets.",
-     "The town built new channels.",
+     "Workers cleared mud from the streets after the rain.",
+     "The town built new channels for the river.",
      "Rainwater from the hills rushed into the valley.",
-     "Schools closed for two days."
+     "Schools closed for two days last week."
     ],
     "answer": 2,
     "hint": "Find the words As a result. What happened just before the roads flooded?",
@@ -233,9 +233,9 @@
      "passage": "Our class planted ten small trees around the playground. Two years later, the trees had grown tall. Their branches now give shade during break time. Because of this, more students play outside on hot days.",
      "stem": "What is one effect of the trees growing tall?",
      "options": [
-      "The class planted ten trees.",
-      "The playground got bigger.",
-      "Students stopped playing.",
+      "The class planted ten trees last year.",
+      "The playground got bigger and wider.",
+      "Students stopped playing outside.",
       "More students play outside on hot days."
      ],
      "answer": 3,
@@ -333,10 +333,10 @@
      "passage": "In the early 1900s, cities grew quickly as people moved from farms to find factory work. Many families lived in crowded buildings with little fresh air. As a result, diseases spread easily. To fix this, cities built parks, wider streets and new water systems.",
      "stem": "According to the passage, why did diseases spread easily?",
      "options": [
-      "Cities built new water systems.",
-      "People moved from farms.",
+      "Cities built new water systems that gave clean water to everyone.",
+      "People moved from farms to the cities to find work.",
       "Families lived in crowded buildings with little fresh air.",
-      "Streets became wider."
+      "Streets became wider so that more carts could pass."
      ],
      "answer": 2,
      "why": "As a result links crowded buildings with little fresh air to the spread of disease."
@@ -357,10 +357,10 @@
      "passage": "Hamad's family moved from a village to a big city when he was nine. He missed the open desert and the stars at night. In the city, the bright lights hid most of the stars. So he joined an astronomy club that traveled outside the city once a month to look at the night sky.",
      "stem": "Why did Hamad join the astronomy club?",
      "options": [
-      "His family moved to a village.",
+      "His family moved to a small village near the hills.",
       "He wanted to see the stars that the city lights hid.",
-      "His school required it.",
-      "He did not like the desert."
+      "His school required it for all students.",
+      "He did not like the desert or the dry heat."
      ],
      "answer": 1,
      "why": "City lights hid the stars, so he joined a club that traveled outside the city to see them."
@@ -461,8 +461,8 @@
      "passage": "After her father lost his sight, the young Huda learned to read aloud to him every night. She read history books, poems and newspapers, often stopping to look up words. Years later, she said those evenings taught her to love language. She became a translator who brought dozens of books from English into Arabic.",
      "stem": "According to the passage, what was a long-term effect of Huda reading to her father?",
      "options": [
-      "Her father lost his sight.",
-      "She stopped reading newspapers.",
+      "Her father lost his sight when he was old.",
+      "She stopped reading newspapers and books.",
       "She became a translator who loved language.",
       "She learned to read history quickly."
      ],
@@ -473,9 +473,9 @@
      "passage": "Wolves were removed from a large national park in the United States in the 1920s. Without wolves, the number of elk grew, and the elk ate young willow trees along the rivers. When wolves were brought back in 1995, elk began to avoid open riverbanks. Willows grew again, and beavers, which use willow to build dams, returned to the streams.",
      "stem": "Why did beavers return to the streams?",
      "options": [
-      "The elk population grew.",
-      "Wolves were removed in the 1920s.",
-      "Beavers moved away from the rivers.",
+      "The elk population grew larger every single year.",
+      "Wolves were removed in the 1920s from the park.",
+      "Beavers moved away from the rivers to the lakes.",
       "Willows grew again after elk avoided the riverbanks."
      ],
      "answer": 3,

@@ -24,7 +24,7 @@
  * Teachers see the methods, numbers and decisions; students see the same plan in friendly words — never
  * Below/On/Above or tier wording.
  */
-import { bandEdges, fluencySeason, nextSeason, norm50, type Season } from "./norms";
+import { bandEdges, fluencySeason, nextSeasonTarget, type Season } from "./norms";
 
 export type FocusArea = "ACCURACY" | "RATE" | "PROSODY" | "ENRICH";
 export type PlanMethod = "WORD_WORK" | "MODEL_ECHO" | "REPEATED" | "PHRASE_CUED" | "PARTNER_CHORAL" | "WIDE_READING" | "COLD_READ";
@@ -34,8 +34,13 @@ export type PlanDecision = "NEW" | "ON_TRACK" | "KEEP_GOING" | "RAISE" | "NEXT_F
 export interface ColdRead { date: string; wcpm: number; accuracy: number | null }
 /** any scored reading (kind: MINUTE | PASSAGE | REPEATED | PHRASED | ECHO | DRILL) */
 export interface ReadingEvidence { date: string; kind: string; wcpm: number; accuracy: number; prosody: number | null; trial?: number | null }
-export interface PlanLinks { same?: string | null; easier?: string | null; harder?: string | null; another?: string | null }
-export interface PlanEvidence { grade: number; cold: ColdRead[]; readings: ReadingEvidence[]; words: string[]; patterns: string[]; links?: PlanLinks }
+/** minute: r4 — a NEW passage long enough for the 1-minute check (MINUTE_MIN_WORDS); null: none (the passage list) */
+export interface PlanLinks { same?: string | null; easier?: string | null; harder?: string | null; another?: string | null; minute?: string | null }
+// 🐛 fix (audit finding, Oct 2026): `words`/`patterns` are now OPTIONAL — `undefined` means "no fresh reading this
+// call, just re-checking status" (the caller has nothing new to report, e.g. a home/report page refresh) and the
+// previous plan's word list is kept as-is; an actual (possibly empty) array means "a reading just happened" and a
+// clean (zero-error) one now correctly clears the student's old missed-word list instead of drilling it forever.
+export interface PlanEvidence { grade: number; cold: ColdRead[]; readings: ReadingEvidence[]; words?: string[]; patterns?: string[]; links?: PlanLinks }
 
 export interface PlanStep { method: PlanMethod; minutes: number; when: "DAILY" | "WEEKLY"; title: string; kidTitle: string; teacher: string; kid: string; href?: string }
 export interface PlanStatus { decision: PlanDecision; week: number; expected: number; latest: number | null; reviewedThrough: string | null; teacher: string; kid: string }
@@ -187,12 +192,12 @@ export function buildRemedialPlan(ev: PlanEvidence, now: Date = new Date(), opts
   const links = ev.links ?? {};
   const set = opts.methodSet ?? "A";
   const firstGoal = Math.max(b.wcpm + 3, Math.round(b.wcpm * 1.1));
-  const daily = routineFor(focus, set, { words: ev.words, patterns: ev.patterns, links, easierText, secondary, firstGoal });
+  const daily = routineFor(focus, set, { words: ev.words ?? [], patterns: ev.patterns ?? [], links, easierText, secondary, firstGoal });
   const weekly: PlanStep = { method: "COLD_READ", minutes: 2, when: "WEEKLY", title: "Weekly cold read", kidTitle: "Friday check",
     teacher: "Weekly cold read: one 1-minute reading of a NEW grade-level passage (never practised) — measures transfer; the plan is judged on it.",
-    kid: "Once a week, read a NEW passage for 1 minute. It shows how much you have grown!", href: href(links.another ?? links.same, "MINUTE") };
+    kid: "Once a week, read a NEW passage for 1 minute. It shows how much you have grown!", href: links.minute !== undefined ? (links.minute ? href(links.minute, "MINUTE") : "/student/fluency-coach") : href(links.another ?? links.same, "MINUTE") };
   const endsOn = addDays(startedAt, weeks * 7);
-  const target = norm50(ev.grade, nextSeason(season));
+  const target = nextSeasonTarget(ev.grade, season).target;   // r4: spring → the next grade's fall
   const success: RemedialPlan["success"] = [
     { teacher: `${goalWcpm} WCPM on a grade-level cold read by ${ymd(endsOn)} (baseline ${b.wcpm}, +${weeklyGain} WCPM/week)`, kid: `Read ${goalWcpm} words correctly in 1 minute by ${ymd(endsOn)}.` },
     { teacher: `Accuracy ≥ ${accGoal} % on 2 cold reads in a row (baseline ${b.accuracy} %)`, kid: `Get ${accGoal} of every 100 words right.` },
@@ -211,7 +216,7 @@ export function buildRemedialPlan(ev: PlanEvidence, now: Date = new Date(), opts
     startedAt, weeks, endsOn, daysPerWeek: 5, minutesPerDay: daily.reduce((a, s) => a + s.minutes, 0),
     baseline: b, goals: { wcpm: goalWcpm, weeklyGain, accuracy: accGoal, prosody: focus === "PROSODY" || secondary === "PROSODY" ? prosodyGoal : b.prosody === null ? null : prosodyGoal },
     norm: { grade: ev.grade, season, p25, p50, target },
-    daily, weekly, success, rules, words: ev.words.slice(0, 8), patterns: ev.patterns.slice(0, 3),
+    daily, weekly, success, rules, words: (ev.words ?? []).slice(0, 8), patterns: (ev.patterns ?? []).slice(0, 3),
     status: { decision, week: 1, expected: b.wcpm, latest: null, reviewedThrough: byDate(ev.cold).at(-1)?.date ?? null, ...decisionText[decision] },
   };
   if (decision === "CHANGE_METHOD" && plan.changes >= 2) plan.status.teacher += " Two method changes without growth: check decoding (Word Study screener) and plan teacher-led small-group instruction.";
@@ -233,10 +238,16 @@ export function reviewPlan(plan: RemedialPlan, ev: PlanEvidence, now: Date = new
   const through = latest?.date ?? plan.status.reviewedThrough;
   const keep = (decision: PlanDecision, extra: Partial<RemedialPlan> = {}): RemedialPlan => {
     const p: RemedialPlan = { ...plan, ...extra };
-    const words = ev.words.length ? ev.words.slice(0, 8) : p.words;
+    // 🐛 fix (audit finding, Oct 2026): `ev.words === undefined` means this call has no fresh reading to report
+    // (a status-only re-check, e.g. the student/parent/teacher pages re-reviewing the plan without a new attempt) —
+    // keep the old list. A DEFINED array (even an empty one, from a reading that just happened with zero new
+    // errors) is real news and now replaces it — a student is no longer drilled forever on words already fixed.
+    const words = ev.words === undefined ? p.words : ev.words.slice(0, 8);
+    const patterns = ev.patterns === undefined ? p.patterns : ev.patterns;
+    const freshInfo = !!ev.links || ev.words !== undefined;
     const firstGoal = Math.max(p.baseline.wcpm + 3, Math.round(p.baseline.wcpm * 1.1));
-    const daily = routineFor(p.focus, p.methodSet, { words, patterns: ev.patterns.length ? ev.patterns : p.patterns, links: ev.links ?? {}, easierText: p.easierText, secondary: p.secondary, firstGoal });
-    return { ...p, words, daily: ev.links || ev.words.length ? daily : p.daily, minutesPerDay: (ev.links || ev.words.length ? daily : p.daily).reduce((a, s) => a + s.minutes, 0),
+    const daily = routineFor(p.focus, p.methodSet, { words, patterns, links: ev.links ?? {}, easierText: p.easierText, secondary: p.secondary, firstGoal });
+    return { ...p, words, patterns, daily: freshInfo ? daily : p.daily, minutesPerDay: (freshInfo ? daily : p.daily).reduce((a, s) => a + s.minutes, 0),
       status: { decision, week, expected: goalLine(p, today), latest: latest?.wcpm ?? null, reviewedThrough: through, ...decisionText[decision] } };
   };
   const rebuild = (decision: PlanDecision, opts: Parameters<typeof buildRemedialPlan>[2] = {}) => buildRemedialPlan(ev, now, { ...opts, decision }) ?? keep(plan.status.decision);

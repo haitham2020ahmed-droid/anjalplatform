@@ -7,7 +7,7 @@
  * StarLegend: the slim collapsible legend line for the top of every page that shows stars (links to the guide).
  */
 import Link from "next/link";
-import { STAR_ORDER, STAR_SYMBOL, STUDENT_MEANING, TEACHER_MEANING, starTooltip, wordOf, type Audience, type StarInfo, type StarStatus } from "@/lib/skill-stars";
+import { STAR_ORDER, STAR_SYMBOL, STUDENT_MEANING, TEACHER_MEANING, starTooltip, teacherWordOf, wordOf, type Audience, type StarInfo, type StarStatus } from "@/lib/skill-stars";
 
 type T = (text: string, vars?: Record<string, string | number>) => string;
 const same: T = (text, vars) => (vars ? text.replace(/\{(\w+)\}/g, (_, k) => String(vars[k] ?? "")) : text);
@@ -56,7 +56,7 @@ export function StarGlyph({ status, level = 1, size = 16 }: { status: StarStatus
  */
 export function SkillStar({ info, who = "teacher", t = same, label, size = 16, now, inLink = false }: { info: StarInfo; who?: Audience; t?: T; label?: string; size?: number; now?: number; /** inside a link: the link takes the focus */ inLink?: boolean }) {
   const tip = starTooltip(info, who, t, now);
-  const word = info.needsSupport && who === "teacher" ? t("Needs support") : t(wordOf(info.status, who));
+  const word = who === "teacher" ? t(teacherWordOf(info)) : t(wordOf(info.status, who));
   return (
     <span tabIndex={inLink ? undefined : 0} data-testid="skill-star" data-status={info.status} title={tip} aria-label={`${label ? `${label}: ` : ""}${word}. ${tip}`}
       className="group/star relative inline-flex shrink-0 cursor-help items-center align-middle outline-none focus-visible:ring-2 focus-visible:ring-brand-teal rounded">

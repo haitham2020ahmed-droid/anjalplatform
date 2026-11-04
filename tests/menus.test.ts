@@ -11,7 +11,7 @@ import { resolveActor } from "../src/server/auth/actor";
 import { ForbiddenError, type Actor } from "../src/server/auth/rbac";
 import { seedTestEnvironment } from "../src/server/seeding/test-env";
 import { accessibleClasses } from "../src/server/teacher/assign";
-import { navItemsFor, navSections as sections, searchablePagesFor, MORE } from "../src/components/nav-items";
+import { navItemsFor, navSections as sections, searchablePagesFor, MORE, MORE_GROUPS } from "../src/components/nav-items";
 import { ADMIN_GROUPS, ADMIN_TOOLS } from "../src/components/admin-tools";
 import { matchesStudent, normalizeName } from "../src/components/teacher/name-match";
 import { REPORTS, REPORT_CATEGORIES, openReportUrl, reportUrls, scopesOf } from "../src/components/teacher/report-catalog";
@@ -39,39 +39,79 @@ function routeExists(url: string): boolean {
 }
 
 describe("menus: short and tidy", () => {
-  test("student: Home, My Work, My Tests, MAP, ReadMaster / ReadRise, Learn, My Words, Fluency (owner's spec) + NAFS only for Grade 6, line icons, no repeats", () => {
-    assert.deepEqual(navItemsFor("STUDENT", { rti: true, nafs: true }).map((i) => i.label), ["Home", "My Work", "My Tests", "MAP", "ReadMaster / ReadRise", "Learn", "My Words", "Fluency", "NAFS"], "the NAFS icon: students in a Grade 6 class");
+  // r68 (owner): ⭐ My Skills right after My Work
+  // r87 (owner, Oct 2026): nothing is menu-only-by-search any more — every page that used to live only in OFF_MENU /
+  // adminOffMenu (findable by name, never an icon) is now ALSO a real icon, folded under the same "More" group each
+  // role already had (side-nav.tsx FOLDED_BY_DEFAULT). The short top list itself is unchanged.
+  test("student: Home, My Work, My Skills, My Plans (owner r82), My Tests, MAP, ReadMaster / ReadRise, Learn, My Words, Fluency (owner's spec) + NAFS only for Grade 6, then every other student page under More, line icons, no repeats", () => {
+    const top = (items: ReturnType<typeof navItemsFor>) => items.filter((i) => !i.group).map((i) => i.label);
+    assert.deepEqual(top(navItemsFor("STUDENT", { rti: true, nafs: true })), ["Home", "My Work", "My Skills", "My Plans", "My Tests", "MAP", "ReadMaster / ReadRise", "Learn", "My Words", "Fluency", "NAFS"], "the NAFS icon: students in a Grade 6 class");
     const items = navItemsFor("STUDENT", { rti: true, nafs: false });
-    assert.deepEqual(items.map((i) => i.label), ["Home", "My Work", "My Tests", "MAP", "ReadMaster / ReadRise", "Learn", "My Words", "Fluency"]);
+    assert.deepEqual(top(items), ["Home", "My Work", "My Skills", "My Plans", "My Tests", "MAP", "ReadMaster / ReadRise", "Learn", "My Words", "Fluency"]);
     assert.ok(items.every((i) => i.line), "every student entry has a clean line icon");
     assert.equal(new Set(items.map((i) => i.href)).size, items.length, "no page twice in the menu");
     assert.equal(new Set(items.map((i) => i.label)).size, items.length, "no label twice in the menu");
-    assert.deepEqual(items.map((i) => i.href), ["/student", "/student/work", "/student/tests", "/student/map", "/student/reading", "/student/learn", "/student/words", "/student/fluency-coach"]);
+    // the rest (r87/r88): every page that used to only be findable by name is now a real icon, under one of three
+    // themed "More · …" sub-sections (Reading / My Achievements / Other Tools)
+    assert.deepEqual([...new Set(items.filter((i) => i.group).map((i) => i.group))], [MORE_GROUPS.studentReading, MORE_GROUPS.studentAchievements, MORE_GROUPS.otherTools]);
+    const moreHrefs = new Set(items.filter((i) => i.group).map((i) => i.href));
+    for (const h of ["/student/readmaster", "/student/readrise", "/student/curriculum", "/student/second-chance", "/student/certificates", "/student/badges", "/student/reports", "/play", "/guide"]) assert.ok(moreHrefs.has(h), `now a More icon: ${h}`);
   });
 
-  test("student: never an RTI entry, whatever the flags (support work is ordinary work in My Work)", () => {
-    for (const f of [{}, { rti: true }, { nafs: true }, { rti: true, nafs: true }]) assert.ok(!navItemsFor("STUDENT", f).some((i) => /rti|tier|support/i.test(i.href + i.label)));
+  test("student: no RTI-worded entry anywhere (support work is ordinary work in My Work)", () => {
+    // word-boundary regex: a plain substring test would also flag "My Certificates" ("...ceRTIficates...")
+    for (const f of [{}, { rti: true }, { nafs: true }, { rti: true, nafs: true }]) assert.ok(!navItemsFor("STUDENT", f).some((i) => /\b(rti|tier|support)\b/i.test(`${i.href} ${i.label}`)));
     const pages = searchablePagesFor("STUDENT");
     assert.ok(!pages.some((p) => p.href === "/student/rti"));
-    for (const h of ["/student/readmaster", "/student/readrise", "/student/fluency-coach", "/student/curriculum", "/student/certificates", "/student/badges", "/student/reports", "/play"]) assert.ok(pages.some((p) => p.href === h), `still found by name: ${h}`);
+    for (const h of ["/student/readmaster", "/student/readrise", "/student/fluency-coach", "/student/curriculum", "/student/certificates", "/student/badges", "/student/reports", "/play"]) assert.ok(pages.some((p) => p.href === h), `still found (now as a menu icon too): ${h}`);
   });
 
-  test("teacher (Update 15): one place per area — Students & Classes, Curriculum Map, Plans, Assigned (owner r67), Assessments, Writing, Reading, Learn, MAP, Reports; the rest folded under More", () => {
+  test("teacher (Update 15): one place per area — Students & Classes, Curriculum Map, Plans, Assigned (owner r67), Assessments, Writing, Grammar, Reading, Learn, MAP, Reports; the rest (r87: every teacher page, nothing search-only) folded under More", () => {
     const items = navItemsFor("TEACHER");
-    assert.deepEqual(items.filter((i) => !i.group).map((i) => i.label), ["Home", "Students & Classes", "Curriculum Map", "Plans", "Assigned", "Assessments", "Writing", "Reading", "Learn", "MAP", "Reports"]);
-    assert.deepEqual(items.filter((i) => i.group).map((i) => i.group), items.filter((i) => i.group).map(() => MORE), "the rest is under More");
+    // 🔁 Review (the teacher's own Review of a text set, src/server/curriculum-map/review-control.ts) added to the
+    // short menu, after Curriculum Map.
+    assert.deepEqual(items.filter((i) => !i.group).map((i) => i.label), ["Home", "Students & Classes", "Curriculum Map", "Review", "Plans", "Assigned", "Assessments", "Writing", "Grammar", "Reading", "Learn", "MAP", "Reports", "School Reports"]);
+    // r88: the rest is under one of 5 themed "More · …" sub-sections, plus the pre-existing plain "More" (My Week etc.)
+    assert.deepEqual([...new Set(items.filter((i) => i.group).map((i) => i.group))], [MORE, MORE_GROUPS.teacherSupport, MORE_GROUPS.teacherReading, MORE_GROUPS.teacherDiagnostics, MORE_GROUPS.otherTools, MORE_GROUPS.teacherMap]);
     assert.ok(items.every((i) => i.line), "every teacher entry has a line icon");
+    // admin-only tools stay admin-only even under More
     const hrefs = new Set(items.map((i) => i.href));
-    for (const h of ["/teacher/rti-plan", "/teacher/tiers", "/teacher/data-meeting", "/teacher/map-rit", "/teacher/progress"]) assert.ok(!hrefs.has(h), `not in the menu: ${h}`);
+    for (const h of ["/teacher/tiers", "/teacher/data-meeting"]) assert.ok(!hrefs.has(h), `admin-only, not in the teacher menu: ${h}`);
+    // r87: these used to be findable only by name — now real More icons too
+    for (const h of ["/teacher/plans/support", "/teacher/rti-plan", "/teacher/map-rit", "/teacher/progress", "/teacher/levels", "/teacher/knowledge-graph"]) assert.ok(hrefs.has(h), `now a More icon: ${h}`);
     const pages = searchablePagesFor("TEACHER");
     for (const h of ["/teacher/plans/support", "/teacher/assessments", "/teacher/games", "/teacher/week", "/teacher/messages", "/teacher/map-rit"]) assert.ok(pages.some((p) => p.href === h), `still found by name: ${h}`);
   });
 
-  test("admin: five sections (School, Content, Assessments & Programs, Reports, Settings), ≤ 6 working tools each, no More", () => {
+  // Bug report: the 🔤 Grammar icon was missing from the teacher's menu — it was only in OFF_MENU (found by
+  // name, never shown as an icon), so a real teacher could never find it to assign Grammar, and in turn no
+  // student ever saw a "Grammar" group in My Skills (nothing had ever been assigned). Fixed by giving Grammar
+  // its own visible entry in TEACHER_MENU, same as it already has in the admin menu.
+  test("teacher: Grammar (🔤 /admin/grammar) is a visible icon, not just findable by name — for a real school with an active Grades 4-6 curriculum and no special flags", () => {
+    for (const opts of [{}, { rti: false, nafs: false }]) {
+      const items = navItemsFor("TEACHER", opts);
+      const grammar = items.find((i) => i.label === "Grammar");
+      assert.ok(grammar, "Grammar is a visible teacher menu icon");
+      assert.equal(grammar!.href, "/admin/grammar");
+      assert.equal(grammar!.icon, "🔤");
+      assert.ok(!grammar!.group, "Grammar is not folded under More");
+    }
+  });
+
+  // Students never get their own Grammar icon: a grammar skill is an ordinary Skill, and shows up in the
+  // "Grammar" strand of My Skills (my-skills.ts STRAND_LABEL.GRAMMAR) once the teacher assigns it — which the
+  // fix above makes possible in practice.
+  test("student: no separate Grammar nav icon (grammar skills surface inside My Skills instead)", () => {
+    const items = navItemsFor("STUDENT", { rti: false, nafs: false });
+    assert.ok(!items.some((i) => i.label === "Grammar"));
+    assert.ok(items.some((i) => i.label === "My Skills" && i.href === "/student/skills"), "where a student's assigned Grammar skills appear");
+  });
+
+  test("admin: five top sections (School, Content, Assessments & Programs, Reports, Settings), ≤ 6 working tools each, then r87's More (every other admin tool, now a real icon, not just findable by name)", () => {
     assert.deepEqual(ADMIN_GROUPS.map((g) => g.title), ["School", "Content", "Assessments & Programs", "Reports", "Settings"]);
     const items = navItemsFor("SCHOOL_ADMIN");
-    assert.deepEqual([...new Set(items.map((i) => i.group).filter(Boolean))], ADMIN_GROUPS.map((g) => g.title));
-    assert.ok(!items.some((i) => i.group === MORE), "the admin menu has no More group (All Admin Tools has the rest)");
+    // r88: then one themed "More · <section>" per top section, same 5 names, each its own folded sub-section
+    assert.deepEqual([...new Set(items.map((i) => i.group).filter(Boolean))], [...ADMIN_GROUPS.map((g) => g.title), ...ADMIN_GROUPS.map((g) => `More · ${g.title}`)], "the five sections, then five More · sub-sections");
     const at = (g: string) => items.filter((i) => i.group === g).map((i) => i.href);
     for (const g of ADMIN_GROUPS) assert.ok(at(g.title).length <= 6, `${g.title}: ${at(g.title).length}`);
     for (const h of ["/admin/school", "/admin/users", "/teacher/students"]) assert.ok(at("School").includes(h), h);
@@ -80,7 +120,10 @@ describe("menus: short and tidy", () => {
     for (const h of ["/admin/analytics", "/admin/term-report", "/admin/report-approvals", "/teacher/reports"]) assert.ok(at("Reports").includes(h), h);
     for (const h of ["/admin/settings", "/admin/ai-tools", "/admin/backup", "/admin/data-health", "/admin/data-cleanup", "/admin/feedback"]) assert.ok(at("Settings").includes(h), h);
     assert.equal(ADMIN_TOOLS.find((x) => x.href === "/admin/skill-links")?.label, "Sort Questions");
-    // the rest is found by name in the top bar
+    // r87/r88: every ADMIN_TOOLS entry that isn't in the top five sections is now a real More · … icon, not just a search hit
+    const moreHrefs = new Set(items.filter((i) => typeof i.group === "string" && i.group.startsWith("More ·")).map((i) => i.href));
+    for (const x of ADMIN_TOOLS.filter((x) => !x.menu)) assert.ok(moreHrefs.has(x.href), `now a More · … icon: ${x.href}`);
+    // still found by name too (top bar "Find a page")
     const found = new Set(searchablePagesFor("SCHOOL_ADMIN").map((i) => i.href));
     for (const x of ADMIN_TOOLS) assert.ok(found.has(x.href), `findable: ${x.href}`);
   });
@@ -94,14 +137,18 @@ describe("menus: short and tidy", () => {
       for (const i of items) { assert.ok(hasAr(i.label), `${role}: “${i.label}”`); if (i.group) assert.ok(hasAr(i.group), `${role}: group “${i.group}”`); }
     }
     // pages that left a menu are still found by name (top bar "Find a page" and the search)
-    for (const [role, h] of [["TEACHER", "/teacher/alerts"], ["TEACHER", "/teacher/map-rit"], ["STUDENT", "/student/insights"], ["STUDENT", "/play"]] as const) {
+    // 🐛 fix (audit finding, Oct 2026): "Progress Report" now points straight at /student/reports?view=progress
+    // instead of the old /student/insights redirect shim (see nav-items.ts's own comment on the change — it fixed a
+    // side-menu highlight bug); /student/insights itself still works for an old bookmark, but is no longer a
+    // distinct, separately-findable entry, so this checks the new canonical href instead.
+    for (const [role, h] of [["TEACHER", "/teacher/alerts"], ["TEACHER", "/teacher/map-rit"], ["STUDENT", "/student/reports?view=progress"], ["STUDENT", "/play"]] as const) {
       const pages = searchablePagesFor(role);
       assert.ok(pages.some((p) => p.href === h), `${role} finds ${h}`);
       assert.equal(new Set(pages.map((p) => p.href)).size, pages.length);
       for (const p of pages) assert.ok(hasAr(p.label), p.label);
     }
     const nav = read("src/components/ui/side-nav.tsx");
-    assert.match(nav, /FOLDED_BY_DEFAULT = new Set\(\["More"\]\)/);
+    assert.match(nav, /isMoreGroup = \(name: string\) => name === "More" \|\| name\.startsWith\("More ·"\)/);
     assert.match(nav, /GROUP_TONE/, "soft coloured group headings");
     assert.match(read("src/components/app-shell.tsx"), /<FeedbackButton \/>/);
     assert.ok(existsSync(join(ROOT, "src/components/feedback/feedback-button.tsx")));
@@ -192,8 +239,13 @@ describe("My Students, Reports and My Week on the Test School", () => {
     await assert.rejects(classToday(repo, t1, other), ForbiddenError);
   });
 
-  test("role guides are Arabic; the moved-where table lists every role", () => {
-    assert.match(read("src/app/guide/page.tsx"), /dir="rtl" lang="ar"/);
+  test("role guides: English by default with an Arabic toggle (?lang=ar); the moved-where table lists every role", () => {
+    // 🐛 fix (audit finding, Oct 2026): /guide used to be Arabic-only no matter the site's language toggle — it now
+    // defaults to English (guides-en.ts) like the rest of the interface, with an explicit "?lang=ar" switch for
+    // Arabic (guides-ar.ts, content unchanged). See guide/page.tsx's own doc comment on the change.
+    const page = read("src/app/guide/page.tsx");
+    assert.match(page, /dir=\{ar \? "rtl" : "ltr"\}/);
+    assert.match(page, /GUIDES_EN, GUIDE_UI_EN, ROLE_LABEL_EN/, "English guide set is imported");
     for (const k of ["STUDENT", "TEACHER", "SCHOOL_ADMIN"] as const) {
       assert.match(GUIDES[k].title, /^[\u0600-\u06FF ]+$/, `${k}: Arabic title`);
       assert.ok(GUIDES[k].steps.length >= 5 && GUIDES[k].steps.every((s) => s.href.startsWith("/")), `${k}: numbered steps with links`);

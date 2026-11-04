@@ -173,10 +173,10 @@
       "type": "MCQ",
       "stem": "What is the main purpose of the letter?",
       "options": [
-        "to complain to Badr about a disappointing trip",
+        "to complain to Badr about a disappointing trip to the sea",
         "to share Faris's experiences on Farasan with his friend",
-        "to explain how ferries are built",
-        "to persuade Badr to move to Jazan"
+        "to explain how ferries are built and who drives them",
+        "to persuade Badr to move to Jazan with his family"
       ],
       "answer": "B",
       "why": "Faris writes to tell Badr about the adventures he has had on the journey."
@@ -190,9 +190,9 @@
       "stem": "What is the main idea of the paragraph that begins “Our crossing from Jazan”?",
       "options": [
         "Faris overcomes seasickness on the ferry with a sailor's help.",
-        "Faris describes the comfortable seats on the ferry.",
-        "Faris explains why the sea is windy in January.",
-        "Faris learns how to drive a boat."
+        "Faris describes the comfortable seats on the ferry to Farasan.",
+        "Faris explains why the sea is windy in January on the coast.",
+        "Faris learns how to drive a boat from a sailor on the ferry."
       ],
       "answer": "A",
       "why": "The paragraph tells how Faris felt sick and how the sailor's advice helped."
@@ -205,9 +205,9 @@
       "type": "MCQ",
       "stem": "According to the sailor, why does looking at the horizon help a seasick passenger?",
       "options": [
-        "It keeps the passenger warm on deck.",
-        "It helps the passenger see the island sooner.",
-        "It makes the waves smaller.",
+        "It keeps the passenger warm on the deck of the boat in the wind.",
+        "It helps the passenger see the island sooner than the others can.",
+        "It makes the waves smaller for the boat and the sea around it.",
         "It helps the eyes and ears agree about how the boat is moving."
       ],
       "answer": "D",
@@ -253,10 +253,10 @@
       "type": "MCQ",
       "stem": "Which of these did Faris do FIRST on Farasan?",
       "options": [
-        "learned to snorkel",
-        "sat on the balcony writing to Badr",
+        "learned to snorkel in the clear water",
+        "sat on the balcony writing to Badr about the trip",
         "saw Farasan gazelles among the thorn trees",
-        "saw a green sea turtle"
+        "saw a green sea turtle near the reef"
       ],
       "answer": "C",
       "why": "He saw the gazelles on “our first morning”; snorkelling was “yesterday” and he is writing now."
@@ -285,9 +285,9 @@
       "type": "MCQ",
       "stem": "Where was Faris when he wrote the letter?",
       "options": [
-        "on the deck of the ferry",
-        "on a beach in Jazan",
-        "at his home in Riyadh",
+        "on the deck of the ferry to Farasan",
+        "on a beach in Jazan by the sea",
+        "at his home in Riyadh with his family",
         "on the balcony of his uncle's house"
       ],
       "answer": "D",
@@ -350,9 +350,9 @@
       "stem": "How is Farasan different from Riyadh, according to Faris?",
       "options": [
         "Farasan is low and flat and smells of salt and seaweed; Riyadh smells of dust.",
-        "Farasan is colder and has more mountains.",
-        "Riyadh has more gazelles than Farasan.",
-        "Farasan has taller buildings than Riyadh."
+        "Farasan is colder and has more mountains than Riyadh does, and it smells of snow.",
+        "Riyadh has more gazelles than Farasan does, and it smells of salt and seaweed.",
+        "Farasan has taller buildings than Riyadh does, and it smells of dust and sand."
       ],
       "answer": "A",
       "why": "Faris writes that the island is low and flat and “the air smells of salt and seaweed rather than dust.”"
@@ -413,9 +413,9 @@
       "type": "MCQ",
       "stem": "What does Faris mean when he says the journey “has taught me more than an entire term of geography lessons”?",
       "options": [
-        "He did not like geography lessons.",
-        "His uncle is a geography teacher.",
-        "He missed school to make the journey.",
+        "He did not like geography lessons at school.",
+        "His uncle is a geography teacher in the city.",
+        "He missed school to make the journey with his uncle.",
         "He learned a great deal by seeing places for himself."
       ],
       "answer": "D",
@@ -430,9 +430,9 @@
       "stem": "In your opinion, why does Faris end the letter by mentioning “the trick about the horizon”?",
       "options": [
         "to remind Badr of the seasickness story in a friendly, humorous way",
-        "to complain about the sailor",
-        "to explain a new geography lesson",
-        "to show that he is still feeling sick"
+        "to complain about the sailor and the long, slow ferry ride that they took together",
+        "to explain a new geography lesson about the sea and the winds in the Gulf",
+        "to show that he is still feeling sick on the boat, as on the first day"
       ],
       "answer": "A",
       "why": "He links back to his funny but useful lesson from the ferry and shares it with his friend."
@@ -445,10 +445,10 @@
       "type": "MCQ",
       "stem": "In your opinion, which of the uncle's actions was MOST beneficial to the reef?",
       "options": [
-        "driving along the sandy tracks",
-        "teaching Faris to breathe slowly",
+        "driving along the sandy tracks to the shore and the camp site",
+        "teaching Faris to breathe slowly through his snorkel at the beach",
         "using sunscreen that is safe for sea creatures and not touching the coral",
-        "visiting the old merchant's house"
+        "visiting the old merchant's house in the town and looking at the doors"
       ],
       "answer": "C",
       "why": "These choices protect the fragile reef; the other actions have nothing to do with it."
@@ -461,10 +461,10 @@
       "type": "MCQ",
       "stem": "What MOST LIKELY made Faris write such a long letter?",
       "options": [
-        "He was asked to write a school report.",
+        "He was asked to write a school report by his teacher.",
         "He wanted to share an exciting journey with a close friend.",
-        "He needed to tell Badr that he would be late.",
-        "He wanted to sell the book about wildlife."
+        "He needed to tell Badr that he would be late for school.",
+        "He wanted to sell the book about wildlife to his friend."
       ],
       "answer": "B",
       "why": "He had promised to write and was eager to share his many adventures."
@@ -509,10 +509,10 @@
       "type": "MCQ",
       "stem": "Which of the following events could really happen?",
       "options": [
-        "A turtle speaks politely to a snorkeller.",
-        "Coral stone turns into lace on the walls.",
+        "A turtle speaks politely to a snorkeller in the sea.",
+        "Coral stone turns into lace on the walls of the house.",
         "A sea turtle swims close to a snorkeller near a reef.",
-        "A ferry is carried to the island by a camel."
+        "A ferry is carried to the island by a camel in the dark."
       ],
       "answer": "C",
       "why": "Green sea turtles really live near reefs in the Red Sea; the other events are impossible."
@@ -525,9 +525,9 @@
       "type": "MCQ",
       "stem": "Which title best describes the events of the letter?",
       "options": [
-        "A Boring Week Away",
+        "A Boring Week Away from Home",
         "My Journey to Farasan",
-        "The Sailor's Story",
+        "The Sailor's Story of the Sea",
         "Shopping in Jazan"
       ],
       "answer": "B",
@@ -558,7 +558,7 @@
       "options": [
         "Break off small pieces of coral as souvenirs.",
         "Stand on the coral to rest while snorkelling.",
-        "Use any sunscreen they like.",
+        "Use any sunscreen they like, even if it harms reefs.",
         "Avoid touching the coral and use reef-safe sunscreen."
       ],
       "answer": "D",

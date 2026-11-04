@@ -8,6 +8,7 @@ import type { Repo, Row } from "../seeding/repo";
 import { safeIfBehind } from "../db/schema-errors";
 import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
+import { requireSource } from "../assign/source";
 import { assertClassAccess } from "../teacher/assignments";
 import { attachmentNodes, mapEpoch } from "./questions";
 import { modelVersion } from "../cache/bank-version";
@@ -15,6 +16,8 @@ import { remember } from "../cache/lru";
 import { assignFromMap } from "./levels";
 import { DEFAULT_TARGET_CORRECT } from "../teacher/assign";
 import { withLock } from "../lib/key-lock";
+import { sweptWeakMap } from "../cache/idle";
+import { hiddenWorkKeys, placeCancelled } from "../student/cancelled-work";
 
 const s = (v: unknown) => String(v ?? "");
 /**
@@ -45,8 +48,9 @@ export async function planPlaces(repo: Repo, schoolId: string, grade: number): P
   return out;
 }
 
-export async function createSkillPlan(repo: Repo, actor: Actor, input: { classId: string; title: string; codes: string[]; studentIds?: string[]; maxQuestions?: number; targetCorrect?: number; dueAt?: Date | null; note?: string | null }, now = new Date()): Promise<{ planId: string; items: number; skipped: string[] }> {
+export async function createSkillPlan(repo: Repo, actor: Actor, input: { classId: string; title: string; codes: string[]; studentIds?: string[]; maxQuestions?: number; targetCorrect?: number; dueAt?: Date | null; /** r68 */ startAt?: Date | null; note?: string | null; /** r74: REQUIRED source */ source: string | null | undefined }, now = new Date()): Promise<{ planId: string; items: number; skipped: string[] }> {
   assertCan(actor, "assignments:create");
+  const source = requireSource(input.source);
   const klass = await assertClassAccess(repo, actor, input.classId);
   const title = s(input.title).replace(/\s+/g, " ").trim();
   if (!title) throw new ValidationError("Give the plan a title.");
@@ -62,7 +66,7 @@ export async function createSkillPlan(repo: Repo, actor: Actor, input: { classId
     const place = all.find((p) => p.code === code);
     if (!place) { skipped.push(`${code}: not a place of Grade ${grade}`); continue; }
     try {
-      const r = await assignFromMap(repo, actor, { classId: input.classId, categoryCode: code, studentIds: input.studentIds?.length ? input.studentIds : undefined, maxQuestions: input.maxQuestions, targetCorrect: input.targetCorrect ?? DEFAULT_TARGET_CORRECT, dueAt: input.dueAt ?? null, note: input.note ?? `Skill plan: ${title}`, mode: "ADAPTIVE" }, now);
+      const r = await assignFromMap(repo, actor, { classId: input.classId, categoryCode: code, studentIds: input.studentIds?.length ? input.studentIds : undefined, maxQuestions: input.maxQuestions, targetCorrect: input.targetCorrect ?? DEFAULT_TARGET_CORRECT, dueAt: input.dueAt ?? null, startAt: input.startAt ?? null, note: input.note ?? `Skill plan: ${title}`, mode: "ADAPTIVE", source }, now);
       await repo.create("SkillPlanItem", { planId: plan.id, code, label: `${place.where} · ${place.label}`.slice(0, 255), assignmentIds: r.groups.map((g) => g.assignmentId), order: order++ });
     } catch (e) {
       if (e instanceof ValidationError) skipped.push(`${place.label} (${place.where}): ${e.message}`); else throw e;
@@ -116,12 +120,19 @@ export async function skillPlanForStaff(repo: Repo, actor: Actor, planId: string
   const allAids = [...new Set(items.flatMap((it) => ids(it.assignmentIds)))];
   const byAid = new Map<string, Row[]>();
   for (let i = 0; i < allAids.length; i += 1000) {
-    for (const r of await repo.findMany("AssignmentStudent", { assignmentId: { in: allAids.slice(i, i + 1000) } }, { select: ["assignmentId", "status"] })) { const k = s(r.assignmentId); const l = byAid.get(k); if (l) l.push(r); else byAid.set(k, [r]); }
+    for (const r of await repo.findMany("AssignmentStudent", { assignmentId: { in: allAids.slice(i, i + 1000) } }, { select: ["assignmentId", "studentId", "status"] })) { const k = s(r.assignmentId); const l = byAid.get(k); if (l) l.push(r); else byAid.set(k, [r]); }
   }
+  // r97 fix: AssignmentStudent.status === "COMPLETED" also covers a student who merely ran out of questions / hit
+  // the 50-cap WITHOUT truly reaching the goal — now a real, more common case for Analyze Craft and Structure's
+  // mastery-gated goal. goalReachedAt lives on the TEACHER_QUIZ PracticeSession (same source teacher/assign.ts
+  // and teacher/support.ts already use for "did this student really reach the goal") — read it from there.
+  const sessions = allAids.length ? await repo.findMany("PracticeSession", { assignmentId: { in: allAids }, mode: "TEACHER_QUIZ" }, { select: ["assignmentId", "studentId", "goalReachedAt"] }) : [];
+  const reached = new Set(sessions.filter((x) => x.goalReachedAt).map((x) => `${s(x.assignmentId)}:${s(x.studentId)}`));
   for (const it of items) {
     const rows = [...new Set(ids(it.assignmentIds))].flatMap((a) => byAid.get(a) ?? []);
     const sp = split(s(it.label));
-    places.push({ code: s(it.code), label: sp.place, unit: sp.unit, set: sp.set, status: null, progress: rows.length ? rows.filter((r) => r.status === "COMPLETED").length / rows.length : 0, href: null, students: { done: rows.filter((r) => r.status === "COMPLETED").length, total: rows.length } });
+    const done = rows.filter((r) => reached.has(`${s(r.assignmentId)}:${s(r.studentId)}`)).length;
+    places.push({ code: s(it.code), label: sp.place, unit: sp.unit, set: sp.set, status: null, progress: rows.length ? done / rows.length : 0, href: null, students: { done, total: rows.length } });
   }
   return { id: s(plan.id), title: s(plan.title), className: s(klass.name), grade: Number(plan.gradeLevel), note: plan.note ? s(plan.note) : null, createdAt: s(plan.createdAt instanceof Date ? plan.createdAt.toISOString() : plan.createdAt).slice(0, 10), places };
 }
@@ -138,12 +149,15 @@ export async function studentSkillPlans(repo: Repo, actor: Actor): Promise<Stude
   const st = await repo.findUnique("Student", { id: actor.studentId });
   const myClasses = new Set((await repo.findMany("ClassMembership", { studentId: actor.studentId, leftAt: null }, { select: ["classId"] })).map((m) => s(m.classId)));
   // drafts, paused and withdrawn plans are not shown to students (plan editor)
-  const plans = (await safeIfBehind("plans.student", repo.findMany("SkillPlan", { schoolId: st?.schoolId }), [] as Row[])).filter((p) => visibleToStudents(p));
+  const plans0 = (await safeIfBehind("plans.student", repo.findMany("SkillPlan", { schoolId: st?.schoolId }), [] as Row[])).filter((p) => visibleToStudents(p));
+  // 🚫 owner r68: a plan (or a place of it) the teacher cancelled is not shown (cached cancels: no read when none)
+  const hidden = await hiddenWorkKeys(repo, actor.studentId, s(st?.schoolId)).catch(() => new Set<string>());
+  const plans = plans0.filter((p) => !hidden.has(`plan:${s(p.id)}`));
   const out: StudentPlanSummary[] = [];
   // all the plans' places in one query (not one per plan)
   const allItems = plans.length ? await repo.findMany("SkillPlanItem", { planId: { in: plans.map((p) => p.id) } }) : [];
   for (const p of plans) {
-    const items = allItems.filter((i) => i.planId === p.id);
+    const items = allItems.filter((i) => i.planId === p.id && !placeCancelled(ids(i.assignmentIds), ids(i.assignmentIds).filter((a) => statusOf.has(a)), hidden));
     const curriculum = s(p.kind) === "CURRICULUM";
     if (curriculum && !myClasses.has(s(p.classId))) continue;
     const mineItems = curriculum ? items : items.filter((i) => ids(i.assignmentIds).some((a) => statusOf.has(a)));
@@ -210,10 +224,20 @@ export async function skillPlanForStudent(repo: Repo, actor: Actor, planId: stri
     // sections added to the map later (Review) join the plan
     if (await addMissingCurriculumParts(repo, plan)) items = (await planRows(repo, planId)).items;
   }
-  const mine = await repo.findMany("AssignmentStudent", { studentId: actor.studentId }, { select: ["assignmentId", "status", "progress"] });
+  const [mine, hidden] = await Promise.all([
+    repo.findMany("AssignmentStudent", { studentId: actor.studentId }, { select: ["assignmentId", "status", "progress"] }),
+    hiddenWorkKeys(repo, actor.studentId, s(plan.schoolId)).catch(() => new Set<string>()),
+  ]);
+  // 🚫 owner r68: a cancelled plan is gone; a cancelled place leaves the plan (for everyone, or for this student)
+  if (hidden.has(`plan:${s(plan.id)}`)) throw new ForbiddenError("Your teacher cancelled this plan.");
   const byId = new Map(mine.map((m) => [s(m.assignmentId), m]));
-  const sessions = await repo.findMany("PracticeSession", { studentId: actor.studentId, mode: "TEACHER_QUIZ" }, { select: ["assignmentId", "correctCount"] });
+  items = items.filter((it) => !placeCancelled(ids(it.assignmentIds), ids(it.assignmentIds).filter((a) => byId.has(a)), hidden));
+  const sessions = await repo.findMany("PracticeSession", { studentId: actor.studentId, mode: "TEACHER_QUIZ" }, { select: ["assignmentId", "correctCount", "goalReachedAt"] });
   const correctOf = new Map(sessions.map((x) => [s(x.assignmentId), Number(x.correctCount ?? 0)]));
+  // r97 fix: status "COMPLETED" also covers running out of questions / hitting the 50-cap WITHOUT truly reaching
+  // the goal (now a real case for Analyze Craft and Structure's mastery-gated goal) — floor the shown correct
+  // count to "full" only once the goal was truly reached, not merely once the assignment ended.
+  const reachedOf = new Set(sessions.filter((x) => x.goalReachedAt).map((x) => s(x.assignmentId)));
   const skillKind = isSkillPlanKind(s(plan.kind));
   const skills = skillKind ? new Map<string, string>() : await placeSkills(repo, s(plan.schoolId));
   const ready = curriculum ? await partsWithQuestions(repo, s(plan.schoolId), Number(plan.gradeLevel)) : null;
@@ -232,7 +256,7 @@ export async function skillPlanForStudent(repo: Repo, actor: Actor, planId: stri
       itemId: s(it.id), code: s(it.code), label: sp.place, unit: sp.unit, set: sp.set,
       status: row ? (s(row.status) as PlanPlace["status"]) : "NOT_STARTED", progress: Number(row?.progress ?? 0),
       href: locked || empty ? null : aid ? (skillOfAid.get(aid) ? `/practice/${skillOfAid.get(aid)}` : `/quiz/${aid}`) : `/student/plans/${s(plan.id)}/open/${s(it.id)}`,
-      locked, empty, skills: skills.get(s(it.code)) ?? null, correct: !aid ? 0 : row?.status === "COMPLETED" ? Math.max(correctOf.get(aid) ?? 0, Number(plan.targetCorrect) || DEFAULT_TARGET_CORRECT) : Math.min(correctOf.get(aid) ?? 0, (Number(plan.targetCorrect) || DEFAULT_TARGET_CORRECT) - 1),
+      locked, empty, skills: skills.get(s(it.code)) ?? null, correct: !aid ? 0 : reachedOf.has(aid) ? Math.max(correctOf.get(aid) ?? 0, Number(plan.targetCorrect) || DEFAULT_TARGET_CORRECT) : Math.min(correctOf.get(aid) ?? 0, (Number(plan.targetCorrect) || DEFAULT_TARGET_CORRECT) - 1),
     });
   }
   if (!places.length) throw new ForbiddenError("This plan is not assigned to you.");
@@ -296,14 +320,24 @@ export function partsWithQuestions(repo: Repo, schoolId: string, grade: number):
   p.catch(() => m!.delete(key));
   return p.then((x) => new Set(x));
 }
-const partsCache = new WeakMap<object, Map<string, { v: string; at: number; p: Promise<Set<string>> }>>();
+const partsCache = sweptWeakMap<{ v: string; at: number; p: Promise<Set<string>> }>("curriculum-map.plans.partsCache", 2 * 60_000);
+
+// 🐛 r91 fix: must match levels.ts#usable()'s MANUAL_TYPES exclusion — otherwise a place whose only published
+// question is Short Answer (which the platform can't auto-mark) shows "ready"/clickable here, then fails with
+// "no published questions" the moment the student actually opens it via assignFromMap.
+const MANUAL_TYPES = new Set(["SHORT_ANSWER"]);
 
 async function partsWithQuestionsNow(repo: Repo, schoolId: string, grade: number): Promise<Set<string>> {
   const nodes = (await attachmentNodes(repo, schoolId)).filter((n) => n.grade === grade);
   const links = nodes.length ? await repo.findMany("QuestionMapLink", { nodeId: { in: nodes.map((n) => n.id) } }, { select: ["questionId", "nodeId"] }) : [];
   const qids = [...new Set(links.map((l) => s(l.questionId)))];
   const pub = new Set<string>();
-  for (let i = 0; i < qids.length; i += 1000) for (const q of await repo.findMany("Question", { id: { in: qids.slice(i, i + 1000) }, status: "PUBLISHED", deletedAt: null }, { select: ["id"] })) pub.add(s(q.id));
+  for (let i = 0; i < qids.length; i += 1000) {
+    const qs = await repo.findMany("Question", { id: { in: qids.slice(i, i + 1000) }, status: "PUBLISHED", deletedAt: null }, { select: ["id", "typeId"] });
+    const types = qs.length ? await repo.findMany("QuestionType", { id: { in: [...new Set(qs.map((q) => q.typeId))] } }, { select: ["id", "code"] }) : [];
+    const code = new Map(types.map((t) => [s(t.id), s(t.code)]));
+    for (const q of qs) if (!MANUAL_TYPES.has(code.get(s(q.typeId)) ?? "")) pub.add(s(q.id));
+  }
   const nodeOf = new Map(nodes.map((n) => [n.id, n]));
   const out = new Set<string>();
   for (const l of links) {

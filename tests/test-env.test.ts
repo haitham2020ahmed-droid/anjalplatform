@@ -49,7 +49,7 @@ describe("test environment: seed and reset", () => {
     await assert.rejects(teacherCurriculum(repo, t1, String(demoClass.id)), ForbiddenError, "cannot reach another school's class");
     const demoTeacher = await actor("demo.teacher.4a");
     const testClass = (await repo.findMany("Class", { name: "TEST 4A" }))[0];
-    await assert.rejects(assignSkill(repo, demoTeacher, { classId: String(testClass.id), skillId: "x" }), ForbiddenError, "and the other way round");
+    await assert.rejects(assignSkill(repo, demoTeacher, { source: "CURRICULUM", classId: String(testClass.id), skillId: "x" }), ForbiddenError, "and the other way round");
     const testAdmin = await actor("test.admin");
     const demoAdmin = await actor("demo.admin");
     const [a, b] = await Promise.all([listQuestions(repo, testAdmin, { status: "PUBLISHED", limit: 0 }), listQuestions(repo, demoAdmin, { status: "PUBLISHED", limit: 0 })]);

@@ -17,6 +17,7 @@ import { deleteComment } from "../src/server/teacher/classroom";
 import { deleteNote } from "../src/server/teacher/extras";
 import { readQuestionImage } from "../src/server/admin/question-images";
 import { parentReport } from "../src/server/insights/parent-report";
+import { skillKeyIndex } from "../src/server/skills/status";
 import { demoDatabase } from "./helpers/db";
 
 const hdrs = (h: Record<string, string>) => ({ get: (n: string) => h[n.toLowerCase()] ?? null });
@@ -99,7 +100,9 @@ describe("audit fixes on two schools", () => {
     assert.ok(await readQuestionImage(repo, String(img.id), testAdmin.schoolId), "a school whose question uses it");
   });
 
-  test("parent report: mastered and 'practise next' come from the engine's mastery, not lifetime accuracy", async () => {
+  // ⭐ owner (1 Nov 2026): the parent report reads the ONE skill status (stars, by key) — the engine flag alone (and
+  // lifetime accuracy) never decide it
+  test("parent report: mastered and 'practise next' come from the stars, not the engine flag or lifetime accuracy", async () => {
     const st = (await repo.findMany("Student", { schoolId: testAdmin.schoolId }))[0];
     const skills = (await repo.findMany("Skill", {}, { select: ["id", "name"] })).filter((k) => k.name).slice(0, 2);
     const g = (await repo.findMany("Grade", { schoolId: testAdmin.schoolId }))[0];
@@ -111,10 +114,19 @@ describe("audit fixes on two schools", () => {
     await repo.create("StudentSkillMastery", { studentId: st.id, skillId: accurate.id, score: 55, band: "DEVELOPING", attempts: 20, correct: 20, isMastered: false });
     // the engine says mastered although lifetime accuracy is under 80%
     await repo.create("StudentSkillMastery", { studentId: st.id, skillId: engine.id, score: 92, band: "MASTERED", attempts: 12, correct: 8, isMastered: true });
+    // the engine flag alone shows nothing as mastered
+    const before0 = await parentReport(repo, testAdmin, String(st.id));
+    assert.deepEqual(before0.completed, [], "isMastered without ⭐ is not a completed skill");
+    // the stars: ⭐ on the "accurate" skill, ◐ on the engine-mastered one
+    const ix = await skillKeyIndex(repo, String(st.schoolId));
+    const now = new Date();
+    const keyOf = (id: unknown) => ix.keyOf.get(String(id))!;
+    await repo.create("SkillStatus", { studentId: st.id, skillKey: keyOf(accurate.id), level: 1, status: "MASTERED", skillId: accurate.id, answered: 30, correct: 30, score: 90, startedAt: now, masteredAt: now, createdAt: now, updatedAt: now, history: [] });
+    await repo.create("SkillStatus", { studentId: st.id, skillKey: keyOf(engine.id), level: 1, status: "IN_PROGRESS", skillId: engine.id, answered: 12, correct: 8, score: 60, startedAt: now, createdAt: now, updatedAt: now, history: [] });
     const r = await parentReport(repo, testAdmin, String(st.id));
-    assert.deepEqual(r.completed, [String(engine.name)]);
-    assert.deepEqual(r.practiseNext, [String(accurate.name)], "low engine score → practise next, even at 100% accuracy");
-    assert.ok(!r.practiseNext.includes(String(engine.name)));
+    assert.deepEqual(r.completed, [ix.nameOf.get(keyOf(accurate.id))]);
+    assert.deepEqual(r.practiseNext, [ix.nameOf.get(keyOf(engine.id))], "◐ → practise next, even with the engine flag");
+    assert.ok(!r.practiseNext.includes(String(ix.nameOf.get(keyOf(accurate.id)))));
   });
 });
 

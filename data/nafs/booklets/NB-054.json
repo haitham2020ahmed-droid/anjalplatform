@@ -222,9 +222,9 @@
       "stem": "Which genre best describes this text?",
       "options": [
         "an expository text that explains a scientific process",
-        "a narrative about one athlete's summer",
-        "a letter written to a doctor",
-        "an advertisement for a sports drink"
+        "a narrative about one athlete's summer holiday in a camp",
+        "a letter written to a doctor about a rash on his arm",
+        "an advertisement for a sports drink shown on TV"
       ],
       "answer": "A",
       "why": "It explains how the body controls its temperature, using facts and examples; it has no plot, letter form or product to sell."
@@ -365,10 +365,10 @@
       "type": "MCQ",
       "stem": "According to paragraph 4, what is the effect of losing just two percent of body weight in water?",
       "options": [
-        "The body stops sweating completely.",
+        "The body stops sweating completely in the heat.",
         "Strength, speed and concentration can be reduced.",
-        "The urine becomes pale yellow.",
-        "The body temperature falls below 37°C."
+        "The urine becomes pale yellow and clear.",
+        "The body temperature falls below 37°C at once."
       ],
       "answer": "B",
       "why": "Scientists found that this loss “can reduce strength, speed and concentration.” Pale yellow urine is a sign of enough water, not too little."

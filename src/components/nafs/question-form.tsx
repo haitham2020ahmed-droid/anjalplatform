@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import { useT } from "@/i18n/client";
 import { saveQuestionAction } from "@/app/teacher/nafs/actions";
 import { Combo } from "@/components/ui/combo";
+import { LENGTH_WARNING, lengthCue } from "@/lib/length-cue";
 
 export interface QuestionInitial { id: string; own: boolean; draft: boolean; nafsCode: string; process: string; standard: string; kind: "MCQ" | "WRITTEN"; stem: string; options: string[]; correct: number; explanation: string; model: string; rubric: string[]; passageTitle: string; passageText: string; textType: "LIT" | "INFO" | null; difficulty?: number }
 const INPUT = "min-h-11 w-full rounded-xl bg-surface px-3 py-2 text-ink ring-1 ring-line focus:outline-none focus:ring-2 focus:ring-teal-500";
@@ -40,7 +41,9 @@ export function NafsQuestionForm({ initial, skills, processes, standards, styles
     setError(null);
     const r = await saveQuestionAction({ id: initial?.id ?? null, nafsCode: code, process: process || null, standard: standard || null, kind, stem, options: kind === "MCQ" ? options : [], correct: kind === "MCQ" ? correct : -1, explanation: why, model: kind === "WRITTEN" ? model : null, rubric: kind === "WRITTEN" ? rubric : null, passageTitle: withPassage ? title : null, passageText: withPassage ? text : null, textType: withPassage && ptype ? ptype : null, difficulty });
     if (r.error) { setError(r.error); return; }
-    router.push(`/teacher/nafs?tab=bank&view=${encodeURIComponent(r.ok!.id)}&msg=${encodeURIComponent(t(r.ok!.copied ? "Saved as the school's copy. The original is unchanged." : "Saved."))}`);
+    // 🎯 non-blocking: saved anyway; the message carries the answer-length warning
+    const warn = kind === "MCQ" && lengthCue(options, correct).flagged ? ` ${t(LENGTH_WARNING)}` : "";
+    router.push(`/teacher/nafs?tab=bank&view=${encodeURIComponent(r.ok!.id)}&msg=${encodeURIComponent(t(r.ok!.copied ? "Saved as the school's copy. The original is unchanged." : "Saved.") + warn)}`);
   });
   // the official styles go in the last free option (D first)
   const putStyle = (st: string) => { const at = [3, 2, 1, 0].find((i) => !options[i].trim()) ?? 3; setOptions(options.map((x, k) => (k === at ? st : x))); };

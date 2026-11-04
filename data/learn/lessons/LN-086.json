@@ -299,10 +299,10 @@
      "passage": "Nouf wrote a poem called Rain on the Roof for the school magazine.",
      "stem": "How should the poem's title be punctuated?",
      "options": [
-      "Underline it.",
+      "Underline it with a ruler.",
       "Put it in quotation marks.",
-      "Put it in italics.",
-      "Leave it plain."
+      "Put it in italics, like a book.",
+      "Leave it plain with no marks."
      ],
      "answer": 1,
      "why": "A poem is a short work, so its title goes in quotation marks."
@@ -410,9 +410,9 @@
      "stem": "Why should The Tent of Stories be underlined?",
      "options": [
       "It is the title of a play, a whole work.",
-      "It is the name of a building.",
+      "It is the name of a building or a shop.",
       "It is the title of a short poem.",
-      "It begins with the word The."
+      "It begins with the word The and is long."
      ],
      "answer": 0,
      "why": "It was performed, so it is a play. Plays are whole works, so their titles are underlined."

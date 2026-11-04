@@ -206,7 +206,7 @@
       "stem": "According to paragraph 3, why did Saad think a filter was a better choice than a robot?",
       "options": [
         "A filter needs only materials they could find at home.",
-        "Fahad had already built a filter before.",
+        "Fahad had already built a filter before, at his old school.",
         "Mr Khalid asked every pupil to make a filter.",
         "A robot would take only one day to build."
       ],
@@ -269,10 +269,10 @@
       "type": "MCQ",
       "stem": "What did the boys do soon AFTER the first test failed?",
       "options": [
-        "They showed the filter to the judges.",
+        "They showed the filter to the judges at the school fair.",
         "They reread the instructions in their library book.",
-        "They poured in a second cup of muddy water.",
-        "Fahad cut a new bottle in half for them."
+        "They poured in a second cup of muddy water at once.",
+        "Fahad cut a new bottle in half for them with scissors."
       ],
       "answer": "B",
       "why": "After Saad calmed down, “they opened their library book and reread the instructions line by line.”"
@@ -301,10 +301,10 @@
       "type": "MCQ",
       "stem": "Why did Saad take a deep breath after the first test failed?",
       "options": [
-        "to get ready to shout at Yousef",
-        "because the muddy water smelled bad",
+        "to get ready to shout at Yousef again",
+        "because the muddy water smelled very bad",
         "to stay calm instead of arguing with Yousef",
-        "because he was tired after the test"
+        "because he was tired after the first test"
       ],
       "answer": "C",
       "why": "His face grew hot, “but instead of arguing, he took a deep breath” — he wanted to stay calm."
@@ -334,9 +334,9 @@
       "stem": "What caused the water to come out almost clear in the second test?",
       "options": [
         "They built the layers carefully in the correct order.",
-        "Fahad poured the water in instead of Yousef.",
-        "They used clean water from the kitchen tap.",
-        "They added a small motor to the bottle."
+        "Fahad poured the water in instead of Yousef this time.",
+        "They used clean water from the kitchen tap for the test.",
+        "They added a small motor to the bottle to push it."
       ],
       "answer": "A",
       "why": "This time they “assembled the filter with great care: stones, then sand, then charcoal, then cotton wool.”"
@@ -349,10 +349,10 @@
       "type": "MCQ",
       "stem": "How was Yousef different from Saad at the beginning of the story?",
       "options": [
-        "Yousef had built a filter before, but Saad had not.",
-        "Yousef wanted to give up, while Saad wanted to win.",
+        "Yousef had built a filter before, but Saad had not built one.",
+        "Yousef wanted to give up, while Saad wanted to win the contest.",
         "Yousef wanted something exciting; Saad wanted something practical.",
-        "Yousef liked simple ideas more than Saad did."
+        "Yousef liked simple ideas more than Saad did, and he said so to him."
       ],
       "answer": "C",
       "why": "Yousef hoped to build a robot, while Saad chose a filter they could make with materials from home."
@@ -381,9 +381,9 @@
       "type": "MCQ",
       "stem": "What was the effect of showing the failed first test to the judges?",
       "options": [
-        "The judges gave them first prize at once.",
-        "Mr Khalid asked them to build a robot instead.",
-        "The judges asked them to remove the notebook.",
+        "The judges gave them first prize at once, in front of all.",
+        "Mr Khalid asked them to build a robot instead of the filter.",
+        "The judges asked them to remove the notebook from the table.",
         "A judge praised them for learning from their mistake."
       ],
       "answer": "D",
@@ -430,9 +430,9 @@
       "stem": "What is your opinion of how the writer combines dialogue and narration?",
       "options": [
         "Effective: the dialogue shows feelings and the narration explains events.",
-        "Confusing: it is impossible to tell who is speaking.",
-        "Unhelpful: the dialogue hides what really happens.",
-        "Unnecessary: the characters never speak at all."
+        "Confusing: it is impossible to tell who is speaking at any time in the story.",
+        "Unhelpful: the dialogue hides what really happens, and the narration is dull.",
+        "Unnecessary: the characters never speak at all, and the story has no talk."
       ],
       "answer": "A",
       "why": "Lines such as “It didn’t work!” show Yousef’s frustration, while the narration explains the steps and the mistake."
@@ -493,10 +493,10 @@
       "type": "MCQ",
       "stem": "In your opinion, which information is the LEAST clear in the story?",
       "options": [
-        "who helped the boys cut the bottle",
+        "who helped the boys cut the bottle in the garage",
         "what job the sand and charcoal do in the filter",
-        "whether the boys won first prize",
-        "what Mr Khalid wrote on their card"
+        "whether the boys won first prize at the end of the day",
+        "what Mr Khalid wrote on their card for the project"
       ],
       "answer": "B",
       "why": "Only the stones’ job is explained; the purposes of the sand, charcoal and cotton wool are not."
@@ -526,9 +526,9 @@
       "stem": "Which title best describes the events of the whole story?",
       "options": [
         "From Muddy Water to a Lesson Learned",
-        "The Robot That Won the Prize",
-        "The Lost Library Book",
-        "Fahad’s Science Fair"
+        "The Robot That Won the Science Prize",
+        "The Lost Library Book in the Park",
+        "Fahad’s Big Science Fair Day"
       ],
       "answer": "A",
       "why": "The story moves from the muddy-water project to the lesson about learning from mistakes."
@@ -542,9 +542,9 @@
       "stem": "How could the boys have avoided the failed first test?",
       "options": [
         "by reading the instructions before building",
-        "by using a much bigger plastic bottle",
-        "by asking Fahad to pour the water",
-        "by using more muddy water"
+        "by using a much bigger plastic bottle for the filter",
+        "by asking Fahad to pour the water more slowly",
+        "by using more muddy water from the pond"
       ],
       "answer": "A",
       "why": "They tipped the layers in “hurriedly without checking their order”; reading first would have shown the right order."

@@ -9,12 +9,13 @@ import { assignQuestions, teacherRoster } from "../src/server/teacher/assign";
 import { restoreQuestions } from "../src/server/admin/question-cleanup";
 import { asksAboutStoryContent, backupSubset, executePassageCleanup, findMissingPassageQuestions, UNCHANGED_TABLES, verifyIntegrity } from "../src/server/admin/passage-cleanup";
 import { needsPassage, passageReference } from "../src/lib/passage-detect";
+import { loadQuestionItems } from "../src/server/practice/items";
 import { demoDatabase } from "./helpers/db";
 
 describe("automatic removal of questions with missing passages", () => {
   let repo: SqliteRepo;
   let admin: Actor, teacher: Actor, student: Actor;
-  const ids = {} as Record<"missing" | "answered" | "inSet" | "grammar" | "withText" | "sentence" | "story" | "concept", string>;
+  const ids = {} as Record<"missing" | "answered" | "inSet" | "grammar" | "withText" | "sentence" | "story" | "concept" | "dangling", string>;
   before(async () => {
     ({ repo } = await demoDatabase());
     await seedTestEnvironment(repo, { root: process.cwd(), passwordHash: "x".repeat(60), practice: "none" });
@@ -40,13 +41,19 @@ describe("automatic removal of questions with missing passages", () => {
     ids.story = await mc("Why did Sam leave the farm at the end?", String(readingQ.id));
     // a concept question about reading: answerable without any text → kept
     ids.concept = await mc("A flashback tells about events that happened before the main story.", String(readingQ.id));
+    // its passage row exists but was left blank (the FK is ON DELETE SET NULL, so a deleted passage can
+    // never leave a dangling id — the real-world case is an empty/blank passage body): a wording trips
+    // NO heuristic at all (the old wording-only check would have missed this one)
+    ids.dangling = await mc("Which word best completes this analogy: cold is to hot as up is to ____?", String(readingQ.id), { passageText: "A passage that gets emptied out right after this question is created." });
     await repo.updateMany("Question", { id: { in: Object.values(ids) } }, { status: "PUBLISHED" });
+    const danglingPassageId = (await repo.findUnique("Question", { id: ids.dangling }))!.passageId;
+    await repo.updateMany("ReadingPassage", { id: danglingPassageId }, { body: "" });
     // a student answered one of them
     const s = await repo.create("PracticeSession", { studentId: student.studentId!, mode: "ADAPTIVE_PRACTICE", startedAt: new Date() });
     await repo.create("QuestionAttempt", { sessionId: s.id, studentId: student.studentId!, questionId: ids.answered, skillId: reading.id, response: { value: "A" }, isCorrect: true, responseMs: 5000, usedHint: false, rapidGuess: false, difficultyB: 0, createdAt: new Date() });
     // a teacher put one in an assigned set
     const roster = await teacherRoster(repo, teacher);
-    await assignQuestions(repo, teacher, { classId: roster[0]!.id, questionIds: [ids.inSet] });
+    await assignQuestions(repo, teacher, { source: "CURRICULUM", classId: roster[0]!.id, questionIds: [ids.inSet] });
   });
 
   test("story-content questions are recognised; concept questions are not", () => {
@@ -74,6 +81,21 @@ describe("automatic removal of questions with missing passages", () => {
     assert.match(row.reason, /No passage\/text attached.*According to the passage/);
   });
 
+  test("a dangling passageId (the passage was deleted) is always flagged, even when the wording trips no heuristic", async () => {
+    const stem = "Which word best completes this analogy: cold is to hot as up is to ____?";
+    // the old wording-only detection would have missed this question entirely
+    assert.equal(passageReference(stem), null, "no wording pattern matches");
+    assert.equal(asksAboutStoryContent(stem), false, "not recognised as a story question either");
+    const f = new Map((await findMissingPassageQuestions(repo)).map((x) => [x.id, x]));
+    assert.equal(f.get(ids.dangling)?.action, "DELETE");
+    assert.match(f.get(ids.dangling)!.reason, /has no text/);
+  });
+
+  test("a dangling passageId is excluded from serving before any cleanup has run (standing defensive filter)", async () => {
+    assert.equal((await loadQuestionItems(repo, [ids.dangling])).length, 0, "never served to a student");
+    assert.equal((await loadQuestionItems(repo, [ids.withText])).length, 1, "a question with a real passage still serves fine");
+  });
+
   test("backup → delete/archive → integrity OK; curriculum and users unchanged; restore brings them back", async () => {
     const counts = async () => Object.fromEntries(await Promise.all(UNCHANGED_TABLES.map(async (t) => [t, await repo.count(t, {})])));
     const before = await counts();
@@ -82,7 +104,11 @@ describe("automatic removal of questions with missing passages", () => {
     const toDelete = flagged.filter((x) => x.action === "DELETE").map((x) => x.id);
     const backup = await backupSubset(repo, toDelete);
     assert.equal(backup.tables.Question.length, toDelete.length);
-    assert.ok(backup.tables.QuestionOption.length >= toDelete.length * 2, "options are in the backup");
+    // r89 fix: `toDelete.length * 2` assumed only the two purpose-built fixture questions above would ever be
+    // flagged, each with exactly 3 options — but the seeded test environment's own bank can also contain questions
+    // that legitimately trip the same missing-passage detection, so the real option count must be read, not guessed
+    const expectedOptions = (await repo.findMany("QuestionOption", { questionId: { in: toDelete } })).length;
+    assert.equal(backup.tables.QuestionOption.length, expectedOptions, "every deleted question's options are in the backup");
     const r = await executePassageCleanup(repo, flagged);
     assert.ok(r.integrity.ok, r.integrity.problems.join("; "));
     assert.deepEqual(await counts(), before, "grades, units, skills, standards, curriculum, users untouched");

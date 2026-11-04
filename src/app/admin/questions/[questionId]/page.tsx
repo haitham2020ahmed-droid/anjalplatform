@@ -145,7 +145,10 @@ export default async function QuestionPage({ params, searchParams }: { params: P
         </section>
       )}
 
-      <p className="mt-4 flex flex-wrap items-center gap-1.5 rounded-xl bg-indigo-50 px-4 py-2 text-sm text-indigo-950 ring-1 ring-indigo-200"><LineIcon name="compass" className="h-4 w-4" />NWEA MAP: {d.map.area ? <><b>{d.map.test}</b> · <b>{d.map.area}</b> <span className="text-indigo-700">({d.map.source === "ADMIN" ? "set by an admin" : d.map.source === "IMPORT" ? "from the import file" : d.map.source === "TEXT" ? "read from the wording — please check" : d.map.source === "STANDARD" ? "from its standard" : d.map.source === "SKILL" ? "from its skill (Mechanics)" : d.map.source === "SKILL_STANDARD" ? "from its skill's standard" : "from its skill category"})</span></> : "not classified yet"}</p>
+      <p className="mt-4 flex flex-wrap items-center gap-1.5 rounded-xl bg-indigo-50 px-4 py-2 text-sm text-indigo-950 ring-1 ring-indigo-200"><LineIcon name="compass" className="h-4 w-4" />NWEA MAP: {d.map.area ? <><b>{d.map.test}</b> · <b>{d.map.area}</b> <span className="text-indigo-700">({d.map.source === "ADMIN" ? "set by an admin" : d.map.source === "IMPORT" ? "from the import file" : d.map.source === "TEXT" ? "read from the wording — please check" : d.map.source === "STANDARD" ? "from its standard" : d.map.source === "SKILL" ? "from its skill (Mechanics)" : d.map.source === "SKILL_STANDARD" ? "from its skill's standard" : "from its skill category"})</span>
+      {/* 🔧 improvement (Oct 2026): TEXT and AI are the two lowest-confidence auto-classification sources (classifyQuestion's
+          fallback cascade) — flag them so an admin scanning questions notices which ones were never confirmed by a human. */}
+      {(d.map.source === "TEXT" || d.map.source === "AI") && <span className="rounded-full bg-amber-100 px-2 py-0.5 text-xs font-semibold text-amber-800 ring-1 ring-amber-300">⚠ Needs review</span>}</> : "not classified yet"}</p>
       {editReq && (
         <p data-testid="edit-waiting" className="mt-4 rounded-xl bg-amber-50 px-4 py-2 text-sm text-amber-950 ring-1 ring-amber-200">
           A change by <b>{editReq.byName}</b> ({editReq.at.slice(0, 10)}) is waiting for the admin. Students still see the version below.

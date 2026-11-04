@@ -3,7 +3,7 @@ import { AppShell } from "@/components/app-shell";
 import { PageHeader } from "@/components/page-header";
 import { LevelBoard } from "@/components/teacher/level-board";
 import { getActor, repo, requireActor } from "@/server/auth/next";
-import { accessibleClasses } from "@/server/teacher/assign";
+import { accessibleClasses, hasPriorSkillAssignment } from "@/server/teacher/assign";
 import { skillPool } from "@/server/teacher/skill-assign";
 import { suggestLevels } from "@/server/curriculum-map/auto-levels";
 import { assignSkillAction } from "./actions";
@@ -11,6 +11,7 @@ import { findQuestionsForSkill } from "@/server/curriculum/question-finder";
 import { ValidationError } from "@/server/curriculum-admin";
 import { BankPanel } from "./bank-panel";
 import { SkillAssignSteps } from "@/components/skill-picker";
+import { AssignDates } from "@/components/assign/assign-dates";
 
 export const metadata = { title: "Assign a skill" };
 
@@ -18,7 +19,7 @@ export const metadata = { title: "Assign a skill" };
  * ⭐ Assign a skill: 🤖 Automatic (default) or ✋ Manual (Below / On / Above board), optional due date, then
  * Program → which questions (the platform chooses, or the teacher picks) → Preview as student → Assign.
  */
-export default async function SkillAssignPage({ searchParams }: { searchParams: Promise<{ skillId?: string; classId?: string; lessonId?: string; manual?: string; msg?: string }> }) {
+export default async function SkillAssignPage({ searchParams }: { searchParams: Promise<{ skillId?: string; classId?: string; lessonId?: string; manual?: string; msg?: string; confirm?: string }> }) {
   const actor = await requireActor({ roles: ["TEACHER"], permission: "assignments:create" });
   const me = (await getActor())!.user;
   const sp = await searchParams;
@@ -29,17 +30,21 @@ export default async function SkillAssignPage({ searchParams }: { searchParams: 
   const classes = (await accessibleClasses(repo, actor)).sort((a, b) => Number(levelOfClass(b) === pool.skill.grade) - Number(levelOfClass(a) === pool.skill.grade) || String(a.name).localeCompare(String(b.name)));
   const k = classes.find((c) => c.id === sp.classId) ?? classes[0];
   const manual = sp.manual === "1";
+  const confirmed = sp.confirm === "1";
+  // ⚠️ this skill may already have been assigned to this class before: warn and let the teacher choose, rather
+  // than silently sending the same work again
+  const dup = k && !confirmed ? await hasPriorSkillAssignment(repo, String(k.id), pool.skill.id) : false;
   const isGrammar = /grammar|mechanic|usage|punctuat|capital/i.test(pool.skill.name);
   const sug = k ? await suggestLevels(repo, actor, String(k.id), { subject: isGrammar ? "LANGUAGE" : "READING" }) : null;
   const box = "rounded-lg border border-slate-300 px-3 py-2";
   const total = pool.byLevel.BELOW.length + pool.byLevel.ON.length + pool.byLevel.ABOVE.length;
   const link = (o: Record<string, string>) => {
-    const p = new URLSearchParams({ skillId: pool.skill.id, ...(k ? { classId: String(k.id) } : {}), ...(sp.lessonId ? { lessonId: sp.lessonId } : {}), ...(manual ? { manual: "1" } : {}), ...o });
+    const p = new URLSearchParams({ skillId: pool.skill.id, ...(k ? { classId: String(k.id) } : {}), ...(sp.lessonId ? { lessonId: sp.lessonId } : {}), ...(manual ? { manual: "1" } : {}), ...(confirmed ? { confirm: "1" } : {}), ...o });
     for (const [key, v] of [...p.entries()]) if (!v) p.delete(key);
     return `/teacher/skill-assign?${p}`;
   };
   // 🔎 Curriculum → Question Bank: the skill's questions grouped by lesson / skill / standard (a wrong lesson is ignored)
-  const found = k ? await findQuestionsForSkill(repo, actor, { skillId: pool.skill.id, lessonId: sp.lessonId || null, classId: String(k.id) })
+  const found = k && !dup ? await findQuestionsForSkill(repo, actor, { skillId: pool.skill.id, lessonId: sp.lessonId || null, classId: String(k.id) })
     .catch((e) => (e instanceof ValidationError && sp.lessonId ? findQuestionsForSkill(repo, actor, { skillId: pool.skill.id, classId: String(k.id) }) : Promise.reject(e))) : null;
   return (
     <AppShell name={String(me.displayName)}>
@@ -47,12 +52,37 @@ export default async function SkillAssignPage({ searchParams }: { searchParams: 
         <Link href={`/teacher/preview?skillId=${pool.skill.id}`} className="rounded-xl bg-white px-4 py-2 font-semibold text-brand-navy ring-1 ring-slate-300 hover:ring-brand-teal">👀 Preview</Link>
       </PageHeader>
       {sp.msg && <p role="status" className="mb-4 rounded-xl bg-teal-50 px-4 py-3 text-teal-900 ring-1 ring-teal-200">{sp.msg}</p>}
-      {!k ? <p className="text-slate-600">You have no class yet.</p> : !total ? <p className="rounded-2xl bg-white p-6 text-slate-600 ring-1 ring-slate-200">This skill has no questions yet.</p> : (
+      {k && dup && (
+        <div className="mb-4 rounded-2xl bg-amber-50 p-5 ring-1 ring-amber-300">
+          <p className="font-semibold text-amber-900">⚠️ This skill was already assigned to {String(k.name)} before.</p>
+          <p className="mt-1 text-sm text-amber-800">You can assign it again (e.g. more practice, or a different level/date), or cancel and go back.</p>
+          <div className="mt-3 flex flex-wrap gap-3">
+            <Link href={link({ confirm: "1" })} className="rounded-xl bg-brand-navy px-4 py-2 font-semibold text-white hover:bg-brand-purple">✅ Assign it again</Link>
+            <Link href="/teacher" className="rounded-xl bg-white px-4 py-2 font-semibold text-slate-700 ring-1 ring-slate-300 hover:ring-brand-teal">✖️ Cancel</Link>
+          </div>
+        </div>
+      )}
+      {!k ? <p className="text-slate-600">You have no class yet.</p> : dup ? null : !total ? <p className="rounded-2xl bg-white p-6 text-slate-600 ring-1 ring-slate-200">This skill has no questions yet.</p> : (
         <form action={assignSkillAction} className="rounded-2xl bg-white p-5 ring-1 ring-slate-200">
-          <input type="hidden" name="skillId" value={pool.skill.id} /><input type="hidden" name="classId" value={String(k.id)} /><input type="hidden" name="mode" value={manual ? "MANUAL" : "AUTOMATIC"} />
-          <nav aria-label="Classes" className="mb-4 flex flex-wrap gap-2">
+          <input type="hidden" name="skillId" value={pool.skill.id} />{(manual || classes.length <= 1) && <input type="hidden" name="classId" value={String(k.id)} />}<input type="hidden" name="mode" value={manual ? "MANUAL" : "AUTOMATIC"} />
+          <nav aria-label="Classes (preview and, in Manual mode, the class assigned)" className="mb-4 flex flex-wrap gap-2">
             {classes.map((c) => <Link key={String(c.id)} href={`/teacher/skill-assign?${new URLSearchParams({ skillId: pool.skill.id, classId: String(c.id), ...(manual ? { manual: "1" } : {}) })}`} aria-current={c.id === k.id ? "page" : undefined} className={`rounded-full px-4 py-1.5 text-sm font-semibold ${c.id === k.id ? "bg-brand-navy text-white" : "bg-white ring-1 ring-slate-200"}`}>{String(c.name)} · Grade {levelOfClass(c)}</Link>)}
           </nav>
+          {/* r91: Automatic mode may assign several classes at once (owner: "I do this step twice, once per
+              class"); Manual keeps one class (the level board above places specific students of this one class). */}
+          {!manual && classes.length > 1 && (
+            <fieldset className="mb-4" data-testid="assign-classes">
+              <legend className="text-sm font-semibold text-slate-700">Also assign to <span className="font-normal text-slate-500">(choose one or more)</span></legend>
+              <div className="mt-1 flex flex-wrap gap-2 text-sm">
+                {classes.map((c) => (
+                  <label key={String(c.id)} className="cursor-pointer">
+                    <input type="checkbox" name="classIds" value={String(c.id)} defaultChecked={c.id === k.id} className="peer sr-only" />
+                    <span className="rounded-full px-3 py-1.5 font-semibold ring-1 ring-slate-300 peer-checked:bg-brand-teal peer-checked:text-white peer-checked:ring-0">{String(c.name)}</span>
+                  </label>
+                ))}
+              </div>
+            </fieldset>
+          )}
           <div className="grid gap-2 md:grid-cols-2">
             <Link href={link({ manual: "" })} aria-current={!manual ? "page" : undefined} className={`rounded-2xl p-4 ring-2 ${!manual ? "bg-emerald-50 ring-emerald-400" : "bg-white ring-slate-200"}`}><b>🤖 Automatic (recommended)</b><br /><span className="text-sm text-slate-600">Each student starts at their own level and moves up or down by their answers.</span></Link>
             <Link href={link({ manual: "1" })} aria-current={manual ? "page" : undefined} className={`rounded-2xl p-4 ring-2 ${manual ? "bg-sky-50 ring-sky-400" : "bg-white ring-slate-200"}`}><b>✋ Manual</b><br /><span className="text-sm text-slate-600">You choose who is Approaching, Meeting and Exceeding; each gets only that level.</span></Link>
@@ -64,13 +94,13 @@ export default async function SkillAssignPage({ searchParams }: { searchParams: 
           </details>
           <div className="mt-4 flex flex-wrap items-end gap-3 text-sm">
             <label className="flex flex-col">Questions per student<input type="number" name="max" min={5} max={50} defaultValue={20} className={`${box} w-28`} /></label>
-            <label className="flex flex-col">Due date (optional)<input type="date" name="dueAt" className={box} /></label>
+            <AssignDates field={box} />
             <label className="flex min-w-[16rem] flex-1 flex-col">Note to students (optional)<input name="note" maxLength={1000} className={box} /></label>
           </div>
           <div className="mt-5 border-t border-slate-100 pt-4"><SkillAssignSteps skillId={pool.skill.id} grammar={pool.skill.grammar} /></div>
         </form>
       )}
-      {k && found && <BankPanel found={found} classId={String(k.id)} link={link} />}
+      {k && !dup && found && <BankPanel found={found} classId={String(k.id)} link={link} />}
     </AppShell>
   );
 }

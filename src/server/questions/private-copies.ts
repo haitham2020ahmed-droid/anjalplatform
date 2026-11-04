@@ -51,18 +51,29 @@ const tagsOf = (v: unknown): Record<string, unknown> => {
  * creator is unknown: then only the admin sees it). Returns how many were made private. Never deletes anything.
  */
 export async function privatizeOldCopies(repo: Repo, batch = 500): Promise<number> {
-  let n = 0, after = "";
+  let n = 0, after: string | null = null;
   for (let round = 0; round < 1000; round++) {
-    const rows = await repo.findMany("Question", { externalRef: { contains: "TCOPY-" }, privateToId: null, ...(after ? { id: { gt: after } } : {}) }, { select: ["id", "tags", "createdById"], orderBy: [{ field: "id", dir: "asc" }], take: batch });
-    if (!rows.length) break;
-    after = s(rows[rows.length - 1].id);
-    // a row that only looks like a copy (TCOPY- inside an imported reference) stays shared
-    const byOwner = new Map<string, string[]>();
-    for (const q of rows) if (tagsOf(q.tags).teacherCopyOf) { const o = s(q.createdById); byOwner.set(o, [...(byOwner.get(o) ?? []), s(q.id)]); }
-    for (const [owner, ids] of byOwner) n += await repo.updateMany("Question", { id: { in: ids } }, { privateToId: owner });
-    if (rows.length < batch) break;
+    const r = await privatizeBatch(repo, after, batch);
+    n += r.privatized;
+    if (!r.next) break;
+    after = r.next;
   }
   return n;
+}
+
+/**
+ * ONE batch of the above (the background job runner, src/server/jobs/runner.ts): the next `batch` candidates after
+ * `after` (id order), only the three columns needed. `next` = the cursor of the next batch (null: finished).
+ */
+export async function privatizeBatch(repo: Repo, after: string | null, batch = 200): Promise<{ privatized: number; checked: number; next: string | null }> {
+  const rows = await repo.findMany("Question", { externalRef: { contains: "TCOPY-" }, privateToId: null, ...(after ? { id: { gt: after } } : {}) }, { select: ["id", "tags", "createdById"], orderBy: [{ field: "id", dir: "asc" }], take: batch });
+  if (!rows.length) return { privatized: 0, checked: 0, next: null };
+  // a row that only looks like a copy (TCOPY- inside an imported reference) stays shared
+  const byOwner = new Map<string, string[]>();
+  for (const q of rows) if (tagsOf(q.tags).teacherCopyOf) { const o = s(q.createdById); byOwner.set(o, [...(byOwner.get(o) ?? []), s(q.id)]); }
+  let n = 0;
+  for (const [owner, ids] of byOwner) n += await repo.updateMany("Question", { id: { in: ids } }, { privateToId: owner });
+  return { privatized: n, checked: rows.length, next: rows.length < batch ? null : s(rows[rows.length - 1].id) };
 }
 
 let started: Promise<number> | null = null;

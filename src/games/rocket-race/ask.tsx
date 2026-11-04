@@ -10,6 +10,7 @@ import { useT } from "@/i18n/client";
 import type { AnswerOutcome, PlayQuestion, PowerEffect, PowerUpId, RoundApi } from "../types";
 import { AnswerTiles } from "../kit/answer-tiles";
 import { PowerBar } from "../kit/power-bar";
+import { RichInline } from "../../components/rich-inline";
 
 /** Nominal seconds per question for the speed bonus (the race / castle sets the real pace). */
 export const ASK_SECONDS = 20;
@@ -66,11 +67,11 @@ export function Ask({ q, n, total, round, onAnswered, onNext, paused, hold, extr
         <p className="mb-1 text-sm font-semibold text-slate-500">{t("Question {n} of {total}", { n, total })}</p>
         {q.passage && (
           <details className="mb-3 rounded-2xl bg-slate-50 p-3 ring-1 ring-slate-200">
-            <summary className="flex min-h-11 cursor-pointer items-center font-semibold text-brand-navy">📖 <span dir="ltr" lang="en" className="ms-1">{q.passage.title}</span></summary>
-            <p dir="ltr" lang="en" className="mt-2 whitespace-pre-line leading-relaxed text-slate-800">{q.passage.text}</p>
+            <summary className="flex min-h-11 cursor-pointer items-center font-semibold text-brand-navy">📖 <span dir="ltr" lang="en" className="ms-1"><RichInline text={q.passage.title} /></span></summary>
+            <p dir="ltr" lang="en" className="mt-2 whitespace-pre-line leading-relaxed text-slate-800"><RichInline text={q.passage.text} /></p>
           </details>
         )}
-        <p dir="ltr" lang="en" className="text-lg font-semibold leading-relaxed text-slate-900 sm:text-xl">{q.stem}</p>
+        <p dir="ltr" lang="en" className="text-lg font-semibold leading-relaxed text-slate-900 sm:text-xl"><RichInline text={q.stem} /></p>
         {hint && <p className="mt-2 rounded-xl bg-amber-50 px-3 py-2 text-amber-900 ring-1 ring-amber-200"><span aria-hidden="true">💡 </span><span dir="ltr" lang="en">{hint}</span></p>}
       </article>
       <AnswerTiles options={q.options ?? []} hidden={hidden} disabled={!!done || round.over || paused} onPick={pick} reveal={done ? { right, picked } : null} />

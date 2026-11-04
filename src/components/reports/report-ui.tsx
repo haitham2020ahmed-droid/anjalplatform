@@ -68,7 +68,7 @@ export function ExportLinks({ report, label = "Download" }: { report: Req; label
   return (
     <div className="flex flex-wrap items-center gap-2 print:hidden">
       <span className="text-sm text-slate-500">{label}:</span>
-      <a className={a} download href={reportHref({ ...report, format: "pdf", locale: "en" })}>PDF</a>
+      <a className={a} target="_blank" rel="noopener" href={reportHref({ ...report, format: "pdf", locale: "en" })}>PDF</a>
       <a className={a} download href={reportHref({ ...report, format: "xlsx", locale: "en" })}>Excel</a>
       <a className={a} download href={reportHref({ ...report, format: "csv", locale: "en" })}>CSV</a>
     </div>

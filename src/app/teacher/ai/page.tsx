@@ -7,6 +7,8 @@ import { classIntelligence, copilotAnswer, intentOf, PRESETS } from "@/server/co
 import { assignCopilotQuestionsAction } from "./actions";
 import { InsightActions } from "@/components/teacher/insight-actions";
 import { getT } from "@/i18n/server";
+import { RichInline } from "@/components/rich-inline";
+import { SourceSelect } from "@/components/assign/source-select";
 
 export const metadata = { title: "Class AI" };
 const RISK = { HIGH: "bg-red-100 text-red-800", MEDIUM: "bg-amber-100 text-amber-900", LOW: "bg-emerald-100 text-emerald-800" } as const;
@@ -68,10 +70,11 @@ export default async function TeacherAiPage({ searchParams }: { searchParams: Pr
           </>}
           {a.questions.length > 0 && (a.intent === "TOMORROW" || a.intent === "QUESTIONS") && <>
             <h3 className="mt-3 font-bold text-brand-navy">❓ Recommended questions</h3>
-            <ul className="mt-1 space-y-1 text-sm">{a.questions.map((q) => <li key={q.id}><span className="me-1 rounded bg-slate-100 px-1.5 text-xs">L{q.level}</span>{q.stem}</li>)}</ul>
+            <ul className="mt-1 space-y-1 text-sm">{a.questions.map((q) => <li key={q.id}><span className="me-1 rounded bg-slate-100 px-1.5 text-xs">L{q.level}</span><RichInline text={q.stem} /></li>)}</ul>
             <form action={assignCopilotQuestionsAction} className="mt-2 flex flex-wrap items-center gap-2">
               <input type="hidden" name="classId" value={String(klass.id)} /><input type="hidden" name="questionIds" value={a.questions.map((q) => q.id).join(",")} />
               <input type="hidden" name="studentIds" value={a.groups[0]?.studentIds.join(",") ?? ""} /><input type="hidden" name="title" value={`Copilot: ${a.lesson?.focus ?? "practice"}`} />
+              <SourceSelect t={t} compact />
               <button className="rounded-xl bg-brand-navy px-4 py-2 text-sm font-semibold text-white">Assign to {a.groups[0] ? `${a.groups[0].name} (${a.groups[0].students.length})` : "the class"}</button>
             </form>
           </>}

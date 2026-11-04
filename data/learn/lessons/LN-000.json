@@ -137,10 +137,10 @@
      "passage": "Rain is good for plants. It gives them a drink. It helps them grow. It keeps their leaves green.",
      "stem": "What is this text mostly about?",
      "options": [
-      "Plants need sun.",
-      "Leaves are green.",
+      "Plants need sun to grow.",
+      "Leaves are green in spring.",
       "Rain is good for plants.",
-      "Rain is wet."
+      "Rain is wet and cold."
      ],
      "answer": 2,
      "why": "A drink, growing and green leaves are all ways rain is good for plants."
@@ -209,10 +209,10 @@
     "passage": "Every Thursday, students at our school work in the garden. Some pull weeds between the rows of tomatoes. Others water the mint and basil. The youngest students collect ripe beans in baskets. By the end of the day, everyone has helped the garden grow.",
     "stem": "What is this paragraph mostly about?",
     "options": [
-     "Tomatoes need a lot of water.",
+     "Tomatoes need a lot of water in the hot summer.",
      "Students work together to care for the school garden.",
-     "The youngest students collect beans.",
-     "Mint and basil grow quickly."
+     "The youngest students collect beans for the cook.",
+     "Mint and basil grow quickly in the school garden."
     ],
     "answer": 1,
     "hint": "That is one detail. Does every sentence talk about it? Look for the idea that covers all the sentences.",
@@ -240,10 +240,10 @@
      "passage": "Falcons are among the fastest birds in the world. When a peregrine falcon dives, it can move faster than a car on a highway. Its pointed wings help it cut through the air. Its smooth body is shaped like an arrow.",
      "stem": "What is the main idea?",
      "options": [
-      "Falcons have pointed wings.",
+      "Falcons have pointed wings and sharp claws.",
       "Falcons are built to fly very fast.",
       "Cars drive fast on highways.",
-      "Falcons have smooth bodies."
+      "Falcons have smooth bodies and long tails."
      ],
      "answer": 1,
      "why": "The dive, the pointed wings and the arrow-shaped body all show that falcons are built for speed."
@@ -323,10 +323,10 @@
     "passage": "Long before cars and trucks, camel caravans crossed the Arabian Peninsula. Traders carried incense, spices and cloth from one market town to the next. Along the way, they stopped at oases to rest and refill their water skins. Towns grew up beside these stops, where people from far away met, traded and shared news. In this way, the old caravan routes connected distant places and helped communities grow.",
     "stem": "Which sentence best states the main idea of the paragraph?",
     "options": [
-     "Traders carried incense, spices and cloth.",
+     "Traders carried incense, spices and cloth to the market.",
      "Caravan routes linked faraway places and helped towns grow.",
-     "Oases had water for travellers.",
-     "Cars and trucks are faster than camels."
+     "Oases had water for travellers who walked all day.",
+     "Cars and trucks are faster than camels on long roads."
     ],
     "answer": 1,
     "hint": "That is only one detail. Which answer do ALL the sentences support?",
@@ -354,9 +354,9 @@
      "passage": "Many students think a good night's sleep is a waste of study time. In fact, the brain sorts and stores new facts while we sleep. Students who rest well remember more of what they learned. They also find it easier to pay attention in class the next day.",
      "stem": "What is the main idea?",
      "options": [
-      "The brain stores facts.",
+      "The brain stores facts and pictures.",
       "Students should study all night.",
-      "Paying attention in class is hard.",
+      "Paying attention in class is hard for many kids.",
       "Sleep helps students learn and remember."
      ],
      "answer": 3,
@@ -366,10 +366,10 @@
      "passage": "Huda checked the weather every hour. She packed her bag twice and laid out her clothes the night before. At breakfast she could hardly eat, and she kept asking her father what time they would leave for the airport.",
      "stem": "Which sentence best states the main idea?",
      "options": [
-      "Huda likes to check the weather.",
+      "Huda likes to check the weather often.",
       "Huda is excited and nervous about her trip.",
-      "Huda's father drives to the airport.",
-      "Huda does not like breakfast."
+      "Huda's father drives to the airport later.",
+      "Huda does not like breakfast at home."
      ],
      "answer": 1,
      "why": "The text never says it, but checking the weather, packing twice and not eating all show that Huda is excited and nervous."
@@ -441,9 +441,9 @@
     "passage": "When the first public libraries opened in many cities, few people could afford books of their own. A library meant that a farmer's daughter could read the same history as a merchant's son. Over time, libraries added more than books: maps, newspapers, and later computers and internet access. Librarians began to teach classes on how to judge whether information is reliable. In some towns, the library became the only quiet place where students could study after school. Although the shelves and screens have changed, the purpose has stayed the same.",
     "stem": "Which statement best expresses the central idea of the passage?",
     "options": [
-     "Libraries have always had computers.",
-     "Librarians teach classes about information.",
-     "Books used to be too expensive for most families.",
+     "Libraries have always had computers and the internet for everyone.",
+     "Librarians teach classes about information and how to use the internet safely.",
+     "Books used to be too expensive for most families to buy at all.",
      "Libraries keep changing, but they still give everyone a fair chance to learn."
     ],
     "answer": 3,
@@ -474,9 +474,9 @@
      "stem": "What is the central idea?",
      "options": [
       "Coral reefs cover only a small part of the ocean floor.",
-      "Scientists look for new medicines in the sea.",
+      "Scientists look for new medicines in the sea and in the soil.",
       "Coral reefs are small but give great benefits that are now at risk.",
-      "Storm waves can be dangerous for people near the shore."
+      "Storm waves can be dangerous for people who live near the shore."
      ],
      "answer": 2,
      "why": "Food, protection from waves and medicines are all benefits, and the last sentence warns they are at risk. Each other choice is one detail."
@@ -485,9 +485,9 @@
      "passage": "The old clock on the classroom wall had stopped at ten past three years ago, but nobody had taken it down. Students checked their watches instead. The teacher had stopped noticing it. One morning a new student asked why a broken clock was still hanging there, and for a moment the whole class looked up as if seeing it for the first time.",
      "stem": "Which sentence best expresses the central idea?",
      "options": [
-      "The classroom needed a new clock.",
+      "The classroom needed a new clock on the wall.",
       "People can stop noticing things they see every day.",
-      "The new student did not have a watch.",
+      "The new student did not have a watch or a phone.",
       "The teacher was too busy to fix the clock."
      ],
      "answer": 1,

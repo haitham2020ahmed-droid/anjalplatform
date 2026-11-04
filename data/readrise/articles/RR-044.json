@@ -64,6 +64,16 @@
       "level": 1400,
       "title": "The Phases of the Moon",
       "text": "Anyone who systematically observes the night sky over several consecutive weeks will notice that the Moon appears to transform its shape, shifting from a delicate, curved sliver to a brilliant, luminous circle in approximately a week. Nevertheless, the Moon itself never genuinely changes; only our geometric perspective on it does.\n\nThe Moon generates no illumination whatsoever; instead, sunlight strikes its gray, rocky surface, which reflects a modest fraction of that radiation back toward Earth, so the lunar radiance we admire is essentially borrowed sunshine.\n\nAt every moment, the Sun illuminates precisely one hemisphere of the Moon, namely the half oriented toward the Sun, while the opposite hemisphere remains in complete darkness.\n\nThe Moon travels around Earth along a path called its orbit, completing one entire cycle of appearances in approximately 29 and a half days, an interval that corresponds roughly to a calendar month.\n\nAs the Moon progresses along its orbit, observers on Earth perceive continuously varying proportions of its illuminated hemisphere, and astronomers designate each of these characteristic appearances as a phase.\n\nAt the new Moon, the sunlit hemisphere faces away from us, rendering the Moon practically invisible against the daytime sky. Shortly afterward, a slender crescent emerges, and the illuminated portion continues expanding, a stage astronomers characterize as waxing, until a half Moon and ultimately a full Moon become visible. Subsequently, the illuminated portion diminishes, a process designated as waning, until the cycle recommences. The intermediate phases immediately preceding and following the full Moon, when more than half the lunar disk is illuminated, are described as gibbous.\n\nA widespread misconception maintains that the darkened portion represents Earth's shadow, but this explanation is fundamentally incorrect, since it is simply the side of the Moon oriented away from the Sun.\n\nFurthermore, because the Moon requires precisely as long to rotate once on its axis as it does to complete an orbit of Earth, it perpetually keeps the identical side turned toward us.\n\nIn Saudi Arabia, each month of the Hijri calendar officially commences when the new crescent is sighted after sunset.\n\nBecause a complete cycle lasts approximately 29 and a half days, every Hijri month contains either 29 or 30 days, and the Hijri year is consequently about eleven days shorter than the solar year.\n\nConsequently, you can demonstrate these phases yourself using an ordinary lamp and a ball: darken a room, switch on the lamp, hold the ball at arm's length, and rotate slowly in a circle, observing that as you turn, the illuminated region of the ball expands from a crescent to a complete circle and subsequently contracts again, precisely mirroring the behavior of the genuine Moon. In this demonstration, the lamp represents the Sun, the ball represents the Moon, and your head represents Earth."
+    },
+    {
+      "level": 1500,
+      "title": "The Phases of the Moon",
+      "text": "The Moon generates no light of its own; every glow it casts into the night sky is reflected sunlight. At any given moment, the Sun illuminates exactly one hemisphere of the Moon, just as it illuminates exactly one hemisphere of Earth, yet because the Moon continuously orbits our planet, the proportion of its illuminated hemisphere that remains visible from Earth changes night after night, thereby producing the familiar cycle of lunar phases. This orbital journey requires approximately twenty-nine and a half days to complete, a period that governs the rhythm of the entire phase cycle.\n\nThe sequence commences at the new moon, when the Moon's illuminated hemisphere faces entirely away from Earth, leaving the visible side shrouded in darkness. From there, a waxing crescent gradually materializes, expanding into a half moon, then becoming a waxing gibbous, before culminating in the full moon, when the Moon's entire visible face becomes illuminated. The cycle then reverses: a waning gibbous progressively shrinks to a half moon, then diminishes further into a waning crescent, before eventually returning once more to new moon, whereupon the pattern begins anew.\n\nA common misconception holds that the darkened portion of the Moon during its various phases results directly from Earth's shadow falling across its surface. This assumption is fundamentally incorrect; Earth's shadow instead causes lunar eclipses, a distinct and considerably less frequent astronomical phenomenon. The darkness observed during ordinary phases simply reflects which particular part of the Moon's surface happens to be facing the Sun at that specific moment, rather than any obstruction caused by Earth itself.\n\nAnother subtlety concerns the Moon's rotational behavior. The Moon does, in fact, rotate steadily on its own axis, but its rotational period matches its orbital period with such precision that the same lunar hemisphere always faces Earth, meaning observers on our planet never glimpse the Moon's far side without the aid of specialized spacecraft.\n\nThis cycle additionally carries significant cultural and religious importance. Hijri calendar months begin with the sighting of the new crescent moon, and because the lunar cycle does not divide evenly into whole days, each month lasts either twenty-nine or thirty days. A simple demonstration employing a lamp to represent the Sun, a small ball to represent the Moon, and one's own head to represent Earth can vividly illustrate why these phases occur precisely as they do.\n\nUnderstanding this cycle possesses considerable practical value extending well beyond astronomy alone, since knowing which particular phase the Moon currently occupies allows observers to accurately predict how much natural illumination will remain available after sunset on any given night of the month.\n\nAstronomers and ordinary observers alike have relied upon this remarkably predictable rhythm for thousands of years, long before any formal written calendar existed to record it systematically."
+    },
+    {
+      "level": 1600,
+      "title": "The Phases of the Moon",
+      "text": "The Moon generates no illumination of its own; every trace of light it casts across the night sky is, in fact, sunlight reflected from its surface. At any given instant, the Sun illuminates precisely one hemisphere of the Moon, just as it simultaneously illuminates precisely one hemisphere of Earth, yet because the Moon continuously progresses along its orbital path around our planet, the particular portion of its illuminated hemisphere visible from Earth shifts incrementally from night to night, generating the recognizable sequence of lunar phases. This orbital journey requires approximately twenty-nine and a half days to complete, a duration that governs the rhythm of the entire phase cycle from beginning to end.\n\nThe sequence commences at new moon, a configuration in which the Moon's illuminated hemisphere faces entirely away from Earth, rendering the visible face dark. Thereafter, a waxing crescent gradually emerges, expanding progressively into a half moon, then a waxing gibbous, before culminating in the full moon, at which point the Moon's entire visible face appears illuminated. The cycle subsequently reverses direction: a waning gibbous diminishes into a half moon, then into a waning crescent, before ultimately returning once again to new moon, whereupon the entire pattern recommences.\n\nA persistent misconception holds that the darkened portion of the Moon observable during its various phases results from Earth's shadow being cast across its surface. This belief is mistaken; Earth's shadow is instead responsible for lunar eclipses, a distinct and considerably less frequent astronomical phenomenon. The darkness observed during ordinary phases reflects nothing more than which particular region of the Moon's surface happens, at that moment, to face the Sun directly, rather than any obstruction imposed by Earth's intervening bulk.\n\nA further subtlety concerns the Moon's own rotation. The Moon does indeed rotate about its axis, yet its rotational period corresponds so precisely with its orbital period that the identical lunar hemisphere perpetually faces Earth, meaning that observers situated on our planet never glimpse the Moon's far side unaided by spacecraft specifically dispatched for that purpose.\n\nThis recurring cycle additionally carries considerable cultural and religious significance. Hijri calendar months are traditionally reckoned to begin with the sighting of the new crescent moon, and because the lunar cycle does not divide evenly into whole days, each resulting month spans either twenty-nine or thirty days depending on observational timing. A straightforward demonstration employing a lamp to represent the Sun, a ball to represent the Moon, and one's own head to represent Earth can vividly and convincingly illustrate precisely why these phases unfold in the sequence and manner that they do, offering an intuitive grasp of an otherwise abstract astronomical mechanism.\n\nUnderstanding this recurring cycle carries considerable practical value extending well beyond pure astronomical curiosity alone, since knowing precisely which phase the Moon currently occupies allows observers to predict with reasonable confidence how much natural illumination will be available after sunset on any particular night throughout the month, information that proved essential to travelers and farmers alike long before electric lighting became commonplace."
     }
   ],
   "bands": {
@@ -243,7 +253,8 @@
         "I said that the Moon gets its light from the Sun.",
         "I said that the Moon moves around Earth.",
         "I said that we see more or less of the lit half."
-      ]
+      ],
+      "modelAnswer": "The Moon does not make its own light; it only reflects light from the Sun. As the Moon moves around Earth on its orbit, we see different amounts of the sunlit half, so the shape we see in the sky seems to change even though the Moon itself never changes."
     },
     "MID": {
       "keyWords": [
@@ -350,10 +361,10 @@
         {
           "stem": "Why is the Moon almost invisible at the new Moon?",
           "options": [
-            "Clouds always cover it then.",
+            "Clouds always cover it then, all night.",
             "Its sunlit side faces away from us.",
-            "It stops reflecting light.",
-            "Earth's shadow hides it."
+            "It stops reflecting light for a few days.",
+            "Earth's shadow hides it from the Sun."
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -401,10 +412,10 @@
         {
           "stem": "What can you infer from the fact that the Moon always shows us the same side?",
           "options": [
-            "The Moon does not move at all.",
+            "The Moon does not move at all, so it stays in one place.",
             "People on Earth never see some parts of the Moon.",
-            "The Moon has no dark side.",
-            "The far side is Earth's shadow."
+            "The Moon has no dark side, so it is always lit.",
+            "The far side is Earth's shadow, so it is always dark."
           ],
           "answer": "B",
           "skill": "inference",
@@ -421,7 +432,8 @@
         "I put the phases in the correct order.",
         "I used waxing, waning, and gibbous correctly.",
         "I explained that the Sun always lights half of the Moon."
-      ]
+      ],
+      "modelAnswer": "The Sun always lights exactly half of the Moon, and the cycle starts at the new Moon, when that lit half faces away from us so the Moon looks almost invisible. The bright part keeps growing, which is called waxing, through a crescent, a half Moon, a gibbous phase, and finally a full Moon. After that, the bright part shrinks, which is called waning, moving back through gibbous and crescent shapes until the cycle begins again at the next new Moon."
     },
     "HIGH": {
       "keyWords": [
@@ -511,10 +523,10 @@
         {
           "stem": "The author writes that the lunar glow is \"essentially borrowed sunshine.\" What does this phrase suggest?",
           "options": [
-            "The Moon will give the light back later.",
-            "The Moon steals light from the stars.",
+            "The Moon will give the light back later, in the morning",
+            "The Moon steals light from the stars, and so it glows",
             "The light we see from the Moon really belongs to the Sun.",
-            "Sunshine is weaker on the Moon."
+            "Sunshine is weaker on the Moon, so it looks dim at night"
           ],
           "answer": "C",
           "skill": "vocabulary",
@@ -599,7 +611,8 @@
         "I explained that the Sun always lights one hemisphere of the Moon.",
         "I explained how the Moon's orbit changes what we see.",
         "I used at least two key words correctly."
-      ]
+      ],
+      "modelAnswer": "My friend's idea that the Moon's dark part is Earth's shadow is a common misconception, but the article makes clear that the Sun always illuminates exactly one hemisphere of the Moon, the half that faces the Sun, while the opposite hemisphere simply stays in darkness because sunlight never reaches it. The real cause of the lunar phases is the Moon's orbit around Earth: as it travels along that path, we on Earth see different portions of its lit half, from a thin crescent to a full Moon and back again, which has nothing to do with Earth blocking sunlight."
     }
   }
 }

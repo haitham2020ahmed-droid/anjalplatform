@@ -46,9 +46,9 @@
       "type": "MCQ",
       "stem": "Read this sentence from paragraph 1: “even the most resilient shrubs had become brittle, colourless and lifeless.” What does “resilient” mean?",
       "options": [
-        "the most beautiful",
-        "the tallest",
-        "the youngest",
+        "the most beautiful in the desert",
+        "the tallest of all the shrubs",
+        "the youngest plants in the wadi",
         "able to survive hard conditions"
       ],
       "answer": "D",
@@ -206,9 +206,9 @@
       "stem": "According to Hamdan, why should the animals follow the old wadi?",
       "options": [
         "Acacias grow along its banks where water hides beneath the sand.",
-        "It is the shortest way across the plain.",
-        "Zarifa has already explored it.",
-        "It is covered with soft sand for resting."
+        "It is the shortest way across the plain, and the sand is firm.",
+        "Zarifa has already explored it and found nothing there at all.",
+        "It is covered with soft sand for resting, and there is shade."
       ],
       "answer": "A",
       "why": "Paragraph 2: “follow the old wadi, because acacias grow along its banks wherever water hides beneath the sand.”"
@@ -253,10 +253,10 @@
       "type": "MCQ",
       "stem": "When did Zarifa first see the silver lake?",
       "options": [
-        "on the first morning of the journey",
+        "on the first morning of the journey, at the break of dawn",
         "on the second afternoon, while the others rested",
-        "on the night she returned to the herd",
-        "on the morning they reached the valley"
+        "on the night she returned to the herd, after the rains",
+        "on the morning they reached the valley, before the sun rose"
       ],
       "answer": "B",
       "why": "Paragraph 4: “On the second afternoon, while the others were resting in the shade of a rocky ledge”."
@@ -269,10 +269,10 @@
       "type": "MCQ",
       "stem": "Which character warns Zarifa about the lake?",
       "options": [
-        "the tortoise",
+        "the tortoise, who walks slowly",
         "the herd's leader, Old Hamdan",
-        "a passing traveller",
-        "nobody warns her"
+        "a passing traveller on a camel",
+        "nobody warns her about it"
       ],
       "answer": "B",
       "why": "Hamdan says, “That lake has deceived many inexperienced travellers before you.”"
@@ -301,9 +301,9 @@
       "type": "MCQ",
       "stem": "What caused the “lake” to disappear?",
       "options": [
-        "Zarifa drank all of its water.",
-        "The wind blew the water away.",
-        "The other animals hid it from her.",
+        "Zarifa drank all of its water, so nothing was left for the other animals.",
+        "The wind blew the water away across the hot sand, and the whole lake dried up before sunset.",
+        "The other animals hid it from her in a deep cave while she was sleeping.",
         "The air cooled after sunset, so the light no longer bent to show the sky on the ground."
       ],
       "answer": "D",
@@ -317,10 +317,10 @@
       "type": "MCQ",
       "stem": "Why did Zarifa say “Why should I crawl along beside a tortoise and a limping old oryx?”",
       "options": [
-        "She was worried that the tortoise was ill.",
+        "She was worried that the tortoise was ill and weak, and she wished to help it.",
         "She was proud of her speed and looked down on the slower animals.",
-        "She wanted to carry the tortoise on her back.",
-        "She thought the oryx was lost."
+        "She wanted to carry the tortoise on her back to the next well in the valley.",
+        "She thought the oryx was lost, so she hurried ahead to find the way."
       ],
       "answer": "B",
       "why": "She boasts about her “magnificent legs” and mocks the slow animals: she is proud and impatient."
@@ -349,10 +349,10 @@
       "type": "MCQ",
       "stem": "How is Zarifa at the end of the fable different from Zarifa at the beginning?",
       "options": [
-        "At first she is slow; at the end she is fast.",
-        "At first she is wise; at the end she is foolish.",
+        "At first she is slow and careful; at the end she is fast and brave, and she wins the race.",
+        "At first she is wise and gentle; at the end she is foolish and cruel to all the herd.",
         "At first she trusts only her speed; at the end she values patience and the right path.",
-        "At first she is kind; at the end she is unkind."
+        "At first she is kind to the herd; at the end she is unkind to the animals and leaves them."
       ],
       "answer": "C",
       "why": "She mocks the slow plan at first, but at the end she “never again left the path that patience and wisdom had chosen.”"
@@ -365,10 +365,10 @@
       "type": "MCQ",
       "stem": "What was the effect of Zarifa's race across the plain?",
       "options": [
-        "She found a new well for the herd.",
+        "She found a new well for the herd to drink from.",
         "She became exhausted and thirsty and found no water.",
-        "She reached the Valley of Seven Wells first.",
-        "She frightened the other animals away."
+        "She reached the Valley of Seven Wells before the others.",
+        "She frightened the other animals away from the plain."
       ],
       "answer": "B",
       "why": "She ran until her tongue was dry and returned “Exhausted, humiliated and painfully thirsty”."
@@ -413,10 +413,10 @@
       "type": "MCQ",
       "stem": "What does the writer mean by “the lake kept sliding away in front of her”?",
       "options": [
-        "The lake was flowing downhill.",
-        "Other animals were moving the lake.",
+        "The lake was flowing downhill toward the wide valley.",
+        "Other animals were moving the lake away from the sand.",
         "However far she ran, the lake never came closer.",
-        "The lake was getting larger and larger."
+        "The lake was getting larger and larger each hour."
       ],
       "answer": "C",
       "why": "A mirage always seems to stay the same distance ahead, so she could never reach it."
@@ -429,10 +429,10 @@
       "type": "MCQ",
       "stem": "In your opinion, why does the writer include Hamdan's scientific explanation of the lake?",
       "options": [
-        "to make the fable longer",
+        "to make the fable longer and more fun for the young readers to enjoy",
         "so readers understand that the lake is a natural mirage, not magic",
-        "to show that Hamdan likes to talk too much",
-        "to explain why tortoises walk slowly"
+        "to show that Hamdan likes to talk too much to others in the camp",
+        "to explain why tortoises walk slowly across the hot desert sand"
       ],
       "answer": "B",
       "why": "The explanation shows that the lake is an illusion caused by hot air bending light."
@@ -461,9 +461,9 @@
       "type": "MCQ",
       "stem": "Which lesson is the writer MOST LIKELY sharing through the fable?",
       "options": [
-        "Fast animals should always lead the herd.",
-        "Old animals should never travel far.",
-        "It is better to travel alone than in a group.",
+        "Fast animals should always lead the herd because they can find water first.",
+        "Old animals should never travel far from home because they get tired too soon.",
+        "It is better to travel alone than in a group, because groups walk too slowly and make too much noise on the road.",
         "Following wise advice patiently is better than rushing after something that only looks easy."
       ],
       "answer": "D",
@@ -510,9 +510,9 @@
       "stem": "Which of the following events could really happen?",
       "options": [
         "A gazelle sees a mirage that looks like a lake on a hot plain.",
-        "An oryx makes it rain by raising its horns.",
-        "A lake follows a gazelle across the desert.",
-        "Acacia trees walk to the Valley of Seven Wells."
+        "An oryx makes it rain by raising its horns in the sky and walking on the plain.",
+        "A lake follows a gazelle across the desert from one place to another, all day.",
+        "Acacia trees walk to the Valley of Seven Wells in the night, with their roots."
       ],
       "answer": "A",
       "why": "Mirages really appear over very hot ground; the other events are impossible."

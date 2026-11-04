@@ -104,9 +104,9 @@
      "stem": "Why is the chart there?",
      "options": [
       "to show the temperatures quickly",
-      "to show pictures of clouds",
-      "to tell a joke",
-      "to show a map of the city"
+      "to show pictures of clouds in the sky above",
+      "to tell a joke to make the class laugh",
+      "to show a map of the city and its roads"
      ],
      "answer": 0,
      "why": "A chart lets you **see the temperatures quickly**."
@@ -167,7 +167,7 @@
     "stem": "What is the specific purpose of the diagram?",
     "options": [
      "to show the path water takes through the layers",
-     "to show how much a filter costs in shops",
+     "to show how much a filter costs in the shops",
      "to prove that charcoal is always black",
      "to show where people can buy a filter"
     ],
@@ -198,7 +198,7 @@
      "passage": "A text about a city's growth includes two photos: one of the city in 1970 with a few low buildings, and one of the same place today, full of tall towers.",
      "stem": "What is the purpose of the two photos?",
      "options": [
-      "to show the weather in 1970",
+      "to show the weather in the city in 1970",
       "to name the people in the city",
       "to explain how towers are built",
       "to show how much the city has changed"

@@ -6,6 +6,8 @@
 const WORD = "(?:(?:Below|On|Above) Level|(?:Approaching|Meeting|Exceeding)(?: the standard)?)";
 const PATTERNS: RegExp[] = [
   /\s*\(adaptive(?::[^)]*)?\)/gi,
+  // students never see how many questions a Review/quiz holds, even when a caller forgot exactTitle
+  /\s*\(\d+\s+questions?\)\s*$/gi,
   new RegExp(`\\s*\\(${WORD}\\)`, "gi"),
   /\s*[·•|-]\s*(?:Below|On|Above) Level\b/gi,
   /\b(?:Below|On|Above) Level\s*[·•|:-]\s*/gi,

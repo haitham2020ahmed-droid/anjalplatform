@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import { useT } from "@/i18n/client";
 import { hideLevels } from "@/lib/hide-levels";
 import type { Program } from "@/server/plans/program";
@@ -6,10 +7,11 @@ import { ProgramChip } from "./program-chip";
 
 /**
  * The plan exactly as one student will see it: the My Plans sheet (title, progress, numbered parts) and the same
- * skills in My Work with the program tag. Nothing here is a working link. Level words are never shown.
+ * skills in My Work with the program tag. Nothing here is a working link (except the optional "Example question"
+ * read-only preview, for the teacher's own check before sending). Level words are never shown.
  */
-export function StudentPlanPreview({ title, studentName, className, program, skills, note, dueAt }: {
-  title: string; studentName: string; className: string; program: Program | null; skills: string[]; note?: string | null; dueAt?: string | null;
+export function StudentPlanPreview({ title, studentName, className, program, skills, skillIds, note, dueAt }: {
+  title: string; studentName: string; className: string; program: Program | null; skills: string[]; skillIds?: (string | null)[]; note?: string | null; dueAt?: string | null;
 }) {
   const t = useT();
   return (
@@ -37,6 +39,7 @@ export function StudentPlanPreview({ title, studentName, className, program, ski
           {skills.map((k, i) => (
             <li key={`${k}|${i}`} className="flex min-h-11 flex-wrap items-center gap-2 py-2">
               <span className="min-w-0 flex-1 font-medium text-slate-900">{hideLevels(k)}</span>
+              {skillIds?.[i] && <Link href={`/teacher/preview?skillId=${skillIds[i]}`} target="_blank" className="text-xs font-semibold text-brand-navy underline">👁 {t("Example question")}</Link>}
               <ProgramChip program={program} />
               {dueAt && <span className="text-xs text-slate-500">{t("Due {date}", { date: dueAt })}</span>}
               <span className="inline-flex min-h-11 items-center rounded-xl bg-brand-teal px-4 text-sm font-semibold text-white opacity-80" aria-disabled="true">{t("Start")}</span>

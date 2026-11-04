@@ -59,12 +59,15 @@ export function buildPrompt(ctx: GenerationContext): { system: string; user: str
     "rationale explaining why it is wrong (the correct option's rationale is null); include a one-sentence",
     "explanation of why the answer is correct and an optional short tip. If the question needs a text,",
     "include a short original excerpt (at most 80 words) inside the stem.",
+    "When the question points to an underlined or bold word, mark it in the text as <u>word</u> or **word** (no other formatting).",
     "Every question must assess the given Common Core State Standard (CCSS) for English Language Arts at the given grade.",
     "Return ONLY valid JSON, no Markdown, in exactly this shape:",
     '{"questions":[{"slot":1,"level":4,"cognitiveLevel":"Understand","skillCode":"…","standardCode":"…","stem":"…",',
     '"options":[{"text":"…","correct":true,"rationale":null},{"text":"…","correct":false,"rationale":"…"}],',
     '"explanation":"…","tip":"…"}]}',
     `cognitiveLevel must be one of: ${COGNITIVE_LEVELS.join(", ")}.`,
+    // 🎯 the same rule as LENGTH_PROMPT_RULE in src/lib/length-cue.ts (this module imports nothing: see the header)
+    "Answer-choice length: all options within ±20% of each other's length; the correct option must not be the longest more often than the others (vary which option is longest, and make the wrong options as detailed as the correct one).",
   ].join(" ");
   const user = JSON.stringify(
     {

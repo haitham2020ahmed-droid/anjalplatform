@@ -188,14 +188,47 @@ describe("answering", () => {
     assert.equal(await repo.count("QuestionAttempt", { sessionId: view.sessionId }), 0);
   });
 
-  test("a rapid guess is flagged and earns no XP, even when correct", async () => {
+  // Nov 2026 redesign ("ليه السرعة تمنع الدرجة من غير تخمين فعلاً؟"): speed alone no longer withholds credit at
+  // all — only a literal instant misclick (guessing.ts#isInstantMisclick, well under half a second) does, and that
+  // applies identically on a brand-new skill as on any other; there is no more "grace window" or track record needed.
+  test("a truly instant misclick earns nothing, even on a brand-new skill", async () => {
     const sid = await skillId("G4.idioms-adages");
-    const view = await startPractice(repo, lina, sid, later(0), rng);
+    const served = later(0);
+    const view = await startPractice(repo, lina, sid, served, rng);
     const item = (await loadSkillItems(repo, sid)).find((i) => i.questionId === view.question!.questionId)!;
-    const { feedback } = await submitAnswer(repo, lina, { sessionId: view.sessionId, questionId: item.questionId, response: responseFor(item, view.question!, true) }, later(1));
+    const instant = new Date(served.getTime() + 100); // well under MISCLICK_MS (500ms)
+    const { feedback } = await submitAnswer(repo, lina, { sessionId: view.sessionId, questionId: item.questionId, response: responseFor(item, view.question!, true) }, instant);
     assert.equal(feedback.correct, true);
     assert.equal(feedback.rapidGuess, true);
-    assert.equal(feedback.xp, 0);
+    assert.equal(feedback.xp, 0, "a literal misclick earns nothing at all — not even a participation coin");
+  });
+
+  test("a fast but genuine answer on a brand-new skill counts in full (no grace window needed any more)", async () => {
+    const sid = await skillId("G4.cause-effect");
+    const served = later(0);
+    const view = await startPractice(repo, lina, sid, served, rng);
+    const item = (await loadSkillItems(repo, sid)).find((i) => i.questionId === view.question!.questionId)!;
+    const plausible = new Date(served.getTime() + 1000); // fast (under the old flat 3s default) but a real reading pace
+    const { feedback } = await submitAnswer(repo, lina, { sessionId: view.sessionId, questionId: item.questionId, response: responseFor(item, view.question!, true) }, plausible);
+    assert.equal(feedback.correct, true);
+    assert.equal(feedback.rapidGuess, true, "still logged as fast — informational only, on her very first attempt too");
+    assert.ok(feedback.xp > 0, "the full reward, since only a literal misclick is zeroed now");
+    assert.ok(feedback.masteryAfter > feedback.masteryBefore, "a fast genuine answer counts fully toward mastery");
+  });
+
+  test("a fast correct answer always counts in full now, not just within a one-time grace window", async () => {
+    const sid = await skillId("G4.inference");
+    let view = await startPractice(repo, lina, sid, later(0), rng);
+    const items = await loadSkillItems(repo, sid);
+    for (let i = 0; i < 3; i++) {
+      const item = items.find((it) => it.questionId === view.question!.questionId)!;
+      ({ view } = await submitAnswer(repo, lina, { sessionId: view.sessionId, questionId: item.questionId, response: responseFor(item, view.question!, true) }, later(30)));
+    }
+    const item = items.find((it) => it.questionId === view.question!.questionId)!;
+    const { feedback } = await submitAnswer(repo, lina, { sessionId: view.sessionId, questionId: item.questionId, response: responseFor(item, view.question!, true) }, later(1));
+    assert.equal(feedback.correct, true);
+    assert.equal(feedback.rapidGuess, true, "still logged as fast, informationally");
+    assert.ok(feedback.xp > 0, "the full reward every time — no grace window to run out of any more");
   });
 
   test("a session ends cleanly when every question of the skill has been answered", async () => {

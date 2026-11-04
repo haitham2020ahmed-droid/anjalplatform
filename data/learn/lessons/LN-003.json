@@ -60,9 +60,9 @@
     "passage": "Hamad lost his kite in the wind. He looked in the park. He looked by the school. ___",
     "stem": "Which is the best ending for the story?",
     "options": [
-     "Hamad likes to eat rice.",
-     "The next day was Monday.",
-     "Some kites are red.",
+     "Hamad likes to eat rice and fish.",
+     "The next day was Monday morning.",
+     "Some kites are red and blue.",
      "He found it in a tree and smiled."
     ],
     "answer": 3,
@@ -114,9 +114,9 @@
      "passage": "Maha could not ride her bike. She fell many times. She kept trying every day.",
      "stem": "Which is the best ending?",
      "options": [
-      "Bikes have two wheels.",
+      "Bikes have two wheels and a seat.",
       "At last, she rode down the street!",
-      "Her brother has a bike.",
+      "Her brother has a bike at home.",
       "Maha likes the colour green."
      ],
      "answer": 1,
@@ -170,7 +170,7 @@
     "stem": "Which ending best wraps up the story?",
     "options": [
      "Then the bell rang for lunch, and that was all.",
-     "The sea is very big and very blue.",
+     "The sea is very big and very blue, with white waves.",
      "When everyone clapped, Layla smiled. Her fear was gone.",
      "The next week, her brother lost his school bag."
     ],
@@ -200,9 +200,9 @@
      "stem": "Which sentence would be a stronger ending than \"The end.\"?",
      "options": [
       "Yusuf grinned. His patience had paid off.",
-      "Lemons are yellow and sour.",
+      "Lemons are yellow and sour, and they grow on trees.",
       "Then Yusuf went to buy a new pot.",
-      "Yusuf's sister likes oranges."
+      "Yusuf's sister likes oranges and apples."
      ],
      "answer": 0,
      "why": "It shows how Yusuf feels and ties back to his long wait."
@@ -212,8 +212,8 @@
      "stem": "Which ending best wraps up the story?",
      "options": [
       "They agreed to take turns, and the shouting stopped.",
-      "Their father works at a hospital.",
-      "The computer was new and silver.",
+      "Their father works at a hospital in the city.",
+      "The computer was new and silver, with a big screen.",
       "Then Faisal found a coin under the desk."
      ],
      "answer": 0,
@@ -223,10 +223,10 @@
      "passage": "Huda's team was losing the science quiz. On the last question, everyone looked at her. She remembered a fact from her grandfather's book about stars.",
      "stem": "Which ending best wraps up the story?",
      "options": [
-      "Suddenly, a dog ran into the room.",
-      "Stars are very far away from Earth.",
+      "Suddenly, a dog ran into the room and barked.",
+      "Stars are very far away from Earth and the Moon.",
       "She gave the answer, and her team won by one point.",
-      "Then Huda woke up. It was all a dream."
+      "Then Huda woke up in bed. It was all a dream."
      ],
      "answer": 2,
      "why": "The story is about winning the quiz. Her answer helps the team win."
@@ -311,8 +311,8 @@
      "passage": "Rana spent a week building a model bridge from wooden sticks for the science fair. On the day of the fair, her bridge held twenty books before it cracked. The judges gave first prize to another student. Rana went home.",
      "stem": "Which revision of the last sentence gives the best closure?",
      "options": [
-      "Rana went home and ate dinner with her family.",
-      "The other student's project was about volcanoes.",
+      "Rana went home and ate a big dinner with her family that night.",
+      "The other student's project was about volcanoes and earthquakes.",
       "Rana went home, and the fair ended at five o'clock.",
       "On the way home, Rana was already sketching a stronger bridge."
      ],
@@ -335,9 +335,9 @@
      "passage": "Jana was afraid of the sea. Her cousin taught her to swim slowly, one small step at a time. On the last day of the holiday, Jana swam out to the rock by herself. Then a huge fish appeared, and Jana didn't know what to do.",
      "stem": "Why is the last sentence a weak ending?",
      "options": [
-      "It uses too many describing words.",
-      "It repeats the first sentence of the story.",
-      "It explains how Jana learned to swim.",
+      "It uses too many describing words in a row.",
+      "It repeats the first sentence of the story word for word.",
+      "It explains how Jana learned to swim in the sea.",
       "It starts a new problem instead of closing the story."
      ],
      "answer": 3,
@@ -426,10 +426,10 @@
      "passage": "Grandfather was sure he could fix the washing machine without help. He took off the back panel, tightened every screw he could find and pressed START. Water sprayed across the kitchen, and the cat leapt onto the fridge. Grandmother appeared in the doorway with a mop in one hand and the repairman's number in the other.",
      "stem": "Which ending best fits the light, funny tone of the story?",
      "options": [
-      "Grandfather felt deep sorrow for the rest of his life.",
+      "Grandfather felt deep sorrow for the rest of his life, and he never smiled again.",
       "Washing machines use a great deal of water every year.",
       "Grandfather handed her the screwdriver. \"Maybe you should call him.\"",
-      "The kitchen floor was covered with clean white tiles."
+      "The kitchen floor was covered with clean white tiles and rugs."
      ],
      "answer": 2,
      "why": "The story is playful. Grandfather giving up with a joke keeps the light tone and resolves his overconfidence."

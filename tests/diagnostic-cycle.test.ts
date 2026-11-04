@@ -29,8 +29,10 @@ describe("Pure: periods, focus form, Foundational slots, categories, growth", ()
   test("the period follows the date: Aug–Nov BOY · Dec–Feb MOY · Mar–Jul EOY", () => {
     const at = (iso: string) => periodOf(new Date(iso));
     assert.deepEqual(["2026-08-01", "2026-11-30", "2026-12-01", "2027-02-28", "2027-03-01", "2027-07-31"].map((x) => at(`${x}T12:00:00Z`)), ["BOY", "BOY", "MOY", "MOY", "EOY", "EOY"]);
-    assert.equal(periodStart(new Date("2027-01-15T00:00:00Z")).toISOString().slice(0, 10), "2026-12-01");
-    assert.equal(periodStart(new Date("2026-10-15T00:00:00Z")).toISOString().slice(0, 10), "2026-08-01");
+    // round 3: the period starts at 00:00 RIYADH (UTC+3) of its first day — read as the Riyadh calendar day
+    const riyadhDay = (x: Date) => new Date(x.getTime() + 3 * 3_600_000).toISOString().slice(0, 10);
+    assert.equal(riyadhDay(periodStart(new Date("2027-01-15T00:00:00Z"))), "2026-12-01");
+    assert.equal(riyadhDay(periodStart(new Date("2026-10-15T00:00:00Z"))), "2026-08-01");
   });
 
   test("focus form: only weak strands, Below weighs more than borderline, weak standards first; nothing weak → short check", () => {

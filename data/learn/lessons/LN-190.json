@@ -61,10 +61,10 @@
     "passage": "It is a hot, sunny day. Dad puts on his dark glasses. I put on my sunhat to keep the sun off my head. Then we go to the beach.",
     "stem": "What is a sunhat?",
     "options": [
-     "A very hot sun.",
+     "A very hot sun in the summer sky.",
      "A hat that keeps the sun off.",
-     "A big, sunny beach.",
-     "A pair of dark glasses."
+     "A big, sunny beach by the sea.",
+     "A pair of dark glasses for eyes."
     ],
     "answer": 1,
     "hint": "Find the two small words: sun and hat. Put them together.",
@@ -114,9 +114,9 @@
      "passage": "Mona made a snowman in the picture. It is made of white snow. It has a carrot for a nose.",
      "stem": "What is a snowman?",
      "options": [
-      "A man who likes snow.",
-      "A cold day.",
-      "A white carrot.",
+      "A man who likes to play in snow.",
+      "A cold day in the winter time.",
+      "A white carrot that grows in snow.",
       "A shape of a man made of snow."
      ],
      "answer": 3,
@@ -199,9 +199,9 @@
      "stem": "What is a doorbell?",
      "options": [
       "A bell by a door that visitors ring.",
-      "A door made of metal.",
-      "A bell in a school.",
-      "A sound in the night."
+      "A door made of metal and glass.",
+      "A bell in a school or a church.",
+      "A sound in the night from a big bird."
      ],
      "answer": 0,
      "why": "**door** + **bell**: when it rang, Mom went to see who was **outside** the door."
@@ -279,7 +279,7 @@
     "options": [
      "A house where sailors live.",
      "A tower whose light guides ships.",
-     "A small lamp in a home.",
+     "A small lamp in a home or a shop.",
      "A boat that carries lamps."
     ],
     "answer": 1,
@@ -307,9 +307,9 @@
      "stem": "What is a waterfall?",
      "options": [
       "A place where water drops down from a high place.",
-      "A deep pool in the mountains.",
-      "A cup of falling water.",
-      "A storm with heavy rain."
+      "A deep pool in the mountains with still water.",
+      "A cup of falling water that you can drink.",
+      "A storm with heavy rain and strong winds."
      ],
      "answer": 0,
      "why": "**water** + **fall**: water **poured over the edge** and dropped into a pool."
@@ -318,8 +318,8 @@
      "passage": "Before the car moved, Dad said, \"Everyone, put on your seatbelt.\" Salma pulled the strap across her body and clicked it in.",
      "stem": "What is a seatbelt?",
      "options": [
-      "A soft seat in a car.",
-      "A belt for trousers.",
+      "A soft seat in the back of a car.",
+      "A belt for trousers and jeans or skirts.",
       "A button that starts the car.",
       "A strap that holds you in your seat."
      ],
@@ -330,10 +330,10 @@
      "passage": "The school playground was crowded at break time. Children ran, jumped and played games on the open space behind the classrooms.",
      "stem": "What is a playground?",
      "options": [
-      "A ground floor in a school.",
-      "A game you play with a ball.",
+      "A ground floor in a school building.",
+      "A game you play with a ball and a bat.",
       "An outdoor place where children play.",
-      "A room for teachers."
+      "A room for teachers to rest in."
      ],
      "answer": 2,
      "why": "**play** + **ground**: an open space where children **ran, jumped and played**."
@@ -385,10 +385,10 @@
     "passage": "Long before maps and road signs, desert travellers used landmarks to find their way. A strangely shaped rock, a lone acacia tree or a tall red hill could tell a guide exactly where he was. Guides learned these features by heart and taught them to their sons. Today, a city's landmarks might be a famous tower or an old fort, but their job is the same: they help people know where they are.",
     "stem": "What does landmark mean in this passage?",
     "options": [
-     "A line drawn on a map.",
-     "A piece of land that someone owns.",
+     "A line drawn on a map to show where a country begins and ends.",
+     "A piece of land that someone owns and uses for farming.",
      "An easy-to-recognise feature that helps people know where they are.",
-     "A sign that shows how far it is to a town."
+     "A sign that shows how far it is to a town or a city."
     ],
     "answer": 2,
     "hint": "Do not just add land + mark. What do the examples in the passage have in common, and what job do they do?",

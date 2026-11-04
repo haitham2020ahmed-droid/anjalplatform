@@ -96,10 +96,10 @@
      "passage": "The ship has a big deck.",
      "stem": "Why does deck end in ck?",
      "options": [
-      "It has a long vowel.",
-      "It ends in e.",
+      "It has a long vowel sound.",
+      "It ends in e, so it is silent.",
       "Short vowel before the k sound.",
-      "It is a long word."
+      "It is a long word to spell."
      ],
      "answer": 2,
      "why": "deck has a short e before the k sound, so it ends in ck."
@@ -203,10 +203,10 @@
      "passage": "Noura is writing a letter to her grandmother.",
      "stem": "Why is there only one t in writing?",
      "options": [
-      "Write has a short vowel.",
-      "Writing is a compound word.",
+      "Write has a short vowel, so t is single.",
+      "Writing is a compound word with two parts.",
       "Write has a silent e, which is dropped.",
-      "The t is always single."
+      "The t is always single in every word."
      ],
      "answer": 2,
      "why": "write ends in a silent e. We drop the e and add -ing, with no doubling: writing."

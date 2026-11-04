@@ -5,6 +5,8 @@ import { getActor, repo, requireActor } from "@/server/auth/next";
 import { MAP_AREAS } from "@/server/map/nwea-area";
 import { classificationPreview, savedCounts, standardFixes } from "@/server/map/question-areas";
 import { applyClassificationAction, reviewFixesAction } from "./actions";
+import { RichInline } from "@/components/rich-inline";
+import { stripMarks } from "@/lib/inline-marks";
 
 export const metadata = { title: "MAP Classification" };
 
@@ -67,13 +69,13 @@ export default async function MapClassificationPage({ searchParams }: { searchPa
           {pv.preview.fixes.length > 0 && (
             <section className={`${card} mt-4`}>
               <h2 className="font-bold text-brand-navy">🔧 Standards Apply will fix ({pv.preview.fixes.length})</h2>
-              <ul className="mt-2 max-h-72 space-y-1 overflow-y-auto text-sm">{pv.preview.fixes.slice(0, 200).map((r) => <li key={r.id} className="flex flex-wrap justify-between gap-2 border-b border-slate-100 py-1"><span className="text-slate-700">G{r.grade} · {r.stem.slice(0, 90)}</span><span className="text-xs"><b>{r.fix!.from ?? "—"} → {r.fix!.to}</b> · {r.fix!.reason}</span></li>)}</ul>
+              <ul className="mt-2 max-h-72 space-y-1 overflow-y-auto text-sm">{pv.preview.fixes.slice(0, 200).map((r) => <li key={r.id} className="flex flex-wrap justify-between gap-2 border-b border-slate-100 py-1"><span className="text-slate-700">G{r.grade} · {stripMarks(r.stem).slice(0, 90)}</span><span className="text-xs"><b>{r.fix!.from ?? "—"} → {r.fix!.to}</b> · {r.fix!.reason}</span></li>)}</ul>
             </section>
           )}
           {pv.preview.unclassified.length > 0 && (
             <section className={`${card} mt-4 ring-amber-200`}>
               <h2 className="font-bold text-amber-900">⚠️ Not classified ({pv.preview.unclassified.length})</h2>
-              <ul className="mt-2 max-h-72 space-y-1 overflow-y-auto text-sm">{pv.preview.unclassified.slice(0, 200).map((r) => <li key={r.id} className="flex flex-wrap justify-between gap-2 border-b border-slate-100 py-1"><Link href={`/admin/questions/${r.id}`} className="text-brand-navy hover:underline">{r.grade ? `G${r.grade} · ` : ""}{r.stem.slice(0, 100)}</Link><span className="text-xs text-amber-800">{r.note}</span></li>)}</ul>
+              <ul className="mt-2 max-h-72 space-y-1 overflow-y-auto text-sm">{pv.preview.unclassified.slice(0, 200).map((r) => <li key={r.id} className="flex flex-wrap justify-between gap-2 border-b border-slate-100 py-1"><Link href={`/admin/questions/${r.id}`} className="text-brand-navy hover:underline">{r.grade ? `G${r.grade} · ` : ""}{stripMarks(r.stem).slice(0, 100)}</Link><span className="text-xs text-amber-800">{r.note}</span></li>)}</ul>
             </section>
           )}
           <form action={applyClassificationAction} className={`${card} mt-4 ring-emerald-200`}>
@@ -97,7 +99,7 @@ export default async function MapClassificationPage({ searchParams }: { searchPa
             <tbody>{fixes.rows.map((r) => (
               <tr key={r.id} className="border-b align-top last:border-0">
                 {tab === "review" && <td className="py-1.5 pe-2"><input type="checkbox" name="fix" value={r.id} aria-label={`Tick: ${r.stem.slice(0, 40)}`} /></td>}
-                <td className="max-w-md py-1.5"><Link href={`/admin/questions/${r.questionId}`} className="text-brand-navy hover:underline">{r.stem}</Link></td>
+                <td className="max-w-md py-1.5"><Link href={`/admin/questions/${r.questionId}`} className="text-brand-navy hover:underline"><RichInline text={r.stem} /></Link></td>
                 <td>{r.grade ?? "—"}</td><td className="text-xs">{r.skill}</td><td className="font-mono text-xs">{r.from ?? "—"}</td><td className="font-mono text-xs font-bold">{r.to}</td><td className="text-xs text-slate-600">{r.reason}</td>
               </tr>
             ))}</tbody>

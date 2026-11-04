@@ -17,8 +17,8 @@ import { ADAPTIVE_FALLBACK_MIX, DIFFICULTIES, DIFFICULTY_NAME, GUIDE_BOOKLET_SIZ
 import { loadNafsQuestions, matchesTarget, nafsIndex, usable, type NafsEntry, type NafsKind } from "./bank";
 import { assignNafsOnline, getNafsTest, saveNafsTest, type SaveTestInput } from "./tests";
 import { createNafsPractice, type PracticeInput } from "./practice";
-import { readBooklets } from "./booklets";
-import { readPracticeSets } from "./practice-sets";
+import { bookletCatalog } from "./booklets";
+import { practiceCatalog } from "./practice-sets";
 import { BALANCED_MIX, cleanFullCounts, FULL_DEFAULT, FULL_MAX_QUESTIONS, FULL_MIN_QUESTIONS, fullDistribution, fullMinutes } from "./coverage";
 
 const s = (v: unknown) => String(v ?? "");
@@ -358,7 +358,8 @@ export async function buildNafsMinistry(repo: Repo, actor: Actor, input: { setti
 export interface SetChoice { code: string; title: string; kind: "LIT" | "INFO" | null; genre: string; questions: number; written: number }
 const setMeta = (): Map<string, { title: string; kind: "LIT" | "INFO" | null; genre: string }> => {
   const m = new Map<string, { title: string; kind: "LIT" | "INFO" | null; genre: string }>();
-  for (const b of [...readBooklets().valid, ...readPracticeSets().valid]) m.set(b.code, { title: b.title, kind: b.kind === "LITERARY" ? "LIT" : "INFO", genre: b.genre });
+  // r84 memory: the light catalogs (titles, kinds, genres), never the files' full text
+  for (const b of [...(bookletCatalog()?.list ?? []), ...(practiceCatalog()?.list ?? [])]) m.set(b.code, { title: b.title, kind: b.kind === "LITERARY" ? "LIT" : "INFO", genre: b.genre });
   return m;
 };
 /**

@@ -52,10 +52,10 @@ describe("My Work: everything a teacher assigns", () => {
     const types = new Map((await repo.findMany("QuestionType", {})).map((t) => [String(t.id), String(t.code)]));
     const qs = (await repo.findMany("Question", { skillId: { in: skills.map((k) => k.id) }, status: "PUBLISHED", deletedAt: null }, { select: ["id", "skillId", "typeId"] })).filter((q) => AUTO.has(types.get(String(q.typeId)) ?? ""));
     const skillId = String(qs[0].skillId);
-    ids.skill = (await assignSkill(repo, teacher, { classId, skillId }, now)).assignmentId;
+    ids.skill = (await assignSkill(repo, teacher, { source: "CURRICULUM", classId, skillId }, now)).assignmentId;
     // Assessments tests: a Weekly Quiz, and a test of the new "Review" type (another update adds it: any testType string)
-    const quiz = await assignTest(repo, teacher, { classId, type: "WEEKLY_QUIZ", title: "Weekly Quiz 3", levelMode: "SAME", questions: { SAME: qs.slice(0, 3).map((q) => String(q.id)) } }, now);
-    const review = await assignTest(repo, teacher, { classId, type: "CUSTOM", title: "Unit review", levelMode: "SAME", questions: { SAME: qs.slice(3, 6).map((q) => String(q.id)) } }, now);
+    const quiz = await assignTest(repo, teacher, { source: "CURRICULUM", classId, type: "WEEKLY_QUIZ", title: "Weekly Quiz 3", levelMode: "SAME", questions: { SAME: qs.slice(0, 3).map((q) => String(q.id)) } }, now);
+    const review = await assignTest(repo, teacher, { source: "CURRICULUM", classId, type: "CUSTOM", title: "Unit review", levelMode: "SAME", questions: { SAME: qs.slice(3, 6).map((q) => String(q.id)) } }, now);
     await repo.updateMany("TeacherTest", { id: review.testId }, { testType: "REVIEW" });
     ids.quiz = String((await repo.findMany("Assignment", { testId: quiz.testId }))[0].id);
     ids.review = String((await repo.findMany("Assignment", { testId: review.testId }))[0].id);

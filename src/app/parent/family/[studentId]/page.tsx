@@ -9,6 +9,7 @@ import { weekStats } from "@/server/student/weekly";
 import { ForbiddenError } from "@/server/auth/rbac";
 import { approvedForFamily } from "@/server/reports/family-reports";
 import { gradeGoalWords } from "@/server/reports/family-words";
+import { cancelIndex } from "@/server/student/cancelled-work";
 
 export const metadata = { title: "Family Report" };
 const s = (v: unknown) => String(v ?? "");
@@ -28,7 +29,9 @@ export default async function ParentFamily({ params }: { params: Promise<{ stude
   const reports = await approvedForFamily(repo, actor, studentId);
   // the curriculum plan's progress
   const m = (await repo.findMany("ClassMembership", { studentId, leftAt: null }))[0];
-  const plan = m ? (await repo.findMany("SkillPlan", { classId: m.classId, kind: "CURRICULUM" }))[0] : null;
+  // r78: a plan cancelled on the teacher's Assigned page (for everyone or this child) is not shown
+  const ix = await cancelIndex(repo, String(actor.schoolId));
+  const plan = m ? (await repo.findMany("SkillPlan", { classId: m.classId, kind: "CURRICULUM" })).find((p) => ix.liveRef("PLAN", String(p.id), studentId) && (!p.status || p.status === "SENT")) ?? null : null;
   const items = plan ? await repo.findMany("SkillPlanItem", { planId: plan.id }) : [];
   const aids = items.flatMap((it) => { const v = typeof it.assignmentIds === "string" ? JSON.parse(s(it.assignmentIds)) : it.assignmentIds; return Array.isArray(v) ? v.map(String) : []; });
   const done = aids.length ? await repo.count("AssignmentStudent", { studentId, assignmentId: { in: aids }, status: "COMPLETED" }) : 0;

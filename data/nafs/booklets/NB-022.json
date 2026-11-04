@@ -253,10 +253,10 @@
       "type": "MCQ",
       "stem": "Which topic does the writer discuss immediately BEFORE explaining how living without gravity affects muscles and bones?",
       "options": [
-        "how the station was built in orbit",
+        "how the station was built in orbit by many nations",
         "how simple tasks such as sleeping and eating are done",
-        "why astronauts float",
-        "how the station will help explorers reach Mars"
+        "why astronauts float in the cabin and in space",
+        "how the station will help explorers reach Mars in the future"
       ],
       "answer": "B",
       "why": "Paragraph 4 describes sleeping, eating and water; paragraph 5 then turns to muscles and bones."
@@ -333,10 +333,10 @@
       "type": "MCQ",
       "stem": "In your opinion, why does the writer begin with “Imagine a home where breakfast floats away”?",
       "options": [
-        "to warn readers that space food is often wasted",
+        "to warn readers that space food is often wasted by the crew",
         "to spark curiosity with surprising details from daily life",
-        "to prove that astronauts are careless at mealtimes",
-        "to tell the story of one particular astronaut"
+        "to prove that astronauts are careless at their mealtimes",
+        "to tell the story of one particular astronaut in orbit"
       ],
       "answer": "B",
       "why": "Unusual, everyday images make readers curious to learn how such a life is possible; the other options are not supported by the text."
@@ -493,9 +493,9 @@
       "type": "MCQ",
       "stem": "In your opinion, which information is the LEAST clear in the text?",
       "options": [
-        "how high above the Earth the station orbits",
-        "how many hours a day astronauts spend on exercise",
-        "since when people have lived on the station",
+        "how high above the Earth the station orbits in the sky",
+        "how many hours a day astronauts spend on exercise there",
+        "since when people have lived on the station in space",
         "how the station turns breath and sweat into drinking water"
       ],
       "answer": "D",

@@ -101,7 +101,7 @@ describe("🔁 the teacher's Review of a text set", () => {
     let v = await changeReview(repo, A, CODE, { op: "count", count: 3 });
     assert.equal(v.count, 3);
     await assert.rejects(changeReview(repo, A, CODE, { op: "count", count: 99 }), ValidationError);
-    const r = await assignFromMap(repo, A, { classId: classA, categoryCode: CODE });
+    const r = await assignFromMap(repo, A, { source: "CURRICULUM", classId: classA, categoryCode: CODE });
     assert.equal(r.groups.length, 1);
     const a = (await repo.findUnique("Assignment", { id: r.groups[0].assignmentId }))!;
     const set = (await repo.findUnique("Assessment", { id: a.assessmentId }))!;

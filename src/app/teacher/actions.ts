@@ -5,12 +5,17 @@ import { redirect } from "next/navigation";
 import { z } from "zod";
 import { repo, requireActor } from "@/server/auth/next";
 import { createAssignment } from "@/server/teacher/assignments";
-import { assignQuestions, assignSkillToClasses, trackOf } from "@/server/teacher/assign";
+import { assignedSkillIds, assignQuestions, assignSkillToClasses, trackOf } from "@/server/teacher/assign";
 import { resolveAlert } from "@/server/teacher/interventions";
 import { masteredInClasses } from "@/server/skills/status-extras";
 import { assertClassAccess } from "@/server/teacher/assignments";
 import { ValidationError } from "@/server/curriculum-admin";
 import { parseQuestionIdsField, programOf } from "@/components/skill-picker/helpers";
+import { startOfDay } from "@/lib/assign-dates";
+import { studentSkillAccuracy } from "@/server/plans/perf-suggest";
+import { toggleFavoriteReport } from "@/server/teacher/favorites";
+import { toggleWatchStudent } from "@/server/teacher/watchlist";
+import { EXCLUDE_MASTERED_STUDENTS } from "@/server/skills/star-read";
 
 const id = z.string().min(1).max(191);
 
@@ -22,22 +27,29 @@ export async function resolveAlertAction(f: FormData) {
 
 export async function createAssignmentAction(_: { error?: string }, f: FormData): Promise<{ error?: string }> {
   const actor = await requireActor({ roles: ["TEACHER"], permission: "assignments:create" });
-  const classId = id.parse(f.get("classId"));
+  // r91: "classIds" (plural, checkboxes) lets the teacher assign several classes at once; "classId" (singular)
+  // still works alone — each class is fully independent here, so looping is safe.
+  const classIds = [...new Set([...f.getAll("classIds"), ...f.getAll("classId")].map(String).filter(Boolean))];
+  if (!classIds.length) return { error: "Choose at least one class." };
   const target = z.enum(["SKILL", "UNIT"]).parse(f.get("target"));
   const due = String(f.get("dueAt") ?? "");
   try {
-    await createAssignment(repo, actor, {
-      classId, title: String(f.get("title") ?? ""), target,
-      skillIds: target === "SKILL" ? f.getAll("skillIds").map(String) : undefined,
-      unitId: target === "UNIT" ? String(f.get("unitId") ?? "") : undefined,
-      dueAt: due ? new Date(`${due}T23:59:00`) : null,
-      targetMastery: z.coerce.number().int().min(40).max(100).parse(f.get("targetMastery") ?? 75),
-    });
+    for (const classId of classIds) {
+      await createAssignment(repo, actor, {
+        classId, title: String(f.get("title") ?? ""), target,
+        skillIds: target === "SKILL" ? f.getAll("skillIds").map(String) : undefined,
+        unitId: target === "UNIT" ? String(f.get("unitId") ?? "") : undefined,
+        dueAt: due ? new Date(`${due}T23:59:00`) : null, startAt: startOfDay(f.get("startAt")),
+        targetMastery: z.coerce.number().int().min(40).max(100).parse(f.get("targetMastery") ?? 75),
+        source: String(f.get("source") ?? ""),
+      });
+    }
   } catch (e) {
     if (e instanceof ValidationError) return { error: e.message };
     throw e;
   }
-  redirect(`/teacher/classes/${classId}`);
+  redirect(`/teacher/classes/${classIds[0]}`);
+  return {};
 }
 
 // ------------------------------------------------------------------ ⭐ Assign a skill
@@ -63,13 +75,13 @@ export async function assignSkillAction(_: { error?: string; message?: string; a
     // 📝 Save as draft: nothing reaches students; sent later from Weekly Assignments → Drafts
     if (f.get("intent") === "draft") {
       const ymd = (v: FormDataEntryValue | null) => (v && /^\d{4}-\d{2}-\d{2}$/.test(String(v)) ? String(v) : null);
-      await saveAssignDraft(repo, actor, { skillId: String(f.get("skillId") ?? ""), skillName: String(f.get("skillName") ?? "Skill"), classIds, studentIds: mode === "class" ? [] : picked, track: trackOf(f.get("track")), program: (programOf(f.get("program")) as string | null) ?? null, questionIds: parseQuestionIdsField(f.get("questionIds")) ?? null, startAt: ymd(f.get("startAt")), dueAt: ymd(f.get("dueAt")), note: String(f.get("note") ?? "") });
+      await saveAssignDraft(repo, actor, { skillId: String(f.get("skillId") ?? ""), skillName: String(f.get("skillName") ?? "Skill"), classIds, studentIds: mode === "class" ? [] : picked, track: trackOf(f.get("track")), program: (programOf(f.get("program")) as string | null) ?? null, source: String(f.get("source") ?? ""), questionIds: parseQuestionIdsField(f.get("questionIds")) ?? null, startAt: ymd(f.get("startAt")), dueAt: ymd(f.get("dueAt")), note: String(f.get("note") ?? "") });
       revalidatePath("/teacher/assignments");
       return { message: "Saved as a draft. Nothing was sent. Send it from Weekly Assignments → Drafts.", draft: true };
     }
     // ⭐ "N students already mastered this skill — exclude them?" → Yes: only the others get it
     let studentIds = mode === "class" ? [] : picked;
-    if (f.get("excludeMastered") === "1" && actor.schoolId) {
+    if (f.get("excludeMastered") === "1" && actor.schoolId && EXCLUDE_MASTERED_STUDENTS) {
       const m = await masteredInClasses(repo, actor.schoolId, classIds, String(f.get("skillId") ?? ""), studentIds);
       if (m.mastered.length) {
         studentIds = m.reach.filter((id) => !m.mastered.includes(id));
@@ -81,6 +93,7 @@ export async function assignSkillAction(_: { error?: string; message?: string; a
       startAt: day(f.get("startAt"), false), dueAt: day(f.get("dueAt"), true), note: String(f.get("note") ?? ""),
       program: programOf(f.get("program")), questionIds: parseQuestionIdsField(f.get("questionIds")),
       questionCount: f.get("questionCount") ? Number(f.get("questionCount")) : null,
+      source: String(f.get("source") ?? ""),
     });
     revalidatePath("/teacher/assignments");   // not the skills page: rebuilding it after every click made assigning slow
     return { message: `Assigned to ${r.students} student${r.students === 1 ? "" : "s"}${r.classes > 1 ? ` in ${r.classes} classes` : ""}. They have been notified.`, assignmentIds: r.assignmentIds };
@@ -103,6 +116,7 @@ export async function assignQuestionsAction(_: { error?: string; message?: strin
       track: trackOf(f.get("track")),
       classId: String(f.get("classId") ?? ""), questionIds: f.getAll("questionIds").map(String), studentIds: mode === "class" ? [] : picked,
       title: String(f.get("title") ?? ""), startAt: day(f.get("startAt"), false), dueAt: day(f.get("dueAt"), true), note: String(f.get("note") ?? ""),
+      source: String(f.get("source") ?? ""),
     });
     revalidatePath("/teacher/assignments");
     return { message: `${r.questions} question${r.questions === 1 ? "" : "s"} assigned to ${r.students} student${r.students === 1 ? "" : "s"}. They have been notified.` };
@@ -150,4 +164,43 @@ export async function masteredCountAction(input: { classIds: string[]; skillId: 
   try { for (const id of classIds) await assertClassAccess(repo, actor, id); } catch { return { count: 0 }; }
   const m = await masteredInClasses(repo, actor.schoolId!, classIds, String(input?.skillId ?? ""), (input?.studentIds ?? []).map(String));
   return { count: m.mastered.length };
+}
+
+/** ⭐ Whether any of the chosen classes already has this skill assigned — the "Find a skill" Assign dialog asks
+ * before duplicating the same work, the same question the full /teacher/skill-assign page already asks. */
+export async function priorAssignmentAction(input: { classIds: string[]; skillId: string }): Promise<{ assigned: boolean }> {
+  const actor = await requireActor({ roles: ["TEACHER"], permission: "assignments:create" });
+  const classIds = [...new Set((input?.classIds ?? []).map(String).filter(Boolean))].slice(0, 20);
+  if (!classIds.length || !input?.skillId) return { assigned: false };
+  try { for (const id of classIds) await assertClassAccess(repo, actor, id); } catch { return { assigned: false }; }
+  const ids = await assignedSkillIds(repo, classIds);
+  return { assigned: ids.has(String(input.skillId)) };
+}
+
+/** 🆕 r90 (multi-expert audit, Oct 2026): the Assign dialog's "one student" mode asks this when the teacher picks
+ * Enrichment as Source, so it can warn (never block) if the student isn't actually excelling on this skill yet by
+ * the platform's own data. `acc: null` means not enough data to judge either way (also worth a soft warning). */
+export async function studentAccuracyAction(input: { classId: string; studentId: string; skillId: string }): Promise<{ acc: number | null }> {
+  const actor = await requireActor({ roles: ["TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"] });
+  const classId = String(input?.classId ?? ""), studentId = String(input?.studentId ?? ""), skillId = String(input?.skillId ?? "");
+  if (!classId || !studentId || !skillId) return { acc: null };
+  try { await assertClassAccess(repo, actor, classId); } catch { return { acc: null }; }
+  const acc = await studentSkillAccuracy(repo, actor, classId, studentId, skillId);
+  return { acc };
+}
+
+/** 🆕 Oct 2026 (daily-reports consolidation): pin/unpin a report to the top of the Reports hub. */
+export async function toggleFavoriteReportAction(reportKey: string): Promise<{ favorited: boolean }> {
+  const actor = await requireActor({ roles: ["TEACHER"] });
+  const r = await toggleFavoriteReport(repo, actor, reportKey);
+  revalidatePath("/teacher/reports");
+  return r;
+}
+
+/** 🆕 Oct 2026 (daily-reports consolidation): toggle a student on the teacher's own watchlist. */
+export async function toggleWatchStudentAction(studentId: string, note?: string): Promise<{ watching: boolean }> {
+  const actor = await requireActor({ roles: ["TEACHER"] });
+  const r = await toggleWatchStudent(repo, actor, studentId, note);
+  revalidatePath("/teacher/watchlist");
+  return r;
 }

@@ -26,13 +26,14 @@ import { modelVersion } from "../cache/bank-version";
 import { remember } from "../cache/lru";
 import { countGroups } from "../db/group-count";
 import { memoryHigh, runHeavy } from "../monitoring/memory";
+import { sweptWeakMap } from "../cache/idle";
 
 /**
  * Bank-wide figures of the admin home (Update 46, performance): the waiting/deletion counts read every question of the
  * school. They are kept per school until a table they read changes in this process (write counters), and at most `ms`
  * (other processes: the jobs worker). Bounded: a few schools.
  */
-const homeCache = new WeakMap<object, Map<string, { v: string; at: number; p: Promise<unknown> }>>();
+const homeCache = sweptWeakMap<{ v: string; at: number; p: Promise<unknown> }>("admin.home-data.homeCache", 15 * 60_000);
 function cachedFor<T>(repo: Repo, key: string, models: string[], ms: number, load: () => Promise<T>): Promise<T> {
   let m = homeCache.get(repo);
   if (!m) homeCache.set(repo, (m = new Map()));

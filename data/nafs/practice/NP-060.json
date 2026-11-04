@@ -61,10 +61,10 @@
       "difficulty": 2,
       "stem": "What does the brain do with new memories AFTER first storing them in the hippocampus?",
       "options": [
-        "Deletes them to make space for more",
-        "Keeps them only in the hippocampus",
+        "Deletes them all to make space for more new ones",
+        "Keeps them only in the hippocampus for the whole of life",
         "Moves important ones to other areas during sleep",
-        "Sends them back to the eyes and ears"
+        "Sends them back to the eyes and ears at night again"
       ],
       "answer": "C",
       "why": "During sleep the brain replays the day and gradually moves important information to other areas for long-term storage."

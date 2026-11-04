@@ -3,6 +3,7 @@ import { useState, useTransition } from "react";
 import type { TreeGrade } from "@/server/admin/ai-bank";
 import { field, label } from "@/components/admin/styles";
 import { generateAiAction, type AiResult } from "../../actions";
+import { stripMarks } from "@/lib/inline-marks";
 
 /** Grade → Book → Unit → Lesson → Skill → Standard → number of questions. */
 export function GenerateForm({ tree }: { tree: TreeGrade[] }) {
@@ -38,7 +39,7 @@ export function GenerateForm({ tree }: { tree: TreeGrade[] }) {
         <div role="status" className="rounded-2xl bg-white p-5 ring-1 ring-slate-200">
           <p className="font-semibold text-brand-navy">{res.result.saved.length} of {res.result.requested} saved as drafts · difficulty saved: {res.result.balance.saved.easy} easy, {res.result.balance.saved.medium} medium, {res.result.balance.saved.hard} hard</p>
           {res.result.balance.warnings.map((w) => <p key={w} className="text-sm text-amber-800">{w}</p>)}
-          <ul className="mt-2 list-disc space-y-1 ps-5 text-sm">{res.result.saved.map((x) => <li key={x.id}><a className="text-brand-teal hover:underline" href={`/admin/questions/${x.id}`}>Level {x.level}: {x.stem.slice(0, 90)}</a></li>)}</ul>
+          <ul className="mt-2 list-disc space-y-1 ps-5 text-sm">{res.result.saved.map((x) => <li key={x.id}><a className="text-brand-teal hover:underline" href={`/admin/questions/${x.id}`}>Level {x.level}: {stripMarks(x.stem).slice(0, 90)}</a></li>)}</ul>
           {res.result.rejected.length > 0 && (
             <>
               <p className="mt-3 font-semibold text-red-700">Rejected by automatic checks (not saved)</p>

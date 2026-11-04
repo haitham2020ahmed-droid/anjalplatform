@@ -11,6 +11,7 @@ import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
 import { attachmentNodes, mapEpoch, type AttachmentNode } from "./questions";
 import { remember } from "../cache/lru";
+import { sweptWeakMap } from "../cache/idle";
 
 const s = (v: unknown) => String(v ?? "");
 const STOP = new Set(["and", "the", "of", "a", "an", "to", "in", "on", "for", "with", "reread", "text"]);
@@ -51,7 +52,7 @@ function bestMatch(from: SetInfo, fromIx: number, fromCount: number, candidates:
 
 export interface BridgeRow { from: string; fromLabel: string; grade: number; challenge: string | null; challengeLabel: string | null; support: string | null; supportLabel: string | null; source: "AUTO" | "IMPORT" | "MANUAL" }
 
-const bridgeCache = new WeakMap<object, Map<string, { at: number; value: Promise<BridgeRow[]> }>>();
+const bridgeCache = sweptWeakMap<{ at: number; value: Promise<BridgeRow[]> }>("curriculum-map.bridge.bridgeCache", 2 * 60_000);
 let bridgeEpoch = 0;
 /** Every category's bridge (the school's rows first, else the automatic match). Cached for 60 s. */
 export async function bridges(repo: Repo, schoolId: string, grade?: number): Promise<BridgeRow[]> {

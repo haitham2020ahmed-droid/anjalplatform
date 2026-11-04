@@ -30,9 +30,9 @@
       "stem": "Which sentence uses the word 'valuable' correctly?",
       "options": [
         "The old map is valuable because it shows forgotten trade routes.",
-        "He valuable across the desert for many years.",
-        "The sultan valuabled him as a judge in Delhi.",
-        "Valuable is the city where the traveller was born."
+        "He valuable across the desert for many years on a camel.",
+        "The sultan valuabled him as a judge in Delhi, in the north.",
+        "Valuable is the city where the traveller was born long ago."
       ],
       "answer": "A",
       "why": "'Valuable' is an adjective meaning useful or worth a lot; only this sentence uses it to describe a noun."
@@ -61,10 +61,10 @@
       "difficulty": 2,
       "stem": "Which of these events happened LAST?",
       "options": [
-        "He was made a judge in Delhi.",
-        "He completed his pilgrimage.",
+        "He was made a judge in Delhi by the sultan.",
+        "He completed his first pilgrimage to Mecca.",
         "Ibn Juzayy wrote down his account.",
-        "He left his home in Tangier."
+        "He left his home in Tangier as a young man."
       ],
       "answer": "C",
       "why": "The account was written after he 'finally returned to Morocco', at the end of all his travels."
@@ -78,9 +78,9 @@
       "stem": "What helped Ibn Battuta find work and friends wherever he went?",
       "options": [
         "his knowledge of Islamic law and his curiosity",
-        "his great wealth and his large army",
-        "his skill as the captain of a ship",
-        "letters from the sultan of Morocco"
+        "his great wealth and his large army of men",
+        "his skill as the captain of a big ship",
+        "letters from the sultan of Morocco to the kings"
       ],
       "answer": "A",
       "why": "The passage says 'his knowledge of Islamic law and his curiosity about people helped him find work and friendship wherever he went'."
@@ -93,10 +93,10 @@
       "difficulty": 3,
       "stem": "'He expected to return within a year or two. Instead, he travelled for almost thirty years.' What is the effect of this contrast?",
       "options": [
-        "It shows that he disliked travelling.",
-        "It explains why he became a judge.",
+        "It shows that he disliked travelling from the start.",
+        "It explains why he became a judge in India.",
         "It stresses how surprisingly long his journey became.",
-        "It suggests that he got lost on his way home."
+        "It suggests that he got lost on his way back home."
       ],
       "answer": "C",
       "why": "Placing 'a year or two' beside 'almost thirty years' highlights how much longer the journey became than he planned."

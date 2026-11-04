@@ -8,8 +8,9 @@
  */
 import { NextResponse, type NextRequest } from "next/server";
 import { contentSecurityPolicy, newNonce } from "@/server/auth/csp";
+import { isClassSignInPath } from "@/server/auth/http";
 
-const PUBLIC = ["/login", "/_next", "/favicon", "/api/health", "/brand/", "/api/school-logo", "/manifest.webmanifest", "/sw.js", "/icons/", "/offline.html"];
+const PUBLIC = ["/login", "/_next", "/favicon", "/api/health", "/brand/", "/api/school-logo", "/manifest.webmanifest", "/sw.js", "/icons/", "/offline.html", "/api/ui-lang"];
 
 export function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl;
@@ -17,7 +18,8 @@ export function middleware(req: NextRequest) {
   const nonce = newNonce();
   const csp = contentSecurityPolicy({ production, nonce });
 
-  const isPublic = PUBLIC.some((p) => pathname.startsWith(p));
+  // the Class QR sign-in pages (r76) are open without a session: the student is about to sign in
+  const isPublic = PUBLIC.some((p) => pathname.startsWith(p)) || isClassSignInPath(pathname);
   const hasCookie = req.cookies.has("__Host-ela_session") || req.cookies.has("ela_session");
   if (!isPublic && !hasCookie) {
     const url = req.nextUrl.clone();

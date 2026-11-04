@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { AppShell } from "@/components/app-shell";
 import { WindowChips, windowText } from "@/components/reports/report-ui";
-import { AtAGlance, Callout, ReportHeader, ReportSection, ReportTable, SimpleBar } from "@/components/report-kit";
+import { AtAGlance, Callout, ReportHeader, ReportIntro, ReportSection, ReportSummary, ReportTable, SimpleBar } from "@/components/report-kit";
+import { gamesUsageSummary } from "@/lib/report-summaries";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { ForbiddenError } from "@/server/auth/rbac";
 import { gamesUsage } from "@/server/game/results";
@@ -40,6 +41,7 @@ export default async function GamesUsagePage({ searchParams }: { searchParams: P
             </nav>
           )}
         </>} />
+      <ReportIntro text="Which games students play most and how well they do in them." />
       <AtAGlance items={[
         { icon: "🎮", label: t("Plays"), value: plays, meaning: t("last {n} days", { n: days }) },
         { icon: "🔥", label: t("Most played"), value: <span className="text-xl">{plays ? t(r.rows[0].name) : "—"}</span>, meaning: plays ? t("{n} plays", { n: r.rows[0].plays }) : undefined },
@@ -49,7 +51,7 @@ export default async function GamesUsagePage({ searchParams }: { searchParams: P
       <ReportSection title="Most played" icon="🔥">
         {plays > 0 && <SimpleBar unit="" max={Math.max(1, ...r.rows.map((g) => g.plays))} items={r.rows.filter((g) => g.plays > 0).map((g) => ({ label: <><span aria-hidden="true">{g.icon} </span>{t(g.name)}</>, value: g.plays, display: t("{n} plays", { n: g.plays }) }))} className="mb-5" />}
         <ReportTable label={t("Most played")}
-          cols={[{ key: "g", label: t("Game") }, { key: "p", label: t("Plays"), num: true }, { key: "s", label: t("Students"), num: true }, { key: "so", label: t("Solo"), num: true }, { key: "l", label: t("Live Challenge"), num: true }, { key: "c", label: t("Correct"), num: true }, { key: "st", label: t("Stars"), num: true }]}
+          cols={[{ key: "g", label: t("Game") }, { key: "p", label: t("Plays"), num: true }, { key: "s", label: t("Students"), num: true }, { key: "so", label: t("Solo"), num: true, more: true }, { key: "l", label: t("Live Challenge"), num: true, more: true }, { key: "c", label: t("Correct"), num: true }, { key: "st", label: t("Stars"), num: true }]}
           rows={r.rows.map((g) => ({
             id: g.gameId, sort: { g: t(g.name), c: g.correctPct, st: g.avgStars },
             cells: { g: <span className="font-semibold text-brand-navy"><span aria-hidden="true">{g.icon} </span>{t(g.name)}</span>, p: g.plays, s: g.players, so: g.solo, l: g.live,
@@ -82,6 +84,7 @@ export default async function GamesUsagePage({ searchParams }: { searchParams: P
           </div>
         </ReportSection>
       )}
+      <ReportSummary summary={gamesUsageSummary(r.rows.map((g) => ({ ...g, name: t(g.name) })), days)} />
     </AppShell>
   );
 }

@@ -10,6 +10,8 @@ import { readableClasses } from "../teacher/coordinators";
 import { groupPools, GROUPS, type GroupKey } from "../map/map-plan";
 import { continuumIndex, groupOfGoal, skillsFor } from "../map/continuum";
 import { skillRanges } from "../map/skill-plan";
+import { starBook, starMastered, starNeedsHelp } from "./star-read";
+import type { StarStatus } from "./status";
 
 const s = (v: unknown) => String(v ?? "");
 const LEVEL = (d: number) => (d <= 3 ? "Below" : d === 4 ? "On" : "Above");
@@ -25,7 +27,9 @@ export interface SkillHub {
   places: { code: string; title: string }[];
   statements: { subject: string; band: string; text: string; standards: string }[];
   before: { id: string; name: string }[]; after: { id: string; name: string }[];
-  students: { scope: string; total: number; mastered: number; practising: number; notStarted: number; avg: number | null; needHelp: { id: string; name: string; className: string; score: number }[] };
+  /** ⭐ the students' star of this skill's KEY (every copy of the skill): ⭐ mastered · practising = ◐ or 🔄 · ☆ not
+   *  started; avg = the average star score of those who started; needHelp = 🔄, ◐ needing support, or ◐ under 50 */
+  students: { scope: string; total: number; mastered: number; practising: number; notStarted: number; avg: number | null; needHelp: { id: string; name: string; className: string; score: number; status: StarStatus; needsSupport: boolean }[] };
   assignments: number;
 }
 
@@ -98,13 +102,17 @@ export async function skillHub(repo: Repo, actor: Actor, skillId: string): Promi
   const classes = (await readableClasses(repo, actor)).filter((c) => s(c.gradeId) === s(g.id));
   const mem = classes.length ? await repo.findMany("ClassMembership", { classId: { in: classes.map((c) => c.id) }, leftAt: null }, { select: ["studentId", "classId"] }) : [];
   const ids = [...new Set(mem.map((m) => s(m.studentId)))];
-  const [mastery, sts] = await Promise.all([
-    ids.length ? repo.findMany("StudentSkillMastery", { skillId, studentId: { in: ids } }, { select: ["studentId", "score", "isMastered", "attempts"] }) : Promise.resolve([] as Row[]),
+  const [book, sts] = await Promise.all([
+    starBook(repo, ids, s(g.schoolId)),
     ids.length ? repo.findMany("Student", { id: { in: ids } }, { select: ["id", "userId"] }) : Promise.resolve([] as Row[]),
   ]);
   const users = sts.length ? await repo.findMany("User", { id: { in: sts.map((x) => x.userId) } }, { select: ["id", "displayName"] }) : [];
   const nameOf = (id: string) => s(users.find((u) => u.id === sts.find((x) => x.id === id)?.userId)?.displayName) || "Student";
-  const started = mastery.filter((m) => Number(m.attempts) > 0);
+  // ⭐ the KEY of the skill: every copy (Grade 4 / Grade 5, a lesson name) is this one skill
+  const stars = ids.map((id) => ({ id, v: book.of(id, skillId) }));
+  const started = stars.filter((x) => x.v.status !== "NOT_STARTED");
+  const classOf = (id: string) => s(classes.find((c) => c.id === mem.find((x) => s(x.studentId) === id)?.classId)?.name);
+  const helpRank = (x: (typeof stars)[number]) => (x.v.status === "NEEDS_REVIEW" ? 0 : x.v.needsSupport ? 1 : 2);
   const assignments = await repo.count("Assignment", { skillId, deletedAt: null });
   return {
     id: skillId, name: s(k.name), code: s(k.code), description: k.description ? s(k.description) : null, grade, domain: s(k.domain), family: s(fam?.name),
@@ -117,9 +125,10 @@ export async function skillHub(repo: Repo, actor: Actor, skillId: string): Promi
     before: prereqSkills.map(named), after: nextSkills.map(named),
     students: {
       scope: actor.role === "TEACHER" ? "Your classes" : `Grade ${grade}`, total: ids.length,
-      mastered: mastery.filter((m) => m.isMastered).length, practising: started.filter((m) => !m.isMastered).length, notStarted: ids.length - started.length,
-      avg: started.length ? Math.round(started.reduce((t, m) => t + Number(m.score), 0) / started.length) : null,
-      needHelp: started.filter((m) => !m.isMastered && Number(m.score) < 50).sort((a, b) => Number(a.score) - Number(b.score)).slice(0, 12).map((m) => ({ id: s(m.studentId), name: nameOf(s(m.studentId)), className: s(classes.find((c) => c.id === mem.find((x) => x.studentId === m.studentId)?.classId)?.name), score: Math.round(Number(m.score)) })),
+      mastered: started.filter((x) => starMastered(x.v)).length, practising: started.filter((x) => !starMastered(x.v)).length, notStarted: ids.length - started.length,
+      avg: started.length ? Math.round(started.reduce((t, x) => t + x.v.score, 0) / started.length) : null,
+      needHelp: started.filter((x) => !starMastered(x.v) && (starNeedsHelp(x.v) || x.v.score < 50)).sort((a, b) => helpRank(a) - helpRank(b) || a.v.score - b.v.score).slice(0, 12)
+        .map((x) => ({ id: x.id, name: nameOf(x.id), className: classOf(x.id), score: x.v.score, status: x.v.status, needsSupport: x.v.needsSupport })),
     },
     assignments,
   };

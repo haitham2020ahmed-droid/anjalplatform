@@ -64,6 +64,16 @@
       "level": 1400,
       "title": "Clouds, Data, and the Science of Forecasting",
       "text": "On an overcast afternoon, the sky may appear to be stuffed with cotton, yet clouds are neither soft nor dry, since each one consists of millions of microscopic water droplets or ice crystals suspended together in the atmosphere and drifting wherever the prevailing winds transport them.\n\nThe water in a cloud originates at the surface of the planet. Solar energy warms oceans, lakes, rivers, and damp soil, causing some of the water to evaporate and become water vapor, an invisible gas whose concentration in the air is described as humidity. Because warm air is less dense than the cooler air surrounding it, it rises buoyantly and transports the vapor high above the ground. It may climb for several kilometers before it stops.\n\nAs the air ascends, it progressively cools, and because cooler air cannot retain as much vapor as warmer air, the vapor begins to revert to liquid through a process known as condensation. Each droplet forms around a microscopic particle of dust, sea salt, or smoke, and when billions of droplets accumulate in a particular location, a visible cloud materializes.\n\nScientists classify clouds according to their characteristic formations and altitudes. Cumulus clouds are puffy and white, and they typically indicate pleasant conditions, although on sweltering afternoons they can develop into towering thunderstorm clouds. Stratus clouds form flat gray layers that frequently produce drizzle, whereas cirrus clouds are delicate and feathery, floating at such tremendous altitudes that they are composed entirely of ice.\n\nInside a cloud, droplets continually collide and combine, and when they become too heavy for the rising air to support, they descend as precipitation. This precipitation may reach the ground as rain, as hail, or, in colder places, as snow.\n\nMeteorologists, the scientists who investigate atmospheric behavior, gather continuous measurements of temperature, humidity, wind velocity, and air pressure from ground stations and from balloons that carry instruments into the stratosphere. Satellites photograph clouds from orbit, while radar identifies precipitation, and sophisticated computers integrate this information to predict future conditions. The accuracy of forecasts for the immediate future is generally impressive, although predictions for several weeks ahead remain considerably less dependable. Small changes that no one measured can slowly grow into large differences.\n\nIn Saudi Arabia, rainfall is relatively infrequent, but a sudden storm can inundate a dry valley within minutes, so accurate forecasts and official warnings help communities prepare and avoid danger."
+    },
+    {
+      "level": 1500,
+      "title": "Clouds and Weather Forecasts",
+      "text": "On an overcast afternoon, the sky may appear to be stuffed with cotton, yet clouds are neither soft nor dry, since each one consists of millions of microscopic water droplets or ice crystals suspended together in the atmosphere and drifting wherever the prevailing winds transport them.\n\nThe water in a cloud originates at the surface of the planet. Solar energy warms oceans, lakes, rivers, and damp soil, causing some of the water to evaporate and become water vapor, an invisible gas whose concentration in the air is described as humidity. Because warm air is less dense than the cooler air surrounding it, it rises buoyantly and transports the vapor high above the ground, sometimes climbing several kilometers before it stops.\n\nAs the air ascends, it progressively cools, and because cooler air cannot retain as much vapor as warmer air, the vapor begins to revert to liquid through a process known as condensation. Each droplet forms around a microscopic particle of dust, sea salt, or smoke, and when billions of droplets accumulate in a particular location, a visible cloud materializes.\n\nScientists classify clouds according to their characteristic formations and altitudes. Cumulus clouds are puffy and white, and they typically indicate pleasant conditions, although on sweltering afternoons they can develop into towering thunderstorm clouds. Stratus clouds form flat gray layers that frequently produce drizzle, whereas cirrus clouds are delicate and feathery, floating at such tremendous altitudes that they are composed entirely of ice.\n\nInside a cloud, droplets continually collide and combine, and when they become too heavy for the rising air to support, they descend as precipitation. This precipitation may reach the ground as rain, as hail, or, in colder places, as snow.\n\nMeteorologists, the scientists who investigate atmospheric behavior, gather continuous measurements of temperature, humidity, wind velocity, and air pressure from ground stations and from balloons that carry instruments into the stratosphere. Satellites photograph clouds from orbit, while radar identifies precipitation, and sophisticated computers integrate this information to predict future conditions. The accuracy of forecasts for the immediate future is generally impressive, although predictions for several weeks ahead remain considerably less dependable, since small, unmeasured changes can slowly grow into large differences.\n\nIn Saudi Arabia, rainfall is relatively infrequent, but a sudden storm can inundate a dry valley within minutes, so accurate forecasts and official warnings help communities prepare and avoid danger.\n\nUltimately, a cloud drifting overhead represents far more than a passing decoration in the sky; it is the visible endpoint of an invisible chain of evaporation, rising air, and cooling vapor. Reading that chain correctly is what allows meteorologists to warn a community before a storm arrives."
+    },
+    {
+      "level": 1600,
+      "title": "Clouds and Weather Forecasts",
+      "text": "On an overcast afternoon, the sky may appear superficially to be stuffed with cotton, yet clouds are neither soft nor dry in any physical sense, since each one consists of millions upon millions of microscopic water droplets or ice crystals suspended together within the atmosphere, drifting wherever the prevailing atmospheric currents happen to transport them.\n\nThe water contained within a cloud originates fundamentally at the surface of the planet. Solar radiation warms oceans, lakes, rivers, and damp soil, causing a portion of that water to evaporate and become water vapor, an invisible gas whose concentration within the surrounding air is described precisely as humidity. Because warm air is considerably less dense than the cooler air immediately surrounding it, it rises buoyantly and transports the accumulated vapor high above the ground, occasionally ascending several kilometers before eventually ceasing to climb further.\n\nAs the rising air continues its ascent, it progressively and steadily cools, and because cooler air cannot retain nearly as much vapor as warmer air is capable of holding, the vapor begins to revert back into liquid form through a precise physical process known as condensation. Each individual droplet forms around a microscopic nucleus of dust, sea salt, or smoke suspended within the air, and when billions upon billions of these minuscule droplets accumulate within a particular region of sky, a visible cloud materializes before any ground-based observer.\n\nScientists classify clouds systematically according to their characteristic formations and their respective altitudes above the ground. Cumulus clouds are puffy and brilliantly white in appearance, and they typically indicate pleasant atmospheric conditions, although on sweltering afternoons they can develop with surprising rapidity into towering thunderstorm clouds of considerable vertical extent. Stratus clouds form flat, uniform gray layers that frequently produce only a light, persistent drizzle, whereas cirrus clouds are delicate and feathery in their appearance, floating at such tremendous altitudes that they are composed entirely of ice crystals rather than any liquid water whatsoever.\n\nInside a developing cloud, countless droplets continually collide with one another and coalesce into progressively larger droplets, and once these combined droplets become too heavy for the rising air currents to support any longer, they descend toward the surface as precipitation, which may ultimately reach the ground as rain, as hail, or, in considerably colder regions, as accumulating snow.\n\nMeteorologists, the scientists who investigate atmospheric behavior as their professional discipline, gather continuous and systematic measurements of temperature, humidity, wind velocity, and barometric pressure from ground stations and from balloons that carry sensitive instrumentation high into the stratosphere. Satellites photograph developing cloud systems from orbit far above the Earth's surface, while radar systems remotely identify falling precipitation across wide areas, and sophisticated computer models integrate all of this gathered information to generate predictions concerning future atmospheric conditions. The accuracy of forecasts covering the immediate future is generally quite impressive by any measure, although predictions extending several weeks into the future remain considerably less dependable, since small, unmeasured perturbations can gradually amplify into substantial discrepancies over time, a limitation inherent to the mathematics of atmospheric prediction itself.\n\nIn Saudi Arabia, rainfall is relatively infrequent across the majority of the calendar year, but a sudden, intense storm can inundate an otherwise bone-dry valley within mere minutes, so accurate forecasts and officially issued warnings help entire communities prepare adequately in advance and thereby avoid wholly unnecessary danger to life and property."
     }
   ],
   "bands": {
@@ -104,10 +114,10 @@
         {
           "stem": "What is this article mostly about?",
           "options": [
-            "How to draw clouds in art class",
+            "How to draw clouds in art class with chalk",
             "How clouds form and how people forecast the weather",
-            "Why it never rains in Saudi Arabia",
-            "How to fly a plane through a storm"
+            "Why it never rains in Saudi Arabia in any season",
+            "How to fly a plane through a storm at night"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -190,9 +200,9 @@
           "stem": "Why would a family in Saudi Arabia check the forecast before a trip to a dry valley?",
           "options": [
             "A storm could fill the valley with water fast.",
-            "Valleys are always too hot to visit.",
-            "Satellites only work in valleys.",
-            "Clouds never form over the desert."
+            "Valleys are always too hot to visit in the day",
+            "Satellites only work in valleys, not on hills",
+            "Clouds never form over the desert at all"
           ],
           "answer": "A",
           "skill": "inference",
@@ -223,10 +233,10 @@
         {
           "stem": "Why did the author write this article?",
           "options": [
-            "To sell weather tools",
+            "To sell weather tools, such as rain gauges, to farmers",
             "To teach how clouds form and how forecasts help us",
-            "To tell a made-up story about a storm",
-            "To show that clouds are dangerous"
+            "To tell a made-up story about a storm that hits a city",
+            "To show that clouds are dangerous to planes and to ships"
           ],
           "answer": "B",
           "skill": "author-purpose",
@@ -243,7 +253,8 @@
         "I gave a clear answer.",
         "I used at least two facts from the article.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "A weather forecast is useful because it warns people before bad weather comes. The article says meteorologists use satellites and computers to predict the weather so families can stay safe. In Saudi Arabia, a sudden storm can flood a dry valley within minutes, so a forecast gives people time to get ready."
     },
     "MID": {
       "keyWords": [
@@ -282,10 +293,10 @@
         {
           "stem": "Which sentence best states the main idea of the article?",
           "options": [
-            "Cumulus clouds are the most beautiful clouds in the sky.",
+            "Cumulus clouds are the most beautiful clouds in the sky, and people like to paint them.",
             "Clouds form from water vapor, and scientists study them to forecast the weather.",
-            "Satellites were invented to take pictures of Saudi Arabia.",
-            "Rain is more common in Saudi Arabia than in other countries."
+            "Satellites were invented to take pictures of Saudi Arabia from far above the Earth.",
+            "Rain is more common in Saudi Arabia than in other countries, so farmers grow rice there."
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -384,10 +395,10 @@
         {
           "stem": "Why are forecasts for several weeks ahead less reliable than forecasts for the next few days?",
           "options": [
-            "Meteorologists stop working after a few days.",
-            "Computers cannot store data for more than a week.",
+            "Meteorologists stop working after a few days, so nobody can check the weather.",
+            "Computers cannot store data for more than a week, so old facts are erased.",
             "Weather changes in many ways over time, so it is harder to predict far ahead.",
-            "Satellites can only see clouds that will appear tomorrow."
+            "Satellites can only see clouds that will appear tomorrow, not later."
           ],
           "answer": "C",
           "skill": "inference",
@@ -421,7 +432,8 @@
         "I explained the steps in the correct order.",
         "I used at least three details from the article.",
         "I used key words such as evaporate and condense correctly."
-      ]
+      ],
+      "modelAnswer": "Sunlight warms the ocean, and some of the water begins to evaporate into invisible water vapor. Because warm air is lighter than cold air, it rises and carries the vapor high into the sky, where the air cools and the vapor begins to condense back into liquid droplets around specks of dust or salt. Once billions of droplets gather into a cumulus or other cloud, they bump together and grow too heavy for the rising air to hold up, so they finally fall as rain."
     },
     "HIGH": {
       "keyWords": [
@@ -460,10 +472,10 @@
         {
           "stem": "Which statement best expresses the central idea of the article?",
           "options": [
-            "Cirrus clouds are the most important clouds for forecasting.",
+            "Cirrus clouds are the most important clouds for forecasting, because they form at the highest levels of the sky, far above all the others.",
             "Clouds form through evaporation and condensation, and meteorologists combine many measurements to forecast weather.",
-            "Computers have replaced meteorologists in forecasting the weather.",
-            "Saudi Arabia receives more rain than most countries."
+            "Computers have replaced meteorologists in forecasting the weather, so humans no longer read the data",
+            "Saudi Arabia receives more rain than most countries, so its forecasts are the easiest in the world"
           ],
           "answer": "B",
           "skill": "central-idea",
@@ -563,9 +575,9 @@
           "stem": "Why does the article mention that forecasts for several weeks ahead are less dependable?",
           "options": [
             "To show that forecasting has limits even with modern technology",
-            "To argue that meteorologists should stop forecasting",
-            "To prove that satellites are broken",
-            "To suggest that only Saudi forecasts are reliable"
+            "To argue that meteorologists should stop forecasting the weather",
+            "To prove that weather satellites are broken and cannot be used",
+            "To suggest that only Saudi forecasts are reliable for the region"
           ],
           "answer": "A",
           "skill": "inference",
@@ -579,10 +591,10 @@
         {
           "stem": "Why does the author end the article with the example of Saudi Arabia?",
           "options": [
-            "To show that clouds never form over deserts",
+            "To show that clouds never form over deserts, because the air is too dry",
             "To connect the science to a real danger that forecasts help people prepare for",
-            "To explain how cirrus clouds are made of ice",
-            "To describe the history of weather satellites"
+            "To explain how cirrus clouds are made of ice, high above the ground",
+            "To describe the history of weather satellites, from the first one to today's"
           ],
           "answer": "B",
           "skill": "author-purpose",
@@ -599,7 +611,8 @@
         "I stated a clear position.",
         "I supported it with at least two pieces of evidence from the article.",
         "I explained how my evidence supports my position."
-      ]
+      ],
+      "modelAnswer": "I disagree that forecasts are not worth checking just because they are sometimes wrong. The article explains that meteorologists combine data from weather stations, balloons, satellites, and powerful computers, which is why forecasts for the next few days are usually accurate even though predictions weeks ahead are far less certain. This accuracy matters enormously in Saudi Arabia, where rain is uncommon but a sudden storm can flood a dry valley within minutes, so a forecast's warning can genuinely keep a family safe."
     }
   }
 }

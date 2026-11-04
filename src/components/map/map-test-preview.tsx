@@ -4,6 +4,7 @@ import { AnswerInput, type AnswerValue } from "@/components/practice/answer-inpu
 import { PassageText } from "@/components/passage-text";
 import { useT } from "@/i18n/client";
 import type { ClientQuestion } from "@/server/practice/items";
+import { RichInline } from "@/components/rich-inline";
 
 /**
  * The teacher's preview of a manual MAP test: the same screen as the students' test player (one question per screen,
@@ -28,7 +29,7 @@ export function MapTestPreview({ title, subject, questions }: { title: string; s
       <div className={["mt-6 grid gap-8", q.passage ? "lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]" : ""].join(" ")}>
         {q.passage && (
           <article className="max-h-[70vh] overflow-y-auto rounded-2xl bg-white p-6 ring-1 ring-slate-200" aria-label={t("Reading passage")}>
-            <h2 className="text-xl font-bold text-brand-navy">{q.passage.title}</h2>
+            <h2 className="text-xl font-bold text-brand-navy"><RichInline text={q.passage.title} /></h2>
             <PassageText text={q.passage.text} />
           </article>
         )}
@@ -37,7 +38,7 @@ export function MapTestPreview({ title, subject, questions }: { title: string; s
             // eslint-disable-next-line @next/next/no-img-element
             <img src={q.image.url} alt={q.image.alt} className="mb-4 max-h-[50vh] w-auto max-w-full rounded-xl bg-white ring-1 ring-slate-200" />
           )}
-          {q.type !== "DROPDOWN" && q.type !== "FILL_BLANK" && <p className="text-xl font-medium leading-relaxed text-slate-900">{q.stem}</p>}
+          {q.type !== "DROPDOWN" && q.type !== "FILL_BLANK" && <p className="text-xl font-medium leading-relaxed text-slate-900"><RichInline text={q.stem} /></p>}
           <div className="mt-5"><AnswerInput key={q.questionId} q={q} value={value} onChange={setValue} disabled={false} /></div>
           <div className="mt-6 flex gap-2">
             <button type="button" onClick={() => go(i - 1)} disabled={i === 0} className="rounded-xl px-5 py-3 font-semibold text-slate-700 ring-1 ring-slate-300 disabled:opacity-40">◀ {t("Back")}</button>

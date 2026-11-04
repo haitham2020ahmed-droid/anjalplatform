@@ -64,6 +64,16 @@
       "level": 1400,
       "title": "Hidden Conversations: How Animals Communicate",
       "text": "Animals cannot speak with words, yet they communicate with one another continuously, exchanging messages that scientists characterize as signals. These signals take remarkably varied forms, because some are acoustic, others are physical movements, and still others are chemicals that nearby animals can detect, identify, and follow. Understanding these signals reveals how animals cooperate, survive, and raise their offspring in environments ranging from African forests to the Arabian Peninsula.\n\nVervet monkeys in Africa produce a distinct alarm call for each category of predator, and researchers have learned to interpret what each vocalization communicates. When one monkey gives the leopard call, the entire group scrambles up into the trees, whereas when it gives the eagle call, the monkeys scan the sky and dive into dense vegetation. A third call warns of a snake, prompting the monkeys to stand on their hind legs and meticulously examine the ground. Because every call produces a different reaction, the group can defend itself against several varieties of danger, which suggests that these calls function somewhat like simple words.\n\nElephants produce deep rumbles, and many of these rumbles are infrasound, meaning they are too low in pitch for human ears to perceive. Low-frequency vibrations like these can travel for several kilometers, which enables elephants to remain in communication with relatives that are considerably far away.\n\nHoneybees communicate through movement: a bee that discovers flowers performs a specialized dance inside the hive, and the dance indicates which direction the other bees should fly and approximately how far they should travel.\n\nAnts depend on smell: as an ant returns from a source of food, it deposits a chemical called a pheromone on the ground, and this scent creates an invisible trail that other ants follow to the food.\n\nThe Arabian wolf inhabits the deserts and mountains of Saudi Arabia, where a wolf howls to gather its pack together, and the howl simultaneously warns other wolves to stay out of the pack's territory, the area the pack occupies and defends.\n\nCommunication can also be hazardous, because a conspicuous call that alerts relatives may simultaneously reveal the caller's location to a hungry predator; consequently, many animals must continually balance the advantages of sharing information against the considerable danger of attracting unwanted attention.\n\nAnimals transmit signals to warn of danger, to locate food, and to remain with their families. Scientists record these sounds with sensitive microphones and analyze them with computers, hoping to interpret more of the hidden conversations happening continuously all around us."
+    },
+    {
+      "level": 1500,
+      "title": "Hidden Conversations: How Animals Communicate",
+      "text": "Although animals cannot speak in human language, many species have evolved remarkably sophisticated ways of exchanging information, and scientists who study these systems are continually working to interpret signals that once seemed like simple noise or random behavior.\n\nVervet monkeys, native to the savannas of Africa, offer one of the best-documented examples of distinct, predator-specific alarm calls. When a vervet spots a leopard, it gives one call, prompting troop members to scramble up into the trees, out of the big cat's reach. A different call, reserved for eagles, sends the group diving down into dense vegetation, away from the open sky where a bird of prey could strike. A third, distinct vocalization warns specifically of snakes, and causes nearby monkeys to rear up on their hind legs and scan the surrounding grass below. Each call triggers a different, appropriate escape response, showing that the monkeys are not merely expressing alarm but transmitting specific information about the nature of the threat.\n\nOther animals, meanwhile, rely on signals entirely beyond the range of human hearing or perception. Elephants produce deep rumbling vocalizations that include infrasound, sound waves pitched too low for human ears to detect, which can travel for several kilometers across open terrain, allowing separated herd members to stay in contact over long distances. Honeybees, by contrast, communicate visually and physically: a forager returning to the hive performs a figure-eight dance whose angle and duration indicate the direction and distance of a nearby source of flowers. Ants, meanwhile, lay down pheromone trails, chemical signals deposited on the ground, which guide other members of the colony directly to food or alert them to danger along the path.\n\nIn the deserts and mountains of Saudi Arabia, the Arabian wolf uses long, carrying howls both to gather scattered pack members and to mark and defend its territory against rival wolves, a vocal strategy particularly suited to vast, open landscapes where visual signals alone would prove ineffective.\n\nCommunication of this kind is not without risk. A loud call that gathers the pack or warns of danger can simultaneously reveal an animal's exact location to a nearby predator, meaning that every vocalization carries a trade-off between the benefit of informing allies and the danger of being overheard by an enemy.\n\nTo study these hidden conversations, scientists record animal sounds with sensitive microphones and then analyze the recordings using computers capable of detecting patterns invisible to the human ear, gradually building a clearer picture of how creatures without language still manage to share urgent, detailed information with one another."
+    },
+    {
+      "level": 1600,
+      "title": "Hidden Conversations: How Animals Communicate",
+      "text": "Although animals possess nothing resembling human language, an increasing body of scientific research demonstrates that many species have evolved intricate systems for exchanging information, and researchers devoted to interpreting these systems are steadily uncovering complexity in behavior once dismissed as simple noise or instinctive reaction.\n\nVervet monkeys, native to the savannas of sub-Saharan Africa, provide one of the most thoroughly documented illustrations of distinct, predator-specific alarm calls. Upon sighting a leopard, a vervet emits one particular call, prompting troop members to scramble immediately into the trees, beyond the reach of the approaching cat. A separate, equally distinct vocalization, reserved specifically for eagles, sends the group diving down into dense ground-level vegetation, away from the open sky where a swooping bird of prey could otherwise strike unimpeded. A third call warns specifically of snakes, causing nearby monkeys to rear upright on their hind legs and scan the surrounding grass. Because each call provokes a markedly different, situationally appropriate escape response, researchers conclude that the monkeys are not merely expressing generalized alarm but are transmitting precise, categorized information about the nature of the approaching threat.\n\nOther species rely on signals that lie entirely beyond the range of human perception. Elephants produce deep rumbling vocalizations incorporating infrasound, sound waves pitched too low for human ears to register, which can nonetheless propagate for several kilometers across open terrain, enabling geographically separated herd members to remain in continuous contact. Honeybees, in contrast, communicate through an elaborate visual and physical display: a forager returning from a successful outing performs a precise figure-eight dance whose angle relative to the sun and whose duration together encode the direction and distance of a newly discovered source of flowers. Ants, meanwhile, deposit pheromone trails, chemical signals released onto the ground, which subsequently guide fellow colony members directly toward food sources or warn them of danger encountered along a previously traveled path.\n\nAcross the deserts and mountainous terrain of Saudi Arabia, the Arabian wolf employs long, far-carrying howls to accomplish two distinct purposes simultaneously: gathering pack members who have become scattered during a hunt, and marking or actively defending territorial boundaries against rival wolves, a vocal strategy particularly well suited to vast, open landscapes where purely visual signaling would prove largely ineffective.\n\nCommunication of this nature, however, is never without inherent risk. A call loud enough to summon distant pack members or broadcast an imminent danger can simultaneously betray the calling animal's precise location to an opportunistic predator lurking nearby, meaning that virtually every vocalization embodies an unavoidable trade-off between the benefit of informing allies and the considerable danger of being overheard by an adversary.\n\nTo investigate these largely hidden conversations, scientists deploy sensitive microphones to record animal sounds across diverse habitats and subsequently analyze the resulting recordings using computer algorithms capable of detecting acoustic patterns entirely imperceptible to the unaided human ear, gradually assembling an increasingly detailed picture of how creatures lacking true language nonetheless manage to exchange urgent, highly specific information with one another."
     }
   ],
   "bands": {
@@ -106,7 +116,7 @@
           "options": [
             "How animals send messages to each other",
             "Why monkeys are afraid of snakes",
-            "How to teach a dog new words",
+            "How to teach a dog to understand new words",
             "Where wolves sleep in the desert"
           ],
           "answer": "A",
@@ -243,7 +253,8 @@
         "I named two animals from the article.",
         "I told how each animal sends its message and what the message is for.",
         "I wrote complete sentences with capital letters and periods."
-      ]
+      ],
+      "modelAnswer": "Vervet monkeys send a signal by making a different alarm call for each predator, which warns the group of danger so they know exactly how to react. Ants send a message by leaving a scent on the ground, which forms a trail that other ants follow to food. Both signals help the animals stay safe or find what they need."
     },
     "MID": {
       "keyWords": [
@@ -384,10 +395,10 @@
         {
           "stem": "What happens because each vervet monkey call leads to a different action?",
           "options": [
-            "The monkeys forget which call to use.",
+            "The monkeys forget which call to use, so they stay still",
             "The group can stay safe from different predators.",
-            "The predators learn the calls and leave.",
-            "The monkeys must live alone."
+            "The predators learn the calls and leave the area at once",
+            "The monkeys must live alone, far away from the group"
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -401,9 +412,9 @@
         {
           "stem": "How is the article mainly organized?",
           "options": [
-            "By the order in which scientists found each signal",
-            "As a story about one monkey's day",
-            "As a list of steps to train animals",
+            "By the order in which scientists found each signal in the wild",
+            "As a story about one monkey's day in the forest, from sunrise to night",
+            "As a list of steps that people use to train animals at a zoo",
             "By giving examples of animals that use different kinds of signals"
           ],
           "answer": "D",
@@ -421,7 +432,8 @@
         "I described two different kinds of animal signals.",
         "I explained at least one way they are alike and one way they are different.",
         "I used examples and words from the article."
-      ]
+      ],
+      "modelAnswer": "Vervet monkeys communicate with sound by using a different alarm call to warn about each predator, while the Arabian wolf also communicates with sound by howling to call its pack together and defend its territory. Elephants, on the other hand, communicate with deep rumbles that are too low for humans to hear but can travel far to reach family members. All of these signals are alike because they use sound to send a message, but they are different because each sound warns of danger or location in its own particular way."
     },
     "HIGH": {
       "keyWords": [
@@ -460,10 +472,10 @@
         {
           "stem": "What is the central idea of the article?",
           "options": [
-            "Elephants communicate better than any other animal.",
-            "Only animals with voices can communicate.",
+            "Elephants communicate better than any other animal, using only their trunks and nothing else.",
+            "Only animals with voices can communicate with one another, so fish and insects cannot.",
             "Animals communicate through sounds, movements, and chemicals that serve important purposes.",
-            "Scientists have fully decoded animal languages."
+            "Scientists have fully decoded animal languages and can now talk with them in every case."
           ],
           "answer": "C",
           "skill": "central-idea",
@@ -494,10 +506,10 @@
         {
           "stem": "Why can elephants stay in contact with relatives that are far away?",
           "options": [
-            "They can smell each other across long distances.",
+            "They can smell each other across long distances, even over the sea.",
             "Their low-frequency rumbles travel for several kilometers.",
-            "They follow pheromone trails.",
-            "They return to the same tree every day."
+            "They follow pheromone trails on the ground and in the sand.",
+            "They return to the same tree every day to meet and rest."
           ],
           "answer": "B",
           "skill": "cause-effect",
@@ -528,10 +540,10 @@
         {
           "stem": "Why might climbing a tree be a poor response to the eagle call?",
           "options": [
-            "Eagles cannot fly near trees.",
-            "Trees are where snakes live.",
+            "Eagles cannot fly near trees, so a tree is a safe place for monkeys.",
+            "Trees are where snakes live, so a monkey would meet a snake there.",
             "An eagle attacks from the sky, so the top of a tree would leave a monkey exposed.",
-            "Monkeys cannot climb when they are scared."
+            "Monkeys cannot climb when they are scared, so they would just fall from the tree."
           ],
           "answer": "C",
           "skill": "inference",
@@ -599,7 +611,8 @@
         "I clearly stated my opinion.",
         "I supported it with at least two examples from the article.",
         "I used precise words such as interpret, distinct, and vocalization."
-      ]
+      ],
+      "modelAnswer": "I agree that animal signals act like a kind of language, because each one carries a distinct meaning that other animals can interpret and act on. For example, vervet monkeys use a different vocalization for each predator, and the monkeys that hear it know exactly whether to climb a tree, dive into bushes, or check the ground, almost like understanding separate words. Honeybees communicate in an equally specific way through a dance that tells other bees which direction and how far to fly for flowers, showing that these signals convey real information rather than random noise."
     }
   }
 }

@@ -93,9 +93,9 @@
      "passage": "Sara opened the box slowly. Inside was... a tiny kitten!",
      "stem": "Why does the writer use the dots ( ... )?",
      "options": [
-      "to ask a question",
-      "to show a list",
-      "to join two words",
+      "to ask a question here",
+      "to show a long list",
+      "to join two long words",
       "to make the reader wait"
      ],
      "answer": 3,
@@ -202,9 +202,9 @@
      "stem": "What does the ellipsis ( ... ) show?",
      "options": [
       "Noor stops before she finishes speaking.",
-      "Noor asks a question.",
-      "Noor is giving a list.",
-      "Noor is shouting."
+      "Noor asks a question to her teacher and waits.",
+      "Noor is giving a list of her toys.",
+      "Noor is shouting very loudly now."
      ],
      "answer": 0,
      "why": "The dots show Noor's words trail off. The next sentences say she stopped and was not sure."
@@ -213,9 +213,9 @@
      "passage": "The oldest tree in our garden — a sidr tree — gives shade all summer.",
      "stem": "What do the two dashes do?",
      "options": [
-      "They join two numbers.",
-      "They show a pause in speech.",
-      "They end the sentence.",
+      "They join two numbers in the sentence.",
+      "They show a pause in speech or in a song.",
+      "They end the sentence in the middle.",
       "They add extra information about the tree."
      ],
      "answer": 3,
@@ -322,10 +322,10 @@
      "passage": "The museum sign says: \"The fort was built from mud bricks and palm trunks, and it has stood for more than a century.\" A student wrote: \"The fort ... has stood for more than a century.\"",
      "stem": "What does the ellipsis in the student's sentence show?",
      "options": [
-      "The speaker is unsure.",
-      "The fort is very old.",
+      "The speaker is unsure about the sign.",
+      "The fort is very old and made of stone.",
       "Some words from the sign were left out.",
-      "The sentence is a question."
+      "The sentence is a question for the guide."
      ],
      "answer": 2,
      "why": "Compare the two: the words about mud bricks and palm trunks are missing. The ellipsis marks that gap."
@@ -408,9 +408,9 @@
      "stem": "What is the effect of the dash?",
      "options": [
       "It makes the list of animals stand out as a surprise.",
-      "It shows that words were left out.",
-      "It joins two words into one adjective.",
-      "It shows the writer is unsure."
+      "It shows that words were left out of the list.",
+      "It joins two words into one adjective before a noun.",
+      "It shows the writer is unsure about the animals."
      ],
      "answer": 0,
      "why": "The sharp break after \"came alive\" makes the reader stop, then notice the surprise list of animals."

@@ -76,7 +76,7 @@
     "stem": "What does ring mean in this text?",
     "options": [
      "The sound a bell makes",
-     "A circle of people",
+     "A circle of people dancing",
      "Jewellery worn on a finger",
      "To call on the phone"
     ],
@@ -104,10 +104,10 @@
      "passage": "Turn on the light. It is too dark to read.",
      "stem": "What does light mean here?",
      "options": [
-      "Not heavy",
+      "Not heavy, easy to carry",
       "A lamp that helps you see",
-      "Pale in colour",
-      "To start a fire"
+      "Pale in colour, like cream",
+      "To start a fire with a match"
      ],
      "answer": 1,
      "why": "The clues are 'turn on' and 'too dark to read'. Light means a lamp."
@@ -128,9 +128,9 @@
      "passage": "We sat by the bank of the river and watched the fish swim.",
      "stem": "What does bank mean here?",
      "options": [
-      "A place to keep money",
-      "A pile of snow",
-      "A kind of boat",
+      "A place where people keep their money",
+      "A pile of snow beside the road",
+      "A kind of boat used by fishermen",
       "The land along the side of a river"
      ],
      "answer": 3,
@@ -214,8 +214,8 @@
      "options": [
       "How high or low a sound is",
       "A throw of the ball to the batter",
-      "A sports field",
-      "A dark, sticky material"
+      "A sports field for playing cricket",
+      "A dark, sticky material for roads"
      ],
      "answer": 1,
      "why": "'Threw', 'flew over the plate' and 'the batter' show that pitch means a throw."
@@ -237,9 +237,9 @@
      "stem": "What does trunk mean here?",
      "options": [
       "A large box for storing things",
-      "An elephant's nose",
-      "The main stem of a tree",
-      "The back of a car"
+      "An elephant's nose, used to drink",
+      "The main stem of a tree or plant",
+      "The back of a car or a van"
      ],
      "answer": 0,
      "why": "Old letters kept in a wooden trunk by a bed show it is a storage box."
@@ -322,10 +322,10 @@
      "passage": "Under the microscope, we could see that the onion skin was made of thousands of tiny cells, each with its own thin wall.",
      "stem": "What does cell mean here?",
      "options": [
-      "A small room in a prison",
+      "A small room in a prison for people who broke a law",
       "A tiny unit that living things are made of",
-      "A mobile phone",
-      "A box in a table"
+      "A mobile phone that people use to call",
+      "A box in a table where we keep pens"
      ],
      "answer": 1,
      "why": "The microscope, onion skin and thin walls show the science meaning: a tiny unit of a living thing."
@@ -335,9 +335,9 @@
      "stem": "What does draft mean here?",
      "options": [
       "An early version of a piece of writing",
-      "A cold wind in a room",
-      "A drink from a tap",
-      "A drawing of a building"
+      "A cold wind in a room or a hall",
+      "A drink from a tap or a bottle",
+      "A drawing of a building by an architect"
      ],
      "answer": 0,
      "why": "He wrote it first, got comments, and rewrote it: a draft is an early version."
@@ -444,9 +444,9 @@
      "passage": "Although Majed was angry at the unfair decision, he managed to temper his words. He spoke calmly and politely to the referee.",
      "stem": "What does temper mean here?",
      "options": [
-      "A bad mood",
-      "To treat metal with heat",
-      "To lose control",
+      "A bad mood after a long day",
+      "To treat metal with great heat",
+      "To lose control and shout",
       "To make something less strong"
      ],
      "answer": 3,
@@ -457,9 +457,9 @@
      "stem": "What does harboured mean here?",
      "options": [
       "Kept a feeling or idea in her mind",
-      "Sailed a ship into port",
-      "Gave shelter to a criminal",
-      "Painted a picture of the sea"
+      "Sailed a big ship into the port",
+      "Gave shelter to a criminal at home",
+      "Painted a picture of the sea and sky"
      ],
      "answer": 0,
      "why": "She kept the dream secretly for years. Harboured means held or kept in her mind."

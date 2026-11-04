@@ -10,6 +10,10 @@ import { audit } from "../audit";
 import { sendCurriculumPlan } from "../curriculum-map/curriculum-plan";
 import { weekStart } from "../student/weekly";
 import { mapLimit } from "../db/parallel";
+import { practiceTotals } from "../analytics/practice-totals";
+import { loadCalendar } from "../analytics/calendar";
+import { resolvePeriod } from "../../analytics/periods";
+import { cancelIndexForStudents, liveAssignmentWhere } from "../student/cancelled-work";
 
 const s = (v: unknown) => String(v ?? "");
 const d = (v: unknown) => (v instanceof Date ? v : v ? new Date(s(v)) : null);
@@ -46,16 +50,22 @@ export async function goalProgress(repo: Repo, actor: Actor, classes: Row[], now
   assertCan(actor, "reports:read");
   const goals = await schoolGoals(repo, s(actor.schoolId));
   const since = weekStart(now);
+  // round 4: unit targets count the current term's completions only; cancelled work (Assigned) never counts
+  const term = resolvePeriod("TERM", await loadCalendar(repo, s(actor.schoolId) || null), now);
   // ⚡ the classes a few at a time (was one class after another: ~6 round trips each, in a row); same rows, same order
   const rows: ClassGoalRow[] = await mapLimit(classes, async (c): Promise<ClassGoalRow> => {
     const grade = Number((await repo.findUnique("Grade", { id: c.gradeId }))?.level ?? 0);
     const ids = (await repo.findMany("ClassMembership", { classId: c.id, leftAt: null }, { select: ["studentId"] })).map((m) => s(m.studentId));
     const n = ids.length || 1;
-    const attempts = ids.length ? await repo.findMany("QuestionAttempt", { studentId: { in: ids }, createdAt: { gte: since } }, { select: ["responseMs"] }) : [];
-    const minutes = Math.round(attempts.reduce((t, a) => t + Math.min(Number(a.responseMs ?? 0), 180_000), 0) / 60_000 / n);
-    const done = ids.length ? (await repo.findMany("AssignmentStudent", { studentId: { in: ids }, status: "COMPLETED" }, { select: ["assignmentId", "completedAt"] })).filter((r) => { const t = d(r.completedAt); return t && t >= since; }) : [];
-    const planAids = done.length ? new Set((await repo.findMany("Assignment", { id: { in: done.map((r) => s(r.assignmentId)) } }, { select: ["id", "curriculumPlanId"] })).filter((a) => a.curriculumPlanId && s(a.curriculumPlanId) !== "WEEKLY_CHECK").map((a) => s(a.id))) : new Set<string>();
-    const parts = Math.round((10 * done.filter((r) => planAids.has(s(r.assignmentId))).length) / n) / 10;
+    // 📏 round 4: minutes = THE one definition (practice-totals.ts: ≤ 5 min per answer, star sources, 25 students at a time)
+    const totals = ids.length ? await practiceTotals(repo, ids, since, now, { schoolId: s(c.schoolId) || s(actor.schoolId) || null }) : new Map();
+    const minutes = Math.round([...totals.values()].reduce((t, x) => t + x.minutes, 0) / n);
+    // this week's completions only (date-bounded read), live work only (not deleted, not cancelled for the student)
+    const ix = ids.length ? await cancelIndexForStudents(repo, ids, s(actor.schoolId) || null) : null;
+    const done = ids.length ? (await repo.findMany("AssignmentStudent", { studentId: { in: ids }, status: "COMPLETED", completedAt: { gte: since } }, { select: ["assignmentId", "studentId", "completedAt"] })).filter((r) => { const t = d(r.completedAt); return t && t >= since && t <= now; }) : [];
+    const planRows = done.length ? await repo.findMany("Assignment", liveAssignmentWhere({ id: { in: [...new Set(done.map((r) => s(r.assignmentId)))] } }), { select: ["id", "curriculumPlanId", "testId"] }) : [];
+    const planById = new Map(planRows.filter((a) => a.curriculumPlanId && s(a.curriculumPlanId) !== "WEEKLY_CHECK").map((a) => [s(a.id), a]));
+    const parts = Math.round((10 * done.filter((r) => { const a = planById.get(s(r.assignmentId)); return a && ix!.live(a, s(r.studentId)); }).length) / n) / 10;
     // unit targets: share of students who finished every part of the unit in the class's curriculum plan
     const plan = (await repo.findMany("SkillPlan", { classId: c.id, kind: "CURRICULUM" }))[0];
     const items = plan ? await repo.findMany("SkillPlanItem", { planId: plan.id }) : [];
@@ -63,8 +73,16 @@ export async function goalProgress(repo: Repo, actor: Actor, classes: Row[], now
     for (const u of goals.units.filter((x) => x.grade === grade)) {
       const inUnit = items.filter((it) => s(it.label).split(" · ")[0].toLowerCase().startsWith(u.unit.toLowerCase()));
       const aids = inUnit.flatMap((it) => { const v = typeof it.assignmentIds === "string" ? JSON.parse(s(it.assignmentIds)) : it.assignmentIds; return Array.isArray(v) ? v.map(String) : []; });
-      const rowsU = aids.length ? await repo.findMany("AssignmentStudent", { assignmentId: { in: aids }, status: "COMPLETED" }, { select: ["assignmentId", "studentId"] }) : [];
-      const finished = inUnit.length ? ids.filter((id) => inUnit.every((it) => { const v = typeof it.assignmentIds === "string" ? JSON.parse(s(it.assignmentIds)) : it.assignmentIds; const set = new Set(Array.isArray(v) ? v.map(String) : []); return rowsU.some((r) => s(r.studentId) === id && set.has(s(r.assignmentId))); })).length : 0;
+      const liveU = aids.length ? new Map((await repo.findMany("Assignment", liveAssignmentWhere({ id: { in: aids } }), { select: ["id", "curriculumPlanId", "testId"] })).map((a) => [s(a.id), a])) : new Map<string, Row>();
+      const rowsU = (aids.length && ids.length ? await repo.findMany("AssignmentStudent", { assignmentId: { in: aids }, studentId: { in: ids }, status: "COMPLETED", completedAt: { gte: term.from } }, { select: ["assignmentId", "studentId"] }) : [])
+        .filter((r) => { const a = liveU.get(s(r.assignmentId)); return a && ix!.live(a, s(r.studentId)); });
+      // a part whose work was cancelled / deleted for the student is not required of them (it can never be finished)
+      const partIds = (it: Row) => { const v = typeof it.assignmentIds === "string" ? JSON.parse(s(it.assignmentIds)) : it.assignmentIds; return Array.isArray(v) ? v.map(String) : []; };
+      const finished = inUnit.length ? ids.filter((id) => inUnit.every((it) => {
+        const set = new Set(partIds(it));
+        if (set.size && ![...set].some((aid) => { const a = liveU.get(aid); return a && ix!.live(a, id); })) return true;
+        return rowsU.some((r) => s(r.studentId) === id && set.has(s(r.assignmentId)));
+      })).length : 0;
       units.push({ unit: u.unit, pct: Math.round((100 * finished) / n), target: u.pct, by: u.by, done: finished, daysLeft: Math.ceil((new Date(`${u.by}T23:59:59`).getTime() - now.getTime()) / 86_400_000) });
     }
     return { classId: s(c.id), className: s(c.name), grade, students: ids.length, minutes, parts, units };

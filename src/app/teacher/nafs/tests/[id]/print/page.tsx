@@ -10,6 +10,7 @@ import { MOE_BY_CODE } from "@/server/nafs/framework";
 import { getNafsTest, markOf } from "@/server/nafs/tests";
 import { bookletGroups } from "@/server/nafs/student";
 import { getT } from "@/i18n/server";
+import { RichInline } from "@/components/rich-inline";
 
 export const metadata = { title: "Print NAFS test" };
 
@@ -50,7 +51,7 @@ export default async function NafsPrintPage({ params, searchParams }: { params: 
   const { t } = await getT();
   const [{ id }, sp] = await Promise.all([params, searchParams]);
   const test = await getNafsTest(repo, actor, id).catch(() => null);
-  if (!test) redirect("/teacher/nafs?tab=tests");
+  if (!test) redirect("/teacher/nafs?tab=test");
   const qs = await loadNafsQuestions(repo, test.questionIds);
   const groups = bookletGroups(test.questionIds, qs);
   // the Ministry booklet model prints its questions under the standard headings, like the guide
@@ -94,8 +95,8 @@ export default async function NafsPrintPage({ params, searchParams }: { params: 
               {g.passage && (
                 <div className="nb-pass">
                   <p className="nb-note">Read the passage. Then answer questions {g.questions[0].n}{g.questions.length > 1 ? `–${g.questions[g.questions.length - 1].n}` : ""}.</p>
-                  {g.passage.title && <h2>{g.passage.title}</h2>}
-                  {g.passage.paragraphs.map((p, i) => <p key={i} className="nb-para"><b>{i + 1}</b><span>{p}</span></p>)}
+                  {g.passage.title && <h2><RichInline text={g.passage.title} /></h2>}
+                  {g.passage.paragraphs.map((p, i) => <p key={i} className="nb-para"><b>{i + 1}</b><span><RichInline text={p} /></span></p>)}
                 </div>
               )}
               {g.questions.map((q, qi) => {
@@ -105,9 +106,9 @@ export default async function NafsPrintPage({ params, searchParams }: { params: 
                     {head && <p className="nb-std">{head.short} · {head.text} <small>({head.area === "VOC" ? "Vocabulary" : head.area === "CA" ? "Comprehension and analysis" : "Evaluation"})</small></p>}
                     <div className="nb-q">
                       <b>{q.n}.</b>
-                      <div>{test.marks && <span className="nb-mk">{markOf(test.marks, test.questionIds[q.n - 1])} mark(s)</span>}{q.stem}
+                      <div>{test.marks && <span className="nb-mk">{markOf(test.marks, test.questionIds[q.n - 1])} mark(s)</span>}<RichInline text={q.stem} />
                         {q.kind === "WRITTEN" ? <div className="nb-lines" aria-label="Write your answer"><span /><span /><span /></div>
-                          : <ol>{q.options.map((o, i) => <li key={i}><b>{"ABCD"[i]}.</b><span>{o}</span></li>)}</ol>}
+                          : <ol>{q.options.map((o, i) => <li key={i}><b>{"ABCD"[i]}.</b><span><RichInline text={o} /></span></li>)}</ol>}
                       </div>
                     </div>
                   </div>

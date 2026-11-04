@@ -15,6 +15,9 @@ import { planEditorView, type PlanEditorView } from "@/server/plans/editor";
 import { candidates, fullQuestion, mapLessonQuestions, mapLessons, questionLines, typeChoices, isPlanLevel, type QuestionLine } from "@/server/plans/question-pick";
 import { searchSkillsAnyGrade } from "@/server/plans/wizard";
 import { accessibleClasses } from "@/server/teacher/assign";
+import { ClassSignInOption, ClassSignInStrip } from "@/components/class-signin/strip";
+import { printQrForSheet } from "@/server/auth/class-print-qr";
+import { appOrigin } from "@/lib/plan-links";
 import {
   AddPanel, ChangesBox, DetailsForm, PlanStepper, PreviewStep, QuestionPanel, SectionCard, SendStep, StatusBanner, StudentsForm, WhyBox, type EditorStep,
 } from "@/components/plans/editor-ui";
@@ -23,7 +26,15 @@ export const metadata = { title: "Plan" };
 
 const BEHIND: unique symbol = Symbol("db behind");
 
-type SP = { msg?: string; print?: string; step?: string; add?: string; open?: string; q?: string; as?: string; level?: string; type?: string; text?: string };
+type SP = { msg?: string; print?: string; step?: string; add?: string; open?: string; q?: string; as?: string; level?: string; type?: string; text?: string; signin?: string };
+
+/** 🖨 r85: the plan's print carries the class sign-in QR + code (default on for the class's teacher; signin=0 → off). */
+async function planSignIn(actor: Awaited<ReturnType<typeof requireActor>>, classId: unknown, sp: SP) {
+  const on = sp.signin !== "0";
+  const s = on && classId ? await printQrForSheet(repo, actor, String(classId), appOrigin()) : null;
+  const href = (path: string) => { const p = new URLSearchParams(Object.entries(sp).filter(([k, x]) => typeof x === "string" && k !== "signin" && k !== "print" && k !== "msg") as [string, string][]); if (on) p.set("signin", "0"); const q = p.toString(); return q ? `${path}?${q}` : path; };
+  return { on, s, href };
+}
 
 /**
  * ✏️ One plan, fully editable before and after sending: 1 Who → 2 What (every part and every question: open, add,
@@ -41,9 +52,11 @@ export default async function PlanPage({ params, searchParams }: { params: Promi
   if (row === BEHIND) return <DbUpdatePage />;
   if (row && String(row.kind) === "CURRICULUM") {
     const g = await curriculumPlanGrid(repo, actor, planId);
+    const cs = await planSignIn(actor, row.classId, sp);
     return (
       <AppShell name={String(me.displayName)}>
-        <PageHeader back={{ href: "/teacher/plans", label: "Plans" }} icon="📘" title={g.title} subtitle={`${g.className} · ${t("{n} part(s)", { n: g.items.length })} · ${t("{n} student(s)", { n: g.students.length })} · ${t("{n} correct answers finish a part", { n: g.target })}`}><PrintButton /></PageHeader>
+        <PageHeader back={{ href: "/teacher/plans", label: "Plans" }} icon="📘" title={g.title} subtitle={`${g.className} · ${t("{n} part(s)", { n: g.items.length })} · ${t("{n} student(s)", { n: g.students.length })} · ${t("{n} correct answers finish a part", { n: g.target })}`}><ClassSignInOption on={cs.on} href={cs.href(`/teacher/plans/${planId}`)} t={t} /><PrintButton /></PageHeader>
+        <div className="hidden print:block"><ClassSignInStrip s={cs.s} t={t} /></div>
         {sp.msg && <p role="status" className="animate-pop mb-5 rounded-2xl bg-teal-50 px-4 py-3 text-teal-900 ring-1 ring-teal-200 print:hidden">✅ {sp.msg}</p>}
         <CurriculumGrid g={g} canEdit />
       </AppShell>
@@ -76,18 +89,20 @@ export default async function PlanPage({ params, searchParams }: { params: Promi
     step === "preview" ? questionLines(repo, inPlan) : Promise.resolve(new Map<string, QuestionLine>()),
   ]);
   const classes = step === "send" ? (await accessibleClasses(repo, actor)).map((c) => ({ id: String(c.id), name: String(c.name) })).sort((a, b) => a.name.localeCompare(b.name)) : [];
+  const cs = await planSignIn(actor, row?.classId, sp);
   const closeHref = `/teacher/plans/${v.id}?${new URLSearchParams([...(sp.add ? [["add", sp.add]] : []), ...(step !== "what" ? [["step", step]] : [])] as [string, string][])}`;
   return (
     <AppShell name={String(me.displayName)}>
       {/* in the preview step the Download / Print gives only the student's sheet: the editor's header, steps and banner stay off paper */}
       <div data-print={step === "preview" ? "hide" : undefined}>
       <PageHeader back={{ href: "/teacher/plans", label: "Plans" }} icon="🗂️" title={v.title}
-        subtitle={`${v.className} · ${t("Grade {n}", { n: v.grade })} · ${t("{n} student(s)", { n: v.planStudentIds.length })} · ${t("{n} part(s)", { n: v.sections.length })}${v.goals ? ` · 🎯 ${v.goals}` : ""}`}>{step !== "preview" && <PrintButton />}</PageHeader>
+        subtitle={`${v.className} · ${t("Grade {n}", { n: v.grade })} · ${t("{n} student(s)", { n: v.planStudentIds.length })} · ${t("{n} part(s)", { n: v.sections.length })}${v.goals ? ` · 🎯 ${v.goals}` : ""}`}><ClassSignInOption on={cs.on} href={cs.href(`/teacher/plans/${v.id}`)} t={t} />{step !== "preview" && <PrintButton />}</PageHeader>
       {sp.print === "1" && <AutoPrint />}
       {sp.msg && <p role="status" className="animate-pop mb-5 rounded-2xl bg-teal-50 px-4 py-3 text-teal-900 ring-1 ring-teal-200 print:hidden">{sp.msg.startsWith("⚠️") ? "" : "✅ "}{sp.msg}</p>}
       <PlanStepper t={t} planId={v.id} step={step} />
       <StatusBanner t={t} v={v} />
       </div>
+      <div className="hidden print:block"><ClassSignInStrip s={cs.s} t={t} /></div>
       {open && <QuestionPanel t={t} q={open} closeHref={closeHref} />}
       {step === "what" && (
         <div className="space-y-5">

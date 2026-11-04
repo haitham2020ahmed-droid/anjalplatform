@@ -16,6 +16,8 @@ import { useT } from "@/i18n/client";
 
 type Kind = "MINUTE" | "PASSAGE" | "PHRASED" | "REPEATED";
 const LIMIT: Record<Kind, number> = { MINUTE: 60, PASSAGE: 240, PHRASED: 240, REPEATED: 240 };
+/** r4: the same rule as the server (OFFICIAL_MIN_SECONDS): an earlier Stop makes the 1-minute check a practice reading */
+const OFFICIAL_SECONDS = 55;
 const KIND_LABEL: Record<Kind, string> = { MINUTE: "⏱ 1-minute check", PASSAGE: "📖 Whole passage", PHRASED: "🎼 Phrased reading", REPEATED: "🔁 Repeated reading" };
 const LEVEL_TONE = { BELOW: "bg-rose-500", ON: "bg-sky-600", ABOVE: "bg-emerald-600" } as const;
 /** Students never see Below / On / Above about themselves: friendly words instead. */
@@ -48,6 +50,7 @@ function PhrasedText({ words, marks }: { words: string[]; marks: PhraseMark[] })
 
 export function CoachReader({ passageKey, title, words, mode, kind, grade, marks, trial, trials, goal }: { passageKey: string; title: string; words: string[]; mode?: "MINUTE" | "PASSAGE"; kind?: Kind; grade: number; marks?: PhraseMark[] | null; trial?: number | null; trials?: { trial: number; wcpm: number; goal: number | null }[]; goal?: number | null }) {
   const k: Kind = kind ?? mode ?? "MINUTE";
+  const t = useT();
   const [result, setResult] = useState<CoachResult | null>(null);
   const r = useCoachRecorder({ limit: LIMIT[k], fields: () => ({ key: passageKey, mode: k === "MINUTE" ? "MINUTE" : "PASSAGE", kind: k }), onResult: setResult });
   const left = LIMIT[k] - r.secs;
@@ -69,7 +72,7 @@ export function CoachReader({ passageKey, title, words, mode, kind, grade, marks
       {r.stage !== "done" && (
         <div className="sticky bottom-3 z-10 flex flex-wrap items-center justify-between gap-4 rounded-3xl bg-brand-navy p-4 text-white shadow-lg">
           {r.stage === "ready" && <><p className="text-sm">{HINT[k]}</p><MicMeter mic={r.mic} onCheck={() => void r.check()} /><button onClick={r.start} className="rounded-2xl bg-gradient-to-r from-teal-400 to-emerald-400 px-8 py-3 text-lg font-extrabold text-brand-navy shadow">🎙 Start reading</button></>}
-          {r.stage === "recording" && <><p className="flex items-center gap-3 text-lg font-bold"><span className="h-3 w-3 animate-pulse rounded-full bg-rose-400" aria-hidden="true" />Read now · <span className="tabular-nums">{k === "MINUTE" ? `${left}s left` : `${Math.floor(r.secs / 60)}:${String(r.secs % 60).padStart(2, "0")}`}</span></p><MicMeter mic={r.mic} compact /><button onClick={r.stop} className="rounded-2xl bg-white px-8 py-3 text-lg font-extrabold text-brand-navy">■ Stop</button></>}
+          {r.stage === "recording" && <><p className="flex items-center gap-3 text-lg font-bold"><span className="h-3 w-3 animate-pulse rounded-full bg-rose-400" aria-hidden="true" />Read now · <span className="tabular-nums">{k === "MINUTE" ? `${left}s left` : `${Math.floor(r.secs / 60)}:${String(r.secs % 60).padStart(2, "0")}`}</span></p><MicMeter mic={r.mic} compact />{k === "MINUTE" && left > 60 - OFFICIAL_SECONDS && <span className="text-xs text-white/80">{t("Stopping before the minute ends makes this a practice reading.")}</span>}<button onClick={r.stop} className="rounded-2xl bg-white px-8 py-3 text-lg font-extrabold text-brand-navy">■ Stop</button></>}
           <CoachStatus r={r} />
         </div>
       )}
@@ -100,6 +103,7 @@ export function CoachResultView({ r, again, extra }: { r: CoachResult; again: ()
         </div>
         {fb?.growth && <p className="mt-4 rounded-2xl bg-teal-400/20 px-4 py-2 text-sm">📈 {fb.growth.message} <span className="text-white/70">({t("last time")} {fb.growth.previous.date}: {fb.growth.previous.wcpm} WCPM · {fb.growth.previous.accuracy}%)</span></p>}
         {r.norm && <p className="mt-4 rounded-2xl bg-white/10 px-4 py-2 text-sm">📊 {r.norm.kid}</p>}
+        {r.notice && <p role="status" className="mt-2 rounded-2xl bg-amber-300/25 px-4 py-2 text-sm font-semibold">⏱ {t(r.notice)}</p>}
         {r.average && <p className="mt-2 rounded-2xl bg-emerald-400/20 px-4 py-2 text-sm">✌️ Two 1-minute checks today ({r.average.reads.join(" and ")}): your official score is the average, <b>{r.average.wcpm} WCPM</b>.</p>}
         <p className="mt-4 text-lg font-semibold">{fb?.headline ?? (r.accuracy >= 97 && r.level !== "BELOW" ? "🌟 Excellent reading!" : r.accuracy >= 90 ? "👏 Good reading — let’s polish a few words." : "💪 Good effort! Practise the words below and read it again.")}</p>
       </section>

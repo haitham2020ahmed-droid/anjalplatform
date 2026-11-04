@@ -5,6 +5,9 @@ import { ReportToolbar } from "@/components/map/report-toolbar";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { ForbiddenError } from "@/server/auth/rbac";
 import { classStudyPlans } from "@/server/map/map-reports";
+import { ReportIntro, ReportSummary } from "@/components/report-kit";
+import { classStudyPlansSummary } from "@/lib/report-summaries";
+import { planStarCount } from "@/lib/plan-groups";
 
 export const metadata = { title: "Study Plans · Class" };
 
@@ -20,8 +23,10 @@ export default async function ClassStudyPlansPage({ params, searchParams }: { pa
   return (
     <AppShell name={String(me.displayName)}>
       <ReportToolbar back={{ href: `/teacher/map-reports?classId=${classId}`, label: "MAP Reports" }} base={`/map-report/class/${classId}/study-plans`} subject={subject} full={sp.full === "1"} extra={<span className="text-sm text-slate-600">{v.className} · {v.docs.length} student(s)</span>} />
+      <div className="mx-auto max-w-4xl"><ReportIntro text="Every student's Personal Study Plan in one document: the skills each student should practise next." /></div>
       {!v.docs.length && <p className="mx-auto max-w-4xl rounded-2xl bg-white p-6 text-slate-600 ring-1 ring-slate-200">No student of {v.className} has a {subject === "READING" ? "Reading" : "Language Usage"} MAP score yet.</p>}
       {v.docs.map((d, i) => <StudyPlanView key={d.student.id} d={d} first={i === 0} hub />)}
+      <div className="mx-auto max-w-4xl"><ReportSummary summary={classStudyPlansSummary(v.docs.map((d) => ({ ...d, counts: d.counts ?? planStarCount(d.areas) })), classId, subject)} /></div>
     </AppShell>
   );
 }

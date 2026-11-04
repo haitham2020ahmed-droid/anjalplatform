@@ -2,7 +2,8 @@ import Link from "next/link";
 import { AppShell } from "@/components/app-shell";
 import { ReadingLevelLabel, ReadingScalesHelp } from "@/components/reading-level";
 import { fmtNum, fmtPct, fmtSigned, pctTone } from "@/components/reports/report-ui";
-import { AtAGlance, Callout, ReportHeader, ReportSection, ReportTable, SimpleBar, toneOfPct } from "@/components/report-kit";
+import { AtAGlance, Callout, ReportHeader, ReportIntro, ReportSection, ReportSummary, ReportTable, SimpleBar, toneOfPct } from "@/components/report-kit";
+import { readMasterStudentSummary } from "@/lib/report-summaries";
 import { getT } from "@/i18n/server";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { ForbiddenError } from "@/server/auth/rbac";
@@ -27,6 +28,7 @@ export default async function StudentReadMasterPage({ params }: { params: Promis
       <ReportHeader back={{ href: "/teacher/reports/readmaster", label: "ReadMaster results" }} icon="⭐" title="ReadMaster"
         subtitle="Every article this student read: the version, the reading Lexile before → after, the score and the time."
         who={<><bdi className="font-semibold">{r.name}</bdi> · {t("Grade {n}", { n: r.grade })} · <ReadingLevelLabel scale="READMASTER" value={r.row.lexileNow} /></>} when={t("Last 12 months")} />
+      <ReportIntro text="Every ReadMaster article this student read: the score and how their reading level moved." />
       <ReadingScalesHelp className="mb-4" />
       <AtAGlance items={[
         { icon: "📰", label: "Articles", value: r.row.articles, meaning: t("{n} timed article(s) · {m} minutes", { n: r.row.timedArticles, m: fmtNum(r.row.minutes) }) },
@@ -49,7 +51,7 @@ export default async function StudentReadMasterPage({ params }: { params: Promis
         </ReportSection>
         <ReportSection title="Articles" icon="📰">
           <ReportTable label="Articles" empty="No article read yet."
-            cols={[{ key: "d", label: "Date" }, { key: "t", label: "Article" }, { key: "v", label: "Version" }, { key: "l", label: "Lexile", num: true }, { key: "s", label: "Score", num: true }, { key: "m", label: "Minutes", num: true }, { key: "r", label: "Rapid", num: true }]}
+            cols={[{ key: "d", label: "Date" }, { key: "t", label: "Article" }, { key: "v", label: "Version", more: true }, { key: "l", label: "Lexile", num: true }, { key: "s", label: "Score", num: true }, { key: "m", label: "Minutes", num: true, more: true }, { key: "r", label: "Rapid", num: true, more: true }]}
             rows={r.articles.map((a, i) => ({
               id: String(i), sort: { l: a.lexileAfter, s: a.total ? a.correct / a.total : null, m: a.minutes, r: a.rapid },
               cells: { d: a.date, t: <span className="font-medium">{a.title}</span>, v: <>{a.version.toLowerCase()}{a.practice ? <span className="ms-1 rounded-full bg-amber-50 px-2 text-xs font-semibold text-amber-900 ring-1 ring-amber-200">{t("Practice")}</span> : null}</>, l: a.practice ? `${a.lexileBefore}L (${t("no change")})` : `${a.lexileBefore}L → ${a.lexileAfter}L`,
@@ -59,6 +61,7 @@ export default async function StudentReadMasterPage({ params }: { params: Promis
         <ReportSection title="Accuracy by question type" icon="🧩">
           {r.types.length ? <SimpleBar items={r.types.map((x) => ({ label: x.name, value: x.accuracy, note: <>{t("{n} answers", { n: x.answers })}{x.rapid ? ` (${x.rapid} rapid)` : ""}</> }))} /> : <p className="text-slate-600">No answers yet.</p>}
         </ReportSection>
+        <ReportSummary summary={readMasterStudentSummary(r, studentId, null)} />
         <p className="print:hidden"><Link href={`/teacher/students/${studentId}`} className="inline-flex min-h-10 items-center font-semibold text-brand-teal hover:underline">Open the student page →</Link></p>
       </div>
     </AppShell>

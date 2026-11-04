@@ -5,6 +5,7 @@
  * All callers must check access first (assertStudentAccess / own student id).
  */
 import { countGroups } from "../db/group-count";
+import { starBook, starMastered, starNeedsReview } from "../skills/star-read";
 import { DEFAULT_MASTERY } from "../../config/engine";
 import { bandFor } from "../../mastery/mastery";
 import { recommendSkills, type SkillSnapshot } from "../../recommendations/recommend";
@@ -106,19 +107,21 @@ function pickCurrent(units: UnitSummary[]): number {
 }
 
 export async function getStudentCurriculum(repo: Repo, studentId: string): Promise<StudentCurriculum> {
-  const { grade, curriculum, book } = await studentContext(repo, studentId);
+  const { student, grade, curriculum, book } = await studentContext(repo, studentId);
   const units = (await repo.findMany("Unit", { curriculumId: curriculum.id, deletedAt: null })).sort((a, b) => num(a.number) - num(b.number));
   const unitIds = units.map((u) => String(u.id));
   const [links, lessons] = await Promise.all([
     unitIds.length ? repo.findMany("UnitSkill", { unitId: { in: unitIds } }) : Promise.resolve([]),
     unitIds.length ? repo.findMany("Lesson", { unitId: { in: unitIds }, deletedAt: null }) : Promise.resolve([]),
   ]);
-  const m = await masteryMap(repo, studentId, [...new Set(links.map((l) => String(l.skillId)))]);
-  const t = DEFAULT_MASTERY.bands;
+  // ⭐ owner 1 Nov 2026: a unit's progress = its skills (by KEY: copies count once) with the student's ⭐ — the same
+  // stars as My Skills; the old engine flags never decide it
+  const stars = await starBook(repo, [studentId], student.schoolId ? String(student.schoolId) : null);
   const summaries: UnitSummary[] = units.map((u) => {
-    const sk = links.filter((l) => l.unitId === u.id).map((l) => m.get(String(l.skillId)));
-    const prof = sk.filter((r) => r && num(r.score) >= t.proficient).length;
-    const mast = sk.filter((r) => r && r.isMastered).length;
+    const keys = [...new Set(links.filter((l) => l.unitId === u.id).map((l) => stars.keyOf(String(l.skillId))))];
+    const sk = keys.map((k) => stars.ofKey(studentId, k));
+    const mast = sk.filter((v) => starMastered(v)).length;
+    const prof = mast;
     return {
       unitId: String(u.id),
       number: num(u.number),
@@ -162,6 +165,10 @@ export async function getUnitSkillCards(repo: Repo, studentId: string, unitId: s
   const weakAreaIds = new Set(areaRows.map((a) => String(a.id)));
   const famWeak = new Map(famRows.map((f) => [String(f.id), f.mapGoalAreaId ? weakAreaIds.has(String(f.mapGoalAreaId)) : false]));
   const ev = await skillEvidence(repo, studentId, skillIds, now);
+  // ⭐ the stars decide mastered / review due (any copy of each skill)
+  const stars = await starBook(repo, [studentId]);
+  const starOf = (id: string) => stars.of(studentId, id);
+  const reviewDue = (id: string) => { const v = starOf(id); return starNeedsReview(v) || (starMastered(v) && Boolean(v.reviewDueAt) && new Date(String(v.reviewDueAt)).getTime() <= now.getTime()); };
   const snapshots: SkillSnapshot[] = skillIds.map((id, i) => {
     const r = m.get(id);
     const last = r?.lastPracticedAt ? new Date(String(r.lastPracticedAt instanceof Date ? r.lastPracticedAt.toISOString() : r.lastPracticedAt)) : null;
@@ -175,7 +182,7 @@ export async function getUnitSkillCards(repo: Repo, studentId: string, unitId: s
       recentErrors: ev.get(id)?.recentErrors ?? 0,
       daysSincePractice: last ? Math.floor((now.getTime() - last.getTime()) / 86_400_000) : null,
       theta: ev.get(id)?.theta ?? 0,
-      reviewDue: ev.get(id)?.reviewDue ?? false,
+      reviewDue: reviewDue(id),
       misconception: ev.get(id)?.misconception ?? null,
       assignedDueInDays: assigned.has(id) ? assigned.get(id)! : null,
       prerequisiteGap: gap.has(id),
@@ -188,8 +195,10 @@ export async function getUnitSkillCards(repo: Repo, studentId: string, unitId: s
   const cards: SkillCard[] = skillIds.map((id) => {
     const s = skills.get(id)!;
     const r = m.get(id);
-    const score = num(r?.score);
-    const band = (r?.band as MasteryBandName) ?? bandFor(score, DEFAULT_MASTERY);
+    const v = starOf(id);
+    // the star score and word (⭐ = Mastered); the engine's band only below ⭐
+    const score = v.status === "NOT_STARTED" ? num(r?.score) : v.score;
+    const band: MasteryBandName = starMastered(v) ? "MASTERED" : (() => { const b = bandFor(score, DEFAULT_MASTERY); return b === "MASTERED" ? "PROFICIENT" : b; })();
     const attempts = num(r?.attempts);
     const rec = recBy.get(id);
     return {
@@ -202,7 +211,7 @@ export async function getUnitSkillCards(repo: Repo, studentId: string, unitId: s
       bandLabel: BAND_LABEL[band],
       attempts,
       accuracy: attempts ? Math.round((100 * num(r?.correct)) / attempts) : null,
-      isMastered: Boolean(r?.isMastered),
+      isMastered: starMastered(v),
       recommended: Boolean(rec),
       recommendedReason: rec ? rec.reasons.sort((a, b) => b.weight - a.weight)[0].detail : null,
       availableQuestions: qCount.get(id) ?? 0,

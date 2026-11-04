@@ -54,7 +54,7 @@ export function RosterForm() {
             <>
               <p className="mt-2 text-red-700">{plan.problems.length} problem(s). Nothing will be imported until the file is fixed.</p>
               <table className="mt-2 w-full text-left text-sm"><thead><tr className="text-slate-500"><th>Line</th><th>Column</th><th>Problem</th></tr></thead>
-                <tbody>{plan.problems.slice(0, 200).map((p, i) => <tr key={i} className="border-t"><td className="py-1">{p.line}</td><td>{p.column}</td><td>{p.message}</td></tr>)}</tbody></table>
+                <tbody>{plan.problems.slice(0, 200).map((p, i) => <tr key={i} className="border-t"><td className="py-1">{p.line}</td><td>{p.column}</td><td>{p.message}{p.href && <> <a href={p.href} className="font-semibold text-brand-teal underline">Open this account</a></>}</td></tr>)}</tbody></table>
             </>
           ) : (
             <button onClick={apply} disabled={busy} className="mt-3 rounded-xl bg-brand-teal px-5 py-2.5 font-semibold text-white disabled:opacity-60">{busy ? "Importing…" : `Import ${plan.lines.length} rows`}</button>

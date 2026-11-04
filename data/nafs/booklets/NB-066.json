@@ -173,10 +173,10 @@
       "type": "MCQ",
       "stem": "What is the main purpose of the story?",
       "options": [
-        "to teach readers how to build a birdcage",
-        "to explain how veterinary clinics work",
+        "to teach readers how to build a birdcage at home",
+        "to explain how veterinary clinics work in the city",
         "to show that caring for a wild creature can mean letting it go free",
-        "to describe the weather in August"
+        "to describe the weather in August in the south of the country today"
       ],
       "answer": "C",
       "why": "Faris learns that the kindest thing for the hoopoe is to return it to the sky."
@@ -237,10 +237,10 @@
       "type": "MCQ",
       "stem": "What did the vet say was wrong with the hoopoe?",
       "options": [
-        "Its wing was broken.",
+        "Its wing was broken in two places.",
         "Its wing was badly sprained.",
-        "It was very hungry.",
-        "It had hurt its beak."
+        "It was very hungry and thin.",
+        "It had hurt its beak and its eye."
       ],
       "answer": "B",
       "why": "Paragraph 3: “Fortunately, nothing is broken … The wing is badly sprained.”"
@@ -318,9 +318,9 @@
       "stem": "Why did Faris want to keep the hoopoe?",
       "options": [
         "He had grown attached to it while caring for it.",
-        "He wanted to sell it at the market.",
-        "Grandfather had asked him to.",
-        "The vet said it could never fly again."
+        "He wanted to sell it at the market in town for money.",
+        "Grandfather had asked him to keep it as a pet.",
+        "The vet said it could never fly again, so he kept it."
       ],
       "answer": "A",
       "why": "After ten days of care and delight, Faris wanted to “look after it forever”."
@@ -349,10 +349,10 @@
       "type": "MCQ",
       "stem": "How is the hoopoe at the start of paragraph 4 DIFFERENT from the hoopoe at the end of it?",
       "options": [
-        "At first it is lively; later it becomes weak and tired.",
-        "At first it eats eagerly; later it refuses all its food.",
+        "At first it is lively and quick; later it becomes weak and tired.",
+        "At first it eats eagerly; later it refuses all of its food.",
         "At first it is motionless; later it is active and raises its crest.",
-        "At first it flies around the box; later it cannot move."
+        "At first it flies around the box; later it cannot move at all."
       ],
       "answer": "C",
       "why": "It begins crouched and still with its crest flat and ends hopping, stretching and raising its crest."
@@ -365,9 +365,9 @@
       "type": "MCQ",
       "stem": "What is the effect of Grandfather's question in paragraph 6?",
       "options": [
-        "Faris decides to build a bigger cage.",
-        "Faris asks the vet for advice.",
-        "Faris becomes angry with Grandfather.",
+        "Faris decides to build a bigger cage for the bird.",
+        "Faris asks the vet for advice about the bird's wing.",
+        "Faris becomes angry with Grandfather and leaves the room.",
         "Faris understands that the bird should be free."
       ],
       "answer": "D",
@@ -382,9 +382,9 @@
       "stem": "What do Grandfather and the vet have in common in the story?",
       "options": [
         "Both give careful advice about how to treat the bird.",
-        "Both want to keep the hoopoe in a cage.",
-        "Both live in the palm garden.",
-        "Both are worried that the wing is broken."
+        "Both want to keep the hoopoe in a cage at the house.",
+        "Both live in the palm garden near the town.",
+        "Both are worried that the wing is broken badly."
       ],
       "answer": "A",
       "why": "Grandfather explains how to handle the bird, and the vet explains how to feed and rest it."
@@ -397,10 +397,10 @@
       "type": "MCQ",
       "stem": "What does the writer mean by “The August heat pressed down on Grandfather's palm garden like a heavy iron lid”?",
       "options": [
-        "The garden was covered with sheets of metal.",
+        "The garden was covered with sheets of metal in the sun.",
         "The heat was so strong that it felt heavy and trapping.",
-        "Dark clouds showed that it was about to rain.",
-        "Grandfather was cooking a meal in the garden."
+        "Dark clouds showed that it was about to rain very soon.",
+        "Grandfather was cooking a meal in the garden at noon."
       ],
       "answer": "B",
       "why": "The simile compares the heat to a heavy lid to show how oppressive and stifling it was."
@@ -430,9 +430,9 @@
       "stem": "In your opinion, why does the writer end the story with the hoopoe watching Faris from a palm branch?",
       "options": [
         "to suggest that the bird remembers Faris and that his kindness was rewarded",
-        "to show that the bird was injured again",
-        "to explain how hoopoes build nests",
-        "to show that Faris will now catch the bird"
+        "to show that the bird was injured again by the cat and the rain in the night",
+        "to explain how hoopoes build nests in the branches of a tall palm tree",
+        "to show that Faris will now catch the bird and put it into a small cage"
       ],
       "answer": "A",
       "why": "The quiet final image hints at a lasting bond and rewards Faris for letting the bird go."
@@ -493,10 +493,10 @@
       "type": "MCQ",
       "stem": "In your opinion, which information in the story is the LEAST clear?",
       "options": [
-        "what colour the hoopoe's feathers are",
-        "what the vet told them to feed the bird",
+        "what colour the hoopoe's feathers are when it flies in the sun",
+        "what the vet told them to feed the bird while its wing got better",
         "whether the bird on the palm branch was really the same hoopoe",
-        "how many days the bird was kept"
+        "how many days the bird was kept in the box at home"
       ],
       "answer": "C",
       "why": "The writer only says “a crested bird”; we are not told for certain that it is the same hoopoe."

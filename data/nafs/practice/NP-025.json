@@ -29,10 +29,10 @@
       "difficulty": 1,
       "stem": "Which sentence is EXCLAMATORY?",
       "options": [
-        "Baghdad stood beside the Tigris River.",
-        "Read the book about al-Khwarizmi.",
+        "Baghdad stood beside the Tigris River long ago.",
+        "Read the book about al-Khwarizmi tonight.",
         "What a remarkable library it must have been!",
-        "Did the scholars speak many languages?"
+        "Did the scholars speak many languages in Baghdad?"
       ],
       "answer": "C",
       "why": "It expresses strong feeling and ends with an exclamation mark; the others are a question, a command and a statement."
@@ -125,10 +125,10 @@
       "difficulty": 2,
       "stem": "Which information in the passage is the LEAST clear?",
       "options": [
-        "who ruled when the House of Wisdom grew",
-        "which river flows through Baghdad",
+        "who ruled when the House of Wisdom grew bigger",
+        "which river flows through Baghdad and past the walls",
         "how scholars calculated the size of the Earth",
-        "where the word \"algebra\" comes from"
+        "where the word “algebra” comes from in the Arabic language"
       ],
       "answer": "C",
       "why": "The passage says they \"attempted to calculate the size of the Earth\" but gives no method or result."

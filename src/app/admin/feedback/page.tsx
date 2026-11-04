@@ -4,7 +4,8 @@ import { EmptyState } from "@/components/ui-kit/empty-state";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { listFeedback } from "@/server/admin/feedback";
 import { getT } from "@/i18n/server";
-import { resolveFeedbackAction } from "./actions";
+import { deleteFeedbackAction, resolveFeedbackAction } from "./actions";
+import { DeleteFeedbackForm } from "./delete-button";
 
 export const metadata = { title: "Feedback" };
 
@@ -32,10 +33,13 @@ export default async function FeedbackPage() {
                 {x.resolved && <span className="rounded-full bg-emerald-50 px-2 py-0.5 text-emerald-800 ring-1 ring-emerald-200">{t("Resolved")}</span>}
               </div>
               <p className="mt-2 whitespace-pre-wrap text-slate-900" dir="auto">{x.message}</p>
-              <form action={resolveFeedbackAction} className="mt-3">
-                <input type="hidden" name="id" value={x.id} /><input type="hidden" name="resolved" value={x.resolved ? "false" : "true"} />
-                <button className="inline-flex min-h-11 items-center rounded-xl bg-white px-4 text-sm font-semibold text-brand-navy ring-1 ring-slate-300 hover:bg-slate-50">{x.resolved ? t("Open again") : t("Mark resolved")}</button>
-              </form>
+              <div className="mt-3 flex flex-wrap gap-2">
+                <form action={resolveFeedbackAction}>
+                  <input type="hidden" name="id" value={x.id} /><input type="hidden" name="resolved" value={x.resolved ? "false" : "true"} />
+                  <button className="inline-flex min-h-11 items-center rounded-xl bg-white px-4 text-sm font-semibold text-brand-navy ring-1 ring-slate-300 hover:bg-slate-50">{x.resolved ? t("Open again") : t("Mark resolved")}</button>
+                </form>
+                <DeleteFeedbackForm action={deleteFeedbackAction} id={x.id} label={t("Delete")} confirmText={t("Delete this feedback? This cannot be undone.")} />
+              </div>
             </li>
           ))}
         </ul>

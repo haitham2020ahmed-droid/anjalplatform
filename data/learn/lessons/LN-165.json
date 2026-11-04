@@ -98,10 +98,10 @@
      "passage": "Cat likes to sleep in the sun. Dog likes to sleep in the sun too. Cat is small, and Dog is big.",
      "stem": "How are Cat and Dog alike?",
      "options": [
-      "They are both small.",
-      "They are both big.",
+      "They are both small and quiet.",
+      "They are both big and strong.",
       "They both like to sleep in the sun.",
-      "They both like to swim."
+      "They both like to swim in the lake."
      ],
      "answer": 2,
      "why": "Cat likes the sun, and Dog likes it too. That is how they are alike."
@@ -211,10 +211,10 @@
      "passage": "Majed and his brother Salem both play in the school band. Majed practises every day and never misses a note. Salem forgets his music book and laughs when he makes mistakes. But both boys love playing for their family on Fridays.",
      "stem": "How are Majed and Salem different?",
      "options": [
-      "Only Majed is in the band.",
+      "Only Majed is in the band at school.",
       "Majed is careful, while Salem is more relaxed.",
-      "Majed does not like music.",
-      "Salem never plays for his family."
+      "Majed does not like music very much.",
+      "Salem never plays for his family at home or at parties."
      ],
      "answer": 1,
      "why": "Majed practises every day and never misses a note. Salem forgets his book and laughs at mistakes."
@@ -294,10 +294,10 @@
     "passage": "Nasser and Faris had been rivals since the first day of school, always racing to answer questions first. When the teacher put them together for the science project, they both groaned. At first they argued about everything, from the topic to the colour of the poster. Then Faris noticed that Nasser was brilliant at building models, and Nasser saw how clearly Faris could explain ideas. After they won second prize, they shook hands and agreed to be partners again next year.",
     "stem": "How does the relationship between Nasser and Faris change?",
     "options": [
-     "They start as friends and end as rivals.",
+     "They start as friends and end as rivals after a big argument.",
      "They start as rivals and become teammates who respect each other.",
-     "They never speak to each other at all.",
-     "They become brothers by the end of the story."
+     "They never speak to each other at all in the whole story.",
+     "They become brothers by the end of the story, after a long trip."
     ],
     "answer": 1,
     "hint": "Compare how they act toward each other at the start and at the end of the story.",
@@ -348,9 +348,9 @@
      "passage": "Uncle Hamid and Uncle Kamal ran the shop together for twenty years. Hamid greeted every customer with a joke, while Kamal kept careful accounts in a thick notebook. Customers came for Hamid's warmth; the shop stayed open because of Kamal's numbers.",
      "stem": "What does the last sentence suggest about the brothers' relationship?",
      "options": [
-      "Customers prefer Kamal to Hamid.",
-      "The brothers do not get along.",
-      "Hamid should learn to keep accounts.",
+      "Customers prefer Kamal to Hamid because he is faster.",
+      "The brothers do not get along and often argue.",
+      "Hamid should learn to keep accounts like his brother.",
       "Their different strengths make the shop succeed."
      ],
      "answer": 3,
@@ -407,10 +407,10 @@
     "passage": "Laila and Amal could hardly have been more different: Laila was bold and impatient, while Amal planned every step and worried about every risk. They argued about almost everything, from which television channel to watch to how to pack a suitcase. Yet the night before Laila's university entrance exam, it was Amal who stayed up until two in the morning, quizzing her on chemistry. And when Amal was too nervous to eat before her job interview, Laila made her favourite cardamom tea and walked with her to the bus stop. Their mother liked to say that the two girls fought like cats but defended each other like lions.",
     "stem": "Which statement best describes the relationship between Laila and her older sister Amal?",
     "options": [
-     "Amal resents Laila for leaving home.",
-     "The sisters have little in common and rarely speak.",
+     "Amal resents Laila for leaving home and does not want to see her.",
+     "The sisters have little in common and rarely speak to each other.",
      "Despite their differences and arguments, they care deeply about each other.",
-     "Laila admires Amal and wants to copy everything she does."
+     "Laila admires Amal and wants to copy everything she does, even her clothes."
     ],
     "answer": 2,
     "hint": "Look beyond the arguments. What does each sister do when it really matters?",
@@ -450,9 +450,9 @@
      "passage": "\"You always get your way,\" Marwan muttered when his younger brother was chosen for the trip. Later that evening, Marwan quietly packed a torch and his own warm jacket into his brother's bag, along with a note: \"In case it gets cold. Don't lose it.\"",
      "stem": "What does the gap between Marwan's words and actions reveal?",
      "options": [
-      "He wants his brother to stay at home.",
+      "He wants his brother to stay at home with him.",
       "He is jealous but still cares about his brother.",
-      "He plans to go on the trip himself.",
+      "He plans to go on the trip himself soon.",
       "He does not trust his brother at all."
      ],
      "answer": 1,
@@ -463,9 +463,9 @@
      "stem": "What does the final sentence suggest about their relationship?",
      "options": [
       "Nora has learned to share her grandmother's interests.",
-      "Nora has stopped drawing mountains.",
-      "Her grandmother has started sketching.",
-      "They spend less time together each year."
+      "Nora has stopped drawing mountains and now paints the sea.",
+      "Her grandmother has started sketching in her free time.",
+      "They spend less time together each year than before."
      ],
      "answer": 0,
      "why": "Nora's sketchbook now holds herbs as well as mountains, showing she has taken on her grandmother's interest."

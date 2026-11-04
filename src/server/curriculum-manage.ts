@@ -373,6 +373,71 @@ export async function deleteSkill(repo: Repo, actor: Actor, skillId: string, now
   });
 }
 
+// ------------------------------------------------------------------ clone (a new grade's structure from an existing one)
+
+export interface CloneGradeResult { targetGradeId: string; targetLevel: number; units: number; skills: number }
+
+/**
+ * Clones a grade's whole skill/unit structure — NOT its questions — into a new or still-empty grade, reusing the
+ * SOURCE skills' own SkillFamily on every cloned skill. The SkillFamily is what links a skill to a MAP goal area,
+ * so a cloned skill is automatically MAP-linked exactly like the one it came from — no separate MAP Classification
+ * step needed. The target grade must have no skills of its own yet, so this can never silently mix into content
+ * someone already built there; either pass an existing empty grade's id, or a new grade number/name to create one.
+ */
+export async function cloneGradeStructure(repo: Repo, actor: Actor, input: { sourceGradeId: string; targetGradeId?: string | null; newGradeLevel?: number | null; newGradeName?: string }, now = new Date()): Promise<CloneGradeResult> {
+  const srcGrade = await gradeInSchool(repo, actor, input.sourceGradeId);
+  const srcCur = await curriculumOfGrade(repo, input.sourceGradeId);
+  if (!srcCur) throw new ValidationError("The source grade has no curriculum to clone.");
+  if (!input.targetGradeId && input.newGradeLevel == null) throw new ValidationError("Choose an existing empty grade, or the new grade's number.");
+  const targetGrade = input.targetGradeId
+    ? await gradeInSchool(repo, actor, input.targetGradeId)
+    : await createGrade(repo, actor, { level: Number(input.newGradeLevel), name: input.newGradeName }, now);
+  if (s(targetGrade.id) === s(srcGrade.id)) throw new ValidationError("Choose a different grade to clone into.");
+  const targetCur = await curriculumOfGrade(repo, s(targetGrade.id));
+  if (!targetCur) throw new ValidationError("The target grade has no curriculum.");
+  if (await repo.count("Skill", { curriculumId: targetCur.id, deletedAt: null })) throw new ValidationError(`Grade ${targetGrade.level} already has skills of its own. Clone only works into an empty grade.`);
+
+  const [units, skills] = await Promise.all([
+    repo.findMany("Unit", { curriculumId: srcCur.id, deletedAt: null }, { select: ["id", "number", "title", "description", "isActive"] }),
+    repo.findMany("Skill", { curriculumId: srcCur.id, deletedAt: null }, { select: ["id", "code", "name", "description", "domain", "category", "familyId", "sequence", "isActive"] }),
+  ]);
+  const skillIds = skills.map((k) => k.id);
+  const [unitSkills, stdLinks] = await Promise.all([
+    units.length ? repo.findMany("UnitSkill", { unitId: { in: units.map((u) => u.id) } }) : Promise.resolve([] as Row[]),
+    skillIds.length ? repo.findMany("SkillStandard", { skillId: { in: skillIds } }) : Promise.resolve([] as Row[]),
+  ]);
+
+  return repo.transaction(async (tx) => {
+    const unitMap = new Map<string, string>();
+    for (const u of units) {
+      const nu = await tx.create("Unit", { curriculumId: targetCur.id, number: Number(u.number), title: s(u.title), description: u.description ?? null, isActive: u.isActive !== false });
+      unitMap.set(s(u.id), s(nu.id));
+    }
+    const skillMap = new Map<string, string>();
+    const usedCodes = new Set<string>();
+    for (const k of skills) {
+      let code = `G${targetGrade.level}.${slug(s(k.name))}`;
+      for (let n = 2; usedCodes.has(code); n++) code = `G${targetGrade.level}.${slug(s(k.name))}-${n}`;
+      usedCodes.add(code);
+      const nk = await tx.create("Skill", {
+        curriculumId: targetCur.id, familyId: k.familyId, code, name: s(k.name), description: k.description ?? null,
+        domain: k.domain, category: k.category, sequence: Number(k.sequence) || 0, isActive: k.isActive !== false,
+      });
+      skillMap.set(s(k.id), s(nk.id));
+    }
+    for (const us of unitSkills) {
+      const nu = unitMap.get(s(us.unitId)), nk = skillMap.get(s(us.skillId));
+      if (nu && nk) await tx.create("UnitSkill", { unitId: nu, skillId: nk, order: Number(us.order) || 0 });
+    }
+    for (const l of stdLinks) {
+      const nk = skillMap.get(s(l.skillId));
+      if (nk) await tx.create("SkillStandard", { skillId: nk, standardId: l.standardId, isPrimary: Boolean(l.isPrimary) });
+    }
+    await log(tx, actor, "curriculum.grade.clone", "Grade", s(targetGrade.id), { fromGradeId: s(srcGrade.id), fromLevel: Number(srcGrade.level), units: unitMap.size, skills: skillMap.size });
+    return { targetGradeId: s(targetGrade.id), targetLevel: Number(targetGrade.level), units: unitMap.size, skills: skillMap.size };
+  });
+}
+
 // ------------------------------------------------------------------ standards
 
 export interface StandardView { id: string; framework: string; code: string; description: string; gradeLevel: number | null; isActive: boolean; skills: number; questions: number }

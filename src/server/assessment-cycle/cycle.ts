@@ -50,8 +50,15 @@ const addDays = (iso: string, n: number) => fmt(new Date(day(iso).getTime() + n 
 /** the first Sunday on or after the date (the Saudi school week runs Sunday–Thursday) */
 const sundayOnOrAfter = (iso: string) => { const d = day(iso); return addDays(iso, (7 - d.getUTCDay()) % 7); };
 
-/** The school year a date falls in: from July on it is the year starting that August. */
-export function schoolYearOf(now: Date): number { return now.getUTCMonth() >= 6 ? now.getUTCFullYear() : now.getUTCFullYear() - 1; }
+/** The school year a date falls in: from July on it is the year starting that August.
+ * r85 audit (#5): shifted by the Riyadh offset (UTC+3, same as engine.ts's `weekStart`) before reading the UTC
+ * month/year — without this, a run completed between UTC June 30 21:00–24:00 (Riyadh July 1 00:00–03:00) was
+ * still read as June in UTC and mis-tagged with the OLD school year for a ~3-hour window every year. */
+const RIYADH_OFFSET = 3 * 3_600_000;
+export function schoolYearOf(now: Date): number {
+  const local = new Date(now.getTime() + RIYADH_OFFSET);
+  return local.getUTCMonth() >= 6 ? local.getUTCFullYear() : local.getUTCFullYear() - 1;
+}
 
 /** Defaults for a Saudi school year (late August – mid June), used until the admin saves a plan. Pure. */
 export function defaultCycle(now: Date = new Date()): AssessmentCycle {

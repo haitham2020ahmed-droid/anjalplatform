@@ -64,6 +64,16 @@
    "level": 1400,
    "title": "Oases: Islands of Water in the Desert",
    "text": "The desert is scorching and arid, and in some years it receives virtually no precipitation whatsoever, yet travelers crossing the sand may suddenly notice a green patch crowded with tall trees, and that remarkable place is an oasis. For thousands of years, oases have represented the difference between survival and catastrophe for the people and animals inhabiting the desert.\n\nHow can such an inhospitable landscape contain water? The explanation lies beneath the ground. Thousands of years ago, when the climate of Arabia was considerably wetter, rain gradually percolated through sand and rock and accumulated in underground layers of porous rock called aquifers. Some of this ancient water remains stored there today, and contemporary rainfall can replenish it only slowly, because precipitation is scarce and much of it rapidly evaporates in the intense heat.\n\nIn certain locations, the water rises to the surface naturally as a spring, while elsewhere communities excavate deep wells to reach it.\n\nBecause water is consistently available, the surrounding soil becomes remarkably fertile, so date palms provide protective shade, fruit trees flourish beneath their canopy, and farmers cultivate vegetables closer to the ground, creating three productive layers of vegetation.\n\nTo transport water from springs to their fields, farmers constructed extensive networks of channels, and communities divided the flow according to carefully negotiated traditional rules so that every family received its rightful portion. Migrating birds and other wildlife also depend on oases, because these isolated green spaces offer water, nourishment, and shelter that are exceptionally rare throughout the surrounding desert.\n\nHistorically, camel caravans paused at oases so that merchants could drink, rest, and exchange commodities, and permanent settlements gradually developed around these dependable water sources.\n\nAl-Ahsa, in eastern Saudi Arabia, is among the most extensive oases on Earth, with more than two million palm trees. In 2018, it was inscribed on the UNESCO World Heritage List in recognition of its extraordinarily long history of agriculture and continuous human settlement.\n\nNevertheless, the water supply is finite, and when communities pump groundwater faster than nature can replenish it, springs gradually disappear. Many farmers therefore rely on drip irrigation, which delivers water directly to each plant's roots, as part of a more sustainable approach to managing this irreplaceable natural resource. Protecting oases therefore requires both modern technology and genuine respect for traditional knowledge, so that future generations can continue to benefit from these extraordinary environments."
+  },
+  {
+   "level": 1500,
+   "title": "Oases: Islands of Water in the Desert",
+   "text": "An oasis represents a striking exception within the desert landscape, a patch of green sustained by water in a region otherwise defined by its absence. Beneath the surface lies groundwater, often stored within porous rock formations known as aquifers, water that frequently originated from ancient rainfall that fell when Arabia's climate was considerably wetter than it is today. This groundwater replenishes itself only slowly under current conditions, reaching the surface either through natural springs or through wells dug specifically to access it.\n\nThe fertile soil surrounding an oasis typically supports several distinct layers of cultivation simultaneously. Towering date palms form a protective canopy overhead, fruit trees occupy a middle layer beneath them, and vegetables grow closest to the ground, sheltered from the harshest desert sun. To manage this precious resource, farmers historically built channels to distribute water fairly, developing traditional rules governing its shared use among the community. Migrating birds and other wildlife, meanwhile, depend heavily on oases as essential stopping points within otherwise inhospitable desert terrain.\n\nHistorically, oases served a function beyond mere agriculture. Camel caravans crossing the desert relied on them as resting points. Over time, many of these temporary stops evolved into permanent settlements, communities that grew increasingly stable precisely because they could depend on a continuous water supply. Al-Ahsa, located in eastern Saudi Arabia, stands today as one of the largest oases on Earth, home to more than two million date palm trees and officially recognized as a UNESCO World Heritage Site since 2018, a designation reflecting both its ecological and cultural heritage.\n\nModern pressures, however, threaten this delicate balance. Overpumping of groundwater can dry up springs that took centuries to form, undermining the sustainable use of a resource that communities have relied upon for generations. In response, many farmers have adopted drip irrigation, a modern technique that delivers water directly to plant roots, substantially reducing waste and offering a far more sustainable path forward for oasis agriculture.\n\nWithout careful ongoing management, the same relentless desert heat that causes surface water to evaporate so rapidly would eventually threaten an oasis's long-term survival, which is precisely why traditional water-sharing rules, and now modern drip irrigation, remain so essential to keeping these fragile green islands productive.\n\nEach oasis therefore functions as a small, carefully balanced ecological system, one where human effort and natural water supply must remain in equilibrium for the settlement to endure.\n\nWhat might otherwise seem like a minor patch of greenery sustains not only farming families but entire local economies and ecosystems that depend on a resource visitors to the desert might easily overlook."
+  },
+  {
+   "level": 1600,
+   "title": "Oases: Islands of Water in the Desert",
+   "text": "An oasis represents a striking exception within the surrounding desert landscape, a vivid patch of sustained greenery maintained by water in a region otherwise characterized by its persistent absence. Beneath the surface lies accumulated groundwater, frequently stored within porous rock formations known as aquifers, water that in many cases originated from ancient precipitation that fell during a period when Arabia's climate was considerably wetter than it is at present. This groundwater replenishes itself only gradually under contemporary conditions, reaching the surface either through natural springs or through wells deliberately excavated to access it.\n\nThe fertile soil surrounding a typical oasis supports several distinct vertical layers of cultivation operating simultaneously: towering date palms form a protective canopy overhead, fruit trees occupy an intermediate layer beneath them, and vegetables grow nearest to the ground, sheltered from the most intense desert sunlight. To manage this exceptionally precious resource equitably, farmers historically constructed elaborate channels to distribute water across the community, developing traditional regulatory customs governing its shared and sustainable use among neighboring households. Migrating birds and other wildlife, furthermore, depend substantially upon oases as essential waypoints within an otherwise forbidding desert environment.\n\nHistorically, oases served a function extending well beyond agricultural production alone. Camel caravans traversing the desert relied upon them as indispensable resting points, and over successive generations, many of these originally temporary stops gradually evolved into permanent settlements, communities that achieved increasing stability precisely because they could depend upon a continuous and reliable water supply. Al-Ahsa, situated in eastern Saudi Arabia, stands today as one of the largest oases anywhere on Earth, home to more than two million palm trees and formally recognized as a UNESCO World Heritage Site since 2018, a designation reflecting both its considerable ecological value and its deep cultural heritage.\n\nContemporary pressures, however, increasingly threaten this historically delicate balance. Overpumping of groundwater reserves can desiccate springs that required centuries to form naturally, thereby undermining the sustainable use of a resource upon which communities have depended across countless generations. In response to these mounting pressures, many farmers have adopted drip irrigation, a modern technique that delivers water with precision directly to plant roots, substantially reducing wasteful evaporation and offering a considerably more sustainable path forward for the continued practice of oasis agriculture.\n\nWithout careful and sustained management, the very same intense desert heat that causes surface water to evaporate so rapidly would eventually threaten an oasis's long-term ecological and agricultural survival, which is precisely why traditional water-sharing customs, and increasingly modern drip irrigation systems, remain so essential to keeping these fragile green islands productive for future generations rather than exhausted within a single lifetime."
   }
  ],
  "bands": {
@@ -189,10 +199,10 @@
     {
      "stem": "Why did towns grow up around oases?",
      "options": [
-      "The sand there was softer.",
+      "The sand there was softer to build on and to walk",
       "People could get water there to live and farm.",
-      "Oases were far from any trees.",
-      "Camels would not walk any farther."
+      "Oases were far from any trees and from the roads",
+      "Camels would not walk any farther in the heat of day"
      ],
      "answer": "B",
      "skill": "inference",
@@ -243,7 +253,8 @@
     "I told where the water in an oasis comes from.",
     "I gave at least one way people use an oasis.",
     "I used at least one key word, like spring or well."
-   ]
+   ],
+   "modelAnswer": "An oasis gets its water from underground, and in some places it rises up on its own to form a spring. People also dig a well to reach the water below. Date palms give shade in an oasis, and people can rest, drink, and grow crops there."
   },
   "MID": {
    "keyWords": [
@@ -283,9 +294,9 @@
      "stem": "Which sentence best states the central idea of the article?",
      "options": [
       "Oases hold underground water that lets people farm and live in the desert, but it must be used carefully.",
-      "Date palms are the tallest trees that grow in Saudi Arabia.",
-      "Camel caravans were the fastest way to travel long ago.",
-      "Al-Ahsa has more than two million palm trees."
+      "Date palms are the tallest trees that grow in Saudi Arabia, and they need no water at all.",
+      "Camel caravans were the fastest way to travel long ago, so oases were never needed by travelers or merchants in the desert.",
+      "Al-Ahsa has more than two million palm trees, which is more than any other place in the world."
      ],
      "answer": "A",
      "skill": "central-idea",
@@ -421,7 +432,8 @@
     "I explained how groundwater collects in an aquifer.",
     "I described what can happen if too much water is pumped.",
     "I mentioned a way to save water, such as drip irrigation."
-   ]
+   ],
+   "modelAnswer": "An oasis gets its water from groundwater that collected in an underground aquifer long ago, when the climate was wetter. Some of this water is thousands of years old, so people must use it carefully, because if it is pumped faster than nature refills it, the springs can dry up. To avoid wasting water, many farmers now use drip irrigation, which sends water straight to each plant."
   },
   "HIGH": {
    "keyWords": [
@@ -460,10 +472,10 @@
     {
      "stem": "Which statement best summarizes the article?",
      "options": [
-      "Al-Ahsa became a UNESCO World Heritage Site in 2018.",
+      "Al-Ahsa became a UNESCO World Heritage Site in 2018, and its farms were closed to visitors.",
       "Ancient groundwater makes oases possible, supporting farms, trade, and towns, yet it must be managed carefully.",
-      "Camel caravans were the main way merchants traded goods.",
-      "Drip irrigation is the newest invention in farming."
+      "Camel caravans were the main way merchants traded goods, and oases played no part in their trips across the Empty Quarter and the sand seas.",
+      "Drip irrigation is the newest invention in farming, and it has replaced oases in modern farming."
      ],
      "answer": "B",
      "skill": "central-idea",
@@ -494,9 +506,9 @@
     {
      "stem": "Why was Al-Ahsa added to the UNESCO World Heritage List?",
      "options": [
-      "Its tall mountains and deep rivers",
-      "Its modern factories and highways",
-      "Its large herds of wild camels",
+      "Its tall mountains and deep rivers that run to the sea",
+      "Its modern factories and highways that join its cities",
+      "Its large herds of wild camels that roam the sand",
       "Its long history of farming and settlement"
      ],
      "answer": "D",
@@ -599,7 +611,8 @@
     "I stated a clear position.",
     "I used evidence about aquifers, evaporation, or springs drying up.",
     "I used at least two key words, such as replenish or sustainable."
-   ]
+   ],
+   "modelAnswer": "I disagree that farmers in oases should pump more groundwater to grow more crops. The article explains that oasis water comes from an ancient aquifer that nature cannot quickly replenish, since much of it formed thousands of years ago in a wetter climate. If farmers pump faster than the aquifer is restored, springs can dry up completely and the desert heat will evaporate what little water remains at the surface. A more sustainable choice is for farmers to keep using drip irrigation, so this heritage settlement's water supply lasts for future generations."
   }
  }
 }

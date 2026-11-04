@@ -11,6 +11,11 @@
  *   reteach        a Tier 2/3 student with a focus skill gets (once) that skill assigned and a short 8-question
  *                  re-check 7–14 days later; the re-check's result is written into the routing's TierChange row
  *                  (source RETEACH) and counts as a check for the rules.
+ *
+ * ⭐ Stars (owner, 1 Nov 2026): the focus skill (and so the reteach routing) is never a skill the student has ⭐ on
+ * (any copy — by KEY, skills/star-read.ts); 🔄 Needs review comes first, then the weakest ◐ skill by the engine's
+ * score. The tier RULES are unchanged: practice.avgMastery is still the engine's average score (an input of the
+ * rules, never shown as a status); weakSkill.mastery is the chosen skill's star score.
  */
 import type { Repo, Row } from "../seeding/repo";
 import { ForbiddenError, type Actor } from "../auth/rbac";
@@ -20,9 +25,12 @@ import { log } from "../monitoring/log";
 import { mapSummaries } from "../insights/student-data";
 import { fluencySeason, wcpmPercentile } from "../fluency/norms";
 import { progressCheckPoints } from "../progress-checks/score";
+import { PASS_PCT } from "../progress-checks/select";
 import { decideTier, nextCheckAt, MONITOR_EVERY_DAYS, TIER_RULES, type CheckPoint, type Tier, type TierEvidenceInput } from "./rules";
 import { fluencySummary, isInvalidResult, pooledTheta } from "../curriculum-map/level-evidence";
 import { scoringParams } from "../practice/scoring-params";
+import { starBook, starMastered, starNeedsReview } from "../skills/star-read";
+import type { StarView } from "../skills/status";
 
 const DAY = 86_400_000;
 export const CHUNK = 300;
@@ -66,13 +74,19 @@ function groupBy(rows: Row[], key = "studentId"): Map<string, Row[]> {
   return m;
 }
 
-export interface ComputeResult { students: number; changed: number; notified: number; routed: number; rechecksEvaluated: number; locked: number }
+export interface ComputeResult { students: number; changed: number; notified: number; routed: number; rechecksEvaluated: number; locked: number; recheckOutcomesNotified: number }
 interface Change { studentId: string; from: Tier; to: Tier; reason: string }
 
-/** Re-check outcomes: RETEACH rows whose re-check is done (or closed) get their result. Returns check points by student. */
+/** A re-check that was just evaluated this run, for the teacher notification below. */
+export interface FreshRecheckOutcome { studentId: string; skillId: string; passed: boolean | null; pct: number | null; missed: boolean }
+
+/** Re-check outcomes: RETEACH rows whose re-check is done (or closed) get their result. Returns check points by
+ *  student, plus (r86) the outcomes that were freshly decided THIS run — so the teacher can be told once, right
+ *  when it happens, instead of having to come back to the Support plan page to notice. */
 type RawCheck = CheckPoint & { assignmentId?: string };
-async function evaluateRechecks(repo: Repo, ids: string[], now: Date): Promise<{ points: Map<string, RawCheck[]>; evaluated: number }> {
+async function evaluateRechecks(repo: Repo, ids: string[], now: Date): Promise<{ points: Map<string, RawCheck[]>; evaluated: number; fresh: FreshRecheckOutcome[] }> {
   const points = new Map<string, RawCheck[]>();
+  const fresh: FreshRecheckOutcome[] = [];
   const rows = await repo.findMany("TierChange", { studentId: { in: ids }, source: "RETEACH", createdAt: { gte: new Date(now.getTime() - 180 * DAY) } }, { select: ["id", "studentId", "evidence", "createdAt"] });
   const pending: { row: Row; ev: Record<string, unknown>; aid: string }[] = [];
   for (const r of rows) {
@@ -82,7 +96,7 @@ async function evaluateRechecks(repo: Repo, ids: string[], now: Date): Promise<{
     if (out && typeof out.pct === "number" && out.at) { const l = points.get(s(r.studentId)) ?? []; l.push({ at: new Date(out.at), pct: out.pct, kind: "RECHECK", assignmentId: rc?.assignmentId ? s(rc.assignmentId) : undefined }); points.set(s(r.studentId), l); }
     else if (!out && rc?.assignmentId) pending.push({ row: r, ev, aid: s(rc.assignmentId) });
   }
-  if (!pending.length) return { points, evaluated: 0 };
+  if (!pending.length) return { points, evaluated: 0, fresh };
   const aids = [...new Set(pending.map((p) => p.aid))];
   const [links, sessions] = await Promise.all([
     repo.findMany("AssignmentStudent", { assignmentId: { in: aids }, studentId: { in: ids } }, { select: ["assignmentId", "studentId", "status", "completedAt"] }),
@@ -99,12 +113,18 @@ async function evaluateRechecks(repo: Repo, ids: string[], now: Date): Promise<{
     if (done && x && Number(x.questionCount) > 0) {
       const pctv = Math.round((100 * Number(x.correctCount)) / Number(x.questionCount));
       const at = d(l?.completedAt) ?? d(x.endedAt) ?? now;
-      outcome = { pct: pctv, correct: Number(x.correctCount), total: Number(x.questionCount), at: at.toISOString(), passed: pctv >= 80, evaluatedAt: now.toISOString() };
+      // 🐛 L7 fix: this 80% pass mark was hardcoded here, duplicating (and at risk of drifting from) the shared
+      // PASS_PCT constant in progress-checks/select.ts — now pulled from the single source of truth.
+      outcome = { pct: pctv, correct: Number(x.correctCount), total: Number(x.questionCount), at: at.toISOString(), passed: pctv >= PASS_PCT, evaluatedAt: now.toISOString() };
       const list = points.get(s(p.row.studentId)) ?? []; list.push({ at, pct: pctv, kind: "RECHECK", assignmentId: p.aid }); points.set(s(p.row.studentId), list);
     } else if (!l || (due && due.getTime() < now.getTime())) outcome = { missed: true, evaluatedAt: now.toISOString() };
-    if (outcome) { await repo.updateMany("TierChange", { id: p.row.id }, { evidence: { ...p.ev, outcome } }); evaluated++; }
+    if (outcome) {
+      await repo.updateMany("TierChange", { id: p.row.id }, { evidence: { ...p.ev, outcome } });
+      evaluated++;
+      fresh.push({ studentId: s(p.row.studentId), skillId: s(p.ev.skillId), passed: typeof outcome.passed === "boolean" ? outcome.passed : null, pct: typeof outcome.pct === "number" ? outcome.pct : null, missed: Boolean(outcome.missed) });
+    }
   }
-  return { points, evaluated };
+  return { points, evaluated, fresh };
 }
 
 /** Prior of a check's ability: grade level, wide (a check should speak for itself). */
@@ -137,7 +157,7 @@ export async function checkDetails(repo: Repo, pairs: { assignmentId: string; st
 
 /** The tier rules for every student of a school (or some students). Idempotent: rows change only when the result does. */
 export async function computeTiers(repo: Repo, schoolId: string, now = new Date(), opts: { studentIds?: string[]; notify?: boolean; route?: boolean } = {}): Promise<ComputeResult> {
-  const res: ComputeResult = { students: 0, changed: 0, notified: 0, routed: 0, rechecksEvaluated: 0, locked: 0 };
+  const res: ComputeResult = { students: 0, changed: 0, notified: 0, routed: 0, rechecksEvaluated: 0, locked: 0, recheckOutcomesNotified: 0 };
   let students = await repo.findMany("Student", { schoolId, deletedAt: null }, { select: ["id", "gradeId"] });
   if (opts.studentIds) { const want = new Set(opts.studentIds); students = students.filter((x) => want.has(s(x.id))); }
   if (!students.length) return res;
@@ -180,12 +200,14 @@ export async function computeTiers(repo: Repo, schoolId: string, now = new Date(
   const changes: Change[] = [];
   const suggestions: Change[] = [];
   const toRoute: { studentId: string; tier: 2 | 3; skillId: string }[] = [];
+  const recheckOutcomes: FreshRecheckOutcome[] = [];
   const ids = students.map((x) => s(x.id));
   res.students = ids.length;
   for (let i = 0; i < ids.length; i += CHUNK) {
     const chunk = ids.slice(i, i + CHUNK);
     const rc = await evaluateRechecks(repo, chunk, now);
     res.rechecksEvaluated += rc.evaluated;
+    recheckOutcomes.push(...rc.fresh);
     // completed text-set progress checks count as checks too (two < 60% / two ≥ 80% in a row move the tier)
     const pc = await progressCheckPoints(repo, schoolId, chunk, new Date(now.getTime() - 180 * DAY), now);
     const [tiers, diags, weekly, profiles, risks, fluency, mastery, maps, levelStates, studentRows] = await Promise.all([
@@ -200,6 +222,8 @@ export async function computeTiers(repo: Repo, schoolId: string, now = new Date(
       repo.findMany("StudentLevelState", { studentId: { in: chunk } }),
       repo.findMany("Student", { id: { in: chunk } }, { select: ["id", "createdAt"] }),
     ]);
+    // ⭐ the stars of this chunk (one batched read): the focus skill is never ⭐, 🔄 first
+    const book = await starBook(repo, chunk, schoolId);
     const stateOf = new Map(levelStates.map((r) => [s(r.studentId), r]));
     const createdOf = new Map(studentRows.map((r) => [s(r.id), d(r.createdAt)]));
     // what each check's answers say (θ, valid items, rapid guesses): checks of the last 8 weeks
@@ -244,14 +268,25 @@ export async function computeTiers(repo: Repo, schoolId: string, now = new Date(
       const created = createdOf.get(id);
       const ms = (mastBy.get(id) ?? []);
       const canAssign = assignable.get(studentGrade.get(id) ?? "");
-      const weak = ms.filter((x) => Number(x.attempts ?? 0) >= 5 && Number(x.score) < 60 && (!canAssign || canAssign.has(s(x.skillId)))).sort((a, b) => Number(a.score) - Number(b.score))[0];
+      // the focus skill: 🔄 Needs review first (an assignable copy of it), else the weakest skill without ⭐
+      const reviewPick = (() => {
+        for (const v of (book.byKey.get(id) ?? new Map<string, StarView>()).values()) {
+          if (!starNeedsReview(v)) continue;
+          const copies = [...(v.skillId ? [v.skillId] : []), ...(book.ix.skillsOf.get(v.key) ?? [])];
+          const pick = copies.find((k) => !canAssign || canAssign.has(k));
+          if (pick) return { skillId: pick, score: v.score };
+        }
+        return null;
+      })();
+      const engineWeak = ms.filter((x) => Number(x.attempts ?? 0) >= 5 && Number(x.score) < 60 && (!canAssign || canAssign.has(s(x.skillId))) && !starMastered(book.of(id, s(x.skillId)))).sort((a, b) => Number(a.score) - Number(b.score))[0];
+      const weak = reviewPick ? { skillId: reviewPick.skillId, score: reviewPick.score } : engineWeak ? { skillId: s(engineWeak.skillId), score: book.of(id, s(engineWeak.skillId)).status === "NOT_STARTED" ? Number(engineWeak.score) : book.of(id, s(engineWeak.skillId)).score } : null;
       const input: TierEvidenceInput = {
         // the minimum time in a tier applies to tiers the rules set; after the teacher unlocks, the rules decide at once
         current: row ? { tier: asTier(row.tier), since: s(row.source) === "AUTO" ? d(row.since) ?? now : new Date(0) } : null,
         diagnostic: diag ? { pct: Number(diag.pct), level: s(diag.level) as "BELOW" | "ON" | "ABOVE", at: d(diag.completedAt) ?? now, valid: !isInvalidResult(Number(diag.rapid ?? 0), Number(diag.total ?? 0)), why: isInvalidResult(Number(diag.rapid ?? 0), Number(diag.total ?? 0)) ? `invalid: ${Number(diag.rapid)} of ${Number(diag.total)} answers were rapid guesses — re-test` : null } : null,
         map: m ? { percentile: m.percentile, at: new Date(m.date), rit: m.rit, term: m.term } : null,
         checks,
-        practice: { avgMastery: ms.length ? ms.reduce((t, x) => t + Number(x.score), 0) / ms.length : null, skills: ms.length, weakSkill: weak ? { skillId: s(weak.skillId), mastery: Number(weak.score) } : null },
+        practice: { avgMastery: ms.length ? ms.reduce((t, x) => t + Number(x.score), 0) / ms.length : null, skills: ms.length, weakSkill: weak ? { skillId: weak.skillId, mastery: Number(weak.score) } : null },
         risk: riskOf.get(id) ?? null,
         riskHistory: (riskBy.get(id) ?? []).map((r) => ({ at: d(r.takenOn) ?? now, score: Number(r.score) })),
         fluency: flu && fs ? { percentile: fluP, wcpm: fs.wcpm, at: fluAt!, comprehension: flu.comprehension === null || flu.comprehension === undefined ? null : Number(flu.comprehension), usable: fs.usable, checks: fs.checks } : null,
@@ -259,7 +294,7 @@ export async function computeTiers(repo: Repo, schoolId: string, now = new Date(
         platform: { days: created ? Math.floor((now.getTime() - created.getTime()) / DAY) : 0, answers: ls ? Number(ls.effN ?? 0) : 0 },
         level: ls ? { level: s(ls.level) as "BELOW" | "ON" | "ABOVE", source: s(ls.source), declining: Boolean(ls.declining), theta: ls.theta === null || ls.theta === undefined ? null : Number(ls.theta), recentTheta: ls.thetaRecent === null || ls.thetaRecent === undefined ? null : Number(ls.thetaRecent), priorTheta: ls.thetaPrior === null || ls.thetaPrior === undefined ? null : Number(ls.thetaPrior) } : null,
       };
-      if (weak) focusIds.add(s(weak.skillId));
+      if (weak) focusIds.add(weak.skillId);
       const valid = checks.filter((c) => !c.invalid);
       const lastCheck = valid.length ? new Date(Math.max(...valid.map((c) => c.at.getTime()))) : null;
       decisions.push({ id, dec: decideTier(input, now), row, lastCheck, suggestOnly: lockExpired });
@@ -302,6 +337,9 @@ export async function computeTiers(repo: Repo, schoolId: string, now = new Date(
   if (suggestions.length && opts.notify !== false) await notifyTeachers(repo, suggestions, now, true).catch((e) => log("error", "tiers.suggest.notify.failed", { schoolId, error: e }));
   if (changes.length && opts.notify !== false) res.notified = await notifyTeachers(repo, changes, now).catch((e) => { log("error", "tiers.notify.failed", { schoolId, error: e }); return 0; });
   if (toRoute.length && opts.route !== false) res.routed = await routeReteach(repo, schoolId, toRoute, now).catch((e) => { log("error", "tiers.reteach.failed", { schoolId, error: e }); return 0; });
+  // r86: tell the teacher the moment a re-check result is in, instead of leaving it to be noticed on a later visit
+  // to the Support plan page — this is purely a notification; it changes nothing about the tier/evidence logic above.
+  if (recheckOutcomes.length && opts.notify !== false) res.recheckOutcomesNotified = await notifyRecheckOutcomes(repo, recheckOutcomes, now).catch((e) => { log("error", "tiers.recheck_outcome.notify.failed", { schoolId, error: e }); return 0; });
   return res;
 }
 
@@ -352,6 +390,52 @@ async function notifyTeachers(repo: Repo, changes: Change[], now: Date, suggest 
   return rows.length;
 }
 
+/**
+ * r86: One RETEACH_OUTCOME notification per teacher and run, naming the students whose re-check (assigned by
+ * routeReteach, 7–14 days earlier) was just graded or closed — so the teacher learns whether their plan worked
+ * without having to come back and check the Support plan page on their own. Mirrors notifyTeachers's grouping.
+ */
+async function notifyRecheckOutcomes(repo: Repo, outcomes: FreshRecheckOutcome[], now: Date): Promise<number> {
+  if (!outcomes.length) return 0;
+  const by = await teachersOf(repo, outcomes.map((o) => o.studentId));
+  if (!by.size) return 0;
+  const st = await repo.findMany("Student", { id: { in: outcomes.map((o) => o.studentId) } }, { select: ["id", "userId"] });
+  const users = st.length ? await repo.findMany("User", { id: { in: st.map((x) => s(x.userId)) } }, { select: ["id", "displayName"] }) : [];
+  const uname = new Map(users.map((u) => [s(u.id), s(u.displayName) || "Student"]));
+  const name = new Map(st.map((x) => [s(x.id), uname.get(s(x.userId)) ?? "Student"]));
+  const skillIds = [...new Set(outcomes.map((o) => o.skillId).filter(Boolean))];
+  const skillRows = skillIds.length ? await repo.findMany("Skill", { id: { in: skillIds } }, { select: ["id", "name"] }) : [];
+  const skillName = new Map(skillRows.map((k) => [s(k.id), s(k.name)]));
+  // last one per student (a student could have more than one skill re-checked the same run; keep it short per teacher)
+  const byStudent = new Map<string, FreshRecheckOutcome>();
+  for (const o of outcomes) byStudent.set(o.studentId, o);
+  const line = (o: FreshRecheckOutcome): string => {
+    const nm = name.get(o.studentId) ?? "Student", sk = skillName.get(o.skillId) ?? "the focus skill";
+    if (o.missed) return `${nm}: didn't take the re-check on ${sk} — worth checking in`;
+    const pct = o.pct ?? 0;
+    return o.passed ? `${nm}: passed the re-check on ${sk} (${pct}%) — the plan worked ✅` : `${nm}: didn't pass the re-check on ${sk} (${pct}%) — may need another round`;
+  };
+  const rows: Row[] = [];
+  for (const t of by.values()) {
+    const mine = [...new Set(t.students.map((x) => x.studentId))].map((id) => byStudent.get(id)!).filter(Boolean);
+    if (!mine.length) continue;
+    const classId = t.students[0].classId;
+    const anyPassed = mine.some((o) => o.passed), anyNeedsWork = mine.some((o) => !o.passed);
+    const icon = anyNeedsWork && !anyPassed ? "⚠️" : anyPassed && !anyNeedsWork ? "✅" : "🔁";
+    const list = mine.slice(0, 6).map(line).join("; ");
+    rows.push({
+      // reuses the TIER_CHANGE enum value (no schema change): same Support-plan destination as the tier-change
+      // notification above, just a different reason — the student's tier itself may not have moved.
+      userId: t.userId, type: "TIER_CHANGE",
+      title: mine.length === 1 ? `${icon} Re-check result: ${name.get(mine[0].studentId)}` : `${icon} ${mine.length} re-check results are in`,
+      body: `${list}${mine.length > 6 ? ` and ${mine.length - 6} more` : ""}. Open the Support plan to see the details or start a new plan.`,
+      link: `/teacher/plans/support?classId=${classId}`, readAt: null, createdAt: now,
+    });
+  }
+  if (rows.length) await repo.createMany("Notification", rows);
+  return rows.length;
+}
+
 // ------------------------------------------------------------------ reteach routing
 
 /** Assigns the focus skill and a later 8-question re-check, once per student and skill (21 days), and invites the student to the skill's lesson. */
@@ -361,7 +445,9 @@ export async function routeReteach(repo: Repo, schoolId: string, items: { studen
   const recent = await repo.findMany("TierChange", { studentId: { in: ids }, source: "RETEACH", createdAt: { gte: new Date(now.getTime() - 21 * DAY) } }, { select: ["studentId", "evidence"] });
   const busy = new Set<string>();
   for (const r of recent) { const ev = json<Record<string, unknown>>(r.evidence, {}); busy.add(s(r.studentId)); busy.add(`${s(r.studentId)}|${s(ev.skillId)}`); }
-  const todo = items.filter((x) => !busy.has(x.studentId)).slice(0, MAX_ROUTINGS_PER_RUN);
+  // ⭐ never route a skill the student already has ⭐ on (any copy)
+  const book = await starBook(repo, ids, schoolId);
+  const todo = items.filter((x) => !busy.has(x.studentId) && !starMastered(book.of(x.studentId, x.skillId))).slice(0, MAX_ROUTINGS_PER_RUN);
   if (!todo.length) return 0;
   const teachers = await teachersOf(repo, todo.map((x) => x.studentId));
   const teacherFor = new Map<string, { userId: string; classId: string }>();
@@ -385,14 +471,14 @@ export async function routeReteach(repo: Repo, schoolId: string, items: { studen
     const after = RECHECK_AFTER_DAYS[x.tier];
     const startAt = new Date(now.getTime() + after * DAY), dueAt = new Date(startAt.getTime() + RECHECK_OPEN_DAYS * DAY);
     try {
-      const practice = await assignSkill(repo, actor, { classId: t.classId, skillId: x.skillId, studentIds: [x.studentId], dueAt: startAt, note: "Extra practice on this skill, then a short re-check." }, now);
+      const practice = await assignSkill(repo, actor, { classId: t.classId, skillId: x.skillId, studentIds: [x.studentId], dueAt: startAt, note: "Extra practice on this skill, then a short re-check.", source: "RTI" }, now);
       // the re-check: 8 questions on the skill, spread over the pool (a different set for each student)
       const pool = (qBy.get(x.skillId) ?? []).map((q) => s(q.id)).sort();
       let recheck: { assignmentId: string; startAt: string; dueAt: string; questions: number } | null = null;
       if (pool.length >= 3) {
         const off = [...x.studentId].reduce((h, c) => (h * 31 + c.charCodeAt(0)) >>> 0, 7) % pool.length;
         const pick = Array.from({ length: Math.min(RECHECK_SIZE, pool.length) }, (_, k) => pool[(off + Math.floor((k * pool.length) / Math.min(RECHECK_SIZE, pool.length))) % pool.length]);
-        const set = await assignQuestions(repo, actor, { classId: t.classId, questionIds: [...new Set(pick)], studentIds: [x.studentId], title: `${RECHECK_TITLE}${skillName.get(x.skillId) ?? "skill"}`, exactTitle: true, startAt, dueAt, silent: true }, now);
+        const set = await assignQuestions(repo, actor, { classId: t.classId, questionIds: [...new Set(pick)], studentIds: [x.studentId], title: `${RECHECK_TITLE}${skillName.get(x.skillId) ?? "skill"}`, exactTitle: true, startAt, dueAt, silent: true, source: "RTI" }, now);
         recheck = { assignmentId: set.assignmentId, startAt: startAt.toISOString(), dueAt: dueAt.toISOString(), questions: set.questions };
       }
       await repo.create("TierChange", {

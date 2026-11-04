@@ -20,14 +20,18 @@ import { ValidationError } from "../curriculum-admin";
 import { readableClasses } from "../teacher/coordinators";
 import { countGroups } from "../db/group-count";
 import { safeIfBehind } from "../db/schema-errors";
-import { isHiddenSkill } from "../skills/master";
+import { starBook } from "../skills/star-read";
 import { readRisePlaced } from "../readrise/engine";
-import { mapSummaries, studentNames } from "./student-data";
+import { mapSummaries, practiceStats, studentNames } from "./student-data";
+import { weakestKeyOf } from "./star-keys";
+import { hiddenStarKeys } from "../teacher/queries";
+import { cancelIndexForStudents, liveAssignmentWhere } from "../student/cancelled-work";
 import {
   DAY, DROPS, INVALID_WINDOW_DAYS, MAX_POINTS, MEASURES, MEASURE_KEYS, MIN_TEST_QUESTIONS, MIN_WEEK_ANSWERS, MOVES_DAYS, SCAN_CACHE_MS,
   SERIES_DAYS, SEVERITY_ORDER, SKILL_WEEKS, UNHANDLED_DAYS, detectPattern, groupName, judge,
   type MeasureFinding, type MeasureKey, type Pattern, type Point, type Severity,
 } from "./early-warning-rules";
+import { sweptWeakMap } from "../cache/idle";
 
 const s = (v: unknown) => String(v ?? "");
 const time = (v: unknown) => (v instanceof Date ? v.getTime() : v === null || v === undefined || v === "" ? NaN : new Date(s(v)).getTime());
@@ -48,7 +52,13 @@ interface SchoolScan { at: number; rows: WarningRow[]; moves: GroupMove[] }
 
 // ------------------------------------------------------------------ the school's read (chunked, bounded)
 
-const cache = new WeakMap<object, Map<string, SchoolScan>>();
+const cache = sweptWeakMap<SchoolScan>("insights.early-warning.cache", 30 * 60_000);
+// 🩹 r94-follow-up (perf-budgets fix, Oct 2026): an in-flight dedup map, keyed the same as `cache`. Two callers in the
+// SAME request (e.g. the teacher-home card's direct urgentCount() and AppShell's navCountsCached()→urgentCount(), run
+// concurrently via Promise.all) used to both see a cache miss and each kick off their own full chunked readSchool()
+// scan — doubling the DB-call cost of /teacher. Now a second caller awaits the first caller's in-flight promise
+// instead of starting a second scan.
+const inFlight = sweptWeakMap<Promise<SchoolScan>>("insights.early-warning.inflight", 60_000);
 /** Forget the cached scan (tests, or after a big import). */
 export function clearEarlyWarningCache(repo: Repo, schoolId?: string): void { if (schoolId) cache.get(repo)?.delete(schoolId); else cache.delete(repo); }
 
@@ -58,6 +68,15 @@ export async function schoolEarlyWarning(repo: Repo, schoolId: string, now = new
   if (!byRepo) cache.set(repo, (byRepo = new Map()));
   const hit = byRepo.get(schoolId);
   if (!fresh && hit && now.getTime() - hit.at < SCAN_CACHE_MS && now.getTime() >= hit.at) return hit;
+  if (!fresh) {
+    let flights = inFlight.get(repo);
+    if (!flights) inFlight.set(repo, (flights = new Map()));
+    const pending = flights.get(schoolId);
+    if (pending) return pending;
+    const p = readSchool(repo, schoolId, now).then((scan) => { byRepo!.set(schoolId, scan); flights!.delete(schoolId); return scan; }, (e) => { flights!.delete(schoolId); throw e; });
+    flights.set(schoolId, p);
+    return p;
+  }
   const scan = await readSchool(repo, schoolId, now);
   byRepo.set(schoolId, scan);
   return scan;
@@ -74,7 +93,7 @@ async function readSchool(repo: Repo, schoolId: string, now: Date): Promise<Scho
   const ids = [...classOf.keys()];
   const rows: WarningRow[] = [], moves: GroupMove[] = [];
   for (let i = 0; i < ids.length; i += EW_CHUNK) {
-    const r = await readChunk(repo, now, ids.slice(i, i + EW_CHUNK), classOf, classById, gradeOfClass);
+    const r = await readChunk(repo, now, ids.slice(i, i + EW_CHUNK), classOf, classById, gradeOfClass, schoolId);
     rows.push(...r.rows); moves.push(...r.moves);
   }
   rows.sort(rowOrder);
@@ -84,7 +103,7 @@ async function readSchool(repo: Repo, schoolId: string, now: Date): Promise<Scho
 const rowOrder = (a: WarningRow, b: WarningRow) => SEVERITY_ORDER[a.severity] - SEVERITY_ORDER[b.severity] || b.rules.length - a.rules.length || a.className.localeCompare(b.className) || a.name.localeCompare(b.name);
 
 /** Reads one round of students: a FIXED number of queries whatever the round's size (no query per student). */
-async function readChunk(repo: Repo, now: Date, ids: string[], classOf: Map<string, string>, classById: Map<string, Row>, gradeOfClass: Map<string, number>): Promise<{ rows: WarningRow[]; moves: GroupMove[] }> {
+async function readChunk(repo: Repo, now: Date, ids: string[], classOf: Map<string, string>, classById: Map<string, Row>, gradeOfClass: Map<string, number>, schoolId?: string): Promise<{ rows: WarningRow[]; moves: GroupMove[] }> {
   const t = now.getTime();
   const since = new Date(t - SERIES_DAYS * DAY);
   const classIds = [...new Set(ids.map((id) => classOf.get(id) ?? ""))].filter(Boolean);
@@ -102,12 +121,8 @@ async function readChunk(repo: Repo, now: Date, ids: string[], classOf: Map<stri
     const where = { studentId: { in: ids }, rapidGuess: false, unreliable: false, createdAt: { gte: new Date(t - (k + 1) * 7 * DAY), lt: new Date(t - k * 7 * DAY) } };
     return Promise.all([countGroups(repo, "QuestionAttempt", "studentId", where), countGroups(repo, "QuestionAttempt", "studentId", { ...where, isCorrect: true })]);
   }));
-  const answered14 = new Map<string, number>();
   weeks.forEach(([all, right], k) => {
-    for (const [id, n] of all) {
-      if (k < 2) answered14.set(id, (answered14.get(id) ?? 0) + n);
-      if (n >= MIN_WEEK_ANSWERS) add(id, "SKILLS", t - k * 7 * DAY, pct(right.get(id) ?? 0, n));
-    }
+    for (const [id, n] of all) if (n >= MIN_WEEK_ANSWERS) add(id, "SKILLS", t - k * 7 * DAY, pct(right.get(id) ?? 0, n));
   });
 
   const [levelLogs, mapRows, maps, weekly, fluency, nafs, writing, rrChanges, rrStudents, rrActive, checkRows, testRows, students, declining, invalid, lastAnswer] = await Promise.all([
@@ -122,12 +137,14 @@ async function readChunk(repo: Repo, now: Date, ids: string[], classOf: Map<stri
     safeIfBehind("early-warning.readrise", () => repo.findMany("RRStudent", { studentId: { in: ids } }, { select: ["studentId", "level", "placedAt", "source"] }), [] as Row[]),
     safeIfBehind("early-warning.readrise", () => countGroups(repo, "RRRun", "studentId", { studentId: { in: ids }, completedAt: { gte: new Date(t - 28 * DAY) }, firstTry: true }), new Map<string, number>()),
     safeIfBehind("early-warning.checks", () => repo.findMany("ProgressCheck", { classId: { in: classIds }, createdAt: { gte: since } }, { select: ["assignmentId"] }), [] as Row[]),
-    repo.findMany("Assignment", { classId: { in: classIds }, testId: { not: null }, deletedAt: null, createdAt: { gte: since } }, { select: ["id"] }),
+    repo.findMany("Assignment", liveAssignmentWhere({ classId: { in: classIds }, testId: { not: null }, createdAt: { gte: since } }), { select: ["id", "testId"] }),
     repo.findMany("Student", { id: { in: ids } }, { select: ["id", "createdAt"] }),
     repo.findMany("StudentLevelState", { studentId: { in: ids }, declining: true }, { select: ["studentId"] }),
     repo.findMany("StudentAlert", { studentId: { in: ids }, kind: "INVALID_TEST", createdAt: { gte: new Date(t - INVALID_WINDOW_DAYS * DAY) } }, { select: ["studentId"] }),
-    // the last answer before the 14 days (only for students without an answer in them: "no practice since …")
-    repo.findMany("StudentSkillMastery", { studentId: { in: ids }, lastPracticedAt: { not: null } }, { select: ["studentId", "lastPracticedAt"] }),
+    // 📏 round 4: "no practice since …" = the last answer of ANY source (bank answers incl. tests, NAFS, ReadRise), as
+    // practiceStats gives it (the last 30 days, 25 students at a time; older: the last practised date) — before, only
+    // careful bank answers of the last 14 days counted, so a NAFS / ReadRise-only student showed "no practice"
+    practiceStats(repo, ids, now, { recentOnly: true }),
   ]);
 
   // level group (overall level changes)
@@ -165,16 +182,19 @@ async function readChunk(repo: Repo, now: Date, ids: string[], classOf: Map<stri
     rrFlatSince.set(id, list.length ? time(list[list.length - 1].createdAt) : time(st.placedAt));
   }
   // progress checks and teacher tests: the student's finished set of each
+  // r78: a check or test cancelled on Assigned (for everyone, or for this student) is not counted
+  const ix = await cancelIndexForStudents(repo, ids, schoolId);
   const checkIds = new Set(checkRows.map((c) => s(c.assignmentId)));
-  const setIds = [...checkIds, ...testRows.map((a) => s(a.id))];
+  const setRow = new Map<string, Row>([...[...checkIds].map((id) => [id, { id }] as [string, Row]), ...testRows.map((a) => [s(a.id), a] as [string, Row])]);
+  const setIds = [...setRow.keys()].filter((id) => ix.live(setRow.get(id)!));
   const sessions = setIds.length ? await repo.findMany("PracticeSession", { assignmentId: { in: setIds }, studentId: { in: ids }, endedAt: { not: null } }, { select: ["studentId", "assignmentId", "correctCount", "questionCount", "endedAt"] }) : [];
-  for (const x of sessions) if (Number(x.questionCount) >= MIN_TEST_QUESTIONS) add(s(x.studentId), checkIds.has(s(x.assignmentId)) ? "CHECKS" : "TESTS", time(x.endedAt), pct(Number(x.correctCount), Number(x.questionCount)));
+  for (const x of sessions) if (ix.live(setRow.get(s(x.assignmentId)) ?? { id: s(x.assignmentId) }, s(x.studentId)) && Number(x.questionCount) >= MIN_TEST_QUESTIONS) add(s(x.studentId), checkIds.has(s(x.assignmentId)) ? "CHECKS" : "TESTS", time(x.endedAt), pct(Number(x.correctCount), Number(x.questionCount)));
 
   const declSet = new Set(declining.map((d) => s(d.studentId)));
   const invalidBy = new Map<string, number>();
   for (const a of invalid) invalidBy.set(s(a.studentId), (invalidBy.get(s(a.studentId)) ?? 0) + 1);
   const lastPractice = new Map<string, number>();
-  for (const m of lastAnswer) { const id = s(m.studentId), at = time(m.lastPracticedAt); if (at > (lastPractice.get(id) ?? 0)) lastPractice.set(id, at); }
+  for (const id of ids) { const at = time(lastAnswer.get(id)?.lastActive); if (Number.isFinite(at) && at > 0) lastPractice.set(id, Math.min(at, t)); }
   const createdAt = new Map(students.map((x) => [s(x.id), time(x.createdAt)]));
 
   const rows: WarningRow[] = [];
@@ -189,8 +209,7 @@ async function readChunk(repo: Repo, now: Date, ids: string[], classOf: Map<stri
     }
     const m = maps.get(id);
     const mapRisk = Boolean(m?.latest && (m.status === "AT_RISK" || m.status === "MISSED" || (m.latest.percentile !== null && m.latest.percentile < 21)));
-    const recent = answered14.get(id) ?? 0;
-    const last = recent > 0 ? t : lastPractice.get(id) ?? null;
+    const last = lastPractice.get(id) ?? null;
     const isNew = (createdAt.get(id) ?? 0) > t - 14 * DAY;
     const v = judge(findings, { daysSincePractice: last === null ? null : Math.floor((t - last) / DAY), isNew, mapRisk, declining: declSet.has(id), invalidTests: invalidBy.get(id) ?? 0 }, t);
     if (!v.severity) continue;
@@ -236,7 +255,7 @@ export interface EarlyWarningView {
   /** admin: per class */
   byClass: { classId: string; className: string; teachers: string; urgent: number; watch: number; good: number; unhandled7: number }[];
   /** admin: urgent alerts not handled for UNHANDLED_DAYS+ days */
-  unhandled: { alertId: string; studentId: string; name: string; className: string; detail: string; days: number }[];
+  unhandled: { alertId: string; studentId: string; name: string; classId: string; className: string; detail: string; days: number }[];
   handledHidden: number;
   scannedAt: string;
 }
@@ -245,6 +264,27 @@ const staffOnly = (actor: Actor) => {
   assertCan(actor, "reports:read");
   if (actor.role !== "TEACHER" && actor.role !== "SCHOOL_ADMIN" && actor.role !== "SUPER_ADMIN") throw new ForbiddenError();
 };
+
+/**
+ * 🔔 Urgent count only, cheap (owner: audit r94-follow-up): the school's cached scan + this person's readable
+ * classes, no alert/note/weakest-skill enrichment — for the nav badge and the home-page card, which both read this
+ * on every page and must stay cheap. A teacher counts only their own (readable) classes; the admin counts the
+ * whole school.
+ */
+export async function urgentCount(repo: Repo, actor: Actor, now = new Date()): Promise<number> {
+  staffOnly(actor);
+  const isAdmin = actor.role === "SCHOOL_ADMIN" || actor.role === "SUPER_ADMIN";
+  // 🩹 r94-follow-up (perf-budgets fix, Oct 2026): a full schoolEarlyWarning() scan is too expensive to run on
+  // every home-page/nav render (it cost 150-180+ DB calls for a 225-student school — this is now the home page's
+  // ENTIRE budget several times over). The 3-hourly alert scan (alerts.ts → scanAlerts) already computes the same
+  // thing in the background and writes one OPEN StudentAlert of kind EW_KIND per urgent student, so read THAT
+  // (one cheap count query) instead of recomputing the scan here. Same freshness window as before (≤3h stale),
+  // just read from where the scan already wrote it rather than re-running it.
+  if (isAdmin) return repo.count("StudentAlert", { schoolId: s(actor.schoolId), kind: EW_KIND, status: "OPEN" });
+  const readable = await readableClasses(repo, actor);
+  if (!readable.length) return 0;
+  return repo.count("StudentAlert", { classId: { in: readable.map((c) => s(c.id)) }, kind: EW_KIND, status: "OPEN" });
+}
 
 /** The early-warning view this person may see: a teacher → one of their (readable) classes; the admin → the school, filtered. */
 export async function earlyWarning(repo: Repo, actor: Actor, f: EwFilter = {}, now = new Date()): Promise<EarlyWarningView> {
@@ -298,12 +338,19 @@ export async function earlyWarning(repo: Repo, actor: Actor, f: EwFilter = {}, n
   const keep = (id: string, x: { text: string; by: string; at: number }) => { const cur = lastBy.get(id); if (!cur || x.at > cur.at) lastBy.set(id, { ...x, date: new Date(x.at).toISOString().slice(0, 10) }); };
   for (const h of handledAny) keep(s(h.studentId), { text: s(h.action), by: who(h.handledById), at: time(h.handledAt) });
   for (const n of notes) keep(s(n.studentId), { text: `📝 ${s(n.body)}`, by: who(n.authorId), at: time(n.createdAt) });
-  // assign practice: the weakest skill practised (never the hidden "Unclassified" skill)
-  const weak = sIds.length ? await repo.findMany("StudentSkillMastery", { studentId: { in: sIds }, score: { lt: 60 }, attempts: { gte: 3 } }, { select: ["studentId", "skillId", "score"] }) : [];
-  const skillCodes = weak.length ? await repo.findMany("Skill", { id: { in: [...new Set(weak.map((w) => s(w.skillId)))] } }, { select: ["id", "code"] }) : [];
-  const hiddenSkill = new Set(skillCodes.filter((k) => isHiddenSkill(k.code)).map((k) => s(k.id)));
+  // assign practice: ⭐ stars only (round 4) — from the star book, by KEY: a 🔄 Needs review skill first, else the ◐ In
+  // progress skill with the lowest star score; never a ⭐ skill, never the hidden "Unclassified" holder skill (the old
+  // engine score no longer decides)
+  const book = sIds.length ? await starBook(repo, sIds, schoolId) : null;
   const weakest = new Map<string, { skillId: string; score: number }>();
-  for (const w of weak) { if (hiddenSkill.has(s(w.skillId))) continue; const cur = weakest.get(s(w.studentId)); if (!cur || Number(w.score) < cur.score) weakest.set(s(w.studentId), { skillId: s(w.skillId), score: Number(w.score) }); }
+  if (book) {
+    const hiddenK = await hiddenStarKeys(repo, book);
+    for (const id of sIds) {
+      const w = weakestKeyOf(book, id, hiddenK);
+      const sk = w ? w.view.skillId ?? book.ix.skillsOf.get(w.key)?.[0] : null;
+      if (w && sk) weakest.set(id, { skillId: sk, score: w.view.score });
+    }
+  }
 
   const out: EwRow[] = rows.filter((r) => !f.severity || r.severity === f.severity).map((r) => {
     const open = openBy.get(r.studentId);
@@ -322,10 +369,10 @@ export async function earlyWarning(repo: Repo, actor: Actor, f: EwFilter = {}, n
     const old = await repo.findMany("StudentAlert", { schoolId, kind: EW_KIND, status: "OPEN", createdAt: { lte: new Date(now.getTime() - UNHANDLED_DAYS * DAY) } }, { select: ["id", "studentId", "classId", "detail", "createdAt"] });
     const oldIn = old.filter((a) => inScope.has(s(a.classId)));
     const oldNames = await studentNames(repo, [...new Set(oldIn.map((a) => s(a.studentId)))]);
-    unhandled = oldIn.map((a) => ({ alertId: s(a.id), studentId: s(a.studentId), name: oldNames.get(s(a.studentId))?.name ?? "Student", className: s(classes.find((c) => c.id === a.classId)?.name), detail: s(a.detail), days: Math.floor((now.getTime() - time(a.createdAt)) / DAY) })).sort((a, b) => b.days - a.days || a.name.localeCompare(b.name));
+    unhandled = oldIn.map((a) => ({ alertId: s(a.id), studentId: s(a.studentId), name: oldNames.get(s(a.studentId))?.name ?? "Student", classId: s(a.classId), className: s(classes.find((c) => c.id === a.classId)?.name), detail: s(a.detail), days: Math.floor((now.getTime() - time(a.createdAt)) / DAY) })).sort((a, b) => b.days - a.days || a.name.localeCompare(b.name));
     byClass = classes.filter((c) => inScope.has(c.id)).map((c) => {
       const mine = rows.filter((r) => r.classId === c.id);
-      return { classId: c.id, className: c.name, teachers: ct.filter((x) => x.classId === c.id).map((x) => teacherName.get(s(x.teacherId)) ?? "").filter(Boolean).join(", "), urgent: mine.filter((r) => r.severity === "URGENT").length, watch: mine.filter((r) => r.severity === "WATCH").length, good: mine.filter((r) => r.severity === "GOOD").length, unhandled7: unhandled.filter((u) => u.className === c.name).length };
+      return { classId: c.id, className: c.name, teachers: ct.filter((x) => x.classId === c.id).map((x) => teacherName.get(s(x.teacherId)) ?? "").filter(Boolean).join(", "), urgent: mine.filter((r) => r.severity === "URGENT").length, watch: mine.filter((r) => r.severity === "WATCH").length, good: mine.filter((r) => r.severity === "GOOD").length, unhandled7: unhandled.filter((u) => u.classId === c.id).length /* r72: by class id — two classes may share a name */ };
     });
   }
   return { isAdmin, classes, grades: gradeRows.map((g) => ({ id: s(g.id), level: Number(g.level) })).sort((a, b) => a.level - b.level), teachers, classId, rows: out, counts, dropping, moves, byClass, unhandled, handledHidden, scannedAt: new Date(scan.at).toISOString() };

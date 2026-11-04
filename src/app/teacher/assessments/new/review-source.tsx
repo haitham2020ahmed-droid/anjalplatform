@@ -14,6 +14,7 @@ import type { BankResults, ReviewSelection, ReviewSuggestion } from "@/server/te
 import { bankSearchAction, mapTreeAction, reviewStandardsAction, reviewSuggestAction } from "../actions";
 import { QuestionDrawer } from "@/components/tests/question-drawer";
 import { Combo } from "@/components/ui/combo";
+import { RichInline } from "@/components/rich-inline";
 
 const LEVELS = [{ id: "MIXED", label: "Mixed levels" }, { id: "BELOW", label: "Approaching" }, { id: "ON", label: "Meeting" }, { id: "ABOVE", label: "Exceeding" }] as const;
 const TYPES = [
@@ -224,7 +225,7 @@ function BankSearch({ skills, pickedIds, onAdd, onRemove }: { skills: BuilderSki
               {res.rows.map((r, i) => (
                 <li key={r.id} className="flex items-start gap-2 rounded-lg px-2 py-1.5 hover:bg-slate-50">
                   <span className="min-w-0 flex-1 text-sm">
-                    <button type="button" onClick={() => setViewAt(i)} className="block text-start text-slate-900 hover:underline" lang="en" dir="ltr" data-content>{r.stem}</button>
+                    <button type="button" onClick={() => setViewAt(i)} className="block text-start text-slate-900 hover:underline" lang="en" dir="ltr" data-content><RichInline text={r.stem} /></button>
                     <span className="text-xs text-slate-500">{r.typeLabel}{r.skill ? <> · <span lang="en" data-content>{r.skill}</span></> : null}{r.passageTitle ? <> · <span lang="en" data-content>📖 {r.passageTitle}</span></> : null}</span>
                   </span>
                   <button type="button" onClick={() => setViewAt(i)} className={add}>👁 {t("View")}</button>

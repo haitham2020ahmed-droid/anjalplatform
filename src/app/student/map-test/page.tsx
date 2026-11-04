@@ -25,7 +25,7 @@ export default async function MapTestHome() {
       {!tests.windows.length ? <p className="rounded-2xl bg-white p-6 text-slate-600 ring-1 ring-slate-200">{t("No MAP Test is open now. Your teacher will tell you when it opens.")}</p> : tests.windows.map((w) => (
         <section key={w.id} className="mb-4 rounded-3xl bg-white p-5 shadow-sm ring-1 ring-slate-200">
           <h2 className="text-xl font-bold text-brand-navy"><bdi>{w.title}</bdi></h2>
-          <p className="text-sm text-slate-500">{w.open ? t("Open until {date}", { date: w.closesAt.slice(0, 10) }) : t("Closed")} · {t("{n} questions", { n: w.items })}</p>
+          <p className="text-sm text-slate-500">{w.open ? t("Open until {date}", { date: w.closesAt.slice(0, 10) }) : t("Closed")} · {t("{n} questions", { n: w.items })}{w.minutes ? ` · ⏱ ${t("{n} minutes", { n: w.minutes })}` : ""}</p>
           <ul className="mt-3 grid gap-3 md:grid-cols-2">{w.sessions.map((x) => (
             <li key={x.subject} className="rounded-2xl bg-slate-50 p-4">
               <p className="font-bold text-brand-navy">{x.subject === "READING" ? `📖 ${t("Reading")}` : `✏️ ${t("Language Usage")}`}</p>

@@ -13,6 +13,7 @@
 import type { Repo, Row } from "../seeding/repo";
 import { assertCan, ForbiddenError, type Actor } from "../auth/rbac";
 import { ValidationError } from "../curriculum-admin";
+import { requireSource } from "../assign/source";
 import { assertClassAccess } from "../teacher/assignments";
 import { curriculumMapView, teacherMapGrades, type MapViewNode } from "./view";
 import { unitCards, type SectionKind } from "./lesson-details";
@@ -146,6 +147,8 @@ export interface SendScopeInput extends SendScope {
   /** send again the parts a class already has */
   resend?: boolean;
   dueAt?: Date | null; startAt?: Date | null;
+  /** r74: REQUIRED — the Source chosen in the Send window */
+  source?: string | null;
 }
 export interface SendScopeClassResult { classId: string; className: string; planId: string | null; parts: number; writing: number; alreadySent: number; students: number; notes: string[] }
 export interface SendScopeResult { title: string; classes: SendScopeClassResult[]; parts: number; writing: number; alreadySent: number }
@@ -154,6 +157,7 @@ export interface SendScopeResult { title: string; classes: SendScopeClassResult[
 export async function sendScope(repo: Repo, actor: Actor, input: SendScopeInput, now = new Date()): Promise<SendScopeResult> {
   const classIds = [...new Set((input.classIds ?? []).map(s).filter(Boolean))];
   if (!classIds.length) throw new ValidationError("Choose at least one class.");
+  const source = requireSource(input.source);
   const studentIds = [...new Set((input.studentIds ?? []).map(s).filter(Boolean))];
   if (studentIds.length && classIds.length !== 1) throw new ValidationError("Choose students in one class only, or send to whole classes.");
   if (input.startAt && input.dueAt && input.startAt > input.dueAt) throw new ValidationError("The due date must be after the start date.");
@@ -170,7 +174,7 @@ export async function sendScope(repo: Repo, actor: Actor, input: SendScopeInput,
     const qCodes = todo.filter((x) => x.questions > 0).map((x) => x.code);
     if (qCodes.length) {
       try {
-        const p = await sendMapPlan(repo, actor, { grade: pv.grade, classId, studentIds: studentIds.length ? studentIds : null, codes: qCodes, title: pv.title, dueAt: input.dueAt ?? null, startAt: input.startAt ?? null }, now);
+        const p = await sendMapPlan(repo, actor, { grade: pv.grade, classId, studentIds: studentIds.length ? studentIds : null, codes: qCodes, title: pv.title, dueAt: input.dueAt ?? null, startAt: input.startAt ?? null, source }, now);
         r.planId = p.planId; r.parts = p.parts; r.students = p.students;
         if (p.skipped.length) r.notes.push(`${p.skipped.length} part(s) have no questions yet and were left out.`);
       } catch (e) {

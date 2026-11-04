@@ -87,7 +87,7 @@ export async function rawEvidenceLevels(repo: Repo, schoolId: string | null, ids
     if (!p) { p = load(); m.set(key, p); }
     return p;
   };
-  const [levels, practice, rules, saved, reading, flu, diag, thetas] = await Promise.all([once("levels", () => levelsOf(repo, ids)), practiceStats(repo, ids, now), once("rules", () => ladderSettings(repo, schoolId)), once("saved", () => repo.findMany("StudentLevel", { studentId: { in: ids } })), once("reading", () => repo.findMany("StudentReadingLexile", { studentId: { in: ids } })),
+  const [levels, practice, rules, saved, reading, flu, diag, thetas] = await Promise.all([once("levels", () => levelsOf(repo, ids)), practiceStats(repo, ids, now, { recentOnly: true }), once("rules", () => ladderSettings(repo, schoolId)), once("saved", () => repo.findMany("StudentLevel", { studentId: { in: ids } })), once("reading", () => repo.findMany("StudentReadingLexile", { studentId: { in: ids } })),
     once("fluency", () => repo.findMany("FluencyCheck", { studentId: { in: ids }, checkedAt: { gte: new Date(now.getTime() - 365 * 86_400_000) } }, { select: ["studentId", "wcpm", "percentile", "checkedAt", "source"] })),
     once("diagnostic", () => repo.findMany("DiagnosticScore", { studentId: { in: ids } }, { select: ["studentId", "pct", "completedAt", "rapid", "total", "level"] })),
     pre.thetas ? Promise.resolve(pre.thetas) : levelThetas(repo, ids, now)]);

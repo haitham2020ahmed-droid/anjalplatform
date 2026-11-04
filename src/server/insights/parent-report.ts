@@ -15,6 +15,8 @@ import { mapSummaries, practiceStats, studentNames, workStats } from "./student-
 import { statusOf } from "./progress";
 import { sentPlans } from "../map/map-more";
 import { studentBadges } from "../student/badges";
+import { starBook, starLearning, starMastered, starNeedsReview } from "../skills/star-read";
+import type { StarView } from "../skills/status";
 
 const s = (v: unknown) => String(v ?? "");
 const key = (studentId: string) => `parentReport.${studentId}`;
@@ -71,18 +73,23 @@ export async function parentReport(repo: Repo, actor: Actor, studentId: string, 
     mapSummaries(repo, ids, "READING", new Map([[studentId, grade]])), mapSummaries(repo, ids, "LANGUAGE", new Map([[studentId, grade]])),
     studentBadges(repo, studentId, now), shareState(repo, schoolId, studentId), tiersOf(repo, ids),
   ]);
-  // the adaptive engine's mastery (isMastered / score 0–100): the same source the teacher views use,
-  // so a parent never sees "mastered" for a skill the teacher's screen shows as still developing
-  const mastery = await repo.findMany("StudentSkillMastery", { studentId }, { select: ["skillId", "attempts", "score", "isMastered"] });
-  const skills = mastery.length ? (await repo.findMany("Skill", { id: { in: mastery.map((m) => m.skillId) } }, { select: ["id", "name", "code"] })).filter((k) => !isHiddenSkill(k.code)) : [];
-  const nameOf = (id: unknown) => s(skills.find((k) => k.id === id)?.name);
-  const score = (m: Record<string, unknown>) => Number(m.score ?? 0);
+  // ⭐ the ONE skill status (skills/star-read.ts — the same stars as My Skills / Student Skills): one row per skill KEY
+  // (every grade's copy of a skill is one skill). The old engine flag / score never decides a status here.
+  const book = await starBook(repo, ids, schoolId);
+  const mine = [...(book.byKey.get(studentId) ?? new Map<string, StarView>())].filter(([k]) => book.ix.skillsOf.has(k));
   // the hidden “Unclassified (Curriculum Map)” skill is never shown to families (readiness I-18)
-  const shown = mastery.filter((m) => skills.some((k) => k.id === m.skillId));
-  const done = shown.filter((m) => Boolean(m.isMastered));
-  const tried = shown.filter((m) => Number(m.attempts) >= 5);
-  const strengths = [...tried].sort((a, b) => score(b) - score(a)).filter((m) => m.isMastered || score(m) >= 70).slice(0, 3).map((m) => nameOf(m.skillId));
-  const practiseNext = [...tried].filter((m) => !m.isMastered && score(m) < 70).sort((a, b) => score(a) - score(b)).slice(0, 3).map((m) => nameOf(m.skillId));
+  const repIds = [...new Set(mine.map(([k, v]) => v.skillId ?? book.ix.skillsOf.get(k)?.[0] ?? "").filter(Boolean))];
+  const hidden = repIds.length ? new Set((await repo.findMany("Skill", { id: { in: repIds } }, { select: ["id", "code"] })).filter((k) => isHiddenSkill(k.code)).map((k) => s(k.id))) : new Set<string>();
+  const shown = mine.filter(([k, v]) => !hidden.has(v.skillId ?? book.ix.skillsOf.get(k)?.[0] ?? ""));
+  const at = (v: StarView) => (v.masteredAt ? new Date(v.masteredAt).getTime() : 0);
+  // ⭐ skills, the most recent star first
+  const done = shown.filter(([, v]) => starMastered(v)).sort((a, b) => at(b[1]) - at(a[1]));
+  const strengths = done.slice(0, 3).map(([k]) => book.nameOf(k));
+  // practise next: 🔄 needs review first, then ◐ in progress (needs support first, then the lowest star score); never ⭐
+  const practiseNext = [
+    ...shown.filter(([, v]) => starNeedsReview(v)),
+    ...shown.filter(([, v]) => starLearning(v)).sort((a, b) => Number(b[1].needsSupport) - Number(a[1].needsSupport) || a[1].score - b[1].score),
+  ].slice(0, 3).map(([k]) => book.nameOf(k));
   const p = practice.get(studentId)!, w = work.get(studentId)!;
   const plain = (st: string) => ({ ON_TRACK: "on track", MET: "reached the goal", AT_RISK: "needs extra practice", MISSED: "did not reach the goal yet", NO_DATA: "not enough data yet" } as Record<string, string>)[st] ?? st;
   const map = ([["Reading", reading.get(studentId)], ["Language Usage", language.get(studentId)]] as const).filter(([, m]) => m && (m.fall || m.latest)).map(([subject, m]) => ({
@@ -98,7 +105,7 @@ export async function parentReport(repo: Repo, actor: Actor, studentId: string, 
   return {
     studentId, name: names.get(studentId)?.name ?? "Student", grade, className, date: now.toISOString().slice(0, 10), summary,
     practice: { answers: p.answers, accuracy: p.accuracy, minutesMonth: p.month.minutes, tasksDone: w.done, tasksLate: w.late },
-    completed: done.map((m) => nameOf(m.skillId)).filter(Boolean), strengths: strengths.filter(Boolean), practiseNext: practiseNext.filter(Boolean),
+    completed: done.map(([k]) => book.nameOf(k)).filter(Boolean), strengths: strengths.filter(Boolean), practiseNext: practiseNext.filter(Boolean),
     map, badges: badges.filter((b) => b.earned).map((b) => ({ icon: b.icon, name: b.name })), share,
     mapPlans: (await sentPlans(repo, studentId, now)).map((d) => ({ id: d.id, subject: d.subject === "LANGUAGE" ? "Language Usage" : "Reading", term: d.term, goal: d.profile.fall?.projection ?? null, items: d.items.map((i) => ({ name: i.name, icon: i.icon, skills: i.skills, progress: i.progress, done: i.done })) })),
     comments: (await repo.findMany("WorkComment", { studentId })).sort((a, b) => new Date(b.createdAt as string | Date).getTime() - new Date(a.createdAt as string | Date).getTime()).slice(0, 5).map((c) => ({ body: s(c.body), author: "", date: new Date(c.createdAt instanceof Date ? c.createdAt.toISOString() : s(c.createdAt)).toISOString().slice(0, 10), about: null })),

@@ -71,9 +71,9 @@
     "stem": "What are the TWO big ideas in this text?",
     "options": [
      "Fatima's cat and her painting",
-     "The sea and fish",
-     "Cats and dogs",
-     "Painting and cooking"
+     "The sea and the fish in it",
+     "Cats and dogs at the vet",
+     "Painting and cooking at home"
     ],
     "answer": 0,
     "hint": "Look at the first two sentences, then the last two. What is each part about?",
@@ -111,8 +111,8 @@
      "passage": "My school has a big library. It has many books. My school also has a big field. We play football there.",
      "stem": "What are the two big ideas?",
      "options": [
-      "Books and pens",
-      "Football and tennis",
+      "Books and pens in the school",
+      "Football and tennis at school",
       "The library and the field",
       "Teachers and friends"
      ],
@@ -123,9 +123,9 @@
      "passage": "Dates grow on palm trees. They are sweet. Palm leaves are used to make baskets. People also make mats from them.",
      "stem": "Which pair tells the two big ideas?",
      "options": [
-      "Sweet food and sour food",
-      "Mats, rugs and other things",
-      "Trees and the rain they need",
+      "Sweet food and sour food for dinner",
+      "Mats, rugs and other things for the home",
+      "Trees and the rain they need to grow",
       "Dates, and things made from palm leaves"
      ],
      "answer": 3,
@@ -184,8 +184,8 @@
     "options": [
      "Turtles eat jellyfish, and babies race to the water.",
      "Turtles live in the ocean, but females come to land to lay eggs.",
-     "Turtles swim fast, and beaches are sandy.",
-     "Seagrass grows in the sea, and nests are deep."
+     "Turtles swim fast in the sea, and beaches are warm and sandy.",
+     "Seagrass grows in the sea, and nests are dug deep in the sand."
     ],
     "answer": 1,
     "hint": "Find where the text changes with 'However'. What is the part before it about? What is the part after it about?",
@@ -213,9 +213,9 @@
      "stem": "What are the two main ideas?",
      "options": [
       "Rain is helpful, but too much rain can be harmful.",
-      "Farmers grow crops and wells are deep.",
-      "Floods wash away roads and homes.",
-      "Rivers are long and roads are wide."
+      "Farmers grow crops and wells are deep in dry lands.",
+      "Floods wash away roads and homes in the valley.",
+      "Rivers are long and roads are wide in the city."
      ],
      "answer": 0,
      "why": "The first part shows how rain helps. The second part shows how too much rain harms."
@@ -224,9 +224,9 @@
      "passage": "Old maps were drawn by hand. Mapmakers used travellers' stories and their own journeys. Today, maps are made with photos from satellites. They can show streets and buildings very exactly.",
      "stem": "Which choice states both main ideas?",
      "options": [
-      "Travellers tell stories, and mapmakers listen.",
-      "Satellites take photos of buildings and streets.",
-      "Mapmakers like to travel and to draw pictures.",
+      "Travellers tell stories about places, and mapmakers listen.",
+      "Satellites take photos of buildings and streets from high up.",
+      "Mapmakers like to travel and to draw pictures of animals.",
       "Maps were once drawn by hand; now satellites help make them."
      ],
      "answer": 3,
@@ -291,10 +291,10 @@
     "passage": "Mount Everest, on the border of Nepal and China, is the highest mountain on Earth. Its peak rises almost nine kilometres above sea level, where the air holds only about a third of the oxygen found at the coast. Strong winds and freezing temperatures make the final climb extremely dangerous. In recent years, however, the mountain has faced a different kind of danger. Hundreds of climbers each season leave behind tents, oxygen bottles and other waste. Teams of local guides and volunteers now carry tonnes of rubbish down the slopes each year to keep the mountain clean.",
     "stem": "Which statement best expresses the TWO central ideas of the passage?",
     "options": [
-     "Everest is very tall, and the wind is strong.",
+     "Everest is very tall, and the wind is strong near the top where the air is very thin.",
      "Climbing Everest is dangerous, and the mountain itself now suffers from climbers' waste.",
-     "Guides carry rubbish, and climbers use tents.",
-     "Everest is in Nepal and China, and oxygen is low."
+     "Guides carry rubbish, and climbers use tents at the camps along the route.",
+     "Everest is in Nepal and China, and oxygen is low near the very top."
     ],
     "answer": 1,
     "hint": "The word 'however' marks a change. What danger is described before it, and what danger after it?",
@@ -406,9 +406,9 @@
     "passage": "When the young engineer Sameer designed a water filter that cost less than a single meal, he hoped it would reach villages without clean water. The filter worked well in tests, removing most harmful bacteria with nothing more than sand, gravel and a special clay. Yet the first villages that received it soon stopped using it. Sameer returned and listened: the filter was too slow for large families, and no one had been shown how to clean it. He redesigned it with a wider basin and trained local women to teach their neighbours. Within two years, thousands of households relied on it. Sameer later said that the hardest part of his invention had not been the science, but understanding the people it was meant to serve.",
     "stem": "Which statement best captures the central ideas of the passage and how they relate?",
     "options": [
-     "A cheap water filter can remove bacteria using sand and clay.",
-     "Sameer's filter became popular because it was the cheapest one available.",
-     "Villages should be given more water filters.",
+     "A cheap water filter can remove bacteria from dirty water by using sand and clay.",
+     "Sameer's filter became popular because it was the cheapest one available in all of the shops in the region.",
+     "Villages should be given more water filters so that all families can drink clean water.",
      "A useful invention also needs an understanding of its users, and Sameer's success came from learning this."
     ],
     "answer": 3,

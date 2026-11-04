@@ -3,7 +3,8 @@ import { notFound } from "next/navigation";
 import { AppShell } from "@/components/app-shell";
 import { getActor, repo, requireActor } from "@/server/auth/next";
 import { removePrerequisiteAction, unlinkStandardAction } from "../../actions";
-import { PrerequisiteForm, SkillForm, StandardForm } from "./skill-forms";
+import { PrerequisiteForm, QuestionSuggestForm, SkillForm, StandardForm } from "./skill-forms";
+import { suggestQuestionsForSkill } from "@/server/skills/suggest-questions";
 
 /** Edit one skill: name/description, linked standards (official wording shown), prerequisites. */
 export default async function SkillEditorPage({ params }: { params: Promise<{ skillId: string }> }) {
@@ -50,6 +51,22 @@ export default async function SkillEditorPage({ params }: { params: Promise<{ sk
         </ul>
       )}
       <div className="mt-3"><PrerequisiteForm skillId={skillId} pool={pool.map((k) => ({ id: String(k.id), name: String(k.name) }))} /></div>
+
+      <h2 className="mt-10 text-xl font-bold text-brand-navy">Find matching questions</h2>
+      <QuestionSuggest skillId={skillId} />
     </AppShell>
+  );
+}
+
+async function QuestionSuggest({ skillId }: { skillId: string }) {
+  const actor = await requireActor({ permission: "curriculum:edit" });
+  const { group, candidates } = await suggestQuestionsForSkill(repo, actor, skillId);
+  if (!group) return <p className="mt-2 text-slate-600">This skill has no MAP goal area linked yet (Admin → MAP Classification), so there is nothing to match against. Link it first, then come back here.</p>;
+  if (!candidates.length) return <p className="mt-2 text-slate-600">No published questions of other skills share this skill's MAP area right now.</p>;
+  return (
+    <>
+      <p className="mt-2 text-sm text-slate-600">Published questions of OTHER skills (any grade) whose own MAP area matches this skill&apos;s — tick the ones that fit and move them here. Questions are never moved automatically.</p>
+      <QuestionSuggestForm skillId={skillId} candidates={candidates} />
+    </>
   );
 }

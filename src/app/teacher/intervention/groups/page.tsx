@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { StarGlyph } from "@/components/skills/skill-star";
 import { AppShell } from "@/components/app-shell";
 import { PageHeader } from "@/components/page-header";
 import { getActor, repo, requireActor } from "@/server/auth/next";
@@ -6,6 +7,7 @@ import { readableClasses } from "@/server/teacher/coordinators";
 import { classInterventions } from "@/server/insights/interventions";
 import { startInterventionAction } from "./actions";
 import { Combo } from "@/components/ui/combo";
+import { masterSkills } from "@/server/skills/master";
 
 export const metadata = { title: "Intervention groups" };
 
@@ -25,13 +27,14 @@ export default async function InterventionGroupsPage({ searchParams }: { searchP
   const st = members.length ? await repo.findMany("Student", { id: { in: members.map((m) => m.studentId) } }, { select: ["id", "userId"] }) : [];
   const users = st.length ? await repo.findMany("User", { id: { in: st.map((x) => x.userId) } }, { select: ["id", "displayName"] }) : [];
   const students = st.map((x) => ({ id: String(x.id), name: String(users.find((u) => u.id === x.userId)?.displayName ?? "Student") })).sort((a, b) => a.name.localeCompare(b.name));
-  const cur = klass ? (await repo.findMany("Curriculum", { gradeId: klass.gradeId, isActive: true }))[0] : null;
-  const skills = cur ? (await repo.findMany("Skill", { curriculumId: cur.id, deletedAt: null }, { select: ["id", "name", "sequence"] })).sort((a, b) => Number(a.sequence) - Number(b.sequence)) : [];
+  // 🎯 the whole skill bank (every grade, Grammar, Vocabulary, Reading…), not just this class's own curriculum:
+  // an intervention often targets a skill below (or above) the student's grade level.
+  const skills = klass ? await masterSkills(repo, String(klass.schoolId ?? actor.schoolId)) : [];
   const chip = (on: boolean) => `rounded-full px-4 py-1.5 text-sm font-semibold ${on ? "bg-brand-navy text-white" : "bg-white ring-1 ring-slate-200 hover:ring-brand-teal"}`;
   return (
     <AppShell name={String(me.displayName)}>
       <PageHeader back={{ href: "/teacher/learning-loop", label: "Learning Loop" }} icon="🎯" title="Intervention groups"
-        subtitle="Choose a small group and one skill. The platform saves each student's mastery now, shows the change while the group runs, and tells you the result at the end — so you know what works." />
+        subtitle="Choose a small group and one skill. The platform saves each student's skill score now, shows the score change and each student's star while the group runs, and tells you the result at the end — so you know what works." />
       {sp.msg && <p role="status" className="mb-4 rounded-xl bg-teal-50 p-3 text-sm text-teal-900 ring-1 ring-teal-200">{sp.msg}</p>}
       <nav aria-label="Classes" className="flex flex-wrap gap-2">{classes.map((c) => <Link key={String(c.id)} href={`/teacher/intervention/groups?class=${c.id}`} className={chip(c.id === klass?.id)}>{String(c.name)}</Link>)}</nav>
       {klass && (
@@ -39,7 +42,7 @@ export default async function InterventionGroupsPage({ searchParams }: { searchP
           <h2 className="text-lg font-bold text-brand-navy">Start a group · {String(klass.name)}</h2>
           <input type="hidden" name="classId" value={String(klass.id)} />
           <div className="grid gap-3 sm:grid-cols-3">
-            <label className="text-sm">Skill<Combo name="skillId" required label="Skill" options={skills.map((k) => ({ value: String(k.id), label: String(k.name) }))} className="mt-1" /></label>
+            <label className="text-sm">Skill<Combo name="skillId" required label="Skill" options={skills.map((k) => ({ value: k.id, label: k.name, group: `Grade ${k.grade}`, hint: k.kind !== "OTHER" ? k.kind : undefined }))} className="mt-1" /></label>
             <label className="text-sm">Days<input type="number" name="days" min={3} max={42} defaultValue={14} className="mt-1 block w-full rounded-lg border-slate-300" /></label>
             <label className="text-sm">Name (optional)<input name="title" maxLength={120} className="mt-1 block w-full rounded-lg border-slate-300" placeholder="Theme small group" /></label>
           </div>
@@ -56,8 +59,8 @@ export default async function InterventionGroupsPage({ searchParams }: { searchP
               <h3 className="text-lg font-bold text-brand-navy">{v.title} <span className="text-sm font-normal text-slate-500">· {v.skillName}</span></h3>
               <span className="text-sm text-slate-600">{v.startedAt} → {v.endsAt} · {v.status === "DONE" ? "✅ finished" : `${v.daysLeft} day(s) left`}</span>
             </div>
-            <p className="mt-1 text-sm"><b className={v.avgChange > 0 ? "text-emerald-700" : v.avgChange < 0 ? "text-red-700" : "text-slate-700"}>{v.avgChange > 0 ? "+" : ""}{v.avgChange} average mastery</b> · {v.improved} of {v.total} improved by 5+</p>
-            <ul className="mt-2 grid gap-1 text-sm sm:grid-cols-2">{v.students.map((x) => <li key={x.id} className="flex justify-between rounded-lg bg-white px-3 py-1 ring-1 ring-slate-100"><bdi>{x.name}</bdi><span className="tabular-nums text-slate-600">{x.before} → {x.now} <b className={x.change > 0 ? "text-emerald-700" : x.change < 0 ? "text-red-700" : ""}>({x.change > 0 ? "+" : ""}{x.change})</b></span></li>)}</ul>
+            <p className="mt-1 text-sm"><b className={v.avgChange > 0 ? "text-emerald-700" : v.avgChange < 0 ? "text-red-700" : "text-slate-700"}>{v.avgChange > 0 ? "+" : ""}{v.avgChange} average score</b> · {v.improved} of {v.total} improved (earned the ⭐ or +5 score)</p>
+            <ul className="mt-2 grid gap-1 text-sm sm:grid-cols-2">{v.students.map((x) => <li key={x.id} className="flex justify-between rounded-lg bg-white px-3 py-1 ring-1 ring-slate-100"><span className="inline-flex items-center gap-1.5"><StarGlyph status={x.star} size={14} /><bdi>{x.name}</bdi>{x.earned ? <span className="text-xs font-semibold text-amber-700">new ⭐</span> : null}</span><span className="tabular-nums text-slate-600">score {x.before} → {x.now} <b className={x.change > 0 ? "text-emerald-700" : x.change < 0 ? "text-red-700" : ""}>({x.change > 0 ? "+" : ""}{x.change})</b></span></li>)}</ul>
           </article>
         ))}
         {!list.length && <p className="text-slate-600">No intervention groups in this class yet.</p>}
