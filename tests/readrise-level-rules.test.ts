@@ -1,7 +1,7 @@
 /**
  * 📉📈 ReadRise level rules (owner r69 item 2): faster DOWN, careful UP — pure and end to end.
  *   one first-try score ≤ 25% → −100 at once · two first-try scores in a row < 50% → −100 ·
- *   latest ≥ 75% and 3 of the last 4 ≥ 75% → +50 · never below 200 / above 1500 · plain-word reasons for the teacher.
+ *   latest ≥ 75% and 3 of the last 4 ≥ 75% → +50 · never below 200 / above 1700 (100 above the top version, 1600) · plain-word reasons for the teacher.
  */
 import { before, describe, test } from "node:test";
 import assert from "node:assert/strict";
@@ -39,7 +39,7 @@ async function read(repo: SqliteRepo, s: Actor, articleId: string, right: number
 
 describe("📉📈 ReadRise level rules", () => {
   test("pure: ≤ 25% once → −100; two in a row under 50% → −100; 3 of 4 at 75%+ → +50", () => {
-    assert.deepEqual([ENGINE.floor, ENGINE.downStep, ENGINE.step, ENGINE.min, ENGINE.max], [25, 100, 50, 200, 1500]);
+    assert.deepEqual([ENGINE.floor, ENGINE.downStep, ENGINE.step, ENGINE.min, ENGINE.max], [25, 100, 50, 200, 1700]);
     // down at once
     for (const sc of [[0], [25], [90, 90, 10], [80, 80, 80, 25]]) assert.equal(levelDecision(sc).delta, -100, sc.join(","));
     assert.equal(levelDecision([26]).delta, 0, "26% alone is not enough");
@@ -57,7 +57,7 @@ describe("📉📈 ReadRise level rules", () => {
     assert.match(levelDecision([45, 30]).reason!, /the last two first-try scores were both under 50% \(45% and 30%\)/);
     assert.match(levelDecision([80, 90, 100]).reason!, /3 of the last 3 first-try scores were 75% or higher \(latest 100%\)/);
     // limits
-    assert.deepEqual([clampEngine(150), clampEngine(1600), clampEngine(844)], [200, 1500, 840]);
+    assert.deepEqual([clampEngine(150), clampEngine(1800), clampEngine(844)], [200, 1700, 840]);
     // an Unreliable run never takes part
     assert.equal(countsForLevel({ firstTry: true, score: 10, unreliable: true }), false);
     assert.equal(countsForLevel({ firstTry: true, score: 10 }), true);

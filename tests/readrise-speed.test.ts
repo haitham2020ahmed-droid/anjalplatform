@@ -121,13 +121,15 @@ describe("⚡ ReadRise library load after an update", () => {
     assert.ok(a.ok && a.created);
     const admin = await resolveActor(repo, (await repo.findUnique("User", { username: "demo.admin" }))!);
     const fresh = await articleDetail(repo, admin, a.articleId!);
-    assert.equal(fresh.versions.length, 12);
+    assert.equal(fresh.versions.length, 14);
     for (const b of ["LOW", "MID", "HIGH"] as const) { assert.equal(fresh.bands[b].questions.length, 8); assert.ok(fresh.bands[b].keyWords.length > 0); assert.ok(fresh.bands[b].prompt); }
     const again = await importArticleJson(repo, null, json, { schoolId: null, publish: true });
     assert.ok(again.ok && !again.created);
     const strip = (d: typeof fresh) => ({ ...d, versions: d.versions.map((v) => ({ ...v, id: "" })), bands: Object.fromEntries(Object.entries(d.bands).map(([k, b]) => [k, { ...b, questions: b.questions.map((q) => ({ ...q, id: "" })) }])) });
     assert.deepEqual(strip(await articleDetail(repo, admin, a.articleId!)), strip(fresh));
-    assert.equal(await repo.count("RRQuestion", { articleId: a.articleId! }), 24);
+    // 24 band questions + the article file's stretch sets (round 5: 12 more)
+    assert.equal(await repo.count("RRQuestion", { articleId: a.articleId! }), 24 + 12);
+    assert.equal((await repo.findMany("RRQuestion", { articleId: a.articleId! })).filter((q) => !String(q.band).startsWith("S-")).length, 24);
   });
 });
 

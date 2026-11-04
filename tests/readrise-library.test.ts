@@ -42,7 +42,7 @@ describe("validation", () => {
   test("the sample library files are valid", () => {
     const v = validateArticle(sample());
     assert.deepEqual(v.errors, []);
-    assert.equal(v.checks.length, 12);
+    assert.equal(v.checks.length, 14);
     assert.ok(v.checks.every((c) => c.wordCount > 50 && c.estLevel > 0));
   });
 
@@ -51,7 +51,7 @@ describe("validation", () => {
     a.versions = a.versions.slice(0, 11);
     const v1 = validateArticle(a);
     assert.equal(v1.article, null);
-    assert.ok(v1.errors.some((e) => /needs exactly 12/.test(e.message)), JSON.stringify(v1.errors));
+    assert.ok(v1.errors.some((e) => /needs exactly 14/.test(e.message)), JSON.stringify(v1.errors));
 
     const b = sample();
     b.bands.MID.questions[2].answer = "E";
@@ -100,7 +100,9 @@ describe("import and platform seed", () => {
     assert.equal(r1.created, r1.files);
     const count = async () => [await repo.count("RRArticle", {}), await repo.count("RRVersion", {}), await repo.count("RRQuestion", {}), await repo.count("RRPrompt", {})];
     const before1 = await count();
-    assert.deepEqual(before1, [r1.files, 12 * r1.files, 24 * r1.files, 3 * r1.files]);
+    // 14 versions per article (300 … 1600); 24 band questions per article + the round-5 stretch sets (12 each)
+    assert.deepEqual([before1[0], before1[1], before1[3]], [r1.files, 14 * r1.files, 3 * r1.files]);
+    assert.equal(before1[2], 24 * r1.files + 12 * r1.files, "24 band questions + 12 stretch questions per article");
     const a = (await repo.findMany("RRArticle", { code: "RR-001" }))[0];
     assert.equal(a.schoolId, null);
     assert.equal(a.status, "PUBLISHED");
@@ -139,11 +141,11 @@ describe("import and platform seed", () => {
 });
 
 describe("Excel template", () => {
-  test("template has the six sheets, instructions with 12 levels, bands and example rows", () => {
+  test("template has the six sheets, instructions with 14 levels, bands and example rows", () => {
     const buf = Buffer.from(templateWorkbook());
     assert.deepEqual(xlsxSheetNames(buf), ["Instructions", "Article", "Versions", "KeyWords", "Questions", "Prompts"]);
     const ins = readXlsx(buf, { sheet: "Instructions" }).map((r) => r.join(" ")).join("\n");
-    for (const l of [300, 700, 1100, 1400]) assert.match(ins, new RegExp(`^${l}\\b`, "m"));
+    for (const l of [300, 700, 1100, 1400, 1600]) assert.match(ins, new RegExp(`^${l}\\b`, "m"));
     assert.match(ins, /LOW = versions 300–600/);
     assert.match(ins, /\[Example\]/);
     // the empty template: no header problems, only "fill it in"
@@ -169,11 +171,11 @@ describe("Excel template", () => {
     const pv = previewArticleFile("article.xlsx", buf);
     assert.deepEqual(pv.errors, []);
     assert.equal(pv.article!.code, "4A-SUN-01");
-    assert.equal(pv.article!.versions.length, 12);
+    assert.equal(pv.article!.versions.length, 14);
     assert.equal(pv.article!.versions[5].text, a.versions[5].text.replace(/\r\n?/g, "\n").trim());
     assert.deepEqual(pv.article!.bands.MID.questions.map((q) => q.answer), a.bands.MID.questions.map((q) => q.answer));
     assert.deepEqual(pv.article!.bands.HIGH.checklist, a.bands.HIGH.checklist);
-    assert.equal(pv.checks.length, 12);
+    assert.equal(pv.checks.length, 14);
 
     // a bad cell is reported with its sheet and row
     const bad = Buffer.from(workbookXlsx([
@@ -232,7 +234,7 @@ describe("library scoping, hidden list and publishing", () => {
     assert.deepEqual((await listLibrary(repo, admin, { q: "4a-sun-02" })).items.map((i) => i.code), ["4A-SUN-02"]);
   });
 
-  test("an admin hides a platform article for the school only; detail shows 12 versions", async () => {
+  test("an admin hides a platform article for the school only; detail shows 14 versions", async () => {
     await assert.rejects(setArticleHidden(repo, t4a, platformId, true, NOW), ForbiddenError);
     await setArticleHidden(repo, admin, platformId, true, NOW);
     assert.ok(!(await listLibrary(repo, t4a)).items.some((i) => i.id === platformId));
@@ -243,7 +245,7 @@ describe("library scoping, hidden list and publishing", () => {
     await setArticleHidden(repo, admin, platformId, false, NOW);
     assert.ok((await listLibrary(repo, t4a)).items.some((i) => i.id === platformId));
     const d = await articleDetail(repo, admin, platformId);
-    assert.equal(d.versions.length, 12);
+    assert.equal(d.versions.length, 14);
     assert.equal(d.bands.MID.questions.length, 8);
     assert.equal(d.bands.LOW.keyWords.length, 5);
     assert.equal(d.canHide, true);
@@ -278,7 +280,7 @@ describe("teacher actions", () => {
   test("teacher override is recorded (source TEACHER + a level change with the reason)", async () => {
     await assert.rejects(setStudentLevel(repo, t4a, s1, 800, "", NOW), /reason/);
     await assert.rejects(setStudentLevel(repo, t4a, s4, 800, "MAP test", NOW), ForbiddenError);
-    await assert.rejects(setStudentLevel(repo, t4a, s1, 5000, "MAP test", NOW), /from 200 to 1500/);
+    await assert.rejects(setStudentLevel(repo, t4a, s1, 5000, "MAP test", NOW), /from 200 to 1700/);
     const r = await setStudentLevel(repo, t4a, s1, 820, "MAP Lexile 820 in winter", NOW);
     assert.equal(r.to, 820);
     const st = (await repo.findUnique("RRStudent", { studentId: s1 }))!;

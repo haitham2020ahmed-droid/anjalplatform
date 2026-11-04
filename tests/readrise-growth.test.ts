@@ -24,7 +24,7 @@ const T0 = new Date("2026-09-06T08:00:00Z");
 const at = (days: number) => new Date(T0.getTime() + days * DAY);
 const SKILLS = ["central-idea", "central-idea", "inference", "inference", "vocabulary", "vocabulary", "detail", "detail"];
 
-/** 12 versions (estLevel = level + offset), 8 questions per band (answer "A"; skills: 2 each of central idea, inference, vocabulary, detail). */
+/** 14 versions (estLevel = level + offset), 8 questions per band (answer "A"; skills: 2 each of central idea, inference, vocabulary, detail). */
 async function makeArticle(repo: SqliteRepo, code: string, offset = 0): Promise<string> {
   const a = await repo.create("RRArticle", { schoolId: null, code, title: `Article ${code}`, topic: "Science", summary: "About things.", pollStatement: "Things matter.", status: "PUBLISHED" });
   const id = String(a.id);
@@ -60,7 +60,7 @@ describe("🚀 ReadRise growth evidence (pure)", () => {
     assert.deepEqual([fitOf(900, 880), fitOf(1000, 880), fitOf(780, 880), fitOf(955, 880), fitOf(805, 880)], ["EXACT", "STRETCH", "EASY", "EXACT", "EXACT"]);
     // when every text measures at its target, the choice is exactly the old rule
     const exact = RR_LEVELS.map((l) => ({ level: l, estLevel: l }));
-    for (let lvl = 100; lvl <= 1500; lvl += 10) assert.equal(chooseVersion(lvl, exact), versionFor(lvl, [...RR_LEVELS]), `level ${lvl}`);
+    for (let lvl = 100; lvl <= 1700; lvl += 10) assert.equal(chooseVersion(lvl, exact), versionFor(lvl, [...RR_LEVELS]), `level ${lvl}`);
     // round 5 (owner): another version only within ±50 of the nominal pick — with 100-point versions the card is
     // always the student's own version, however the texts measure
     const hard = RR_LEVELS.map((l) => ({ level: l, estLevel: l + 120 }));
@@ -71,7 +71,8 @@ describe("🚀 ReadRise growth evidence (pure)", () => {
     // never another version than the nominal pick (±50), even with a wild estimate
     assert.equal(chooseVersion(850, RR_LEVELS.map((l) => ({ level: l, estLevel: l === 400 ? 850 : l + 400 }))), 900);
     assert.equal(stretchAbove(800, [...RR_LEVELS]), 900);
-    assert.equal(stretchAbove(1400, [...RR_LEVELS]), null);
+    assert.equal(stretchAbove(1400, [...RR_LEVELS]), 1500);
+    assert.equal(stretchAbove(1600, [...RR_LEVELS]), null, "no stretch above the top level (1600)");
   });
 
   test("growth confidence counts the readings that support the current level", () => {
@@ -270,7 +271,7 @@ describe("🚀 ReadRise growth reports (demo school)", () => {
   test("measured levels are cached for versions that have none", async () => {
     const id = await makeArticle(repo, "G-OLD");
     await repo.updateMany("RRVersion", { articleId: id }, { estLevel: 0 });
-    assert.equal(await cacheMeasuredLevels(repo), 12);
+    assert.equal(await cacheMeasuredLevels(repo), RR_LEVELS.length, "one per version (14)");
     const vs = await repo.findMany("RRVersion", { articleId: id });
     assert.ok(vs.every((v) => Number(v.estLevel) > 0));
     assert.equal(await cacheMeasuredLevels(repo), 0);

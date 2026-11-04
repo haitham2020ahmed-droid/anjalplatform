@@ -75,9 +75,9 @@ describe("🚀 ReadRise: placement, the 5-step routine, the level engine and goa
     assert.equal(versionFor(850, [...RR_LEVELS]), 900);
     assert.equal(versionFor(840, [...RR_LEVELS]), 800);
     assert.equal(versionFor(100, [...RR_LEVELS]), 300);
-    assert.equal(versionFor(1500, [...RR_LEVELS]), 1400);
+    assert.equal(versionFor(1700, [...RR_LEVELS]), 1600, "above the top: the top version (1600 since Oct 2026)");
     assert.deepEqual([bandOf(300), bandOf(600), bandOf(700), bandOf(1000), bandOf(1100), bandOf(1400)], ["LOW", "LOW", "MID", "MID", "HIGH", "HIGH"]);
-    assert.deepEqual([nearestLevel(120), nearestLevel(740), nearestLevel(760), nearestLevel(1650)], [300, 700, 800, 1400]);
+    assert.deepEqual([nearestLevel(120), nearestLevel(740), nearestLevel(760), nearestLevel(1650)], [300, 700, 800, 1600]);
   });
 
   test("placement path: +200/+100/−100/−200, ±100 after the first reversal, no repeats, stop rules", () => {
@@ -103,7 +103,7 @@ describe("🚀 ReadRise: placement, the 5-step routine, the level engine and goa
     // never more than 8
     const c = run(300, [3, 3, 3, 3, 3, 3, 3, 3, 3, 3]);
     assert.equal(c.steps.length, 8);
-    assert.ok(c.steps.every((x) => x.level <= 1400));
+    assert.ok(c.steps.every((x) => x.level <= 1600), "never above the top level (1600)");
     assert.equal(new Set(c.steps.map((x) => x.passageId)).size, 8, "at the top it uses other passages, never a repeat");
   });
 
